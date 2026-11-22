@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "For any spanning tree, deletion of e admits exactly c_T(e) crossing replacement edges and exactly one of them returns T. Detailed balance follows from sharing the same cut forest in a one-edge exchange. On K_{2,b}, degree sums force one degree-two B vertex, b-1 leaves and two bridge edges; the crossing counts are exactly 2 and b, giving the state-independent marked four-cell law. Conditional constancy inductively proves iid marks for every initial tree. On K_{a,b} with both parts at least three, direct computation on a double star and zigzag gives a strictly positive Q gap, and stationary two-step holding covariance equals Var_pi Q>0. The algebraic increment has sign b-4. The packaged independent rational checker passes 2345 assertions over finite examples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "J. Pitman (1999), Section 3, unrooted forest transition law (formula 9), describes random edge deletion without resampling across the same cut: https://www.stat.berkeley.edu/~pitman/457.pdf",
+        "J. Bertoin and G. Miermont (2012), introduction and cut-tree setup, discuss random edge destruction: https://arxiv.org/abs/1201.4081",
+        "Full HTML Dias et al. (2018) analyzes a distinct edge-insertion-first chain: https://www.mdpi.com/1999-4893/11/4/53"
+      ],
+      "reasoning": "The broad fragmentation or basis-exchange formalisms may support combinatorial counting, but the searched and inspected results do not imply state-independent uniform-cross-cut holding events for precisely the width-two family or the strict serial-covariance converse. The proof requires a separate all-biclique shape comparison.",
+      "searches": [
+        "published-finding corpus: stationary spanning tree Markov chains uniform edge resampling acceptance probability size imbalance",
+        "published-finding corpus: self-loop serial covariance variance of holding probabilities stationary spanning tree exchange chain",
+        "Web: edge swap chain spanning trees complete bipartite Markov chain 2000 probability"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1201.4081",
+      "https://www.stat.berkeley.edu/~pitman/457.pdf",
+      "https://www.mdpi.com/1999-4893/11/4/53",
+      "https://doi.org/10.1137/0403039",
+      "https://doi.org/10.1002/jgt.22812",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-exact-overlap-law-for-two-uniform-spanning-trees-of-k-2-b--558a912ed933",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-variance-and-a-nine-to-ten-vertex-extremal-transition-for--1c4136a0fe4a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bertoin–Miermont 2012 theorem concerns convergence of fragmentation cut-trees and neither inserts a replacement edge nor specifies holding events.",
+        "Dias et al. 2018 analyzes insert-first/cycle-deletion, whose trivial hold indicator is state-independent even on graphs beyond width two, demonstrating non-reduction.",
+        "The all-size witness gap is (1/(a+b-1))(1/a+1/b-1/(a+d)-1/(b+d)) for d=(a-2)(b-2)>0, derived here."
+      ],
+      "reasoning": "Prior static spanning-tree and cut-forest laws alone cannot conclude the serial property without specifying an update kernel. The closest dynamic paper has another kernel, so its state-independent stay probability does not dominate this all-biclique classification. A broad unpublished theorem for the exact kernel remains a residual originality risk.",
+      "searches": [
+        "published-finding corpus: lazy edge swap spanning tree K2,m stationary rejection probability versus size",
+        "Web: random spanning tree swap Markov chain remove edge first then random cut edge replace lazy loop",
+        "Web: basis exchange walk Markov chain spanning trees choose edge remove choose replacement uniformly cut edge 2013"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full HTML Dias et al. 2018, Algorithm 1, chooses new host edge before cycle deletion: https://www.mdpi.com/1999-4893/11/4/53",
+        "The present deletion-first transition has conditional return rate (1/(a+b-1)) sum over tree edges 1/(number of host edges across its cut)."
+      ],
+      "reasoning": "Holding, rejection, lazy-step, and stay-put are synonyms here. The insert-first holding event is instead the insertion of an already present host edge and is automatically state-independent on every graph; hence no equivalence to our kernel, which has a sharp biclique width threshold.",
+      "searches": [
+        "published-finding corpus: K_{a,b} random spanning tree edge-deletion then uniform-crossing-edge regrafting stationary self-loop holding probability dichotomy",
+        "published-finding corpus: K_{2,b} iid rejection indicators cut-first tree exchange Markov chain b 4 5 minimal holding",
+        "Web: spanning tree edge replacement remove uniformly random edge reconnect uniform feasible edge reversible chain"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus record 2026/10/26/SCOPE-exact-overlap-law-for-two-uniform-spanning-trees-of-k-2-b--558a912ed933 concerns two independent trees.",
+        "published-finding corpus record 2026/11/8/SCOPE-exact-variance-and-a-nine-to-ten-vertex-extremal-transition-for--1c4136a0fe4a concerns independent-tree overlap variance.",
+        "Dong and Ge (2022) enumerate containing trees for given bipartite spanning forests, rather than the holding-event process: https://doi.org/10.1002/jgt.22812"
+      ],
+      "reasoning": "The mathematical output is an infinite-horizon marked process and an if-and-only-if graph-family boundary, not an already known enumeration table. The exact probabilities follow from per-state cut structure and a temporal conditional-independence argument; static overlap counts concern independent states.",
+      "searches": [
+        "published-finding corpus: uniform spanning tree complete bipartite K2n edge rewire self-loop probability nonmonotone a 2",
+        "published-finding corpus: K_{a,b} random spanning tree edge-deletion then uniform-crossing-edge regrafting stationary self-loop holding probability dichotomy",
+        "Web: number of two component spanning forests complete bipartite graph K_mn expression"
+      ]
+    },
+    "rationale": "The new statement classifies independence of the entire sequence of unchanged-update indicators on all complete bicliques. The key additional comparisons are two explicit nonisomorphic current trees at width at least three and the uniform four-cell marked step law at width two. The exact insert-first Markov kernel of Dias et al. is different; static and independently sampled spanning-tree results do not imply this conditional sequential classification. Actual published-finding corpus and published-literature searches found no dominating statement. Priority risk remains from unexamined broader kernel classifications.",
+    "residual_risks": [
+      "Potential older/general Markov-basis-exchange holding-rate classification not surfaced by named searches",
+      "Aldous article and Dong–Ge paper not inspected in full, so their full text was not asserted NOT_COVERING",
+      "Archived tree cutting is a motivating source rather than a theorem for this exact kernel",
+      "No independent historical priority check or independent mathematical audit"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Random deletion and cut-tree convergence, not cutting followed by uniform replacement or holding-indicator rigidity",
+        "evidence": [
+          "First arXiv posting 2012-01-19",
+          "Introduction explicitly describes destructive cuts and marked-edge stopping, not a spanning-tree Markov reconnection"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1201.4081",
+        "material_read": "Full open HTML text, introduction Sections 1.1–1.4 and definitions of the cut-tree and edge-removal process",
+        "method": "Scientific text inspection of archived preprint",
+        "title": "The cut-tree of large Galton-Watson trees and the Brownian CRT",
+        "trigger": "Archived random edge destruction of Cayley and conditioned Galton–Watson trees"
+      },
+      {
+        "assessment": "Gives exact unrooted deletion forest law; does not define the delete-first reconnect chain or the biclique independence classification",
+        "evidence": [
+          "Theorem 5 formula (9) weights a forest by the product of its component sizes, not a conditional stay indicator"
+        ],
+        "identifier_or_url": "https://www.stat.berkeley.edu/~pitman/457.pdf",
+        "material_read": "PDF published pages 165–170 including the unrooted forest enumeration and Theorem 5, with page-image inspection of pages 169 and 170",
+        "method": "Text and PDF-page visual inspection",
+        "title": "Coalescent Random Forests",
+        "trigger": "Original uniform-Cayley-tree edge-deletion forest law potentially dominating static part"
+      },
+      {
+        "assessment": "Opposite edge-swap order (insert-first and cycle delete), so holding mechanism and transition law are different",
+        "evidence": [
+          "Algorithm 1 selects a host edge before cutting a cycle edge",
+          "Section 4.1 says holds result from selecting an already occupied host edge"
+        ],
+        "identifier_or_url": "https://www.mdpi.com/1999-4893/11/4/53",
+        "material_read": "Full accessible HTML: algorithm, Sections 3 and 4.1 on update and reversibility, self-loop explanation",
+        "method": "Full-text HTML section inspection",
+        "title": "Linking and Cutting Spanning Trees",
+        "trigger": "Most directly related spanning-tree swap Markov chain"
+      },
+      {
+        "assessment": "Construction and random-walk stationary sampling, not the specific cut-first biclique event-law classification",
+        "evidence": [
+          "Published 1990; publisher MSC includes 60C05 and 60J10"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0403039",
+        "material_read": "Abstract, bibliographic detail, and available online introduction and Markov-chain excerpt, not complete article",
+        "method": "Publisher and scholarly HTML excerpt inspection",
+        "title": "The Random Walk Construction of Uniform Spanning Trees and Uniform Labelled Trees",
+        "trigger": "Classical uniform spanning-tree sampling, possible stronger dynamic sampling law"
+      },
+      {
+        "assessment": "Static enumeration, not specified Markov dynamics; inaccessible remaining body presents residual coverage risk",
+        "evidence": [
+          "Abstract counts spanning trees containing fixed forests on K_{a,b}"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/jgt.22812",
+        "material_read": "Publisher abstract, theorem statement and bibliography only; complete body not accessible from link",
+        "method": "Published abstract and theorem inspection",
+        "title": "Counting spanning trees in a complete bipartite graph which contain a given spanning forest",
+        "trigger": "Potential broader exact forest enumeration in the same host graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fe05b3b1-5b92-42d5-b9b2-4b64849c9aae",
+  "value": {
+    "rationale": "The main result is a natural complete structural classification of update-clock independence over all bicliques, not a special-case probability. It distinguishes an exactly binomial, geometrically thinned change clock at bipartition width two from positive serial holding correlation at width three and beyond. The sharp integer minimizers give actionable finite-size calibration for attempted versus effective tree exchanges, and the four-cell marked law provides exact trajectories for every starting tree. This is motivated by the statistical behavior of a well-defined spanning-tree MCMC kernel; no general mixing result is asserted.",
+    "status": "PASS"
+  }
+}
