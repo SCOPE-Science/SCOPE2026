@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The midpoint radial density is normalized and its exact Cartesian density is explicit. The small-ball normalization follows from the published four-step uniform-walk density (Borwein et al., Example 4). The marked joint density is computed by an exact Jacobian; its two positive pointwise limits integrate to the normalization, so Scheffé's lemma yields the claimed total variation. The checker confirms the singular-band coefficients, local transformed density, and finite-epsilon probability. Simulations alone would not prove the theorem.
+## correctness
 
-**Originality: PASS, provisional priority.** The known four-step walk result fully implies the scalar collision law and its next coefficient; these are credited, not claimed. The conditional mechanism/scale/direction/offset theorem requires additional marked information not present in the inspected primary treatment. published-finding corpus records on polygon-midpoint laws and nested-circle chord crossings are nearby but involve different underlying geometries/events. Their full texts could not be accessed, leaving historical priority risk.
+PASS
 
-**Value: PASS.** The sharp split between almost-diametral and almost-vanishing chords and the log-uniform continuum of contributing scales explain the origin of a nontrivial collision singularity. The marked information is geometrically meaningful beyond the already-known radial probability law.
+For four independent endpoint-uniform circular points, the first chord midpoint has normalized planar density f(x)=[π²|x|sqrt(1-|x|²)]^-1. Exchangeability converts M1-M2 to half a four-step random walk; Borwein–Straub–Wan–Zudilin Example 4 has p4(s)~(3/(2π²))s log(1/s), giving Pr(E_eps)~(3/π²)eps²log(1/eps). A direct (radius,angle,scaled-displacement) Jacobian gives joint mark densities divided by eps² L tending to π^-4 at center and (2π⁴)^-1 at rim, with other t outside (0,1) vanishing almost everywhere. The resulting normalized limit integrates to 2/3+1/3=1, hence Scheffé proves joint total variation, not just weak convergence. Independent analytic squared-density log bands at eps=1e-12 have coefficients ≈0.03870186 and 0.01935791, confirming the 2:1 factor. The prior four-step marginal is explicitly excluded from novelty.
 
-**Limits.** Only independent endpoint-uniform unit-circle chords; no analogous result for general curves or three-or-more chord collisions. Background four-step density is prior work. Independent validation not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The unmarked four-step random-walk small-ball probability is established prior art. The new conditional joint mark law distinguishes center versus boundary singular mechanisms and proves independent logarithmic depth, polar angle and scaled difference in total variation. The inspected same-object midpoint expectation and polygon midpoint laws, as well as circle-chord crossing results, involve different statistics; none gives the joint conditional distribution as a corollary on the compared materials.
+
+## value
+
+PASS
+
+Two competing natural singularities of the midpoint distribution yield a non-obvious 2:1 collision split; the exact conditional shape and independent log-uniform radial depth answer a geometric rarity question not determined by the known marginal. The joint total-variation statement supplies precise conditional sampling geometry useful beyond the scalar logarithmic small-ball coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
