@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-20.md",
+      "INDEPENDENT_AUDIT_2026-11-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-Use `python3 check_transfer.py` and `python3 check_direct.py`, which require only Python 3 standard library. `check_transfer.py` exhaustively constructs the 729-vertex six-word overlap graph from all 2187 seven-letter words. Tarjan SCC analysis gives the unique cyclic component with 65 vertices and 118 edges; Newton identities on the first 65 integer traces prove the stated degree-four nonzero spectral factor. This certificate covers every ring length and is not a finite-size extrapolation.
+## correctness
 
-`check_direct.py` independently applies the update to all labelled states of lengths 3 through 10 and checks the two directional locks, their intersection and exact temporal periodicity. Both programs were executed in the package directory and their captured output records are included; their claims can be replayed from the included sources.
+PASS
 
-The independent external audit has not been performed. The proof does not claim every temporally recurrent state is a coherent wave, and the literature search cannot absolutely establish historical priority.
+The radius-one rule after three updates is a seven-letter local predicate; its de Bruijn automaton has 729 six-letter vertices, 1,179 allowed edges. Independently regenerated graph using a separate Kosaraju SCC implementation: a unique cyclic component has 65 vertices and 118 edges. Independently reconstructed all 65 characteristic coefficients by exact trace Newton identities and got λ^61(λ^4−3λ^3+3λ²−λ−1). Closed walks are in bijection with labelled cyclic configurations even for n=3..6, so trace gives all-n recurrence. Opposite direction is spatial reflection; simultaneous satisfaction forces spatial period ≤2, and all six unequal 2-color alternating pairs fail the third iterate, leaving exactly 3 uniform states. F³=S^± implies F^(3n)=Id for each counted state. Independent brute-force dynamics n=3..9 confirmed a_n=(3,7,18,39,73,127,219), both-direction intersection three. Perron–Frobenius of primitive cyclic component yields rho=1.819... and asymptotic 2rho^n.
+
+## originality
+
+PASS
+
+The source rule and qualitative synchronization are established by Lyu 2014, with infinite-line particle-model study by Lyu/Sivakoff, neither deriving this exact ring wave population. Indexed related SCOPE work classifies star graph synchronization, crown graph attractors, or a different cyclic-dominance excitation rule; their objects/updates do not imply this F³-to-one-site translation recurrence. Generic de Bruijn / Perron–Frobenius method is prior technique, not asserted original. Best-of-knowledge PASS for formula.
+
+## value
+
+PASS
+
+Coherent translation after one intrinsic color-clock cycle is a canonical traveling-wave criterion in finite excitatory oscillator networks. The result supplies the full all-length and both-direction census, exact algebraic growth rate and recurrent/no-transient distinction, rather than a small-graph sample or a generic transfer-method restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

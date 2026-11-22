@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The seven-site dependency follows by composing the explicitly defined radius-one local rule three times. The overlap-graph closed-walk bijection is exact even when \(3\le n<7\); the 65-state SCC and its determinant are checked by complete enumeration of the \(3^7\) local words and exact 65-step Newton identities. Inclusion–exclusion uses the proven two-site periodicity restriction and the directly checked nine alternating pairs. Perron–Frobenius applies because the retained SCC is strongly connected with a self-loop. The supplementary direct program checks all \(3^n\) states for each \(3\le n\le10\), but finite enumeration is not treated as the all-length proof.
+## correctness
 
-## Originality — PASS, qualified
-The original author-posted 2014 inhibitory firefly paper and the 2017 infinite-line particle-system paper were compared at the level of objects and assertions. Neither inspected text states the finite-ring three-update spatial-lock population or the quartic transfer reduction. Published star and crown results concern different graph adjacencies, while a ring-shaped cyclic-dominance result uses a distinct local update. Published mathematical searches included the terms firefly, spatial shift, traveling waves, phase lock, exact polynomial, cyclic rings and the numerical growth constant. No exact or stronger statement that logically implies this count was identified. This remains a best-knowledge novelty assessment, not certification of historical priority.
+PASS
 
-## Value — PASS
-A three-step one-site translation is the intrinsic coherent transport relation for an oscillator with a three-state clock and nearest-neighbor spatial coupling; it is not an arbitrary parameter slice. The exact quartic recurrence solves this invariant at every circumference and gives a structural exponential growth constant. The counts distinguish coherent traveling oscillations from synchronized motion while retaining direct dynamical interpretation. No classification of all eventual oscillations is claimed.
+The radius-one rule after three updates is a seven-letter local predicate; its de Bruijn automaton has 729 six-letter vertices, 1,179 allowed edges. Independently regenerated graph using a separate Kosaraju SCC implementation: a unique cyclic component has 65 vertices and 118 edges. Independently reconstructed all 65 characteristic coefficients by exact trace Newton identities and got λ^61(λ^4−3λ^3+3λ²−λ−1). Closed walks are in bijection with labelled cyclic configurations even for n=3..6, so trace gives all-n recurrence. Opposite direction is spatial reflection; simultaneous satisfaction forces spatial period ≤2, and all six unequal 2-color alternating pairs fail the third iterate, leaving exactly 3 uniform states. F³=S^± implies F^(3n)=Id for each counted state. Independent brute-force dynamics n=3..9 confirmed a_n=(3,7,18,39,73,127,219), both-direction intersection three. Perron–Frobenius of primitive cyclic component yields rho=1.819... and asymptotic 2rho^n.
 
-## Closest literature and residual limits
-The most relevant original papers are Lyu (2014), whose accessible original text defines the rule, proves path/tree synchronization results and qualitatively remarks on cycles, and Lyu–Sivakoff (2017), whose accessible full text analyzes stochastic clustering on the integer line. Same-rule mathematical records treat stars and crown graphs, not the spatially cyclic one-site-lock census. Other unindexed historical materials could contain related constructions. Direct finite-ring checks do not establish completeness of the entire recurrent set; the theorem deliberately concerns only coherent waves.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The source rule and qualitative synchronization are established by Lyu 2014, with infinite-line particle-model study by Lyu/Sivakoff, neither deriving this exact ring wave population. Indexed related SCOPE work classifies star graph synchronization, crown graph attractors, or a different cyclic-dominance excitation rule; their objects/updates do not imply this F³-to-one-site translation recurrence. Generic de Bruijn / Perron–Frobenius method is prior technique, not asserted original. Best-of-knowledge PASS for formula.
+
+## value
+
+PASS
+
+Coherent translation after one intrinsic color-clock cycle is a canonical traveling-wave criterion in finite excitatory oscillator networks. The result supplies the full all-length and both-direction census, exact algebraic growth rate and recurrent/no-transient distinction, rather than a small-graph sample or a generic transfer-method restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
