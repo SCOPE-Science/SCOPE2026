@@ -2,92 +2,90 @@
 
 ## Finding
 
-Let \(d\ge 2\), let \(c_1,c_2,c_3\in\mathbb R^d\) be three distinct sites, let \(w_1,w_2,w_3>0\), and put
+Let \(d\ge 2\), let \(c_1,c_2,c_3\in\mathbb R^d\) be pairwise distinct, and let \(w_1,w_2,w_3>0\). Define
 \[
 \mu=\sum_{j=1}^3w_j\delta_{c_j},\qquad
-F(\xi)=\widehat\mu(\xi)=\sum_{j=1}^3w_j e^{-2\pi i\xi\cdot c_j},\qquad
-D=\max_{j,k}|c_j-c_k|.
+F(\xi)=\sum_{j=1}^3w_j e^{-2\pi i\xi\cdot c_j},\qquad
+D=\max_{j,k}|c_j-c_k|,
 \]
-Define \(\kappa(\mu)=\inf\{|\xi|:F(\xi)=0\}\), with the infimum of the empty set equal to \(+\infty\).
+and \(\kappa(\mu)=\inf\{|\xi|:F(\xi)=0\}\), with \(\inf\varnothing=+\infty\).
 
-**Sharp mass-dependent zero-free radius.** Suppose the three weights satisfy the strict triangle inequalities \(w_j<w_k+w_\ell\) for each permutation. Let \(\gamma_j\in(0,\pi)\) be the interior angle opposite the side of length \(w_j\) in the Euclidean triangle with side lengths \((w_1,w_2,w_3)\), and let \(\gamma_* =\min_j\gamma_j\). Then every real Fourier zero satisfies
+Assume the strict triangle inequalities \(w_j<w_k+w_\ell\) for each permutation. Let \(\gamma_j\in(0,\pi)\) be the interior angle opposite side \(w_j\) in the Euclidean weight triangle and \(\gamma_* =\min_j\gamma_j\). Every real Fourier zero obeys the sharp, mass-dependent bound
 \[
-\boxed{\quad |\xi|D\ge c(w):=\frac12+\frac{\gamma_*}{2\pi}.\quad}
+\boxed{\ |\xi|D\ge c(w):=\frac12+\frac{\gamma_*}{2\pi}.\ }
 \]
-For every such positive weight triple and every \(D>0\), equality is attained by noncollinear, pairwise distinct sites of diameter \(D\). For equal weights, \(c(w)=2/3\), and the equality configurations are exactly those noncollinear isosceles triangles having a longest side as their base. In particular, the dimension-independent constant varies through the interval \((1/2,2/3]\).
+For every strict weight triple and every \(D>0\), equality is attained by pairwise distinct noncollinear sites of diameter \(D\); collinear equality configurations also exist. For equal weights \(c(w)=2/3\), and equality configurations of sites are precisely the **possibly degenerate isosceles triangles with a longest side as base**: the third site has its orthogonal projection at that base's midpoint, and its distance to either endpoint is at most the base length. This includes the collinear midpoint configuration, omitted by an earlier noncollinear-only classification. At an equality frequency its direction is parallel to that longest base (up to sign).
 
-**Exact real zero set.** Under the same strict mass-triangle hypothesis, assume the sites are affinely independent. Let \(M\in\mathbb R^{d\times 2}\) have columns \(c_2-c_1\) and \(c_3-c_1\), and let \(G=M^TM\). Define
+When the spatial sites are affinely independent, let \(M\in\mathbb R^{d\times2}\) have columns \(c_2-c_1,c_3-c_1\), set \(G=M^TM\), and put
 \[
 \theta=\arccos\frac{w_3^2-w_1^2-w_2^2}{2w_1w_2},\qquad
 z=-\frac{w_1+w_2e^{i\theta}}{w_3},\qquad
-\alpha=\frac{-1}{2\pi}(\theta,\operatorname{Arg}z)^T.
+\alpha=-\frac1{2\pi}(\theta,\operatorname{Arg}z)^T.
 \]
-Here \(\theta\in(0,\pi)\), \(|z|=1\), and \(\operatorname{Arg}z\in(-\pi,\pi]\). The complete zero set consists precisely of the affine \((d-2)\)-flats
+Then \(|z|=1\) and the *complete real zero set* consists of the disjoint affine \((d-2)\)-flats
 \[
-\boxed{\quad
-\bigcup_{\sigma\in\{-1,1\}}\ \bigcup_{n\in\mathbb Z^2}
-\left\{MG^{-1}(n+\sigma\alpha)+v:v\in\ker M^T\right\}.\quad}
+\boxed{\ \bigcup_{\sigma=\pm1}\ \bigcup_{n\in\mathbb Z^2}
+\{MG^{-1}(n+\sigma\alpha)+v:v\in\ker M^T\}.\ }
 \]
-Consequently, the *exact* nearest-zero radius is the two-coset quadratic minimum
+Its exact nearest-zero radius is
 \[
-\boxed{\quad
-\kappa(\mu)^2=\min_{\sigma=\pm1}\min_{n\in\mathbb Z^2}
-(n+\sigma\alpha)^TG^{-1}(n+\sigma\alpha).
-\quad}
+\boxed{\ \kappa(\mu)^2=\min_{\sigma=\pm1}\min_{n\in\mathbb Z^2}
+(n+\sigma\alpha)^TG^{-1}(n+\sigma\alpha).\ }
 \]
-The two cosets are distinct, and the radius is finite. For collinear sites, the mass-triangle bound still holds, but Fourier zeros need not exist because the two required phase congruences may be incompatible.
+The cosets are distinct and the minimum is finite and positive. For collinear sites the universal bound remains true, but the two phase congruences may be incompatible and zeros need not exist.
 
-**Equality geometry.** For a zero, take the three projected real numbers \(t_j=\xi\cdot c_j\). Equality \(|\xi|D=c(w)\) holds exactly when their range is \(c(w)\), their cyclic phases \(e^{-2\pi i t_j}\) use a *shortest closed circular arc* joining the three cancellation phases without an extra integer winding, and the two sites giving \(\min t_j\) and \(\max t_j\) are endpoints of a diameter segment parallel to \(\xi\). Equivalently, for one cancellation orientation, assign the ordered minimal-arc lifts \(0,s,c(w)\) to the three weights, with \(0<s<c(w)\): the sites assigned to the endpoints must be distance \(D\) apart, and the remaining site must project a fraction \(s/c(w)\) of the way along their diameter segment. This includes all equality configurations, including ties in the smallest weight.
+## Assumptions and boundary cases
 
-If one weight exceeds the sum of the other two, \(F\) has no real zero for any sites. If equality holds in that weight inequality, cancellation forces the two smaller-weight phases to coincide and to be opposite to the larger-weight phase. This degenerate case is not included in the sharp strict-triangle equality classification.
+The Fourier convention is \(e^{-2\pi i\xi\cdot x}\); \(\xi\) is a real Euclidean frequency. Weights are strictly positive, sites are pairwise distinct, and only the strict mass-triangle case is covered by the sharp constant and equality classification. In every strict mass triangle \(1/2<c(w)\le2/3\); equality at \(2/3\) holds only for equal weights, and the lower endpoint is approached by nearly degenerate mass triangles. When one weight strictly exceeds the sum of the other two, no Fourier zero is possible for any sites. At equality of a mass-triangle inequality, cancellation can occur only when the two smaller phasors coincide and oppose the largest; such a degenerate case is not covered by the strict-triangle equality theorem.
 
-## Assumptions and scope
-
-Fourier normalization is \(\widehat\mu(\xi)=\int e^{-2\pi i\xi\cdot x}\,d\mu(x)\). All weights are strictly positive, frequencies are real, and Euclidean norms are used. The universal radius bound holds for all triples of distinct sites in every \(d\ge2\); the explicit rank-two zero-lattice formula requires affine independence. The equality construction uses noncollinear sites. There is no assertion about complex-frequency zeros, density of zero sets, or stability under measurement noise.
+The complete affine zero-lattice formula requires rank \(M=2\); it does not apply to collinear spatial sites. No conclusion concerns complex frequencies, more than three atoms, nonpositive or complex amplitudes, or noise stability.
 
 ## Proof
 
-**1. The phasor triangle.** Divide the equation \(F(\xi)=0\) by its nonzero first exponential. The three summands are vectors of lengths \(w_1,w_2,w_3\) closing a Euclidean triangle. If a weight is strictly larger than the other two combined, closure is impossible by the triangle inequality. Under strict triangle inequalities, the three phases are unique up to a common rotation and complex conjugation. Fixing the first phase at one, the cosine rule gives
-\[
-\cos\theta=\frac{w_3^2-w_1^2-w_2^2}{2w_1w_2},\qquad
-w_1+w_2e^{i\theta}+w_3z=0,
-\]
-so the prescribed pair of relative phases is \((e^{i\theta},z)\), or its conjugate. The three successive circular gaps between the phases, in their cyclic order, are \(\pi-\gamma_1,\pi-\gamma_2,\pi-\gamma_3\). Their sum is \(2\pi\). Therefore the shortest circular arc containing all three phase points has angular length
+**1. Triangle of cancellation phases.** Divide a zero equation by the first nonzero exponential. The three complex vectors have prescribed positive lengths \(w_1,w_2,w_3\) and close to a triangle. Under strict triangle inequalities the relative phases are unique up to conjugation and common rotation. With the first phase equal to \(1\), the two possibilities are \((e^{i\theta},z)\) and \((e^{-i\theta},\bar z)\), where \(\theta,z\) are displayed above. This is the cosine rule: \(|w_1+w_2e^{i\theta}|=w_3\).
+
+The cyclic gaps between the three cancelling phase directions are \(\pi-\gamma_1,\pi-\gamma_2,\pi-\gamma_3\). They are all strictly between zero and \(\pi\), and their sum is \(2\pi\). Hence the shortest closed circular arc containing the three directions has length
 \[
 2\pi-\max_j(\pi-\gamma_j)=\pi+\gamma_*.
 \]
-This step covers all strict weight triangles; the gaps are strictly between zero and \(\pi\).
+In cycles this is precisely \(c(w)\).
 
-**2. Diameter obstruction and exact equality.** For a real Fourier zero choose the *actual* real projections \(t_j=\xi\cdot c_j\), not arbitrary representatives modulo integers. The circular phases \(e^{-2\pi i t_j}\) sit in the image of the real interval \([\min_jt_j,\max_jt_j]\) under the exponential map. Hence the length of this interval is at least the length of the shortest circular arc containing the three phases, in cycles:
+**2. Diameter bound and equality geometry.** At any real zero, consider the actual projections \(t_j=\xi\cdot c_j\in\mathbb R\). Their complex phases are \(e^{-2\pi i t_j}\). The image of their containing real interval \([\min_jt_j,\max_jt_j]\) must contain the three cancelling phase directions, so
 \[
-\max_jt_j-\min_jt_j\ge\frac{\pi+\gamma_*}{2\pi}=c(w).
+\max_j t_j-\min_jt_j\ge c(w).
 \]
-On the other hand, Cauchy--Schwarz and the diameter assumption yield \(\max_jt_j-\min_jt_j\le|\xi|D\), proving the bound. Equality in these inequalities forces precisely the minimal circular arc with no winding, and equality in Cauchy--Schwarz forces the extreme sites to form a diameter parallel to \(\xi\). These conditions are sufficient as well, since the prescribed phasors then cancel.
+Since for all \(j,k\), \(|t_j-t_k|\le|\xi|\,|c_j-c_k|\le|\xi|D\), we obtain \(|\xi|D\ge c(w)\).
 
-To see sharpness with genuinely noncollinear sites, choose one of the two cancellation-phase orientations and lift its three phase arguments, after a common phase rotation, into \(0,s,c(w)\), where \(0<s<c(w)<1\). For arbitrary \(D>0\), place the extreme sites at \((0,0)\) and \((D,0)\) and the middle site at \((Ds/c(w),\varepsilon)\), using the weight-to-phase assignment of the chosen lift. Choose \(\varepsilon>0\) small enough that the two remaining side lengths do not exceed \(D\). Taking \(\xi=(c(w)/D,0)\), with sign chosen to match the phase orientation, yields \(F(\xi)=0\), \(|\xi|D=c(w)\), and a noncollinear triangle. The construction embeds into any higher dimension. For equal weights the three phase spacings are each \(1/3\) cycle, so \(s/c(w)=1/2\); thus the equality triangles are exactly the isosceles triangles whose longest side is the projected diameter.
+Equality requires, and is equivalent to, both of the following: (a) the three *actual* projections are consecutive lifts of a shortest containing circular arc (no extra winding), and (b) their two extreme sites form a diameter segment parallel to \(\xi\). Indeed these exactly characterize equality in the phase-arc inequality and in Cauchy--Schwarz, and the cancellation-phase condition then makes them sufficient.
 
-**3. The complete noncollinear zero set.** Write \(M=[c_2-c_1\ \ c_3-c_1]\). The normalized phasor equation forces
+For sharpness, choose an orientation of the cancelling phases, rotate their common phase and lift the three phases to projected values \(0,s,c(w)\), with \(0<s<c(w)\). Put the two extreme sites at \((0,0)\) and \((D,0)\), and the middle site at \((Ds/c(w),\varepsilon)\) in a Euclidean plane. For sufficiently small \(\varepsilon>0\) the latter two side lengths are less than \(D\). With \(\xi=(c(w)/D,0)\), choosing the phase orientation compatible with the negative Fourier exponential, the transform vanishes and \(|\xi|D=c(w)\). Setting \(\varepsilon=0\) instead also gives three distinct **collinear** equality sites. The argument embeds in every \(d\ge2\).
+
+For equal weights, the three cancelling phases are equally spaced, so the minimal lift is \(0,1/3,2/3\). Thus the middle site projects to the midpoint of the extreme diameter segment; the set of three sites is an isosceles triangle with that segment as its longest side, allowing zero transverse height. Conversely any such (possibly degenerate) isosceles triangle, with frequency of norm \(2/(3D)\) parallel to the base, realizes phases spaced by \(1/3\) cycle and attains the bound. No positive transverse height is required: the collinear midpoint is a valid equality case.
+
+**3. Full zero set when the site differences have rank two.** Removing the common first exponential reduces the Fourier equation to \(w_1+w_2e^{-2\pi i(M^T\xi)_1}+w_3e^{-2\pi i(M^T\xi)_2}=0\). By Step 1 this holds exactly when
 \[
-M^T\xi\in(\alpha+\mathbb Z^2)\ \cup\ (-\alpha+\mathbb Z^2).
+M^T\xi\in (\alpha+\mathbb Z^2)\cup(-\alpha+\mathbb Z^2).
 \]
-Affine independence makes \(G=M^TM\) positive definite. All solutions of \(M^T\xi=b\) have the form \(MG^{-1}b+v\), with \(v\in\ker M^T\), orthogonal to the first term. The minimal squared norm on each flat is therefore \(b^TG^{-1}b\), establishing both displayed formulas. The two cosets cannot coincide: otherwise both nontrivial phase differences would be equal to their conjugates, making all three cancellation phases \(\pm1\), impossible for a strictly nondegenerate weight triangle. The lattice cosets are discrete transverse to the kernel, and none contains zero, so the minimum exists and is positive.
+For a prescribed right side \(b\), rank two gives all solutions as \(MG^{-1}b+v\), \(v\in\ker M^T\). The first summand is orthogonal to the kernel, and its squared norm is \(b^TG^{-1}b\). This proves both displayed zero-set and nearest-zero formulas. The two cosets are distinct: if \(2\alpha\in\mathbb Z^2\), both nontrivial phases would be real signs, which cannot form a strict positive mass triangle. Their transverse lattice sets are discrete and avoid the origin; hence the minimum exists and is positive.
 
-## Verification
+When the sites are collinear, rank two fails and the two congruences may be incompatible. Nevertheless Steps 1–2, including the equal-weight collinear midpoint example, remain valid. This completes the corrected theorem.
 
-The standalone checker \(`checks/tri_atomic_zeros.py`\) reconstructs the two phase branches from the cosine rule, checks representative exact phasor cancellations, tests the diameter bound and the quadratic minimum across 500 seeded random noncollinear weighted triples, verifies sharpness by constructing mass-dependent noncollinear extremizers, and tests an equal-weight isosceles family. These finite tests are supplementary: all universal quantifiers and equality cases are established by the preceding analytical argument.
+## Verification and limitations
+
+`checks/tri_atomic_zeros.py` provides supplementary finite numerical tests for phasor closure, rank-two zero cosets, and random site triangles; these tests do not prove any universal statement. An independent exact check of the formerly omitted boundary is \(w_1=w_2=w_3=1\), \(c_1=(0,0)\), \(c_2=(D/2,0)\), \(c_3=(D,0)\), \(\xi=(2/(3D),0)\), where
+\[
+F(\xi)=1+e^{-2\pi i/3}+e^{-4\pi i/3}=0,\qquad |\xi|D=2/3.
+\]
+Thus any claim excluding all collinear equal-weight equality configurations is false. The corrected classification includes them while retaining the sharp constant and rank-two formula.
+
+The contribution is a mass-sensitive, sharp finite-atom Fourier-zero bound together with its equality geometry and the rank-two two-coset classification. Its historical priority is provisional; a classical result on three-vector phasors, positive finite characteristic functions, diffraction or array factors may state an equivalent bound. Neither finite testing nor this document establishes novelty or external certification.
 
 ## Relationship to prior work
 
-The Fourier-null-distance functional is motivated by Gómez-Serrano, Levitin, Platt and Polterovich (2026), which studies Fourier transforms of *Lebesgue indicators of centrally symmetric convex bodies* and fixed-volume extremal geometry. Its polygon and bipyramid arguments do not concern discrete three-point Fourier-Stieltjes transforms, unequal positive atom weights, or the present diameter-and-weight invariant. Benguria, Levitin and Parnovski (2009) likewise concern convex-domain indicators. The Kolountzakis--Révész (2006) work addresses positive-definite function bounds under spatial support constraints, rather than the exact zero loci of weighted three-atomic measures. Published results for three-point Fourier signals on *finite cyclic groups* address torsion-constrained zero counts, not continuum Fourier frequencies or a Euclidean diameter extremum.
-
-The argument here is elementary but the conclusion is a complete mass-sensitive classification of a natural Fourier-zero extremal problem; no general convex-body maximization or positive-measure result is inferred. Searches did not establish historical priority. Equivalent treatments of three-vector phasor cancellation in signal processing, diffraction or characteristic-function theory remain a possible source of overlap.
-
-## Limitations
-
-The theorem concerns exactly three strictly positive atoms. Its sharp equality statement assumes strict triangle inequalities; degenerate mass triangles have a separate collinearity-of-phases obstruction. The lower bound can be strict, and for collinear sites the real zero set can be empty. The fixed-configuration lattice formula requires rank two. No claim is made about more than three atoms or nonpositive/complex weights. The result establishes mathematical correctness within its stated hypotheses, not independence, formal certification, or publication priority.
+Gómez-Serrano, Levitin, Platt and Polterovich (2026), arXiv:2609.10517, optimize Fourier-zero distance for indicators of centrally symmetric convex bodies with a *fixed-volume* constraint. Benguria, Levitin and Parnovski (2009), JFA 257, 2088–2123, also study domain indicators; Kolountzakis and Révész (2006), CJM 58, 401–418, study pointwise positive-definite-function bounds under support constraints. These objects and constraints do not directly imply the sharp three-atom mass-angle constant and geometry. Discrete three-atom Fourier-zero results count torsion-frequency zeros and do not automatically yield a Euclidean nearest-frequency radius. The phasor triangle identity and the circle-arc observation themselves are elementary antecedents, not claimed as original.
 
 ## References
 
-- J. Gómez-Serrano, M. Levitin, D. Platt and I. Polterovich, *An isoperimetric problem for Fourier zeros of centrally symmetric convex bodies*, arXiv:2609.10517 (first public 2026-09-09), https://arxiv.org/abs/2609.10517.
-- R. Benguria, M. Levitin and L. Parnovski, *Fourier transform, null variety, and Laplacian's eigenvalues*, Journal of Functional Analysis **257** (2009), 2088--2123, https://doi.org/10.1016/j.jfa.2009.06.022.
-- M. N. Kolountzakis and Sz. Gy. Révész, *On pointwise estimates of positive definite functions with given support*, Canadian Journal of Mathematics **58** (2006), 401--418, https://doi.org/10.4153/CJM-2006-017-8.
+1. J. Gómez-Serrano, M. Levitin, D. Platt, I. Polterovich, *An isoperimetric problem for Fourier zeros of centrally symmetric convex bodies*, arXiv:2609.10517 (2026), https://arxiv.org/abs/2609.10517.
+2. R. Benguria, M. Levitin, L. Parnovski, *Fourier transform, null variety, and Laplacian's eigenvalues*, Journal of Functional Analysis 257 (2009), 2088–2123, DOI:10.1016/j.jfa.2009.06.022.
+3. M. N. Kolountzakis, Sz. Gy. Révész, *On pointwise estimates of positive definite functions with given support*, Canadian Journal of Mathematics 58 (2006), 401–418, DOI:10.4153/CJM-2006-017-8.

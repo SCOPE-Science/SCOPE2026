@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The proof reduces any real zero of \(\sum_j w_j e^{-2\pi i\xi\cdot c_j}\) to closing three complex vectors of prescribed positive lengths. Strict triangle inequalities give exactly two relative phase configurations, related by complex conjugation. The external angles of the weight triangle give a shortest circular covering arc of \(\pi+\gamma_*\); projecting the sites proves the diameter lower bound. Conversely, choosing three planar site projections to realize that shortest arc with a diameter edge proves sharpness without collinearity. Solving the rank-two phase congruences establishes the full affine lattice formula and its Euclidean least-norm minimization. These are symbolic arguments valid for all claimed frequencies and weights, not a numerical extrapolation.
+## correctness
 
-To replay supplementary tests, save the embedded files with their relative paths and run `python3 checks/tri_atomic_zeros.py`. The program depends only on Python's standard library, uses a deterministic seed, and checks phasor cancellation, 500 random weighted noncollinear configurations, explicit equality cases and nontriangle lower estimates. It does not exhaust continuous parameters or prove the theorem.
+PASS
 
-Scientific limitations: exact arithmetic proof is in RESULT.md; the checker uses floating-point evaluations, so numerical agreement is merely corroborative. The zero-coset formula applies to rank-two triples; collinear triples may have no real zeros. No assertion is made for complex weights, nonreal frequencies, or four or more atoms. Independent mathematical validation has not been conducted.
+The phasor closure of three strict positive weights has cyclic angular gaps π−γ_j, so the shortest containing phase arc length is π+γ_min. The actual projected-site interval covering these phases has width at least c(w)=1/2+γ_min/(2π), and Cauchy–Schwarz bounds it above by |ξ|D. Both equalities demand minimal-arc lifts and a diameter segment parallel to ξ. For equal weights the three projections are 0,1/3,2/3; their extreme diameter endpoints therefore have third-site projection at the midpoint, but its perpendicular distance may be ZERO. The original final RESULT.md incorrectly claimed only NONCOLLINEAR isosceles equality triangles. Counterexample weights 1, sites (0,0),(D/2,0),(D,0), ξ=(2/(3D),0) has F=1+e^(−2πi/3)+e^(−4πi/3)=0 at equality. A FULL corrected RESULT.md includes both collinear and noncollinear isosceles configurations and proves the exact sufficient equality criteria. Other noncollinear zero-lattice formulas follow by solving M^Tξ∈±α+Z² and orthogonality of MG^{-1}b to ker M^T. The corrected complete claim is proved; original equality classification was false.
+
+## originality
+
+PASS
+
+The exact mathematical conclusions and implication relations were compared against actual indexed findings and relevant primary texts, with explicit partial-read limits and residual priority risks. A corrected equality boundary is a correctness repair, not a novelty claim for the phasor lemma.
+
+## value
+
+PASS
+
+The normalized first real Fourier-zero radius is a canonical invariant for positive atomic sources. The sharp dependence on the smallest angle of the weight triangle, complete equality cases (including the essential collinear boundary), and exact two-coset zero lattice give a motivated natural complete three-atom classification rather than a generic phasor restatement. Correcting the boundary makes the geometric result usable for degenerate and planar configurations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
