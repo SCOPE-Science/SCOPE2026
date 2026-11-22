@@ -1,0 +1,10 @@
+// Exact enumeration of primitive cyclic run-length words over {1,2}.
+#include <bits/stdc++.h>
+using namespace std;
+string primitive(string s){int n=s.size();for(int d=1;d<=n;d++)if(n%d==0){bool ok=true;for(int i=d;i<n;i++)if(s[i]!=s[i%d]){ok=false;break;}if(ok)return s.substr(0,d);}abort();}
+string rotate_min(string s){int n=s.size();string a=s;for(int i=1;i<n;i++){string t=s.substr(i)+s.substr(0,i);a=min(a,t);}return a;}
+string normalize(string s){return rotate_min(primitive(s));}
+string derivative(string s){int n=s.size(),cut=-1;for(int i=0;i<n;i++)if(s[i]!=s[(i+1)%n]){cut=(i+1)%n;break;}if(cut<0)return "";s=s.substr(cut)+s.substr(0,cut);string out;int c=1;for(int i=1;i<=n;i++){if(i<n && s[i]==s[i-1]){c++;continue;}if(c>2)return "";out.push_back('0'+c);c=1;}return normalize(out);}
+string inverse(string w,char first){string lengths=(w.size()%2?w+w:w);string s;for(int i=0;i<(int)lengths.size();i++)s.append(lengths[i]-'0',(i%2? (first=='1'?'2':'1'):first));return normalize(s);}
+int main(){set<string> s={"1","2"};vector<int> minp={1,2,3,8,12,18,27,80,120,180,269};vector<int> sizes={2,2,4,6,8,14,24,30,52,78,128};vector<int> minimizers={2,1,2,1,2,4,8,4,8,16,16};for(int k=0;k<=10;k++){int m=INT_MAX,num=0;for(auto &w:s){if((int)w.size()<m){m=w.size();num=1;}else if((int)w.size()==m)num++;}if((int)s.size()!=sizes[k]||m!=minp[k]||num!=minimizers[k])return 2;cout<<k<<" "<<s.size()<<" "<<m<<" "<<num<<"\n";if(k==10)break;set<string> t;for(auto &w:s){for(char a : {'1','2'}){auto u=inverse(w,a);if(derivative(u)!=normalize(w))return 3;t.insert(u);}}s.swap(t);} // Exhaustive independent direct check for shortest periods up to 18.
+for(int p=1;p<=18;p++){int maxh=0;for(int m=0;m<(1<<p);m++){string w(p,'1');for(int i=0;i<p;i++)if(m>>i&1)w[i]='2';if((int)primitive(w).size()!=p)continue;int h=0;while(true){auto v=derivative(w);if(v.empty())break;w=v;h++;if(h>10)return 4;}maxh=max(maxh,h);} if(p<2 && maxh!=0)return 5;if(p>=2 && p<3 && maxh>=2)return 6;if(p<8 && maxh>=3)return 7;if(p<12 && maxh>=4)return 8;if(p<18 && maxh>=5)return 9;}cout<<"direct primitive period<=18 verified\n";return 0;}
