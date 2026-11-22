@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The ten-by-ten weighted Laplacian is defined by a complete edge list. The rank-one perturbation of the unit Petersen spectrum is decomposed into fixed four- and three-dimensional eigenspaces plus a two-dimensional mixed block, whose characteristic quadratic is explicitly derived. Its two simple eigenvalues cannot collide with the fixed eigenvalues for positive nonunit conductance. The only two possible dependent coordinate restriction ratios on that block are proved incapable of hiding an eigenvector. The remaining full-subset ranks are *exhaustively* determined using exact rational Gaussian elimination of 1024 sets. The standard-library verifier reconstructs the matrices and replays the all-subset count and modular Kalman cross-checks; the continuous parameter statement is analytic, not inferred from finite samples.
+
+## Originality — PASS on inspected evidence; publication priority provisional
+Yuan et al. supply the classical maximum-multiplicity / PBH framework but do not count or classify all coordinate-constrained placements on a weighted Petersen graph. Monshizadeh et al. treat strong structural controllability with a different family-wide quantifier. The full inspected unweighted generalized-Petersen construction proves existence of minimum consecutive outer inputs, explicitly not a complete census, and its unit-edge assumption rules out detuning. The full inspected one-defect complete-bipartite theorem concerns another graph and a different multiplicity structure. Source comparison is based on implication and scope, not title mismatch. The accessible Farrugia–Sciriha abstract leaves a residual publication-priority risk; it is not represented as a full-text exclusion.
+
+## Mathematical value — PASS
+The canonical Petersen graph supplies a natural, highly symmetric benchmark where a single edge perturbation unexpectedly lowers the minimum dedicated input count by exactly one. The all-positive-detunings theorem identifies *every* minimum placement (104 of 210), and the exact polynomial characterizes all larger choices, providing more than a routine lower bound or one numerical example. Parameter robustness and a complete finite classification are directly relevant to actuator selection and to testing algorithms that conflate fixed-matrix controllability with strong structural controllability. No unproved energy or asymptotic benefit is asserted.
+
+## Limitations and closest comparison
+The 2013 exact controllability theorem controls eigenvalue multiplicity but not this placement census. The 2014 zero-forcing theorem is stronger over a matrix family yet not a characterization of this fixed parametric Laplacian. The two published network-specific comparison results have respectively unweighted generalized-Petersen and single-defect complete-bipartite assumptions. This theorem covers only one labelled edge of the ten-vertex Petersen graph (by edge transitivity, any edge is equivalent), and no independent validation has occurred. Some older full texts are inaccessible.
+
+Self-review: passed. Independent audit: not yet performed.
