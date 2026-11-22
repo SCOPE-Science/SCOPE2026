@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The inverse of the original multiplicative generator is a logarithm of a rational function. Its exponential-series coefficients are w_k=q^k(1+(-1)^(k+1)alpha^k)/(k theta). When alpha<=1 all are nonnegative and sum exactly to 1; the resulting conditional-independent mixture constructs a copula in every finite dimension. For alpha>1, w_2<0, and exponential tilting plus uniqueness of finite signed Laplace transforms precludes complete monotonicity, hence all-dimensional canonical validity by McNeil--Neslehova. A rational third-derivative test at alpha=100, exp(theta)=3 proves trivariate failure. Executed checker.py confirms finite algebraic/numerical identities; proof is analytic rather than based on experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "McNeil--Neslehova (2009), Theorem 2.2 and Proposition 2.4, give general d-monotonicity and complete-monotonicity criteria.",
+        "Alzaid--Alhadlaq (2023), Sections 2-4, gives the bivariate generator and related coefficients."
+      ],
+      "reasoning": "The general 2009 theorem is explicitly credited, but it does not alone tell which values of this later two-parameter generator are completely monotone. Derivation of the parameter-independent sharp boundary and constructive integer frailty weights supplies the new nontrivial family-specific answer.",
+      "searches": [
+        "Archimedean copula generator completely monotone if and only if valid in all dimensions McNeil Neslehova 2009",
+        "Alzaid Alhadlaq half logistic copula d dimensional complete monotonicity",
+        "Archimedean generator log ratio exponential sum complete monotonicity"
+      ]
+    },
+    "checked_sources": [
+      "Alzaid and Alhadlaq (2023 online), https://doi.org/10.3390/math12010101",
+      "McNeil and Neslehova (2009), https://arxiv.org/abs/0908.3750",
+      "Alhadlaq and Alzaid (2020), https://doi.org/10.3390/sym12122108"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The bivariate validity of the source 2023 family holds for all alpha>0, theta>0, whereas the claimed canonical all-dimensional validity holds only for alpha<=1.",
+        "The 2009 criterion gives equivalence with complete monotonicity, not the signs of the present family coefficients.",
+        "The 2020 paper does not contain this later 2023 two-parameter generator."
+      ],
+      "reasoning": "Neither bivariate convexity nor the abstract criterion alone entails the exact threshold or explicit mixing distribution. The new claim combines both with a separate algebraic sign/uniqueness argument; it is a genuine additional classification rather than a restated corollary or special case.",
+      "searches": [
+        "A New Family of Archimedean Copulas The Half-Logistic Family of Copulas 2023 Section 4",
+        "McNeil Neslehova 2009 Proposition 2.4 all dimensions",
+        "Distribution Function Probability Generating Function and Archimedean Generator 2020"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2023 source Section 4 gives a multiplicative generator but neither the signed geometric Laplace coefficients nor the alpha<=1 boundary.",
+        "The 2009 source characterizes all-dimensional Archimedean generators abstractly; it does not use the 2023 half-logistic generator."
+      ],
+      "reasoning": "The logarithm-of-ratio inverse is equivalent to a signed discrete Laplace expansion. Negative even coefficients prevent complete monotonicity; this directly decides the original family rather than changing parameters or restating its bivariate validity.",
+      "searches": [
+        "\"half logistic\" copula \"completely monotone\"",
+        "\"two-parameter half-logistic\" \"multivariate\" frailty",
+        "\"half logistic\" \"copula\" \"frailty\" complete monotonicity",
+        "\"ln(1+a exp(-t))\" \"ln(1-b exp(-t))\" complete monotonicity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Inspected 2023 article Section 4 and 2020 generator article show no exact multidimensional-validity table.",
+        "The 2009 Archimedean source supplies general criteria and example parameter restrictions for Clayton, not this family."
+      ],
+      "reasoning": "No checked tabulation or named exact family classification gives the alpha=1 transition; a failed search is only negative search evidence and not a proof of uniqueness.",
+      "searches": [
+        "\"two-parameter half-logistic\" \"complete monotonicity\" copula",
+        "\"half-logistic\" copula discrete mixing odd logarithmic frailty",
+        "\"half-logistic\" \"multivariate\" \"Archimedean copula\" 2023 2024 2025"
+      ]
+    },
+    "rationale": "The explicitly identified 2023 bivariate generator and the 2009 general complete-monotonicity criterion are prior work; the newly computed exact alpha threshold, discrete positive frailty law and parity/support transition are not implied without the specific signed-logarithm calculation. Full-text source comparisons and targeted literature searches yielded no directly dominating theorem. Historical priority is qualified, not certified.",
+    "residual_risks": [
+      "Search and readable full texts are not exhaustive of all published or unpublished mathematical literature; independent historical-priority assessment remains necessary.",
+      "The all-dimensional criterion is classical; novelty resides solely in the nontrivial exact specialization, mixing law and obstruction.",
+      "The result does not establish an absence of all possible non-Archimedean extensions of the same bivariate margins."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the bivariate generator and Frank limit; no all-dimensional criterion or discrete frailty representation found in inspected material",
+        "evidence": "Section 4 states the two-parameter formula and bivariate Archimedean validation; Sections 2-3 study bivariate dependence.",
+        "identifier_or_url": "https://doi.org/10.3390/math12010101",
+        "material_read": "Full accessible HTML discussion of Sections 1-4, displayed results in Section 4 and conclusions, and Appendix A.6 expression",
+        "method": "Read primary full-text HTML and compare its definitions, dependence theorems and dimension scope against this claim",
+        "title": "A New Family of Archimedean Copulas: The Half-Logistic Family of Copulas",
+        "trigger": "Exact originating multiplicative generator and closest family-specific competitor"
+      },
+      {
+        "assessment": "Establishes general d-monotonicity and all-dimensional complete-monotonicity criteria, but not this subsequent generator or the exact alpha boundary",
+        "evidence": "Theorem 2.2 and Proposition 2.4 in Section 2 characterize multivariate Archimedean validity.",
+        "identifier_or_url": "https://arxiv.org/pdf/0908.3750",
+        "material_read": "Primary preprint PDF introduction and Section 2, including Theorem 2.2, Corollary 2.1 and Proposition 2.4; inspected page images",
+        "method": "Read/search PDF mathematical statements and examine rendered page images",
+        "title": "Multivariate Archimedean copulas, d-monotone functions and l1-norm symmetric distributions",
+        "trigger": "General theory may dominate the claim"
+      },
+      {
+        "assessment": "Explains bivariate generator construction; does not state the later family-specific multivariate boundary",
+        "evidence": "Theorem 4 constructs bivariate copulas from log-concave CDF generators.",
+        "identifier_or_url": "https://doi.org/10.3390/sym12122108",
+        "material_read": "Accessible full HTML abstract and introductory/Section 2-3 generator criteria, including Theorem 4",
+        "method": "Read primary article definitions and theorem statements",
+        "title": "Distribution Function, Probability Generating Function and Archimedean Generator",
+        "trigger": "Earlier general generator construction by the same authors"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3a5f83e1-063a-4e8d-ac7d-197885d3203e",
+  "value": {
+    "rationale": "The 2023 family is introduced as a bivariate dependence model, for which higher-dimensional Archimedean validity is a structural feasibility question. The sharp alpha<=1 threshold and explicit positive integer mixing distribution permit multivariate construction and simulation for any dimension, identify an odd-only frailty boundary, and show a bona fide bivariate member failing already in dimension 3. They supply a usable modeling classification rather than routine renaming or a narrow arbitrary slice.",
+    "status": "PASS"
+  }
+}
