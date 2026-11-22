@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Formal-series proof derives two complete polynomial identities P229 mod625 and P1479 mod3125 from Maity Lemma2.2, then applies two Frobenius lifts and U5 to obtain all-n fifth-dissection identities at 625 and 3125. The exact logarithmic derivative recurrence and a proved low-degree parameter-linearization lemma give a9 and a14 residues; the last two cannot simultaneously vanish modulo15625. check.py recomputes both full recurrence polynomials and exact low-degree coefficients; no finite range is used as an infinite proof.
+
+**Originality — PASS, qualified.** Maity (2026) supplies modulus125, and two known preceding statements supply level-four modulus625 and its generating-series dissection. Neither those claims nor the inspected primary source implies the second 3125 lift at k=1646+3125b or the joint sharpness obstruction at level15625. published-finding corpus alias/parameter searches and related publisher abstracts found no coverage, subject to recorded access and indexing risks. The nearest prior coverage is Maity's Theorem 3.1 and the known complete first-lift dissection for \(k=396+625a\); a general implicit congruence in uninspected publisher sources cannot be ruled out absolutely.
+
+**Value — PASS.** Determines the exact optimal common 5-adic exponent (3,4,5) for every integer tuple order in an infinite published family. The nested exceptional parameter strata have a genuinely stronger infinite congruence at the fifth level and stop there due to two incompatible natural small-index witnesses; this resolves a motivated optimal-modulus question, not a standalone low-coefficient calculation.
+
+**Scope and scientific limitations.** The valuation classifies the *common* gcd over four progressions, not the individual gcd of every progression. The all-index proof uses a previously established modular equation. The finite checker authenticates the two finite recurrence computations and low-coefficient witnesses, not the infinite theorem. Sources inspected fully or in part and unresolved priority risks are documented in AUDIT.json; no independent audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
