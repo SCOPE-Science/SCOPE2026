@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS (same-model).** On an upward start, the incoming record is the maximum of \(w+1\) iid uniforms, giving a beta moment. On a downward start, the exiting record exposes the second-largest value, whose beta moment multiplies an independent uniform-position survival factor. The start-type mixture, conditional posterior, exact means, terminal atom, stationary forward recurrence and two weak limits follow algebraically. All boundary cases \(w=1\), \(\ell=1\), and \(\ell=w\) were explicitly checked; a finite exhaustive independent rank checker corroborates, but does not certify, the infinite family.
+
+**Originality — PASS within inspected evidence (not certified priority).** The closest 2025 source, Bücher–Haufs, studies efficient inference using sliding block top-two statistics and does not state or imply the exact finite-width plateau lifetime law. Alon–Feldheim treats existence of monotone runs of general sliding functions, not these conditional durations. Baz–Pellerey treats expanding-prefix maxima rather than fixed-size stationary windows. Older extremal-index or moving-maxima literature may contain unlocated equivalents; searches of the named formulations and recoverable published-result summaries did not reveal one. This assessment is conditional on inspected coverage, not a proof that no earlier theorem exists.
+
+**Value — PASS.** The equality plateau is a natural intrinsic statistic of sliding block maxima, an important building block of extreme-value estimation. Its exact distribution quantifies temporal duplication under an atomless iid null and separates two physically different changes, with a linear type-selection posterior and a nontrivial one-quarter endpoint atom. A sample at an arbitrary time has a distinct limit, so ignoring observation scheme changes quantitative conclusions. The result makes no unproved claim about estimator efficiency or downstream guarantees.
+
+The principal remaining limitations are independence, continuity, equal-width overlapping windows, absence of an established inference consequence, and possible earlier priority outside the inspected literature.
+
+Self-review: passed. Independent audit: not yet performed.
