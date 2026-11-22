@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Marginalization/sufficiency are exact under the spatial-constant assumption. The degree-one interval comes from endpoint constraints. Every extreme ray of the degree-two polyhedral cone has two zeros at nodes, yielding exactly the adjacent-root and endpoint-root forms; rational moment computation and convexity give the if-and-only-if interval. The limiting maximum is an elementary uniform-envelope argument, and perturbative infeasibility is explicit. Exact rational standalone diagnostics for n=3..50 passed, with analytical proof for every n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026 primary paper arXiv:2606.31662 section 4 states the QP and explicitly says feasibility is not guaranteed, with no exact polynomial-subspace criterion.",
+        "2024 Guo–Qiu LoMaC article and 2022/2023 Einkemmer–Ostermann–Scalone conservative integrator derive conservation but not a positivity-plus-fixed-factor feasible moment interval."
+      ],
+      "reasoning": "Conserving mass and momentum in a modified scheme does not entail existence of a nonnegative fixed-factor core for arbitrary prescribed moments. The source methods use alternative update/truncation frameworks or leave QP feasibility open; hence they do not dominate the precise new theorem.",
+      "searches": [
+        "Vlasov positivity conservation infeasibility quadratic program fixed basis mass momentum projection",
+        "extremal nonnegative polynomial degree two max barycenter moment on interval",
+        "2026 Kormann Nazarov Wen nonnegative low rank mass momentum core matrix correction quadratic program infeasibility fixed basis",
+        "web: low rank Vlasov positivity moment conservation fixed velocity polynomial basis feasibility momentum bound quadratic program",
+        "web: A robust and conservative dynamical low-rank algorithm arxiv"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.31662v1, section 4 and conclusion (primary full-text inspection via accessible rendition)",
+      "arxiv:2206.09374 (primary accessible preprint text)",
+      "Guo and Qiu, Journal of Scientific Computing 101 (2024), open-access article",
+      "Published mathematical findings on random-node quadratic quadrature feasibility and moment sensitivity (2026), searched by title and theorem content",
+      "MSC2020 listing for 65M70"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kormann–Nazarov–Wen section 4 gives generic inequalities and equalities but explicitly notes some such QPs may be infeasible; its statement supplies no threshold.",
+        "Guo–Qiu (2024) and Einkemmer–Ostermann–Scalone (2022/2023) address conserved moments via distinct low-rank schemes; no elementwise positivity requirement in their central theorems implies the present sharp interval.",
+        "Explicit polynomial-cone extreme-ray calculation is carried out here, rather than cited as a preexisting result."
+      ],
+      "reasoning": "The source QP provides the object, not its complete solvability criterion. General finite-dimensional linear-programming duality could in principle compute it after supplying the relevant factor subspaces, but does not itself state or imply the evaluated closed-form threshold and exact large-grid values without new case-specific analysis.",
+      "searches": [
+        "positivity mass momentum correction low rank Vlasov fixed velocity subspace affine velocity support mean velocity feasibility sharp bound",
+        "2026 Kormann Nazarov Wen nonnegative low rank mass momentum core matrix correction quadratic program infeasibility fixed basis",
+        "web: 2606.31662 Kormann Nazarov Wen quadratic programming positivity preserving",
+        "web: A Local Macroscopic Conservative (LoMaC) low rank tensor method for the Vlasov dynamics"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest published record, “Sharp moment-sensitivity tails for positive three-node quadratic quadrature” (2026-11-02), treats random quadratic quadrature sensitivity rather than fixed velocity-factor moment cones.",
+        "The analytic ratio can be rephrased as an extremal barycenter of nonnegative degree-at-most-two polynomial samples; searched that alternative directly."
+      ],
+      "reasoning": "A general polyhedral-cone extreme-ray technique is classical, but these searches did not locate the exact nodal polynomial moment frontier or its implication for a fixed-core Vlasov positivity/momentum correction. No uniqueness follows from failed search.",
+      "searches": [
+        "positivity mass momentum correction low rank Vlasov fixed velocity subspace affine velocity support mean velocity feasibility sharp bound",
+        "nonnegative affine polynomials uniform symmetric velocity grid maximum mean velocity one third",
+        "nonnegative quadratic polynomials moment ratio maximal mean velocity one over square root three",
+        "fixed polynomial velocity basis Vlasov momentum positivity feasible mass ratio degree 1 degree 2 sharp limits 1/3 1/sqrt 3",
+        "discrete moment cone polynomial sampled velocity nonnegative quadratic adjacent zeros extremal mean",
+        "web: \"nonnegative quadratic\" \"first moment\" \"1/√3\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "“Sharp moment-sensitivity tails for positive three-node quadratic quadrature” (2026-11-02) concerns random-node interpolation quadrature and tails, not the deterministic nonnegative polynomial marginal cone.",
+        "No matching table of exact finite-grid velocity moment maxima was identified in inspected sources."
+      ],
+      "reasoning": "There is no basis to claim an exhaustive database search. The material retrieved did not tabulate or imply this same fixed-factor feasibility classification; residual priority risk remains.",
+      "searches": [
+        "fixed polynomial velocity basis Vlasov momentum positivity feasible mass ratio degree 1 degree 2 sharp limits 1/3 1/sqrt 3",
+        "discrete moment cone polynomial sampled velocity nonnegative quadratic adjacent zeros extremal mean",
+        "positive discrete velocity polynomial distribution fixed affine or quadratic basis sharp first moment attainable cone",
+        "web: \"positive quadratic\" \"mean\" \"1/sqrt(3)\" polynomial interval"
+      ]
+    },
+    "rationale": "The 2026 primary paper formulates the exact fixed-core positivity/mass/momentum QP but leaves feasibility unresolved; related conservative low-rank studies do not include the nodewise-positive polynomial-factor moments. Published-record and literature searches for equivalent barycenter/cone/low-rank statements did not identify a covering theorem. General polyhedral cone techniques are known; historical-priority risk is explicitly retained.",
+    "residual_risks": [
+      "Unindexed elementary extremal-polynomial or kinetic positivity literature may have computed an equivalent finite-grid moment cone.",
+      "The theorem is a special fixed polynomial velocity-space case, not general feasibility of the 2026 method."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source formulates the constrained problem and recognizes unresolved feasibility; it does not give exact affine/quadratic fixed-velocity moment cones.",
+        "evidence": [
+          "Section 4 gives F=XSV^T >=0 and two exact moments as the core QP.",
+          "The paragraph following Proposition 4.1 and section 6 identify potential infeasibility and rank enrichment, without a necessary-and-sufficient bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.31662",
+        "material_read": "Sections 3.1–3.4, 4 (equations 4.1–4.5 and Proposition 4.1), and section 6 through accessible full-text reproduction.",
+        "method": "Primary-text reading and statement-versus-implication comparison",
+        "title": "Positivity-preserving dynamical low-rank methods for the Vlasov equation",
+        "trigger": "Same core-matrix positivity/mass/momentum QP and explicit feasibility caveat"
+      },
+      {
+        "assessment": "The conservation result evolves macroscopic moments and projects a remainder; it is not a simultaneous entrywise-positive fixed-polynomial-factor core correction and does not imply its sharp feasibility thresholds.",
+        "evidence": [
+          "The source describes conservation through separate macroscopic equations and reference-subspace projection, rather than nodewise nonnegative constrained core feasibility."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10915-024-02684-1",
+        "material_read": "Open-access full-text introduction, sections 2 and 3.1 and description of conservative moment projection",
+        "method": "Primary open-access article comparison",
+        "title": "A Local Macroscopic Conservative (LoMaC) Low Rank Tensor Method for the Vlasov Dynamics",
+        "trigger": "Potentially broader conservative low-rank moment-space theorem"
+      },
+      {
+        "assessment": "It concerns robust mass/momentum conservation, without the present nodal-positivity and mass-momentum cone feasibility classification.",
+        "evidence": [
+          "The introduction describes adding basis functions for conservation and rank truncation; no corresponding nonnegative-velocity polynomial cone condition is supplied."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.09374",
+        "material_read": "Accessible preprint full-text introduction and sections describing conservation goals and rank adaptation",
+        "method": "Primary preprint comparison",
+        "title": "A robust and conservative dynamical low-rank algorithm",
+        "trigger": "Fixed invariant velocity basis and possibly stronger moment-compatibility theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "66e2dee7-7c04-4578-af9d-d0669fd306fa",
+  "value": {
+    "rationale": "Feasibility of simultaneous nodal positivity plus exact mass and momentum is an explicit open limitation in the recent QP-based low-rank scheme. The exact necessity/sufficiency thresholds and rank-two-to-rank-three enrichment gain are practical design diagnostics. The nearby infeasible-data construction establishes a stability boundary invisible to small approximation error, without claiming an unrelated algorithmic convergence improvement.",
+    "status": "PASS"
+  }
+}
