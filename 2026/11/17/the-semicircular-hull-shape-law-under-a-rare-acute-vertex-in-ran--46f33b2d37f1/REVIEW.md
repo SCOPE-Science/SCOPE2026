@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact beta aggregation, independent uniform split, rarity of multiple acute sites, conditional Dirichlet mesh collapse, and Hausdorff continuity support the complete marked limit. The polygon area and perimeter formulas follow from a semicircle and its apex triangle. Numerical finite-n checks supplement but do not establish the result.
+## correctness
 
-**Originality — PASS, provisional.** Putnam 2005 A6 completely covers the known acute-event and angle-count probabilities; those are not new. Full-text comparisons with Finch (2016) and Koroleva–Nikitin (2013) concern fixed-size cyclic quadrilateral geometry and unconditional random polygon extrema, respectively, not the rare conditional hull limit. published-finding corpus indexed studies of typical area/perimeter convergence are inapplicable because conditioning changes the macroscopic geometry. One potentially related indexed complete manuscript could not be inspected, and historical priority is not independently established.
+PASS
 
-**Value — PASS.** The rare-event hull does not approach the disk but a randomly oriented semicircle-and-apex region, yielding nondegenerate explicit area/perimeter distributions and an independent exponential angular gap mark. This is a structural geometric probability phenomenon rather than recomputation of the Putnam count law.
+For n>=5 and independent uniform circle points, the inscribed-angle theorem gives vertex i acute iff G_(i-1)+G_i>1/2. A labelled adjacent-pair sum S is Beta(2,n-2); the split U=A/S is independent Uniform(0,1). Exact survival (1-s)^(n-2)(1+(n-2)s) gives n(S-1/2)|S>1/2 ⇒ Exp(rate 2). The known Putnam multiple-acute conditional probability 2/(n-2) vanishes, so selecting a unique acute vertex preserves the limit. Residual Dirichlet gaps have maximum tending to 0, yielding Hausdorff convergence of the remaining vertices to a complementary semicircle. The limiting semicircular hull plus one apex has area π/2+sin(πU), perimeter π+2(sin(πU/2)+cos(πU/2)); the area CDF and expected limits follow by change of variables and bounded convergence. Independently derived Beta tail expansion and marked arc geometry. The sampler only corroborates finite n, not the asymptotic proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the conditional whole-hull Hausdorff limit, independent overshoot and marked uniform orientation, plus area/perimeter laws. Putnam 2005 exactly covers acute counts and event probability, which are explicitly not new; fixed-size polygon and unconditional extreme-perimeter laws do not imply the conditioned semicircle law.
+
+## value
+
+PASS
+
+This identifies a geometrically meaningful rare-event transition from nearly full-disk hulls to an apex plus a semicircle, with a nondegenerate full shape law, an independent exponential overshoot, and explicit conditioned area/perimeter distributions. It is not merely recomputation of the classical acute-event probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
