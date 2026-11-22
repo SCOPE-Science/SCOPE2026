@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The endpoint reduction is proved for distinct equal-length four-mers. Greedy worst length is obtained by exhaustive tie-recursion, optimum by an exact Hamiltonian overlap DP. Both C++ implementations executed from included package paths: one on 1,443,279 endpoint states and the independent literal-strings checker on 1,703,924 string states. Both exhaustively verified 39,202 sets, the same per-size maxima/counts and exactly masks 1343, 5431, 60584, 64672. A literal 11-bit host and a legal 17-bit seven-merge trace confirm attainability and an elementary window count gives the sharp optimal lower bound. No extrapolation outside size eight.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cazaux–Rivals general bound rho_k <=(k+1)/2, cited in Chukhin et al., is too weak to determine 3/2 crossing for binary 4-mers.",
+        "The 2026 lower-bound families at k>=6 use other widths or fresh alphabets, and their existence does not classify eight binary length-four reads."
+      ],
+      "reasoning": "General upper and lower bounds on unbounded input families do not resolve a finite binary width-four census or equality count; no cited stronger theorem implies the eight-input threshold.",
+      "searches": [
+        "published-finding corpus: sharp maximum-overlap greedy 4-gram binary smallest instance worse than 3/2 8 words",
+        "Web: \"Cazaux\" \"Rivals\" \"binary\" shortest superstring greedy 2018 approximation",
+        "published-finding corpus: exact worst case greedy superstring binary length four equal-length input ratio all subsets",
+        "arXiv 2608.20018 §§1–4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2608.20018",
+      "https://www.lirmm.fr/~rivals/publication/cazaux-dam-2018/",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-binary-three-word-greedy-superstring-ratio-and-all-equalit--f43f5caa07c5",
+      "published-finding corpus semantic records on width-80 construction and binary-three-word exact ratio",
+      "Scientific claim 570894b1-9121-4b99-a4b5-a5cede642956"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The unrestricted width-three ratio 9/5 and binary width-three ratio 10/7 concern words of length three, not the four-mer input family.",
+        "The complete width-four universe previously has optimal length 19 and worst Greedy length 27, but not an extremum over its proper subsets.",
+        "New exhaustive recurrence computes all 39,202 sets of size at most eight, with four and only four exceeding 3/2, whereas no checked prior result states or forces this."
+      ],
+      "reasoning": "Neither an example for a different width, a general non-sharp bound, nor a single full-universe instance gives the exact minimum cardinality and equality orbit for width four.",
+      "searches": [
+        "published-finding corpus: greedy shortest common superstring all subsets of binary length-three words exact worst approximation ratio equality cases",
+        "published-finding corpus: binary four-mer greedy 8 strings 17/11 reversal complement four extremizers",
+        "arXiv:2608.20018 Preliminaries and Sections 3–5",
+        "Prior scientific claim 570894b1-9121-4b99-a4b5-a5cede642956"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The paper defines Greedy with arbitrary tie-breaking and evaluates its unrestricted-alphabet k=3 ratio; its definitions match the present model but its quantifiers differ.",
+        "An exact failure at eight reads is equivalent to minimum input cardinality of a binary four-mer set with max-Greedy-to-OPT ratio greater than 3/2; no inspected source provides that exact minimizer or four orbit cases."
+      ],
+      "reasoning": "Same algorithm and ratio objective do not imply equivalence when alphabet size, word width and read cardinality differ. The new claim exhausts 39,202 specific binary four-mer input sets, whereas the primary literature bound is for arbitrary-alphabet instances of unrestricted size.",
+      "searches": [
+        "published-finding corpus: binary 4-mers greedy shortest common superstring 3/2 threshold minimal set size eight 17/11 four examples",
+        "published-finding corpus: sharp maximum-overlap greedy 4-gram binary smallest instance worse than 3/2 8 words",
+        "Web: \"greedy\" \"four-mer\" \"17/11\" superstring",
+        "arXiv 2608.20018 §§1–4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed source 2026/11/8/SCOPE-sharp-binary-three-word-greedy-superstring-ratio-and-all-equalit--f43f5caa07c5 tabulates the width-three binary case, not width four.",
+        "Owned prior 570894b1-9121-4b99-a4b5-a5cede642956 treats the complete 16-read input only; no at-most-eight-subset table or minimum-cardinality implication."
+      ],
+      "reasoning": "Enumerating exactly one full input set or every width-three input does not determine a width-four eight-element subset optimum; no matching exact database/table was located among the actual checked results.",
+      "searches": [
+        "published-finding corpus: binary 4-mers greedy shortest common superstring 3/2 threshold minimal set size eight 17/11 four examples",
+        "published-finding corpus: exact finite greedy superstring length four 8 strings all complement reversal equality",
+        "Web: \"greedy\" \"4-mers\" \"3/2\" superstring",
+        "Prior finite scientific claim 570894b1-9121-4b99-a4b5-a5cede642956"
+      ]
+    },
+    "rationale": "The primary 2026 complete-text Greedy SCS paper gives general fixed-width results, not the binary four-mer at-most-eight-word complete cardinality census. The closest indexed binary three-mer finite result concerns a different width, the width-80 counterexample a different length and input size, and the owned complete-sixteen-four-mer result a single set, not all subsets. Actual lexical, alias and implication searches found no covering claim, with documented residual unindexed-priority risk.",
+    "residual_risks": [
+      "Unindexed earlier binary width-four finite instance enumeration could contain the same threshold.",
+      "Cazaux–Rivals original full text not inspected; available abstract and primary 2026 citation do not establish same finite census.",
+      "published-finding corpus binary width-three full scientific file was not accessible; quantified summary sufficed for width mismatch, not a claim of complete full-text inspection."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant model and general bounds, but the stated results do not classify the binary width-four eight-read threshold",
+        "evidence": [
+          "Original date 2026-08-20 13:29:44 UTC from arXiv record",
+          "Section 2 model permits ordered maximum suffix-prefix overlap and arbitrary ties",
+          "Results explicitly handle unrestricted-alphabet rho_3 and lower bounds for widths at least six, not the new binary four-mer finite census"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.20018",
+        "material_read": "Relevant sections of the accessible primary full-text rendering: introduction, preliminaries, theorem statements, width-six and higher constructions, and width-three result; no claim of exhaustive appendix reading",
+        "method": "Read accessible arXiv HTML text through primary record and matching public full text reproduction",
+        "title": "The Greedy Superstring Algorithm Achieves Ratio 2 for Strings of Length 6 Already",
+        "trigger": "Exact same Greedy objective; 2026 first public source"
+      },
+      {
+        "assessment": "General bounds cited, no evidence of exact binary four-mer at-most-eight table; residual full-text gap",
+        "evidence": [
+          "Author page abstracts describe approximate guarantees and no exact binary four-mer census"
+        ],
+        "identifier_or_url": "https://www.lirmm.fr/~rivals/publication/cazaux-dam-2018/",
+        "material_read": "Author group public abstract and corresponding discussion/bound in the 2026 full text; original full text not inspected",
+        "method": "Author publication page and 2026 primary text cross-reference",
+        "title": "Relationship between superstring and compression measures: New insights on the greedy conjecture",
+        "trigger": "General fixed-width Greedy bounds cited by 2026 paper"
+      },
+      {
+        "assessment": "Width three, not four; no same-width all-subset threshold implication",
+        "evidence": [
+          "Published summary reports binary width-three exact ratio 10/7 among 255 sets and four equality cases"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-binary-three-word-greedy-superstring-ratio-and-all-equalit--f43f5caa07c5",
+        "material_read": "published-finding corpus published semantic record title and summary; full primary file could not be fetched in this round",
+        "method": "published-finding corpus semantic search, compared exact quantified published summary to new claim",
+        "title": "Sharp binary three-word greedy-superstring ratio and all equality cases",
+        "trigger": "Closest mathematical finite benchmark on binary alphabet"
+      },
+      {
+        "assessment": "A one-set length spectrum cannot imply the new 39,202-set, at-most-eight-read threshold",
+        "evidence": [
+          "Previous claim concerns exactly the complete 16-element input rather than subsets of sizes 1–8"
+        ],
+        "identifier_or_url": "570894b1-9121-4b99-a4b5-a5cede642956",
+        "material_read": "Recoverable scientific claim and opaque identifier for the complete sixteen-read binary four-mer instance; no previous scientific review was undertaken",
+        "method": "Statement and implication comparison with a prior claim",
+        "title": "Fixed-input complete binary four-mer census",
+        "trigger": "Overlap check for fixed binary width four"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "25f98f2d-59f0-44e4-8971-3c4c0b7867d6",
+  "value": {
+    "rationale": "The minimum number of reads required to violate a 3/2 ratio is a meaningful sharp threshold for a canonical fixed alphabet, fixed read width in the ongoing fixed-width Greedy approximation problem. The finite classification enumerates all smallest adversarial inputs and their exact reversal/complement symmetry orbit, useful as small benchmarking counterexamples; it is not an arbitrary sample of parameter choices, and the result is not a simple reformulation of known width-three or complete-sixteen-read computations.",
+    "status": "PASS"
+  }
+}
