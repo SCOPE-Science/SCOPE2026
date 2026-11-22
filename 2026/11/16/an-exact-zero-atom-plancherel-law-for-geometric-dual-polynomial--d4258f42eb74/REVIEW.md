@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The parameter inequalities match every hypothesis of Kahler–Obermaier Theorem 2.1: the first inequality is strict, the \(n=3\) condition is the lower bound for \(t\), and every \(n\ge4\) condition is the upper bound on \(q\). The polynomial values at zero and Haar factors follow by the recurrence, giving an absolutely convergent squared-eigenvector norm. The spectral-theorem normalization identifies its reciprocal as the probability mass. The even part of Euler's \(q\)-binomial identity gives the product without numerical inference. A standalone rational-arithmetic checker supplements the proof.
+PASS
 
-## Originality
+For 0<q<=(-2+sqrt(6))/2 and 2q³+4q²<=t<(1-q²)/(2-q²), n=3 of Kahler–Obermaier Theorem 2.1 is exactly the lower bound, the n>=4 inequalities are q²+2q<=1/2, and the strict initial inequality is the upper bound; all Jacobi coefficients lie in (0,1). At x=0, the recurrence forces odd P_n=0 and computes even values and Haar weights exactly: h(2m)P_2m(0)²=ρ q^{2m²-m}/(q;q)_{2m}, ρ=t(1-q)/(q(1-t)). Supergeometric summability gives an actual l² Jacobi eigenvector, so the zero atom equals [1+ρ sum_{m>=1} q^{2m²-m}/(q;q)_{2m}]^-1. Even-part extraction from Euler q-binomial identity evaluates that sum as (prod_{j>=0}(1-q^{2j+1}))^-1-1. For t=q, ρ=1; derivative dρ/dt>0 proves strict mass decrease. Finite exact rational tests of recurrence/normalization supplement, but do not replace, spectral and infinite-series reasoning.
 
-**PASS relative to inspected literature, not an independent priority certificate.** [1] introduces the eligible positive-linearization family and proves qualitative discrete spectral support, but does not calculate these central mass values. The closest public indexed finding [2] has a spectral edge counting/product theorem for the opposite geometric recurrence; its full `RESULT.md` expressly excludes the switched case and masses. Euler's generating-function identity is classical and is not represented as original. Related earlier orthogonal-polynomial general results [3] establish nonnegative linearization without asserting these explicit masses. The possible existence of an equivalent old special-function spectral weight is a residual risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** In the new family, the binary question of whether zero occurs in the Plancherel support had been settled, but its probability weight remained unknown. The exact weight is the coefficient needed to quantify projection onto the zero character in the complete orthogonality decomposition. The nontrivial odd Euler product and the exact monotone first-coefficient defect response give an explicit two-parameter benchmark for hypergroup spectral reconstruction, rather than a tautology about recurrence existence.
+A known switched geometric recurrence plus classical Euler summation is converted into a nontrivial explicit central spectral mass, and an exact first-coefficient Möbius response; inspected prior structural results do not give the mass.
 
-## Closest literature and limitations
+## value
 
-[1] S. Kahler–J. Obermaier (2026), arXiv:2603.17983v1, especially Theorem 2.1 and Section 4; [2] *Logarithmic spectral edge law and Euler product for a geometric random-walk polynomial hypergroup* (2026-11-01); [3] W. Młotkowski–R. Szwarc (2001), qualitative discrete-orthogonality criterion. This result does not determine other atoms, assert a maximal positivity region, or establish publication priority against every earlier special-function representation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determines a natural unknown exact Plancherel atom of the newly studied switched geometric polynomial-hypergroup family, distinguishing mass from known support and location products. The explicit positive q-product and fractional-linear first-site perturbation quantify spectral response on a nontrivial parameter region; the Euler identity is standard but the spectral specialization is motivated and non-implied.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

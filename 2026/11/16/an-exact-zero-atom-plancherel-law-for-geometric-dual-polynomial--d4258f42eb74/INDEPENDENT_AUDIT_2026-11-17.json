@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T04:05:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 0<q<=(-2+sqrt(6))/2 and 2q³+4q²<=t<(1-q²)/(2-q²), n=3 of Kahler–Obermaier Theorem 2.1 is exactly the lower bound, the n>=4 inequalities are q²+2q<=1/2, and the strict initial inequality is the upper bound; all Jacobi coefficients lie in (0,1). At x=0, the recurrence forces odd P_n=0 and computes even values and Haar weights exactly: h(2m)P_2m(0)²=ρ q^{2m²-m}/(q;q)_{2m}, ρ=t(1-q)/(q(1-t)). Supergeometric summability gives an actual l² Jacobi eigenvector, so the zero atom equals [1+ρ sum_{m>=1} q^{2m²-m}/(q;q)_{2m}]^-1. Even-part extraction from Euler q-binomial identity evaluates that sum as (prod_{j>=0}(1-q^{2j+1}))^-1-1. For t=q, ρ=1; derivative dρ/dt>0 proves strict mass decrease. Finite exact rational tests of recurrence/normalization supplement, but do not replace, spectral and infinite-series reasoning.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kahler–Obermaier Theorem 2.1 gives existence/positive linearization of both swapped recurrences; Section 4 discusses qualitative dual support.",
+          "Kahler–Szwarc 2025 develops Haar and dual-space criteria but does not directly yield this q,t atom mass formula in inspected sections."
+        ],
+        "reasoning": "Broad structural theory determines which families have orthogonality/dual support, not the exact normalized Plancherel mass at the zero eigenvalue or its t-response.",
+        "searches": [
+          "geometric switched random walk polynomial hypergroups exact Plancherel atom at zero positive q odd Euler product",
+          "https://arxiv.org/html/2603.17983v1",
+          "https://publications.rwth-aachen.de/record/995873/files/995873.pdf"
+        ]
+      },
+      "checked_sources": [
+        "pinned 2026/11/16/an-exact-zero-atom-plancherel-law-for-geometric-dual-polynomial--d4258f42eb74/RESULT.md Git blob ee34aa1cf56d88bbecbe7651fefe2ddc5317ea00",
+        "pinned CHECK.py Git blob 9a93a543a0d93bfc2ecbe14bd0a43f00beeaab50",
+        "https://arxiv.org/html/2603.17983v1",
+        "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-logarithmic-spectral-edge-law-and-euler-product-for-a-geometric--4247c3e219b0/RESULT.md",
+        "https://publications.rwth-aachen.de/record/995873/files/995873.pdf",
+        "Resultary query: geometric switched random walk polynomial hypergroups exact Plancherel atom at zero positive q odd Euler product"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior edge-law theorem explicitly studies c_odd=1-Q^{-odd}, c_even=Q^{-even} (Q>=5), opposite to assigned c_odd=q^{odd}, c_even=1-q^{even} (small q).",
+          "Its Euler product is over eigenvalue locations and explicitly excludes spectral atom weights; Kahler–Obermaier does not state the central mass."
+        ],
+        "reasoning": "The opposite branch spectra and products do not imply the mass of an individual central eigenvalue of the switched Jacobi operator; the new formula requires solving the central recurrence and normalizing its l² eigenvector.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-logarithmic-spectral-edge-law-and-euler-product-for-a-geometric--4247c3e219b0/RESULT.md",
+          "https://arxiv.org/html/2603.17983v1",
+          "https://publications.rwth-aachen.de/record/995873/files/995873.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The atom mass is reciprocal to sum_n h(n)|P_n(0)|² by the spectral theorem, a known representation.",
+          "The even Euler subseries is the classical odd-factor q-Pochhammer product, not claimed as a new series identity."
+        ],
+        "reasoning": "The new result is the exact application to this switched recurrence and t-perturbation family; a general inverse-kernel theorem is not an evaluation of this geometric sum.",
+        "searches": [
+          "Kahler Obermaier switched geometric hypergroup zero Plancherel atom q Pochhammer mass",
+          "Jacobi zero atom inverse Christoffel kernel orthogonal polynomials q-Pochhammer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched Resultary historical item is an opposite-coefficient spectral-edge/eigenvalue-product result; the other strongest hit was the assigned result itself.",
+          "No independent table of switched-recursion zero masses parameterized by q,t was found."
+        ],
+        "reasoning": "An unindexed table under special-function notation might contain the same number; this cannot be ruled out solely by search.",
+        "searches": [
+          "Kahler Obermaier switched geometric hypergroup zero Plancherel atom q Pochhammer mass",
+          "geometric switched random walk polynomial hypergroups exact Plancherel atom at zero positive q odd Euler product",
+          "q Pochhammer zero spectral mass geometric alternating Jacobi q t"
+        ]
+      },
+      "rationale": "A known switched geometric recurrence plus classical Euler summation is converted into a nontrivial explicit central spectral mass, and an exact first-coefficient Möbius response; inspected prior structural results do not give the mass.",
+      "residual_risks": [
+        "An older Jacobi spectral measure or basic-hypergeometric special-function formula could imply this individual zero mass under different parameters.",
+        "The positive-linearization parameter domain is sufficient, not proved maximal; no masses at the other spectral points are determined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRUCTURAL_OVERLAP, no explicit central mass for the switched q,t family",
+          "evidence": "Theorem 2.1 establishes positivity, and Section 4 concerns support/dual sets, not the reciprocal l²-normalization formula.",
+          "identifier_or_url": "https://arxiv.org/html/2603.17983v1",
+          "material_read": "Full public HTML: Theorem 2.1 coefficient conditions and Section 4 discrete dual-space discussion",
+          "method": "web full HTML",
+          "title": "A new class of orthogonal polynomials",
+          "trigger": "Identical geometric family, possible domination"
+        },
+        {
+          "assessment": "NOT_COVERING the swapped zero spectral atom; different coefficient ordering and invariant",
+          "evidence": "The prior paper states no individual spectral atom masses and expressly does not handle the switched recurrence.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-logarithmic-spectral-edge-law-and-euler-product-for-a-geometric--4247c3e219b0/RESULT.md",
+          "material_read": "Complete RESULT.md including theorem, proof, recurrence, prior-work and limitations",
+          "method": "GitHub connector full public text",
+          "title": "Logarithmic spectral edge law and Euler product for a geometric random-walk polynomial hypergroup",
+          "trigger": "Nearest published result with Euler spectral product"
+        },
+        {
+          "assessment": "RELATED GENERAL STRUCTURE; exact zero-atom mass not identified in inspected material",
+          "evidence": "Defines Haar weights and orthogonality/dual spaces; zero atom and q,t Euler product were not encountered in inspected sections.",
+          "identifier_or_url": "https://publications.rwth-aachen.de/record/995873/files/995873.pdf",
+          "material_read": "Open-access 15-page article, abstract and definitions/criteria in introduction and early sections; searches for zero atom and mass, not a claim of exhaustive document noncoverage",
+          "method": "web PDF text with page screenshot",
+          "title": "Dual spaces vs. Haar measures of polynomial hypergroups",
+          "trigger": "General stronger hypergroup spectral coverage possibility"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determines a natural unknown exact Plancherel atom of the newly studied switched geometric polynomial-hypergroup family, distinguishing mass from known support and location products. The explicit positive q-product and fractional-linear first-site perturbation quantify spectral response on a nontrivial parameter region; the Euler identity is standard but the spectral specialization is motivated and non-implied.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "pinned 2026/11/16/an-exact-zero-atom-plancherel-law-for-geometric-dual-polynomial--d4258f42eb74/RESULT.md Git blob ee34aa1cf56d88bbecbe7651fefe2ddc5317ea00",
+    "pinned CHECK.py Git blob 9a93a543a0d93bfc2ecbe14bd0a43f00beeaab50",
+    "https://arxiv.org/html/2603.17983v1",
+    "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-logarithmic-spectral-edge-law-and-euler-product-for-a-geometric--4247c3e219b0/RESULT.md",
+    "https://publications.rwth-aachen.de/record/995873/files/995873.pdf",
+    "Resultary query: geometric switched random walk polynomial hypergroups exact Plancherel atom at zero positive q odd Euler product"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific completed C/O/V assessment is not a publisher, independent-human, or formal proof certificate.",
+    "No public-source changes, sanitized replacement or authorized publication was performed."
+  ],
+  "residual_risks": [
+    "An older Jacobi spectral measure or basic-hypergeometric special-function formula could imply this individual zero mass under different parameters.",
+    "The positive-linearization parameter domain is sufficient, not proved maximal; no masses at the other spectral points are determined."
+  ],
+  "schema_version": 1
+}
