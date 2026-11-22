@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The Gram matrix and normal equations were reconstructed; the exterior alternating-sign decay follows inductively from strict tridiagonal diagonal dominance. The central two-variable system was checked against exact hat integrals, including boundary cells, and its four sign cases each imply the needed upper bound. Distributional Stieltjes decomposition extends the step estimate to all real \(BV\) data. The family with geometrically contracting cells gives a proved sharpness limit. An independent exact rational implementation checked 8,205 step responses, 55,608 piecewise-constant cases and seven explicit limiting-grid witnesses. The finite checks do not prove the unrestricted result.
+
+**Originality — PASS, with residual historical risk.** The relevant full texts of Oswald (arXiv:math/0611573) and Foucart (2006) were examined. They concern the \(L^\infty\) projector norm and related spline stability, not the variation seminorm of a projected step. Published adjacent results on graph-affine projections, isolated-cell splines, and periodic spline sup norms were compared: their \(L^\infty\) bounds do not imply the claimed \(BV\) norm without a variation-specific argument. Accessible prior claims concern broken quadratic projection, natural cubic splines, and nonlinear variation operators, not this statement. Older Franklin-system approximation literature may conceivably include an equivalent result despite not appearing in searches.
+
+**Mathematical value — PASS.** The theorem answers a natural stability question for a classical least-squares finite-element projector on arbitrarily graded meshes. The exact coefficient and explicit asymptotically sharp mesh/step construction distinguish it from the familiar bounded-input norm; the calculation also identifies alternating undershoot tails as the mechanism. The result is uniform over every partition and every real \(BV\) datum, not a finite numerical case study.
+
+**Limitations.** No mesh-specific sharp coefficient, higher polynomial degree, multivariate BV result, or independent audit is asserted. Historical priority beyond inspected documents remains uncertain.
+
+Self-review: passed. Independent audit: not yet performed.
