@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "Exact binomial-to-weight identity from Kummer and Lucas digit factors; signed 3-state B matrix with B^3=3B+I and initial data; exact recurrence and rational GF. Its real cubic eigenvalues yield kappa>0 and strict exponential spectral gap; aligned cylinder sums are ±e0^T B^(j+1) e_b and hence at most theta^(j+1), giving all-prefix O(X^alpha); X=3^L yields sharpness. The actual standalone checker computed 2600 exact integer binomial residues, all complete 3^L blocks through L=7, and verified both integer matrix identities and recurrences. This finite check does not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barat–Grabner Lemma 1 and Theorem 1 supply broad block-multiplicative transfer and asymptotic methods, including functions that vanish on forbidden digits.",
+        "The exact prime-relative Fuss–Catalan prior result covers p=3 with the same binomial numerator, determines U_L and p-adic dimension, and does NOT calculate signed unit-residue differences."
+      ],
+      "reasoning": "The general method permits derivation after explicitly constructing B and determining its eigenvalues, but does not itself supply this theorem as a statement or numerically specialized corollary. The identical-object result covers only support, so it does not dominate the signed claim. The known unsigned U_L is explicitly omitted from novelty.",
+      "searches": [
+        "exact distribution binomial coefficient 4n choose n modulo 3 ternary block generating function sign bias",
+        "nonzero residues binomial 4n choose n mod 3 base 3 digit adjacency spectral dimension",
+        "Barat and Grabner 2001 PDF sections 1-2,4",
+        "published prime-relative Fuss–Catalan nondivisibility result full RESULT.md"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2309.00109",
+      "doi:10.1112/S0024610701002630",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-prime-relative-fuss-catalan-nondivisibility-exact-spectra-and-p--fca5ba9f3d60",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-sharp-square-root-imbalance-for-binom-4n-2n-modulo-five--88cd6f9d99bb",
+      "https://oeis.org/A006356",
+      "https://oeis.org/A188022"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prime-relative Fuss–Catalan theorem: p-nondivisibility iff adjacent base-p digit sums at most p-1, exact spectral unsigned N_p(r), nothing signed.",
+        "Different modulus-five ray theorem: signed imbalance of binomial(4n,2n) mod 5 with complex two-state transducer and square-root cutoff, not binomial(4n,n) mod 3.",
+        "Central-binomial progression and joint valuations results discuss other objects and cannot yield the signed p=3 proportion for the 4n:n diagonal."
+      ],
+      "reasoning": "A result that counts U_L alone cannot imply D_L because splitting U into two unit-residue classes requires additional local sign factors and a different signed transfer matrix. The modulo-five theorem is neither a statement about the same binomial integers nor a prime-three residue congruence and cannot be substituted. The 2001 digital theorem controls broad transfer operators without computing B eigenstructure and signed positive recurrence.",
+      "searches": [
+        "binomial 4n n Lucas signed residue equidistribution 3 adic shift adjacency 11",
+        "binomial 4n n modulo 3 positive negative counts signed 11 digit pair",
+        "2026/11/8/SCOPE-prime-relative-fuss-catalan-nondivisibility-exact-spectra-and-p--fca5ba9f3d60",
+        "2026/10/26/SCOPE-sharp-square-root-imbalance-for-binom-4n-2n-modulo-five--88cd6f9d99bb",
+        "2026/11/8/SCOPE-complete-ternary-residue-spectra-of-central-binomial-coefficient--fb50ad3bd18f",
+        "2026/11/8/SCOPE-joint-ternary-valuations-of-central-and-threefold-binomial-coeff--1999135510ae"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lucas factorization of (4n choose n) modulo 3 equals a signed adjacent-11 pair weight on ternary words avoiding adjacent digit sums >=3.",
+        "A188022 has the same recurrence shifted by two positions but interprets it as an entry in a 4x4 tridiagonal unit-primitive matrix."
+      ],
+      "reasoning": "The numeric sequence alone is not a published identification of the signed binomial residue count. No checked source gives an equivalent digit-to-binomial signed identity or the sharp arbitrary-prefix bound.",
+      "searches": [
+        "signed modulo three residue difference binomial coefficient 4n choose n 3^L largest root x^3-3x-1",
+        "Fuss-Catalan arity four mod three exact positive negative bias transfer matrix",
+        "binomial 4n n Lucas signed residue equidistribution 3 adic shift adjacency 11",
+        "arxiv:2309.00109 sections 1-4",
+        "OEIS A188022"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A006356: unsigned path-count sequence 1,3,6,14,31,... with matrix A and forbidden ternary pairs.",
+        "A188022: 0,1,1,3,4,10,15,... and recurrence a(n)=3a(n-2)+a(n-3), so D_L=A188022(L+2)."
+      ],
+      "reasoning": "The unsigned path enumeration is known and openly excluded. The signed recurrence numbers are recorded as a distinct tridiagonal-matrix sequence, but the statement that these count binomial residues and have a globally optimal arithmetic prefix exponent is not in the inspected OEIS entry.",
+      "searches": [
+        "https://oeis.org/A006356",
+        "https://oeis.org/A188022",
+        "signed modulo three residue difference binomial coefficient 4n choose n 3^L largest root x^3-3x-1",
+        "exact distribution binomial coefficient 4n choose n modulo 3 ternary block generating function sign bias"
+      ]
+    },
+    "rationale": "The closest exact same-object prior result establishes the nondivisible support of the four-ary Fuss–Catalan numerator at prime three, not its signed unit-residue imbalance. The 2001 general digit-block machinery is a strong enabling antecedent but does not state this cubic signed recurrence, positivity, or sharp exponent. The modulo-five signed result concerns a non-equivalent binomial ray and prime. OEIS tabulates shifted recurrence values without the binomial interpretation or all-prefix sharpness. Actual targeted searches revealed no equivalent theorem. Unindexed specialization and generic-theorem reduction remain residual priority risks.",
+    "residual_risks": [
+      "Barat–Grabner generic block-multiplicative machinery may have an obscure prior exact specialization for the same four-to-one ray.",
+      "The signed recurrence already exists in OEIS A188022 under a different interpretation; an unindexed combinatorial identity could have identified the same binomial count.",
+      "No independent historical-priority or mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "It develops prime congruence simplifications and identities, not signed complete ternary-block counts of binomial(4n,n).",
+        "evidence": [
+          "Theorem 1.2 is an extension of Lucas digit reduction; Section 4 gives finite congruences, no 4n:n signed residue census.",
+          "arXiv v1 posting dated 2023-08-31."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2309.00109",
+        "material_read": "Full accessible HTML article; Introduction, sections 2, 3, 4 and stated theorems and conclusions",
+        "method": "Read arXiv full HTML text and its section headings, assertions, congruence equations",
+        "title": "An extension of Lucas Theorem",
+        "trigger": "First public motivating source with prime-modulus binomial congruences; possible stronger Lucas formula"
+      },
+      {
+        "assessment": "Covers the general method but does not present the targeted signed ray, exact characteristic polynomial and bias, or sharp all-prefix exponent. Methodological priority risk remains.",
+        "evidence": [
+          "Section 2, Lemma 1 gives arbitrary block transfer matrix identities.",
+          "Section 4 handles aggregate Pascal-triangle distributions and character-sum bounds."
+        ],
+        "identifier_or_url": "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+        "material_read": "Author PDF: title/intro, Section 2 block-multiplicative definitions, Lemma 1, Theorem 1 and corollaries, and Section 4 binomial residue distribution, including PDF page images 1 and 4",
+        "method": "Inspected PDF parsed equations and relevant page screenshots",
+        "title": "Distribution of Binomial Coefficients and Digital Functions",
+        "trigger": "Plausible dominating general transfer theorem for digital block products"
+      },
+      {
+        "assessment": "Already establishes prime-three nondivisibility-support U_L, and p-adic dimension, with no signed unit-residue count; U_L is not claimed new.",
+        "evidence": [
+          "Finding gives the precise no-carry digit condition and unsigned N_p(r).",
+          "No sign-weight or residue-one versus residue-two difference theorem appears in its proof."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-prime-relative-fuss-catalan-nondivisibility-exact-spectra-and-p--fca5ba9f3d60",
+        "material_read": "Complete published RESULT.md with findings, proof, scope, relations and limitations",
+        "method": "Fetched and read complete publicly accessible GitHub file",
+        "title": "Prime-relative Fuss–Catalan nondivisibility: exact spectra and p-adic dimension",
+        "trigger": "Identical numerator for p=3, potentially same exact census"
+      },
+      {
+        "assessment": "Analogous strategy for distinct ray and modulus five; cannot imply the modulus-three four-ary signed recurrence.",
+        "evidence": [
+          "Its exact signed sum is Re((1+i)(2+i)^L), uses base-five matrix and oscillates.",
+          "Present sign recurrence is positive and involves cubic with eigenvalue 2cos(pi/9)."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-sharp-square-root-imbalance-for-binom-4n-2n-modulo-five--88cd6f9d99bb",
+        "material_read": "Complete published RESULT.md including proof and limitations",
+        "method": "Fetched and read complete publicly accessible GitHub file",
+        "title": "Sharp square-root imbalance for binomial(4n,2n) modulo five",
+        "trigger": "Closest signed residue-imbalance theorem using binomial ray and digit transfer"
+      },
+      {
+        "assessment": "Known numerical recurrences; no tabulated identification of signed binomial(4n,n) residue imbalance.",
+        "evidence": [
+          "A006356 includes forbidden adjacent ternary digit-pair interpretation.",
+          "A188022 gives shifted signed-recursion values as a matrix-entry sequence."
+        ],
+        "identifier_or_url": "https://oeis.org/A006356; https://oeis.org/A188022",
+        "material_read": "Both complete encyclopedia entries including comments, formula, links, and references",
+        "method": "Read both entry pages and their formulas",
+        "title": "OEIS A006356 and A188022",
+        "trigger": "Check known exact unsigned counts and previously recorded signed recurrence data"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e40402e7-04ea-4a3b-8b78-6bfaf0fe7a8f",
+  "value": {
+    "rationale": "The signed residue balance is the natural refinement of the already studied nondivisibility support of four-ary Fuss–Catalan integers at prime 3. This is a mathematically motivated exact invariant, not an arbitrary slice. A new integer recurrence gives the complete signed block census; a structural spectral argument gives an optimal global prefix exponent and quantitative relative equidistribution, including strict residue-one surplus at every power-of-three cutoff. Known unsigned facts are not treated as new.",
+    "status": "PASS"
+  }
+}
