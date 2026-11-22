@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For a continuous parent CDF, the transformed nested maxima have copula C_r(u,v)=min(u v^(1-r),v). The no-new-record singular event has exact mass r=n/m; the ac density is (1-r)v^(-r) on 0<u<v^r. The TV overlap against independence is the exact integral of min(v^r,1-r), yielding beta=r+r(1-r)(1-r)^(1/r)/(1+r). Earlier and later maximum-path kernels are conditionally independent given the two endpoints, so their attachment and subsequent projection preserve TV exactly. Threshold events prove phi=1, and positive singular mass makes KL divergence infinite. Asymptotics use the standard logarithmic limit. A portable checker independently validates rational optimization identities, exact rank fractions, numerical integrals and seeded distribution samples (359 passed checks); these are subordinate to the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Baz and Pellerey, arXiv:2611.22599v1, give bivariate maximum-process copulas; the special copula used as step 1 of the present proof is covered.",
+        "Longla, arXiv:1310.8241v2, Example 9 requires both Marshall–Olkin parameters not equal to one and stationary chains."
+      ],
+      "reasoning": "A known two-time copula determines all pairwise dependence functionals in principle; its derivation is not claimed as new. Computing the singular+ac total-variation optimum, proving no additional dependence from entire histories, and contrasting phi/KL supply the evaluated new claim. Stationary mixing theorems exclude the boundary and have different time homogeneity, so do not dominate this conclusion.",
+      "searches": [
+        "Marshall-Olkin copulas revisited Kosir Lazic Omladic 2512.12265 stationary mixing singular line alpha beta",
+        "\"Marshall-Olkin copula\" \"beta mixing coefficient\" exact",
+        "\"running maximum\" \"phi mixing\" iid",
+        "\"Marshall-Olkin\" \"total variation\" \"independence\" \"copula\" exact"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2512.12265v1",
+      "https://arxiv.org/html/1310.8241v2",
+      "https://arxiv.org/html/2611.22599v1",
+      "https://arxiv.org/abs/1310.8241",
+      "https://arxiv.org/abs/2512.12265",
+      "https://arxiv.org/abs/2611.22599"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2512.12265v1, Proposition 1 and Theorem 4: representation of the Marshall copula, not sigma-field coefficients.",
+        "arXiv:1310.8241v2, Definition 2 and Theorem 3, mixing of stationary Markov chains, parameter-boundary restriction in Example 9.",
+        "arXiv:2611.22599v1, iid maximum-process bivariate copula; its implied pair joint law is explicitly acknowledged."
+      ],
+      "reasoning": "The exact bivariate joint law is a prerequisite and is covered by prior copula formulas. However no cited theorem directly states or evaluates the optimum TV of that joint law, still less its equality to TV of the entire infinite future versus the entire past. The present statement is not an algebraic substitution in an existing beta formula and further distinguishes maximal phi and infinite relative entropy. The possibility that this analysis was already undertaken under other terminology remains a priority risk.",
+      "searches": [
+        "\"bivariate maxima\" \"absolute regularity\" \"singular\"",
+        "\"running maxima\" \"absolute regularity\" beta \"mixing\"",
+        "nonstationary running maxima of i.i.d. continuous samples exact total variation absolute regularity between full past and future sigma fields beta(n,m) = n/m plus correction, phi(n,m)=1, infinite mutual information, Marshall Olkin",
+        "max-record process full past vs future mixing probability no new record n/m; singular copula diagonal information divergence, past future absolute regularity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Longla, arXiv:1310.8241v2, section 1.2 definitions and Theorem 3, treats stationary fold-product chains.",
+        "Košir et al., arXiv:2512.12265v1, sections 2–6, give the Marshall copula and shock constructions but no beta or phi for record-maxima histories."
+      ],
+      "reasoning": "An equivalent formulation would specify the same TV distance between complete initial and trailing record-maximum histories or an explicit integral with the exact n/m coefficient. Neither identified inspected source supplies that statement; general existence of the copula is distinguished from an evaluated nonstationary mixing invariant.",
+      "searches": [
+        "nonstationary running maxima of i.i.d. continuous samples exact total variation absolute regularity between full past and future sigma fields beta(n,m) = n/m plus correction, phi(n,m)=1, infinite mutual information, Marshall Olkin",
+        "max-record process full past vs future mixing probability no new record n/m; singular copula diagonal information divergence, past future absolute regularity",
+        "\"Marshall-Olkin\" \"total variation distance\" \"copula\"",
+        "\"running maxima\" \"absolute regularity\" beta \"mixing\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published result entitled A sharp directional-predictability range inside the Marshall–Olkin copula family concerns Chatterjee dependence at fixed Kendall tau, not record extrema.",
+        "Published result entitled Sharp logarithmic reversal of Gaussian and Marshall–Olkin lower-tail rankings concerns tail-order crossings, not whole-history TV.",
+        "No identified public scientific claim summary states the same record-maxima mixing invariant."
+      ],
+      "reasoning": "The closest retrieved claims involve different functionals of Marshall–Olkin copulas, finite-memory chains or record-count statistics. None provides the n/m profile or complete-sigma-field conclusion. Summary-level checks are only exclusion evidence, not uniqueness proof.",
+      "searches": [
+        "nonstationary running maxima of i.i.d. continuous samples exact total variation absolute regularity between full past and future sigma fields beta(n,m) = n/m plus correction, phi(n,m)=1, infinite mutual information, Marshall Olkin",
+        "max-record process full past vs future mixing probability no new record n/m; singular copula diagonal information divergence, past future absolute regularity",
+        "Marshall-Olkin copulas revisited Kosir Lazic Omladic 2512.12265 stationary mixing singular line alpha beta",
+        "maximum process iid continuous tail sigma field forward mixing total variation nonuniform strong mixing"
+      ]
+    },
+    "rationale": "The inspected Marshall–Olkin paper gives shock-copula constructions, Longla gives stationary-chain mixing theorems, and the later nested-maxima paper gives the two-time copula, not the exact whole-history beta/phi/KL trichotomy. The derived formula requires a singular/ac total-variation optimization followed by an endpoint-to-sigma-field equality. Searches of accessible research findings and primary literature disclosed related copula parameters, concordance, stationary mixing and bivariate dependence but no same-valued complete process theorem. The bivariate copula intermediate step is credited, and unpublished or unindexed historical equivalence remains a risk.",
+    "residual_risks": [
+      "An older unindexed evaluation of TV for a boundary Marshall–Olkin copula, or a theorem on complete past–future record-maximum dependence, could preempt originality.",
+      "The earlier general two-time maximum copula mathematically determines all bivariate functionals, although it does not display this TV computation or the complete-history reduction.",
+      "Original full text of Beare (2010) was not accessible; only indexed extracts were compared.",
+      "Related published mathematical claim summaries were not available in full and do not, on the available description, cover the theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PROVIDES_COPULA_FRAMEWORK_NOT_CLAIM",
+        "evidence": "Sections 2–3 establish min-form shock copulas, sections 4–6 treat other shock representations; no TV, phi or KL for nested record maxima.",
+        "identifier_or_url": "https://arxiv.org/html/2512.12265v1",
+        "material_read": "Full accessible HTML sections 1–6 and references, including copula representation and main theorems",
+        "method": "Read full HTML mathematical statements and proof sections",
+        "title": "Marshall–Olkin copulas revisited",
+        "trigger": "Recent eligible primary source for Marshall shock-copula structure"
+      },
+      {
+        "assessment": "NOT_COVERING_NONSTATIONARY_RECORD_MAXIMA",
+        "evidence": "Definition 2, Theorem 3, Example 9. Only stationary Markov chains; Example 9 requires both parameters different from one.",
+        "identifier_or_url": "https://arxiv.org/html/1310.8241v2",
+        "material_read": "Accessible HTML definition, theorems, proof sections, Example 9 and references",
+        "method": "Read full text and verify parameter restrictions",
+        "title": "On mixtures of copulas and mixing coefficients",
+        "trigger": "Closest prior formal notion of beta/phi for Marshall–Olkin-type copula Markov chains"
+      },
+      {
+        "assessment": "COVERS_INTERMEDIATE_COPULA_NOT_FULL_TV_MIXING_CLAIM",
+        "evidence": "Corollary for iid maxima gives C_r; inspected results describe dependence ordering, not exact full sigma-field beta/phi/KL.",
+        "identifier_or_url": "https://arxiv.org/html/2611.22599v1",
+        "material_read": "HTML statements and portions including the iid-maxima corollary, related conclusions and references",
+        "method": "Reviewed accessible HTML of introduction, iid specialization and later results",
+        "title": "Dependence properties between marginals of discrete-time maximum processes",
+        "trigger": "Same nested-maxima objects and possible stronger copula result"
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT_PRIORITY_RISK",
+        "evidence": "Indexed text analyzes stationary copula-Markov chains and strong mixing conditions; not sufficient for whole-document noncoverage.",
+        "identifier_or_url": "https://escholarship.org/uc/item/87p829d4",
+        "material_read": "Web-indexed excerpts only; full document access failed",
+        "method": "Compared indexed portions and bibliographic statements, not a complete text",
+        "title": "Copulas and temporal dependence",
+        "trigger": "Earlier foundational copula mixing treatment"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "70a8aceb-27ed-4d6d-9e12-17b2118fa6db",
+  "value": {
+    "rationale": "Absolute regularity is a canonical operational measure of closeness to past–future independence; evaluating it exactly for every pair of times gives the sharp relative-age separation and the constant 1+e^-1. The simultaneous maximal uniform conditional dependence and infinite KL divergence show that weak average dependence and strong rare-event information never agree for the extremal process. This complete natural invariant and qualitative boundary distinguish the conclusion from a mere copula renaming or a textbook normalization.",
+    "status": "PASS"
+  }
+}
