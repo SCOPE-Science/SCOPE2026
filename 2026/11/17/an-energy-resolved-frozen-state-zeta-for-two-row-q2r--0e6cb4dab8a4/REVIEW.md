@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two-phase Q2R fixed-point condition reduces exactly to absence of neighbor ties at every site: the second phase cannot undo changes to sites of the first color. The sixteen-pair transfer has 36 explicitly generated transitions; the exact determinant identity and the closed-walk bijection give the complete energy generating polynomial for every even circumference at least four. The Lucas expression follows from the factored characteristic polynomial, and the mirror-energy identity follows from an explicit checkerboard involution. The symbolic transfer program and the independent phase-by-phase exhaustive program were executed and their recorded outputs agree at overlapping sizes. Finite enumerations are treated only as checks; the formal transfer proof handles all sizes.
+PASS
 
-## Originality — PASS, qualified
+On the labelled 2×n torus with n even, north and south refer to the same opposite-row site but must count twice as two directed neighbors. A full checkerboard Q2R step can be fixed only if the first half-phase flips no site, since the second phase never touches the first color; then no site in the second phase may flip either. This is the exact no-two-one-neighbors criterion. The 16 pair-column transfer T(u) checks both central-row predicates with a_r+c_r+2b_{1−r}≠2, has 36 allowed transitions, and accumulates 2 vertical plus 2 horizontal bond-disagreement terms per step, hence labelled cyclic words ↔ trace(T(u)^n) with E correctly counted over 4n bonds. Independently reconstructed the symbolic charpoly factorization into degrees (2,4,4,6) and verified it is IDENTICAL as a polynomial in y and u, not a finite-n fit. The trace/log-det identity gives the all-even-n energy polynomial. At u=1 the factor roots give the stated Lucas and cosine formula with leading φ^{2n}; per-spin entropy logφ. Checkerboard xor gauge preserves the no-two predicate and flips every bond disagreement, giving Z_n(u)=u^{4n}Z_n(1/u), mean E=2n. A separately coded original-site brute-force enumeration of all 2^{2n} states for n=4,6,8 found 36,400,2116 frozen configurations and symmetric full histograms; those finite checks corroborate, while the finite exact 16×16 determinant and universal trace bijection prove every n.
 
-The source Q2R definition, energy conservation, transfer-matrix methodology, and bipartite gauge transformation are prior knowledge. The relevant open-access Q2R treatment has no two-row energy-resolved census. The most relevant accessible published comparison on the cubic simple Ising ladder has a different neighborhood multiplicity, different local stability condition, and different claimed invariant; its full mathematical statement was inspected and does not imply the present polynomial. Shukla's full text likewise treats a three-neighbor ladder with stochastic voter and Glauber dynamics, not the four-neighbor Q2R quotient. A bibliographic record of the original Vichniac work was available but its full text was not, leaving residual priority uncertainty. Absence of a matching search result alone is not treated as novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-The frozen sector is a natural invariant of a reversible energy-conserving cellular automaton. Determining **every** coefficient by conserved bond energy, not merely one total, gives a complete microcanonical fixed-state benchmark for the thinnest checkerboard-periodic two-dimensional quotient. The exact golden-ratio entropy and energy-reciprocity law are useful structural consequences for comparisons across energies and widths. The result is not extrapolated from a finite census; the energy polynomial is exact for all even circumferences.
+Best-of-knowledge PASS for the energy-resolved two-row Q2R frozen-state zeta, exact Lucas total and gauge-energy reflection under the *four-direction multigraph convention*. The original Vichniac dynamics and checkerboard two-stage rule are known, as explained in Kari–Taati full accessible 2013/2015 primary text, but it studies Gibbs measures/invariants, not exact 2×n stationary energy polynomials. The nearest published ladder metastability census is for three-neighbor simple C_n×K_2 under weak one-spin energy stability in an antiferromagnetic field, not Q2R four-direction tie avoidance; its counts cannot imply this polynomial. Another same-date two-row Critters CA zeta has a different rule. Exact source Vichniac 1984 full text remains inaccessible so historical priority is provisional, but that access gap alone does not invalidate the strong positive statement and proof comparison.
 
-## Limits
+## value
 
-The two-row torus has doubled vertical bonds; it is not the simple prism graph. No classification of nonfixed periodic orbits or wider strips is asserted. Historical originality remains conditional on inaccessible or unindexed material, and no independent validation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete energy-by-energy frozen-state distribution at all even circumferences is a natural microcanonical invariant of reversible energy-conserving Q2R and the thinnest checkerboard-valid toroidal quotient. The polynomial transfer determinant, exact golden-ratio entropy and energy reciprocity give structural facts rather than a small numerical census, with substantive sensitivity to duplicated vertical bonds. No all-cycle dynamics or wider lattice claims are made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
