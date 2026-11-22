@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "All 729 component transition tables are enumerated by unique base-three codes. For each, all 126 words of length 1–6 are evaluated directly on the three starting states; independent subset reachability verifies all 180 no-reset cases and proves the other 549 have short resets. For all 549² ordered synchronizable pairs, direct word-set intersection gives the six exact counts; a separate C++ subset-pair BFS reproduces the same counts and checks shortestness with no word-length cutoff. Symmetry relabeling enumerates 11 extremal orbits, and a fully stated six-letter witness has no common shorter reset. This is a complete finite proof, not an infinite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2611.09136v1 Proposition 3.4 gives max(rt A, rt B) ≤ rt(A × B) ≤ rt A + rt B, hence at most 8 for individually 3-state synchronizing automata.",
+        "Volkov, Synchronization of Finite Automata §3.2, gives sharp individual 3-state threshold 4.",
+        "Published record 46765b03d598 gives finite simultaneous-reset thresholds only for standard Černý pairs with different component sizes through 11."
+      ],
+      "reasoning": "The generic sum bound eight does not imply the sharp six bound, the complete spectrum, or the orbit count. The restricted Černý-family finite table does not quantify over arbitrary 3-state transition tables and cannot dominate the claimed full census.",
+      "searches": [
+        "direct product of Cerny automata reset threshold common synchronizing word synchronizing simultaneous component automata",
+        "shortest synchronizing words product automata Cerny two cycles exact reset threshold",
+        "product automata three-state binary reset threshold sharp",
+        "shortest synchronizing words product automata Cerny two cycles exact reset threshold",
+        "\"product automata\" \"reset threshold\" \"three-state\" \"binary\""
+      ]
+    },
+    "checked_sources": [
+      "Fernau and Rystsov, arXiv:2611.09136v1, §§2–3,7 (full relevant HTML)",
+      "Volkov, Synchronization of Finite Automata, Russian Mathematical Surveys 77(5), §§2–3 (HTML)",
+      "Published finite simultaneous Černý-pair record 46765b03d598 (summary)",
+      "Published product f-corner record 7045d0578628 (summary)",
+      "Published weakly acyclic three-subset synchronization record 556a63fcd2e4 (summary)",
+      "Web searches for common synchronizing words, three-state products and numerical signature"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2611.09136v1 §§3,7: general language intersection, product bounds, questions about attainment; not a universal six bound.",
+        "Published record 7045d0578628: failure of f-corner inheritance under product; concerns a different language property.",
+        "Published record 46765b03d598: standard Černý automata at unequal sizes; cannot cover all arbitrary labeled 3×3 pairs.",
+        "Volkov §3.2: maximal individual reset threshold four only."
+      ],
+      "reasoning": "Checked prior results are prerequisites or distinct restrictions, not a theorem implying the 301401-pair spectrum. The exact value 6 is strictly stronger than the 8-letter bound derived from the original product paper and the known individual 3-state bound.",
+      "searches": [
+        "direct product of Cerny automata reset threshold common synchronizing word synchronizing simultaneous component automata",
+        "maximum reset threshold for synchronous product of two binary three-state automata 3 by 3 exact classification",
+        "sharp six-letter simultaneous reset threshold two binary three-state DFA 729 transition functions ordered pairs 1440",
+        "three-state binary automata intersection of synchronizing languages shortest word length six product",
+        "\"common synchronizing word\" \"two automata\" exact length three states"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2611.09136v1 §3 Lemma 3.1: synchronizing language of the direct product equals intersection of those of components.",
+        "Mathematical equivalence: a six-letter universal common reset for two 3-state binary DFAs is the same as an upper bound six on their nine-state synchronous Cartesian product."
+      ],
+      "reasoning": "Equivalence was searched in both direct-product reset-threshold and common-synchronizing-word language. The two statements are mathematically identical; no available record displayed the complete exact distribution or eleven isomorphism orbits.",
+      "searches": [
+        "maximum reset threshold for synchronous product of two binary three-state automata 3 by 3 exact classification",
+        "complete census exact simultaneous synchronization of pairs of three-state automata state count bound 3 3",
+        "two 3-state synchronized common words product maximum length six eleven isomorphism classes",
+        "three-state binary automata intersection of synchronizing languages shortest word length six product",
+        "\"two three-state automata\" \"synchronizing\" shortest common",
+        "\"three-state\" \"product\" \"reset threshold\" six synchronizing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked source supplied the six-number exact product-threshold histogram (13041,154008,87552,37872,7488,1440) or all eleven extremal classes.",
+        "The search hit 556a63fcd2e4 also reports 1440 extremizers, but for a different six-state weakly acyclic subset-synchronization invariant, not for nine-state direct products."
+      ],
+      "reasoning": "Searched for an exact small-automata product census and identical numerical signatures. A matching integer alone in a distinct model does not imply either mathematical statement.",
+      "searches": [
+        "sharp six-letter simultaneous reset threshold two binary three-state DFA 729 transition functions ordered pairs 1440",
+        "complete distribution of direct-product reset thresholds for pairs of 3-state two-letter synchronizing automata",
+        "\"two 3-state\" \"common synchronizing word\" longest 6",
+        "\"three-state\" \"product\" \"reset threshold\" six synchronizing"
+      ]
+    },
+    "rationale": "A full reading of the mathematical product definitions, product reset-language identity and general threshold bounds in Fernau–Rystsov (arXiv:2611.09136v1, §§2–3,7) yields no exact three-state binary pair spectrum; those results bound each pair between the maximum and sum of the individual thresholds. Volkov (Russian Mathematical Surveys 77(5), §§2–3) provides the individual three-state sharp bound four and subset search, but not a pair-product distribution. A published separate record treating standard Černý automata through eleven states addresses a proper family with distinct parameters and does not imply the all-binary-table classification; its full text could not be checked. The present full 301401-pair distribution and eleven orbit types were not found in the actually inspected relevant material; this is best-knowledge originality, not an assertion of uniqueness against all possible publications.",
+    "residual_risks": [
+      "An unindexed or differently phrased exact finite classification may exist; a negative search is not proof of priority.",
+      "Full documents behind two related published finite-record summaries could not be inspected, so no whole-document noncoverage is asserted.",
+      "The result is finite and computational, not a general product reset theorem for larger automata."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General max/sum inequalities cover the object only weakly; no exact 3×3 binary count or sharp 6 stated in inspected relevant sections",
+        "evidence": [
+          "§3 Lemma 3.1 identifies synchronization as intersection",
+          "§3 Proposition 3.4 bounds between max and sum",
+          "§7 asks when bounds can be attained"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.09136v1",
+        "material_read": "Complete relevant HTML §§2,3,7, including definitions, Lemma 3.1, Proposition 3.4, examples and stated open tasks",
+        "method": "Primary full-text inspection and comparison of quantifiers, parameters, implications",
+        "title": "Shortest Synchronizing Words on Product Automata",
+        "trigger": "Same direct product, common input and reset threshold; fresh motivating source"
+      },
+      {
+        "assessment": "Individual three-state reset threshold four and subset BFS are known; no exact simultaneous-pair distribution occurs in inspected sections",
+        "evidence": [
+          "§2.1 subset reachability",
+          "§2.3 reset languages are regular",
+          "§3.2 sharp reset maximum at three states is four"
+        ],
+        "identifier_or_url": "https://www.mathnet.ru/eng/rm10005",
+        "material_read": "HTML §§2.1, 2.3, 3.2 concerning subset BFS, reset languages and n=3 sharp threshold",
+        "method": "Targeted primary survey full-text reading of mathematically relevant sections",
+        "title": "Synchronization of Finite Automata",
+        "trigger": "Sharp individual three-state bounds and subset-search baseline"
+      },
+      {
+        "assessment": "Restricted classical Černý family and unequal sizes; summary cannot justify whole-document noncoverage, but the stated claim does not imply an all-729-table 3×3 census",
+        "evidence": [
+          "Declared domain 2≤m<n≤11 of standard Černý automata; present problem is two arbitrary size-three binary DFA"
+        ],
+        "identifier_or_url": "46765b03d598",
+        "material_read": "Public title and claim summary only; repository full-text access unsuccessful",
+        "method": "Scientific comparison of the recorded domain/parameters and claimed implication, with access limit recorded",
+        "title": "Exact simultaneous reset thresholds for pairs of Černý automata through eleven states",
+        "trigger": "Closest published same-operation finite simultaneous-reset table"
+      },
+      {
+        "assessment": "Different invariant: an f-corner property of positive-word languages, not a reset-threshold census",
+        "evidence": [
+          "Public summary concerns two/three-state product f-corners, not common reset length"
+        ],
+        "identifier_or_url": "7045d0578628",
+        "material_read": "Public title and claim summary only",
+        "method": "Property and quantifier comparison",
+        "title": "Minimal failure of f-corner inheritance under binary DFA products",
+        "trigger": "Another published result involving the same synchronous-product construction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "380e9ee9-45e9-47d5-9084-a08bc82038ee",
+  "value": {
+    "rationale": "The motivating product automata literature poses exact bound-attainment and shared-control questions. For the natural first nontrivial equal-sized component domain, the generic bound 8 is not sharp: the exact 6 threshold and a 301401-pair distribution quantify how often common-input delay occurs. Eleven extremal symmetry types classify all worst cases; these are not an arbitrary subset or a recomputation of an available table. The precise finite cutoff, spectrum, and extremal structure are mathematically meaningful independently of larger-state asymptotics.",
+    "status": "PASS"
+  }
+}
