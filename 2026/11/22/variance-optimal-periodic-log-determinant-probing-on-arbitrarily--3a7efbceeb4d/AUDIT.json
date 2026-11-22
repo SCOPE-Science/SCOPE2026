@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "Exact all-n proof: strict diagonal dominance and tridiagonal Green factorization; monotone positive left/right factors; Tonelli yields strictly positive interval coefficients for squared mixtures including cross shifts; interval count balancing proves all-budget optimality and uniqueness; spectral integral representations cover log and fractional inverse; polynomial localization and Fourier series prove homogeneous log variance density. Exact-rational verifier passed 21587 assertions; direct matrix-log numerical verifier passed 21184 comparisons. Experiments are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Stathopoulos–Laeuchli–Orginos treat distance-color inverse probing and mention trace log as an application, without an all-partition log-variance theorem.",
+        "Benzi–Rinelli–Simunec, §3.1, equation (3.3) and nearby paragraph: a periodic banded coloring is optimal in having dβ+1 colors for distance-d constraints; their deterministic-color trace estimator has a different bias/variance definition."
+      ],
+      "reasoning": "Minimum colors for a prescribed separation distance does not dominate the minimum expected squared error for all possibly irregular partitions at a fixed number of independent Rademacher probes. The paper does not prove strict uniqueness of the variance optimum for all positive q and c.",
+      "searches": [
+        "arxiv:1302.4018 introduction and §§1–3 hierarchical probing",
+        "doi:10.1007/s00211-023-01368-6 §3.1 and §§3–4",
+        "\"Stieltjes matrix functions weighted tridiagonal graph all-budget optimal trace probing period k\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1302.4018",
+      "https://proceedings.mlr.press/v37/hana15.pdf",
+      "https://arxiv.org/abs/1504.02661",
+      "https://doi.org/10.1007/s00211-023-01368-6",
+      "https://doi.org/10.1145/1944345.1944349"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Han–Malioutov–Shin give a Rademacher trace estimator and scalar variance identity, then Chebyshev approximation; the fixed-budget weighted-path choice is not determined.",
+        "Dorn–Enßlin give an integral representation for the log determinant plus stochastic probing, without an extremal class coloring analysis.",
+        "A single-resolvent path result proves optimality of variance for each separate resolvent; squaring an integral also includes cross products at distinct shifts."
+      ],
+      "reasoning": "The nontrivial new implication is that the *cross products* themselves have strictly positive interval coefficients, so their sum is minimized simultaneously by periodic coloring. Neither pointwise per-shift minima nor a generic trace-variance identity gives that conclusion without this structural lemma.",
+      "searches": [
+        "arxiv:1503.06394 §§2.2–3 and paper-wide searches for color and partition",
+        "arxiv:1504.02661 §II.1 integral stochastic logdet method",
+        "\"Hutchinson log determinant trace estimation graph coloring 2014 2015 Stieltjes functions\"",
+        "\"A probing method for computing the diagonal of a matrix inverse\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Trace-variance objective is a weighted within-color pair sum, equivalently a maximum k-cut for weights |(log A)_{ij}|^2. This weight family is stricter than arbitrary Robinson/Monge similarities: every strict upper-triangular squared entry is an *upper interval sum* of strictly positive coefficients.",
+        "The interval-square proof reduces all partition comparisons to balancing each interval simultaneously; the general graph-color literature searched did not exhibit this exact log-matrix statement."
+      ],
+      "reasoning": "A general max-k-cut formulation is not an implication of its minimizer: graph weights matter. The constructed mixed-resolvent interval positivity establishes the needed special structure. A published stronger theorem for all positive interval-decomposable kernels would imply the claim, but none was found in the inspected or indexed sources.",
+      "searches": [
+        "\"stochastic log determinant trace estimator weighted path matrix logarithm periodic exact optimal coloring\"",
+        "\"weighted interval sum squares coloring optimal periodic partition graph matrix function stochastic trace\"",
+        "\"optimal k coloring ordered points weighted pairwise distance decreasing Robinson similarity max cut periodic\"",
+        "\"Monge anti Monge positive interval kernel minimum within class pair weights residue coloring path\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed even-cycle result optimizes two-color probing of screened-cycle resolvents, not weighted-path log determinants.",
+        "The closest indexed complete-bipartite result studies two-color shifted-resolvent probing, not weighted-path logarithms.",
+        "The already recorded weighted-path inverse trace-variance theorem is a point-mass resolvent case, not a matrix logarithm or positive mixture."
+      ],
+      "reasoning": "The indexed claims differ in graph family, matrix function, and/or quantified fixed-budget optimization. Search ranking and partitions cannot establish global absence; a separate literature-level comparison was conducted.",
+      "searches": [
+        "\"periodic coloring uniquely minimizes variance log determinant Hutchinson matrix logarithm weighted path tridiagonal M matrix 2015\"",
+        "\"positive Stieltjes resolvent mixtures interval energy universal optimal periodic path probes graph coloring log determinants\"",
+        "\"weighted path logarithm matrix trace stochastic probing variance optimal periodic coloring arbitrary positive killing Stieltjes functions\""
+      ]
+    },
+    "rationale": "Relevant primary full-text sections and indexed semantic records were compared at the level of objectives and theorem implications. Earlier inverse-resolvent path variance results cover the single point-mass subfamily, but not the square of an integrated resolvent matrix (log determinant), for which cross terms need the new positive interval-square certificate. Published periodic-color optimality in banded matrix functions minimizes number of colors for a distance constraint, not fixed-budget sign-probe variance. No inspected item implies the all-weight/all-budget logarithm claim. Publication-priority risk remains.",
+    "residual_risks": [
+      "An unindexed or unavailable theorem for all strictly positive interval-decomposable squared kernels could imply the log-determinant result.",
+      "Some early matrix-logarithm numerical work was accessible only as abstract; no inference that its full text excludes the theorem is made.",
+      "The mathematical proof is internally checked, not independently audited; computations are finite."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides design context and possible log-trace extension in motivation; no all-partition exact log-variance classification for heterogeneous paths in inspected relevant text",
+        "evidence": [
+          "ArXiv first posting 2013-02-17; introduction line describing inverse and log-trace applications",
+          "Sections 2–3 discuss hierarchical distance coloring and Hadamard/Fourier vectors rather than fixed-budget independent class signs"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1302.4018",
+        "material_read": "Accessible full-text introduction, preliminary variance formula, hierarchical coloring, and 1D lattice discussion (Sections 1–3)",
+        "method": "Read searchable full HTML rendering; inspected the distance-color and partition passages",
+        "title": "Hierarchical probing for estimating the trace of the matrix inverse on toroidal lattices",
+        "trigger": "Periodic/distance coloring and matrix-inverse stochastic trace variance"
+      },
+      {
+        "assessment": "States trace estimator and variance and Chebyshev approximations; no path all-budget optimizer in the inspected relevant parts",
+        "evidence": [
+          "Page 3 §2.2 gives variance 2(||A||_F²−Σ A_ii²)",
+          "First posted arxiv:1503.06394 on 2015-03-22"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v37/hana15.pdf",
+        "material_read": "Full PDF accessible; relevant pages 1–3 inspected with visual page rendering, searchable paper-wide terms and §§2.2–3 text",
+        "method": "Read and visually inspected PDF pages 2–3 and parsed relevant sections and abstract; searched whole PDF for coloring/partition",
+        "title": "Large-scale log-determinant computation through stochastic Chebyshev expansions",
+        "trigger": "Focal early stochastic log-determinant method"
+      },
+      {
+        "assessment": "An integral stochastic estimator but not an extremal fixed-class independent Rademacher partition result",
+        "evidence": [
+          "First posted 2015-04-10",
+          "§II.1 describes estimating an integral of traces using generic probes"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1504.02661",
+        "material_read": "Accessible full-text introduction and §II.1 including equations (3)–(8); searched for coloring and variance",
+        "method": "Read public full HTML rendering and relevant displayed formulas",
+        "title": "Stochastic determination of matrix determinants",
+        "trigger": "Integral representation of stochastic log-determinant probing"
+      },
+      {
+        "assessment": "Optimal in number of colors satisfying distance-d constraint, not in trace variance over all partitions at fixed k",
+        "evidence": [
+          "§3.1 lines around equation (3.3) specify s=dβ+1 as optimal number of colors",
+          "Trace estimator (3.2) is deterministic and need not be unbiased by random class-supported signs"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00211-023-01368-6",
+        "material_read": "Accessible full HTML §§1–3.1, especially periodic banded coloring equation (3.3), Theorem 3.1 and commentary",
+        "method": "Read open-access HTML, checked the precise optimality quantifier",
+        "title": "Computation of the von Neumann entropy of large matrices via trace estimators and rational Krylov methods",
+        "trigger": "Possible stronger matrix-function probing/color optimality"
+      },
+      {
+        "assessment": "Variance and sample-complexity context; full-text equivalence cannot be excluded from abstract alone",
+        "evidence": [
+          "2011-04-11 publisher research record describes general randomized trace estimators and sample complexity"
+        ],
+        "identifier_or_url": "https://doi.org/10.1145/1944345.1944349",
+        "material_read": "Publication record/abstract only, not full paper; no whole-document exclusion inferred",
+        "method": "Read publisher/author metadata and abstract",
+        "title": "Randomized algorithms for estimating the trace of an implicit symmetric positive semi-definite matrix",
+        "trigger": "Foundational stochastic trace context"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3a7efbce-eb4d-4cd0-9e0e-053171a7b89f",
+  "value": {
+    "rationale": "Stochastic estimation of log determinants and fractional inverse traces is a well-motivated numerical problem. Exact class-supported probing variance has a fully classified robust optimizer across every heterogeneous weighted path and probe budget. The nonnegative gap certificate quantifies alternatives; the homogeneous limit gives a concrete explicit performance law. The cross-resolvent square theorem is not a mere substitution of the already-known single-resolvent path case; neither the Chebyshev estimator nor distance-color minimum-number theorems imply it. The exact-action and independence restrictions are explicit.",
+    "status": "PASS"
+  }
+}
