@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The critical exponential-risk map has multipliers \(1,e^{-m},e^{-m}\), and its quadratic center coefficient is \(\kappa^2\Psi(p)/(p^2h)\). Explicit differentiation gives \(\Psi'(p)<0\), hence a unique nonlinear transition, and one-dimensional reciprocal differences give \(n a_n\to-1/c_2\) in the attracting regime. Nonlinear instability on the opposite side follows from the positive biological center branch. The standard-library checker independently evaluates the exact map and coefficient identities; finite checks alone do not establish the theorem.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-Muñoz, Nuño, and Meacci derive the exact map and linear invasion threshold (arXiv:2611.08353v1, Sections 4–5), while Katriel's related threshold analysis is continuous-time (arXiv:1812.08867). Neither inspected source supplies the finite-round center coefficient and sharp critical-time amplitude. Related published mathematical records describe different nonlinear epidemic models; general center-manifold theory by itself does not supply the model-specific expression. Broader priority remains open.
+PASS
 
-## Mathematical value — PASS
-The nonhyperbolic invasion boundary needs a quadratic nonlinear test. The new scalar probability threshold gives a complete local stability-direction classification away from its unique equality case and determines the measurable \(1/n\) adopter relaxation coefficient for positive seeds. The finite-round shift of the threshold is meaningful for adoption rules in which updates occur in discrete rounds.
+On rho=(1+nu)m/(ph) with m=nu tau, h=1-exp(-m), kappa=1-exp(-(1+nu)tau), the 3x3 map linearization has simple center eigenvalue 1 and two transverse exp(-m)∈(0,1). Along center eigendirection (s1,a,r)=(Aa,a,Ra)+O(a²), direct Q(a) expansion gives adopter a’=a+c2 a²+O(a³), c2=kappa² Psi(p)/(p²h). Independently reproduced coefficient both from q1/q2 and closed Psi, p*≈0.4821344 when nu=.1,tau=1 and n a_n≈0.19434 versus predicted 0.19827 at n=100000 for p=.85. Analytically Psi strictly decreases from positive at p=0 to negative at 1, so unique p*. Center stable foliation yields local attraction when c2<0, relative instability when >0, and telescoped 1/a_n differences give asymptotic -1/c2. Critical equality p=p* unclaimed, p=1 invariant slice accommodated, no global basin. Finite simulation is only corroboration.
 
-## Scope and risks
-The equality \(p=p_*\), global attraction and finite-population extinction times are not established. The mathematical claims use a local deterministic map and an analytic proof with finite algebraic checks; there is no independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Muñoz–Nuño–Meacci original arXiv:2611.08353v1 full HTML is precisely the round map; its Proposition 4 and Sections 4–5 provide linear invasion condition, not the nonlinear quadratic center threshold or 1/n coefficient. Katriel continuous two-stage ODE has qualitatively analogous transition, but not the finite exp(-nu tau) coefficients or the p*(nu,tau) shift. Generic center manifold theorems do not supply model-specific Psi. Distinct Resultary infectious/SIS models do not dominate these formulae.
+
+## value
+
+PASS
+
+At a neutral invasion eigenvalue, linear stability is indecisive. The exact nonlinear probability threshold and algebraic adopter relaxation prefactor provide a concrete answer at finite round length and quantify disagreement with continuous-time p=1/2. Relevant to mathematically calibrated discrete repeated-exposure models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
