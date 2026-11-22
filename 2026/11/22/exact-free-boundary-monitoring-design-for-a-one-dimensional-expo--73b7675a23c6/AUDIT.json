@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "The Gaussian Markov bridge and extrapolation conditional variances integrate exactly to H(d)=d coth d-1 and G(a)=a-(1-e^{-2a})/2. Both component costs are strictly convex on nonnegative gaps with zero derivative at zero; the unique optimal simplex point is interior. Lagrange equations and monotonic derivatives force equal interiors and equal margins. An explicit strictly positive derivative gap proves margins strictly shorter. Taylor and large-gap expansions justify both asymptotic regimes. Independent matrix-based Gaussian variance integration and 1,192 reproducibility assertions pass; finite tests are not used as the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zimmerman (2006) compares prediction-variance network designs on a two-dimensional finite grid, with unknown mean structures and numerical enumeration/annealing.",
+        "Sikolya and Baran (2019), online full text Section 3, impose t1=0 and tn=1 before the IMSPE optimization.",
+        "Antognini and Zagoraiou (2010) is cited by Dasgupta et al. for one-dimensional exponential-correlation exact design, but a full authorized copy was not obtained (institutional connection unavailable)."
+      ],
+      "reasoning": "The accessible primary papers address different mean assumptions, constrained endpoints, different observation criteria, and/or multidimensional discrete designs. A general convex allocation argument may shorten the proof but does not by itself supply the strict inequality and two asymptotic edge laws. The inaccessible 2010 source is a named residual risk, not pronounced noncovering.",
+      "searches": [
+        "River water quality two stations free endpoints exponential covariance integrated mean squared prediction error optimal locations",
+        "Exponential covariance simple kriging continuous interval integrated prediction error boundary locations edge spacing interior unequal minimizer",
+        "https://doi.org/10.1002/env.769 Section 2",
+        "https://doi.org/10.1016/j.jspi.2010.03.027",
+        "https://doi.org/10.1080/03610926.2019.1645855"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1002/env.769",
+      "https://arxiv.org/abs/2004.13967",
+      "https://doi.org/10.1080/03610926.2019.1645855",
+      "https://doi.org/10.1016/j.jspi.2010.03.027",
+      "https://doi.org/10.1002/asmb.2084",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=86A15"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For fixed endpoints, the variance is the sum of strictly convex interior bridge costs, reproducing the equispacing theorem of Dasgupta et al.",
+        "The present unconstrained minimizer has x1=a/theta>0 and xn=L-a/theta<L, so it lies outside the fixed-endpoint feasible set for every L>0.",
+        "The Bayesian quadrature result has a distinct random target integral and opposite boundary inequality."
+      ],
+      "reasoning": "The new theorem subsumes the fixed-endpoint equal-spacing calculation only after adding a boundary constraint. A theorem about the constrained feasible set cannot determine the unconstrained optimum; indeed the restricted design is strictly suboptimal by the positive-margin perturbation. The same covariance kernel does not equate the distinct loss functionals.",
+      "searches": [
+        "Exact global I-optimal monitoring design for Ornstein Uhlenbeck exponential covariance on interval with free endpoints, shorter terminal gaps than interior, unique stationary-point condition",
+        "Integrated kriging prediction variance optimal free boundary sensor locations edge gap interior gap transcendental hyperbolic and small domain 1-to-3 spacing ratio",
+        "https://arxiv.org/pdf/2004.13967, Theorem 5.2 pp. 15-16",
+        "https://doi.org/10.1002/env.769 Section 2",
+        "published-finding corpus id 2026/11/8/SCOPE-exact-optimal-nodes-and-stratification-penalty-for-ornstein-uhle--971795799fba"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dasgupta et al. 2020/2022, arXiv:2004.13967, lines at Section 5.1 explicitly constrain x1=0 and xn=1; Theorem 5.2 proves fixed-endpoint equispacing.",
+        "published-finding corpus 2026/11/8/...971795799fba optimizes the posterior variance of the integral rather than integrated pointwise conditional variance; its terminal margins are longer, while the current claim proves shorter ones."
+      ],
+      "reasoning": "Interchanging integration and variance changes covariance cross terms: Var(integral Z conditional samples) is not integral Var(Z(t) conditional samples) dt. Fixed-endpoint equispacing is a strict special constrained case and does not imply optimal free terminal margins or their asymptotics.",
+      "searches": [
+        "Ornstein Uhlenbeck spatial prediction integrated kriging variance freely placed monitoring stations nonfixed endpoints optimal spacing edge gaps one-third asymptotic",
+        "Exact global I-optimal monitoring design for Ornstein Uhlenbeck exponential covariance on interval with free endpoints, shorter terminal gaps than interior, unique stationary-point condition",
+        "published-finding corpus id 2026/11/8/SCOPE-exact-optimal-nodes-and-stratification-penalty-for-ornstein-uhle--971795799fba",
+        "https://arxiv.org/pdf/2004.13967, Section 5.1 and 5.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus condition-number finding optimizes the spectral condition number of an exponential interpolation matrix, not spatially integrated kriging error.",
+        "Zimmerman (2006) tabulates finite-grid designs; no unrestricted all-count free-terminal exact optimization appears in inspected Sections 1-2."
+      ],
+      "reasoning": "A finite table or a kernel-conditioning bound cannot imply an analytic universal free-terminal minimizer for every length and station count. The theorem concerns a continuum rather than an enumerated finite mesh.",
+      "searches": [
+        "Ornstein Uhlenbeck spatial prediction integrated kriging variance freely placed monitoring stations nonfixed endpoints optimal spacing edge gaps one-third asymptotic",
+        "Integrated kriging prediction variance optimal free boundary sensor locations edge gap interior gap transcendental hyperbolic and small domain 1-to-3 spacing ratio",
+        "published-finding corpus id 2026/10/26/SCOPE-sharp-equal-spacing-extremality-for-exponential-kernel-interpola--4e3d738a5896",
+        "https://doi.org/10.1002/env.769 numerical design tables"
+      ]
+    },
+    "rationale": "Closest inspected source on identical OU covariance and IMSPE (Dasgupta et al., Theorem 5.2) explicitly fixes both observations at the transect endpoints; its equal-gap result is not an optimizer for free endpoints. Zimmerman addresses geostatistical design, largely by numerical finite grids with different mean assumptions. published-finding corpus OU Bayesian quadrature has different loss (variance of integral rather than integral of variance) and opposite terminal margin ordering. This claim remains priority-provisional because the full 2010 exact-design paper was inaccessible; the access limitation does not amount to evidence of coverage.",
+    "residual_risks": [
+      "A direct full-text comparison against Antognini and Zagoraiou (2010), DOI 10.1016/j.jspi.2010.03.027, could not be completed; its abstract and secondary descriptions do not decide whether it contains a free-terminal exact theorem.",
+      "General optimal Gaussian process design treatises or unindexed exact free-endpoint optimization may establish a mathematically equivalent theorem; semantic absence is not a novelty proof.",
+      "The close OU Bayesian quadrature literature has superficially similar optimal-gap equations, but its statistical target is inequivalent."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strong motivation but not the exact unrestricted one-dimensional known-mean theorem; finite two-dimensional grid computations and differing mean/optimization assumptions",
+        "evidence": [
+          "Section 2 defines average and maximum kriging variance, then uses 5x5 and 100x100 grids, including designs by enumeration and simulated annealing."
+        ],
+        "identifier_or_url": "https://www.asc.ohio-state.edu/statistics/comp_exp/jour.club/Zimmerman-2006-Environmetrics.pdf",
+        "material_read": "PDF abstract, introduction and Section 2 through its finite-grid and network comparisons, including full text around lines 0-211",
+        "method": "Open public full PDF; read extracted lines and view the first page image",
+        "title": "Optimal network design for spatial prediction, covariance parameter estimation, and empirical prediction",
+        "trigger": "Verified motivating source dated 2006-08-22 with average kriging variance design and environmental monitoring"
+      },
+      {
+        "assessment": "Theorem 5.2 fixes x1=0, xn=1; does not claim globally optimal freely floating outer sites; bridge contribution agrees with proposed formula",
+        "evidence": [
+          "Section 5.1: for fixed endpoints may normalize to [0,1], x1=0 and xn=1; Section 5.2 Theorem 5.2: equally spaced design I-optimal under this restriction."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2004.13967",
+        "material_read": "PDF abstract, introduction, Section 5.1 fixed endpoint normalization and Section 5.2 Theorems 5.1-5.2 and their proof, with page images inspected",
+        "method": "Open lawful arXiv full PDF; inspect p.14-16 text and p.9 image",
+        "title": "Optimal designs for some bivariate cokriging models",
+        "trigger": "Direct match in OU covariance, integrated MSPE, river monitoring and explicit equispaced optimality"
+      },
+      {
+        "assessment": "Different complex-valued and unknown-mean model, endpoints explicitly fixed; not an implication of new free boundary theorem",
+        "evidence": [
+          "Section 3: sets t1=0, tn=1, motivated by avoiding extrapolative prediction."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/03610926.2019.1645855",
+        "material_read": "Publisher full-text Section 3 describing IMSPE and its endpoint restriction, examples 3.2-3.3",
+        "method": "Read accessible HTML version",
+        "title": "On the optimal designs for the prediction of complex Ornstein-Uhlenbeck processes",
+        "trigger": "Closest OU IMSPE optimization under complex-valued covariance"
+      },
+      {
+        "assessment": "Unresolved historical-priority risk; no full-text NOT_COVERING judgment",
+        "evidence": [
+          "Later Dasgupta et al. cite this paper for exact one-dimensional designs; full text unavailable during comparison."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jspi.2010.03.027",
+        "material_read": "Accessible bibliographic information and secondary citations only; full primary text not obtained",
+        "method": "Attempted open preprint/open-access discovery before authorized institutional download; institutional connection reported unavailable",
+        "title": "Exact optimal designs for computer experiments via Kriging metamodelling",
+        "trigger": "Historical exact univariate kriging design paper specifically cited by later work"
+      },
+      {
+        "assessment": "Optimizes prediction design including covariance parameter uncertainty by numerical/design methods; not shown to dominate exact free-terminal simple-kriging theorem",
+        "evidence": [
+          "Focuses on hybrid/empirical kriging uncertainty, versus known covariance and one-dimensional explicit equation."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/asmb.2084",
+        "material_read": "Open-access HTML abstract and methods overview",
+        "method": "Read publisher webpage",
+        "title": "Efficient prediction designs for random fields",
+        "trigger": "Open-access study of optimal random-field prediction design with parameter uncertainty"
+      },
+      {
+        "assessment": "Optimizes integral-posterior variance rather than spatial integral of pointwise variance; distinct target and opposite edge gap behavior",
+        "evidence": [
+          "Published summary states longer terminal margins and Bayesian quadrature, unlike the present shorter margins and pointwise prediction objective."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-optimal-nodes-and-stratification-penalty-for-ornstein-uhle--971795799fba",
+        "material_read": "Indexed scientific title and claim summary, not a retrieved full paper",
+        "method": "Semantic research record comparison",
+        "title": "Exact optimal nodes and stratification penalty for Ornstein-Uhlenbeck Bayesian quadrature",
+        "trigger": "published-finding corpus semantic neighbor shares OU covariance and free node placement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "73b7675a-23c6-4fbd-9a14-1713b5276e81",
+  "value": {
+    "rationale": "The exact continuous optimum resolves whether environmental monitoring stations should be placed at domain boundaries or shifted inward under simple kriging. The derived universal short-transect 1:3 edge-to-inner law, long-transect logarithmic correction, and unique scalar parameterization provide a full station-count and correlation-scale phase-free design prescription. For two stations at theta L=1 it lowers integrated model prediction variance by 40.44 percent relative to compulsory boundary stations, a substantial motivated effect of choosing the correct feasible design rather than a mere algebraic relabeling. Not presented as field advice without model validation.",
+    "status": "PASS"
+  }
+}
