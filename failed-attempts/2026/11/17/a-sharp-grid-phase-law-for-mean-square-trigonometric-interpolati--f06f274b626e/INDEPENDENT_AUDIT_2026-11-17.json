@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T15:59:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The discrete Fourier coefficient from exact nodal geometric differentiation is (i pi/N) exp[-2pi i(a-1/2)k/N]/sin(pi k/N) for 0<|k|<=n, while the Fourier coefficient of G is i/k. Parseval decomposes the squared interpolation error into constant-mode O(N^-2), retained-mode aliasing difference, and tail 2 sum_{k>n}1/k^2; multiplying by N yields 4 plus the stated integral by a uniform phase Riemann sum with smooth removable t=0 singularity. Aliasing of h is O(N^-2) per retained Fourier coefficient, h tail has squared L2 O(N^-3), and a Cauchy cross term with G is O(N^-2), giving a uniform scaled O(1/N) remainder. The integrand differs by the strictly positive contribution proportional to 1-cos(2pi(a-1/2)t) for all a!=1/2, proving unique strict half-cell minimization. Changing one aligned sample from G(0)=0 to pi shifts every Fourier coefficient by pi/N; the corresponding cotangent Parseval integral is strictly larger by the identity (1/t-pi cot(pi t))-(pi csc(pi t)-1/t)=2/t-pi cot(pi t/2)>0. Independent numerical quadrature gave F(0)=15.00253187698, F(.25)=7.156996623005, F(.5)=4.334096272882, F(.75)=7.156996623005. The finite N diagnostics are not the analytic uniform asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 11 [8],[9] treats every q>=1 and explicitly q=0, with a(q,sigma) for arbitrary grid shifts; the present pure sawtooth with q=0 is a special case.",
+          "Theorem 11 proof is full Parseval plus shifted aliasing, exactly the proof mechanism of the new paper; it is not merely a rate bound or a corrected-interpolant pointwise theorem."
+        ],
+        "reasoning": "Strong broader coverage already includes the new theorem principal object, loss, mesh and jump: arbitrary-phase sharp L2 for a jump via q=0. Extra smooth remainder or a change to one sample value does not negate prior broad coverage.",
+        "searches": [
+          "trigonometric interpolation sawtooth equispaced shifted phase jump mean-square L2 error half-cell midpoint phase optimal",
+          "Arnak Poghosyan 2013 Theorem 11 q=0 full L2 shifted grid all phases",
+          "Poghosyan references [8] 2004 L2 convergence polynomial periodic interpolations and [9] Nersessian Poghosyan 2004"
+        ]
+      },
+      "checked_sources": [
+        "https://arar.sci.am/Content/13265/file_0.pdf",
+        "https://ictp.acad.ro/jnaat/journal/article/download/2001-vol30-no2-art10/Prestin-Quak-pdf/699",
+        "https://arxiv.org/abs/2601.19012",
+        "Poghosyan (2004) L2-convergence of some polynomial-periodic interpolations, Reports NAS RA 104(2):83–89 (cited in 2013 primary source but not fully inspected)",
+        "Nersessian and Poghosyan (2004) Asymptotic error of polynomial-periodic interpolation, ISAAC proceedings pp.88–98 (cited but not fully inspected)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 11 for q=0 plus the alias identity gives the exact normalized L2 phase functional F(a), not just O(N^-1/2).",
+          "The present F(a) phase minimum is an immediate consequence of the positive interference term 1-cos(2pi(a-.5)t) in that same exact prior error functional.",
+          "The prior theorem was derived from even earlier [8] and [9], which were cited but not individually inspected in full here."
+        ],
+        "reasoning": "The prior mathematical statement directly implies the central final theorem for cG (and standard perturbations); thus novelty failure is decisive. The midpoint-value-aligned variant is a routine one-sample comparison, too small and unmotivated to rescue a false main originality claim.",
+        "searches": [
+          "trigonometric interpolation sawtooth equispaced shifted phase jump mean-square L2 error half-cell midpoint phase optimal",
+          "Poghosyan paper Theorem 11 equations 69 70 q0 classical trigonometric interpolation",
+          "Prestin Quak 2001 Lemma 2.2 and arclength Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Poghosyan (2013) full PDF p.117 Theorem 11 gives lim N^(q+1/2)||r_{N,q}||_L2=|A_q|a(q,sigma), and p.118 explicitly declares q=0 valid for classical uncorrected interpolation with a jump.",
+          "Parameter transformation sigma=2a-1 for the 2N+1 grid and G jump A0=2pi yields F(a)=(2pi*a(0,sigma))^2. At sigma=0, the partial fraction series sum(-1)^s/(x+2s)=pi/[2 sin(pi*x/2)] gives the exact F(1/2) integral."
+        ],
+        "reasoning": "Direct equivalence, not titles: prior phase integral for q=0 equals present main F(a) after standard period/norm conversion, and varying sigma covers the same phases. The current main formula is already implied by the older theorem.",
+        "searches": [
+          "trigonometric interpolation sawtooth equispaced shifted phase jump mean-square L2 error half-cell midpoint phase optimal",
+          "Poghosyan 2013 Theorem 11 q=0 classic trigonometric interpolation shifted nodes L2 a(q,sigma)",
+          "https://arar.sci.am/Content/13265/file_0.pdf Theorem 11 formula 69 70 74 and q=0 after Table 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Poghosyan tables list q=1..8, not q=0, but Theorem 11 explicitly states its phase function also applies at q=0.",
+          "No exact decimal 4.334096... tabulation is needed: the full phase integral determines all constants and their minimizer without prior numeric printing."
+        ],
+        "reasoning": "The known exact integral already covers any number F(0),F(1/2) computed from it; a missing q=0 numerical row does not create an original theorem.",
+        "searches": [
+          "trigonometric interpolation sawtooth equispaced shifted phase jump mean-square L2 error half-cell midpoint phase optimal",
+          "Poghosyan 2013 Table 2 Table 3 phase optimal a(q,sigma) q=0",
+          "https://arar.sci.am/Content/13265/file_0.pdf equations 69 through 74"
+        ]
+      },
+      "rationale": "Decisive prior full-text coverage: Arnak Poghosyan, On a pointwise convergence of trigonometric interpolations with shifted nodes (Armenian J. Math. 5(2), 2013, pp.105–122), Theorem 11, formulas (69)–(74), p.117–118, gives an exact normalized L2 phase-response integral a(q,sigma) for shifted (2N+1)-point trigonometric interpolation. The text expressly states immediately after Table 3 that Theorem 11 also holds for q=0, the CLASSICAL UNCORRECTED trigonometric interpolant of a function with a jump A0!=0. Under period rescaling, sigma=2a-1 and F(a)=[2*pi*a(0,sigma)]^2: at sigma=0, the classic partial fractions identity sum_{s in Z}(-1)^s/(x+2s)=pi/(2*sin(pi*x/2)) transforms the prior a(0,0) into exactly F(1/2). The general phase sum likewise coincides with the Fourier-alias expression for F(a). The previous theorem therefore entails the central exact phase functional and its parameter optimization; its strictly minimal half-cell positioning follows from positivity of the phase-dependent cross term. An O(N^-1) remainder under a Fourier-decay assumption and a comparison with one altered aligned point are extras, not a new independent central result. Originality FAIL despite the current proof being correct; this is direct old mathematical implication, not search failure.",
+      "residual_risks": [
+        "Conclusive old coverage applies to the leading phase L2 law for q=0; the stronger uniform O(1/N) error or altered midpoint point-value may be individually true but are not sufficient motivated novel theorems as supplied.",
+        "The 2004 [8],[9] predecessors are identified in Poghosyan bibliography but their full texts were not separately inspected; 2013 full text already suffices to reject core originality.",
+        "The PDF text was complete but the remote screenshot renderer returned DisabledError, a visual-access limit not a scientific ambiguity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: Theorem 11 explicitly applies to q=0 classical uncorrected interpolation with a value jump; the stated L2 phase constant is equal to F(a) after rescaling sigma=2a-1 and normalization.",
+          "evidence": [
+            "Poghosyan Theorem 11 p.117 eqs. (69)-(74); p.118 after Table 3 states q=0 is the classical interpolation with A0 !=0; References [8],[9] prior L2 work."
+          ],
+          "identifier_or_url": "https://arar.sci.am/Content/13265/file_0.pdf",
+          "material_read": "Entire 18-page accessible full primary PDF text, specifically pp.105-106 framing, pp.117-118 Theorem 11 equations (69)-(74), its q=0 extension after Table 3, and original references [8],[9]. Visual web screenshot attempts failed DisabledError; parsed full text was available.",
+          "method": "Read original full-text PDF and compared formula, phase, norm, boundary jump and correction index algebraically",
+          "title": "On a pointwise convergence of trigonometric interpolations with shifted nodes",
+          "trigger": "Exact matching odd-grid shifted trigonometric sampling and sharp L2 phase error, potentially broad enough for q=0"
+        },
+        {
+          "assessment": "Related coefficient precursor, but strongest decisive coverage is Poghosyan exact L2 theorem",
+          "evidence": [
+            "Prestin–Quak 2001 Lemma 2.2 and Theorem 3.1"
+          ],
+          "identifier_or_url": "https://ictp.acad.ro/jnaat/journal/article/download/2001-vol30-no2-art10/Prestin-Quak-pdf/699",
+          "material_read": "Full open-access PDF, including coefficient Lemma 2.2 and graph-arclength Theorem 3.1; prior successful screenshot on a different PDF and attempted screenshot of Poghosyan PDF (access denied by renderer)",
+          "method": "Read primary PDF and compare invariant",
+          "title": "On the arclength of trigonometric interpolants",
+          "trigger": "Same discontinuous sawtooth, previous exact coefficients"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The governing precise mean-square phase-response and grid optimization are already established in Poghosyan Theorem 11 for q=0, based on even earlier [8],[9] L2 work. The new aligned-node midpoint value calculation is a short exact Parseval corollary and slight regularity/rate refinement, not a separately motivated structural question of the required value. Hence the covered final theorem lacks independent mathematical new value. Correctness of its formulas and finite verification cannot rescue covered originality/value; no repair attempted.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://arar.sci.am/Content/13265/file_0.pdf",
+    "https://ictp.acad.ro/jnaat/journal/article/download/2001-vol30-no2-art10/Prestin-Quak-pdf/699",
+    "https://arxiv.org/abs/2601.19012",
+    "Poghosyan (2004) L2-convergence of some polynomial-periodic interpolations, Reports NAS RA 104(2):83–89 (cited in 2013 primary source but not fully inspected)",
+    "Nersessian and Poghosyan (2004) Asymptotic error of polynomial-periodic interpolation, ISAAC proceedings pp.88–98 (cited but not fully inspected)"
+  ],
+  "disposition": "failed",
+  "final_claim": "For one-jump periodic f=cG+h with h Fourier coefficients O((1+|k|)^-2) and odd N-node shifted trigonometric interpolation, the uniform normalized squared L2 error has leading coefficient |c|^2 F(a), explicitly given by a phase integral; its unique minimum at half-cell phase a=1/2 (4.33409627...) beats both aligned zero-value (15.00253...) and aligned midpoint-value (5.132927...) conventions.",
+  "limitations": [
+    "Scope exactly as defined in the final theorem; cited source-access and priority risks do not constitute a mathematical impossibility proof.",
+    "Finite checks corroborate analytic or complete finite-state certificates; logs and bounded numerics alone are not infinite proofs.",
+    "Publication withheld pending verified neutralization of existing operational source metadata."
+  ],
+  "residual_risks": [
+    "Conclusive old coverage applies to the leading phase L2 law for q=0; the stronger uniform O(1/N) error or altered midpoint point-value may be individually true but are not sufficient motivated novel theorems as supplied.",
+    "The 2004 [8],[9] predecessors are identified in Poghosyan bibliography but their full texts were not separately inspected; 2013 full text already suffices to reject core originality.",
+    "The PDF text was complete but the remote screenshot renderer returned DisabledError, a visual-access limit not a scientific ambiguity."
+  ],
+  "schema_version": 1
+}
