@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Project weak edges along a lower-triangular feedback ordering: earlier projections are equal around any directed cycle by blockwise acyclicity, and a later projection uses one constant effective growth vector. Induction contradicts distinct full cycle vertices; converse embeds any local cycle by zero extension. A complete four-support two-species sign proof excludes cycles for negative diagonal and positive determinant. Positive diagonal Lyapunov witnesses combine across feed-forward blocks by Schur complements for arbitrary coupling magnitude. The exact 4x4 witness and 3x3 cutoff are verified by checker.py, which also passed 660 seeded exact-rational samples; finite trials are not substituted for the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026 generalized dominance: https://arxiv.org/html/2611.26473v1 (Theorem 1.3)",
+        "2026 weighted-skew bound: https://arxiv.org/html/2611.26473v1 (Theorem 4.4 and Corollary 4.6)",
+        "Exact A4 example and positive definite weighted witness established in RESULT.md §Proof (5)"
+      ],
+      "reasoning": "The global generalized-dominance test requires spectral radius below 1, but the A4 comparison radius is 2. Every diagonal Lyapunov witness for A4 has weighted-skew norm at least 2, whereas the sufficient four-species threshold is tan(pi/10)<1. Hence neither inspected sufficient theorem implies acyclicity of this covered example. Their results remain valid and different; no claim of exhaustive coverage of all prior literature is made.",
+      "searches": [
+        "feedforward arbitrarily strong interblock couplings preserve acyclicity of invasion graphs for Volterra Lyapunov stable matrices",
+        "\"acyclic\" \"interaction graph\" \"invasion graph\" Lotka Volterra",
+        "Full-text inspection of arXiv:2611.26473v1 Theorems 1.3, 4.4 and Corollary 4.6"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/s00285-025-02190-4",
+      "doi:10.1007/s00285-024-02087-8",
+      "doi:10.1007/s00285-022-01815-2",
+      "arxiv:2611.26473v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2025 heteroclinic cycle classification: https://link.springer.com/article/10.1007/s00285-025-02190-4",
+        "2024 structural stability and strict invasion graphs: https://link.springer.com/article/10.1007/s00285-024-02087-8",
+        "2022 permanence via invasion graphs: https://link.springer.com/article/10.1007/s00285-022-01815-2",
+        "2026 global sufficient acyclicity conditions: https://arxiv.org/html/2611.26473v1"
+      ],
+      "reasoning": "The 2025 three-species cycle classification and diagonal-dominance statements do not imply a uniform arbitrary-dimension lower-block decomposition. The 2024 and 2022 conclusions concern graph structural stability and permanence and do not imply the proposed all-b if-and-only-if. The 2026 conditions give sufficient inequalities for whole A; the verified A4 counterexample to those hypotheses separates their coverage, while the present result obtains acyclicity from each feedback SCC.",
+      "searches": [
+        "Full 2025 Bortolan et al. §§3–5 (Theorem 4.2, Corollary 4.3)",
+        "Full 2024 Almaraz et al. §§1–5 (Theorem 28)",
+        "Full 2022 Hofbauer–Schreiber §§1–4",
+        "Full 2026 Bortolan et al. §§1–4 (Theorem 1.3, Lemma 4.5 and Theorem 4.4)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bortolan et al. 2025 §4: https://doi.org/10.1007/s00285-025-02190-4",
+        "Bortolan et al. arXiv:2611.26473v1 §§1–4: https://arxiv.org/html/2611.26473v1"
+      ],
+      "reasoning": "Triangularity is a zero-pattern assertion on A; the proposed equivalence concerns all b and localizes weak graph cycles via rate signs, which is not merely the standard spectral max-of-blocks identity. The examined sources define the same weak graph (2026) or the strict invasion graph (2025) but do not assert this exact blockwise universal equivalence.",
+      "searches": [
+        "exact if and only if acyclicity of Lotka Volterra weak equilibrium transition graphs inherited by lower triangular block matrices for every intrinsic growth vector",
+        "\"invasion graph\" \"block triangular\" \"Lotka\"",
+        "\"weak graph\" \"triangular\" \"Volterra\" cycles"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Bortolan et al. (2025), DOI 10.1007/s00285-025-02190-4, §4",
+        "Bortolan et al. (2026), arXiv:2611.26473v1, §§1–4"
+      ],
+      "reasoning": "This is a universal theorem for all finite dimensions and real growth vectors, not a lookup of a specific finite table. The 660 finite examples are supplemental tests. The cited primary results do not contain a block-localization equivalence.",
+      "searches": [
+        "interaction digraph strongly connected component size at most two excludes every heteroclinic cycle for any Lotka Volterra growth rates",
+        "blockwise acyclicity of invasion graph equivalent to global all-parameter acyclicity, cycles confined to feedback SCC"
+      ]
+    },
+    "rationale": "Comparison of the theorem’s universal all-growth-rate quantifier and weak-edge relation against relevant full papers found no full feedback-component localization statement. The cited global dominance and weighted-skew criteria fail on the provided exact 4x4 matrix, showing the new sufficient criterion is not implied by those results. Existing 3-species cyclic examples are acknowledged as prior work.",
+    "residual_risks": [
+      "Independent historical priority review has not been performed.",
+      "Semantic literature retrieval is not exhaustive of unindexed primary and network-decomposition literature.",
+      "The 2026 supporting arXiv paper first appeared after the frozen source-date anchor, and was used only for closest-prior comparison, not as eligible primary literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: classifies three-dimensional cycles and gives dominance conditions rather than general SCC weak-graph localization",
+        "evidence": "2025 paper §4 Theorem 4.2 and Corollary 4.3; first public 2025-02-08",
+        "identifier_or_url": "https://doi.org/10.1007/s00285-025-02190-4",
+        "material_read": "Open-access HTML introduction, Definitions in §3, Theorem 4.2, Corollary 4.3 and cycle examples §5",
+        "method": "Direct text reading and theorem/claim implication comparison",
+        "title": "A theoretical and computational study of heteroclinic cycles in Lotka–Volterra systems",
+        "trigger": "Primary eligible 2025 paper studying exactly VL-stable heteroclinic cycles"
+      },
+      {
+        "assessment": "NOT_COVERING: whole-matrix sufficient criteria fail on the new theorem’s 4x4 example; no SCC projection equivalence appears",
+        "evidence": "arXiv v1 released 2026-11-19; ρ(B)<1 and skew-norm conditions versus exact ρ(B)=2, skew norm≥2",
+        "identifier_or_url": "https://arxiv.org/html/2611.26473v1",
+        "material_read": "Open HTML Definitions 1.2, Theorem 1.3, Theorem 3.2, Lemma 4.5, Theorem 4.4, Corollary 4.6 and example §4",
+        "method": "Direct full-section reading, condition comparison, and 4x4 exact non-implication witness",
+        "title": "Preventing cycles in Lotka–Volterra systems",
+        "trigger": "Very close 2026 source defining the same weak graph and broad uniform acyclicity tests"
+      },
+      {
+        "assessment": "NOT_COVERING: parameter perturbation stability of strict invasion graph, not all-growth-rate weak-cycle localization",
+        "evidence": "2024 paper Theorem 28 and introduction",
+        "identifier_or_url": "https://doi.org/10.1007/s00285-024-02087-8",
+        "material_read": "Open HTML §§1–5 including graph definitions, dynamical interpretation, and Theorem 28",
+        "method": "Direct inspected graph statements and their quantifiers",
+        "title": "Structural stability of invasion graphs for Lotka–Volterra systems",
+        "trigger": "Earlier systematic graph theorem for Lotka–Volterra models"
+      },
+      {
+        "assessment": "NOT_COVERING: permanence under a given acyclic invasion graph, rather than universal block-localization of weak graphs",
+        "evidence": "2022 paper introduction and §§2–4",
+        "identifier_or_url": "https://doi.org/10.1007/s00285-022-01815-2",
+        "material_read": "Open HTML abstract, introduction, §§2–4 covering invasion scheme assumptions and permanence",
+        "method": "Direct accessible primary-text inspection",
+        "title": "Permanence via invasion graphs: incorporating community assembly into modern coexistence theory",
+        "trigger": "Foundational source of invasion graph language and permanence implications"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1ae2efda-abe9-4995-bcf1-d52af0004671",
+  "value": {
+    "rationale": "Exact universal feedback-decomposition theorem motivates a local-to-global structural criterion for weak invasion cycles, independent of arbitrary-size feedforward coupling. The sharp 2-versus-3 SCC cutoff is natural for the ecology of rock-paper-scissors heteroclinic cycles. The worked 4x4 example lies beyond two closely related global sufficient conditions and admits a direct VL certificate, demonstrating genuine mathematical use of the theorem.",
+    "status": "PASS"
+  }
+}
