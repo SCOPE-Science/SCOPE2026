@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Four transition classes exactly partition feasible edges conditional on (X,Y), giving the three finite-size drift identities. All normalized jumps are at most 2/n and aggregate rates at most (1+c)n, ensuring \\(O(1/n)\\) martingale variance on compact times. Global Lipschitz drift then proves ODE convergence. The infinite-time tail is bounded by still-unmatched vertices X_n(T)/n, while deterministic \\(x(T)\\le1/(1+T)\\). Integration of \\((x+z)'=-x^2\\) proves the exact loss, and \\(x'\\ge-(1+c)x\\) proves \\(1-f(c)\\ge 1/[2(1+c)]\\). Independent rational recurrences agree in 24 finite tests; their role is verification rather than proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/1210.3581 (uniform hypergraph matching and unsaturated vertices)",
+        "https://pubsonline.informs.org/doi/epdf/10.1287/stsy.2021.0082 (random-graph averaging and matched cardinality)"
+      ],
+      "reasoning": "General near-perfect coverage of random greedy regular hypergraphs and comparisons of uniform greedy algorithms cannot dominate a quantitative *planted-edge overlap* result in a dense, highly nonuniform edge-rate model. They concern a distinct observable and have no all-c quantitative defect bound.",
+      "searches": [
+        "greedy random matching complete bipartite weighted diagonal rates number planted edges retained density crossover",
+        "greedy maximum likelihood planted matching greedy algorithm exponentially weighted bipartite random matching overlap"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1210.3581",
+      "https://arxiv.org/html/1912.08880v5",
+      "https://pubsonline.informs.org/doi/epdf/10.1287/stsy.2021.0082",
+      "https://doi.org/10.1137/0402034",
+      "https://arxiv.org/abs/1805.06944"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/1912.08880v5 (Theorem 1: min-sum planted overlap tends to 1 for lambda >=4)",
+        "https://arxiv.org/abs/1210.3581 (Theorem 1.1: uniform greedy matching unsaturated fraction)",
+        "https://pubsonline.informs.org/doi/epdf/10.1287/stsy.2021.0082 (average cardinality comparisons)"
+      ],
+      "reasoning": "For any fixed \\(c\\ge4\\) the exact same edge-time sample has a minimum-total-cost matching with asymptotic planted overlap one, whereas the greedy result proves \\(\\lim_{n\\to\\infty}S_n/n=f(c)\\le1-1/[2(1+c)]\\). The optimal theorem alone says nothing about greedy first-success ordering; uniform-rate coverage theorems do not establish overlap. The comparison is a new quantitative algorithmic separation, not a corollary of the cited optimality result.",
+      "searches": [
+        "greedy maximum likelihood planted matching greedy algorithm exponentially weighted bipartite random matching overlap",
+        "random sequential matching complete bipartite distinguished diagonal rate bias planted matching number diagonal matches"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/1912.08880v5 (Definition of exponential planted model and Theorem 1)",
+        "https://pubsonline.informs.org/doi/epdf/10.1287/stsy.2021.0082 (Sections 1 and 1.1 of greedy edge-order model)"
+      ],
+      "reasoning": "An ordering of independent Exp(c) and Exp(1/n) edge clocks followed by first-feasible acceptance is weighted random greedy matching (irreversible dimer RSA) and not minimum-sum matching. Matching weight laws coincide with Moharrami–Moore–Xu, but their minimizer is a different function of the same edge costs. Uniform RANDOM-EDGE is the equal-rate subcase, not the biased planted fraction.",
+      "searches": [
+        "random greedy matching planted perfect matching weighted diagonal edges complete bipartite kinetics preferential edges",
+        "planted exponential matching greedy earliest edge acceptance versus global minimum weight matching rate lambda K n n fluid limit recovery fraction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://doi.org/10.1137/0402034 (foundational RSA on graphs; abstract and reported scope)",
+        "https://pubsonline.informs.org/doi/epdf/10.1287/stsy.2021.0082 (open-access full text of uniform greedy matchings)"
+      ],
+      "reasoning": "Finite matching/adsorption tables and standard RSA coverage laws do not provide the fixed-c kinetic fluid overlap and its comparison to a planted minimum-cost recovery threshold. Indexed results for matching-deleted bipartite networks and weighted tripartite adsorption have different edge families and stopping statistics.",
+      "searches": [
+        "weighted random greedy matching planted perfect matching preferential diagonal sequential dimer adsorption",
+        "random sequential adsorption dimer finite graph exact maximal matching terminal probability kinetic orbit"
+      ]
+    },
+    "rationale": "The new claim concerns the planted-edge fraction retained by irreversible first-feasible-edge selection under two independent exponential rate classes, with an exact fluid system and a strict all-finite-rate deficit. The closest planted-model theorem optimizes total edge cost and does not imply a result for this greedy algorithm. No exact claim-level implication was located in examined full texts or related indexed mathematical findings; an unlocated prior calculation remains a historical-priority risk.",
+    "residual_risks": [
+      "A closer older weighted random greedy-matching calculation may exist under other terminology or outside indexed sources.",
+      "Pippenger full paper not fully inspected; abstract and scope only, so full-text priority exclusion is not claimed.",
+      "Arnosti PDF sections outside inspected introduction, model definitions, and page-13 discussion were not exhaustively read."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Analyzes uniform-rate regular-hypergraph matching coverage, not planted weighted overlap",
+        "evidence": [
+          "https://arxiv.org/abs/1210.3581"
+        ],
+        "identifier_or_url": "arxiv:1210.3581",
+        "material_read": "Full accessible HTML transcription, introduction, Theorem 1.1, Section 2 and proof setup in Section 3",
+        "method": "Direct reading of accessible arXiv text",
+        "title": "A natural barrier in random greedy hypergraph matching",
+        "trigger": "Core prior technique for irreversible edge-greedy matching"
+      },
+      {
+        "assessment": "Directly establishes optimal minimum-sum recovery, but not first-feasible-edge greedy adsorption; very close model and important comparison",
+        "evidence": [
+          "https://arxiv.org/html/1912.08880v5"
+        ],
+        "identifier_or_url": "arxiv:1912.08880",
+        "material_read": "Full open-access HTML; introductory model, Theorem 1 and its proof, Theorem 2, Section 4 open questions and matching-algorithm comparison",
+        "method": "Direct section-level reading of arXiv HTML",
+        "title": "The Planted Matching Problem: Phase Transitions and Exact Results",
+        "trigger": "Same planted exponential edge distributions and optimal recovery threshold"
+      },
+      {
+        "assessment": "Focuses on uniform random-edge order and cardinality performance averaged over random edge sets; its late discussion mentions iid weighted matching, whereas the rate-inhomogeneous planted overlap model here is not established in inspected material",
+        "evidence": [
+          "https://pubsonline.informs.org/doi/epdf/10.1287/stsy.2021.0082"
+        ],
+        "identifier_or_url": "doi:10.1287/stsy.2021.0082",
+        "material_read": "Open-access PDF introductory pages 1–4 and page 13 discussion of the weighted-iid extension; full-document extracted text searches for planted and exponential",
+        "method": "Rendered page screenshots and extracted text",
+        "title": "Greedy Matching in Bipartite Random Graphs",
+        "trigger": "Plausible broader greedy matching theory on bipartite graphs"
+      },
+      {
+        "assessment": "Establishes classical RSA context but no inspected full-text priority exclusion; residual risk recorded",
+        "evidence": [
+          "https://doi.org/10.1137/0402034"
+        ],
+        "identifier_or_url": "doi:10.1137/0402034",
+        "material_read": "Publisher abstract, metadata and stated paper scope; full text not accessible in examined source",
+        "method": "Publisher abstract and institutional article record",
+        "title": "Random Sequential Adsorption on Graphs",
+        "trigger": "Foundational physical adsorption formulation on finite graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1c37fc9b-e6a6-4b1d-93d2-3514a5b936a5",
+  "value": {
+    "rationale": "The same exponential planted-matching disorder supports almost-perfect recovery by global minimum-sum matching at every \\(c\\ge4\\), but irreversible sequential adsorption loses at least \\(1/[2(1+c)]\\) of the target edges asymptotically at each fixed finite c. The exact kinetic fluid curve and a strictly positive quantitative deficit identify a physical/algorithmic obstruction not visible in final matching cardinality (which is always n). This is a structural infinite-family theorem, not a renamed textbook identity or isolated enumeration.",
+    "status": "PASS"
+  }
+}
