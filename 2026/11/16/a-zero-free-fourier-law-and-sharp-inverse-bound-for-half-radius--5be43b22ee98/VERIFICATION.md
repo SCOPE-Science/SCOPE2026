@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The supplied standalone `check_lee.py` computes each finite Lee ball as a Boolean array, uses NumPy's unnormalized 2D FFT, compares every coefficient with the theorem's stated parity-dependent cosine expression and checks its four minimizers and condition number. Executing it with NumPy passed all 50 odd moduli from \(3\) through \(101\), or 176,850 Fourier coefficient comparisons. The tested tolerance is stated in the source code; tests involve floating point and do not prove the infinite family.
+## correctness
 
-The universal mathematical certificate is the self-contained proof in `RESULT.md`: parity-filtered geometric products, exact trigonometric simplification, nonvanishing denominator restrictions, and sharp Fourier extremizers. This result is not an external or independent mathematical certification; further independent review of proof and bibliographic priority has not been performed.
+PASS
+
+PASS: For N=2r+1 the cyclic Lee radius-r diamond is the parity-filtered square in coordinates u=x+y,v=x-y. Its transformed kernel is a parity-filtered product of two length-N geometric sums; separating k+l even and odd gives the asserted cosine-sum or cosine-difference rational expression for every nonzero character, with denominators nonzero by parity. For nonzero k,l the relevant denominator magnitude is at most 2cos(pi/N), equality only at the four near-Nyquist characters; axis cases are strictly below this bound. Unitary discrete Fourier diagonalization gives the exact reciprocal minimum as inverse ell2 norm, and the zero character yields max singular value (N^2+1)/2. Independently recomputed every direct complex Fourier sum, closed formula, minimum and four minimizers for N=3,5,...,19. The all-odd-N result relies on the exact geometric-sum algebra, not finite samples.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: an exact Fourier law for cyclic half-radius Lee-ball convolution and the sharp four-mode inverse bound are not implied by accessible Lee-ball lattice-tiling necessary conditions, quantum Lee geometry or fixed-radius Turan masses. Xiao–Zhou full paper was not accessible and remains a named residual risk, rather than an automatic scientific FAIL.
+
+## value
+
+PASS
+
+PASS: Half-radius discrete Lee balls are natural roughly half-density nonrectangular convolution stencils. Exact absence of blind frequencies and the sharp stable inverse norm for every odd modulus (including composite) provide a natural meaningful spectral stability theorem and equality-mode classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

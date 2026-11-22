@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The integer change of variables \((x,y)\mapsto(x+y,x-y)\) transforms the radius-half Lee diamond into a parity-filtered square. The two parity products of geometric sums give each Fourier multiplier, including the origin and exceptional geometric-sum cases. The denominator bound is sharp only at four stated frequencies, yielding the exact smallest singular value and inverse norm by unitary diagonalization. The independent numerical FFT checker agrees for 50 odd moduli and all 176,850 frequencies tested. Floating checks support but do not replace the universal proof.
+PASS
 
-## Originality
+PASS: For N=2r+1 the cyclic Lee radius-r diamond is the parity-filtered square in coordinates u=x+y,v=x-y. Its transformed kernel is a parity-filtered product of two length-N geometric sums; separating k+l even and odd gives the asserted cosine-sum or cosine-difference rational expression for every nonzero character, with denominators nonzero by parity. For nonzero k,l the relevant denominator magnitude is at most 2cos(pi/N), equality only at the four near-Nyquist characters; axis cases are strictly below this bound. Unitary discrete Fourier diagonalization gives the exact reciprocal minimum as inverse ell2 norm, and the zero character yields max singular value (N^2+1)/2. Independently recomputed every direct complex Fourier sum, closed formula, minimum and four minimizers for N=3,5,...,19. The all-odd-N result relies on the exact geometric-sum algebra, not finite samples.
 
-**PASS relative to inspected literature and indexed records, with priority uncertainty.** Xiao–Zhou arXiv:2610.19775 motivates Lee-ball group-ring analysis but was accessible as abstract only, so an unstated equivalent implication in its complete paper remains possible. Guo et al. arXiv:2610.04834 (full-text body inspected) study the same Lee geometry as quantum-error supports, not its sharp Fourier convolution inversion. The closest indexed Lee result solves a fixed-radius Turán positive-definiteness problem; a separate four-dimensional cross-polytope Fourier-support result concerns a different domain. Related query aliases, formulas and stronger coverage were compared, and available prior findings in the current research ledger were searched for overlap. The geometric-sum derivation is classical, while the all-odd-order sharp stability and unique mode classification are the assessed claim.
+## originality
 
-## Value
+PASS
 
-**PASS.** Half-radius Lee balls occupy just over half of each odd square torus and form a natural, nonrectangular family of translation-invariant shift kernels. A complete zero-free spectrum and exactly sharp inverse amplification provide a structural stability theorem in infinitely many sizes, with explicit worst modes and contrast to potentially singular ball convolutions at other radii. This is a motivated exact invariant, not a disconnected finite census.
+PASS best-of-knowledge: an exact Fourier law for cyclic half-radius Lee-ball convolution and the sharp four-mode inverse bound are not implied by accessible Lee-ball lattice-tiling necessary conditions, quantum Lee geometry or fixed-radius Turan masses. Xiao–Zhou full paper was not accessible and remains a named residual risk, rather than an automatic scientific FAIL.
 
-## Closest sources and limitations
+## value
 
-Xiao–Zhou, arXiv:2610.19775 (abstract only); Guo et al., arXiv:2610.04834 (substantive full text); the indexed cyclic Lee two-ball Turán mass and four-dimensional cross-polytope Fourier support results (indexed summaries). Other radii and dimensions are not covered. Earlier equivalent trigonometric evaluations remain possible, and the inaccessible first paper leaves bibliographic uncertainty. The numerical tests do not certify the infinite claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Half-radius discrete Lee balls are natural roughly half-density nonrectangular convolution stencils. Exact absence of blind frequencies and the sharp stable inverse norm for every odd modulus (including composite) provide a natural meaningful spectral stability theorem and equality-mode classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
