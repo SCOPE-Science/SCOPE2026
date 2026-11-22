@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every result is confined to pure degree-two harmonics, normalized surface measure and the stated second-moment-isotropic center distributions. The cap Funk–Hecke coefficient for degree four is exactly \(a_4(c)=c(1+c)(7c^2-3)/8\). After the center law kills degree two, the vanishing of this coefficient is sufficient for the full Hermitian isometry. The explicit tetrahedral counterexample proves necessity for the **universal** statement, not for every individual center law. In the four-disjoint-cap case, symmetry and exact sphere moments determine both eigenvalues and their multiplicities, with a uniquely factored crossing. All critical symbolic equations were re-evaluated, and independent numerical quadrature checked the full Gram matrix at six radii. Finite numerics do not replace the symbolic proof.
+PASS
 
-## Originality — PASS, provisionally
+For q,r∈H2, q overline(r) has harmonic degrees 0,2,4. Second-moment isotropy kills the H2 center average, and normalized Funk–Hecke coefficient a4(c)=c(1+c)(7c²−3)/8 kills H4 exactly at sqrt(3/7), leaving constant mean. The tetrahedral 2-design with q=x²−y² has ∑q(u)²=0 but spherical mean 4/15, so degree-four moment −4/15 is nonzero and proves unique universal c in (0,1). Exact symbolic Legendre polynomial integration and tetrahedral witness independently checked. Quantifier covers all probability measures, not a numerical finite sample.
 
-The closest published works are Roddy–McEwen, *Slepian Scale-Discretised Wavelets on the Sphere* (arXiv:2106.02023, 2021), and Li–Chen, *Spherical Designs for Approximations on Spherical Caps* (DOI:10.1137/23M1555417, 2024). The latter's primary full text describes cap t-subdesign integration rather than an all-center-law isometry under only second-moment isotropy. The nearest publicly inspected exact tetrahedral quartic-tensor table treats the **filled solid**, not a cap indicator and its H2 spectral Gram. The related hemisphere and simplex-cap results treat different geometries. The new claim does not appropriate classical Funk–Hecke, design, or Slepian machinery. The 2021 Slepian full text was not fully inspected and an equivalent zonal filtering identity may exist under other terminology; historical priority remains provisional.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem gives the unique universal nontrivial observation aperture, a genuine exact five-dimensional tight sampling construction from just four disconnected caps, complete sharp eigenvalues and eigenspace identification, plus a spectral transition and a sharp narrowing-cap condition-number asymptotic. These answer a motivated fixed-band spherical localization question that neither generic spectral definitions nor a mere finite numerical sample settles.
+The original tetrahedral two-branch spectrum is unequivocally covered by the earlier simplex-cap result and is removed from the repaired finding. The earlier octahedral cap-window cubature also contains the same c* as a discrete special case. The surviving all-second-moment-isotropic-distributions Parseval identity has a strictly broader quantifier than either known special-center theorem; those restricted prior statements do not entail it by parameter substitution alone. Proof uses known Funk–Hecke and harmonic products, so priority against general spherical filtering theory remains limited.
 
-## Scientific limitations
+## value
 
-Only the pure degree-two band on the normalized two-sphere is treated. The tetrahedral spectral formulas require four equal, pairwise nonoverlapping caps; the general mixture identity does not require disjointness. Stronger-isotropic individual center distributions may admit other tight radii. Independent historical verification remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A robust quadrature/sensing lemma for arbitrary center measures is a natural upgrade: matching the 3×3 second moment suffices to reproduce all 5×5 degree-two harmonic Gram inner products after cap noise, without matching degree-four moments. This general center-law stability, not the already known tetrahedral spectrum, is the motivated mathematical fact retained.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

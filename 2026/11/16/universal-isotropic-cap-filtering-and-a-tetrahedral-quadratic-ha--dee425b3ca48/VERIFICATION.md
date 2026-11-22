@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The included `verify_tetra_caps.py` executes with Python, NumPy and SymPy; install those dependencies from `requirements.txt` if missing. All analytical claims are reconstructed in `RESULT.md` and use the normalized entire-sphere Gram, not an unnormalized coordinate measure.
+## correctness
 
-The exact checker symbolically verifies the degree-four Legendre-cap integral, the diagonal and mixed eigenbranches derived from center evaluations, their multiplicity trace identity, their difference factorization, the diagonal branch factor and positive factor, the precise tight radius, and the sharp condition-number limit. It then independently constructs a five-vector real orthonormal degree-two harmonic basis and performs ten-node Gauss–Legendre and 24-node azimuthal integration for all 25 Gram entries at six thresholds; the maximum absolute error was below \(1.3	imes10^{-15}\). It separately tests the universal formula for three distinct second-moment-isotropic center distributions: four tetrahedral centers, the three positive coordinate axes, and six antipodal coordinate axes.
+PASS
 
-Expected final marker: `ISOTROPIC_CAP_FILTER_PASS exact_symbolic=8 quadrature_radii=6 center_designs=3`.
+For q,r∈H2, q overline(r) has harmonic degrees 0,2,4. Second-moment isotropy kills the H2 center average, and normalized Funk–Hecke coefficient a4(c)=c(1+c)(7c²−3)/8 kills H4 exactly at sqrt(3/7), leaving constant mean. The tetrahedral 2-design with q=x²−y² has ∑q(u)²=0 but spherical mean 4/15, so degree-four moment −4/15 is nonzero and proves unique universal c in (0,1). Exact symbolic Legendre polynomial integration and tetrahedral witness independently checked. Quantifier covers all probability measures, not a numerical finite sample.
 
-The tests are not exhaustive over uncountably many center laws or all radii: the harmonic decomposition and exact algebra prove those quantifiers. Independent audit has not been conducted.
+## originality
+
+PASS
+
+The original tetrahedral two-branch spectrum is unequivocally covered by the earlier simplex-cap result and is removed from the repaired finding. The earlier octahedral cap-window cubature also contains the same c* as a discrete special case. The surviving all-second-moment-isotropic-distributions Parseval identity has a strictly broader quantifier than either known special-center theorem; those restricted prior statements do not entail it by parameter substitution alone. Proof uses known Funk–Hecke and harmonic products, so priority against general spherical filtering theory remains limited.
+
+## value
+
+PASS
+
+A robust quadrature/sensing lemma for arbitrary center measures is a natural upgrade: matching the 3×3 second moment suffices to reproduce all 5×5 degree-two harmonic Gram inner products after cap noise, without matching degree-four moments. This general center-law stability, not the already known tetrahedral spectrum, is the motivated mathematical fact retained.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
