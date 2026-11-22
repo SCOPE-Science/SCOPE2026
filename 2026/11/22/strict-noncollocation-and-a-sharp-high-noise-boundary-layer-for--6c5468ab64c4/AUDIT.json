@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "Exact Gaussian posterior-variance inversion yields the displayed rational objective. Exact symbolic derivatives strictly exclude collocation and the right endpoint at every finite variance; conditional covariance excludes the left. Compactness plus uniform negative Hessian at high variance proves unique global optimum; stationarity gives offsets 1/2 and 1/6. Sharp Taylor coefficients 53/18 and 26/9 yield replication regret 1/18. The attached checker independently verifies pivotal algebra and illustrates finite cases; the analytic proof supports universal claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ji and Mueller cover noisy trajectory recovery in general but give a numerical procedure rather than this specialized strong-noise theorem in the inspected material.",
+        "Mukherjee summary paper explicitly says the 2003 product covariance BLUE interpolates the observed process and studies large-sample counts."
+      ],
+      "reasoning": "No inspected general design theorem was found implying these particular high-variance two-point minimizer expansions or the strict noncollocation for every finite variance. The inaccessible 2003 paper remains an unresolved bibliographic risk, but its described observation model differs materially.",
+      "searches": [
+        "Gaussian process posterior integrated variance optimal design observation noise Brownian motion",
+        "doi:10.2307/3315904 exact product covariance design",
+        "doi:10.1016/0378-3758(95)00017-8 stochastic process optimal path design"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1604.05375",
+      "https://websites.umich.edu/~bhramar/research/synote1.pdf",
+      "https://doi.org/10.2307/3315904",
+      "https://doi.org/10.1016/0378-3758(95)00017-8",
+      "https://docs.lib.purdue.edu/dissertations/AAI3043760/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Generic fixed-p observation-noise Gaussian criterion does not calculate a global maximizer; the new result proves noncollision and a unique high-noise layer analytically.",
+        "Known Brownian-bridge paired sensor theorem has pinned endpoint and symmetric two-point design; it cannot be specialized to Brownian motion with nonzero free-terminal covariance."
+      ],
+      "reasoning": "The prior work contains definitions and a general objective or solves a different kernel/loss. Substitution into an argmax expression does not imply the new proof of strict finite-noise noncollocation, high-noise uniqueness and sharp optimized collocation regret; nor does the Brownian-bridge conclusion dominate it.",
+      "searches": [
+        "Ji and Muller 2016 arXiv:1604.05375 Eq. (10), Section 5",
+        "Mukherjee author PDF symote1 Sections 1-3",
+        "two Brownian-motion noisy point observations integrated mean square trajectory recovery unique high-noise asymptotic optimal locations x=1-1/(2sigma2), y=1-1/(6sigma2)",
+        "optimal two-point stochastic process path estimation with measurement error split versus replicated sensors Brownian covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brownian motion covariance min(s,t) makes the explicit objective with nonzero free-end variance; Ji and Mueller Eq. (10) supplies only the generic argmax functional.",
+        "The accessible Mukherjee author paper uses exact observations Y(t_i) and an interpolating BLUE, which is not the noisy two-observation setting."
+      ],
+      "reasoning": "An equivalent GP posterior-conditioning or BLUE formulation was sought. Neither inspected source supplies the two sharp offsets, exact derivative sign, or optimized replication penalty; a generic covariance expression is not equivalent to the solved constrained optimization.",
+      "searches": [
+        "two Brownian-motion noisy point observations integrated mean square trajectory recovery unique high-noise asymptotic optimal locations x=1-1/(2sigma2), y=1-1/(6sigma2)",
+        "Brownian motion Gaussian process trajectory reconstruction two noisy observations high-noise optimal design collocation boundary layer",
+        "arXiv:1604.05375 Section 2 Eq. (10) and full extracted text search for Brownian",
+        "Mukherjee A Note on Sampling Designs 2003 author PDF Sections 1-3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned cosine-kernel noisy two-landmark, Brownian-bridge iid quadrature and Brownian stratified integral results, not the same claim.",
+        "Accessible ledger gives a recent Brownian-bridge noisy optimal two-site theorem with covariance min(s,t)-st, not the free-end motion covariance."
+      ],
+      "reasoning": "Neither a reported exact table for this objective nor a duplicate claim was found among actual searched hits and accessible own claim records. Search incompleteness is not a proof of absence.",
+      "searches": [
+        "two Brownian-motion noisy point observations integrated mean square trajectory recovery unique high-noise asymptotic optimal locations x=1-1/(2sigma2), y=1-1/(6sigma2)",
+        "optimal two-point stochastic process path estimation with measurement error split versus replicated sensors Brownian covariance",
+        "Gaussian process posterior integrated variance optimal design observation noise Brownian motion",
+        "Local own-ledger claims 2026-11_week3 p0001 g000124"
+      ]
+    },
+    "rationale": "Inspected primary literature on noiseless process designs and general noisy trajectory design does not state the exact all-noise noncollocation or unique high-noise Brownian motion endpoint-layer coefficients and optimized replication penalty. The general Gaussian posterior formula alone is a criterion to optimize, not these results. Bibliographic priority is qualified by inaccessible older full texts.",
+    "residual_risks": [
+      "Unindexed identical or stronger noisy two-site asymptotic may exist in historical studies.",
+      "Mukherjee 2003 primary full text and 2001 dissertation were not accessible; no full-document noncoverage claim made.",
+      "No explicit threshold for eventual uniqueness is established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general noisy-process functional but not the specified Brownian high-noise coefficient and collocation theorem in inspected content",
+        "evidence": [
+          "Page 5 Eq. (10): argmax of integrated gamma^T Gamma_star^-1 gamma",
+          "Page 3 Eq. (1): independent additive measurement errors",
+          "No Brownian match in full searchable PDF text"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1604.05375",
+        "material_read": "Abstract; Sections 1-2 through Eq. (10); Section 5 implementation; extracted-text search across 36 pages for Brownian; visual page inspection",
+        "method": "Public arXiv full PDF text and visual page rendering",
+        "title": "Optimal Designs for Longitudinal and Functional Data",
+        "trigger": "Direct general noisy trajectory-recovery model with identical criterion"
+      },
+      {
+        "assessment": "Works with exact process observation, distinct points and large number of sites; not the independent noisy two-point design",
+        "evidence": [
+          "PDF text lines 43-59: data vector uses Y(t_i), no additive noise",
+          "Lines 91-101: earlier 2003 paper described as interpolatory BLUE"
+        ],
+        "identifier_or_url": "https://websites.umich.edu/~bhramar/research/synote1.pdf",
+        "material_read": "Introduction, Sections 1-3 statements and the product-covariance literature comparison; PDF pages 2-4 visually inspected",
+        "method": "Public author-hosted full PDF text plus page rendering",
+        "title": "A Note on Sampling Designs for Random Processes with No Quadratic Mean Derivative",
+        "trigger": "Explicit discussion of product-covariance designs for Brownian motion"
+      },
+      {
+        "assessment": "Potential bibliographic overlap unresolved; the accessible description concerns exact process observations and interpolating BLUE rather than independent observation noise",
+        "evidence": [
+          "Mukherjee later open PDF lines 91-101 describes its model",
+          "Full text not obtained; do not claim whole-paper noncoverage"
+        ],
+        "identifier_or_url": "https://doi.org/10.2307/3315904",
+        "material_read": "Bibliographic records and scientific description in later open Mukherjee paper, not the 2003 primary full text",
+        "method": "Searched preprint and lawful OA, publisher URL not accessible; institutional retrieval unavailable",
+        "title": "Exactly optimal sampling designs for processes with a product covariance structure",
+        "trigger": "Plausible earlier exact Brownian optimal-design article"
+      },
+      {
+        "assessment": "Described as many-point approximation from exact process observations, not a fixed-two noisy-sensor high-noise layer",
+        "evidence": [
+          "Mukherjee open PDF lines 85-91 discusses asymptotic n-design results"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0378-3758(95)00017-8",
+        "material_read": "Abstract and bibliographic summaries plus discussion in Mukherjee open paper",
+        "method": "Web records and full-text related-literature comparison",
+        "title": "Optimal designs for approximating the path of a stochastic process",
+        "trigger": "Older asymptotically optimal Brownian process path designs"
+      },
+      {
+        "assessment": "Plausible but not inspectable in full; unresolved source risk",
+        "evidence": [
+          "Purdue abstract says sampled values of a process and exact Brownian calculations, without an explicit additive-noise model"
+        ],
+        "identifier_or_url": "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+        "material_read": "Purdue catalog abstract only",
+        "method": "Official abstract and access status",
+        "title": "Optimal designs for estimating the path of a stochastic process",
+        "trigger": "Broad Brownian-motion path optimal design dissertation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6c5468ab-64c4-467b-95c4-044ea24f1d79",
+  "value": {
+    "rationale": "The nonlinear two-sensor placement problem has natural path-reconstruction and benchmark motivation. A global strict noncollocation law valid at every finite noise level, followed by a unique high-noise endpoint layer with different offsets 1/2 and 1/6, is structurally informative. The exact 1/(18 eta^3) regret compares against optimally positioned replicated measurements, not a weak fixed baseline. It provides a reproducible benchmark beyond a routine covariance inversion or small numerical example.",
+    "status": "PASS"
+  }
+}
