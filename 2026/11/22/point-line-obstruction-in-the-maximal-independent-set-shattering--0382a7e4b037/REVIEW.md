@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The complete proof classifies the 37 maximal independent sets directly from Fano incidence, then proves a necessary independent-support condition, a monochromatic four-support obstruction, and an upper bound of four. The remaining two mixed four-support orbits have all 16 Boolean traces certified by an explicit witness table. Exceptional Fano-line triples have their eight traces displayed. Downward closure and elementary incidence counts give the full polynomial and facet types; the 168 collineations plus duality establish the three orbit sizes. A standalone finite checker independently enumerates all 16,384 vertex subsets to recover the concepts, tests every support and confirms the 336 group actions. Finite computation is used to corroborate, not replace, the all-cases argument.
+
+## Originality — PASS within the inspected evidence
+Jahari–Alikhani (2018) develop cardinality generating polynomials of independent dominating sets and work on paths, compound graphs and friendship/book graphs, not this support-shattering complex. Perarnau–Perkins (2016) determine an ordinary independence polynomial for Heawood and its extremal role; ordinary independent-set counts differ here from the shattered-set counts in degree four. Indexed results on maximal-independent-set shattering for cycles and whiskered graphs concern different hosts and do not imply this Fano-incidence classification. A public-web search for Heawood/Fano maximal-independent-set VC shattering and several semantic research queries returned no stronger implication. This is not a claim that search proves uniqueness; unavailable or unindexed historical equivalents remain a real priority risk. An indexed whiskered-graph paper could not be inspected in full, but its specified private-leaf hypothesis fails for the degree-three Heawood graph.
+
+## Value — PASS
+The Heawood graph is the canonical 14-vertex cubic Moore graph and the point-line incidence graph of the Fano plane. Its maximal independent sets have three distinct cardinalities. The complete shattering complex reveals a sharp projective incidence obstruction: the 70 independent four-sets lying in one shore fail shattering, while every mixed independent four-set succeeds. This yields 14 genuine lower-dimensional facets and two distinct maximal four-support symmetry types. Such a complete, motivated finite classification retains meaningful structural information not recoverable from the independence polynomial or the VC dimension alone. It does not claim wider graph-family coverage.
+
+## Scope and residual risks
+The claim is finite and exact, not a statement for arbitrary projective planes or arbitrary independent-domination families. Previous published work was compared by what its statements imply. Research repository hits were available as indexed summaries, not all primary full text; priority remains open to an independent literature review.
+
+Self-review: passed. Independent audit: not yet performed.
