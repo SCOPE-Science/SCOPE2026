@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The circular gap vector has a constant Dirichlet density. The geometric \(120^\circ\) switch gives the exact atom, while the three-terminal Fermat–Torricelli formula gives an exact expression for the positive gain. The largest-gap decomposition and its Jacobian produce the finite integral. The near-switch expansion is quadratic in the angle deficit, and controlled gap-endpoint estimates justify dominated convergence. The marked density change of variables and \(L^1\) endpoint control prove total variation. An independent Cartesian Monte Carlo and a deterministic inverse-cutoff quadrature corroborate the constants.
+PASS
 
-## Originality — PASS, with residual historical uncertainty
+For iid circular gaps Dirichlet(1,1,1), an angle reaches 120° iff its opposite arc gap is at least 4π/3. The three disjoint events have total probability 1/3, giving Q=0 atom. In the improving region, Fermat–Torricelli formula S²=p²+r²-pr cos A+√3 pr sin A yields q(s,α)=1−√[1−2H(s,α)(1−cos s)], where s=2π/3−A>0. Uniform interior expansion q≈h(α)s²/2 and the correct 3/π² gap-space Jacobian give P(0<Q<t)∼(3/π²)√t∫√[2/h]dα. The h endpoint poles are integrable; the proof bounds configurations near endpoints and s separated from zero as o(√t), then density change s→q/t and endpoint tightness justify total-variation convergence of mark law g(α)·Beta(1/2,1) with an independent uniform largest-gap label. Exact finite probability integral uses correct intersection limits for s,α. Separate quadrature reproduces C=2.700948948484718.
 
-The deterministic zero-savings rule and classical equilateral Steiner ratio are prior results, not claimed as discoveries. The primary arXiv paper by Cieslik, Ivanov and Tuzhilin studies global manifold Steiner ratios; the historical Brazil–Graham–Thomas–Zachariasen account studies topology and construction. Neither inspected material implies a probability distribution on random circular triples. The closest accessible prior geometry result on minimum spanning tree length concerns a different equilateral regime and cannot determine the savings-ratio small-positive boundary layer. Targeted semantic records searches did not return the exact formula, but absence of a match does not prove uniqueness. Gilbert–Pollak's full 1968 article remained inaccessible, so an undiscovered earlier distributional treatment is a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A shortest connecting tree changes topology discontinuously at the \(120^\circ\) terminal-angle threshold. The theorem evaluates the resulting mixed discrete/continuous saving law and establishes its nontrivial \(\sqrt t\) rarity exponent, coefficient, and conditional angular mark. This directly quantifies when an additional junction gives only a negligible benefit, a natural network-design sensitivity question. The marked law distinguishes the result from the textbook zero-saving threshold alone.
+Best-of-knowledge PASS for stochastic savings-ratio onset coefficient and conditional angular/Beta shape, not for the 120° switch, 1/3 zero atom, generic Fermat formula or known Steiner ratio. Relevant historical full paper inaccessible and explicitly flagged.
 
-## Limitations and audit status
+## value
 
-The claim covers three uniform circular terminals and their Euclidean networks; it does not generalize to arbitrary point sets, nonuniform sampling, or more terminals. No external referee has validated the proof or historical priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Allowing Steiner junctions is a canonical network-optimization improvement, and the sharp distributional onset at the 120° topology boundary plus explicit conditional triangle shape quantify how and when infinitesimal savings arise under natural random data. The joint Beta/shape law is substantively more than a cheap recomputation of the known zero-savings probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
