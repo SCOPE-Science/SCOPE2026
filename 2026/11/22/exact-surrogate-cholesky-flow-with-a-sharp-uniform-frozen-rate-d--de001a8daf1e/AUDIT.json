@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "Scalar Riccati solution and an independently differentiated variation-of-constants solution give exact g. Monotonicity and strict log convexity of Phi establish a globally sharp ratio, with positive-pivot limiting witness. Ordinary Schur positivity and alpha*g²<1 establish all-dimensional recursive PSD; 452 numerical checks corroborate finite cases without replacing proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2611.09706v2, Section 2.3, proves Schur complement positivity for the original frozen coefficient and finite-time algorithm.",
+        "The present proof also uses standard positive-semidefinite Schur-complement theory, without claiming that theory as new."
+      ],
+      "reasoning": "The source gives the broad pivot-free framework and the result of PSD recursion for another coefficient; neither yields the exact new coefficient comparison with the sharp constant. Standard matrix monotonicity does not supply the scalar sharpness law.",
+      "searches": [
+        "\"Manavalan Schoenlieb 2026 finite time Cholesky first order off diagonal coefficient terminal freeze exact ODE\"",
+        "\"positive semidefinite matrix exact logistic pivot flow g(t)=(1-e^-alpha t)l(t)/alpha\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.09706v2",
+      "https://arxiv.org/abs/2611.09706",
+      "https://ericdarve.github.io/NLA/content/cholesky.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2611.09706v2: g_prime=l(1-lg), p=l², terminal-frozen g=T l Phi(-pT), and PSD well-definedness of the original scheme.",
+        "The sharp numerical value follows from log-convexity of the uniform Laplace transform, which is not applied to the method in the source."
+      ],
+      "reasoning": "The published coefficient is not equal to the newly integrated coefficient for nonconstant l. Its existing well-definedness proof is not a statement about the corrected algorithm; this result supplies a separate bound and exact PSD induction. The fact that these consequences are mathematically derivable from a source equation is not the same as being explicitly covered.",
+      "searches": [
+        "\"finite-time Cholesky Manavalan Schönlieb surrogate ODE exact solution logistic coupling g(t) l(t) bias bound\"",
+        "\"Cholesky flow continuous positive semidefinite diagonal logistic gradient triangular ordinary differential equation\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2611.09706v2, Section 2.2, writes the triangular surrogate ODE and a terminal-frozen coefficient, distinct from the non-autonomous variation-of-constants solution."
+      ],
+      "reasoning": "The new expression solves g_prime=l-l²g exactly; freezing the diagonal inside the exponential does not unless l is constant. No queried equivalent scalar-flow theorem was found; this is a bounded priority assessment, not proof of global uniqueness.",
+      "searches": [
+        "\"finite time Cholesky scalar logistic inverse surrogate g 1-exp(-l^2 t) exact integration\"",
+        "\"triangular Cholesky continuous gradient flow scalar offdiagonal coefficient closed form partial flow\"",
+        "\"finite time Cholesky exact g(t)\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected primary paper provides formulas and numerical error tables but no coefficient bias table or sharp global comparison constant.",
+        "Published research records on Cholesky pivot sampling and incomplete-factorization breakdown concern other procedures."
+      ],
+      "reasoning": "The sharp constant is obtained from a continuous parameter extremum, not a numerical database or catalogued special-case table; no exact source containing this parameter range and conclusion was identified.",
+      "searches": [
+        "\"arXiv:2611.09706 finite-time Cholesky pivot-free correction of logistic surrogate off-diagonal g flow exact formula sharp relative bias\"",
+        "\"finite-time Cholesky factorization analytic solution g\""
+      ]
+    },
+    "rationale": "Full primary text supplies the logistic diagonal and terminal-frozen offdiagonal but not the exactly integrated coefficient or sharp universal ratio and positivity-safe substitution. Same claim/implication was not found in queried mathematical records or accessible historical claim indices; an unknown equivalent source remains possible.",
+    "residual_risks": [
+      "An unindexed scalar-flow correction or published note may have discovered the exact formula or sharp constant earlier.",
+      "The numerical benefit of using the corrected coefficient for whole-matrix approximation is not established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Primary source sets the method but its frozen-rate expression differs from the exactly integrated time-varying offdiagonal flow; no sharp q comparison is presented.",
+        "evidence": [
+          "Section 2.2 equations 22–25 and Algorithm 1 lines for p and g",
+          "Section 2.3 proof of Schur-complement well-definedness, including singular pivot discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.09706v2",
+        "material_read": "Sections 1, 2.1–2.3, unblocked/blocked algorithms, Theorems 1–2 and discussion",
+        "method": "Read complete accessible HTML primary text and compared differential equations, scalar formulas, hypotheses, boundary pivots and matrix update inequalities",
+        "title": "Finite-time Cholesky factorization",
+        "trigger": "Identical surrogate ODE and same matrix recursion"
+      },
+      {
+        "assessment": "Standard Schur positivity is not new and is duly credited; it does not address the finite-time surrogate bias bound.",
+        "evidence": [
+          "Block Cholesky recursion and positive semidefinite zero-pivot caveat"
+        ],
+        "identifier_or_url": "https://ericdarve.github.io/NLA/content/cholesky.html",
+        "material_read": "Cholesky block factorization and Schur complement existence discussion",
+        "method": "Read relevant mathematical exposition",
+        "title": "Cholesky Factorization — Numerical Linear Algebra",
+        "trigger": "Check whether the Schur positivity portion is a standard consequence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "de001a8d-af1e-4c13-9bf0-05ed530304c6",
+  "value": {
+    "rationale": "Provides a direct replacement finite-time coefficient and sharp universal 21.3061% and 38.0728% underestimation guarantees while retaining PSD-safe rank-one recursion and cubic arithmetic cost. Near-zero pivots are a central motivating regime, so the dimensionless sharp effect is operationally meaningful, not an arbitrary instance or routine table lookup.",
+    "status": "PASS"
+  }
+}
