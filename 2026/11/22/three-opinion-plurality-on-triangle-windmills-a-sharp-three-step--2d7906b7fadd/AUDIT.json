@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "A complete graph-independent pair-locking proof gives the time-three cutoff for every petal count. Exact finite six-type enumeration verifies the sharp exceptional boundary m<=4; three explicit m=5,6,7 witnesses and equal-color petal padding prove sharpness for every m>=5. The exact multinomial census follows from fixed-state local constraints, the 5-ary constant term from a=b, and an exponential Hoeffding bound handles the remaining terms. An independent concentration argument proves the random first-entry law. The actual standalone program was replayed successfully and contains independent direct-labelled and compressed implementations; finite tests are not used as infinite-size proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2012 Section 6.2 assumes independent edge-weight perturbations to remove ties and derives at-most-two eventual period; the present unweighted hub has frequent ties.",
+        "Becchetti et al. (2015) sample three random neighbors on complete communication networks, unlike full-neighborhood deterministic plurality.",
+        "Di Ianni (2025) examines different three-state threshold models and complexity rather than this exact local rule on friendship graphs."
+      ],
+      "reasoning": "Broader family theorems identified are either restricted to no-tie weighted models, different stochastic sampled-neighbor protocols, or different update conditions. None of their proven claims directly dominates the exact stated three-opinion theorem.",
+      "searches": [
+        "three-color plurality synchronous update same graph as majority on windmill exact fixation rate fixed point entropy base 5",
+        "all finite three-opinion synchronous plurality tie-retaining convergence time on windmills exact triple-color fixed points",
+        "Mossel Neeman Tamuz Majority Dynamics and Aggregation of Information in Social Networks 2012",
+        "Becchetti Clementi Natale Pasquale Trevisan 3-majority many opinions"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1207.0893v1, 2012-07-04",
+      "arXiv:1307.4035v1, 2013-07-15",
+      "arXiv:1508.06782v1, 2015-08-27",
+      "DOI:10.3390/appliedmath5040147, 2025-11-01",
+      "published-finding corpus mathematical record 6882fd08f78e",
+      "published-finding corpus mathematical record 6dd9f02f5859"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Binary friendship result: fixation within two rounds for binary labels, which neither extends to nor bounds the three-color third-round witnesses.",
+        "Cyclic successor three-color result: three-cycles exist; the claimed plurality map fixes all states, so there is no implication by specialization.",
+        "Tie-free weighted plurality eventual two-period result: eventual period can be 1 or 2 and an arbitrary transient is allowed; it does not give an equilibrium count or explicit first-fixation law."
+      ],
+      "reasoning": "Compared hypotheses, tied-vertex behavior, possible recurrent sets, first-entry bounds and enumerated populations. None of the accessible stronger-looking results imply the joint sharp bound, count, asymptotic and typical-time statements.",
+      "searches": [
+        "on friendship graphs, deterministic plurality with three distinct states, center tie keeps its color; all states stabilize after three steps, exact fixed count 3*5^m/sqrt(m)",
+        "three-color plurality synchronous update same graph as majority on windmill exact fixation rate fixed point entropy base 5",
+        "multicolor plurality synchronous dynamics on friendship graph windmill graph with tie retention convergence time monotone pairs",
+        "arxiv:1207.0893v1 Proposition 6.6",
+        "published-finding corpus:6882fd08f78e",
+        "published-finding corpus:6dd9f02f5859"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mossel–Neeman–Tamuz (2012), Proposition 6.6, states eventual period at most two on weighted tie-free graphs; no three-step sharp bound or friendship equilibrium law.",
+        "Published binary friendship theorem 6882fd08f78e has only two opinions and a different fixed-state census.",
+        "Published three-color threshold-two successor theorem 6dd9f02f5859 has temporal three-cycles, so its operator is not equivalent."
+      ],
+      "reasoning": "Checked equivalent phrasing via deterministic plurality, three-opinion majority, triangle-windmill graph, hub/petal locking, and time-to-fix. A tie-free global eventual-period theorem does not determine a sharp transient cutoff or tie-retaining fixed-point population.",
+      "searches": [
+        "on friendship graphs, deterministic plurality with three distinct states, center tie keeps its color; all states stabilize after three steps, exact fixed count 3*5^m/sqrt(m)",
+        "finite three opinion plurality automaton friendship graph petal locking; first entry times 1 2 proportions 1/3 2/3",
+        "three opinion tie retaining local plurality friendship windmill K1 join disjoint edges all configurations fixed after 3 synchronous rounds",
+        "friendship windmill graph three opinion plurality dynamics synchronous deterministic tie retention convergence",
+        "three colour plurality dynamics triangle windmill graph fixed points",
+        "arxiv:1207.0893 Section 6.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published record 6882fd08f78e reports binary friendship equilibria and basins; the state set has cardinality 2^(2m+1) rather than 3^(2m+1).",
+        "Published record 6dd9f02f5859 reports three-color threshold-two cyclic contacts, not plurality: it has nonconstant recurrent cycles.",
+        "No matching deterministic three-opinion tie-retaining friendship-graph exact census appeared in the checked searchable records."
+      ],
+      "reasoning": "Exact combinatorial counts were compared by objects and rule, not by title alone. The closest tables enumerate non-equivalent state spaces or dynamics. Lack of a match in an index is not a proof of novelty.",
+      "searches": [
+        "finite three opinion plurality automaton friendship graph petal locking; first entry times 1 2 proportions 1/3 2/3",
+        "three-color plurality synchronous update same graph as majority on windmill exact fixation rate fixed point entropy base 5",
+        "central trinomial 3+z+z inverse fixed state count on friendship graph three opinions",
+        "published-finding corpus search exact binary majority friendship graph basins",
+        "published-finding corpus search cyclic threshold two friendship graph oscillation basin"
+      ]
+    },
+    "rationale": "No retrieved prior claim implies this complete three-color tie-retaining friendship-graph result. A read-through of the closest binary friendship-graph theorem, closest three-color cyclic-successor theorem, and the foundational multicolor plurality article identified material differences in hypotheses and conclusions. This is a best-knowledge originality judgment, not independent or exhaustive historical certification.",
+    "residual_risks": [
+      "Searchable indexes and accessible full texts do not rule out older unindexed treatments of exactly this tie-retaining plurality operator.",
+      "General no-tie plurality results would require an independent tie-specific implication argument; none was identified.",
+      "The precise 1/3 and 2/3 first-entry law may have been derived independently under another name."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING because the multicolor period proposition requires a weighted graph without ties, while the current claim depends on unweighted incumbent ties and exact family-specific transients and counts",
+        "evidence": "Section 6.2 explicitly perturbs edge weights to avoid ties; Proposition 6.6 proves at most period two, not a sharp first-entry time or windmill equilibrium census.",
+        "identifier_or_url": "arXiv:1207.0893v1; https://arxiv.org/html/1207.0893v1",
+        "material_read": "Full open-access HTML, including model, Section 6.2 and Proposition 6.6",
+        "method": "Read definitions and exact theorem hypotheses and conclusions",
+        "title": "Majority Dynamics and Aggregation of Information in Social Networks",
+        "trigger": "Earlier multicolor plurality and potential two-cycle domination"
+      },
+      {
+        "assessment": "NOT_COVERING because the model only takes binary opinions",
+        "evidence": "The model restricts each vertex to opinions {-1,+1}, while the present rule has three genuinely distinct opinions.",
+        "identifier_or_url": "arXiv:1307.4035v1; https://arxiv.org/abs/1307.4035",
+        "material_read": "Accessible HTML model, results and references",
+        "method": "Checked state alphabet and periodicity setting",
+        "title": "Majority Dynamics and the Retention of Information",
+        "trigger": "Foundational majority process and possible period generalization"
+      },
+      {
+        "assessment": "NOT_COVERING because it uses randomized three-neighbor sampling and a complete network",
+        "evidence": "Each node pulls three random neighbors and adopts their majority, rather than deterministic full-open-neighbor plurality with all-ties retention.",
+        "identifier_or_url": "arXiv:1508.06782v1; https://arxiv.org/abs/1508.06782",
+        "material_read": "Open-access full HTML, introduction and main protocol/results",
+        "method": "Compared update rule and network hypotheses",
+        "title": "Stabilizing Consensus with Many Opinions",
+        "trigger": "Many-opinion update protocol and possible convergence bounds"
+      },
+      {
+        "assessment": "NOT_COVERING because it studies different three-state local conditions and computational complexity",
+        "evidence": "The state-neutrality and alternative state-change threshold conditions are not the specific always-copy-unique-plurality rule on K1 join m disjoint edges.",
+        "identifier_or_url": "DOI:10.3390/appliedmath5040147; https://www.mdpi.com/2673-9909/5/4/147",
+        "material_read": "Full HTML, model definitions, main results, discussion and conclusion",
+        "method": "Compared the three update predicates and paper outcomes",
+        "title": "Three Majority-Based Deterministic Dynamics for Three Opinions",
+        "trigger": "Exact three-state deterministic voting could dominate the rule"
+      },
+      {
+        "assessment": "NOT_COVERING because this is binary majority and has a two-update bound rather than a three-opinion three-update sharp bound",
+        "evidence": "It has \\(2^{2m+1}\\) binary initial states, a different E_m, a two-update cutoff, and specific binary basin expressions.",
+        "identifier_or_url": "published-finding corpus published record 6882fd08f78e",
+        "material_read": "Complete published RESULT statement, scope, proof, verification and references",
+        "method": "Read complete mathematical statement and compared update, labels and counts",
+        "title": "Exact attraction basins and rapid stabilization of majority dynamics on friendship graphs",
+        "trigger": "Same graph with binary majority could subsume a special case"
+      },
+      {
+        "assessment": "NOT_COVERING because the cyclic-successor threshold-two map is different from deterministic plurality and has genuine period-three orbits",
+        "evidence": "The published theorem states primitive three-cycles for at least three petals; the present plurality theorem precludes all nonconstant cycles.",
+        "identifier_or_url": "published-finding corpus published record 6dd9f02f5859",
+        "material_read": "Complete published RESULT statement, scope, proof, verification and references",
+        "method": "Compared petal update condition, presence of oscillatory states and basin claims",
+        "title": "Three-step collapse and the exact oscillation basin of threshold-two cyclic dynamics on friendship graphs",
+        "trigger": "Same graph and three colors with the same maximum transient"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2d7906b7-fadd-4e8a-b795-9d4467ba0b1e",
+  "value": {
+    "rationale": "The same canonical universal-hub graph exhibits a genuinely new three-opinion stabilization boundary at five petals and a nontrivial \\(5^m/\\sqrt m\\) equilibrium growth law in contrast to binary majority. Its typical fixation-time masses split into 1/3 and 2/3 despite third-round extremizers and nearly sure preservation of the hub opinion. These are motivated structural and probabilistic invariants, not arbitrary small enumerations or mere substitutions.",
+    "status": "PASS"
+  }
+}
