@@ -1,0 +1,162 @@
+{
+  "correctness": {
+    "rationale": "For every S of size <=n-2 and every matching T within S, the remaining 2k>=4 vertices have original forbidden-pair edges of degree <=1 and at most k-2 further forbidden queried edges; residual degree >=k gives a perfect matching by Dirac. For matching |S|=n-1, every proper trace is realized using complement of two matchings (Dirac for 2k>=6, K4 three pairings for 2k=4); full trace requires a legal remaining pair. A support with intersecting edges has no full trace, and an n-edge matching fails a last-negative trace. The top support is in unique bijection with a complete pairing plus its omitted edge; lower coefficients follow inclusion-exclusion. All smaller faces extend to a facet, so the complex is pure. The positive-root induction bounds online shattering depth. The independent-enumeration program checks 104500 supports n=2..5 and every small-support trace; this corroborates but cannot replace the unlimited proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lu–Yu Corollary 2.6 has order bound N dependent on each fixed positive/negative matching size; Corollary 3.4 has a connectivity bound growing with their sum and does not assert this n-independent sharp boundary.",
+        "Indexed record e1690cca5815 concerns all matchings through their covered vertices in bipartite graphs; both hypothesis and query universes differ.",
+        "The noncrossing perfect matching theorem imposes an independent planar crossing constraint and has a different top-face formula."
+      ],
+      "reasoning": "Neither inspected broad theorem entails the critical moving parameter range m+n=n-1 nor the full nonmatching-support trace law or precise face count; these are proved by a separate dense-residual perfect matching argument.",
+      "searches": [
+        "E(m,n) complete multipartite matching avoidance VC shattering facet top coefficient",
+        "Perfect matchings in cocktail party graphs K_2n minus perfect matching edge membership VC dimension shattering support",
+        "Lu–Yu arxiv:1807.11159 Corollaries 2.6 and 3.4",
+        "Indexed record e1690cca5815 complete RESULT.md"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1801.06566",
+      "https://arxiv.org/abs/1807.11159",
+      "https://arxiv.org/abs/1906.05908",
+      "https://arxiv.org/abs/2209.11319",
+      "indexed-record:d84d57a040aa",
+      "indexed-record:1a75a2c4be87",
+      "indexed-record:e1690cca5815",
+      "indexed-record:8250e0710001"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bucić et al. 2019 study the fraction of perfect matchings intersecting a given matching, rather than the existence of a perfect matching for every arbitrary pattern of positive and negative edge queries.",
+        "Johnston et al. 2022 count deranged complete pairings rather than shattering their edge incidence relations.",
+        "For bipartite derangements an n-1 support never shatters (Indexed record d84d57a040aa); for this nonbipartite graph every n-1 subset of a valid complete pairing does.",
+        "For noncrossing pairings the top-face count is n² instead of n*p_n and the edge set and crossing constraint differ."
+      ],
+      "reasoning": "The old enumerative and intersection-probability theorems do not prove the residual trace lemma. In particular, bipartite and planar analogues have distinct critical support boundaries, so their theorems do not cover this one by a simple variable relabeling.",
+      "searches": [
+        "Deranged matchings of cocktail-party graphs Boolean edge-incidence shattering exact f polynomial VC dimension pure simplicial complex",
+        "cocktail party K_2n minus perfect matching all partial matchings shattered facet VC shattering",
+        "arxiv:1906.05908 PDF Theorems 1–5",
+        "arxiv:2209.11319 PDF pp.2–13",
+        "Indexed record d84d57a040aa and 1a75a2c4be87 full RESULTS"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Johnston–Kayll–Palmer 2022 considers K_{2n} minus fixed perfect matching, but its theorems concern complete-pairing counts and asymptotics, not every trace.",
+        "Lu–Yu 2018 defines positive/negative matching extension E(m,n) but gives no exact all-support face criterion for the cocktail-party graph.",
+        "Indexed record d84d57a040aa studies fixed-point-free permutations in a bipartite row–column graph, not undirected pairings."
+      ],
+      "reasoning": "The equivalent general formulation of a labeling is prescribed-positive and prescribed-negative matching extension. Prior counting total perfect matchings does not imply such simultaneous trace realization, and the indexed bipartite derangement result has a different sharply smaller top degree.",
+      "searches": [
+        "Deranged matchings of cocktail-party graphs Boolean edge-incidence shattering exact f polynomial VC dimension pure simplicial complex",
+        "Vapnik Chervonenkis shattering of perfect matchings after deleting a 1-factor partial matchings",
+        "shattering complex perfect matchings edge membership graph VC dimension matching complex 2018 2020",
+        "arxiv:1807.11159 §§1-3",
+        "arxiv:2209.11319 pp.2-13"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The already known deranged pairing count p_n and its inclusion-exclusion formula appear in Johnston et al. 2022 and earlier literature.",
+        "The indexed crown-graph exact face polynomial truncates at degree n-2, whereas the undirected cocktail-party pairing face polynomial has positive degree n-1 coefficient n*p_n.",
+        "Independent finite trace enumeration produces 1+40z+500z²+2240z³+2720z⁴ at n=5."
+      ],
+      "reasoning": "Although the known matching polynomial supplies the numerical terms, none of those tables asserts that exactly these supports are shattered. The novel structural classification establishes the link, including the top-face unique-completion bijection; bare recomputation of p_n is excluded from the originality claim.",
+      "searches": [
+        "Deranged matchings of cocktail-party graphs Boolean edge-incidence shattering exact f polynomial VC dimension pure simplicial complex",
+        "cocktail party K_2n minus perfect matching all partial matchings shattered facet VC shattering",
+        "Complete shattering complex of perfect matchings of complete graphs K_2n edge membership queries general coefficient exact formula",
+        "cocktail party graph perfect matchings VC dimension shattering complete matching polynomial",
+        "arxiv:2209.11319 §1 and Lemma 7",
+        "Indexed record d84d57a040aa RESULT.md"
+      ]
+    },
+    "rationale": "A complete all-support Boolean shattering classification for nonbipartite deranged pairings is not stated or implied by the inspected primary results or closest retrieved records. Existing exact perfect-matching total counts are expressly credited, not claimed new. The strong bipartite crown analog has no degree-(n-1) shattered faces, whereas the present class has n*p_n; full priority remains unproved.",
+    "residual_risks": [
+      "Possible unindexed sharp E(m,n) statement for cocktail-party graphs in older restricted matching extension literature.",
+      "Some class of perfect-matching trace configurations might have been described without VC terminology under preclusion or matching-covered-system language.",
+      "The known deranged-pairing count p_n is not a new fact; its combination with newly proved support identification is the result under assessment.",
+      "Full historical priority, external checking, and homotopy classification remain unestablished."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Definitions and context, no perfect matching shattering result",
+        "evidence": "math.LO, arxiv:1801.06566v1",
+        "identifier_or_url": "https://arxiv.org/abs/1801.06566",
+        "material_read": "arXiv full text, PDF first page and definitions, v1 first public 2018-01-19",
+        "method": "arXiv HTML/PDF text and screenshot",
+        "title": "Model Theory and Machine Learning",
+        "trigger": "Foundations of VC and online concept complexity"
+      },
+      {
+        "assessment": "Fixed extension sizes and qualitative sufficient bounds, not sharp moving boundary or enumerator",
+        "evidence": "Lu–Yu 2018, E(m,n), N(epsilon,m,n) dependence",
+        "identifier_or_url": "https://arxiv.org/abs/1807.11159",
+        "material_read": "ArXiv HTML Sections 1–3, including Corollaries 2.6 and 3.4",
+        "method": "Read full accessible HTML and parameter dependencies",
+        "title": "Binding Number, Toughness and General Matching Extendability in Graphs",
+        "trigger": "Possible dominating positive-negative matching-extension result"
+      },
+      {
+        "assessment": "Addresses intersecting-perfect-matching proportions, not all edge-query traces",
+        "evidence": "Bucić et al. 2019 Theorems 1–5",
+        "identifier_or_url": "https://arxiv.org/abs/1906.05908",
+        "material_read": "ArXiv full PDF, main Theorems 1–5 and corresponding intersection formulations",
+        "method": "PDF page screenshot and extracted text",
+        "title": "Perfect matchings and derangements on graphs",
+        "trigger": "Perfect matching derangement literature, relevant strong results"
+      },
+      {
+        "assessment": "Exact p_n and asymptotic questions, not exact VC shattering polynomial",
+        "evidence": "Johnston et al. 2022, original version public 2022-09-22",
+        "identifier_or_url": "https://arxiv.org/abs/2209.11319",
+        "material_read": "19-page arXiv PDF, pp.2–3 and Sections 3–5, count identity near pp.12–13",
+        "method": "Full arXiv HTML, PDF page screenshot and term searches",
+        "title": "Deranged matchings: proofs and conjectures",
+        "trigger": "Identical graph and possible existing exact enumeration"
+      },
+      {
+        "assessment": "Bipartite crown graph, truncated at degree n-2",
+        "evidence": "Indexed record d84d57a040aa",
+        "identifier_or_url": "indexed-record:d84d57a040aa",
+        "material_read": "Complete RESULT.md and proof plus references",
+        "method": "Read retrieved public scientific artifact",
+        "title": "Perfect-matching trace universality and the shattering polynomial of derangements",
+        "trigger": "Closest indexed use of derangement shattering terminology"
+      },
+      {
+        "assessment": "Convex noncrossing pairing family, n² top supports, different objects",
+        "evidence": "Indexed record 1a75a2c4be87",
+        "identifier_or_url": "indexed-record:1a75a2c4be87",
+        "material_read": "Complete RESULT.md theorem and proof",
+        "method": "Read retrieved public scientific artifact",
+        "title": "Face-activity characterization of shattered chord supports in noncrossing perfect matchings",
+        "trigger": "Closest nonbipartite edge-query pairing concept"
+      },
+      {
+        "assessment": "Uses all matchings and vertex-coverage queries, not perfect matchings with edge-incidence queries",
+        "evidence": "Indexed record e1690cca5815",
+        "identifier_or_url": "indexed-record:e1690cca5815",
+        "material_read": "Complete RESULT.md proof and assumptions",
+        "method": "Read retrieved public scientific artifact",
+        "title": "Shattering by matching-covered vertices in bipartite graphs",
+        "trigger": "Potential general matching shattering coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3a70e5b2-0052-41e7-8f32-754789665545",
+  "value": {
+    "rationale": "Natural full learning complexity of deranged complete pairings, not a routine total-count exercise: the result identifies all Boolean supports, including a sharp one-degree last-pair boundary, produces the full f polynomial and a pure complex, and establishes equality of VC and adaptive shattering dimensions. It explains a qualitative difference from bipartite derangements, whose similar-looking perfect-matching incidence system loses the top degree. Standard p_n enumeration is explicitly credited and only structural implications are assessed as new.",
+    "status": "PASS"
+  }
+}
