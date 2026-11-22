@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The four reference gradients are explicit polynomials; exact integration gives all six edge weights in the proof. Since every Bernoulli and edge diffusion factor is strictly positive, a negative weight makes an off-diagonal of the central cell of any 3x3 tiling positive and cannot be cancelled by same-shape adjacent cells. Nonnegative weights give zero-column-sum Z-matrix edge blocks; the strictly positive-weight graph is connected even when a bound is attained, giving an irreducibly diagonally dominant Dirichlet M-matrix. The two geometric inequalities are equivalent to the six weight signs. Eigenvalue algebra yields the exact maximum kappa_2(J)=(3+sqrt(5))/2, with an explicit extremizer. Symbolic matrix reconstruction and 2233 supplementary finite assertions pass from check.py. Limits: no assertion for general quadrilateral meshes, inverse positivity outside M-matrix class, or convergence orders.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adler et al. 2026 Lemma 4.6 is general polytopal strict-positive-weight sufficiency, not necessity or boundary equality",
+        "Cao–Chen–Lee 2024/2025 EAVE has distinct VEM operators and Voronoi/Delaunay geometry",
+        "Xu–Zikatanov 1999 original EAFE on simplex elements"
+      ],
+      "reasoning": "A broader polytopal construction covers the definition of the special discretization and one sufficient implication but does not imply the converse or the optimal condition-number bound. A separate Q1 method and simplicial EAFE do not imply the same edge operator result. No stronger accessible mathematical statement was identified; priority is not guaranteed.",
+      "searches": [
+        "edge averaged virtual element polygon quadrilateral M matrix full local necessary sufficient weights arbitrary drift",
+        "Incidence-Based Edge-Averaged Method polytopal rectangle bilinear Wachspress stiffness M-matrix sharp aspect ratio 2 geometric edges complementary mesh convection Bernoulli",
+        "rectangular Q1 finite element M-matrix aspect ratio sqrt2 anisotropic diffusion monotonicity convection diffusion edge averaged",
+        "\"quadrilateral\" \"M-matrix\" \"angle\" \"aspect ratio\" finite element diffusion"
+      ]
+    },
+    "checked_sources": [
+      "Adler–Hu–Lee–O’Keefe arXiv:2611.01175v1 sections 3–5",
+      "Li–Zhang arXiv:2310.16274, modified-quadrature Q1, particularly section 5",
+      "Cao–Chen–Lee arXiv:2402.13347 abstract/introduction/sections 1–2",
+      "Xu–Zikatanov 1999 bibliographic abstract and limited opening excerpt"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 source strict-weight theorem implies only a subset of our interior positive-weight cases",
+        "Zero-weight boundary graphs require a distinct connectivity proof",
+        "Negative-weight converse and kappa ceiling plus explicit extremizer are not the source paper’s conclusions",
+        "Li–Zhang 2025 explicitly invokes different modified quadrature"
+      ],
+      "reasoning": "Positive-weight sufficiency and elementary reference integrals are credited as known; the novel combined statement is an iff theorem on actual assembled matrices for all edge Péclet labels (including equality) and a sharp geometric spectral extremum. The prior hypotheses do not directly give necessity or the extremal metric bound. The local reference integration by itself would be a routine calculation, so value and originality are attached only to the complete sharp classification.",
+      "searches": [
+        "exact necessary sufficient positivity of complete-graph incidence based edge averaged polytopal convection diffusion on affine parallelogram Q1 geometric aspect shear angle criterion sharp maximum shape condition number",
+        "arxiv 2611.01175 IBEAM parallelogram bilinear Wachspress stiffness weights drift independent M matrix",
+        "parallelogram geometric necessary sufficient IBEAM positive diagonal edge weights 2026",
+        "\"parallelogram\" \"bilinear\" \"M-matrix\" \"angle\" stiffness mesh"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "IBEAM arXiv:2611.01175v1 Eq. (18) and (20): signed edge stiffness equivalent to exact Q1 stiffness signs",
+        "Li–Zhang 2025, Sec. 5: older quadrilateral Q1 geometrical condition under a modified quadrature rule",
+        "The nearest retrieved bilinear-Q1 numerical moment studies analyze unrelated polynomial norms rather than coefficient signs"
+      ],
+      "reasoning": "Aliases were searched under geometric M-matrix criteria, Q1 stiffness, affine parallelograms, complete-graph edge averaging and golden-ratio distortion. The six-weight inequalities are algebraically equivalent to the two displayed geometric inequalities, so different formulations were not treated as novel merely by a change of variables. None of the inspected statements gives the IBEAM if-and-only-if global criterion with equality and its sharp shape bound.",
+      "searches": [
+        "exact necessary sufficient positivity of complete-graph incidence based edge averaged polytopal convection diffusion on affine parallelogram Q1 geometric aspect shear angle criterion sharp maximum shape condition number",
+        "arxiv 2611.01175 IBEAM parallelogram bilinear Wachspress stiffness weights drift independent M matrix",
+        "golden ratio square 2.618 finite element parallelogram bilinear M-matrix maximum principle quadrilateral incidence",
+        "\"bilinear quadrilateral\" \"M-matrix\" \"parallelogram\" stiffness condition",
+        "\"2/3\" \"bilinear\" \"stiffness\" \"maximum principle\" quadrilateral"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "All shape parameters range continuously over linearly independent pairs of planar vectors; no finite catalogue or source table of the claimed set occurs in the inspected 2026 paper",
+        "Mathematical-index results concern finite diffusion graphs, positivity of time-stepping maps and unrelated Q1 moments"
+      ],
+      "reasoning": "The claim is an analytic continuous-family geometric classification and a universal extremal condition number rather than a finite tabulated datum. Published tables of the same geometry were searched for without finding one; failed search alone is not novelty proof.",
+      "searches": [
+        "sharp 6.854101966 bilinear quadrilateral M-matrix condition number bound skew aspect ratio rectangle monotone convection diffusion",
+        "sharp golden ratio bound jacobian condition number positive Q1 element stiffness complete graph weights",
+        "\"quadrilateral\" \"bilinear\" \"M matrix\" off diagonal aspect ratio"
+      ]
+    },
+    "rationale": "New finding is limited to the complete affine-parallelogram geometry iff classification of the specific six-edge IBEAM Dirichlet tiling, including zero weights and the sharp Jacobian condition-number barrier. The 2026 motivating paper proves only sufficiency from abstract positive weights; its source text contains no exact parallelogram sign region, boundary cases or distortion extremum. Li–Zhang treats another Q1 scheme with modified quadrature; Cao–Chen–Lee treats polygonal VEM rather than these six IBEAM weights; Xu–Zikatanov is older simplex EAFE. Actual mathematical-record searches returned differing positivity/shape claims, not a covering statement. Standard Q1 element integrals and potential unindexed equivalent mesh restrictions remain explicit priority risks.",
+    "residual_risks": [
+      "The classical Q1 element weight identities are familiar, and equivalent explicit affine-quadrilateral shape bounds may occur in unindexed or inaccessible prior work.",
+      "The Xu–Zikatanov 1999 full text was not verified read; the inspected material establishes the simplex method but cannot exclude an appendix observation.",
+      "Scholarly-database and literature search coverage cannot prove uniqueness; independent scholarly verification is not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exact six-edge operator and strict-weight sufficient M-matrix criterion. Does not state the parallelogram angle/ratio iff condition, zero-weight end cases, or sharp golden-ratio Jacobian bound.",
+        "evidence": "Secs. 3.2–3.3, Eqs. (18)–(20), Lemma 4.6, Sec. 5.1.2; arXiv:2611.01175v1 (first public 2026-10-31)",
+        "identifier_or_url": "https://arxiv.org/html/2611.01175v1",
+        "material_read": "Full HTML paper; especially Secs. 3.2–4.1 (square nodal functions, complementary edges, weight identity, Bernoulli edge flux, and strict-weight M-matrix proof), Sec. 5 on quadrilateral-mesh effects, references",
+        "method": "Open-access original v1 HTML, definitions and proof compared equation by equation",
+        "title": "An Incidence-Based Edge-Averaged Method for Convection-Diffusion Problems on Polytopal Meshes",
+        "trigger": "Same complete-graph IBEAM matrix and the source of its edge weights"
+      },
+      {
+        "assessment": "Studies a distinct modified-quadrature Q1 method; mentions classical Q1 aspect-ratio issues and geometric conditions. Does not identify the IBEAM complete-graph all-Péclet iff condition or the Jacobian extremal constant. The common exact Q1 stiffness formulas are acknowledged as potentially known.",
+        "evidence": "Li–Zhang 2023/2025, Sec. 5, Eqs. (5.4)–(5.7); arXiv:2310.16274",
+        "identifier_or_url": "https://www.researchgate.net/publication/390782703_A_monotone_Q1_finite_element_method_for_anisotropic_elliptic_equations",
+        "material_read": "Accessible full-text HTML transcription: introduction, bilinear reference basis, Section 5 geometric restrictions, Theorem 5.1 and Remarks 6–7, rectangular anisotropy discussion",
+        "method": "Read open full-text transcription, compared element operator and mesh restrictions",
+        "title": "A monotone Q1 finite element method for anisotropic elliptic equations",
+        "trigger": "Closest older non-simplicial FEM monotonicity and aspect-ratio literature"
+      },
+      {
+        "assessment": "Distinct VEM constructions; no exact six-edge bilinear/Wachspress IBEAM parallelogram shape and sharp Jacobian-distortion claim in the inspected material. Not a whole-document exclusion.",
+        "evidence": "Cao–Chen–Lee, arXiv:2402.13347, Introduction and Sections 1–2",
+        "identifier_or_url": "https://arxiv.org/abs/2402.13347",
+        "material_read": "Accessible full-text HTML introduction and Sections 1–2: two virtual-element variants, Voronoi dual acuteness, and general VEM M-matrix criterion",
+        "method": "Open-access arXiv HTML text; compared the operator and geometric hypotheses stated in the introduction",
+        "title": "Edge-averaged virtual element methods for convection-diffusion and convection-dominated problems",
+        "trigger": "Published polygonal edge-averaged alternatives plausibly broader than IBEAM"
+      },
+      {
+        "assessment": "Original edge-averaged FEM for simplicial element meshes. Its abstract does not resolve the present parallelogram classification; whole-text coverage remains a residual literature risk.",
+        "evidence": "Xu–Zikatanov (1999), Math. Comp. 68, pp. 1429–1446, abstract",
+        "identifier_or_url": "https://doi.org/10.1090/S0025-5718-99-01148-5",
+        "material_read": "Abstract and initial accessible text describing classical averaging along simplex edges; full article not verified read",
+        "method": "DOI bibliographic record and accessible first-page excerpt",
+        "title": "A monotone finite element scheme for convection-diffusion equations",
+        "trigger": "Classical EAFE ancestor to the modern polytopal method"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "df4bcff8-a28c-4906-835d-aee14112e33e",
+  "value": {
+    "rationale": "This identifies a motivated complete geometry criterion for the simplest genuinely nonsimplicial mesh of the recently proposed complete-graph IBEAM scheme. In practice it replaces an abstract local weight-sign assumption by exact tests on element lengths and shear, valid at arbitrary Péclet number, and proves a sharp golden-ratio-squared Jacobian distortion barrier with a realizable extremizer. This gives a robust mesh-design filter (and shows a scalar condition number alone is insufficient), rather than an arbitrary small numerical example or a merely substituted parameter. It does not imply convergence rates or guarantee non-monotonicity outside the M-matrix class.",
+    "status": "PASS"
+  }
+}
