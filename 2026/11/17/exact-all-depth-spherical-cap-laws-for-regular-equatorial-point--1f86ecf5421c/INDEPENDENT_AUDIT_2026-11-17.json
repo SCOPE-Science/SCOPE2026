@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T22:55:26.671481Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=3 regular sites at equatorial azimuth 2jπ/n, uniform latitude z∈[-1,1] and longitude φ imply that at 0<r<π/2 a site covers precisely an interval of azimuth halfwidth L_r(z)=acos(cos r/√(1−z²)), for |z|<sin r. Counting lattice points in a random interval of length 2L gives P(K>=k|z)=clip(L/α−k+1,0,1) with α=π/n. The z-level endpoints are z_j=√(1−cos²r/cos²(jα)) if jα<r, else zero. Integrating and using primitive zL+B_r(z) yields T_k=(B(z_{k−1})−B(z_k))/α; p_k=T_k−T_{k+1}. Hemispherical parity and r↔π−r antipodal complement follow from lattice geometry. At r_k=(k−1)α, 2<=k<=ceil(n/2), L=r_k+ε−(cot r_k)z²/2+..., so integrating clipped parabola gives (2n/(3π))√(2tan r_k) ε^(3/2)+O_n(ε^(5/2)); p0 near π/2 closes with n tan(π/n)/(2π) ε²+O_n(ε⁴). Independent split-at-endpoints numerical integration checked n=3,4,7,12 and radii .45,.95,1.4. The first ordinary adaptive integration for n=12,r=1.4 had a narrow endpoint sampling error; split integration fixed it, not a theorem correction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tetrahedral cap center set is noncoplanar and cardinality four; disk-union result informs only zero-versus-positive coverage, not every multiplicity."
+        ],
+        "reasoning": "Existing local contact exponent 3/2 for tetrahedral pairs is not the all-k equatorial threshold law with its n-dependent constants.",
+        "searches": [
+          "Resultary: regular n equatorial spherical caps spherical point membership multiplicity full depth distribution contact threshold epsilon three halves",
+          "Resultary 2026/10/25 exact-coverage-multiplicities-and-dual-contact-exponents-of-tetr--b1ad9ef47248",
+          "Resultary 2026/11/1 sharp-packing-to-rigidity transition unions circular disks"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen RESULT.md blob 0320a336a40393b79e5c56bef23d4c5159a2832c",
+        "Litvak et al. arXiv:2505.10929 OA source",
+        "Resultary 2026/10/25 tetrahedral multiplicity theorem",
+        "Independent split numerical spherical-cap conditional integrals n=3,4,7,12"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing the union area or optimal covering radius does not determine distribution over K=2..n; tetrahedron geometry does not specialize to coplanar n-gon except degenerate unrelated cases."
+        ],
+        "reasoning": "The at-least-k tails and coefficients are independent new detailed consequences, and prior narrower results cannot imply them.",
+        "searches": [
+          "Resultary: regular n equatorial spherical caps spherical point membership multiplicity full depth distribution contact threshold epsilon three halves",
+          "Resultary 2026/10/25 tetrahedral exact cap multiplicities",
+          "Litvak et al. 2025 covering radius"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Spherical dispersion/covering optimizes radii over arbitrary point sets; exact fixed-equator multi-depth K_r distribution is a different observable."
+        ],
+        "reasoning": "The elementary circular-arc lattice count is part of proof, but complete spherical area distribution needs a nontrivial latitude integral and branch thresholds.",
+        "searches": [
+          "Resultary: regular n equatorial spherical caps spherical point membership multiplicity full depth distribution contact threshold epsilon three halves",
+          "Litvak–Sonnleitner–Szczepanski arXiv:2505.10929"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only four-center tetrahedral five-state table found; no all-n equatorial inverse-trig tail tables in checked sources."
+        ],
+        "reasoning": "This is a parameter-uniform formula, not a recomputation of a known finite coverage table.",
+        "searches": [
+          "Resultary: regular n equatorial spherical caps spherical point membership multiplicity full depth distribution contact threshold epsilon three halves",
+          "Resultary tetrahedral caps all radii 2026/10/25",
+          "Litvak arXiv:2505.10929"
+        ]
+      },
+      "rationale": "The closest published coverage results involve tetrahedral four-center caps and pair-contact exponents, or extremal dispersion/coverage of arbitrary spherical point sets. The n equatorial regular point set has a different latitude–longitude lattice structure; no inspected source gives simultaneous exact multiplicity p_0...p_n at all radii and every contact threshold. The two-level uniform lattice count is elementary and not claimed as novel; its all-depth integral, parity/complement laws and onset coefficients are the specific contribution.",
+      "residual_risks": [
+        "Other circular or spherical multi-coverage literature with equivalent all-depth lattice integrations may be unindexed.",
+        "At n=3 through larger n all distinct contact thresholds below hemisphere are proven; at the hemisphere endpoint complement laws must use parity boundary conventions of zero-area sets."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Optimizes covering configurations, not a fixed regular equatorial all-depth distribution",
+          "evidence": "Same spherical cap metric geometry but quantities are optimal empty-cap radii over varying sites.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.10929",
+          "material_read": "Accessible full-text definition/statement and extremal covering/discrepancy sections via scholarly publisher text, not entire source",
+          "method": "Springer OA web page, turn406215view2",
+          "title": "Minimal dispersion on the sphere",
+          "trigger": "Closest spherical cap dispersion and radius optimization primary paper"
+        },
+        {
+          "assessment": "Distinct noncoplanar tetrahedral site geometry; not general n equatorial",
+          "evidence": "Four cap centers at regular tetrahedron, 5-state law and 3/2 first pair overlap exponent.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-coverage-multiplicities-and-dual-contact-exponents-of-tetr--b1ad9ef47248",
+          "material_read": "Resultary published theorem summary and all-radius scope, not full proof",
+          "method": "Resultary semantic retrieval",
+          "title": "Exact coverage multiplicities and dual contact exponents of tetrahedral spherical caps",
+          "trigger": "Exact multiplicity and contact coefficients in caps, potentially dominating"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural deterministic spherical design of any size, the full coverage-depth distribution is a precise geometric statistic with identifiable phase transitions and exact constants, beyond an elementary union-area special case. The all-k classification is reusable for coverage and discrepancy calculations; it is not an arbitrary truncated numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uniform observation on S²; exactly regular n equatorial cap centers, n>=3 and equal radii; no arbitrary latitude sets or optimized configuration claims.",
+    "Other circular or spherical multi-coverage literature with equivalent all-depth lattice integrations may be unindexed.",
+    "At n=3 through larger n all distinct contact thresholds below hemisphere are proven; at the hemisphere endpoint complement laws must use parity boundary conventions of zero-area sets."
+  ],
+  "schema_version": 1
+}

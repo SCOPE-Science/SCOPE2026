@@ -1,15 +1,21 @@
-# Scientific review: equal-equator spherical-cap depth law
+# Independent mathematical audit
 
-## Correctness — PASS
-For each \(n\ge3\) and \(0<r<\pi/2\), conditioning on uniform sphere height gives an equally spaced longitude lattice with cap halfwidth \(L_r(z)\). The exact clipped ramp probability for each depth has an integral antiderivative \(zL_r(z)+B_r(z)\), and evaluating at the depth boundaries yields the stated elementary tail probabilities. Complementation and parity handle the hemisphere and larger radii, while local expansion \(L_{r_k+\varepsilon}(z)=r_k+\varepsilon-\frac12\cot(r_k)z^2+\cdots\) gives the sharp \(3/2\)-onsets. Uniform Taylor expansion near the hemisphere produces the quadratic uncovered coefficient. The self-contained code passed 490 distinct checks against a separately integrated formula, exact mean and normalization, and geometric enumeration; the proof, not those tests, covers all cardinalities and radii.
+## correctness
 
-## Originality — PASS (priority remains provisional)
-The primary geometric-covering literature on spherical dispersion provides extremal covering questions, not this full equatorial cap multiplicity law. Materially read published records on circularly centered Euclidean disk unions prove area and radial union optimization, which addresses a depth-zero issue, but not the entire depth distribution or higher-depth threshold hierarchy. Materially read tetrahedral-cap multiplicity results concern noncoplanar four-center geometry, not the equatorial \(n\)-gon. Distinct random-cap coverage work has random site locations and cannot imply the deterministic fixed-site law without further arguments. Record searches by exact objects and aliases did not reveal a dominating formulation. Unindexed historical sources and a partially inspected primary covering paper remain residual priority risks; failed search is not a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The answer is a complete exact probability distribution for a natural geometric family at *all* radii, with a sequence of distinct higher-order contact thresholds and sharp noninteger onset exponents. It refines elementary covered-area questions to arbitrary multiplicity, identifies the parity collapse at the hemispherical boundary, and supplies precise benchmarks for spherical coverage geometry. This is more than a renaming of the elementary angular lattice and its value does not rely on numerical experiments.
+For n>=3 regular sites at equatorial azimuth 2jπ/n, uniform latitude z∈[-1,1] and longitude φ imply that at 0<r<π/2 a site covers precisely an interval of azimuth halfwidth L_r(z)=acos(cos r/√(1−z²)), for |z|<sin r. Counting lattice points in a random interval of length 2L gives P(K>=k|z)=clip(L/α−k+1,0,1) with α=π/n. The z-level endpoints are z_j=√(1−cos²r/cos²(jα)) if jα<r, else zero. Integrating and using primitive zL+B_r(z) yields T_k=(B(z_{k−1})−B(z_k))/α; p_k=T_k−T_{k+1}. Hemispherical parity and r↔π−r antipodal complement follow from lattice geometry. At r_k=(k−1)α, 2<=k<=ceil(n/2), L=r_k+ε−(cot r_k)z²/2+..., so integrating clipped parabola gives (2n/(3π))√(2tan r_k) ε^(3/2)+O_n(ε^(5/2)); p0 near π/2 closes with n tan(π/n)/(2π) ε²+O_n(ε⁴). Independent split-at-endpoints numerical integration checked n=3,4,7,12 and radii .45,.95,1.4. The first ordinary adaptive integration for n=12,r=1.4 had a narrow endpoint sampling error; split integration fixed it, not a theorem correction.
 
-## Limitations
-The result does not classify general sphere coverings or random sites. Only the explicitly stated equal-spaced equatorial setting is proved, no independent mathematical audit has been performed, and historical priority can be revised by discovery of equivalent literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest published coverage results involve tetrahedral four-center caps and pair-contact exponents, or extremal dispersion/coverage of arbitrary spherical point sets. The n equatorial regular point set has a different latitude–longitude lattice structure; no inspected source gives simultaneous exact multiplicity p_0...p_n at all radii and every contact threshold. The two-level uniform lattice count is elementary and not claimed as novel; its all-depth integral, parity/complement laws and onset coefficients are the specific contribution.
+
+## value
+
+PASS
+
+For a natural deterministic spherical design of any size, the full coverage-depth distribution is a precise geometric statistic with identifiable phase transitions and exact constants, beyond an elementary union-area special case. The all-k classification is reusable for coverage and discrepancy calculations; it is not an arbitrary truncated numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
