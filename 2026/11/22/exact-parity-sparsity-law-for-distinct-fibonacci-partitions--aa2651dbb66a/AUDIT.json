@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "A cited Fibonacci partition-gap identity gives the bit-level matrix update with exact boundary initialization. The explicit automaton has 84 reachable states. A self-contained standard-library program checks over exact integers that w=Q(T)u, T^2w=w, e^T w=0, e^T T w=0, which implies the recurrence for all indices. Initial values determine the rational series. Independent direct partition counting and binary-polynomial product agree at 17,711 integers. Singularity factorization proves theta and c; finite testing is not presented as infinite proof. No external independent audit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Robbins 1998 chapter abstract asserts infinitely many parity changes, a qualitative result",
+        "Sanna 2025 considers positive-moment growth for all positive integers, not support modulo 2",
+        "Coons–Kristensen–Laursen 2026 provides ordinary partial-sum oscillations, not the stated support function"
+      ],
+      "reasoning": "Neither infinitely many odd values nor asymptotics of positive moments of always-positive R(n) determines the count of its odd values. A general automaton method does not supply the explicit minimal recurrence without further enumeration; no broader covering theorem was located in the inspected material.",
+      "searches": [
+        "\"Fibonacci partitions\" \"odd\" \"Fibonacci\" representation function Shallit 1999",
+        "\"Fibonacci partitions\" \"density zero\" odd",
+        "\"On the Parity of Certain Partition Functions\" \"Neville Robbins\" Fibonacci distinct 1998 theorem",
+        "\"Fibonacci partition\" \"parity\" Robbins theorem 7"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.04869v1",
+      "https://www.researchgate.net/publication/344294561_On_Fibonacci_partitions",
+      "https://arxiv.org/html/2309.12724v2",
+      "https://econpapers.repec.org/bookchap/sprsprchp/978-94-011-5020-0_5f36.htm",
+      "https://oeis.org/A000119"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chow–Slattery, Theorem 1.1, supplies the input recursion but not the new count; the period-two residual vector certificate is a further exact computation",
+        "Coons–Kristensen–Laursen, 2026, Theorem 1 sums R(n), whereas this counts 1_{R(n) odd}",
+        "Sanna, 2025, Theorem 1 analyzes sums of powers R(n)^p; none of these moments alone forces parity support"
+      ],
+      "reasoning": "The theorem is not merely a restatement of any directly inspected result. The mathematical step from known pointwise gap formulas to this 84-state parity-support count and its order-five annihilator is additional. Priority uncertainty remains for implicit earlier calculations.",
+      "searches": [
+        "odd distinct Fibonacci partitions exact count below Fibonacci number rational generating function recurrence spectral radius real root x^3-2x^2+2x-2",
+        "Fibonacci partition parity counts nonzero coefficients modulo two 2025",
+        "\"A000119\" \"odd terms\" asymptotic",
+        "site:arxiv.org distinct Fibonacci partitions modulo two odd"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chow–Slattery 2021 computes individual counts from Zeckendorf gaps",
+        "Sanna 2025 proves positive-integer moment bounds and uses Berstel automata, but no parity support distribution",
+        "published-finding corpus close hit 2026/11/8/SCOPE-a-sharp-fibonacci-partition-doubling-dichotomy-across-lucas-inte--f0209d185493 is a comparison of partition counts at scaled integers, not the parity fiber"
+      ],
+      "reasoning": "The present claim enumerates the support of R(n) mod 2 on all Fibonacci-prefix windows; a pointwise recurrence or unrelated doubling is not logically equivalent to the explicit rational prefix-count series.",
+      "searches": [
+        "Fibonacci representation parity q_F(n) mod 2 odd density 0 coefficient automatic growth 1.543689",
+        "Fibonacci partition function R(n) odd values parity sparse Fibonacci intervals",
+        "\"R(n) mod 2\" \"Fibonacci\" partitions",
+        "\"A000119\" \"parity\" \"density\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000119 is the pointwise partition sequence; no matching exact B_k table appeared",
+        "OEIS A307971 begins with an overlapping prefix but diverges at the next terms and concerns a quadratic functional equation, not Fibonacci partition parity",
+        "published-finding corpus 2026/11/8/SCOPE-a-parity-sparsity-transition-for-hyper-ary-partitions--bb0ad70479bb uses powers of an integer base, not distinct Fibonacci summands"
+      ],
+      "reasoning": "One must not infer novelty from absence in a database, but the closest matching digit-count record diverges and the relevant known tables have different objects; exact table coverage was not identified.",
+      "searches": [
+        "site:oeis.org \"1, 2, 3, 4, 5, 8, 13, 20, 29, 44, 69\"",
+        "\"1,2,3,4,5,8,13,20,29,44,69,108\" OEIS",
+        "\"1.543689012692\" Fibonacci partition parity",
+        "\"1 - 2*x^4\" \"2*x^5\" Fibonacci partitions"
+      ]
+    },
+    "rationale": "The nearest reviewed source statements establish a pointwise Fibonacci partition recursion (Chow–Slattery), qualitative parity changes (Robbins), moments (Sanna), or ordinary summatory asymptotics (Coons–Kristensen–Laursen). None states the exact odd-value Fibonacci-window series and sharp sparse-support exponent. Direct comparison with accessible own claims and published-finding corpus found no same-object count. Unindexed implicit priority remains possible.",
+    "residual_risks": [
+      "Full text of the 1998 Robbins parity chapter was not fully inspected; its available abstract is qualitative, so an implicit recurrence is possible but not evidenced.",
+      "An unindexed earlier automaton or table computation might contain the exact rational series; search nonhits are not mathematical novelty proofs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its ordinary summatory law does not imply an odd-value counting recurrence or parity growth exponent",
+        "evidence": [
+          "Theorem 1 (ordinary summatory function and logarithmic periodicity), introduction lines 23–69",
+          "https://arxiv.org/html/2611.04869v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.04869v1",
+        "material_read": "Abstract, introduction, principal theorems and relevant analytic asymptotic expressions in accessible HTML; searched its full HTML for parity-specific statements",
+        "method": "Compared its ordinary sum of q_F(n) and Mellin/saddle-point conclusions with counting indices at which q_F(n) is odd",
+        "title": "Asymptotics for partitions over the Fibonacci numbers and related sequences, II",
+        "trigger": "Recent paper on the same distinct-Fibonacci partition function; first public November 3, 2026"
+      },
+      {
+        "assessment": "Published pointwise formula implies a finite automaton is possible, but the new parity-support enumeration and its vector recurrence are not stated in the inspected portions",
+        "evidence": [
+          "Theorem 1.1 gives t_i, epsilon_i and R(H) via Zeckendorf indices",
+          "Section 2 gives the Robbins recursion; Section 3 counts ordinary partition totals",
+          "https://arxiv.org/abs/2009.08222"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/344294561_On_Fibonacci_partitions",
+        "material_read": "Accessible full-text extract: definitions and Theorem 1.1, Lemma 2.1, proof and the ordinary summatory recurrence",
+        "method": "Used gap recursion as a cited premise; checked whether a parity-support count or sparse-support exponent is stated",
+        "title": "On Fibonacci partitions",
+        "trigger": "Exact same partition function and essential Zeckendorf-gap recursion"
+      },
+      {
+        "assessment": "Moment exponents do not determine parity support. The article provides a general automata framework, not the five-term odd-count recurrence",
+        "evidence": [
+          "Sections 1–2.3 identify r_F and its positive moments and four-state Berstel automaton",
+          "https://arxiv.org/html/2309.12724v2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2309.12724v2",
+        "material_read": "Full accessible introduction including Theorem 1 and Section 2.1–2.3 describing Fibonacci digit automata; searched full HTML for parity/odd claims",
+        "method": "Compared positive moments sum of R(n)^p to support of R(n) modulo two",
+        "title": "A note on the power sums of the number of Fibonacci partitions",
+        "trigger": "Berstel automata and exact spectral information for same partition function"
+      },
+      {
+        "assessment": "The available statements establish infinitely many changes, not an exact window recurrence or zero-density exponent. Some uninspected material is a residual priority risk",
+        "evidence": [
+          "Chapter abstract: sufficient conditions for infinite parity changes, including Fibonacci and Lucas restrictions",
+          "https://econpapers.repec.org/bookchap/sprsprchp/978-94-011-5020-0_5f36.htm"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/978-94-011-5020-0_36",
+        "material_read": "Abstract/introductory textual extract and bibliographic description; full chapter not established as read",
+        "method": "Compared qualitative infinite parity changes to exact Fibonacci-window parity support and sharp global power law",
+        "title": "On the parity of certain partition functions",
+        "trigger": "Closest older work directly mentioning parity for Fibonacci-restricted partitions"
+      },
+      {
+        "assessment": "Page describes the pointwise Fibonacci partition count, not the new odd-value block count",
+        "evidence": [
+          "OEIS A000119: number of partitions into distinct Fibonacci parts, with single copy of 1",
+          "https://oeis.org/A000119"
+        ],
+        "identifier_or_url": "https://oeis.org/A000119",
+        "material_read": "Description, initial terms, linked references and formulas exposed on sequence page",
+        "method": "Checked whether the proposed five-term Fibonacci-cutoff odd-count sequence is a stated table of the same object",
+        "title": "OEIS A000119",
+        "trigger": "Exact database for the underlying partition function"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "aa2651db-b66a-490a-8c6d-2548eaca83a7",
+  "value": {
+    "rationale": "It gives a complete exact family of natural parity-support counts and a sharp sublinear power-law for a classical Fibonacci partition function. The zero-density law distinguishes sparse odd counts from the ubiquitous strictly positive representation counts, which existing positive moment theorems cannot provide. The finite automaton is a structural certificate rather than an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
