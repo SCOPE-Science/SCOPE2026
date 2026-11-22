@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For all n>=1 every swap edge lies in exactly one triangle: swap-only parity excludes 3 swaps, Hamming weight excludes 2 swaps, and replacement parity excludes zero swaps. The one-triangle-per-swap correspondence is exact. For any Eulerian replacement-edge set, eliminating paired down-edges at a maximal-weight vertex using a replacement square strictly reduces an integer potential, proving square generation in all dimensions. The resulting T triangles plus B independent Hamming squares span and are linearly independent by private swap coordinates and replacement-square rank. The universal cycle-basis lower bound is 3T+4B; its equality conditions force all T triangles and only 4-cycles besides them. Fibonacci convolutions derive H,T and L. Finite implementation checks all premises for n=1,...,11, including GF(2) cycle-rank equality; it is not used to infer the infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hsu 1993 and Klavžar 2013 are the standard replacement-only Fibonacci cube references; standard median-graph theory supplies replacement-square generation.",
+        "A publicly indexed result treats fixed-weight swap-only median graphs, not the union graph."
+      ],
+      "reasoning": "Replacement-only square spanning is directly subsumed by classical Fibonacci cube properties and is cited as background. Fixed-weight swap-only components cannot imply the exact unit-weight cycle basis of the augmented graph with both operations, which has essential triangles.",
+      "searches": [
+        "\"Fibonacci cube\" \"cycle basis\" squares",
+        "minimum cycle basis generalized Fibonacci cubes with swap adjacent binary symbols cycle space",
+        "swap mismatch graph Fibonacci cube binary words avoiding 11 graph cycle space triangles and squares length minimum cycle basis"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2303.09898 (full HTML, Section 5.1)",
+      "doi:10.4230/OASIcs.Grossi.5 (full HTML, Section 6 and conclusions)",
+      "doi:10.1109/71.205649 (historical reference for standard Fibonacci cube, metadata)",
+      "doi:10.1007/s10878-011-9433-z (survey reference, metadata)",
+      "MSC2020 68R10 classification from AMS",
+      "Published mathematical result on median fixed-weight swap-only graph dynamics (publicly indexed short abstract, no full-text conclusion)",
+      "Published mathematical result on strong matchings of classical Fibonacci cubes (publicly indexed short abstract, different invariant)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2023 arXiv:2303.09898 Section 5.1 gives graph definition, construction and recurrence for edge number.",
+        "2025 DOI:10.4230/OASIcs.Grossi.5 Section 6 gives graph recursion, edge formula, radius/diameter.",
+        "Standard Fibonacci cube medianity implies squares span the replacement-only subgraph, not that all swap triangles are forced in every minimum basis of the augmented graph."
+      ],
+      "reasoning": "The original edge formulas together with simple connectedness determine the cardinality of any basis, not its minimum total length or compulsory members. The new unique-triangle-per-swap and decomposition arguments establish and attain a sharp length lower bound. General MCB algorithms are applicable but do not explicitly settle the family without these structural computations.",
+      "searches": [
+        "tilde Fibonacci cube minimum cycle basis: all swap mismatch triangles plus Fibonacci cube squares, exact minimum total length",
+        "swap mismatch graph Fibonacci cube binary words avoiding 11 graph cycle space triangles and squares length minimum cycle basis",
+        "\"swap and mismatch\" \"minimum cycle basis\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2023 full arXiv:2303.09898 Section 5.1 defines tilde-Fibonacci cube with adjacent swaps and single mismatches and supplies a graph recursion and edge count.",
+        "2025 full DOI:10.4230/OASIcs.Grossi.5 Section 6 develops the same object and proves diameter/radius; no min-cycle-basis statement."
+      ],
+      "reasoning": "A different phrasing as shortest total binary cycle-space basis or unique compulsory swap triangles was searched and compared to the actual primary papers. A unique-triangle-per-swap structural lemma is not asserted in those read sections; an equivalent generic augmentation theorem may nevertheless exist.",
+      "searches": [
+        "tilde Fibonacci cube minimum cycle basis: all swap mismatch triangles plus Fibonacci cube squares, exact minimum total length",
+        "swap mismatch graph Fibonacci cube binary words avoiding 11 graph cycle space triangles and squares length minimum cycle basis",
+        "\"tilde-Fibonacci cube\" \"cycle\" \"basis\" triangles",
+        "\"tilde Fibonacci cube\" triangles squares cycle space"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2023 and 2025 papers explicitly identify OEIS A023610 with total edge enumeration for this graph, but not a minimum-cycle-basis sequence.",
+        "The 2023 article supplies a recursive edge count, while the 2025 article gives |E|=((n+1)F_{n+3}+(n-2)F_{n+1})/5."
+      ],
+      "reasoning": "The edge count sequence is known and is not claimed original. The optimal basis-length values 0,3,10,27,62 are mathematically distinct from the tabulated edge counts 1,3,7,15,30, and require cycle-space information beyond the table.",
+      "searches": [
+        "\"tilde-Fibonacci cube\" \"cycle basis\"",
+        "tilde Fibonacci cube minimum cycle basis: all swap mismatch triangles plus Fibonacci cube squares, exact minimum total length",
+        "\"Fibonacci cubes\" minimum cycle basis square"
+      ]
+    },
+    "rationale": "The 2023 Anselmo et al. primary manuscript and 2025 extended paper establish the swap/mismatch graph and enumerate its edges (and 2025 diameter/radius), but their full inspected relevant sections do not derive the exact minimum cycle basis, show its compulsory triangle content, or give a sharp total-length formula. Classical median Fibonacci-cube square generation is acknowledged prior mathematical knowledge. semantic literature-index queries about cycle bases, tilde-cubes, squares and triangle generation surfaced neighboring but non-covering invariants. The derived B_n and T_n counts partly follow established edge counts; novelty is asserted only for the cycle-basis structure/optimum. Residual risk of an unindexed equivalent generic augmentation theorem is explicit.",
+    "residual_risks": [
+      "No exhaustive discovery of unpublished or unindexed equivalent structural augmentation theorems is possible; priority remains provisional.",
+      "The closest relevant literature-index results were assessed from returned short summaries, not their full published packages; neither abstract claims a tilde-cube cycle-basis result.",
+      "Generic cycle-space and minimum-cycle-basis literature may contain a stronger theorem whose family-specific corollary is not explicitly indexed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes graph and edge numbers; did not find an exact cycle-basis minimum or compulsory-triangle statement",
+        "evidence": [
+          "Section 5.1 Proposition 24 gives recursive construction, Corollary 25 total-edge recurrence and subsequent edge formula",
+          "ArXiv v1 first posted 2023-03-17"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2303.09898",
+        "material_read": "Full available arXiv HTML text, especially Section 5.1, its definition, recursive construction, corollaries and references",
+        "method": "Primary open full text plus targeted section searches",
+        "title": "Hypercubes and Isometric Words based on Swap and Mismatch Distance",
+        "trigger": "same graph, originally defined in 2023"
+      },
+      {
+        "assessment": "Gives total edges and diameter/radius; does not present minimum cycle bases or cycle space generated by triangles and squares",
+        "evidence": [
+          "Section 6 Corollary 35 explicit edge formula",
+          "Section 6 Proposition 36 radius and diameter ceil(n/2)"
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/01oasics/oasics-vol132-grossis-festschrift/html/OASIcs.Grossi.5/OASIcs.Grossi.5.html",
+        "material_read": "Full HTML available, Section 6 Definitions 30, Proposition 34, Corollary 35, Proposition 36, Section 7 and references",
+        "method": "Primary full HTML page and targeted section inspection",
+        "title": "Generalized Fibonacci Cubes Based on Swap and Mismatch Distance",
+        "trigger": "same-object full-text followup, plausible broader coverage"
+      },
+      {
+        "assessment": "The standard graph is median, consistent with square spanning; its edges exclude adjacent swap edges",
+        "evidence": [
+          "Replacement-only Fibonacci cube is a median graph; Hsu 1993 is original construction"
+        ],
+        "identifier_or_url": "https://en.wikipedia.org/wiki/Fibonacci_cube",
+        "material_read": "Definition, properties and algorithm section describing medianity and cited graph references",
+        "method": "Public background source text and its historical references",
+        "title": "Fibonacci cube (standard graph overview and references)",
+        "trigger": "stronger established median-graph structure of replacement-only subgraph"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b3b639f9-f8b1-48b1-aef4-ae33a244dbef",
+  "value": {
+    "rationale": "Minimum cycle bases are natural all-length graph-network invariants with real graph-algorithmic utility. The result completely determines the optimal cycle-basis weight of the tilde-Fibonacci family, identifies every swap triangle as compulsory in every optimum, and provides an explicit constructive algorithm using only local three- and four-edge loops. This is not a new parametrization of known vertex or edge counts: the forcing property concerns the internal structure of every optimal basis. The exact scope is unweighted binary swap/mismatch networks; the finding does not claim a general or downstream theorem.",
+    "status": "PASS"
+  }
+}

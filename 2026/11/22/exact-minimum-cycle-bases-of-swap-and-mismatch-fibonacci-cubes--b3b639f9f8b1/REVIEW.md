@@ -1,0 +1,11 @@
+# Scientific review of the minimum cycle-basis theorem
+
+**Correctness — PASS.** The proof isolates one private swap edge per triangle, proves that every cycle in the classical Fibonacci cube decomposes into four-cycles via a strictly descending potential, and gives a direct cycle-space decomposition. The lower bound \(3T_n+4B_n\) comes from the exact dimension and exhaustive characterization of all triangles, so equality forces all triangles into every optimal basis. Fibonacci convolution counts establish the closed form. The standalone independent enumerator checks unique triangles, ranks and formulas for all lengths 1 through 11. A finite check is not offered as an all-length proof.
+
+**Originality — PASS with residual priority risk.** The original 2023 graph paper gives swap/mismatch structure and edge enumeration. The full-text 2025 follow-up gives edge counts, recursion and radius/diameter, not the cycle-space classification or optimal cycle bases. Existing median Fibonacci-cube results explain the square sub-basis and are treated as background, not a new result. Existing generic minimum-cycle-basis theory defines the optimization problem but does not by itself supply the compulsory-triangle classification or the Fibonacci formula for this graph. Equivalent general graph augmentation arguments and unindexed sources remain possible and independent literature validation is still needed.
+
+**Value — PASS.** Minimum cycle bases are a natural nontrivial graph-network invariant, used in cycle-space computations and network structure. This all-size result replaces a generic optimization search with an explicit optimal construction, determines the optimal weight exactly, and establishes that every optimum has compulsory triangles. It goes beyond merely reexpressing an already-known edge count.
+
+**Scope and limitations.** Only binary `11`-avoiding words, one-bit changes, adjacent unequal-bit swaps, unweighted undirected graphs, and \(\mathbb F_2\) simple-cycle bases are covered. Counts of distinct optimal bases and other avoidance patterns remain open here. The 2025 source derives the total-edge count but does not present the minimum cycle basis; the latter comparison is based on full Section 6 inspection. The present review is not independent validation.
+
+Self-review: passed. Independent audit: not yet performed.
