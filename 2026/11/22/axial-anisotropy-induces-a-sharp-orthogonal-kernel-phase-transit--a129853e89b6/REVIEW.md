@@ -1,0 +1,21 @@
+# Self-review
+
+## Correctness — PASS
+
+The all-face projection is reconstructed directly: an affine face with index set \(I\), orientation \(\varepsilon\), and \(H_I=\sum_{i\in I}a_i^{-2}\) has exact orthogonal foot \(y_i=x_i+\varepsilon_i(1-\sum_{j\in I}\varepsilon_jx_j/a_j)/(a_iH_I)\). Positivity of signed foot coordinates for every face orientation reduces to three explicit strict inequalities. Each edge condition is implied by its corresponding facet condition, and the inequalities force strict interior membership. In each positive octant the complete vertex/face lists follow from the three supporting planes and coordinate planes; sign reflections and Euler's identity then give the full face counts \((26,48,24)\) before \(s=2\), \((10,24,16)\) at and after it. Coning the octant's noncoordinate faces to the origin gives exact determinant volumes and the two rational branches. Their factorizations prove the unique maximizing regular shape and the third-derivative jump.
+
+The embedded `verify.py` checks the rational vertices and supporting inequalities, the determinant volume, the face counts, and the deficit identities for 16 rational shape parameters, and tests projection conditions at 1,725 rational points. Those checks do not purport to exhaust continuous parameters: the analytical facet dominance, finite symbolic vertex descriptions, and determinant formulas do so.
+
+## Originality — PASS, provisional historical priority
+
+The relevant published 2026 definition is Pavlík, *Thales's theorem in higher dimensions*, arXiv:2611.14277v1, Section 6, whose material concerns orthogonal cutout and tilings, not the present axial-stretch volume or combinatorial transition. Nasonov–Panina–Siersma, arXiv:2406.01773v1, develop active regions and normal counts, but not this one-parameter all-face orthogonal-kernel law. The closest public result, *The regular octahedron's full-normal locus has one-quarter volume* (2026-10-25), was read in full and explicitly excludes stretched octahedra; it supplies the already-known \(t=1\) special case, not the present phase boundary and exact two-branch dependence. The related published-finding corpus weighted-cross-polytope facial-distance spectrum concerns metric distances between faces rather than common admissible foot locations. The Crofton hexagonal-section result concerns a distribution of random planes, not orthogonal-kernel volume. Targeted statement- and parameter-level searches found no stronger result entailing this family. This remains subject to further historical assessment: the companion 2026 bipolar-polytope preprint's full text was inaccessible, so only its abstract was examined.
+
+## Mathematical value — PASS
+
+The orthogonal kernel is a naturally defined locus of simultaneous strict Euclidean perpendicular-foot constraints, not an artificial slice. Its measure quantifies how often a point witnesses all the face conditions, and its combinatorial type measures how those constraints interact. A single explicit, geometrically meaningful deformation exhibits a topological/combinatorial phase change, a \(C^2\) but non-\(C^3\) volume response, and a sharp unique optimum with a quadratic rigidity deficit. The regular-octahedron special case alone did not determine any of these effects. A direct exact calculation for a continuous, nontrivial shape family can thus serve as a benchmark for further stability or triaxial analysis. No universal convex-body theorem is inferred.
+
+## Limitations and sources
+
+Primary source full text inspected: https://arxiv.org/html/2611.14277v1 (especially Section 6); https://arxiv.org/html/2406.01773v1 (face active regions and concurrent normals); full public RESULT.md of https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-the-regular-octahedron-s-full-normal-locus-has-one-quarter-volum--596428720a97. Related published published-finding corpus abstracts of anisotropic facial distances and Crofton sections were also compared. Companion abstract: https://arxiv.org/abs/2611.13896; full companion text not inspected. The source-date and novelty evidence are restricted to these and documented searches. Correctness remains same-model rather than independent verification.
+
+Self-review: passed. Independent audit: not yet performed.
