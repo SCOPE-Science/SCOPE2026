@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The conjugated map is globally order preserving for every stated parameter, including the isolated derivative-zero case. A precise threshold argument proves the scaled orbit limit and its locally uniform convergence. The exact transformed Beta density has a good speed-indexed large-deviation principle with explicit endpoint exponential tightness. Exponential equivalence and contraction prove the full empirical-mean LDP, and the tilted-pressure formula follows from bounded Varadhan optimization. The attached checker passes 93 independent finite computational sanity checks, none used as a replacement for mathematical proof.
+## correctness
 
-**Originality — PASS, subject to historical-priority risk.** The 2018/2021 game-dynamics work proves common Cesàro means and writes the telescoping identity; the 2026 invariant-shifts work develops the same coboundary and hyperbolic-subsystem framework. The present theorem distinguishes an entire rare-event probability law and two initial-prior-controlled tilt transitions, neither of which follows as a stated conclusion of those prior works. General expanding-map large-deviation theory studies different dynamical hypotheses and does not specify this boundary-initialized attraction setting. Targeted title/alias/statement searches and mathematical-record comparisons revealed no matching result, which is evidence of nonoverlap rather than a guarantee of priority.
+PASS
 
-**Value — PASS.** Rare macroscopic finite-horizon deviations persist even though every interior trajectory converges to the same point. The exact full rate function and pressure cusps quantify the transient reliability of deterministic evolutionary learning when the initial strategy is random, and isolate an explicit endpoint-prior dependence invisible to invariant measures. The parameter family is natural and not a cherry-picked numerical slice.
+Exact inverse-logit conjugacy u_{j+1}=u_j+a(x_j-b) and derivative g_prime(u)=1-a ell(u)(1-ell(u))>=0 for a<=4 imply unique global point-attractor b and monotone coordinate flow, even at a=4 isolated zero derivative. Telescoping A_n=b+(u_n-u_0)/(an). For u_0=an r, use drift bounds above/below a fixed threshold to prove g^n(an r)/(an)->P(r) locally uniformly: P=min(r+1-b,0) for r<=0 and max(r-b,0) for r>=0. Hence F_n(r)->clip(b-r,0,1). The Beta-logit density is (an/B(p,q))*e^{aqnr}/(1+e^{anr})^{p+q}; local uniform log-asymptotics with exponential tail tightness prove initial rate J=a[p r_++q(-r)_+]. Exponential equivalence then contraction yields full I including y=0,1, and bounded Varadhan yields pressure. A_n∈[0,1]. All n limit statements come from proof, not finite trajectories.
 
-**Limitations and residual risks.** The rate concerns probability over starting states, not random updates or noise; parameter range is \(0<a\le4\), \(0<b<1\), fixed positive Beta exponents. It does not classify the folding regime, prove finite-size prefactors, or imply global publication priority. Related older literature may contain an equivalent transient LDP under different language.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+On the stated bounded primary literature and Resultary comparisons, the exact final claim is neither stated nor directly implied by the identified relevant antecedents; known special cases and methodology were credited. This is best-of-knowledge, not proof of global novelty. See four explicit implication checks, actual source inspections, and residual risks.
+
+## value
+
+PASS
+
+Exact rare-transient distribution for a globally attracting evolutionary replicator driven solely by a random initial seed is a natural departure from standard deterministic mean convergence. Distinct Beta endpoint exponents yield two independent observable phase slopes and full pressure law, which prior pointwise attractor statements do not calculate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
