@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "For each nonempty set of r cyclic vertices, r! permutations and r*n^(n-r-1) directed rooted forests give the exact kernel (including r=n). Every Hamming-weight-k Walsh coefficient is the Krawtchouk sum over these counts. At n=p^a, the identity v_p(n-d)=v_p(d) for 1<=d<n compares each nonterminal term to (n-1)!, showing all r<=n-2 terms vanish modulo p^(b+a), and r<=n-3 terms modulo p^(b+2a). The n-1 term has valuation b+v_p(k) for 0<k<n; at k=n, cancellation of the n-1 and n terms leaves (n-1)!n(n-2), with all other terms divisible by p^(b+2a), yielding b+a. The trivial eigenvalue n^n has valuation an. Walsh diagonalization is valid over Z_(p) because 2 is a p-adic unit; this proves exact local Smith exponents and rational invertibility. A standalone independent finite checker passed 7,435 exact assertions, including direct self-map enumeration through n=6, all shells at odd prime-power n<=169, and full mod-p matrix ranks for n=3,5,7.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pitman (2001), equation (27), gives the exact subset distribution for all vertex orders and arbitrary probability weights; this is stronger coverage of the INPUT distribution, not a claim about the local Smith form of its counting convolution.",
+        "Hansen and Jaworski develop component-size laws conditioned on cyclic vertex counts; the inspected material presents the permutation-plus-forest construction, not arithmetic character-shell valuations."
+      ],
+      "reasoning": "The complete input distribution is prior art. The arithmetic all-shell valuation theorem requires comparing factorial ratios uniformly in the prime-power parameter and proving an extra order of cancellation at the full-parity frequency. General distributional knowledge is computationally sufficient to reconstruct the matrix, but no evaluated Smith spectrum or the distinguishing valuation lemma was found in the examined source material. This is a residual originality risk rather than proof of non-coverage.",
+      "searches": [
+        "random mappings cyclic vertices set Walsh Fourier p-adic Smith normal form prime size functional digraph convolution",
+        "\"cyclic vertices\" \"Walsh\" \"random mapping\" Fourier",
+        "Pitman (2001) sections 2, 3.2 and 4.1",
+        "Hansen and Jaworski (2005 manuscript / 2010 paper) introduction, forest construction"
+      ]
+    },
+    "checked_sources": [
+      "https://statistics.berkeley.edu/sites/default/files/tech-reports/593.pdf",
+      "https://citeseerx.ist.psu.edu/document?doi=0ff92f6476b95f9f070109f13bcc618e381cb42f&repid=rep1&type=pdf",
+      "https://arxiv.org/abs/1401.1773",
+      "https://statistics.berkeley.edu/tech-reports/593"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pitman provides the exact labelled cyclic-set weight, which is explicitly used as the first proof step.",
+        "The general p-adic eigenvalue/Smith paper describes a broad possible correspondence, whereas here the Walsh matrix is directly invertible over the localized integers, giving an unconditional exact equivalence."
+      ],
+      "reasoning": "The prior enumerator implies a finite formula for each eigenvalue by character summation, but no published theorem was located that evaluates the valuation for every character of every odd prime-power order. The new uniform factorial-ratio lemma and full-parity cancellation are needed for that exact statement. General local Smith theory supplies a technique, not the evaluated cyclic-mapping spectrum.",
+      "searches": [
+        "Pitman (2001) equation (27), equation (49) and forest-volume formula (5)",
+        "Hansen/Jaworski introductory conditional mapping construction",
+        "Relating p-adic eigenvalues and the local Smith normal form (arXiv:1401.1773)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pitman (2001), equation (49), identifies the cyclic vertex set with vertices along the root-to-marked-vertex path in a suitably sampled random labelled tree.",
+        "The present p-local Smith statement transports to that marked-tree path model without any loss or gain of content."
+      ],
+      "reasoning": "The path-set alias is a genuine distributional equivalence. A search using path, rooted Cayley tree, Walsh and prime-power Smith language yielded related spanning-tree edge-incidence and arborescence results, not the path-vertex convolution local Smith exponents; edge-incidence characters have a different ambient Boolean group.",
+      "searches": [
+        "\"root to marked vertex path set\" \"Fourier\" \"Walsh\" prime",
+        "cyclic set of uniform random mappings equals tree path rooted marked Joyal bijection Fourier",
+        "Pitman (2001) PDF, section 4.1 equation (49)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The searched public literature returned the classical mapping-distribution sources and general Smith-normal-form sources, not tables of local elementary divisors of the cyclic-set convolution.",
+        "Exact source formulas determine the count for each cyclic set and are not themselves tabulations of the p-primary Smith spectrum."
+      ],
+      "reasoning": "No matching precomputed p-primary Smith table or spectral valuation sequence was identified in the scoped searches. This is only bounded negative evidence; an unindexed table remains possible.",
+      "searches": [
+        "\"random mappings\" \"Smith normal form\" cyclic points convolution",
+        "random mapping cyclical vertices Fourier transform prime order finite set nonzero p-adic",
+        "\"cyclic vertices\" \"Walsh\" \"random mapping\" Fourier"
+      ]
+    },
+    "rationale": "The complete cyclic-vertex-set distribution is classical and expressly credited (Pitman formula (27)); the present claim is the exact all-character p-adic valuation and p-local Smith spectrum for every odd prime-power dimension. Neither the inspected relevant passages in the classical cyclic-set and conditional-mapping sources nor the closest indexed research records state the local Smith classification. A specific priority risk remains because the classical distribution plus standard character identities permits deriving this theorem; absence of a direct indexed statement is not proof of uniqueness.",
+    "residual_risks": [
+      "Classical exact cyclic-set distribution is strong prior knowledge; an unindexed arithmetic Fourier or Smith specialization may imply the stated valuation theorem.",
+      "The Hansen–Jaworski manuscript could not be inspected page-by-page visually after a 403 screenshot failure; only the identified primary text passages and search were available.",
+      "Closest indexed work on random-mapping cyclic-core dependence was reviewed at title/abstract level, not all associated full papers."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the complete underlying cyclic-set distribution and tree-path equivalence. Inspected mathematical statements do not give all-prime-power p-local Smith exponents.",
+        "evidence": [
+          "Berkeley Technical Report 593 (2001), pp. 6–7, 13 and 19, formulae (5), (27), (49)."
+        ],
+        "identifier_or_url": "https://statistics.berkeley.edu/sites/default/files/tech-reports/593.pdf",
+        "material_read": "PDF title page, section 2 (forest-volume formula (5)), section 3.2 cyclic(M) law (27), and section 4.1 equivalence (49); targeted searches for Fourier and Smith in searchable text.",
+        "method": "Primary PDF text and page screenshots (title, forest enumeration, and exact cyclic-set distribution).",
+        "title": "Random mappings, forests, and subsets associated with Abel–Cayley–Hurwitz multinomial expansions",
+        "trigger": "Exact distribution of the cyclic set could dominate the proposed Fourier theorem."
+      },
+      {
+        "assessment": "The read material concerns conditional component statistics and random mapping construction, not the claimed exact p-primary convolution invariants. Whole-document noncoverage is not asserted.",
+        "evidence": [
+          "Manuscript, introduction and construction, pp. 1–5; Ars Combinatoria 94 (2010)."
+        ],
+        "identifier_or_url": "https://citeseerx.ist.psu.edu/document?doi=0ff92f6476b95f9f070109f13bcc618e381cb42f&repid=rep1&type=pdf",
+        "material_read": "Searchable manuscript text: abstract, introduction, definitions and construction of the conditioned random-mapping model; targeted full-text term searches for Fourier and Smith. A page-image retrieval attempt returned a 403.",
+        "method": "Accessible PDF-extracted primary text, bounded excerpt reading and targeted search; unsuccessful screenshot retrieval disclosed.",
+        "title": "Random mappings with a given number of cyclical points",
+        "trigger": "Permutation-plus-rooted-forest model of cyclic vertices may contain an equivalent signed enumeration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6c9b36df-6a84-4bb4-9f27-37d32683885b",
+  "value": {
+    "rationale": "The p-primary Smith spectrum of a natural full-size 2^n-by-2^n integer convolution is a precise invariant of modular information loss; prime-power vertex counts are a natural arithmetic family where its stratification is nontrivial (interior shells split according to v_p(k), with two exceptional modes). It determines every local invariant factor, exact rank after normalization modulo p, the full p-power precision filtration and rational recoverability for an infinite parameter family. These are not merely numeric tests, a renaming of the underlying counting law, or a tiny improvement in a precomputed table. The unresolved other-prime and non-prime-power cases are explicitly limited.",
+    "status": "PASS"
+  }
+}
