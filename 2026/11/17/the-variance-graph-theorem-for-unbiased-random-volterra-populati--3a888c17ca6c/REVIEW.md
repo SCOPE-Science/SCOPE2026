@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Under the stated finite-dimensional centered independent-edge hypotheses, each population coordinate is a bounded martingale; the exact conditional quadratic-variation identity is obtained by canceling all cross-edge covariances. Summable edge overlap moments force almost-sure limits onto independent-set faces. Pointwise invariance of those faces and integration of the same identity against any stationary probability yield both directions of the invariant-measure classification. The complete-graph equivalence and winning weights follow, and the uniform positivity bound permits a strong-law proof of the exact negative extinction exponents. The packaged rational checker corroborates finite symbolic identities; it is not used as an infinite-time proof.
+## correctness
 
-**Originality — PASS within inspected evidence.** The principal prior random-Volterra theorem of Jamilov–Scheutzow–Wilke-Berenguer (arXiv:1401.7840, Theorem 3.1) requires extreme operators with \((Vx)_k=x_k^2\), which cannot occur under the strictly nonextremal coefficient bound here. The 2023 Adilova–Jamilov–Reinfelds quadratic-operator study concerns deterministic epidemic propagation models, not the stated variance-graph fixed-face classification. Previously studied synchronized fair-sign competition can preserve cyclic coexistence and does not imply the independent-edge graph theorem. Searches did not locate equivalent statements, but an unindexed or differently formulated source is a residual priority risk.
+PASS
 
-**Mathematical value — PASS.** The noise variance graph gives a sharp if-and-only-if characterization of universal fixation, not just a sufficient extinction condition. The theorem classifies every invariant probability on arbitrary sparse interaction networks and resolves when a continuum of nonvertex stationary mixtures persists. It demonstrates a qualitative dependence on edge-noise correlation even when deterministic mean interactions are identical. The results support analysis of random ecological competition and stochastic quadratic population operators without requiring a publication-sized downstream application.
+For every finite m>=2 and iid-in-time centered independent edge coefficients bounded |xi|<=rho<1, the simplex is invariant and all coordinates X_i are bounded martingales and hence converge a.s. Skew symmetry conserves total mass. Expanding H=sum_i X_i^2 gives exact conditional drift 2 sum_{ij in E} E[xi_ij^2] X_i^2 X_j^2, since cross-edge covariances vanish. Its expected sum is bounded by H<=1 and implies each edge endpoint product tends to zero a.s. Thus the limiting support is an independent set; every such face is pointwise fixed and all stationary measures on the compact simplex must be supported on these faces by zero integrated drift. Complete G iff only vertices survive for every starting x; winning law follows from E X_infty=x. For strictly positive initial x, on winner event I=i, the loser log-increments differ Cesaro-negligibly from iid log(1+xi_ji), giving negative exponent by strong law and Jensen. Complete multipartite part masses likewise martingales. Independent exact-rational two-edge example conditional drift 277/36450 matches formula; finite checks do not substitute for martingale theorem.
 
-Limits: finite species; centered, temporally independent, pairwise-independent bounded edge fluctuations; no full hitting distribution on noncomplete graphs; no claim about independent validation or exhaustive literature priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published Jamilov–Scheutzow–Wilke-Berenguer random Volterra result requires nonzero chance of an extreme quadratic stochastic operator (Vx)_k=x_k^2; impossible here because all coefficients have magnitude strictly less than one, so their vertex-convergence theorem does not imply this result. Deterministic QSO propagation literature also lacks the independently fluctuating edge-variance graph classification. The sharp sparse graph invariant-law and complete-graph iff, with winner probabilities and almost-sure extinction rates, remain distinct under inspected statements.
+
+## value
+
+PASS
+
+A graph-theoretic if-and-only-if for universal fixation, a complete stationary-measure classification on arbitrary sparse interaction structures, and exact winning/extinction laws are structural and useful in random competition dynamics. The correlated-versus-independent edge distinction produces qualitatively different stationary states despite the same unbiased mean, exceeding a routine parameter tweak.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
