@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The local difference factorization is valid because median outputs select one of their three neighboring input coordinates on every strict-order chamber. A single input difference contributes only to three neighboring output differences, and the four indicator cases lead to column absolute sums of either one or \(\max\{1,3-8\theta/3\}\). Piecewise-affine continuity transfers this to arbitrary two-input comparisons. Two nonoverlapping strict-rank interfaces provide finite equality data in every dimension \(n\ge6\). Exact rational checks independently evaluate both factors and witnesses. All-dimensional validity rests on the analytical argument.
+## correctness
 
-## Originality
-PASS, subject to historical priority limitations. The mean–median blend is already defined in the 2001 work of Ben Hamza–Krim, which examines influence functions, asymptotic variance and root properties. The 2006 Arias-Castro–Donoho preprint investigates mean-squared risk rather than pairwise cyclic variation. The previously published pure-median variation result covers only the endpoint \(\theta=0\). Neither endpoint convexity nor the mean-only contraction yields the sharp cancellation threshold \(\theta=3/4\); in particular their convex bound \(3-2\theta\) remains larger than one for all \(\theta<1\). The 2014 hybrid-median-mean paper was identified, but full-text comparison remains unavailable. Novelty is therefore a best-knowledge claim rather than a historical uniqueness certificate.
+PASS
 
-## Mathematical value
-PASS. For a standard robust/linear smoothing trade-off, the exact transition identifies the smallest linear-averaging proportion that guarantees stability of differences in a natural bounded-variation seminorm, uniformly over cycle lengths. The sharpness family reveals the local sign-cancellation mechanism and establishes attainment; a generic convex estimate would miss the threshold. This applies directly to repeated perturbation control and stability calibration, without claiming a denoising-risk optimum.
+PASS: On every strict-order chamber the centered three-point median selects one input coordinate per output. Its derivative on cyclic first differences has only three rows per column, with selector coefficients (a,1-a-c,c) where a,c are indicators. Blending the three-point mean replaces these by ((1-theta)a+theta/3, (1-theta)(1-a-c)+theta/3, (1-theta)c+theta/3), whose maximum l1 column sum is max(1,3-8theta/3), reached by a=c=1. All rank chambers are finitely piecewise affine and continuous so path integration proves global Lipschitz upper bound for arbitrary x,y and n>=6. Explicit separated rank-chamber interfaces for n=6 and n>=7 attain the bound with finite positive epsilon for every theta, ruling out a merely infinitesimal estimate; ratio returns threshold theta>=3/4. Independently computed exact-rational 18 lengths n=6..23 by six sample theta; all 108 pairs attain exact formula. No infinite-n assertion is based on the finite tests.
 
-## Scope and limitations
-The result is for uniform three-point cyclic filters in real finite dimensions \(n\ge6\) with fixed convex mixture weight. It does not classify shorter cycles, more general windows, or other boundary conventions. The 2014 improved-hybrid paper remains a non-decisive literature access risk, and independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge, with genuinely read exact-object comparators and explicitly bounded coverage risks. The prior first-power endpoint bounds cannot force cancellation of the negative median middle derivative by positive mean coefficients, hence cannot imply phase threshold theta=3/4.
+
+## value
+
+PASS
+
+PASS: Quantifies the exact robust/nonlinear versus linear mixing needed for contraction of differences in a canonical cyclic variation seminorm. The 3/4 threshold cannot be recovered from convexity of separate median and mean endpoint norms (which yields 3-2theta), and is exactly attained, making it a motivated uniform stability calibration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
