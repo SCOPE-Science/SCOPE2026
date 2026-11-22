@@ -1,19 +1,21 @@
-# Scientific review: five-angle ridge spectrum of two-row Monge polytopes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim fixes the intrinsic Euclidean metric and the interior-angle convention. The independently reconstructed vertex list has \(3q\) points; exact rational affine-rank tests establish the proposed ridge adjacency criterion and exact normal Gram products for every facet pair at \(2\le q\le7\). The all-dimensional argument gives explicit strictly feasible points with exactly two facet constraints tight in each accepted case, and a four-zero-coordinate obstruction for excluded mixed pairs. Angle calculations use the projected outward normals in the sum-one hyperplane; multiplicities sum to \((2q-1)^2\). The rare-angle weak limit and mean formula follow from these exact multiplicities. Finite experiments are corroboration rather than the infinite-dimensional proof.
+PASS
 
-## Originality — PASS (with residual priority risk)
+Read full RESULT.md proof, underlying Erickson-Kretschmann facets and exact rational source verifier. There are 2q coordinate and q-1 comparison facets, normals in sum-one hyperplane as specified. All FF/FG pairs are ridges; GG cross-row iff first-row zero column i<=second-row zero column k, with i>k forcing four zero coordinates, hence codim>=4. Same-row GG all ridges. Pair counts are q-2 adjacent FF, (q-2)(q-3)/2 disjoint FF, FG signed 2(q-1) each and orthogonal 2(q-1)(q-2), GG (3q^2-q)/2, summing (2q-1)^2. Gram products produce beta, pi/3, alpha, right, pi-beta. The exact mean cancels opposite beta classes, leaving -(q-2)pi/(6(2q-1)^2) and -((3q²-q)/2)asin(1/(2q-1))/(2q-1)^2. At scale q rare pi/3 ridges cause -pi/24 discrepancy despite vanishing probability; an explicit nonuniform integrability phenomenon. Independent numeric recomputation through q=10000 and inspected rational rank verifier for q=2..7 corroborate finite cases, not all-q proof.
 
-Erickson and Kretschmann (arXiv:2311.07522; original public posting November 13, 2023) prove the polytope definition, facets, vertices, edge descriptions and volume. Those are prior and not claimed. Available related two-row results concern boundary surface areas, centroids, widths and inballs; the full metric ridge spectrum and the weak-limit/mean mismatch are neither asserted in the inspected foundational article nor implied by the reported quantities. The full foundational facet section and the related complete surface-area analysis were compared on the actual claims, rather than titles alone. A future unidentified equivalent calculation could alter historical priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result provides a complete codimension-two Euclidean geometric invariant of a natural transport-cost polytope for all column counts. It distinguishes five exact angles, sharp multiplicities and a squared odd-integer ridge census, and isolates a rare acute-angle component that changes the first-order mean without changing the limiting angular distribution. This is a structural feature of metric boundary geometry, not merely a restatement of the number of facets or their areas.
+Erickson-Kretschmann establish the same Monge polytope and facet/vertex census, but the inspected theorem has no full angle spectrum nor rare-ridge moment defect. Related public Resultary mean-width and surface-area findings concern different functionals. The related two-row 2-assignment polytope angle theorem has entirely different vertices/facets and does not imply Monge angles. Historical priority qualified versus unindexed metric papers.
 
-## Scientific limits
+## value
 
-The main article's combinatorial facets are used with attribution. No claim is made about general row count, alternative metrics or edge/ridge measures. The scaled angle sequence is not uniformly integrable. The related-source comparison is finite and historical uniqueness is not established. Independent mathematical audit remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete all-q Euclidean ridge-angle spectrum of a natural Monge polytope, including a measurable failure of uniform integrability where the scaled mean differs from the weak-limit mean. This is nontrivial facet incidence geometry and a motivated sharp finite-to-asymptotic contrast rather than arbitrary enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
