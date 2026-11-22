@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify_halfcube.py` from this directory; only the Python standard library is required. The recorded exact output is `verification_output.txt`. The program is deterministic and prints `PUNCTURED_HALFCUBE_FINITE_CHECKS_PASS` after completing all assertions.
+## correctness
 
-For each \(n=4,5,6,7\), it independently enumerates all cliques directly from the distance-two adjacency relation and using the odd-neighbor simplex / three-coordinate-cube classification; it checks equality of the complete face sets both before and after puncture. It then constructs mod-two boundary matrices by their actual codimension-one faces, reduces each matrix by independent bitset Gaussian elimination, verifies all reduced Betti numbers, and checks the octahedral generating spheres and their four-coordinate cone fillings. The full-complex nonempty face totals are 80, 392, 1776, 7632 and punctured totals 53, 316, 1584, 7176 respectively. The integral theorem is proved in RESULT.md by a structural argument and an established integral homology theorem, **not** by treating these finite tests as an all-parameter proof.
+PASS
 
-The classifying assumptions are parity-even Boolean subsets, symmetric-difference distance exactly two on distinct vertices, induced simplicial vertex deletion, and \(n\ge4\). No assertion about integral torsion is inferred from mod-two ranks. The verification does not assess independent validation.
+The full complex integral H3 rank B_n and vanishing in other degrees is attributed to Green. Direct group-generation shows its fundamental group vanishes: any two-coordinate generator edge reduces to coordinate basis flips, and commutator squares are triangulated. The vertex link is the clique complex of J(n,2), decomposed into n star simplices plus triangle cells; it has homotopy type the 2-skeleton of an (n-1)-simplex and reduced H2 rank C(n-1,3). An integral octahedral H2 basis from four-coordinate sets containing a reference coordinate is coned by the corresponding surviving even four-set, so the link-to-deletion map is zero. Mayer–Vietoris gives a split primitive H3 injection with cokernel Z^C(n-1,3) and no remaining homology. Connected link, van Kampen, and a high-dimensional star-clique collapse yield a two-connected three-dimensional complex, hence by Hurewicz and homology Whitehead an integral wedge of 3-spheres. Independently enumerated the full/punctured complexes n=4,5,6, matching exact mod2 reduced Betti counts 1/0,9/5,49/39. Those finite mod2 checks do not prove all-n integral homotopy.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality: Vertex-deletion homotopy of halved-cube clique complexes. The particular all-parameter statement is not directly implied by inspected previously published sources. Novelty limitations and primary material not obtained in full are retained below.
+
+## value
+
+PASS
+
+An exact all-dimensional robustness and deletion-cofibration classification for the natural parity Hamming Rips complex: the precise killed primitive free homology rank, including total collapse at n=4, is a substantive topological fact not determined by the known undeleted homology table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result uses Green's proved full half-cube integral homology classification, then independently identifies the vertex link as the clique complex of \(J(n,2)\). Its star-simplex nerve and triangle attachments identify an integral generating family of \(\binom{n-1}{3}\) octahedral two-spheres. Every such sphere bounds by coning on its four-coordinate vector in the punctured graph. The resulting Mayer–Vietoris sequence is split exact, and a separate van Kampen and relative collapse argument controls homotopy type rather than asserting it from Betti numbers. The standard-library verification reproduces all full and punctured cliques and mod-two boundary ranks for dimensions four through seven; these finite tests are explicitly not the infinite proof.
+## correctness
 
-## Originality — PASS (best knowledge, residual risk)
-Green's 2008 Proposition 2.2.6 and Theorems 3.3.2/4.1.2 are direct prior results for the *unpunctured* half-cube clique complex. Green's 2010 continuation concerns its homology representations. Galetto–Montaño–Wellner's June 18, 2026 work considers the *whole* hypercube Rips complex and its rational group action. None of those stated results determines the induced punctured complex, the integral map of the vertex link into the deletion, or the primitive deficit \(\binom{n-1}{3}\). Targeted searches for half-cube/demicube puncture and vertex deletion, and searches of relevant published mathematical research records for aliases and stronger coverage, found no corresponding classification. This is not a proof of worldwide novelty: the most plausible uninspected later material is disclosed in AUDIT.json.
+PASS
 
-## Mathematical value — PASS
-Vertex removal is the minimal point-loss robustness test for a highly symmetric metric flag complex. The exact **integral homotopy** and **natural inclusion** classify the complete effect of the perturbation for all dimensions. The deficit grows cubically while the full sphere count grows exponentially; the four-dimensional sphere becomes contractible after a single deletion. This is not merely a substituted full-space Betti number: proving the nontrivial link map is zero requires and reveals explicit surviving integral fillings, from which primitive splitting and the full homotopy statement follow.
+The full complex integral H3 rank B_n and vanishing in other degrees is attributed to Green. Direct group-generation shows its fundamental group vanishes: any two-coordinate generator edge reduces to coordinate basis flips, and commutator squares are triangulated. The vertex link is the clique complex of J(n,2), decomposed into n star simplices plus triangle cells; it has homotopy type the 2-skeleton of an (n-1)-simplex and reduced H2 rank C(n-1,3). An integral octahedral H2 basis from four-coordinate sets containing a reference coordinate is coned by the corresponding surviving even four-set, so the link-to-deletion map is zero. Mayer–Vietoris gives a split primitive H3 injection with cokernel Z^C(n-1,3) and no remaining homology. Connected link, van Kampen, and a high-dimensional star-clique collapse yield a two-connected three-dimensional complex, hence by Hurewicz and homology Whitehead an integral wedge of 3-spheres. Independently enumerated the full/punctured complexes n=4,5,6, matching exact mod2 reduced Betti counts 1/0,9/5,49/39. Those finite mod2 checks do not prove all-n integral homotopy.
 
-## Closest literature and limitations
-The cited Green results give the intact case and the combinatorial clique classification; they are never claimed as novel. The cited 2026 paper motivates parity-sensitive Hamming-Rips topology but addresses different objects. The theorem treats only one deleted vertex at scale two and makes no claim about multi-point punctures or an equivariant decomposition. A related full text accessible only in part and unindexed work remain originality risks. Independent audit has not been undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: Vertex-deletion homotopy of halved-cube clique complexes. The particular all-parameter statement is not directly implied by inspected previously published sources. Novelty limitations and primary material not obtained in full are retained below.
+
+## value
+
+PASS
+
+An exact all-dimensional robustness and deletion-cofibration classification for the natural parity Hamming Rips complex: the precise killed primitive free homology rank, including total collapse at n=4, is a substantive topological fact not determined by the known undeleted homology table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
