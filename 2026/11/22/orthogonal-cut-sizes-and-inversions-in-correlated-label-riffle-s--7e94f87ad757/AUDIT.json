@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Identity I=n²/8+L/4−W²/8 is verified both algebraically and by exhaustive exact enumeration. Reversal symmetry gives E[I|K]=K(n−K)/2 and complement symmetry gives exact Cov(K,I)=0. Finite dependence follows from K=0 forcing I=0 while P(I>0)>0. For nh→∞, bounded martingale innovations have deterministic conditional variance and triangular array Lindeberg; coefficient approximation errors are o(n/h) and o(n³/h), the cross-bracket vanishes by sum a_i=0, and W² is lower order than L. For nh→λ>0, Bernoulli switch points converge to a Poisson process, yielding joint occupation/inversion-area convergence, zero covariance by bounded limits and dependence from a positive atom. The packaged checker independently counts inversions on 2^n words for n=2..9 and passes 5,560 exact rational assertions; finite tests do not prove limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "published-finding corpus 2026/11/8/6806b0a229ff, full RESULT.md: proves exact univariate inversion mean, Poisson-telegraph inversion area and marginal CLT, and writes the inversion identity using the Markov-spin sum and linear weight.",
+        "published-finding corpus 2026/11/8/b654a1e0b626, full RESULT.md: treats iid binary labels, descents (not cut size), and inversion-count joint law at fixed bias; not Markov persistent binary labels.",
+        "published-finding corpus 2026/11/2/f30d3de5d0f1, full RESULT.md: concerns packet-reversal shuffles with fixed positions and inversion count; not the inverse-riffle cut size."
+      ],
+      "reasoning": "The closest published marginal CLT covers the same Markov label model, and the bivariate Gaussian analysis of independent-label biased riffles covers a different joint statistic (descents). Neither existing theorem asserts or implies the new joint cut/inversion limit without additional cross-covariance calculation. A general multivariate Markov martingale CLT supplies the convergence tool but not this model-specific identification.",
+      "searches": [
+        "published-finding corpus 2026/11/8/6806b0a229ff RESULT.md",
+        "published-finding corpus 2026/11/8/b654a1e0b626 RESULT.md",
+        "published-finding corpus 2026/11/2/f30d3de5d0f1 RESULT.md",
+        "adhesive riffle shuffle correlated binary Markov labels inversion count Poisson switching telegraph limit",
+        "inverse riffle shuffle Markov labels inversion number atom at zero p one minus lambda over n"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.02092v1",
+      "published-finding corpus:2026/11/8/SCOPE-three-scale-inversion-laws-for-correlated-label-inverse-riffle-s--6806b0a229ff",
+      "published-finding corpus:2026/11/8/SCOPE-a-spatial-descent-inversion-sign-transition-and-joint-gaussian-l--b654a1e0b626",
+      "published-finding corpus:2026/11/2/SCOPE-conditional-sign-reversal-for-fixed-points-and-inversions-in-a-p--f30d3de5d0f1",
+      "Own accessible claims: part 0001 g000066, items #35/#54 and 66 items total",
+      "MSC2020 AMS 60J10 code (discrete-time Markov chains)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jiang, arXiv:2611.02092v1, Definition 2.4, defines the stationary binary Markov inverse-riffle with retention p; manuscript submitted 2026-11-01.",
+        "published-finding corpus 2026/11/8/6806b0a229ff, full RESULT.md: proves exact univariate inversion mean, Poisson-telegraph inversion area and marginal CLT, and writes the inversion identity using the Markov-spin sum and linear weight.",
+        "published-finding corpus 2026/11/8/b654a1e0b626, full RESULT.md: treats iid binary labels, descents (not cut size), and inversion-count joint law at fixed bias; not Markov persistent binary labels.",
+        "Marginal convergence of I_n leaves the joint law with K_n unspecified. The present theorem requires reversal conditioning and the vanishing two-weight martingale cross-bracket; the cited results do not contain those conclusions."
+      ],
+      "reasoning": "The closest existing inversion result contains the same algebraic identity and a scalar martingale CLT; this work does not re-claim them. A scalar CLT cannot by itself imply asymptotic independence. The exact conditional regression and the joint dependent critical limit are additional conclusions, proven here.",
+      "searches": [
+        "published-finding corpus 2026/11/8/6806b0a229ff full RESULT.md",
+        "published-finding corpus 2026/11/8/b654a1e0b626 full RESULT.md",
+        "arxiv:2611.02092v1 Definition 2.4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus 2026/11/8/6806b0a229ff, full RESULT.md: proves exact univariate inversion mean, Poisson-telegraph inversion area and marginal CLT, and writes the inversion identity using the Markov-spin sum and linear weight.",
+        "Reversal of a binary word keeps K and complements its inversion count within the K(n-K) mixed pairs. The full nearest record does not give its conditional expectation."
+      ],
+      "reasoning": "The formulations in terms of a Markov-binomial cut size, number of zero labels, inversion count, and centered binary-spin functionals describe the same candidate. Marginal inversion limit and identity (1) are known; conditional inversion regression and joint Gaussian independence are not in the inspected prior result.",
+      "searches": [
+        "correlated-label inverse riffle shuffle packet size inversion count zero covariance asymptotic independent Gaussian",
+        "Markov binary labels inverse riffle joint cut-size inversion Gaussian independence telegraph dependence",
+        "for symmetric two-state Markov chain sum inversions orthogonal and asymptotically independent",
+        "published-finding corpus 2026/11/8/6806b0a229ff RESULT.md"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Own ledger claim #35 treats the midpoint-key cut-first shuffle, claim #54 treats four-card three cut-first shuffles; neither is the correlated-label M_p shuffle.",
+        "published-finding corpus 2026/11/8/6806b0a229ff, full RESULT.md: proves exact univariate inversion mean, Poisson-telegraph inversion area and marginal CLT, and writes the inversion identity using the Markov-spin sum and linear weight."
+      ],
+      "reasoning": "Accessible own ledger claims and published-finding corpus searches revealed no identical joint cut-size/inversion theorem. This is evidence limited to recoverable entries, not a completeness or uniqueness proof.",
+      "searches": [
+        "own ledger part 0001 g000066 claims #35 #54",
+        "published-finding corpus search correlated-label inverse riffle shuffle packet size inversion count zero covariance asymptotic independent Gaussian",
+        "published-finding corpus search Markov binary labels inverse riffle joint cut-size inversion Gaussian independence telegraph dependence"
+      ]
+    },
+    "rationale": "The closest full primary and published records were checked by statement and implication. The nearest record establishes only the marginal inversion CLT and Poisson area; those do not imply joint Gaussian independence from packet size or the exact conditional regression. The general weighted-martingale machinery is credited; its two-weight cross-bracket and reversal regression are independently proved. The new joint law is not an asserted consequence of any examined statement. Remaining risk is a possible older joint-generating-function or Markov-binomial theorem.",
+    "residual_risks": [
+      "Uninspected older clumpy-riffle dissertation (Wager 2011) or Markov-binomial inversion generating function might imply the joint regression or covariance.",
+      "The bivariate Gaussian argument uses classical martingale methods; historical priority for this model-specific joint conclusion is not independently certified.",
+      "The prior published-finding corpus marginal proof contains most of the analytic machinery; the incremental scientific content is the exact conditioning and joint dependence classification, not a new marginal CLT."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines M_p and mixing rates; no joint cut-size/inversion result in inspected material",
+        "evidence": [
+          "Jiang, arXiv:2611.02092v1, Definition 2.4, defines the stationary binary Markov inverse-riffle with retention p; manuscript submitted 2026-11-01."
+        ],
+        "identifier_or_url": "https://arxiv.cnoctave.top/pdf/2611.02092",
+        "material_read": "Abstract; Sections 2.1-2.3 including Definition 2.4 and parameterization, table of four rules; scope and mixing statements",
+        "method": "PDF parsed text and page screenshot",
+        "title": "Adhesive riffle shuffles: one-parameter models and mixing bounds",
+        "trigger": "Identical correlated-label inverse riffle, original definition and near-adhesion limits"
+      },
+      {
+        "assessment": "Very close; proves marginal inversion CLT/Poisson limit and contains the algebraic spin identity. Joint cut-size regression and bivariate independence not claimed. The overlap is explicitly credited.",
+        "evidence": [
+          "published-finding corpus 2026/11/8/6806b0a229ff, full RESULT.md: proves exact univariate inversion mean, Poisson-telegraph inversion area and marginal CLT, and writes the inversion identity using the Markov-spin sum and linear weight."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-three-scale-inversion-laws-for-correlated-label-inverse-riffle-s--6806b0a229ff",
+        "material_read": "Full RESULT.md including theorem, assumptions, complete proof, limits and references",
+        "method": "Published repository full-text read",
+        "title": "Three-scale inversion laws for correlated-label inverse riffle shuffles",
+        "trigger": "Same model and inversion observable"
+      },
+      {
+        "assessment": "Iid biased labels and descent statistic, not persistent Markov labels and packet-size count",
+        "evidence": [
+          "published-finding corpus 2026/11/8/b654a1e0b626, full RESULT.md: treats iid binary labels, descents (not cut size), and inversion-count joint law at fixed bias; not Markov persistent binary labels."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-spatial-descent-inversion-sign-transition-and-joint-gaussian-l--b654a1e0b626",
+        "material_read": "Full RESULT.md theorem, joint covariance and model assumptions",
+        "method": "Published repository full-text read",
+        "title": "A spatial descent–inversion sign transition and joint Gaussian law for biased two-packet riffle shuffles",
+        "trigger": "Plausible stronger joint riffle statistics result"
+      },
+      {
+        "assessment": "Different shuffle operation and different paired observable",
+        "evidence": [
+          "published-finding corpus 2026/11/2/f30d3de5d0f1, full RESULT.md: concerns packet-reversal shuffles with fixed positions and inversion count; not the inverse-riffle cut size."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-conditional-sign-reversal-for-fixed-points-and-inversions-in-a-p--f30d3de5d0f1",
+        "material_read": "Full RESULT.md theorem, assumptions, proof and relationship",
+        "method": "Published repository full-text read",
+        "title": "Conditional sign reversal for fixed points and inversions in a packet-reversal shuffle",
+        "trigger": "Conditional regression in a one-pass shuffling scheme"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7e94f87a-d757-4a1d-89ad-bb8b2254c063",
+  "value": {
+    "rationale": "The packet count is a directly specified natural component of the inverse-riffle construction, while inversion count measures its induced order disorder. The exact conditional regression states a distribution-free (across adhesion) prediction of disorder given packet size despite strongly correlated labels. The joint theorem identifies a sharp structural distinction: true dependence and zero correlation at every finite n, a still dependent non-Gaussian telegraph limit under finitely many switches, and asymptotic independence in the many-switch Gaussian limit. These conclusions add an interpretable joint dependence invariant not obtained from the previously known univariate inversion fluctuation theorem; no mixing improvement or new marginal CLT is claimed.",
+    "status": "PASS"
+  }
+}
