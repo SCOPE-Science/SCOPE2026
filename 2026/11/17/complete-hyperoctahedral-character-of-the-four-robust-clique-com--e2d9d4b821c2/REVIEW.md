@@ -1,15 +1,21 @@
-# Scientific assessment of the four-cube four-robust symmetry character
+# Independent mathematical audit
 
-## Correctness — PASS
-All definitions, group actions, graph membership predicates, quantifiers and class conventions are explicit in the main mathematical report. Exhaustive independent face-membership reconstructions agree on all 65,536 vertex masks, with 228 forbidden independent quadruples and 6,864 nonempty simplices. A complete face-poset matching has 3,167 pairs and one zero-cell plus 529 five-cells; a topological sort of every one of its 33,152 Hasse covers proves acyclicity. This establishes integral homotopy concentration without extrapolating from a finite sample to a larger family. Applying reduced Hopf's trace identity to unions of vertex-orbits gives the complete 384-element character, which a second Alexander-dual orbit count independently reproduces. Signed coordinate cycle types give 20 classes. Translation Fourier inversion yields integer multiplicities 27, 28, 33, 37 and 44, with weighted sum 529. The group-averaged trace is zero; coordinate-permutation and translation averages are 24 and 27.
+## correctness
 
-## Originality — PASS, subject to bibliographic limitations
-The closest previously indexed result, *Higher total-cut complexes of the Boolean four-cube* (2026), already calculates the full homotopy type of the Alexander-dual total four-cut complex and its Betti rank 529. The nonequivariant sphere count is therefore explicitly **not** claimed as new. That result's inspected main proof and limitations do not determine any group character. *The total 3-cut complex of the 4-cube* (2026) calculates the 20-class group character for the different threshold three, with rank 129: neither its numerical representation nor its formula determines the threshold-four character without a new face-orbit calculation. The original full texts of Filakovský (arXiv:2602.11365v4, sections 1–3) and Carnero Bravo (arXiv:2602.21427v3, section 5.4 and Question 53) were materially inspected; neither covers the 384-element degree-five character at threshold four. Equivariant combinatorial Alexander duality does not make a homology **rank** into a character. Search queries included direct terminology, bounded-independence duality, signed-coordinate representations, the specific 529-dimensional rank and the five translation multiplicities. An uncatalogued equivalent computation remains possible.
+PASS
 
-## Mathematical value — PASS
-The complete natural symmetry representation resolves information not contained in the previously known 529-sphere wedge. In particular, the 27-dimensional translation-fixed part is completely lost after imposing coordinate permutations, and individual Fourier weights have distinct exact multiplicities even when ordinary homology sees only dimension 529. The finite case is canonically selected by the published higher total-cut tower, by the automorphism group of the four-cube, and by the preceding threshold-three character result—not by an arbitrary vertex labeling or an unmotivated parameter slice. The character and quotient answers are reusable as a test case for equivariant Alexander duality and symmetry-sensitive graph complexes.
+PASS — The model is exactly all subsets of V(Q4) with induced independence number <=3 (not planar P4-square grid). Independent reconstruction found 32 cube edges, 228 forbidden independent quadruples, augmented faces (1,16,120,560,1592,2592,1984) and 6864 nonempty faces. The inspected complete deterministic discrete-Morse matching has 3167 pairs, one critical vertex and 529 critical 5-cells, with the entire 33152-cover Hasse DAG checked in certificate and source, implying a genuine integral wedge of 529 S5, not just a homology-rank assertion. Separately authored exhaustive computation enumerated 384 signed-coordinate automorphisms and orbit-face alternating sums, obtained 20 constant conjugacy-class values, translation traces [529,-35,5,1,9] for Hamming weights 0–4, Fourier multiplicities [27,28,33,37,44], and zero full-group invariants. Rational quotient homology equals invariant rational homology of the finite action after subdivision. This exhausts this finite Q4, not higher cube dimension.
 
-## Limitations
-The statement determines a rational group character, not an integral representation lattice or integral quotient homology. The calculation is exhaustive for one graph, not an infinite-dimensional result. Independently performed mathematical review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge — Earlier total four-cut Q4 result already provides the DUAL nonequivariant rank 529 and integral sphere wedge, so those numbers are NOT new. The previously published twenty-class character for total three-cut Q4 concerns rank 129, hence does not imply this full threshold-four B4 character or its translation Fourier multiplicities. Filakovský covers different rectangular/square-sequence graphs and threshold contexts; Carnero Bravo gives general definitions and poses higher Cartesian-product questions. The extra full B4 and quotient module information survives the close comparison.
+
+## value
+
+PASS
+
+PASS — The full 384-symmetry rational character and its Fourier weight decomposition are a natural invariant of the highly symmetric four-cube threshold-four robust clique complex; the drastic disappearance of global invariants despite 529 integral spheres is an informative structural fact. It is not merely a recomputation of the already known 529 rank. The finite classification is exhaustive and exact at a canonical graph and threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

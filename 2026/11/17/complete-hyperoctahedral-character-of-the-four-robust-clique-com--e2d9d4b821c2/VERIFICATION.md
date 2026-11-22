@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact verification procedure
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and the adjacent file `certificate.json`. No nonstandard libraries, network services or externally generated certificates are required. The script reconstructs all 16-vertex subsets and independently checks robust-clique face membership via both forbidden independent quadruples and an induced-independence-number recurrence. It then constructs the complete sequential face matching, reverses its matched Hasse covers and topologically sorts all 6,864 nodes and 33,152 covers. It verifies a critical-cell census of one vertex and 529 five-cells.
+## correctness
 
-Next it constructs all 384 cube automorphisms, performs the exact signed orbit-face Lefschetz sums, repeats every trace through the complementary total four-cut face test and groups the answers into all 20 signed-cycle classes. Finally it computes the 16 translation Fourier multiplicities, verifies their five weight values, checks the 529-dimensional total and calculates invariant ranks 27, 24 and 0 for translations, coordinate permutations and the full group. It compares every recorded value and the full matched-pair digest against `certificate.json`, then prints `VERIFY_OK`. The observed output is in `VERIFIER_OUTPUT.txt`.
+PASS
 
-The main homotopy assertion is justified by a finite exhaustive discrete-Morse construction. The character is a rational homology character; the program does not compute an integral group-module isomorphism or the homology torsion of quotient spaces. The verifier is reproducibility evidence, not an independent external audit.
+PASS — The model is exactly all subsets of V(Q4) with induced independence number <=3 (not planar P4-square grid). Independent reconstruction found 32 cube edges, 228 forbidden independent quadruples, augmented faces (1,16,120,560,1592,2592,1984) and 6864 nonempty faces. The inspected complete deterministic discrete-Morse matching has 3167 pairs, one critical vertex and 529 critical 5-cells, with the entire 33152-cover Hasse DAG checked in certificate and source, implying a genuine integral wedge of 529 S5, not just a homology-rank assertion. Separately authored exhaustive computation enumerated 384 signed-coordinate automorphisms and orbit-face alternating sums, obtained 20 constant conjugacy-class values, translation traces [529,-35,5,1,9] for Hamming weights 0–4, Fourier multiplicities [27,28,33,37,44], and zero full-group invariants. Rational quotient homology equals invariant rational homology of the finite action after subdivision. This exhausts this finite Q4, not higher cube dimension.
+
+## originality
+
+PASS
+
+PASS best of knowledge — Earlier total four-cut Q4 result already provides the DUAL nonequivariant rank 529 and integral sphere wedge, so those numbers are NOT new. The previously published twenty-class character for total three-cut Q4 concerns rank 129, hence does not imply this full threshold-four B4 character or its translation Fourier multiplicities. Filakovský covers different rectangular/square-sequence graphs and threshold contexts; Carnero Bravo gives general definitions and poses higher Cartesian-product questions. The extra full B4 and quotient module information survives the close comparison.
+
+## value
+
+PASS
+
+PASS — The full 384-symmetry rational character and its Fourier weight decomposition are a natural invariant of the highly symmetric four-cube threshold-four robust clique complex; the drastic disappearance of global invariants despite 529 integral spheres is an informative structural fact. It is not merely a recomputation of the already known 529 rank. The finite classification is exhaustive and exact at a canonical graph and threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
