@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The full result is established by a uniform five-step proof: (1) unique maximal simplices containing a distance-\(q\) edge provide free-face collapses of the intact cyclic flag complex to the original cycle; (2) exact common-neighbor intersection, justified by \(n\ge4p+2\), identifies a linear threshold graph link; (3) the link has an explicit vertex-domination collapse when \(p\ge3\), with a single-vertex exception for \(p=2,d=2\); (4) each link collapse lifts to a **relative elementary collapse** of all flag faces containing the deleted edge; (5) for \(p=2,d=1\), all remaining triangles collapse onto a connected graph with \(n+1\) edges and \(n\) vertices. Complete finite replays check the interval condition, face freeness and edge counts, but the quantifiers rely on the written proof rather than experiments. All claims use the graph-as-one-skeleton convention; no post-fault metric is recomputed.
+
+## Originality — PASS against inspected sources
+Adamaszek–Adams' full-text Lemma 4.8 already covers an edge-fault regime in which both directed graphs stay cyclic, so the outermost edge orbit is not counted as a new general phenomenon. The **inner edge orbits** \(1\le d<p\) violate its cyclic closure hypothesis and the paper contains no replacement local-link classification for them. Adams–Coldren–Willmot's full-text cyclic persistence algorithm similarly requires cyclic members. Full published texts of the indexed cycle-power Alexander-dual result and the demihypercube one-edge result were compared: they respectively concern an intact cyclic flag subcomplex of a different complex, and a different edge-fault graph family. No inspected result implies the uniform simple-collapse classification with the squared-cycle sharpness; an unindexed or unread equivalent remains possible. The generic link/edge-star collapse principle itself is standard and is not claimed as invented.
+
+## Value — PASS
+This is an exact all-parameter robustness threshold for a natural metric flag-complex family, across every edge orbit, proved at the stronger simple-homotopy level and including the induced inclusion map. The squared-cycle nearest-edge obstruction demonstrates that the threshold is mathematically sharp in the power parameter rather than a vacuous consequence of every cyclic flag complex being a circle. It gives a reproducible local criterion for distinguishing a graph-bond perturbation that changes the topological signature from those that do not. It does not assert downstream results for arbitrary simultaneous faults or a minimal graph-order threshold.
+
+## Residual limitations
+The cited 2026 paper on induced subcomplexes of cycle-power flag complexes could not be fully inspected; induced vertex deletion is not spanning edge deletion. Published or unindexed alternative formulations may exist. The stated result is only for \(n\ge4p+2\) and graph-edge deletion without recomputed distances. No independent audit has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
