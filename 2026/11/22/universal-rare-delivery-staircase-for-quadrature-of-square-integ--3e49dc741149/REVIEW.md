@@ -1,0 +1,15 @@
+# Review of the universal rare-delivery Lévy-path quadrature staircase
+
+## Correctness
+**PASS.** The exact conditional-mean identity for integrable Lévy bridges follows by exchangeability of finite stationary independent increments and passage from rational times in mean square. Their unconditional residual variances are the cubic-gap terms \(vd^3/12\) for observed bridges and \(vd^3/3\) for the unobserved terminal tail. Each conditional risk is convex, and the strictly convex all-delivered term has positive weight for every \(p>0\). The exact perfect-delivery design, rare-delivery localization and uniformly converging third-order risk expansion give the stated unique minimizers, spacing and advantage for every fixed sample budget. The included independent exact-rational polynomial implementation passed 102 tests for sample budgets one through six. Finite tests supplement, rather than establish, the universal theorem.
+
+## Originality
+**PASS, with historical-priority risk.** Remote Wiener sensing with packet failures [Pan--Sun--Shroff, arXiv:2310.11037] optimizes causal and long-time estimation, not retrospective quadrature of the entire interval. Work on sampling with random delivery times [Peng--Chen--Gong, DOI:10.1049/cth2.12205] likewise concerns sequential sampling, while multipoint fractional-Brownian bridge interpolation [Friedrich et al., arXiv:2005.07591] does not optimize a fixed batch under erased exact observations. No equivalent all-\(n\) Lévy-universal rare-delivery staircase, free-terminal \(2/3\) center, or sharp \(1/486\) risk coefficient was identified. The known pinned-endpoint bridge problem changes the cubic risk at the final interval; its midpoint-centered optimal design cannot imply the free-terminal result. Earlier Poisson arrival-time estimation provides conditional means but not this optimal design. Non-indexed stochastic quadrature results may still cover an equivalent statement, and the full arrival-epochs paper was not available.
+
+## Value
+**PASS.** Choosing a fixed batch of observation times before unreliable measurements is a natural finite-horizon sensing problem for cumulative jump and diffusion signals. The theorem determines a unique design for every fixed budget, a surprisingly process-independent asymptotic spacing, and the exact leading penalty for collocating all measurements. The result simultaneously handles non-Gaussian Poisson and compound-Poisson paths and Gaussian diffusion, without claiming finite-loss exact closed-form optimal times for general \(n\). Its scope is nonadaptive retrospective integral estimation with exact surviving readings and independent delivery.
+
+## Remaining limitations
+Independent verification and historical-priority review have not been performed. The rare-delivery expansion fixes the sample budget before taking success probability to zero; no uniform growing-budget claim is made. More general path priors, dependent erasures, noisy measurements and adaptive sampling require separate analysis.
+
+Self-review: passed. Independent audit: not yet performed.
