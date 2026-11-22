@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness — PASS
+The exact Gram matrix is calculated by elementary Laplace integrals and inverted explicitly. The endpoint formula follows from the total variation of an exponentially decaying sine, with all zero crossings and extrema accounted for. For small frequency, uniform rowwise kernel convergence at order \(O(r^2)\) reduces the exact global norm to a confluent two-function Laguerre projector. Convexity, positivity, and a global elementary bound on the three evaluation regions yield \(8/e\). For large frequency, a uniform periodic-mean estimate controls every evaluation point and gives the sharp global constant \(8/\pi\). The zero-frequency projector is separately rank one and has norm \(2\). These steps prove the precise scope stated, not an exact finite-frequency global norm. Supplementary executable checks passed.
+
+## Originality — PASS (with historical-priority uncertainty)
+The motivating exponential-polynomial Markov–Bernstein paper estimates derivatives, not the induced \(L^\infty\) norm of this \(L^2\) projector. The Laguerre/log-orthogonal paper develops approximation error estimates on a half-line but does not give the two-mode sharp limiting stability constants. The closest indexed carrier-optimization and first-harmonic least-squares results have different extremal objectives or domains and do not imply the claimed result. Actual searches for the damped cosine/sine projector, confluent Laguerre limit, and both \(8/e\) and \(8/\pi\) constants did not identify equivalent published coverage. This is a comparative best-knowledge assessment, not exhaustive historical certification. One mathematically adjacent record's full text could not be retrieved; its available summary concerns frequency optimization, not an operator norm.
+
+## Mathematical value — PASS
+The natural uniform-norm conditioning of projection onto a damped conjugate-mode pair is relevant to oscillatory exponential fitting and half-line approximation. The precise noncommuting near-collision and exactly-collapsed limits explain how a coefficient-Gram condition number asymptotic to \(4/r^2\) can coexist with bounded output amplification, and the sharp large-frequency constant identifies a different averaging regime. Both are true global operator-norm limits, not evaluations at chosen points. The finite-frequency endpoint formula provides a concrete attained lower benchmark. No wider theory or monotonicity is claimed.
+
+## Sources and limitations
+Primary contextual sources: Protasov, *Generalized Markov-Bernstein inequalities and stability of dynamical systems*, arXiv:2209.12250 (2022); Chen and Shen, *Log Orthogonal Functions in Semi-Infinite Intervals: Approximation Results and Applications*, DOI:10.1137/21M1466840 (2023). Indexed comparisons also considered a two-mode Laguerre carrier optimization and finite-arc first-harmonic projections. Residual risks include unindexed specialist results and the unverified precise finite-frequency global norm. Numerical probes cannot certify the continuum proof. No independent validation was performed.
+
+Self-review: passed. Independent audit: not yet performed.
