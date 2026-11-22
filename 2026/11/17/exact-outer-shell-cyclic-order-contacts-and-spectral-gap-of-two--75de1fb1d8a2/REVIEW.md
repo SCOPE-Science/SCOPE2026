@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The identity \(B^{\mathsf T}B+DD^{\mathsf T}=nI\), the exact norm identity, and the classification of sign cocycles by transitive tournaments prove the universal radius and the \((n-1)!\) exposed outer contacts. Central symmetry proves the unique circumcenter and opposite diametral-pair count. For the next shell, every nonzero tetra-defect has at least \(n-3\) nonzero even coordinates, because the boundary of each five-vertex simplex through a nonzero tetrahedron must contribute an additional defect; a one-triangle flip attains equality and is explicitly exposed. The proof covers all \(n\ge3\), with the gap asserted only for \(n\ge4\). The accompanying exhaustive and exact finite checks corroborate, but do not supply, the infinite proof.
+PASS
 
-## Originality — PASS, provisional priority
+The actual simplicial triangle-edge boundary B and tetrahedron-triangle boundary D satisfy B^T B+DD^T=nI by edge/tetrahedron incidence cancellation. Thus every zonotope endpoint p_sigma=B sigma/2 has 4||p||^2=n C(n,3)-||D^T sigma||^2. Vanishing tetrahedron coboundary enforces transitive tournament labels on n-1 nonzero vertices, precisely (n-1)! oriented circular-order signings; the vector u=B sigma/n strictly exposes each and gives uniqueness. Central symmetry gives the unique origin circumcenter and antipodal diametral pairs. For any nonzero tetrahedron defect t, parity forces |t_T|>=2 and 5-vertex boundary-of-boundary incidence forces at least n-3 distinct nonzero entries, hence squared gap >=n-3. Flipping one triangle in an outer signing produces exactly n-3 defect entries of size 2, and u'=u-(sigma_j/2)Be_j strictly exposes the new signing; so sharp second shell is real vertex. An independent Gray-code exhaustive enumeration of all 1,049,618 signings across n=3..6 reproduced (n,R^2,contacts,next)=(3,3/4,2,none),(4,4,6,3),(5,25/2,24,21/2),(6,30,120,27). These finite tests are corroboration; the chain/cocycle proof covers all n. RESULT.md blob a718af84ea74b803ceb13c5b0a52f5956c7bc4b7 and acyclohedron_verify.py blob 8b6c05ed46ac31121834f242afe284cd820daa12 inspected.
 
-Pohoata–Zhu establish the acyclohedron definition, volumes and vertices as acyclic hypertournaments; Linial–Morgenstern establish tournament context and degree-sequence facts. Neither inspected full text gives the present exact Euclidean outer-shell and second-shell law. The closest recorded near-top acyclohedron theorem already covers the special \(n=5\) outer-radius/contact instance, but it concerns \(\mathcal A_{n,n-3}\) in general and does not imply fixed \(\mathcal A_{n,2}\) for \(n\ge6\) or the gap. Targeted statement/alias searches did not expose a broader result. Unindexed equivalent work remains possible; novelty is not certified absolutely.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-An exact factorial equality-classification for the maximal Euclidean shell, a sharp dimension-uniform exclusion gap for every other vertex and a diameter-pair theorem provide natural metric structure absent from volume and face-lattice data. These statements are motivated by the standard hypergraphic zonotope and are not merely a renamed acyclicity correspondence or an unmotivated finite lookup.
+The full fixed-d=2 Euclidean outer-contact enumeration and sharp next squared-radius shell for all n, especially n>=6, is not implied by known combinatorial acyclohedron face counts or the near-top n-3 result, except the explicitly conceded n=5 overlap.
 
-## Limits
+## value
 
-Fixed dimension parameter \(d=2\), standard oriented-chain Euclidean normalization, no complete intermediate-shell spectrum. The \(n=5\) radius/contact subcase is known in a different family. No independent review of proof or historical priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural metric invariant of the canonical two-dimensional acyclohedron with a specified orthonormal simplicial metric: exact minimal enclosing ball, factorial contact orientations, antipodal diameter pairs and a sharp nonzero gap to the next vertex shell. The cocycle-defect structure explains a full infinite family and supplies exact extremal geometry, not a numerology exercise or arbitrary low-dimensional slice. The n>=6 and gap portions survive previously solved n=5 special cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
