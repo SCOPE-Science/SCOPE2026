@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Exact generating-function solution gives L_m=m2^{-b}Q_a(b). The nested integer floors collapse to one floor with nonnegative R. Global error epsilon<=a+1 and a split into early and last O(log b) diagonals show R=O_{a,K}(log b/b) uniformly at the first-positive threshold scale. A sandwich proves mu asymptotics and the nonintegral staircase. All integer/fraction computations in verify.py and independent direct labeled-firing tests passed. Growing-a and integer-limit cases are not asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Inagaki–Khovanova–Luo, arXiv:2611.25137v1, Theorem 21 covers all finite coordinates by recurrence, but Corollary 27 establishes asymptotics just for a=1.",
+        "arXiv:2506.20656v1 Theorem 6.2 is for directed trees without merging lattice paths; arXiv:2601.09125v1 Sections 2,4,5 concern unlabeled firing configurations."
+      ],
+      "reasoning": "The later recurrence is a broad exact computational representation for every coordinate, but it does not imply the claimed fixed-a asymptotic in any explicitly evaluated form; proving the staircase requires a new vanishing rounding-loss argument. Tree landing-range formulas apply to different vertex/path-identification domains. Unlabeled intermediate firing counts do not classify least label reachability.",
+      "searches": [
+        "For each fixed nonnegative integer a the smallest chip label reaching (a,b) in labeled chip firing on the nonnegative integer lattice is asymptotic to a! 2^(a+b)/b^a as b grows; error logarithm over b",
+        "asymptotics of minimum reachable chip label in lattice fixed coordinate chip firing C_m(a,b) floor averaging recurrence",
+        "labeled chip firing quadrant first coordinate fixed asymptotic general row a b minimum label",
+        "arXiv:2611.25137v1 Sections 5.3,5.4,5.5 (full HTML)"
+      ]
+    },
+    "checked_sources": [
+      "OEIS A397913 indexed source entry (2026-10-09)",
+      "arXiv:2611.25137v1 Sections 5.3–5.5 (2026-11-18)",
+      "arXiv:2506.20656v1 Sections 5–6 (2025-06-25)",
+      "arXiv:2601.09125v1 Sections 2,4,5 (2026-01-14)",
+      "published-finding corpus semantic search for chip-label fixed-row asymptotics, exact recurrence, OEIS identifier, dyadic staircase and equivalent names",
+      "Published historical records on parallel chip firing and related lattice thresholds (different firing models)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The a=0 formula and a=1 asymptotic are explicitly prior results; these are identified as prior in the proof.",
+        "Neither the tree results, the unlabeled lattice article, nor the visible exact-table/recurrence record supplies uniform vanishing rounding loss at all fixed a>=2, the exact growth constant, or nonintegral staircase."
+      ],
+      "reasoning": "The new a>=2 statements are not mere special cases of the published a=1 result. They can be deduced from the known recurrence only with a new analytic uniform estimate; that estimate and its consequent limiting law constitute the claim. No stronger evaluated theorem covering these consequences was found.",
+      "searches": [
+        "Inagaki Khovanova Luo Labeled Chip Firing on Ordered Directed Graphs November 2026 minimum chip fixed row",
+        "nonnegative lattice chip-firing A397913 scaling profile staircase threshold labeled",
+        "floor averaging recurrence triangle fixed column threshold 2^b / b^a chip firing",
+        "arXiv:2611.25137v1 Corollary 27 a=1 asymptotic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A397913 gives precisely C_m(a,b) and mu(a,b), but gives values and an algorithm, without the fixed-a>=2 scaling profile in the accessible excerpt.",
+        "arXiv:2611.25137v1, Section 5.3, Theorem 21 identifies mu as the first positive cumulative count; Section 5.4 Corollary 27 proves only a=1 asymptotics."
+      ],
+      "reasoning": "The recorded recurrence and chip interpretation are identical (and acknowledged); the new assertion concerns its uniform high-width scaling and quantized count. An exact recursive evaluator is not itself an explicit evaluated asymptotic, and the proof supplies a nontrivial uniform floor-error estimate that was not found in the closest results.",
+      "searches": [
+        "OEIS A397913 fixed first coordinate asymptotic minimum label 2^b b^-a labeled chip-firing quadrant",
+        "C_m(a,b) floor((C_m(a,b-1)+C_m(a-1,b))/2) asymptotic fixed a",
+        "A397913 smallest chip label a b asymptotic fixed a",
+        "OEIS A397913 exact C_m floor recurrence (search excerpt, Oct 2026)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A397913 provides an antidiagonal table and exact floor recurrence; its author date is 2026-10-09.",
+        "The same initial finite table appears as Table 1 in arXiv:2611.25137v1, and is not asserted to be new."
+      ],
+      "reasoning": "Existing finite tables and all-argument recurrences specify small or computational values. The claim is a symbolic fixed-row asymptotic and limiting scaling staircase for infinitely many widths and arbitrary fixed first coordinate, not a recomputation or reformatting of a table.",
+      "searches": [
+        "OEIS A397913 fixed first coordinate asymptotic minimum label 2^b b^-a labeled chip-firing quadrant",
+        "A397913 smallest chip label a b asymptotic fixed a",
+        "https://oeis.org/A397913 indexed entry"
+      ]
+    },
+    "rationale": "Direct OEIS recurrence and all finite values are prior. The 2026 ordered-graph source proves a=1 asymptotics but no fixed-a>=2 asymptotic, adjacent-row ratio, or nonintegral scaling staircase. The new uniform, localized floor-error argument is not present in inspected sources or closest indexed records. Priority is provisional because external index and historical literature cannot prove uniqueness.",
+    "residual_risks": [
+      "Direct OEIS page returned HTTP 403, so only its indexed contents were inspectable; hidden page discussion of asymptotics cannot be ruled out.",
+      "Unindexed or unsearchable historical mathematical results may contain an equivalent evaluated fixed-row scaling theorem.",
+      "The 2026-11-18 paper was read for potential coverage, not used as the qualifying source date."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact recurrence and tabulation are prior, not claimed novel. Visible material gives no fixed-row asymptotics, but unindexed content on the page remains a risk.",
+        "evidence": [
+          "OEIS A397913, entry author dated 2026-10-09; formula for C(m,a,b) and T(a,b)."
+        ],
+        "identifier_or_url": "https://oeis.org/A397913",
+        "material_read": "Indexed entry text including full recurrence, FORMULA, COMMENTS, initial antidiagonal table, and author date; direct primary-page request returned HTTP 403.",
+        "method": "Search-indexed entry text and primary-page request; missing portions explicitly treated as inaccessible.",
+        "title": "A397913: minimum chip that can reach a vertex in a labeled quadrant-lattice firing game",
+        "trigger": "Exact same array and potential prior table or asymptotic"
+      },
+      {
+        "assessment": "Covers recurrence and mu interpretation as well as a=0,1 boundary cases. Not the claimed all-fixed-row scaling or nonintegral staircase; first posted 2026-11-18, only a comparison source.",
+        "evidence": [
+          "Theorem 21 and Equation (1), Section 5.3; Corollary 27, Section 5.4."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.25137v1",
+        "material_read": "Sections 1, 5.1, 5.3, 5.4 and 5.5 including Lemma 19, Proposition 20, Theorem 21, Corollary 27 and its proof.",
+        "method": "Direct full-text HTML inspection and exact theorem/recurrence comparison.",
+        "title": "Labeled Chip-Firing on Ordered Directed Graphs",
+        "trigger": "Most directly covering post-source full text; possible already published asymptotic"
+      },
+      {
+        "assessment": "Unlabeled total-flow and stable-configuration results, not least-labeled-chip reachability under ordered pairing.",
+        "evidence": [
+          "arXiv:2601.09125v1, Section 4.1 and Proposition 5.1."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.09125v1",
+        "material_read": "Abstract, Sections 1–2, 4.1, 5 and their intermediate-count identities.",
+        "method": "Direct HTML article inspection with mathematical object comparison.",
+        "title": "Chip-firing on the Lattice of Nonnegative Integer Points",
+        "trigger": "Same directed quadrant lattice and possible unlabeled-to-labeled equivalence"
+      },
+      {
+        "assessment": "Provides tree landing ranges but not merged-vertex quadrant asymptotics.",
+        "evidence": [
+          "arXiv:2506.20656v1, Theorem 6.2 and Equation for directed-tree minimum labels."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2506.20656v1",
+        "material_read": "Abstract, Sections 1–3, 5–6 with Theorem 6.2 and landing-range comparisons.",
+        "method": "Direct HTML full-paper section inspection.",
+        "title": "Labeled Chip-Firing on Directed k-ary Trees and Where Chips Land",
+        "trigger": "Previously studied labeled ordered-firing model and possible stronger reachability formulas"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ed9e0567-1e58-4225-b50a-30c4078f6bbd",
+  "value": {
+    "rationale": "The exact recurrence masks an infinite family of least-label scales. The result extracts the natural a!2^{a+b}/b^a threshold, error control and a complete nonintegral limiting staircase for all fixed first coordinates, revealing the effect of lattice path merging and quantifying a newly tabulated invariant well beyond any finite census.",
+    "status": "PASS"
+  }
+}
