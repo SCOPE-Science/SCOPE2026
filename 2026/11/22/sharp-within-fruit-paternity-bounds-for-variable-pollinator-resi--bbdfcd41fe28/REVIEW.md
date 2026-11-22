@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+
+The unique random single-probe donor weights are \(W_i=(1-q^{L_i})\prod_{j<i}q^{L_j}\), and their sum equals one pointwise. Independence proves the mean geometric profile and the exact same-sire collision probability. The exact positive gap from averaging follows from a variance identity with equality precisely for deterministic residence lengths. For fixed \(q\) and \(\mu\), a chord inequality for the discrete lattice \(\{q^k\}\) provides the sharp adjacent-length minimizer; the pointwise inequality \(y^2<qy\) away from the largest lattice point proves the unattained sharp supremum. A continuous family of mixtures proves every intermediate collision probability attainable. For geometric residence lengths, a one-dimensional monotonic inverse proves the exact open feasible wedge and both parameter-recovery expressions. No finite computation replaces these arguments. Exact rational checker: 24,637 assertions passed; pseudorandom diagnostics are supplementary.
+
+## Originality — PASS relative to inspected evidence, provisionally
+
+Galen and Rotenberry (1988) analyze variability in *deposition rates* rather than the sharp fixed-mean distributional extremization over *donor-plant residence lengths*. Mitchell et al. (2013) model exponential carryover and average effects of probabilistic within-plant foraging; their simulated paternity is based on the expected sire profile and does not establish random-itinerary collision inflation or the adjacent-length/distant-run sharp bounds. Cresswell and Hoyle (2006) estimate a paternity shadow, rather than the residence-distribution extremal problem. Rodríguez and Quintana (2015) present general residual allocation theory whose abstract moment identities provide a mathematical precursor; those identities are not claimed original. The distinct mathematical statement is the complete sharp fixed-mean integer-residence extremal range and associated ecological identifiability classification. Actual semantic database and primary-literature comparisons returned no equivalent specific theorem. Risk: a previously published convex-order argument could imply the lattice extremizers, and unindexed pollination literature could anticipate this specific calibration. This is not an independent historical-priority certificate.
+
+## Value — PASS
+
+Averaged geometric profiles can conceal a strictly higher probability of full-sib pollen matching within a randomly realized one-probe fruit. The theorem quantifies that effect, determines the least and greatest possible collision risks compatible with a *fixed observed mean sire profile*, and gives a sharp attainable interval with unique optimal residence distributions and a structural unachievable upper limit. The integer constraint causes a quantitative irreducible gap except at exact geometric lattice means. It also identifies a minimal pair of ideal population statistics that separates pollen deposition from foraging departure under geometric residence—something a complete averaged donor profile cannot do. These precise facts guide diagnostics and calibration of idealized mating models; no claim of field efficacy, finite-sample performance, or new general stick-breaking theory is made.
+
+## Closest evidence and limitations
+
+Mitchell et al. (2013), https://doi.org/10.1371/journal.pone.0076312; Galen and Rotenberry (1988), https://doi.org/10.1016/S0022-5193(88)80257-1; Rodríguez and Quintana (2015), https://doi.org/10.1016/j.jspi.2014.08.008; Cresswell and Hoyle (2006), https://doi.org/10.1111/j.1365-2435.2006.01085.x; Karron et al. (2005), https://doi.org/10.3732/ajb.92.5.885. All underlying assumptions are model constraints rather than measured ecological truths. Independent priority and field validation have not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
