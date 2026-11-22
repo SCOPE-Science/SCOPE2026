@@ -1,17 +1,21 @@
-# Scientific review: quarter-density two-level permutahedral approximation
+# Independent mathematical audit
 
-## Correctness — PASS
-The definitions fix the standard-coordinate Euclidean realization and all quantifiers. The two-level orbit hull equals a capped-sum hypersimplex inside the permutahedron. The clipping construction has a unique shift because the cap gap is \(n/2>1\), and the sum target is internal. The projection supporting-hyperplane inequality gives the exact vertex distance. Convexity and permutation symmetry promote that distance to the Hausdorff maximum. Equality in the convex-combination residual identity classifies the entire farthest set as the disjoint union of \(n!/m!\) exposed \((m-1)\)-dimensional permutahedra. A normalized scalar balance equation yields both analytic asymptotic branches, the face-dimension limit, and the one-sided third derivatives \(-2\) and \(0\). The endpoint density case follows from the feasible vectors' vanishing normalized mean-square deviation from the uniform center.
+## correctness
 
-The included checker verifies 299 exact rational projection configurations, 20 exhaustive residual partitions of permutation vertices, 18 large-dimensional asymptotic comparisons, and 35 independent constrained quadratic programs. Computations are corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS, subject to bibliographic risk
-Manecke–Sanyal–So establish multipermutahedron orbit/fiber-polytope structure (arXiv:1812.07491, Proposition 2.4 and Theorem 4.3); these results do not imply the asserted Euclidean farthest-face classification without a separate projection and equality argument. Wang–Lu (arXiv:1503.01002) provide a general capped-simplex Euclidean projection algorithm: the clipping step and its KKT proof are known and not treated as novel. Their algorithm alone does not state the complete farthest set of an enclosing permutahedron or its sharp quarter-density limiting curvature and face-dimension transition. Ardila–Castillo–Eur–Postnikov (arXiv:1904.11029) describe the Coxeter-generalized permutahedron deformation cone rather than Euclidean Hausdorff approximation. Published hypersimplex facial-separation results concern distances between intrinsic faces or to vertex complements, not the present nested pair of orbit polytopes. Separate literature and published-record searches sought equivalent formulations and stronger encompassing statements; no covering theorem was identified. Absence of a match is not proof of absolute priority.
+PASS: Q is the capped-sum cube section L<=y_i<=U; the clipped projection y_i=clip(i+lambda,L,U) satisfies the variational normal-cone inequality and is unique (strict convexity). All P vertices have equal projection distance by S_n symmetry, and convexity bounds all interior points. Equality in squared norm convexity forces equal residual vectors; strictly separated clipped tails and constant unclipped middle produce precisely n!/m! disjoint exposed faces, each dimension m-1, with translate-by-residual nearest points. Riemann-sum capped balance yields two beta regimes and a C2-not-C3 quarter-density formula; special beta=0 limiting case argued separately. Reconstructed rational clipping for all 3<=n<=11, full residual classes for 3<=n<=7 and symbolic derivatives; finite checks do not establish all dimensions.
 
-## Mathematical value — PASS
-The two-level coarsening is a canonical way to replace the full permutation orbit by a smaller hypersimplex while preserving the coordinate sum and all coordinate symmetries. Its exact Hausdorff error is a natural geometric approximation invariant. The full farthest-point locus is not merely a list of extreme vertices: it consists of a large, explicitly counted disjoint family of positive-dimensional faces whose dimension undergoes a sharp saturation law. The normalized error has a genuine \(C^2\)-but-not-\(C^3\) quarter-density threshold, explained geometrically by activation of the second cap. These structural and asymptotic statements go beyond computing a standard projection of one point.
+## originality
 
-## Sources, comparison limits and integrity
-The relevant full-text material was inspected in arXiv:1812.07491 (multipermutahedron definitions and Theorem 4.3), arXiv:1503.01002 (KKT and clipping algorithm), and arXiv:1904.11029 (deformations and symmetric orbit polytopes). Published records concerning hypersimplex facial distance and partial-permutahedron geometry were compared by statements and parameters. This review does not certify historical uniqueness or test arbitrary metrics, optimal rescalings, or arbitrary multipermutahedra. The proof and checker are internal to the present mathematical package; no independent verification has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS best-of-knowledge: Wang–Lu already supply capped-simplex KKT projection in full generality, and this finite clipping step is not new. Manecke–Sanyal–So characterize combinatorial multipermutahedra and monotone paths, not the exact Hausdorff distance/farthest exposed-face set or the limiting quarter-density C3 jump. Different Resultary hypersimplex facial-distance and alternahedral distance results concern different target sets/metrics, not stronger coverage here.
+
+## value
+
+PASS
+
+PASS: Turns a natural canonical coarsening of the permutahedron into an exact Euclidean approximation law, including continuous maximal-distance strata and a singular density transition. The exact farthest locus is useful independently of the large-n limit; the quantitative object/metric are naturally defined rather than arbitrary enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

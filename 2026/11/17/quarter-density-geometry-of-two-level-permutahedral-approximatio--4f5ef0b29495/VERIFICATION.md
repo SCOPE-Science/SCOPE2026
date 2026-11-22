@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-20.md",
+      "INDEPENDENT_AUDIT_2026-11-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical verification
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3.10+, NumPy, and SciPy. `verify.py` is entirely standalone and uses no external input files.
+## correctness
 
-The exact rational check covers all \(3\le n\le25\), \(1\le k<n\), totaling 299 integer pairs; it validates the shift balance, rational squared distances, cap inequalities, ordered residual pattern, symmetry in \(k\leftrightarrow n-k\), and supporting-hyperplane signs against sampled vertices of the capped-sum hypersimplex. The full permutation residual partition is enumerated in all 20 cases \(3\le n\le7\), checking the predicted \(n!/m!\) groups of \(m!\) vertices apiece. Eighteen large-dimensional comparisons test the explicit two-branch asymptotic formula. A separate SciPy SLSQP implementation solves 35 strictly convex quadratic programs in dimensions 3 through 9; the largest observed objective gap is below \(4\cdot10^{-14}\).
+PASS
 
-The all-dimensional Hausdorff identity, union-of-faces equality characterization, and limiting third-derivative transition are analytic theorems proved in `RESULT.md`, not inferred solely from finite tests. The code does not provide an external or independent mathematical audit. Source dates are the original preprint submission dates, not later revision dates.
+PASS: Q is the capped-sum cube section L<=y_i<=U; the clipped projection y_i=clip(i+lambda,L,U) satisfies the variational normal-cone inequality and is unique (strict convexity). All P vertices have equal projection distance by S_n symmetry, and convexity bounds all interior points. Equality in squared norm convexity forces equal residual vectors; strictly separated clipped tails and constant unclipped middle produce precisely n!/m! disjoint exposed faces, each dimension m-1, with translate-by-residual nearest points. Riemann-sum capped balance yields two beta regimes and a C2-not-C3 quarter-density formula; special beta=0 limiting case argued separately. Reconstructed rational clipping for all 3<=n<=11, full residual classes for 3<=n<=7 and symbolic derivatives; finite checks do not establish all dimensions.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Wang–Lu already supply capped-simplex KKT projection in full generality, and this finite clipping step is not new. Manecke–Sanyal–So characterize combinatorial multipermutahedra and monotone paths, not the exact Hausdorff distance/farthest exposed-face set or the limiting quarter-density C3 jump. Different Resultary hypersimplex facial-distance and alternahedral distance results concern different target sets/metrics, not stronger coverage here.
+
+## value
+
+PASS
+
+PASS: Turns a natural canonical coarsening of the permutahedron into an exact Euclidean approximation law, including continuous maximal-distance strata and a singular density transition. The exact farthest locus is useful independently of the large-n limit; the quantitative object/metric are naturally defined rather than arbitrary enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

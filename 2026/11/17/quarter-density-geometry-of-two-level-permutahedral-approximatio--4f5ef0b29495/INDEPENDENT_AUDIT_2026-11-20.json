@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-20",
+  "audited_at_utc": "2026-11-20T20:37:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Q is the capped-sum cube section L<=y_i<=U; the clipped projection y_i=clip(i+lambda,L,U) satisfies the variational normal-cone inequality and is unique (strict convexity). All P vertices have equal projection distance by S_n symmetry, and convexity bounds all interior points. Equality in squared norm convexity forces equal residual vectors; strictly separated clipped tails and constant unclipped middle produce precisely n!/m! disjoint exposed faces, each dimension m-1, with translate-by-residual nearest points. Riemann-sum capped balance yields two beta regimes and a C2-not-C3 quarter-density formula; special beta=0 limiting case argued separately. Reconstructed rational clipping for all 3<=n<=11, full residual classes for 3<=n<=7 and symbolic derivatives; finite checks do not establish all dimensions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Projection algorithm optimizes an arbitrary point for a capped simplex but lacks maximum over permutahedron/farthest face classification; monotone paths do not address metric approximation."
+        ],
+        "reasoning": "The general optimization primitive is stronger only for the local projection substep, while the submitted global conclusion adds nontrivial symmetry and convex equality analysis.",
+        "searches": [
+          "Wang–Lu arXiv:1503.01002 full PDF Sections 2–3",
+          "Manecke–Sanyal–So arXiv:1812.07491 full PDF Theorem 4.3",
+          "Resultary hypersimplex facial distances and alternahedron gap"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen RESULT.md blob 8767055578f7b43152624a871ecc203f0ca322cb; verify.py blob 92e09f60b99617360c88564135050b69defae8b9",
+        "Wang–Lu arXiv:1503.01002 complete PDF (KKT/Algorithm 1)",
+        "Manecke–Sanyal–So arXiv:1812.07491 complete PDF",
+        "Resultary exact hypersimplex facial-distance and alternahedron articles (different sets)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wang–Lu gives a sorted clipping formula for fixed input; submitted proof adds convex-distance vertex maximum, equality residual grouping and Riemann asymptotics. Manecke et al. study combinatorial monotone paths."
+        ],
+        "reasoning": "The cited input theorems do not state the full metric/farthest-locus conclusion; no claim of novel projection algorithms or new multipermutahedron vertices is made.",
+        "searches": [
+          "Wang–Lu arXiv:1503.01002 Sections 1–3 including Algorithm 1/KKT",
+          "Manecke–Sanyal–So arXiv:1812.07491 Theorem 4.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Q is affinely a hypersimplex, equivalently a two-level orbit polytope; Wang–Lu gives pointwise projection, not the global P-to-Q Hausdorff farthest set."
+        ],
+        "reasoning": "Searched generalized permutahedron, symmetric orbit polytopes, hypersimplex Minkowski/majorization and Euclidean distance; all-dimensional full-locus claim not recovered as established theorem.",
+        "searches": [
+          "Resultary query: Euclidean Hausdorff distance standard permutahedron convex hull of two level permutation vectors hypersimplex nearest point farthest faces",
+          "arXiv:1812.07491 multipermutahedra terminology"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Piecewise exact rational expression for each n,k computed from KKT; no pre-existing table of maximal distances and positive-dimensional farthest locus found."
+        ],
+        "reasoning": "A finite projection computation does not imply the complete face count or the limiting C2/C3 phase law without analysis.",
+        "searches": [
+          "Resultary permutahedron two-level Hausdorff search",
+          "arXiv:1503.01002 projection algorithm"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Wang–Lu already supply capped-simplex KKT projection in full generality, and this finite clipping step is not new. Manecke–Sanyal–So characterize combinatorial multipermutahedra and monotone paths, not the exact Hausdorff distance/farthest exposed-face set or the limiting quarter-density C3 jump. Different Resultary hypersimplex facial-distance and alternahedral distance results concern different target sets/metrics, not stronger coverage here.",
+      "residual_risks": [
+        "Alternative terminology (orbit-polytope metric approximants, majorization projections) could hide equivalent full-locus theorem.",
+        "Projection algorithm prior art is credited; the exact clip itself is not a novelty claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Projection with box plus sum constraint, clipped KKT; no permutahedron Hausdorff/farthest face global theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/1503.01002",
+          "material_read": "Full four-page PDF including Algorithm 1, KKT proof and special-case remarks",
+          "method": "Full parsed text and page 2 image",
+          "title": "Projection onto the capped simplex",
+          "trigger": "Exact same projection optimization method"
+        },
+        {
+          "assessment": "NOT_COVERING_STATEMENT",
+          "evidence": "Combinatorial/monotone path geometry rather than exact Euclidean approximation and farthest loci.",
+          "identifier_or_url": "https://arxiv.org/pdf/1812.07491",
+          "material_read": "Full accessible paper including Proposition 2.4 and Theorem 4.3",
+          "method": "Full PDF and relevant page image",
+          "title": "S-hypersimplices, pulling triangulations, and monotone paths",
+          "trigger": "Natural two-level orbit polytope and multipermutahedron formulation"
+        },
+        {
+          "assessment": "POSSIBLE_ALIAS_RISK",
+          "evidence": "No whole-document exclusion on title/abstract alone; different focus on deformations.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.11029",
+          "material_read": "Abstract and theorem descriptions only",
+          "method": "Indexed abstract",
+          "title": "Coxeter submodular functions and deformations of Coxeter permutahedra",
+          "trigger": "Generalized permutahedron broader coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Turns a natural canonical coarsening of the permutahedron into an exact Euclidean approximation law, including continuous maximal-distance strata and a singular density transition. The exact farthest locus is useful independently of the large-n limit; the quantitative object/metric are naturally defined rather than arbitrary enumeration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE frozen RESULT.md blob 8767055578f7b43152624a871ecc203f0ca322cb; verify.py blob 92e09f60b99617360c88564135050b69defae8b9",
+    "Wang–Lu arXiv:1503.01002 complete PDF (KKT/Algorithm 1)",
+    "Manecke–Sanyal–So arXiv:1812.07491 complete PDF",
+    "Resultary exact hypersimplex facial-distance and alternahedron articles (different sets)"
+  ],
+  "disposition": "passed",
+  "final_claim": "For standard Euclidean permutahedron P_n and its canonical two-level block-averaged orbit polytope Q_{n,k}, determine exact Hausdorff distance by capped-sum clipping, classify every farthest point as one of n!/m! permutahedral faces, and prove a limiting squared-distance profile C^2 but not C^3 at rank density 1/4 with saturated farthest-face dimension.",
+  "limitations": [
+    "Uses standard unscaled Euclidean metric; k between 1 and n-1; no optimization over rotations/scalings.",
+    "Finitary rational tests and numerical QPs do not prove the all-dimensional theorem."
+  ],
+  "residual_risks": [
+    "Alternative terminology (orbit-polytope metric approximants, majorization projections) could hide equivalent full-locus theorem.",
+    "Projection algorithm prior art is credited; the exact clip itself is not a novelty claim."
+  ],
+  "schema_version": 1
+}
