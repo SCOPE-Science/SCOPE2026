@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "A deletion bijection proves every mixed factorial moment exactly. Algebra gives strictly negative covariance for n>=3 with a manifestly positive cubic after a shift. The high-moment logarithmic expansion has uniform o(1) error for r+s=O(sqrt n), matching every coefficient and hypothesis of Berzunza Ojeda–Holmgren–Janson, Theorem A.1. The limiting covariance determinant is 387/262144>0. Standard-library exhaustive enumeration of all paired Catalan matchings through seven pairs verifies 68 exact-rational assertions, supplementary to the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Féray and Thévenin (arXiv:2201.11572) gives local convergence and a component-count law of large numbers, not the joint Gaussian fluctuation covariance.",
+        "Berzunza Ojeda–Holmgren–Janson (arXiv:2312.04243), Appendix A, supplies a general implication from mixed factorial moments, not this particular moment array.",
+        "Burghart and Thévenin (arXiv:2306.11596) studies concatenated unrestricted matchings with a different parameter limit and does not supply the paired-Catalan result."
+      ],
+      "reasoning": "Inspected the scope of plausible stronger or more general theorems and checked that their hypotheses/results do not already give this bivariate law without new combinatorial moment evaluation.",
+      "searches": [
+        "meandric systems bivariate correlations counts of loops with support two consecutive vertices and four consecutive vertices, multivariate small component sizes, common arcs",
+        "Concatenating random matchings Burghart Thevenin 2024 multivariate meandric systems component shape central limit"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:hep-th/9602025",
+      "arxiv:2201.11572",
+      "arxiv:2303.01900",
+      "arxiv:2312.04243",
+      "arxiv:2306.11596"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Janson–Thévenin, Theorem 1.2, asserts normality for each one fixed shape; their Section 5 specifically raises multi-shape extension.",
+        "Theorem A.1 of Berzunza Ojeda–Holmgren–Janson demands a uniform high-moment estimate, supplied here by the newly evaluated exact Catalan mixed factorial moments."
+      ],
+      "reasoning": "The general high-moment criterion implies a bivariate limit only after the special mixed moment asymptotic is proved; single-shape CLTs do not imply any given dependence coefficient. The exact finite-size covariance is also independent of those cited marginal results.",
+      "searches": [
+        "meandric systems multivariate central limit number loops component shapes two vertices four consecutive points Janson Thévenin",
+        "multivariate central limit theorem joint factorial moments Gaussian Gao Wormald covariance matrix Ojeda Janson"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Janson and Thévenin (2024), Section 5, describes joint multi-shape moments and a multivariate CLT as a possible extension whose details were not checked.",
+        "The one-shape marginal limits cannot determine mixed factorial moments or a cross-covariance; a bivariate limit is logically stronger."
+      ],
+      "reasoning": "Compared the same statement phrased as two loop shapes, consecutive-support components, common adjacent edges and a two-dimensional Gaussian limit. The joint claim is not equivalent to the established one-shape theorem.",
+      "searches": [
+        "meandric systems multivariate central limit number loops component shapes two vertices four consecutive points Janson Thévenin",
+        "joint central limit theorem several fixed shapes meandric systems 2025 2026 bivariate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Di Francesco–Golinelli–Guitter (arXiv:hep-th/9602025) use meander polynomials indexed by total component count, not joint counts of two local shapes.",
+        "The closest indexed noncrossing-partition results concern block-size counts in a single noncrossing partition; ordinary random chord-diagram results concern matchings without the noncrossing constraint."
+      ],
+      "reasoning": "No exact joint-moment table or dominating finite-size law for the particular two shape counts was identified. A missing indexed hit alone is not treated as a novelty proof.",
+      "searches": [
+        "Two independent Catalan matchings mixed distribution of length-2 common pairs and four-point alternating matching loops. Joint moment formula 2^s (2n-r-3s)_{r+s}(Cat_{n-r-2s}/Cat_n)^2.",
+        "Uniform random meandric systems from two independent Catalan noncrossing matchings: exact joint mixed factorial moments of simple two-vertex loops and four-vertex consecutive-supported single loops, negative covariance with slope -5/1024."
+      ]
+    },
+    "rationale": "The closest primary CLT treats one fixed meandric-loop shape at a time and expressly leaves multi-shape Gaussian limits unverified (Janson–Thevenin, Section 5). The asserted two-shape joint Catalan factorial moments and negative covariance are not determined by individual marginal CLTs, while the general multidimensional moment criterion is fully attributed. Independent index and primary-literature comparisons found no stronger coverage of these exact quantities; unindexed priority remains a risk.",
+    "residual_risks": [
+      "A historically earlier or unindexed multivariate local meandric limit or equivalent joint moment computation may exist.",
+      "The concatenated-matchings paper was compared at abstract level only; it is a different model and no direct implication was identified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces the model and total-loop enumerators, but not two local shape-specific joint factorial moments or bivariate Gaussian fluctuations.",
+        "evidence": [
+          "Preprint header has first arXiv date 1996-02-06; Sections 1–2 formulate multi-component meanders and total-component polynomials."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/hep-th/9602025",
+        "material_read": "arXiv bibliographic record and author-supplied full-text Introduction and Section 2, including meander polynomials and basic definitions",
+        "method": "Original preprint full text mirrored as readable HTML plus arXiv posting record",
+        "title": "Meanders and the Temperley–Lieb algebra",
+        "trigger": "Original pair-of-noncrossing-arch formulation and earliest archival basis"
+      },
+      {
+        "assessment": "Local-limit and law-of-large-numbers framework, but no bivariate fixed-shape Gaussian law or negative mixed covariance.",
+        "evidence": [
+          "Theorem 1 concerns total component count normalized by n; Section 1.4 identifies the pair-of-matching representation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.11572",
+        "material_read": "ArXiv HTML introduction, main law of large numbers, local convergence statement, definitions and linked theorem references",
+        "method": "Open-access arXiv full-text HTML",
+        "title": "Components in meandric systems and the infinite noodle",
+        "trigger": "Possible stronger shape-frequency asymptotics"
+      },
+      {
+        "assessment": "Proves scalar fixed-shape CLTs, explicitly lists several-shape mixed moments and multivariate CLT as unchecked. The proposed joint covariance and two-dimensional law are not established by that result.",
+        "evidence": [
+          "Theorem 1.2 gives one fixed-shape CLT; Section 5 item 1 raises the multivariate extension and states details had not been checked."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0963548324000117",
+        "material_read": "Full open-access article sections on definitions, two-site example, fixed-shape theorem, proof method and Section 5 open problems",
+        "method": "Cambridge Core full-text HTML",
+        "title": "Central limit theorem for components in meandric systems through high moments",
+        "trigger": "Direct closest theorem about component shapes"
+      },
+      {
+        "assessment": "The external general criterion is applicable because the new exact Catalan moment formula gives its uniform mixed moment hypothesis; no direct meandric theorem is claimed in the source.",
+        "evidence": [
+          "Appendix A, Theorem A.1 requires uniform mixed factorial-moment exponential estimates for k_i up to constant times mu_i/sigma_i and concludes a multivariate normal law."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2312.04243v1",
+        "material_read": "Theorem A.1 assumptions, conclusion, and beginning of proof in Appendix A (arXiv HTML lines 819–913)",
+        "method": "Open-access arXiv full-text HTML",
+        "title": "Fringe trees for random trees with given vertex degrees",
+        "trigger": "Verification of the needed multidimensional high-factorial-moment normality criterion"
+      },
+      {
+        "assessment": "Different unrestricted matching-concatenation model and long-concatenation regime; only abstract inspected, so not claimed as a full-text negative coverage check.",
+        "evidence": [
+          "Published abstract specifies t concatenated uniform perfect matchings and t tending to infinity, not two independent noncrossing Catalan matchings at n tending to infinity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.11596",
+        "material_read": "Bibliographic records and author abstract for the concatenation model",
+        "method": "Open scholarly abstract and journal metadata",
+        "title": "Concatenating random matchings",
+        "trigger": "Possible subsequent larger result involving loop shapes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b3ce5f6d-9010-4e11-9980-5ad57154e0c9",
+  "value": {
+    "rationale": "The two smallest consecutive-support meandric loop types are canonically motivated, and their exact finite joint law quantifies component competition. The explicitly negative, nonvanishing limiting correlation resolves a concrete two-shape instance of the several-shape Gaussian extension identified in the closest single-shape CLT paper, while the proof identifies precisely the Catalan exclusion mechanism.",
+    "status": "PASS"
+  }
+}
