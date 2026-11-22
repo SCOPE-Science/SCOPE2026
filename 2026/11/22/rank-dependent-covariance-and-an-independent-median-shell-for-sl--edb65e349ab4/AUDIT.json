@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "Both covariance formulas follow from conditional iid endpoint independence and beta moments. The conditional mean h(x) is obtained by differentiating an order-statistic integral. The independent median case follows when h is constant, and the discrete optimal rank follows by completing the square in z. The exact standalone checker passes 1286 assertions including full permutations for small widths. These finite checks are supplementary to the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Restrepo and Bovik (1987) derive full joint law of two order statistics for general overlap and use it for output covariance spectra.",
+        "Two update events compare three/four successive order-statistic outputs and are not specified by one two-output marginal; the beta conditional-dependence calculation is additional.",
+        "The later 2014 Suomela paper is algorithmic, not probabilistic."
+      ],
+      "reasoning": "The general two-output overlap theory is the closest possible umbrella. It covers output distributions and two-output covariances, but does not logically imply a two-event covariance without a higher-order coupling. A stronger unlocated multivariate theorem could cover this and is a residual risk.",
+      "searches": [
+        "Spectral properties of moving L-estimates of independent data Bovik Restrepo overlapping samples 1987",
+        "moving quantile filter update stability negative nearest-neighbor positive full-window lag covariance median cancellation",
+        "https://doi.org/10.1016/0016-0032(87)90378-4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1406.1717",
+      "https://doi.org/10.1016/0016-0032(87)90378-4",
+      "https://doi.org/10.1109/TASSP.1987.1165153",
+      "https://doi.org/10.1109/TASSP.1981.1163708",
+      "public exact cyclic sliding-maxima covariance prior",
+      "Published mathematical-record searches on moving rank changes, median streaks, median-null lag and off-center rank optimizer"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Existing exact sliding-maxima covariance is the j=k case (lag-one -4/[(k+1)^2(k+2)] and lag-k (k-1)^2/[(k+1)^2(2k+1)]).",
+        "Gallagher and Wise (1981) prove deterministic median-root invariance, not stochastic two-change dependence.",
+        "Exact general rank formulas here reduce to the known j=k values but are not derived from them; the finite rank optimizer ranges across all j."
+      ],
+      "reasoning": "A proper special-case restriction of the result is covered, and is expressly credited. The assessment is for the new interior ranks (k≥3, 2≤j≤k−1), their discrete optimizer, and exceptional one-overlap median independence. In particular no claim is made that a mere generalization in words escapes an existing stronger formula.",
+      "searches": [
+        "sliding maximum update indicator covariance order-statistic filter sign reversal",
+        "conditional independence of sliding median change indicators separated by exactly one window length",
+        "published exact cyclic sliding-window maxima lag covariance formula",
+        "doi:10.1109/TASSP.1981.1163708"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bovik (1987) abstract explicitly covers continuous-iid median equality runs; a run of 3 equal values implies consecutive equal-output events, so central-adjacent equality is not treated as original.",
+        "The displayed claim also concerns the complete noncentral rank range and a one-shared-endpoint lag-k process, distinct from a single median streak law."
+      ],
+      "reasoning": "Median streak formulas may imply central adjacency events; the claimed contribution is the rank-indexed interior covariance and exact lag-k independent shell. A complete unavailable streak paper is a residual priority risk, not evidence of noncoverage.",
+      "searches": [
+        "Bovik streaking median filtered iid continuous run lengths adjacent equality covariance; jth order statistic sliding window change indicators",
+        "sliding median sample process unchanged indicator lag k independent update rank",
+        "doi:10.1109/TASSP.1987.1165153"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact interior-rank update covariance or rank-optimizer table surfaced in the actual searches.",
+        "The checked published extremal-window formula agrees with the boundary rank j=k after substitution; the remaining interior rank formulas are not that table."
+      ],
+      "reasoning": "Absence of a database match is not a uniqueness argument; the substantive comparison is to the known exact extremal-rank formula and Bovik median streak analysis.",
+      "searches": [
+        "rank-dependent adjacent change covariance maximum off-central j around midpoint plus minus sqrt(k)/2",
+        "median order statistic filter consecutive change event covariance formula",
+        "site:arxiv.org \"Streaking in median filtered images\""
+      ]
+    },
+    "rationale": "An exact maximum-only covariance law already covers the j=k boundary; Bovik median streaks plausibly cover central median adjacency. Those restricted cases are acknowledged as prior. Published broader two-order-statistic overlap theory does not logically give the dependence of two equality-change events. Actual semantic prior searches found no specific interior-rank optimizer plus full-window-lag independent median boundary. Historical priority remains qualified by the unavailable full Bovik streaking paper and other possible broader multivariate formulas.",
+    "residual_risks": [
+      "Bovik (1987) full text unavailable; streak-length analysis may contain overlapping special cases and perhaps higher-order median identities.",
+      "A broader multivariate overlap-order-statistic identity could imply the complete rank-indexed theorem even if not found.",
+      "The j=k extremal case and central-median adjacent streak facts are prior and are not separately novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Algorithmic reduction to block sorting; does not state stochastic update indicator covariances",
+        "evidence": [
+          "Initial upload date 2014-06-06 shown at arXiv",
+          "Introduction defines a moving-median filter and its output",
+          "Contribution section addresses algorithmic complexity"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1406.1717",
+        "material_read": "Abstract and full HTML manuscript introduction, definition, main algorithm and complexity contributions",
+        "method": "arXiv HTML full text",
+        "title": "Median Filtering is Equivalent to Sorting",
+        "trigger": "Verified 2014 archival first-release anchor and sliding-median generality"
+      },
+      {
+        "assessment": "Calculates two-output joint distributions and autocovariances; not this four-output event covariance or rank optimizer",
+        "evidence": [
+          "Sections I-II derive overlap order-statistic joint distribution/mass",
+          "Section III evaluates output correlations and spectra for rank filters",
+          "Conclusion emphasizes two-output law"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0016-0032(87)90378-4",
+        "material_read": "OA full paper rendering: abstract; joint distribution theorem; computed correlations section; conclusion",
+        "method": "Full text rendered by legal academic article page",
+        "title": "Spectral properties of moving L-estimates of independent data",
+        "trigger": "Potentially broad theorem for overlapping order statistics"
+      },
+      {
+        "assessment": "Deterministic root and invariance results, not the iid rank-update dependence claim",
+        "evidence": [
+          "Defines median filter as moving-window rank",
+          "Main theorem concerns repeated filtering of a signal and roots"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TASSP.1981.1163708",
+        "material_read": "OA full-paper rendering abstract, introduction, invariance and root-signal discussion",
+        "method": "Full article text on Academia",
+        "title": "A theoretical analysis of the properties of median filters",
+        "trigger": "Early general theory of median filters"
+      },
+      {
+        "assessment": "Central-median adjacent equality potentially covered and not claimed as new; unresolved possibility of a stronger multivariate treatment",
+        "evidence": [
+          "Abstract states exact run length distribution for equal-output streaks in iid continuous data and overlap median matching probabilities",
+          "The unavailable full text is explicitly a residual historical-priority risk"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TASSP.1987.1165153",
+        "material_read": "Abstract only; full paper unavailable through the accessible lawful full-text routes",
+        "method": "Publisher citation and indexed abstract, attempted lawful full-text retrieval",
+        "title": "Streaking in median filtered images",
+        "trigger": "Very relevant exact iid probability of equal median output streaks"
+      },
+      {
+        "assessment": "Covers the j=k special case, not all interior j; excluded from novelty",
+        "evidence": [
+          "Previous exact maxima result has lag-one -4/[(k+1)^2(k+2)] and lag-k (k-1)^2/[(k+1)^2(2k+1)]",
+          "Substitution j=k in the present expressions reproduces both"
+        ],
+        "identifier_or_url": "arxiv:1402.1975 (supporting 2014 literature) and published exact-maxima finding (2026)",
+        "material_read": "Complete recoverable prior scientific claim and public search description",
+        "method": "Exact statement/parameter implication comparison",
+        "title": "A negative-to-positive dependence transition in sliding-window maxima",
+        "trigger": "Same family at rank j=k"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "edb65e34-9ab4-4e61-ac83-21dbae479409",
+  "value": {
+    "rationale": "The result analyzes a natural operational invariant of a sliding rank/median filter: whether an output changes after refreshing one observation. It supplies exact dependence at adjacent and full-window-separated refreshes, an unexpected median independence boundary, and an exact off-center rank optimizer. These answer interpretable questions about refresh counts and streaking dependence rather than arbitrary numeric special cases.",
+    "status": "PASS"
+  }
+}
