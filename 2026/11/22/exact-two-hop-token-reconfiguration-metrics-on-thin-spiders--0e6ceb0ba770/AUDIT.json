@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The underlying thin-spider distances imply exactly the stated P/M adjacency types. Each distinct leaf-label exchange needs two legal moves and endpoint parity supplies the extra pure-to-mixed move. Explicit legal M-mediated exchanges attain every lower bound, including the different-leaf mixed-to-mixed case, and clique changes with unchanged leaves cost one move. Cardinality, degree and edge counts follow by disjoint combinatorial counting, and the three-branch maximum gives the sharp diameter. A separate ground-up graph generator exhaustively verifies all 35 cases r=2..8, k=1..r and every pairwise distance; 20099 parameter comparisons check algebraic simplification. Finite checks do not replace the given universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hatano et al. prove polynomial-time two-hop reachability on split graphs, but Section 6 explicitly asks the computational complexity of shortest two-hop reconfiguration on split graphs. Their Section 4 develops cluster classifications and reachability, with no all-pairs shortest metric for the special clique-corona family.",
+        "Belmonte et al. study one-hop token sliding on split graphs, which has strictly fewer legal moves."
+      ],
+      "reasoning": "General decision reachability does not imply optimal path length, the exact graph isomorphism, or the extremal diameter. One-hop and unrestricted-jump theorems cannot be substituted for the exact two-hop metric.",
+      "searches": [
+        "Hatano Kitamura Izumi Ito Masuzawa 2407.11768 bounded-hop token jumping 2-jump split graph exact shortest path distance spider",
+        "independent set k token two hop reconfiguration spider graph Johnson metric split graph",
+        "arXiv:2407.11768, §4 and §6",
+        "DOI:10.1007/s00224-020-09967-8"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2407.11768 (full text, §1, §4, §6)",
+      "DOI:10.1007/s00224-020-09967-8 (abstract)",
+      "arXiv:1806.08291 (abstract)",
+      "published-finding corpus: 2026/11/8/SCOPE-a-cubical-complete-graph-bridge-geometry-for-token-sliding-on-su--8b1e56f1420b",
+      "published-finding corpus: 2026/11/2/SCOPE-exact-reconfiguration-distances-for-minimum-zero-forcing-sets-of--56a4948a1a5b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The thin-spider family is a clique with pendant leaves. Hoang et al. use the term spiders for trees with a central branching vertex and study one-hop sliding, not this two-hop split-graph state space.",
+        "The indexed subdivided-star finding concerns a once-subdivided star and one-hop independent-set moves, with different graph family, invariant and allowed transitions."
+      ],
+      "reasoning": "A statement about shortest sliding on trees does not imply shortest two-hop jumping on clique coronas; similarly an unrelated Johnson-metric reconfiguration theorem does not determine our mixed-state adjacency. The 2024 source establishes the rule but leaves shortest paths in general split graphs unclassified.",
+      "searches": [
+        "two jump reconfiguration graph of independent sets of thin spider split graph, exact distances Johnson doubled metric and diameter for all sizes",
+        "Hatano Kitamura Izumi Ito Masuzawa 2407.11768 bounded-hop token jumping 2-jump split graph exact shortest path distance spider",
+        "spider graph 2-hop token sliding independent sets shortest distance closed formulas",
+        "arXiv:1806.08291",
+        "published-finding corpus 2026/11/8/SCOPE-a-cubical-complete-graph-bridge-geometry-for-token-sliding-on-su--8b1e56f1420b"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No retrieved indexed statement gives two-hop independent-set paths on K_r corona K_1; a Johnson-like metric in a minimum-zero-forcing exchange problem involves different feasible sets and a different base graph.",
+        "The theorem has been compared under the alternative names thin spider, clique corona, clique with pendant leaves, and doubled Johnson mismatch."
+      ],
+      "reasoning": "The pure layer acquires twice the Johnson distance, but this is not implied by the classical Johnson formula without showing a legal two-step realization and a lower bound excluding shortcuts through mixed states. The mixed-layer corrections and diameter are independent additional assertions; no retrieved equivalent theorem implies them.",
+      "searches": [
+        "two jump reconfiguration graph of independent sets of thin spider split graph, exact distances Johnson doubled metric and diameter for all sizes",
+        "minimum 2 jump reconfiguration independent sets of corona K_r ∘ K_1 diameter min 2k 2(r-k+1) r",
+        "2-jump token independent-set reconfiguration split graph K_r with one pendant leaf per clique vertex exact Johnson graph distance",
+        "published-finding corpus: 2026/11/2/SCOPE-exact-reconfiguration-distances-for-minimum-zero-forcing-sets-of--56a4948a1a5b"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The completed literal formula, graph-family and source searches returned no exact distance or edge tables for two-hop clique-corona independent sets.",
+        "Accessible previously published mathematical claim statements were compared under thin-spider, split-graph, 2-jump, bounded-hop, and Johnson-incidence terminology; none gives the present metric."
+      ],
+      "reasoning": "No matching exact known-table formula was identified. Negative retrieval is not proof of absolute priority; the graph is not claimed novel merely from absence of a database hit.",
+      "searches": [
+        "split graph clique with pendant leaves, independent k sets distance two token jumping graph, graph diameter",
+        "minimum 2 jump reconfiguration independent sets of corona K_r ∘ K_1 diameter min 2k 2(r-k+1) r",
+        "\"thin spider\" \"reconfiguration graph\" 2-jump diameter",
+        "published-finding corpus search: minimum 2 jump reconfiguration independent sets of corona K_r ∘ K_1 diameter min 2k 2(r-k+1) r"
+      ]
+    },
+    "rationale": "Direct inspection of Hatano et al. (arXiv:2407.11768) shows two-hop split-graph reachability and an explicitly open shortest-reconfiguration question, but no exact all-pairs thin-spider metric. One-hop split-graph and tree-spider publications use a different rule or base graph. Prior-claim overlap comparisons and multiple indexed literature queries found no covering same-object theorem. This is best-knowledge originality, not a claim that searches prove uniqueness.",
+    "residual_risks": [
+      "Unindexed earlier graph-theoretic characterization under clique corona, thin spider, or Johnson-incidence terminology may cover the same statement.",
+      "Full texts of secondary one-hop references were not inspected; their distinct move rules limit direct relevance.",
+      "No independent historical-priority assessment or external audit was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes polynomial reachability, not all-pairs shortest distances or diameter on clique coronas; explicitly asks shortest two-hop complexity on split graphs",
+        "evidence": [
+          "Theorem 2: polynomial decision for two-hop ISReconf on split graphs",
+          "Section 4.5: decision from free/pseudo-free clusters",
+          "Section 6: shortest 2-Jump split-graph complexity posed as question"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2407.11768",
+        "material_read": "ArXiv abstract/HTML and PDF: Introduction and rules pp.1–3, Section 4 split-graph algorithm and cluster lemmas pp.6–11, concluding open questions p.16; PDF screenshots of pp.3 and 16",
+        "method": "Read accessible arXiv full text and page images, comparing Theorems 1–3, Section 4, and Section 6 with exact graph metric",
+        "title": "Independent Set Reconfiguration Under Bounded-Hop Token Jumping",
+        "trigger": "Same two-hop transition rule and split-graph superclass; primary guiding source"
+      },
+      {
+        "assessment": "Studies original-graph-distance-one token sliding; cannot directly cover two-hop moves or the displayed metric",
+        "evidence": [
+          "The published abstract defines sliding as exchanging a vertex with a neighbor",
+          "Primary focus: PSPACE-completeness on split graphs"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00224-020-09967-8",
+        "material_read": "Journal/conference abstracts and citation/metadata pages, not full article",
+        "method": "Compare stated transition rule and proved complexity assertions",
+        "title": "Token Sliding on Split Graphs",
+        "trigger": "Same base graph superclass; potential prior shortest-reconfiguration coverage"
+      },
+      {
+        "assessment": "The underlying spiders are trees with one high-degree vertex, unlike a clique with private leaves; the rule is one-hop sliding",
+        "evidence": [
+          "Abstract specifies sliding on trees with exactly one vertex of degree at least three"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1806.08291",
+        "material_read": "Indexed original abstract and bibliographic record, not full manuscript",
+        "method": "Check definition of underlying spider and rule against our graph and two-hop model",
+        "title": "Shortest Reconfiguration Sequence for Sliding Tokens on Spiders",
+        "trigger": "Possible synonymous use of spider and shortest token sequences"
+      },
+      {
+        "assessment": "Concerns one-hop moves on once-subdivided stars, not two-hop moves on matched clique coronas",
+        "evidence": [
+          "Indexed finding gives cubical pieces and diameter 2m on an (m-1)-token sliding graph of a subdivided star"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-cubical-complete-graph-bridge-geometry-for-token-sliding-on-su--8b1e56f1420b",
+        "material_read": "Indexed title, scientific summary and parameters only; not full work",
+        "method": "Statement/parameter comparison",
+        "title": "A cubical complete-graph bridge geometry for token sliding on subdivided stars",
+        "trigger": "Closest indexed reconfiguration metric with a related star-like base graph"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0e6ceb0b-a770-49c3-abb1-c1d389cddb03",
+  "value": {
+    "rationale": "The 2024 same-rule primary source explicitly poses the general shortest two-hop split-graph reconfiguration problem. The theorem gives a complete infinite natural subfamily classification: exact adjacency, an efficiently computable and constructive all-pairs geodesic metric, sharp three-regime diameter, and full vertex/edge/degree census. This is more than a routine reachability or small-parameter computation; it explains the Johnson-type geometry and the switch in the extremal regime as token density changes. It does not claim to solve the unrestricted problem.",
+    "status": "PASS"
+  }
+}
