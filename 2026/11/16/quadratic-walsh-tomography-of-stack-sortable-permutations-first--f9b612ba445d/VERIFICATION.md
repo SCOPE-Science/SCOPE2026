@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-Exact verification is supplied in the same directory as `verify_recursion.py`, `verify_bruteforce.py`, and `kernel6.json`. Run both Python programs without external dependencies.
+# Independent mathematical audit
 
-The first checker generates all \(231\)-avoiders of sizes one to six recursively, computes exact binary-field ranks, verifies twenty independent integer left-kernel vectors against every degree-at-most-two incidence column, and exhaustively enumerates the twelve admissible three-swap cubes. The second independently generates the relevant sets by checking forbidden triples, computes ranks over the field with three elements, rechecks the signed kernel vectors directly, and checks the explicit parity-cube construction. Both replayed successfully.
+## correctness
 
-A modular rank bound alone would not establish a real upper bound. Here twenty independent *integer* null vectors provide the missing upper bound, while rank \(112\) over \(\mathbb F_2\) gives the lower bound. The statement for all larger orders follows from an explicit symbolic embedding; no finite check is extrapolated to infinity.
+PASS
 
-The computations do not establish full higher-degree ranks or unindexed-literature priority. Independent mathematical audit has not been performed.
+The degree-2 Boolean Walsh and constant/one-/two-position indicator spans coincide by (−1)^X=1−2X, with labeled positions and symbols. I independently enumerated all 231-avoiders through n=6 and row-reduced exact F2 event bitsets: Catalan counts 1,2,5,14,42,132, and ranks 1,2,5,14,42,112 with 382 distinct feasible observation columns at six. An independent direct audit of all 20 packaged signed integer kernel6.json relations checked every event sum exactly zero; their coefficient vectors are independent mod 2, giving real nullity at least 20, while rank mod2=112 is a real rank lower bound, hence exactly 112. Exhaustive disjoint 3-pair switch-orbits on the 132 states gave precisely 12 distinct valid 8-state cubes; each is an annihilating trade and the 12-span is proper to the 20-d kernel. The explicit three adjacent-pair alternating cube persists under fixed increasing tails at all n>=6, proving infinite noninjectivity without extrapolation.
+
+## originality
+
+PASS
+
+PASS bounded: prior low-order permutation Fourier and marginal work treats the full permutation group or rank-factorized models; Catalan avoidance enumeration and comparison-query shattering concern different observables. Here the exact labeled-position degree-2 rank threshold on Av(231), a 20-d signed kernel and the proper 12-d elementary-cube subspace are not inferred from those prior implications. Resultary query did not surface an exact same class/marginal nullity table; historical alternative fixed-position tomography formulations remain a residual risk.
+
+## value
+
+PASS
+
+PASS: Av(231) is a canonical Catalan permutation class and pairwise location marginals are natural statistical observables. The exact first failure at n=6 and the eight unexplained directions beyond elementary signed switch cubes are a motivated complete finite obstruction, plus an all-size trade. This is not an arbitrary tiny computation or unsupported significance claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

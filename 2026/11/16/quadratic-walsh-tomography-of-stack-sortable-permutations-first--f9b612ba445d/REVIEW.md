@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The restricted Boolean-Walsh quadratic space is exactly the span of constant, one-position and two-position incidence events because \((-1)^X=1-2X\). A Catalan recurrence and an unrelated direct forbidden-pattern filter both enumerate all \(132\) size-six states. Exact row reduction modulo two proves rank at least \(112\); twenty independent integral signed kernel certificates, each verified against every event column, prove rank at most \(112\). The smaller orders are certified full rank. The eight-term signed three-block cube proves noninjectivity at all larger orders by a direct-sum argument. Enumeration of all fifteen position pairings and their admissible orbits proves the twelve-cube subspace has dimension twelve. The checks were replayed on the included files and assert their own outputs.
+PASS
 
-## Originality
+The degree-2 Boolean Walsh and constant/one-/two-position indicator spans coincide by (−1)^X=1−2X, with labeled positions and symbols. I independently enumerated all 231-avoiders through n=6 and row-reduced exact F2 event bitsets: Catalan counts 1,2,5,14,42,132, and ranks 1,2,5,14,42,112 with 382 distinct feasible observation columns at six. An independent direct audit of all 20 packaged signed integer kernel6.json relations checked every event sum exactly zero; their coefficient vectors are independent mod 2, giving real nullity at least 20, while rank mod2=112 is a real rank lower bound, hence exactly 112. Exhaustive disjoint 3-pair switch-orbits on the 132 states gave precisely 12 distinct valid 8-state cubes; each is an annihilating trade and the 12-span is proper to the 20-d kernel. The explicit three adjacent-pair alternating cube persists under fixed increasing tails at all n>=6, proving infinite noninjectivity without extrapolation.
 
-PASS under bounded source comparison. The primary archival permutation-marginal article (Huang et al., 2009) treats representations and independence on the full symmetric group, not the rank on the Catalan-restricted family. Hyatt–Remmel (2012) and Albert–Bouvel (2015) study Catalan enumeration and avoidance relations. A published comparison-shattering theorem on the same avoiding family uses order comparisons, not fixed-position value assignments or signed-measure identifiability. Available historical claims about Walsh tomography of queens solutions, Shidoku and constrained binary matrices concern different state spaces. No covering exact six-position dimension \(20\) or twelve-cube deficiency was identified. The cube-obstruction idea is general and is not claimed as new by itself. Unindexed incidence-rank tables and alternative representations remain priority risks.
+## originality
 
-## Value
+PASS
 
-PASS. Fixed-position pair distributions are canonical second-order statistics used in permutation inference. Even though there are \(382\) distinct feasible event columns for only \(132\) allowed six-position permutations, the observations lose a precisely twenty-dimensional subspace. The first sharp loss occurs at six, and just twelve of those twenty dimensions arise from the obvious disjoint-swap cube mechanism. This gives both a boundary for distribution recovery in a natural Catalan class and a concrete structural obstruction to explaining all ambiguities by local three-switch trades. No higher-order or asymptotic recovery result is asserted.
+PASS bounded: prior low-order permutation Fourier and marginal work treats the full permutation group or rank-factorized models; Catalan avoidance enumeration and comparison-query shattering concern different observables. Here the exact labeled-position degree-2 rank threshold on Av(231), a 20-d signed kernel and the proper 12-d elementary-cube subspace are not inferred from those prior implications. Resultary query did not surface an exact same class/marginal nullity table; historical alternative fixed-position tomography formulations remain a residual risk.
 
-## Remaining scientific limitations
+## value
 
-The novelty comparison cannot exclude unindexed historical tables. No general formula for ranks at sizes above six is proved. The classification of the twelve elementary cubes uses finite exhaustive enumeration; the checker provides every required case and a field-rank certificate. The result has not received independent verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Av(231) is a canonical Catalan permutation class and pairwise location marginals are natural statistical observables. The exact first failure at n=6 and the eight unexplained directions beyond elementary signed switch cubes are a motivated complete finite obstruction, plus an all-size trade. This is not an arbitrary tiny computation or unsupported significance claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
