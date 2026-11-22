@@ -1,9 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness (PASS).** Every perfect matching is one of two original alternating matchings, at most two single-odd-chord matchings, and at most one joint-chord matching. The Alexander-dual nerve is directly computed in the two non-conical configurations and is respectively \(S^1\) or \(S^2\); integral Alexander duality, simple connectivity (including the \(t=3\) boundary), Hurewicz, and Whitehead establish the exact homotopy types. Complete chord-pair enumeration at \(t=3,4,5\) supports the alternating-path census; it is not the infinite proof.
+## correctness
 
-**Originality (PASS, residual literature risk).** The published short even-crossing pair is a strict specialization and the 2026 bipartite-edge result establishes injectivity, not the full three-phase homotopy classification. Searches for two odd chords, all chord pairs and parity/interlacing found no statement implying the complete theorem. The primary research paper and closest earlier mathematical note could not be read in full, so uninspected equivalent propositions remain possible. Search absence is not treated as a uniqueness proof.
+PASS
 
-**Mathematical value (PASS).** The result fills a natural complete perturbation problem for maximal-matching avoidance on a cycle, identifies a sharp geometric crossing condition, and separates a stable sphere, a dimension-shift sphere and collapse to a point. Odd chords sharing endpoints belong to the stable phase, which is invisible in the previously known two-short-chord example. The classification is exact, integral and uniform in the cycle order.
+Read full RESULT.md and the exact small-instance checker. The only perfect matchings are cycle alternations A,B, a unique single-chord matching for each odd chord, and possibly one joint two-chord perfect matching. An unused chord becomes a simplicial cone vertex. If even chords have opposite parity and interlace, the Alexander-dual facet nerve has triangle boundary; for two odd chords it is a tetrahedron boundary or tetrahedron glued to cone over a four-cycle, both S^2. Alexander duality on 2t+2 edge vertices puts unique free homology in degree 2t-2 or 2t-3. For t>=4 complete two-skeleton ensures simple connectivity, and for t=3 missing perfect-matching triangles have conable boundaries, so Hurewicz/Whitehead gives integral homotopy spheres. As an independent check, wrote a separate recursion enumerating perfect matchings from the 2t vertex set, checked complete dual nerve f-vectors for all 36,190,595 pairs at t=3,4,5: cone 27/142/440, even-crossing sphere 6/20/50, two-odd sphere 3/28/105. Finite enumeration corroborates but is not the t-uniform proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Prior exact even-crossing short-chord all-t case is fully covered and explicitly excluded from the new contribution; no accessible theorem has been shown to imply this entire odd/any-two-chord homotopy classification. A close 2026 primary full text remains inaccessible and priority is bounded.
+
+## value
+
+PASS
+
+The two-chord perturbations of a cycle form a canonical finite structural family, and integral homotopy changes nonmonotonically with chord parity and endpoint interlacing. Completing the full all-t two-chord phase diagram, including odd chords sharing a vertex, is a mathematically motivated classification not mechanically implied by a single previously computed crossing case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
