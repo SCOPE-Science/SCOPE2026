@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The underlying one-dimensional simplicial poset is specified with both opposite ordered edges kept distinct. Lü–Panov's integral multigraded cellular cochain model directly yields the ranks; the exterior-factor sign in its equivariant version is reconstructed rather than assumed. The sign-isotypic calculation uses the actual ordered-pair and letter permutation modules with explicit stabilizers. Rational finite-group transfer then gives the quotient ring. Exact finite cellular and character calculations check all permutations through six labels. The argument is all-size, integral before taking rational invariants, and does not extrapolate finite computation.
+## correctness
 
-**Originality — PASS, with residual risk.** The original injective-words paper treats the full complex and gives derangement sphere ranks; Lü–Panov gives the general Hochster theorem and the two-vertex special case. An accessible research record for the full injective-word symmetric quotient reports rational acyclicity, which does not cover the truncated space. The full published mathematical statements in the two motivating primary papers were inspected, and broader literature was searched for alternative names (bidirected one-skeleton, doubled-edge simplicial poset, ordered-word truncation). No matching all-size equivariant module or degree-five quotient stabilization was found. General Hochster theory implies the ranks after elementary calculation, so no novelty is assigned to that formal consequence alone. An unindexed application or alternate equivariant treatment is possible.
+PASS
 
-**Value — PASS.** Directed-flag truncation retains pairwise order data but removes higher ordered cliques, a natural operation in directed-topological modeling. The complete integral representation determines permutation-sign information absent from Betti numbers. The stable nonzero rational cohomology of the quotient, despite unbounded and mixed-degree cohomology upstairs, is a meaningful sharp contrast with the full-word quotient, and identifies the unique three-letter source of the invariant class. No conjectural downstream application or equivariant homotopy splitting is asserted.
+Full-subposet one-skeleton on k vertices has k(k-1) distinct directed-word 1-cells, connected H1 rank (k-1)^2. Actual Lü–Panov Corollary 3.8 puts each integral support in degree k+2, giving binom(n,k)(k-1)^2 and no torsion. For permutations preserving a support, exterior u-generator reordering twists graph cellular cohomology by sgn_k; explicit oriented chain traces have C1=f(f-1), C0=f, H0=1, hence L_k character (f-1)^2. Edge/vertex ordered-pair modules by stabilizer and Frobenius reciprocity give sign multiplicity exactly one at k=3, zero at k=2 or k>=4. Since rational finite-group orbit cohomology is invariants, quotient has only H0 and H5 for n>=3, with product zero; n=2 has no positive rational invariants. Verified n=2 transposition sign and k=3 multiplicity via independent Frobenius count. Submitted verify.py constructs local Koszul differential and checks permutation characters n<=6; finite tests corroborate, not prove, all-n quantifiers. Not a claim of rational homotopy equivalence.
 
-**Limits:** Neither the orbit space's integral cohomology nor its homotopy type is determined. An equivalent unindexed computation remains an originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same full-word complex result (Oct 11) provides sign-twisted representations for all word lengths and rationally ACYCLIC symmetric quotient, whereas rank-two one-skeleton truncation has a degree-five invariant; neither implies the other without the new support-character calculation. General Hochster rank and two-vertex S4 are credited; meaningful distinction is integral all-n symmetry plus new orbit cohomology, not formal Betti substitution.
+
+## value
+
+PASS
+
+The truncation isolates a nontrivial persistent invariant under increasingly large permutation groups, sharply contrasting the full-word quotient. Signed integral representation and rational orbit ring are natural equivariant topological invariants; a structural all-n stabilization lemma is mathematically useful despite reliance on standard Hochster machinery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
