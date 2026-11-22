@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The unique reduced odd-dyadic characterization is derived from both normal and subnormal exponent ranges. Doubling reduces denominator depth by exactly one, so each first-hitting time is its depth; counting admissible odd numerators gives the full histogram and N. Explicit depth-shift preimages establish full image sets at each time and hence the exact piecewise support count. Finite sum identities produce the cumulative equal-state absorption law, including p=1,E=1 and all branch boundaries. An exponent/mantissa enumerator independently checked all statewise first-hitting times and image sets for 43 finite formats; symbolic proof handles all p,E≥1.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2611.15344v1 Methods enumerate finite states and analyze general transfer operators",
+        "The 2026 paper states a generic framework and experimentally observes 149-step collapse",
+        "The indexed 2023 Scientific Reports article already states the exact binary32 [0,1) state count 1,065,353,216; the count by itself is prior and is not the new contribution."
+      ],
+      "reasoning": "General finite-Markov-chain/support frameworks could compute the histogram if applied with the exact format and dyadic shell count. They do not themselves supply a closed form for this specific map for all p,E and every t. Thus the new complete closed form is not a corollary in the same sense as an explicit theorem already recorded; it requires exploiting arithmetic structure.",
+      "searches": [
+        "finite-precision doubling map IEEE binary16 binary32 binary64 exact image support cardinality after t iterations; stagewise number distinct floats",
+        "On the statistical reliability of chaotic simulations at reduced precision by Ross Ah-Weng Peter Coveney deterministic doubling map exact 149 iteration support collapse",
+        "bit shift map subnormal floats exponent field state count image-set cardinality and hitting time law",
+        "distribution transient lengths finite floating point doubling map 2x mod1 IEEE 754 exponents"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.15344v1",
+      "https://doi.org/10.1002/adts.201900125",
+      "https://doi.org/10.1038/s41598-023-37004-4",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-two-exact-cycle-spectra-for-differently-rounded-half-precision-b--384041ddfda5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2019 paper gives asymptotic pathology, not transient counts",
+        "2026 article gives 149-step terminal result and effective support plots",
+        "2023 Scientific Reports concerns low-precision periodic orbits; full text unavailable and therefore not certified as noncovering",
+        "The 2023 article explicitly gives the initial grid cardinality, which is an endpoint of the new support formula, but not the time-dependent functions."
+      ],
+      "reasoning": "The strongest directly matching implication is every finite binary string eventually hits zero; that does not determine how many distinct normal/subnormal values have each hitting time, or how image sets and equal-state ensembles decay across the exponent range. The claim would be covered by a prior exact all-format dyadic shell theorem if found; residual uncertainty is documented.",
+      "searches": [
+        "exact hitting time distribution for dyadic Bernoulli map doubling modulo one on binary floating-point representable numbers: uniform exponent plateau 2^(p-1), maximum time p-1-emin",
+        "finite-precision doubling map IEEE binary16 binary32 binary64 exact image support cardinality after t iterations; stagewise number distinct floats",
+        "On the statistical reliability of chaotic simulations at reduced precision by Ross Ah-Weng Peter Coveney deterministic doubling map exact 149 iteration support collapse",
+        "binary floating point doubling map exact orbit length distribution hitting time 0 mantissa exponent count support decay"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2019 source: binary doubling eventually reaches the zero fixed point",
+        "2026 source: doubling reaches one reachable state after 149 updates at tested precision, but no explicit all-time histogram"
+      ],
+      "reasoning": "Equivalent phrasing includes reduced dyadic depth, bit-shift preperiod, zero hitting, and floating-exponent shell counts. The known shift-property implies only the qualitative hitting time of an individual dyadic rational, not the counts over IEEE-state shells or the parameterized two-clock formulas. No inspected result states the full invariant.",
+      "searches": [
+        "exact hitting time distribution for dyadic Bernoulli map doubling modulo one on binary floating-point representable numbers: uniform exponent plateau 2^(p-1), maximum time p-1-emin",
+        "binary shift modulo one floating point dyadic periodic orbits preperiod length distribution equal-state initial distribution exact absorbing zero",
+        "IEEE 754 Bernoulli map exact initial state stopping histogram uniform plateau exponent distribution for dyadic rational",
+        "binary floating point doubling map exact orbit length distribution hitting time 0 mantissa exponent count support decay"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026 work explicitly plots support evolution numerically, not an all-precision table",
+        "Published mathematical record for beta 3/2 instead gives five nontrivial cycle lengths under two rounding pipelines",
+        "Klöwer et al. (2023) explicitly give the binary32 state count; no indexed exact full time histogram or support trajectory found."
+      ],
+      "reasoning": "Checked direct searches for IEEE binary16/32/64 support trajectories and first-hitting time histograms. Numerical plots or generic finite-graph enumeration algorithms are not already-published exact tables of both functions; however isolated unpublished tables may exist.",
+      "searches": [
+        "finite-precision doubling map IEEE binary16 binary32 binary64 exact image support cardinality after t iterations; stagewise number distinct floats",
+        "exact support loss K(t) binary floating point doubling Bernoulli map piecewise linear then exponential 149 steps, mantissa exponent",
+        "floating point doubling map 2x modulo1 binary16 24 exact first passage hitting 0 distribution total mass and support",
+        "floating point doubling map support iterations exact"
+      ]
+    },
+    "rationale": "Specific parameterized all-time state histograms and distinct support-versus-absorption transition formulas for exact radix-two floating Bernoulli dynamics were not implied by the inspected qualitative zero-collapse, generic transfer-operator or numerically plotted support claims. Claim-level comparisons were made, not novelty inferred solely from a missing title. Residual inaccessible/unindexed historical results remain possible.",
+    "residual_risks": [
+      "Unindexed arithmetic or floating-point notes may already include the simple dyadic-shell histogram and image-support law.",
+      "The 2023 full publisher article could not be examined directly; public full-text search excerpts and abstract show its state count, but not conclusively every statement.",
+      "The 2026 source gives generic support computations, so attribution must distinguish the precise explicit formula from generic computability."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides eventual zero, numerical effective-support plots and general transfer-operator framework, but not exact parameterized all-time hitting histograms and support / absorbed-mass formulas",
+        "evidence": [
+          "arXiv HTML lines 41-55 define finite floating states and exact Bernoulli doubling",
+          "arXiv HTML lines 90-110 describe experimental K(n), 149 iterations and equal-state initial law",
+          "arXiv HTML lines 178-184 describe exact state enumeration and experimental methods"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.15344v1",
+        "material_read": "HTML sections on floating point, binary Bernoulli update, effective support and Methods (including the Bernoulli 149-step observation), and mathematical appendices on general transfer support",
+        "method": "Full-text HTML inspection and keyword checks for doubling, Bernoulli, precision, 149 and exact formulas",
+        "title": "On the statistical reliability of chaotic simulations at reduced precision",
+        "trigger": "Direct recent source with the same binary doubling computer map, same binary finite state model, a 149-step single-precision cutoff and evolving-support observable"
+      },
+      {
+        "assessment": "Its eventual zero attractor and loss of chaotic statistics are established background, not our new all-precision finite-time counts",
+        "evidence": [
+          "2019 article documents zero as limiting finite-binary attractor"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/adts.201900125",
+        "material_read": "Available full-text web discussion of the finite-binary doubling pathology; no floating-state transient histogram or exact support-count formula encountered",
+        "method": "Primary publication and forward comparison against precise new claim",
+        "title": "A New Pathology in the Simulation of Chaotic Dynamical Systems on Digital Computers",
+        "trigger": "Cited precursor for dyadic Bernoulli collapse to zero"
+      },
+      {
+        "assessment": "Known subject is low-precision cycles, not verified absence of exact Bernoulli histograms from inaccessible full text",
+        "evidence": [
+          "Scientific Reports 13 (2023) article 11410; DOI and abstract indexed publicly",
+          "2023 publicly indexed full-text excerpt quotes exactly 1,065,353,216 unique Float32 initial conditions in [0,1)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1038/s41598-023-37004-4",
+        "material_read": "Public full-text indexed excerpts on the number-format state count and periodic-orbit setup, metadata and abstract; publisher full text could not be accessed.",
+        "method": "Metadata/abstract-only comparison, retained as a residual historical risk",
+        "title": "Periodic orbits in chaotic systems simulated at low precision",
+        "trigger": "Relevant historical primary investigation of finite-precision cycles and basins"
+      },
+      {
+        "assessment": "Its beta is 3/2, its invariant is periodic cycle spectra under alternate rounding, and does not imply beta=2 exact transient distribution",
+        "evidence": [
+          "Public summary gives period sets {1,3,8,18,164} and {1,3,4,24,41} for beta=3/2"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-two-exact-cycle-spectra-for-differently-rounded-half-precision-b--384041ddfda5",
+        "material_read": "Published title and detailed theorem summary in searchable mathematical record; underlying full text not inspected",
+        "method": "Statement-level parameter and implication comparison",
+        "title": "Two exact cycle spectra for differently rounded half-precision beta shifts",
+        "trigger": "Closest mathematical record for finite-precision Bernoulli-type beta maps"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cd0bb6fb-c81f-45af-8ed6-79f1a6567391",
+  "value": {
+    "rationale": "The 2026 study uses the cardinality of all reachable computer states as a primary finite-precision reliability diagnostic and separately studies initialized probability laws. This theorem exactly determines both non-asymptotic observables on all binary float formats with gradual underflow, with distinct support and absorption phase transitions and IEEE16/32/64 sharp cutoffs. It is an intrinsically natural complete classification of a finite-state dynamical invariant, not an arbitrarily selected small table or just the long-known observation that doubling eventually reaches zero.",
+    "status": "PASS"
+  }
+}
