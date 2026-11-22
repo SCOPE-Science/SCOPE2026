@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The matching-to-covered-vertex counting argument gives the exact Krawtchouk transform with the multiplicity factor \(k!\). The independent cubics cover all frequency classes after simultaneous vertex-sign reversal, including the boundary \(n=1\). For one left negative sign, divisibility forces the four arithmetically possible pairs; only two satisfy integrality, size and parity, yielding the stated complete zero set. The other left-sign class cannot cancel because \(x+1\) would divide \(2\), but none of its four divisors gives integral \(n\). Direct character enumeration through \(n=7\), class-wise computations through \(n=160\), exact Parseval identities, and the 43-column rank/gap arithmetic were replayed successfully from the standalone checker (54,381 assertions). The proof, not the finite checks, supplies the infinite quantifier.
+
+## Originality — PASS (bounded comparison)
+The multivariate vertex-weighted matching generating polynomial is classical (Wagner, arXiv:math/0412059v1 and arXiv:0803.1659v1). Those inspected treatments describe degree-constrained partition functions and half-plane nonvanishing, not the precise real signed \(\pm1\) locus for \(K_{3,n}\). The closest inspected published Fourier result studies freely signed **edges** and is singular at every odd width, which does not imply that the restricted decomposable signs induced by selected **vertices** cancel. A two-edge-only result similarly does not include the crucial remaining matching sizes. Specific published-finding corpus searches for matched vertices, Krawtchouk specializations and the 43-column resonance did not surface a stronger equivalent result. An unindexed signed-rook specialization could have priority and is the principal residual risk.
+
+## Value — PASS
+The exceptional size \(43\) is not selected by the construction; it arises as the only nontrivial admissible integer solution of a natural cubic Fourier cancellation equation. It yields a complete all-width invertibility classification, a large exact nullity, and sharp recoverable-space conditioning at the exceptional size, while resolving an observably different frequency restriction from an existing edge-incidence result. This is a motivated exact natural invariant, rather than a routine normalization or a small computation. It does not claim a broader result for other fixed shores.
+
+Self-review: passed. Independent audit: not yet performed.
