@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For \\(T(a,b)=(a+b,ab)\\), the identity \\(T^2(1,x)=(1,x+x^2)\\) holds in characteristic two. For every odd \\(s>1\\), the trace-zero space \\(W\\) of \\(\\mathbb F_{2^s}\\) has positive dimension and the linearized map \\(g(x)=x+x^2\\) is bijective on \\(W\\); each nonzero element is periodic with length greater than one. For degrees divisible by four, an explicit eight-cycle over \\(\\mathbb F_{16}\\) embeds. These cases cover all \\(m\\ge3\\), and \\(\\mathbb F_2,\\mathbb F_4\\) are settled by complete small-field case analysis. The standalone exact checker corroborates the finite witnesses and enumerates degrees \\(1\\) through \\(8\\); the infinite proof is not an enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lipkovski 2012 Proposition 3.1 gives the fixed-loop and component counting fact",
+        "Lipkovski 2017 gives general cycle equations and residue-ring computations",
+        "Chernev–Chernev 2026 proves many other rings and gives conditional transfer via prime subfields"
+      ],
+      "reasoning": "General definitions and necessary conditions do not imply that for every binary extension m>=3 a nonfixed cycle occurs. Chernev–Chernev explicitly identifies remaining characteristic-two degrees. The earlier papers concern initial examples and necessary conditions rather than this universal sufficient criterion.",
+      "searches": [
+        "Chernev structure graph field 2^m complete conjecture cycles 2026",
+        "On the Connected Components of Structure Graphs of Associative Rings Chernev GF(2^m) proof all m 2026",
+        "Lipkovski ring digraph finite characteristic two 2^m",
+        "https://www.researchgate.net/publication/267437984_Digraphs_associated_with_finite_rings",
+        "https://www.academia.edu/112021460/Structure_Graphs_of_Rings_Definitions_and_First_Results"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.07521v1",
+      "doi:10.2298/PIM1206035L",
+      "doi:10.1007/s10958-017-3484-3",
+      "doi:10.2298/FIL2203715D (abstract only)",
+      "2026/11/2/SCOPE-exact-finite-extension-orbit-census-for-graphical-evolution-alge--57cba8b84ace"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier two-step lemma T²(-1,x)=(-1,x-x²) itself does apply in characteristic two",
+        "The cited paper does not prove the nonzero periodic-point property of x+x² for every odd-factor extension degree",
+        "The known GF16 cycle covers multiples of four by subfields but not extension degrees with odd factors"
+      ],
+      "reasoning": "The prior reduction plus a known GF16 example does not alone imply cycles at prime degrees 17,19,... . The trace-zero bijectivity lemma supplies the decisive missing implication; together with the 4-divisible subfield witness it closes the full degree dichotomy.",
+      "searches": [
+        "ring structure graph map (a,b) to (a+b,ab) periodic points characteristic 2 finite fields degree power of two",
+        "Chernev structure graph field 2^m complete conjecture cycles 2026",
+        "Vieta map (x,y) -> (x+y,xy) finite fields characteristic two periodic orbit graph",
+        "https://arxiv.org/abs/2611.07521 Lemma 5.1 and Section 6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chernev–Chernev Hypothesis 6.1: extension fields other than GF(4) should have a nontrivial cycle",
+        "Their Definition 3.1 identifies precisely the Vieta pair map"
+      ],
+      "reasoning": "The criterion for all binary extension degrees is exactly the characteristic-two part of Hypothesis 6.1, with the elementary GF2 base case added. It is not just an isomorphic relabeling of another graph: the same graph and same existence property are compared. The cited paper leaves the unbounded case open.",
+      "searches": [
+        "structure graph finite field characteristic two all GF(2^m) except GF(2) GF(4), cycles via x+x^2 linear Frobenius, GF(16) 8-cycle",
+        "ring structure graph map (a,b) to (a+b,ab) periodic points characteristic 2 finite fields degree power of two",
+        "Vieta map (x,y) -> (x+y,xy) finite fields characteristic two periodic orbit graph",
+        "https://arxiv.org/abs/2611.07521 Hypothesis 6.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Chernev–Chernev 2026 Table 1 lists binary degrees 3 through 7, 11 and 13, with explicit computations",
+        "The published-finding corpus semantic searches returned adjacent finite-field dynamics claims, e.g. 2026/11/2/SCOPE-exact-finite-extension-orbit-census-for-graphical-evolution-alge--57cba8b84ace, on an unrelated evolution-algebra squaring map"
+      ],
+      "reasoning": "A finite table through degree 13 cannot establish the assertion for all extension degrees, and the map in the closest published-finding corpus result is a graphical evolution squaring map, not the Vieta graph T. The new claim is an infinite classification with a constructive finite witness for 4|m.",
+      "searches": [
+        "structure graph finite field characteristic two all GF(2^m) except GF(2) GF(4), cycles via x+x^2 linear Frobenius, GF(16) 8-cycle",
+        "finite fields of characteristic two structure graph cycles exactly q connected components",
+        "https://arxiv.org/abs/2611.07521 Section 8 Table 1"
+      ]
+    },
+    "rationale": "The directly applicable 2026 source, arXiv:2611.07521v1, states characteristic-two Hypothesis 6.1 and explicitly leaves unbounded degrees open, while crediting the basic two-step reduction and known small-field computations. This theorem fills the missing all-degree case by a trace-zero subfield argument. Earlier Lipkovski primary papers do not assert that criterion. Multiple actual published-finding corpus and web searches found no implying theorem; absence of search hits is not absolute priority proof.",
+    "residual_risks": [
+      "An older unindexed or non-English treatment may implicitly contain the all-characteristic-two degree argument.",
+      "The 2022 Filomat source was assessed from its journal abstract only; its scope concerns residue rings and was not treated as proof of noncoverage.",
+      "The method is elementary once the characteristic-independent two-step lemma and trace-zero invariant are combined; priority is a literature judgment rather than a mathematical uniqueness theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Noncovering for all degrees: authors verify only finite examples and explicitly leave degrees at least 17 unproved; two-step identity is credited prior art",
+        "evidence": [
+          "Definition 3.1",
+          "Lemma 5.1",
+          "Hypothesis 6.1",
+          "Section 6 final paragraph",
+          "Section 8 Table 1",
+          "Conclusion Section 9"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.07521",
+        "material_read": "Definitions 3.1 and Statement 3.5, Lemma 5.1 and proof, Hypothesis 6.1, paragraphs on characteristic two, Section 8 finite computations, Conclusion and references",
+        "method": "Read arXiv full HTML-rendered article at the abs URL, not merely the abstract",
+        "title": "On the Connected Components of Structure Graphs of Associative Rings",
+        "trigger": "Exact graph and explicit unresolved characteristic-two hypothesis"
+      },
+      {
+        "assessment": "Defines the same graph and general component/cycle conditions, but does not contain the all-binary-field degree criterion",
+        "evidence": [
+          "Definition of the Vieta map",
+          "Proposition 3.1",
+          "Proposition 3.2",
+          "finite ring tables"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/267437984_Digraphs_associated_with_finite_rings",
+        "material_read": "Author-hosted complete journal text: Sections 1, 2, 3 and continuation, especially Proposition 3.1 and 3.2 and finite graph examples",
+        "method": "Read public full-text reproduction on ResearchGate, including actual article body",
+        "title": "Digraphs associated with finite rings",
+        "trigger": "Original construction and possible earlier cycle statement"
+      },
+      {
+        "assessment": "Known cycle equations and small residue-ring computations, not an all-extension finite-field theorem",
+        "evidence": [
+          "Definition 1",
+          "Proposition 4",
+          "Proposition 7",
+          "tables of residue-ring graphs"
+        ],
+        "identifier_or_url": "https://www.academia.edu/112021460/Structure_Graphs_of_Rings_Definitions_and_First_Results",
+        "material_read": "Complete accessible article text: Definition 1, Propositions 2, 4, 6, 7, finite ring tables, concluding discussion",
+        "method": "Read HTML-rendered reproduction of full primary text",
+        "title": "Structure Graphs of Rings: Definitions and First Results",
+        "trigger": "Earlier comprehensive ring-graph treatments could cover cycle existence"
+      },
+      {
+        "assessment": "Title and abstract focus on cyclic behavior over residue rings, not on binary extension fields; limited source inspection retained as risk",
+        "evidence": [
+          "2022 journal abstract"
+        ],
+        "identifier_or_url": "https://journal.pmf.ni.ac.rs/filomat/index.php/filomat/article/view/3518",
+        "material_read": "Journal abstract specifying cycles for residue rings modulo integers",
+        "method": "Read journal abstract; full text not assessed",
+        "title": "An Association between Digraphs and Rings",
+        "trigger": "Later Vieta-map cycle work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e988f4ba-1aa2-428a-880a-e5597810d5aa",
+  "value": {
+    "rationale": "This is a complete infinite-parameter solution of the characteristic-two portion of Hypothesis 6.1 from the motivating recent paper. It replaces isolated finite computations through degree \\(13\\) by a uniform proof, including arbitrary large prime extension degrees, and supplies a reproducible \\(\\mathbb F_{16}\\) cycle for every degree divisible by four. This closes a natural structural gap rather than evaluating an arbitrary finite invariant.",
+    "status": "PASS"
+  }
+}
