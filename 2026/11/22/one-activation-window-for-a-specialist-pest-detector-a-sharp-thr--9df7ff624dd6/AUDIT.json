@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For all integers m>=2 and positive generalist rates and weights, the fixed-budget weighted miss loss has a strictly positive second derivative due to at least one nonspecialist species. The unique minimum includes positive specialist effort if and only if the zero-effort derivative is negative. For specialist rate above target generalist rate, this derivative equals a positive exponential factor times H, and H has nonnegative second derivative with only constant or strictly convex possibilities. Its strict negative set is an interval, hence at most two transitions. The two-species case reduces to a monotone single exponential minus a constant. The stated three-pest witness has exact quadratic roots and positive far-end derivative, proving a strict interior mixture only between the roots. The standalone checker passed 32550 supplementary assertions; these are not substituted for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nguyen et al. 2024, https://doi.org/10.1002/eap.2955: different total expected cost (their Eq. 13) and numeric fmincon minimization (their Eq. 14); sensitivity tables vary technology characteristics.",
+        "Moore and McCarthy 2016, https://doi.org/10.1111/2041-210X.12564: allocations among sites/trips and stochastic survey rates, not one specialist for a named target.",
+        "Kompas et al. 2019, https://doi.org/10.1111/1467-8489.12305: across-intervention budget allocation abstract; full primary text not accessed."
+      ],
+      "reasoning": "General strict convexity and first-order constrained optimization are established mathematical tools and underlie the derivation, but their statements alone do not encode the specialty constraint or the biologically feasible three-pest sharp example. The cited biosecurity papers address broader numerical or dynamic objectives, not a stronger theorem whose stated conclusions imply this exact fixed-budget re-entry classification. This distinction could be overturned by an undiscovered equivalent formulation and is included as a residual risk.",
+      "searches": [
+        "resource allocation budget non-monotone participation reentrant optimal strategy exposure exp loss functions",
+        "optimal allocation of resources among general and species-specific tools for plant pest biosecurity surveillance Nguyen full text 2024",
+        "Optimizing ecological survey effort over space and time Moore McCarthy 2016",
+        "Budgeting and portfolio allocation for biosecurity measures Kompas Chu 2019"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1002/eap.2955 (full readable HTML sections)",
+      "https://doi.org/10.1111/2041-210X.12564 (readable HTML sections)",
+      "https://doi.org/10.1111/1467-8489.12305 (abstract only)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-budget-dependent-reversal-in-two-site-invasive-species-removal--5d4516c5339f",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-a-sharp-failure-of-budget-nesting-in-two-habitat-biodiversity-sa--f677ebc252b9",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-budget-independent-weak-patch-threshold-for-two-site-establish--34c909dd7ca2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source 2024 Eq. (10) is an exponential-like technology capture model; Eq. (13) includes start-up and ongoing maintenance, eradication, invasion damages and discounted residual cost, optimized without a fixed total budget in Eq. (14).",
+        "Source 2016 explicitly models single-method Poisson nondetection per site and travel costs; its setting has no substitutable specialist/generalist choice.",
+        "The present fixed-budget derivative is sign-equivalent to H(B), whose second derivative is a sum of nonnegative terms; for two pests H is one monotone exponential. The witness gives exact distinct positive roots."
+      ],
+      "reasoning": "Neither cited ecological source states the endpoint marginal or entails the claimed global structure from its published conclusions without an additional mathematical argument and altered objective. The general mathematical principles used in that argument are standard, and novelty is claimed only for the full sharp domain-specific classification. The previously recorded richness-method reversal compares two pure technologies at equal effort, not optimal allocation with a single-target specialist.",
+      "searches": [
+        "specialist trap only intermediate budgets generalist surveillance three pest species reentrance optimal allocation",
+        "optimal mixed generalist specialist surveillance under exponential detection and weighted non-detection loss specialist activation set interval",
+        "https://doi.org/10.1002/eap.2955 multipest multitrap model Eq 10 13 14",
+        "https://doi.org/10.1111/2041-210X.12564 exponential missed detection time space allocation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nguyen et al. (2024), https://doi.org/10.1002/eap.2955, Eq. (10) gives a multi-tool detection law, with a different time-discounted cost objective and numerical optimization.",
+        "Moore and McCarthy (2016), https://doi.org/10.1111/2041-210X.12564, use exponential nondetection in a across-site and across-visit allocation problem."
+      ],
+      "reasoning": "A single-target specialized trap and a positive all-target general trap have a uniquely defined optimal budget split. The sign of the general-only endpoint derivative is a convex exponential function after a target-rate rescaling, making the specialist-use budgets one interval. Related expected-richness rankings and general multi-device numerical models are not equivalent to this endpoint-KKT statement. Literature searches identified no exact analytic specialist-budget support set result.",
+      "searches": [
+        "reentrant optimal monitoring surveillance effort detection species exponential probabilities budget multi species two tools",
+        "one specialist detector and general detector across several pest species sharp three species intermediate budget specialist used then abandoned due diminishing returns",
+        "specialist trap only intermediate budgets generalist surveillance three pest species reentrance optimal allocation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed record https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-budget-dependent-reversal-in-two-site-invasive-species-removal--5d4516c5339f concerns the order of removing invasive species at two sites, not a continuously divisible general/specialist detector mix.",
+        "Closest indexed record https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-a-sharp-failure-of-budget-nesting-in-two-habitat-biodiversity-sa--f677ebc252b9 concerns nonnested two-habitat sampling counts, not specialist trap activation.",
+        "Closest indexed record https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-budget-independent-weak-patch-threshold-for-two-site-establish--34c909dd7ca2 concerns introduction allocation among habitats, not missed-detection weights.",
+        "Nguyen 2024, https://doi.org/10.1002/eap.2955, Tables 1–4 summarize numerical trap mix sensitivities, not switching budgets under the stated rates."
+      ],
+      "reasoning": "No exact database hit or inspected numerical table presents the stated rate vector, weights, two logarithmic boundary budgets, or universal single-window theorem. Similar use of budgets and traps does not establish mathematical equivalence; source equations, objectives, and parameters were compared.",
+      "searches": [
+        "one specialist detector and general detector across several pest species sharp three species intermediate budget specialist used then abandoned due diminishing returns",
+        "plant pest biosecurity surveillance specialized general trap optimal placement budget reentrant use switching twice",
+        "three target species optimal allocation two sampling technologies switches from exclusive allocation to mixture and back as budget increases"
+      ]
+    },
+    "rationale": "The surveyed published multi-pest/multi-trap literature supplies the practical motivation and a broader numerical optimization model, but not a theorem classifying the activation set of a single-target specialist over all fixed budgets. The claim is only the exact specialist-activation interval and sharp three-pest on/off/on-generalist counterexample. It is not a claim to have invented convexity, Poisson failure laws, or mixture optimization. No published record checked implies both the arbitrary-m interval bound and its sharp three-species pure-to-mixed-to-pure witness under the same conditions. Priority remains provisional.",
+    "residual_risks": [
+      "The full text of Kompas et al. (2019) was not accessed; its abstract alone cannot exclude mathematically equivalent subcases in its proofs.",
+      "Classical constrained convex optimization and exponential-function theory are broad enough that an unlocated equivalent formulation in older resource-allocation research is possible.",
+      "The statement concerns a specific Poisson weighted-miss objective and is not asserted to follow from or predict a field-calibrated optimal surveillance policy."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivates detector types; does not state the fixed-budget weighted-miss interval theorem or three-pest switching example",
+        "evidence": [
+          "First public date 20 February 2024; Section MULTIPEST–MULTITRAP DESIGN AND DETECTION PROBABILITY, Eq. 10; objective Eq. 13–14; numerical optimizer fmincon; model sensitivity tables"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/eap.2955",
+        "material_read": "Relevant publicly accessible publisher HTML: introduction, multipest detection and cost formulas (Eqs. 10–14), numerical optimization description, selected sensitivity tables, discussion and limitations; supplementary appendices not inspected",
+        "method": "Read the article text and compared optimization objective, rate constraints, claimed conclusions and parameter variations",
+        "title": "Optimal allocation of resources among general and species-specific tools for plant pest biosecurity surveillance",
+        "trigger": "Exact ecological context of generalized versus species-specific traps and multiple pests; plausible dominating optimization framework"
+      },
+      {
+        "assessment": "Provides an exponential nondetection foundation but searches across sites/visits rather than splitting a fixed budget between all-target and one-target instruments",
+        "evidence": [
+          "First published 25 March 2016; probability of no detection exp(-lambda t), site/travel budget formulation and allocation discussion"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/2041-210X.12564",
+        "material_read": "Relevant publisher HTML summary, introduction, Poisson detection model and multi-site allocation sections; not a page-by-page inspection of all appendices",
+        "method": "Compared Poisson encounter probability, target objective, decision coordinates, and optimization results",
+        "title": "Optimizing ecological survey effort over space and time",
+        "trigger": "Potential broader coverage of concave Poisson nondetection allocation"
+      },
+      {
+        "assessment": "Abstract describes allocating funds among different biosecurity interventions and threats, but cannot rule out a relevant theorem within the uninspected body; retained as an access risk",
+        "evidence": [
+          "First published 3 July 2019; abstract concerns expected total costs, damage and interventions across four pests"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/1467-8489.12305",
+        "material_read": "Publicly displayed abstract and bibliographic information only; no full primary body inspected",
+        "method": "Compared explicitly stated allocation objective and its illustrative pest set",
+        "title": "Budgeting and portfolio allocation for biosecurity measures",
+        "trigger": "Broader cross-species budget allocation could hide a dominating theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9df7ff62-4dd6-4ed1-b7d0-914dd3717a76",
+  "value": {
+    "rationale": "The question of whether an expensive single-target detection tool should be retained when a multi-pest monitoring budget grows is a naturally motivated surveillance design issue. The new structural statement gives a universal connected-support law for a specialist over arbitrarily many pest classes, with a sharp three-pest minimal configuration in which the specialist enters an optimal mixture and is later eliminated. This invalidates a plausible nesting heuristic; the exact rate/weight witness and two computable thresholds provide a controlled test case. Neither an arbitrary parameter slice nor a simple restatement of the numerical optimization in the motivating paper, it does not claim a calibrated field benefit or significance measured by raw detection gain.",
+    "status": "PASS"
+  }
+}
