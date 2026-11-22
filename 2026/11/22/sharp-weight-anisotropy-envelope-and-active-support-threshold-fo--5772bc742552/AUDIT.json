@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "KKT conditions yield exact active-cell Jacobians. All support/sign cells have strictly feasible samples. Piecewise-affine integration makes largest induced infinity matrix norm the global Lipschitz coefficient and realizes it with a finite distinct-input pair. Exchange argument implies sorted-prefix support; Cauchy–Schwarz plus a two-dimensional largest eigenvalue proves the dimension-sharp weight envelope and rigid full-support equality. Python standard-library verifier confirmed 464 finite rational/analytic examples, not used as proof of infinite cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026/10/11/SCOPE-exact-lipschitz-stability-and-contractivity-threshold-for-weight--c92b6dad1bd0",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-lipschitz-stability-and-contractivity-threshold-for-weight--c92b6dad1bd0"
+      ],
+      "reasoning": "Closest published published-finding corpus statement gives a general weighted cross-polytope constraint projection in l_p and a finite maximum of linear operator norms. The squared weighted l1 penalty proximal map differs: Jacobian denominator 1+alpha sum of squares instead of an active weight-square normalization, and its full-domain map is a resolvent, not constrained projection. Thus that broader family does not imply the finite alpha weight-envelope or dimension-four equality. A general inequality for rank-one contractions might cover part of Step 3, but not the all-active-support maximum and equality classification.",
+      "searches": [
+        "operator infinity norm of rank one positive semidefinite contraction I minus lambda w w transpose sharp upper bound sqrt dimension",
+        "l infinity norm spectral rank one shrinkage operator maximum over unit vectors n square root",
+        "sharp l-infinity Lipschitz norm weighted cross polytope projection finite support"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1902.00151",
+      "https://arxiv.org/abs/2306.14196",
+      "https://dataslingers.github.io/ExclusiveLasso/articles/ExclusiveLasso.html",
+      "https://arxiv.org/abs/2009.08719",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-lipschitz-stability-and-contractivity-threshold-for-weight--c92b6dad1bd0",
+      "published-finding corpus semantic search (five exact queries recorded in the private envelope)",
+      "Own accessible current-week ledger snapshot (claim and title deduplication)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1902.00151v1, Proposition 7",
+        "arXiv:2306.14196v1, Section 3",
+        "2026/10/11/SCOPE-exact-lipschitz-stability-and-contractivity-threshold-for-weight--c92b6dad1bd0"
+      ],
+      "reasoning": "The Lin et al. derivations imply cell Jacobians and standard Euclidean firm nonexpansivity, but their stated implications do not include the sharp mixed-norm global coefficient or the normalized positive-weight optimizer. A cross-polytope projection theorem concerns a different nonlinear map and cannot yield the finite-regularization formula without a new argument; the claimed result is the optimizer over the explicit rank-one cells, not the previously-known derivative.",
+      "searches": [
+        "sharp coordinatewise Lipschitz constant weighted squared ell1 proximal map diagonal rank one sensitivity subset selection",
+        "sharp l-infinity Lipschitz constant proximal squared maximum norm squared l infinity norm, sum group max squared, loss stability",
+        "operator infinity norm of rank one positive semidefinite contraction I minus lambda w w transpose sharp upper bound sqrt dimension",
+        "exclusive lasso penalty norm stability weighted proximal infinity sharp weights worst case"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1902.00151v1, Proposition 7: known rank-one proximal generalized Jacobian",
+        "arXiv:2306.14196v1, Section 3: algorithmic proximal constructions"
+      ],
+      "reasoning": "Equivalences considered: exclusive lasso squared weighted l1 penalty, proximal soft-threshold with common data-dependent threshold, firm resolvent with active signed rank-one Jacobian, endpoint l-infinity Jacobian norm. Published derivatives give a starting point but do not state the sorted-prefix global optimum or sharp weight-normalized envelope in inspected sections.",
+      "searches": [
+        "sharp coordinatewise Lipschitz constant weighted squared ell1 proximal map diagonal rank one sensitivity subset selection",
+        "sharp l-infinity Lipschitz constant proximal squared maximum norm squared l infinity norm, sum group max squared, loss stability",
+        "exclusive lasso penalty norm stability weighted proximal infinity sharp weights worst case"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic search returned related proximal, cross-polytope and spectral records rather than the stated squared weighted l1 norm formula",
+        "Own ledger latest snapshot checked for claim/alias/parameter overlap"
+      ],
+      "reasoning": "No tabulated coefficient for this nonlinear proximal map was located. Absence of a record is not proof of novelty; this check only rules out identified exact matches.",
+      "searches": [
+        "sharp coordinatewise Lipschitz constant weighted squared ell1 proximal map diagonal rank one sensitivity subset selection",
+        "exclusive lasso penalty norm stability weighted proximal infinity sharp weights worst case",
+        "l infinity norm spectral rank one shrinkage operator maximum over unit vectors n square root"
+      ]
+    },
+    "rationale": "Underlying exclusive-lasso proximal formula/generalized Jacobian are prior. A primary full-text check of arXiv:1902.00151 (Sections 4.1–4.3, Proposition 7) and arXiv:2306.14196 (Section 3), the closest public published-finding corpus proof, and actual targeted searches did not find the exact norm, sorted-prefix optimization or norm-one weight envelope with sharp equality/infimum. Statement-level differences are recorded; an older equivalent endpoint norm theorem remains a genuine priority risk.",
+    "residual_risks": [
+      "Possible older equivalent sharp rank-one endpoint norm bounds or exclusive-lasso perturbation sensitivity formula not indexed by keyword/semantic search",
+      "Global originality requires additional specialist historical review; absence of a source result is not positive evidence of uniqueness"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers KKT proximal formula and rank-one generalized Jacobian; no inspected theorem for sharp coordinate maximum-norm Lipschitz coefficient and normalized positive-weight extremizer.",
+        "evidence": [
+          "ar5iv.labs.arxiv.org/html/1902.00151, Sections 4.1–4.3, Proposition 7"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1902.00151",
+        "material_read": "Sections 4.1–4.3 and Proposition 7 of ar5iv lawful full HTML",
+        "method": "Read KKT/semismooth Newton generalized Jacobian derivation and compared all parameters with the new norm and envelope",
+        "title": "A dual Newton based preconditioned proximal point algorithm for exclusive lasso models",
+        "trigger": "Direct formula for the same proximal mapping; highest overlap risk"
+      },
+      {
+        "assessment": "Covers efficient proximal algorithms and generalized Jacobian but not the stated sharp endpoint anisotropy envelope in inspected material.",
+        "evidence": [
+          "https://arxiv.org/html/2306.14196, Sections 3.1–3.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.14196",
+        "material_read": "Full arXiv HTML, Sections 3.1–3.3 on proximal formula and Jacobian",
+        "method": "Compared the precise squared weighted l1 regularizer, its derivative, and norm optimization questions",
+        "title": "A Highly Efficient Algorithm for Solving Exclusive Lasso Problems",
+        "trigger": "Closely related later source by same method authors"
+      },
+      {
+        "assessment": "Weight-dependent metric projection on a weighted l1 ball in l_p, not squared penalty proximal map; does not cover finite-alpha normalized weight extremizers.",
+        "evidence": [
+          "2026/10/11/SCOPE-exact-lipschitz-stability-and-contractivity-threshold-for-weight--c92b6dad1bd0",
+          "Public RESULT.md, Finding and Proof Sections 1–4"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-lipschitz-stability-and-contractivity-threshold-for-weight--c92b6dad1bd0",
+        "material_read": "Entire public RESULT.md via repository connector",
+        "method": "Compared exact objects, constraint vs squared penalty, parameter normalization, claimed conclusions and Jacobian implications",
+        "title": "Exact Lipschitz stability and contractivity threshold for weighted cross-polytope projections",
+        "trigger": "Nearest relevant published-finding corpus record returned by semantic search"
+      },
+      {
+        "assessment": "Establishes the same underlying proximal cells/Jacobians; inspected sections give Euclidean nonexpansivity and computational formulas, not the claimed sharp infinity-norm anisotropy envelope.",
+        "evidence": [
+          "https://arxiv.org/html/2009.08719v1, Sections 4.1–4.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2009.08719",
+        "material_read": "Full arXiv HTML, especially introduction and Sections 4.1–4.3 on the same proximal mapping and derivative",
+        "method": "Compared its explicit matrix Q=I+2rho ww^T and HS-Jacobian formulas with the proposed maximum-row-sum and weight-envelope claims",
+        "title": "Adaptive Sieving with PPDNA: Generating Solution Paths of Exclusive Lasso Models",
+        "trigger": "The 2023 arXiv source explicitly notes substantial overlap with this 2020 manuscript"
+      },
+      {
+        "assessment": "Establishes application motivation rather than the new sharp norm calculation.",
+        "evidence": [
+          "https://dataslingers.github.io/ExclusiveLasso/articles/ExclusiveLasso.html"
+        ],
+        "identifier_or_url": "https://dataslingers.github.io/ExclusiveLasso/articles/ExclusiveLasso.html",
+        "material_read": "Published tutorial and penalty description",
+        "method": "Compared the penalty normalization/application, not relied upon for mathematical novelty",
+        "title": "Introduction to the ExclusiveLasso Package",
+        "trigger": "Applications of the exclusive lasso penalty"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5772bc74-2552-490d-abc2-a5a8f7a50234",
+  "value": {
+    "rationale": "Exclusive-lasso proximal maps are used for structured sparsity. The exact coefficient computes worst-case coordinatewise sensitivity without enumerating all supports; its sharp normalized envelope exposes sqrt-dimension growth and unique anisotropic worst weights, whereas uniform weights have bounded amplification and maximize the envelope only in dimension four. This is a specific robustness classification absent from the source algorithms, not a claim that the proximal map or Jacobian are novel.",
+    "status": "PASS"
+  }
+}
