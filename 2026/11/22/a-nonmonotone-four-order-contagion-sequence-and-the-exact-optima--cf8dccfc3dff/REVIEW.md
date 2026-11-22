@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The result is finite and every stated candidate space is exhausted in two separate coordinate models. The bitmask threshold predicate is identical to the definition, the loop terminates by monotone growth, and the reduction excluding all smaller sizes by superset monotonicity is valid. Both complete independent enumerations agree on counts by point-shore occupancy and on synchronous round distributions. The exact limit is the four listed prime-power orders, not all affine planes.
+
+**Originality — PASS, with historical priority risk.** The original graph contagion paper by Freund–Poloczek–Reichman does not consider these incidence graphs. The closest geometric percolation work by Gerbner and collaborators uses a distinct rule, which activates whole lines of points rather than only line-vertices. Previously studied projective-incidence infection and colour-refinement results do not imply the affine incidence census, because deleting the line at infinity and its point-vertices changes shortest activation chains and admissible seeds. Exact-equivalence, broader-coverage and indexed-table searches identified no available dominating census. An unindexed earlier computation could still exist.
+
+**Value — PASS.** The smallest four Desarguesian affine orders show a nonmonotone optimum \((4,5,5,4)\). This is a natural minimal finite progression—prime, prime, proper extension, then next prime—with a sharp return to four seeds and an exact \(70000\)-configuration classification including an empty balanced-shore stratum and the complete synchronous finishing-time spectrum. The data supplies a reproducible benchmark for a geometrically motivated graph process, rather than a disconnected arbitrary numerical slice.
+
+Self-review: passed. Independent audit: not yet performed.
