@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Checks performed
+# Independent mathematical audit
 
-The mathematical argument is reconstructible from the polar arclength density \(q/P\), the exact segment distance \(ab|\sin\delta|/\sqrt{a^2+b^2+2ab\cos\delta}\), the angular-window sandwich, and the integral identity for the deficit. The proof explicitly includes flat sides, corners, a.e. radial derivatives, quantifier order, and sharpness by a strictly convex perturbation.
+## correctness
 
-The standalone `checks/central_chord_check.py` ran with Python, NumPy and SciPy. It computed \(\kappa_{[-1,1]^2}=0.5738967873481594\), independently checked the value from the opposite-side endpoint-coordinate diamond with \(d=|u|/\sqrt{1+v^2}\), verified the elementary square closed form, and measured stability ratios 1.00000075, 1.00067444 and 1.0074324 for radial perturbations of sizes 0.001, 0.03 and 0.1. A simulation of 3,500,000 independent pairs of square-perimeter points used clipped segment distances, with hit-probability/linear-asymptotic ratios approximately 1.0058, 1.0055, 1.0106, 1.0161 at radii 0.04, 0.02, 0.01 and 0.005. All diagnostics completed with `CENTRAL_CHORD_INTENSITY_DIAGNOSTICS_OK`.
+PASS
 
-Numerical tests cannot establish the universal inequality or archival novelty; the literature comparison is necessarily finite and the potentially related 1981 Ehlers–Enns surface-random-secant study and a 2014 containment paper were accessible only by abstract. Neither independent mathematical review nor independent historical validation is claimed.
+For radial parametrization x(θ)=r(θ)e_θ, Lipschitz r>0 and q=sqrt(r²+(r′)²), boundary arclength density q/P. A segment passing arbitrarily near the origin must have nearly antipodal endpoint angles; central symmetry makes second radius r(θ+δ) and q periodic by π. Its exact distance ab|sin δ|/sqrt(a²+b²+2ab cos δ) is r(θ)|δ|/2+O_K(δ²) uniformly, and for sufficiently small |δ| the foot lies inside the finite segment. Thus the allowed second-angle interval has width 4ε/r(θ)+O_K(ε²); Lebesgue differentiation and dominated convergence yield κ=4/P²∫q²/r. Subtract 4/P=4/P²∫q to find exact deficit (4/P²)∫(r′²/r) q/(q+r). Since 1/2≤q/(q+r)<1 where r′ finite, obtain sharp coefficient 2/P² and rigidity r′=0 a.e. A strictly convex perturbation r=1+η cos2θ makes q/(q+r)→1/2 uniformly where r′≠0, proving optimality of constant 2. Square has r=secθ on each side, q=sec²θ, κ=4/64×4∫_{−π/4}^{π/4}sec³θ dθ=(√2+log(1+√2))/4. Independently evaluated this integral and a separate opposite-side endpoint-coordinate Jacobian. Finite simulations in source are not used as proof.
+
+## originality
+
+PASS
+
+Existing circular chord hitting probabilities and motion-invariant random line results do not imply boundary-endpoint arclength law for arbitrary centrally symmetric convex K. The recent published random chord midpoint and moving-boundary target laws use distinct rare events or fixed circular K. A highly relevant historical surface-generated secants paper (Ehlers–Enns 1981) was not accessible in full text; its abstract emphasizes secant distributions and remains an explicit priority risk. No exhaustive originality proof is asserted.
+
+## value
+
+PASS
+
+The sampling convention is natural and materially different from Crofton lines. The exact intensity identifies a radial derivative-energy invariant, its strict perimeter extremizer, a quantitatively sharp stability constant, and explicit nonround square benchmark. This is a geometrically motivated isoperimetric law and reproducible comparison, not just a fixed-disk chord probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

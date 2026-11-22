@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The proof covers every centrally symmetric convex planar body, including polygons. The polar arclength density is \(q/P\); a segment can approach the origin only at nearly antipodal angles. The segment-distance formula and Lipschitz radial geometry give a uniform angular-window expansion. Lebesgue differentiation, symmetry, and dominated convergence produce \(\kappa=4P^{-2}\int q^2/r\). The exact identity for the difference from \(4/P\) proves positivity and the factor-\(2\) stability inequality. Radial perturbations of disks show the factor is globally sharp; the square's \(\sec^3\) integral is elementary and was independently re-evaluated from the opposite-side endpoint diamond distribution. The proof does not rely on the simulation.
+## correctness
 
-## Originality: PASS, provisional priority
-The closest archival source is Bäsel (arXiv:1204.2707, first public 2012-04-12). Its invariant random-line chord-length law is not the distribution of a chord between two independent boundary-arclength samples. Full published research results on random boundary chords meeting centroidal triangles and homothetic rectangles were read: their target shapes, assumptions, and derived formulas do not imply the arbitrary centrally symmetric Euclidean-disk intensity or its universal sharp perimeter deficit. The separate Crofton central-disk law likewise uses invariant lines. The circle's \(2\arcsin(\varepsilon/R)/\pi\) law is known and explicitly not claimed as new. A related 2014 containment article was available only abstract-level; unindexed historical priority remains a risk. Database searches cannot prove universal uniqueness.
+PASS
 
-## Mathematical value: PASS
-The result sharpens a natural central-interception question for boundary-defined random chords, a model that differs materially from invariant random lines. A general shape-to-probability identity, a sharp disk-minimality principle, and its optimally weighted radial-variation stability supply reusable structure; the square example illustrates a strict noncircular effect. This is not a claim about arbitrary positive target sizes, nor about noncentral targets or unsymmetrical bodies.
+For radial parametrization x(θ)=r(θ)e_θ, Lipschitz r>0 and q=sqrt(r²+(r′)²), boundary arclength density q/P. A segment passing arbitrarily near the origin must have nearly antipodal endpoint angles; central symmetry makes second radius r(θ+δ) and q periodic by π. Its exact distance ab|sin δ|/sqrt(a²+b²+2ab cos δ) is r(θ)|δ|/2+O_K(δ²) uniformly, and for sufficiently small |δ| the foot lies inside the finite segment. Thus the allowed second-angle interval has width 4ε/r(θ)+O_K(ε²); Lebesgue differentiation and dominated convergence yield κ=4/P²∫q²/r. Subtract 4/P=4/P²∫q to find exact deficit (4/P²)∫(r′²/r) q/(q+r). Since 1/2≤q/(q+r)<1 where r′ finite, obtain sharp coefficient 2/P² and rigidity r′=0 a.e. A strictly convex perturbation r=1+η cos2θ makes q/(q+r)→1/2 uniformly where r′≠0, proving optimality of constant 2. Square has r=secθ on each side, q=sec²θ, κ=4/64×4∫_{−π/4}^{π/4}sec³θ dθ=(√2+log(1+√2))/4. Independently evaluated this integral and a separate opposite-side endpoint-coordinate Jacobian. Finite simulations in source are not used as proof.
 
-## Verification and limits
-The supplied executable checker reconstructed the exact square coefficient, evaluated radial-energy stability ratios, and simulated direct point-to-segment distances for independent square-boundary endpoints. Reported marker: `CENTRAL_CHORD_INTENSITY_DIAGNOSTICS_OK`. The continuum theorem is proved analytically and independent audit has not been performed. The public proof's regularity, scope and source limitations are material, not experimental caveats standing in for a proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing circular chord hitting probabilities and motion-invariant random line results do not imply boundary-endpoint arclength law for arbitrary centrally symmetric convex K. The recent published random chord midpoint and moving-boundary target laws use distinct rare events or fixed circular K. A highly relevant historical surface-generated secants paper (Ehlers–Enns 1981) was not accessible in full text; its abstract emphasizes secant distributions and remains an explicit priority risk. No exhaustive originality proof is asserted.
+
+## value
+
+PASS
+
+The sampling convention is natural and materially different from Crofton lines. The exact intensity identifies a radial derivative-energy invariant, its strict perimeter extremizer, a quantitatively sharp stability constant, and explicit nonround square benchmark. This is a geometrically motivated isoperimetric law and reproducible comparison, not just a fixed-disk chord probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
