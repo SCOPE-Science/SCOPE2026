@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Fourier-character orthogonality normalization is exact: the average over \(25\) output characters converts the sixth moment into a sum of squared triple-convolution coefficients with no extra scalar. The complete \(35\)-multiset enumeration yields \(15\) singleton and \(10\) doubleton fibers, with all doubleton weights equal to three; this gives the diagonal constant \(545\) and coefficient \(18\) for each collision cross term. Those ten terms are exactly the ten pairwise cyclic Legendre-ratio products, yielding the explicit nonnegative square. An explicit cubic chirp proves sharpness; the phase-map determinant \(5\) establishes surjectivity and exactly five preimages modulo common phase. Polynomial interpolation and cyclotomic minimal-polynomial rigidity prove that the fifth-root alphabet has exactly 100 projective minimizers, all with nonzero cubic coefficient. Independent direct computational routes verify these identities. The result does not extend automatically to higher fields or variable amplitudes.
+## correctness
 
-## Originality — PASS, with limits
-The motivating primary source [1] proves a sharp upper \(L^2\)-to-\(L^6\) inequality and the constant-magnitude necessity for its maximizers. The published upper-equality classification [2] gives the quadratic-character maximizers, not a sharp phase-only lower bound. The separately inspected three-frequency result [3] is phase-independent away from characteristic three and does not imply the five-frequency lower problem. Searches for lower phase-only finite-parabola sixth moments, pentagonal ratios, and a tabulated \(500\) minimum found no dominating statement. The stronger mathematical comparison is endpoint and support: none of these results contains the nonnegative identity or its fivefold minimizing fibers. Residual priority risk is older, specialized phase-coded finite-field literature not exhaustively covered.
+PASS
 
-## Value — PASS
-The complete five-point parabola over \(\mathbb F_5\) is the smallest characteristic greater than three in the motivating sharp finite-field extension theorem. Its unrestricted upper endpoint was known, but the opposite endpoint under fixed physical unit amplitudes and the complete optimizer geometry were not supplied by that theory. The theorem gives an exact sharp benchmark, an unexpectedly simple Legendre-ratio sum-of-squares identity, and a five-sheeted description of all minimizing phases, plus a rigid classification of the 100 minimum fifth-root codes. This is a natural exact finite-field restriction invariant, not an arbitrary subsupport or a numerical approximation; no universal general-field extension is asserted.
+PASS: Orthogonality on F5² converts sixth moment into triple-convolution fiber squares. Independently enumerated 35 unordered three-element multisets giving 25 fibers (15 singleton,10 doubleton) and exact diagonal sum 545; all doubletons carry monomial multiplicity three and cross-terms 18Re, with ten monomial quotient pairs exhaustively matching pairwise products of five b_s. Therefore 545+18 sum_{s<t}Re(b_s conjugate(b_t))=500+9|sum b_s|² with full normalization. Constant phases attain 725 and cubic chirp a_t=omega^(t³) makes b_s=omega^(2s), sum zero. Reduced 4x4 exponent matrix has independently computed integer determinant +5, hence surjective fivefold torus covering. Over fifth roots, cyclotomic minimal polynomial forces b exponents a permutation; a quadratic exponent cannot permute F5, so h(t)=At+Bt²+Ct³ with C≠0, count 5*5*4=100. Independently exhausted 5^4=625 normalized phase alphabets and direct DFT checked examples 500,545,725. Connected torus continuity fills interval; no claim arbitrary magnitudes.
 
-## Closest literature and verification scope
-[1] González-Riquelme–Oliveira e Silva, arXiv:2405.16647v1, Theorem 1.3 and Section 6; [2] published mathematical record `a84363193055` on the *upper* equality cases; [3] published mathematical record `52302cf3414e` on three parabolic modes. The actual checker covers the complete five-point collision classification and substantial independent identities, but an external independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with specialized-sequence priority risk: González-Riquelme–Oliveira e Silva 2024 primary Theorem1.3 gives a global upper extension L2→L6 and constant-modulus maximizer, not the sharp lower phase-only endpoint and complete fivefold lower phase geometry. Published three-mode parabola sharp moment is three-supported, different from complete F5 five-mode. The equality at upper end can be known without forcing the new lower identity. Polyphase sequence/CAZAC literature could potentially encode it.
+
+## value
+
+PASS
+
+PASS: The first admissible prime F5 complete parabola is a natural finite Fourier restriction object; exact lower phase sixth moment and all continuous/discrete minimizer geometry are independently useful phase-only design information complementary to known sharp upper extension theorem. Complete 100-state cubic chirp classification and fivefold phase covering are motivated structural facts, not arbitrary recomputation of a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
