@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The complete spectral decomposition gives the two exact off-diagonal weights; exact sign fourth moments give the finite profile energy. A strict exchange eliminates all but A0/A1 among split-clique profiles; A1 is uniformly dominated for q>=4. Convex balancing and strictly increasing differences classify joined profiles; E_A0-E_B0=beta*floor(q^2/4)-1 gives all strict/equality regimes. Exact tests from the embedded Python script passed 9808 profile comparisons, 760 independent inverse/variance checks and 47 exact critical identities. Finite tests are not substituted for the analytic all-q proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Frommer et al. 2023 Theorem 3.3 fixes the partition and computes variance; it does not optimize three partitions on K_2 join an independent set.",
+        "The closest public complete-bipartite optimization (RESULT.md inspected) optimizes exactly two class counts; switching to three classes introduces a distinct integer degree of freedom and topology change.",
+        "The published equal-part multipartite claim states a two-probe design for equal classes of size at least two, so does not contain this three-probe split family."
+      ],
+      "reasoning": "The strongest identified overlapping results give general variance or optimal two-color special cases. Neither determines this three-probe minimum or its sharp proper-to-improper threshold. A yet-unlocated weighted multiway-cut theorem remains a residual risk.",
+      "searches": [
+        "unequal complete multipartite graph Laplacian resolvent variance optimal two-color stochastic probing partition",
+        "weighted complete graph two block edge weights optimal max cut partition count phase diagram graph resolvent",
+        "partition two color graph inverse trace complete multipartite arbitrary part sizes"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2308.07722v1 (first public 2023-08-15)",
+      "doi:10.1137/21M1422495 (abstract)",
+      "doi:10.1137/18M1176427 (abstract)",
+      "public complete bipartite two-probe RESULT.md record 1edc2b42b895"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.3 of arXiv:2308.07722 directly implies the generic fixed-class variance expression used as a premise, but not the minimizer of the three-bin combinatorial objective.",
+        "The published two-color bipartite RESULT.md has a different number of colors and a graph lacking the adjacent universal-vertex edge. The new all-q strict local exchange and comparison are extra, noncorollary steps.",
+        "The published equal-part multipartite claim has only two probes and excludes singleton parts; the present theorem has three probes on a one-large-part-plus-two-singletons complete multipartite graph."
+      ],
+      "reasoning": "General variance formulas imply the objective but not the sharp phase conclusion without new exchange and integer optimization. Direct substitution of previous two-color optimality cannot produce a three-nonempty-class theorem. No stronger covering statement was located.",
+      "searches": [
+        "Analysis of stochastic probing methods for estimating the trace of functions of sparse symmetric matrices",
+        "sharp two-color stochastic-probing transition on complete bipartite resolvents",
+        "complete split graph clique independent set optimal two-color stochastic probing resolvent Laplacian Hutchinson variance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The candidate energy is the weighted three-class same-color pair score E= sum binom(r_j,2)+r_j s_j+beta binom(s_j,2), with sum r_j=2 and sum s_j=q.",
+        "No matching three-class split-resolvent theorem was found in the inspected primary stochastic-probing text or indexed relevant records."
+      ],
+      "reasoning": "Reformulated as a three-state weighted partition/Potts ground state, which can in principle reveal equivalent statements. The exact all-q threshold and optimizer classification were not present in the inspected sources; general Potts literature may nevertheless subsume it.",
+      "searches": [
+        "three-color stochastic probing complete split graph two universal vertices optimal color partition threshold",
+        "three probing vectors joined graph two hubs independent leaves shifted Laplacian minimax Rademacher variance",
+        "three-block partition trace estimation 2-clique join independent vertices phase transition screening",
+        "clique merger threshold three color graph probing graph Laplacian resolvent",
+        "optimal three-color stochastic probing complete split graph shifted graph Laplacian 2 universal vertices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic database results primarily concern two-color complete bipartite/hypercube/screened-cycle probing; none supplied the q>=4 three-color split family or critical shift.",
+        "The primary paper's tables and numerical sections concentrate on distance colorings and variance scaling, not exact three-bin split-graph phase tables."
+      ],
+      "reasoning": "No exact tabulation found. This is a search limit, not proof of uniqueness or priority.",
+      "searches": [
+        "three-color stochastic probing complete split graph two universal vertices optimal color partition threshold",
+        "three probing vectors joined graph two hubs independent leaves shifted Laplacian minimax Rademacher variance",
+        "K2 join independent set stochastic probing trace inverse graph partition optimal"
+      ]
+    },
+    "rationale": "Closest inspected literature gives the general fixed-partition Rademacher variance formula and two-class optimal partitions on other graph families; the three-class split-resolvent topology switch and complete all-q optimizer classification require separate integer exchange arguments and were not found under alias, graph, coupling, or Potts formulations. Publication priority is provisional due possible broader weighted multiway partition results.",
+    "residual_risks": [
+      "A general weighted three-state Potts/partition ground-state classification in older literature might imply the theorem without matching graph terminology.",
+      "Publisher full texts for historical lattice probing papers not exhaustively inspected; their abstracts are insufficient to establish whole-document noncoverage.",
+      "Database coverage and keyword searches cannot establish global publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes fixed-partition variance identity but not the three-class split-graph global optimization",
+        "evidence": [
+          "https://www.researchgate.net/publication/373141854_Analysis_of_stochastic_probing_methods_for_estimating_the_trace_of_functions_of_sparse_symmetric_matrices",
+          "Section 3.2 Theorem 3.3 and Lemma 3.5; sample-allocation problem (3.8)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.07722",
+        "material_read": "Full text transcribed in ResearchGate HTML, Section 3.2 Theorem 3.3 and Lemma 3.5, Section 3.2 sample allocation, graph-coloring design Section 2, and application discussion",
+        "method": "Read full-text HTML transcription and searched for split graph and optimization, with passages on variance and sample allocation",
+        "title": "Analysis of stochastic probing methods for estimating the trace of functions of sparse symmetric matrices",
+        "trigger": "Foundational directly relevant three-class probing variance and optimization literature"
+      },
+      {
+        "assessment": "Two colors and complete bipartite graph do not imply the current three-class two-hub split optimization, though the basic weighted-cut setup is related",
+        "evidence": [
+          "published-finding corpus record 2026/11/8 ... 1edc2b42b895, RESULT.md, sections Finding and Proof"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-two-color-stochastic-probing-transition-on-complete-bipart--1edc2b42b895",
+        "material_read": "Entire RESULT.md including hypotheses, theorems, proof, prior-work comparison and limitations",
+        "method": "Read public original scientific RESULT.md through repository read interface",
+        "title": "Sharp two-color stochastic-probing transition on complete bipartite resolvents",
+        "trigger": "Closest published exact optimal probing partition and potential weighted-cut dominance"
+      },
+      {
+        "assessment": "Lattice-displacement probing is not demonstrably covering this complete-split graph, but abstract-only access prevents a whole-paper noncoverage conclusion",
+        "evidence": [
+          "Publisher abstract states variance suppression by distance-based coloring on lattice displacements"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/21M1422495",
+        "material_read": "Accessible primary abstract only",
+        "method": "Read published publisher abstract, checked for stated objects and graph family",
+        "title": "Probing for the Trace Estimation of a Permuted Matrix Inverse Corresponding to a Lattice Displacement",
+        "trigger": "Published prior probing design specializing to inverse matrices"
+      },
+      {
+        "assessment": "Addresses hierarchical distance colorings, not known to solve exact three-bin split graph phase boundaries; whole text not inspected",
+        "evidence": [
+          "Publisher abstract discusses graph-of-A^n distance coloring and incremental trace probes"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/18M1176427",
+        "material_read": "Accessible primary abstract only",
+        "method": "Read publisher abstract for methodology and claimed scope",
+        "title": "Extending Hierarchical Probing for Computing the Trace of Matrix Inverses",
+        "trigger": "Earlier general hierarchical trace-probing context"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b49efa2c-401d-43b3-9949-cc9195a2c020",
+  "value": {
+    "rationale": "For every q>=4 the theorem proves the exact screening threshold at which an ordinary proper three-coloring becomes globally inferior to deliberately placing adjacent hubs in the same probe class, at unchanged three-query budget. It also classifies every resulting nonproper optimum by a strictly discrete-convex formula with at most two neighboring optimal counts, supplying a natural complete benchmark for the first two-hub split graph family. This is more than recomputing the fixed-partition variance or a single ad hoc finite example; limitations on practical speedups and other sampling laws are explicit.",
+    "status": "PASS"
+  }
+}
