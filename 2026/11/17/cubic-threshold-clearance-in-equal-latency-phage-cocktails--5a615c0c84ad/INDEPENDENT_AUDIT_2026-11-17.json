@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T21:16:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS — At alpha=sum k_i d_i/m_i, the retarded linear system is triangular with a simple zero and stable -mu,-m_i roots. On the compatible-history center manifold I=Bu+O(u^3), Q_i=r_i[1-(A_i/m_i)u+(A_i/m_i)^2u^2]+O(u^3) once K=0; the convolution identity removes the quadratic I correction and delayed state deviations are O(u^3). Substitution gives u'=−C u^3+O(u^4), C=sum k_i d_i A_i^2/m_i^3>0 unless all A_i=0. Stable-foliation tracking plus the exact log S identity exclude an exponentially decaying positive history, giving sqrt(t)S→1/sqrt(2C) and the claimed ratios. If all A_i vanish the equilibrium line (u,Bu,r_i) proves non-isolation. Independent SymPy expansion for two-strain positive witness gives (1+u)^−1+(1−u)^−1=2+2u^2+O(u^4), C=2, rate coefficient 1/2. Local compatible positivity and n=1 exceptional boundary are explicit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bardina–Cano–Cuadrado Proposition 5.1 gives only strict linear dose inequalities; center-manifold theorems guarantee reduction without the model-specific cubic coefficient."
+        ],
+        "reasoning": "None of the inspected broader stability statements supplies the cubic sum, positivity dichotomy, or physical-time limit on the degenerate center branch.",
+        "searches": [
+          "critical dose phage cocktail coinfection delay bacterial clearance cubic degenerate threshold center manifold Bardina Cano Cuadrado",
+          "arXiv:2611.08370v1",
+          "Hale Verduyn Lunel Introduction to Functional Differential Equations 1993"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-critical-dose-bifurcation-and-algebraic-clearance-in-delayed-pha--3e1a27de7f6c/RESULT.md",
+        "https://arxiv.org/abs/2611.08370",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/cubic-threshold-clearance-in-equal-latency-phage-cocktails--5a615c0c84ad/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting kappa=0 makes prior tS asymptotic undefined; the new two-strain K=0 witness has C=2 and sqrt(t)S→1/2."
+        ],
+        "reasoning": "A nonzero-quadratic conclusion cannot be specialized to the zero-quadratic case; the positive cubic coefficient must be obtained separately from delay-compatible expansions.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-critical-dose-bifurcation-and-algebraic-clearance-in-delayed-pha--3e1a27de7f6c/RESULT.md",
+          "arXiv:2611.08370v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior kappa=Σ k_iσ_i and here K=−kappa under the common-latency identification; prior theorem explicitly assumes kappa≠0."
+        ],
+        "reasoning": "The equal-parameter formulation is algebraically equivalent but the previous branch omits exactly the K=0 condition, so no implication to cubic drift.",
+        "searches": [
+          "critical dose phage cocktail coinfection delay bacterial clearance cubic degenerate threshold center manifold Bardina Cano Cuadrado",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-critical-dose-bifurcation-and-algebraic-clearance-in-delayed-pha--3e1a27de7f6c/RESULT.md",
+          "arXiv:2611.08370v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior Resultary record reports tS→1/kappa for kappa>0 and says no assertion at kappa=0; same indexed candidate here is the assigned research itself."
+        ],
+        "reasoning": "No separate published table providing the degenerate C or t^−1/2 coefficient was located; absence of a hit is not a proof against older work.",
+        "searches": [
+          "critical dose phage cocktail coinfection delay bacterial clearance cubic degenerate threshold center manifold Bardina Cano Cuadrado",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-critical-dose-bifurcation-and-algebraic-clearance-in-delayed-pha--3e1a27de7f6c/RESULT.md"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge — The earlier critical-dose result treats nonzero quadratic kappa only and explicitly excludes kappa=0; this claim resolves that excluded zero-coefficient regime by a positive cubic sum and a t^−1/2 clearance profile, not a parameter restatement. The Bardina model and strictly hyperbolic dose criteria are prior, and the equilibrium curvature alone is not the full DDE center-manifold law.",
+      "residual_risks": [
+        "Historical single-strain and nonlinear bifurcation literature may contain an equivalent degeneracy calculation not indexed under the exact model name.",
+        "Stable-foliation asymptotics use standard smooth retarded semiflow hypotheses; numerical DDE traces provide no infinite-time proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": [
+            "The theorem gives tS→1/kappa for kappa>0 and explicitly makes no assertion when kappa=0."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-critical-dose-bifurcation-and-algebraic-clearance-in-delayed-pha--3e1a27de7f6c/RESULT.md",
+          "material_read": "Full RESULT.md: assumptions, center coefficients, proof, limitation explicitly kappa=0",
+          "method": "Read frozen published GitHub RESULT blob 3048a6052b3cee4e9f635e54049ee39fee002136",
+          "title": "Critical-dose bifurcation and algebraic clearance in delayed phage cocktails",
+          "trigger": "Same dynamical system, direct threshold comparison"
+        },
+        {
+          "assessment": "PRIOR_MODEL_AND_LINEAR_THRESHOLDS",
+          "evidence": [
+            "Original gives critical scalar dose and 2-phage equilibrium equation; the inspected portions do not supply the degenerate center-manifold t^−1/2 law."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.08370",
+          "material_read": "PDF pages containing equations, Proposition 5.1, Section 5.1 equilibrium expression and strict dose criteria; visual pages 5 and 8",
+          "method": "ArXiv primary preprint PDF, searched and visually inspected",
+          "title": "Modelling and analysis of a cocktail phage therapy with coinfection",
+          "trigger": "Original exact delay system and possible implicit threshold result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS — The codimension-two cancellation is feasible with strictly positive two-phage parameters and changes the biologically meaningful clearance exponent from t^−1 to t^−1/2. The exact sum-of-squares coefficient and continuum-equilibrium alternative close a mathematically natural criticality boundary in the actual nonlinear delay model; this is beyond a routine stability eigenvalue calculation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Local positive compatible-history result, common latency only; no global eradication, stochastic conclusion, distinct-latency extension, or near-degenerate uniform crossover.",
+    "Historical single-strain and nonlinear bifurcation literature may contain an equivalent degeneracy calculation not indexed under the exact model name.",
+    "Stable-foliation asymptotics use standard smooth retarded semiflow hypotheses; numerical DDE traces provide no infinite-time proof."
+  ],
+  "schema_version": 1
+}

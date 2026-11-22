@@ -1,12 +1,21 @@
-# Scientific review: Cubic threshold clearance in equal-latency phage cocktails
+# Independent mathematical audit
 
-## Correctness — PASS
-The published delay model and physical compatibility equation are quoted explicitly. At the neutral dosage the linearization has a simple zero root and all other roots strictly left of the imaginary axis. On its center manifold the first phage slopes yield a quadratic bacterial coefficient \(K\). Under \(K=0\), delay differences first appear at cubic order, while the infected-population integral cancels its quadratic coefficient. The phage equations then give exactly the positive cubic magnitude \(C=\sum_i k_i d_iA_i^2/m_i^3\). Stable-foliation tracking and the positive bacterial logarithmic identity transfer the inverse-square-root law to nearby positive compatible histories. The explicit all-positive two-type parameters prove realizability. Computer checks confirm symbolic coefficients and a finite-time trend but are not infinite-time proofs.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The original full-text model analysis establishes strict dose-side stability and counts coexistence equilibria, but does not determine the dynamics on the simultaneous zero-eigenvalue / zero-quadratic-coefficient locus. Closest same-model earlier work establishes the nonzero-quadratic \(t^{-1}\) law and expressly excludes coefficient zero; another same-model equilibrium classification supplies no nonlinear time-asymptotic. General critical \(t^{-1/2}\) theorems in other ecological systems do not specify this delayed multi-phage invariant, its positive-definite coefficient, or the continuum alternative. Generic retarded center-manifold theory and older single-phage literature remain potential routes for implicit prior derivations, not identified direct coverage.
+PASS
 
-## Value — PASS
-The first nonlinear critical coefficient is naturally tunable by combining phage types with different burst yields, and can cancel with all biological parameters positive. The new positive sum-of-squares third-order law distinguishes guaranteed algebraic clearance from a neutral continuum and identifies its exact speed. The critical exponent changes from the generic inverse-time law to inverse-square-root; this is a structural nonlinear phase boundary, not an arbitrary numerical slice. The conclusion is local, deterministic, and limited to common latency.
+PASS — At alpha=sum k_i d_i/m_i, the retarded linear system is triangular with a simple zero and stable -mu,-m_i roots. On the compatible-history center manifold I=Bu+O(u^3), Q_i=r_i[1-(A_i/m_i)u+(A_i/m_i)^2u^2]+O(u^3) once K=0; the convolution identity removes the quadratic I correction and delayed state deviations are O(u^3). Substitution gives u'=−C u^3+O(u^4), C=sum k_i d_i A_i^2/m_i^3>0 unless all A_i=0. Stable-foliation tracking plus the exact log S identity exclude an exponentially decaying positive history, giving sqrt(t)S→1/sqrt(2C) and the claimed ratios. If all A_i vanish the equilibrium line (u,Bu,r_i) proves non-isolation. Independent SymPy expansion for two-strain positive witness gives (1+u)^−1+(1−u)^−1=2+2u^2+O(u^4), C=2, rate coefficient 1/2. Local compatible positivity and n=1 exceptional boundary are explicit.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge — The earlier critical-dose result treats nonzero quadratic kappa only and explicitly excludes kappa=0; this claim resolves that excluded zero-coefficient regime by a positive cubic sum and a t^−1/2 clearance profile, not a parameter restatement. The Bardina model and strictly hyperbolic dose criteria are prior, and the equilibrium curvature alone is not the full DDE center-manifold law.
+
+## value
+
+PASS
+
+PASS — The codimension-two cancellation is feasible with strictly positive two-phage parameters and changes the biologically meaningful clearance exponent from t^−1 to t^−1/2. The exact sum-of-squares coefficient and continuum-equilibrium alternative close a mathematically natural criticality boundary in the actual nonlinear delay model; this is beyond a routine stability eigenvalue calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
