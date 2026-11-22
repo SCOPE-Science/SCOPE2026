@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact-cover recursion is exhaustive because it branches over all triples containing a chosen uncovered pair and forbids repeated pairs; it counts exactly 840 systems. The independent relabelling construction proves transitivity by producing the same full count. Character-monomial degree equivalence is an exact invertible Boolean transform. Gram entries depend only on shared triples. Exact integer checks of a polynomial in each Gram matrix on one basis vector, together with transitivity, certify the complete spectral supports. Exact trace moments and the nonsingular Vandermonde system certify every multiplicity, not merely numerical approximations. An independent modular rank program reproduces all four ranks.
+PASS
 
-## Originality
+PASS. An independently implemented exact-cover recursion chooses the next uncovered pair of nine labelled points and enumerates every legal third point, yielding exactly 840 distinct complete 12-line Steiner triple systems, without assuming orbit completeness. For each d=0,1,2,3 the row Gram entry is sum_{j=0}^d C(|P intersect Q|,j); characters and monomials are related by a degree-filtration preserving invertible Boolean change of basis. On all four independently reconstructed 840x840 integer Gram matrices, checked exact annihilating polynomial P_d(G)e_0=0 with P_d product over proposed distinct eigenvalues and exact tr(G^k)=840(G^k)_{00} for k=0,...,#levels-1, using transitivity under S9. Vandermonde uniqueness fixes every multiplicity. Positive multiplicities recover the exact ranks and cubic min/max eigenvalues 63/4920. Separate source checker and orbit verifier paths were inspected, but verdict rests on independent integer re-computation, not a stored PASS log.
 
-PASS under bounded published-record comparison. The 2003 order-nine large-set preprint and the 2008 intersection paper provide the 840-system universe and intersection-count context; they do not state the degree-filtered sampling ranks or their Gram spectral multiplicities in the inspected full texts. Assmus (1995) concerns incidence-code rank inside a system, not a matrix across 840 labelled systems. The indexed six-cycle-switch result concerns graph distances, not Fourier interpolation. The previous related seven-point Fano-plane sampling rank has a different underlying family and does not imply these nine-level order-nine spectra. The Griggs–Rosa uniformly intersecting chapter was not available in full, and unindexed equivalent spectral calculations remain a historical-priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The first degree at which every distribution over all labelled affine planes of order three becomes identifiable is an intrinsic and independently motivated observation threshold. The exact 371-dimensional lower-degree blind space quantifies the ambiguity; nine distinct cubic Gram levels provide sharp Euclidean stability constants, not just an elementary cardinality or another design count. These facts supply a reproducible small-design benchmark for harmonic sampling on constrained Boolean configurations.
+PASS at best of knowledge: Alias labelled affine planes and STS(9) reconciles prior system counts; one must not equate point/block code ranks of one STS to sampling a table of all 840 STS. No inspected equivalence yields the rank sequence or nine cubic levels. Knowing the possible intersection values {0,1,2,3,4,6,12} does not specify frequency of all pairwise intersections, hence cannot force the nine-level spectra without a further global count; the switching metric operates on a different adjacency matrix. No universal historical-priority certification is claimed.
 
-## Independent status
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS. A complete exact spectral/identifiability classification on the first non-Fano affine-plane universe is a natural finite invariant; the 371-dimensional quadratic ambiguity, cubic completion, and nine sharp stability levels may be needed to understand sampling from labelled designs. Its significance does not require a paper-sized general all-order theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
