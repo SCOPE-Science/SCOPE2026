@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For two colors, the closed-neighborhood condition is a balanced-sign equation yielding exact periodic recurrences for the rung sums and differences. For three colors, the 81-state matrix with 342 explicit transitions gives a bijective closed-walk count at every n>=3. An exact Newton-identity calculation of all 81 characteristic coefficients yields the stated determinant factorization, hence the formal log-determinant generating function. The standalone Python exact arithmetic proof script and an independent C++ direct enumerator agree in all checked small cases. No finite experiment is substituted for the all-n transfer identity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2013 primary text Theorem 2 classifies which perfect 3-color parameter matrices occur on prisms, not every 2-limited coloring.",
+        "2016 source abstract likewise explicitly restricts attention to perfect colorings; the accessible record mentions finite prisms.",
+        "The 2023 limited-packing partition paper proves exact values for trees, not prisms."
+      ],
+      "reasoning": "These sources are highly relevant but their stronger-looking titles do not dominate this result: perfect coloring is a more restrictive class, and trees are a different family. The specific full-text access risk of the 2016 paper is recorded.",
+      "searches": [
+        "Perfect 3-colorings of prism and Möbius ladder graphs Lisitsyna 2013",
+        "Perfect colorings of the prism graph Lisitsyna Avgustinovich 2016",
+        "perfect coloring and limited packing partition cyclic prisms count eigenspace minus one"
+      ]
+    },
+    "checked_sources": [
+      "Ahmadi–Soltankhah–Samadi, arXiv:2308.16837, complete accessible text",
+      "Lisitsyna, perfect 3-colorings of prism and Möbius ladders, 2013 primary PDF parsed text",
+      "Lisitsyna–Avgustinovich, perfect colorings of prism graph, 2016 publisher record (full text not accessed)",
+      "Complete open-packing polynomial and six-residue maximum census of circular ladders",
+      "Exact reduced-optimal sub-quorum coloring enumerator of circular ladders",
+      "Optimal proper conflict-free colouring census for cycle prisms",
+      "A parity obstruction and exact strong-odd coloring census for circular prisms",
+      "Six-periodic rigidity of neighborhood 3-balanced colorings on prisms and Möbius ladders",
+      "Exact two-packing profiles and unique-response Roman weights on circular ladders"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 tree theorem and degree bound alone do not imply the odd-prism coefficient formula.",
+        "The 2013 perfect prism main theorem treats only equitable labelings; an explicitly verified optimal labeling in this result is not equitable.",
+        "Nearby two-packing and strong-odd prism formulas impose different constraints and do not enumerate the same subsets."
+      ],
+      "reasoning": "The sole assessed final theorem combines exact optimal minimum color counts with the nontrivial all-length three-palette generating function; the latter is not a special case or corollary of the found literature. It is not claimed that the parity obstruction for two colors is entirely new.",
+      "searches": [
+        "2-limited packing partition number prisms cyclic ladder counts",
+        "perfect three coloring prism graph complete classification",
+        "3-color weak 2-limited packing prism cycle transfer chromatic polynomial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A 2-limited packing partition is exactly a vertex coloring in which each closed neighborhood contains at most two vertices of every color.",
+        "For two colors on a cubic graph this becomes a perfect/equitable coloring with neighbor-count matrix [[1,2],[2,1]], so the even case is not asserted to be independently novel.",
+        "For three colors the local condition does not imply equitable coloring: the triangular-prism columns ((0,0),(1,2),(1,2)) provide a counterexample."
+      ],
+      "reasoning": "The complete odd-circumference 3-color partition enumerator is a larger universe than perfect-coloring results, and no equivalence reduction to those results applies. The scalar even two-color classification is treated as context inside one unified result.",
+      "searches": [
+        "closed-neighborhood two-limited packing coloring spectral parity for circular ladder graph",
+        "perfect 2-coloring prism graph equitable parameter matrix (1 2;2 1)",
+        "Limited packings: related vertex partitions and duality issues arxiv:2308.16837"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published records concern open/2-packings, proper conflict-free coloring, strong-odd coloring, sub-quorum coloring, and neighborhood-3-balanced coloring, none using both the closed-neighborhood capacity-two condition and minimum-color optimizer counts.",
+        "No exact sequence or table for the claimed named 3-color counts 90, 2430, 56574, 1299474 was identified in the accessible primary sources or research records."
+      ],
+      "reasoning": "The listed adjacent enumerators have different feasibility rules and objective functions. Search nonappearance alone is not relied on as proof; the implication comparison is based on these definitional distinctions.",
+      "searches": [
+        "2-limited packing partition number and all optimal coloring counts of prism graphs C_n Cartesian K_2",
+        "closed-neighborhood two-limited packing coloring spectral parity for circular ladder graph",
+        "3-color weak 2-limited packing prism cycle transfer chromatic polynomial",
+        "perfect coloring and limited packing partition cyclic prisms count eigenspace minus one",
+        "2-limited packing partition circular ladder optimal colorings generating function"
+      ]
+    },
+    "rationale": "The new statement is the full optimum-counting rational series for all odd prisms together with the sharp parity-optimum regime. The 2023 primary source treats trees and general bounds, while earlier perfect-prism-coloring papers classify only the strict perfect/equitable subclass. A concrete valid non-perfect three-coloring of the triangular prism blocks any implication from the perfect-coloring classifications to this complete census. Targeted searches and scientific comparisons of published records found no dominating result, though unindexed historical computations remain possible.",
+    "residual_risks": [
+      "The 2016 directly relevant full text was not retrieved, although its stated object is the strict perfect-coloring subclass.",
+      "Search/research-record indexing is incomplete; old unindexed counts or equivalent terminology may exist.",
+      "Independent mathematical verification and full publication-priority review have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the invariant and proves exact tree value and bounds; no cyclic-prism exact partition counts or characteristic enumerator",
+        "evidence": "Theorem 3.1 is restricted to trees; the text has no prism result or transfer polynomial for optimal partitions.",
+        "identifier_or_url": "https://arxiv.org/abs/2308.16837",
+        "material_read": "Full accessible arXiv text: definition, introduction, duality, Section 3 (2LP partitions), and later results and references",
+        "method": "Read online complete text and compared stated theorems and graph classes",
+        "title": "Limited packings: related vertex partitions and duality issues",
+        "trigger": "Primary source defining the partition invariant; 2023-08-31 earliest verified public date"
+      },
+      {
+        "assessment": "Classifies admissible equitable/perfect three-color parameter matrices, a strict subclass of 2-limited packing colorings; no complete counts of the larger family",
+        "evidence": "The paper explicitly requires all vertices of the same color to have identical neighbor-color multisets. The valid prism three-coloring ((0,0),(1,2),(1,2)) violates this condition.",
+        "identifier_or_url": "https://www.mathnet.ru/links/b2975877364d31df7cfe8e93ccc05e68/da716.pdf",
+        "material_read": "Primary published article text, including definitions, preliminary lemmas, main Theorem 2, and conclusion; figures were not examined",
+        "method": "Read the published PDF text and compare the perfect-coloring condition with 2-limited closed-neighborhood capacity",
+        "title": "Perfect 3-colorings of prism and Möbius ladder graphs",
+        "trigger": "Exact same prism graph family and three colors (2013)"
+      },
+      {
+        "assessment": "Advertised coverage is explicitly perfect/equitable colorings; that restriction excludes valid non-perfect 2LP three-colorings, but inaccessible full text is a remaining literature risk",
+        "evidence": "Source abstract: complete description of perfect colorings of prism graph; no claim to all locally capacity-bounded colorings.",
+        "identifier_or_url": "https://doi.org/10.17377/semi.2016.13.088",
+        "material_read": "Publisher abstract and bibliographic statement only; downloadable full text could not be retrieved",
+        "method": "Examined source record and attempted official full-text link, then compared its stated scope against a non-perfect valid witness",
+        "title": "Perfect colorings of the prism graph",
+        "trigger": "Directly relevant complete perfect-coloring treatment for finite/infinite prisms (2016)"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ac0b0cb6-5d49-4844-bd4e-b77bf64cc596",
+  "value": {
+    "rationale": "The 2-limited packing partition number was recently introduced and its optimum-coloring counts on natural cubic cycle prisms were unresolved in the inspected source. The result exhibits a sharp even/odd palette transition and mod-four geometric rigidity, alongside an explicit factored rational generating series for exponentially many odd optimizers. This provides a reproducible exact infinite benchmark for local-capacity graph coloring, beyond trivial parity or isolated values.",
+    "status": "PASS"
+  }
+}
