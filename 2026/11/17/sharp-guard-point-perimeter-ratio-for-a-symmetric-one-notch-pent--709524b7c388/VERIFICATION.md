@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The analytical proof, not sampling, establishes the theorem for every positive \(b,h\) and every \(0<t<1\). It explicitly checks the active halfplanes, both area branches and their common boundary, the perimeter identities, the strictness at finite height, the unique shape optimizer and the cubic root's uniqueness. Its derived critical factors can also be checked by elementary polynomial expansion.
+## correctness
 
-The included `verify.py` uses only Python standard-library exact rational arithmetic. It intersects all five oriented inward halfplanes with a sufficiently large rational square and calculates the exact shoelace area. Testing 42 rational parameter pairs spans both halfplane combinatorial regimes and their common boundary. The finite rational inequality \(G/P>41/40\) is verified by a strict radical enclosure and exact fractional comparisons. A high-precision bisection independently brackets the algebraic optimizer and resulting constant. These are finite regression tests, not an infinite search, formal proof, or independent audit.
+PASS
 
-The exact upper bound is an unattained class supremum; it is not a general sharp polygon inequality. The earlier Sibley paper's complete text could not be inspected; priority remains subject to historical review. No independent validation has been performed.
+Reconstructed the inward halfplane kernel inequalities after vertical scaling, including both b<=t/(1-t) and b>t/(1-t) chambers and the boundary switch, then integrated twice the halfwidth to obtain the stated piecewise rational kernel-area expression. The polygon area is h[1+b(1-t)], hull perimeter 2(1+b+sqrt(h²+(1-b)²)) and notched perimeter 2(1+sqrt(h²+(1-b)²)+sqrt(t²h²+b²)). The strict finite-height inequality N-b<h<1+b+L yields G/P<(1+t)k/[1+b(1-t)], with equality approached only h→infinity. Exact derivative in b has one sign change at b=t(1+sqrt2)/(1-t); substituting produces H(t), whose derivative is minus a strictly increasing cubic over a positive denominator. Thus one t* in (0,1) uniquely maximizes H. Independently factored both rational derivatives, branch continuity and the cubic and reproduced 1.0260783949639667. Claims are strictly for the specified family, not all pentagons.
+
+## originality
+
+PASS
+
+This is an exact constrained-family solution to a symmetric notch optimization, not a new global best counterexample. Nakano provides G<=2P and a qualitative pentagon counterexample; Baker gives a larger unrestricted lower bound >1.061 and open one-notch tasks. Neither an upper bound or a global lower bound implies the exact 1.026... constrained maximum, unique limiting parameters or nonattainment. Full Nakano/Baker/Sibley reading was blocked; this is a best-of-knowledge verdict with meaningful priority risk.
+
+## value
+
+PASS
+
+The one-notch centered symmetric family is naturally singled out in prior guard-point/perimeter questions; exactly classifying its sharp constant, optimizer and nonattainment constrains and calibrates broader polygon optimization. This is not a trivial tiny witness nor a new unrestricted record.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
