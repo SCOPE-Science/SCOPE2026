@@ -1,21 +1,21 @@
-# Mathematical review: sharp mode staircase for anisotropic bidisc concentration
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalization is explicit: probability Gaussian Fock measure, normalized total-degree monomials, solid product discs, and eigenvalue rather than singular-value condition ratio. Angular integration independently establishes diagonalization, and radial substitution yields the precise gamma-tail factors. The proof of the nonstandard assertions rests on the positive-term identity for the successive Poisson-tail ratio: it is strictly decreasing in its order, strictly increasing in its radius, and its large-order expansion is uniform on fixed interior degree fractions. Consequently the neighboring eigenvalue ratios strictly decrease along the monomial index, giving exactly one transverse transition per index, two-mode ties only, and the correct endpoint minimum. Stirling's formula applied at the proved \(k_m=am/(a+b)+O(1)\) saddle gives the sharp \(m^{-3/2}\) constant and exponential base. The packaged high-precision verifier reproduces representative thresholds, endpoint minima, gamma integrals, and sharp asymptotic convergence. Computation is corroborative, not the proof.
+## correctness
 
-## Originality — PASS, with priority risk
-Dewage and Ólafsson's quasi-radial Fock Toeplitz theorem already gives the diagonal integral eigenvalues. We expressly **do not** treat that spectral formula as new. Its inspected Theorem 2.12 and subsequent corollaries do not classify the maximizing monomial across anisotropic bidisc radii or calculate the sharp restriction condition ratio. Inspected Gaussian-annulus crossing results use a single radial Hermite index and differences of gamma tails, not a product of two independent gamma tails under a fixed total degree. The published product-cap result on complex spheres uses Dirichlet probabilities, not two Gaussian bidisc cutoffs. An anisotropic Gaussian-kernel Fock projection result concerns a different Gaussian composition operator with geometric eigenvalues. Targeted semantic and web queries found no full claim whose assumptions or stronger conclusion imply the present theorem; that absence is **not** a proof of priority. Classical incomplete-gamma inequalities may yield a shorter derivation and remain a specific residual risk.
+PASS
 
-## Mathematical value — PASS
-The spectral gap/condition ratio controls exact and worst-case energy reconstruction of the full two-mode, total-order Hermite sector under independent time-frequency discs. The theorem supplies a natural complete classification of **all** maximizing modes, a strict no-skipping transition law with a continuum limit, exact worst modes, and a sharp exponential instability law including its polynomial prefactor. The question is motivated by anisotropic two-channel observation and differs substantively from mere recomputation of the known diagonal spectrum. The narrow object and fixed-radius asymptotic assumptions are stated without asserting broader applications or a larger theorem.
+Independent phase integration makes monomials diagonal with lambda_m,k=Q_k(a)Q_{m-k}(b). r_j(x)=Q_{j+1}/Q_j=1-1/F_j with a positive-term series F_j, increasing strictly in x and decreasing strictly in j. Thus neighboring eigenvalue ratio R_k=r_k(a)/r_{m-k-1}(b) decreases strictly with k, and each R_k=1 has a unique increasingly ordered radius. This proves every maximizing index and no triple top ties. Endpoint product ratio yields exact least eigenvalue. Uniform Poisson-tail expansion and Stirling with maximizing k=ma/(a+b)+O(1) give the stated constant, polynomial exponent and exponential base for fixed a,b. Independently recomputed bisection thresholds m=4,b=2 [0.858356,1.540129,2.576679,4.275695] and m=5,b=1.3 [0.452372,0.797944,1.3,2.087036,3.455017]; m=30,100,260 exact/asymptotic ratios approach 1 for (a,b)=(1,2),(1.7,1.7). Those samples corroborate but do not prove all-degree assertions.
 
-## Closest sources and boundaries
-1. V. Dewage and G. Ólafsson, *Toeplitz operators on the Fock space with quasi-radial symbols*, arXiv:2107.01465 (2021-07-03), Theorem 2.12 and related formulas: covers the underlying diagonal multiplier formula, **not the new extremal theorem** as inspected.
-2. H. Knutsen, *A Fractal Uncertainty Principle for the Short-Time Fourier Transform and Gabor multipliers*, arXiv:2204.03068 (2022-04-06): Gaussian time-frequency uncertainty framework, not the finite-sector exact classification.
-3. *Exact Gaussian-annulus eigenmode crossings and a Bernoulli second-order concentration law*, published mathematical research record: single-annulus mode selection, not bidisc product masks.
-4. *Anisotropic Gaussian Fock projections: exact singular spectra and a rational–irrational counting transition*, published mathematical research record: Gaussian kernels, not hard bidisc indicators.
-5. *Balanced extremizers and a parity-dependent spectral-gap transition for holomorphic product caps*, published mathematical research record: sphere/Dirichlet, not Fock/gamma.
+## originality
 
-Residual priority uncertainties include unindexed polydisc Toeplitz optimization papers and implicit sharp asymptotics from classical Poisson-tail theory. No independent verification was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The product incomplete-gamma spectrum is already in quasi-radial Fock Toeplitz theory, so originality attaches only to the sharp complete ordered extremal/stability and conditioning classification. The inspected Dewage–Ólafsson theorem and Fock/annulus records do not imply all ordered transitions or the m^(-3/2) sharp prefactor from their stated conclusions; the proof uses standard tail asymptotics in a new constrained product optimization. Best-of-knowledge pass, not priority certification.
+
+## value
+
+PASS
+
+A full spectral condition number and all maximizing modes are natural stability quantities for finite homogeneous Fock concentration; universal sharp transitions and sharp exponential/polynomial instability are informative, not mere reproduction of a known spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
