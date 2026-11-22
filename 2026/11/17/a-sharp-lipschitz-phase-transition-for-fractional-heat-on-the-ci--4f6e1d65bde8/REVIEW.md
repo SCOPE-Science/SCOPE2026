@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is supported by an exact \(L^\infty\) mean-zero versus \(L^1\) modulo-constants duality, stable subordination of a strictly radial decreasing heat theta kernel, a fixed half-circle sign derivative, an explicit Fourier integral, and the fractional jump-generator limit. The latter uses the positive periodic singular kernel with the normalization established in Roncal--Stinga, Theorem 3.4; the Gaussian endpoint uses the periodized heat kernel and a tail asymptotic. Uniqueness of norming real Lipschitz functions follows from strict radial monotonicity. The standalone checker agrees with independent quadrature and known Poisson special cases. No finite computation is used to infer an infinite theorem.
+PASS
 
-## Originality — PASS, qualified
+The real periodic gradient g=f′ has |g|≤1 and mean zero; convolution commutes with gradient, making the exact dual quotient norm min_c∫|k_t−c|. Jacobi triple product proves ordinary heat is strictly geodesically decreasing on (0,π), and positive α-stable subordination preserves this for α<1. Its unique median level is k_t(π/2) and equality in L∞/L1 duality forces signed semicircle gradient, integrated to a triangular wave. Integrating Fourier modes on a semicircle yields the odd alternating series. Roncal–Stinga torus jump kernel and off-neighborhood small-time Lévy limit yield κ_α=(2c_α/α)(2/π)^(2α)β(2α)>0; α=1 periodized Gaussian tail and Mills asymptotic give 8√t/(π√π)e^(−π²/(16t)). Fresh independent Poisson α=1/2 arctangent comparisons and slope κ=2/π agree to high precision; limit statements remain analytical.
 
-The 2012 Roncal--Stinga paper proves a singular-integral formula and regularity estimates; it does not state the sharp full-family Lipschitz norm or the jump-to-diffusion contraction phase transition. The 2013 Bolley--Gentil--Guillin article studies a different transportation metric, rather than this norm. Known finite-cycle heat and Fejér formulas supply analogous median principles but not the exact fractional-circle exponent family. Aldous--Fill already covers the Brownian \(\alpha=1\) endpoint in antipodal total variation; this special case is acknowledged as known rather than claimed original. The classical \(\alpha=1/2\) Poisson case also follows from elementary harmonic analysis; novelty resides in the all-exponent classification with the gamma--Dirichlet-beta slope and endpoint discontinuity. Residual risk: an unindexed exact fractional-circle contraction result could dominate these claims.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The operator norm gives an exact stability constant on a natural Banach quotient for every fractional diffusion exponent, with rigidity of the same norming function. Crucially, it distinguishes finite-intensity escape across a fixed arc boundary under nonlocal jumps from exponentially rare Gaussian leakage: every fractional exponent has strictly positive linear short-time loss, while the local endpoint has a sharp nonperturbative loss. The explicit coefficient permits quantitative comparison and calibration of fractional generators and is not merely a test of a single arbitrary finite case.
+PASS for a unified all-α exact operator norm, rigid common norm-attainer and nonlocal/local discontinuity in short-time contraction law. Roncal–Stinga gives kernel/regularity, Brownian-circle antipodal coupling supplies α=1 special case, and earlier discrete cycle/Fejér norms share median technique but concern other operators; no inspected statement gives this full fractional family.
 
-## Limits of review
+## value
 
-The claim covers fixed real exponents \(0<\alpha\le1\), not any varying-exponent diagonal limit. Literature priority is conditional on the consulted primary sources and topical searches; no independent audit or certification has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp smoothing on a natural compact group is a central analytic benchmark. The quantitative discontinuity between jump-driven linear loss and Gaussian exponentially small loss, together with a fixed equality class, is mathematically motivated and useful in exact semigroup estimates, not merely restating contractivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
