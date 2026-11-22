@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T13:49:53Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-parity-dependent-conic-spline-error-for-planar-ell-p-quasi--a259caf870e6/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-parity-dependent-conic-spline-error-for-planar-ell-p-quasi--a259caf870e6/verify_conic.py",
+        "read-only fetched Git blob 54614c9c029cde22eaa67d2bc4cb97390f6f3ad0",
+        "read-only fetched verifier blob b0001c0e6e38c989ed171c8e7c49faa17b8cbcd7"
+      ],
+      "rationale": "For fixed 0<p<1, the angular q_p profile has four |t|^p/p cusps. The true conic sine-hat interpolation coefficients differ uniformly by O(h²) from ordinary angular interpolation, which is o(h^p). Away from K h neighborhoods of the axes, second-derivative control yields O(K^(p-2)h^p), so the full supremum localizes to integer-grid or half-integer-grid |u|^p chords. On aligned cells concavity and convexity of derivative give max (1-p)p^(p/(1-p))/p; on midpoint cells the Hölder/Jensen bound yields 1/(p2^p), attained at the centered cusp. For p=1 an axis-aligned fan reproduces |x|+|y| exactly, whereas the midpoint sector gives exactly tan(h/2). Independent double-precision direct conic sample checks for p=.5,.75,.95 and N=200,201,400,401 corroborate limit trends; at p=.5 odd N=401 scaled error≈1.458 vs asymptotic 1.414 due slowly vanishing O(h^p) corrections. Finite grids are not proofs.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full p>1 prior Resultary RESULT addresses convex radial superellipse Hausdorff error at 1<p<2, with similar phase mechanism and different constants."
+        ],
+        "reasoning": "The p>1 Hausdorff distance cannot dominate the p<1 nonconvex conic interpolation error; primary general conic paper may dominate through a different interpolation lemma, pending full text.",
+        "searches": [
+          "arXiv:2611.06212 Proposition B.3",
+          "2026/11/8/SCOPE-sharp-grid-phase-hausdorff-asymptotics-for-radially-sampled-supe--188b17416968",
+          "conic spline planar ell_p quasi norm nonconvex uniform rays parity sharp interpolation error power cusp"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.06212v1 abstract",
+        "2026/11/8/SCOPE-sharp-grid-phase-hausdorff-asymptotics-for-radially-sampled-supe--188b17416968 full RESULT",
+        "conic spline planar ell_p quasi norm nonconvex uniform rays parity sharp interpolation error power cusp",
+        "read-only pinned RESULT.md and verify_conic.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unser abstract gives general conic-spline basis and h² regularity rates in smooth regimes; assigned result cites only Theta_p(h^p) for non-Lipschitz example. p>1 prior derives constants for different error metric."
+        ],
+        "reasoning": "Neither accessible statement directly gives both p<1 sharp limits or signed extremizers. The claim is a nontrivial sharp refinement of a motivated canonical approximation problem.",
+        "searches": [
+          "arXiv:2611.06212v1 Section 5.2 Appendix B.2",
+          "2026/11/8/SCOPE-sharp-grid-phase-hausdorff-asymptotics-for-radially-sampled-supe--188b17416968"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The local |u|^p chord model and ray-grid sine-hat weights are equivalent formulations of the leading coefficient; no earlier exact same-domain theorem was found in the searched published summaries."
+        ],
+        "reasoning": "Existing general Hölder estimates do not automatically state parity and sharp constants; a generic exact cusp theorem could imply them, acknowledged as risk.",
+        "searches": [
+          "conic spline planar ell_p quasi norm nonconvex uniform rays parity sharp interpolation error power cusp",
+          "conic spline interpolation ell_p quasi norm 0<p<1 sharp phase constant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published corpus returned other spline-projection norms, p>1 Hausdorff phase law, but no exact fixed p<1 conic phase-error table."
+        ],
+        "reasoning": "The constants were checked analytically, not taken from a table; negative search alone is not uniqueness proof.",
+        "searches": [
+          "conic spline planar ell_p quasi norm nonconvex uniform rays parity sharp interpolation error power cusp",
+          "power cusp linear interpolation |t|^p grid at midpoint exact constants"
+        ]
+      },
+      "rationale": "Unser arXiv:2611.06212 introduces the exact trigonometric conic-spline interpolant and generic approximation theory, but its accessible abstract does not report parity-resolved constants for nonconvex quasi-norm cusps. A complete 2026-11-08 published grid-phase theorem gives related p>1 convex Euclidean Hausdorff constants, which cannot be specialized to 0<p<1 conic interpolation. Best-of-knowledge originality passes, with original Unser full appendix unavailable and general cusp-interpolation formulae an outstanding priority risk.",
+      "residual_risks": [
+        "Unser full text/Appendix B.2 unavailable despite OA and authorized access request; its more precise statements not inspected.",
+        "Classical exact cusp interpolation results may imply the same grid-phase constants.",
+        "verify_conic.py actually imports NumPy despite RESULT.md describing it as standard-library; this is a reproducibility documentation defect, not an invalidation of the analytic claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Potential full appendix implicit sharp estimate remains material priority risk",
+          "evidence": "Abstract states conic splines and rates but no sharp parity constants.",
+          "identifier_or_url": "arXiv:2611.06212v1",
+          "material_read": "ArXiv abstract and bibliographic record only; Section 5.2 and Appendix B.2 not directly accessible",
+          "method": "ArXiv/OA failed; authorized Oxford request returned VPN disconnected",
+          "title": "Quasi-norms on R^d: Characterization and Approximation by Conic Splines",
+          "trigger": "Exact conic sine-hat interpolation of planar quasi-norms"
+        },
+        {
+          "assessment": "Different p in (1,2), convex disk and Hausdorff polygon error",
+          "evidence": "Prior has (p-1)p^(-p/(p-1))/p and 1/(p2^p) on its own interval; cannot substitute 0<p<1 and signed conic interpolation.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-grid-phase-hausdorff-asymptotics-for-radially-sampled-supe--188b17416968",
+          "material_read": "Full RESULT.md with full proof and scope",
+          "method": "Read-only GitHub fetch_file (Resultary/2026)",
+          "title": "Sharp grid-phase Hausdorff asymptotics for radially sampled superelliptic disks",
+          "trigger": "Similar exact two-phase cusp constants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-parity-dependent-conic-spline-error-for-planar-ell-p-quasi--a259caf870e6/RESULT.md",
+        "arXiv:2611.06212v1 abstract",
+        "2026/11/8/SCOPE-sharp-grid-phase-hausdorff-asymptotics-for-radially-sampled-supe--188b17416968 full RESULT"
+      ],
+      "rationale": "A sharp parity-dependent leading uniform interpolation error, signed extremizers and an exact p=1 endpoint for a canonical non-Lipschitz planar quasi-norm class directly refine the motivating conic-spline approximation problem; they are mathematically meaningful beyond a rate-only bound.",
+      "residual_risks": [
+        "Classical exact cusp interpolation results may imply the same grid-phase constants.",
+        "verify_conic.py actually imports NumPy despite RESULT.md describing it as standard-library; this is a reproducibility documentation defect, not an invalidation of the analytic claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unser full text/Appendix B.2 unavailable despite OA and authorized access request; its more precise statements not inspected.",
+    "Classical exact cusp interpolation results may imply the same grid-phase constants.",
+    "verify_conic.py actually imports NumPy despite RESULT.md describing it as standard-library; this is a reproducibility documentation defect, not an invalidation of the analytic claim.",
+    "No full Git tree listing obtained; read five key files (RESULT, verifier, METADATA, AUDIT, VERIFICATION) at the assigned commit; public files not fully screened for release."
+  ],
+  "schema_version": 1
+}

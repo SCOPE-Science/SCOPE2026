@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement uses exactly 2N polar rays, with h=\(\pi/N\), fixed \(0<p<1\), and the actual sine-weight conic interpolant, not a substituted angular interpolation rule. The sine weights differ uniformly by \(O(h^2)\), negligible relative to \(h^p\). The axis expansions and the off-axis second derivative bound show that only finitely many \(h\)-scale cells per singularity contribute after localization, and all far cells vanish with a controlled \(K^{p-2}\) tail. For aligned axes, concavity and monotonicity of forward differences yield the exact extremal coefficient \((1-p)p^{p/(1-p)}\); for midpoint-straddling axes the global Hölder/Jensen bound \(2^{-p}\) is attained. Exact interpolation of the \(p=1\) piecewise-linear profile gives the stated endpoint. No finite scan substitutes for the continuum proof; the 117 finite diagnostics merely test the formulas. A possible risk is arithmetic or sign error in the local interpolation reduction, checked against direct sine-formula diagnostics.
+## correctness
 
-## Originality — PASS, qualified
-Unser, arXiv:2611.06212v1, Sections 5.2 and B.2 (Proposition B.3), proves only a two-sided order \(h^p\) on the same quasi-norm object; it does not calculate either sharp parity constant or the signed extremal locations. The closely related published result *Sharp grid-phase Hausdorff asymptotics for radially sampled superelliptic disks* analyzes a different regime \(1<p<2\) and Euclidean convex-body Hausdorff distance, so its theorem does not imply the \(0<p<1\) conic-spline result, although the underlying cusp mechanism is closely related. Targeted searches for aliases including fractional-power cusp interpolation, phase-shifted trigonometric hats, and parity grids revealed no directly covering statement. Classical general spline or local-cusp approximation theory could conceivably subsume the statement; the search does not certify absolute publication priority.
+PASS
 
-## Mathematical value — PASS
-The same exact angular sampling family is proposed for sparsity-promoting non-Lipschitz quasi-norms. The motivating estimate gave only a rate; the result determines both sharp constants and a discontinuous grid-arithmetic dependence, including a reversal of the extremal error sign and a transparent \(p=1\) boundary. This informs mesh selection and sharp finite-dimensional approximation diagnostics, rather than evaluating an unmotivated parameter slice. The theorem does not optimize arbitrary meshes or address general dimensions.
+For fixed 0<p<1, the angular q_p profile has four |t|^p/p cusps. The true conic sine-hat interpolation coefficients differ uniformly by O(h²) from ordinary angular interpolation, which is o(h^p). Away from K h neighborhoods of the axes, second-derivative control yields O(K^(p-2)h^p), so the full supremum localizes to integer-grid or half-integer-grid |u|^p chords. On aligned cells concavity and convexity of derivative give max (1-p)p^(p/(1-p))/p; on midpoint cells the Hölder/Jensen bound yields 1/(p2^p), attained at the centered cusp. For p=1 an axis-aligned fan reproduces |x|+|y| exactly, whereas the midpoint sector gives exactly tan(h/2). Independent double-precision direct conic sample checks for p=.5,.75,.95 and N=200,201,400,401 corroborate limit trends; at p=.5 odd N=401 scaled error≈1.458 vs asymptotic 1.414 due slowly vanishing O(h^p) corrections. Finite grids are not proofs.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Unser arXiv:2611.06212 introduces the exact trigonometric conic-spline interpolant and generic approximation theory, but its accessible abstract does not report parity-resolved constants for nonconvex quasi-norm cusps. A complete 2026-11-08 published grid-phase theorem gives related p>1 convex Euclidean Hausdorff constants, which cannot be specialized to 0<p<1 conic interpolation. Best-of-knowledge originality passes, with original Unser full appendix unavailable and general cusp-interpolation formulae an outstanding priority risk.
+
+## value
+
+PASS
+
+A sharp parity-dependent leading uniform interpolation error, signed extremizers and an exact p=1 endpoint for a canonical non-Lipschitz planar quasi-norm class directly refine the motivating conic-spline approximation problem; they are mathematically meaningful beyond a rate-only bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
