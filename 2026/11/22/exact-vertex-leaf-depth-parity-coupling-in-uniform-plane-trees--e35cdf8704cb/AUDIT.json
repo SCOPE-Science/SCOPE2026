@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Root decomposition F(z;s,t)=ze^s(e^t+F(z;-s,-t)/(1-F(z;-s,-t))) exactly records terminal roots and the parity reversal on every child subtree. Differentiation gives F_st=z/(2 sqrt(1-4z))+z/2-z^2, so n>=3 coefficient is (n/2) Catalan(n-1); all-vertex expectation is zero. F_ss and F_tt similarly give Var(X)=n(n-2)/(2n-3) and the explicit leaf-variance formula. Exact exhaustive rooted ordered tree enumeration through n=11 confirms all five moments with 75 independent assertions. The asymptotic correlation 2/sqrt(5) follows from leading variance terms; no CLT is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Janson (2005) treats depth congruence classes and vertex counts of conditioned Galton–Watson trees including the plane-tree example; leaf-depth class covariance is not provided in its inspected theorems.",
+        "Chen–Shapiro–Yang (2005) studies the parity of the TOTAL number of leaves; that event is not the signed depth-parity sum of leaves."
+      ],
+      "reasoning": "A joint empirical functional CLT for every tree degree and depth type could imply the linear asymptotic covariance, but the inspected primary sources do not state such a stronger result or the exact finite-n n/2 identity. The latter is not a corollary of separate congruence class limits. The exact variance is also supplied independently.",
+      "searches": [
+        "bivariate depth parity leaves and vertices in conditioned Galton Watson random tree",
+        "joint Gaussian leaf parity and vertex parity imbalance Catalan rooted trees",
+        "Janson Congruence properties depths some random trees leaves plane trees",
+        "Chen Shapiro Yang parity reversing involutions plane trees leaves depth"
+      ]
+    },
+    "checked_sources": [
+      {
+        "title": "On the bipartition numbers of random trees, II",
+        "url": "https://combinatorialpress.com/article/ars/Volume%2051/volume-51-paper-2.pdf"
+      },
+      {
+        "title": "Congruence properties of depths in some random trees",
+        "url": "https://arxiv.org/abs/math/0509471"
+      },
+      {
+        "title": "The butterfly decomposition of plane trees",
+        "url": "https://arxiv.org/abs/math/0511045"
+      },
+      {
+        "title": "Parity reversing involutions on plane trees and 2-Motzkin paths",
+        "url": "https://arxiv.org/abs/math/0503300"
+      },
+      {
+        "evidence": "The cited indexed result is for full binary trees with cherry counts, not unrestricted ordered trees with vertex imbalance.",
+        "title": "A nonzero residual cherry–leaf-parity covariance in uniform Catalan trees"
+      },
+      {
+        "evidence": "The cited indexed result concerns uniform labeled trees and unsigned leaf counts.",
+        "title": "A nonvanishing leaf–parity covariance in uniform Cayley trees"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Meir–Moon gives vertex bipartition-size analysis; it cannot yield the signed-leaf mixed moment without further marked-leaf enumerations.",
+        "Chen–Li–Shapiro implies E X=0 and E Y but not E[XY] or Var(Y).",
+        "Closest indexed result for signed leaf-depth versus cherry abundance concerns plane full BINARY trees and a different covariance; the labeled Cayley-tree leaf/vertex-parity result concerns a different model and an UNSIGNED leaf count."
+      ],
+      "reasoning": "The proved claim is a nonzero order-n covariance between signed vertex and signed leaf imbalances for UNRESTRICTED ordered rooted trees. None of the closest statements directly equals or dominates the exact mixed second moment; the marginal and model mismatch is substantive. The proof supplies the missing bivariate marking. Unseen equivalent bivariate enumeration remains a historical-priority risk.",
+      "searches": [
+        "On the bipartition numbers of random trees II full article leaf depth",
+        "The butterfly decomposition of plane trees Corollary 4.3 Proposition 4.4",
+        "Congruence properties of depths in some random trees full text",
+        "a nonzero residual cherry leaf parity covariance in uniform Catalan trees",
+        "a nonvanishing leaf parity covariance in uniform Cayley trees"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen–Li–Shapiro (2005) Corollary 4.3 and Proposition 4.4 give separate signed-vertex and signed-leaf first moments, but neither their joint mixed moments nor a bivariate second-moment formula.",
+        "Meir–Moon (1999) treats signed bipartition-size statistics for random plane trees; the signed leaf statistic is absent from its displayed enumeration statements."
+      ],
+      "reasoning": "The all-vertex imbalance is twice the root-even class size minus n; the signed leaf statistic is the even-leaf count minus the odd-leaf count. Therefore the equivalent formulation is covariance of root-even class size and even-leaf count. Both possible parameterizations were checked. Knowing both marginals or first moments does not imply their covariance. Related counts of the parity of the NUMBER of leaves are distinct from depth parity.",
+      "searches": [
+        "uniform rooted plane tree even depth minus odd depth vertex count versus even depth minus odd depth leaf count covariance n/2 correlation 2/sqrt5",
+        "random plane Catalan tree signed leaf parity signed all vertices exact bivariate variance and covariance",
+        "Chen Li Shapiro The butterfly decomposition of plane trees Proposition 4.4 signed leaves",
+        "Meir Moon On bipartition numbers random trees II plane tree"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Independent exact-rational complete enumeration for each n=3,...,11 yields E[XY]=n/2, but this is an internal check rather than an external catalogue and cannot establish historical uniqueness.",
+        "The inspected published formulae tabulate marginal means, not this covariance or the complete second leaf moment."
+      ],
+      "reasoning": "An existing database or a published table of bivariate depth-parity enumerations might subsume these coefficients; searches and inspected primary full text did not locate one. The exact coefficients are not re-presented as a database discovery. No novelty inference is made solely from search silence.",
+      "searches": [
+        "random plane trees covariance parity imbalance even odd depth leaves and all vertices exact correlation",
+        "uniform rooted plane tree leaf depth parity vertex depth parity exact covariance",
+        "random plane tree signed leaf parity coefficient n/2 Catalan bivariate"
+      ]
+    },
+    "rationale": "The closest primary articles already give vertex-depth bipartition statistics and separate leaf/vertex parity means; these are credited. Full primary-text comparison and indexed research checks do not reveal this exact bivariate mixed moment or its nonzero limiting correlation for unrestricted plane trees. Distinct full-binary and Cayley-tree covariance results use different distributions and statistics. Priority is qualified by unseen bivariate refinements.",
+    "residual_risks": [
+      "Unfound bivariate generating-function refinements could imply the joint coefficient despite absent explicit wording.",
+      "Full-text inspection of these sources cannot prove unique historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers distribution and moments of vertex bipartition imbalance; no jointly marked depth-parity leaf moments located",
+        "evidence": "The marked bipartition statistics do not distinguish terminal vertices.",
+        "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%2051/volume-51-paper-2.pdf",
+        "material_read": "Complete 11-page article including formula and examples, pages 1–11",
+        "method": "Read page images and stated theorems",
+        "title": "On the bipartition numbers of random trees, II",
+        "trigger": "Same random plane trees and depth-parity bipartition sizes"
+      },
+      {
+        "assessment": "Depth residue statistics on vertices; the signed leaf-depth covariance is not stated",
+        "evidence": "The plane-tree example is framed in vertex depth populations, not leaf-depth mixed populations.",
+        "identifier_or_url": "https://arxiv.org/abs/math/0509471",
+        "material_read": "Full arXiv HTML, including conditioned Galton–Watson plane-tree example and main limit statements",
+        "method": "Read relevant theorem and example sections, searched full text for leaf terms",
+        "title": "Congruence properties of depths in some random trees",
+        "trigger": "General depth congruence CLTs may dominate parity limit"
+      },
+      {
+        "assessment": "Gives separate first moments; no exact n/2 cross covariance or leaf variance located",
+        "evidence": "Corollary 4.3 concerns all vertices and Proposition 4.4 concerns even/odd-depth leaves.",
+        "identifier_or_url": "https://arxiv.org/abs/math/0511045",
+        "material_read": "Complete accessible article text; specifically Corollary 4.3 and Proposition 4.4 and adjacent proofs",
+        "method": "Read lawful full text and cross-check page images",
+        "title": "The butterfly decomposition of plane trees",
+        "trigger": "Closest model and BOTH parity statistics occur in same article"
+      },
+      {
+        "assessment": "Concerns parity of the total leaf count, not sum of signed leaf depths",
+        "evidence": "Leaf-count parity and depth-of-leaf parity are distinct statistics.",
+        "identifier_or_url": "https://arxiv.org/abs/math/0503300",
+        "material_read": "Full accessible arXiv HTML and main definitions/results",
+        "method": "Read text and compare quantities",
+        "title": "Parity reversing involutions on plane trees and 2-Motzkin paths",
+        "trigger": "Potential equivalent leaf parity notion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e35cdf87-04cb-450d-9722-03dff2f1458c",
+  "value": {
+    "rationale": "The two signed imbalances are canonical measures of bipartition asymmetry on a rooted tree and of the contribution by terminal vertices. The exact order-n covariance for every size and limiting correlation 2/sqrt(5) show that the optimal affine predictor from global parity explains asymptotically exactly 4/5 of signed-leaf variance. This is a structural dependency magnitude not inferable from the separately known means, and applies to every size n>=3 rather than an arbitrary finite test.",
+    "status": "PASS"
+  }
+}
