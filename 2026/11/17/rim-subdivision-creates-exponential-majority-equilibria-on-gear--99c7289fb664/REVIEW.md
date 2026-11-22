@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The precise open-neighborhood tie-retaining update admits an explicit reversible reduction: for hub zero, the rim word has at most half ones, avoids \(101\), and uniquely determines subdivision bits by adjacent OR. A labelled-run composition proves the exact count, the four-state trace encodes exactly the same cyclic words, and an implicit Perron derivative strictly below one-half justifies exponential tail removal and the asymptotic. The packaged exhaustive graph dynamics, independent transfer enumeration, and symbolic determinant checks all succeeded. The direct checks cover \(174720\) labelled graph states over \(3\le n\le8\), while finite checks do not constitute the all-size proof.
+## correctness
 
-**Originality — PASS, subject to historical-priority risk.** Targeted searches for gear-graph majority equilibria, Jahangir majority fixed states, zero-temperature Ising metastable states, subdivision, and no-isolated-zero transfer formulas identified near but non-covering results. Agur–Fraenkel–Klein's primary full text counts fixed points of a one-dimensional majority automaton without the hub or edge subdivision. Kaaser–Mallmann-Trenn–Natale's primary preprint gives general voting-time analysis, not a graph-specific count. The inspected helm-graph theorem has a distinct graph and a different \(n^{-1/2}\)-corrected asymptotic; the fan-graph theorem concerns two-cycles. Published gear-graph parity and strong odd-coloring statements concern other rules. No queried text implies this exact all-size gear formula or its growth constant. Unindexed equivalent results remain possible, and absence in a database does not prove uniqueness.
+PASS
 
-**Mathematical value — PASS.** The gear graph is a standard natural modification of the wheel. Ordinary majority wheels have only two fixed configurations; subdividing the rim creates a nontrivial infinite family with exactly calculated exponential entropy. Unlike private-leaf helms, the zero-degree-two boundary produces a strict sub-half density and no central-limit polynomial penalty. The explicit structural characterization and enumeration distinguish the mechanism, not just a list of finite counts.
+For hub bit zero, a fixed hub imposes at most floor(n/2) rim ones. Subdivision-site degree two and original rim-site degree three force y_i=x_i∨x_(i+1) and prohibit rim pattern 101. Conversely these conditions make all sites fixed, so each allowed cyclic word corresponds to one state; color complementation gives factor two. Mark a one-run boundary among r runs and count positive one compositions and zero runs of lengths at least two to derive exactly (n/r) binom(j-1,r-1)binom(n-j-r-1,r-1). The four-state de Bruijn transfer forbids 101 and has det(I-tT)=1-(1+z)t+zt^2-zt^3. Its simple Perron root at z=1 has weighted density μ≈0.411495<1/2, hence a z*>1 exponentially bounds the tail excluded by the hub constraint, giving the claimed asymptotic. Independent bitwise graph simulation n=3..7 gave 8,18,22,44,72; polynomial determinant verified by exact SymPy, not used to replace the proof.
 
-The scope is immediate fixed states for all labelled gears of rim parameter at least three. The claim does not cover basins, temporal two-cycles or transient times. Mathematical independence and complete historical priority have not been established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact two-layer gear equilibrium bijection, labelled constrained-run sum and entropy base are not stated by the directly inspected older one-dimensional majority fixed-point paper, nor by published wheel/helm graph results whose adjacency conditions differ. There is historical-priority risk under Jahangir/Ising synonyms.
+
+## value
+
+PASS
+
+Edge subdivision of a wheel changes majority fixed-point count from the known two wheel consensus states to exponentially many, despite the global hub half-density constraint. Exact enumeration, transfer entropy and the forced OR layer quantify a motivated structural change in an accepted graph family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

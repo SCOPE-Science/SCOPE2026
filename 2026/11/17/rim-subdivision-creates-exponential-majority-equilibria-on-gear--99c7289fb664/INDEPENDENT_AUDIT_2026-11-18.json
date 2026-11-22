@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T10:08:38.373288Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For hub bit zero, a fixed hub imposes at most floor(n/2) rim ones. Subdivision-site degree two and original rim-site degree three force y_i=x_i∨x_(i+1) and prohibit rim pattern 101. Conversely these conditions make all sites fixed, so each allowed cyclic word corresponds to one state; color complementation gives factor two. Mark a one-run boundary among r runs and count positive one compositions and zero runs of lengths at least two to derive exactly (n/r) binom(j-1,r-1)binom(n-j-r-1,r-1). The four-state de Bruijn transfer forbids 101 and has det(I-tT)=1-(1+z)t+zt^2-zt^3. Its simple Perron root at z=1 has weighted density μ≈0.411495<1/2, hence a z*>1 exponentially bounds the tail excluded by the hub constraint, giving the claimed asymptotic. Independent bitwise graph simulation n=3..7 gave 8,18,22,44,72; polynomial determinant verified by exact SymPy, not used to replace the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Unsubdivided wheels have only two majority fixed points. Helm graphs add pendant leaves; gear graphs subdivide rim edges and retain spokes.",
+          "Classical general finite-graph convergence bounds determine eventual period at most two, not exact immediate fixed populations."
+        ],
+        "reasoning": "Neither an unsubdivided wheel nor a pendant-leaf helm is a superfamily theorem implying the gear sum; standard majority convergence does not imply this census.",
+        "searches": [
+          "gear graph wheel every rim edge subdivided synchronous majority rule fixed points enumeration",
+          "Resultary wheel majority two-cycle and fixed-state census",
+          "Resultary helm leaf-subdivision contrasts"
+        ]
+      },
+      "checked_sources": [
+        "actual source RESULT.md 9e274160f3559d19398982dfb955f0ece1daf6d9",
+        "actual verify_direct.py 1606d9fff57be8be88da079a55e3f495a1a77d35",
+        "actual verify_transfer.py f176dcf0d68df9436ce19da816f162e3d51e8fc4",
+        "Agur Fraenkel Klein 1988 DOI 10.1016/0012-365X(88)90005-2",
+        "Kaaser et al arXiv:1508.03519"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A 1D cycle with local rule and a gear with central hub plus forced subdivision layer differ in degree profile and counting constraints.",
+          "No transfer of a single-layer no-isolated-bit count automatically imposes the global hub ≤n/2 filter or spectral mean μ<1/2."
+        ],
+        "reasoning": "The published local forbidden-word framework is methodological precedent; deriving gear formula requires a new graph-specific elimination and filtered coefficient sum.",
+        "searches": [
+          "Agur Fraenkel Klein The number of fixed points of the majority rule (1988)",
+          "gear graph wheel every rim edge subdivided synchronous majority rule fixed points enumeration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Agur–Fraenkel–Klein count 1D cycle bit strings under local majority, forbidding singleton runs in the local neighborhood, without a hub or degree-two subdividers.",
+          "Here a fixed state is equivalent to no isolated 0 among rim bits, a one-sided global density filter and forced subdivider OR."
+        ],
+        "reasoning": "Run-language resemblance is not equivalent mathematics: the degree-three hub-rim neighborhood and hub global vote impose a different counted set and asymptotic.",
+        "searches": [
+          "gear graph wheel every rim edge subdivided synchronous majority rule fixed points enumeration",
+          "Agur Fraenkel Klein 1988 cyclic local majority fixed points",
+          "gear Jahangir zero-temperature Ising stable states"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching gear fixed-state count in inspected specialized published corpus except the assigned same-finding record.",
+          "Independent n=3..7 integer fixed states agree with exact formula, but no matching external count table inspected."
+        ],
+        "reasoning": "The infinite labelled gear count is not directly a known table entry found here. Search incompleteness remains a residual risk.",
+        "searches": [
+          "gear graph wheel every rim edge subdivided synchronous majority rule fixed points enumeration",
+          "Agur–Fraenkel–Klein 1988 fixed points enumeration",
+          "Resultary gear graph majority equilibria"
+        ]
+      },
+      "rationale": "The exact two-layer gear equilibrium bijection, labelled constrained-run sum and entropy base are not stated by the directly inspected older one-dimensional majority fixed-point paper, nor by published wheel/helm graph results whose adjacency conditions differ. There is historical-priority risk under Jahangir/Ising synonyms.",
+      "residual_risks": [
+        "Unindexed zero-temperature Ising/Jahangir graph equilibrium classifications could supply equivalent transfer enumeration",
+        "Only part of Kaaser et al full manuscript inspected, not a whole-document exclusion",
+        "Perron asymptotic requires density strictly below one-half; independently verified symbolic relation and positivity but numerical finite checks alone would be insufficient"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING two-layer gear graph with hub-density constraint; prior method of cyclic local pattern enumeration is credited.",
+          "evidence": "Paper studies one-dimensional local-majority fixed-point strings, not graphs with one degree-n hub and n inserted degree-two rim vertices.",
+          "identifier_or_url": "https://www.imbm.org/wp-content/uploads/2020/01/AFK88.pdf",
+          "material_read": "Complete eight-page author-hosted PDF; pages 1–8 inspected as document images, including enumeration, local cyclic majority conditions and stated asymptotics.",
+          "method": "Full primary PDF page-image reading",
+          "title": "The number of fixed points of the majority rule",
+          "trigger": "Same majority-rule fixed configurations and forbidden runs"
+        },
+        {
+          "assessment": "General voting time, not an inspected exact gear equilibrium formula; whole-document exclusion not asserted.",
+          "evidence": "Theorem scope concerns time-to-convergence upper bounds rather than precise size-by-size labelled gear fixed populations.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.03519",
+          "material_read": "Abstract and selected scope text; not complete full primary manuscript.",
+          "method": "Preprint abstract and Resultary/source citations",
+          "title": "On the Voting Time of the Deterministic Majority Process",
+          "trigger": "General majority convergence possibly dominating specific model"
+        },
+        {
+          "assessment": "Wheel is unsubdivided, only two fixed states; no gear count implication.",
+          "evidence": "Distinct degree-two subdividers are responsible for new OR constraints.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-two-cycle-census-for-synchronous-majority-on-wheel-graphs--f71bdb07e974",
+          "material_read": "Published title and semantic result summary; not full text.",
+          "method": "Resultary semantic search",
+          "title": "Exact two-cycle census for synchronous majority on wheel graphs",
+          "trigger": "Close graph family, same update"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Edge subdivision of a wheel changes majority fixed-point count from the known two wheel consensus states to exponentially many, despite the global hub half-density constraint. Exact enumeration, transfer entropy and the forced OR layer quantify a motivated structural change in an accepted graph family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Immediate fixed states only; n>=3, labelled bits, open-neighbor synchronous strict-majority with tie retention; no basins, times or primitive oscillators."
+  ],
+  "schema_version": 1
+}
