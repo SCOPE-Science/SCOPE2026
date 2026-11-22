@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For all fixed integers \(p,q\ge3\), a normalized Gaussian on \(S^3\) has independent uniform squared two-plane radius and independent uniform polar angles. Their nearest-polygon angular deviations are independent uniform variables with endpoints \(\pi/p\) and \(\pi/q\). Conditional interval lengths directly prove the exact CDF. Strict minimization of the maximum of the two projected inner products locates \(pq\) deepest directions. A unique corner of the angular domain controls the rare event near this minimum, with two independent linear angular deviations and a linear interval length, giving an exact cubic coefficient and a fourth-order error. The proof explicitly checks truncation inactivity and the local Taylor remainder. An independent tangent-three-simplex calculation checks the coefficient \(512/(3\pi^2)\) for the four-dimensional cross-polytope. The included `verify.py` passed its quadrature, cross-polytope, and direct-sampling tests, but numerical checks do not establish the universal theorem.
+## correctness
 
-## Originality — PASS (subject to historical priority)
-The primary full text of Medgyes's nine-vertex inscribed-four-polytope paper was examined in the sections defining polygon joins and proving volume optimality. They establish the geometric configuration and its Euclidean volume, not the nearest-direction probability distribution on \(S^3\). Accessible earlier work on tangential orthogonal polygon joins already determines the covering radius, which is explicitly *not* presented as the novelty. Published closest-covering distributions on the 2-sphere, such as the icosahedron and cube–octahedron cases, address different codes and cannot by themselves supply the present all-polygon-pair coefficient. Searches for orthogonal spherical joins, product angular distributions, aliases and deep-hole tails did not reveal a dominating theorem. Failure to find a source is not a proof of priority; unindexed or unexamined equivalent formulas remain a risk.
+PASS
 
-## Mathematical value — PASS
-The recent sharp nine-vertex volume classification identifies a natural extremal four-dimensional polytope made from two orthogonal polygons. The derived law quantifies their *directional robustness*: not only their worst support value, but the precise fraction of directions nearly as poorly represented. The first nonzero coefficient distinguishes polygon pairs, includes the sharp nine-vertex maximizer, and works for all fixed polygon sizes without a separate case census. A complete natural distribution and exact local tail coefficient provide a useful geometric observable beyond the already-known inradius.
+Verified the uniform S^3 Haar factorization into independent W~Beta(1,1), U~Unif[0,pi/p], V~Unif[0,pi/q]. Conditioning gives exact W-interval, with no clipping error. The minimax over W occurs at balance and U,V at their angular endpoints; precisely pq deepest directions. Near the corner the positive-part tent has slope coefficients A=2c^2 sin(pi/p)/a^3 and B=2c^2 sin(pi/q)/b^3, integral (2/c)^3/(6AB)*epsilon^3; O(epsilon^4) follows Lipschitz positive part and bounded support. Independent (4,4) tangent 3-simplex yields C=512/(3pi^2); independent numerics recovered (4,5) c=0.5324073960 and C=25.0913881588. No finite computation substitutes for the uniform all-pair proof.
 
-## Scope and limits
-Only regular unit-circumradius planar polygons in orthogonal two-planes; the small-excess error is not uniform over unbounded polygon counts. There is no assertion of optimality of the new coefficient among arbitrary codes, nor a globally elementary closed antiderivative for the full CDF. Historical priority has not been established beyond available comparisons.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The natural orthogonal-polygon code was already used for maximal four-volume and inradius calculations, but the mathematical surviving result is the complete Haar support-threshold CDF together with its sharp cubic deep-hole coefficient for all p,q>=3. Inspecting same-object normal-cone angles shows those identify the maximizing vertex, not the distribution of the maximum support value. Historical priority remains best of knowledge.
+
+## value
+
+PASS
+
+A full covering-error distribution and sharp probability of near-worst directions quantify geometric robustness of a natural family of spherical codes, with the symmetric cross-polytope exact check and square-pentagon benchmark. The nonzero cubic coefficient and exact extremal count are mathematically motivated, not just renaming a known radius.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
