@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For every n>=2, arcs are threshold comparisons of independent send/receive uniforms. Reciprocal-pair moments follow from a symmetric two-sample kernel and the exact shared-endpoint covariance 7/144. The sink–reciprocity covariance integrates distinct and incident pairs; sink–source covariance integrates their unique shared comparison. The four marginal endpoint point processes converge jointly to independent Poisson processes, and the self-comparison omission has probability <=1/(n+1) per count. The Hoeffding first projection is U_i(1-W_i), with degenerate residual variance O(n^2); a joint Laplace–Fourier expansion makes its Gaussian limit independent of the four endpoint processes. All proof steps are in RESULT.md. A checker independently enumerates all 2n! rank orders for n=2,3,4 and tests 1221 exact assertions. No finite experiment is treated as proof of an infinite claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hoeffding 1948 covers asymptotic Gaussian U-statistics under a nondegenerate first projection.",
+        "Reilly et al. Theorem 19 is a CLT for the total directed-arc count.",
+        "Reilly et al. Proposition 24 is only the simultaneous zero-zero probability of the two exceptional degree classes."
+      ],
+      "reasoning": "A general U-statistic CLT implies the normal marginal once the reciprocal kernel is identified, but does not yield the exact finite S–R, T–R or S–T covariances, nor by itself their joint independence from the two endpoint counts. The 2014 arc-count CLT cannot be substituted for reciprocity because a directed arc and a bidirectional dyad are different kernels.",
+      "searches": [
+        "Random threshold directed graph joint geometric source sink counts and Gaussian reciprocity asymptotic independence",
+        "Gaussian Poisson joint decoupling for threshold graph directed mutual edges and sinks",
+        "https://doi.org/10.1214/aoms/1177730196 (Hoeffding 1948, general U-statistic CLT)"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.37236/4050",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v21i2p48/pdf/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC4597423/",
+      "https://doi.org/10.1214/aoms/1177730196",
+      "Published claim summaries on reciprocity and indegree deficiency in fixed-outdegree digraphs; these were compared only through available titles and summaries."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 22 and Corollary 23: one-dimensional geometric sink limit.",
+        "Proposition 24: probability of no sources and no sinks tends to 1/4.",
+        "Theorem 19: Gaussian fluctuations of total arcs.",
+        "New claim derives exact covariances and a triple distribution with mutually independent limits, proved by separate integrals, Poisson endpoint processes and Hoeffding projection."
+      ],
+      "reasoning": "Two marginals and one joint atom do not imply joint distributional independence. An arc-count CLT is not a reciprocal-pair CLT. The exact cross-covariances are not implied by these cited results as stated. While general endpoint-rank and U-statistic theory supplies tools, the present finite formulas and model-specific joint assertion need additional deductions.",
+      "searches": [
+        "Random threshold digraph reciprocity mutual dyads two-cycles reciprocal edges covariance with isolated source or sink counts",
+        "Random threshold directed graph joint geometric source sink counts and Gaussian reciprocity asymptotic independence",
+        "Random threshold digraph reciprocal pairs count variance CLT finite covariance no outdegree vertices",
+        "Reilly Scheinerman Zhang random threshold digraph joint limiting source sink count geometric reciprocity mutual arc pairs",
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v21i2p48/pdf/ (full-text comparisons)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Reilly–Scheinerman–Zhang, Random Threshold Digraphs, 2014, DOI 10.37236/4050, full text §§4.1–4.3 (Theorem 19, Propositions 22,24, Corollary 23).",
+        "The primary paper uses the equivalent interleaved 2n-symbol order representation, under which the full joint statistic could alternatively be formulated.",
+        "The located records for reciprocal dyads concern distinct random digraph sampling distributions."
+      ],
+      "reasoning": "Reparameterizing via W=1−V makes this the interleaved-rank threshold digraph, not an independent-arc or fixed-outdegree graph. No examined theorem gives its reciprocal-pair covariance with sink/source counts or the full Gaussian–geometric triple; the one-dimensional sink law is explicitly credited.",
+      "searches": [
+        "Random threshold digraph reciprocity mutual dyads two-cycles reciprocal edges covariance with isolated source or sink counts",
+        "Reilly Scheinerman Zhang random threshold digraph joint limiting source sink count geometric reciprocity mutual arc pairs",
+        "https://doi.org/10.37236/4050 (PDF searched for reciprocity; sections 4.1–4.3 inspected)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary paper gives exact univariate sink probabilities and a formula for P(S=0,T=0), not exact covariance with mutual dyads.",
+        "The located published summaries of reciprocal motifs concern different random digraph models."
+      ],
+      "reasoning": "Neither the inspected exact sink distribution nor its simultaneous-zero calculation specifies the joint law at all nonzero counts or the reciprocal-dyad cross-moments. These are not entries of an identified table of the claimed observable.",
+      "searches": [
+        "Random threshold digraph reciprocal pairs count variance CLT finite covariance no outdegree vertices",
+        "Ferrers random directed graph reciprocal dyads source sink negative covariance exact",
+        "https://doi.org/10.37236/4050 (Propositions 22 and 24, all tabulated exact probabilities checked)"
+      ]
+    },
+    "rationale": "The 2014 primary work supplies exact univariate geometric limits, a single simultaneous-zero probability, and a CLT for a different count (directed arcs); it does not state the full triple joint limit or the model-specific three cross-covariances. Other retrieved reciprocal-motif records use fixed-outdegree or independent-arc digraphs, not independent send/receive threshold weights. Direct comparison of claims, not title matching, found no implication of the complete statement. Generic U-statistic theory covers the Gaussian method but not the finite formulas. Historical priority is not independently certified.",
+    "residual_risks": [
+      "Search is not an exhaustive priority certification; a different name for reciprocity or Ferrers-digraph statistics might be missed.",
+      "General extreme-statistic/central-statistic independence theorems could subsume the limiting independence proof, but they do not by themselves supply the new finite covariance identities.",
+      "The general 1948 U-statistic theorem was compared through abstract/bibliographic material, not complete source inspection.",
+      "Distinct random digraph motif findings with similar covariance language are not proofs for the threshold-weight model."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_MODEL_NOT_COVERING_FULL_CLAIM",
+        "evidence": "Theorem 19 is arc-count CLT; Proposition 22/Corollary 23 give marginal sink distribution; Proposition 24 gives joint zero-zero probability. No reciprocity variable or its mixed moments was found in relevant material.",
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v21i2p48/pdf/",
+        "material_read": "PDF introduction and result overview; Theorem 19 and Proposition 20; §§4.1–4.3 including Propositions 22 and 24, Corollary 23; portions of final structural sections; full-text search for reciprocal terminology.",
+        "method": "Primary OA PDF text extraction, page images for pages 4, 19 and 20, and comparisons of exact propositions.",
+        "title": "Random Threshold Digraphs",
+        "trigger": "Identical random graph model and possibly dominating the new claim."
+      },
+      {
+        "assessment": "STRUCTURAL_CHARACTERIZATION_NOT_SAMPLING_STATISTICS",
+        "evidence": "Equivalence of forbidden configurations and degree-sequence realization, without the independent-weight random model or its reciprocity/sink statistics.",
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4597423/",
+        "material_read": "Full abstract, introduction, and structural characterization statement and its proof outline.",
+        "method": "Open-access publisher-hosted full text (PMC).",
+        "title": "Threshold Digraphs",
+        "trigger": "Plausible equivalent characterization of threshold digraphs."
+      },
+      {
+        "assessment": "GENERAL_METHOD_ONLY_PARTIAL_IMPLICATION",
+        "evidence": "Classical nondegenerate U-statistics CLT explains one normal marginal, but not the specific exact cross-covariances or independence from threshold boundary counts.",
+        "identifier_or_url": "https://doi.org/10.1214/aoms/1177730196",
+        "material_read": "Bibliographic details and abstract describing U-statistics and their asymptotic normality; not full text.",
+        "method": "Index/abstract search and indirect primary citation in Reilly et al. §4.1.",
+        "title": "A Class of Statistics with Asymptotically Normal Distribution",
+        "trigger": "Possible general theorem dominating the Gaussian projection part."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "77949214-70b6-4f95-b3e6-c3c8f32628a1",
+  "value": {
+    "rationale": "The canonical threshold-digraph model already has its one-sided zero-degree and global arc statistics studied. Reciprocal pairs quantify bidirectional relationships rather than total arc density, so their dependence on source/sink obstructions is a natural missing observable. Three explicit exact covariance signs quantify finite network dependence, while the full independent geometric–geometric–Gaussian limit identifies how boundary-degree effects decouple from bulk reciprocity. This gives a substantively motivated joint network-statistic law, not a minor reparameterization of the known marginal source/sink results.",
+    "status": "PASS"
+  }
+}
