@@ -1,15 +1,21 @@
-# Self-review: bistar edge-diamond vertex-radius theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-An exposing vector with strictly increasing absolute coordinate magnitudes along any tree orientation yields every signed indegree vector as a unique polytope vertex. The leaf-deletion argument makes the orientation-to-indegree map injective, and every vertex admits a generic exposing vector, so the list is exhaustive. Exact grouping of pendant-edge orientations and the bridge direction gives the factorized radial enumerator; its evaluations at one and its leading terms give the vertex count, radius and complete contact multiplicities. Central symmetry and the strict convexity of squared distance establish the unique enclosing sphere and all diametral pairs. The independent endpoint-sum enumeration in `verify.py` passed 3,535 exact assertions for nine finite instances. The proof, rather than these instances, establishes all positive integer parameters.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-Dai et al. (2026, arXiv:2608.16037v2), especially the definitions, Section 3, Section 4 and Problem 5.4, treat the broad cross-polytope Minkowski family and lattice/Ehrhart invariants, explicitly raising face enumeration; they do not give the present Euclidean vertex-shell/outer-contact classification. Two closest published results on edge-diamond sums were compared in full: one classifies cycle graphs and the other complete-multipartite graphs. Neither implies the diameter-three bistar family. Borsik–Madarasi (arXiv:2509.06182) address separable convex optimization of indegrees, with accessible abstract-level comparison but without complete-text examination. Actual research-record and literature queries checked variants under edge diamonds, signed graph orientation, bistar and Minkowski-sum terminology. An unindexed equivalent statement in orientation-counting literature cannot be excluded; the result is not independently priority-certified.
+PASS
 
-## Mathematical value — PASS
-The first face number for a two-parameter graph-incidence family is a natural response to the motivating paper's explicit face-vector question, and the bistar is the smallest tree shape with two branching centers. The complete radial enumerator refines this count into meaningful Euclidean strata, while the exact contact transition reveals a discrete change in outer geometry even though all examples have identical local edge-diamond constituents. The result is a complete classification for all positive bistar parameters rather than a small numerical case or an arbitrary slice. It does not purport to solve the full general-graph face-vector problem.
+PASS: For a generic exposing functional on a tree-edge diamond sum, each summand chooses the endpoint with larger coordinate absolute value and its sign, inducing an acyclic orientation. Conversely any tree orientation is realizable by increasing positive weights along its directed edges, and its signed positive-indegree vector is uniquely exposed. Leaf peeling recovers the orientation from its unsigned indegrees, so the enumeration is bijective, without overcounting. Splitting by the bridge direction and t,s incoming leaf edges gives squared norm p+q−t−s+(t+epsilon)^2+(s+1−epsilon)^2, sign multiplicity 2^(p+q−t−s+1_{t+epsilon>0}+1_{s+1−epsilon>0}), producing F=A_p,1 A_q,0+A_p,0 A_q,1. At z=1 counts yield 8·3^(p+q)−2^(q+1)3^p−2^(p+1)3^q. Strict convexity of m−t+(t+delta)^2 locates outer endpoints; the ties at m=1 and p=q give contact counts 16,8,4 in their stated cases and R²=p²+q²+2max(p,q)+1. Central symmetry guarantees unique origin minimum ball and opposite-contact diameters. Independent finite direct orientation/endpoint sums for (1,1),(2,2),(2,3) reproduce 48/504/1584 vertices, R²=5/13/20 and contacts16/8/4.
 
-## Limitations and closest literature
-The formulas require one unit diamond per edge and Euclidean orthonormal embedding. The main historical risks are unindexed equivalent graph-orientation enumerators and the uninspected complete text of the indegree-optimization paper. Numerical or finite tests are corroborative only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified): Dai et al introduce the general diamond Minkowski-sum object and enumerate different invariants; prior cycle and complete multipartite special families have Euclidean shell/contact theorems but neither contains a bistar with two nonempty leaf classes. This specific factorized signed-indegree count and sharp bistar contact transitions were not found. Full primary Dai text was not recovered and is a documented residual risk.
+
+## value
+
+PASS
+
+PASS: A complete vertex-radius spectrum and contact transition for the smallest nonstar tree class are natural exact convex-geometric invariants, answering a basic face-number question while revealing balance/singleton changes in outer contacts. Its two-parameter factorization is useful without needing a downstream general-tree theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
