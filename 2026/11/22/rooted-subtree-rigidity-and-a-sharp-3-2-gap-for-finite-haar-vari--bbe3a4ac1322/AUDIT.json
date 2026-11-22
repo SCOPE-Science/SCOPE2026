@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "The Haar basis is orthonormal. Ancestor-closed masks span precisely contiguous dyadic-block constants, and the averaging projector contracts path variation by decomposition into unit steps; nonempty such masks attain norm one at a leaf boundary. If a retained interval has an unretained parent, a step at its midpoint has projection values c-1/2, c+1/2 on its halves and c on the sibling, after any selected ancestor contributions; the two distinct neighboring differences sum to 3/2. A single root-child coefficient has exact induced norm (3/sqrt(L))*(sqrt(L)/2)=3/2. The standalone exact-integer checker exhaustively confirms masks through depth four, but the proof is valid for all depths independently of those finite computations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bechler et al. 2004 preprint, Theorem 1.1 and Section 7.1: https://people.math.sc.edu/devore/publications/BV3.pdf",
+        "Cohen et al. 1999, equation (2.11) on dyadic averaging: https://people.math.sc.edu/pencho/Publications/BV9707.pdf",
+        "Wojtaszczyk 2003 published abstract identifies higher-dimensional BV averaging projections: https://doi.org/10.1112/S0024611503014084"
+      ],
+      "reasoning": "The higher-dimensional boundedness results are not sharp one-dimensional maskwise contraction criteria. Two-dimensional dyadic averaging contraction specializes in spirit to the sufficient direction but cannot imply the asserted necessary direction for arbitrary retained children. The inaccessible full Wojtaszczyk text is explicitly treated as a risk.",
+      "searches": [
+        "orthogonal Haar projections total variation bounded variation monotone interval partition wavelet subset stability 3/2",
+        "Projections and Non-Linear Approximation in the Space BV pdf Haar boundedness",
+        "Greedy wavelet projections bounded BV 2006 Haar one dimensional not general"
+      ]
+    },
+    "checked_sources": [
+      "Reconstruction of Wavelet Coefficients Using Total Variation Minimization — https://doi.org/10.1137/S1064827501397792",
+      "On the Equivalence of Soft Wavelet Shrinkage, Total Variation Diffusion, Total Variation Regularization, and SIDEs — https://www.mia.uni-saarland.de/Publications/steidl-pp94.pdf",
+      "Greedy Wavelet Projections Are Bounded on BV — https://people.math.sc.edu/devore/publications/BV3.pdf",
+      "An Exact Tree Projection Algorithm for Wavelets — https://arxiv.org/abs/1304.4570",
+      "Nonlinear Approximation and the Space BV(R^2) — https://people.math.sc.edu/pencho/Publications/BV9707.pdf",
+      "Projections and Non-Linear Approximation in the Space BV(R^d) — https://doi.org/10.1112/S0024611503014084"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Durand–Froment 2003, equations (1.7) and later constrained-TV algorithm: https://doi.org/10.1137/S1064827501397792",
+        "Bechler et al. 2004 preprint, Section 7.1 one-dimensional greedy counterexample: https://people.math.sc.edu/devore/publications/BV3.pdf",
+        "Cartis–Thompson 2013, Section I exact tree-approximation objective: https://arxiv.org/abs/1304.4570"
+      ],
+      "reasoning": "A recovery algorithm minimizing TV after retaining coefficients does not bound the original orthogonal mask projector. Unbounded growth from a specially chosen non-tree sequence does not supply the universal 3/2 gap or an iff stability law for all finite masks. The Euclidean tree projection algorithm does not impose an adjacent-variation norm constraint. Thus the new finite one-dimensional statement is not a corollary of the compared claims.",
+      "searches": [
+        "wavelet thresholding Haar pseudo Gibbs non hereditary tree total variation nonexpansive theorem",
+        "Haar wavelet partial sum tree BV norm 3/2 adjacent difference",
+        "Haar coefficient projection bounded variation hereditary tree admissible subsets projection stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Haar detail selection is a diagonal {0,1} multiplier in dyadic martingale differences; a rooted selection is an orthogonal projection onto constants on a dyadic interval partition.",
+        "Steidl et al. 2003/2004 describe multiscale Haar shrinkage rather than maskwise BV operator norms: https://www.mia.uni-saarland.de/Publications/steidl-pp94.pdf",
+        "Cartis–Thompson 2013 describes tree-sparse Euclidean selection: https://arxiv.org/abs/1304.4570"
+      ],
+      "reasoning": "The equivalent martingale-multiplier and dyadic-partition formulations were searched. Averaging explains sufficiency; no inspected source states that every missing parent forces gain at least 3/2 in the finite path-variation seminorm.",
+      "searches": [
+        "Sharp total variation norm of Haar wavelet coordinate subset orthogonal projection, dyadic martingale difference unconditionality, ancestral hereditary mask conditional expectation; 3/2 lower bound for non-tree wavelet selection",
+        "Haar arbitrary subset coordinate projection on discrete BV contraction iff ancestor closed dyadic partitions; isolated child without parent gives 3/2 step variation",
+        "Haar wavelet projections total variation diminishing arbitrary subsets rooted tree coefficients dyadic filters"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Prior technical claim 8271a7c1-10ab-4bc2-9313-9caf78e635cd concerns the global two-input finite-Haar soft-threshold Lipschitz coefficient, not the exact contractivity class of every fixed mask.",
+        "Prior technical claim b74da966-563f-4885-b30f-ab5de17573e4 concerns Haar sign reflection, not {0,1} orthogonal projection masks.",
+        "Published mathematical-record searches returned related endpoint Haar unconditionality and dyadic-tree results in different norms rather than the maskwise BV dichotomy."
+      ],
+      "reasoning": "Compared the implications of local prior claims (including a maximization over all active Haar masks), published records, and source papers. A maximum over masks and its logarithmic depth growth do not classify which individual masks contract or prove a uniform gap for all non-ancestral masks.",
+      "searches": [
+        "Exact nine-state computation and logarithmic path-variation instability of finite Haar soft thresholding, fixed mask spectral projections dyadic rooted tree BV nonexpansivity 3/2",
+        "Haar arbitrary subset coordinate projection on discrete BV contraction iff ancestor closed dyadic partitions; isolated child without parent gives 3/2 step variation"
+      ]
+    },
+    "rationale": "Accessible primary literature treats TV-minimizing reconstruction, nonlinear shrinkage/diffusion, Euclidean optimal tree selection, and higher-dimensional Haar BV bounds; it does not assert the exact maskwise dichotomy and sharp 3/2 separation on one-dimensional paths. Related known one-dimensional Haar shrinkage global norm estimates do not logically determine which fixed masks have norm one. Priority is best-knowledge subject to uninspected historical sources.",
+    "residual_risks": [
+      "Less-indexed earlier one-dimensional wavelet/image-processing texts could already contain an equivalent combinatorial mask criterion.",
+      "Full text of Wojtaszczyk (2003) was not accessible despite open-source and authorized institutional retrieval attempts.",
+      "The preceding literature assessment is not independent mathematical or bibliographic validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the fixed-mask variation-seminorm classification: retained coefficients are inputs to a subsequent minimum-variation reconstruction, not a proof that a fixed orthogonal projector is contractive exactly for ancestral masks.",
+        "evidence": [
+          "Retained coefficients are indexed by M in introductory equation (1.7); Theorem 4.1 proves convergence of the constrained-TV minimization algorithm.",
+          "The full text specifies publication electronically April 15, 2003."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S1064827501397792",
+        "material_read": "Author-distributed article text: abstract, first section introducing retained coefficient set, and the constrained variation-minimization algorithm and convergence statements.",
+        "method": "Full-text HTML rendering supplied by an author-uploaded research page, with published-paper metadata cross-checked at the publisher.",
+        "title": "Reconstruction of Wavelet Coefficients Using Total Variation Minimization",
+        "trigger": "The early BV-related wavelet study uses orthogonal retained-coefficient masks and motivates replacing pseudo-Gibbs reconstructions."
+      },
+      {
+        "assessment": "Examines nonlinear shrinkage/diffusion, including cycle-spun schemes; does not provide an iff classification for arbitrary fixed one-dimensional Haar masks or a sharp gap for a missing ancestor.",
+        "evidence": [
+          "Section 4 analyzes single-scale shift invariance; Section 5 analyzes standard and shift-invariant multiscale soft shrinkage and threshold scaling.",
+          "Submitted preprint 94 August 29, 2003, revised from an earlier February 2003 report."
+        ],
+        "identifier_or_url": "https://www.mia.uni-saarland.de/Publications/steidl-pp94.pdf",
+        "material_read": "Author/university full-text preprint: abstract, introduction/related work, definitions of Haar shrinkage and Section 5 on multiscale filtering and artifacts.",
+        "method": "Opened original university PDF; inspected page image and extracted mathematical text of relevant sections.",
+        "title": "On the Equivalence of Soft Wavelet Shrinkage, Total Variation Diffusion, Total Variation Regularization, and SIDEs",
+        "trigger": "Analyzes multiscale Haar shrinkage and the total variation of reconstructed signals."
+      },
+      {
+        "assessment": "The main stability theorem applies to d>=2; Section 7.1 gives unbounded one-dimensional greedy examples, but no finite mask-by-mask norm-one criterion or sharp 3/2 gap.",
+        "evidence": [
+          "Theorem 1.1 asserts a uniform BV bound for greedy wavelet projections in d>=2.",
+          "Section 7.1 constructs a one-dimensional Haar greedy selection with variation increasing with the number of selected coefficients."
+        ],
+        "identifier_or_url": "https://people.math.sc.edu/devore/publications/BV3.pdf",
+        "material_read": "Full author preprint: introduction, Theorem 1.1, Sections 7.1 and 7.3 on one-dimensional failure and soft/hard thresholding.",
+        "method": "Opened PDF and inspected theorem and section statements in extracted full text.",
+        "title": "Greedy Wavelet Projections Are Bounded on BV",
+        "trigger": "Closest primary result on projection stability and one-dimensional failure of greedy Haar selection."
+      },
+      {
+        "assessment": "Optimizes approximation error under a tree-sparsity budget using dynamic programming, without an adjacent total-variation nonexpansivity characterization or a missing-parent lower-bound certificate.",
+        "evidence": [
+          "Section I states exact Euclidean tree-sparse approximation and O(Nk) algorithmic complexity.",
+          "Section II defines the dyadic coefficient tree."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1304.4570",
+        "material_read": "Full-text arXiv HTML, particularly introduction and Sections I–II on rooted wavelet tree sparsity and optimal Euclidean projection.",
+        "method": "Read accessible arXiv article rendering and checked first public posting of April 16, 2013.",
+        "title": "An Exact Tree Projection Algorithm for Wavelets",
+        "trigger": "Provides the exact rooted-tree wavelet-selection framework of the claim."
+      },
+      {
+        "assessment": "Contains BV contraction of dyadic averaging projections in dimension two, consistent with the ancestor-closed sufficient half, but does not imply necessity or the sharp obstruction for one-dimensional missing-parent fixed Haar masks.",
+        "evidence": [
+          "Equation (2.11) gives V(P_k f)<=V(f) for full-grid average projections.",
+          "The setting is BV on a two-dimensional domain, not the finite one-dimensional arbitrary coefficient-mask family."
+        ],
+        "identifier_or_url": "https://people.math.sc.edu/pencho/Publications/BV9707.pdf",
+        "material_read": "Full primary PDF: abstract, Section 2 statements including equations (2.9)–(2.11), and stability discussion around Section 9.",
+        "method": "Opened author-hosted full-text PDF and examined extracted displayed formulas.",
+        "title": "Nonlinear Approximation and the Space BV(R^2)",
+        "trigger": "Classical result giving contraction of certain dyadic averaging projectors, a possible broader implication for the contractive half."
+      },
+      {
+        "assessment": "The published abstract explicitly limits its stability analysis to d>1, so it does not affirm the claimed finite one-dimensional classification. The inaccessible full text remains a named priority risk rather than being declared not covering.",
+        "evidence": [
+          "Abstract identifies BV(R^d) for d>1, Haar thresholding and bounded averaging projections."
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/S0024611503014084",
+        "material_read": "Abstract, index and publication record only; the full text was not available in the accessible open sources.",
+        "method": "Searched arXiv and lawful open-access sources, then attempted authorized institutional retrieval; the required access connection was unavailable.",
+        "title": "Projections and Non-Linear Approximation in the Space BV(R^d)",
+        "trigger": "Potentially relevant analysis of BV averaging projectors and nonlinear Haar approximation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bbe3a4ac-1322-4341-99cd-307aac41511b",
+  "value": {
+    "rationale": "For every finite Haar resolution and every retained-detail mask, the theorem gives a complete exact combinatorial TVD criterion plus a uniform, attained 50% instability separation when it fails. Dyadic tree selection is a standard natural signal-reconstruction constraint, and the gap is a concrete variation design cost absent from mere Euclidean orthogonality. It identifies precisely when arbitrary wavelet coefficient deletion can introduce noncontractive path oscillation, not an artificial finite table.",
+    "status": "PASS"
+  }
+}
