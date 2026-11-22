@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-## Reproducible exact checks
+# Independent mathematical audit
 
-`python3 verify_finite.py` uses Prüfer-word tree generation and integer determinant calculations to compare every reduced frequency at vertex orders three through five, 83 signed frequencies at order six, and both all-order extremizing sign constructions through order eighteen. It also verifies the even-order vanishing root-star signs at every even order from four through eighteen.
+## correctness
 
-`g++ -O3 -std=c++17 verify_reduced_n6.cpp -o verify_n6 && ./verify_n6 6` evaluates all 1,048,576 reduced frequencies at vertex order six with integer-only subset-determinant arithmetic. The expected zero count is 514,800 and the smallest positive magnitude is 16. This reduced enumeration is exhaustive for its specified finite case because multiplying all signs in a nonroot row only changes the coefficient's sign.
+PASS
 
-## Boundaries of verification
+Weighted directed matrix-tree expansion gives each signed character as det L(s), with one signed outgoing arc per nonroot vertex. For odd n the number of trees n^(n-2) is odd, hence every coefficient odd; the constructed (n-1)-order unimodular skew sign matrix with row sums ±1 and root signs cancelling them has det 1. For even n the order n-1 is odd, and L(s) has all odd entries, so row subtraction forces 2^(n-2)|det L(s). The cyclic skew tournament matrix with all root weights +1 produces det(I-A)=2^(n-2), by product of (1-z^h)/(1-z) on the nontrivial odd roots (m=2h+1), while k=(n-2)/2 flipped root arcs yield det(D-J)=0 for n≥4. n=2 is nonsingular. Fourier diagonalization yields the stated Moore-Penrose norm. Independent integer determinant evaluation of both extremizers n=2..11 matched 1/2^(n-2) and even-order zero-star. Finite trials only corroborate the all-order determinant and root-product arguments.
 
-Neither finite computation is an infinite-dimensional certification. The symbolic divisibility, two extremizer constructions, and singularity witnesses are established in `RESULT.md`; the programs are independent reproducibility checks of specific finite cases. No external independent mathematical audit has been performed.
+## originality
+
+PASS
+
+The matrix-tree theorem and skew determinants are classical and not novel here. The new conjunction is universal exact MINIMUM NONZERO magnitude for all ordered parent-arc characters, constructive attainment in every dimension and the parity-complete inversion law; published undirected-graphic spectra and regular-matroid GCD statements do not imply it.
+
+## value
+
+PASS
+
+A naturally defined counting convolution on the entire directed-tree indicator of complete bidirected graphs has a sharp quantitative recovery norm and an exact all-order singularity dichotomy; deriving the uniform sharp extremizers is more than merely restating the matrix-tree determinant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
