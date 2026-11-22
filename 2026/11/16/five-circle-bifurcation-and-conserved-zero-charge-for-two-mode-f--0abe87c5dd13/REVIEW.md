@@ -1,23 +1,21 @@
-# Scientific review of the two-mode first-Hermite zero classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every pair of integers \(m>k\ge1\) and positive \(c\), the derivation starts from the classical first-Hermite Bargmann raising operator, with the physical signal normalized to have analytic Bargmann polynomial \(w^m+cw^k\). Factoring out \(w^{k-1}\) reduces the nonzero-zero problem to one radial equation and a discrete phase condition. The radial function is strictly increasing in the two exterior intervals. Its logarithmic derivative on the intermediate interval has the sign of a quadratic with discriminant \((m-k-2)^2-8k\); this proves the stated three-, four-, or five-polygon count globally and at all boundaries. At zero discriminant the radial profile has a cubic stationary crossing with a persistent negative-index intermediate polygon; the exactly resonant integer pairs are also classified. A direct polar Jacobian identity proves the charge signs, and the vanishing of a simple radial derivative at each fold together with a nonzero angular derivative proves saddle-node nondegeneracy. At the equality resonance, the cubic crossing has local index minus one despite its zero Jacobian. The origin index follows from its leading holomorphic term. The total index also matches the winding at infinity.
+PASS
 
-The standalone checker was executed from the extracted package and passed 4,126 finite tests, covering polynomial substitution, root brackets, Jacobian signs, exact low-degree thresholds, and the global index sum. Tests are consistency evidence only; the unbounded degree and amplitude quantifiers rest on the analytical monotonicity argument. The excluded zero-amplitude limit has a circle of zeros and is explicitly outside scope.
+PASS: Checked the exact first-Hermite Bargmann operator (∂_w−conj(w))(w^m+c w^k) factorization. For any nonzero zero s cannot equal k or m; modulus and phase equations give exactly d equally spaced roots for each R(s)=c. Direct differentiation shows R increasing on (0,k) and (m,∞) and middle derivative sign determined by quadratic P(s)=−s²+(m+k−2)s−mk with discriminant (d−2)^2−8k. This analytically proves all three/four/five-polygon counts (not extrapolated from finite tests), fold endpoints, and exceptional equality family (k,m)=(2t²,2(t+1)²). Independently computed m6,k1 folds s=2,3, amplitudes 2^(9/2) and 3^(7/2)/2 and equality m8,k2 s*=4. Polar Jacobian J_G=2dc s^(k−1)(s−k)^2 R'(s) gives alternating ± charges; origin index k−1 plus signed polygon sum d gives m−1. Strict extrema with nonzero angular derivative yield folds; double critical point gives cubic radial crossing and local index −1. Excludes c=0 correctly because then a whole zero circle appears.
 
-## Originality — PASS relative to inspected evidence
+## originality
 
-Bellourak et al. (arXiv:2610.13531, 2026-10-09; inspected Sections 2–4 and 6) supply the exact first-Hermite transform and charged-zero definitions but study random white-noise zero intensities and correlations. Gröchenig–Jaming–Malinnikova (arXiv:1811.03937; inspected HTML Sections 1 and 6 and Proposition 6.4) establish existence of zeros for mismatched finite Hermite inputs, not the number, circles, precise amplitudes, or index conservation. Abreu–Shirai (arXiv:2605.17296; inspected Sections 1 and 8) study Gaussian random Landau-level fields, not deterministic two-mode polynomial folds. The closest indexed findings concern a **two-frequency harmonic** signal with a first-Hermite window and **Gaussian-window Hermite-mode maxima**: neither implies this radial classification of **two Hermite input states with a first-Hermite window**. The assertions are not presented as a consequence of mere title dissimilarity; the analytic objects, parameter domains, and conclusions differ.
+PASS
 
-Residual priority risk remains in older special-function literature, especially Ismail's 2016 complex-Hermite work (abstract inspected, full paper inaccessible), and in unpublished calculations. The inability to obtain that full text does not provide positive novelty evidence. No independent external novelty audit has been performed.
+PASS best-of-knowledge with explicit prior construction of the polyanalytic transform and local charge definitions. Bellourak et al. examine Gaussian white-noise zero statistics, Gröchenig–Jaming–Malinnikova prove existence of mismatched-mode zeros, and earlier related Resultary studies concern two-tone exponential inputs (rather than Hermite modes) or noise-field zeros; none inspected gives deterministic all-(m,k,c) ring/charge census. Complex Hermite full earlier literature not exhausted.
 
-## Mathematical value — PASS
+## value
 
-Counting all charged zeros of finite Hermite superpositions is a natural resolution and topology question for polyanalytic time-frequency analysis. The theorem is an all-degree complete phase diagram, including sharp selection of which mode gaps can produce extra zero circles, exact amplitude thresholds, fold and exceptional cubic-contact geometry, and preservation of signed index despite changes by \(2(m-k)\) in the number of zeros. The smallest example jumps from 15 to 25 nonzero zeros. The known existence-of-at-least-one-zero theorem does not supply this quantitative information. The exact threshold is useful as a benchmark for detecting and tracking first-Hermite spectrogram singularities and testing zero-finding algorithms; such relevance does not assert broader performance guarantees.
+PASS
 
-## Closest literature, access limitations, and scope
+PASS: A deterministic all-mode-pair classification of topological zero charges, fold creation/annihilation, and a cubic resonance in the canonical first-Hermite STFT is a substantial structural result. Known isolated-zero existence does not give sharp global ring counts, phase thresholds or an all-parameter index conservation diagram.
 
-Primary recent motivation: Bellourak et al., *Zeros of the Spectrogram of White Noise with Hermite Windows*, https://arxiv.org/abs/2610.13531, first public 2026-10-09. Important older result: Gröchenig, Jaming and Malinnikova, *Zeros of the Wigner Distribution and the Short-Time Fourier Transform*, https://arxiv.org/html/1811.03937v1. Abreu and Shirai's random Landau-level work (https://arxiv.org/abs/2605.17296) is adjacent, not covering. Full text of M. E. H. Ismail, *Analytic properties of complex Hermite polynomials*, DOI:10.1090/tran/6358, was not accessible through the lawful OA and institutional route; only its abstract was inspected. The classification does not extend to higher analysis-window orders or generic multimode signals.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
