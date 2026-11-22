@@ -1,19 +1,21 @@
-# Scientific review of the pentagonal uncentered maximal-variation coefficient
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The universal inequality follows from two proved reductions: the nonlinear ball-average maximum is piecewise affine with row-stochastic averaging matrices, and each such matrix has a graph-variation operator norm exactly determined by cut indicators via discrete coarea. All five-cycle cuts reduce, under dihedral symmetry and complements, to the three representative classes. Their exact rational row-average boxes yield maxima \(8/3\), \(14/5\), and \(4\); the corresponding ratios are \(4/3\), \(7/5\), and \(1\). A standalone rational checker independently tests all \(3125\) row-choice matrices against every nontrivial cut. The pair in RESULT.md is an exact attaining pair with uniquely active averages and quotient \(7/5\). Neither numerical tolerance nor unproved extrapolation is used.
+PASS
 
-## Originality
+PASS: On the unweighted C5 each output has precisely five uncentered metric-ball rows: its singleton, three radius-one triples containing the vertex, and the whole five-vertex ball. For nonnegative input, the coordinatewise maximum is piecewise linear and every possible branch matrix is row stochastic, so an upper bound over all independent row selections is safe even for infeasible selectors. Coarea reduces each constant-preserving linear branch norm to 30 binary cut ratios; dihedral and complement symmetry leaves three cut types. Independently reconstructed all five balls at each site and enumerated 5^5=3,125 matrices times all 30 nontrivial cuts in exact fractions (93,750 cases); maximum exactly 7/5, with orbit envelopes 4/3,7/5,1. Directly checked the nonnegative pair f=(0,3,4,1,4), g=f+(0,0,1,1,0)/100 gives TV input 1/50 and output 7/250, ratio 7/5, including unique branch choices. The fixed exhaustive arithmetic covers the whole finite choice set; no inference to arbitrary cycle lengths is made.
 
-**PASS, subject to bibliographic risk.** Primary full-text comparisons include Bober–Carneiro–Hughes–Pierce (2010), Aldaz–Colzani–Pérez Lázaro (2010), Madrid (2015), and González-Riquelme–Kovač–Madrid (2026). They cover one-input graph/lattice variation, output spatial moduli, or centered maximal operators, and no inspected theorem implies the two-input uncentered pentagonal variation ratio. The closest publicly recorded result for the identical uncentered five-cycle operator determines its strong Hilbert norm, not its two-input BV seminorm. A separate sliding-window morphology theorem concerns coordinate extrema rather than extrema of averages. Relevant mathematical-record searches found no equivalent \(7/5\) claim. The possibility of older equivalent or unindexed two-input results remains, and the comparison is not proof of priority.
+## originality
 
-## Value
+PASS
 
-**PASS.** Perturbation stability differs essentially from single-signal smoothing for nonlinear operators. The five-cycle is the smallest noncomplete odd cycle and the first nontrivial pentagonal metric-ball test of that distinction. An exact, attained coefficient greater than one gives a motivated counterexample to putative two-input BV nonexpansivity and a benchmark for future stability questions on larger cycles and graph maximal averages. This is a narrow natural exact invariant with a reusable cut-and-branch proof mechanism, not an arbitrary digit or normalization test. No general-graph theorem or asymptotic law is claimed.
+PASS (best of knowledge): exact C5 uncentered two-input edge-variation coefficient is different from known one-input spatial variation, strong ℓ² graph maximal bounds, and centered max on C5. The same-day C6 claim is a distinct ball-incidence problem and supplies no formula yielding 7/5. A general two-input uncentered graph theorem could still imply the value if discovered, but no such dominating statement appears among inspected sources.
 
-## Related literature and limitations
+## value
 
-The strongest residual priority risk is an unindexed formulation of the same two-input graph-variation modulus. The result concerns real nonnegative inputs, unweighted five-cycle balls, and two-input edge variation; signed absolute-value variants, different graphs, and weighted extensions are not proved. Evidence is self-review and exact independent-of-floating-point arithmetic, not external certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: First noncomplete odd cycle is a natural smallest graph where uncentered ball averaging differs qualitatively from centered smoothing. Exact attained coefficient 7/5 is a meaningful finite cutoff/counterexample to two-input variation contraction; exhaustive 93,750-case certificate and analytic reduction make it independently usable without claiming a general graph classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

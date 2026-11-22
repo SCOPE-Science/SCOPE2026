@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the uncentered maximal averaging variation coefficient
+# Independent mathematical audit
 
-Execute `python3 check_c5_two_input_variation.py` from the directory containing this file. The script needs only the Python standard library and derives every allowed graph ball from the five-cycle metric, without a precomputed lookup file.
+## correctness
 
-Checks performed: the \(96\) rational endpoint cases for three cut orbits; all \(5^5\) independently chosen ball-averaging matrices tested against the \(30\) nontrivial cut indicators, giving \(93,750\) exact matrix/cut comparisons; strict uniqueness of the five active averaging sets for each of two explicit nonnegative inputs; exact input and output difference variations and the quotient \(7/5\).
+PASS
 
-Expected terminal marker: `ALL_C5_UNCENTERED_BV_STABILITY_CHECKS_PASSED`. The exact finite arithmetic covers the bounded table and the explicit sharpness pair. The analytic argument in RESULT.md separately supplies the coarea reduction and the piecewise-affine integration of branch bounds, so the certificate does not incorrectly extrapolate finite sampling to larger graphs. No independent external mathematical audit has been performed.
+PASS: On the unweighted C5 each output has precisely five uncentered metric-ball rows: its singleton, three radius-one triples containing the vertex, and the whole five-vertex ball. For nonnegative input, the coordinatewise maximum is piecewise linear and every possible branch matrix is row stochastic, so an upper bound over all independent row selections is safe even for infeasible selectors. Coarea reduces each constant-preserving linear branch norm to 30 binary cut ratios; dihedral and complement symmetry leaves three cut types. Independently reconstructed all five balls at each site and enumerated 5^5=3,125 matrices times all 30 nontrivial cuts in exact fractions (93,750 cases); maximum exactly 7/5, with orbit envelopes 4/3,7/5,1. Directly checked the nonnegative pair f=(0,3,4,1,4), g=f+(0,0,1,1,0)/100 gives TV input 1/50 and output 7/250, ratio 7/5, including unique branch choices. The fixed exhaustive arithmetic covers the whole finite choice set; no inference to arbitrary cycle lengths is made.
+
+## originality
+
+PASS
+
+PASS (best of knowledge): exact C5 uncentered two-input edge-variation coefficient is different from known one-input spatial variation, strong ℓ² graph maximal bounds, and centered max on C5. The same-day C6 claim is a distinct ball-incidence problem and supplies no formula yielding 7/5. A general two-input uncentered graph theorem could still imply the value if discovered, but no such dominating statement appears among inspected sources.
+
+## value
+
+PASS
+
+PASS: First noncomplete odd cycle is a natural smallest graph where uncentered ball averaging differs qualitatively from centered smoothing. Exact attained coefficient 7/5 is a meaningful finite cutoff/counterexample to two-input variation contraction; exhaustive 93,750-case certificate and analytic reduction make it independently usable without claiming a general graph classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
