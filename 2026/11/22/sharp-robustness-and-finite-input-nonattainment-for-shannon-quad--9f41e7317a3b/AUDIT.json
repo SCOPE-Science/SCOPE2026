@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For each n>=2 and positive tau,kappa, the strictly interior unique optimizer solves a differentiable Lagrange system. The positive-semidefinite weighted-centering Jacobian has cross-norm equal to its maximum signed quadratic energy. Jensen concavity within a fixed sign cut, binary mass balance and cut-cardinality balance give the exact coefficient. Equality witnesses p_i=1/(2m) and 1/(2ell) exist as outputs. The same sharp coefficient is the reciprocal exact l1 strong-convexity modulus; continuity and uniqueness of extremal probabilities exclude distinct finite-score attainment. Independent standard-library checks pass 656 exact rational assertions for n=2..8; finite tests are supplementary, not universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1805.09717 studies generalized entropy and smoothness but not the mixed optimization.",
+        "arxiv:1901.02324 §§2,3,4,8 and appendix give the broad prediction framework and qualitative smoothness.",
+        "arxiv:2108.01988 §§2,4,8 and related appendices focus on generalized/Tsallis and continuous-domain families."
+      ],
+      "reasoning": "Those broader frameworks allow defining the mixed penalty and guarantee smoothness but do not imply a numerical sharp mixed constant without an additional extremal tangent-Hessian calculation.",
+      "searches": [
+        "Fenchel Young losses optimal Lipschitz constants l infinity to l one softmax sparsemax mixed penalty",
+        "quadratic entropic regularization simplex regularized prediction Jacobian harmonic sum stability",
+        "Learning with Fenchel-Young Losses JMLR 2020 exact regularizer strong convexity Lipschitz theorem"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1805.09717",
+      "arxiv:1901.02324",
+      "arxiv:2108.01988",
+      "scientific prior identifier b6094ff6-4b5e-448c-ae06-f74291f6a1f9",
+      "scientific prior identifier c3f08b13-04de-4e29-9261-3ba6de39a97a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An earlier exact diagonal-quadratic prediction theorem (opaque scientific identifier b6094ff6-4b5e-448c-ae06-f74291f6a1f9) treats the pure quadratic penalty and finite-secant attainment.",
+        "An earlier Tsallis prediction theorem (opaque scientific identifier c3f08b13-04de-4e29-9261-3ba6de39a97a) treats the single-power family and its Shannon limit.",
+        "The new Hessian combines a reciprocal-affine probability dependence with quadratic curvature, and the proof optimizes both simultaneously; it also demonstrates finite-secant nonattainment."
+      ],
+      "reasoning": "The pure quadratic formula is recovered formally as tau tends to zero; Shannon/softmax as kappa tends to zero. Neither prior theorem has the mixed regularizer as a parameter value, and the finite-secant behavior differs from pure quadratic. Thus neither is a logically stronger covering statement. The new result is a natural extension, and its value depends on precise mixed-model calibration rather than mere relabeling.",
+      "searches": [
+        "sharp global Lipschitz constant entmax softmax sparsemax prediction maps ℓ infinity to ℓ one",
+        "exact strong convexity modulus of Shannon negative entropy plus squared Euclidean norm on probability simplex in l1 norm for odd n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The theorem is equivalent via Fenchel conjugacy to the exact strong-convexity modulus tau+kappa*n/(4*floor(n/2)*ceil(n/2)).",
+        "arxiv:1901.02324 discusses strong convexity and smooth Fenchel–Young loss, but the inspected text does not give the additive sharp modulus or odd parity.",
+        "No matching closed form was identified by the recorded queries."
+      ],
+      "reasoning": "Compared both gradient-Lipschitz and strong-convexity dual formulations, including the parity-improved zero-sum Euclidean norm embedding. Absence from search is not treated as proof of global originality.",
+      "searches": [
+        "exact strong convexity modulus of Shannon negative entropy plus squared Euclidean norm on probability simplex in l1 norm for odd n",
+        "sharp l1 strong convexity entropy plus squared euclidean norm probability simplex parity",
+        "mixed quadratic Shannon negative entropy regularizer simplex prediction map"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Scientific record searches primarily matched pure-simplex projection, entropy/diversity statistics, and general regularized-prediction results, rather than the mixed-penalty two-norm constant.",
+        "The known pure quadratic formula is not a numerical table for the mixed case."
+      ],
+      "reasoning": "Compared the mathematical objects, parameter domains, cross-norm and claimed implications. A negative database result is evidence of search scope only, not uniqueness certification.",
+      "searches": [
+        "softmax sparsemax mixed entropy quadratic regularization simplex sharp Lipschitz infinity to one 1/(temperature + curvature/dimension) odd even",
+        "entropy plus squared l2 regularizer choice map attention 2020 2022 elastic softmax",
+        "sharp global Lipschitz constant entmax softmax sparsemax prediction maps ℓ infinity to ℓ one",
+        "exact strong convexity of sum of negative entropy and squared norm on simplex"
+      ]
+    },
+    "rationale": "The inspected primary works establish the general variational and Fenchel–Young constructions, convex-dual smoothness, and Shannon/Tsallis endpoints. An accessible prior exact pure-quadratic sharp coefficient and a prior exact Tsallis coefficient provide relevant special-regime comparisons. Neither gives the exact mixed-regularizer sensitivity or finite-score nonattainment as stated; extensive scientific searches located no directly dominating formula. Existing broad convex duality makes an unindexed sharp modulus a residual priority risk.",
+    "residual_risks": [
+      "General strong-convexity inequalities for mixtures of negative Shannon entropy and Euclidean squared norm may appear in unindexed older optimization literature.",
+      "Published papers in other terminology may already imply the exact parity correction; independent literature validation has not been undertaken."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General prediction map and existence/smoothness are prior; no sharp Shannon-plus-quadratic cross-norm coefficient found in inspected material",
+        "evidence": [
+          "arxiv:1805.09717 full-text HTML around smoothness discussion and Appendix A squared norm entropies"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1805.09717v4",
+        "material_read": "Definitions, general smoothness theorem, squared-norm appendix and mathematical examples",
+        "method": "Accessible full-text HTML: relevant mathematical sections and appendices inspected; arXiv submission history separately verified",
+        "title": "Learning Classifiers with Fenchel–Young Losses: Generalized Entropies, Margins, and Algorithms",
+        "trigger": "Early general framework covering Shannon and quadratic entropy endpoints"
+      },
+      {
+        "assessment": "Covers generic smoothness and prox computations; no exact parity-sensitive strong-convexity modulus for the mixed Shannon-quadratic simplex penalty in inspected text",
+        "evidence": [
+          "arxiv:1901.02324 full text, smoothness proposition and root-finding discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1901.02324v2",
+        "material_read": "Sections 2, 3, 4 and 8, associated full-text discussions of strong convexity and prediction, and appendix links",
+        "method": "Accessible full-text HTML and targeted term navigation including Lipschitz, strongly convex, Jacobian and quadratic",
+        "title": "Learning with Fenchel–Young Losses",
+        "trigger": "Potential broader theorem subsuming sharp mixed curvature by convex conjugacy"
+      },
+      {
+        "assessment": "No explicit mixed Shannon-quadratic global cross-norm theorem in the inspected material; the work supplies conceptual context",
+        "evidence": [
+          "arxiv:2108.01988 §§2,4,8 and continuous prediction theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2108.01988v2",
+        "material_read": "Introduction, finite-domain map §2.1, examples, Tsallis §4, attention §8, relevant appendix headings and comparisons",
+        "method": "Accessible full-text HTML, table-of-contents navigation and targeted searches for Lipschitz and mixture",
+        "title": "Sparse Continuous Distributions and Fenchel–Young Losses",
+        "trigger": "Later generalized regularized prediction formulation and potential mixed-entropy coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9f41e731-7a3b-4845-87ae-e95fb00f4f13",
+  "value": {
+    "rationale": "The exact cross-norm modulus is an intrinsic robustness invariant for the natural Shannon-plus-quadratic convex probability predictor, fixing an optimal stability budget rather than merely verifying continuity. The odd-dimension sharpening rules out the ubiquitous uniform-probability guess; complete worst-case probability geometry and finite-secant nonattainment distinguish local from finite changes. This enables exact temperature/curvature calibration in the mixed regularization regime, without asserting any downstream model-performance result.",
+    "status": "PASS"
+  }
+}
