@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The exact rank-one trace identity reduces the 2d-by-2d kernel to a symmetric off-diagonal block; singular-value decomposition gives all eigenvalues. For doubly stochastic overlaps, row/column sum inequalities and the strict concavity of fractional powers establish the sign and sharp extremal bound. Connected components are square doubly stochastic blocks, whose Perron singular value at exponent one is simple. Its derivative equals negative mean component Shannon entropy. Taking a finite maximum proves the one-sided spectral slopes, nullities and near-critical inertia. The standalone diagnostic passed 2262 assertions but is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Vuong–Osaka (2026), Theorem 1.1: positive semidefinite for all triples at exponents from one-half to one, and Remark 2.4: a four-state negative example.",
+        "The 2012 paper Proposition 4 provides a Hadamard-basis counterexample, and Proposition 5 shows exponent-one positivity for arbitrary pure ensembles."
+      ],
+      "reasoning": "Those broader statements imply universal exponent-one positivity and existence of negative examples, but do not imply the positive-versus-negative classification for each pair of bases, the support-component nullity, or the two entropy slopes. The general matrix perturbation method could yield derivatives, so novelty is the combined specific complete classification, not the perturbation principle.",
+      "searches": [
+        "published-finding corpus: unistochastic matrix Hadamard entrywise powers Perron largest singular value mean Shannon entropy slope near exponent 1",
+        "Web: unitary overlap matrix Hadamard power spectral norm mutually unbiased",
+        "Vuong–Osaka arXiv:2610.11021v2, Theorem 1.1 and Remark 2.4, full HTML"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.11021v2 complete HTML, especially Section 2 and Remark 2.4",
+      "Fannes et al., Quantum Information and Computation 12 (2012), Sections 1 and 4, Proposition 4 and 5",
+      "published-finding corpus returned records: 2026/10/11/SCOPE-sharp-two-sided-comparison-of-rank-one-q-and-rho-numerical-radii--c7e02f45343e; 2026/11/8/SCOPE-sharp-sixth-moment-majorization-for-real-haar-unitary-matrix-coefficients--345a2dc9701f; 2026/10/13/SCOPE-near-minimal-frame-spread-can-coexist-with-maximal-entropy-nonid--8c9a17562d38"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2012 Proposition 4 uses a mutually unbiased pair to derive an obstruction, while its Proposition 5 proves exponent-one positivity for all pure ensembles.",
+        "Vuong–Osaka Section 2 proves three-point positivity and provides the four-state qubit example, not a general support-decomposed two-basis spectral cusp.",
+        "The current proof independently derives the block-SVD reduction, stochastic support decomposition, simple Perron branch and derivative -mean Shannon entropy."
+      ],
+      "reasoning": "Existing constructions account for the extremal Fourier example and general endpoint, and are explicitly credited. The additional claim computes for every two-basis unistochastic overlap the complete sign classification, exact zero-mode count, and min/max-component entropy asymptotics. These are not stated in the inspected sources; an older direct consequence of unistochastic perturbation theory remains possible.",
+      "searches": [
+        "Vuong–Osaka arXiv:2610.11021v2 full text, Theorem 1.1 and Remark 2.4",
+        "Fannes–de Melo–Roga–Życzkowski 2012 full text, Proposition 4 and Proposition 5",
+        "Web: Hadamard powers of doubly stochastic matrix largest singular value Shannon entropy derivative 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fannes et al. (2012), Proposition 4, already calculates the uniform mutually unbiased obstruction to positivity using two complete bases.",
+        "Vuong–Osaka (2026), Remark 2.4, already gives a special four rank-one qubit configuration."
+      ],
+      "reasoning": "The old mutually unbiased negative witness and endpoint positivity are covered, so not asserted as original. Neither inspected publication gives the full arbitrary two-basis connected-support eigenvalue and first-order entropy law. Equivalence with a classical perturbation theorem remains a bibliographic risk.",
+      "searches": [
+        "published-finding corpus: two orthonormal bases kernel absolute overlaps raised to power r less than one negative eigenvalue sharp mutually unbiased basis Hadamard matrix",
+        "published-finding corpus: Fannes de Melo Roga Zyczkowski mutually unbiased bases fractional fidelity matrix critical exponent entropy derivative",
+        "Web: two orthonormal bases fidelity matrix spectrum positivity",
+        "2012 Fannes et al., Proposition 4, equations (34)–(39), Rinton PDF pages 483–484"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned related published records on entrywise powers and numerical radii, but no direct hit for two-basis critical entropy spectra; an attempted follow-up search failed temporarily."
+      ],
+      "reasoning": "No exact table for the component entropy slopes or nullity was located; a negative search does not demonstrate unique novelty and the local search index is not exhaustive. The prior Hadamard example is already an exact tabulated family in the 2012 source.",
+      "searches": [
+        "published-finding corpus: entrywise powers absolute unitary matrices spectral norm maximum d^(1-r) complex Hadamard"
+      ]
+    },
+    "rationale": "The MUB obstruction is known from Fannes et al. (2012) and the four-qubit obstruction is known from Vuong–Osaka (2026); both are explicitly excluded from novelty. The claimed additional result is the arbitrary two-complete-basis classification including connected supports, precise zero-mode counts, and component-entropy two-sided critical slopes. Focused published-claim searches and relevant primary articles did not identify this combined claim. Risk remains of an equivalent matrix-perturbation reformulation.",
+    "residual_risks": [
+      "Earlier stochastic transfer-matrix pressure or unistochastic perturbation results may encode the derivative -mean entropy, potentially dominating parts of the classification.",
+      "published-finding corpus and bibliographic searches are incomplete; one attempted follow-up returned temporary unavailability.",
+      "The 2012 Fourier/mutually unbiased counterexample, including the explicit negative eigenvalue, is prior art and is not independently original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly covers general three-point positivity and one four-state construction; no two-basis support-graph entropy cusp in inspected text",
+        "evidence": [
+          "Theorem 1.1: positivity for triples, one-half ≤ r ≤ one",
+          "Remark 2.4: four qubit rays with negative eigenvalue 1−2^(1−r)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.11021v2",
+        "material_read": "Introduction, Theorems 1.1–1.2, Section 2 proof and Remark 2.4, plus references and titles for remaining sections",
+        "method": "Read accessible full HTML and first PDF page; searched the document for orthonormal bases and entropy",
+        "title": "Three-Point Trace Positivity: Schatten Norm Compression and Interpolating Metrics",
+        "trigger": "same fractional-power trace kernel, sharp positivity order"
+      },
+      {
+        "assessment": "MUB obstruction and exponent-one pure-state Gram positivity are decisively prior; arbitrary two-basis support decomposition and entropy cusp not in inspected paper",
+        "evidence": [
+          "Proposition 4 uses two Hadamard-related bases, equations (35)–(39)",
+          "Proposition 5: positive Gram matrix at exponent one for pure ensembles"
+        ],
+        "identifier_or_url": "https://www.rintonpress.com/xxqic12/qic-12-56/0472-0489.pdf",
+        "material_read": "Abstract and introduction, Section 4 with Propositions 4 and 5, and references; remaining sections not fully analyzed",
+        "method": "Read primary PDF text and rendered page 484",
+        "title": "Matrices of fidelities for ensembles of quantum states and the Holevo quantity",
+        "trigger": "earlier universal fractional fidelity threshold and mutually unbiased basis witness"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dd061a1a-c88f-45a7-9308-3e5966008aa9",
+  "value": {
+    "rationale": "The operator-algebraic trace kernel is naturally motivated by a recent sharp 3-point positivity theorem and its order-four obstruction. Classifying the entire two-basis family gives exact positivity and nullity boundaries, while the componentwise Shannon-entropy cusp determines how obstruction appears at the Hilbert–Schmidt exponent and how many negative directions emerge. These exact finite invariants distinguish reducible and mutually unbiased overlap geometries; their motivation precedes computation and does not depend on promising unproved downstream applications.",
+    "status": "PASS"
+  }
+}
