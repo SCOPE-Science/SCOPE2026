@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the core-crossing law
+# Independent mathematical audit
 
-The analytic argument is given in RESULT.md: it reduces all geodesic candidates to the nearest even and odd glide lifts, identifies the sign condition for meeting the core, integrates the explicit product density, and differentiates the resulting complete aspect-ratio law. It covers every positive width-to-core-length ratio, with equality at the branch point and limiting values established directly.
+## correctness
 
-Reproducibility: `python verify_core_crossing.py` with the versions available of NumPy and SciPy. The script uses an independent quadrature transformation to handle the integrable logarithmic endpoint, checks exact closed-form probabilities at nine aspect ratios, and samples 650000 independent endpoint pairs at each of six ratios. It enumerates the actual even and odd squared distances and classifies whether the minimizing segment crosses the core. It also compares a 10001-point monotonicity grid and exact derivative matching at the branch. The script prints `MOBIUS_CORE_CROSSING_LAW_OK 650000 6` only after all checks pass.
+PASS
 
-Limits: quadrature and Monte Carlo are finite numerical corroboration, not the proof of the all-parameter formula or the uniqueness theorem. The flat-metric classification is discussed analytically and must be distinguished from extrinsic embeddability. No independent mathematical or historical audit has been performed.
+The flat totally geodesic boundary gives an intrinsic glide-reflection strip model M_(L,h). Minimizers reduce to nearest even and odd deck lifts with normalized squared lengths E=t²+(u-v)² and O=(1-t)²+(u+v)²; the odd lift wins iff t>1/2+2uv. The normalized horizontal difference t has density 2(1-t); for q=|uv| with half-width ratio w, density is a^-1 log(a/q), a=w²/4. Conditional on the sign of uv, the two crossing probabilities sum to 1-4q for q<1/4 and vanish thereafter. Thus P=1/(2a)∫_0^min(a,1/4)(1-4q)log(a/q)dq, giving P=1/2-w²/8 at w<=1 and (4 log w+3)/(8w²) otherwise. Independent adaptive quadrature matched both branches at w=.2,.7,1,2,4 to better than 1e-11. Differentiation yields strict monotonicity and third-derivative jump 4 at w=1, hence shape determination; area=L²w fixes scale.
+
+## originality
+
+PASS
+
+Flat-band lens rigidity and pair-distance laws are prior. The area-uniform shortest-geodesic *core-intersection probability* and sharp C² crossover are distinct marked path observables. A same-day broader marked-geodesic theorem explicitly identifies this scalar as previously established in the present record, so its later broader law is not evidence that the assigned result independently duplicated it.
+
+## value
+
+PASS
+
+One easy-to-measure random-minimizer crossing probability distinguishes every intrinsic aspect ratio, with exact inverse shape determination given area and a genuine C²/C³ threshold. This is structurally richer than the known strip classification or a generic geodesic-distance moment and is not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

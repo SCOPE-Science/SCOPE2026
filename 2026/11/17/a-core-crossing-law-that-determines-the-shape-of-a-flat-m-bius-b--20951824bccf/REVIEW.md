@@ -1,19 +1,21 @@
-# Scientific review of the core-crossing law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact class of Riemannian metrics is specified: compact smooth intrinsic flat Möbius bands with totally geodesic boundary, not extrinsically embedded strips. Doubling and Euclidean covering geometry yield a rectangular glide-reflection quotient. For two uniform points, the horizontal difference divided by core length has density \(2(1-t)\), and the two potentially shortest lifts have exactly the squared distances \(t^2+(u-v)^2\) and \((1-t)^2+(u+v)^2\). Crossing the unique central geodesic is equivalent to opposite transverse signs in the chosen lift. The product of two uniform transverse coordinates has the stated logarithmic density. Integrating the resulting crossing conditional probabilities yields the two-branch formula with matching value and first two derivatives at \(w=1\). Strict negativity of the displayed derivatives proves global injectivity; fixed area then fixes both dimensions. The proof is analytic; the standalone numerical checks are corroborative only.
+PASS
 
-## Originality — PASS, with residual historical priority risk
+The flat totally geodesic boundary gives an intrinsic glide-reflection strip model M_(L,h). Minimizers reduce to nearest even and odd deck lifts with normalized squared lengths E=t²+(u-v)² and O=(1-t)²+(u+v)²; the odd lift wins iff t>1/2+2uv. The normalized horizontal difference t has density 2(1-t); for q=|uv| with half-width ratio w, density is a^-1 log(a/q), a=w²/4. Conditional on the sign of uv, the two crossing probabilities sum to 1-4q for q<1/4 and vanish thereafter. Thus P=1/(2a)∫_0^min(a,1/4)(1-4q)log(a/q)dq, giving P=1/2-w²/8 at w<=1 and (4 log w+3)/(8w²) otherwise. Independent adaptive quadrature matched both branches at w=.2,.7,1,2,4 to better than 1e-11. Differentiation yields strict monotonicity and third-derivative jump 4 at w=1, hence shape determination; area=L²w fixes scale.
 
-Croke and Herreros, arXiv:1108.4938v1, study lens rigidity of the flat Möbius strip and cylinder. Their main theorems reconstruct geometry from lens data, not from the single area-uniform core-crossing probability. Naokawa, arXiv:1011.2806v1, studies singularities of developable embedded Möbius strips, a different observable. Florit and Ziller, arXiv:1705.04208v2, analyze flat twisted cylinders with totally geodesic boundary but do not derive random minimizing-geodesic core intersections. Previous exact formulas for the *marginal distance law* of random points in a flat Möbius quotient are closer mathematically; nevertheless a distance marginal does not record which minimizing geodesic intersects the core. The central crossing probability and the strict inverse-shape consequence are the claim being reviewed, not the standard quotient model, its metric distance formula, or the underlying manifold classification. Semantic and exact-phrase searches did not identify this complete claim. An unindexed older path-incidence result remains possible; lack of a search hit is not itself proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The central closed geodesic is a canonical feature of a flat Möbius band, while its area-uniform minimizing-path intersection probability is a natural geometric experiment. The theorem determines that probability for the entire scale-free class, proves that one probability identifies the band shape, and finds a sharp regularity transition at width equal to core length. This is a geodesic-incidence statistic, not merely another marginal distance moment or an arbitrary numerical slice; the inverse theorem gives it a specific mathematical use. The crossing probability ranges over all of \((0,1/2)\) and is strictly monotone.
+Flat-band lens rigidity and pair-distance laws are prior. The area-uniform shortest-geodesic *core-intersection probability* and sharp C² crossover are distinct marked path observables. A same-day broader marked-geodesic theorem explicitly identifies this scalar as previously established in the present record, so its later broader law is not evidence that the assigned result independently duplicated it.
 
-## Limitations and priority risks
+## value
 
-Geodesic boundary is essential to the rectangular flat-strip classification. Tied minimizing paths comprise a zero-measure exceptional set; no deterministic tie convention is necessary. The result is not an extrinsic Euclidean embedding theorem, nor a result for arbitrary curved Möbius strips. Unpublished and unindexed historical work on random minimizing-path intersections could affect priority. Simulations do not certify the general analytic formula, which instead follows from the displayed integral.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+One easy-to-measure random-minimizer crossing probability distinguishes every intrinsic aspect ratio, with exact inverse shape determination given area and a genuine C²/C³ threshold. This is structurally richer than the known strip classification or a generic geodesic-distance moment and is not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
