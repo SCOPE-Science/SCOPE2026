@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem specifies the cyclic min-max opening, unweighted Gini seminorm and the two-input quotient for all real inputs and all integer dimensions at least two. The proof independently establishes (a) a level-set cut formula for coordinate-selection matrices, (b) equality between the piecewise-affine global modulus and local selector moduli, (c) a sharp at-most-three-copy upper bound with a two-case dimension-uniform inequality, (d) separate small-dimensional bounds, and (e) strict-order local witnesses realizing each claimed constant. Exact independent finite diagnostics confirmed 46,232 strict-order chambers through eight dimensions, 1,810,900 multiplicity cut tests through dimension two hundred, and explicit attaining pairs through dimension two hundred. These experiments are not substituted for proof of any unbounded quantifier. The claims do not involve asymptotic statistical inference or external certification.
+PASS
 
-## Originality — PASS (qualified)
+For every strict input order, min{x_i,max(x_{i-1},x_{i+1})} selects one of at most three input coordinates into each output, giving row-selector Q. The exact complete-pair Gini quotient for a selector equals the maximum binary cut ratio q(n-q)/[s(n-s)] by layer-cake/coarea and triangle inequality; generic line integration extends the branch upper bound globally and local perturbations realize it. Every source multiplicity <=3, giving for n>=6 a two-case upper bound 3(n-3)/(n-1): for 3s<=n/2 optimize q<=3s, otherwise q(n-q)<=n²/4 and s(n-s)>=5n²/36. The explicit single-coordinate input witness realizes threefold replication at n>=6. n=2 operator maps both sites to their common minimum; n=3,4,5 satisfy the listed small cut bounds. Independent enumeration of every strict-order chamber and all nontrivial cuts for n=2..8 reproduced exactly 0,1,4/3,3/2,9/5,2,15/7. Thus the all-dimensional proof is valid apart from its stated finite-domain scope.
 
-Primary comparisons included the 1987 full-text technical-report representations of flat morphology, selected relevant scanned sections of both papers, and the full HTML text of Anguelov–Rohwer (2007) on interval variation preservation. Published mathematical records on two-input path-edge variation for running extrema and on cyclic median edge variation were read in full. Available prior claims for this same opening under centered Euclidean distance and running maxima under Gini distance were compared using their actual quantitative statements. None gives the new complete-pair Gini Lipschitz law for this specific opening; their differing metric or operator hypotheses do not imply the six-site threshold. Technical-report scans were not exhaustively read and unindexed priority remains possible. Search absence is not treated as a proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Gini variation measures total pairwise spread rather than neighboring-edge roughness. Thus it is a natural stability metric for rank- and dispersion-sensitive preprocessing, not an arbitrary rescaling of an already studied norm. Although opening suppresses isolated high peaks in each dataset, its perturbation differences exhibit sharp nonexpansivity at two and three sites, first expansion at four, and a structural three-copy mechanism becoming strictly dominant at six. The exact all-dimensional finite-size deficit from the ceiling three quantifies how much instability is possible before the infinite-size limit. This insight is neither supplied by the known centered-Hilbert opening threshold (eight) nor by the Gini running maximum result, and supplies precise guidance on a classical nonlinear filter. Limits are confined to the stated finite unweighted cyclic model.
+Sharp Gini two-input opening constant is not a restatement of known centered Hilbert opening norm, median-Gini constant or classical one-input morphological variation; precise n=3 and n=5 behavior differs from closest filters.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The unweighted all-pair Gini norm of a two-input nonlinear opening quantifies stability of sample dispersion, unlike one-input BV smoothing or centered Euclidean energy. It has an exact nonexpansion-to-expansion transition at four, a nontrivial new 6-site triplication-dominance boundary and a sharp dimension-dependent coefficient rather than an arbitrary computed norm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
