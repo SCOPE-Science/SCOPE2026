@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "PASS: For an even alphabet of size q with a fixed-point-free involution, 49 canonical four-letter states represent all possible complement-pair equality patterns. The weighted append rule is a bijective count of eligible next letters; the exact identity (T^5-qT^4+T^3-T^2+(q-2)T+(q-1)I)1=0 was checked componentwise over Z[q], and initial polynomial identities give the claimed numerator. VERIFY.py independently checks literal words, suffix dynamic programming, q=2/4/6/8 cases, and graph primitivity for q=4. This proves all lengths; finite brute force is corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chu–Wang–Zhang arXiv full text, introduction and Sections IV–V: global m-SSA forbids any two non-overlapping reverse-complement m-grams and derives optimum asymptotic rates by maximizing over generating sets.",
+        "Zhang–Wu open full text Sections 2–4: (m,k)-SSA requires avoiding loop distances >=k, with m depending logarithmically on code length and k>=4; the result is sequence-replacement code construction, not a local exact-loop count."
+      ],
+      "reasoning": "Global SSA forbidding every loop distance is strictly stronger than forbidding just loop distance one, so its capacity upper bound cannot supply an exact count of this larger language. The >=k statement of Zhang–Wu excludes distant occurrences but allows shorter loops, and is not a fixed exactly-one loop enumeration. Neither dominates the present equality statement.",
+      "searches": [
+        "minimal finite automaton state complexity Watson Crick dinucleotide DNA hairpin secondary structure with positive loop gap length",
+        "stem length two with loop size DNA secondary structure recognition automaton minimum states",
+        "arxiv:2304.11403v1",
+        "doi:10.1016/j.csbj.2023.11.035"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2304.11403v1",
+      "doi:10.1016/j.csbj.2023.11.035",
+      "PMC10749251",
+      "2026/10/18/SCOPE-rational-enumeration-and-entropy-of-locally-irreducible-reverse--0f04deff31c7",
+      "2026/11/2/SCOPE-the-cyclic-zeta-function-of-watson-crick-four-palindrome-avoidan--4df8a04f8af0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "This work: every even q>=2 and all n, the rational enumerator D_q(z)=1-qz+z²-z³+(q-2)z⁴+(q-1)z⁵, plus exact DNA growth.",
+        "Chu et al.: asymptotic capacity of global m-SSA codes, including m=2 rate 1.1679 bits/base.",
+        "Zhang–Wu: a construction for long stems and loop separations >=4.",
+        "Local duplication-irreducible record: exactly four-letter palindromic complement factors, different transfer graph and cubic recurrence."
+      ],
+      "reasoning": "No inspected prior theorem implies the new all-length local q-parametric coefficients: each concerns a different admissible language or a global asymptotic coding rate, without a stated reduction converting its counts to the fixed-one-loop counts. This is best-knowledge originality, not a mathematical uniqueness proof.",
+      "searches": [
+        "arxiv:2304.11403v1",
+        "doi:10.1016/j.csbj.2023.11.035",
+        "2026/10/18/SCOPE-rational-enumeration-and-entropy-of-locally-irreducible-reverse--0f04deff31c7",
+        "one letter loop two-base stem inverted repeats words rational generating function all alphabet sizes",
+        "local hairpin forbidden 5-mers exact rational enumerator 1-qz+z2-z3+(q-2)z4+(q-1)z5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full locally irreducible record excludes factors ab bar(b) bar(a), length four, with cubic denominator; its documented alternating-position equivalence is specifically to ordinary length-four palindromes.",
+        "Our forbidden pattern ab c bar(b) bar(a) has length five and is not converted into ordinary length-five palindromes by the same alternating-complement trick: positions separated by two and four have incompatible parity-flip requirements.",
+        "The targeted odd-pseudopalindrome and fixed-loop searches returned no formula with this exact length-five forbidden family."
+      ],
+      "reasoning": "The old four-factor and new five-factor languages are incomparable as languages, not an equivalent spelling of one another. A word of length four of form ab bar(b) bar(a) is permitted by the present length-five-only rule; the present length-five pattern can avoid the forbidden length-four set (e.g. binary 01001). No full-text exact five-factor enumerator was found; remaining implicit transfer-matrix or older pseudopalindrome derivations are an explicit priority risk.",
+      "searches": [
+        "one letter loop two-base stem inverted repeats words rational generating function all alphabet sizes",
+        "avoid reverse complement palindromes odd length 5 generating functions arbitrary alphabet involution",
+        "theta palindrome length 5 fixed point free antimorphism code capacity",
+        "2026/10/18/SCOPE-rational-enumeration-and-entropy-of-locally-irreducible-reverse--0f04deff31c7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest identified cubic denominator 1-(q-1)z-(q-2)z²-(q-1)z³ for length-four local reverse-complement palindromes; another entry concerns the cyclic zeta function for this different length-four language.",
+        "The search did not surface a table or exact generating function for the one-gap length-five factors over variable even q."
+      ],
+      "reasoning": "Neither exact recorded table is an exact table of the current a_q(n). Matching the general complement operation is insufficient: index-length, forbidden patterns, and denominators differ. No duplicate found in accessible personal ledger claims.",
+      "searches": [
+        "local hairpin forbidden 5-mers exact rational enumerator 1-qz+z2-z3+(q-2)z4+(q-1)z5",
+        "DNA hairpin stem two exactly one nucleotide loop length five avoided language capacity entropy zeta polynomial",
+        "one letter loop two-base stem inverted repeats words rational generating function all alphabet sizes",
+        "2026/11/2/SCOPE-the-cyclic-zeta-function-of-watson-crick-four-palindrome-avoidan--4df8a04f8af0"
+      ]
+    },
+    "rationale": "PASS, best knowledge: exact 49-state symbolic one-letter-loop factor enumeration is not implied by inspected global (m,k)-SSA code constructions nor by the exact, different length-four local reverse-complement palindrome enumeration. Claim-level implications and residual historical risk are detailed in four checks.",
+    "residual_risks": [
+      "Generalized pseudopalindromic word-avoidance papers not indexed or located may contain an implicit equivalent rational identity.",
+      "The closest cyclic length-four zeta result was seen at record level only; its scope does not claim the exact-five-factor linear count.",
+      "Independent literature-priority evaluation and proof checking have not been done."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Global disjoint reversed-complement stems, not exactly-one-letter local loop factor enumeration",
+        "evidence": [
+          "arxiv:2304.11403v1 lines 7–23, 90–132: global m-SSA and generating-set capacity 1.1679 at m=2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.11403",
+        "material_read": "Preprint full text: introduction, definitions, Section IV lemmas and upper-bound theorem, Section V construction/rates and conclusion",
+        "method": "Read full-text arXiv rendered text (not abstract-only)",
+        "title": "Improved constructions of secondary structure avoidance codes for DNA sequences",
+        "trigger": "Same Watson–Crick stem-avoidance objects and m=2 rate claim"
+      },
+      {
+        "assessment": "Loops of length at least k and stem length growing with input, construction not this local exact enumeration",
+        "evidence": [
+          "PMC10749251 lines 108–149 and sections on encoding: k>=4 and m>=2log2 n+2"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10749251/",
+        "material_read": "Open full-text sections 1–4, definitions 1–4, construction conditions and conclusion",
+        "method": "Read accessible PMC HTML article including mathematical (m,k)-SSA definitions",
+        "title": "On secondary structure avoidance of codes for DNA storage",
+        "trigger": "Loop-gap-aware SSA definition may cover fixed local stems"
+      },
+      {
+        "assessment": "Forbids four-factor ab bar(b) bar(a); distinct language, cubic denominator, no five-factor formula",
+        "evidence": [
+          "Full RESULT.md gives forbidden length-four family and denominator 1-(q-1)z-(q-2)z²-(q-1)z³"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-rational-enumeration-and-entropy-of-locally-irreducible-reverse--0f04deff31c7/RESULT.md",
+        "material_read": "Complete RESULT.md including proof, full rational enumerator and limitations",
+        "method": "Read repository source directly, not just semantic summary",
+        "title": "Rational enumeration and entropy of locally irreducible reverse-complement length-two words",
+        "trigger": "Closest local complement palindrome forbidden-factor enumerator"
+      },
+      {
+        "assessment": "Its explicit scope is cyclic avoidance of four-letter complement palindromes; partial access limits stronger not-covering conclusions",
+        "evidence": [
+          "published-finding corpus search record describes cyclic zeta polynomial for four-factor avoidance"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-the-cyclic-zeta-function-of-watson-crick-four-palindrome-avoidan--4df8a04f8af0",
+        "material_read": "Search-record title and scientific summary only; full text not retrieved",
+        "method": "Read result semantic record, not a full-text claim about its coverage",
+        "title": "The cyclic zeta-function of Watson–Crick four-palindrome avoidance",
+        "trigger": "Possibly broader exact counting under a complementary palindrome constraint"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5d8935ea-f221-48cc-9fb1-5aa1e230e216",
+  "value": {
+    "rationale": "PASS: The exact one-unpaired-letter stem is the first strictly positive local loop model distinct from immediate reverse-complement block adjacency. A uniform all-even-alphabet rational enumeration, a fifth-order recurrence and a DNA finite-state growth constant make the exact constraint capacity computable for every length. The mathematical benchmark aids comparison with longer-loop and global constraints. No biological efficacy or large-stem performance is asserted.",
+    "status": "PASS"
+  }
+}
