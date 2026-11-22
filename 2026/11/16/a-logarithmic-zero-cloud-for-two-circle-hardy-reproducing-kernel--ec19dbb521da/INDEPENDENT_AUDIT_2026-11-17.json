@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T02:46:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Monomial orthogonality gives norms (1+a^(n-N))/(1+a^-N) and correct unnormalized kernel. Positive coefficients c_n=(1+a^(n-N))^-1 have successive ratios c_{n-1}/c_n strictly increasing with minimum R_N=(a^N+a)/(a^N+1)>a. Enestrom-Kakeya on each finite Taylor polynomial excludes |s|<R_N; local uniform limit and Hurwitz transfer zero exclusion. In annulus a<|s|<1, H_N=s^-N F_N=sum_{j>=-N}s^j/(1+a^j) converges normally with derivatives to bilateral G_a. The classical Ramanujan 1psi1 product has numerator/denominator factors zero-free in that annulus, and net winding zero around a<|s|=r<1: each 1+c*s factor has zeros outside; each 1+c/s factor has one zero and one pole inside. Argument principle on F_N=s^N H_N then gives exactly N zeros inside each fixed circle. A second inner circle arbitrarily close to a and zero exclusion below R_N give radial collapse. For k>=1, sum of kth powers of N zeros equals contour integral s^k H_N'/H_N, which is uniformly O(1); divide by N and use radii -> a>0, plus conjugate negative moments, to prove Haar angular limit. Finite winding numerics are supporting only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gafai-Murid-Wahid 2022 gives infinite product of bilateral annular Szego kernels; no N-dependent unilateral disk truncation winding/zero count in inspected passages.",
+          "Published two-step Bergman theorem shows m-1 bulk zeros for a different kernel with extra n+1 coefficient, and its proof has bilateral limiting winding -1 rather than zero for the Hardy kernel."
+        ],
+        "reasoning": "The Bergman theorem is a close prior template and more general theme but does not dominate the precise Hardy claim mathematically; neither annular infinite product alone nor derivative zeros uniquely determines the zeros of F_N.",
+        "searches": [
+          "Resultary: zeros two circle Hardy reproducing kernels Ramanujan bilateral series asymptotic zero count",
+          "https://doi.org/10.1155/2022/3763450",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-circle-condensation-and-exact-bulk-zero-counts-for-two-step-berg--fe97a681840e"
+        ]
+      },
+      "checked_sources": [
+        "2026/11/16/...ec19dbb521da/RESULT.md, CHECK.py at source tree 8756e8b71f3dfc7cae5b99a8d7fa1b053fecfc63",
+        "same record METADATA.json,AUDIT.json,REVIEW.md,SLOGAN.txt,VERIFICATION.md at frozen commit",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-circle-condensation-and-exact-bulk-zero-counts-for-two-step-berg--fe97a681840e",
+        "https://doi.org/10.1155/2022/3763450",
+        "https://dlmf.nist.gov/17.8.E2",
+        "https://arxiv.org/abs/2607.19959",
+        "Resultary: zeros two circle Hardy reproducing kernels Ramanujan bilateral series asymptotic zero count"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For m=N+1, B_m(s)=(sF_N(s))' and published B_m has N bulk zeros; this derivative root count alone neither forces exact N zeroes of F_N nor their positions/equidistribution.",
+          "Ramanujan 1psi1 is known and supplies limit G_a, but the one-sided truncation argument principle and vanishing moments are additional steps."
+        ],
+        "reasoning": "Identified exact derivative reduction and absence of reverse zero-count implication without an interlacing theorem for complex roots. Thus compared published stronger-looking Bergman result cannot be used to reject the distinct Hardy zero cloud.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-circle-condensation-and-exact-bulk-zero-counts-for-two-step-berg--fe97a681840e",
+          "https://doi.org/10.1155/2022/3763450",
+          "https://dlmf.nist.gov/17.8.E2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kernel is unilateral truncated Laurent solution F_N(s)=s^N H_N(s) whose shifted series converges to known annular bilateral q-hypergeometric theta quotient.",
+          "Two-step Bergman kernel at m=N+1 has coefficients (n+1)/(1+a^(n-N)), i.e. B_{N+1}(s)=(s F_N(s))', not F_N(s)."
+        ],
+        "reasoning": "Tracked theta, q-Pochhammer, Hardy disk-kernel and step-weight Bergman aliases; the derivative relation is explicit but does not transfer the exact primitive zero-count without extra zero-location/control results.",
+        "searches": [
+          "Resultary: zeros two circle Hardy reproducing kernels Ramanujan bilateral series asymptotic zero count",
+          "https://arxiv.org/abs/2202.09114",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-circle-condensation-and-exact-bulk-zero-counts-for-two-step-berg--fe97a681840e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "All fixed a and test radii a<r<1 with eventually exactly N zeros and equidistribution are limiting theorems, not a finite table.",
+          "Earlier annular q-product classifies factors/possible zeros of G_a, not zeros of the moving one-sided partial series F_N."
+        ],
+        "reasoning": "No primary table of these precise unilateral Hardy kernel N-dependent zeros was found; no negative global novelty certification is claimed.",
+        "searches": [
+          "Resultary: zeros two circle Hardy reproducing kernels Ramanujan bilateral series asymptotic zero count",
+          "https://arxiv.org/abs/2202.09114"
+        ]
+      },
+      "rationale": "The bilateral q-product and zero exclusion machinery is classical. This claim concerns the one-sided N-dependent two-circle Hardy kernel, not the annular Laurent Szego kernel or step-area Bergman kernel. Crucial prior related Bergman theorem has m-1 bulk zeros for derivative-related series, but does not imply the count for the primitive F_N.",
+      "residual_risks": [
+        "Specialist theta finite-section literature may have an equivalent moving-kernel zero theorem; priority remains bounded.",
+        "Result does not count possible near-|s|=1 zeros, ensure not falsely reported as global zero census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "distinct area-weight Bergman derivative-related kernel; close prior but no logical implication for Hardy primitive zeros",
+          "evidence": [
+            "B_m(s)=sum (n+1)/(1+a^(n+1-m))s^n, m=N+1 gives B=(sF_N)'; winding -1 in Bergman bilateral limit vs 0 in Hardy"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-circle-condensation-and-exact-bulk-zero-counts-for-two-step-berg--fe97a681840e",
+          "material_read": "Complete primary RESULT.md including the kernel coefficient series, bilateral limit, zero-count and distribution proofs",
+          "method": "read GitHub primary RESULT.md at published record",
+          "title": "Circle condensation and exact bulk zero counts for two-step Bergman weights",
+          "trigger": "almost identical bulk kernel zero condensation and exact counts for different radial weights"
+        },
+        {
+          "assessment": "provides known Laurent kernel product, not count of zeros in moving one-sided Hardy Taylor kernel",
+          "evidence": [
+            "annular bilateral Szego product, distinct domain and parameter dependent one-sided truncation"
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2022/3763450",
+          "material_read": "Available full primary article discussion, infinite-product representation and weighted-annulus nonvanishing facts",
+          "method": "publisher full text inspection",
+          "title": "Infinite Product Representation for the Szego Kernel for an Annulus",
+          "trigger": "same bilateral theta product and potential nonvanishing theorem"
+        },
+        {
+          "assessment": "classical identity used correctly as analytic lemma, not claimed new",
+          "evidence": [
+            "1psi1 bilateral sum-product yields normal convergence on a<|s|<1"
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/17.8.E2",
+          "material_read": "Formula and convergence annulus in special-functions reference",
+          "method": "primary formula reference inspection",
+          "title": "Ramanujan 1psi1 summation",
+          "trigger": "nonstandard bilateral product underlying all-length proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The scalar zeros of a natural reproducing kernel are a substantive invariant. The example produces an exact unbounded logarithmic bulk zero count and limiting angular law while the Hilbert space as a set remains H2, identifying a concrete geometry-of-norm rather than set-of-functions effect.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Specialist theta finite-section literature may have an equivalent moving-kernel zero theorem; priority remains bounded.",
+    "Result does not count possible near-|s|=1 zeros, ensure not falsely reported as global zero census."
+  ],
+  "schema_version": 1
+}

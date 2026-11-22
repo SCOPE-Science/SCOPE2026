@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two boundary-circle Fourier energies give the precise monomial norms and kernel series. Eneström–Kakeya applied to finite Taylor sections, followed by Hurwitz, excludes all scalar zeros below the stated radius. On the annulus \(a<|s|<1\), shift by \(s^{-N}\), use geometric tail bounds, and invoke DLMF's Ramanujan bilateral product with the correct convergence range and parameter substitution. Each product factor contributes zero winding on a fixed intermediate circle; hence the unshifted kernel has winding precisely \(N\). Uniform logarithmic derivatives yield uniformly bounded power sums of these \(N\) zeros, so collapsing radii imply angular equidistribution. The finite script is corroboration only. Risks: no uniform finite threshold formula, and zeros nearer the unit boundary are not counted.
+## correctness
 
-## Originality — PASS relative to checked sources
-The full 2022 annular Szegő publication by Gafai, Murid and Wahid already contains the bilateral product and weighted zero criteria, which are used as known tools. Its Laurent annulus kernel does not state the N-dependent positive-power disk-kernel zero law. Katori–Shirai 2022 studies random Laurent-series zero processes; Pennanen–Rättyä–Wang–Wu's 2026 work gives radial Bergman size estimates; Ameur–Charlier–Cronvall 2024 analyzes random-matrix hard-wall correlation asymptotics. Exact statements and implication strength were compared, and queries of published mathematical-result records for two-circle, annular/theta, and kernel-zero aliases did not return a dominating result. Residual risk: uninspected specialist theta finite-section literature and restricted access to the 2026 motivating full preprint prevent a claim of independently verified publication priority.
+PASS
 
-## Value — PASS
-The theorem gives an exact and growing natural zero count, a universal explicit zero-free radius, and a complete limiting angular law for kernels of a simple positive two-circle Hardy norm. This is a structural transition not controlled by equivalence of Hilbert spaces as function sets; it is quantitatively meaningful for kernel zero fibres and their evaluation geometry.
+Monomial orthogonality gives norms (1+a^(n-N))/(1+a^-N) and correct unnormalized kernel. Positive coefficients c_n=(1+a^(n-N))^-1 have successive ratios c_{n-1}/c_n strictly increasing with minimum R_N=(a^N+a)/(a^N+1)>a. Enestrom-Kakeya on each finite Taylor polynomial excludes |s|<R_N; local uniform limit and Hurwitz transfer zero exclusion. In annulus a<|s|<1, H_N=s^-N F_N=sum_{j>=-N}s^j/(1+a^j) converges normally with derivatives to bilateral G_a. The classical Ramanujan 1psi1 product has numerator/denominator factors zero-free in that annulus, and net winding zero around a<|s|=r<1: each 1+c*s factor has zeros outside; each 1+c/s factor has one zero and one pole inside. Argument principle on F_N=s^N H_N then gives exactly N zeros inside each fixed circle. A second inner circle arbitrarily close to a and zero exclusion below R_N give radial collapse. For k>=1, sum of kth powers of N zeros equals contour integral s^k H_N'/H_N, which is uniformly O(1); divide by N and use radii -> a>0, plus conjugate negative moments, to prove Haar angular limit. Finite winding numerics are supporting only.
 
-## Independent review state and limits
-The results concern fixed radii in the open annulus and are not a complete classification of possible boundary-layer zeros. This review verifies the mathematical argument within its stated scope; it is not an independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The bilateral q-product and zero exclusion machinery is classical. This claim concerns the one-sided N-dependent two-circle Hardy kernel, not the annular Laurent Szego kernel or step-area Bergman kernel. Crucial prior related Bergman theorem has m-1 bulk zeros for derivative-related series, but does not imply the count for the primitive F_N.
+
+## value
+
+PASS
+
+The scalar zeros of a natural reproducing kernel are a substantive invariant. The example produces an exact unbounded logarithmic bulk zero count and limiting angular law while the Hilbert space as a set remains H2, identifying a concrete geometry-of-norm rather than set-of-functions effect.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
