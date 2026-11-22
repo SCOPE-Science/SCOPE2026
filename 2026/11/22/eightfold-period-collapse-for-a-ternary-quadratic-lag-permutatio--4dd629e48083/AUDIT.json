@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Derive each column cyclic difference from the original recurrence including the wrap index, force support-mask weight 0/3/6, show zero propagates, exhaustively certify the exact graph on 84 nonzero masks and its 4-vertex cyclic core, close the twisted walk via eight rotations, then force each row-word to have period four. The exact finite graph was independently constructed by 252 mask lifts and all 6561 words, and the code further checks 265716 states for k=2..11. Universal proof is combinatorial, not extrapolated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026/11/8/SCOPE-universal-sixfold-and-sevenfold-fixed-point-exclusion-for-a-tern--01cf398f7e75",
+        "2026/11/8/SCOPE-a-universal-five-lag-forbidden-period-law-for-a-ternary-quadrati--50d142a68b24"
+      ],
+      "reasoning": "Five-, six- and sevenfold multiplier exclusions address different fixed sets. An example at lag two with one eight-cycle already occurs at period 4k; it neither proves nor contradicts eightfold collapse for arbitrary lag.",
+      "searches": [
+        "Quadratic Fibonacci-like recurrence modulo three, permutation T(x_0,...,x_{k-1})=(x_1,...,x_{k-1},x_0+x_{k-1}^2), counts of periodic points for 5k or 6k, cycle lengths and zero patterns",
+        "Finch three quadratic recurrences modulo 3, transfer matrix fixed point enumeration, 4k period, higher short cycles",
+        "all periods dividing 8k of ternary nonlinear permutation shift T_k(w) 4k exact classification primitive cycles"
+      ]
+    },
+    "checked_sources": [
+      "Steven Finch arXiv:2610.34300v1 §3 and related full preprint",
+      "Published published-finding corpus primitive 4k census, full RESULT.md",
+      "Published published-finding corpus 6k/7k exclusion, full RESULT.md",
+      "Published published-finding corpus 5k exclusion, abstract level",
+      "Cassaigne–Finch 1995, abstracts and bibliographic excerpts only",
+      "OEIS A112684, page inaccessible"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Finch arXiv:2610.34300v1, §3 Proposition 7, Theorem 8",
+        "published-finding corpus:2026/11/2/SCOPE-exact-primitive-short-cycle-census-for-a-ternary-quadratic-recur--4fc407051b10",
+        "published-finding corpus:2026/11/8/SCOPE-universal-sixfold-and-sevenfold-fixed-point-exclusion-for-a-tern--01cf398f7e75"
+      ],
+      "reasoning": "The new theorem implies a complete 8k fixed-state count equal to the known 4k count. The reverse does not follow from the earlier count of 4k states: a permutation could have additional cycles of period dividing 8k; five- through sevenfold exclusions also permit such cycles. The eight-row support-core argument supplies exactly the missing implication.",
+      "searches": [
+        "no new 8k periodic states fixed(T_k^8k)=fixed(T_k^4k), no period doubling for Finch ternary quadratic shift over F3 x_n=x_{n-k}+x_{n-1}^2",
+        "all periods dividing 8k of ternary nonlinear permutation shift T_k(w) 4k exact classification primitive cycles"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Finch arXiv:2610.34300v1, §3 Theorem 8",
+        "published-finding corpus full RESULT.md 4k primitive short-cycle census"
+      ],
+      "reasoning": "An all-k count at 8k or a theorem excluding periods dividing 8k but not 4k would be equivalent in the presence of Finch’s known 4k count. The inspected prior theorem enumerates only the 4k sector, not its exhaustion of the 8k sector.",
+      "searches": [
+        "exact count Fix(T_k^{8k}) ternary quadratic permutation x_n=x_{n-k}+(x_{n-1})^2 modulo 3, eight-lag period census, eight-row transfer matrix, primitive 8k cycles",
+        "no new 8k periodic states fixed(T_k^8k)=fixed(T_k^4k), no period doubling for Finch ternary quadratic shift over F3 x_n=x_{n-k}+x_{n-1}^2",
+        "all periods dividing 8k of ternary nonlinear permutation shift T_k(w) 4k exact classification primitive cycles"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A112684 attempts yielded inaccessible page",
+        "Finch arXiv:2610.34300v1 contains counts and tables for a distinguished seed, and a known exact 4k fixed count"
+      ],
+      "reasoning": "Specific-seed period tables and all-k fixed counts at 4k do not determine the enlarged 8k fixed set. An OEIS page access failure is not evidence of no earlier table. The overlap risk is separately recorded.",
+      "searches": [
+        "exact count Fix(T_k^{8k}) ternary quadratic permutation x_n=x_{n-k}+(x_{n-1})^2 modulo 3, eight-lag period census, eight-row transfer matrix, primitive 8k cycles",
+        "8-row support masks 84 graph cyclic core four masks 8k quadratic recurrence 4k period collapse"
+      ]
+    },
+    "rationale": "Actual published-finding corpus semantic searches for all-lag eightfold fixed sets and period-doubling, full relevant text of Finch and published fourfold/sixfold-sevenfold statements, and direct implication comparisons identify no coverage of the strict new assertion Fix(T_k^{8k})=Fix(T_k^{4k}) for every k>=2. Publication priority cannot be mathematically guaranteed by searches.",
+    "residual_risks": [
+      "An unindexed earlier theorem, implicit special case, or unpublished note may establish the same 8k equality.",
+      "Full text of historical related sources was not accessible, and the incomplete comparison cannot establish definitive noncoverage.",
+      "Searchable tables for all states may exist outside indexed resources; inability to access a table is not evidence of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES_4K_NOT_8K",
+        "evidence": "Finite-field map, exact Fix(T_k^{4k}) count, and prescribed-seed dynamics; no proof found of all-lag equality Fix(T_k^{8k})=Fix(T_k^{4k}).",
+        "identifier_or_url": "https://arxiv.org/abs/2610.34300",
+        "material_read": "Full arXiv preprint with detailed reading of §3, Proposition 7, Theorem 8, and surrounding results",
+        "method": "Full text and displayed equations, with PDF pages inspected",
+        "title": "Three Quadratic Recurrences Modulo 3: What We Can Prove and What We Can Guess",
+        "trigger": "Exact same polynomial shift permutation and prior fourfold enumeration"
+      },
+      {
+        "assessment": "NOT_COVERING_8K_EQUALITY",
+        "evidence": "Classifies the 4k sector and explicitly excludes periods not dividing 4k from its scope; does not show no extra periods dividing 8k.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-primitive-short-cycle-census-for-a-ternary-quadratic-recur--4fc407051b10",
+        "material_read": "Complete RESULT.md via accessible public repository",
+        "method": "Comparison of theorem, divisor and fixed-point formulas, proof and limits",
+        "title": "Exact primitive short-cycle census for a ternary quadratic recurrence",
+        "trigger": "Same map and complete primitive cycle counts for periods dividing 4k"
+      },
+      {
+        "assessment": "NOT_COVERING_8K_EQUALITY",
+        "evidence": "Proves Fix(T_k^{6k})=Fix(T_k^{7k})={0}; its lag-two eight-cycle is a period-4k example.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-universal-sixfold-and-sevenfold-fixed-point-exclusion-for-a-tern--01cf398f7e75",
+        "material_read": "Complete RESULT.md via accessible public repository",
+        "method": "Direct theorem and proof comparison including the eight-cycle endpoint",
+        "title": "Universal sixfold and sevenfold fixed-point exclusion for a ternary quadratic permutation",
+        "trigger": "Same map and neighboring multiples of k"
+      },
+      {
+        "assessment": "NO_RELEVANT_IMPLICATION_IN_EXAMINED_SUMMARY",
+        "evidence": "Claims only Fix(T_k^{5k})={0} for all k; an 8k equality is not entailed.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-universal-five-lag-forbidden-period-law-for-a-ternary-quadrati--50d142a68b24",
+        "material_read": "Published search abstract and results summary; not entire source text",
+        "method": "Comparison of explicitly stated fixed-point implication",
+        "title": "A universal five-lag forbidden-period law for a ternary quadratic permutation",
+        "trigger": "Same map and neighboring excluded multiple"
+      },
+      {
+        "assessment": "UNRESOLVED_HISTORICAL_SOURCE_RISK",
+        "evidence": "Describes a related recurrence with distinct lags and is not known to imply the 8k collapse; inaccessibility prevents definitive noncoverage.",
+        "identifier_or_url": "https://doi.org/10.1080/10586458.1995.10504307",
+        "material_read": "Bibliographic information and search excerpts; entire original full text not available for comparison",
+        "method": "Comparison of accessible recurrence definitions and abstracts",
+        "title": "A Class of 1-Additive Sequences and Quadratic Recurrences",
+        "trigger": "Historical related quadratic finite-field recurrence of same authors"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4dd629e4-8083-4382-8f9f-990471103c3c",
+  "value": {
+    "rationale": "This natural first 2-adic doubling of the 4k short-period window is a structural period-doubling obstruction, beyond known 5-, 6- and 7-multiple exclusions. The theorem proves all 8k fixed points already belong to the known 4k sector and identifies a rigid 4-core finite-state mechanism, yielding complete exact enumeration for an otherwise larger fixed set. It is not a routine substitution into Finch’s 4k formula and has meaningful scope for all lag lengths.",
+    "status": "PASS"
+  }
+}
