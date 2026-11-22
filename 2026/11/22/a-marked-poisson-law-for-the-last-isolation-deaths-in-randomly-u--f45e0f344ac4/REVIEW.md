@@ -1,0 +1,18 @@
+# Scientific review
+
+## Correctness — PASS
+For fixed \(d\ge1\), the event that a center is ever isolated is exactly that its reverse rank exceeds those of all \(2d\) neighbors. Its death threshold is the maximum reverse-neighbor rank and its killing direction is the attaining neighbor. Replacing ranks by independent uniform priorities creates a stationary finite-range dependency array whose bounded-window joint marked factorial moments tend to those of the specified product-intensity Poisson process. Overlapping connected clusters have at least one extra small-priority site and hence a vanishing aggregate weight; centers that arrive before their neighbors are negligible. Uniform empirical-count bounds return from priorities to ranks. The Poisson time change gives the ordered gamma laws. The finite enumerator independently checks isolation intervals, last deaths, directions, and the exact active-isolate expectation for six parameter pairs; it passed 944805 assertions. Infinite convergence is proved analytically, not by enumeration.
+
+## Originality — PASS with stated scope and residual risk
+Kleiner's 2026 work proves the single last-isolation Weibull limit and a scalar completed-neighborhood Poisson law, not the marked point-process convergence and independent spatial, arrival-time and killing-direction marks. Janson's uncovering process concerns Gaussian visible-edge or subgraph counts; it does not imply these extreme late-isolation marks. Arratia–Goldstein–Gordon provides generic Poisson approximation technology, explicitly credited. Related published records on cyclic dimer adsorption and bond percolation concern different dynamics. A 2007 paper on circular success runs can describe static pattern counts, but neither available material nor the published abstract identifies the temporal marked extreme process. The literature review cannot exclude an unindexed equivalent specialization of known Poisson-point-process methods; the earlier circular-run paper was not inspected in full. These residual risks do not constitute an identified theorem that covers the new joint marked claim.
+
+## Value — PASS
+In a dynamic random graph, asking which sites lose isolation last, when they originally arrived, and which neighbor ends isolation is a natural finer question than when the final isolated vertex disappears. The theorem answers all of these simultaneously at the full finite-extreme level: each successive late-death time has an explicit gamma-transformed law, and its site, original arrival fraction and killing neighbor asymptotically decouple. This supplies the joint spatiotemporal mechanism behind the scalar Weibull boundary rather than a renamed or narrower single-time count. The theorem requires fixed cycle-power radius and does not assert a finite-rate coupling or a result for growing radius.
+
+## Closest literature and limitations
+- Igor Kleiner (2026), arXiv:2609.29488v1, Section 6: scalar terminal-time and completed-neighborhood results, not the marked process.
+- Svante Janson, *Uncovering a graph*, arXiv:2312.13823 and DOI 10.1007/s00440-025-01401-9: graph uncovering and global Gaussian process, not late-isolation extreme joint marks.
+- Arratia, Goldstein and Gordon, *Two moments suffice for Poisson approximations* (1989): general local Poisson technology, credited rather than represented as new.
+- Makri, Philippou and Psillakis, *Success run statistics defined on an urn model* (2007), DOI 10.1017/S0001867800002202: related circular binary-run distributions. Full text not completely inspected; an implicit multitime specialization cannot be ruled out.
+
+Self-review: passed. Independent audit: not yet performed.
