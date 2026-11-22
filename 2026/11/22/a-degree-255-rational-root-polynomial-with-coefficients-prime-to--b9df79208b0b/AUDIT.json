@@ -1,0 +1,95 @@
+{
+  "correctness": {
+    "rationale": "Exact factorization gives only rational roots and degree 255. Over F_2 all coefficients equal 1 by (1+X)^255 = (1+X^256)/(1+X). Over F_5 the Frobenius factorization is A(X)A(X^5)B(X^25)(1+X^125), A coefficients (1,1,3,3,1,1), B=(1,1,1,1,1). Interior coefficients and all overlap sums (3,2,1,1,2,3) are nonzero. Replayed standalone verification.py checks all 256 coefficients by a separate direct modular multiplication algorithm and exact factorization, with residues 1:74,3:102,7:20,9:60. The lower bound follows for any hypothetical degree upper bound.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hajdu–Tijdeman–Varga (2023) Theorem 1.2 applies to {2,3} and degree at most 3; Problem 1 leaves {2,5} open.",
+        "The same article Theorem 1.1 assumes a coefficient height bound, absent here."
+      ],
+      "reasoning": "Neither the height-bounded theorem nor the 2-and-3 theorem implies an example of degree 255 with 2 and 5 avoided; in particular the characteristic-three restrictions do not transfer to characteristic five.",
+      "searches": [
+        "Hajdu Tijdeman Varga polynomials with all rational roots no coefficient divisible by two and five degree 255",
+        "bounded degree polynomials with only rational roots coefficients not divisible by primes 2 5 2023"
+      ]
+    },
+    "checked_sources": [
+      "Hajdu, Tijdeman, Varga (2023), Mathematika 69 (2023), Theorem 1.2, Lemmas 2.1–2.2 and Section 3 Problem 1, doi:10.1112/mtk.12209",
+      "published-finding corpus semantic searches of restricted-coefficient rational-root polynomials and exact exponent pair, retrieved 2026-11-17 UTC",
+      "Accessible earlier and current mathematical claims, for substantive overlap comparison only",
+      "Public indexed web exact-expression and parameter searches, 2026-11-17 UTC"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1.2 supplies a sharp {2,3} upper bound 3.",
+        "Problem 1 asks only if a pair-dependent bound exists and does not give a specific 2-and-5 example.",
+        "Fine (1947) parity fact, as quoted by Hajdu–Tijdeman–Varga, restricts admissible degrees but does not settle the prime-five coefficient condition."
+      ],
+      "reasoning": "A necessary parity degree condition (255=2^8-1) does not imply all 256 coefficients avoid 5; the separate nonzero-overlap factorization proves exactly what the earlier parity fact does not.",
+      "searches": [
+        "doi:10.1112/mtk.12209 Theorem 1.2 and Problem 1",
+        "\"polynomials with only rational roots\" \"2 and 5\" polynomial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2023 paper Problem 1 asks for degree bound depending on two excluded primes, an exact phrasing of the target.",
+        "Direct modular formulation equivalent: all 256 coefficients of (X-1)^112(X+1)^143 lie in {1,3,7,9} modulo 10."
+      ],
+      "reasoning": "Equivalent formulations checked include all coefficients coprime to 10, nonzero reductions modulo 2 and 5, and rational root multiplicities 112 and 143; the motivating paper and indexed queries do not state this witness.",
+      "searches": [
+        "Hajdu Tijdeman Varga polynomials with all rational roots no coefficient divisible by two and five degree 255",
+        "Fine polynomial binomial coefficients nonzero modulo 5 powers (x-1)^a(x+1)^b restricted degree",
+        "bounded degree polynomials with only rational roots coefficients not divisible by primes 2 5 2023",
+        "\"(x-1)^112\" \"(x+1)^143\"",
+        "\"112\" \"143\" \"polynomial\" \"coefficients\" \"5\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed exact-expression searches did not return a matching published example.",
+        "Current and accessible earlier own-claim searches were compared on rational roots, restricted coefficients, modulo five and degree 255."
+      ],
+      "reasoning": "No matching external exact table or archived claim was located. The unsuccessful search is not a proof that examples have never appeared.",
+      "searches": [
+        "\"255\" \"(x-1)\" \"(x+1)\" \"mod 5\"",
+        "\"255\" \"coefficients\" \"not divisible by 5\" \"roots\"",
+        "Hajdu Tijdeman Varga polynomials with all rational roots no coefficient divisible by two and five degree 255"
+      ]
+    },
+    "rationale": "The original 2023 motivating paper proves the degree-3 bound for the DIFFERENT pair 2 and 3 and asks in Problem 1 about general pairs. Its theorem and cited Fine parity result do not supply the explicit 2-and-5 degree-255 witness. Indexed exact-expression, general aliases and semantic publication searches returned no dominating statement. No claim of global novelty certification is made; unindexed high-degree examples remain a priority risk.",
+    "residual_risks": [
+      "An older or obscure example of high-degree rational-root polynomials with coefficients coprime to ten might have escaped indexing.",
+      "The claim gives no optimal lower bound or existence of an upper bound; those are not asserted.",
+      "Only the motivating full text was fully inspected; Fine (1947) is cited indirectly, not represented as full-text inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The degree bound proved concerns primes 2 and 3, while the 2-and-5 case belongs to the open general-pair problem; no explicit degree-255 witness appears in the inspected text.",
+        "evidence": [
+          "Theorem 1.2: degree at most 3 when no coefficient divisible by 2 or 3.",
+          "Section 3 Problem 1: asks whether a bound exists for any two primes.",
+          "Lemma 2.1: binary coefficient nonvanishing implies a Mersenne degree."
+        ],
+        "identifier_or_url": "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/mtk.12209",
+        "material_read": "Complete accessible HTML text, especially Theorems 1.1–1.3, proof of Theorem 1.2 and Lemmas 2.1–2.2, and all three open problems.",
+        "method": "Primary full-text HTML reading, not snippet-only.",
+        "title": "On polynomials with only rational roots",
+        "trigger": "Direct primary match: two forbidden coefficient primes and all rational roots."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b9df7920-8b0b-4cfb-8542-52cd2022a083",
+  "value": {
+    "rationale": "This construction answers a direct numerical feasibility question arising from the explicit two-prime open Problem 1 of the 2023 paper: the bound for pair {2,3} is sharp at 3, while any analogous 2-and-5 bound must be at least 255. Its 256 simultaneous unit-coefficient conditions cannot be inferred from the parity lemma alone; a four-scale Frobenius decomposition proves every modular overlap is nonzero. This is a concrete, structurally motivated lower-bound obstruction, not an arbitrary slice or routine numerical substitution. It does not settle finiteness and carries no claim of a record bound.",
+    "status": "PASS"
+  }
+}
