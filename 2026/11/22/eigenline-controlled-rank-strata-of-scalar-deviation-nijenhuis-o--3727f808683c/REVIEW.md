@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The complete proof first shows that every Nijenhuis map preserves the derived ideal, then proves the exact two-equation characterization by evaluation on all ordered basis pairs. A rank-one factorization gives two exhaustive, disjoint normal forms. Projective functional-line counts and a transparent block rank analysis yield the polynomial and index-three subcount. The standalone verifier checks the defining torsion identity and counts in finite cases including both eigenline and noneigenline types; these cases are consistency checks, not the universal proof.
+
+**Originality — PASS, with disclosed priority risk.** Full publicly accessible motivating papers arXiv:2306.06428 and arXiv:2310.14267 develop the Leibniz Nijenhuis formalism and bialgebra constructions but do not state a finite-field rank census for scalar-deviation operators on this hemi-semidirect family. Published indexed claims about almost-abelian Lie algebras concern a different skew-symmetric bracket and distinct restricted operator classes. The relevant indexed Leibniz result on a two-dimensional pencil does not imply this all-dimensional spectral census. The broader literature is not exhaustively accessible and some indexed full texts remain uninspected; complete publication priority is therefore not asserted.
+
+**Value — PASS.** This is a complete classification and rank polynomial of a naturally invariant first determinantal stratum in an unbounded non-Lie Leibniz family. Its exact corank-one spectral detector distinguishes rational-eigenvalue actions from irreducible actions, and the shifted-index-three refinement detects noneigenline incidence. These phenomena require both the Nijenhuis torsion and the module action, rather than a routine arbitrary slice or a mere finite enumeration.
+
+**Limitations.** The restriction \(\operatorname{rank}(D-aI)\le1\) is essential; no statement about arbitrary Nijenhuis maps is claimed. The full geometric scheme and automorphism orbits remain unclassified. Exhaustive tests cover selected small finite fields, while all-dimensional correctness is proved algebraically. The comparison to inaccessible indexed full texts is qualified.
+
+Self-review: passed. Independent audit: not yet performed.
