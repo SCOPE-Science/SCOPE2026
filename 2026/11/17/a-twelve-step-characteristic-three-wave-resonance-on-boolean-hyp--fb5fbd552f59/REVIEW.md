@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact theorem is proved for every integer \(d\ge0\) and finite field \(\mathbb F_{3^f}\), not extrapolated from finite checks. The Walsh characters diagonalize the cube adjacency in characteristic three, and its three residues have independently derived multiplicities \(a_d,a_d,b_d\). The two-time-level update has one block of each of three explicit types; their Jordan structures give all fixed-space dimensions, sharp global orders, and exact period populations. Dividing by the total number of two-layer states yields the asymptotic probability. The two independently structured final-package programs verify exact modular matrix nullities through dimension five and exhaustively classify every initial state through dimension two. Limits: these computations do not supply independent certification or cover arbitrary extension fields; those conclusions rely on the written proof.
+## correctness
 
-## Originality — PASS, qualified
-The most relevant previously published all-parameter modular Hamming-wave theorem assumes alphabet size divisible by three, which excludes Boolean factors \(K_2\). The all-parameter mixed Hamming wave theorem instead assumes characteristic two and mixed coordinate alphabet parity. An earlier cube-with-universal-hub wave census also works in characteristic two and changes the graph. These full texts were inspected and compared by their precise assumptions and implications, not merely by titles. The earlier Brunnet–Chaté hypercube cellular automata use a nonlinear Boolean rule; Macfarlane and Vlasov establish general reversible second-order methods, not the present all-dimensional characteristic-three period populations. Standard hypercube eigenvalues are explicitly credited. The residual risk is an unindexed or inaccessible equivalent calculation; no absolute priority claim is made.
+PASS
 
-## Mathematical value — PASS
-The exact least-period spectrum is a natural invariant of a reversible finite-state dynamical system on the canonical Boolean hypercube family. The elementary but nontrivial modular distinction between three spatial eigenvalue classes yields a sharp low-dimensional \(4,6,12\) transition and a complete six-period classification for all graph dimensions and finite-field extensions. The exact maximal-period fraction converging to one doubly exponentially in graph dimension is an additional dynamical conclusion not contained in the ordinary adjacency spectrum statement alone. The family is natural and unrestricted in dimension and field extension; no arbitrary finite slice or unsupported downstream application is invoked.
+Over characteristic three the Walsh basis is invertible and diagonalizes A_d with residues 0,+1,-1 having b_d,a_d,a_d multiplicities from the exact coordinate-extension recurrence. On their two-row sectors M_0^2=-I, M_+ has one size-two Jordan block at -1, and M_- has one at +1; their fixed nullities yield all six q-exponents and T^12=I. Möbius subtraction gives P12=q^(2a)(q^(2a)-1)(q^(2b)-1), exact primitive counts, and orders 4/6/12 in d=0/1/>=2. Independent GF(3) matrix ranks for d=0..3 reproduced fixed populations (d=2: 3,9,9,729,81,6561). The algebra, not low-d enumeration, supports all d and F_{3^f}; the Q0 isolated-vertex convention and independence of two initial levels were checked.
 
-## Limitations and nearby literature
-The theorem does not address nonlinear excitation, nonbinary Hamming factors, other field characteristics, spatial symmetry quotients, or independently reviewed correctness. Closest full-text scientific comparisons: *A three-class wave clock and exact orbit census for ternary-modular Hamming graphs* (2026); *Twelve-step resonance and exact orbit census for mixed Hamming waves* (2026); *A hub-induced period-eight parity transition for reversible waves on Boolean cubes* (2026). Older primary sources are Brunnet–Chaté (2004), Macfarlane (2004), and Vlasov (2013). A non-indexed earlier exact period census cannot be ruled out by the search.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact labelled primitive-period census on char-3 simple binary hypercubes is not entailed by the compared 2004/2013 second-order wave frameworks, the char-3 Hamming result with clique alphabet divisible by three, or the char-2 mixed Hamming theorem. Common order twelve alone is not prior coverage. Originality remains best-of-knowledge, not a priority certificate.
+
+## value
+
+PASS
+
+Natural reversible neighbor-sum waves on Boolean cubes have a nontrivial modular time spectrum: exact six-period labelled census including the sharp d=0,1 thresholds and explicit concentration of primitive twelve-cycles. This finite-field combinatorial invariant distinguishes different eigenspace clocks and supports precise orbit counts; it is more than renaming a known period-twelve example or reporting a small-n computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

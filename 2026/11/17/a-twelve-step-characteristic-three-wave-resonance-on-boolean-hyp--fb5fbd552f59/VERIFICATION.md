@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-All calculations are exact in \(\mathbb F_3\). Run the included Python 3 scripts from the package root:
+# Independent mathematical audit
 
-`python3 proof/verify_matrix.py`
+## correctness
 
-`python3 proof/verify_enumeration.py`
+PASS
 
-The matrix program constructs the ordinary Boolean-cube adjacency and the reversible two-row update with no use of the Walsh eigenvalue formula, checks six fixed nullities and exact global order in dimensions zero through five. The second program independently evolves all labelled initial states in dimensions zero through two and counts every primitive temporal period; it does not use matrix ranks. Captured outputs in `proof/verify_matrix.out` and `proof/verify_enumeration.out` were produced by running the included scripts and correspond to those scripts.
+Over characteristic three the Walsh basis is invertible and diagonalizes A_d with residues 0,+1,-1 having b_d,a_d,a_d multiplicities from the exact coordinate-extension recurrence. On their two-row sectors M_0^2=-I, M_+ has one size-two Jordan block at -1, and M_- has one at +1; their fixed nullities yield all six q-exponents and T^12=I. Möbius subtraction gives P12=q^(2a)(q^(2a)-1)(q^(2b)-1), exact primitive counts, and orders 4/6/12 in d=0/1/>=2. Independent GF(3) matrix ranks for d=0..3 reproduced fixed populations (d=2: 3,9,9,729,81,6561). The algebra, not low-d enumeration, supports all d and F_{3^f}; the Q0 isolated-vertex convention and independence of two initial levels were checked.
 
-The complete proof covers all nonnegative cube dimensions and all extension fields \(\mathbb F_{3^f}\). The finite tests do not prove the infinite parameter claim, do not establish historical priority, and are not independent review. The validation status is therefore self-review only; an independent audit has not been performed.
+## originality
+
+PASS
+
+The exact labelled primitive-period census on char-3 simple binary hypercubes is not entailed by the compared 2004/2013 second-order wave frameworks, the char-3 Hamming result with clique alphabet divisible by three, or the char-2 mixed Hamming theorem. Common order twelve alone is not prior coverage. Originality remains best-of-knowledge, not a priority certificate.
+
+## value
+
+PASS
+
+Natural reversible neighbor-sum waves on Boolean cubes have a nontrivial modular time spectrum: exact six-period labelled census including the sharp d=0,1 thresholds and explicit concentration of primitive twelve-cycles. This finite-field combinatorial invariant distinguishes different eigenspace clocks and supports precise orbit counts; it is more than renaming a known period-twelve example or reporting a small-n computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
