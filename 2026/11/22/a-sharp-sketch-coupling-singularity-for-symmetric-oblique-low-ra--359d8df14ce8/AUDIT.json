@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The exact projector is [[-ab,a],[b,0]] and its symmetric part has squared Frobenius norm a²b²+(a+b)²/2. Conditional on correlated denominator vectors, the coefficients are a nonsingular bivariate Gaussian pair unless |rho|=1. Joint Gaussian inverse-power integrability and a compact conditional correlation bound yield p<ell for |rho|<1; at |rho|=1 the coefficients coincide and yield p<ell/2. Classical inverse-chi moments establish the exact independent/shared squared-risk formulas; the shared Gaussian/chi density establishes its tail constant. A two-dimensional Laplace integral and explicit evaluations at ell=3,4 give the near-perfect-correlation divergence orders. The 10,731 finite exact/numerical checks of verify.py supplement rather than prove the infinite laws. Exact arithmetic, all ell>=1 and d>=max(ell+1,2), all rho∈[-1,1].",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lam--Ceruti--Kressner Theorem 2 assumes independent Gaussian range and left-test matrices and concerns generalized Nystrom approximation rather than two sketch-correlated oblique tangent projections.",
+        "Carrel--Grigori Proposition 4.4 characterizes agreement with orthodox DLRA under perpendicular-residual orthogonality; it supplies no unconditional p-moment budget across sketch coupling.",
+        "The published tensor-sketch inverse-moment result has independent Gaussian factors and does not include the shared/near-shared correlated ratio pair."
+      ],
+      "reasoning": "Neither the prior independent-Gaussian Nystrom L^q estimate nor the one-sided Gaussian least-squares law has a hypothesis allowing its conclusion to dominate the same-sketch case. Standard norm bounds conditional on favorable subspace embeddings are also not unconditional inverse-moment guarantees. The new shared-sketch singularity is a different claim, not just a rephrasing of the known first moment or a stronger theorem in the cited sources.",
+      "searches": [
+        "published-finding corpus: rank-one matrix manifold oblique DLRA shared Gaussian sketch symmetry risk infinite squared Frobenius numerical projector",
+        "published-finding corpus: randomized dynamical low-rank approximation oblique projection oversampling moment second moment finite sketch size threshold",
+        "Literature: symmetric oblique low rank tangent randomized sketch reuse same Gaussian matrix variance",
+        "Lam--Ceruti--Kressner arXiv:2409.06384v1 Theorem 2 and Section 2.3"
+      ]
+    },
+    "checked_sources": [
+      "Carrel--Grigori arXiv:2607.03402v1, Section 4.1 and related geometric results",
+      "Lam--Ceruti--Kressner arXiv:2409.06384v1, Gaussian moment study",
+      "Residual-spectrum convex ordering and the exact Gaussian sketch failure law, complete RESULT.md",
+      "Sharp inverse-moment thresholds and logarithmic tails for two Gaussian tensor sketches, complete RESULT.md",
+      "Niu--Garg--Derezinski--Liao arXiv:2605.24955, abstract/method outline only",
+      "Carrel--Kressner--Lam--Vandereycken arXiv:2510.19518, abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Carrel--Grigori already proves the geometric formula and qualitative failure under perpendicular residuals; the present theorem does not claim either as new.",
+        "The tensor sketch product proof implies known independent numerator/chi ratio moment conditions, and these are credited; it does not handle jointly correlated sketch denominators or perfect sketch identity.",
+        "Our exact formulas depend on correlated Gaussian vector pairs with rho∈[-1,1]; the new threshold changes only when covariance becomes singular, a situation explicitly excluded by independent sketch assumptions.",
+        "The new Laplace determinant formula yields I3 and I4 as arcsine/logarithmic laws, not stated in the compared numerical algorithm sources."
+      ],
+      "reasoning": "The source projector identity plus elementary Gaussian calculus provides a route to the new theorem, but the prior claim only sets up the geometry; it neither states nor logically establishes the complete correlated risk regime without the new joint singularity analysis. The closest published distributional work covers independent sketches or a single inverse-Wishart factor, so only the independent endpoint is partially subsumed. The accepted claim centers on the genuinely coupled distinction, not on these covered ingredients.",
+      "searches": [
+        "Source full text: arXiv:2607.03402v1 Section 4.1 Lemma 4.2, Section 4.2 Proposition 4.4 and full-text searches shared/moment",
+        "Source full text: arXiv:2409.06384v1 Section 2.3 Theorem 2, Section 2.4 Theorem 3",
+        "Published mathematical records: 2026/10/12/SCOPE-residual-spectrum-convex-ordering-and-the-exact-gaussian-sketch--23a3fc6123ad",
+        "Published mathematical records: 2026/10/12/SCOPE-sharp-inverse-moment-thresholds-and-logarithmic-tails-for-two-ga--d93c1b8eb1d0"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Carrel--Grigori Lemma 4.2: P_Y(Z)=LZ+ZR^T-LZR^T with independent image factors; not a correlated-sketch risk classification.",
+        "Published residual-spectrum Gaussian reconstruction result: one-sided beta-prime law; different map and no two-sided coupling.",
+        "Classical normal/chi ratios give single-factor moment cutoff, but not by themselves the near-singular joint-coupling transition."
+      ],
+      "reasoning": "A one-sided oblique projection, a generalized Nystrom approximation, and the symmetric part of a two-sided correlated tangent projection are not equivalent maps. Taking identical sketches makes two Gaussian/chi ratios identical, not independent; the joint inverse-power integrability therefore changes discontinuously. The new claim has the same geometric building blocks as the motivating source, but it adds this correlated finite-risk classification and exact near-sharing rates.",
+      "searches": [
+        "published-finding corpus: correlated Gaussian left right sketches same sketch symmetry oblique tangent projector rank one mean square moment cutoff coupling threshold 3 4 5",
+        "published-finding corpus: two correlated normal chi square reciprocal denominators joint inverse second moment arcsin logarithmic divergence",
+        "Literature: correlated Gaussian sketches oblique projection heavy tails rank one matrix tangent symmetrization",
+        "Published prior: Carrel and Grigori, arXiv:2607.03402v1, Section 4.1 Lemma 4.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The residual-spectrum article states a beta-prime law and order q<(ell-r+1)/2 for a one-sided reconstruction error ratio.",
+        "The tensor-sketch article states independent product-normal/chi ratio moments and logarithmic error tails for regression, not an oblique matrix tangent operator.",
+        "The keyword searches returned correlated sketching and random-projection records but no matching row threshold or rho-to-one rate in the relevant inspected statements."
+      ],
+      "reasoning": "The candidate is an infinite continuous coupling/moment statement, not a finite catalogue or database lookup. Searches of exact parameters 3,4,5, coupling, symmetry and Gaussian-chi product aliases found related but not equivalent assertions. Search absence is supporting coverage evidence only, not proof of novelty.",
+      "searches": [
+        "published-finding corpus: sketch reuse correlated Gaussian matrices product Student ratios same projector finite fourth moment",
+        "published-finding corpus: two-sided oblique Gaussian sketched tangent projector two independent Student t ratios product logarithmic tail rank-one normal residual infinite variance sketch dimension",
+        "published-finding corpus: Gaussian oblique symmetric tangent projection mean-square error diverges l<=4 rank one shared sketch",
+        "Published mathematical records: Residual-spectrum convex ordering and the exact Gaussian sketch failure law; Sharp inverse-moment thresholds and logarithmic tails for two Gaussian tensor sketches"
+      ]
+    },
+    "rationale": "The Carrel--Grigori 2026 projector identity and warning are prior, as are one-sided beta-prime and independent tensor Gaussian/chi moment laws. Neither the inspected source statements nor relevant published records gives the correlated two-sided, symmetric-part rank-one tangent force with a discontinuous p-moment cutoff and singular near-perfect-coupling rate. This is a best-knowledge literature comparison, not a universal uniqueness proof; priority risks are stated.",
+    "residual_risks": [
+      "Earlier specialized correlated-Gaussian ratio or oblique-projector moment results may be unindexed or not found by title/alias searches.",
+      "The related 2026 subsampled oblique-projection bias paper was accessible only in abstract/method outline, although its described row-subsampling model differs materially.",
+      "The new coupled threshold can be derived from classical Gaussian tools and the prior geometric formula; mathematical novelty is in the exact algorithm-specific coupling phase and comparison, not the Gaussian factors individually."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Geometry and qualitative nonorthogonal error are prior work. The inspected statements do not classify correlated Gaussian sketch coupling, all positive moments or near-sharing divergence.",
+        "evidence": "Lemma 4.2 gives LZ+ZR^T-LZR^T; Proposition 4.4 gives sketch-orthogonality criterion; Section 2.1 reports typical sketch sizes 2r--4r.",
+        "identifier_or_url": "https://arxiv.org/abs/2607.03402",
+        "material_read": "Author manuscript full-text rendering, introduction/contributions, Section 2.1 sampling range, Section 4.1 equations (10)--(13), Lemma 4.2, Section 4.2 Proposition 4.4, experimental setup/figure descriptions; full-text term searches for moment and shared",
+        "method": "Compared hypotheses and algebra of its tangent projector to the present fixed rank-one symmetrized correlated-sketch specialization",
+        "title": "Sketch low-rank dynamics: orthogonal vs. oblique projections",
+        "trigger": "Exact source of the same oblique tangent map and motivation from perpendicular forcing"
+      },
+      {
+        "assessment": "Theorem 2 is an independent-Gaussian generalized Nystrom moment result, not a covering result for shared/near-shared oblique tangent sketches.",
+        "evidence": "Its Theorem 2 explicitly assumes independent Gaussian Omega and Psi, p,ell>=4; the map is a truncated generalized Nystrom reconstruction, not the tangent map.",
+        "identifier_or_url": "https://arxiv.org/abs/2409.06384",
+        "material_read": "Author full-text rendering, Section 2.3 definition of randomized reconstruction, Theorem 2, Section 2.4 independent sketch assumptions, and methods overview",
+        "method": "Compared independently sampled generalized Nystrom operator and its q-moment assumptions to correlated symmetrized tangent operator",
+        "title": "Randomized low-rank Runge--Kutta methods",
+        "trigger": "Plausible stronger Gaussian moment estimates for low-rank numerical integration"
+      },
+      {
+        "assessment": "One-sided beta-prime moment and convex spectral ordering are prior; no two-sided common sketch coupling classification follows from its stated operator theorem.",
+        "evidence": "For one-sided Y Gaussian and r columns, it states R-1~BetaPrime(r/2,(ell-r+1)/2) and moment cutoff q<(ell-r+1)/2 for squared ratio.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-residual-spectrum-convex-ordering-and-the-exact-gaussian-sketch--23a3fc6123ad",
+        "material_read": "Entire publicly accessible RESULT.md including finding, assumptions, proof, prior relationship and limitations",
+        "method": "Compared definition of the random error ratio and inverse-Wishart factor count to the present symmetrized two-sided tangent force",
+        "title": "Residual-spectrum convex ordering and the exact Gaussian sketch failure law",
+        "trigger": "Strongest nearby published one-sided Gaussian matrix reconstruction moment theorem"
+      },
+      {
+        "assessment": "Its independent factors give a covered product moment law, but factor reuse across tensor rows is different from perfect identity of the two sides of a rank-one tangent projector.",
+        "evidence": "The tensor result writes E1=(G1/chi_r1)(G2/chi_r2) with independent factors, and gives separate independent-row logarithmic tails.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-sharp-inverse-moment-thresholds-and-logarithmic-tails-for-two-ga--d93c1b8eb1d0",
+        "material_read": "Entire publicly accessible RESULT.md including definitions, ratio decompositions, proof, prior relationship and limitations",
+        "method": "Compared independent tensor-factor regression ratios and shared factors in Kronecker sketches to the present correlated left/right image projectors",
+        "title": "Sharp inverse-moment thresholds and logarithmic tails for two Gaussian tensor sketches",
+        "trigger": "Plausible stronger coverage of products of Gaussian/chi ratios and reuse effects"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "359d8df1-4ce8-43a0-8303-938ce84358eb",
+  "value": {
+    "rationale": "The problem is motivated by whether to enforce symmetry by sharing a sketch or by symmetrizing the output of independent sketches. The new sharp loss of two sketch rows in the mean-square threshold (three versus five), complete p-moment phase boundary and quantified singular three/four-row near-coupling risk identify a nontrivial numerical design issue. It concerns a natural positive normal forcing of the actual rank-one oblique DLRA map; not an arbitrary parameter slice or mere known-table recomputation, and it does not overclaim entire integrator stability.",
+    "status": "PASS"
+  }
+}
