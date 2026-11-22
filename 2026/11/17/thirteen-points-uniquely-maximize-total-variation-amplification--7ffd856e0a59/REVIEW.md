@@ -1,15 +1,21 @@
-# Scientific review: quartic Savitzky–Golay variation gain
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact convolution kernel is reconstructed from the even least-squares Gram inverse and satisfies polynomial reproduction. Discrete differentiation commutes with convolution, and a step input has a single-impulse derivative, making the \(\ell^1\) kernel norm exactly sharp for total variation. The finite-range global comparison covers each integer window radius \(2\le m\le1999\) with strict integer cross products, aside from exact equality at \(m=6\). The infinite tail \(m\ge2000\) has an independent uniform-polynomial approximation estimate and a rational upper bound separated strictly from \(3763/2431\). No floating-point comparison is required for the theorem.
+## correctness
 
-## Originality — PASS, qualified
-The closest fully inspected prior result proves the corresponding **quadratic/cubic** seven-point maximum and explicitly leaves higher degrees outside scope. The classical 1964 source introduced the coefficients rather than the new quartic all-window sharp optimization; the 2022 full-text signal-processing study addresses ringing, stopband response and practical smoothing design rather than exact variation gain. Searches under alternate names including kernel \(\ell^1\) norm, negative coefficient mass, positivity defect, total variation, fourth-degree least-squares smoothing and thirteen-point extremizers revealed no theorem covering the unique quartic all-window maximum. Unindexed equivalent work remains a residual risk; the 1964 publisher-restricted full paper was not fully inspected.
+PASS
 
-## Mathematical value — PASS
-The all-window problem is motivated by deterministic stability of a long-used polynomial smoother, not by a freely chosen numerical example. Higher-order quartic coefficients have two sign crossings, distinct from the previously solved quadratic case. A large finite sharp peak at thirteen points and a strictly smaller asymptotic plateau explain why increasing window length is not monotone for worst-case variation robustness. The complete integer-radius classification is usable directly for filter-window choice.
+The even-moment Gram inverse generates the explicit five-degree-denominator quartic coefficient h_{m,k} and reproduces degrees 0–4. Discrete differences commute with convolution; an input step has delta difference so the exact unanchored variation operator norm equals G_m=sum|h_{m,k}|, not merely an upper bound. Independently recomputed all integer gains m=2..1999 with exact rational arithmetic: unique maximum at m=6, G_6=3763/2431. For m>=2000 the paper gives a uniform coefficient difference <34/m relative to K(u)=(225-1050u²+945u⁴)/128 and BV Riemann-sum discrepancy <9/m; hence G_m<G_infinity+78/m. Rational root brackets and polynomial integration prove G_infinity<301/200, and 301/200+78/2000<3763/2431. This analytical tail, not finite enumeration or a floating-point limit, closes the infinite quantifier. The degree-five center intercept equals quartic by odd/even orthogonality.
 
-## Closest literature and limits
-Savitzky–Golay (1964) supplies the basic smoother. Schmid–Rath–Diebold (2022) documents shortcomings and alternatives. The previously published quadratic sharp-positivity theorem concerns a different, strictly lower polynomial degree. The result does not extend to finite-boundary implementation, irregular nodes, weighted windows or probabilistic mean-squared performance. Historical all-window uniqueness has not been independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 1964 Savitzky–Golay full reprint teaches convolution weights, 5-to-25 point tables and noise smoothing; it does not state a quartic all-radii sharp total-variation gain. The full published quadratic/cubic positivity theorem shows a seven-point optimum for different polynomial degree; its one-sign-change kernel and 29/21 gain do not imply the quartic double-negative-lobe maximum 3763/2431. Schmid–Rath–Diebold (2022) discusses ringing/stopband and boundary artifacts, not this stated optimization. The 1983 Marchand–Marmet article is highly relevant to overshoots, but authorized full-text retrieval returned no verified PDF; risk recorded, not declared wholly noncovering.
+
+## value
+
+PASS
+
+Unweighted quartic center smoothing is a standard numerical operator, and its sharp adjacent-variation gain directly measures deterministic amplification/overshoot under a one-jump worst case. The complete all-window comparison gives a nonmonotonic robustness boundary at 13 points distinct from the continuum plateau and from degree-two behavior. This window-design result is an exact mathematically motivated stability invariant, not merely coefficient tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

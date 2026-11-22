@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` in the same directory. The script depends only on Python 3's standard library and uses integer and `fractions.Fraction` arithmetic for every strict inequality. It prints:
+## correctness
 
-```
-LEAST_SQUARES_MOMENTS_AND_GRAM_COFACTOR_PASS 29
-EXACT_ALL_WINDOWS_5_TO_3999_UNIQUE_13_POINT_MAX_PASS 1998
-RATIONAL_CONTINUUM_ROOT_ENCLOSURES_AND_GAIN_BOUND_PASS 1.504163623348879
-EXACT_INFINITE_TAIL_POSITIVE_GAP_PASS
-EXACT_JUMP_SIGNAL_ATTAINS_EVERY_SHARP_KERNEL_GAIN_PASS
-ALL_QUARTIC_SAVITZKY_GOLAY_VARIATION_CHECKS_PASS 3763/2431
-```
+PASS
 
-The continuum decimal in this log is a rounded display of a fraction used solely for verification. Exact mathematical comparisons use rational arithmetic. The checker tests finite coefficient reconstruction and the finite portion of the global maximum; for arbitrarily large radii it checks the critical uniform estimates. The analytical inequalities in `RESULT.md` are essential to conclude the all-radius theorem and must not be replaced by finite enumeration.
+The even-moment Gram inverse generates the explicit five-degree-denominator quartic coefficient h_{m,k} and reproduces degrees 0–4. Discrete differences commute with convolution; an input step has delta difference so the exact unanchored variation operator norm equals G_m=sum|h_{m,k}|, not merely an upper bound. Independently recomputed all integer gains m=2..1999 with exact rational arithmetic: unique maximum at m=6, G_6=3763/2431. For m>=2000 the paper gives a uniform coefficient difference <34/m relative to K(u)=(225-1050u²+945u⁴)/128 and BV Riemann-sum discrepancy <9/m; hence G_m<G_infinity+78/m. Rational root brackets and polynomial integration prove G_infinity<301/200, and 301/200+78/2000<3763/2431. This analytical tail, not finite enumeration or a floating-point limit, closes the infinite quantifier. The degree-five center intercept equals quartic by odd/even orthogonality.
 
-Independent audit is not performed; there is no external certification or additional verification claim.
+## originality
+
+PASS
+
+The 1964 Savitzky–Golay full reprint teaches convolution weights, 5-to-25 point tables and noise smoothing; it does not state a quartic all-radii sharp total-variation gain. The full published quadratic/cubic positivity theorem shows a seven-point optimum for different polynomial degree; its one-sign-change kernel and 29/21 gain do not imply the quartic double-negative-lobe maximum 3763/2431. Schmid–Rath–Diebold (2022) discusses ringing/stopband and boundary artifacts, not this stated optimization. The 1983 Marchand–Marmet article is highly relevant to overshoots, but authorized full-text retrieval returned no verified PDF; risk recorded, not declared wholly noncovering.
+
+## value
+
+PASS
+
+Unweighted quartic center smoothing is a standard numerical operator, and its sharp adjacent-variation gain directly measures deterministic amplification/overshoot under a one-jump worst case. The complete all-window comparison gives a nonmonotonic robustness boundary at 13 points distinct from the continuum plateau and from degree-two behavior. This window-design result is an exact mathematically motivated stability invariant, not merely coefficient tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
