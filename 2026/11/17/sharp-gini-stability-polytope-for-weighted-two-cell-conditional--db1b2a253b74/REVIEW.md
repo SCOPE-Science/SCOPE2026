@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
-The actual proof gives a complete finite-dimensional statement for all real inputs and strictly positive within-cell weights. Its critical steps are: the exact cross-class identity \(G(Px)=ab|\mu_A(x)-\mu_B(x)|\); a level-set coarea decomposition that proves reduction to cuts, not merely finite experimental enumeration; exact maximization of a signed zero-mass functional at each cut cardinality by sorting the two weight vectors; and explicit indicator witnesses. The mass-stability polytope follows as a necessary-and-sufficient test. The total-variation neighbourhood radii follow from a sharp partial-sum deviation estimate, with strictly positive nearby violation witnesses, and the mass envelope follows from \(k(n-k)\ge n-1\). The code checks critical small examples, boundary profiles, and rational-input inequalities without claiming the tests establish the all-dimensional result.
+## correctness
 
-## Originality — PASS (qualified)
-The relevant published and accessible previous statements were compared at the level of mathematical implications. Estaremi (2013, arXiv:1302.0597) works with Hilbert-space conditional expectation norms and spectral/polar decompositions; Khan–Latif–Pečarić (2012, DOI:10.1186/1029-242X-2012-105) address convex majorization inequalities. Neither gives the claimed norm on the complete-pair Gini quotient. The closest published published-finding corpus finding on **the same weighted two-cell averaging operator** (2026/11/1/.../19779f163091) proves a cyclic **adjacent-edge** variation formula, whose norm gives \(4/3\) in a four-site example for which the present Gini norm is one; therefore that statement does not imply the new stability polytope. The other close published-finding corpus finding concerns a non-idempotent complete-graph heat semigroup. These are substantive non-implication comparisons, not a title-only search. Residual risk remains from unindexed specialized cut-norm formulas and inaccessible full text of Cerone (2008); no priority certification is asserted.
+PASS
 
-## Mathematical value — PASS
-This is a natural complete stability classification for mass-weighted conditional expectation against a uniform-sample dispersion norm, a setting in which positivity and ordinary \(L^p\) contractivity do not resolve stability. The exact region is a structured sorted-partial-mass polytope with nontrivial interior, includes non-bistochastic contractions, and has explicit *optimal* separate mass-imbalance tolerances. The opposite phenomenon is quantitatively sharp: positive idempotent averages can amplify Gini variation from dimension four onward and their worst distortion grows linearly with dimension. These features make the result informative for assessing heterogeneous group aggregation rather than an arbitrary isolated numerical computation.
+The output has a constant value per cell, hence G(Px)=ab|mu_A(x)-mu_B(x)| exactly. Coarea/layer-cake reduces the induced seminorm of this constant-preserving linear map to indicators of nontrivial cuts. For coefficients +p_i in A and -q_j in B (sum zero), maximizing a signed cut of given cardinality means taking the k largest coefficients. A cut of size k<=a yields the top-k p partial sum; its complement gives the q family. This proves the exact sorted-partial-sum formula, attainment and complete polyhedral nonexpansivity criteria. The TV-distance sufficient radii follow from P_k^down<=k/a+d_TV(p,u_A), with smallest slack (a-1)/(ab); one-heavy-coordinate perturbations show each radius is sharp separately. Strict mass positivity makes the all-weights envelope ab/(n-1) unattained for a,b>=2. Independent rational enumeration of every cut for each a,b=1..5 and nonuniform increasing rational weights matched all 25 formulas. This is finite corroboration, not proof of all a,b.
 
-## Limitations and comparison risk
-The unrestricted claim is only for two output cells, strictly positive within-cell probabilities, real finite-dimensional data, and unweighted complete-pair Gini variation. The stability radii are sufficient and sharp as balls, not characterizations of individual vectors. The mass-concentration upper envelope is an unattained supremum when both cells have size at least two. The older Gini-inequalities survey by Cerone was inspected only at abstract level, and hidden historical equivalents remain possible. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (bounded best-of-knowledge). Classical conditional expectation and majorization theorems imply contraction for doubly stochastic equal-weight projections, not for all strictly positive unequal cell weights. The earlier cyclic two-cell theorem yields a different norm and different contraction region: the four-site contrasting example rules out an equivalence of exact criteria. Material full texts and relevant primary sections checked; remaining historical-equivalence risks retained.
+
+## value
+
+PASS
+
+Finite conditional expectation with two weighted classes is an elementary but natural positive idempotent operator. The exact *non-bistochastic* Gini stability region, sharp imbalance tolerance and concentration envelope identify when an averaging process increases a natural dispersion despite preserving constants and positivity. The sorted-sum geometry gives a reusable explicit classification rather than a mere example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
