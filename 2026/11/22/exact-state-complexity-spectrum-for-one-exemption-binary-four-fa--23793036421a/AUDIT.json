@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The explicit factor-mask transition invariant proves language recognition for every input length. Exhaustive BFS enumerates 19,205 reachable states. Stabilization of accepting/successor-signature refinement is exactly the Myhill–Nerode quotient (by suffix-length induction). A separately implemented Hopcroft-style predecessor-splitting algorithm independently yields all sixteen identical exact quotients. Both actual packaged programs include internal quotient-congruence assertions; finite source words are supplemental sanity tests, not the infinite proof. The sixteen counts and 17/18 distinguishing suffix thresholds were replayed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "OEIS A375919 (Shallit, 2024) gives 13,212 minimal states when *all* sixteen four-factors are mandatory.",
+        "Charalampopoulos et al. (arXiv:2605.04826v1) provide asymptotically fast absent-substring search algorithms, not fixed order-four DFA quotient spectra."
+      ],
+      "reasoning": "The full-factor language is a proper sublanguage of each one-exemption language, but language inclusion does not determine minimal DFA state complexity; the all-factor value is not an upper/lower proof of the sixteen exact one-exemption values. General factor-finding algorithms likewise do not compute the quotient spectrum.",
+      "searches": [
+        "OEIS A375919 number of states minimal deterministic finite automaton containing all length n factors",
+        "published-finding corpus: minimal deterministic automaton state complexity language containing all binary factors of length three de Bruijn universal substring coverage",
+        "web: all but one factors state complexity automata"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2605.04826",
+      "https://oeis.org/A375919",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-the-sharp-full-support-threshold-for-binary-three-factor-spectra--e450d182bc9b",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-shortest-cyclic-binary-covers-for-all-four-bit-forbidden-f--4c2a5e159cc3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The arXiv source studies computational time for shortest absent and unique substrings, not the number of distinct right languages for all but one of sixteen factors.",
+        "The published three-factor spectrum result concerns maximal cardinality of finite-word fibers for fixed lengths, rather than complete-DFA minimization.",
+        "The cyclic-cover result concerns a separate combinatorial optimization under factor avoidance, not right-language equivalence."
+      ],
+      "reasoning": "Their published conclusions do not logically imply the eight numerical quotients or reversal gap of 625 without a new finite automaton minimization. The new classification provides that minimization explicitly.",
+      "searches": [
+        "arxiv:2605.04826v1 shortest absent substring algorithm",
+        "published-finding corpus: the sharp full-support threshold for binary three-factor spectra",
+        "published-finding corpus: exact shortest cyclic binary covers for all four-bit forbidden factors through order 15",
+        "published-finding corpus: factor-coverage language requiring 15 of 16 length four substrings exact Myhill-Nerode spectrum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The language is equivalently an intersection of fifteen factor-occurrence languages, with one *specified* missing factor allowed; it is not the at-least-fifteen-of-sixteen disjunction.",
+        "No matching exact Myhill–Nerode classification appeared among returned published research records; the closest results were generic DFA complexity and factor-covering studies."
+      ],
+      "reasoning": "The natural intersection formulation and the equivalent sixteen-bit factor-monitor construction were searched. The published results retrieved do not supply the state counts by the identity of the exempt factor, nor a minimal-quotient calculation implying them.",
+      "searches": [
+        "published-finding corpus: state complexity of languages containing all binary length four substrings except one 4-bit word DFA",
+        "published-finding corpus: factor-coverage language requiring 15 of 16 length four substrings exact Myhill-Nerode spectrum",
+        "web: state complexity minimal DFA all length four factors except one binary word excluded pattern"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A375919 lists 4,16,140,13212 for fully universal factor-monitor state counts at orders one through four; none is the prescribed-one-exemption classification.",
+        "Specific-number searches did not locate the eight-entry claimed table."
+      ],
+      "reasoning": "The only located close exact database entry is for the stronger sixteen-required-factor language and does not list conditional one-factor-omission counts. Negative search hits are not claimed as mathematical proof of novelty.",
+      "searches": [
+        "OEIS A375919",
+        "web: 8435 11746 automata substring factors",
+        "web: 8435 11121 9670 10152",
+        "published-finding corpus: all but one binary four-bit factors minimal deterministic automaton 8435 11746 11121 reversal state complexity"
+      ]
+    },
+    "rationale": "The full-universality complexity count 13,212 is explicitly known (OEIS A375919) but does not entail the sixteen exact quotients for prescribed one-factor exemptions; the inspected 2026 shortest-absent-substrings paper addresses search algorithms rather than minimal DFA complexity. Published factor-spectrum and cyclic covering statements quantify different objects. Searches of published-finding corpus, OEIS and primary-source indexes found no matching classification; the main residual risk is a specialized unindexed census.",
+    "residual_risks": [
+      "Specialized, unindexed pre-existing near-universal factor-monitor state tables could be equivalent to this claim.",
+      "Full primary text of the relevant three-factor spectrum research was inaccessible; comparison is limited to its recovered mathematical statement.",
+      "The classification is fully computational for this natural finite parameter range; it is not an all-order formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact state-count census in inspected results; its proved bounds concern algorithms for finding absent or unique substrings",
+        "evidence": [
+          "arXiv:2605.04826v1 (May 6, 2026), introductory problem statements and principal theorems; O(n log sigma / sqrt(log n)) shortest-absent-substring algorithm"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.04826",
+        "material_read": "ArXiv full-text opening pages, abstract, definitions, principal algorithmic theorems, and related-work discussion",
+        "method": "Opened the lawful arXiv primary full text and inspected page text plus rendered opening pages",
+        "title": "Faster Algorithms for Shortest Unique or Absent Substrings",
+        "trigger": "Most directly relevant 2026 factor-absence work and motivating primary source"
+      },
+      {
+        "assessment": "COVERS the all-sixteen-factor baseline but not the prescribed-one-exemption spectrum",
+        "evidence": [
+          "Shallit, Sep 2, 2024: 4,16,140,13212 for complete DFA requiring all length-k binary factors, k=1,...,4"
+        ],
+        "identifier_or_url": "https://oeis.org/A375919",
+        "material_read": "Sequence definition, initial values, comments, authorship and publication date",
+        "method": "Read OEIS primary entry",
+        "title": "OEIS A375919: binary all-factor DFA state complexity",
+        "trigger": "Possible direct stronger fully universal state-complexity result"
+      },
+      {
+        "assessment": "Abstract describes finite-length count comparisons, not the DFA quotients; inability to inspect full text leaves residual risk",
+        "evidence": [
+          "2026 published index: all eight binary three-factors maximal ambiguity threshold at length 14"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-the-sharp-full-support-threshold-for-binary-three-factor-spectra--e450d182bc9b",
+        "material_read": "Indexed research title and mathematical abstract; primary GitHub full text attempted but unavailable",
+        "method": "published-finding corpus semantic indexing and unsuccessful publisher-repository full-text retrieval",
+        "title": "The sharp full-support threshold for binary three-factor spectra",
+        "trigger": "Closest recent published complete-factor support study"
+      },
+      {
+        "assessment": "Different object: shortest cyclic covering sequences under forbidden factors, not the minimal complete-DFA size of fifteen-required-factor languages",
+        "evidence": [
+          "2026 published index: finite order-through-15 cyclic covering lengths for forbidden four-bit patterns"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-shortest-cyclic-binary-covers-for-all-four-bit-forbidden-f--4c2a5e159cc3",
+        "material_read": "Indexed research title and substantive summary, not complete primary paper",
+        "method": "published-finding corpus semantic lookup",
+        "title": "Exact shortest cyclic binary covers for all four-bit forbidden factors through order 15",
+        "trigger": "Same binary factor order and pattern-specific exclusion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "23793036-421a-4d79-a7b1-0dda339f5ec3",
+  "value": {
+    "rationale": "A specified four-factor exemption is a mathematically natural robust variant of a universal factor-coverage monitor. This is a complete classification across all sixteen binary four-patterns, including eight minimal-memory levels, rigorous extremizers and a 625-state reversal asymmetry. These distinct exact right-language complexities are not implied by the known all-factor DFA count. It is a motivated complete finite structural census, not an arbitrary single-case recomputation.",
+    "status": "PASS"
+  }
+}
