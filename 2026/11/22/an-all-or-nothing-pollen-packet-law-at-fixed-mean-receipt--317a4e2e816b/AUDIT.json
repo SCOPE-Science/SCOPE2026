@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Exact count N_k~Pois(lambda/k) yields S_k. The reduction k<=r to Q_m with m=ceil(r/k), Poisson monotonicity, and the strictly increasing normalized forward differences R_n prove no interior maximum, excluding all intermediate sizes and all k>r. A log derivative monotonicity proves the unique positive endpoint crossover with sharp equality; the Poisson central limit theorem and sign bracketing prove its asymptotic location. Every hypothesis, boundary and quantifier is explicit. The included standalone checker ran 143276 diagnostic assertions, including exact-rational coefficient inequalities. These tests supplement but do not replace the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Heiling and colleagues (2023) optimize package size by pollinator grooming and visitation preference, with a male-donation objective D=aR^g and package-removal probability; no Poisson-arriving equal-mean stigma receipt threshold is in their model.",
+        "Schreiber and colleagues (2015) optimize plant resource allocation among ovules, pollen attraction and seed maturation with continuous pollen receipt, rather than homogeneous grain packets with varying Poisson arrival rate.",
+        "The packet coupon result establishes missing-coupon majorization for fixed exposures over multiple coupon types, not the probability one recipient reaches a one-dimensional r-grain quota.",
+        "The two-point compound-Poisson concentration result optimizes a sub-gamma variance scale over a mixing parameter for jumps 1 and 5; it does not optimize a fixed-mean threshold probability over all integer jump sizes."
+      ],
+      "reasoning": "The published studies address adjacent biological mechanisms and packet mathematics; their proofs do not dominate the current theorem because neither the all-or-none one-recipient success objective nor the family of rates lambda/k with packet threshold ceil(r/k) is covered. The 2008 historical review is a plausible uncovered risk because only its abstract was accessible.",
+      "searches": [
+        "uniform pollen grain clumps Poisson delivery at fixed mean number grains threshold at least r grains optimizing integer packet size singleton versus r critical lambda",
+        "all or nothing full pollination quorum compound Poisson fixed expected receipt optimal bundle size",
+        "Poisson packet batching probability reaching threshold fixed expected total items chunk size optimal extremes one or threshold",
+        "Poisson pollen aggregate packet fixed grain budget threshold number of pollen grains clumping all-or-none success optimize package size",
+        "https://doi.org/10.1002/ajb2.16158",
+        "https://doi.org/10.1086/678982"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1086/676301",
+      "https://doi.org/10.1086/678982",
+      "https://doi.org/10.1002/ajb2.16158",
+      "https://doi.org/10.1086/523364"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The binomial-atom reversal considers a comparison of masses at 0 and r, not maximization of Poisson tail Pr{Pois(lambda/k)>=ceil(r/k)} over k.",
+        "The gamma centered-tail result compares a different threshold scaling, so it cannot force the sign of every discrete packet-size difference here.",
+        "The 2014 aggregation paper observes the biological units; the 2015 pollen receipt paper optimizes plant reproductive allocations; the 2023 pollen reward paper optimizes male donation. None inspected states the exact all-r endpoint-only optimizer, the unique crossover or its normal-quantile scaling.",
+        "The 2008 aggregation review was not available as full text; priority uncertainty is preserved rather than inferred away from its abstract."
+      ],
+      "reasoning": "The candidate establishes a different exact implication: for every r>=2 and lambda>0, all 1<k<r and all k>r are dominated by k=1 or k=r, with a unique positive parameter switch. Neither a general qualitative preference for small packages nor a fixed-jump compound-Poisson inequality implies this sharp exhaustive statement. Residual older theory may reduce originality and requires independent specialist checking.",
+      "searches": [
+        "uniform pollen grain clumps Poisson delivery at fixed mean number grains threshold at least r grains optimizing integer packet size singleton versus r critical lambda",
+        "gamma sample means CDF quasiconvex sample size fixed threshold extreme sample size",
+        "https://doi.org/10.1086/676301",
+        "https://doi.org/10.1086/678982",
+        "https://doi.org/10.1002/ajb2.16158",
+        "https://doi.org/10.1086/523364"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The candidate is equivalently the strict absence of interior maxima for Q_n(a)=Pr{Pois(na)>=n}, with endpoints Q_1(a),Q_r(a).",
+        "The closest centered-Gamma upper-tail result concerns Pr{G_n-n>c} with a fixed additive displacement, whereas this result compares an uncentered proportional threshold and a changing integer packet size."
+      ],
+      "reasoning": "The latter Gamma theorem neither asserts nor implies the monotone sequence of normalized Poisson successive-difference ratios R_n, which yields the endpoint-only optimizer. The exact equivalence to the regularized upper incomplete gamma function was considered as a possible preexisting formulation; targeted searches found no full-coverage result. Negative search results alone are not treated as a proof of novelty.",
+      "searches": [
+        "Poisson upper tail P(Pois(n a) at least n) discrete sequence n has a single minimum no interior maximum",
+        "Poisson packet batching probability reaching threshold fixed expected total items chunk size optimal extremes one or threshold",
+        "Poisson(n a) probability greater than n shape unimodality n sample mean exponential U shaped",
+        "gamma sample means CDF quasiconvex sample size fixed threshold extreme sample size"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Timerman and colleagues (2014) report empirical pollen dispersal unit size distributions, typically analyzed as lognormal, rather than an optimization table of the present Poisson packet-tail model.",
+        "The crossover is the unique positive zero of exp((r-1)lambda/r)-sum_{j=0}^{r-1}lambda^j/j!, with strict exclusion of all other integer sizes and a large-r scaling limit; no exact table covering that claim was located."
+      ],
+      "reasoning": "The work is a complete infinite-family classification rather than the computation of known entries for particular threshold numbers. The small numerical examples are solely checks and are not claimed as a new database.",
+      "searches": [
+        "Poisson pollen aggregate packet fixed grain budget threshold number of pollen grains clumping all-or-none success optimize package size",
+        "pollen aggregated dispersal unit clump size ovule fertilization full pollen receipt Poisson model",
+        "https://doi.org/10.1086/676301",
+        "https://doi.org/10.1086/678982"
+      ]
+    },
+    "rationale": "Comparison of exact statements and implications against a complete read of the central 2014 pollen aggregation article, the primary 2015 pollen allocation PDF, the 2023 full-text pollen package optimization model, and relevant published mathematical packet/Poisson results found no coverage of the sharp packet-quorum family. The 2008 aggregated-pollen review could only be assessed by abstract; it is explicitly recorded as a residual priority risk, not a noncovering full-text claim.",
+    "residual_risks": [
+      "Harder and Johnson (2008) could not be inspected beyond its abstract because full access was not available. It remains a historical-priority risk.",
+      "Generic results about Gamma/Poisson sample-mean threshold monotonicity may exist under unfamiliar terminology; searches are not a novelty proof.",
+      "Biological observation of packet aggregation and seed set is not a test of the fixed-mean Poisson deposition assumption."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Biological context, not the modeled packet-budget theorem.",
+        "evidence": [
+          "The paper analyzes size distributions for 32 wind- and animal-pollinated species, with lognormal fit and monad proportions; it does not optimize a Poisson grain-quorum success probability.",
+          "The manuscript gives May 21, 2014 as its electronic-publication date."
+        ],
+        "identifier_or_url": "https://doi.org/10.1086/676301",
+        "material_read": "Author manuscript text covering abstract, introduction, empirical pollen aggregation methods, results and discussion in the 7-page article.",
+        "method": "Read accessible full article text including first-online date and biological PDU explanations.",
+        "title": "Pollen Aggregation in Relation to Pollination Vector",
+        "trigger": "Same biological objects (pollen dispersal units, packet sizes, multiovulate flowers)."
+      },
+      {
+        "assessment": "Models allocation of resources and stochastic pollen availability without packet-size optimization at fixed total expected grain receipt.",
+        "evidence": [
+          "The receipt model uses an availability factor and an upper bound on fertilized ovules; decision variables are fractions of resource allocation to ovules, pollen attraction and seed maturation.",
+          "Full primary PDF electronically published December 12, 2014; no conclusion equivalent to strict uniform packet-size endpoint dominance."
+        ],
+        "identifier_or_url": "https://doi.org/10.1086/678982",
+        "material_read": "Author-hosted 26-page primary PDF: abstract, setup and equations on pages 1-3, optimization sections, discussion and appendices; first and appendix pages also viewed as images.",
+        "method": "Read the actual primary PDF and examined allocation variables, probability distribution assumptions, conclusion and appendices.",
+        "title": "Evolutionary and Ecological Consequences of Multiscale Variation in Pollen Receipt for Seed Production",
+        "trigger": "Direct stochastic pollen receipt and seed production models, potentially dominating the threshold abstraction."
+      },
+      {
+        "assessment": "Closely related optimization wording, different biological objective and probability family; its formula does not imply the packet-quorum classification.",
+        "evidence": [
+          "Optimal package size balances grooming loss with pollinator reward attractiveness and maximizes total grains donated; model does not use Poisson arrival to one stigma with equal expected grain receipt.",
+          "The article notes other constraints on carrying capacity and package removal are not modeled."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/ajb2.16158",
+        "material_read": "Full open-access article web text, including equations (1) to (6), assumptions, optimum formula, discussion, and described appendices.",
+        "method": "Read scientific mathematical model and comparison with target all-or-none stigma-receipt objective.",
+        "title": "Conflicting constraints on male mating success shape reward size in pollen-rewarding plants",
+        "trigger": "Title and full text explicitly optimize pollen package size."
+      },
+      {
+        "assessment": "Unresolved historical priority risk, not falsely classified as noncovering.",
+        "evidence": [
+          "Review topic is plausibly relevant; unavailable full argument means the new mathematical classification cannot be compared conclusively with it."
+        ],
+        "identifier_or_url": "https://doi.org/10.1086/523364",
+        "material_read": "Publisher abstract only; open-access and preprint attempts did not locate complete paper.",
+        "method": "Checked accessible abstract; institutional full-text retrieval reported VPN disconnected, and no full-paper assessment was made.",
+        "title": "Function and Evolution of Aggregated Pollen in Angiosperms",
+        "trigger": "Foundational review on aggregated pollen and potential source of an earlier exact model."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "317a4e2e-816b-49ef-9d94-a4ca96f421d4",
+  "value": {
+    "rationale": "Pollen aggregation controls clustered delivery and multiovulate fertilization, a documented ecological mechanism. Under a natural fixed-mean-receipt constraint, the result completely classifies an unbounded set of uniform packet sizes and gives a unique sharp high-versus-low receipt switch and a precise large-threshold scaling law. The strict discrete valley lemma is a substantive structural reason why seemingly attractive intermediate clumps never win. This is not a textbook definition or an arbitrary parameter slice, while ecological extrapolation is explicitly disclaimed.",
+    "status": "PASS"
+  }
+}
