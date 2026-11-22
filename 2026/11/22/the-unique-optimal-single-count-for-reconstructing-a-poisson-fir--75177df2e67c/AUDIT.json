@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The count-conditioned estimator follows from standard conditional Poisson locations and the memoryless property. Exact summation yields R(z)=2-exp(-z)(1+2z+zF(z)) with F(z)=Ei(z)-EulerGamma-log z; differentiating gives R'(z)=-exp(-z)g(z), g''(z)=(1+z-exp z)/z^2<0. From g(0+)=1 and g'(0+)=0, g is strictly decreasing to -infinity and crosses once. This verifies all z>0 and both boundaries, not just a numerical optimizer. A separately derived conditional-variance series and derivative identities were replayed with Python/SymPy/mpmath. The result excludes unknown rates, noisy data, bounded horizons and multiple observations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/pdf/1701.08311 Theorem 4.2: n to infinity global path-norm approximation",
+        "https://arxiv.org/pdf/2108.02394 Theorems 2-3: class-wise complexity bounds",
+        "https://doi.org/10.1002/nav.22271 Theorems 1-3: observed arrival Markov dynamics and mixing"
+      ],
+      "reasoning": "A many-time high-resolution global path-error theorem, a randomized Euler complexity theorem, and periodic arrival-count rate/mixing results cannot entail an exact single-query optimal time for the latent unbounded first jump without a new reduction. The found theorems neither assert nor imply the finite-budget Bayes objective.",
+      "searches": [
+        "optimal single observation count N(t) estimating first Poisson arrival waiting time T by conditional expectation Bayes risk exponential integral unique sampling instant",
+        "Bayes design Poisson arrival time optimal observation time count squared error sampling",
+        "arxiv 1701.08311 Theorem 4.2 optimal sampling non-equidistant Poisson",
+        "arxiv 2108.02394 Theorem 2 numerical approximation Poisson",
+        "Finite-Horizon Behavior of the Periodically Observed Time-Homogeneous Poisson Process"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1701.08311",
+      "https://arxiv.org/pdf/2108.02394",
+      "https://doi.org/10.1002/nav.22271",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-sharp-two-window-fisher-design-for-inverse-time-aftershock-count--8fb3895d60c4",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-optimal-snapshot-calendars-for-a-single-transient-ecological-pre--b2d028296c40",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-two-visit-occupancy-experiment-breaks-equal-effort-optimality--b8f26f454426"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/pdf/1701.08311 pp. 19-22: global nonuniform grids and Merton jump diffusion example",
+        "https://arxiv.org/pdf/2108.02394 p. 18: complexity theorem",
+        "https://doi.org/10.1002/nav.22271 Sections 2-3"
+      ],
+      "reasoning": "Neither an asymptotic multi-evaluation path norm nor a finite-dimensional numerical SDE complexity rate supplies the conditional-expectation risk of an untruncated first-event time. The cited periodic-data article estimates arrival rates and studies Markov mixing, not deterministic timing that minimizes a single-count Bayes risk. A direct derivation uses the count-conditioned minimum uniform order statistic and a new strict concavity argument for the sampling equation.",
+      "searches": [
+        "Poisson count N(x) single snapshot optimal mean square reconstruction first event time exponential first jump T with unique optimal λx=1.785660 and Bayes risk 0.3217388",
+        "one point Poisson process first jump event time Bayes optimal count observation exponential integral",
+        "Optimal sampling design for global approximation of jump diffusion SDEs Section 4.1",
+        "Efficient approximation of SDEs driven by countably dimensional Wiener process and Poisson random measure Theorem 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/pdf/1701.08311 (Secs. 3-4 and Sec. 4.1)",
+        "https://arxiv.org/pdf/2108.02394 (Secs. 3-4)",
+        "https://doi.org/10.1002/nav.22271 (model, Theorems 1-3)"
+      ],
+      "reasoning": "Count observation is equivalently an unordered Poisson-bridge sample count; for positive k the conditional event-time mean x/(k+1) is elementary, but minimizing its exact unconditional squared Bayes risk leads to the unique exponential-integral root. The cited source statements do not give that root, risk or optimizing one-count experiment.",
+      "searches": [
+        "Poisson count N(x) single snapshot optimal mean square reconstruction first event time exponential first jump T with unique optimal λx=1.785660 and Bayes risk 0.3217388",
+        "one count N(t) estimating Poisson first jump time conditional mean t/(N+1) and design exponential integral",
+        "optimal single observation count N(t) estimating first Poisson arrival waiting time T by conditional expectation Bayes risk exponential integral unique sampling instant",
+        "one point Poisson process first jump event time Bayes optimal count observation exponential integral",
+        "first arrival Poisson process conditional order statistics one count exact Bayes estimator"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact decimal/root match located by web query for either displayed constant",
+        "The nearest semantically ranked published result was the two-window aftershock Fisher design (8fb3895d60c4), which estimates an inverse-time intensity offset and is not a first-arrival Bayes reconstruction",
+        "The transient ecological snapshot result (b2d028296c40) optimizes detection probability over multiple binary visits, a different observation and loss"
+      ],
+      "reasoning": "The searched records provided no pretabulated one-count optimal time or risk. A failed exact-number search is weak evidence and is not a proof of novelty; source statements and their implications were separately compared.",
+      "searches": [
+        "\"1.7856603836\" Poisson count",
+        "\"0.321738802\" Poisson sampling",
+        "Poisson count N(x) single snapshot optimal mean square reconstruction first event time exponential first jump T with unique optimal λx=1.785660 and Bayes risk 0.3217388",
+        "one count N(t) estimating Poisson first jump time conditional mean t/(N+1) and design exponential integral",
+        "\"first arrival time\" \"count\" \"optimal\" quadratic loss Poisson"
+      ]
+    },
+    "rationale": "Actual claim-level searches for a single Poisson count of the first arrival and its conditional-mean optimal design did not locate the constant or equivalent all-rate exact Bayes-risk minimizer. The closest inspected primary results address global jump-SDE path approximation, randomized Euler complexity and periodically observed rate/mixing; none has the same target, information budget and loss, or a statement that logically implies this optimum. The Poisson conditional-uniform facts are standard and are not the claimed novelty. Historical priority remains provisional and is not inferred merely from lack of search hits.",
+    "residual_risks": [
+      "Historical optimization of discrete-time first-arrival estimation may occur in older books or unavailable papers without matching digital titles; source coverage is not exhaustive.",
+      "An equivalent formula might be embedded as an unindexed special case of a broader finite-information Bayesian design result.",
+      "The source paper arXiv:1701.08311 has primary bibliographic classifications 68Q25 and 65C30; the present finite-information numerical reconstruction problem is designated 65C30 on its own mathematical content."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the first-arrival one-count Bayes objective: optimizes large-budget strong global SDE approximation",
+        "evidence": [
+          "arXiv:1701.08311v1, dated 28 Jan 2017, p.1 introduction",
+          "p.20 Theorem 4.2, p.21 Remark 4.1, pp.21-22 Merton example and conclusions"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1701.08311",
+        "material_read": "arXiv v1 full-text introductory goals, main Theorem 4.2 (p.20), Remark 4.1 and Sec. 4.1 (pp.21-22), conclusions; scanned text for first jump/arrival/bridge terminology",
+        "method": "lawful open-access preprint full-text PDF, text with page screenshots",
+        "title": "Optimal sampling design for global approximation of jump diffusion SDEs",
+        "trigger": "Optimal sampling of a Poisson driver using point observations"
+      },
+      {
+        "assessment": "NOT_COVERING for optimal reconstruction of first event from one exact count; studied objective is stochastic SDE endpoint approximation and complexity",
+        "evidence": [
+          "arXiv:2108.02394v1, dated 5 Aug 2021, p.1",
+          "pp.17-18 Theorems 2-3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2108.02394",
+        "material_read": "arXiv v1 introduction, problem and numerical-algorithm definitions, theorem/complexity sections including pp.17-18; scanned for first jump terminology",
+        "method": "lawful open-access preprint full-text PDF, text with page screenshots",
+        "title": "Efficient approximation of SDEs driven by countably dimensional Wiener process and Poisson random measure",
+        "trigger": "Information-based complexity and optimal numerical sampling of jump processes"
+      },
+      {
+        "assessment": "NOT_COVERING the single optimal count time or unbounded first-arrival conditional quadratic risk",
+        "evidence": [
+          "DOI 10.1002/nav.22271, Secs. 2-3 and Theorems 1-3, pp.1157-1169"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/nav.22271",
+        "material_read": "open-access full article HTML: problem setup, observed interarrival Markov models, finite-horizon transition and mixing theorems, rate estimation section",
+        "method": "publisher open-access HTML full text, internal article sections and matching statements",
+        "title": "Finite-Horizon Behavior of the Periodically Observed Time-Homogeneous Poisson Process",
+        "trigger": "Periodically observed Poisson arrival records as potential stronger discrete-data coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "75177df2-e67c-4a15-a75a-f6dc6f3d2d0c",
+  "value": {
+    "rationale": "One exact counter reading has an immediate measurement-scheduling consequence for reconstructing the first arrival. The nontrivial sharp and unique scale 1.78566038/lambda and exact minimum risk 0.32173880/lambda^2 are not implied by the standard conditional-uniform calculation alone: global optimization requires the special-function curvature argument. The selected full-count design beats the independently optimal one-bit presence sensor by 8.698% in squared loss and the no-reading risk by 67.826%. This is a natural finite-information numerical approximation invariant, not an arbitrary parameter slice; no larger downstream theorem is claimed.",
+    "status": "PASS"
+  }
+}
