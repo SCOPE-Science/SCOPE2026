@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Full 512^2 enumeration for each endpoint incidence class, exhaustive powerset reachability and stable Myhill--Nerode partition; both supplied, differently structured executables independently reproduce all 62 cells. State relabeling gives the 3:6 endpoint weights. The finite code and CSV are supplied at concrete relative paths, not external logs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Baburin--Cotterell arXiv:2611.10911v1 Corollaries 23--24 concern hardness of estimating runtime and overhead; §§6--7 concern semigroup/subset complexity bounds.",
+        "Nicol--Frohme TACAS 2026 §§4--5 study equivalence registries and empirical algorithms, not a full 3-state labeled enumeration.",
+        "Jirásková 2006 abstract studies attainable state-complexity values for minimal NFAs rather than counts of all transition relations."
+      ],
+      "reasoning": "A general upper bound, hardness result, set of realizable sizes, or algorithmic performance comparison does not logically imply the exact frequencies of all (R,M) cells with endpoint and trim filters.",
+      "searches": [
+        "\"Towards A Parametrized Complexity of Determinization\" \"subset complexity\" November 2026",
+        "\"Deconstructing Subset Construction\" 2026 arxiv full text",
+        "\"three state\" \"NFA\" \"subset construction\" exhaustive distribution"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.10911v1",
+      "doi:10.1007/978-3-032-22749-2_20",
+      "doi:10.1051/ita:2006032",
+      "arxiv:2308.14077"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 25 of Baburin--Cotterell bounds subset construction by the relation monoid, without a case-by-case population law.",
+        "Nicol--Frohme measure determinization/minimization overhead in selected practical or synthetic benchmarks; their selection does not imply the unrestricted exact count.",
+        "The previous accessible scientific records closest in topic concern a specific orientation-product DFA or three-state word-separation problems, with different state spaces and objectives."
+      ],
+      "reasoning": "An implication would require either a stronger classification covering all 2^18 input relations for both endpoint types or an explicit equivalent finite generating table. None appeared in inspected relevant source sections or ranked search records.",
+      "searches": [
+        "\"3-state\" \"binary\" NFA determinization enumerated subset automaton number minimal",
+        "\"Deconstructing Subset Construction\" \"Nicol\" \"Frohme\" pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2611.10911v1 §2.2 defines the reachable subset automaton and §5 discusses overhead; it does not supply this fixed-parameter joint table.",
+        "Nicol--Frohme TACAS 2026 §5 evaluates overhead by algorithm, not a finite census of transition relations."
+      ],
+      "reasoning": "The counted invariant is equivalently the distribution of ordered pairs (reachable powerset-DFA size, number of Myhill--Nerode right-language classes), not merely worst-case NFA-to-DFA blowup. Neither inspected statement counts the 62 nonzero labeled cells.",
+      "searches": [
+        "three-state binary nondeterministic automata determinization reachable subset count minimal DFA complexity exhaustive census",
+        "NFA three states binary alphabet subset construction state complexity determinization quotient pair spectrum",
+        "complete joint distribution of reachable subset automaton states and minimal DFA states for all three-state two-letter nondeterministic finite automata with one initial and one final state 262144"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The retrieved results contained textbook subset construction examples, size hierarchy papers, and automata minimization procedures, but no matching 31-cell by endpoint-type table.",
+        "The exact candidate CSV has 62 positive cells, total 262144 per endpoint family and trim margins 190080/209664; compared to distinct statements, not just matching titles."
+      ],
+      "reasoning": "No exact source table was located in the searched material. Negative indexed search does not establish uniqueness, and an unindexed enumeration is the explicit residual priority risk.",
+      "searches": [
+        "subset automaton fully reachable 8 subsets 3 state binary NFA smallest minimal DFA 4; exactly 116 trim examples",
+        "determinization efficiency quotient compression gap 7 reachable subsets 2 minimal states for trim three-state NFA exact census 178",
+        "exhaustive enumeration nondeterministic automata three states two symbols determinization state counts statistics",
+        "\"262144\" \"nondeterministic finite automata\" \"three states\" binary"
+      ]
+    },
+    "rationale": "The actual indexed research and source comparisons support a previously unreported complete 62-cell labeled joint census. The closest 2026 works prove general hardness/complexity estimates and improve algorithms for minimization, not the count of three-state transition tables realizing each ordered pair of powerset and minimal-DFA sizes. Existence of blow-up sizes does not imply multiplicities. Residual risk of an unindexed exact census is explicit.",
+    "residual_risks": [
+      "Unindexed or inaccessible earlier complete finite NFA census could independently contain the same count.",
+      "Jirásková (2006) was available only at abstract level; the comparison here rests on distinct statement type, not a whole-document noncoverage claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general complexity and algorithms, not a complete labeled 3-state binary joint population distribution",
+        "evidence": [
+          "§2.2 defines reachable subset automata",
+          "Corollary 24 addresses approximation hardness for overhead",
+          "Theorem 25 bounds the subset automaton using transition monoid size"
+        ],
+        "identifier_or_url": "arxiv:2611.10911v1; https://arxiv.cnoctave.top/pdf/2611.10911",
+        "material_read": "Abstract and introduction; §2.1–2.4 powerset and subset construction definitions; §5 hardness/corollary; §6 semigroup bounds, with first PDF page visually inspected",
+        "method": "Public author-preprint PDF textual section reading with page-image confirmation",
+        "title": "Towards A Parametrized Complexity of Determinization",
+        "trigger": "Closest recent primary work on subset construction, minimal DFA size and overhead"
+      },
+      {
+        "assessment": "Algorithmic comparison, selected benchmarks and overhead definitions, not 62-cell 3-state transition-relation census",
+        "evidence": [
+          "§1 explicitly motivates compression ratio",
+          "§5 compares algorithm performance on benchmark collections rather than exhaustive three-state NFAs"
+        ],
+        "identifier_or_url": "doi:10.1007/978-3-032-22749-2_20; https://link.springer.com/chapter/10.1007/978-3-032-22749-2_20",
+        "material_read": "Open-access HTML text introduction, §2 finite automata and language equivalence, §4 equivalence registration and §5 setup, experiments and benchmark methods",
+        "method": "Public full-article HTML reading and in-document section checks",
+        "title": "Deconstructing Subset Construction: Reducing While Determinizing",
+        "trigger": "Closely related full accessible text on measuring and reducing subset/minimal DFA overhead"
+      },
+      {
+        "assessment": "Known attainable-size/existence problem is logically weaker than the all-automata multiplicity claim, but full text is not cleared as a source-inspection negative",
+        "evidence": [
+          "Abstract describes realizing minimum-NFA and minimal-DFA size combinations, not counting arbitrary labeled input relations"
+        ],
+        "identifier_or_url": "doi:10.1051/ita:2006032",
+        "material_read": "Abstract and publication metadata; full article text was not accessible from the consulted result",
+        "method": "Publisher-indexed abstract inspection",
+        "title": "Deterministic blow-ups of minimal NFAs",
+        "trigger": "Potentially stronger size-spectrum coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f607f605-c41b-438a-aa36-d25707e0d688",
+  "value": {
+    "rationale": "Motivated by the established difference between reachable subset-construction size and actual minimal language complexity, and by recent hardness of predicting that difference. This full, natural three-state/two-letter/singleton-endpoint population classification gives every joint frequency and a sharp trim overhead of five with exact prevalence, plus the independent full-subset-reachability boundary. It does not claim an asymptotic advance.",
+    "status": "PASS"
+  }
+}
