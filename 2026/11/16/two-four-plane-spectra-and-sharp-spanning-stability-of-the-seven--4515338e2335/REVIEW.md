@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalized generating frame, the exact formula for its sum-of-projectors matrix and the two factorized characteristic polynomials are reconstructed directly. The integral cyclotomic checker calculates the 35 matrices over \(\mathbb Z[\zeta_7,\omega_3]\) without approximation and confirms counts \(21\) and \(14\); spectral factorization yields \(1-\sqrt{2/3}\) as the sharp positive least eigenvalue. The proof also checks the no-three-plane spanning boundary by dimension. Finite completeness applies only to the explicit seven-plane domain.
+PASS
 
-## Originality — PASS, subject to historical priority
+The explicit Phi_m columns satisfy Phi_m*Phi_m=I2 from chi3 orthogonality and sum_m P_m=2 I7. Affine relabelling acts unitarily; the affine group of F7 has two four-subset orbits of sizes 21 and 14. The pinned checker faithfully represents Z[zeta7,omega3] as rank-12 integer cyclotomic module (basis 0..5 in zeta and 0..1 in omega), forms B=42 T^{-1}(sum P_m)T and computes each of 35 seven-degree characteristic polynomials exactly from integer traces/Newton identities. Factored polynomials (t-84)((t-42)^2-1176)(((t-42)^2-294)^2 and (t-84)((t-42)^2-1029)(((t-42)^4-735(t-42)^2+21609) yield every listed eigenvalue and positive bound. An independent floating-point reconstruction classified all 35 subsets 21/14 and worst eigenvalue 0.183503419072..., supplementary to exact cyclotomic certificate. Three planes cannot span dimension seven.
 
-The original 2021 harmonic construction states pairwise equi-isoclinicity and prints the seven generating vectors; it does not give these four-subset spectra. A 2022 same-author conference-matrix paper gives different global and real-construction results rather than this quartet table. The nearest identified four-block spectrum classification concerns real order-thirteen quadratic-character planes, while the order-nine harmonic result is rank-only. The revised totally symmetric family cannot contain two unequal quartet spectra. Possible unindexed specialized tables remain the principal novelty risk; the result is not asserted to have independent priority certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Selecting four rank-two planes is the first arithmetically possible spanning regime for \(\mathbb C^7\). All 35 sums are classified, the precise lower-frame bound is obtained, and the worst geometric orbit is determined. These provide exact deterministic erasure stability for a natural explicitly published harmonic fusion frame; no claim is made for arbitrary frames or noise models.
+Underlying harmonic equi-isoclinic planes and their normalization were constructed in Fickus et al (2021), not new. A specific four-subset spectral census 21/14 and sharp restricted stability bound is distinguishable from original construction and from real q11 and other q9 spectra.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Exact complete four-subspace stability spectrum and sharp erasure/selection lower bound for a canonical explicitly constructed harmonic tight fusion frame is a natural finite classification: all four span and the two nontrivial affine spectral types identify 21 sharp worst-case erasures. A complete finite 35-case certificate is mathematically useful without requiring an infinite-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

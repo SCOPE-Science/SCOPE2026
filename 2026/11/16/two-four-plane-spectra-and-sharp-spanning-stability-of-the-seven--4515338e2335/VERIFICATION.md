@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-Run `python3 exact_four_plane.py` with Python 3. The program constructs the matrices in a faithful twelve-dimensional integral cyclotomic basis and uses exact matrix multiplication and Newton identities to obtain their characteristic polynomials. It evaluates all \(\binom74=35\) distinct four-plane choices and checks that exactly 21 belong to type A and 14 to type B.
+## correctness
 
-Expected last output line:
+PASS
 
-`PASS: all 35 exact integer-cyclotomic matrices have the declared characteristic polynomials`
+The explicit Phi_m columns satisfy Phi_m*Phi_m=I2 from chi3 orthogonality and sum_m P_m=2 I7. Affine relabelling acts unitarily; the affine group of F7 has two four-subset orbits of sizes 21 and 14. The pinned checker faithfully represents Z[zeta7,omega3] as rank-12 integer cyclotomic module (basis 0..5 in zeta and 0..1 in omega), forms B=42 T^{-1}(sum P_m)T and computes each of 35 seven-degree characteristic polynomials exactly from integer traces/Newton identities. Factored polynomials (t-84)((t-42)^2-1176)(((t-42)^2-294)^2 and (t-84)((t-42)^2-1029)(((t-42)^4-735(t-42)^2+21609) yield every listed eigenvalue and positive bound. An independent floating-point reconstruction classified all 35 subsets 21/14 and worst eigenvalue 0.183503419072..., supplementary to exact cyclotomic certificate. Three planes cannot span dimension seven.
 
-For type A the descending integer characteristic coefficients of \(42A_S\) are `(1, -336, 45864, -3259872, 128357460, -2744515872, 28715767920, -106731172800)`. For type B they are `(1, -336, 45864, -3259872, 128357460, -2744515872, 28795180995, -113401871100)`.
+## originality
 
-The computation exactly proves the finite matrix identities, conditional on the mathematically documented implementation of the cyclotomic quotient ring; the companion proof derives its entries and factors the resulting polynomials. Numeric diagonalization is not used to establish equality. The calculation does not extend to arbitrary field sizes. Independent mathematical audit has not been performed.
+PASS
+
+Underlying harmonic equi-isoclinic planes and their normalization were constructed in Fickus et al (2021), not new. A specific four-subset spectral census 21/14 and sharp restricted stability bound is distinguishable from original construction and from real q11 and other q9 spectra.
+
+## value
+
+PASS
+
+Exact complete four-subspace stability spectrum and sharp erasure/selection lower bound for a canonical explicitly constructed harmonic tight fusion frame is a natural finite classification: all four span and the two nontrivial affine spectral types identify 21 sharp worst-case erasures. A complete finite 35-case certificate is mathematically useful without requiring an infinite-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
