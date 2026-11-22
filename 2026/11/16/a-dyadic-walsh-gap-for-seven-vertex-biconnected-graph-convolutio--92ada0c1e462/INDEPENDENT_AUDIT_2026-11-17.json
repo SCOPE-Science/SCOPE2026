@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T03:03:00.422389Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 67f5544e5010baf61eaf215750caddd493631000",
+        "Frozen moment_certificate.cpp blob 4a2711ef5afcf1d81ad756b0cfc45db8704be215",
+        "Frozen independent_tarjan.cpp blob 944bd384f226def4f2f64dfdc2906a5a6f96ea2c",
+        "New standalone C++ deletion-connectivity exhaustive FWHT n3..7 including all 2,097,152 masks; witness2396=8, witness107=-8, all 1562 low-edge moments exact",
+        "OEIS A013922 confirms pre-existing labelled biconnected graph totals"
+      ],
+      "rationale": "Expand W_n(S)=sum_{T subset S}(-2)^|T| F_n(T) where F counts admissible graphs containing fixed edge set T. Mod 16 only |T|<=3 matters. For n=7 the nine small edge-pattern degree/isomorphism types cover exactly 1+21+210+1330=1562 patterns. Enumerated exact supergraph counts are (1014888,581464,335060,320432,194284,185444,172568,177322,168096) with the nine specified orbit multiplicities and sufficient divisibility: empty 8 mod16, one-edge 0 mod8, two-edge 0 mod4, three-edge 0 mod2. Hence every W7≡8 mod16, and signed witness mask 2396 has W=8; analogous n6 forced-edge counts and mask107=-8. For n4,5 one-edge even and total 2 mod4; n3 sole triangle. Independent C++ code computed membership by deletion-connectivity, all 2^21 Walsh coefficients, all 1562 incidence counts via full superset zeta, all witnesses, parseval, min, zero count. Output exactly 1014888 graphs, 0 zero multipliers, min8, sum squares 2128374398976; this is exhaustive FINITE enumeration, not a theorem for n>=8. Fourier diagonalization of counting convolution gives exact inverse norm and condition number.",
+      "residual_risks": [
+        "All enumerations bounded to n<=7 and n7 full 2^21 cases; cannot infer nonvanishing for n>=8.",
+        "Source independent graph algorithms differ, but implementation/hardware errors remain possible in any computational certificate; separate congruence proof reduces to 1562 small patterns."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mestre section 4.1 yields construction/recursive graph generation and count tables, not Fourier/nonzero eigenvalue theorem.",
+          "Kemkes–Sato–Wormald asymptotically count labelled 2-connected graphs by edge count; unsigned edge distribution does not determine all Fourier edge masks."
+        ],
+        "reasoning": "General enumerators can compute F(T) only after new exhaustive incidence counting; they do not state or force the uniform 8 mod16 all-frequency congruence as a quoted corollary.",
+        "searches": [
+          "Mestre Generating connected and biconnected graphs 0710.5711",
+          "Kemkes Sato Wormald Asymptotic enumeration of sparse 2-connected graphs 1010.2516",
+          "seven vertex biconnected graphs Walsh Fourier modulo 16 all frequencies n=7 inversion sharp 8"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/0710.5711",
+        "https://arxiv.org/abs/1010.2516",
+        "https://oeis.org/A013922",
+        "Resultary search seven vertex biconnected graphs Walsh Fourier modulo 16 all frequencies n=7 inversion sharp 8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unsigned graph totals alone give W(0) but not arbitrary W(S).",
+          "Generation recursions and asymptotic edge counts lack the 2-adic divisibility statements for each small forced-edge orbit."
+        ],
+        "reasoning": "One must newly show exact low-order incidence divisibility and apply the character expansion; none of the checked prior assertions entails the claimed Fourier gap without this substantive additional calculation.",
+        "searches": [
+          "https://arxiv.org/pdf/0710.5711",
+          "https://arxiv.org/abs/1010.2516",
+          "https://oeis.org/A013922"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Signed edge Walsh sum is equivalently eigenvalue of translation convolution on F_2^(E(K7)), and all-frequency 8 mod16 gives invertibility.",
+          "General biconnected enumeration does not record character twist S."
+        ],
+        "reasoning": "Also phrased as low-order Möbius incidence moments modulo 16 over the 21-edge cube; inspected recurrence sources provide graph membership/count, not the character-twisted sum.",
+        "searches": [
+          "seven vertex biconnected graphs Walsh Fourier modulo 16 all frequencies n=7 inversion sharp 8",
+          "biconnected labeled graph Fourier Walsh-Hadamard matrix signed edge counts",
+          "2-connected graph indicator convolution invertibility boolean cube"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A013922 contains known totals 1,10,238,11368,1014888; only those numbers are pre-existing.",
+          "The signed low-order incidence nine-type table and complete 2^21 coefficient nonzero census not located in that established count table."
+        ],
+        "reasoning": "Explicitly exclude the total graph counts from novelty; no matching published table of the fixed-edge moments W7(S) or the sharp min multiplier was identified.",
+        "searches": [
+          "OEIS A013922 biconnected graphs labeled 7 vertices 1014888",
+          "seven vertex biconnected graphs Walsh Fourier modulo 16 all frequencies n=7 inversion sharp 8"
+        ]
+      },
+      "rationale": "Known enumerations give unsigned counts and biconnected recursions; the exact 2-adic ALL-frequency signed edge Walsh obstruction is a different invariant. Cross-check of primary literature and Resultary did not identify a prior all-frequency statement. Best-of-knowledge PASS with narrow historically searchable finite scope.",
+      "residual_risks": [
+        "A previous Walsh/cutpoint low-moment table might be unindexed or in older enumerative combinatorics appendices.",
+        "The Kemkes–Sato–Wormald full text was not comprehensively assessed; its published asymptotic claims are mathematically distinct."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GRAPH_ENUMERATION_FOUND_SIGNED_WALSH_NOT_FOUND",
+          "evidence": [
+            "Mestre recursion/appendix generates and counts unlabeled/connected structures; no edge-mask Walsh signed sums in inspected parts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0710.5711",
+          "material_read": "Introduction, section 4.1 biconnected recursion, relevant Appendix B graph-count entries",
+          "method": "Lawful arXiv primary PDF; relevant section and appendix reading",
+          "title": "Generating connected and biconnected graphs",
+          "trigger": "Same finite family and graph generation"
+        },
+        {
+          "assessment": "DIFFERENT_ASYMPTOTIC_COUNTING",
+          "evidence": [
+            "Asymptotic in n,m unsigned graph counts; cannot assert all finite Walsh coefficients."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1010.2516",
+          "material_read": "Abstract, principal counting statements and setup for sparse 2-connected graphs",
+          "method": "Primary arXiv abstract and relevant theorem context (not full PDF body)",
+          "title": "Asymptotic enumeration of sparse 2-connected graphs",
+          "trigger": "Potential stronger 2-connected counting"
+        },
+        {
+          "assessment": "KNOWN_TOTAL_COUNTS_ONLY",
+          "evidence": [
+            "Entries 1,10,238,11368,1014888 are pre-existing; not novelty."
+          ],
+          "identifier_or_url": "https://oeis.org/A013922",
+          "material_read": "Sequence description and relevant n=3..7 terms",
+          "method": "Exact publicly indexed table reading",
+          "title": "OEIS A013922 Number of labeled connected graphs with n nodes and 0 cutpoints",
+          "trigger": "Exact known finite table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Nine-class forced-edge parity explanation",
+        "Full exhaustive independently executed integer C++ verifier n3..7",
+        "Known total-count versus new Walsh-spectral distinction"
+      ],
+      "rationale": "An exact finite all-character nonvanishing certificate at 21 edge coordinates is a natural recoverability threshold, not a random subfamily. Nine low-edge orbit moments explain an otherwise opaque exhaustive Fourier result and give sharp inverse norm/condition number at the first large biconnected example; this nontrivial structural finite cutoff is mathematically useful independent of an n>=8 theorem.",
+      "residual_risks": [
+        "The result does not establish a general-order graph Fourier law; finite scope sharply stated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No n>=8 claim and no proof of nonzero multiplier for arbitrary graph order.",
+    "The nine isomorphism/degree signatures are complete only for fixed-edge sets with at most three edges on seven vertices."
+  ],
+  "schema_version": 1
+}

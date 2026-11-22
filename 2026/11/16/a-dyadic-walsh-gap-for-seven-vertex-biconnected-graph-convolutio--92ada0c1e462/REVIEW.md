@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** With edge order fixed, vertex-deleted connectivity decides membership in the biconnected ensemble. All low-order incidence counts of the seven-vertex family are given explicitly and reproduced by exact-integer code; the identity \(W(S)=\sum_{T\subseteq S}(-2)^{|T|}F(T)\) proves every coefficient is \(8\pmod{16}\). The sharp witness is checked by direct signed enumeration, and a separate articulation-point implementation gives identical counts, Walsh minima and Parseval sums. The scope is explicitly finite.
+## correctness
 
-**Originality — PASS, bounded comparison.** Mestre's biconnected-graph generation recursion, Kemkes–Sato–Wormald's sparse-graph enumeration, the established OEIS labelled graph counts, and relevant published Fourier research summaries were compared for implication, not title similarity. None of the examined material states or supplies the nine weighted forced-edge counts and their uniform Walsh nonvanishing consequence; known graph-count terms are excluded from the novelty claim. Residual risk: less-indexed exact computations or uninspected older literature could already contain this calculation.
+PASS
 
-**Value — PASS.** Vertex biconnectivity is a natural robustness property. Exact all-frequency invertibility of its incidence indicator gives a complete linear recovery question at seven vertices; the low-order modular certificate reduces millions of signed sums to nine small pattern types and yields a sharp \(\ell^2\) stability constant. This is a meaningful exact finite spectral classification, not a claim about arbitrary graph order.
+Expand W_n(S)=sum_{T subset S}(-2)^|T| F_n(T) where F counts admissible graphs containing fixed edge set T. Mod 16 only |T|<=3 matters. For n=7 the nine small edge-pattern degree/isomorphism types cover exactly 1+21+210+1330=1562 patterns. Enumerated exact supergraph counts are (1014888,581464,335060,320432,194284,185444,172568,177322,168096) with the nine specified orbit multiplicities and sufficient divisibility: empty 8 mod16, one-edge 0 mod8, two-edge 0 mod4, three-edge 0 mod2. Hence every W7≡8 mod16, and signed witness mask 2396 has W=8; analogous n6 forced-edge counts and mask107=-8. For n4,5 one-edge even and total 2 mod4; n3 sole triangle. Independent C++ code computed membership by deletion-connectivity, all 2^21 Walsh coefficients, all 1562 incidence counts via full superset zeta, all witnesses, parseval, min, zero count. Output exactly 1014888 graphs, 0 zero multipliers, min8, sum squares 2128374398976; this is exhaustive FINITE enumeration, not a theorem for n>=8. Fourier diagonalization of counting convolution gives exact inverse norm and condition number.
 
-The result does not resolve higher-vertex behaviour or provide a general symbolic enumeration formula. Independent mathematical validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known enumerations give unsigned counts and biconnected recursions; the exact 2-adic ALL-frequency signed edge Walsh obstruction is a different invariant. Cross-check of primary literature and Resultary did not identify a prior all-frequency statement. Best-of-knowledge PASS with narrow historically searchable finite scope.
+
+## value
+
+PASS
+
+An exact finite all-character nonvanishing certificate at 21 edge coordinates is a natural recoverability threshold, not a random subfamily. Nine low-edge orbit moments explain an otherwise opaque exhaustive Fourier result and give sharp inverse norm/condition number at the first large biconnected example; this nontrivial structural finite cutoff is mathematically useful independent of an n>=8 theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
