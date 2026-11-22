@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the fixed-radius hyperbolic disk law
+# Independent mathematical audit
 
-An executable standalone checker `check_hyperbolic_disk.py` uses tensor-product Gauss–Legendre integration over the two boundary radial deficits. The angular aperture is evaluated exactly by the cosine rule; it is **not** replaced by the leading square-root approximation. The numerical integrals compare against the predicted \(\varepsilon^{5/2}\) coefficient for Euclidean and curvature-minus-one disks with radii \(0.5,1,2.5\), at four decreasing thresholds. They also compute conditional means of the first three rescaled deficits and compare with the exact Dirichlet means \(2/7,2/7,1/7\). Three curvature-parameter sweeps independently check the strict order predicted analytically.
+## correctness
 
-Run with `python check_hyperbolic_disk.py` using NumPy. Success is reported as `HYPERBOLIC_DISK_DIAMETER_RIGIDITY_OK`. The checker has no external data dependency or hidden package path. Numerical quadrature is supporting evidence only: the infinite asymptotic statement, the Dirichlet limit, and the strict curvature inverse are proved analytically. Independent mathematical and historical review has not been performed.
+PASS
+
+The polar radial law f_k(r)=k*sinh(k*r)/(cosh(kR)-1) has boundary density b=k*coth(kR/2), and antipodal angle defect w is uniform on [0,pi]. The exact hyperbolic cosine rule converts D>2R-eps on radial deficits u+v<eps to 1-cos w<q=(eps-u-v)/(2a)(1+O(eps)), with a=tanh(kR)/(4k) and a=R/4 flat. Angular aperture w_max/pi equals sqrt(eps-u-v)/(pi sqrt(a)) times 1+O(eps). Integrate the triangular radial slacks: integral sqrt(eps-u-v)=4 eps^(5/2)/15, hence C=4 b^2/(15 pi sqrt(a)) and the stated formulas. The change W=a*w^2/eps yields W^-1/2 simplex density 15/8 and Dirichlet(1,1,1/2,1), with independent angular marks. The log derivative of coefficient ratio is 5/(2z)-2/sinh(z)-1/sinh(2z)>0. Reviewed full actual source checker, which computes exact angular aperture via 2D quadrature but is finite corroboration, not infinity proof.
+
+## originality
+
+PASS
+
+PASS best knowledge: existing hyperbolic graph papers use graph-edge metrics or expanding ball regimes; Euclidean ellipsoid maximal-interpoint-distance results address n-point extremes and Euclidean distances. None of the inspected statements implies this fixed-radius intrinsic hyperbolic two-point coefficient together with marked Dirichlet limit and inverse curvature.
+
+## value
+
+PASS
+
+PASS: exact rare-pair geodesic tail is a natural intrinsic metric invariant of a constant-curvature disk, and the monotone coefficient gives an explicit inverse-geometric identification from distance data; the rare-event Dirichlet law adds a structural mark distribution. Motivated by distance geometry, not a parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

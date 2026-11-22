@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T12:06:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The polar radial law f_k(r)=k*sinh(k*r)/(cosh(kR)-1) has boundary density b=k*coth(kR/2), and antipodal angle defect w is uniform on [0,pi]. The exact hyperbolic cosine rule converts D>2R-eps on radial deficits u+v<eps to 1-cos w<q=(eps-u-v)/(2a)(1+O(eps)), with a=tanh(kR)/(4k) and a=R/4 flat. Angular aperture w_max/pi equals sqrt(eps-u-v)/(pi sqrt(a)) times 1+O(eps). Integrate the triangular radial slacks: integral sqrt(eps-u-v)=4 eps^(5/2)/15, hence C=4 b^2/(15 pi sqrt(a)) and the stated formulas. The change W=a*w^2/eps yields W^-1/2 simplex density 15/8 and Dirichlet(1,1,1/2,1), with independent angular marks. The log derivative of coefficient ratio is 5/(2z)-2/sinh(z)-1/sinh(2z)>0. Reviewed full actual source checker, which computes exact angular aperture via 2D quadrature but is finite corroboration, not infinity proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Euclidean ellipsoid results include curved convex boundaries only in flat space.",
+          "Expanding hyperbolic ball theorem scales R->infinity, distinct from fixed R approaching diameter."
+        ],
+        "reasoning": "Neither directly specializes to fixed finite hyperbolic R with explicit coefficient monotonic in kappa or inverse uniqueness.",
+        "searches": [
+          "https://arxiv.org/abs/2606.29036",
+          "Resultary: three-regime radial-angular distance-deficit laws in expanding hyperbolic balls"
+        ]
+      },
+      "checked_sources": [
+        "Random Hyperbolic Graphs: Degree Sequence and Clustering — https://arxiv.org/abs/1205.1470",
+        "A Bound for the Diameter of Random Hyperbolic Graphs — https://arxiv.org/abs/1408.2947",
+        "The limit law of the largest interpoint distance in a d-dimensional ellipsoid — https://arxiv.org/abs/2606.29036",
+        "Three-regime radial–angular distance-deficit laws in expanding hyperbolic balls — https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-three-regime-radial-angular-distance-deficit-laws-in-expanding-h--a5d5220f2e29"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hyperbolic cosine and polar area law are ingredients, not near-boundary two-point integration with 5/2 coefficient.",
+          "Knowing some n-point maximum law does not furnish curvature identification for fixed 2-sample law."
+        ],
+        "reasoning": "A genuine new calculation and inverse curvature monotonicity are required beyond cited general facts.",
+        "searches": [
+          "https://arxiv.org/abs/1205.1470",
+          "https://arxiv.org/abs/2606.29036"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fixed R intrinsic distance D is distinct from graph diameter in edges and from large-n Euclidean ellipsoid diameter.",
+          "The derived near-antipodal angular deficit is quadratic, with curvature scale a=tanh(kR)/(4k)."
+        ],
+        "reasoning": "The polar geodesic formulation is not an alias of graph-hop distance or n-sample Euclidean extreme value theory.",
+        "searches": [
+          "Resultary: hyperbolic disk pair geodesic distance near diameter tail 5/2 Dirichlet curvature coefficient",
+          "https://arxiv.org/abs/2606.29036"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No fixed-radius hyperbolic coefficient C(kappa,R) or matching marked Dirichlet table in returned records.",
+          "Euclidean flat coefficient is treated as background, not separate novelty."
+        ],
+        "reasoning": "Search absence is not decisive; comparison rests on different limits, distance definitions and exact coefficient structure.",
+        "searches": [
+          "Resultary: hyperbolic disk pair geodesic distance near diameter tail 5/2 Dirichlet curvature coefficient",
+          "Resultary: a sharp disk-to-annulus transition in farthest-pair geodesic statistics"
+        ]
+      },
+      "rationale": "PASS best knowledge: existing hyperbolic graph papers use graph-edge metrics or expanding ball regimes; Euclidean ellipsoid maximal-interpoint-distance results address n-point extremes and Euclidean distances. None of the inspected statements implies this fixed-radius intrinsic hyperbolic two-point coefficient together with marked Dirichlet limit and inverse curvature.",
+      "residual_risks": [
+        "General Riemannian endpoint asymptotic frameworks or unindexed two-point hyperbolic distance tables might contain a stronger prior statement; such full coverage was not established.",
+        "Asymptotic fixed R,kappa only; no uniform parameter or statistical stability claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies background polar coordinates; studies growing hyperbolic random graphs, not fixed-radius pair-distance endpoint",
+          "evidence": [
+            "Sections 2–3 model and hyperbolic cosine rule, indexed"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1205.1470",
+          "material_read": "Primary abstract and model/polar-coordinate descriptions (not full PDF this run)",
+          "method": "ArXiv page and theorem matching",
+          "title": "Random Hyperbolic Graphs: Degree Sequence and Clustering",
+          "trigger": "Hyperbolic polar measure and distance law"
+        },
+        {
+          "assessment": "Graph hop-count diameter is a different random variable than ambient intrinsic two-point D",
+          "evidence": [
+            "Abstract and Theorem 1 graph diameter"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1408.2947",
+          "material_read": "Primary abstract and graph-diameter statement",
+          "method": "ArXiv abstract and targeted searches",
+          "title": "A Bound for the Diameter of Random Hyperbolic Graphs",
+          "trigger": "Possible diameter coverage from random hyperbolic graph literature"
+        },
+        {
+          "assessment": "Euclidean ellipsoid and n-point extreme law; curvature-dependent geodesic angular coefficient and marked hyperbolic disk law not implied",
+          "evidence": [
+            "Euclidean ellipsoid maximal interpoint-distance main theorems"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.29036",
+          "material_read": "Accessible HTML introduction and theorem sections 1–2.4 read",
+          "method": "Primary article extracted HTML",
+          "title": "The limit law of the largest interpoint distance in a d-dimensional ellipsoid",
+          "trigger": "Potential general near-diameter random-pair geometry covering flat case"
+        },
+        {
+          "assessment": "R->infinity regime does not directly entail fixed R eps->0 endpoint coefficient; full-text comparison risk retained",
+          "evidence": [
+            "Resultary indexed summary of exponential radial clocks and log angular beta term"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-three-regime-radial-angular-distance-deficit-laws-in-expanding-h--a5d5220f2e29",
+          "material_read": "Published summary / title, not full RESULT.md this run",
+          "method": "Resultary semantic search",
+          "title": "Three-regime radial–angular distance-deficit laws in expanding hyperbolic balls",
+          "trigger": "Very close objects but growing radius, different order of limits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: exact rare-pair geodesic tail is a natural intrinsic metric invariant of a constant-curvature disk, and the monotone coefficient gives an explicit inverse-geometric identification from distance data; the rare-event Dirichlet law adds a structural mark distribution. Motivated by distance geometry, not a parameter slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For two iid area-uniform points of fixed radius R in a constant curvature -kappa^2 geodesic disk, the near-2R distance tail is C(kappa,R) eps^(5/2)+O(eps^(7/2)), with explicit flat limit, conditional Dirichlet(1,1,1/2,1) radial-angular defects and curvature recovered from support and strictly monotone leading coefficient.",
+  "limitations": [
+    "General Riemannian endpoint asymptotic frameworks or unindexed two-point hyperbolic distance tables might contain a stronger prior statement; such full coverage was not established.",
+    "Asymptotic fixed R,kappa only; no uniform parameter or statistical stability claim.",
+    "No external Lean or expert attestation is asserted. No GitHub writes or modifications; scientific source package remains unchanged."
+  ],
+  "schema_version": 1
+}
