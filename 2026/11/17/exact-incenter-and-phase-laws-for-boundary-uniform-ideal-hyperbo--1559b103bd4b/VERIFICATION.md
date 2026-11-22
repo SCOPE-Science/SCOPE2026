@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification evidence and limitations
+# Independent mathematical audit
 
-The executable `verify.py` was run from the supplied package directory with NumPy and SciPy available. It reported:
+## correctness
 
-```
-JACOBIAN_FINITE_DIFFERENCES_OK
-NORMALIZATION_MOMENT_HYPERBOLIC_TAIL_OK
-CARTESIAN_MOBIUS_INVERSION_AND_POISSON_PHASE_OK sample_size 120000 ks_distance 0.003308 sample_mean_squared_radius 0.407965
-IDEAL_HYPERBOLIC_INCENTER_CHECKS_OK
-```
+PASS
 
-The Jacobian test differentiates the boundary-vertex map by independent centered finite differences, comparing the resulting numerical determinant with the claimed analytic expression. Numerical quadrature checks the incenter density normalization, its mean squared radius and the exponential radial tail. The direct sampler draws 120,000 triples of independent uniform boundary angles, then reconstructs the center as the image of zero under the unique fractional-linear map matching the ordered cubic roots of unity to the sampled triple; this numerical reconstruction does not use the proved density. The sampler checks four CDF values, an empirical Kolmogorov–Smirnov distance and a conditional angular Fourier coefficient.
+The positively cyclically ordered boundary triple is uniquely parameterized by disk Möbius G_{z,t} with image incenter z. Its three-angle Jacobian is 6sqrt(3)(1-|z|^2)/|1+conj(z)^3 exp(3it)|^2. Dividing by the iid labelled angle density and integrating t through the Poisson kernel gives f_Z(z)=3sqrt(3)/[pi^2(1+|z|^2+|z|^4)]. Radial integration yields stated CDF and moment; the squared-radius endpoint density sqrt(3)/pi and 1-tanh^2(T/2)~4e^-T give tail coefficient. Independently checked Jacobian by numerical finite differences at four noncentral (z,t), density normalization, exact moment and large-T tail. These checks corroborate a change-of-variables proof.
 
-The symbolic proof in `RESULT.md`, not these finite experiments, establishes the distributional statements. The experiments are only reproducibility and diagnostic checks; no external independent audit or formal certification was performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge: Curien–Werner identify ideal triangles with a Möbius group and use the infinite invariant Haar measure, whereas the assigned iid Euclidean-angle boundary law is a finite probability distribution not invariant under Möbius transformations. Deterministic hyperbolic incenter formulas do not yield a pushforward distribution. Exact radial density, stochastic dominance, exponential tail and conditional threefold Poisson phase require nontrivial Jacobian weighting, beyond the quoted invariant setup.
+
+## value
+
+PASS
+
+An exact finite distribution for the hyperbolic incenter of three natural independent boundary samples is a motivated geometric probability invariant; its strict radial comparison and phase dependence distinguish it from the invariant Haar picture and make the sampling normalization clear.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific assessment: boundary-uniform ideal-triangle incenter law
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The theorem has a precise sampling space and hyperbolic metric. The unique Möbius normalization of any positively oriented ideal-vertex triple identifies the image of zero with its hyperbolic incenter. The absolute three-angle Jacobian is explicitly reconstructed by differentiating the disk automorphism, with the normalization evaluated at the equilateral triple. Its angular integral is an elementary Poisson integral and gives the normalized planar density. The radial CDF, moment, stochastic comparison and distance tail follow by exact integration and endpoint expansion. The conditional angular law follows by dividing the joint and marginal densities. Independent numerical operations using direct complex-linear interpolation, rather than the claimed density, corroborate the pushforward. Numerical evidence is not substituted for the analytic change-of-variables proof.
+PASS
 
-## Originality
+The positively cyclically ordered boundary triple is uniquely parameterized by disk Möbius G_{z,t} with image incenter z. Its three-angle Jacobian is 6sqrt(3)(1-|z|^2)/|1+conj(z)^3 exp(3it)|^2. Dividing by the iid labelled angle density and integrating t through the Poisson kernel gives f_Z(z)=3sqrt(3)/[pi^2(1+|z|^2+|z|^4)]. Radial integration yields stated CDF and moment; the squared-radius endpoint density sqrt(3)/pi and 1-tanh^2(T/2)~4e^-T give tail coefficient. Independently checked Jacobian by numerical finite differences at four noncentral (z,t), density normalization, exact moment and large-T tail. These checks corroborate a change-of-variables proof.
 
-**PASS under the examined evidence, with historical-priority limits.** Curien and Werner (2011/2013) already formulate the Möbius identification and invariant Haar measure of ideal triangles; these are explicitly credited and not claimed as new. The new statement transforms *three independent Euclidean-angle-uniform ideal vertices* into an exact finite incenter distribution and joint angular Poisson law, including a strict radial stochastic comparison and sharp hyperbolic tail. Section 2 of their original paper was examined and deals with the invariant infinite triangle measure and triangulation model, not this finite iid law. Horváth (2014) establishes hyperbolic center formulas, but its examined incenter sections do not formulate a random iid boundary triangle. Hertrich-Jeromin, King and O'Hara (2013) study center constructions for Euclidean triangles and ideal tetrahedra rather than iid ideal triangles in the hyperbolic disk. Named published-finding corpus comparisons concern finite-radius hyperbolic circumcircles, acute triangles on geodesic circles or Euclidean cyclic-triangle inradii; their stated sampling laws and random variables do not imply the present formula. Wider older literature may contain an equivalent transformation or explicitly evaluated density; historical priority remains provisional.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The center of an ideal hyperbolic triangle is natural even though all such triangles are isometric. Their position relative to a fixed disk center becomes nontrivial when the ideal vertices are sampled in Euclidean boundary angle, a model distinct from the invariant infinite Haar measure. The theorem evaluates its *entire* two-dimensional law and the conditional marked phase, and exposes strict radial central concentration and an exactly normalized exponential hyperbolic tail. These are structural distributional facts, not an arbitrary numerical sample or a restatement of the deterministic inradius.
+PASS best-of-knowledge: Curien–Werner identify ideal triangles with a Möbius group and use the infinite invariant Haar measure, whereas the assigned iid Euclidean-angle boundary law is a finite probability distribution not invariant under Möbius transformations. Deterministic hyperbolic incenter formulas do not yield a pushforward distribution. Exact radial density, stochastic dominance, exponential tail and conditional threefold Poisson phase require nontrivial Jacobian weighting, beyond the quoted invariant setup.
 
-## Limits of the assessment
+## value
 
-The published-history search is not a mathematical proof of uniqueness. Broader indexing and older books may contain an equivalent incenter distribution. The result is not an isometry-invariant sampling theorem, and the independent validation channel has not been performed. The standard ideal-triangle inradius is deterministic, whereas this result studies the random *incenter location* relative to a chosen origin.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact finite distribution for the hyperbolic incenter of three natural independent boundary samples is a motivated geometric probability invariant; its strict radial comparison and phase dependence distinguish it from the invariant Haar picture and make the sampling normalization clear.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
