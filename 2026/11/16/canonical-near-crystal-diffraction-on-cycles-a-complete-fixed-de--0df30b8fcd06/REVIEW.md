@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact binomial pair-count formula follows from independent cyclic gap compositions; the rank statement follows from explicitly paired configurations and cyclic rotation. Uniform compositions with fixed excess converge to uniformly placed finite phase slips. The two-point parity correlation gives the limiting integrals, while the bounded number of `00` bonds yields reciprocal-square Fourier-tail domination and the claimed \(\ell^1\) convergence. The standalone checker independently enumerates the small canonical ensembles and passes 1,678 assertions. The asymptotics are proved analytically, not extrapolated from numerical samples.
+## correctness
 
-**Originality — PASS, with residual historical-priority risk.** The first public source for the initiating canonical-ensemble question is Davies and Perkins (2021); their full text addresses approximate counting and sampling complexity, not Bragg covariance. The earlier lattice hard-rod density-functional article by Bakhti, Müller and Maass gives general distributions/correlations but no identified canonical fixed-defect Fourier profile. The closest available claim records concern fixed-cardinality pair covariance at distance two or fugacity-weighted length-three near-crystal diffraction, neither of which implies this distinct canonical \(\ell^1\) law. Broader structure-factor or conditioned telegraph formulas may nevertheless contain an equivalent specialization, and priority remains provisional.
+PASS
 
-**Value — PASS.** The precise invariant is the entire Fourier covariance energy distribution of a natural near-maximal binary packing, not a freely chosen numerical statistic. Its parity-sensitive satellites and \(1/4\) mass sum describe the limiting observable harmonic content of a nearly crystalline ensemble. The explicit one- and two-defect spectra give interpretable boundary cases, and the \(\ell^1\) statement strengthens mere pointwise satellite limits into a global spectral classification.
+Cyclic independent k-set marked gaps are uniform weak compositions of m=n-2k. Pair inclusion at separation d factors as sum of Q_d(t) Q_(n-d)(k-2-t), yielding the exact circulant covariance spectrum. A swap of an adjacent position in two valid k-sets and its cyclic translates forces all zero-variance coefficient vectors to be constant, including k=1. For fixed m, repeated defects have vanishing probability and the m single-gap defects converge to m uniform points; the near-π Fourier amplitude converges to a finite-flip random-sign integral. Squared-modulus expectation yields B_m via E[sigma(s)sigma(t)]=(1-2|s-t|)^m. At most m 00 bonds give deterministic O_m(1/|1-e^{-iδ}|) Fourier amplitude, hence uniformly summable O_m((1+|r|)^-2) intensities, proving full ℓ1 convergence, Parseval mass 1/4 and tail by integration by parts. No empirical pointwise sampling substitutes for ℓ1 domination.
 
-Limitations: fixed excess \(m\), no growing-defect uniformity, and no independent mathematical validation. The primary mathematical novelty comparison is necessarily contingent on discoverable literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fixed positive defect count and canonical conditioning are essential: results for all independent sets, k fixed, or grand-canonical Poisson defects do not imply the ℓ1 finite-jump diffraction law. Related lattice hard-rod theory could contain an unrecognized specialization, which is retained as priority risk.
+
+## value
+
+PASS
+
+Near-close-packed uniform independent sets of a cycle are a natural canonical combinatorial ensemble, and the whole covariance Fourier intensity is its natural diffraction/harmonic observable. The result gives a complete ℓ1 mass classification, parity-sensitive Bragg satellites, exact limiting intensity conservation, all-m tail and interpretable m=1,2 profiles, while finite covariance has one and only one null mode. This is a mathematically motivated boundary-layer theorem, not arbitrary finite-n numerics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
