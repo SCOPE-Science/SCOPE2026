@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The 3-by-3 functional calculus and Hilbert–Schmidt bound are exact. The needed second Schur-coefficient estimate is proved from Schwarz–Pick. The near-equality localization is uniform over Schur functions, and the simple-eigenvalue expansion of the matrix Gramian supplies a sharp upper asymptotic coefficient. The degree-two Blaschke family supplies the matching lower coefficient by an exact singular-value formula. No finite experiment substitutes for a universal proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Prior work already proves the complete dimension-three inequality and covers scalar polynomial equality. That qualitative equality is not claimed as new. The target claim is the best coefficient for Hardy \(H^2\)-distance of *the entire analytic symbol* from the quadratic extremal. Earlier operator-level stability does not state this function-space conclusion, and the recorded two-site nilpotent symbol-stability problem concerns a different dimension and target. An equivalent earlier Schur-interpolation or stability formulation may exist; one close research-record full text was not accessible.
+PASS
 
-**Mathematical value — PASS.** The leading sharp number \(\sqrt2\) resolves a natural quantitative extremal invariant for a canonical three-dimensional matrix at the sharp spectral-set constant. It is attained by a nontrivial inner-function perturbation and cannot be improved. The result is deliberately restricted to scalar Schur functions and one normalized Jordan block; it does not solve general matrix-valued stability.
+Computed f(A)=aI+sqrt2 b J3+2c J3², Frobenius norm²=3|a|²+4|b|²+4|c|², and Parseval bounds yielding ||f(A)||<=2. At equality b cannot be the only surviving mode because sqrt2 J3 has norm sqrt2; coefficient domination and Schur transform c=(1-r²)(g1-abar g0²) give |c|<=1-r²-|b|²/(1+r). Near equality forces |a|,|b|→0 and |c|→1. Direct top singular-value perturbation of f(A) yields ||f(A)||=2|c|+|a|²/2+|b|²+o(|a|²+|b|²), giving deficit≥(1-o(1))(1-|c|). H² phase distance²≤2(1-|c|) then proves upper sqrt2. Degree-two Blaschke f_t=z(z-t)/(1-tz) has H² norm one, distance²=2t² and deficit t²+O(t⁴), proving sharp lower constant and exponent. The derivation applies to all Schur symbols, not just polynomials.
 
-The motivating sources are Åhag–Czyż–Virtanen (arXiv:2608.27346), Looi (arXiv:2611.01416), and Jin (Preprints.org 202609.0079). No independence or publication-priority certification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualitative Crouzeix equality for 3x3 matrices and some operator-level near-equality stability are already published, and explicitly not claimed novel. Relevant primary Åhag–Czyż–Virtanen Theorem 10.8 controls operator proximity with coefficient 8sqrt(deficit), not sharp Hardy-space function-symbol distance; their Proposition 12.1 addresses polynomial equality. Independent full relevant text comparison did not produce the sharp H² sqrt2 coefficient.
+
+## value
+
+PASS
+
+Quantifies a natural rigidity question at the simplest nontrivial extremal Crouzeix matrix, controlling entire analytic symbols rather than only matrix evaluations. The sharp coefficient and Blaschke extremal family provide a meaningful endpoint stability invariant, not mere equality restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

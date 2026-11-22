@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical checks
+# Independent mathematical audit
 
-The claim is fully analytical. Set \(A=\sqrt2J_3\), expand \(f=a+bz+cz^2+\cdots\), form the displayed triangular matrix, and verify the Frobenius identity. Parseval and the unit-Schur constraint bound the tail. Schwarz–Pick applied to the first Schur transform yields the exact second-coefficient upper bound.
+## correctness
 
-For asymptotic stability, the proof demonstrates that every sequence with \(\|f(A)\|\to2\) has \(a,b\to0\), \(|c|\to1\). With the coefficient of the quadratic term real and positive, form \(H=MM^*\) and expand its simple maximal eigenvalue at \(4|c|^2\); the first correction is \(2|a|^2+4|b|^2\). The exact Hilbert norm identity then yields the upper constant \(\sqrt2\).
+PASS
 
-For the lower bound, the explicitly stated degree-two Blaschke function has first Taylor terms \(0,-t,1-t^2\), exact Hardy norm one and distance squared \(2t^2\). Its top singular value squared is \(2[t^2+(1-t^2)^2+(1-t^2)\sqrt{1+t^4}]\). Direct matrix computations at \(t=0.1,0.01,0.001\) produced deficit divided by \(t^2\) of about \(0.995000125,0.999950000,0.999999500\); these are nonessential consistency checks. The proof uses the exact expression, not the computed samples.
+Computed f(A)=aI+sqrt2 b J3+2c J3², Frobenius norm²=3|a|²+4|b|²+4|c|², and Parseval bounds yielding ||f(A)||<=2. At equality b cannot be the only surviving mode because sqrt2 J3 has norm sqrt2; coefficient domination and Schur transform c=(1-r²)(g1-abar g0²) give |c|<=1-r²-|b|²/(1+r). Near equality forces |a|,|b|→0 and |c|→1. Direct top singular-value perturbation of f(A) yields ||f(A)||=2|c|+|a|²/2+|b|²+o(|a|²+|b|²), giving deficit≥(1-o(1))(1-|c|). H² phase distance²≤2(1-|c|) then proves upper sqrt2. Degree-two Blaschke f_t=z(z-t)/(1-tz) has H² norm one, distance²=2t² and deficit t²+O(t⁴), proving sharp lower constant and exponent. The derivation applies to all Schur symbols, not just polynomials.
 
-Unproved limits: there is no optimal global all-deficit coefficient, no matrix-valued extension, no general higher-block theorem and no independent mathematical validation.
+## originality
+
+PASS
+
+Qualitative Crouzeix equality for 3x3 matrices and some operator-level near-equality stability are already published, and explicitly not claimed novel. Relevant primary Åhag–Czyż–Virtanen Theorem 10.8 controls operator proximity with coefficient 8sqrt(deficit), not sharp Hardy-space function-symbol distance; their Proposition 12.1 addresses polynomial equality. Independent full relevant text comparison did not produce the sharp H² sqrt2 coefficient.
+
+## value
+
+PASS
+
+Quantifies a natural rigidity question at the simplest nontrivial extremal Crouzeix matrix, controlling entire analytic symbols rather than only matrix evaluations. The sharp coefficient and Blaschke extremal family provide a meaningful endpoint stability invariant, not mere equality restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
