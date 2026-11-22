@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Identity (1) partitions every J(n,2) edge by its unique shared label; identity (2) removes exactly the n-2 token edges corresponding to moving along the deleted base edge. Each local clique term is bounded by discrete concavity, and the odd handshake obstruction supplies the exact one-unit penalty for n=3 modulo 4; no external upper-bound theorem is required. All four modular red-graph constructions achieve that ceiling and avoid all deleted cut edges for orders other than five. For n=5, the handshake lemma eliminates score 19 and every full-optimum five-cycle loses exactly two deleted crossing edges; direct degree classification yields 32 ordered optima. The embedded verifier exhausts all cuts for orders three through six and checks all constructions through order one hundred.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2506.03441v1, §1.1, §2.1, Appendix A.3, Appendix D.2: spectral questions and ordinary base-graph cut parameter C(G), not token-graph cut optimum.",
+        "arXiv:2611.25153v1, Theorem 4 and Proposition 5: generic bound and exact complete-graph case, but no construction for K_n-ab",
+        "Brouwer et al. arXiv:1709.09011: eigenvalues of Johnson and other distance-regular graphs, not directly a bound-attainment theorem on the non-distance-regular deletion family."
+      ],
+      "reasoning": "General token-graph bounds, complete-graph exact results, and Johnson spectral bounds do not dominate the perturbed-graph claim. In particular the construction is not an immediate corollary of the full-graph optimum.",
+      "searches": [
+        "\"maximum cut\" \"line graph\" \"complete graph\" \"deleted\" edge",
+        "\"maximum cut\" \"line graph of\" \"K_n-e\"",
+        "\"Conjectured Bounds for 2-Local Hamiltonians via Token Graphs\" \"maximum cut\" 2025 2026",
+        "https://arxiv.org/html/2611.25153v1",
+        "https://arxiv.org/html/2506.03441v1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2506.03441v1",
+      "https://arxiv.org/html/2611.25153v1",
+      "https://arxiv.org/abs/1709.09011",
+      "https://mathworld.wolfram.com/TriangularGraph.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Apte et al. give Johnson adjacency spectra and token-graph spectral bounds; such spectra cannot directly certify existence of a cut simultaneously locally balanced and synchronized at a missing base edge.",
+        "Primary Proposition 5 proves m(F_2(K_n))=n floor((n-1)^2/4) minus a parity correction.",
+        "The primary paper does not assert that the complete-graph optimal cut can avoid an arbitrary deletion matching; the new result shows this is possible for all n except 5.",
+        "The complete-graph optimum gives the upper bound; the new synchronized constructions and the five-vertex gap establish independent lower-bound and impossibility steps."
+      ],
+      "reasoning": "Prior max-cut formulas apply to the intact graph, and general edge monotonicity only bounds the edge-deleted optimum above. The new simultaneous degree-balance and deleted-edge synchronization is not implied by either statement. The exceptional case refutes an unconditional monotonic-equality inference.",
+      "searches": [
+        "https://arxiv.org/html/2611.25153v1",
+        "https://arxiv.org/html/2506.03441v1",
+        "https://arxiv.org/abs/1709.09011"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Apte–Parekh–Sud arXiv:2506.03441v1 first posted 2025-06-03, §1.1 and Appendix A.3, defines token graph and J(n,k) but not maximum cut of its edge-deleted versions.",
+        "arXiv:2611.25153v1, Section 3.1, treats full Johnson graph (no missing base edge)",
+        "The two-token graph of K_n-ab is exactly J(n,2) with an (n-2)-edge matching deleted from its edge set."
+      ],
+      "reasoning": "Both the missing-edge and triangular-graph matching-deletion formulations were searched. The known full-Johnson formula gives the numerical ceiling only, not a minimum-loss guarantee, and the order-five gap shows that applying it to this perturbed graph without proof would be false.",
+      "searches": [
+        "max cut two token graph of complete graph with an edge deleted, Johnson graph minus a matching, full formula",
+        "maximum cut J(n,2) Johnson graph missing one edge, regular graph edge two coloring",
+        "\"maximum cut\" \"triangular graph\" \"matching\" removed"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The search returned a triangular-graph one-vertex deletion total-domination census, not an edge-matching deletion maximum-cut table.",
+        "The exact orders three through six check independently gives 2,8,18,36, with 32 ordered optimizers at n=5."
+      ],
+      "reasoning": "No indexed table for the same graph perturbation and invariant was located; the finite verified values alone would not establish novelty, so the all-order structural comparison controls this assessment.",
+      "searches": [
+        "exact maximum cut of the 2-token graph of K_n with exactly one edge missing; triangular Johnson graph minus the matching of n-2 token edges; 5 vertex exception",
+        "max cut of F_2(K_n minus edge), matching deleted complete graph",
+        "2025 token graphs edge deletion Johnson graph maximum cut"
+      ]
+    },
+    "rationale": "The eligible 2025 source arXiv:2506.03441v1 identifies complete-graph token graphs with Johnson graphs and discusses cut-based spectral bounds, not maximum cuts of edge-deleted token graphs. The later 2026-11-18 paper arXiv:2611.25153v1 gives the undeleted Johnson maximum cut but neither the existence of synchronized balanced maximizers after one base-edge deletion nor the exceptional order-five census. Actual public research index, literature, alias and local-prior-claim searches found no stronger coverage; possible older unindexed results are a stated risk.",
+    "residual_risks": [
+      "Older unindexed results may describe maximum cuts of triangular graphs after deletion of a matching under a different name.",
+      "Only the abstract was reviewed for the 2017–2018 Johnson eigenvalue paper; no whole-document exclusion is claimed.",
+      "The Nov-18 paper is a later comparison; the motivating 2025 source addresses related token-graph spectral/cut questions, not precisely the same maximum-cut objective."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes study motivation and definitions; does not provide a maximum-cut formula on a two-token graph after deletion of a base edge. Its cut parameter C(G) is for the base graph, not m(F_2(G)).",
+        "evidence": [
+          "arXiv:2506.03441v1, §1.1 defines F_k(G) and links to spectral problems.",
+          "Appendix A.3 identifies F_k(K_n) with J(n,k).",
+          "Appendix D.2 discusses bounds from base-graph maximum cut C(G); no post-deletion token-maxcut classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2506.03441v1",
+        "material_read": "Original June 2025 v1 HTML: §1.1 graph-theory perspective, §2.1 definitions, Appendix A.3 complete graphs and Appendix D.2 cut-related spectral bounds; compared current v3 section headings and original version date.",
+        "method": "Direct arXiv v1 HTML inspection, exact object and mathematical-objective comparison; original arXiv submission history separately verified.",
+        "title": "Conjectured Bounds for 2-Local Hamiltonians via Token Graphs",
+        "trigger": "Eligible first public source (2025-06-03), studies token graph representation of Johnson graphs and cut-derived spectral questions."
+      },
+      {
+        "assessment": "Gives the 2026 intact Johnson optimum, first posted after the November-15 weekly anchor; used only for originality comparison and not as the eligible research source. Does not cover one-edge base deletion.",
+        "evidence": [
+          "Section 3.1 Theorem 4 supplies bound n floor((n-1)^2/4) for k=2.",
+          "Proposition 5 supplies the parity-exceptional intact optimum.",
+          "No edge-deletion optimum or synchronized construction in that section."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.25153v1",
+        "material_read": "Accessible full HTML: definitions, parity lifts, general bounds, Section 3.1, Theorem 4, Proposition 5 and its full proof, plus adjacent results.",
+        "method": "Read HTML source text and compared algebraic objective and hypothesis inclusion; checked paper submission date 2026-11-18.",
+        "title": "Max-Cut on Token Graphs",
+        "trigger": "Later 2026 strongly relevant comparison: exact intact two-token maximum cut potentially dominates the new statement."
+      },
+      {
+        "assessment": "Its stated work concerns smallest eigenvalues for distance-regular graphs; the new graph is not generally distance-regular. Full text was not used to assert absence of any relevant theorem.",
+        "evidence": [
+          "Abstract studies eigenvalue conjectures of Johnson and Hamming graphs; no matching-deletion max-cut theorem stated at abstract level."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1709.09011",
+        "material_read": "ArXiv abstract and bibliographic information only; full text not read.",
+        "method": "Read index and arXiv abstract, and compared invariant and graph-class scope.",
+        "title": "The smallest eigenvalues of Hamming graphs, Johnson graphs and other distance-regular graphs with classical parameters",
+        "trigger": "Older Johnson-graph spectral and max-cut-related literature plausibly relevant to a matching-deletion perturbation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a36ba597-3cee-40c5-ac29-5f8d5da8359f",
+  "value": {
+    "rationale": "An explicit and unexpectedly almost-perfect stability law under deletion of an (n-2)-edge matching in a well-studied Johnson graph, with one sharp exceptional order and a structural characterization of all optimum cuts. The obstruction is degree-balance versus endpoint synchrony, revealing why the known general inequality can be strict in the smallest nontrivial case. It is a natural perturbation of a published exact invariant rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
