@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T05:03:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Catalan number C_n has v2(C_n)=s2(n+1)-1 by Legendre. Expand each independently signed matching weight as product(1-2I_negative_edge). Prescribing r disjoint noncrossing chords splits residual matchings into Catalan products over r+1 complementary regions; the binary digit-sum inequality shows each term (-2)^r*product C_m is divisible by 2^(s2(n+1)-1). At the all-positive signing the exact 2-adic valuation is attained; an odd prime cannot divide all Walsh coefficients, since Walsh inversion over F_p would make the nonzero indicator identically zero. If C_n is odd every signed sum is odd. Otherwise the anti-reflection choice of root-chord signs pairs and cancels terms for even n, and for odd n uses a recursively zero-signed pair of central half-polygons, because (n+1)/2 remains non-dyadic. Vertex switching yields orbits of size 2^(2n-1), since the eligible chord graph is connected K_{n,n}. An independent polygon dynamic program exhaustively checked all frequencies for n<=4 (zero counts n2=8, n4=15104) and reflection witnesses to n=79, distinct from the pinned full checker. Finite checks support, but do not replace, the all-n reflection and valuation proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kemp et al. study counts of noncrossing pairings on binary strings; the published first-degree Fourier identifiability result computes the degree-one Gram rank rather than zero/nonzero at all n² Walsh frequencies."
+        ],
+        "reasoning": "Low-degree sampling ranks and restricted bit-string matching sums do not force all-character convolution invertibility exactly at dyadic Catalan indices.",
+        "searches": [
+          "noncrossing perfect matchings convex polygon Catalan signed chord weights Walsh transform gcd zeros powers of two",
+          "https://arxiv.org/abs/0906.2183",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-integral-fourier-identifiability-from-noncrossing-perfect-matchi--e353f7965df9"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/math/0601339",
+        "https://arxiv.org/abs/1908.03914",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-integral-fourier-identifiability-from-noncrossing-perfect-matchi--e353f7965df9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Postnikov–Sagan Theorem 2.1 controls a specific class of height-weighted Catalan sums; no theorem there grants an arbitrary chord-sign condition or reflection cancellation."
+        ],
+        "reasoning": "A theorem about the 2-adic valuation of C_n is compatible with, but does not imply, nonzero sign sums or if-and-only-if vanishing across 2^(n²) characters.",
+        "searches": [
+          "https://arxiv.org/pdf/math/0601339",
+          "https://arxiv.org/abs/1908.03914",
+          "https://arxiv.org/abs/0906.2183"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Postnikov–Sagan Theorem 1.1 proves v2(C_n)=s2(n+1)-1; its Theorem 2.1 uses Dyck-path ascent-height weights from a fixed sequence b_i subject to difference conditions, not every independently signed geometric chord."
+        ],
+        "reasoning": "The classical valuation is an input. The n² independently chosen chord signs depend on vertex-pair identity, not solely path height; the equality of all Walsh coefficient gcd and reflection zero witness require additional statements.",
+        "searches": [
+          "noncrossing perfect matchings convex polygon Catalan signed chord weights Walsh transform gcd zeros powers of two",
+          "https://arxiv.org/pdf/math/0601339",
+          "https://arxiv.org/abs/1908.03914"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Catalan v2 table only concerns the all-positive coefficient. For n=4 the independent full 2^16 signing check found 15104 vanishing multipliers; no examined cited table supplies all Walsh zeros."
+        ],
+        "reasoning": "We found no identical gcd/zero-locus database or table in inspected primary theorem sections or the published first-degree sampling index. The absence of a table elsewhere is not established.",
+        "searches": [
+          "noncrossing perfect matchings convex polygon Catalan signed chord weights Walsh transform gcd zeros powers of two",
+          "https://arxiv.org/pdf/math/0601339",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-integral-fourier-identifiability-from-noncrossing-perfect-matchi--e353f7965df9"
+        ]
+      },
+      "rationale": "Known Catalan 2-adic valuations and height-dependent weighted Dyck path theorems are credited; the assessed new statement uses all independent polygon chord signings and obtains both exact all-frequency gcd and an if-and-only-if zero classification, which is not a direct corollary of those height-dependent theorems.",
+      "residual_risks": [
+        "A general theorem for arbitrary chord-dependent signed Catalan sums outside the inspected material could imply the gcd law. Gao–Gu and Kemp full texts were not obtained here; no universal priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLASSICAL_INPUT_NOT_STRONGER_COVERAGE",
+          "evidence": "Theorem 1.1 supplies Catalan valuation. Theorem 2.1 assumes one height-indexed weight sequence with difference divisibility, not arbitrary individual chord signs.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0601339",
+          "material_read": "Nine-page arXiv article: abstract, Sections 1–2 and Theorems 1.1,2.1 with hypotheses; inspected text and page images",
+          "method": "Open-access arXiv PDF, text and page screenshots",
+          "title": "What power of two divides a weighted Catalan number?",
+          "trigger": "Same Catalan valuation and signed Dyck-path weights"
+        },
+        {
+          "assessment": "PRIORITY_RISK",
+          "evidence": "Weighted Catalan arithmetic may overlap valuation; coverage of independent geometric chord signings not established from material read.",
+          "identifier_or_url": "https://arxiv.org/abs/1908.03914",
+          "material_read": "Title/abstract and indexed account, not complete full text",
+          "method": "arXiv abstract search",
+          "title": "Arithmetic of weighted Catalan numbers",
+          "trigger": "Potential stronger weighted Catalan divisibility"
+        },
+        {
+          "assessment": "LOW_DEGREE_DIFFERENT_CLAIM",
+          "evidence": "Computes row-column nullspace for centered first-degree Walsh sampling, not full indicator Fourier zero locus.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-integral-fourier-identifiability-from-noncrossing-perfect-matchi--e353f7965df9",
+          "material_read": "Published Resultary description and problem statement indexed",
+          "method": "Resultary semantic results",
+          "title": "Integral Fourier identifiability from noncrossing perfect matchings",
+          "trigger": "Same polygon matching support"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It resolves a natural dichotomy for the entire family of Catalan noncrossing perfect matching codes: when the full Walsh convolution is invertible, when it has a kernel, and a uniform exponential lower bound on that kernel when singular. Exact dyadic gcd and reflection witnesses connect Catalan arithmetic, geometry and Fourier inversion, beyond restating a Catalan parity fact.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/math/0601339",
+    "https://arxiv.org/abs/1908.03914",
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-integral-fourier-identifiability-from-noncrossing-perfect-matchi--e353f7965df9"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the unnormalized Walsh transform of convex 2n-gon noncrossing perfect matchings with independently signed parity-opposite chords, the exact gcd of all multipliers is 2^(s_2(n+1)-1), and zero multipliers exist precisely when n+1 is not a power of two, then in vertex-switch orbits of at least 2^(2n-1) frequencies.",
+  "limitations": [
+    "Does not count every zero at arbitrary n nor determine least surviving coefficient. All-length proof depends on the geometric region decomposition and reflection induction, not extrapolation of finite tests."
+  ],
+  "residual_risks": [
+    "A general theorem for arbitrary chord-dependent signed Catalan sums outside the inspected material could imply the gcd law. Gao–Gu and Kemp full texts were not obtained here; no universal priority guarantee."
+  ],
+  "schema_version": 1
+}
