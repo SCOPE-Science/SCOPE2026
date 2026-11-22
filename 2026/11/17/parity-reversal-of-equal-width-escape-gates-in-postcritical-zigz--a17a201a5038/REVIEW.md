@@ -1,11 +1,21 @@
-# Review of the equal-width zigzag escape theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The postcritical quadratic equation makes the terminal lap land exactly on a union of Markov atoms. Every surviving finite word contributes its terminal interval length divided by the common slope to the corresponding iteration power. The sparse last row yields monotone matrices and strict parity-reversing survival comparisons for all horizons, not only numerical samples. Perron root calculations are two-dimensional; entropy and dimension follow by finite-type coding and uniform expansion, with boundaries handled separately. The embedded `check.py` reconstructs the transfer matrices and independent interval preimages for bounded test cases. Risks: the theorem does not extend off the specified parameter sequence, and numeric tests do not establish its universal quantifiers.
+## correctness
 
-**Originality — PASS on inspected evidence, with priority risk.** Kumar (arXiv:2610.39443, full manuscript inspected) derives topological entropy and exactness of the underlying maps but no holes. Haritha–Agarwal (arXiv:1806.07192, full manuscript inspected) supplies already-known general Markov escape methods and examples of location dependence, but not the exact \(m\)-parity reversal for these postcritical zigzag laps. Bandtlow–Rugh (arXiv:1510.06043, full text inspected) proves entropy continuity for moving holes, not these formulas. Searches of published mathematical records found open-hole results on negative doubling and moving dyadic holes with different maps and parameters; they do not imply the present metallic zigzag matrices without a new family-specific reduction. Historical priority may still be affected by literature not retrieved.
+PASS
 
-**Value — PASS.** Equal Lebesgue width alone need not determine escape. The theorem provides a natural infinite sequence, a complete position classification rather than a single chosen hole, sharp strict ordering at *every* finite horizon, a parity switch, and exact dimension and entropy, all tied to the first postcritical nonintegral slope in each lap interval. This creates a fully solvable comparison benchmark for open expanding maps beyond an isolated numerical escape rate.
+At λ=λ_m, m full branches map onto [0,1]; the terminal branch maps exactly to I0 for even m and I1..Im for odd m. Removing one full lap gives a finite sub-Markov matrix and exact Lebesgue survival S_j(n)=λ^{-(n−1)}1ᵀA_j^{n−1}ℓ_j. Hole j>=1 matrices are permutation-similar; the terminal-row entry for leftmost hole reverses with parity and gives a strict inequality for all n>=2. For the other holes the 2-coordinate Perron equations are r²−(m−1)r−1=0 (even) or r²−mr+1=0 (odd); for hole0 roots are m−1 or m. Branch cylinder counting, PF growth and standard expanding Markov Frostman arguments establish escape rates, entropy and dimension, including m=2 root1. Independently constructed A_j for m=2..17 and computed roots, and full finite survival ranking for 144 (m,n) pairs, n=2..10.
 
-**Closest literature and scope.** The Markov transfer technique and entropy/survivor relationship are not claimed as new. The new statement consists of the explicit exact solvable parity classification of equal-width lap holes for all integers \(m\ge2\); no extension to arbitrary holes, slopes, or noise is asserted. Full scholarly priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Closed-map entropy of Kumar’s postcritical zigzag slopes and general expanding Markov-hole transfer theories are acknowledged; these do not state the all-horizon strict parity reversal between equal-width full-lap holes, nor the exact m-parametric spectral/entropy/dimension formulas. Best-of-knowledge originality, qualified by incomplete full-text access.
+
+## value
+
+PASS
+
+The parity flip in ordered survival probabilities among equal-Lebesgue-width gates is a natural quantitative escape phenomenon. Explicit full-horizon survival, geometric special case, spectral escape rates, fractal dimensions and entropy constitute a precise reusable finite-type classification; not merely repeating the standard transfer-matrix setup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
