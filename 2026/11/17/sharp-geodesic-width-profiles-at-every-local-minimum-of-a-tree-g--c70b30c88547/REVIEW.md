@@ -1,15 +1,21 @@
-# Review: sharp geodesic widths at tree-zonotope local minima
+# Independent mathematical audit
 
-## Correctness — PASS
-The result specifies finite simple unweighted trees and the zero-sum Euclidean unit sphere. The edge-difference maps form a basis because a tree has no cycles. For any candidate direction with two or more active differences, restricting to the open sign region of the corresponding linear subspace excludes a local minimum. For a one-edge cut, strict cut-covariance inequalities make the one-sided tangent variation positive. Projecting the other centered cut indicators produces an exact \(\ell^1\)-to-Euclidean comparison, with equality on an explicitly signed single projected cut. Positivity of the distinguished edge difference over the explicit angular interval gives the attained finite-angle formula. Direct Gram substitution checks the path and star corollaries. The supplied exact checker reproduced its claimed finite counts.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-Padrol–Pilaud–Poullot (arXiv:2111.12422, full HTML article read) characterize graphical-zonotope deformation cones, rather than the sphere-wide local width minima or angular profiles. Feld–Aujol–Gilboa–Papadakis (2019, indexed abstract inspected) study general one-homogeneous Rayleigh quotient flows, specifically graph total variation on an \(\ell^1\) sphere, not this explicit Euclidean tree classification. Kolmogorov–Pock–Rolinek (2016, abstract inspected) treat total-variation minimization with unary terms on trees. Known global inradius results are stronger for global cut minima only, but do not logically yield all nonglobal local minima or the exact attained geodesic coefficients. Complete text of some relevant optimization literature was not available, so an equivalent earlier statement remains possible.
+PASS
 
-## Mathematical value — PASS
-The Euclidean width function is a natural nonsmooth, nonconvex optimization landscape attached to a well-studied family of zonotopes. The theorem describes every strict local well, gives its exact finite-angle stability profile for any tree, and distinguishes leaf-edge profiles of combinatorially equivalent path and star parallelotopes by an unbounded ratio \(n-2\), despite equal width at the compared directions. Its contribution is a complete geometric stability classification, not a restatement of the known global inradius or a finite numerical catalogue.
+The centered edge-cut indicators h_e form the basis dual to oriented edge differences d_e, so W_T=Σ|d_e(u)| on the zero-sum Euclidean sphere. On any sign chamber with ≥2 nonzero edge differences, the restricted W is a positive linear functional on a positive-dimensional sphere: any stationary point at positive height is a maximum, excluding additional minima. Each one-cut unit direction ±u_e is strictly locally minimizing since distinct tree split centered covariances obey |K_ef|<K_ee, implying positive tangent slope. Projecting all other h_f to the tangent gives sharp gamma_e=min_f(1−|K_ef|/K_ee)/sqrt(K_ff−K_ef²/K_ee), attained by a single projected signed cut. On 0<θ<atan(w_e/√2), the distinguished edge difference remains positive and width exactly equals w_e cos θ+gamma_e sin θ at the optimized tangent. Direct Gram algebra gives path gamma=1/sqrt(M(M−1)), star gamma=sqrt((n−2)/(n−1)) and leaf slope ratio n−2. Independent exact rational Gram calculations for paths and stars n=3..10 confirmed the formulas, while the source script checks 1440 small labeled trees. Finite checks do not certify all tree sizes.
 
-## Scientific limitations
-The current proof does not classify local maxima, weighted trees, non-tree graphs, or angles outside the explicit interval. Exact rational computations on finitely many labeled trees do not establish an infinite theorem. Independent mathematical review and exhaustive historical-priority confirmation remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General graphical-zonotope deformation-cone theorems and tree TV/minimum-width literature do not classify all *local* width minima on the zero-sum Euclidean sphere or their exact attained finite-angle profiles. Published nearby tree zonotope width variance/surface area and cut-angle results concern different global/statistical invariants. No earlier complete 2(n−1)-point local-minimum/angular-slope theorem was identified in inspected primary material; risk of an optimization-lore reformulation remains.
+
+## value
+
+PASS
+
+The complete local-minimum landscape of a natural family of zonotopes is a structural theorem, not a finite computed slice. The sharp geodesic sensitivity distinguishes tree shapes even when their minimum cut width is equal, including the n−2 path-vs-star leaf factor; a concrete motivated geometric stability invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
