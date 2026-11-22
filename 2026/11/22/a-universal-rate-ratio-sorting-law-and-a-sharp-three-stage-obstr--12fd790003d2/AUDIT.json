@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Exact 2×2 transient matrix calculation yields a swap difference with sign p_i q_j-p_j q_i times strictly positive factors for arbitrary prefix, suffix and durations; sorting all inversions proves global optima. Exact partial fractions for 3-stage pure-birth blocks reproduce rational signed differences 245/768 and -59245/1376256. Replayed 46,171 deterministic standalone assertions; numerical checks are corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bak et al. (2002) section 1 cites earlier Aris and Bilous–Amundson reactor control; sections 2–4 optimize reversible A↔B↔C under unrestricted temperature choice, not fixed environment permutations.",
+        "Yin (2008), doi:10.1093/aob/mcm319, fits deterministic plant phenophase transfer times, not a stochastic fixed-deadline completion probability."
+      ],
+      "reasoning": "An older general theorem on products of lower-triangular stochastic matrices or reactor sequences might imply part of the ratio sort. The encountered published controls did not provide the identical statement or dominate the three-stage counterexample. Full historical completeness is unproven.",
+      "searches": [
+        "\"optimal ordering\" \"consecutive\" \"first order\" reactions rates switching time environmental",
+        "\"optimal control\" \"consecutive chemical reactions\" \"temperature\" stage reaction",
+        "\"optimal ordering\" temperature \"phenological\" stages exposure"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1021/jp021800u",
+      "https://www.fys.ku.dk/~andresen/BAhome/ownpapers/ABC.pdf",
+      "https://doi.org/10.1093/aob/mcm319",
+      "https://doi.org/10.1603/ME11242",
+      "https://link.springer.com/article/10.1007/s13385-023-00346-4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bak et al. optimize final B with reversible flow and free temperature, while this work maximizes absorption at state 2 with fixed-environment rearrangement.",
+        "Yin identifies temperature-sensitive phenological sub-phases using reciprocal transfers, without stochastic absorption dynamics or arbitrary schedule permutations.",
+        "General adjacent-interchange scheduling techniques do not by themselves supply the strictly positive rate-determinant identity or the three-stage counterexample."
+      ],
+      "reasoning": "Neither cited scientific claim logically entails the all-parameter ratio rule as presented. A sufficiently general old matrix-product ordering theorem could, so that possibility is residual rather than misrepresented as excluded.",
+      "searches": [
+        "doi:10.1021/jp021800u",
+        "doi:10.1093/aob/mcm319",
+        "\"ordered\" \"two-stage\" \"sequential\" \"rates\" \"swapping\" optimal completion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The standard phase-type definition gives absorption as a transient matrix exponential but does not specify optimal permutations of environmental blocks (phase-type background: https://link.springer.com/article/10.1007/s13385-023-00346-4).",
+        "The continuous kinetic representation in Bak et al., doi:10.1021/jp021800u, uses four reversible rate constants and intermediate-yield control."
+      ],
+      "reasoning": "A generic phase-type model contains the transient matrices, but a representation formula alone does not give a rate-ratio ordering valid for all positive durations or the three-stage prefix sign reversal. The closest found two-stage chemical control has a different objective and feasible control set.",
+      "searches": [
+        "\"phase-type\" \"rearrangement\" time-varying rates",
+        "\"two-stage\" \"environmental\" rate \"rearrangement\" phase completion",
+        "\"pure birth\" \"permutation\" \"rates\" \"optimal\" absorption"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The rational three-stage values are derived from the explicit partial-fraction formula and are reproduced by `verify.py`.",
+        "None of the searched source records displayed these rate triples or the two rational signed differences."
+      ],
+      "reasoning": "No existing table of these exact fixed-environment matrix products was identified. The fractions are not claimed novel simply because their numerals differ: the value is the stage-count boundary and context reversal that the example certifies.",
+      "searches": [
+        "\"completion probability\" \"rate ratio\" \"ordering\" \"stages\"",
+        "\"hypoexponential\" \"permutation\" \"inhomogeneous\" rates"
+      ]
+    },
+    "rationale": "Checked the closest published reversible chemical optimal-control result, partial original phenological transfer paper, full biological temperature study, broader phase-type and scheduling terminology, and nearest published mathematical comparisons. The completed work shows no exact absorption-permutation ratio law or specified three-stage context reversal; unresolved classical priority is recorded. This is a best-knowledge assessment, not proof of absolute novelty.",
+    "residual_risks": [
+      "Classical Aris and Bilous–Amundson reactor-control work and broad matrix-rearrangement theorems might imply the two-stage sorting law; historical priority is provisional.",
+      "The original Yin paper was only partially accessible, so a full-text negative claim is not made.",
+      "Biologically admissible rates may have common functional dependencies, potentially excluding the three-stage counterexample."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different reversible reaction, control and target; does not establish fixed-duration permutation ordering or three-stage prefix reversal",
+        "evidence": [
+          "Section 2 uses reversible A↔B↔C and four Arrhenius rate constants; section 3 chooses continuous temperature; objective is final abundance of intermediate B.",
+          "Sections 4–5 give switching-control curves and terminal marginal-yield consequences, not arbitrary fixed-block sorting."
+        ],
+        "identifier_or_url": "https://www.fys.ku.dk/~andresen/BAhome/ownpapers/ABC.pdf",
+        "material_read": "Full four-page author-hosted article, introduction, model, optimal-control derivation, consequences, figures and references",
+        "method": "Read extracted PDF text and inspected page image",
+        "title": "Optimal Behavior of Consecutive Chemical Reactions A↔B↔C",
+        "trigger": "Very close three-species temperature-dependent chemical control and earlier Aris references"
+      },
+      {
+        "assessment": "Deterministic phenomenological phase duration inference rather than stochastic absorption probability optimization",
+        "evidence": [
+          "Published electronically January 17, 2008; reciprocal low/high temperature transfer experiments in crop phenology.",
+          "Full text not inspected; any hidden optimal scheduling discussion remains an explicit risk."
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/aob/mcm319",
+        "material_read": "Published abstract, accessible opening article extract and bibliographic/publication details; complete full text not available",
+        "method": "Reviewed source abstract and accessible paper extract",
+        "title": "Analysis of Reciprocal-transfer Experiments to Estimate the Length of Phases having Different Responses to Temperature",
+        "trigger": "Stage-dependent physiological rate changes and temperature transfer ordering"
+      },
+      {
+        "assessment": "Shows biological effects of fluctuating temperature but no exact two-stage fixed-multiset Markov rearrangement theorem",
+        "evidence": [
+          "Reports life-history responses to thermal variability and describes limitations in resolving stage-specific effects."
+        ],
+        "identifier_or_url": "https://doi.org/10.1603/ME11242",
+        "material_read": "Full accessible journal HTML, methods, results and discussion",
+        "method": "Read article sections in browser",
+        "title": "Large Diurnal Temperature Fluctuations Negatively Influence Aedes aegypti Life-History Traits",
+        "trigger": "Empirical motivation for temporal ordering of organismal development conditions"
+      },
+      {
+        "assessment": "Gives phase-type framework but no examined theorem about ordering mandatory fixed-rate blocks",
+        "evidence": [
+          "Section introduces time-dependent transient generator and absorption, establishing that generator formulations are classical."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s13385-023-00346-4",
+        "material_read": "Accessible mathematical introduction and basic definition; not a full-paper priority clearance",
+        "method": "Reviewed article definition and model section",
+        "title": "Phase-type representations of stochastic interest rates with applications to life insurance",
+        "trigger": "Background on inhomogeneous phase-type absorption"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "12fd7900-03d2-41f3-9833-a76bea9e9425",
+  "value": {
+    "rationale": "Motivated stage-sensitive environmental exposure has a complete, duration-independent optimal schedule in the two-transition case; it is nontrivial that the same aggregate exposure hazards permit 28.125-point completion differences. The exact smallest-stage counterexample explains when stage-independent scheduling indices cease to apply; this is a sharp and reusable mathematical boundary, not an arbitrary table entry.",
+    "status": "PASS"
+  }
+}
