@@ -1,0 +1,15 @@
+# Review: nine-state circular rank-seven synchronization
+
+## Correctness — PASS
+The object is the full family of \(9\)-state binary automata with a fixed complete cycle and a rank-seven second letter, with no hidden structural assumption. The five-distance quotient exactly characterizes pair mergeability because cyclic rotation realizes every pair at each cyclic distance; pair mergeability of all pairs is equivalent to reset existence. Two separately organized exhaustive enumeration programs cover every rank-seven transformation: base-nine transition tables versus explicit kernel partitions and full 36-pair reverse reachability. They agree on 83,825,280 maps, 36,936 nonsynchronizing maps, zero primitive nonsynchronizing maps, and the two kernel-shape subtotals. Modular block counting gives an independent \(36{,}936\) formula, and a rank argument gives all cyclic orbit sizes. Full subset-automaton checks corroborate the distance reduction on smaller complete populations and nine-state samples. The finite census is exhaustive, not an extrapolation from samples.
+
+## Originality — PASS (with residual risk)
+The result differs logically from the general sufficient hypotheses of Volkov (2023) and Rystsov–Szykuła (2023). Volkov's almost-injective case handles the one-triple-fiber type, but the two-disjoint-pair type and complete nine-state count do not follow. Primitivity does not imply synchronization for arbitrary defect-two automata, so the cyclic-letter and nine-state condition is substantive; the prime-state cyclic result does not apply to nine. Other published finite censuses concern eight states or a special two-collapse letter, neither universal across all rank-seven maps at nine states. Actual literature and record searches did not produce a stronger logically covering classification. The outstanding risk is a previously published but unindexed equivalent or a broader theorem not found in the checked sources.
+
+## Value — PASS
+Nine is the first odd composite cyclic state order, where the fixed rotation admits a genuine nontrivial congruence. The finding identifies that congruence as the *complete* synchronizability obstruction despite the presence of arbitrary two-defect transformations; the distinction from known primitive nonsynchronizing examples and from prime-order cyclic results is mathematically motivated. The exact closed census and kernel-shape split give a reusable finite benchmark for synchronization and pair-automaton methods, rather than a small numerical improvement or an arbitrary parameter slice. No paper-sized downstream theorem is asserted.
+
+## Limitations
+This is a nine-state finite classification, not an all-dimensional statement. The actual two independently organized algorithms are included but are not externally audited; no independent validation is claimed. Exact full-text inspection of the two 2023 primary articles and semantic record comparisons were performed, with residual unindexed-equivalence risk.
+
+Self-review: passed. Independent audit: not yet performed.
