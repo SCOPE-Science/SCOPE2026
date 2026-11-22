@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "For every integer \\(q\\ge2\\), \\(d\\ge1\\), and \\(0\\le t\\le d\\), an exact length-\\(t\\) directed walk is precisely a suffix/prefix match. The all-one event partitions initial bits into \\(q^{d-t}\\) disjoint blocks of \\(q^t\\) bits, yielding population \\( (2^{q^t}-1)^{q^{d-t}} \\); successive differences are the complete first-hitting census. A singleton source proves the sharp time \\(d\\). Under independent Bernoulli initial bits, the number of empty blocks is binomial. At dimension \\(d_h=2^h+h+c\\), the mean is exactly \\(2^c\\) and its block-emptiness probability tends to zero, giving a Poisson limit; adjacent-step means diverge or vanish, proving the two-point law. Two separately implemented programs verified finite full dynamics, exact directed path overlaps, and critical expectations. The all-size assertions follow from these arguments, not those finite computations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jarrah et al., arxiv:0805.0275v1, Theorems 2.10 and 3.8: general upper bounds on heights and exact recurrent-cycle structure for strongly connected networks, not labelled first-entry distributions.",
+        "Gadouleau, arxiv:2104.04403, Section 3.1: generic description of image, periodic and fixed points but not a first-entry-time probability law.",
+        "Full published RESULT for 2026/11/1/SCOPE-a-logarithmic-typical-convergence-clock-in-the-quadratic-exponen--4cb49f213f10: Wielandt directed graph, cyclic gap control and n log n typical scale in n vertices; no de Bruijn graph, no exact suffix-block product, no Poisson cutoff."
+      ],
+      "reasoning": "General Boolean-matrix reachability proves eventual all-one consensus on this primitive graph but does not supply the explicit count of initial states whose support projects onto every suffix class, nor the dimension-dependent Poisson limit. The Wielandt comparison uses a different primitive digraph and different combinatorial source of delay, so its bounds do not dominate the present exact census.",
+      "searches": [
+        "published-finding corpus: boolean dynamical systems conjunctive digraph primitive exponent finite-time convergence exact hitting times",
+        "published-finding corpus: de Bruijn graph Boolean disjunctive network all states convergence first entry Poisson law",
+        "web: de Bruijn digraph synchronous disjunctive Boolean networks exact convergence time hitting distribution initial random"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0805.0275v1",
+      "arxiv:2104.04403",
+      "doi:10.1137/S0097539791197852",
+      "published-finding corpus:2026/11/1/SCOPE-a-logarithmic-typical-convergence-clock-in-the-quadratic-exponen--4cb49f213f10",
+      "published-finding corpus:2026/11/2/SCOPE-two-sided-fluctuation-bounds-for-acyclic-color-classes-in-critic--6df120673c37",
+      "N. G. de Bruijn (1946), institutional bibliographic record"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.8 of Jarrah et al. implies the two fixed points; that qualitative consequence is excluded from the novelty claim.",
+        "Gadouleau Sections 2–3 provide support propagation and the existence of finite transients, but not the exact suffix-class partition count or critical Poisson law.",
+        "Bermond–Fraigniaud, SIAM J. Comput. 23 (1994) abstract: optimized broadcasting/gossiping protocols with message-routing costs and spanning trees, as opposed to a uniform random input under deterministic simultaneous OR.",
+        "The complete published Wielandt OR result describes an n-vertex cycle with one shortcut, with a quadratic maximum and n log n typical time; it neither substitutes for nor dominates the q^d-vertex de Bruijn formula."
+      ],
+      "reasoning": "Known results cover the existence of two fixed points and eventual convergence, both credited. The proposed new exact shell/count and Poisson obstruction require analyzing the disjoint word-suffix classes and remain outside the inspected broader implications. The inaccessible full text of the broadcasting paper is a residual risk, not treated as proof of non-coverage.",
+      "searches": [
+        "published-finding corpus: De Bruijn graph Boolean disjunctive network all states convergence first entry Poisson law",
+        "web: Broadcasting and Gossiping in de Bruijn Networks full pdf",
+        "web: de Bruijn graph one step reachability Boolean OR dynamical system entropy convergence time"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jarrah–Laubenbacher–Veliz-Cuba, arxiv:0805.0275v1, Sections 1–3, gives OR/AND conjugacy, matrix-walk representation, and general fixed-point/cycle theorems, not the suffix-class hitting-time counts.",
+        "Gadouleau, arxiv:2104.04403, Sections 2–3.1, develops the support-as-out-neighbourhood framework and a primitive graph fixed-point criterion; no de Bruijn term or exact initial-state first-hitting census was found in inspected full text.",
+        "The published-finding corpus search hit 2026/11/2/SCOPE-two-sided-fluctuation-bounds-for-acyclic-color-classes-in-critic--6df120673c37 studies independent random edge colors and missing constant cellular-automaton outputs, not uniform random initial vertex bits under a fixed OR update."
+      ],
+      "reasoning": "The new all-size suffix-class formula and independent-binomial obstruction law are not statements about recurrence alone or random colored-edge acyclicity. Both use a graph-specific partition of initial vertex configurations that does not appear in the inspected works; broad walk semantics is acknowledged as a known tool.",
+      "searches": [
+        "published-finding corpus: De Bruijn digraph synchronous OR Boolean network exact first consensus time cover suffix blocks probability",
+        "published-finding corpus: De Bruijn disjunctive network suffix block occupancy stabilization binomial uncovered classes",
+        "web: (\"de Bruijn\" OR \"de Bruijn digraph\") \"disjunctive\" \"Boolean network\" transient distribution",
+        "web: de Bruijn graph OR dynamics exact consensus hitting time random initial states"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest de Bruijn matches include 2026/11/2/SCOPE-two-sided-fluctuation-bounds-for-acyclic-color-classes-in-critic--6df120673c37 and 2026/10/25/SCOPE-binary-de-bruijn-coverage-with-exactly-two-surplus-windows--163f0f918016, whose statements concern edge-colored automata or de Bruijn cycle coverage rather than the OR consensus shell.",
+        "The accessible own-current and previous ledgers were title/claim searched for de Bruijn, OR, disjunctive, broadcast, first-hitting, and consensus variants; no equivalent title/claim was found."
+      ],
+      "reasoning": "No indexed exact population or table for these de Bruijn OR first-hitting shells was identified. This is negative targeted evidence only; absence of a database hit is not a proof of uniqueness.",
+      "searches": [
+        "published-finding corpus: q-ary de Bruijn graph OR network all-one hitting time distribution (2^{q^t}-1)^{q^{d-t}}",
+        "published-finding corpus: De Bruijn disjunctive network suffix block occupancy stabilization binomial uncovered classes",
+        "web: de Bruijn network OR update consensus time starting randomly each state 0 or 1"
+      ]
+    },
+    "rationale": "Best-knowledge comparison with the foundational and survey full texts finds general conjunctive/disjunctive walk semantics, primitive fixed points and height bounds, but no exact q-ary de Bruijn first-hitting census or binary dimension-window Poisson obstruction. Full published results on the Wielandt OR digraph and random edge coloring of de Bruijn graphs were inspected and do not imply the asserted statement. A dedicated 1994 de Bruijn broadcasting source was available only as abstract and remains a historical risk.",
+    "residual_risks": [
+      "Possible unindexed prior exact de Bruijn OR-network first-entry formula; searches are not proof of novelty.",
+      "Full text of Bermond–Fraigniaud (1994) not obtained; its abstract indicates a different communication protocol but hidden equivalent coverage remains possible.",
+      "The framework of directed word-overlap walks and binomial-to-Poisson limits is classical and credited; only their specified exact dynamical combination is presented as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Sets general OR/AND representation and loop-number recurrent structure; does not give the specific suffix-block temporal count",
+        "evidence": "arXiv:0805.0275v1 2008-05-02, Theorems 1.3, 2.10, 3.8; paper defines height and recurrent cycles",
+        "identifier_or_url": "https://arxiv.org/pdf/0805.0275",
+        "material_read": "arXiv PDF text: abstract and Sections 1–3, including Theorems 1.3, 2.10 and 3.8; rendered pages 1 and 8 inspected",
+        "method": "Public first-version full PDF, searchable text and page images",
+        "title": "The Dynamics of Conjunctive and Disjunctive Boolean Networks",
+        "trigger": "Foundational OR/AND digraph dynamics and possible stronger convergence coverage"
+      },
+      {
+        "assessment": "States support-map and primitive recurrent-point properties; no specific de Bruijn first-entry census in read material",
+        "evidence": "arXiv:2104.04403, Sections 2.2–3.1.2",
+        "identifier_or_url": "https://arxiv.org/pdf/2104.04403",
+        "material_read": "Public PDF abstract, Sections 2 and 3.1 and Proposition 1; rendered pages 1 and 6 inspected, de Bruijn term searched",
+        "method": "Public arXiv full PDF, line search and page images",
+        "title": "Dynamical properties of disjunctive Boolean networks",
+        "trigger": "Full survey of disjunctive-network image, periodic and fixed-point theory"
+      },
+      {
+        "assessment": "Different graph and clock; exact de Bruijn shells and Poisson law are not a corollary of its specific inequalities",
+        "evidence": "Published RESULT finding states n-vertex Wielandt maximum (n-1)^2+1 and n log_2 n typical, with cyclic longest-gap comparison",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-a-logarithmic-typical-convergence-clock-in-the-quadratic-exponen--4cb49f213f10",
+        "material_read": "Full publicly posted RESULT.md, including theorem, proof, limitations and references",
+        "method": "Public GitHub repository file read",
+        "title": "A logarithmic typical convergence clock in the quadratic-exponent Wielandt OR network",
+        "trigger": "Closest indexed OR consensus cutoff paper"
+      },
+      {
+        "assessment": "Independent labels on de Bruijn edges and monochromatic cycles, not initial vertex bits and synchronous OR propagation",
+        "evidence": "The studied variable M_(s,r) counts colors absent from random cellular-automaton images",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-two-sided-fluctuation-bounds-for-acyclic-color-classes-in-critic--6df120673c37",
+        "material_read": "Full publicly posted RESULT.md, definitions, proof, prior comparison and limitations",
+        "method": "Public GitHub repository file read",
+        "title": "Two-sided fluctuation bounds for acyclic color classes in critical random digraphs",
+        "trigger": "Indexed de Bruijn and randomized dynamics terminology overlap"
+      },
+      {
+        "assessment": "Abstract concerns routing protocols and disjoint spanning trees, not random initial-state OR first-hit census; full text missing, so no whole-paper non-coverage assertion",
+        "evidence": "SIAM Journal on Computing 23 (1994), 212–225, official abstract and DOI",
+        "identifier_or_url": "https://doi.org/10.1137/S0097539791197852",
+        "material_read": "Official journal abstract, bibliographic record and listed references only; HAL full-document retrieval failed",
+        "method": "Published abstract/metadata search and attempted lawful open access",
+        "title": "Broadcasting and Gossiping in de Bruijn Networks",
+        "trigger": "Direct graph family and information propagation, plausible hidden formula"
+      },
+      {
+        "assessment": "Original de Bruijn-word source is credited without claiming its full text was inspected or assigning an unsupported exact day",
+        "evidence": "N. G. de Bruijn, 1946, Proc. 49, 758–764",
+        "identifier_or_url": "https://research.tue.nl/en/publications/a-combinatorial-problem/",
+        "material_read": "University institutional bibliographic record only",
+        "method": "University publication record",
+        "title": "A combinatorial problem",
+        "trigger": "Object provenance for the classical word-overlap graph"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "36af38db-9d12-4921-887c-a2df1952f853",
+  "value": {
+    "rationale": "The result determines an entire natural first-hitting-time census for a classical infinite family of word-overlap networks, not an arbitrary graph-size slice. It distinguishes a sharp worst-case \\(d\\)-step broadcast from an independent-random-data \\(\\log_q d\\)-step clock and gives a nondegenerate Poisson two-point cutoff at \\(d=2^h+h+c\\). The complete counts and missing-suffix obstruction are natural precision statistics for propagation, beyond the previously established qualitative primitive-graph convergence theorem. No broad arbitrary-graph theorem is claimed.",
+    "status": "PASS"
+  }
+}
