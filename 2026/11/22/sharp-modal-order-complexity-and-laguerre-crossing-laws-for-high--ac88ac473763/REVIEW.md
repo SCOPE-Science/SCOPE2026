@@ -1,0 +1,11 @@
+# Scientific review: higher-Landau disk concentration spectral ordering
+
+**Correctness — PASS.** The normalized pure-order Gaussian Fock eigenvalues agree with the primary Laguerre integral. The two contiguous identities produce an exact derivative that integrates with a verified vanishing endpoint, including the potentially singular small Hermite indices. The positive Laguerre zero theorem, a first-order ODE uniqueness argument, Poisson orthogonality of the index polynomials, and a uniform generating-function Hermite limit prove respectively all crossing counts, simple noncoincident roots, the sharp ascent bound, and its attainment. The standalone checker passed 452 independent finite diagnostic assertions. Finite checks are corroboration, not the infinite proof.
+
+**Originality — PASS, best-knowledge.** The relevant primary full text gives the Laguerre disk eigenvalues, not a uniform adjacent-index factorization or a sharp all-level bound on spectral ascents. Published first- and second-Hermite special cases and a neighboring Zernike/Jacobi cumulative-energy theorem were inspected at the statement and proof level. They do not logically imply the new all-\(q\ge3\) Gaussian/Poisson spectral-order theorem. It may nevertheless have an equivalent presentation in older Charlier or Landau-level spectral literature; priority remains provisional.
+
+**Value — PASS.** The result fixes the exact finite number of radial eigenvalue crossings and a sharp global bound on mode-order reversals independent of disk radius and number of indexed modes, for every higher Landau level. It gives a concrete a priori limit on the complexity of choosing optimal Hermite modes in disk localization and identifies the large-area turning-index geometry. This is stronger than the elementary integral diagonalization, and is not merely a low-degree numerical calculation.
+
+**Scope and limitations.** Centered Gaussian disks, a single pure polyanalytic Landau level, Hermite-index order, and fixed normalization. Not a theorem about arbitrary masks, mixed levels, exact global optimizer index, or historical uniqueness. The first two excited levels are acknowledged precedents. No independent external audit has been conducted.
+
+Self-review: passed. Independent audit: not yet performed.
