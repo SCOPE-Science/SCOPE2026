@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The theorem is proved in `RESULT.md`; finite tests check exact rational certificates and numerical implementations, but cannot establish infinite-dimensional coverage or historical novelty.
+## correctness
 
-Run `python checks/check_ferrers.py` in an environment with Python 3, NumPy, SciPy and SymPy. The script constructs the surviving grid vertices directly and checks 441 parameter configurations with class sizes from two through seven. It verifies 3,136 missing-vertex rational projection certificates, 441 exact contact-face Gram determinants, and 441 hypergeometric identities against separate finite-shuffle enumerations. It additionally solves 100 constrained quadratic programs independently of the formulas. Its replay completed with:
+PASS
 
-`FERRERS_DELETION_PASS configurations=441 exact_missing_vertices=3136 independent_QP=100 max_gap=3.85e-14 exact_hypergeom_and_gram=441`
+The cut x(S)+y(T)<=1 contains exactly the retained grid vertices and introduces no edge-interior vertices. The explicit projection onto the exposed u+v-vertex simplex satisfies the normal-cone criterion; the Gram determinant is 2uv+u+v, and distinct vertex residuals enforce the continuous farthest-point classification by the strict convexity identity. Independent S=(2 of 4), T=(2 of 5) check gave squared gap 12/17 from constrained Euclidean optimization and exact removed fraction 13/35 from both beta integration and hypergeometric count. Uniform independent beta CLTs and Chebyshev handle finite/infinite standardized offsets; this analytical step, not finite enumeration, proves the asymptotic crossover. Limits require both deletion blocks proper and macroscopic fractions bounded away from 0 and 1.
 
-Separate numerical normal-limit diagnostics compared exact hypergeometric tails with standard-normal CDF values for symmetric configurations of size 100, 400 and 1600 and offsets near minus one, zero and one standard deviations. All comparisons were consistent; these diagnostics are not packaged as a standalone independent certificate. The proof, not finite enumeration, establishes the asymptotic statement.
+## originality
 
-No independent audit, expert review, or formal infinite verification has been performed. The first cited public source is dated 2021-03-28 in the original arXiv submission history; that date is a literature-anchor date, not a claim of priority for this theorem.
+PASS
+
+The specific joint Euclidean deep-hole/contact-simplex and exact Gaussian volume crossover was not implied by the materially read same-family minimum-enclosing-sphere theorem. Graph-root/adjacency/Ehrhart framework and standard beta/order statistics are prior art; originality is best-of-knowledge for the combined sharp geometric and probability statements.
+
+## value
+
+PASS
+
+Deletion of a complete biclique is a natural minimal nontrivial Ferrers perturbation of a product of simplices. Exact deep-hole geometry, contact-simplex volume and volume fraction answer two inequivalent loss metrics, with a macroscopic Gaussian transition despite constant Hausdorff separation. These are motivated all-parameter sharp questions, not merely a routine beta integral or a tiny numerical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

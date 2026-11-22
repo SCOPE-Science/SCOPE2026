@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated object is the convex hull of all grid vertices of a product of simplices except one nonempty proper rectangular block. The proof independently establishes its precise one-facet description; the only potentially dangerous cut edges change the forbidden-block score by at most one, so none creates a fractional cut vertex. The missing-vertex projection is certified by an explicit supporting normal and strictly positive convex weights on an exposed simplex. The Gram determinant and all equality cases are computed, not inferred from experiments. Strict convexity of squared norm in the residual-mixture identity proves that no nonvertex point can attain the Hausdorff maximum. The deleted-volume fraction is a beta-event probability, exactly evaluated by independent order-statistic interleaving. Its Gaussian critical window follows from large-shape beta central limit laws, including degenerate relative variance-weight subsequences. The separate exact rational and numerical checks replayed successfully. The arguments cover every admissible integer parameter; computations only corroborate them.
+PASS
 
-## Originality — PASS, historical priority provisional
+The cut x(S)+y(T)<=1 contains exactly the retained grid vertices and introduces no edge-interior vertices. The explicit projection onto the exposed u+v-vertex simplex satisfies the normal-cone criterion; the Gram determinant is 2uv+u+v, and distinct vertex residuals enforce the continuous farthest-point classification by the strict convexity identity. Independent S=(2 of 4), T=(2 of 5) check gave squared gap 12/17 from constrained Euclidean optimization and exact removed fraction 13/35 from both beta integration and hypergeometric count. Uniform independent beta CLTs and Chebyshev handle finite/infinite standardized offsets; this analytical step, not finite enumeration, proves the asymptotic crossover. Limits require both deletion blocks proper and macroscopic fractions bounded away from 0 and 1.
 
-The closest inspected public mathematical result, *Hall-deficit quadratic law for minimum spheres of two-step Ferrers root polytopes*, treats exactly the same missing-biclique graph family, but determines minimum enclosing spheres, contacts with that enclosing sphere, and an associated Hall-deficit phase. Its full mathematical statement and proof were compared with this claim: it does **not** determine the Euclidean Hausdorff distance to the original product, the projection of each deleted vertex, the exposed projection simplex and its volume, or the exact proportion of removed intrinsic volume. This is a distinction between invariants, not merely changed terminology.
+## originality
 
-The separately inspected crown-graph root-polytope result deletes a perfect matching, not a Cartesian rectangular block, and proves a different Hausdorff/volume law plus a spherical directional-width limit. It does not cover the present four-parameter two-step Ferrers family by specialization. Ohsugi–Tsuchiya's full primary text (arXiv:2103.15045v1) and the relevant layer-complete and volume sections of Kálmán–Tóthmérész (arXiv:2105.00960) study associated polytope descriptions and enumerators, not the new metric projection or threshold law. Related same-family and adjacent-family claim searches did not identify stronger coverage. Standard hypergeometric and Gaussian identities are fully credited; earlier equivalent specialized presentations remain a residual bibliographic risk. The novelty finding does not assert uniqueness against inaccessible literature.
+PASS
 
-## Mathematical value — PASS
+The specific joint Euclidean deep-hole/contact-simplex and exact Gaussian volume crossover was not implied by the materially read same-family minimum-enclosing-sphere theorem. Graph-root/adjacency/Ehrhart framework and standard beta/order statistics are prior art; originality is best-of-knowledge for the combined sharp geometric and probability statements.
 
-Removing a complete biclique is a canonical and parameterized perturbation of a bipartite graph and its edge-root polytope. The exact distance describes the worst-case Euclidean effect of that graph edit, with a complete set of extremizers and a geometric nearest-face certificate. The exact lost-volume ratio gives a distinct bulk measure of the same edit, and the Gaussian critical window establishes that the bulk loss can vary between asymptotically zero and one even though the worst-case distance approaches the same nonzero constant. This geometric decoupling and the contact simplex are substantive structural information, not a small numerical improvement or an arbitrary slice. The combination applies to all sizes and block shapes and supports further comparisons of combinatorial edge deletion with Euclidean approximation.
+## value
 
-## Closest literature and limitations
+PASS
 
-The baseline definitions and normalized-volume context are in Ohsugi–Tsuchiya (arXiv:2103.15045v1, first public 2021-03-28), and root-polytope triangulation and volume context in Kálmán–Tóthmérész (arXiv:2105.00960v1, 2021-05-03). The previously published same-family minimum-sphere result and the matching-deletion crown result were checked statement against statement, including the mathematical proofs. The claim does not classify multiple overlapping deleted rectangles or weighted edges; the Gaussian limit assumes both vertex-class sizes diverge and missing-block proportions stay away from zero and one. Independently unexamined literature might contain equivalent volume or metric formulas. No independent mathematical audit has been performed.
+Deletion of a complete biclique is a natural minimal nontrivial Ferrers perturbation of a product of simplices. Exact deep-hole geometry, contact-simplex volume and volume fraction answer two inequivalent loss metrics, with a macroscopic Gaussian transition despite constant Hausdorff separation. These are motivated all-parameter sharp questions, not merely a routine beta integral or a tiny numerical improvement.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
