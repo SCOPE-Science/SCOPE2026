@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The key published Type-A statement is checked against the primary text of Cai–Kiah–Nguyen–Yaakobi, Definition 8 and Proposition 9 (arXiv:2001.01376). An even alternating differing interval preserves the binary composition, whereas an odd one changes it by one. Unique maximal alternating-block decomposition then yields the exact formal transfer matrix. First-to-last mismatch uniqueness proves both finite edge sums; opposite-symbol endpoint pairs prove the sharp maximum. The fixed-density mean follows by a uniform geometric bound on the binomial ratio. The full proof specifies the edge and degree meanings, index ranges, boundary conventions, and the restriction on the asymptotic regime. Direct deletion-set enumeration through length 10 and independent transfer-series enumeration through length 24 passed. The computations are corroboration rather than infinite proof.
+
+## Originality — PASS (qualified)
+The foundational Type-A theorem is prior work and is explicitly credited. The closest known unrestricted edge count and unrestricted degree-spectrum results were read in full; their statistics do not specify a degree distribution conditional on both source Hamming weight and preservation of Hamming weight. The existing weight-two reconstruction-code optimum is a different independence-number invariant. Targeted mathematical-record searches did not expose this full joint degree/edge law, and comparison was made at the level of statements and implications. Because the present formulas are an explicit refinement of established alternating-interval machinery, an unindexed equivalent enumeration or a separately implied refinement remains a genuine priority risk, not a demonstrated absence.
+
+## Value — PASS
+The natural input constraint of fixed symbol composition is standard in constrained sequence coding. The result determines every local confusability degree and cross-layer ambiguity count, and shows a sharp difference between typical linear local ambiguity and attainable quadratic local ambiguity. The exact distribution is suitable as input for weight-sensitive graph bounds or finite codebook design even though the optimal codebook cardinalities are not determined. It is more than a finite table or a parameter substitution: the trivariate all-length distribution and sharp extremum require an additional composition-preserving interval analysis.
+
+## Literature and limits
+Primary inspected texts: Sloane, *On Single-Deletion-Correcting Codes* (2002); Cai et al., *Coding for Sequence Reconstruction for Single Edits* (2020); Chrisnata et al., *Optimal Reconstruction Codes for Deletion Channels* (2020). Closest complete public mathematical records: exact full-alphabet edge count (2026), unrestricted degree spectrum (2026), and weight-two capacity (2026). The claim does not cover optimal code capacities, larger deletion radii, or independent validation. Unindexed work remains a priority risk.
+
+Self-review: passed. Independent audit: not yet performed.

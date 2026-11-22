@@ -1,0 +1,186 @@
+{
+  "correctness": {
+    "rationale": "Proposition 9 of Cai–Kiah–Nguyen–Yaakobi, arXiv:2001.01376, gives the needed if-and-only-if alternating differing interval characterization. Only even alternating intervals preserve binary Hamming weight. Cutting at equal adjacent symbols yields a unique sequence of alternating blocks; its two-state matrix gives every composition-refined degree coefficient. First-to-last mismatch endpoints make the same-weight and cross-weight edge counts disjoint and exhaustive. For each block the even-alternating interval count is the product of its symbol counts, leading to the sharp fixed-weight maximum. The density-limit proof uses the exact weight-refined edge sum and a uniform geometric bound. The direct distinct-deletion-set checker examined 698027 pairs for n=1..10; a separate matrix expansion checked all length <=24 coefficients, with independent exact histograms through n=13. These finite computations corroborate but do not replace the proof.",
+    "source_evidence": [
+      "arxiv:2001.01376 Definition 8 and Proposition 9, including proof",
+      "verification/bruteforce.py and verification/bruteforce_output.txt",
+      "verification/transfer.py and verification/transfer_output.txt"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The q-ary unrestricted degree recurrence and Gaussian limit concern all neighbors of a uniform unrestricted word, not the within-composition induced graph. The optimal-reconstruction-code paper obtains redundancy bounds without the exact fixed-composition degree census."
+      ],
+      "reasoning": "The more general alphabet/degree results cover a different statistic; they do not dominate the joint fixed-weight and weight-preserving degree distribution. The 2020 source does not state an all-layer local edge census.",
+      "searches": [
+        "exact fixed weight two read deletion graph edge count binomial sums Hamming weight induced subgraph maximum degree",
+        "constant-weight two-read deletion confusability graph degree extremum alternating run",
+        "published-finding corpus:2026/11/8/SCOPE-exact-degree-law-and-gaussian-fluctuations-in-the-two-read-delet--7fbc301106f7",
+        "arxiv:2004.06032"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0207197v1",
+      "arxiv:2001.01376v1",
+      "arxiv:2004.06032v1",
+      "published-finding corpus:2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+      "published-finding corpus:2026/11/2/SCOPE-complete-degree-spectrum-of-the-binary-two-read-deletion-reconst--f45a481280b1",
+      "published-finding corpus:2026/10/26/SCOPE-exact-two-read-single-deletion-capacity-in-the-binary-weight-two--7d25cc21af64",
+      "published-finding corpus:2026/11/8/SCOPE-exact-degree-law-and-gaussian-fluctuations-in-the-two-read-delet--7fbc301106f7",
+      "https://arxiv.org/html/math/0207197v1",
+      "https://arxiv.org/abs/2001.01376",
+      "https://arxiv.org/abs/2004.06032"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The total edge count and unrestricted degree distribution are aggregate projections of different local data. The alternating-host deletion-output counts concern subsequences of a particular host, not two-read source-word graph neighbors. The Type-A theorem supplies the structural lemma but not the enumerations."
+      ],
+      "reasoning": "The new result depends on the Type-A premise but adds nontrivial composition tracking and sharp layer extrema. Comparing statements, not merely titles, found no complete implication from a stronger prior theorem. A future explicit prior refinement would defeat this assessment.",
+      "searches": [
+        "published-finding corpus:2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+        "published-finding corpus:2026/11/2/SCOPE-complete-degree-spectrum-of-the-binary-two-read-deletion-reconst--f45a481280b1",
+        "published-finding corpus:2026/11/8/SCOPE-fixed-composition-deletion-spectra-and-parity-bias-for-alternati--4b7dc91ebfc9",
+        "arxiv:2001.01376 Proposition 9"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The unrestricted degree is the number of all alternating intervals of length at least two; the restricted degree counts only even-length alternating intervals. The unrestricted degree polynomial does not record Hamming weight."
+      ],
+      "reasoning": "A refinement of the unrestricted degree result requires discarding every odd alternating interval and retaining source composition. These operations are not encoded in its stated marginal generating function, so this theorem is not an equivalent restatement.",
+      "searches": [
+        "bivariate Hamming weight degree enumerator two read deletion graph",
+        "fixed weight alternating interval degree enumeration weight preserving two deletion descendants",
+        "published-finding corpus:2026/11/2/SCOPE-complete-degree-spectrum-of-the-binary-two-read-deletion-reconst--f45a481280b1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The weight-two result gives a sharp code cardinality but not degrees or the all-layer generating series; no exact table of the claimed P_{n,k,d} distribution was found in the inspected sources."
+      ],
+      "reasoning": "A finite weight-two capacity formula does not subsume an all-length, all-composition degree-spectrum classification. A missing search hit alone is not used as a novelty proof.",
+      "searches": [
+        "constant composition two read reconstruction adjacency spectrum",
+        "two trace deletion reconstruction constant weight edges exact generating function",
+        "published-finding corpus:2026/10/26/SCOPE-exact-two-read-single-deletion-capacity-in-the-binary-weight-two--7d25cc21af64"
+      ]
+    },
+    "rationale": "The protected new invariant is the joint Hamming-weight and same-weight-degree distribution, alongside a sharp degree maximum, inter-layer edge partition and fixed-density mean. The known Type-A condition is credited rather than claimed. The closest public unrestricted degree-spectrum results and total edge census were read in full and are not equal statements: they include odd alternating intervals and aggregate away Hamming weight. The published weight-two capacity is an independence-number statement for one layer. Their stated formulas do not directly give the new trivariate distribution, though the new derivation is an economical refinement of the same interval method and remains subject to historical-priority risk.",
+    "residual_risks": [
+      "The full graph pointwise degree theorem is closely related; an earlier author may have recorded the even-interval fixed-weight refinement elsewhere.",
+      "Unindexed or differently named constant-composition reconstruction enumerations could yield equivalent formulas.",
+      "No independently verified priority or mathematical audit is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL, NOT_COVERING: uses zero common deletion descendants for one-read codes, not two-read fixed-weight local degree distribution",
+        "evidence": [
+          "Definitions 1.1 and discussion of deletion graph in Section 1",
+          "The VT-code survey and descendant-count discussions do not state joint same-weight degree laws"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0207197v1",
+        "material_read": "Full HTML, especially sections 1, 2 and 5",
+        "method": "primary open-access HTML",
+        "title": "On Single-Deletion-Correcting Codes",
+        "trigger": "earliest dated foundational source on deletion descendants and fixed-source constraints"
+      },
+      {
+        "assessment": "PARTIALLY_COVERING: proves Type-A alternation condition but not the composition-refined graph statistics",
+        "evidence": [
+          "Definition 8 specifies Type-A alternating form",
+          "Proposition 9 proves exact two-common-descendant criterion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2001.01376",
+        "material_read": "Full arXiv HTML including Definition 8, Proposition 9, proof and code-construction sections",
+        "method": "primary open-access HTML",
+        "title": "Coding for Sequence Reconstruction for Single Edits",
+        "trigger": "precisely the same two-common-deletion-read condition"
+      },
+      {
+        "assessment": "NOT_COVERING: code-redundancy bounds and pairwise overlap conditions, no fixed-weight-degree distribution",
+        "evidence": [
+          "Section II-B states the two-read code problem and develops constrained shifted VT codes",
+          "No composition-resolved graph-degree theorem identified"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2004.06032",
+        "material_read": "Full HTML, Sections II–IV, intersection and redundancy statements",
+        "method": "primary open-access HTML",
+        "title": "Optimal Reconstruction Codes for Deletion Channels",
+        "trigger": "two-read graph and reconstruction-code optimization"
+      },
+      {
+        "assessment": "NOT_COVERING: sums over all placements and outside symbols without recording source composition",
+        "evidence": [
+          "Its exact edge sum is binomial-free and global",
+          "It explicitly leaves degree distribution undetermined"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+        "material_read": "Complete RESULT.md, definition, proof, verification and literature relationship",
+        "method": "public primary result text",
+        "title": "Exact edge count of the finite-alphabet two-read single-deletion reconstruction graph",
+        "trigger": "closest unweighted edge-enumeration theorem"
+      },
+      {
+        "assessment": "PARTIALLY_COVERING: counts full degrees via all alternating intervals but not weight-preserving degrees or composition-conditioned distribution",
+        "evidence": [
+          "Its degree formula sums all triangular run contributions",
+          "Its generating series has no composition variable"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-complete-degree-spectrum-of-the-binary-two-read-deletion-reconst--f45a481280b1",
+        "material_read": "Complete RESULT.md including all theorem statements and proof",
+        "method": "public primary result text",
+        "title": "Complete degree spectrum of the binary two-read deletion-reconstruction graph",
+        "trigger": "strongest adjacent claim, complete full-graph degree spectrum"
+      },
+      {
+        "assessment": "PARTIALLY_COVERING: full unrestricted degree law, not same-weight adjacency degree",
+        "evidence": [
+          "The recurrence weights all alternating suffix intervals regardless of parity",
+          "Its variance and Gaussian limit concern uniform unrestricted words"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-degree-law-and-gaussian-fluctuations-in-the-two-read-delet--7fbc301106f7",
+        "material_read": "Complete RESULT.md including proof and full recursion",
+        "method": "public primary result text",
+        "title": "Exact degree law and Gaussian fluctuations in the two-read deletion reconstruction graph",
+        "trigger": "all alphabet full-degree recurrence with limit theorem"
+      },
+      {
+        "assessment": "NOT_COVERING: gives an independent-set optimum for weight two, no all-weight degree distribution",
+        "evidence": [
+          "Its result is floor(n^2/4) codewords at weight two",
+          "Its proof uses fixed-coordinate path restrictions, not an edge/degree census"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-exact-two-read-single-deletion-capacity-in-the-binary-weight-two--7d25cc21af64",
+        "material_read": "Complete RESULT.md with proof and code construction",
+        "method": "public primary result text",
+        "title": "Exact two-read single-deletion capacity in the binary weight-two layer",
+        "trigger": "closest constant-weight graph topic"
+      },
+      {
+        "assessment": "NOT_COVERING: counts distinct descendants of a single alternating host after multiple deletions",
+        "evidence": [
+          "Uses host alternating A_{m+t} and an embedding penalty",
+          "No pairwise two-read confusability graph invariant"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-fixed-composition-deletion-spectra-and-parity-bias-for-alternati--4b7dc91ebfc9",
+        "material_read": "Complete RESULT.md with theorem and proof",
+        "method": "public primary result text",
+        "title": "Fixed-composition deletion spectra and parity bias for alternating binary words",
+        "trigger": "possible superficially matching composition and deletion terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "abb547d6-5c0a-4100-be42-8cffe745240e",
+  "value": {
+    "rationale": "Constant Hamming weight is a natural constraint for sparse-marker and balanced-content coding. The theorem supplies a complete all-length degree distribution, edge-layer partition, exact maximum, and fixed-density mean; these quantify local packing obstructions for source-constrained two-read reconstruction. In particular at balanced weight the mean is asymptotically 2n/3 but the maximum is n^2/4 to first order. The all-length composition-sensitive invariant is not a finite census or a reparameterization of the marginal degree histogram. No optimal codebook sizes or downstream theorems are claimed.",
+    "status": "PASS"
+  }
+}
