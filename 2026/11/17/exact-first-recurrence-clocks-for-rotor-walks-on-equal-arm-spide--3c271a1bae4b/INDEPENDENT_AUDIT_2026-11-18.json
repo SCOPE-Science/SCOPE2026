@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T00:50:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-first-recurrence-clocks-for-rotor-walks-on-equal-arm-spide--3c271a1bae4b/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-first-recurrence-clocks-for-rotor-walks-on-equal-arm-spide--3c271a1bae4b/verify.py",
+        "Git blob 98a0bc56ed6801bacc155dc3d3c63584b946e1de (RESULT.md)",
+        "Git blob 2c097cfb6dbdd56f67745b9231a8d60393fa1341 (verify.py)"
+      ],
+      "rationale": "At a given arm, a first excursion meets the shallowest initially outward-pointing uncleared internal rotor at depth d, rotates it to parent and returns in exactly 2d moves; all shallower cleared pointers restore inward on return. With no blocker, excursion reaches the leaf and returns in 2L moves. For B=max_i b_i, the final blocker is in the last arm in the hub's cyclic scan with exactly B blockers; every prior arm completes B excursions, every later arm B−1, and the terminal arm contributes two times earlier blocker depths plus one last outward traversal. The first state with the walker on the unique rotor two-cycle, hence the first periodic state, occurs upon arrival at this last blocker, not after completing an entire Euler tour. This produces the stated exact τ sum. Bounding complete excursions by 2L and selecting B deepest terminal depths gives H(B)=2(k−1)BL+(B−1)(2L−B−2)+L−1; its strict successive increase proves max τ=(L−1)((2k−1)L−1) and exactly one maximizing rotor mask per hub pointer (k total). A recurrent tree rotor unicycle traverses each oriented edge once (primitive period 2kL). For iid fair pointers fixed L, the last all-blocker arm lies a tight geometric number of positions before the end; LLN for independent bounded E_i(L−1) with mean 3L(L−1)/4 gives τ/k→3L(L−1)/2 in probability and mean. Independent brute finite-state simulation reconstructed all 24,344 initial configurations across seven (k,L) pairs and verified exact entry time, primitive period, maximum and number of extremizers; the universal statements rely on excursion proof and LLN, not this enumeration.",
+      "residual_risks": [
+        "Finite numerical or exhaustive small-parameter checks do not prove unbounded cases; only the reconstructed analytic argument supports universal claims."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chalopin et al Section 5.1 develops nested Eulerian phases and general graph O(mD)-type bounds",
+          "Bampas et al studies general graph initialization and Euler-tour completion, but relevant full text was not exhaustively accessible"
+        ],
+        "reasoning": "A broad algorithm or bound can in principle be specialized but does not by immediate mathematical implication give the explicit each-mask formula, k extremizers and fixed-L law. Possible known stronger classification remains unresolved risk.",
+        "searches": [
+          "arXiv:1407.3200 nested Eulerian exploration single walker stabilization",
+          "Robustness of the Rotor-Router Mechanism graph lock-in bounds",
+          "rotor-router spider exact transient first periodic entry count max"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1407.3200",
+        "https://livrepository.liverpool.ac.uk/3003004/1/rotorjv.pdf",
+        "https://arxiv.org/abs/0705.1562",
+        "https://arxiv.org/abs/1502.05545",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-the-sharp-quadratic-rotor-router-entrance-clock-on-finite-comb-t--2f01f57bf6cd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chalopin's phase treatment offers global upper bounds but no ordered blocker-depth expression for this spider",
+          "A comb/tree family with different branch pattern and initial position is not a parameter specialization of the equal-arm hub spider"
+        ],
+        "reasoning": "Neither graph-uniform bounds nor a first-tour completion theorem determines exactly when the last initial blocker is reached. The derivation additionally needs per-arm excursion structure and a last-maximal-blocker selection.",
+        "searches": [
+          "Chalopin et al 2014 rotor router Sections 1 and 5.1",
+          "Bampas et al Robustness lock in first Euler tour",
+          "Resultary: the sharp quadratic rotor-router entrance clock on finite comb trees"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same state can be described as a unicycle rotor configuration or the beginning of an Eulerian periodic tour",
+          "Bampas et al define lock-in using first completed Euler tour, not necessarily first recurrent state"
+        ],
+        "reasoning": "The rotor state includes walker position and every rotor. First repeated-state *entry* is not automatically the same as completion of an Euler tour; path or cycle graph formulas do not imply multi-arm hub blocker dynamics.",
+        "searches": [
+          "rotor router equal-arm spider tree exact first periodic state entry time initialization rotor blockers",
+          "rotor router subdivided star first unicycle entry preperiod arm rotor directions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest Resultary results are finite comb trees, paths, cycles, and triangular bouquets, with different graph families and clocks",
+          "The finite-state 24,344 configurations checked in this audit match the algebraic formula, but that finite census itself is not the universal claim"
+        ],
+        "reasoning": "No verified exact k,L spider table or formula from a distinct prior record was found. Lack of matching indexed entry is not by itself novelty evidence.",
+        "searches": [
+          "Resultary: rotor router equal-arm spider tree exact first periodic state entry time initialization rotor blockers",
+          "rotor routing equal arm spider all initial rotors exact first recurrence table"
+        ]
+      },
+      "rationale": "General rotor-router literature gives Eulerian stabilization and nested exploration phases on arbitrary finite graphs; its broad O(mD) bounds neither state nor directly imply the exact blocker-depth spider first-recurrent-state formula or sharp labelled extremizers and typical limit. The closest published corpus includes related path/comb/cycle and bouquet first-entry clocks with different topology/starting conditions. Prior 'lock-in' sometimes denotes first completed Euler tour rather than first periodic state, so a title-level match is not coverage. No exact covering original theorem was found. Accessible author manuscript text for Bampas was limited, and unindexed rotor-router notes are a genuine residual priority risk.",
+      "residual_risks": [
+        "The Bampas full author manuscript could not be completely read through authorized public fetch, so its deeper implications remain unverified.",
+        "Other general rotor lock-in algorithms may have an unstated spider specialization; no false claim of absolute originality.",
+        "The exact first-periodic-state entry is distinct from Euler-tour completion time; conflating them would invalidate the literature comparison.",
+        "Finite exhaustive checks cover only the seven named (k,L) pairs, not unbounded arms or lengths."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General exploration theorem is background; its cited propositions do not directly compute the spider blocker-depth entry law",
+          "evidence": [
+            "Section 5.1 nested exploration phases, Propositions 5.2–5.3"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.3200",
+          "material_read": "Primary arXiv paper introduction and Sections 1.2/5.1 including nested exploration/phase propositions and definitions; not every appendix line",
+          "method": "Read primary full-text representation and inspected first page",
+          "title": "Lock-in Problem for Parallel Rotor-router Walks",
+          "trigger": "Potential graph-general phase theorem for the same recurrence clock"
+        },
+        {
+          "assessment": "Definition of lock-in based on first completed Euler tour differs from current first-periodic-state clock",
+          "evidence": [
+            "Author manuscript bibliographic description; journal Algorithmica 78"
+          ],
+          "identifier_or_url": "https://livrepository.liverpool.ac.uk/3003004/1/rotorjv.pdf",
+          "material_read": "Public metadata and article abstract/introduction excerpts; full manuscript access blocked by site HTTP 406",
+          "method": "Limited abstract/excerpt comparison; no claim of whole-document noncoverage",
+          "title": "Robustness of the Rotor-Router Mechanism",
+          "trigger": "General graph lock-in timing and initializing pointers"
+        },
+        {
+          "assessment": "Infinite regular-tree escape/growth, not an immediate finite hub-spider first recurrence classification",
+          "evidence": [
+            "ArXiv 2007 abstract"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0705.1562",
+          "material_read": "Title, primary abstract and publication metadata",
+          "method": "Abstract-only mathematical scope comparison",
+          "title": "The Rotor-Router Model on Regular Trees",
+          "trigger": "Prior mathematical rotor-tree dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-first-recurrence-clocks-for-rotor-walks-on-equal-arm-spide--3c271a1bae4b/RESULT.md",
+        "https://arxiv.org/abs/1407.3200",
+        "https://livrepository.liverpool.ac.uk/3003004/1/rotorjv.pdf",
+        "https://arxiv.org/abs/0705.1562",
+        "https://arxiv.org/abs/1502.05545",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-the-sharp-quadratic-rotor-router-entrance-clock-on-finite-comb-t--2f01f57bf6cd"
+      ],
+      "rationale": "Exact first recurrence is a natural dynamical clock distinct from Euler tour completion. The complete configuration-level formula, sharp quadratic longest delay, exceptionally small maximizing set and fixed-length high-arm probability limit classify stabilization for a genuine infinite graph family and random initializations. This is more substantive than a tiny instance or an asymptotic bound and plausibly useful when comparing rotor-router exploration/lock-in definitions.",
+      "residual_risks": [
+        "No independent claim of external certification, application beyond proven hypotheses, or complete exclusion of unindexed literature."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The Bampas full author manuscript could not be completely read through authorized public fetch, so its deeper implications remain unverified.",
+    "Other general rotor lock-in algorithms may have an unstated spider specialization; no false claim of absolute originality.",
+    "The exact first-periodic-state entry is distinct from Euler-tour completion time; conflating them would invalidate the literature comparison.",
+    "Finite exhaustive checks cover only the seven named (k,L) pairs, not unbounded arms or lengths."
+  ],
+  "schema_version": 1
+}

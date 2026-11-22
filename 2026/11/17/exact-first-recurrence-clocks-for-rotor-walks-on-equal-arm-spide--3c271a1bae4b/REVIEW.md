@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The walker dynamics is completely specified, including the advance-before-routing convention, labelled arms, pointer indexing, and state recurrence. Excursion decomposition proves the exact first-periodic-entry formula. The classical unicycle/Euler-tour criterion identifies the first time the walker is truly periodic rather than merely returning to the hub; the last blocking rotor is reached at the exact first recurrent state. The extremal optimization is strict in terminal arm order, blocker count, and all other-arm excursion lengths. The fixed-depth probability limit follows by a geometric tail and bounded law of large numbers. An independent brute-force map construction reproduces the formula, primitive period, maximum, and number of maximizers in all 24,344 tested states. The finite test is corroboration, not the infinite proof.
+## correctness
 
-## Originality — PASS, with historical-priority qualification
-Relevant full text inspected: Chalopin et al., arXiv:1407.3200, Sections 1 and 5.1, derives general rotor exploration phase inclusions and single-token prediction; it does not state the present per-initialization spider expression or its sharp statistical consequences. The public author manuscript of Bampas et al. gives general bounds and adversarial port-order results, not these explicit finite spider counts; its definition of completion of the first Euler tour differs from first periodic-state entry. The earlier path result of Menc et al. concerns a different starting position and graph topology. A semantic indexed finding search did not locate an equivalent rotor-spider record. Search incompleteness is not proof of priority; unindexed studies and general exploration identities might contain equivalent implications.
+PASS
 
-## Value — PASS
-Rotor-router stabilization can take order \(|E|\operatorname{diam}(G)\) steps and depends strongly on initial local memory. Equal-arm spider trees supply a natural first multi-branch case where memory is carried both along arms and around a hub. The full initial-state formula is useful for exact transient statistics, identifies a unique extremal morphology for each hub phase, gives a quadratic-in-arm-depth sharp clock, and separates this exponentially rare worst case from the linear-in-branch-count typical clock. This goes beyond a numerical enumeration or restatement of the general Euler-tour theorem.
+At a given arm, a first excursion meets the shallowest initially outward-pointing uncleared internal rotor at depth d, rotates it to parent and returns in exactly 2d moves; all shallower cleared pointers restore inward on return. With no blocker, excursion reaches the leaf and returns in 2L moves. For B=max_i b_i, the final blocker is in the last arm in the hub's cyclic scan with exactly B blockers; every prior arm completes B excursions, every later arm B−1, and the terminal arm contributes two times earlier blocker depths plus one last outward traversal. The first state with the walker on the unique rotor two-cycle, hence the first periodic state, occurs upon arrival at this last blocker, not after completing an entire Euler tour. This produces the stated exact τ sum. Bounding complete excursions by 2L and selecting B deepest terminal depths gives H(B)=2(k−1)BL+(B−1)(2L−B−2)+L−1; its strict successive increase proves max τ=(L−1)((2k−1)L−1) and exactly one maximizing rotor mask per hub pointer (k total). A recurrent tree rotor unicycle traverses each oriented edge once (primitive period 2kL). For iid fair pointers fixed L, the last all-blocker arm lies a tight geometric number of positions before the end; LLN for independent bounded E_i(L−1) with mean 3L(L−1)/4 gives τ/k→3L(L−1)/2 in probability and mean. Independent brute finite-state simulation reconstructed all 24,344 initial configurations across seven (k,L) pairs and verified exact entry time, primitive period, maximum and number of extremizers; the universal statements rely on excursion proof and LLN, not this enumeration.
 
-## Scope and risks
-The result is not an arbitrary-tree theorem or a statement about first completed Euler tours. Formal priority, especially any equivalent spider specialization hidden in algorithmic rotor-router papers, remains a risk. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General rotor-router literature gives Eulerian stabilization and nested exploration phases on arbitrary finite graphs; its broad O(mD) bounds neither state nor directly imply the exact blocker-depth spider first-recurrent-state formula or sharp labelled extremizers and typical limit. The closest published corpus includes related path/comb/cycle and bouquet first-entry clocks with different topology/starting conditions. Prior 'lock-in' sometimes denotes first completed Euler tour rather than first periodic state, so a title-level match is not coverage. No exact covering original theorem was found. Accessible author manuscript text for Bampas was limited, and unindexed rotor-router notes are a genuine residual priority risk.
+
+## value
+
+PASS
+
+Exact first recurrence is a natural dynamical clock distinct from Euler tour completion. The complete configuration-level formula, sharp quadratic longest delay, exceptionally small maximizing set and fixed-length high-arm probability limit classify stabilization for a genuine infinite graph family and random initializations. This is more substantive than a tiny instance or an asymptotic bound and plausibly useful when comparing rotor-router exploration/lock-in definitions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
