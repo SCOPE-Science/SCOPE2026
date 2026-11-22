@@ -1,0 +1,187 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T04:52:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 3fa848be70c5f7036f0f8328826226c35a5db976: complete finding and proof sections 1-4; CHECK.py blob fb2e00a2a087ce357e0e4f1d9b08e30258e90ccf inspected, not accepted as proof",
+        "https://arxiv.org/abs/2608.02297 original full text Section 2 eqs (5)-(13), Appendix B eqs (64)-(65) and Appendix C eq (73)",
+        "https://dlmf.nist.gov/13.7 standard negative-argument confluent hypergeometric asymptotic",
+        "Independent exact series, analytic asymptotic and numerical 331-check script, at private audited path independent_checks.py"
+      ],
+      "rationale": "For a rate-r Poisson reset process with unit deterministic drift and U uniform over the complete elapsed physical history, rescaling z=rt and Y_z=rQ_(z/r) gives a rate-one process on 0<=Y_z<=z. Conditioning on the next infinitesimal interval yields F_s'(z)=(s-1)F_s(z)+z^-1 int_0^z F_s(u)du, F_s(0)=1 and F_s'(0)=s. Differentiation produces zF_s''(z)+[1+(1-s)z]F_s'(z)-sF_s(z)=0. The unique analytic-at-zero solution for s!=1 is M(-s/(1-s),1,-(1-s)z), matching all exact series coefficients. Negative-argument Kummer asymptotics for each fixed real s<1 give F_s(z)~[(1-s)z]^[s/(1-s)]/Gamma(1/(1-s)), so the limiting log-mgf / log z is s/(1-s). For s>1 no-reset paths yield F_s(z)>=exp((s-1)z), and for s=1 monotonicity in s and an unbounded limit as s up-to-1 force Lambda(1)=+infinity. The resulting Lambda is proper, lsc, finite/differentiable on (-infinity,1), and steep at s=1; exponential tightness follows from any fixed s in (0,1) and nonnegativity. Gartner-Ellis gives the LDP for positive y; the lower bound on every open neighborhood containing 0 follows by approximation from positive y, while the closed-set upper bound follows from exponential tightness. Its exact good Legendre rate is (sqrt(y)-1)^2 for y>=0, infinity otherwise. Differentiating the generator at s=0 gives m=gamma+log z+E1(z), and locally uniform Kummer asymptotics in complex s near 0 give second cumulant 2log z+2gamma-2-pi^2/6+o(1) and Gaussian characteristic-function convergence. The proof does not claim a state-space LDP, quenched annealed equality, rates for different reset distributions or memory kernels, or a speed other than log z.",
+      "residual_risks": [
+        "Uniform complex-s Kummer expansion and exponential tightness are standard analytic inputs; bounded numerical tests do not certify them universally.",
+        "At s=1 the Kummer parameterization is singular, but the finite-z MGF exists and the required infinite log-scale limit is handled separately.",
+        "The rate at y=0 is an LDP boundary value; the theorem does not give a finite-z point probability or a full conditional-on-waits LDP.",
+        "Only the unwrapped clock is considered; for a periodic quantum orbit, the physical state alone need not recover Y_z."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boci-Mailler (2023) Theorem 1.4 is an almost-sure/in-probability conditional-on-run-lengths result; Remark 1.5 states explicitly that its annealed upper bound is outside the theorem.",
+          "Mailler-Uribe Bravo (2019) prove broad CLT/local-limit results via weighted recursive trees but do not present a full clock annealed LDP in inspected sections.",
+          "Boyer-Evans-Majumdar (2017) Section IV gives the exact Kummer Fourier transform for Brownian motion with uniform memory and variance asymptotics, not a clock LDP.",
+          "Meylahn-Sabhapandit-Touchette (2015) concerns fixed-state resetting of Markov processes; same rate theorem cannot be inferred from its stated process family."
+        ],
+        "reasoning": "The deterministic-drift unit-clock special case falls in general monkey-walk setups, but quenched behavior does not automatically imply full annealed upper bounds. Earlier complete Fourier/characteristic formulas substantially reduce the work needed for the special case and limit claims of broad methodological novelty.",
+        "searches": [
+          "https://arxiv.org/pdf/2105.02633 Theorem 1.4 and Remark 1.5",
+          "https://arxiv.org/pdf/1810.02735 abstract and Sections 1-2",
+          "https://arxiv.org/pdf/1611.06743 Section IV",
+          "https://doi.org/10.1103/PhysRevE.92.062148 scope",
+          "annealed large deviations stochastic process random reinforced relocations Mailler 2024 2025 2026 monkey walk"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2608.02297",
+        "https://arxiv.org/pdf/2105.02633",
+        "https://arxiv.org/pdf/1611.06743",
+        "https://arxiv.org/pdf/1810.02735",
+        "https://doi.org/10.1103/PhysRevE.92.062148",
+        "https://dlmf.nist.gov/13.7",
+        "Three actual Resultary semantic queries plus web mathematical phrase searches; source/title results were mathematically compared"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "de Mauro-Kulkarni-Majumdar: explicit Kummer energy-basis factor and typical clock log z/r, but no LDP in the article text.",
+          "Boyer-Evans-Majumdar: exact Kummer transform of the Brownian characteristic function can be analytically continued via Dk^2 to deterministic-drift Laplace tilt, yet their theorem concerns Brownian density and logarithmic variance.",
+          "Boci-Mailler Remark 1.5 expressly distinguishes quenched bounds from missing annealed upper bound."
+        ],
+        "reasoning": "The submitted LDP is a logically new statement derived from old exact formulas via specific positive-real tilts, a no-reset s>=1 argument, essential smoothness and steepness; known exact formulas imply a short path to deriving it, but prior primary statements inspected do not themselves settle this full annealed theorem. This closeness is a major priority risk, not grounds to miscredit old model ingredients as new.",
+        "searches": [
+          "https://arxiv.org/abs/2608.02297 Eq (12), Appendix B (64)-(65), Appendix C (73)",
+          "https://arxiv.org/pdf/1611.06743 Eqs (38)-(49)",
+          "https://arxiv.org/pdf/2105.02633 Theorem 1.4, Remark 1.5",
+          "Quantum resetting with memory 2608.02297 large deviations rare effective time Gaussian"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The recursively constructed time Q is the stochastic operational time q(t) in de Mauro-Kulkarni-Majumdar Appendix B (64)-(65).",
+          "The Boci-Mailler monkey-walk time change S(t) is the same underlying ancestral time for deterministic unit-speed motion and exponential run lengths, but the published LDP is quenched.",
+          "Earlier random-recursive-tree treatments express the path time as accumulated ancestral run lengths rather than using Q_t directly."
+        ],
+        "reasoning": "Matched the exact pathwise law, not just similar vocabulary. The equivalences give established construction and classical aliases, but the cited results do not provide the full annealed two-tail LDP statement.",
+        "searches": [
+          "random reinforced relocation time change uniform Poisson",
+          "monkey walk uniform memory time change annealed large deviations Poisson random recursive tree depth logarithmic rate",
+          "operational time quantum resetting memory hypergeometric large deviations",
+          "https://arxiv.org/abs/2608.02297 Appendix B",
+          "https://arxiv.org/pdf/2105.02633 Sections 1-2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Results contain the present target publication and adjacent reset/walk studies, but no separate publication explicitly asserting the same annealed LDP for this clock.",
+          "No finite exact table is involved: this is a continuum rate function and full Borel-set LDP."
+        ],
+        "reasoning": "Excluded the target itself when comparing results; retrieval is negative supporting context only, never a novelty certificate. Finite-table/database coverage is not applicable to a continuum large-deviation theorem.",
+        "searches": [
+          "Resultary semantic: annealed large deviations uniform memory resetting clock operational time Poisson Kummer rate function square root",
+          "Resultary semantic: monkey walk uniform memory time change annealed large deviations Poisson random recursive tree depth logarithmic rate",
+          "Resultary semantic: operational time quantum resetting memory hypergeometric large deviations",
+          "annealed large deviations monkey walk clock rate sqrt x stochastic time change 2023",
+          "annealed large deviations uniform memory Poisson relocation rate function sqrt y - 1"
+        ]
+      },
+      "rationale": "Best-of-knowledge priority attaches to the complete annealed logarithmic-speed LDP for the unwrapped uniform-Poisson operational clock, in particular its positive/zero boundary and both rare-time tails, not to the exact Kummer transform, mean scaling, model or general Gartner-Ellis argument. The 2017 diffusion paper already supplies the same Kummer family with Brownian Fourier symbol Dk^2; the 2026 quantum source explicitly supplies the same unwrapped recursion and energy-basis Kummer solution, with typical log-scale behavior. The 2019 tree paper treats CLTs and local limits for monkey walks. The 2023 Boci-Mailler theorem establishes only a quenched LDP for relocated Markov-process positions and Remark 1.5 explicitly says its annealed upper bound is not proved. The exact characteristic transform plus known hypergeometric asymptotics is a close, fairly direct route to the claimed specialized LDP; this raises a meaningful priority/independent-contribution risk, but in the inspected primary statements the complete annealed rate theorem is not stated or delivered. Searches of semantically similar published mathematical results, primary and scholarly indexing found no earlier explicit full annealed clock theorem. Negative searches do not prove novelty.",
+      "residual_risks": [
+        "The original 2017 and 2026 exact Kummer transforms plus routine Gartner-Ellis are exceptionally close precursors; independent novelty of derived LDP depends on an unstated analytic domain and full annealed tail theorem, not a new model or transform.",
+        "A later or hard-to-index annealed special-case theorem (or appendix in older monkey-walk/tree literature) might already imply the rate; negative retrieval is never a priority proof.",
+        "Only selected sections of the 2019 tree paper were inspected, and the 2015 fixed-state-reset paper was abstract-only; their full texts were not certified as noncovering.",
+        "No claim of independent mathematical discovery, formal Lean verification or human expert certification is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and Kummer factor known, as is typical clock log z/r; no explicit full annealed operational-time large deviation theorem found",
+          "evidence": [
+            "Section 2 eqs (5)-(13) gives memory evolution and exact Bohr-frequency transform",
+            "Appendix B eq (64)-(65) supplies recursive operational clock",
+            "Appendix C eq (73) gives logarithmic effective-time leading scale"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.02297",
+          "material_read": "Full arXiv article text as served at arxiv.org/abs/2608.02297; Section 2, eqs 5, 12-14; Section 4, Appendix B eqs 64-65 and Appendix C eqs 70-80; searched article text for large deviations and Gaussian",
+          "method": "Read arXiv full-text rendering and exact mathematical displays",
+          "title": "Quantum resetting with memory",
+          "trigger": "Exact same unwrapped Poisson uniform-history clock and associated Kummer factor"
+        },
+        {
+          "assessment": "General quenched position LDP; Remark 1.5 explicitly excludes its annealed upper-bound counterpart; not direct coverage",
+          "evidence": [
+            "Theorem 1.4 Eq (1.8) conditions on run lengths",
+            "Remark 1.5 Eq (1.9) says annealed upper bound is not covered",
+            "Eq (1.4) gives log-time speed for uniform-memory parameters"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2105.02633",
+          "material_read": "Original 19-page arXiv PDF Introduction pp 1-5, model, Theorem 1.4, Remark 1.5, deterministic time-change discussion and random recursive-tree construction; screenshots pp 3-4",
+          "method": "Inspected arXiv PDF extracted mathematical text and page screenshots",
+          "title": "Large deviations principle for a stochastic process with random reinforced relocations",
+          "trigger": "Most relevant broad same-process theorem possibly covering the claimed annealed result"
+        },
+        {
+          "assessment": "Exact uniform-memory Brownian Fourier Kummer function and mean-squared displacement known since 2017; no annealed operational-clock LDP stated",
+          "evidence": [
+            "§IV Eq (38) matches Kummer family after drift-symbol substitution",
+            "Eq (42) exact Fourier series",
+            "Eqs (46)-(49) logarithmic positional variance, not rare-clock tails"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1611.06743",
+          "material_read": "Original 13-page arXiv PDF Introduction and §II, §IV original pp 7-8 with all equations (38)-(49) and images",
+          "method": "Read extracted original PDF text and inspected screenshots of theorem-formula pages",
+          "title": "Long time scaling behaviour for diffusion with resetting and memory",
+          "trigger": "Prior exact uniform-memory Kummer transform with possible analytic-continuation implication"
+        },
+        {
+          "assessment": "General CLT, local limit and occupation law rather than an annealed LDP; cannot exclude all uninspected appendix implications",
+          "evidence": [
+            "Abstract states CLT, local limit and weighted occupation",
+            "Introduction states principal outcomes are general distributional limits, random-tree height and recurrence"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1810.02735",
+          "material_read": "Original 39-page arXiv PDF abstract, pp 1-3 introductory theorem and scope, early §1 model; screenshots pp 1-2",
+          "method": "Inspected arXiv PDF mathematically and read theorem overview; remainder not checked exhaustively",
+          "title": "Random walks with preferential relocations and fading memory: a study through random recursive trees",
+          "trigger": "Broad older mathematical reduction of the same clock to ancestral weighted trees"
+        },
+        {
+          "assessment": "Fixed-state reset and time-additive observables, not historical-state jump clock; no whole-text noncoverage assertion",
+          "evidence": [
+            "Abstract concerns Markov resets to fixed states and additive observables"
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.92.062148",
+          "material_read": "Publisher bibliographic abstract and scope only",
+          "method": "Web publication abstract; full text not inspected",
+          "title": "Large deviations for Markov processes with resetting",
+          "trigger": "Broad reset LDP title that could dominate a particular memory-reset model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2105.02633 Remark 1.5",
+        "https://arxiv.org/abs/2608.02297 Appendix B/C",
+        "https://arxiv.org/pdf/1611.06743 Section IV",
+        "Frozen RESULT.md Finding and Proof"
+      ],
+      "rationale": "An operational time with uniform historical resetting is a natural observable in the established preferential-relocation/quantum-memory protocol. The new explicit rate I(y)=(sqrt(y)-1)^2 for both short and long relative elapsed times gives rare-event probabilities of polynomial order in physical time, not captured by the known typical log-time law or a marginal Brownian-position CLT. The annealed/quenched distinction is a concrete open gap highlighted by Boci-Mailler Remark 1.5; resolving the annealed problem for this exact exponential-run specialization is useful even without a general kernel theorem. The exact mean, variance correction and CLT quantify typical uncertainty and tie rare tails to fluctuations. The value is a bounded natural special-case theorem rather than a new general large-deviation method; routine Kummer and Gartner-Ellis tools do not alone supply its scope and boundary analysis.",
+      "residual_risks": [
+        "The directness of the implication from a previously known exact Kummer formula limits the degree of new structural insight.",
+        "Does not solve general annealed monkey-walk LDP or a Hamiltonian-independent quantum state-space LDP; the sharp value is restricted to the natural uniform-memory Poisson model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientifically passed on best-of-knowledge primary-source comparison; extremely close pre-existing exact Kummer formulas are credited and priority remains qualified.",
+    "Standalone independent finite checks: 331 assertions; no claim that finite tests establish an infinite-time LDP or the Gartner-Ellis theorem.",
+    "Original 2019 tree paper inspected in relevant excerpts not exhaustively; several other possible related papers have only abstract-level access.",
+    "Public metadata contains operational identifiers, review-state descriptors and process provenance requiring confidentiality-safe handling before any publication.",
+    "No GitHub writes, no dispatcher closeout, no formal Lean or expert certification; prior ledger bytes unchanged."
+  ],
+  "schema_version": 1
+}
