@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement fixes arclength normalization and the precise spherical moment conditions. It remains valid for all nonconstant closed rectifiable curves, because a constant-speed Sobolev parameterization exists. The all-function Fourier decomposition and rank-two covariance inequality yield the spectral excess \(\varepsilon\ge0\). The fourth-frequency norm obstruction yields the universal inequality \(1\le11\varepsilon/15+4\sqrt{3\varepsilon/5}\). The exact smallest admissible excess is \((1245-180\sqrt{47})/121\). The main proof covers all dimensions of the relevant matrix, all Fourier tails, and every admissible curve; numerical checks are supporting evidence only.
+## correctness
 
-## Originality — PASS (provisional)
-The best-matching original publication is King and Mixon, *Short spherical t-design curves*, arXiv:2607.15386 (2026-07-16). Its Theorem 4 provides the lower bound \(2\pi\sqrt2\) in the case at hand. Its Theorem 9 derives an even-dimensional asymptotic estimate from that spectral bound, while its discussion leaves the shortest two-design curve on \(S^2\) open. The present universally positive fourth-harmonic gap is not a specialization of those stated claims. Related asymptotic curve results do not imply a fixed-degree, fixed-dimension explicit strict gap. Relevant public mathematical searches and a comparison to accessible prior claims did not reveal the inequality or a stronger one. However, indexed excerpts, not a complete publisher or preprint PDF, supplied the material available from the closest primary paper; priority is not independently settled.
+PASS
 
-## Mathematical value — PASS
-The original spectral lower bound is unattainable on the even sphere, but mere nonattainment alone does not preclude a sequence of designs approaching it. The new result gives the a rigorously derived, strictly positive *uniform* defect obtained from a geometric fourth-frequency obstruction, thus excluding any such sequence at the spectral threshold and establishing a numerical length separation. The exact size of the improvement is modest and is not claimed sharp, but the structural obstruction concerns an explicit open minimization problem rather than an arbitrary constant adjustment.
+For a closed rectifiable arclength S² two-design, the H¹ constant-speed F=√3 γ has zero mean, covariance I₃ and |F|²≡3. Orthogonal Fourier projection F=F₁+F₂+R with a+b+c=3 and first/second band covariance ranks ≤2 yields ε=3(L/2π)²−6≥3(2−a)+5c. The fourth-harmonic amplitude of |F₂|² is λ₁(K)−λ₂(K)≥b−2(2−a)≥1−ε/3 by the two-plane trace/eigenvalue principle for U+K+H=I; |F|²≡3 forces that harmonic to be canceled by 2(F₁+F₂)·R+|R|², so amplitude ≤4√(3c)+2c≤4√(3ε/5)+2ε/5. Hence 1≤11ε/15+4√(3ε/5), giving ε≥(1245−180√47)/121 and L≥2π√((1971−180√47)/363)=8.9527209263…; the strict excess over 2π√2 is a genuine uniform positive gap. Eigenvalue inequality and Fourier constants were checked against actual RESULT.md and verify.py. This argument treats every admissible H¹ arclength parameterization, not a finite family or smooth-only subclass.
 
-## Limits and literature
-The result says neither what curve minimizes length nor that the new numerical bound is best possible. King–Mixon arXiv:2607.15386 is the closest source. Ehler arXiv:2611.01895 examines asymptotic length questions. The Ehler–Gröchenig arXiv:2306.13152 foundational construction establishes a different kind of bound. A historical-priority risk remains for non-indexed or inaccessible strengthening of the King–Mixon spectral argument.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The identified King–Mixon primary theorem gives only 2π√2 on S² at strength two; it does not imply a strictly positive uniform gap of ~0.066955. The new Fourier fourth-harmonic obstruction is a distinct quantitative geometric ingredient. No stronger or equivalent prior theorem was established by the searches, but the closest paper full text was not accessible, so this is a best-of-knowledge PASS with an explicit material historical-priority risk.
+
+## value
+
+PASS
+
+This is not an arbitrary ~0.75% numerical improvement: the prior spectral lower bound was a possibly approached infimum in the unsolved shortest S² two-design curve problem. The proof identifies a structural fourth-harmonic obstruction and proves a uniform nonattainment margin. That rules out sequences of exact designs converging to the spectral value. The independent fact is useful even without an optimal length or minimizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
