@@ -1,0 +1,19 @@
+# Scientific review: Dürer ordinary four-cut topology and dihedral character
+
+## Correctness — PASS
+
+The claim has a fixed twelve-vertex domain with eighteen edges specified by three cyclic edge families. The Alexander-dual definition is correct: its forbidden minimal faces are the disconnected induced four-sets. An exhaustive, dependency-free verifier reconstructs 429 forbidden quadruples and the dual face counts \((12,66,220,66,6)\), then checks 66 free-face/cell pairs **against the changing entire face set**, leaving a simply connected two-complex with reduced Euler characteristic 105. The proof uses the full two-skeleton, Hurewicz and Whitehead to obtain \(\bigvee^{105}S^2\), and integral combinatorial Alexander duality plus the complete five-skeleton of the ordinary cut complex to obtain \(\bigvee^{105}S^7\). The two full-generator trace arrays are exact signed simplicial Lefschetz sums; evenness of the twelve ambient permutations makes the dual and original characters equal. The average trace is eight. The certificate and the exact recorded replay are included. The proof does not infer infinite statements from finite tests: its full domain is the particular finite graph.
+
+## Originality — PASS against inspected evidence
+
+The two primary cut-complex papers, arXiv:2304.13675v2 (introduction, Table 1, face-counting section and families) and arXiv:2407.08158v1 (introduction, topic list and group-action section), were searched for the graph and compared at the level of theorems. Their families and representation theorems do not give the dual collapse or dihedral character for \(\operatorname{GP}(6,2)\). Same-graph publications about higher-independence and matching complexes use different simplicial conditions and does not imply the four-cut calculation. The prior four-cut high-girth sphere-wedge result assumes girth at least five and does not apply to a graph with two triangles; the ordinary four-cut Petersen result is for the distinct graph \(\operatorname{GP}(5,2)\). Theorem 6.1 of the foundational article requires a complete six-skeleton here, but the dual has six five-vertex faces and the cut complex lacks that skeleton. Its restricted Euler formula therefore cannot be invoked directly, and it does not imply the homotopy type or the group character. The connected-quadruple count by itself is not claimed as a standalone discovery. Searches of published records by Dürer, generalized Petersen, 105, four-cut, and symmetry produced no implication of the final combined claim. Risk: a differently indexed equivalent finite computation could exist, and the high-girth published-record comparison was available at abstract/summary depth rather than complete source text.
+
+## Value — PASS
+
+The first triangle-bearing member of the familiar step-two generalized Petersen sequence lies outside the available girth-at-least-five four-cut theorem. Determining its exact topology is a natural boundary test, rather than an arbitrary parameter slice. The calculation also supplies the **complete rational action of its entire dihedral automorphism group** on 105 integral top-homology generators, detecting an eight-dimensional invariant subspace not inferable from Betti numbers. The elementary-collapse certificate is short enough to check independently and may guide comparisons at other short-cycle boundaries. No generalized-Petersen-wide classification, equivariant wedge equivalence, or quotient-space homotopy statement is claimed.
+
+## Scope of review and remaining risks
+
+The scientific results use a complete enumeration on a specified twelve-vertex complex and standard finite-CW topology. The specific graph action, face counts, and certificate have been replayed. Literature searches and full-text section inspections do not prove global bibliographic uniqueness. The result has not undergone an independent audit.
+
+Self-review: passed. Independent audit: not yet performed.
