@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** The standard order-five character projection is expanded with all excluded zeros accounted for. Every nonprincipal polynomial has 1, 2, or 3 distinct roots of multiplicities below five; the corresponding Weil bounds and omitted-point corrections yield the explicit uniform lower bound. This proves the infinite tail, while the independently constructed discrete-log and fifth-power coset tables cover every smaller eligible prime. The standalone source code was compiled and executed on the extracted bytes and matched the theorem's two finite exception lists and its boundary words. The computations use exhaustive finite loops; no sample is mistaken for the entire infinite domain.
+
+**Originality — PASS subject to bibliographic limits.** Classical work covers first occurrence of *single-color* higher-power runs and already explains the all-zero failure at 3331; this is explicitly excluded from claims of novelty. Published neighboring comparisons concern quadratic, cubic and quartic colors or higher-power sumsets. Exact-result searches and statement-level comparisons did not find the complete 125-word quintic exception classification nor the sharp mixed-word threshold at 2341. The 1983 *Patterns of power residues* full text was unavailable but its indexed mathematical review characterizes it as a study of first all-residue patterns, not all mixed coset words. An unindexed equivalent remains possible.
+
+**Value — PASS.** The simultaneous existence of all 125 local quintic-coset words is a natural complete three-point arithmetic invariant. Its exceptional set and particularly the distinction between the already-known all-residue threshold and the substantially smaller mixed-word cutoff are precise boundary facts not implied by existing one-color results. The exact finite classification has substantive content beyond the generic large-prime Weil bound.
+
+Self-review: passed. Independent audit: not yet performed.
