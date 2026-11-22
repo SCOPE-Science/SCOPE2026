@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "The proof explicitly derives the pure graph-state Schmidt spectrum from binary cross-cut rank, proves baseline rank using A(Q_{n-1})^2=I, constructs the missing-gate graph P4 square Q_{n-2}, proves its full adjacency invertible by a nilpotent tensor factor, and obtains the exact rank for EVERY subset by matching upper and lower rank-perturbation bounds. Each gate shifts rank at most one, proving global minimum count. Valid for all even n>=2. The independently oriented GF2 elimination verifies all 65,554 subsets for dimensions <=6 plus 240 in n=8: total 65,794; finite tests supplement proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hein–Eisert–Briegel [1] https://arxiv.org/abs/quant-ph/0307130 bounds the rank change by at most one per gate but does not show that there is a jointly saturating matching.",
+        "Projective-plane matching-fault law [5]: https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-incidence-matching-fault-threshold-for-graph-state-entangl--0f1e8bff6768 requires a different point-line incidence code and does not include Boolean-cube biadjacency.",
+        "Toroidal paired-bond cancellation [4]: https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-paired-omitted-bond-cancellation-in-three-dimensional-toroidal-c--06ff2b1986a2 concerns C4×C4×C_(power of 2), with two deletions returning to baseline."
+      ],
+      "reasoning": "The generic upper bound implies the optimality lower bound only once the original rank is known, but neither that bound nor the published projective-plane and torus special cases yields a specific 2^(n-2)-edge matching restoring all missing bits. The new P4×Q_{n-2} invertibility supplies the missing substantive construction.",
+      "searches": [
+        "hypercube graph state omit 2^(n-2) edges restore maximal checkerboard entanglement even dimensional hypercube cut rank",
+        "minimal gate removal to attain maximal entanglement hypercube graph state Schmidt rank edge cut",
+        "hypercube graph state remove one edge in each square fiber, entanglement bit increase per omitted CZ",
+        "2026/11/2/SCOPE-sharp-incidence-matching-fault-threshold-for-graph-state-entangl--0f1e8bff6768",
+        "2026/11/2/SCOPE-paired-omitted-bond-cancellation-in-three-dimensional-toroidal-c--06ff2b1986a2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/quant-ph/0307130",
+      "https://arxiv.org/abs/2102.13117",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-parity-cut-schmidt-spectra-of-antipodally-augmented-hypercube-gr--ce26ea2d2639",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-paired-omitted-bond-cancellation-in-three-dimensional-toroidal-c--06ff2b1986a2",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-incidence-matching-fault-threshold-for-graph-state-entangl--0f1e8bff6768",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-universal-two-bond-loss-entanglement-gain-on-mersenne-honeycomb--8078b5064bc2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General cut-rank rule and edge-change bound [1] https://arxiv.org/abs/quant-ph/0307130.",
+        "Existing ordinary-cube checkerboard baseline [3] https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-parity-cut-schmidt-spectra-of-antipodally-augmented-hypercube-gr--ce26ea2d2639.",
+        "Explicit unrelated two-omission cancellation [4] https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-paired-omitted-bond-cancellation-in-three-dimensional-toroidal-c--06ff2b1986a2; projective-plane rank response [5] https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-incidence-matching-fault-threshold-for-graph-state-entangl--0f1e8bff6768."
+      ],
+      "reasoning": "The original-cube value and single-edge rank bound imply at least 2^(n-2) omissions are necessary, not that any deletion set can attain it. The new invertible P4 square Q_{n-2} adjacency and the exact partial-subset sandwich are additional non-implied claims. Prior projective-plane law is not a generic matching bound for cubes.",
+      "searches": [
+        "hypercube graph state omit 2^(n-2) edges restore maximal checkerboard entanglement even dimensional hypercube cut rank",
+        "Omitting a matching of exactly 2^(n-2) controlled-Z gates in even-dimensional hypercube Q_n raises checkerboard graph-state Schmidt entropy from 2^(n-2) to 2^(n-1); every subset yields one entanglement bit per gate",
+        "2026/11/2/SCOPE-parity-cut-schmidt-spectra-of-antipodally-augmented-hypercube-gr--ce26ea2d2639",
+        "2026/11/2/SCOPE-paired-omitted-bond-cancellation-in-three-dimensional-toroidal-c--06ff2b1986a2",
+        "2026/11/2/SCOPE-sharp-incidence-matching-fault-threshold-for-graph-state-entangl--0f1e8bff6768"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The binary rank statement is equivalent to invertibility of the deleted-graph full adjacency matrix A(P4 square Q_{n-2}) in characteristic two; the new proof explicitly establishes this factorization.",
+        "Prior published cube parity cut [3]: https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-parity-cut-schmidt-spectra-of-antipodally-augmented-hypercube-gr--ce26ea2d2639 establishes the unmodified rank 2^(n-2), but not the P4-factor full-rank deletion."
+      ],
+      "reasoning": "An equivalent older binary adjacency rank statement for the specific P4 Cartesian Q_even family would cover the construction; the inspected closest statements concern a different antipodal augmentation, other Hamming relations, or unrelated characteristic-two dynamics. No equivalent match was found; this is not uniqueness proof.",
+      "searches": [
+        "Hypercube graph state parity bipartition delete a square-fiber matching of CZ edges transforms Q_{2m} into P_4 Cartesian product Q_{2m-2} full binary biadjacency rank",
+        "Omitting a matching of exactly 2^(n-2) controlled-Z gates in even-dimensional hypercube Q_n raises checkerboard graph-state Schmidt entropy from 2^(n-2) to 2^(n-1); every subset yields one entanglement bit per gate",
+        "Smith normal form of hypercube bipartite biadjacency adjacency parity qudit entanglement",
+        "2026/11/2/SCOPE-parity-cut-schmidt-spectra-of-antipodally-augmented-hypercube-gr--ce26ea2d2639"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published hypercube parity cut [3]: https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-parity-cut-schmidt-spectra-of-antipodally-augmented-hypercube-gr--ce26ea2d2639, full text proof Step 5 states the original parity cut value.",
+        "Honeycomb two-bond result [6] https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-universal-two-bond-loss-entanglement-gain-on-mersenne-honeycomb--8078b5064bc2 is on a different toroidal lattice and establishes just a two-bond effect.",
+        "No inspected full-text table or searchable result lists the rank after the specified even-cube square-fiber matching deletion."
+      ],
+      "reasoning": "The focal claim is a uniform infinite-family edge-deletion extremal law, not a numerical rank table. Small-case data in the verifier are corroboration; the novelty comparison tested the all-size construction and its aliases, not just matching numerical parameters.",
+      "searches": [
+        "Omitting a matching of exactly 2^(n-2) controlled-Z gates in even-dimensional hypercube Q_n raises checkerboard graph-state Schmidt entropy from 2^(n-2) to 2^(n-1); every subset yields one entanglement bit per gate",
+        "Graph state hypercube two coordinate edge erasures maximal entanglement optimal preparation fault matching",
+        "Hypercube graph state parity bipartition delete a square-fiber matching of CZ edges transforms Q_{2m} into P_4 Cartesian product Q_{2m-2} full binary biadjacency rank",
+        "2026/11/2/SCOPE-parity-cut-schmidt-spectra-of-antipodally-augmented-hypercube-gr--ce26ea2d2639",
+        "2026/11/2/SCOPE-universal-two-bond-loss-entanglement-gain-on-mersenne-honeycomb--8078b5064bc2"
+      ]
+    },
+    "rationale": "Multiple actual claim-, construction-, parameter-, and equivalence-specific searches and full-text comparisons found the unmodified cube baseline [3], general one-gate rank bound [1], and related but noncovering matching-fault results [4,5]. None establishes the exact full-rank P4 Cartesian-factor construction or every-subset optimal gain for every even hypercube. This is best-knowledge originality only, not a proof of historical uniqueness.",
+    "residual_risks": [
+      "Unlocated prior GF(2) adjacency-rank or matching-deletion algebra may imply the explicit P4 square Q_even invertibility under different terminology.",
+      "Indexed literature is not complete; historical priority requires independent specialist literature scrutiny.",
+      "The honeycomb two-bond result was consulted through indexed summary, not inspected full-text, and is treated only as a different-graph context source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers general lemmas and one-edge bound, not a constructive optimal matching for Q_even",
+        "evidence": [
+          "Sections III.2-III.3: cut rank and effect of deleting an edge. The missing ingredient is the explicit full-rank P4 Cartesian Q_even construction."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/quant-ph/0307130",
+        "material_read": "Full publicly accessible article HTML, focus Sections III.2 and III.3 (graph-state Schmidt cut ranks, single edge entanglement effects)",
+        "method": "Statement-and-proof comparison of cut-rank lemma and elementary gate-rank effect against the proposed optimal matching",
+        "title": "Multi-party entanglement in graph states",
+        "trigger": "Foundational cut-rank equivalence and one-edge bound; potential covering general theorem"
+      },
+      {
+        "assessment": "Addresses hypercube graph states and scrambling, not the all-even checkerboard minimal-gate omission theorem",
+        "evidence": [
+          "Hypercube graph-state construction and cuts studied, without the specific matching deletion P4 square Q_even spectrum."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2102.13117",
+        "material_read": "Accessible full article HTML and graph-state hypercube context, including scrambling and entanglement discussion",
+        "method": "Compared the graph, bipartition and prepared state observable with omission pattern and extremal rank claim",
+        "title": "Deterministic Fast Scrambling with Neutral Atom Arrays",
+        "trigger": "Pure hypercube graph state entanglement and prior hypercube construction"
+      },
+      {
+        "assessment": "Original even-cube parity cut r=2^(n-2) is explicitly already known; no rank-restoring sparse gate omission theorem present",
+        "evidence": [
+          "Its Proof Step 5 gives unaugmented Q_n baseline, but its theorem adds antipodal edges and treats all coordinate-parity cuts."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-parity-cut-schmidt-spectra-of-antipodally-augmented-hypercube-gr--ce26ea2d2639",
+        "material_read": "Entire accessible RESULT.md including Findings, Proof Steps 1–5, limitations and comparison",
+        "method": "Compared original Q_n cut and antipodal-matching addition with selected square-fiber gate deletions",
+        "title": "Parity-cut Schmidt spectra of antipodally augmented hypercube graph states",
+        "trigger": "Closest published indexed result, includes exact original hypercube parity cut"
+      },
+      {
+        "assessment": "Different toroidal graph and specific two-bond cancellation; does not imply uniform matching erasures with complete rank restoration on cubes",
+        "evidence": [
+          "C4 square C4 square C_(2^a) correlated double omission returns entropy to original, unlike this monotone per-gate law."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-paired-omitted-bond-cancellation-in-three-dimensional-toroidal-c--06ff2b1986a2",
+        "material_read": "Entire accessible RESULT.md, construction and rank-factorization proof",
+        "method": "Compared underlying Cartesian graph family, omission sets, and rank consequences",
+        "title": "Paired omitted-bond cancellation in three-dimensional toroidal cluster states",
+        "trigger": "Related edge-omission entropy on periodic Cartesian graphs"
+      },
+      {
+        "assessment": "Applies to projective-plane point-line incidence matrices and coding distance, not to the hypercube tensor product; does not imply the new theorem",
+        "evidence": [
+          "Its critical fault threshold q and incidence-code conditions differ from the hypercube edge-removal optimum 2^(n-2)."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-incidence-matching-fault-threshold-for-graph-state-entangl--0f1e8bff6768",
+        "material_read": "Entire accessible RESULT.md, geometric code argument, threshold statement",
+        "method": "Compared matching-bound quantification and incidence hypotheses with hypercube parity cut",
+        "title": "Sharp incidence-matching fault threshold for graph-state entanglement on even-order projective planes",
+        "trigger": "Potential dominating matching-fault theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4528be52-91d1-4335-8bfa-f6435e7b96d5",
+  "value": {
+    "rationale": "The natural n-cube is a canonical graph-state resource, and checkerboard entanglement is a central physical invariant. A family with an extensive 2^(n-2)-ebit baseline deficit attains absolute maximal bipartite entanglement by a provably minimum, explicit matching of missing CZ gates. Even more strongly, any partial subset gains one bit per omission. This is a structural extremal theorem for an infinite physically motivated network family, not merely routine finite enumeration or a rephrasing of its baseline.",
+    "status": "PASS"
+  }
+}
