@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
-The general Fourier-support formula is proved from complement pairing and the published Stirling enumeration, with every restriction stated for \(m,n\ge2\). For \(4\times4\), two exhaustive integer methods agree frequency by frequency: forbidden-pattern enumeration plus the Walsh butterfly, and row/column-permutation orbits plus independent direct signed sums. They establish all \(65,536\) coefficients and the minimum of six, with the complete certificates supplied. Parseval, a 16-adic congruence, and lower-dimensional baselines provide independent internal consistency checks. No untested extrapolation to other widths is made.
+## correctness
 
-## Originality: PASS within the checked evidence
-The general half-support conclusion is an immediate application of known lonesum counts and symmetry and **is not** regarded as the new contribution. The accepted novelty claim is the complete signed Fourier spectrum of the \(4\times4\) lonesum set, its 317 frequency orbits, exact 34-level magnitude distribution and first nontrivial square spectral gap. The closest checked primary papers establish the unsiged poly-Bernoulli enumeration, row-chain characterization, and orientation bijection, but do not compute these signed character sums. Prior research on the \(2\times n\) family addresses a different rectangular size and cannot imply this census. Neither bounded database search nor absence of a matching phrase proves definitive priority; possible overlooked signed-enumeration tables remain a real risk.
+PASS
 
-## Mathematical value: PASS
-The first size where the least nonzero Walsh amplitude is strictly greater than the universal mod-four floor is a motivated discrete threshold in harmonic stability for a standard matrix family. The full orbit-reduced certificate classifies a natural finite first exception rather than an arbitrary small slice; exactly \(6,360\) extremizing frequencies and the 34-level spectrum quantify its complete conditioning profile. Its sharp inverse norm is \(1/6\), three times smaller than the general upper bound \(1/2\). Finite exhaustiveness alone is not the motivation: the threshold at \(4\times4\) is.
+The forbidden 2x2 permutation patterns are equivalent to row-inclusion comparability. Complement closure pairs lonesum matrices; using the known |L_mn| Stirling sum, its j=0,1 contributions give 2 mod 4 and j>=2 terms vanish mod 4. Thus every even-weight Walsh coefficient is 2 mod 4 and every odd-weight coefficient is zero for all m,n>=2. A fresh independent 65536-entry transform of 6902 exact 4x4 nested-row matrices gave zero count 32768, 34 distinct positive levels, minimum absolute coefficient 6 attained 6360 times, and 6 mod 16 on every even-weight coefficient. The inspected checker independently verifies all 317 row-column frequency orbits by direct 6902-term sums and checks the preceding 2x2,3x3 minima 2. Fourier diagonalization gives pseudoinverse 1/6 and condition 6902/6 =3451/3. Completeness is finite for the 4x4 magnitude census, not all sizes.
 
-## Sources and residual risk
-Kim–Krotov–Lee, arXiv:1103.4884 (Sections 1–2); Cameron–Glass–Rekvényi–Schumacher, arXiv:1412.3685 (Section 3); Bényi–Hajnal, arXiv:1510.05765 (Section 2); Kamano–Ohno–Yamamoto, *Weighted lonesum matrices*, Integers 13 (2013), whose one-variable weight enumerator does not determine all edge-frequency sums. An unidentified equivalent signed Walsh table or another reduction from a more general weighted acyclic-orientation enumerator may exist. Independent mathematical audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The all-rectangle rank, parity support and norm-one range projection are elementary corollaries of the prior lonesum count and the published 2xn all-Fourier formula, and should not be credited as new. The complete 4x4 signed orbit census, sharp least surviving amplitude six, and first square jump are not consequences of these count-only or 2-row results, nor are they present in the checked table records.
+
+## value
+
+PASS
+
+The first square spectral-gap rise of a natural labeled binary matrix class is an exact, reproducible invariant relevant to stable convolution inversion; 34 levels and 6360 gap attainers separate stronger arithmetic cancellation from rank-only parity information. It is more than merely restating the classical count or an arbitrary numerical slice, since 4x4 is the first square beyond the universal gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
