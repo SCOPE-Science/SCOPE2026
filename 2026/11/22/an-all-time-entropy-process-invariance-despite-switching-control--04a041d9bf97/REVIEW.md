@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness — PASS
+The model is the autonomous Gaussian-relative-coordinate, fixed-amplitude telegraph-sign branch of Cocconi–Alston–Bertrand. An adapted sign change of an independent Brownian integral produces a Brownian motion independent of the sign path and the OU coordinate, proving full entropy-path law invariance. Conditional Gaussianity yields the exact finite-time fluctuation relation. The Gaussian Feynman–Kac/Riccati calculation is reconstructed explicitly and its stationary normalization checked at both fluctuation-theorem endpoints. Wick integration supplies finite-time mean and variance; the positive hyperbolic prefactor supplies the square-root SCGF. The separate Green–Kubo calculation establishes strict transport dependence on the flip rate. The packaged checker replayed 95 assertions; universality rests on the analytic arguments, not simulation.
+
+## Originality — PASS, qualified
+The full main text and supplementary presentation of [1] specify the same model and give center-of-mass mean-square displacement, effective diffusivity, and **mean** entropy production independent of switching. The new assertion concerns the whole medium-entropy **process law** (and its explicit finite-time transform and higher fluctuations), which does not follow from equality of means. Zhang–Garcia-Millan [2] study a different fixed nonreciprocal interacting model and entropy rates; Padmanabha et al. [3] study discrete run-and-tumble current fluctuations. Classical OU-square transforms such as Dankel [4] subsume the isolated transform computation but do not establish the sign-clock-independent **joint** physical contrast with switch-dependent transport. Targeted semantic database searches returned neighboring entropy and active-dimer results but no equivalent joint claim. A general sign-gauge folklore argument or an unindexed direct analysis could affect publication priority.
+
+## Mathematical value — PASS
+The original paper highlighted an apparent coincidence: the **mean** dissipation ignores how often the dimer reverses direction, while enhanced transport is rate controlled. Here this difference is proven to persist through every entropy trajectory statistic, ruling out identification of the reversal clock from any entropy-only time series. At the same time, the complete exponential-tilt law exposes non-Gaussian entropy fluctuations and exact fluctuation symmetry. This structural separation is more informative than a routine reparameterization or an incremental numerical moment calculation.
+
+## Scope and residual risks
+This is a stationary-OU, zero-steric, independent telegraph-sign and unconfined center-of-mass setting. The entropy is the explicitly defined **medium** observable. The finite-time total-system entropy with unspecified boundary conditions, variable-amplitude asymmetry and correlated sign–separation motion are not covered. The full Dankel 1991 paper was not available here; its classical transform is credited, and not asserted novel. Independent external audit has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
