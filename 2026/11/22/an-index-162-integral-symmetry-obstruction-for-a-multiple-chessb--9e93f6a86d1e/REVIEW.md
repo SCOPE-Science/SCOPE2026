@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+
+The final claim is about the integral \(S_4\times S_6\)-lattice \(K=\widetilde H_5(\Delta_{[6]}^{(2,2,2,2)};\mathbb Z)\), compared with the explicitly specified three-subset incidence kernel \(L\). Every step is reconstructed in the supplied standalone checker. The complete top boundary has \(1440\) oriented six-rook facets and \(3600\) five-rook rows; all \(1435\) elimination pivots are integer units, so the five free-coordinate cycles form the entire integral kernel. The \(15\)-by-\(20\) incidence matrix independently has rank \(15\) and a full integral five-element kernel basis. All five adjacent transpositions act through explicitly computed integral matrices; the three row generators act trivially. The \(125\) intertwining equations have exact rational rank \(24\) in \(25\) unknowns, and their primitive solution has determinant \(-162\) and Smith factors \((1,3,3,3,6)\). Since its coefficients have gcd one, the integer intertwiners are precisely its integer multiples. The comparison is a genuine integral obstruction, not inferred from a rational character alone or from finite-field experiments. The exact program and captured output were executed and compared; independent mathematical review is not asserted.
+
+## Originality — PASS, subject to priority risk
+
+The October 2026 source establishes broader homotopy and torsion results for multiple chessboard complexes but does not compute the stated integral equivariant lattice. The closest complete accessible same-board research result from November 17, 2026 gives the nonequivariant sphere wedge and expressly leaves the symmetric-group action open. A five-column companion computes a distinct rank-three homology module, while a seven-column companion uses a different capacity pattern. The source by Reiner and Roberts treats rational symmetric-group representation formulas, and Rónyai's incidence-module work concerns \(L\) itself, not its integral comparison with \(K\). An abstract of Kustin's characteristic-free equivariant duality does not supply this numerical intertwiner or its Smith factors. Searches for the exact lattice, capacity profile, rational Specht partition, incidence aliases and index \(162\) found no covering theorem. Potential risk: older equivariant Koszul literature or an unindexed calculation could imply the same integral comparison; the abstract-only Kustin article was not fully inspected. No uniqueness or priority certification follows from search failure.
+
+## Mathematical value — PASS
+
+The four-by-six board is the natural capacity-balanced boundary immediately preceding the known seven-column order-two-torsion case. Its nonequivariant integral homotopy type and rank-five top homology were already calculated, making the integral symmetry module a concrete unresolved refinement. The kernel of the classical three-to-two subset incidence map is a canonical integral realization of the same rational Specht representation. Proving that every integral equivariant injection into homology has index divisible by \(162\), with exact prime-two and prime-three invariant factors, isolates a mathematically natural lattice obstruction invisible to rational characters and Betti numbers. This is more than a routine recomputation of the previous homotopy type. The claim is confined to a single but canonical finite board and a specified natural comparison lattice; no general-family theorem is asserted.
+
+## Sources and limits
+
+The closest full sources inspected were the motivating 2026 preprint's relevant statements and proofs and two published, directly comparable research results. The principal coverage limitations are an inaccessible complete version of one older equivariant article, possible unindexed literature, the absence of a classification of the fourth-homology action, and the fact that no independent audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
