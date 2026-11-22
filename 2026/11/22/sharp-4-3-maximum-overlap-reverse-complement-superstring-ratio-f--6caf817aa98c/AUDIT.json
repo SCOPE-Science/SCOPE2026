@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The two independent standalone verifiers check all 1023 input subsets. The unrestricted covering optimum is exhaustively found among all strings of lengths 4 through 13, justified by explicit full-coverage length-13 witness. Greedy recursion branches over every pair, order and orientation attaining maximal overlap, and terminates in one fewer component; induction proves exhaustiveness. Both verifiers agree on every (optimum,worst-greedy) histogram cell and six equality masks. Hand-checkable ratio-4/3 witness is provided.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yamano and Shibuya arXiv:2611.16573v1: general 3-approximation for MGREEDY-RC and 2.5 for TGREEDY-RC, not GREEDY-RC finite equality census.",
+        "Yamano and Shibuya arXiv:2603.26176v1: 8/3 general SCS-RC approximation algorithm and hardness."
+      ],
+      "reasoning": "A general approximation guarantee for a distinct cycle-cover algorithm is not coverage of the worst legal overlap-greedy result here; even a general bound for GREEDY-RC would not determine the six exact equality instances. The 2013 reverse-complement universal covering paper gives full-set optimal construction, not max-tie greedy outcomes.",
+      "searches": [
+        "published-finding corpus: greedy shortest common superstring with reverse complements all binary 4mers exact finite classification",
+        "web: 2026 greedy superstring reverse complement 4-mer benchmark",
+        "arXiv:2611.16573v1 full paper, sections 1-3",
+        "arXiv:2603.26176v1 full paper, introduction/results"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2611.16573v1",
+      "arXiv:2603.26176v1",
+      "CPM 2026 article DOI:10.4230/LIPIcs.CPM.2026.15",
+      "Orenstein–Shamir 2013 PMCID:PMC3694677",
+      "published-finding corpus 2026/11/8/SCOPE-sharp-binary-three-word-greedy-superstring-ratio-and-all-equalit--f43f5caa07c5 (retrieved synopsis only)",
+      "published-finding corpus 2026/11/2/SCOPE-the-first-binary-reverse-complement-six-mer-covering-deficit--210dca0f3f24 (retrieved synopsis only)",
+      "Accessible prior local ordinary-SCS binary four-mer spectrum"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "MGREEDY-RC and TGREEDY-RC have different procedures; cited 2026 papers do not fix exact GREEDY-RC finite cases.",
+        "An optimal full RC four-mer cover is a witness bounding L, not a bound on G or a classification of equality inputs.",
+        "A three-mer ordinary-SCS 10/7 ratio or plain full-set four-mer spectrum cannot imply the RC 4/3 all-subset ratio."
+      ],
+      "reasoning": "The new claim requires enumeration of a different nondeterministic algorithm and all 1023 RC-orbit subsets, unlike the papers stating general cycle-cover ratios or optimal coverage. The prior known counts are insufficient to derive six exact equality masks.",
+      "searches": [
+        "arXiv:2611.16573v1 GREEDY-RC/MGREEDY-RC definitions and Theorems 1.1/1.2",
+        "CPM 2026 Yamano–Shibuya Lemmas 6-7 and algorithms",
+        "published-finding corpus ordinary binary 3-mer worst-case census",
+        "published-finding corpus binary reverse-complement six-mer covering deficit"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Closest three-mer ordinary SCS census treats no RC orientation; exact binary four-mer reverse-complement GREEDY-RC all-subset census was not retrieved.",
+        "arXiv:2611.16573v1 distinguishes GREEDY-RC from cycle-cover MGREEDY-RC and TGREEDY-RC."
+      ],
+      "reasoning": "The selected input is an irredundant subset of ten reverse-complement four-mer classes, with worst legal tie-breaking of the pairwise GREEDY-RC algorithm. Plain-string SCS, full-set coverage, cycle-cover variants, and one representative per orbit with predetermined orientation do not imply this ratio or its six equality cases.",
+      "searches": [
+        "published-finding corpus: reverse complement shortest common superstring greedy exact binary four-mer worst-case approximation ratio sets",
+        "web: greedy reverse complement shortest common superstring worst-case ratio exact instance",
+        "web: binary four reverse complement greedy superstring overlap tie breaking enumeration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest record: 2026/11/8/SCOPE-sharp-binary-three-word-greedy-superstring-ratio-and-all-equalit--f43f5caa07c5 (ordinary 3-mers).",
+        "published-finding corpus closest record: 2026/11/2/SCOPE-the-first-binary-reverse-complement-six-mer-covering-deficit--210dca0f3f24 (RC universal covering, order six).",
+        "Accessible local ledger includes an ordinary binary four-mer greedy spectrum for the full 16-word input, not these orbit-subset ratios."
+      ],
+      "reasoning": "No retrieved exact table has both the ten RC four-mer classes with arbitrary nonempty subsets and the maximum-overlap greedy tie worst case. Indexed absence is not proof of absolute novelty.",
+      "searches": [
+        "published-finding corpus: reverse complement shortest common superstring greedy exact binary four-mer worst-case approximation ratio sets",
+        "published-finding corpus: greedy shortest common superstring with reverse complements all binary 4mers exact finite classification",
+        "web: binary four reverse complement greedy superstring overlap tie breaking enumeration"
+      ]
+    },
+    "rationale": "Inspected primary 2026 SCS-RC papers establish broad approximation results for cycle-cover algorithms but do not tabulate or imply the precise maximum-tie GREEDY-RC behavior for every binary four-mer orbit subset. Ordinary SCS small-word results and full-set spectrum are inapplicable under reverse-complement orientation and arbitrary subsets. Indexed checks did not identify a stronger or equivalent exact finite census, with unindexed replication noted as a risk.",
+    "residual_risks": [
+      "Unindexed preexisting exact finite RC greedy table could duplicate the classification.",
+      "published-finding corpus GitHub primary full texts of the closest exact finite records could not be fetched, but their retrieved statements describe mathematically different algorithms/domains."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains GREEDY-RC definition and cycle-cover algorithm bounds, but no exact ten-orbit four-mer subset census or six-mask equality theorem",
+        "evidence": [
+          "arXiv:2611.16573v1 submitted 2026-11-12, Theorems 1.1/1.2 and Algorithm 2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.16573",
+        "material_read": "full available arXiv-rendered article, introductory theorems, Section 2.2 algorithms, Lemma 2.3 and proofs, comparative conclusions",
+        "method": "full page text with section-specific searches",
+        "title": "Tight Cycle-Cover Inequalities and Improved Approximation for Shortest Common Superstring with Reverse Complements",
+        "trigger": "freshest directly matching SCS-RC approximation topic"
+      },
+      {
+        "assessment": "General approximation and hardness results; none state finite binary four-mer GREEDY-RC ratio or equality sets",
+        "evidence": [
+          "arXiv:2603.26176v1 dated 2026-03-27, Theorems 1.1-1.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.26176",
+        "material_read": "rendered arXiv article sections 1-3 and conclusion, algorithm discussion",
+        "method": "textual full article and targeted queries",
+        "title": "Improved Approximation Algorithms and Hardness Results for Shortest Common Superstring with Reverse Complements",
+        "trigger": "general 2026 foundational SCS-RC approximation and hardness result"
+      },
+      {
+        "assessment": "Defines GREEDY-RC and distinct cycle-cover variants, without ten-orbit exact census",
+        "evidence": [
+          "CPM 2026 Lemma 7 compression 1/2 for GREEDY-RC; Algorithm 2"
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol369-cpm2026/html/LIPIcs.CPM.2026.15/LIPIcs.CPM.2026.15.html",
+        "material_read": "full accessible HTML through theorem and algorithm sections, Lemmas 6-7 and conclusions",
+        "method": "full text and algorithm-region inspection",
+        "title": "Improved Approximation Ratios for the Shortest Common Superstring Problem with Reverse Complements",
+        "trigger": "published version of earlier 2026 GREEDY-RC analysis"
+      },
+      {
+        "assessment": "Optimizes full reverse-complement covering sequences, not greedy all-subset approximation ratios",
+        "evidence": [
+          "Orenstein–Shamir, Bioinformatics 2013, complete sequence construction"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3694677/",
+        "material_read": "abstract, introduction, optimal covering constructions and result statements",
+        "method": "open accessible full-text HTML and section review",
+        "title": "Design of shortest double-stranded DNA sequences covering all k-mers with applications to protein-binding microarrays and synthetic enhancers",
+        "trigger": "possible stronger full RC k-mer optimum coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6caf817a-a98c-4b4a-9bbc-30dd476739cc",
+  "value": {
+    "rationale": "This is the complete exact approximation and equality classification over the canonical first ten-class binary reverse-complement four-mer universe. The all-subsets ratio and joint optimum/worst-greedy spectrum expose precise orientation/tie effects, separate pairwise greedy from other SCS-RC algorithms, and provide an independently reproducible finite benchmark. It is not a contrived single input or a merely re-labeled ordinary SCS result.",
+    "status": "PASS"
+  }
+}
