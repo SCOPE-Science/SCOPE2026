@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The geometric list of thirteen negative curves is proved via adjunction, degree bounds and the obstruction to an irreducible conic through three collinear points. The negative-definite support criterion follows from disjointness of selected \((-1)\)-curves and the exact Schur complement at the unique \((-2)\)-curve. The exact verifier rebuilds all thirteen Picard vectors, checks \(8192\) subsets using both integral principal minors and the Schur condition, enumerates \(1920\) Weyl transformations and the \(48\)-element root stabilizer, then reproduces the ten row polynomials and the \(30\) orbits by two methods. The link to field-rational chambers follows from Galois uniqueness of Zariski negative supports and construction with invariant ample divisors. This is a complete finite calculation for the stated geometric configuration, not an inference from sample values.
+
+## Originality — PASS, historical priority provisional
+Bauer--Funke--Neumann's Proposition 1.1 is the geometric support-chamber correspondence; Derenthal--Joyce--Teitler study generalized del Pezzo root systems and nonsplit nef cones; Bauer--Schmitz study chamber volumes. An earlier one-nodal quartic calculation already gives \(285\) chambers and the complete geometric support polynomial; those exact statements are not claimed as new. An earlier *smooth* quartic Frobenius classification concerns \(393\) supports on sixteen \((-1)\)-curves and the full \(W(D_5)\), whereas here the effective configuration contains a distinguished \((-2)\)-curve and only twelve \((-1)\)-curves, with its different \(48\)-element stabilizer. Targeted formula, equivalent-formulation, and published-record searches yielded no exact ten-class table or \(30\)-orbit classification for the one-nodal geometry. Searches cannot certify complete historical priority; unindexed work remains a risk.
+
+## Mathematical value — PASS
+A one-nodal quartic del Pezzo resolution is a natural geometric degeneration, and Frobenius-stable Zariski chambers measure the descent of possible negative supports of big divisors. The ten-class classification refines both the geometric count and the Weyl stabilizer by precise rational linear-series behavior. The reduction from \(285\) geometric to only three rational chambers for one order-four class is substantial; the \(30\)-orbit count organizes all configurations under geometric monodromy. No realization for every type over each base field or analytic volume interpretation is asserted.
+
+## Limits and closest literature
+The statement is conditional on the indicated geometric five-point one-triple configuration and on the actual Frobenius class. Its novelty is limited to the invariant-chamber table and full root-stabilizer orbit decomposition, not the known support polynomial, Weyl-root theory, chamber correspondence or chamber-volume criterion. See `RESULT.md` for mathematical definitions, source-specific comparisons, and reproducibility.
+
+Self-review: passed. Independent audit: not yet performed.
