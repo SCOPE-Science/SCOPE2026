@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Coarea gives the exact normalized density parametrization; the spline inclusion-exclusion formula is derived by independent uniform convolution. On each sign/signed-sum chamber the density is a polynomial divided by the square-free coordinate product; a hypothetical planar rational image forces its linear form to divide that product, hence be coordinate. Conditional positive density strictly rules out non-dominant coordinate plateaus, and a semialgebraic dimension/irreducible-image argument excludes hidden algebraic hyperplane components on chamber walls. Facet shapes follow from exact conditional probability. Affine covariance is verified by the hyperplane Jacobian. The package checker passed 7,741 deterministic exact/numerical assertions, not used as a universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Busemann convexity ensures the intersection body is convex, not that it has only 2d facets.",
+        "Brandenburg–Meroni [3], Section 5, proves a characterization of convexity of translated cuboids; it does not give a classification of linear boundary components at a symmetric center.",
+        "A published indexed dominance theorem for zonotopal cube sections classifies the zonotope property of sections, not the planar facet patches of their section-volume intersection body."
+      ],
+      "reasoning": "Convexity alone admits arbitrarily many facets; affine covariance alone transfers but does not classify the cube. The new algebraic factor-obstruction supplies the missing converse, hence no identified stronger work implies it.",
+      "searches": [
+        "intersection bodies of boxes cuboids facets cross polytopes exact facet classification",
+        "\"intersection body of the cube\" \"facets\" all dimensions",
+        "\"intersection body\" \"strictly convex\" cylinder equality Busemann theorem"
+      ]
+    },
+    "checked_sources": [
+      "Berlow et al. 2021 arXiv:2110.05996, publisher corrected article 2022, Sections 2/5/6",
+      "Berlow et al. 2022 formal correction DOI:10.1007/s13366-022-00638-y",
+      "Brandenburg and Meroni 2023 arXiv:2302.11764, publisher full text (2024)",
+      "Published mathematical-finding summaries on smooth prisms and zonotopal cube sections"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source [1] explicitly frames equality as an unproved conjecture.",
+        "Source [2] corrects scale factors, not the stated conjecture.",
+        "Source [3] focuses on translations/convexity and leaves open a different set of geometric questions."
+      ],
+      "reasoning": "The published lower bound establishes existence of the coordinate components, but contains no prohibition of other hyperplane components; ordinary section-volume formulas and convexity do not imply uniqueness without the factorization/strict-probability argument. The final theorem proves exactly that missing implication.",
+      "searches": [
+        "\"intersection body of cube\" \"only\" \"flat\" facets algebraic",
+        "\"conjecture\" \"intersection body\" \"linear components\" proof",
+        "\"intersection body of the cube\" \"facets\" all dimensions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Berlow et al. [1] Section 6 states at least 2d (Proposition 6.1), then explicitly conjectures exactly 2d. Their accompanying examples only establish low-dimensional cases.",
+        "Indexed closest work titled Polar axial facets and sharp contact regularity of intersection bodies of smooth prisms concerns axial contacts of smooth-base prisms, not the exclusion of all non-axial hyperplane components for nonsmooth cubical bases."
+      ],
+      "reasoning": "The claim is the exact all-dimensional count of irreducible linear algebraic-boundary components. Equivalences are exclusion of all non-coordinate facets or flat full-dimensional patches of the cube intersection body; the published inequality at least 2d does not imply the exclusion. A classification for smooth prisms does not imply the cubical case by passage to nonsmooth limits.",
+      "searches": [
+        "intersection body of the d-dimensional cube exactly 2d linear irreducible algebraic boundary components Berlow Brandenburg Meroni Shankar 2022 conjecture",
+        "axis facets of cube intersection body only flat faces no other supporting hyperplane facets all dimensions",
+        "\"intersection body\" \"cube\" \"2d linear\" 2024 2025 2026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Berlow et al. [1], Table 1, lists counts for d=2,3,4,5 and leaves d>5 conjectural.",
+        "Indexed records on crosspolytope sections, cube-section phase boundaries and polar axial prism facets were examined at title/summary level; none states the same all-dimensional cube intersection-body component classification."
+      ],
+      "reasoning": "Low-dimensional tables do not prove the universal quantifier. The current proof treats arbitrary dimension symbolically, and the boundary-rationality argument proves no hidden linear components.",
+      "searches": [
+        "central hyperplane section cube section volume piecewise rational equals reciprocal coordinate only dominant support",
+        "intersection body cube three dimensional radial function convexity curvature hyperplane sections exact volume",
+        "\"intersection bodies of polytopes\" \"exactly 2d\" facets proven"
+      ]
+    },
+    "rationale": "Berlow–Brandenburg–Meroni–Shankar explicitly conjecture exactly 2d components beyond their at-least-2d theorem (2021 preprint, 2022 publication). Inspected corrected primary text, later same-author work, a focused indexed-results search and targeted literature queries reveal no dominating result. The new argument establishes the missing converse for all dimensions; finite evidence alone would be insufficient. Priority risk of unindexed earlier proof remains.",
+    "residual_risks": [
+      "An unindexed historical proof of the specific conjecture may exist outside the searched databases.",
+      "Two related published mathematical-finding records were accessible only via title/summary; those descriptions did not assert the target implication, but complete proofs were not inspected.",
+      "The theorem concerns origin-centered parallelotopes, not arbitrary translations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Lower bound and explicit equality conjecture only; no universal exclusion of additional linear components",
+        "evidence": [
+          "Proposition 6.1: at least 2d",
+          "Text immediately after Example 6.2 conjectures exactly 2d; computations d <= 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2110.05996",
+        "material_read": "Publisher full HTML Sections 2, 5, 6, including Proposition 6.1 and the following conjecture, table context, low-dimensional examples",
+        "method": "Read primary publicly accessible text and compare theorem quantifiers and normalization",
+        "title": "Intersection Bodies of Polytopes",
+        "trigger": "Exact cube algebraic boundary conjecture"
+      },
+      {
+        "assessment": "The present coarea density yields d=3 offset 4 and d=4 offset 8, consistent with correction; does not prove exact count",
+        "evidence": [
+          "Corrected d=3 facet offset 4",
+          "Corrected d=4 facet offset 8"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s13366-022-00638-y",
+        "material_read": "Full accessible correction HTML, corrected formulas and examples, especially Example 5.3 and Example 6.2",
+        "method": "Checked correct (d-1)! factor and calibrated cube facet offsets",
+        "title": "Correction to: Intersection Bodies of Polytopes",
+        "trigger": "Potential normalization differences in earlier radial formulas"
+      },
+      {
+        "assessment": "Its classification is of convexity under translation; it does not claim an exact 2d hyperplane-component classification",
+        "evidence": [
+          "Proposition 5.4 characterizes convexity of intersection bodies of cuboids",
+          "No all-dimensional linear-component count in inspected passages"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.11764",
+        "material_read": "Accessible publisher full HTML: introduction and Sections 5, especially Propositions 5.2 and 5.4 and concluding open questions",
+        "method": "Compared translated-box convexity and center to exact all-dimensional linear-component count",
+        "title": "Intersection Bodies of Polytopes: Translations and Convexity",
+        "trigger": "Later same-author research might subsume cube classification"
+      },
+      {
+        "assessment": "Identifies axial facets and local regularity for smooth-base prisms, but does not state an all-cube uniqueness theorem",
+        "evidence": [
+          "Published summary concerns smooth, positively curved base B times interval"
+        ],
+        "identifier_or_url": "Published mathematical-finding record, 2026-10-11",
+        "material_read": "Index title and summary only; full text unavailable from access path",
+        "method": "Statement/implication comparison between smooth positively curved base and nonsmooth cubical base",
+        "title": "Polar axial facets and sharp contact regularity of intersection bodies of smooth prisms",
+        "trigger": "Closest semantic index entry mentioning prism intersection-body facets"
+      },
+      {
+        "assessment": "A criterion on the combinatorial/geometric type of individual sections does not classify the intersection-body algebraic boundary",
+        "evidence": [
+          "The indexed theorem decides whether a central cube section is a zonoid"
+        ],
+        "identifier_or_url": "Published mathematical-finding record, 2026-10-18",
+        "material_read": "Index title and summary only",
+        "method": "Compared section-being-zonoid versus intersection-body flat-facet count",
+        "title": "A dominance criterion for zonotopal central sections of cubes",
+        "trigger": "Related dominance threshold on cube sections"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cdbba821-c592-4af5-92a8-fa78ed6af529",
+  "value": {
+    "rationale": "The claim resolves a concrete published all-dimensional geometric tomography conjecture, replacing computations confined to dimensions at most five with a uniform proof. It identifies exact shapes and support hyperplanes of every facet, and extends by affine covariance to all centered parallelotopes. The polynomial-denominator obstruction is structural and applies for arbitrarily many cube coordinates, not a small numerical increment.",
+    "status": "PASS"
+  }
+}
