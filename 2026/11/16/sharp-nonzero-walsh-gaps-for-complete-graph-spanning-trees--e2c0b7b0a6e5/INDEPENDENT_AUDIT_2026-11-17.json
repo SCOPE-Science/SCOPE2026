@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T09:47:29.865715Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md blob c955b5fd5fb249922e24960bf77530feb6f38483 §§1–5",
+        "https://arxiv.org/abs/math/0302213"
+      ],
+      "rationale": "Signed weighted matrix-tree identity makes W_n(s)=reduced Laplacian determinant. Odd n Cayley n^(n−2) odd gives nonvanishing; multivariate Prüfer identity at vertex signs x with sum 1 yields magnitude 1. Even n reduced Laplacian has all entries odd: row subtraction makes determinant divisible 2^(n−2). Balanced vertex signs sum 0 give zeros; negated signings are disjoint, yielding at least C(n,n/2) zeros. Flip the signs of a spanning tree H among vertices 2..n from balanced factor signing; reduced Laplacian becomes M−yy^T, where adj(M)=(product of −2x_ix_j over H)11^T and sum y_i=−1. Rank-one determinant identity yields |W|=2^(n−2). Fourier diagonalization yields stated exact (pseudo)inverse norms and condition numbers. Independent complete Walsh-Hadamard enumeration for n=3,4,5 gave gaps 1,4,1 and zeros 0,30,0, including uniform even divisibility for n=4. These finite checks corroborate but do not establish the universal integer proof.",
+      "residual_risks": [
+        "Even-order lower bound counts a subset of zero frequencies, not the exact number; operator norms are Hilbert-space ℓ² only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Directed arborescence Fourier coefficients allow one sign per oriented parent arc, whereas here only one symmetric sign per undirected edge"
+        ],
+        "reasoning": "Directed ambient character space strictly contains symmetric arc signings and cannot supply even-gap attainment in the restricted class; a separate undirected exact tree-flip witness is required.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-sharp-dyadic-fourier-gaps-for-complete-rooted-arborescences--638903b661f4"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/math/0302213",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-the-sharp-first-walsh-cancellation-threshold-for-complete-graph--44e28ad20e0e",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-sharp-dyadic-fourier-gaps-for-complete-rooted-arborescences--638903b661f4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Old weighted Cayley identities do not state even-order 2-adic lower bound or symmetric signing witness; first cancellation covers distinct minimum-support objective; directed theorem covers larger arc domain"
+        ],
+        "reasoning": "No prior inspected main result alone entails all undirected signed spanning-tree gap equalities. Standard matrix-tree and determinant manipulations are admitted as ingredients.",
+        "searches": [
+          "https://arxiv.org/abs/math/0302213",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-the-sharp-first-walsh-cancellation-threshold-for-complete-graph--44e28ad20e0e",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-sharp-dyadic-fourier-gaps-for-complete-rooted-arborescences--638903b661f4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Multivariate Cayley identity gives odd unit and balanced cancellation; first-zero support result computes least support to get zero, not least nonzero multiplier"
+        ],
+        "reasoning": "Although important ingredients and nullity behavior are known, the exact all-frequency even nonzero gap and sharp ℓ² norms are not logically equal to the first cancellation support threshold.",
+        "searches": [
+          "https://arxiv.org/abs/math/0302213",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-the-sharp-first-walsh-cancellation-threshold-for-complete-graph--44e28ad20e0e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact nonzero gap table independent of source found; target theorem applies for unbounded n and every symmetric edge signing"
+        ],
+        "reasoning": "Small-n Walsh histograms are consistency tests, not the source of a universal theorem; cannot conclude novelty solely from absence of table.",
+        "searches": [
+          "Resultary: Walsh Fourier of labelled complete graph spanning trees signed matrix tree determinant divisibility even n gap"
+        ]
+      },
+      "rationale": "Martin–Reiner's multivariate Cayley weighted spanning-tree identity already implies balanced-sign zeros and odd unit witness, which are correctly background rather than new. The nearby published *First Walsh cancellation threshold for complete-graph spanning trees* studies minimum negative-edge support of **zero** characters, not least nonzero magnitude across all characters. The published *Dyadic Fourier gaps for complete rooted arborescences* has the same numeric gap for signings of independent **directed** arcs, but directed Fourier characters are a strictly larger signing domain than undirected symmetric edge characters; directed attainment does not show an undirected attainment witness. Here independent 2^(n−2) matching on edge-symmetric signings and exact convolution (pseudo)inverse norms survive these comparisons.",
+      "residual_risks": [
+        "A more general signed-Laplacian determinant congruence theorem may already imply the symmetric edge sharp gap by an unstated consequence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior art establishes weighted product identity and balanced-sign cancellation, not displayed all-signing even gap",
+          "evidence": "Weighted sum_T prod_i x_i^degree_i=(prod_i x_i)(sum_i x_i)^(n−2)",
+          "identifier_or_url": "https://arxiv.org/abs/math/0302213",
+          "material_read": "Accessible primary full-text opening, weighted tree formula and relevant theorem/section; not every appendix",
+          "method": "Read original formula and compared specialization",
+          "title": "Factorizations of some weighted spanning tree enumerators",
+          "trigger": "Multivariate Cayley–Prüfer tree identity"
+        },
+        {
+          "assessment": "Different exact quantity: minimum support of a zero Fourier character and star-only equality, not min absolute nonzero coefficient",
+          "evidence": "Its k=p−1 support threshold does not determine gap magnitudes",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-the-sharp-first-walsh-cancellation-threshold-for-complete-graph--44e28ad20e0e",
+          "material_read": "Complete published RESULT.md, finding, spectral proof, relationships",
+          "method": "Read entire primary published mathematical record",
+          "title": "The sharp first Walsh cancellation threshold for complete-graph spanning trees",
+          "trigger": "Same undirected K_n tree Walsh characters"
+        },
+        {
+          "assessment": "Uses independent oriented arc signs; symmetric edge restriction for undirected K_n is non-equivalent",
+          "evidence": "Directed extremizers may violate symmetric signing; undirected tree-flip constructs compatible witness",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-sharp-dyadic-fourier-gaps-for-complete-rooted-arborescences--638903b661f4",
+          "material_read": "Complete published RESULT.md and directed Laplacian proof",
+          "method": "Read complete primary published record",
+          "title": "Sharp dyadic Fourier gaps for complete rooted arborescences",
+          "trigger": "Same numerical 2^(n−2) dyadic Fourier gap"
+        },
+        {
+          "assessment": "Proof covers all n≥3, with correct distinction between zero and nonzero norms",
+          "evidence": "Exact determinant lemma and row-parity factors",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/sharp-nonzero-walsh-gaps-for-complete-graph-spanning-trees--e2c0b7b0a6e5/RESULT.md",
+          "material_read": "Entire pinned RESULT.md with determinant and universal sharp witness",
+          "method": "Read pinned Git blob, reconstructed proof and independent Walsh enumeration",
+          "title": "Sharp nonzero Walsh gaps for complete-graph spanning trees",
+          "trigger": "Assigned result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/math/0302213",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-the-sharp-first-walsh-cancellation-threshold-for-complete-graph--44e28ad20e0e",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-sharp-dyadic-fourier-gaps-for-complete-rooted-arborescences--638903b661f4"
+      ],
+      "rationale": "The smallest surviving character multiplier is a natural exact arithmetic conditioning invariant for counting convolution on all labelled K_n trees; complete parity dichotomy and explicit extremal edge signings give genuine structural information not fixed by the zero-support theorem.",
+      "residual_risks": [
+        "A more general signed-Laplacian determinant congruence theorem may already imply the symmetric edge sharp gap by an unstated consequence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact count and classification of all even-order zeros are not claimed",
+    "Older general determinant congruence results could cover an equivalent statement",
+    "Publication not_ready due unverified full public-file privacy remediation; no GitHub write performed."
+  ],
+  "schema_version": 1
+}

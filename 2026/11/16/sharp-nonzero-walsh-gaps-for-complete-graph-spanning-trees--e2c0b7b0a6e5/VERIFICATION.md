@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The proof uses the signed weighted matrix-tree formula, the multivariate Prüfer identity, a mod-two rank reduction, and the adjugate identity for a weighted tree; every step is stated in `RESULT.md`.
+# Independent mathematical audit
 
-To replay finite checks, run `python3 VERIFY.py` alongside this document. Complete integer Walsh transforms are computed from independent Prüfer enumeration for \(n=3,4,5,6\): the respective frequency counts are 8, 64, 1024, and 32768; minimum nonzero absolute values are 1, 4, 1, and 16; zero counts are 0, 30, 0, and 15000. Exact integer weighted-Laplacian determinants are also checked against the divisibility and extremizing signings for all dimensions \(3\) to \(13\), with 50 pseudorandom signings per dimension (fixed seed).
+## correctness
 
-Expected final marker: `COMPLETE_GRAPH_TREE_WALSH_SHARP_CHECKS_PASS`.
+PASS
 
-The code does not exhaust signings beyond six vertices, and finite tests are not a proof for all orders. The text provides the general proof. Independent mathematical validation has not been performed.
+Signed weighted matrix-tree identity makes W_n(s)=reduced Laplacian determinant. Odd n Cayley n^(n−2) odd gives nonvanishing; multivariate Prüfer identity at vertex signs x with sum 1 yields magnitude 1. Even n reduced Laplacian has all entries odd: row subtraction makes determinant divisible 2^(n−2). Balanced vertex signs sum 0 give zeros; negated signings are disjoint, yielding at least C(n,n/2) zeros. Flip the signs of a spanning tree H among vertices 2..n from balanced factor signing; reduced Laplacian becomes M−yy^T, where adj(M)=(product of −2x_ix_j over H)11^T and sum y_i=−1. Rank-one determinant identity yields |W|=2^(n−2). Fourier diagonalization yields stated exact (pseudo)inverse norms and condition numbers. Independent complete Walsh-Hadamard enumeration for n=3,4,5 gave gaps 1,4,1 and zeros 0,30,0, including uniform even divisibility for n=4. These finite checks corroborate but do not establish the universal integer proof.
+
+## originality
+
+PASS
+
+Martin–Reiner's multivariate Cayley weighted spanning-tree identity already implies balanced-sign zeros and odd unit witness, which are correctly background rather than new. The nearby published *First Walsh cancellation threshold for complete-graph spanning trees* studies minimum negative-edge support of **zero** characters, not least nonzero magnitude across all characters. The published *Dyadic Fourier gaps for complete rooted arborescences* has the same numeric gap for signings of independent **directed** arcs, but directed Fourier characters are a strictly larger signing domain than undirected symmetric edge characters; directed attainment does not show an undirected attainment witness. Here independent 2^(n−2) matching on edge-symmetric signings and exact convolution (pseudo)inverse norms survive these comparisons.
+
+## value
+
+PASS
+
+The smallest surviving character multiplier is a natural exact arithmetic conditioning invariant for counting convolution on all labelled K_n trees; complete parity dichotomy and explicit extremal edge signings give genuine structural information not fixed by the zero-support theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
