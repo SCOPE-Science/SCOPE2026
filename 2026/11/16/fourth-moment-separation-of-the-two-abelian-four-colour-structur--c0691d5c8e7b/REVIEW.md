@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The all-length reduction fixes the four pole shifts and leaves exactly 64 balanced difference patterns, each with 64 lifts. The right-hand vertices then contribute independent copies of a small additive-quadruple count. The complete 64-case table is supplied and exactly checked by direct enumeration, while independent tensor Fourier calculations confirm both energies at lengths one through four. The inclusion–exclusion factor supplies an exact positivity proof for every length at least three. Character normalization and ordered-quadruple counting are explicitly matched.
+PASS
 
-## Originality
+For n>=1, a proper colouring of K_(2,n) has pole pair u,v and each independent right colour outside {u,v}. Ordered additive-energy equality for four copies allows exactly 4^3 pole base shifts and 4^3 pole-difference triples (d1,d2,d3), with d4=d1+d2-d3 in H=C4 or V4. Group translations remove base poles, preserving the equation; at each right position the four-colour additive constraint has a count T_H(d). Independence over n positions gives E_H(n)=64 sum_(d1,d2,d3) T_H(d)^n exactly for all n. I independently enumerated all 64 triples via the three freely chosen allowed right colours and the forced fourth, reproducing exact C4 histogram 2:2,4:12,6:30,8:1,10:18,21:1 and V4 histogram 4:18,6:24,8:3,10:18,21:1, matching the 64-row CSV and formula. Subtracting gives E_V4-E_C4=128·2^n(4^n−3·3^n+3·2^n−1), which is a surjection count onto three distinguished colours, zero n=1,2 and positive n>=3. Character orthogonality confirms sum_χ |W(χ)|^4=4^(n+2)E_H(n) for the UNnormalized transform; no missing power of 4. Exact 64-state enumeration is exhaustive, while finite n=1..14 numerical formula comparison is not the all-n proof.
 
-PASS under bounded comparison. The full accessible Goodall manuscript covers group Fourier–Potts duality and its Klein-four setting but not these two energy sequences. The accessible Celaya–Choo–MacGillivray–Seyffarth material concerns Gray-code reconfiguration, and the published complete-bipartite first-Fourier-band spectrum addresses a different operator. Previously accessible four-colour Fourier-support statements do not imply fourth moments; prior calculations on wheels or surjection words use different colouring families. Queries also compared exact numerical values, additive energy aliases, cyclic versus Klein palette groups, and full-fourth-moment formulations. Unindexed equivalent counts or overlooked appendices remain possible, and the Celaya paper was only partially accessible in the consulted web representation.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The graph family is natural and infinite, and comparing the two abelian group structures of the same four-colour alphabet isolates information invisible to the chromatic polynomial. The exact exponential expressions identify the first strict distinction and show that it persists while its relative effect decays exponentially. The proof reduces the infinite length problem to a transparent 64-state invariant, making the classification independently reproducible. No general theorem for arbitrary bipartite graphs is asserted.
+PASS for a complete explicit 64-state two-group ordered additive-energy formula and sharp first group-law separation at n=3; the older Potts/chromatic and group Fourier frameworks do not provide this fourth moment comparison.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The two natural nonisomorphic additive structures of a four-colour palette are indistinguishable by chromatic counting but are first separated by a concrete global harmonic invariant on the entire natural graph family K_(2,n). The finite 64-state complete classification rigorously produces a sharp n3 threshold and explicit asymptotic decay relative to energy. This is a motivated exact graph/Fourier distinction, not an arbitrary small table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
