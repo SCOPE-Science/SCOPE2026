@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Exact base-two digit pairing forces divisibility by three. The LTE identity gives nu_3(w_{m,j})=nu_3(2m-1-2j). The modulo-nine binomial expansion, residue counts of free coefficients and discrete Fourier inversion prove the exact three-component histogram for every m. Two free digit coefficients at valuation ell (distances 3^ell,5*3^ell) span all ternary changes modulo 3^(ell+1) without altering earlier digits. An explicit induction yields full residue coverage for all k>=2 and all m>=M_k. All low-index boundaries are included. Standalone exact verification tests 131071 palindromes, 2850 coefficient identities, and all 1092 explicit witnesses at k=2..7. Finite tests corroborate but are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Harminc and Sotak (1998), Theorem C, general existence of base-b palindromes in eligible nonconstant progressions; https://www.academia.edu/18838282/PALINDROMIC_NUMBERS_IN_ARITHMETIC_PROGRESSIONS",
+        "Tuxanidy and Panario (2023), equidistribution under coprimality restrictions; https://arxiv.org/abs/2307.16637",
+        "Onphaeng et al. (2024), exact progressions where b≡0,1 modq; https://cs.uwaterloo.ca/journals/JIS/VOL27/Phunphayap/phun7.html"
+      ],
+      "reasoning": "General progression existence does not provide a theorem at every sufficiently large *even exact length*, nor any exact normalized-quotient residue count. The cited Fourier equidistribution hypotheses exclude 3|q for base 2. The 2024 base-modulus condition fails for b=2,q=9,27,... . This is an implication check, not a comparison of similar titles.",
+      "searches": [
+        "Palindromic integers 3-adic residue spectrum and distribution modulo 9, 27, all powers",
+        "palindromes in arithmetic progressions Harminc Sotak 1998 even length base 2 congruence 3 powers",
+        "palindromes modulo powers of b+1 equidistribution even length 3-adic palindrome 9 27"
+      ]
+    },
+    "checked_sources": [
+      "https://www.academia.edu/18838282/PALINDROMIC_NUMBERS_IN_ARITHMETIC_PROGRESSIONS",
+      "https://arxiv.org/abs/2307.16637",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL27/Phunphayap/phun7.html",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-residue-counts-for-palindromes-modulo-divisors-of-the-base--bab47a6477c9",
+      "https://arxiv.org/abs/2307.16637",
+      "https://www.aimspress.com/article/doi/10.3934/math.2023502"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The complete public RESULT.md at https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-residue-counts-for-palindromes-modulo-divisors-of-the-base--bab47a6477c9 assumes q|b+1; for b=2 this permits q=3, but not q=9,27,... . Its even-length formula is only the previously known zero residue at q=3.",
+        "Harminc-Sotak Theorem C in https://www.academia.edu/18838282/PALINDROMIC_NUMBERS_IN_ARITHMETIC_PROGRESSIONS is unconstrained by exact even-digit length.",
+        "Onphaeng et al. at https://cs.uwaterloo.ca/journals/JIS/VOL27/Phunphayap/phun7.html state the hypotheses b≡0,1 modq, which fail when b=2,q=3^k."
+      ],
+      "reasoning": "The nearest formula over divisors of b+1 is strictly weaker as a statement about higher powers of three; the source does not include the explicit normalized quotient bias or constructive all-level coverage. Classical existence of a palindrome in a progression, with arbitrary length, does not logically imply exact-even-length coverage at each large length. Any unpublished refinement still poses priority risk.",
+      "searches": [
+        "Even-length binary palindromes represent all multiples of three modulo every power of three, 3-adic closure, explicit half-length cutoff and digit subset sums",
+        "Palindromic integers 3-adic residue spectrum and distribution modulo 9, 27, all powers",
+        "Exact residue counts for palindromes modulo divisors of the base plus one",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-residue-counts-for-palindromes-modulo-divisors-of-the-base--bab47a6477c9"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full exact-length 3-adic image may be stated equivalently as the quotient P/3 covering all residues modulo 3^(k-1) for sufficiently large half-length.",
+        "H_m(r) is an exact finite Fourier coefficient-product distribution and implies a sharp discrepancy 2^floor(m/3).",
+        "No retrieved named result states the equivalent all-target or exact-frequency formulation."
+      ],
+      "reasoning": "Searched both normalized quotient and original palindrome formulations, direct residue spectra, prime-power surjectivity, and the length-by-length Fourier counts. The known congruence modulo three is only the initial obstruction, not equivalent to the claimed lifting.",
+      "searches": [
+        "Even-length binary palindromes represent all multiples of three modulo every power of three, 3-adic closure, explicit half-length cutoff and digit subset sums",
+        "Binary palindrome quotient by 3 modulo 3-adic prime powers, exact mod-9 residue counts and 3-adic valuations via lifting exponent lemma",
+        "binary palindromes modulo 9 distribution exact counts even length palindrome divisibility",
+        "\"even-length\" \"palindromes\" \"modulo 9\" binary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact sequence/database table for H_m(0),H_m(1),H_m(2) was located in the targeted searches.",
+        "The canonical integer-palindrome sequence is known; the theorem does not claim novelty for listing its initial values."
+      ],
+      "reasoning": "The first-lift count triple is an infinite analytic formula, not a recomputation of tabulated first few palindromes. Absence of an indexed table is not a proof of novelty; unindexed tables remain possible.",
+      "searches": [
+        "Binary palindrome quotient by 3 modulo 3-adic prime powers, exact mod-9 residue counts and 3-adic valuations via lifting exponent lemma",
+        "Exact congruence distribution and 3-adic valuation of binary palindromic numbers of even length modulo 9, first lift of divisibility by 3, sharp imbalance and density",
+        "palindromic integers 3-adic residue modulo 9 27 exact counts",
+        "OEIS even-length binary palindromes divisible by 9 distribution"
+      ]
+    },
+    "rationale": "No exact modulo-nine first-lift histogram or uniform exact-even-length 3-adic full-image theorem was identified in the reviewed prior literature or mathematical research records. Harminc-Sotak arithmetic-progression existence does not determine an exact-even-length full image or frequency. Tuxanidy-Panario assumes coprimality that excludes this case. Onphaeng et al. treat a base-congruence setting not applicable to base 2 modulo powers of 3. The closest publicly available exact result covers q|b+1, which for base two gives q=3 but cannot cover q=9,27,...; the known even-palindrome divisibility is credited. An unstated general implication is a residual risk.",
+    "residual_risks": [
+      "The general arithmetic-progression construction might implicitly admit parity-preserving quantitative refinements not stated in the inspected text.",
+      "An unindexed or unpublished digit-automata result might already imply the exact modulo-nine distribution or the uniform all-level image.",
+      "No exhaustive search of every historical sequence or number theory table is possible; priority is assessed within inspected evidence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state fixed-even-length, all-large-length 3-power residue coverage or exact modulo-nine frequency counts",
+        "evidence": "Theorems B and C give infinitely many palindromes in eligible arithmetic progressions, with no exact parity or length coverage claim.",
+        "identifier_or_url": "https://www.academia.edu/18838282/PALINDROMIC_NUMBERS_IN_ARITHMETIC_PROGRESSIONS",
+        "material_read": "Accessible full original four-page paper in transcribed webpage text, including Theorems B and C and their construction",
+        "method": "Read theorem statements, hypotheses, proof construction and conclusion in text transcription",
+        "title": "Palindromic Numbers in Arithmetic Progressions",
+        "trigger": "General strongest known existence theorem for palindromes in progressions"
+      },
+      {
+        "assessment": "Odd-length/coprimality-restricted equidistribution does not yield all 3-power residues among exact even lengths",
+        "evidence": "For binary palindromes, the theorem excludes the non-coprime modulus-three and higher-power directions of interest.",
+        "identifier_or_url": "https://arxiv.org/abs/2307.16637",
+        "material_read": "Accessible arXiv full-text sections on palindrome parametrization, coprimality and equidistribution hypothesis, including explicit classical even-length divisibility discussion",
+        "method": "Read open-source text of arXiv preprint and compared modulus assumptions to 3-powers",
+        "title": "Infinitude of Palindromic Almost-Prime Numbers",
+        "trigger": "Recent equidistribution of palindromes modulo arithmetic progressions"
+      },
+      {
+        "assessment": "Hypotheses b≡0,1 modq fail for b=2 modulo 3^k",
+        "evidence": "Paper specifies exact formulas for b congruent to zero or one modulo q.",
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL27/Phunphayap/phun7.html",
+        "material_read": "Full HTML article and relevant pages of open-access 2024 PDF, including the summary of the b mod q hypotheses",
+        "method": "Read abstract, theorem conditions and supporting PDF pages",
+        "title": "Exact Formulas for the Number of Palindromes in Certain Arithmetic Progressions",
+        "trigger": "Published exact residue counts for palindromes"
+      },
+      {
+        "assessment": "Its q|b+1 covers only q=3 in base two, not higher 3-powers; classical even-length divisibility is explicitly prior",
+        "evidence": "For even lengths source N_{b,q}(2k,r)=(b-1)b^(k-1) delta_q(r,0), only for q|b+1; it makes no normalized quotient mod3 count.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-residue-counts-for-palindromes-modulo-divisors-of-the-base--bab47a6477c9",
+        "material_read": "Full public RESULT.md, all sections including complete formulas, proof and limitations",
+        "method": "Read mathematical statement and compared q|b+1 condition against q=9,27,...",
+        "title": "Exact residue counts for palindromes modulo divisors of the base plus one",
+        "trigger": "Closest full residue-count formula for palindromes at exceptional moduli"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0a25efd8-bf3c-4488-a7a5-97bac9b7c24b",
+  "value": {
+    "rationale": "A factor of three is forced by even-digit binary symmetry, motivating the natural question whether further 3-adic exclusions persist. The proven answer is a constructive all-level no-further-obstruction result holding at each sufficiently large exact even length, paired with a sharp, length-dependent first-lift frequency bias. The precise invariant and all-index bound are mathematically natural; the argument is not a routine finite table and the higher-level existence is genuinely infinite. The bound is explicitly not claimed optimal above the first lift.",
+    "status": "PASS"
+  }
+}
