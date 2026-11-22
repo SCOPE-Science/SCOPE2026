@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-20",
+  "audited_at_utc": "2026-11-20T01:44:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use independent midpoint angle U uniform [0,2π) and chord half-angle V uniform [0,π). The circumcenter lies on chord-bisector ray n(U) at signed coordinate λ=δ/(cos V-r cos U), δ=(1-r²)/2. An arcsine law for cos V yields the exact conditional clipped-arccos quadrature. The density at D=cos V-r cos U=0 is p_r(u,0)=1/(2π²sqrt(1-r² cos²u)), bounded for fixed r<1. Integrating |D|<δ/T gives c(r)=2(1-r²)K(r)/π². Since |circumradius−S|<=1, the same coefficient holds. Uniform convergence of the conditional (U,sign D,T|D|/δ) densities yields total-variation marked limit with uniform radial reciprocal mark, and sign/π-shift symmetrization gives g_r. Differentiating (1-r²)/sqrt(1-r² sin²t) proves monotonicity; elliptic K logarithmic endpoint proves boundary localization and c(r)~(1-r²)log(1/(1-r²))/π². Tail order 1/T implies infinite means for r<1, whereas r=1 yields fixed unit circle radius 1. Simulator is corroborative, not proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The universal convex-body theorem assumes three area-uniform vertices and sixth-power chord bias.",
+          "The disk circumcenter joint density applies three iid area-uniform points, not two boundary plus one fixed."
+        ],
+        "reasoning": "Conditioning area-uniform models on boundary positions and a fixed vertex is a zero-probability singular limit and does not automatically recover the present first-order elliptic law.",
+        "searches": [
+          "Resultary universal marked large circumradius convex body three random interior points",
+          "Resultary joint circumradius circumcenter disk uniform points"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/elliptic-pareto-tails-and-angular-localization-of-mixed-circle-t--c7aee2ca2c70/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/elliptic-pareto-tails-and-angular-localization-of-mixed-circle-t--c7aee2ca2c70/circumcenter_verify.py",
+        "https://arxiv.org/pdf/1501.03053",
+        "https://doi.org/10.2307/1427143",
+        "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-the-joint-circumradius-circumcenter-law-for-three-uniform-points--06c38ac25e1d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The acute probability is a bounded event and cannot imply a 1/T circumcenter tail or conditional angle law.",
+          "Classical chord geometry provides the arcsine denominator but not the full intensity/TV marked law without integrating a singular event."
+        ],
+        "reasoning": "Same samples with different observables do not cover the main marked rare-event claim.",
+        "searches": [
+          "Edelman Strang Random Triangle Theory With Geometry and Applications 2015",
+          "Resultary radial interpolation of random acute triangles fixed interior two circle vertices"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A,B on circle and C fixed gives a singular boundary/deterministic sampling measure. Edelman–Strang studies shape laws for other random triangle sampling mechanisms."
+        ],
+        "reasoning": "No established equivalence to a published distribution for exactly this mixed sampling measure.",
+        "searches": [
+          "Resultary mixed-circle circumcenter elliptic Pareto tails",
+          "Edelman Strang 2015 random triangle circumcenter near collinearity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kendall abstract is about random shapes of triangles in convex sets, with iid area-uniform settings; full text not obtained.",
+          "No located exact distribution table under the fixed-plus-boundary measure; this is not novelty proof."
+        ],
+        "reasoning": "A plausible old shape-law source remains specifically named as unresolved priority risk, not used to infer failure or novelty.",
+        "searches": [
+          "Kendall Exact distributions for shapes of random triangles in convex sets 1985",
+          "random triangle fixed vertex circle two boundary circumcenter exact density"
+        ]
+      },
+      "rationale": "Prior exact three-area-uniform disk triangle circumcenter densities and marked convex-body circumradius laws concern absolutely continuous sampling from two-dimensional interiors. They do not imply the singular measure with two boundary points and one deterministic interior point nor the elliptic direction weight. A separate acute-triangle theorem uses the same mixed sampling but measures acute probability, not remote circumcenter. Classical random-triangle shape papers are relevant but not shown to cover this exact law; Kendall 1985 full text was inaccessible.",
+      "residual_risks": [
+        "Kendall 1985 full text inaccessible after arXiv/OA attempts and authorized institutional VPN disconnection; no whole-document noncoverage claim.",
+        "Uniform T-asymptotic in r approaching 1 is not proved; r=1 angle is undefined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No demonstrated pinned-inner-vertex / two-boundary marked law",
+          "evidence": "Its Gaussian/angle-uniform models differ from singular fixed/boundary input",
+          "identifier_or_url": "https://arxiv.org/pdf/1501.03053",
+          "material_read": "Primary PDF accessible; model definitions, shape-theory discussion and relevant distribution material reviewed; not claimed complete negative reading",
+          "method": "Open arXiv PDF inspected",
+          "title": "Random Triangle Theory with Geometry and Applications",
+          "trigger": "General triangle shape distribution could give same law"
+        },
+        {
+          "assessment": "NOT ruled out in full text; abstract points to iid random triangles in convex sets",
+          "evidence": "Historical novelty priority remains provisional; no assertion about unread pages",
+          "identifier_or_url": "https://doi.org/10.2307/1427143",
+          "material_read": "Publisher abstract and metadata only; full text not accessible from lawful OA and institutional access was disconnected",
+          "method": "OA and arXiv attempts, publisher abstract; authorized institutional paper retrieval returned VPN disconnected",
+          "title": "Exact distributions for shapes of random triangles in convex sets",
+          "trigger": "Historical mathematically plausible umbrella result"
+        },
+        {
+          "assessment": "Different sampling dimension and measure",
+          "evidence": "Cannot directly condition a continuous interior law onto two boundary fixed points",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-the-joint-circumradius-circumcenter-law-for-three-uniform-points--06c38ac25e1d",
+          "material_read": "Published Resultary summary describing three area-uniform disk vertices",
+          "method": "Semantic published research search",
+          "title": "The joint circumradius–circumcenter law for three uniform points in a disk",
+          "trigger": "Same pair of invariants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A concrete rare-event distribution with an explicit elliptic intensity, total-variation angular localization and discontinuous boundary finite-moment transition for a natural random-geometry model; not a mere arcsine rephrasing.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/elliptic-pareto-tails-and-angular-localization-of-mixed-circle-t--c7aee2ca2c70/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/elliptic-pareto-tails-and-angular-localization-of-mixed-circle-t--c7aee2ca2c70/circumcenter_verify.py",
+    "https://arxiv.org/pdf/1501.03053",
+    "https://doi.org/10.2307/1427143",
+    "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-the-joint-circumradius-circumcenter-law-for-three-uniform-points--06c38ac25e1d"
+  ],
+  "disposition": "passed",
+  "final_claim": "For two independent uniform boundary points of the unit circle and one fixed point (r,0), 0<=r<1, the circumcenter-distance and circumradius tails satisfy lim_{T->infty}T P(>T)=2(1-r^2)K(r)/pi^2; an exact clipped-arccos quadrature and TV asymptotic angular marked law g_r(theta)=1/(4K(r)sqrt(1-r^2 cos^2 theta)) hold.",
+  "limitations": [
+    "Kendall 1985 full text inaccessible after arXiv/OA attempts and authorized institutional VPN disconnection; no whole-document noncoverage claim.",
+    "Uniform T-asymptotic in r approaching 1 is not proved; r=1 angle is undefined."
+  ],
+  "residual_risks": [
+    "Kendall 1985 full text inaccessible after arXiv/OA attempts and authorized institutional VPN disconnection; no whole-document noncoverage claim.",
+    "Uniform T-asymptotic in r approaching 1 is not proved; r=1 angle is undefined."
+  ],
+  "schema_version": 1
+}

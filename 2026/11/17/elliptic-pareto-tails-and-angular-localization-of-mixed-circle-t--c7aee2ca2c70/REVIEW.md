@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two independent circle angles transform measure-preservingly into independent chord-normal direction \(U\) and half-difference \(V\). Equal circumcircle distances yield the exact formula \(O=\delta n(U)/(\cos V-r\cos U)\), with \(\delta=(1-r^2)/2\). Integrating the arcsine density in the thin denominator strip gives the coefficient \(2(1-r^2)K(r)/\pi^2\). The conditional angular and inverse-radius marks converge in total variation by uniform convergence of the smooth joint density on this shrinking strip; the radius tail uses \(|R-\|O\||\le1\). Strict monotonicity follows from a pointwise negative derivative of the elliptic integrand; the boundary logarithm uses the classical expansion of \(K\). The actual standalone checker confirms the full quadrature and Cartesian bisector solution at multiple fixed radii. Neither finite simulation nor a limit extrapolation is treated as proof.
+## correctness
 
-## Originality — PASS, provisional historical priority
-The closest inspected open primary paper is Edelman–Strang (arXiv:1501.03053v1, January 9, 2015). Its random triangle distributions are Gaussian/shape-theoretic rather than two perimeter-uniform vertices with a third fixed. Two public full scientific results on circumcenter/circumradius laws were read and compared: one has three independent *area-uniform disk vertices*, the other three *area-uniform vertices in a convex body* and a sixth-chord-power conditioned law. Their respective measures cannot be conditioned to recover the singular pinned-boundary model without a new argument; their formulas do not entail the displayed elliptic coefficient or angular bias. The classical arcsine and elliptic-integral identities are properly credited. Kendall's 1985 near-collinearity shape paper was identified and its abstract checked, but the complete paper was inaccessible; despite its different i.i.d.-area model, it leaves historical priority provisional. Searches of the published mathematical index and accessible previous claims found no dominating or identical statement. Search failure is not a uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-The distance of a circumcenter from its sampling region and the associated circumradius are intrinsic geometric stability observables. The exact one-parameter elliptic coefficient distinguishes fixed-vertex locations and identifies a sharp radial extremum, while the marked conditional law gives a non-isotropic, geometry-dependent description of nearly collinear triangles. In particular, the logarithmically vanishing tail coefficient coexists with infinite means for every interior point, but all moments are finite at the boundary. These constitute a meaningful complete rare-event analysis of a naturally constrained sampling model rather than merely a rearranged generic coarea constant.
+Use independent midpoint angle U uniform [0,2π) and chord half-angle V uniform [0,π). The circumcenter lies on chord-bisector ray n(U) at signed coordinate λ=δ/(cos V-r cos U), δ=(1-r²)/2. An arcsine law for cos V yields the exact conditional clipped-arccos quadrature. The density at D=cos V-r cos U=0 is p_r(u,0)=1/(2π²sqrt(1-r² cos²u)), bounded for fixed r<1. Integrating |D|<δ/T gives c(r)=2(1-r²)K(r)/π². Since |circumradius−S|<=1, the same coefficient holds. Uniform convergence of the conditional (U,sign D,T|D|/δ) densities yields total-variation marked limit with uniform radial reciprocal mark, and sign/π-shift symmetrization gives g_r. Differentiating (1-r²)/sqrt(1-r² sin²t) proves monotonicity; elliptic K logarithmic endpoint proves boundary localization and c(r)~(1-r²)log(1/(1-r²))/π². Tail order 1/T implies infinite means for r<1, whereas r=1 yields fixed unit circle radius 1. Simulator is corroborative, not proof.
 
-## Residual scientific limitations
-No joint limit with the fixed vertex approaching the circle at a prescribed rate is claimed, and the shape restriction is essential. The old Kendall paper was not read in full. Independent mathematical and historical audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior exact three-area-uniform disk triangle circumcenter densities and marked convex-body circumradius laws concern absolutely continuous sampling from two-dimensional interiors. They do not imply the singular measure with two boundary points and one deterministic interior point nor the elliptic direction weight. A separate acute-triangle theorem uses the same mixed sampling but measures acute probability, not remote circumcenter. Classical random-triangle shape papers are relevant but not shown to cover this exact law; Kendall 1985 full text was inaccessible.
+
+## value
+
+PASS
+
+A concrete rare-event distribution with an explicit elliptic intensity, total-variation angular localization and discontinuous boundary finite-moment transition for a natural random-geometry model; not a mere arcsine rephrasing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
