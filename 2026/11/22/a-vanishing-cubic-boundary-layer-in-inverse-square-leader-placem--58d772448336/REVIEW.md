@@ -1,0 +1,19 @@
+# Scientific assessment
+
+## Correctness — PASS
+
+The claim covers every integer \(n\ge3\) and every real \(t>0\). The original-degree grounded Laplacian is positive definite. The symmetry reduction is exhaustive (same part, matched cross-part, unmatched cross-part). The exact singular-value calculation yields three rational costs. The matched-minus-same comparison has an explicitly positive denominator and a sixth-degree numerator with precisely one positive root by the coefficient table and Descartes' rule. The unmatched type is strictly dominated by matched for \(t<1\), using an entrywise monotone nonsingular M-matrix resolvent, and is strictly dominated by same-part for \(t\ge1\), by a positive-coefficient polynomial certificate. These inequalities establish the all-parameter classification and exact tie counts. Formal polynomial identities, 500 exact grounded-matrix checks, a rational disagreement witness and the asymptotic expansion were replayed from the bundled verifier. Finite checks are supporting diagnostics, not a substitute for the infinite proof. Main risk: a transcription mistake in the explicit coefficient tables; independent exact symbolic recomputation in the verifier substantially mitigates this risk.
+
+## Originality — PASS on inspected evidence
+
+A prior first-power theorem on the identical weighted graph gives a cubic threshold. It determines \(\operatorname{tr}(L_{FF}^{-1})\), not \(\operatorname{tr}(L_{FF}^{-2})\), and its proof does not imply the sixth-degree sign certificate or cubic-order boundary displacement. General first-order joint-centrality identities and general higher-order coherence or greedy-selection frameworks do not give this complete graph-specific inverse-square classification. Relevant full-text portions and related results were inspected; published and indexed statements found no equivalent theorem. Searches cannot prove uniqueness in the world's literature; unindexed equivalents and formulations using other spectral terminology remain a residual risk.
+
+## Value — PASS
+
+This is a complete exact classification on a natural infinite family parametrized by a continuous matching weight. It shows a genuine *objective-dependent choice of optimal leaders*, not just a numerical variance change: the two objectives have different critical boundary scales, creating a width \(1/(2n^2)+O(n^{-3})\) interval of strictly conflicting leader types. The proof supplies reproducible eigenvalue and sign machinery that may be useful in robust network-controller placement. It does not claim a general algorithm for arbitrary graphs, and the significance rests on the natural matching defect and meaningful spectral sensitivity, not on an arbitrary finite sample.
+
+## Closest literature and limitations
+
+The closest prior is *A cubic two-leader coherence transition on matching-weighted bicliques* (published mathematical result, 2026), whose complete available theorem and proof were inspected; the present claim has a different inverse power and new threshold scale. Fitch–Leonard (arXiv:1407.1569, first posted 2014-07-07) develops joint centrality for the first-power problem. Patterson–Bamieh (arXiv:1310.2592, first posted 2013-10-09) considers second-order coherence in fractal rather than grounded weighted biclique networks. Mackin–Patterson (arXiv:1905.09156, first posted 2019-05-22) treats higher-order network coherence and submodular optimization but does not obtain the present matching-weighted two-leader classification. Patterson–McGlohon–Dyagilev (arXiv:1412.6595, first posted 2014-12-20) proves path/cycle selection algorithms for the first power. The theorem assumes symmetric conductances, exactly two perfect leaders, positive uniform matching weight and unit off-matching weight; it is not an all-graph or noisy-leader statement. Independent verification and publication-priority adjudication remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
