@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "The distributional heat equation yields the displayed exact F derivative; strict convexity of logcosh(az)-z gives precisely one positive zero for a>1 and none for a<=1. Differentiating the normal CDF gives a single P optimum precisely for d>L and the touching discontinuity at d=L. Layer-cake integration, strict decrease of x/artanh(x), and derivative signs at s_P and d^2 prove s_P<s_F<d^2. The small-threshold asymptotic follows from an exact logcosh expansion. Standalone quadrature, normal-moment, finite-difference and randomized sign checks passed but are not substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rudolf 2018 doi:10.1111/1365-2656.12850 provides known qualitative nonlinear variation-versus-interaction effects in experiments and simulations.",
+        "Weis et al. 2014 doi:10.1111/jeb.12465 shows flowering-date variance can change assortative mating, not the present Gaussian expected overlap duration.",
+        "Montes-Perez et al. 2025 doi:10.1002/ecm.70046 measures overlap days and interaction frequencies in 8-year observations without a variance optimization theorem."
+      ],
+      "reasoning": "These sources cover ecologically broader phenomena but none of the inspected arguments implies the exact all-parameter Gaussian fixed-duration onset-variance result. Prior qualitative claims of nonlinear overlap response are excluded from claimed novelty.",
+      "searches": [
+        "\"phenological\" \"variance\" \"nonlinear\" \"interaction\" Rudolf 2018",
+        "\"flowering overlap\" interannual shifts phenology Austin 2024",
+        "\"flowering schedule\" variance assortative mating Weis 2014",
+        "\"bee flower\" skewness overlap simulation 2023",
+        "\"plant pollinator\" potential interaction overlap 2025"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1111/nph.19994",
+      "https://doi.org/10.1111/1365-2656.12850",
+      "https://doi.org/10.1111/1365-2656.13451",
+      "https://doi.org/10.1111/jeb.12465",
+      "https://doi.org/10.1002/ecy.3890",
+      "https://doi.org/10.1002/ecm.70046"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Austin 2024 establishes observed reassembly and changed durations, not an all-separation theorem on Gaussian onset variance.",
+        "Rudolf 2018 establishes nonlinear effects of altered variation in other interaction models and cannot determine the present exact constants.",
+        "Buckley 2021 treats a different overlap sampling/abundance model; Stemkovski 2023 optimizes overlap between skew-normal *densities*, not uniform fixed-duration intervals shifted by Gaussian year effects."
+      ],
+      "reasoning": "No inspected prior theorem is stronger in the relevant hypothesis class or yields the exact \\(d=L/2\\) and \\(d=L\\) cutoffs as a corollary. The distinction between probability of any overlap and average days is not resolved by the cited ecological empirical results. Classical Gaussian heat-kernel facts alone require the additional complete sign and optimizer analysis supplied here.",
+      "searches": [
+        "\"phenological overlap\" \"duration\" \"probability\" \"variance\" Gaussian",
+        "\"interannual variation\" \"phenological overlap\" \"nonlinear\"",
+        "\"flowering\" \"phenology\" \"expected overlap\" \"Gaussian\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Austin et al. 2024 doi:10.1111/nph.19994 defines actual days/relative proportion of flowering overlap; Buckley et al. 2021 doi:10.1111/1365-2656.13451 defines duration and area-based overlap, not a Gaussian two-window stochastic model.",
+        "The exact random-interval quantity equals Gaussian convolution of a triangular tent, a standard transformation used in the proof."
+      ],
+      "reasoning": "Re-expressed the exact claim as Gaussian heat evolution of a triangular tent, and also as a layer-cake average of normal interval probabilities. Inspected ecologically equivalent overlap definitions and mathematical search terms; inspected texts do not establish the half-duration threshold and two-metric separation. The Gaussian convolution identity itself is standard and is not an original claim.",
+      "searches": [
+        "\"expected overlap length\" \"Gaussian\" \"variance\" random intervals",
+        "\"flowering\" \"overlap\" \"variance\" \"two intervals\"",
+        "\"triangular kernel\" \"Gaussian\" \"optimal variance\"",
+        "\"phenological overlap\" \"relative onset\" \"jitter\"",
+        "\"heat equation\" \"triangular\" \"logcosh\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Austin et al. 2024 reports field/herbarium posterior summaries and pairwise flowering-overlap estimates, not a Gaussian variance parameter table.",
+        "Buckley et al. 2021 tabulates responses of three phenological-overlap metrics to climate and community factors, without the two exact thresholds."
+      ],
+      "reasoning": "Checked the relevant article tabulations and searched the same exact pairwise objectives for a known closed-form threshold/optimum table. The materials inspected provide observational estimates, not the classified mathematical invariant.",
+      "searches": [
+        "\"flowering duration\" \"co-flowering richness\" \"variance\" Austin 2024",
+        "\"grasshopper\" \"days of overlap\" \"season warmth\" Buckley 2021",
+        "\"Gaussian random intervals\" \"overlap duration\" \"optimization\"",
+        "\"flowering\" \"overlap\" \"half duration\" variance"
+      ]
+    },
+    "rationale": "The new assertion is the joint exact all-separation classification of Gaussian relative-onset variability for expected co-flowering days versus probability of any co-flowering, with distinct sharp thresholds, unique optimizers, onset asymptotics and strict optimizer ordering. Inspected ecological papers treat empirical co-flowering, non-Gaussian phenomenology or different floral/mating objectives. Prior standard normal smoothing and variation arguments are credited; priority remains provisional with classical random-interval theory as a residual risk.",
+    "residual_risks": [
+      "Equivalent sharp Gaussian triangular-convolution optimum may be present in older random-interval, reliability or heat-kernel literature outside the inspected corpus.",
+      "The assumptions intentionally exclude variable flowering durations, skewness and environmental covariance; empirical effect sizes may not transfer.",
+      "Historical priority and ecological generalization have not been independently assessed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Ecological object and duration metric closely relevant; statistical quantile-regression study, not the sharp Gaussian two-objective variance theorem",
+        "evidence": [
+          "First published July 24, 2024; overlap is defined by proportion of flowering duration shared; article explicitly discusses species-specific variability in phenological shifts."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/nph.19994",
+        "material_read": "Free-access HTML: first publication date; summary; introduction on species-specific shifts; Fig. 1 and overlap methods; results and discussion",
+        "method": "Read article HTML sections and compare definition of days overlapped to the Gaussian onset-variance problem",
+        "title": "Climate change increases flowering duration, driving phenological reassembly and elevated co-flowering richness",
+        "trigger": "Primary motivating 2024 field analysis of relative flowering shifts and overlap"
+      },
+      {
+        "assessment": "Qualitative variability-induced nonlinear species-interaction responses already known, but different population-response variables and no Gaussian two-window duration/occurrence threshold",
+        "evidence": [
+          "Experiments/simulations consider interspecific effects of phenological shifts, not closed-form variance optima for length of overlap and event indicator."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/1365-2656.12850",
+        "material_read": "HTML accessible research article: abstract, model/experimental design, simulation discussion and results",
+        "method": "Compare interannual arrival-time variation and biological response with our exact equal-duration overlap objectives",
+        "title": "Nonlinear effects of phenological shifts link interannual variation to species interactions",
+        "trigger": "Plausible earlier qualitative finding on benefits or harms of timing variability"
+      },
+      {
+        "assessment": "Evaluates three empirical abundance and duration metrics; not Gaussian interannual onset variance or global optimizer classification",
+        "evidence": [
+          "Methods 2.3 distinguishes area overlap, days overlapped and peak timing; results report climate-associated changes by taxon and elevation."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/1365-2656.13451",
+        "material_read": "Full-text HTML, especially methods 2.3 phenological overlap, result 3.2, Tables and discussion",
+        "method": "Compare normalization, duration and area objective and model assumptions",
+        "title": "Grasshopper species seasonal timing underlies shifts in phenological overlap in response to climate gradients, variability and change",
+        "trigger": "Defines multiple overlap metrics and models climate effects on them"
+      },
+      {
+        "assessment": "Related qualitative variance effects but different schedule matrix and mating objective",
+        "evidence": [
+          "Article contrasts variance in flowering dates and resulting assortative mating in illustrative flowering phenotype arrays."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/jeb.12465",
+        "material_read": "Accessible HTML section discussing variance, individual schedule timing and mating synchrony",
+        "method": "Compare original objective (assortative mating correlation) to pairwise binary-duration overlap and Gaussian onset perturbation",
+        "title": "The strength of assortative mating for flowering date and its basis in individual variation in flowering schedule",
+        "trigger": "Flowering schedule variance and synchrony could dominate simple overlap claims"
+      },
+      {
+        "assessment": "Studies shape/skew and maximal overlap of abundance densities, not the two-window variance response",
+        "evidence": [
+          "Methods optimize overlap coefficient across means and standard deviations for skew-normal density pairs."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/ecy.3890",
+        "material_read": "Full-text HTML methods for simulated skew-normal distribution overlap and results",
+        "method": "Inspect whether Gaussian onset shift of two fixed rectangular windows is covered",
+        "title": "Skewness in bee and flower phenological distributions",
+        "trigger": "Potential result on changing phenological-distribution variance and overlap"
+      },
+      {
+        "assessment": "Relevant empirical metric but no analytic variance thresholds in inspected sections",
+        "evidence": [
+          "Methods compute yearly overlap days, then weight by observed interaction frequency, which differs from mere probability of any overlap."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/ecm.70046",
+        "material_read": "Open-access HTML: introduction, overlap estimation, seasonal interaction analysis, results",
+        "method": "Compare observed interaction-weighted day overlap with independent Gaussian timing-variance model",
+        "title": "Generalized plant–pollinator phenological climate-driven advances still lead to a decline in phenological overlap",
+        "trigger": "2025 later study explicitly models overlap days for interacting species"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5bc87473-1c68-4263-ab2a-44256530e692",
+  "value": {
+    "rationale": "Duration of phenological co-occurrence and occurrence of any overlap are both directly measured ecological quantities, and earlier long-term work emphasizes heterogeneous timing shifts. This result shows they can respond in strictly opposite directions to timing variability, with two different sharp geometry thresholds and distinct global maximizers. It supplies a reproducible exact benchmark for interpreting Gaussian year-to-year phenological mismatch; it makes no calibrated fitness or climate intervention claim.",
+    "status": "PASS"
+  }
+}
