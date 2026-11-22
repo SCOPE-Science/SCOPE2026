@@ -1,0 +1,11 @@
+# Review of one-tolerance complexes of disjoint cliques
+
+**Correctness — PASS.** The face condition reduces the complex to pair spaces; each pair space is the union of two cones along a complete bipartite graph, with homotopy a wedge of two-spheres. The graph-of-spaces CW homotopy pushout supplies exactly one circle for each non-tree edge and preserves pairwise spheres. Natural Mayer–Vietoris maps provide primitive integral degree-two generators and equivariance under within-block permutations. The packaged checker independently constructs faces and compares boundary-matrix Betti vectors in 30 finite characteristic-field tests. Finite tests do not prove the infinite homotopy theorem.
+
+**Originality — PASS, with priority risk.** The closest directly related primary literature is Kim–Lew, arXiv:2109.03030 (two equal blocks, boundary-sphere sharpness), and Selvaraja, arXiv:2611.14384 (arbitrary chordal graphs, numerical Leray/collapsibility bounds). Neither contains nor logically forces this all-block exact homotopy and integral symmetry classification. Searches for tolerance complexes of disjoint cliques, disjoint simplices, arbitrary block counts, homotopy wedges and augmentation-lattice symmetries did not identify an equivalent prior classification. A published classification of clique bouquets addresses higher clique-avoidance complexes, an inequivalent construction. Unindexed equivalent formulas remain a residual priority risk.
+
+**Mathematical value — PASS.** The class is the natural disconnected chordal boundary case of recent tolerance-complex work. The theorem gives a complete infinite-family homotopy classification, including two simultaneously nonzero homology degrees and an exact natural integral module structure, information not inferred from the available generic three-collapsibility or three-Leray bounds. The numerical two-block sphere example itself is credited, not asserted as novel.
+
+**Limitations.** The result covers the one-tolerance parameter and disjoint cliques; no other chordal graph class or higher tolerance is classified. The wedge splitting itself is nonequivariant. Exact integer homotopy depends on the written graph-of-spaces proof rather than on finite-field calculations. The priority search cannot rule out unknown unindexed work.
+
+Self-review: passed. Independent audit: not yet performed.
