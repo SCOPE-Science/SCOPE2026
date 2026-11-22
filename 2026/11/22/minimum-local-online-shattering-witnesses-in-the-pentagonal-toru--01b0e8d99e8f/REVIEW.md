@@ -1,0 +1,11 @@
+# Scientific review: minimum local online shattering witnesses
+
+**Correctness (PASS).** A depth-three tree on exactly eight centers needs a 4/4 root split, forcing the four neighbors of its root into the same eight-point subset. The search then reduces rigorously to precisely 1140 cases at a fixed root. Two independent exact graph and tree implementations both report 84 rooted cases, 2050 distinct supports, 2100 valid rooted pairs, the 2000/50 root distribution, and 12 symmetry orbits split 9/2/1 by size 200/100/50. The supplied tree certifies existence; the independent pair-trace check proves VC dimension two on each admitted support. The proof explicitly states the exhaustive finite nature of the remaining count, and the code/check certificates are self-contained.
+
+**Originality (PASS within inspected evidence).** The closest static exact finite-field circle results and the 2020/2021 primary literature give full-domain VC classification, not the *simultaneous center-and-query restricted* local online census. The closest all-translates four-point adaptive result uses unrestricted queries; an online Hamming-graph theorem does not cover induced pentagonal grids. Searching the exact count, synonyms, graph model, and local centre/query variants found no dominating or equivalent published result in the inspected records. Remaining risk: an unindexed induced-subgraph classification could imply the enumerator.
+
+**Mathematical value (PASS).** Eight is not a chosen arbitrary cutoff but the sharp information-theoretic minimum for adaptive depth three. A complete classification of all minimizers, 12 nontrivial symmetry orbit types, and their uniquely/nonuniquely viable roots gives a natural finite learning invariant. It provides minimum depth-three local realizations of a strict VC/Littlestone gap on a canonical finite-field distance graph, a finer question not answered by full-ambient VC or online dimensions.
+
+The result concerns only the 25-vertex pentagonal torus and relies on checkable complete finite computation for the exact enumerator. Historical priority and external independent proof checking remain open.
+
+Self-review: passed. Independent audit: not yet performed.
