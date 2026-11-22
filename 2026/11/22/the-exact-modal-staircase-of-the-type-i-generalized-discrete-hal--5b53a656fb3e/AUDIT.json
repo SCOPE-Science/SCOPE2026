@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Exact pmf normalization follows by telescoping of F(j+1)-F(j); when alpha<=1 its parent density decreases. For alpha>=1 the parent log-density has strictly negative second derivative, and a double-integral majorization inequality proves strict log-concavity of all bin masses. The density likelihood ratio f_beta/f_alpha increases in x for beta>alpha, so each neighboring mass ratio crosses one exactly once as alpha grows; strict log-concavity orders crossings. Finally tanh log-expansion provides a uniform compact-gamma limit H(gamma) with a unique simple positive root, yielding alpha_k exp(-k theta)=C+O_theta(exp(-2k theta)). checker.py passed 484 finite decimal diagnostics, ancillary to the analytic proof.",
+    "risks": [
+      "Numerical values are not rigorous interval certificates; only analytic statements are claimed as proved.",
+      "No uniformity across varying theta was proved."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Standard strict log-concavity of interval masses and likelihood-ratio monotonicity are classical mechanisms used explicitly in the proof, not independently novel.",
+        "A published scientific finding titled Exact modal staircase and arithmetic sign reversals in the discrete asymmetric double Lindley law concerns a different count model, probabilities, and tuning coordinate.",
+        "2015 type-I half-logistic-family article studies continuous families, not the integer-bin high-index transition."
+      ],
+      "reasoning": "Generic preservation theorems supply ingredients and may explain the qualitative staircase, but do not give this model’s exact sequence of tanh-power equations, no-skipping boundary analysis, or the particular simple-root constant and O(exp(-2k theta)) scaled error. No dominating theorem covering those specifics was found in the accessible primary studies or record summaries.",
+      "searches": [
+        "exponentiated half logistic binned interval probabilities modal staircase unique double modes asymptotic shape alpha",
+        "binned exponentiated distribution mode index transition thresholds shape parameter increasing log-concavity",
+        "maxima of independent half-logistic variables integer-part interval histogram modes exact thresholds exponent parameter",
+        "doi:10.1080/00949655.2015.1031233"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1007/s10479-023-05807-3 (full HTML Sections 3,4,9)",
+      "https://doi.org/10.1007/s41096-024-00185-w (full HTML Section 5)",
+      "https://doi.org/10.1080/00949655.2015.1031233 (abstract)",
+      "Published scientific finding summary: Exact modal staircase and arithmetic sign reversals in the discrete asymmetric double Lindley law (different mass law)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The originating source proves the alpha=1 log-concavity and notes both the first two-bin tie and a non-log-concave alpha=1/2 example, but does not prove log-concavity for every alpha>=1 or all successive crossings.",
+        "The other 2024 paper assigns masses proportional to continuous density samples; its generalization is not obtained by integrating tanh(x)^alpha over each bin."
+      ],
+      "reasoning": "Neither the earlier one-parameter result nor the isolated double-mode example implies the all-index thresholds and their exponential asymptotic with explicit constant. The density-sampling construction requires a different normalization and cannot transfer the exact bin-integral equations. The current proof adds new model-specific arguments.",
+      "searches": [
+        "type I generalized discrete half-logistic distribution mode boundary alpha theta exact classification modal index threshold log-concavity",
+        "exponentiated half logistic binned interval probabilities modal staircase unique double modes asymptotic shape alpha",
+        "Barbiero Hitaj discrete generalized half logistic pmf p_j=tanh(theta(j+1)/2)^alpha-tanh(theta j/2)^alpha logconcavity mode",
+        "doi:10.1007/s10479-023-05807-3 §§3–4",
+        "doi:10.1007/s41096-024-00185-w §5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The originating article equation (11) is the interval-integrated exponentiated cdf; it explicitly gives only a zero/one tie example and a negative log-concavity example.",
+        "The same law equals the integer part of an exponentiated continuous half-logistic variable, hence is the binned maximum of independent half-logistic observations for integer shape; no full mode-index threshold theorem appears in the inspected sections."
+      ],
+      "reasoning": "Expressing the same probabilities through bin integrals, integer-part maxima, or tanh powers does not change the claim. The source supplies model formulas and one transition, not uniqueness for all indices, threshold ordering, nor the asymptotic coefficient.",
+      "searches": [
+        "type I generalized discrete half-logistic distribution mode boundary alpha theta exact classification modal index threshold log-concavity",
+        "Barbiero Hitaj discrete generalized half logistic pmf p_j=tanh(theta(j+1)/2)^alpha-tanh(theta j/2)^alpha logconcavity mode",
+        "\"generalized discrete half-logistic\" \"mode\" parameter thresholds unimodality",
+        "doi:10.1007/s10479-023-05807-3 §4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source presents Fig. 3 of selected PMFs, Table 2 of moments, and the explicit theta=1 alpha=1.3874 tie at bins zero and one.",
+        "No model-specific all-index sequence appears in the accessible original article or alternative construction, beyond the single explicit first tie."
+      ],
+      "reasoning": "An isolated first transition is part of the source and is not claimed as new. The full ordered threshold sequence and its sharp high-index constant are absent from the inspected published displays, tables, and accessible record summaries.",
+      "searches": [
+        "discrete generalized half-logistic exact alpha_k first mode 0,1 1.3874 3.4817",
+        "\"Discrete half-logistic distributions with applications in reliability and risk analysis\" \"mode\"",
+        "doi:10.1007/s10479-023-05807-3 Fig. 3 and Table 2"
+      ]
+    },
+    "rationale": "Direct full-text comparison of the originating unit-bin distribution, the differently constructed density-sampling analogue, and older continuous background did not identify a covering global discrete modal classification. The originating paper gives an isolated zero/one tie and one-parameter log-concavity, whereas the new result supplies every unique strictly ordered crossing and the sharp high-index root constant with a quantitative error. Search outcomes are not evidence of uniqueness; residual historical priority is acknowledged.",
+    "residual_risks": [
+      "A broad general theorem on modes of binned CDF-exponentiated families could yield part of the threshold structure; no directly dominating version giving this explicit asymptotic constant was found.",
+      "The historical literature search is bounded, not exhaustive, and independently adjudicated priority has not been established.",
+      "The 2015 continuous family source was only abstract-inspected; its continuous character limits expected direct bin coverage but is not a whole-document noncoverage certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MODEL_AND_FIRST_TRANSITION_ONLY; no theorem of complete ordered crossings or sharp high-index asymptotic in inspected material",
+        "evidence": [
+          "Section 4.1 defines p_j as adjacent differences of exponentiated half-logistic cdf and gives one double-mode at theta=1; Section 3.2 treats alpha=1 log-concavity; Section 4.1 gives an alpha<1 counterexample."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10479-023-05807-3",
+        "material_read": "Full publicly accessible HTML; Section 3 log-concavity and likelihood, Section 4 definition, modal example and methods, Section 9 and references",
+        "method": "Read and compared explicit probability equations (11) and numerical mode example against the full new statement",
+        "title": "Discrete half-logistic distributions with applications in reliability and risk analysis",
+        "trigger": "Exact law and closest prior model-shape claims"
+      },
+      {
+        "assessment": "DIFFERENT_MODEL; discrete probabilities normalized from density point samples rather than exponentiated cdf bin differences",
+        "evidence": [
+          "Section 5 explicitly defines p(x)=f(x;theta,alpha)/sum f(k;theta,alpha), unlike the originating p_j=F(j+1)-F(j)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s41096-024-00185-w",
+        "material_read": "Full publicly accessible HTML with Section 5 generalized-family construction and conclusion",
+        "method": "Compared normalization and probability definitions",
+        "title": "A Discrete Version of the Half-Logistic Distribution Based on the Mimicking of the Probability Density Function",
+        "trigger": "Same authors and similarly named family; potentially dominating shape results"
+      },
+      {
+        "assessment": "CONTINUOUS_ONLY; no substantive full-text noncoverage claim is made",
+        "evidence": [
+          "Abstract discusses continuous distribution properties and parameter inference; no discrete modal bins appear in abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/00949655.2015.1031233",
+        "material_read": "Publisher abstract and bibliographic description",
+        "method": "Checked scope and named mathematical objects",
+        "title": "The type I half-logistic family of distributions",
+        "trigger": "Prior continuous-family and exponentiation context"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5b53a656-fb3e-4459-8211-b8699abeb088",
+  "value": {
+    "rationale": "The full exact modal phase diagram is a natural and previously unresolved structural question for a published two-parameter count model whose practical use depends on which bin is most probable. The theorem characterizes all observable modal transitions, rules out skipped bins and separated ties, and gives a sharp exponential large-index threshold with a new computable coefficient. This is more than the isolated alpha_0 example already printed in the source, and does not depend on an asserted downstream application.",
+    "status": "PASS"
+  }
+}
