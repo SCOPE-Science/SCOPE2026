@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The rule is synchronous and uses two distinct successor-coloured open neighbours. Two standalone, dependency-free Python programs check the theorem from different representations.
+## correctness
 
-`code/verify_labelled.py` reconstructs the adjacency of the labelled graph and enumerates all colourings for one through five petals. It checks the global identity after three updates, the exact period-versus-basin test, and the closed basin formula. Output is in `evidence/verify_labelled.out`.
+PASS
 
-`code/verify_symbolic.py` uses fixed tags for six initial petal types and capped counts 0, 1, >=2. Saturation is sufficient because every threshold comparison is to two and count merges do not increase beyond that distinction. It tests the global identity on 2187 symbolic classes, including the exact tag transitions of present petals. It separately performs weighted six-type enumeration through 27 petals and compares the closed formula. Output is in `evidence/verify_symbolic.out`.
+For each petal sharing hub colour h, only mixed type {h-1,h} can change, irreversibly freezing to {h,h}; if hub stalls, its successor-neighbour count cannot rise, so all motion freezes. At hub initial colour zero four explicit inequalities on petal type counts determine permanent rotation: B+2D+E>=2, E+2F>=2, A+C>=1, B+D>=1. They imply T^6=T^3 and sharp transient bounds and period-three onset at k>=3. Inclusion-exclusion of precisely the four inequalities with petal weights (1,2,2,1,2,1) produces B_k=3*6^k+2*k*6^(k-1)+2*k*4^(k-1)-(3+2*k)*3^k-2*k (k>=2), and B_1=9. Exact time-zero counts follow by monochromatic census. Inspected RESULT and code/verify_labelled.py; independently enumerated every labelled state k=1..4 (27,243,2187,19683 states), checked T^6=T^3 and basin numbers including rotating totals 0,0,54,3996; finite checks corroborate the all-k petal proof.
 
-Both programs were executed from the paths included here and returned successfully. The general theorem is proved analytically; the code is a consistency check rather than a substitute for infinite proof. No external independent audit has occurred.
+## originality
+
+PASS
+
+PASS best-of-knowledge: exact threshold-two friendship-graph hub/petal dynamics and complete basin formula differ from published threshold-two biclique formulas and from the threshold-one arbitrary-graph criterion.
+
+## value
+
+PASS
+
+The friendship/windmill graphs are a natural sparse shared-hub family with arbitrarily many triangles. An exact all-size basin census, sharp transient and almost-sure oscillation limit distinguish local motif from global cycle dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

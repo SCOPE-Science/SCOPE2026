@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T18:21:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each petal sharing hub colour h, only mixed type {h-1,h} can change, irreversibly freezing to {h,h}; if hub stalls, its successor-neighbour count cannot rise, so all motion freezes. At hub initial colour zero four explicit inequalities on petal type counts determine permanent rotation: B+2D+E>=2, E+2F>=2, A+C>=1, B+D>=1. They imply T^6=T^3 and sharp transient bounds and period-three onset at k>=3. Inclusion-exclusion of precisely the four inequalities with petal weights (1,2,2,1,2,1) produces B_k=3*6^k+2*k*6^(k-1)+2*k*4^(k-1)-(3+2*k)*3^k-2*k (k>=2), and B_1=9. Exact time-zero counts follow by monochromatic census. Inspected RESULT and code/verify_labelled.py; independently enumerated every labelled state k=1..4 (27,243,2187,19683 states), checked T^6=T^3 and basin numbers including rotating totals 0,0,54,3996; finite checks corroborate the all-k petal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/1610.07320 threshold-one CCA on arbitrary graphs.",
+          "https://arxiv.org/abs/2108.06404 higher contact threshold on infinite regular trees."
+        ],
+        "reasoning": "Threshold-one criterion is inapplicable to a threshold-two hub, and infinite regular trees lack the finite triangle petal geometry. Neither covers labelled friendship-graph basin counting.",
+        "searches": [
+          "threshold two three color cyclic automaton friendship windmill graph exact oscillation basin period"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-attractor-basins-and-a-nonmonotone-three-cycle-window-in-t--fd4efc95a2d1",
+        "https://arxiv.org/abs/1610.07320",
+        "https://arxiv.org/abs/2108.06404"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Complete bipartite threshold-two result https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-attractor-basins-and-a-nonmonotone-three-cycle-window-in-t--fd4efc95a2d1 has an extra period-four class, while friendship F_k has only periods one and three.",
+          "Hub/petal irreversible mixing yields four tests with no biclique analogue."
+        ],
+        "reasoning": "Neither prior general threshold-one result nor biclique classification logically implies the new three-step idempotence and explicit B_k formula on a graph family with different local edges.",
+        "searches": [
+          "threshold two three color cyclic automaton friendship windmill graph exact oscillation basin period"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Friendship graph F_k is a windmill K1 join kK2; labelled petals are two degree-two vertices with an internal edge.",
+          "Published threshold-two K_{a,b} basin formula https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-attractor-basins-and-a-nonmonotone-three-cycle-window-in-t--fd4efc95a2d1 uses complete bipartite shores without those internal edges."
+        ],
+        "reasoning": "Graph aliases windmill/triangle bouquet considered; a biclique has different adjacency, including possible period four, and is not an equivalent dynamics reduction.",
+        "searches": [
+          "threshold two three color cyclic automaton friendship windmill graph exact oscillation basin period"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full prior biclique RESULT https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-attractor-basins-and-a-nonmonotone-three-cycle-window-in-t--fd4efc95a2d1 gives different B_1/B_3/B_4 formulas and periods 1,3,4.",
+          "Resultary search retrieved friendship result and related crown/tripartite other-graph threshold-two tables."
+        ],
+        "reasoning": "Known exact attractor tables are graph-specific, and none of those reviewed tables includes the same friendship F_k labelled configurations.",
+        "searches": [
+          "threshold two three color cyclic automaton friendship windmill graph exact oscillation basin period"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: exact threshold-two friendship-graph hub/petal dynamics and complete basin formula differ from published threshold-two biclique formulas and from the threshold-one arbitrary-graph criterion.",
+      "residual_risks": [
+        "Full original threshold-automata papers were not read in full during this execution; graph-family-specific literature may be unindexed.",
+        "Independent labelled enumeration stops k=4; infinite-k law relies on analytic four-test/exponential-generating proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different object and no direct consequence for F_k",
+          "evidence": "Biclique has shores with identical neighborhoods, unlike friendship graphs with local petal edge; admits period 4 absent in F_k.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-attractor-basins-and-a-nonmonotone-three-cycle-window-in-t--fd4efc95a2d1",
+          "material_read": "Full RESULT.md including all-size polynomials, periods and proof",
+          "method": "Read full published GitHub RESULT",
+          "title": "Exact attractor basins and a nonmonotone three-cycle window in threshold-two cyclic automata on bicliques",
+          "trigger": "Closest exact same dynamics but different finite graph"
+        },
+        {
+          "assessment": "No whole-document NOT_COVERING claimed; threshold one differs",
+          "evidence": "Published arbitrary graph theorem uses one-neighbour successor threshold, not two.",
+          "identifier_or_url": "https://arxiv.org/abs/1610.07320",
+          "material_read": "Arxiv abstract and targeted threshold description; full proof not read",
+          "method": "Arxiv abstract comparison",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Broad graph family in title"
+        },
+        {
+          "assessment": "Does not demonstrably include finite friendship basins",
+          "evidence": "Infinite trees have no triangular petals.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.06404",
+          "material_read": "Arxiv abstract and indexed scope; full paper not read",
+          "method": "Arxiv metadata/abstract",
+          "title": "Cyclic cellular automata and Greenberg--Hastings models on regular trees",
+          "trigger": "Threshold at least two and three states"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The friendship/windmill graphs are a natural sparse shared-hub family with arbitrarily many triangles. An exact all-size basin census, sharp transient and almost-sure oscillation limit distinguish local motif from global cycle dynamics.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-attractor-basins-and-a-nonmonotone-three-cycle-window-in-t--fd4efc95a2d1",
+    "https://arxiv.org/abs/1610.07320",
+    "https://arxiv.org/abs/2108.06404"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly synchronous three-colour threshold two on triangle bouquets; does not enumerate each first-entry-time layer or general graphs."
+  ],
+  "residual_risks": [
+    "Full original threshold-automata papers were not read in full during this execution; graph-family-specific literature may be unindexed.",
+    "Independent labelled enumeration stops k=4; infinite-k law relies on analytic four-test/exponential-generating proof."
+  ],
+  "schema_version": 1
+}

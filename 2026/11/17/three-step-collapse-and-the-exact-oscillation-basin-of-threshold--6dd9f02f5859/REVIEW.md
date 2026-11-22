@@ -1,19 +1,21 @@
-# Review of the exact friendship-graph oscillation-basin theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph and synchronous open-neighbour threshold-two rule are explicit. The pivotal lemma is that at hub colour \(h\), only petals of type \(\{h-1,h\}\) can change and each becomes monochromatic; stalling cannot create a new successor-coloured hub neighbour. The four successive hub tests, followed by a monochromatic-petal census, prove \(T^6=T^3\) with sharp entry times. Inclusion--exclusion of four precisely stated failure events gives the exponential generating function for the fixed basin; its coefficient computation supplies the closed count. Time-zero fixed and primitive-three-cycle counts are obtained independently. Graph-based exhaustive enumeration covers \(199287\) labelled states through five petals, and a separate finite quotient with tagged petal types checks the global identity on \(2187\) capped-count classes; symbolic weighted counting matches for every \(1\le k\le27\). The infinite-family conclusion relies on the constructive proof, not finite testing.
+PASS
 
-## Originality — PASS (qualified)
+For each petal sharing hub colour h, only mixed type {h-1,h} can change, irreversibly freezing to {h,h}; if hub stalls, its successor-neighbour count cannot rise, so all motion freezes. At hub initial colour zero four explicit inequalities on petal type counts determine permanent rotation: B+2D+E>=2, E+2F>=2, A+C>=1, B+D>=1. They imply T^6=T^3 and sharp transient bounds and period-three onset at k>=3. Inclusion-exclusion of precisely the four inequalities with petal weights (1,2,2,1,2,1) produces B_k=3*6^k+2*k*6^(k-1)+2*k*4^(k-1)-(3+2*k)*3^k-2*k (k>=2), and B_1=9. Exact time-zero counts follow by monochromatic census. Inspected RESULT and code/verify_labelled.py; independently enumerated every labelled state k=1..4 (27,243,2187,19683 states), checked T^6=T^3 and basin numbers including rotating totals 0,0,54,3996; finite checks corroborate the all-k petal proof.
 
-Fisch--Gravner--Griffeath (1991) introduced general contact-threshold excitable cellular automata and emphasized lattice spiral phenomena. Durrett--Griffeath (1993) refined lattice stable-periodic-object threshold analysis. Their inspected rule descriptions and principal results do not present a labelled basin formula for finite shared-triangle friendship graphs. Gravner--Lyu--Sivakoff (2016), especially its general-graph Theorem 3, applies to the one-neighbour threshold; replacing it by two changes the local transition rule, and its topological criterion does not imply this four-test inequality or exact count. Bello--Sivakoff (2021) studies infinite regular trees, not finite graphs with repeated triangles. The closest accessible historical findings concern threshold-two cyclic dynamics on complete bipartite graphs and other automata, not this hub-petal mechanism. Indexed published-claim searches for the precise graph/rule, equivalent formulations, and numerical counts did not reveal a covering theorem; this is limited evidence, not a proof of global novelty. Less-indexed literature remains a residual priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The object is a natural minimal network with multiple triangular feedback loops and many degree-two cells, while the threshold equals the entire peripheral degree. The result gives a complete infinite-family eventual-period classification, a sharp global settling-time cutoff, exact labelled attracting basins and periodic-point populations, and a quantitatively sharp rare-fixation law. The nontrivial point is that almost all states are attracted to three-cycles even though the initially periodic three-cycle population is exponentially sparse; the coefficient \(k/3+3\) distinguishes the dominant obstruction caused by a missing threshold in one phase. This invariant is useful in analyzing finite deterministic excitable-media dynamics and graph-motif effects, not merely a small instance or a numerical recomputation.
+PASS best-of-knowledge: exact threshold-two friendship-graph hub/petal dynamics and complete basin formula differ from published threshold-two biclique formulas and from the threshold-one arbitrary-graph criterion.
 
-## Scope and remaining risks
+## value
 
-The theorem concerns only the stated synchronous rule and finite friendship graphs. It does not settle general threshold-two graph automata or an exact first-entry-time distribution. The original 1991 and 1993 papers and the 2016, 2021 primary works were inspected at their rule descriptions and relevant result sections; comparison is not a claim that every historical paper was read. External independent validation is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The friendship/windmill graphs are a natural sparse shared-hub family with arbitrarily many triangles. An exact all-size basin census, sharp transient and almost-sure oscillation limit distinguish local motif from global cycle dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
