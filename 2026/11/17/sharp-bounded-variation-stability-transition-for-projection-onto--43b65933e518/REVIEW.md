@@ -1,19 +1,21 @@
-# Scientific review: sharp path-TV-ball projection sensitivity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem quantifies all real inputs and every fixed radius \(R>0\), with \(n\ge2\). Polyhedral nearest-point projection has finitely many affine selections. For each nontrivial face, partition the vertices by zero-difference edges. The corresponding tangent projector is \(H=A-gg^{\mathsf T}/\|g\|_2^2\), with block averaging \(A\), signed active-edge vector \(s\) and \(g=AD^{\mathsf T}s\). The blockwise sign calculation proves \(V_n(g)=\|g\|_2^2\), and hence \(V_n(Hh)\le2V_n(h)\). Direct two-edge face calculations give \(1\) for \(n=2,3\). Distinct finite, monotone inputs give exact ratio \(2\) for every \(n\ge4\), with scaling preserving it at all positive radii. The embedded checker independently verifies all face matrices at 2–8 sites and explicit sharp witnesses at 4–39 sites using rational arithmetic. Finite tests are supportive, not a substitute for the unrestricted proof.
+PASS
 
-## Originality — PASS, with priority qualification
+For polyhedral Euclidean projector onto the inverse image of a path l1 ball, local derivatives are face-tangent orthogonal projectors H=A-gg^T/||g||²; zero-difference edges create consecutive constant blocks and block averaging A contracts path variation. At active jump edges, g=AD^T s satisfies V(g)=sum s_j(Dg)_j=||g||² from the sign alignment. Hence V(Hh)<=V(Ah)+|s^T DA h|<=2V(h), all n and R>0. Complete n=2,3 face derivative classification yields coefficient 1. For n≥4 a strictly monotone arithmetic ramp and middle unit-step perturbation project to the containing endpoint-gap halfspace and attain factor two; scaling handles any R. Independently rederived rational face matrices and checked n=2..5 gains 1,1,2,2; source checker enumerates more cases but is not infinite proof.
 
-The 2004 Combettes–Pesquet author manuscript provides the natural constrained-TV restoration motivation and discusses computing the constrained solution by convex-analytic techniques; it does not state the sharp *two-input variation seminorm* of the Euclidean TV-ball projector or the four-site transition in the inspected portions. Yang–Barber characterize contraction for isotonic regression, which has a monotone-cone constraint rather than a variation budget. The accessible 2006 Darbon–Sigelle abstract concerns TV minimization under fidelity constraints, with different primal objective and constraint. Search and implication comparisons against relevant published mathematical records, including sharp stability of weighted \(\ell_1\)-ball projections and of Euclidean simplex projections, found no theorem covering this precise path-TV-ball result. Residual historical coverage is possible; unindexed or inaccessible older papers were not ruled out.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact \(1\)-to-\(2\) transition is a natural finite-size stability boundary for a widely used constrained denoising model: the Hilbert nearest-point inequality does not answer stability in the signal's own adjacent-variation seminorm. The face-gradient sign identity is a reusable structural proof ingredient, not a numerical coincidence. The uniform sharp constant and explicit extremal perturbations make the result useful for stability benchmarking.
+General Hilbert-space nearest-point nonexpansivity concerns l2 norm, not path variation of a perturbation. Prior constrained total variation restoration and isotonic cone contraction are different maps. The exact dimension-four jump for Euclidean TV-ball projection was not identified as already implied by the inspected literature or neighboring SCOPE records.
 
-## Limitations
+## value
 
-No claims are made for periodic signals, arbitrary graphs, weighted vertex/edge measures, non-Euclidean fidelity, penalty-based (rather than radius-constrained) TV denoising, or varying radius between inputs. The literature search is not exhaustive; independent validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete sharp input-to-output variation perturbation law for a canonical constrained denoising projector, with an exact small-dimension transition, is a meaningful structural stability result. Explicit factor-two witnesses reveal why Hilbert nonexpansivity cannot be interpreted as edge stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

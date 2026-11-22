@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the sharp path-total-variation-ball projection coefficient
+# Independent mathematical audit
 
-The proof in `RESULT.md` covers arbitrary finite real path lengths and all shared positive constraint radii. Its key nonstandard algebraic step is the boundary-sign identity \(V_n(g)=\|g\|_2^2\), verified from the explicit formula for block-constant \(g\) in the proof. Block averaging contracts path total variation; the correction term then has gain at most one more. Direct classification of the only possible low-dimensional face types gives the smaller constant one.
+## correctness
 
-Run `python check_tv_ball.py` to independently reproduce the exact rational checks. It exhaustively forms every signed nonempty active-edge face projector in dimensions \(2\) through \(8\), compares induced difference-coordinate column norms, and evaluates explicit finite pairs attaining coefficient two at lengths \(4\) through \(39\). The final success line is `ALL_PATH_TV_BALL_PROJECTION_CHECKS_PASS`. Exact finite checks do not certify untested dimensions, which rely on the analytical proof.
+PASS
 
-The primary scientific limits are unweighted one-dimensional nonperiodic paths, Euclidean fidelity, fixed positive shared variation radius, and one nearest-point projection. The literature inspection does not constitute exhaustive priority certification. Independent mathematical audit has not been performed.
+For polyhedral Euclidean projector onto the inverse image of a path l1 ball, local derivatives are face-tangent orthogonal projectors H=A-gg^T/||g||²; zero-difference edges create consecutive constant blocks and block averaging A contracts path variation. At active jump edges, g=AD^T s satisfies V(g)=sum s_j(Dg)_j=||g||² from the sign alignment. Hence V(Hh)<=V(Ah)+|s^T DA h|<=2V(h), all n and R>0. Complete n=2,3 face derivative classification yields coefficient 1. For n≥4 a strictly monotone arithmetic ramp and middle unit-step perturbation project to the containing endpoint-gap halfspace and attain factor two; scaling handles any R. Independently rederived rational face matrices and checked n=2..5 gains 1,1,2,2; source checker enumerates more cases but is not infinite proof.
+
+## originality
+
+PASS
+
+General Hilbert-space nearest-point nonexpansivity concerns l2 norm, not path variation of a perturbation. Prior constrained total variation restoration and isotonic cone contraction are different maps. The exact dimension-four jump for Euclidean TV-ball projection was not identified as already implied by the inspected literature or neighboring SCOPE records.
+
+## value
+
+PASS
+
+A complete sharp input-to-output variation perturbation law for a canonical constrained denoising projector, with an exact small-dimension transition, is a meaningful structural stability result. Explicit factor-two witnesses reveal why Hilbert nonexpansivity cannot be interpreted as edge stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

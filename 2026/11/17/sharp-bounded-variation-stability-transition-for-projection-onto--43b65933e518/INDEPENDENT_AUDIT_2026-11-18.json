@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T09:16:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-bounded-variation-stability-transition-for-projection-onto--43b65933e518/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-bounded-variation-stability-transition-for-projection-onto--43b65933e518/check_tv_ball.py"
+      ],
+      "rationale": "For polyhedral Euclidean projector onto the inverse image of a path l1 ball, local derivatives are face-tangent orthogonal projectors H=A-gg^T/||g||²; zero-difference edges create consecutive constant blocks and block averaging A contracts path variation. At active jump edges, g=AD^T s satisfies V(g)=sum s_j(Dg)_j=||g||² from the sign alignment. Hence V(Hh)<=V(Ah)+|s^T DA h|<=2V(h), all n and R>0. Complete n=2,3 face derivative classification yields coefficient 1. For n≥4 a strictly monotone arithmetic ramp and middle unit-step perturbation project to the containing endpoint-gap halfspace and attain factor two; scaling handles any R. Independently rederived rational face matrices and checked n=2..5 gains 1,1,2,2; source checker enumerates more cases but is not infinite proof.",
+      "residual_risks": [
+        "Polyhedral tangent interpretation and strictly monotone witness require positive R and unweighted Euclidean path geometry; weighted graphs or R=0 are outside scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published oscillation-ball projection uses max(z)-min(z) constraint; l1-ball anchored-BV sensitivity uses a different feasible set and norm."
+        ],
+        "reasoning": "Neither stronger-looking arbitrary dimension algorithm dominates the sum-of-adjacent-absolute-differences TV-ball theorem.",
+        "searches": [
+          "projection onto total variation ball path sharp BV Lipschitz constant 2 n at least four",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-polynomial-time-variation-modulus-of-oscillation-ball-proj--b41b2d1d717e",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-polynomial-time-anchored-bv-sensitivity-of-euclidean-ell-1--4cc64e84e6f1"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-bounded-variation-stability-transition-for-projection-onto--43b65933e518/RESULT.md",
+        "https://pcombet.math.ncsu.edu/ip4.pdf",
+        "https://arxiv.org/abs/1706.01852",
+        "https://doi.org/10.1007/s10851-006-8803-0",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-polynomial-time-variation-modulus-of-oscillation-ball-proj--b41b2d1d717e",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-polynomial-time-anchored-bv-sensitivity-of-euclidean-ell-1--4cc64e84e6f1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Yang–Barber characterize contraction of isotonic regression under special seminorms; they do not bound face derivative of Euclidean TV-ball projector as shown."
+        ],
+        "reasoning": "Euclidean 1-Lipschitzness fails to imply variation 1-Lipschitzness because the adjacent-difference seminorm is different; explicit n=4 witness demonstrates strict amplification.",
+        "searches": [
+          "projection onto total variation ball path sharp BV Lipschitz constant 2 n at least four",
+          "https://arxiv.org/abs/1706.01852"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Constrained-TV restoration computes/projectively approximates TV constraints; isotonic regression projection onto monotonic cone has different feasible geometry."
+        ],
+        "reasoning": "Projecting onto a TV-ball does not coincide with monotonic regression, penalized TV denoising, or ordinary l2 contraction.",
+        "searches": [
+          "projection onto total variation ball path sharp BV Lipschitz constant 2 n at least four",
+          "https://pcombet.math.ncsu.edu/ip4.pdf",
+          "https://arxiv.org/abs/1706.01852"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns same new claim plus adjacent but distinct geometric projections; no independently prior exact 1/2 path-size threshold table found."
+        ],
+        "reasoning": "The dimension-four threshold is not a known-table recomputation in the searched comparison.",
+        "searches": [
+          "projection onto total variation ball path sharp BV Lipschitz constant 2 n at least four"
+        ]
+      },
+      "rationale": "General Hilbert-space nearest-point nonexpansivity concerns l2 norm, not path variation of a perturbation. Prior constrained total variation restoration and isotonic cone contraction are different maps. The exact dimension-four jump for Euclidean TV-ball projection was not identified as already implied by the inspected literature or neighboring SCOPE records.",
+      "residual_risks": [
+        "The Combettes–Pesquet full primary manuscript was not completely read; potential historical analysis of BV stability may have different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinguishes projection/restoration algorithms, not sufficient full-text exclusion",
+          "evidence": [
+            "Optimization and constraint setup similar; exact two-input BV sensitivity requires further comparison if full text obtained."
+          ],
+          "identifier_or_url": "https://pcombet.math.ncsu.edu/ip4.pdf",
+          "material_read": "Primary manuscript request not successfully fully retrieved; abstract and secondary bibliographic description read",
+          "method": "Accessible indexed abstract with unsuccessful manuscript access",
+          "title": "Image Restoration Subject to a Total Variation Constraint",
+          "trigger": "Same TV constraint in imaging optimization"
+        },
+        {
+          "assessment": "Isotonic cone, rather than TV sublevel, so no direct dominance",
+          "evidence": [
+            "Monotonicity-cone projection contractivity conditions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1706.01852",
+          "material_read": "PDF first page screenshot and relevant theorem description inspected",
+          "method": "arXiv PDF screenshot and text",
+          "title": "Contraction and uniform convergence of isotonic regression",
+          "trigger": "Proximal projection contraction under seminorms"
+        },
+        {
+          "assessment": "Different constraint osc(z)<=R, can grow linearly in n rather than constant two",
+          "evidence": [
+            "Its claimed coefficient grows with n, unlike current TV-ball."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-polynomial-time-variation-modulus-of-oscillation-ball-proj--b41b2d1d717e",
+          "material_read": "Published theorem summary",
+          "method": "Resultary indexed research",
+          "title": "Exact polynomial-time variation modulus of oscillation-ball projection",
+          "trigger": "Related variation-stability of another polyhedral projector"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-bounded-variation-stability-transition-for-projection-onto--43b65933e518/RESULT.md",
+        "https://pcombet.math.ncsu.edu/ip4.pdf"
+      ],
+      "rationale": "A complete sharp input-to-output variation perturbation law for a canonical constrained denoising projector, with an exact small-dimension transition, is a meaningful structural stability result. Explicit factor-two witnesses reveal why Hilbert nonexpansivity cannot be interpreted as edge stability.",
+      "residual_risks": [
+        "Unweighted path and common R only; no claim about penalty-form TV prox."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Polyhedral tangent interpretation and strictly monotone witness require positive R and unweighted Euclidean path geometry; weighted graphs or R=0 are outside scope.",
+    "The Combettes–Pesquet full primary manuscript was not completely read; potential historical analysis of BV stability may have different terminology.",
+    "Unweighted path and common R only; no claim about penalty-form TV prox."
+  ],
+  "schema_version": 1
+}
