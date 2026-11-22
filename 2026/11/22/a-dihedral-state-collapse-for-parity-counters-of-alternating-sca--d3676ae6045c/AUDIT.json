@@ -1,0 +1,182 @@
+{
+  "correctness": {
+    "rationale": "For every k≥1, generalized-binomial reflection plus Pascal identities reproduce exactly every alternating-prefix positional-count update; truncation of (1+X)^L in characteristic two makes all coordinates L-periodic. The word 01 translates the cyclic index by 1, giving reachability. The k-th output is a Lucas-theorem bit mask of period exactly L since shift L/2 flips the most significant one-bit of k in a state with output 1. Hence all L states are distinguishable by suffixes (01)^s and the machine is minimal. These steps were reconstructed for all parities including k=1 and powers of two; standalone literal and independent orbit/minimization programs verified 98,292 and 12,372 cases respectively; finite checks are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2010 Černý framework constructs/represents subword counts but does not state the exact reachable/minimal state cardinality.",
+        "Richomme 2025 characterizes integer 2-binomial classes; Golafshan et al. study factor binomial complexity of a particular automatic word."
+      ],
+      "reasoning": "A general linear counting representation is broader for computation but does not logically determine the all-k minimum in the special parity setting. Fixed input-word-family k-binomial classes are a different domain, not dominating automaton minimization over all binary words.",
+      "searches": [
+        "\"mod 2 alternating scattered subsequence binomial coefficients length k automaton 0101 binary polynomial\" [published-finding corpus 30]",
+        "\"minimal deterministic finite automaton Moore machine computing scattered subsequence count 010 mod m palindrome binary m odd even m^3/2\" [published-finding corpus 35]",
+        "\"subsequence pattern aba modulo m automaton modular subword binomial coefficient palindrome parity state complexity\" [published-finding corpus 35]",
+        "arxiv:2510.07159",
+        "arxiv:2412.18425"
+      ]
+    },
+    "checked_sources": [
+      {
+        "conclusion": "binary integer 2-binomial classes, different invariant",
+        "identifier": "arxiv:2510.07159",
+        "material": "full HTML text"
+      },
+      {
+        "conclusion": "different stated question; full text gap",
+        "identifier": "arxiv:2610.06717",
+        "material": "abstract/metadata"
+      },
+      {
+        "conclusion": "factor binomial complexity not minimum parity-output machines",
+        "identifier": "arxiv:2412.18425",
+        "material": "substantial primary text"
+      },
+      {
+        "conclusion": "general mapping framework, no exact all-k minimal count found",
+        "identifier": "doi:10.1051/ita/2009021",
+        "material": "primary PDF introduction, relevant mapping text"
+      },
+      {
+        "conclusion": "direct k=3 coverage only",
+        "identifier": "published-finding corpus:2026/11/8/SCOPE-exact-output-state-complexity-for-modular-alternating-scattered--f8d46c1509db",
+        "material": "entire RESULT.md"
+      },
+      {
+        "conclusion": "inaccessible plausible primary source, unresolved historic-priority risk",
+        "identifier": "doi:10.1142/S0129054111008817",
+        "material": "bibliographic description only"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The k=3 theorem has the fixed pattern 010 and arbitrary modulus m; setting m=2 yields four states but has no variable pattern length.",
+        "Published two-run counts 0^a1^b have only one letter transition and cannot specialize to 0101 for k=4."
+      ],
+      "reasoning": "The new arbitrary-k theorem strictly extends the particular parity k=3 case, rather than an older theorem automatically implying its own special case. Same parameter value alone would not establish novelty; the novelty resides in the quantifier k≥1 and the explicit general all-k minimal machine.",
+      "searches": [
+        "\"binary alternating pattern 010101 of arbitrary length k number of scattered occurrences mod 2 Moore machine exact k bit length 2 power state complexity dihedral reflection t to minus t and minus t minus one\" [published-finding corpus 40]",
+        "\"minimal deterministic finite automaton Moore machine computing scattered subsequence count 010 mod m palindrome binary m odd even m^3/2\" [published-finding corpus 35]",
+        "\"subsequence pattern aba modulo m automaton modular subword binomial coefficient palindrome parity state complexity\" [published-finding corpus 35]",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-output-state-complexity-for-modular-alternating-scattered--f8d46c1509db/RESULT.md"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest full-text Moore theorem studies only the alternating triple 010 (and 101) over all moduli; it states m³/gcd(m,2), reducing to four when m=2.",
+        "For all k≥1 the new machine uses t↦-t-1, t↦-t and an exact Lucas mask; k=3 agrees, all k≥4 is genuinely additional."
+      ],
+      "reasoning": "Aliases include residue-output automata, DFA parity language, scattered/binomial pattern count, reflection/dihedral state action; no returned record gives the general k formula. Parity-one language and binary-output Moore formulations are equivalent for this result, so the claim addresses both rather than counting them separately.",
+      "searches": [
+        "\"binary alternating pattern 010101 of arbitrary length k number of scattered occurrences mod 2 Moore machine exact k bit length 2 power state complexity dihedral reflection t to minus t and minus t minus one\" [published-finding corpus 40]",
+        "\"minimal DFA Moore machine parity scattered alternating binary pattern 010101 length k number states next power of two 2^ceil(log2(k+1))\" [published-finding corpus 30]",
+        "\"parity of 010101 subsequences minimal automaton 2^ceil(log2(k+1))\" [published-finding corpus 30]",
+        "published-finding corpus hit 2026/11/8/SCOPE-exact-output-state-complexity-for-modular-alternating-scattered--f8d46c1509db"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct k=3 exact state count is already published and explicitly excluded from novelty.",
+        "The accessible own ledger contains a two-run modular-counter theorem but not arbitrary alternating pattern length; no exact all-length complexity table located."
+      ],
+      "reasoning": "Exact values at k=3, and even values at several k, do not imply a closed law for every k. The new formula is an infinite exact classification, not a table recomputation.",
+      "searches": [
+        "\"binary alternating pattern 010101 of arbitrary length k number of scattered occurrences mod 2 Moore machine exact k bit length 2 power state complexity dihedral reflection t to minus t and minus t minus one\" [published-finding corpus 40]",
+        "\"minimal DFA Moore machine parity scattered alternating binary pattern 010101 length k number states next power of two 2^ceil(log2(k+1))\" [published-finding corpus 30]",
+        "\"mod 2 alternating scattered subsequence binomial coefficients length k automaton 0101 binary polynomial\" [published-finding corpus 30]",
+        "published-finding corpus published semantic result search, checked hits with same terms",
+        "own accessible research ledger claim scan, 78 previous records"
+      ]
+    },
+    "rationale": "The all-positive-k exact parity state-complexity law and explicit dihedral presentation are not implied by the directly overlapping published k=3 modular Moore theorem (which covers k=3), known two-run modular results, or inspected k-binomial and Parikh-matrix literature. Searched both semantic published results and primary literature for aliases such as alternating subsequence parity, Moore minimization and two-reflection cyclic counters. Remaining unindexed and incompletely accessible full texts are candid residual risks; this is best-knowledge originality, not absolute historical uniqueness.",
+    "residual_risks": [
+      "An older or unindexed exact all-k alternating-parity counter theorem could exist despite the documented negative searches.",
+      "Complete full-text comparison was unavailable for the 2011 trie-automaton source and the 2026 Parikh-matrix paper; no whole-document noncoverage is inferred from snippets.",
+      "The proof is same-author self-checked and has not received independent specialist mathematical review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the stated theorem: counts of patterns of length two and their integer equivalence classes, not parity of all alternating pattern lengths nor minimum Moore-machine size",
+        "evidence": [
+          "arXiv 2510.07159v1 section 1 and section 3.1 identify the 2-binomial scope; sections 4 and 5 analyze partitions and fair words",
+          "https://arxiv.org/html/2510.07159v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2510.07159v1",
+        "material_read": "full arXiv HTML (Introduction, 2-binomial equivalence, class structure, fair-word sections and conclusion)",
+        "method": "direct HTML text inspection, including stated theorems and scope",
+        "title": "On some 2-binomial coefficients of binary words: geometrical interpretation, partitions of integers, and fair words",
+        "trigger": "2025 recent primary literature on binary positional scattered-subsequence statistics"
+      },
+      {
+        "assessment": "No positive indication of all-k parity Moore state minimization; abstract concerns universality and subsequence probabilities in fixed-Parikh-matrix classes. Whole-text coverage not ruled out by abstract alone.",
+        "evidence": [
+          "arXiv 2610.06717, first submitted 2026-10-05; indexed title/abstract; no full-text conclusion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.06717",
+        "material_read": "public arXiv abstract and dated article description; full text not obtained",
+        "method": "arXiv dated metadata and search-indexed description",
+        "title": "Subsequence Analysis Problems for Binary Parikh Matrices",
+        "trigger": "recent 2026 primary literature on binary subsequence counts and computational properties"
+      },
+      {
+        "assessment": "NOT_COVERING: concerns binomial-equivalence complexity among factors of fixed automatic words; no result about all binary input words or output-minimal machines for alternating-pattern parity",
+        "evidence": [
+          "arXiv 2412.18425, primary text sections on generalized Thue–Morse factors and k-binomial equivalence"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2412.18425",
+        "material_read": "substantial HTML/full-text representation including definitions, theorems and specialized factor-complexity results",
+        "method": "primary manuscript text inspection and comparison of objects",
+        "title": "Computing k-binomial complexity of generalized Thue–Morse words",
+        "trigger": "plausible nearby k-binomial complexity for patterns of arbitrary length"
+      },
+      {
+        "assessment": "Framework for counts and mappings; examined material does not give the asserted exact all-k modular state-minimization and dihedral presentation",
+        "evidence": [
+          "Černý (2010), abstract and Introduction: general formal-power-series framework for subword statistics",
+          "DOI 10.1051/ita/2009021"
+        ],
+        "identifier_or_url": "https://www.numdam.org/article/ITA_2010__44_2_209_0.pdf",
+        "material_read": "first-page and relevant mathematical text on formal-power-series/Parikh mappings",
+        "method": "primary PDF text and page-0 visual inspection",
+        "title": "Generalizations of Parikh Mappings",
+        "trigger": "early general algebraic framework potentially subsuming scattered-subsequence counters"
+      },
+      {
+        "assessment": "COVERS the k=3 specialization and its parity value 4; DOES NOT COVER arbitrary k≥4, growth staircases or the universal two-reflection machine, as its theorem is specific to 010/101 and varying modulus",
+        "evidence": [
+          "2026-11-08 published RESULT.md: sc_out(010 mod m)=m^3/gcd(m,2); stated limitation only length-three alternating patterns",
+          "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-output-state-complexity-for-modular-alternating-scattered--f8d46c1509db/RESULT.md"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-output-state-complexity-for-modular-alternating-scattered--f8d46c1509db",
+        "material_read": "entire published RESULT.md including theorem, proof, limitations and references",
+        "method": "read public primary proof via GitHub and compared its theorem/domain against the new all-k claim",
+        "title": "Exact output-state complexity for modular alternating scattered triples",
+        "trigger": "directly closest published output-Moore parity result for the same subsequence counting predicate"
+      },
+      {
+        "assessment": "UNRESOLVED_RISK; no full-text NOT_COVERING conclusion is made. A generic counting trie does not by itself imply exact output-state lower bound, but an equivalence cannot be excluded solely from title/summary.",
+        "evidence": [
+          "Alazemi and Černý (2011) journal metadata; full theorem not inspected"
+        ],
+        "identifier_or_url": "https://doi.org/10.1142/S0129054111008817",
+        "material_read": "bibliographic record/description only, full text unavailable",
+        "method": "open/preprint and lawful full-text availability attempts; content limitation logged",
+        "title": "Counting Subwords Using a Trie Automaton",
+        "trigger": "possible original construction covering modular scattered-counter automata"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d3676ae6-045c-4b70-afd5-c4b35d69d814",
+  "value": {
+    "rationale": "The natural memory requirement for streaming parity of an arbitrary alternating scattered pattern was not determined by the known fixed triple; the result gives a complete, all-length exact minimum and an unexpectedly tiny cyclic state realization, reducing an exponential 2^k prefix-counter representation to 2^{ceil(log2(k+1))} states. A sharp staircase at powers of two follows from the most-significant-bit obstruction. This addresses a motivated automata-minimization question rather than an arbitrary finite slice or restatement of standard counting recurrences.",
+    "status": "PASS"
+  }
+}
