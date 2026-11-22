@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Exact incremental identity, nonnegative edge-transport coefficients for ab<=1, finite-boundary column summation and full dissipation equality; the fast-tail six-site counterexample proves the converse for each ab>1. The checker verifies exact arithmetic examples but the universal proof is analytical.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Harten Lemma 2.2 ensures TVD if adjacent contributions are nonnegative and the sum is at most one; in the present application this proves the entire sufficiency direction.",
+        "Harten does not assert the converse necessity for a nonlinear edge-dependent smoothing family."
+      ],
+      "reasoning": "The general coefficient criterion is stronger as a sufficient theorem and is credited explicitly. Its one-way implication does not subsume the all-kernel necessity, explicit six-site monotone obstruction or exact boundary of the parameter plane.",
+      "searches": [
+        "Harten 1983 Lemma 2.2 incremental scheme TVNI",
+        "bounded variation bilateral filtering discrete one dimensional filter",
+        "doi:10.1016/0021-9991(83)90136-5"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/ICCV.1998.710815",
+      "arxiv:1007.1016v1",
+      "arxiv:1505.00412v1",
+      "doi:10.1016/0021-9991(83)90136-5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original bilateral sources provide the normalizing weighted-mean definition but no directed one-input TVD iff statement in reviewed material.",
+        "Harten covers sufficient positivity but not necessity; two-site two-input Lipschitz findings are distinct in both object and input quantification."
+      ],
+      "reasoning": "The new iff threshold and the exact finite-path dissipation identity do not follow merely from the cited performance conclusions or from Harten sufficiency without the separate sharp counterexample construction.",
+      "searches": [
+        "Tomasi Manduchi 1998 bilateral original",
+        "Pianykh 2010 bilateral filters what they can and cannot do",
+        "Galiano Velasco 2015 bilateral rearrangements",
+        "Harten 1983 TVNI coefficients"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full-text structural sections of the two archival bilateral sources concern deviation response and rearrangement rather than directed BV thresholds.",
+        "Harten 1983 Lemma 2.2 is equivalent to a sufficient nonnegative increment representation, not an exact characterization of this filter class."
+      ],
+      "reasoning": "The statement is invariant under multiplying input gray levels with the corresponding range-scale change, but it concerns one-input spatial variation, not two-input Lipschitz stability. No reviewed formulation states the sharp directed product condition.",
+      "searches": [
+        "\"bilateral filter\" \"total variation diminishing\" 1D",
+        "\"bilateral filtering\" \"variation diminishing\" theorem",
+        "\"bilateral filter\" \"total variation\" \"monotonic\"",
+        "arxiv:1007.1016v1",
+        "arxiv:1505.00412v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching entry with a direct exact alpha-beta phase boundary was identified among the checked indexed mathematical results.",
+        "The closest indexed results concern order statistics, finite-window morphology, and two-site two-input bilateral Lipschitz stability."
+      ],
+      "reasoning": "The claim concerns all finite paths length at least six and arbitrary fast-decaying range affinities, not a single published table or finite computed invariant. Search absence alone is not a priority proof.",
+      "searches": [
+        "three point bilateral filter asymmetric left right weights total variation contraction discrete BV threshold",
+        "sharp condition product of left and right directional bilateral filtering weights one dimensional total variation diminishing preservation all signal profiles",
+        "\"bilateral filter\" \"total variation diminishing\" \"three-point\""
+      ]
+    },
+    "rationale": "The closest generic lemma (Harten) covers the sufficient incremental-form implication but not the sharp necessary phase boundary for a directed three-site bilateral filter. The bilateral-filter source texts investigated give the operator and computational/rearrangement theory rather than this complete BV classification; indexed results for median and morphology are different nonlinear operators. No exact or stronger coverage was identified by actual source and published-record searches. Residual uninspected signal-processing literature leaves priority risk.",
+    "residual_risks": [
+      "Uninspected specialized historical signal-processing literature may contain the same directional weight product boundary.",
+      "Original ICCV 1998 conference PDF was not examined directly; a complete historical author-hosted HTML presentation was used.",
+      "Searches cannot prove unique priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines classical symmetric bilateral filters and discusses qualitative edge preservation, not a directed three-site BV if-and-only-if threshold",
+        "evidence": [
+          "https://homepages.inf.ed.ac.uk/rbf/CVonline/LOCAL_COPIES/MANDUCHI1/Bilateral_Filtering.html",
+          "https://ieeexplore.ieee.org/abstract/document/710815/authors"
+        ],
+        "identifier_or_url": "doi:10.1109/ICCV.1998.710815",
+        "material_read": "Accessible complete author-maintained HTML transcription, including definition, Gaussian case and experiments; IEEE bibliographic record; not the scanned original conference PDF",
+        "method": "Read text sections and compare definitions and conclusions",
+        "title": "Bilateral Filtering for Gray and Color Images",
+        "trigger": "Original bilateral average and Gaussian weighting definition"
+      },
+      {
+        "assessment": "Treats local noise-deviation and parameter selection; does not establish the claimed total-variation if-and-only-if product threshold in inspected sections",
+        "evidence": [
+          "https://arxiv.org/pdf/1007.1016",
+          "source pp.1-3,6-10"
+        ],
+        "identifier_or_url": "arxiv:1007.1016v1",
+        "material_read": "13-page arXiv PDF sections on bilateral definitions, deviation-reducing transforms, optimal parameters, kernel size and conclusions; original first page visually inspected",
+        "method": "Read source PDF text and inspect relevant formula page",
+        "title": "Bilateral Filters: What They Can and Cannot Do",
+        "trigger": "Potential complete analysis of bilateral parameter response"
+      },
+      {
+        "assessment": "Focuses on exact functional-rearrangement equivalence and numerical convergence, not adjacent-path TV norm stability or the directed product boundary",
+        "evidence": [
+          "https://arxiv.org/pdf/1505.00412",
+          "Theorems 1–3 and §5"
+        ],
+        "identifier_or_url": "arxiv:1505.00412v1",
+        "material_read": "29-page arXiv manuscript introductory prior-work comparison, theorem statements, rearrangement proof, discrete implementation, references; first page visually inspected",
+        "method": "Read structurally relevant source sections and search the full extracted text for variation and monotonicity",
+        "title": "On a Fast Bilateral Filtering Formulation Using Functional Rearrangements",
+        "trigger": "Broad mathematical representation of bilateral operators potentially implying variation stability"
+      },
+      {
+        "assessment": "Generic Harten criterion proves sufficiency once coefficients are identified; does not determine the converse product threshold or apply it to bilateral affinity filters",
+        "evidence": [
+          "https://www.researchgate.net/publication/285599438_High_Resolution_Schemes_for_Hyperbolic_Conservation_Laws",
+          "§2, Lemma 2.2"
+        ],
+        "identifier_or_url": "doi:10.1016/0021-9991(83)90136-5",
+        "material_read": "Accessible substantive original-paper full-text transcription, especially §2 Theorem 2.1, Lemma 2.2 and proof around formulae (2.9)–(2.12)",
+        "method": "Compared coefficient conditions and proof implication",
+        "title": "High Resolution Schemes for Hyperbolic Conservation Laws",
+        "trigger": "Generic stronger sufficient total-variation diminishing lemma"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d9393ab4-0a5d-4164-bf41-035715b275d8",
+  "value": {
+    "rationale": "A natural complete sharp product-threshold classification for all continuous fast-decaying range affinities, with a quantitative exact nonnegative loss identity and the first explicit monotone-to-nonmonotone failure mechanism on six-site paths. It gives actionable stability criteria for directed local edge-aware smoothing distinct from two-input Lipschitz and from routine positivity of the averaging weights.",
+    "status": "PASS"
+  }
+}
