@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The model is the normalized spherical-circle averaging Markov operator on \(L^2_0(S^2)\), not an arbitrary group walk. Funk–Hecke diagonalization gives its exact multipliers \(P_\ell(\cos\theta)\). Degrees one, two and three prove a global lower bound and uniqueness of the candidate. The exact fourth- and fifth-degree evaluations are strictly smaller. Laplace's Legendre integral and a closed third binomial moment give \(\sup_{\ell\ge6}|P_\ell(a)|\le B_6<r\) for all remaining degrees. The attached code verifies crucial exact expressions and rational comparisons, with finite tests explicitly distinguished from the infinite proof. The endpoint angles and all positive iterate counts are included in the proof.
+PASS
 
-## Originality — PASS, with historical-priority risk
+Funk–Hecke diagonalization yields ||T_theta|| on mean-zero L2 = sup_{l>=1}|P_l(cos theta)|. With a=(sqrt6-1)/5 and rho=(2+3sqrt6)/25, P2(a)=P3(a)=-rho; P2 for 0<=x<a, P3 for a<x<=rho and P1 for x>rho give strict global lower bound elsewhere. Exact P4(a), P5(a) are strictly smaller. Laplace integral gives |P_l(a)|<=B6=(2524-189sqrt6)/6250<rho for all l>=6 (not a finite inference). Reflection x↔-x and harmonic dimensions 5+7 give two angles and 12 worst-case directions; powers follow spectral theorem.
 
-The closest same-object primary analysis is Su (2001), whose inspected Section 5 gives exactly the Legendre multipliers but seeks discrepancy mixing order, not minimizing the spectral radius over the fixed step angle. Mangoubi–Smith (2016) use the fixed-time geodesic algorithm but prove curvature-based Wasserstein mixing bounds; the inspected Algorithm 1 and Theorem 5 do not supply this exact minimax. Schär–Stier (2023) concern a distinct geodesic-slice sampling kernel with a uniformly sampled arc angle and a Wasserstein guarantee. Searches for the exact radical, the spectral norm, alternative circle-average names, and the degrees-two/three balancing condition identified no statement subsuming the exact classification. This is a reasoned novelty comparison rather than a claim that unsuccessful searches prove uniqueness in the literature; a hidden earlier extremal Legendre result remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The question is intrinsic to designing isotropic fixed-length random moves on the sphere: a single angle must damp every nonconstant harmonic degree. The answer is a sharp global, infinite-frequency minimax with exactly two complementary optimizer angles, a twelve-dimensional worst-case harmonic subspace, and an exact exponential rate for every number of steps. It improves the equatorial choice's worst-case factor \(1/2\) to \((2+3\sqrt6)/25\) and separates spectral design from discrepancy/Wasserstein estimates. No stronger claim about point-mass total variation is made.
+Best-known sharp S2 full L2 angle optimization not provided by inspected same-operator Su discrepancy theorem or higher-d spectral result, which expressly excludes d=3.
 
-## Scope and remaining risks
+## value
 
-A specialized Legendre supremum optimization from historical approximation or spherical random-walk literature may predate this calculation; independent audit and priority verification are outstanding. No optimization over angle mixtures or other sphere dimensions has been proved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fastest one-shell isotropic Markov walk on S2 is an intrinsic spectral-design question. Exact global infinite-frequency optimum ~0.373939 improves equatorial worst-case 0.5, identifies two angles and the 12-dimensional equality sector, and determines all k-step L2 decay rates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

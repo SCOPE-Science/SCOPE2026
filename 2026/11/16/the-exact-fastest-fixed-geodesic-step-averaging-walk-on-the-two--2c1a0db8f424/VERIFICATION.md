@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Analytical and executable verification
+# Independent mathematical audit
 
-- The proof diagonalizes spherical-circle averaging on the normalized \(L^2_0(S^2)\) harmonic direct sum and proves a global minimax lower bound from degrees one, two and three.
-- The exact evaluation of \(P_4\), \(P_5\), and the Laplace-moment quantity \(B_6\) are supplied in the proof and independently checked in \(\mathbb Q(\sqrt6)\) by the standalone code.
-- The code uses exact rational interval bounds for \(\sqrt6\) to check the strict inequalities; its 1,510 additional numerical recurrences and angle comparisons are supplemental only.
-- The inequality \(|P_\ell(a)|\le B_6<r\) for **all** \(\ell\ge6\) follows from a pointwise modulus bound inside Laplace's integral, not from sampled degrees.
-- Reproduce using `python verify.py`, with only Python standard-library modules; numerical output contains a PASS line and the computed optimum.
-- The finding has not undergone independent mathematical audit. Historical priority outside the inspected primary sources remains unverified.
+## correctness
+
+PASS
+
+Funk–Hecke diagonalization yields ||T_theta|| on mean-zero L2 = sup_{l>=1}|P_l(cos theta)|. With a=(sqrt6-1)/5 and rho=(2+3sqrt6)/25, P2(a)=P3(a)=-rho; P2 for 0<=x<a, P3 for a<x<=rho and P1 for x>rho give strict global lower bound elsewhere. Exact P4(a), P5(a) are strictly smaller. Laplace integral gives |P_l(a)|<=B6=(2524-189sqrt6)/6250<rho for all l>=6 (not a finite inference). Reflection x↔-x and harmonic dimensions 5+7 give two angles and 12 worst-case directions; powers follow spectral theorem.
+
+## originality
+
+PASS
+
+Best-known sharp S2 full L2 angle optimization not provided by inspected same-operator Su discrepancy theorem or higher-d spectral result, which expressly excludes d=3.
+
+## value
+
+PASS
+
+Fastest one-shell isotropic Markov walk on S2 is an intrinsic spectral-design question. Exact global infinite-frequency optimum ~0.373939 improves equatorial worst-case 0.5, identifies two angles and the 12-dimensional equality sector, and determines all k-step L2 decay rates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
