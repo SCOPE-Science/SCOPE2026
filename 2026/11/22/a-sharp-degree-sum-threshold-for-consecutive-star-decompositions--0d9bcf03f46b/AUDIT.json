@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The exact conductor lemma, two easy orientations, hard-case slot inequalities and Gale--Ryser realization prove existence for all k>=3 and a+b>=k^2-1. The b=k(k-1)-1 Frobenius obstruction at shore size k-1 proves sharpness. Verify_stars.py independently exhausts thousands of cases and exhibits no logical reliance on finite testing.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hajebi--Javadi arXiv:2411.13348v1 Theorem 2.5 quoting Tarsi expansion criterion, Theorem 3.3 on prescribed-count complexity",
+        "Lee arXiv:2611.24973v1 Section 4: complete multipartite threshold 9 for k=3; higher-k remains open",
+        "Harangi arXiv:2506.05194v1: random regular graphs with uniform k-star sizes"
+      ],
+      "reasoning": "Tarsi-type expansion guarantees some well-expanded instances but cannot itself imply the optimal all-biclique threshold, including shore size k-1 and the precise counterexample. Lee's k=3 multipartite threshold 9 is weaker than the k=3 biclique bound 8, and contains no claim for arbitrary k. Hardness under prescribed counts neither entails nor contradicts unrestricted-count existence.",
+      "searches": [
+        "Every complete bipartite graph K_{a,b} with a+b >= k^2-1 admits a decomposition into stars of sizes k and k+1, sharp K_{k-1,k(k-1)-1}",
+        "consecutive star decomposition sharp degree sum k squared minus one for complete bipartite all k",
+        "\"k\" \"k+1\" \"stars\" \"complete bipartite\" decomposition",
+        "\"degree sum\" \"star decompositions\" complete bipartite 2024 2025 2026"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2411.13348v1 (2024-11-20), accessible full text",
+      "arXiv:2506.05194v1 (2025-06-05), accessible main text",
+      "arXiv:2611.24973v1 (2026-11-17), relevant full text (supporting only)",
+      "doi:10.1155/2013/398473, accessible main text",
+      "arXiv:1807.10738 (2018), intro and main theorem pages",
+      "Public semantic comparisons of exact threshold, parameter aliases and orientation reductions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hajebi--Javadi arXiv:2411.13348v1 Theorem 3.3 uses arbitrary prescribed lists of star lengths and bin-packing gadget",
+        "Harangi arXiv:2506.05194v1 Theorems in random d-regular setting",
+        "Lee arXiv:2611.24973v1 Theorems 4.1-4.4 and general tripartite obstruction",
+        "Shyu 2013 10.1155/2013/398473 Theorem 7 uses paths and same-length stars"
+      ],
+      "reasoning": "Explicit novelty implication checks: prescribed-count hardness does not yield an every-biclique unprescribed-count threshold; single-length random-regular orientation does not imply adjacent lengths on all bicliques; the multipartite k=3 result at 9 does not yield sharp biclique 8 or higher k; path-plus-star designs use different permitted blocks. Residual risk is an unindexed earlier stronger theorem or alternate direct consequence of historical star-design criteria.",
+      "searches": [
+        "Every complete bipartite graph K_{a,b} with a+b >= k^2-1 admits a decomposition into stars of sizes k and k+1, sharp K_{k-1,k(k-1)-1}",
+        "\"K_{1,k}\" \"K_{1,k+1}\" \"complete bipartite\" decomposition",
+        "\"consecutive\" \"stars\" \"complete bipartite\" \"decomposition\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2411.13348v1, Introduction and Sections 2-5; graph orientations with semigroup-allowed outdegree",
+        "arXiv:2611.24973v1, Sections 3-4; two star sizes and degree-sum",
+        "Indexed source 2026/10/18/SCOPE-sparse-and-nearly-complete-binary-vertex-colouring-edge-weightin--ae804bc7c076"
+      ],
+      "reasoning": "Rephrasing a two-size star partition as a vertex-outdegree numerical-semigroup orientation is equivalent to the claim and was queried. The indexed nearby biclique star-cover/weighting work does not assert an all-biclique threshold; the 2026-11-17 paper states a more general graph question but does not supply the exact all-k biclique answer.",
+      "searches": [
+        "k-star (k+1)-star decomposition K_{a,b} complete bipartite sharp degree-sum k squared minus 1",
+        "consecutive star sizes additive numerical semigroup biclique orientation Gale Ryser",
+        "\"decompose\" \"K_{m,n}\" \"K_{1,k}\" \"K_{1,k+1}\"",
+        "\"consecutive stars\" \"edge decomposition\" complete bipartite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Publicly indexed source 2026/10/18/SCOPE-sparse-and-nearly-complete-binary-vertex-colouring-edge-weightin--ae804bc7c076 concerns binary vertex-colouring edge-weightings; no decomposition threshold",
+        "2013 DOI:10.1155/2013/398473 enumerates path-plus-star decompositions, not two adjacent stars"
+      ],
+      "reasoning": "No source examined gives a k-indexed table or formula for minimum degree-sum of two consecutive star sizes across every biclique. Semigroup tests are reproduced rather than sourced from a novelty table. Absence from queried index is not itself proof of novelty.",
+      "searches": [
+        "k-star (k+1)-star decomposition K_{a,b} complete bipartite sharp degree-sum k squared minus 1",
+        "mixed star edge partition K_{m,n} positive non-prescribed multiplicities",
+        "\"complete bipartite\" \"stars\" decomposition semigroup conductor"
+      ]
+    },
+    "rationale": "The source-dated 2024 Hajebi--Javadi paper treats prescribed counts and parameterized complexity, without this universal mixed-size biclique degree-sum threshold. Harangi treats uniform stars in random regular graphs. The full relevant 2026 Lee paper gives a different multipartite bound at k=3 but no all-k biclique threshold. Older pure-star and mixed path/star results differ. Searches of the available semantic index and primary literature found no equivalent statement, but unindexed early design literature is a priority risk.",
+    "residual_risks": [
+      "Older unindexed or inaccessible star-design articles might imply the same biclique threshold under another formulation; no independent exhaustive literature review.",
+      "Cameron--Horsley and historic Tarsi/Yamamoto criteria potentially have specialized corollaries not independently checked in all old appendices.",
+      "The November 17, 2026 directly related Lee preprint presents complementary results and future developments could affect historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the unprescribed two-consecutive-star biclique threshold",
+        "evidence": "First posted 2024-11-20, Section 3 biclique reduction takes variable star lengths and exact multiplicities; Section 2 expansion lemma gives only a sufficient criterion.",
+        "identifier_or_url": "https://arxiv.org/abs/2411.13348",
+        "material_read": "Full accessible HTML text: Introduction, orientation criterion, Theorems 2.5, 3.3, and Sections 4-5",
+        "method": "Read web-hosted arXiv full text, compare prescribed multiplicities and main biclique hardness theorem",
+        "title": "Parameterized Complexity of Star Decomposition Problem",
+        "trigger": "Recent study of variable star lengths and hard biclique instances"
+      },
+      {
+        "assessment": "NOT_COVERING; random regular homogeneous-star regime",
+        "evidence": "First posted 2025-06-05; results about random regular graphs and fixed star length.",
+        "identifier_or_url": "https://arxiv.org/abs/2506.05194",
+        "material_read": "Accessible arXiv main statement and introduction and orientation conclusions",
+        "method": "Read original arXiv version and scope",
+        "title": "Star decompositions via orientations",
+        "trigger": "Possible stronger orientation theorem"
+      },
+      {
+        "assessment": "NOT_COVERING all-k biclique sharp threshold; k=3 complete multipartite bound only. Later comparison only",
+        "evidence": "First posted 2026-11-17; paper proves multipartite sufficiency at degree-sum 9 for k=3 and leaves higher-k multipartite regime open.",
+        "identifier_or_url": "https://arxiv.org/html/2611.24973v1",
+        "material_read": "Full relevant text of introduction, background, orientation equivalence, Section 4 results, discussion and appendices",
+        "method": "Read arXiv HTML source at full text including theorem statements and comparisons",
+        "title": "Star decomposition of complete multipartite graphs",
+        "trigger": "Closest exact two-length/degree-sum formulation; check stronger coverage"
+      },
+      {
+        "assessment": "NOT_COVERING two consecutive stars: permits a path and a star of the same length",
+        "evidence": "Theorem 7 characterizes balanced bicliques decomposed into k-edge paths and k-edge stars, with total edge divisibility.",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2013/398473",
+        "material_read": "Open access Introduction, Propositions 1-2 and Theorem 7 plus construction",
+        "method": "Read publisher HTML full mathematical main result and conditions",
+        "title": "Multidecompositions of the Balanced Complete Bipartite Graph into Paths and Stars",
+        "trigger": "Possibly equivalent biclique decomposition conditions"
+      },
+      {
+        "assessment": "GENERAL_CRITERIA, no explicit all-k biclique sharp threshold seen; residual implication risk retained",
+        "evidence": "Treats prescribed star-size multisets of complete multigraphs and general necessary/sufficient feasibility rather than uniform biclique degree-sum.",
+        "identifier_or_url": "https://arxiv.org/abs/1807.10738",
+        "material_read": "Accessible full-text introduction and theorem statements, including Theorem 2 (not every appendix)",
+        "method": "Read available preprint text and inspect first and theorem PDF pages",
+        "title": "Decompositions of complete multigraphs into stars of varying sizes",
+        "trigger": "General star decomposition dominance risk"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0d9bcf03-f46b-4043-815b-b5f79b0cc098",
+  "value": {
+    "rationale": "A sharp natural infinite-family threshold with a concrete infinite obstruction and explicit existence mechanism. The result includes highly unbalanced bicliques that generic expansion conditions do not handle, and identifies the numerical-semigroup conductor as the exact all-k boundary. No claim of broader graph classes or prescribed-count feasibility.",
+    "status": "PASS"
+  }
+}
