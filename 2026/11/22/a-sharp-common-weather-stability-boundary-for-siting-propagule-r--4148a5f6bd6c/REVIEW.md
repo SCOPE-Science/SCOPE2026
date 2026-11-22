@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+Exponential Laplace transforms produce the exact common-frailty joint-arrival probability. In the square-distance coordinate, its derivative has a strictly positive denominator and an explicit polynomial numerator. The midpoint sign polynomial is strictly decreasing with intensity, giving one sharp local-stability boundary; a separate strictly positive coefficient gives negative quartic curvature at equality. Strict local inferiority, evenness and decay at infinity prove at least two off-centre global optimizers below the boundary, without making unsupported uniqueness claims. A standalone exact-identity checker passed 698 deterministic assertions. No numerical sample is used as an infinite proof.
+
+## Originality — PASS relative to inspected literature; priority remains provisional
+The full materials inspected for Clark et al. (1999), Lindén and Mäntyniemi (2011), Seri et al. (2012), and Greene et al. (2004) provide fat-tailed kernels or overdispersed counts but do not derive a joint two-target source-placement boundary with one common stochastic forcing variable. Published records on independent Poisson allocation, two-patch rescue and Cauchy product bimodality are nearby yet use a factorized objective or different decision variables. In particular, the independent-frailty Cauchy-product threshold is known in analogous mathematical settings and **is not claimed as an original finding**. The novel candidate is the explicit common-frailty polynomial and its demonstrably distinct sharp local threshold. Inaccessible full treatments of correlated founding and general location optimisation remain a priority risk, and an exhaustive historical priority claim is not made.
+
+## Value — PASS
+A single shared environmental shock is a natural cause of correlated establishment across receiving habitats. Its effect cannot be represented by multiplying sitewise marginal success probabilities. The sharp threshold reveals how this correlation changes where local seed-release placement becomes unstable; the strict comparison with independent forcing makes the role of shared variation quantitative. This is an analytical ecological benchmark, not a field-calibrated recommendation. Only local stability of the midpoint (and existence of noncentral global optima below threshold), not a complete global optimizer classification at higher intensity, is established.
+
+Self-review: passed. Independent audit: not yet performed.
