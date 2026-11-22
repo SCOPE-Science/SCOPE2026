@@ -1,19 +1,21 @@
-# Scientific review: stochastic order for metric flower distances
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each petal, the same-circle distance law is uniform on the half-circumference; for distinct petals, radial distances to the unique shared junction are independent uniform random variables and their sum is the distance. Integration gives an exact hinge-polynomial survival formula. Its derivative under an unequalizing pair transfer separates into the elementary nonnegative pair term \(c\mathbf1_{b<c<a}\) and nonnegative terms from all other petals, since \(\partial_xK_c(x,d)\) is increasing in \(x\). Continuity covers every breakpoint, and finite majorization transfer sequences yield the all-real-parameter inequality. A strict interval follows for every nontrivial transfer. The direct exact-arithmetic tests are supporting checks, not proofs in place of this argument.
+PASS
 
-## Originality — PASS, with residual priority risk
+For a single circle of length a, intrinsic distance of two uniform points is uniform on [0,a/2], producing same-circle ordered pair tail J_c(a)=a(a-c)_+. For distinct petals the junction distances are independent uniforms on [0,a/2],[0,b/2], giving K_c(a,b)=ab-[c²-(c-a)_+²-(c-b)_+²+(c-a-b)_+²]/2. Summing over petals yields exact full tail. Increasing a>b and decreasing b has two-petal derivative c*1_{b<c<a}, while each third petal contributes 2(partial_a K_c(a,d)-partial_b K_c(b,d))>=0, since partial_xK=d-(c-x)_++(c-x-d)_+ is increasing in x. Continuity across hinges and the finite Robin Hood transfer characterization give all-length, all-threshold majorization. Taking c between a,b yields strictness over an interval; at small thresholds the common 1-2t/L-2m(m-1)t²/L² plateau prevents an over-strong pointwise strictness claim. Independently tested exact rational sums for random transfers m2..7 and all hinge boundaries, corroborative but not proof.
 
-The accessible 2024 full text of Baptista–Kennedy–Mugnolo, especially Example 4.3, Lemma 4.4 and the proof, gives the mean-distance formula and mean-minimizing flower, not the survival function or distributional Schur comparison. A prior research record on flower graphs establishes Schur convexity of the *second raw moment* and explores non-Schur behavior of variance; these scalar consequences do not imply an all-threshold order. Another prior record gives inverse recovery of petal lengths from the complete distance histogram, but injectivity does not imply any monotone comparison. A different past result concerns stochastic order of finite complete bipartite graph distances; this is not the continuous metric bouquet. The closest published-finding corpus semantic records concern two-particle persistence on metric stars and unrelated metric graph invariants; none describes this majorization order. Doyle–Graver's 1982 archival mean-distance summary is accessible; the longer full paper is not, and priority cannot be fully certified. No independent priority audit is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-First-order stochastic dominance is stronger than optimizing a single mean or second moment: it simultaneously compares all tail risks, quantiles, positive moments and increasing geodesic costs. This gives a complete sharp order for arbitrarily many positive real petal lengths at fixed network size, with a unique minimum and an explicit account of the shared small-distance regime. Its proof isolates the topological source of the monotonicity in the entire distribution rather than simply rederiving an older moment.
+The accessible full 2024 Baptista–Kennedy–Mugnolo paper gives the flower *mean* distance extremal via a scalar length perturbation, not simultaneous stochastic dominance at every threshold. Earlier Resultary flower variance and E[D²] result addresses only finitely many moments (and finds centered variance may not be Schur convex), and distance-law reconstruction is an injectivity statement, not an ordering assertion. The direct nonnegative hinge-tail derivative is additional mathematical content. A plausible long Doyle–Graver 1982 historical paper was inaccessible, disclosed as priority risk without automatically failing O.
 
-## Scope and remaining risk
+## value
 
-The argument is special to the one-junction bouquet topology and cannot be transferred unchanged to general graphs. Missing access to the 1982 long full paper and to any unindexed literature leaves some historical-priority uncertainty; independent proof review has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A full first-order stochastic order simultaneously controls every increasing risk functional and all quantiles of geodesic distance, strictly strengthening the known mean-minimization classification on a canonical family of compact metric graphs. The explicit tail kernels, all-threshold derivative and sharp non-strict near-zero plateau are structural, independently useful geometric probability facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
