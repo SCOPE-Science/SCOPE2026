@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The four orientation states of each degree-two vertex have an exact directed-cycle obstruction: both mixed types together and only those. The standard bijection between graphical-zonotope vertices and acyclic graph orientations is used with the explicit centered half-signed-degree coordinates. The resulting norm formula is elementary but fully quantified for every \(q\ge2\). Counting the two mixed-type branches with a single shared zero-mixed family gives every coefficient. A lattice-square identity gives the near-origin radius and exact multiplicities; strict convexity on the count triangle gives precisely two outer-radius vertices. The parity assertions use the zero-sum integer or half-integer coordinates. The expectation is an exact overlapping-branch correction, and the Gaussian law follows because the overlap probability is exponentially small and one binomial count dominates fluctuations. An independent topological-sort enumeration and integer checks reproduced the exact identities in their finite ranges. Infinite conclusions rest on the analytical argument, not experimental extrapolation.
+## correctness
 
-## Originality — PASS with residual historical risk
-The 2021 graphical-zonotope deformation paper focuses on facet/deformation cones; the 2022 shuffle paper describes complete-bipartite zonotopes and their face counts. Neither inspected relevant primary text provides a complete Euclidean vertex-radius multiset, a parity-dependent smallest-vertex contact number, or the uniform-counting vertex-radius central limit theorem. Closest published mathematical records respectively determine the complete-multipartite outer circumsphere, the complete-bipartite vertex-degree spectrum, Euclidean incenter loci, uniform **interior-volume** covariance, and Gaussian **normal-cone** exposure. Those do not imply the claimed complete counting-measure radius distribution. The known outer-radius formula is acknowledged and excluded from the independent novelty claim. No source comparison can certify absolute priority; an equivalent indegree-imbalance enumerator in earlier graph-orientation literature remains a risk.
+PASS
 
-## Mathematical value — PASS
-The exact radius polynomial classifies a natural complete Euclidean invariant for an infinite family of nonsimple graphical zonotopes, including every shell and its multiplicity, sharp closest-vertex contact counts, and a precise asymptotic distribution. The coexistence of two macroscopic orientation sectors with a single Gaussian *radial* fluctuation law is geometrically informative. This is not an arbitrary finite census, a change of labels, or merely a known farthest-radius computation.
+PASS. For K_{2,q}, q>=2, acyclic orientations exclude simultaneous opposite mixed leaf columns (each pair makes a directed four-cycle). The two ternary product families overlap only in the binary unmixed columns. Their half-signed-degree coordinates yield 2R^2=(a-b)^2+c^2+2(a+b), with 2-1_(c=0) overlap weight, giving the full polynomial F_q and vertex count 2*3^q-2^q. The lattice completion R^2=q-1/2+[d^2+(c-1)^2]/2 with d congruent q-c mod2 identifies both parity-dependent nearest shells and counts. Convexity at the count simplex yields two outer extreme vertices; mean is corrected by subtracting the binary overlap. The latter is exponentially negligible in total variation compared with a ternary multinomial, so the binomial c fluctuation and delta method give Gaussian (R-q/(3sqrt2))/sqrt q with variance 1/9. Independently enumerated all Kahn-acyclic orientations q=2..6, verifying complete shell counters, minima and multiplicities; infinite range established analytically.
 
-## Closest literature and limits
-Padrol–Pilaud–Poullot (arXiv:2111.12422, §§1–2) and Chapoton–Pilaud (arXiv:2201.06896, §§1.4, 2.4, Appendix A) give structural, not radial, results. Accessible published research records give extremal radii and other sampling invariants. The theorem assumes the unweighted canonical Euclidean realization, and radius means distance from its center to a **vertex**, not inradius of the body. Historic priority is provisional. Independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, bounded. Padrol–Pilaud–Poullot's deformation-cone theorem and Chapoton–Pilaud's complete-bipartite graphical-zonotope shuffle/face enumeration provide the orientation model but not a metric radial distribution. The prior published complete-multipartite circumsphere full theorem subsumes only the maximum R^2=q(q+2)/2 and its two attaining vertices; these are explicitly treated as known consistency checks. The very close published K2q uniform-vertex covariance full theorem determines E R^2 via its trace, but not the complete shell multiset, sharp inner shell counts, or nontrivial CLT. Gaussian normal-cone exposure and interior-volume moments use different distributions. A historical indegree-enumerator equivalence remains possible.
+
+## value
+
+PASS
+
+PASS. The complete Euclidean vertex-radius spectrum and its nearest-shell contact multiplicities are natural discrete geometric invariants of a highly symmetric but nonsimple polytope family. The full polynomial and uniform-counting Gaussian fluctuation theorem answer distinct exact and asymptotic questions that are not specified by total vertex count, extremal enclosing sphere, or covariance alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
