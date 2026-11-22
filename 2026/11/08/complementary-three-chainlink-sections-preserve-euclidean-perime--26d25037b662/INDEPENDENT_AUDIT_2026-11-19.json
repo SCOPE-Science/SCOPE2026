@@ -1,0 +1,186 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T18:08:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned pinned RESULT.md, SLOGAN.txt, AUDIT.json, METADATA.json, REVIEW.md, VERIFICATION.md and verify.py at the declared Git commit; exact blob SHA list recorded.",
+        "Independent exact-rational vertex/edge classifier executed locally (non-repository code), 400 cases; source verifier read, not treated as a substitute for proof."
+      ],
+      "independent_checks": [
+        "Independently established disjointness via >ell / <ell on each shared directed 3-cycle coordinate; verified the triangle-plus-strip facet boundary decomposition, including the two end-face terms often omitted by naive cap-subtraction.",
+        "Independently implemented exact Fraction 9-halfplane polygon vertices and classified every nondegenerate edge by the unique active facet at its midpoint; 400 seeded rational admissible (a_i,ell,t) instances tested both complementary heights, with 400 x 2 independent coordinate/difference comparisons and cross-height symmetry; max numerical deviation <2e-9.",
+        "Exact rational squared-edge multisets reproduce the 5/10 noncongruence; numerical Euclidean lengths match 6sqrt2+3sqrt6 at both heights; outside-domain 5/7 lengths differ by (sqrt6-sqrt2)/2.",
+        "Reconstructed Git tree object from seven source blob SHA-1s in sorted order, computed 022558b4a40ad423cebe810703b8145951694f04, identical to assignment."
+      ],
+      "rationale": "For positive real a_i,ell with 2ell<=min a_i, the three open caps x_i-x_{i+1}>a_i-ell in the box are pairwise disjoint: each forces one coordinate > a_i-ell>=ell and the next <ell, preventing shared-coordinate overlaps in a 3-cycle. On each cap, coordinates u=a_i-x_i>=0,v=x_{i+1}>=0 obey u+v<=ell and x_{i+2}=z+u-v with z=t-a_i. Direct strip-triangle intersection yields a new difference-facet segment length sqrt(6)[g_ell(z)-g_ell(z-a_{i+2})]/2, loss sqrt(2) times the same clipped-ramp difference on its u=0 and v=0 box sides, and loss sqrt(2)[k_ell(z)+k_ell(z-a_{i+2})]/2 on two box end faces. With the reflected box-section profile P_B and a_i+a_{i+2}=N-a_{i+1}, summation gives exactly P_diff=sqrt(6)S/2 and P_coord=P_B-sqrt(2)S-sqrt(2)T/2. Identities g_ell(-z)=2ell-g_ell(z) and k_ell(-z)=k_ell(z) imply the two sums are unchanged under t -> N-t; continuity handles exceptional levels and singleton endpoints. Independently enumerated exact rational half-plane intersections and midpoint-active facet tags for 400 seeded admissible parameter/height cases, testing actual coordinate and difference edge-length totals against both profiles at t and N-t; all passed. Separately computed unequal hexagon edge-multisets at (6,4,5;2), t=5,10 and difference (sqrt6-sqrt2)/2 at (3,4,5;2), t=5,7. Rebuilt the canonical Git tree SHA from all seven pinned blob IDs and matched 022558b4... . Analytical proof, not those finite tests, establishes the continuum theorem.",
+      "residual_risks": [
+        "Classification of edge families at critical levels is defined by continuous extension, not by assigning an ambiguous coincident edge to both facets; this is correctly specified in the claim.",
+        "The numerical finite checks cannot establish the theorem for all real inputs; the explicitly reconstructed disjoint-cap proof is necessary.",
+        "The proof is three-dimensional only; for longer directed cycles, nonadjacent caps may overlap."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kantarcı Oğuz–Özel–Ravichandran, 2022, Theorem 1: Ehrhart equivalence of complementary integer slices when 2ell <= min a_i; Proposition 6.8: volume of the full chainlink body via a matching trace.",
+          "Published October 18 inball-phase record: same chainlink family, one fixed vector, equality of perimeter at levels 6 and 9, but six-branch inradius rather than universal perimeter symmetry.",
+          "Published October 18 persistent-diameter-gap record: parameterized special family and a diameter inequality at two fixed heights; no all-height perimeter law."
+        ],
+        "reasoning": "The general lattice-enumerator theorem is not a metric boundary-profile identity. In the plane x1+x2+x3=t the primitive tangent speeds for coordinate and difference facets are sqrt(2) and sqrt(6); a lattice-normalized boundary identity cannot determine both Euclidean lengths separately. Full-body volume/inradius and restricted-section diameter are distinct invariants, not stronger perimeter theorems. No inspected broader result logically dominates the two-family claim.",
+        "searches": [
+          "arxiv:2211.08382v1 Theorem 1, §3 and §6 Proposition 6.8 (full preprint)",
+          "Resultary: chainlink polytope Ehrhart equivalent slices equal perimeter Euclidean boundary intrinsic volumes",
+          "Resultary: facet-class edge perimeter profiles chainlink polytope 3-dimensional",
+          "Resultary: chainlink polytope 3-dimensional complementary section metric profiles"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2211.08382",
+        "https://www.researchgate.net/publication/365422598_Chainlink_Polytopes_and_Ehrhart-Equivalence",
+        "https://www.mat.univie.ac.at/~slc/wpapers/FPSAC2023/67.html",
+        "https://doi.org/10.1007/s00026-023-00683-x",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-six-euclidean-inball-phases-of-complementary-chainlink-sections--c9e534b71133/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-persistent-euclidean-diameter-gap-in-ehrhart-equivalent-chainl--f82c8e739e2b/RESULT.md",
+        "Resultary semantic search three direct chainlink perimeter/Euclidean boundary formulations",
+        "SCOPE-Science/SCOPE2026 targeted GitHub code searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Theorem 1: equal Ehrhart quasipolynomials for complementary integer sections, with induced equality of normalized areas and lattice boundary data.",
+          "New all-real theorem: P_coord(t)=P_coord(N-t) and P_diff(t)=P_diff(N-t), with P_diff=sqrt(6) S/2, P_coord=P_B-sqrt(2) S-sqrt(2)T/2 for real positive a,ell, 2ell<=min a.",
+          "Example (6,4,5;2), heights 5 and 10: six-edge squared-length multisets differ although both facet-type totals coincide; the (3,4,5;2) example gives a positive perimeter asymmetry outside the half-size domain.",
+          "Published October 18 inball example already establishes one specific complement pair with equal perimeter; not recredited here."
+        ],
+        "reasoning": "Neither an Ehrhart equality nor the known particular equality at one height entails the separate metric edge-family identities or a continuous parameter-and-height classification; source results on inradius/diameter are neither equivalent nor dominating. Universal Euclidean perimeter equality is established here by a new explicit disjoint-cap boundary census, not by numerical spot checking.",
+        "searches": [
+          "arxiv:2211.08382v1 Theorem 1/4.8 vs its section geometry and relative volume",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-six-euclidean-inball-phases-of-complementary-chainlink-sections--c9e534b71133/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-persistent-euclidean-diameter-gap-in-ehrhart-equivalent-chainl--f82c8e739e2b/RESULT.md",
+          "Resultary: complementary chainlink sections equal Euclidean perimeter for every t"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The accessible complete original preprint (arXiv:2211.08382v1) defines the same cyclic constraints but its Theorem 1 proves equality of Ehrhart quasipolynomials, not Euclidean boundary length; §6 Proposition 6.8 is a full-body volume formula.",
+          "Resultary 2026/10/18/SCOPE-six-euclidean-inball-phases-of-complementary-chainlink-sections--c9e534b71133 proves equal perimeters for one complementary pair (4,5,6;2), t=6 and 9, while computing inradii; its full RESULT.md was read.",
+          "Searches on perimeter, edge-family valuations and section lengths did not reveal a separate matching theorem; the mirror with ID 26d25037b662 is the assigned claim itself."
+        ],
+        "reasoning": "Checked chainlink, circular-fence and cyclic-box descriptions, Euclidean perimeter, first intrinsic volume, edge-type boundary valuations, and complementary section formulas. Ehrhart symmetry does not in general enforce ordinary Euclidean perimeter (lattice lengths weight the sqrt(2) and sqrt(6) direction classes differently), let alone both separately and at all real heights. A single prior special pair cannot imply the universal formula. Search absence is not novelty proof.",
+        "searches": [
+          "Resultary: 3D chainlink polytope complementary sections Euclidean perimeter coordinate facet diagonal facet edge length symmetry",
+          "Resultary: complementary chainlink sections equal Euclidean perimeter for every t",
+          "Web: \"chainlink\" \"perimeter\" \"sections\" polytopes",
+          "Web: chainlink polytopes complementary slices perimeter Euclidean lengths boundary facets",
+          "GitHub code search: complementary chainlink perimeter in SCOPE-Science/SCOPE2026",
+          "https://www.researchgate.net/publication/365422598_Chainlink_Polytopes_and_Ehrhart-Equivalence (full public preprint in HTML text, Definition 3.1, Theorem 1, §3, §6, §7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2022 full source gives Ehrhart, volume and combinatorial formulas, not the explicit clipped-ramp g_ell / tent k_ell paired two-facet metric profiles.",
+          "The exact prior numerical t=6,9 perimeter 9(sqrt(2)+sqrt(6))/2 concerns one integer-level pair; it does not tabulate arbitrary real parameters, heights or separate facet-type totals.",
+          "Resultary mirror of 26d25037b662 reproduces the assigned claim and is not independent priority."
+        ],
+        "reasoning": "No inspected table/database covers S(t), T(t), P_coord(t), P_diff(t) universally. The search is bounded and the inability to find an entry is explicitly not proof of novelty.",
+        "searches": [
+          "Resultary: boundary Euclidean length of chainlink slice polygon arbitrary a link l",
+          "Web: \"chainlink\" \"perimeter\" \"sections\" polytopes",
+          "Web: site:github.com/SCOPE-Science/SCOPE2026 \"chainlink\" \"perimeter\"",
+          "GitHub code search: chainlink facet length; Euclidean perimeter of chainlink sections"
+        ]
+      },
+      "rationale": "The complete 2022 public chainlink preprint gives complementary integer-section Ehrhart equality (Theorem 1/4.8), full-body vertex/facet structure and a volume trace (Proposition 6.8), not the distinct inherited Euclidean coordinate-facet and difference-facet perimeter profiles. The prior October 18 geometric records establish a single (4,5,6;2) equal-perimeter example and a parametric complementary-diameter gap, respectively, but neither entails the present simultaneous two-facet-family all-real-level identities for arbitrary positive a_i and ell in the half-size regime. The present Resultary entry is a mirror of the assigned result, not independent prior coverage. Best-of-knowledge originality, not certified global priority.",
+      "residual_risks": [
+        "The final 2024 journal article body was not inspected; the complete 2022 preprint of the same paper was read and did not contain the theorem. Changes in the journal final text cannot be fully excluded.",
+        "An unindexed geometrically equivalent theorem under different terminology may exist; targeted database, GitHub, primary literature, and full-text comparisons are nonexhaustive.",
+        "The 2026-11-08 Resultary hit is the indexed mirror of the assigned result and supplies no independent priority evidence.",
+        "The October 18 same-object perimeter equality at a fixed pair is already published and is explicitly excluded from the claimed new scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes Ehrhart and volume/combinatorial properties, not the claimed Euclidean perimeter or separate facet-class equality.",
+          "evidence": [
+            "Definition 3.1 identical cyclic inequalities at HTML text lines ~585-597",
+            "Theorem 1 at ~155-160 asserts equality of Ehrhart quasipolynomials at integer t",
+            "Proposition 6.8 at ~1717-1748 is a full-body volume trace",
+            "No perimeter or edge length theorem found in the complete accessible text."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/365422598_Chainlink_Polytopes_and_Ehrhart-Equivalence",
+          "material_read": "Public full-text 2022 preprint transcribed in HTML (approximately 21 pages), introduction/Theorem 1, Definition 3.1 and §3, main Ehrhart theorem and §6 including Propositions 6.4 and 6.8, final discussion §7; searched entire full text for perimeter, surface and edge length.",
+          "method": "Read accessible full-text HTML, searched terminology and compared actual mathematical assertions/quantifiers against the two new Euclidean facet-class formulas; no unseen PDF used.",
+          "title": "Chainlink Polytopes and Ehrhart-Equivalence",
+          "trigger": "Original full-length primary source uses the exact chainlink polytope inequalities and complementary slices; potential strongest covering prior"
+        },
+        {
+          "assessment": "Abstract describes complementary Ehrhart equivalence, not a boundary metric; full text not inspected.",
+          "evidence": [
+            "SLC 89B.67, accepted 2023-02-20 and final version 2023-04-01; abstract centers on Ehrhart and rank symmetry."
+          ],
+          "identifier_or_url": "https://www.mat.univie.ac.at/~slc/wpapers/FPSAC2023/67.html",
+          "material_read": "Landing-page abstract, publication and final-version dates, access links; no full conference text claimed.",
+          "method": "Read official conference HTML landing page and compare its described scope.",
+          "title": "Chainlink Polytopes (FPSAC 2023 conference version)",
+          "trigger": "Alternate public version of exact primary work"
+        },
+        {
+          "assessment": "Available metadata describes Ehrhart and poset rank symmetry; additions in the final article remain an explicit historical-priority risk.",
+          "evidence": [
+            "Annals of Combinatorics 28 (2024), 1141–1166, DOI 10.1007/s00026-023-00683-x."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00026-023-00683-x",
+          "material_read": "Publication metadata and publisher-associated abstract via university institutional record; no subscription-only final article body accessed.",
+          "method": "Read public bibliographic abstract; used full public arXiv preprint of the same paper for body, so no institutional downloader invoked.",
+          "title": "Chainlink Polytopes and Ehrhart Equivalence (2024 journal publication)",
+          "trigger": "Later peer-reviewed revision of the primary work could contain material absent from preprint"
+        },
+        {
+          "assessment": "Earlier result contains a specific equal-perimeter pair for (4,5,6;2), but no universal real-height or facet-type perimeter profile.",
+          "evidence": [
+            "Resultary 2026/10/18 record c9e534b71133: P(Q6)=P(Q9)=9(sqrt2+sqrt6)/2 while r(Q6) differs from r(Q9)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-six-euclidean-inball-phases-of-complementary-chainlink-sections--c9e534b71133/RESULT.md",
+          "material_read": "Full published RESULT.md including six-piece inradius formula, t=6 and 9 coordinates/metric computations, proof and stated limitations; associated prior independent audit and original record summary also read.",
+          "method": "Read GitHub pinned file from public Resultary repository; compared quantifiers and invariant, not just the title.",
+          "title": "Six Euclidean inball phases of complementary chainlink sections",
+          "trigger": "Highly relevant prior published exact Euclidean metric on complementary sections, explicitly includes equal perimeter"
+        },
+        {
+          "assessment": "Its parametric squared-diameter gap does not establish or dominate an all-height perimeter/facet-length identity.",
+          "evidence": [
+            "Resultary 2026/10/18 record f82c8e739e2b: exact diameter formulas only for two heights, m>=3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-persistent-euclidean-diameter-gap-in-ehrhart-equivalent-chainl--f82c8e739e2b/RESULT.md",
+          "material_read": "Full published RESULT.md, including parameter family a_m=(2m+2,2m,2m+1), ell=m and height-specific complementary diameter formulas and exclusions.",
+          "method": "Read original GitHub result and compared domain/invariant and implications.",
+          "title": "A persistent Euclidean diameter gap in Ehrhart-equivalent chainlink sections",
+          "trigger": "Earlier general-parameter chainlink-section Euclidean geometry result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arxiv:2211.08382v1 same-chainlink complementary Ehrhart theorem and its §6 geometry",
+        "Resultary 2026/10/18 same-object fixed-pair inball/perimeter example",
+        "Resultary 2026/10/18 complementary-section diameter family"
+      ],
+      "rationale": "The central remarkable feature of chainlink polytopes is equality of complementary Ehrhart section data. Establishing metric Euclidean perimeter equality for all real heights and arbitrary real admissible chain lengths, and separating the coordinate- and difference-facet totals despite their different Euclidean tangent speeds, gives an independently meaningful structural boundary valuation theorem. The explicit piecewise-linear formulas, noncongruent hexagon witness and sharp out-of-half-size counterexample explain rather than merely tabulate the geometry. Its natural object/invariant and complete three-coordinate domain make this more than a routine metric rephrasing of lattice-volume symmetry or the earlier one-pair perimeter check.",
+      "residual_risks": [
+        "The structural method does not imply equal Euclidean inradius, diameter, edge multiset or any higher-dimensional analogue.",
+        "Its value is a complete three-coordinate result, not a general theorem for all s."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Proves only 3-coordinate chainlink sections under the half-size hypothesis; no congruence, individual edge matching or higher-dimension assertion.",
+    "Exceptional facet-coincidence levels use the continuous extension of generic family-length totals.",
+    "Published 2024 journal-version body inaccessible but the entire 2022 preprint version was read; priority remains best-of-knowledge and not guaranteed.",
+    "Results of 400 independent finite tests are supporting checks; universal mathematics rests on the explicitly checked disjoint-cap derivation.",
+    "No GitHub writes, public certificate creation, dispatcher closeout or schedule manipulation in this run."
+  ],
+  "schema_version": 1
+}

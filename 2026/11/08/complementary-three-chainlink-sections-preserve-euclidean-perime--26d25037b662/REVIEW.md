@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact domain is \(a_i>0\), \(\ell>0\), \(2\ell\leq\min_i a_i\), and \(0\leq t\leq\sum_i a_i\), with Euclidean section-perimeter measured in the ambient three-space metric. Three corner shavings are pairwise disjoint under the half-size condition. A complete cap boundary census includes the two original cap sides, the two coordinate-end faces, and the new oblique face. Their line-segment lengths yield the stated \(\sqrt2\)/\(\sqrt6\) formulas. The resulting profiles are symmetric by the explicit involutions of clipped ramps and triangular tents. A separate exact rational vertex-enumeration checker corroborates both length families and gives a precise out-of-scope counterexample. The proof is not inferred from the finite checks.
+PASS
 
-## Originality — PASS (priority provisional)
+For positive real a_i,ell with 2ell<=min a_i, the three open caps x_i-x_{i+1}>a_i-ell in the box are pairwise disjoint: each forces one coordinate > a_i-ell>=ell and the next <ell, preventing shared-coordinate overlaps in a 3-cycle. On each cap, coordinates u=a_i-x_i>=0,v=x_{i+1}>=0 obey u+v<=ell and x_{i+2}=z+u-v with z=t-a_i. Direct strip-triangle intersection yields a new difference-facet segment length sqrt(6)[g_ell(z)-g_ell(z-a_{i+2})]/2, loss sqrt(2) times the same clipped-ramp difference on its u=0 and v=0 box sides, and loss sqrt(2)[k_ell(z)+k_ell(z-a_{i+2})]/2 on two box end faces. With the reflected box-section profile P_B and a_i+a_{i+2}=N-a_{i+1}, summation gives exactly P_diff=sqrt(6)S/2 and P_coord=P_B-sqrt(2)S-sqrt(2)T/2. Identities g_ell(-z)=2ell-g_ell(z) and k_ell(-z)=k_ell(z) imply the two sums are unchanged under t -> N-t; continuity handles exceptional levels and singleton endpoints. Independently enumerated exact rational half-plane intersections and midpoint-active facet tags for 400 seeded admissible parameter/height cases, testing actual coordinate and difference edge-length totals against both profiles at t and N-t; all passed. Separately computed unequal hexagon edge-multisets at (6,4,5;2), t=5,10 and difference (sqrt6-sqrt2)/2 at (3,4,5;2), t=5,7. Rebuilt the canonical Git tree SHA from all seven pinned blob IDs and matched 022558b4... . Analytical proof, not those finite tests, establishes the continuum theorem.
 
-The first public full-text source arXiv:2211.08382v1 (2022-11-15) introduces the exact chainlink object and establishes complementary section Ehrhart/area symmetry. Its theorem and inspected facet/volume sections do not cover Euclidean perimeter or the two independent edge-length families. The later 2024 journal abstract/preview contains no additional accessible perimeter claim, but the final journal full text was not accessible. The nearest public indexed chainlink finding concerns inradii of full-dimensional polytopes and is mathematically inapplicable to sectional boundary lengths. Several targeted full-text/metadata and research-record searches found no equivalent, dominating, or exact-table computation. A negative search is not a uniqueness proof, and historical priority remains provisional.
+## originality
 
-The existing Ehrhart theorem is not silently counted as a new result: rational Ehrhart equivalence controls volume and lattice-normalized boundary terms; there are two distinct Euclidean primitive edge speeds, \(\sqrt2\) and \(\sqrt6\), while the new result matches their totals separately and for real parameters/heights.
+PASS
 
-## Value — PASS
+The complete 2022 public chainlink preprint gives complementary integer-section Ehrhart equality (Theorem 1/4.8), full-body vertex/facet structure and a volume trace (Proposition 6.8), not the distinct inherited Euclidean coordinate-facet and difference-facet perimeter profiles. The prior October 18 geometric records establish a single (4,5,6;2) equal-perimeter example and a parametric complementary-diameter gap, respectively, but neither entails the present simultaneous two-facet-family all-real-level identities for arbitrary positive a_i and ell in the half-size regime. The present Resultary entry is a mirror of the assigned result, not independent prior coverage. Best-of-knowledge originality, not certified global priority.
 
-The complementary-section symmetry is the defining remarkable structure of chainlink polytopes. Strengthening it from discrete lattice information and area to two distinct, explicit **metric boundary valuations** is substantive; the companion sections can have different edge-length multisets and thus are not Euclidean congruent. The exact formulas explain the symmetry geometrically by disjoint cycle-edge shavings and expose a concrete failure outside the geometrically natural half-size regime. The result is a complete structural statement for all three-dimensional chainlink sections, not an arbitrary numerical slice.
+## value
 
-## Limits and closest sources
+PASS
 
-Primary: Kantarcı Oğuz–Özel–Ravichandran, arXiv:2211.08382v1, complete accessible HTML text inspected, especially introduction, §3, §6, §7. Later journal publication DOI 10.1007/s00026-023-00683-x inspected at abstract/preview level. A related published mathematical record on unsliced chainlink inradius was compared by statement. Real-height extension, edge-family symmetry, and out-of-range failure are the proved new scope; higher cyclic dimensions, congruence, and independent mathematical validation are not claimed.
+The central remarkable feature of chainlink polytopes is equality of complementary Ehrhart section data. Establishing metric Euclidean perimeter equality for all real heights and arbitrary real admissible chain lengths, and separating the coordinate- and difference-facet totals despite their different Euclidean tangent speeds, gives an independently meaningful structural boundary valuation theorem. The explicit piecewise-linear formulas, noncongruent hexagon witness and sharp out-of-half-size counterexample explain rather than merely tabulate the geometry. Its natural object/invariant and complete three-coordinate domain make this more than a routine metric rephrasing of lattice-volume symmetry or the earlier one-pair perimeter check.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
