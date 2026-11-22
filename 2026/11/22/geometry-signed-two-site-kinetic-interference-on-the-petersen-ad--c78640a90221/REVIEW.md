@@ -1,0 +1,19 @@
+# Scientific review: two-site Petersen adsorption law
+
+## Correctness — PASS
+
+The precise object is a Petersen graph, one exponential first attempt per vertex, two arbitrary positive marked rates, and all other rates one. Every terminal configuration is maximal and is either a three-vertex triangle family or a four-vertex star family in the Kneser presentation. A rigorously justified finite exponential-race recurrence gives the exact rational expectation, which determines the entire terminal-size law. The symbolic recurrence handles both site-geometry classes with 52 reachable masks each and proves rational identities in the two rate variables, not just sampled values. An independent exhaustive permutation-order calculation uses 3,628,800 arrangements for each class and independently checks exact rational samples. Source code is included. No extrapolation to large graphs is made.
+
+## Originality — PASS on examined evidence, with residual risk
+
+The closest foundational literature is Pippenger (1989), Dhara, van Leeuwaarden and Mukherjee (2016), and Krivelevich, Mészáros, Michaeli and Shikhelman (2023). The available full text of the 2016 paper analyzes homogeneous and generalized adsorption on Erdős–Rényi random graphs, and the 2023 paper develops local-limit tools for graph sequences; neither contains the exact two-site Petersen probability law. Pippenger's accessible abstract concerns regular-graph/growing-girth behavior, but the full paper was not accessible for direct exclusion. A closely related indexed exact theorem on the two-subset Kneser family changes the rates of all sites containing one distinguished ground point; its Petersen specialization changes four vertex rates together, not the two independently varied rates of this finding. Its star/triangle support statement is preexisting, and is not claimed as new. Other indexed calculations on Petersen *edge-dimer* dynamics and monomer deposition on other cages have different stochastic states or graphs. Searches for Petersen plus two rates, adjacency-dependent kinetic perturbations, greedy independent-set priority weights and equivalent probability formulas did not reveal an implication establishing the present theorem. A missed unindexed finite example or an inaccessible complete text remains possible; failure to locate such a result is not by itself proof of historical priority.
+
+## Mathematical value — PASS
+
+The Petersen graph is the canonical cubic girth-five cage and has exactly two nontrivial pair orbits, making it a natural finite test of adsorption-rate heterogeneity. In a vertex-transitive network a *single* modified site rate cannot affect the distribution of an automorphism-invariant terminal statistic, so a two-site rate perturbation is the first possible nontrivial kinetic correction. The theorem identifies its complete probability law for every positive rate pair, a strict geometric sign reversal, and a rate-independent factor \(-2\) between the two orbits. These features are not a mere isolated tabulation or baseline jamming count; they quantify cooperative kinetic interference on a natural frustrated exclusion network. Their validity is limited to this ten-vertex graph.
+
+## Closest sources and limitations
+
+Pippenger, *Random Sequential Adsorption on Graphs*, https://doi.org/10.1137/0402034 (accessible abstract; full text not checked); Dhara et al., *Generalized Random Sequential Adsorption on Erdős–Rényi Random Graphs*, https://arxiv.org/abs/1604.03918 (open full-text version); Krivelevich et al., *Greedy Maximal Independent Sets via Local Limits*, https://doi.org/10.1002/rsa.21200 (open full-text sections on model, definitions and main results). Historical priority remains provisional. No assertion is made for multiple impurities, other graphs or time-resolved observables.
+
+Self-review: passed. Independent audit: not yet performed.
