@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "A complete 90-word domain and exact 15-position-choice deletion shadows define the correct confusability graph. Explicit increasing-index clique search visits each clique uniquely; complete size histogram 1,90,1164,1788,144,0 proves optimum 4 and exact 144 equality count. A separate position-generated LCS dynamic program reproduces every clique count and rules out all 5-extensions. The witness 012201,102102,200211,211200 has disjoint deletion shadows. Exhaustive S3 x C2 group action yields 4 orbits of size 6 and 10 of size 12. Rational primal/dual variables with independently checked inequalities both sum to 5, establishing the LP optimum without floating point; fractional bound alone is not the integral upper proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Farnoud–Milenkovic general upper bound by S(n-d+1,n/r,r) gives S(4,3,2)=54 at n=6,r=2,d=3, not the claimed exact four.",
+        "Published binary length-six result uses alphabet size two; published ternary length-five result changes blocklength and composition.",
+        "Ternary multiset-deletion result forgets order of symbols in the received object; this is a different channel.",
+        "Sala–Gabrys–Dolecek abstract concerns multipermutation deletions, but full text could not be inspected."
+      ],
+      "reasoning": "Stronger-looking papers are compared by hypotheses and output semantics; none of the actually inspected results implies the target exact capacity/equality formula. Inaccessible plausible conference paper is explicitly retained as historical risk.",
+      "searches": [
+        "constant composition ternary (2,2,2) length six two deletions correcting code, balanced words edit distance 4 or subsequence length four, exact optimum and extremal codebooks",
+        "arxiv:1312.2163v1 section III bound (12)",
+        "2026/10/12/SCOPE-complete-length-six-binary-two-deletion-extremizer-census--e97570935b5d",
+        "2026/10/12/SCOPE-exact-ternary-length-five-two-deletion-optimum-and-equality-cens--f262ebab78e2",
+        "2026/11/8/SCOPE-sharp-ternary-multiset-two-deletion-code-sizes-through-length-tw--056b752654a3",
+        "doi:10.1109/ISIT.2014.6875338 abstract"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1312.2163v1 (selected primary full-text sections and pages)",
+      "arxiv:1507.07628v1 (selected primary full-text sections and pages)",
+      "doi:10.1109/ISIT.2014.6875338 (abstract only, unresolved full-text risk)",
+      "2026/10/12/SCOPE-exact-balanced-ternary-deletion-codes-and-a-chromatic-obstructio--1684bd8b749a (published summary; direct channel distinction)",
+      "2026/10/12/SCOPE-complete-length-six-binary-two-deletion-extremizer-census--e97570935b5d (published summary; binary alphabet distinction)",
+      "2026/10/12/SCOPE-exact-ternary-length-five-two-deletion-optimum-and-equality-cens--f262ebab78e2 (published summary; length distinction)",
+      "2026/11/8/SCOPE-sharp-ternary-multiset-two-deletion-code-sizes-through-length-tw--056b752654a3 (published summary; unordered multisets)",
+      "2026/11/2/SCOPE-first-fractional-deletion-packing-gaps-for-fibonacci-constrained--25a61255a325 (published summary; different fractional polytope)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "One-deletion correctness does not imply two-deletion correctness; maximum 18 for a weaker restriction gives only an upper bound 18 for this problem, far above four.",
+        "A maximum four for unrestricted binary six-words does not imply four for balanced ternary six-words, nor classify 144 ternary equality cases.",
+        "Published fractional gaps use other sources/lengths/restrictions; their primal and dual vectors are not admissible certificates for the given 90-by-four-read incidence matrix.",
+        "The Ulam general bound 54 does not determine four or its extremizers."
+      ],
+      "reasoning": "No available prior statement implies the conjunction of exact capacity, complete labeled/symmetry equality census, and natural LP optimum. All candidate reductions were compared in the right direction; there is genuine access-related priority uncertainty.",
+      "searches": [
+        "constant composition ternary (2,2,2) length six two deletions correcting code, balanced words edit distance 4 or subsequence length four, exact optimum and extremal codebooks",
+        "two-deletion-correcting balanced ternary length-6 words composition 2,2,2 maximum code four 144 optimal codes 14 symmetry classes",
+        "fractional deletion-shadow packing LP optimum five compared with integral four for 90 balanced ternary 6-words",
+        "exact optimal single deletion correcting code constant composition ternary words 2 2 2, multiset permutations deletion reconstruction one deletion length six",
+        "2026/10/12/SCOPE-exact-balanced-ternary-deletion-codes-and-a-chromatic-obstructio--1684bd8b749a",
+        "2026/10/12/SCOPE-complete-length-six-binary-two-deletion-extremizer-census--e97570935b5d",
+        "2026/11/8/SCOPE-sharp-ternary-multiset-two-deletion-code-sizes-through-length-tw--056b752654a3",
+        "2026/11/2/SCOPE-first-fractional-deletion-packing-gaps-for-fibonacci-constrained--25a61255a325"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Two-deletion-correctability is equivalent to LCS at most three for every codeword pair, hence to a clique in the 90-vertex shadow-disjointness graph.",
+        "Farnoud–Milenkovic 2013 definitions use r-regular multipermutations and minimum Ulam distance; no A(6,2,3) equality count identified in the inspected bounds or constructions.",
+        "The earlier balanced ternary result assumes only one deletion, so its confusability edges are different."
+      ],
+      "reasoning": "The deletion-output definition is matched against its equivalent LCS form and the related Ulam metric, not only matching titles. No equivalent theorem with capacity 4, exactly 144 optima and 14 orbits was identified; unread 2014 full text remains a residual risk.",
+      "searches": [
+        "constant composition ternary (2,2,2) length six two deletions correcting code, balanced words edit distance 4 or subsequence length four, exact optimum and extremal codebooks",
+        "two-deletion-correcting balanced ternary length-6 words composition 2,2,2 maximum code four 144 optimal codes 14 symmetry classes",
+        "arxiv:1312.2163v1 (regular multipermutations, Ulam distance and LCS sections II–III)",
+        "2026/10/12/SCOPE-exact-balanced-ternary-deletion-codes-and-a-chromatic-obstructio--1684bd8b749a"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The full source checker enumerates 144 equality cases and 14 symmetry orbits; neither these constants nor an exact 90-vertex deletion code table appeared among returned semantic research records.",
+        "The closest indexed ternary length-six study reports eight codebooks of cardinality 18 for one deletion, not this two-deletion table."
+      ],
+      "reasoning": "This check compares the exact requested data and its coding-channel interpretation, not just the absence of a title. No matching exact table was found; unindexed records remain possible.",
+      "searches": [
+        "two-deletion-correcting balanced ternary length-6 words composition 2,2,2 maximum code four 144 optimal codes 14 symmetry classes",
+        "multipermutation code size 4 two deletions from six words multiset 001122 exactly 144",
+        "two-deletion balanced ternary 90 words 144 optimal codebooks",
+        "2026/10/12/SCOPE-exact-balanced-ternary-deletion-codes-and-a-chromatic-obstructio--1684bd8b749a",
+        "2026/10/12/SCOPE-exact-ternary-length-five-two-deletion-optimum-and-equality-cens--f262ebab78e2"
+      ]
+    },
+    "rationale": "The 2013 multipermutation Ulam source defines related distance and general bounds but does not assert the exact two-deletion 90-word capacity or equality census. The most relevant already published 90-word ternary result is for ONE deletion and has a different compatibility graph and optimum 18; published binary length-six two-deletion, ternary length-five two-deletion, and unordered multiset-delete theorems also do not imply the target claim. Actual semantic searches checked exact numerical constants, aliases, channel definitions and LP gap; no covering stronger claim emerged. Historical priority remains qualified by incomplete access to Sala–Gabrys–Dolecek 2014 and possible unindexed small-case computations.",
+    "residual_risks": [
+      "The 2014 conference paper Deletions in Multipermutations has an unusually relevant title and was unavailable beyond abstract; exact unindexed historical enumeration may be present.",
+      "A prior equivalent computation in a repository, appendix, database, or thesis might be unindexed; absence in semantic search alone is not proof of novelty.",
+      "Algorithmic enumeration is replayable exact evidence but no independent expert proof audit has been carried out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related but does not state the 4/144/14 result; the accessible general bound yields 54 at the fixed parameters",
+        "evidence": [
+          "arXiv v1 2013-12-08; pp. 1–8, 10–12; upper bound equation (12)",
+          "No match found for exact A◦(6,2,3) parameter in searched text; only general coding bounds and constructions examined"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1312.2163",
+        "material_read": "PDF introduction, definitions of regular multipermutations and Ulam metric, section III upper/lower bounds including eq. (12), section IV related construction lemmas and table; text and page-rendered material",
+        "method": "Primary arXiv PDF opened, internal text searched for exact parameter and bounds, relevant PDF pages visually inspected",
+        "title": "Multipermutation Codes in the Ulam Metric for Nonvolatile Memories",
+        "trigger": "Same r-regular source objects, related Ulam/LCS metric, potentially stronger general bound"
+      },
+      {
+        "assessment": "Undecided: paper may treat related finite cases, cannot infer NOT_COVERING from abstract",
+        "evidence": [
+          "2014 IEEE ISIT conference 2769–2773; abstract says definitions, single-multipermutation deletion counts and constructions correcting one or more deletions",
+          "Full text unavailable for direct theorem/table comparison"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/ISIT.2014.6875338",
+        "material_read": "Abstract and publication metadata only; full paper not accessible",
+        "method": "Search for arXiv and open access versions; bibliographic and author metadata; institutional full-text request unavailable",
+        "title": "Deletions in Multipermutations",
+        "trigger": "Title and abstract directly address multipermutation deletions"
+      },
+      {
+        "assessment": "LP decoding for Hamming/Chebyshev and related channels, not exact deletion shadow LP on 90 balanced words",
+        "evidence": [
+          "Paper discusses LP-decodable multipermutations, no exact (6,2,2,2) two-deletion capacity found in inspected material"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1507.07628",
+        "material_read": "Abstract, introduction and LP/channel setup on initial pages; selected full-text searches",
+        "method": "arXiv full-text PDF inspected",
+        "title": "LP-Decodable Multipermutation Codes",
+        "trigger": "Potentially dominating linear-programming construction"
+      },
+      {
+        "assessment": "Exactly one-deletion channel and optimum 18, not the two-deletion graph; no implication of target equality census",
+        "evidence": [
+          "Published abstract explicitly fixes one deletion and reports optimum 18 and eight optima"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-exact-balanced-ternary-deletion-codes-and-a-chromatic-obstructio--1684bd8b749a",
+        "material_read": "Published abstract/semantic record; full repository content inaccessible on attempted opening",
+        "method": "Semantic research record with direct implications compared; public source URL fetch attempted",
+        "title": "Exact balanced ternary deletion codes and a chromatic obstruction",
+        "trigger": "Same 90 words and single-deletion coding capacity"
+      },
+      {
+        "assessment": "Binary unrestricted length-six maximum four with 16 maxima; no ternary constant-composition classification implied",
+        "evidence": [
+          "Published abstract states binary alphabet, maximum four and 16 equality cases"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-complete-length-six-binary-two-deletion-extremizer-census--e97570935b5d",
+        "material_read": "Published abstract/semantic record; full repository content inaccessible on attempted opening",
+        "method": "Semantic research comparison of hypotheses and target sets",
+        "title": "Complete length-six binary two-deletion extremizer census",
+        "trigger": "Same blocklength/deletion count, different alphabet"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3259658b-fc89-4a97-84f8-303f474d20fe",
+  "value": {
+    "rationale": "The exact optimal two-deletion capacity and full 144-case/14-orbit equality structure give a natural short-block benchmark for uniformly repeated ternary symbols and four-symbol subsequence reads. A verified 5/4 integrality gap identifies why the obvious fractional shadow bound does not prove the sharp integer packing result, and the equality classification provides reproducible construction data. This is not a known-table recomputation or arbitrary slice: it resolves a natural smallest balanced ternary multipermutation two-deletion instance, with a nontrivial polyhedral obstruction.",
+    "status": "PASS"
+  }
+}
