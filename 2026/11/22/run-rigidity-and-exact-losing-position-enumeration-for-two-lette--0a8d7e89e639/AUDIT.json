@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "Two complementary closure steps prove the P/N partition for all finite binary words: no proposed P-position has a legal P-option and every other position has a constructive legal move into P. Stars-and-bars gives the finite count, regular-language product gives the rational OGF, and a length-reduction mex induction plus alternating-word options yields exact maximal Grundy floor(n/2). The leading root of the enumerator gives exponential decay. An actual-game exhaustive mex checker through length 17 and an independent coefficient checker through length 200 replay successfully; neither is substituted for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Inoue and Inazu, Word Subtraction Games, arXiv:2611.09157v1, Section 5.1 and Problem 5.1, https://arxiv.org/html/2611.09157v1",
+        "Hetyei, Enumeration by kernel positions for strongly Bernoulli type truncation games on words, arXiv:0912.0573, https://arxiv.org/pdf/0912.0573"
+      ],
+      "reasoning": "The main paper treats one-sided regular subtraction languages and some two-sided examples including Timber and End-Nim, with explicit Problem 5.1 on overlapping words. Its one-sided general regularity theorem does not cover the combined two-ended rule. The older truncation-game paper concerns a different removal order; neither inspected primary result is a stronger theorem implying the claimed P-language.",
+      "searches": [
+        "generalized Timber game two letter triggers overlapping prefix suffix subtraction Dyck P-language",
+        "\"Word Subtraction Games\" Inoue Inazu two-sided prefix suffix games",
+        "binary two-sided word subtraction games prefix ending ab suffix starting ba losing positions regular"
+      ]
+    },
+    "checked_sources": [
+      "Inoue and Inazu, Word Subtraction Games, arXiv:2611.09157v1, Section 5.1 and Problem 5.1, https://arxiv.org/html/2611.09157v1",
+      "Hetyei, Enumeration by kernel positions for strongly Bernoulli type truncation games on words, arXiv:0912.0573, https://arxiv.org/pdf/0912.0573",
+      "A run-pair formula for two-letter complement scattered factors, https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-run-pair-formula-for-two-letter-complement-scattered-factors--3b99e07a61fe",
+      "Universal length-six classification of prefix-suffix composition ambiguity, https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-universal-length-six-classification-of-prefix-suffix-composition--174aa31b393b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Inoue and Inazu, Word Subtraction Games, arXiv:2611.09157v1, Section 5.1 and Problem 5.1, https://arxiv.org/html/2611.09157v1",
+        "Hetyei, Enumeration by kernel positions for strongly Bernoulli type truncation games on words, arXiv:0912.0573, https://arxiv.org/pdf/0912.0573",
+        "A run-pair formula for two-letter complement scattered factors, https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-run-pair-formula-for-two-letter-complement-scattered-factors--3b99e07a61fe",
+        "Universal length-six classification of prefix-suffix composition ambiguity, https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-universal-length-six-classification-of-prefix-suffix-composition--174aa31b393b"
+      ],
+      "reasoning": "The source's one-letter rule Σ*a,bΣ* yields nonregular Dyck outcomes; substituting length-two words is not justified by that theorem, since overlapping ab and ba transitions change the option sets. The observed regular run language, closed enumeration, and sharp maximal nimbers require a new explicit complement-to-P strategy and are not formal corollaries of the cited general game definition or one-sided statements.",
+      "searches": [
+        "WordSubtraction(Sigma* ab,ba Sigma*) losing positions abba",
+        "\"Word Subtraction Games\" Inoue Inazu two-sided prefix suffix games",
+        "\"two-sided\" word subtraction game overlapping patterns"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Inoue and Inazu, Word Subtraction Games, arXiv:2611.09157v1, Section 5.1 and Problem 5.1, https://arxiv.org/html/2611.09157v1",
+        "A run-pair formula for two-letter complement scattered factors, https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-run-pair-formula-for-two-letter-complement-scattered-factors--3b99e07a61fe"
+      ],
+      "reasoning": "Equivalent descriptions would be two-sided deletion of a prefix with terminal ab and a suffix with initial ba, a regular P-position language forbidding isolated interior b-runs, or a generating function for the same game. The main source gives neither this pair of word triggers nor its losing-language formula. The published scattered-ab deletion result deletes two noncontiguous symbols rather than end blocks and does not imply game outcomes.",
+      "searches": [
+        "WordSubtraction(Sigma* ab,ba Sigma*) losing positions abba",
+        "\"WordSubtraction\" \"ab\" \"ba\" \"P-position\"",
+        "\"word subtraction\" prefix \"ab\" suffix \"ba\" losing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A run-pair formula for two-letter complement scattered factors, https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-run-pair-formula-for-two-letter-complement-scattered-factors--3b99e07a61fe",
+        "Universal length-six classification of prefix-suffix composition ambiguity, https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-universal-length-six-classification-of-prefix-suffix-composition--174aa31b393b",
+        "Inoue and Inazu, Word Subtraction Games, arXiv:2611.09157v1, Section 5.1 and Problem 5.1, https://arxiv.org/html/2611.09157v1"
+      ],
+      "reasoning": "Searches for the exact two-letter trigger pair and P-position generating function returned no equivalent database/table claim. Closest indexed records address scattered two-letter deletions or prefix/suffix composition decks, not normal-play left-or-right deletion games; a failed search is not proof of global novelty.",
+      "searches": [
+        "two sided word subtraction game remove prefix ending ab or suffix beginning ba P positions regular language isolated b-run",
+        "\"Timber\" game P-positions Dyck regular case",
+        "\"two-sided\" word subtraction game overlapping patterns"
+      ]
+    },
+    "rationale": "A close comparison to the full relevant two-sided section and open Problem 5.1 of arXiv:2611.09157v1 shows it gives a general question and a distinct one-letter Dyck example, not the exact U=ab,V=ba classification, rational enumerator, or maximal-Grundy statement. The inspected older truncation-game source concerns different one-sided moves, and published records retrieved for prefix/suffix or two-letter deletions concern distinct operations. The claim is original relative to the examined evidence, not proven globally first.",
+    "residual_risks": [
+      "A differently named or unindexed earlier equivalent classification could exist.",
+      "The older truncation-game work was inspected at scope/intro level, not exhaustively section-by-section; its described one-direction moves make exact equivalence unlikely.",
+      "The main arXiv work is a November 2026 preprint whose further revisions may change its coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the U=ab,V=ba losing-language and enumeration claim",
+        "evidence": "Problem 5.1 asks explicitly how Dyck characterization extends to overlapping word triggers; Theorem 5.2 concerns S=T=b*a+b* instead.",
+        "identifier_or_url": "https://arxiv.org/html/2611.09157v1",
+        "material_read": "Complete Section 5.1 including definitions, Timber, End-Nim, exercises, Problem 5.1, and surrounding main statements",
+        "method": "Read full article HTML relevant section and inspected PDF page renderings",
+        "title": "Word Subtraction Games",
+        "trigger": "Precisely defines two-ended subtraction and asks about overlapping word triggers"
+      },
+      {
+        "assessment": "DIFFERENT_SCOPE: source concerns strongly Bernoulli-type one-direction truncation and does not supply this two-ended pair classification in inspected portions",
+        "evidence": "Opening defines games with rank determined by lengths and partial order taking initial segments; no matching U=ab,V=ba two-ended rule in inspected material.",
+        "identifier_or_url": "https://arxiv.org/pdf/0912.0573",
+        "material_read": "Abstract and introductory scope and description of left-initial-segment truncation",
+        "method": "Open-access PDF text and rendered first-page inspection",
+        "title": "Enumeration by kernel positions for strongly Bernoulli type truncation games on words",
+        "trigger": "Earlier word truncation P-position enumerations and game-theoretic decomposition"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0a8d7e89-e639-4408-a733-6eb3e99c3c2d",
+  "value": {
+    "rationale": "The opposite two-letter triggers ab and ba are a minimal genuinely overlapping word-trigger instance of the explicit two-ended generalization question in arXiv:2611.09157. A complete regular-language description, canonical linear-time winning move, exact enumerator, and every-length sharp maximum Grundy provide structural and enumerative content beyond a textbook P/N example. The Dyck-versus-regular contrast illustrates a substantive effect of changing from one-letter to overlapping two-letter triggers, without claiming the general problem is solved.",
+    "status": "PASS"
+  }
+}
