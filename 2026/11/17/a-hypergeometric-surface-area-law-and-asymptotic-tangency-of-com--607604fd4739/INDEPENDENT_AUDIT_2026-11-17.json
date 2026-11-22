@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T14:11:12.887174Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every n>=3, support function of all roots e_i−e_j maximizes upper minus lower coordinate, so a facet must have exactly two functional levels corresponding to a nonempty proper subset S; each facet is the orthogonal product of simplices Delta_S−Delta_Sc. Simplex Gram determinant s gives Euclidean a_n,s=sqrt[s(n-s)]/((s−1)!(n−s−1)!). Multiplying by binomial(n,s) yields tilted hypergeometric area law with h=(1−4(X−n/2)^2/n²)^{3/2}; 1-Eh<=3/[2(2n−1)] gives dTV<=3/(4n−5). Hypergeometric CLT yields variance n/8 vs binomial-facet n/4. Facet distance rho_s=sqrt(n/[s(n−s)]); cone decomposition plus Vandermonde yields exact volume sqrt(n)/(n−1)! binomial(2n−2,n−1). Taylor expansion using hypergeometric variance n²/[4(2n−1)] and fourth moment O(n²) gives surface 1−3/(4n), area/volume 1−5/(4n); parity r_n=2/sqrt(n)(1+O(n^-2)) yields 1−1/(4n) tangency deficit. Independent n=3,4,5,30,100 tilt and volume-cone checks, while original checker separately uses Qhull n=3–6; finite checks corroborate, not prove all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known facet and inball results for crown/fan/tree/biclique symmetric edge polytopes concern distinct graph families; complete-root inertia is an interior covariance invariant, not boundary area sampling."
+        ],
+        "reasoning": "No searched stronger result supplies the complete-graph intrinsic area tilt and tangency asymptotic. General facet characterization does not itself evaluate Euclidean areas or fluctuation law.",
+        "searches": [
+          "Resultary crown root inradius, complete-root inertia, tree-root surface",
+          "2026/10/25 complete-root inertia",
+          "2026/10/18 tree-root surface"
+        ]
+      },
+      "checked_sources": [
+        "Resultary root-polytope area and inradius semantic searches",
+        "Full primary arxiv:1807.07678 and arxiv:2107.12315 PDFs",
+        "arxiv:1910.05193 metadata/abstract only",
+        "2026/10/25 complete-root inertia; 2026/10/18 tree-root area Resultary summaries",
+        "Git tree/blob af058fcde0effabd35227cce97f62660afb6255f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier classification indexes facets S but does not imply area-weighted K_n law without an additional Gram-product computation and probabilistic tilt; area/numerical measure is not a formal corollary of abstract combinatorics alone."
+        ],
+        "reasoning": "The geometric and probabilistic conclusions require substantive new explicit Euclidean evaluation, though the facet indexing and volume are not new.",
+        "searches": [
+          "2018 arithmetic symmetric edge polytope full primary",
+          "2019 many faces geometry (limited access)",
+          "2021 facets subgraphs full primary",
+          "Assigned RESULT proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Higashitani-Jochemko-Michalek 2018 Cor 3.3 gives two-level subset facet labels; Chen-Davis-Korchevskaia 2021 describes facet subgraphs; neither supplies a_n,s or the probability tilt."
+        ],
+        "reasoning": "Exact area weighting is not equivalent to counting subsets or normalized face volumes; Gram determinant introduces the factor [s(n-s)]^(3/2).",
+        "searches": [
+          "Resultary: complete type A root polytope symmetric edge polytope Euclidean facet area hypergeometric distribution",
+          "arxiv:1807.07678, arxiv:2107.12315 full texts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact V_n and subset indexing are known; numeric facet tables would not imply an all-n TV-to-hypergeometric bound or the 1/(4n) contact deficit."
+        ],
+        "reasoning": "Not a recomputation of known single-dimensional table; derives all-n new weighted distribution and sharp asymptotic geometry.",
+        "searches": [
+          "Resultary exact root surface area spectrum symmetric edge",
+          "Published full primary facet descriptions"
+        ]
+      },
+      "rationale": "Facet *classification* and known volume are previously established background, but actual intrinsic Euclidean facet areas, their global area-weighted hypergeometric tilt and explicit TV rate, Gaussian variance-halving relative to counting facets, and first-order inball tangency deficit were not implied by the inspected primary and published results. The standard Euclidean embedding and physical surface measure are essential and not lattice/Ehrhart substitutes.",
+      "residual_risks": [
+        "Full 2019 general symmetric edge-polytope paper not read, so implicit area result remains a bounded priority risk.",
+        "Asymptotic 1/(4n) is only first-order; no uniform local CLT or arbitrary graph extension claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Two-level S subset normals established, surface area distribution not given in inspected facet classification",
+          "evidence": "Corollary 3.3 facet description, product-of-simplices classification background",
+          "identifier_or_url": "https://arxiv.org/abs/1807.07678",
+          "material_read": "Full arXiv primary PDF, §3.1 and Cor 3.3 with page-image confirmation",
+          "method": "Primary full PDF and page screenshot",
+          "title": "Arithmetic aspects of symmetric edge polytopes",
+          "trigger": "Exact known facet labels for complete root polytopes"
+        },
+        {
+          "assessment": "Combinatorial facet incidence; no exact canonical Euclidean area-weighted hypergeometric law found",
+          "evidence": "Facet subgraph characterization and graph definitions",
+          "identifier_or_url": "https://arxiv.org/abs/2107.12315",
+          "material_read": "Full primary PDF, facet-subgraph section and page-image confirmation",
+          "method": "Primary full PDF and screenshot",
+          "title": "Facets and facet subgraphs of symmetric edge polytopes",
+          "trigger": "General graph facet theorem may cover complete root polytope"
+        },
+        {
+          "assessment": "Proof and boundary n>=3 verified analytically; finite checks independent",
+          "evidence": "Facet Gram determinant, tilt h, TV proof, coning volume, asymptotic expansion",
+          "identifier_or_url": "Git blob cbb3e5aab33e65c3b7e1c7890dd9813a147d54bf",
+          "material_read": "Entire RESULT.md plus checker, metadata, slogan and audit read",
+          "method": "Git blob complete read plus independent algebra/numerical checks",
+          "title": "A hypergeometric surface-area law and asymptotic tangency of complete type-A root polytopes",
+          "trigger": "Assigned theorem and new area law"
+        },
+        {
+          "assessment": "Potential uninspected Euclidean area prior-coverage risk remains",
+          "evidence": "Known broader face/volume theory; no unsupported whole-text NOT_COVERING conclusion",
+          "identifier_or_url": "https://arxiv.org/abs/1910.05193",
+          "material_read": "Bibliographic abstract and cited general volume context only; primary full text NOT inspected this execution",
+          "method": "Citation/abstract context, not full-reading claim",
+          "title": "Many faces of symmetric edge polytopes",
+          "trigger": "Known general volumes of symmetric edge polytopes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Intrinsic surface measure of the maximally symmetric complete type-A root polytope is a natural geometric invariant, distinct from normalized volume and face counting. The exact all-n distribution, explicit total-variation rate to a natural hypergeometric law, halved asymptotic facet-size variance, and quantified asymptotic inball tangency answer concrete surface-geometry questions that researchers could use. The previously known facet labels and volume are credited, not presented as new standalones.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Source proofs and their exact quantifiers reviewed. Finite computational tests support but do not certify all-dimensional or all-parameter statements.",
+    "Originality is a bounded best-of-knowledge scientific comparison, not a formal historical-priority or external certificate.",
+    "Public source contains scope_run_id provenance; no publication authorized or performed.",
+    "No independent full-object Git tree recomputation: repository tree SHA and blob identities returned by connected GitHub API were matched; source text read directly from blobs."
+  ],
+  "schema_version": 1
+}

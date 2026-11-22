@@ -1,19 +1,21 @@
-# Scientific review: complete type-\(A\) root-polytope surface law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is for every integer \(n\ge3\) in the induced Euclidean metric of \(H_n\). The proof classifies every facet by a two-level linear functional; the actual facet is an orthogonal product \(\Delta_{s-1}\times\Delta_{n-s-1}\), whose Gram determinant gives the asserted individual area. Counting subsets supplies the exact size-biased distribution. The hypergeometric tilt is an algebraic identity. The explicit total-variation bound follows from \(1-(1-u)^{3/2}\le3u/2\) and the exact hypergeometric variance, and the classical hypergeometric central limit theorem gives the Gaussian scale. Facet-cone volume summation and Vandermonde's identity establish volume. A fourth-moment estimate justifies the claimed \(O(n^{-2})\) remainders. The parity correction to the inradius starts at order \(n^{-2}\), so the first-order tangency constant is stable. Actual Euclidean convex-hull calculations reconstructed every facet at \(n=3,4,5,6\) and corroborated volume; the finite checker is not used as an infinite proof.
+PASS
 
-## Originality — PASS, with residual priority uncertainty
+For every n>=3, support function of all roots e_i−e_j maximizes upper minus lower coordinate, so a facet must have exactly two functional levels corresponding to a nonempty proper subset S; each facet is the orthogonal product of simplices Delta_S−Delta_Sc. Simplex Gram determinant s gives Euclidean a_n,s=sqrt[s(n-s)]/((s−1)!(n−s−1)!). Multiplying by binomial(n,s) yields tilted hypergeometric area law with h=(1−4(X−n/2)^2/n²)^{3/2}; 1-Eh<=3/[2(2n−1)] gives dTV<=3/(4n−5). Hypergeometric CLT yields variance n/8 vs binomial-facet n/4. Facet distance rho_s=sqrt(n/[s(n−s)]); cone decomposition plus Vandermonde yields exact volume sqrt(n)/(n−1)! binomial(2n−2,n−1). Taylor expansion using hypergeometric variance n²/[4(2n−1)] and fourth moment O(n²) gives surface 1−3/(4n), area/volume 1−5/(4n); parity r_n=2/sqrt(n)(1+O(n^-2)) yields 1−1/(4n) tangency deficit. Independent n=3,4,5,30,100 tilt and volume-cone checks, while original checker separately uses Qhull n=3–6; finite checks corroborate, not prove all n.
 
-Higashitani–Jochemko–Michałek (2018, arXiv:1807.07678 §3.1, especially Corollary 3.3) establishes the subset facet labels but not the Euclidean area-weighted law. D'Alì–Delucchi–Michałek (2019, arXiv:1910.05193, sections 2–4) develops related volumes and combinatorics, but not surface-weighted cut-size fluctuations or the tangency deficit. Chen–Davis–Korchevskaia (2021, arXiv:2107.12315, §4) characterizes facet subgraphs, not the asserted metric distribution. Closest published related published-finding corpus records deal respectively with continuous interior covariance of the **same** complete-graph root polytope and facet areas of **tree** root crosspolytopes. The former does not imply a boundary-area probability law; the latter has a different facet metric and neither supplies a complete-graph hypergeometric area law. The earlier exact volume is credited and is not claimed as novel. No covering result was found in the inspected material or targeted published-finding corpus checks; that is not a proof of historical uniqueness. The most significant residual risk is an unindexed classical equivalent under type-\(A\) root bodies or centered \(\ell_1\) sections.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This identifies the entire area-weighted facet-size spectrum of a canonical high-dimensional polytope rather than an arbitrary numerical slice. The hypergeometric size bias yields a concrete geometric distinction: choosing a facet by surface area cuts the asymptotic subset-size variance in half relative to choosing uniformly among facets, even though both favor balanced subsets. The exact surface area and sharp \(1/(4n)\) deficit from the tangential bound quantify the bulk boundary geometry and explain why an exponentially faceted body becomes asymptotically surface-tangent without being exactly tangential. The full phenomenon is not determined by the previously known volume or face count alone. It is a finite/infinite family metric invariant; no downstream theorem or universality outside this family is asserted.
+Facet *classification* and known volume are previously established background, but actual intrinsic Euclidean facet areas, their global area-weighted hypergeometric tilt and explicit TV rate, Gaussian variance-halving relative to counting facets, and first-order inball tangency deficit were not implied by the inspected primary and published results. The standard Euclidean embedding and physical surface measure are essential and not lattice/Ehrhart substitutes.
 
-## Limitations and risks
+## value
 
-No independent audit or computer-formalized proof was performed. Missing historical synonyms could hide an earlier equivalent surface calculation, and one should not generalize the limiting law to other coordinate embeddings. The explicit total-variation estimate is not itself a Berry–Esseen estimate for convergence to the normal law.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Intrinsic surface measure of the maximally symmetric complete type-A root polytope is a natural geometric invariant, distinct from normalized volume and face counting. The exact all-n distribution, explicit total-variation rate to a natural hypergeometric law, halved asymptotic facet-size variance, and quantified asymptotic inball tangency answer concrete surface-geometry questions that researchers could use. The previously known facet labels and volume are credited, not presented as new standalones.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
