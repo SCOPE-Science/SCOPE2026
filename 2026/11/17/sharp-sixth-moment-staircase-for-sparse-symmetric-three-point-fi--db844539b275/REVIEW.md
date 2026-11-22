@@ -1,11 +1,21 @@
-# Scientific review: sparse symmetric three-point first chaos
+# Independent mathematical audit
 
-**Correctness — PASS.** The sixth-moment identity follows from an explicit multinomial expansion of three exponent types. The exact two-coordinate identity proves the optimizer classification, including the exceptional continuum at inverse nonzero probability \(t=5\); the adjacent crossing equation and its strictly monotone ratio prove every support transition. A standalone rational/symbolic checker independently tested the moment identity, the phase equation, rational simplex grids and flat degeneracy. Finite diagnostics corroborate rather than replace the all-parameter proof.
+## correctness
 
-**Originality — PASS (qualified).** The closest accessible complete primary texts are Nayar–Oleszkiewicz's 2011 online paper and Havrilla–Tkocz's 2019 arXiv manuscript. The former provides dimension-free Gaussian even-moment comparison for ultra-sub-Gaussian variables, including the \(t\le3\) boundary; the latter proves Schur concavity only for zero mass at most one half in its three-point case, corresponding to \(t\le2\). Neither inspected theorem states the exact finite-dimensional support staircase, the transition family \(\tau_k\), nor the continuum of optimizers at \(t=5\). A related exact sixth-moment result for exactly two activated signed coordinates has a different joint law and no unbounded support staircase. Whittle's 1960 original was accessible only through its abstract, leaving a real possibility of an implicit historical corollary. Search nonmatches are not proof of bibliographic uniqueness.
+PASS
 
-**Mathematical value — PASS.** The norm of first-chaos embedding in \(L^6\) is a natural exact Khintchine invariant. Independently thinning the signs creates a sharp Gaussian-to-sparse transition, infinitely many dimension-dependent optimizer-support thresholds accumulating at the transition, a quantitative scaling law, and an exceptional continuum of extremizers. These features are not a mere restatement of the uniform-sign bound or a recomputation of one sample size.
+Independent sixth multinomial expansion for independent symmetric sparse signs gives E(sum a_j X_j)^6=15+15(t-3)s_2+(t^2-15t+30)s_3 on x_j=a_j²,sum x=1. For phi(z)=Az²+Bz³, phi(u)+phi(v)=phi(u+v)+uv[-2A-3B(u+v)] is affine in pair product, forcing equalization or deletion. At 3<t<5 unequal positive weights cannot persist with a third coordinate under pair perturbations, so maximizers have equal nonzero x; at t=5 D(s)=60(s-1) permits arbitrary one/two-coordinate splits, at t>5 forces singletons, at 1<=t<=3 forces full flat support. F_k(t) adjacent sign follows strictly decreasing R(t)=-B/A crossing increasing k(k+1)/(2k+1), so every tau_k strictly ordered and k(tau_k-3)->4/5. The continuous envelope yields C_infty^6=15+(75/8)(t-3)^2+O((t-3)^3). Independently evaluated exact multinomial examples and nine adjacent roots.
 
-**Limits.** The statement is specific to real independent identically distributed symmetric three-point laws and sixth moments. Historical priority is not independently certified. No non-even exponent or inhomogeneous thinning result is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical ultra-sub-Gaussian comparison already controls dimension-free t<=3 Gaussian upper bound, and discrete-uniform three-atom Schur-concavity covers fixed/small t ranges. Those results do not determine every finite-n support-change threshold, exact all-t optimizer classification and exceptional continuum at t=5. Older Whittle 1960 moment inequality is only abstract-accessible and retained as a real residual risk.
+
+## value
+
+PASS
+
+Sharp L2-to-L6 first-chaos norm for a natural variance-one independently thinned Rademacher law, revealing every possible optimizer support size, accumulating staircase, Gaussian-to-sparse onset and exceptional flat equality family. A complete structural extremal problem, not merely known table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
