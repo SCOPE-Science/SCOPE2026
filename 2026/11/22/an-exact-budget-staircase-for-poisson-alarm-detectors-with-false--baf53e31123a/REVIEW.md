@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Conditional Poisson no-alarm probabilities establish the objective exactly; its strict monotonicities reduce global search to the efficient convex boundary. Strict concavity of the log criterion proves a unique effective-rate optimizer, the explicit edge derivative gives logarithmic transition budgets, and one-sided derivatives prove every nonempty vertex interval. The three-point rational example has strictly increasing slopes and five correctly ordered phases. A standalone executable independently checked 9,409 phase and optimum comparisons. Arithmetic samples do not replace the all-budget, all-mode proof.
+
+**Originality — PASS on inspected evidence, with residual priority risk.** The primary 2024 ecological acoustic paper uses false-positive Poisson abundance models but does not optimize a pooled OR alarm's Youden index. Clement's false-positive survey design estimates occupancy by MSE, and Fahad–Fuhrmann optimize richer Poisson-count decisions and mutual information, not the same thresholded pooled statistic. Generic convex-hull geometry and standard Youden definitions are recognized prior mathematics. Published related records on first-alarm stopping or two-mode convex testing have different objectives; no direct covering multi-mode staircase and closed switching thresholds were identified. Priority could still be affected by unindexed earlier sensor-design results, particularly classical false-target search literature with limited accessible material.
+
+**Value — PASS.** Distinguishing genuine and spurious calls is essential to ecological acoustic monitoring. The result gives all budget-dependent optimal detector choices from measured mode-specific true and false rates, caps active detector diversity at two, and shows genuine intermediate-range mixed designs and a nonempty pure intermediate phase. These are structural planning facts, not an arbitrary single numerical instance, and the model's restrictive assumptions are stated.
+
+**Limits.** Assumes known positive independent Poisson rates, pooled any-call threshold, divisible common-cost effort, one binary state, and the unweighted population Youden objective. It does not justify field use without validation and does not resolve global historical priority.
+
+Self-review: passed. Independent audit: not yet performed.
