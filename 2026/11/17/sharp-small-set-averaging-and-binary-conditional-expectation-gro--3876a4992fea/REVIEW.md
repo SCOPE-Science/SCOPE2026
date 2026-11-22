@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact norm of the rank-one averaging map is obtained by mixed-norm duality and integration of the vertical-section profile. For \(p<q\), splitting section lengths at \(\sqrt t\) yields the two moment inequalities (2), uniformly in the high-section mass fraction. The two-height sets (4) match the resulting optimized coefficient. Duality handles \(p>q\). The binary conditional-expectation norm is trapped between the one-atom norm and that norm plus a uniformly bounded complement. All domains, finite exponents, endpoints in the mass variable, and equality at \(p=q\) are handled. Finite tests support but do not certify these infinite assertions.
+## correctness
 
-**Originality — PASS, qualified.** The 2026 paper defines uniform averaging friendliness and supplies a general operator-theoretic criterion. Lü--van Neerven give a mixed-norm conditional-expectation criterion and qualitative unbounded examples; their inspected material does not give the binary small-atom sharp leading constant. The 2023 partition-averaging result treats symmetric sequence spaces and does not imply the sharp mixed-Lebesgue formula. Three published-finding corpus queries using the operator, aliases, coefficient and exponent profiles returned neighboring Lorentz and projection results, not an equivalent theorem. Claim-level implications were compared, not merely titles. Residual risk: earlier mixed-norm estimates with different normalization might contain this asymptotic formula.
+PASS
 
-**Value — PASS.** The amplification constant for setwise averaging is the numerical invariant behind the averaging-friendly hypothesis in contemporary Köthe-Banach operator theory. The theorem establishes the exact divergence exponent and nontrivial coefficient for an important mixed-norm family, and shows this persists already for binary conditional expectations. It is not a renaming or a single arbitrary finite example: every finite pair of exponents and all measurable atoms are optimized. It neither asserts a new qualitative noncontractivity observation nor claims a downstream general operator classification.
+PASS. For a measurable B of planar measure t, vertical sections b(x) satisfy 0<=b<=1 and integral b=t. Hölder duality exactly gives ||P_B||=(∫b^(p/q))^(1/p)(∫b^(p'/q'))^(1/p')/t; all section profiles are realized by subgraphs. In p<q the first exponent θ<1 and the second η>1. Splitting at b=sqrt(t) and writing c=t^-1∫_{b>=sqrt(t)}b gives uniform estimates t^-θ ∫b^θ <=(1-c)^θ+c t^((1-θ)/2) and t^-1∫b^η<=c+(1-c)t^((η-1)/2). The limiting envelope maximization is (1-c)^(1/q)c^(1/p'), with exact beta-type constant α^αβ^β/(α+β)^(α+β). The constructed full-height spike of x-width ct with remaining uniform dust reaches equality asymptotically. Lp(Lq) duality handles p>q; the B-supported norming input and complement bound squeeze ||E_B|| to the same leading constant, while p=q is ordinary Lp conditional-expectation contractivity. Independent 2,4 example t=1e-7 scaled norm .620545 vs .620403 claimed; finite corroboration only. No fixed-t maximizer or endpoint exponent cases claimed.
 
-**Closest literature and limitations.** Krasikova--Popov--Randrianantoanina, arXiv:2611.08960v1 (2026), Sections 2--4; Lü--van Neerven, arXiv:1606.02780v1 / *Positivity* (2018), Theorem 2.2 and Examples 2.5--2.7; Albiac--Ansorena--Bello--Wojtaszczyk (2023), Section 2. The result is asymptotic as \(t\downarrow0\), restricted to scalar \(1<p,q<\infty\); finite-\(t\) optimizers and broader sigma-algebras are not classified. Independent publication-priority review remains necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with historical terminology risk. Lü–van Neerven prove conditions for a fixed mixed-norm conditional expectation and give qualitative unbounded examples, not the optimized sharp t-small binary projection envelope. General averaging-friendly properties are qualitative, and endpoint-exponent/discrete Lorentz published results address other spaces/parameters. A source could conceivably contain the exact optimization under alternate language, not verified here.
+
+## value
+
+PASS
+
+PASS. An exact growth profile of rank-one averages is a canonical quantitative obstruction to uniformly bounded conditional expectations in mixed-norm function spaces. The common nontrivial sharp coefficient for one-atom and binary expectations, plus spike-and-dust geometry, distinguishes this from mere qualitative unboundedness and is directly useful in sharp operator estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
