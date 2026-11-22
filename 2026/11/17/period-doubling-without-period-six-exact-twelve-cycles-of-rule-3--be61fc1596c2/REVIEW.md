@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The left-permutive Rule 30 identity uniquely reconstructs the preceding temporal column from a center/right pair. This turns all rings with return time dividing six or twelve into finite functional-graph cycles. The height-six and height-twelve graphs contain respectively 4,096 and 16,777,216 states; complete elimination/path classification establishes the cycle spectrum in `RESULT.md`. Two independently structured programs agree on all eight height-twelve and four height-six spectrum classes. Directly reconstructed spatial words are re-evolved through all time slices. Orbit counts correctly divide the numbers of indexed periodic states by least temporal period. Only the two specified temporal periods are claimed.
+PASS
 
-## Originality — PASS, qualified
+The Rule30 local equation gives exact space-time column transfer T_p(b,c)=(rot(b) xor (b or c),b) on 2^(2p) states. Each spatial cycle of T_p is exactly one p-periodic configuration with primitive spatial length d; if d|n, it represents d distinct indexed ring configurations, which split into d/p0 primitive temporal orbits for least time period p0. Independently compiled and ran a fresh C++ functional-graph census with all 4,096 p6 states and all 16,777,216 p12 states, using indegree peeling then unique directed cycles. At p6 only primitive6 class is spatial length84 multiplicity1; p12 primitive12 classes length60 mult3, length100 mult3 and length138 mult4. Full census also verifies transient/cyclic sums 3,997+99=4,096 and 16,776,057+1,159=16,777,216. 84/6=14, 3*60/12=15, 3*100/12=25, 4*138/12=46. All ring lengths are inferred by exact transfer correspondence, not finite ring-length extrapolation; min lcm=420.
 
-The closest foundational source, Wolfram (2002), gives period-six block size 84 and short-period examples but not the complete height-twelve spatial and temporal orbit formula. The author explicitly says primitive periods through fifteen occur, which covers the bare existence of twelve-cycles, **not** their three exact primitive spatial lengths, all-circumference counts, or the fact that the minimum size for period twelve is less than for period six. The MathOverflow account reports counts only through period ten, and the 2019 Kopra thesis section inspected treats a different Rule 30 question. A public period-eleven census concerns another temporal height. These differences were compared at the implication level. Unindexed pattern catalogues and uninspected books remain a historical-priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The precise period-divisibility comparison is motivated by the existing block-size hierarchy of the canonical nonlinear Rule 30 automaton, rather than an arbitrary ring-length slice. The result proves a strict reversal of minimum spatial length under temporal period doubling, and a complete arithmetic separation of six- and twelve-cycle existence, for all ring circumferences. The exact finite invariant is useful when testing monotonicity intuitions and classifying short-period space-time constraints. No broader universality or phase-transition claim is made.
+Best-of-knowledge: 2002 Rule30 literature already has a period-six 84-site example and finite constraint method, explicitly credited. The complete primitive 12-period spatial cycle spectrum with multiplicities and all-n formula, including 60<84 onset inversion, was not contained in the inspected primary Rule30 source or closely related period11 finding.
 
-## Scope of remaining uncertainty
+## value
 
-The exhaustive transfer proof establishes the stated arithmetic laws; it is not an exhaustive survey of all publications, and the programs have not received independent external validation. The sources do not establish earlier priority for the period-twelve numbers, but lack of a matching search result is not a proof of historical priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact primitive-orbit census for a canonical chaotic elementary rule is a reusable, naturally defined dynamical invariant. The sharp nonmonotone onset (primitive temporal12 at 60 sites while primitive6 needs 84) and full divisibility formulas resolve an unexpected arithmetic boundary; exhaustive transfer-graph computation establishes all ring sizes and is not an arbitrary small finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-## Finite-state replication
+# Independent mathematical audit
 
-The complete finite proof has two independently organized C++17 implementations, `transfer_certificate.cpp` and `direct_crosscheck.cpp`. Compile with `g++ -O2 -std=c++17` and compare their output to `transfer_output.txt` and `direct_output.txt`.
+## correctness
 
-The first checks all \(4{,}096\) and \(16{,}777{,}216\) ordered temporal-column pairs for heights six and twelve using incoming-degree elimination. The second explores all the same pairs using path marks rather than indegrees, reconstructs every periodic ring, tests its least spatial period, directly applies Rule 30 for each time slice, and determines the least temporal period from the evolving ring. Agreement covers every cyclic component, not merely selected witnesses.
+PASS
 
-`make_witnesses.py` generates the four explicit strings printed in `witnesses.txt`; the independently implemented Rule 30 update confirms least periods six and twelve as appropriate. The separate finite graph exhaustions support the nonexistence claims for every circumference via the column-transfer bijection proved in `RESULT.md`.
+The Rule30 local equation gives exact space-time column transfer T_p(b,c)=(rot(b) xor (b or c),b) on 2^(2p) states. Each spatial cycle of T_p is exactly one p-periodic configuration with primitive spatial length d; if d|n, it represents d distinct indexed ring configurations, which split into d/p0 primitive temporal orbits for least time period p0. Independently compiled and ran a fresh C++ functional-graph census with all 4,096 p6 states and all 16,777,216 p12 states, using indegree peeling then unique directed cycles. At p6 only primitive6 class is spatial length84 multiplicity1; p12 primitive12 classes length60 mult3, length100 mult3 and length138 mult4. Full census also verifies transient/cyclic sums 3,997+99=4,096 and 16,776,057+1,159=16,777,216. 84/6=14, 3*60/12=15, 3*100/12=25, 4*138/12=46. All ring lengths are inferred by exact transfer correspondence, not finite ring-length extrapolation; min lcm=420.
 
-## Limits
+## originality
 
-The graph certificate is exact but has not been independently externally assessed. It does not enumerate attraction basins, general temporal periods, or nonperiodic infinite configurations. Originality relies on the listed primary-source comparisons and is not a guarantee against unpublished or unindexed results.
+PASS
+
+Best-of-knowledge: 2002 Rule30 literature already has a period-six 84-site example and finite constraint method, explicitly credited. The complete primitive 12-period spatial cycle spectrum with multiplicities and all-n formula, including 60<84 onset inversion, was not contained in the inspected primary Rule30 source or closely related period11 finding.
+
+## value
+
+PASS
+
+An exact primitive-orbit census for a canonical chaotic elementary rule is a reusable, naturally defined dynamical invariant. The sharp nonmonotone onset (primitive temporal12 at 60 sites while primitive6 needs 84) and full divisibility formulas resolve an unexpected arithmetic boundary; exhaustive transfer-graph computation establishes all ring sizes and is not an arbitrary small finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
