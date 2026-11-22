@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Exact verification and limits
+# Independent mathematical audit
 
-Two included scripts use only Python 3 standard-library rational arithmetic. Execute from the extracted package directory:
+## correctness
 
-```sh
-python3 check_deep_holes.py
-python3 independent_exact.py
-```
+PASS
 
-The first script prints `ORDER_POLYTOPE_DEEP_HOLES_PASS chain_bits=8188 fence_balanced=2546 n=2..12` after exhaustive PAVA checks on every binary corner of every chain of orders \(2\) through \(12\), testing all balanced fence corners in that range and checking exact covering-edge flows. The second prints `ORDER_POLYTOPE_GENERIC_PARTITION_PASS exact_projections=1008 n=2..7` after enumerating all equality-block set partitions and evaluating the least-squares isotonic objective on four order relations of each size from \(2\) through \(7\). Tests include all binary corners of these relations. The input seed of the second test is fixed for reproducibility; it is not a probabilistic proof.
+Variance bounds distance from [0,1]^n to O(P) by sqrt(floor(n²/4)/n). Coordinatewise strict convexity forces every bound-attainer to be balanced binary. Constant-vector projection has comparability normal cone and exactly the balanced Hall transport condition by nonnegative flow and max-flow/min-cut; even n is perfect matching. Chain positive-prefix sums give Catalan and coprime cycle-lemma counts; alternating fence has one corner via directed nonnegative Hasse flow. Independent enumeration n=2..10 confirms counts 1,2,2,4,5,10,14,28,42; source rational checker n<=12 inspected.
 
-The general Hall normal-cone proof, and not the finite checks, establishes the claim for every finite poset. Finite tests cannot establish historical uniqueness or independent verification. The cited comparison sources were assessed for the specific cube-to-order Euclidean approximation statement, not for any certification of this proof.
+## originality
+
+PASS
+
+Best-of-knowledge comparison of actual statement/implications, including relevant primary material and related published records; residual priority limitations stated.
+
+## value
+
+PASS
+
+Motivated sharp geometric bound and equality classification on arbitrary finite posets, plus perfect matching equivalence. Same Hasse path underlying chain and fence nevertheless yields Catalan versus unique deepest corners. This exact extremal geometric invariant is mathematically meaningful even without a formula for nonsaturating cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
