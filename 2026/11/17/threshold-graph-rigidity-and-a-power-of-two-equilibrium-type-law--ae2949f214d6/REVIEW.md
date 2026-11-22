@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof converts tie-retaining strict majority on the triangular graph to the exact inequalities involving the **actual** original-vertex degrees. These imply threshold rigidity; canonical word degree formulas give a bidirectional test. The sparse-word lattice-walk criterion, invertible two-child induction, complementation and odd-middle obstruction yield the stated \(2^{\lfloor n/2\rfloor}\) types. Degree-class stabilizers give the labelled occupation polynomial. Distinct implementation routes checked finite cases (creation words through 15 ground-set vertices, direct majority through 7). Finite checks are evidence, not proof of the all-size statement.
+## correctness
 
-## Originality — PASS (qualified)
-The closest public result, *Incidence conservation and half-factor classification of two-cycles in line-graph majority dynamics* (2026-11-01), was read in full in its RESULT.md. Its generic half-factor and incident-degree classification does cover unweighted fixed states on triangular graphs abstractly, but it does not evaluate or state the \(2^{\lfloor n/2\rfloor}\) ground-set isomorphism-class count. This finding claims the evaluated count and structural word bijection, **not** novelty for the general half-factor reduction. Benjamini et al. (arXiv:1405.2486v1, 2014-05-11) give general temporal results, while Barrus (arXiv:1608.01358) gives standard threshold-graph foundations. Search and inspection cannot eliminate a hidden equivalent enumeration. Other public published-finding corpus results and known combinatorial representations are not treated as independent priority certification.
+PASS
 
-## Value — PASS
-The number of stable configurations up to natural relabelling is a structural dynamical invariant. The exact power-of-two law, middle-class exclusion and invertible creation-word recursion explain this invariant for all sizes, with a companion labelled occupation formula. This classification is finer in symmetry than existing generic fixed-state formulas and is not merely small-graph tabulation.
+At line-graph vertex ij, total neighbors=2(n-2); if edge ij is one, its one-neighbors=d_i+d_j-2, so fixedness requires d_i+d_j>=n; if zero, requires d_i+d_j<=n-2. The excluded sum n-1 makes the one-edge set a self-degree threshold graph. Canonical threshold creation bits yield degrees d_i=i b_i+sum_{j>i} b_j; the pairwise inequality is necessary and sufficient. Terminal degree-twin classes give the correct orbit weight n!/prod m_r!. The sparse-case turn inequalities on height h=n-2k, bijective removal of h-2 initial zeros, two-child recursion and complement symmetry yield u_{n,k}=2^(k-1) in sparse regime, absence of odd middle class, total 2^floor(n/2). Independent direct majority enumeration over all 2^C(n,2) edge states for n=3,4,5,6 gives labelled fixed counts 2,10,12,164 and relabelling orbits 2,4,4,8; checked original verify.py and brute.cpp. These are finite diagnostics of the all-size proof.
 
-## Scientific limitations and risks
-Only immediate fixed states are counted; no claim is made about attraction basins, transient times or primitive two-cycles. There is residual risk of an unindexed equivalent theorem, particularly a previously derived triangular-graph specialization of general line-graph results. No independent mathematical audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: the exact claim is not mechanically implied by inspected primary or published related theorems. The prior half-factor formula provides an algorithmic count of labelled fixed states once degree vectors h are solved, but cannot yield the concise S_n orbit type law without the explicit threshold rigidity and nontrivial sparse-word bijection. The local degree-inequality reduction is acknowledged as a special case of the general published theorem; novelty and value rest on the evaluated orbit formula and polynomial, not a repackaged characterization alone. See explicit access and indexing risks; unsuccessful search is not proof of priority.
+
+## value
+
+PASS
+
+This is a concrete closed isomorphism-type census of immediate majority equilibria on the canonical triangular graph, including a surprising parity hole and a degree/occupation-refined polynomial. It supplements a known general half-factor classification with a nontrivial threshold graph and lattice-walk enumeration; such a small-formula family provides exact benchmarks for symmetric threshold dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
