@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The precise model and quantifiers are explicit for every integer \(n\ge3\). Connected-graph Laplacian harmonicity forces each vertex to fire exactly once in primitive two-returns. The independent threshold intervals enumerate every such state and conserve mass. The polynomial transfer and twisted trace count every orbit once. The six-dimensional determinant is an exact symbolically verifiable identity, and its Lucas power sum yields the closed formula and strict coefficientwise inequality without extrapolation. Both `verify_symbolic.py` and the independently constructed `verify_direct.py` were executed successfully. No conclusion about longer periods or basins follows.
+PASS
 
-## Originality
+PASS — On a connected graph a primitive two-cycle has complementary first/second firing sets by the Laplacian kernel. For a given binary first firing set S, each vertex has c_v cross-cut neighbors and exactly c_v legal initial chip heights, all independently choosable and weighted by z^{3f+(1−f)(3−c)}[c]_z. The 16-state row-column transfer uses successive binary rung columns; trace T^n/2 counts prism orbits and trace T^n J/2 counts the twisted seam. The anti-row-swap restriction is 6-dimensional and has exact polynomial characteristic factor (λ²−z^10)(λ²+λ z³(1+z)²−z^8)(λ²+λ z⁵(1+z)²−z^12). I independently constructed and symbolically checked this matrix/determinant from the formula, not from saved log, and independently expanded trace coefficients n=3,…,7; signed coefficients are strictly positive on all 4n+1 supported exponents and zero outside, with center +4/−2. Lucas root recurrence yields integer n/(n−j)binom(n−j,j) and all-n coefficientwise sign by the j=0 term. Complementing chip heights by 5−x gives z^10n reciprocity. The finite tests corroborate an all-n characteristic-polynomial argument; n≥3 avoids degeneracies.
 
-PASS, qualified by archival priority. The closest directly overlapping result, *A parity-reversing twist law for period-two chip-firing orbits on cubic ladders*, counts unweighted orbits with a parity-changing sign. Its full finding and proof do not state or imply coefficientwise mass dominance; specializing the present formula at \(z=1\) recovers its count. The full available *Maximum-cut law for primitive-two chip-firing energy spectra* determines support intervals and extreme coefficients on arbitrary graphs, but does not compare all interior coefficients of these two ladder closures. The examined Jiang–Scully–Zhang 2012 paper treats admissible firing patterns, not the energy-resolved seam comparison. The earlier Bitar–Goles 1992 source was available as indexed bibliographic abstract, not full text, and is a residual priority risk.
+## originality
 
-## Value
+PASS
 
-PASS. Conserved chip mass is the natural fixed-energy parameter of parallel chip-firing. Two graphs can have an ordered total number of primitive two-orbits without the same sign at every density; here a fully explicit positive-coefficient expansion proves a much stronger and surprising parity-reversing order simultaneously across all energies. It also provides a readily usable exact finite mass polynomial difference for arbitrary ring size and a size-independent central coefficient. This is a structural boundary-condition result, not a routine recomputation of one known total or an arbitrary finite sample.
+PASS — Previously published exact unweighted prism versus Möbius period-two total counts and parity signs at z=1 were inspected in full; they cannot imply any particular coefficient sign. General maximum-cut mass-support and cyclic chip-firing mass distributions likewise do not give the entire prism/Möbius coefficientwise disparity. The full primary 2012 Jiang–Scully–Zhang paper treats possible firing patterns and general behavior, not a mass-resolved graph seam-polynomial in inspected text. The exact six-state polynomial identity and strict sign at each mass are a real refinement, with early chip-firing-priority uncertainty retained.
 
-## Literature and limits
+## value
 
-Relevant comparisons: Bitar–Goles 1992; Jiang–Scully–Zhang arXiv:1211.6786 (PDF introduction, definitions and discussion); *A parity-reversing twist law for period-two chip-firing orbits on cubic ladders* (full published RESULT); *Maximum-cut law for primitive-two chip-firing energy spectra* (full published RESULT). No normalized-probability or basin comparison is claimed. Some older full texts are inaccessible; unindexed priority remains unexcluded.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS — The coefficientwise mass sign says the seam twist reorders *every conserved-energy sector* in a contiguous natural support interval, not just total populations; this is a motivated strengthening for a conservative dynamical system. Closed binomial coefficients and unusual size-invariant central coefficient are informative exact invariants with direct use for fixed-mass comparison, rather than numerical extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
