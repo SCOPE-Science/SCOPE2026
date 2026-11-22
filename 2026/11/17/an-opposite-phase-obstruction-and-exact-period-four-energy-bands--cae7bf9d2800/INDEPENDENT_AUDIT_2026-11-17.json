@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T20:04:43.405807Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For labelled loopless K_n and n>=4, the update x_v(t+1)=x_v(t)+R_t-n f_v(t) forces the same 4-step firing count h at each vertex. The directly inspected Jiang–Scully–Zhang 2012 Theorem 6.2 excludes clumpy 2-fire words; alternating 2-fire words reduce to temporal period <=2, so primitive four-cycles have h=1 or 3. For h=1, necessary and sufficient chip intervals are [n-1-p_j,n-2-p_j+a_{j-1}] for v in phase j, with all four phase sizes positive. This establishes the multinomial product P_n(z); complement x->(2n-3)-x exchanges the one- and three-fire sectors. Extremizing B=(n^2+sum a_j^2)/2-n and U=n(n-2)-(a_0a_2+a_1a_3), then connecting positive quadruples by unit transfers, proves interval-filling and gap size 3n-5. The upper-edge singleton-opposite-pair inclusion/exclusion gives 4n(n-1)(2^{n-2}-n)+24*[n=4]. An independent microscopic four-step exhaustive enumeration of chip boxes n=4,5,6 matched the polynomial exactly, with primitive counts 48, 960, 17280; inspected verify_phases.py independently intersects the firing inequalities for n=4..8. Neither finite check is used as an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026/11/2 arbitrary connected-graph formula is explicitly for primitive temporal period THREE.",
+          "2026/11/8 K_{2,b} formula applies to a thin complete bipartite graph, not a complete simple K_n."
+        ],
+        "reasoning": "A hypothetical general graph primitive-four mass enumerator would dominate this claim; the inspected general period-three theorem and the different-graph period-four theorem do not. These comparisons go beyond title similarity.",
+        "searches": [
+          "Resultary: parallel chip firing complete graph primitive period four energy bands opposite phases exact counting n all",
+          "Resultary 2026/11/2 two contiguous chip-energy bands exact three-cycle census on connected graphs",
+          "Resultary 2026/11/8 sharp four-cycle energy bands on thin complete bipartite graphs"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob ad62cfc0c56be52fdfb1b537b02c9fead5bb569f",
+        "Frozen verify_phases.py blob cde8581d35afea07ff91217f902973af10e1b07f",
+        "https://arxiv.org/pdf/1211.6786 Theorem 6.2",
+        "https://arxiv.org/abs/0811.2800",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-two-contiguous-chip-energy-bands-and-an-exact-three-cycle-census--99e5dddcdc6e/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2012 no-clumpy theorem is one ingredient used in the submitted proof, not the positive four-phase chip-height interval and energy generating formula.",
+          "The predecessor-size a_{j-1} and opposite-pair constraint are four-phase facts absent from the three-phase formula."
+        ],
+        "reasoning": "The source statements constrain possible temporal firing words or handle another graph/period, so they do not logically imply the complete exact four-period K_n energy spectrum.",
+        "searches": [
+          "arXiv:1211.6786 Theorem 6.2",
+          "Resultary 2026/11/2 primitive-three connected graphs",
+          "Resultary 2026/11/8 thin complete bipartite four-cycles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jiang–Scully–Zhang 2012, Theorem 6.2, forbids clumpy periodic firing sequences but does not supply complete-graph four-phase energy enumeration.",
+          "Levine 2008 uses loops/threshold n; adding one chip per vertex conjugates to loopless threshold n-1, so normalization is acknowledged rather than novel."
+        ],
+        "reasoning": "Cross-normalized chip-firing conventions and firing-word aliases were checked; no same K_n primitive-four mass formula follows from the inspected word-pattern lemma alone.",
+        "searches": [
+          "Resultary: parallel chip firing complete graph primitive period four energy bands opposite phases exact counting n all",
+          "arXiv:1211.6786",
+          "arXiv:0811.2800"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned finite check reconstructs n=4..8 data, and independent direct updates for n=4..6 matched exact H_n; finite tables do not cover arbitrary n.",
+          "Levine gives period/activity structure, not the two all-n exact mass bands or 3n-5 gap."
+        ],
+        "reasoning": "No inspected exact prior database/table covers every n and all coefficients of primitive-four states in the stated normalization. The finite confirmations are not novelty evidence by themselves.",
+        "searches": [
+          "Resultary primitive-four K_n mass counts",
+          "arXiv:0811.2800 complete graph chip firing population period",
+          "SCOPE source 2026/11/17 verify_phases.py"
+        ]
+      },
+      "rationale": "The all-n primitive-four K_n mass polynomial and opposite-phase singleton obstruction are not implied by the exact primitive-three connected-graph polynomial (different period and phase constraints) or by a K_{2,b} primitive-four formula (different graph, cannot specialize to K_n for n>=4). The published no-clumpy restriction gives needed local words but not the global integer mass distribution and band-edge coefficients. Best-of-knowledge PASS is restricted to these four-period K_n statements; no exhaustive priority guarantee.",
+      "residual_risks": [
+        "The n>=4 proof uses Jiang–Scully–Zhang nonclumpy theorem as an external lemma.",
+        "Unindexed exact p=4 complete-graph mass work, or broad general phase partition enumerators, may have been missed.",
+        "Finite chip-box checks stop at n=6 independently and do not establish an all-n theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Cited lemma supports the h=2 reduction but provides no all-n K_n mass polynomial.",
+          "evidence": "Theorem 6.2: clumpy firing patterns cannot occur in periodic chip-firing.",
+          "identifier_or_url": "https://arxiv.org/pdf/1211.6786",
+          "material_read": "Theorem 6.2 and surrounding periodic word definitions on PDF page 13",
+          "method": "Full PDF opened; page 12 (zero-based) visually inspected",
+          "title": "Motors and impossible firing patterns in the parallel chip-firing game",
+          "trigger": "Critical exclusion of clumpy four-bit periodic words"
+        },
+        {
+          "assessment": "Different period p=3; does not cover p=4 K_n coefficients.",
+          "evidence": "Published all-graph primitive-THREE mass polynomial; q=1/2 firing activity but no four-color opposite phase.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-two-contiguous-chip-energy-bands-and-an-exact-three-cycle-census--99e5dddcdc6e/RESULT.md",
+          "material_read": "Complete RESULT.md including finding, formulas (1)–(5), proof and limitations",
+          "method": "Complete source file retrieved via GitHub connector",
+          "title": "Two contiguous chip-energy bands and an exact three-cycle census on connected graphs",
+          "trigger": "Strong graph-generalized candidate"
+        },
+        {
+          "assessment": "Activity-period baseline, no inspected exact full primitive-four mass enumerator.",
+          "evidence": "Loop shift changes threshold convention and is expressly not claimed new.",
+          "identifier_or_url": "https://arxiv.org/abs/0811.2800",
+          "material_read": "Published theorem summaries, stated activity-period normalization and record references",
+          "method": "Targeted citation/abstract and associated mathematical comparisons",
+          "title": "Laplacian staircase on complete graph",
+          "trigger": "Same complete-graph dynamics; alternate loop convention"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Temporal period-four chip-firing on the naturally symmetric complete graph is a nontrivial enumerative problem: the theorem gives full coefficients by mass, two sharp integer bands, an exact forbidden gap, and exceptional n=4 endpoint multiplicity. These data are neither a routine application of a period-three formula nor a small-instance recomputation; useful to classify recurrent states and calibrate chip-firing energy spectra.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob ad62cfc0c56be52fdfb1b537b02c9fead5bb569f",
+    "Frozen verify_phases.py blob cde8581d35afea07ff91217f902973af10e1b07f",
+    "https://arxiv.org/pdf/1211.6786 Theorem 6.2",
+    "https://arxiv.org/abs/0811.2800",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-two-contiguous-chip-energy-bands-and-an-exact-three-cycle-census--99e5dddcdc6e/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The n>=4 proof uses Jiang–Scully–Zhang nonclumpy theorem as an external lemma.",
+    "Unindexed exact p=4 complete-graph mass work, or broad general phase partition enumerators, may have been missed.",
+    "Finite chip-box checks stop at n=6 independently and do not establish an all-n theorem."
+  ],
+  "schema_version": 1
+}
