@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "Schur/Jury conditions hold for \\(0<\\eta,t<1\\). Stationary Yule–Walker equations give normalized variance (sigma²/alpha)(A+Bt)/D_eta(t); the mode-wise Gaussian law is unique. The interpolating line through two distinct modes is K+Gt. Real-tap realizability reduces to -1<=G/K<=1+2eta and both inequalities hold strictly by explicit positive factorizations. The difference has exact factor eta(1+2eta)(t-t_-)(t-t_+), proving sign and excluding three distinct zeros. The necessary independent 3x3 Lyapunov solve, interpolation and rational example were reproduced with 1679 exact checks by embedded verify.py. Finite tests supplement, do not prove, the arbitrary-dimensional statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schuh (2026) advances an exact-harmonic-integrator kinetic splitting with separate position-velocity state transition and invariant-error bounds rather than the stated gradient-extrapolated two-tap recurrence.",
+        "Sharma (2026) uses a prescribed physically scaled two-tap noise law, obtains Gaussian contraction and stationary error bounds, and does not optimize the two arbitrary real taps to match two distinct spectra.",
+        "The broad noncommuting or other Gaussian sampler entries in the queried findings have different state propagators/noise constraints."
+      ],
+      "reasoning": "Exact integration of a harmonic flow for all curvatures is not a stronger theorem about the amount of spectral calibration possible with a prescribed polynomial AR(2) recurrence and one shared scalar MA(1) filter. Broad Gaussian-convergence and error analyses do not imply the sharp feasibility inequalities or sign reversal of this particular filter class; any unindexed general ARMA design theorem might nevertheless dominate and is left as a named risk.",
+      "searches": [
+        "Katharina Schuh arxiv 2605.24070 exact harmonic Langevin integrator kinetic sampler discrete Gaussian invariant covariance colored noise two step recurrence",
+        "sharp impossibility stationary covariance exactness for three eigenvalues Nesterov accelerated Langevin sampler two-tap colored innovation",
+        "two target eigenvalues exact calibrate gaussian Nesterov momentum noise third eigenvalue underdispersion",
+        "two mode covariance calibration correlated Gaussian noise momentum Langevin exact discretization harmonic multiple frequencies",
+        "arxiv:2605.24070 Sections 2-5, Appendix A",
+        "arxiv:2611.26575v1 Section 3, Appendix A.5"
+      ]
+    },
+    "checked_sources": [
+      {
+        "scope": "full accessible rendered article; scheme, convergence/accuracy, appendix",
+        "source": "https://arxiv.org/abs/2605.24070"
+      },
+      {
+        "scope": "full accessible rendered article; colored-noise Brownian limit and boundary",
+        "source": "https://arxiv.org/abs/1203.5428"
+      },
+      {
+        "scope": "full accessible relevant stochastic Nesterov definition and Gaussian appendix",
+        "source": "https://arxiv.org/html/2611.26575v1"
+      },
+      {
+        "scope": "published-finding corpus title/summary-level entries only; full content not accessible",
+        "source": "https://github.com/published-finding corpus/2026"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Schuh applies a matrix exponential to an exactly solved harmonic component, and therefore has a different numerical update with mode-dependent response.",
+        "Leimkuhler–Matthews establishes a zero-momentum equal-tap colored-noise scheme, which does imply the \\(\\eta=0\\) formula; this boundary is not claimed as new.",
+        "Sharma displays the same deterministic characteristic polynomial with preset taps, but the inspected theorem controls stationary errors for that choice and does not furnish an arbitrary-tap two-eigenvalue interpolation and its feasibility.",
+        "Other published-finding corpus Gaussian invariant-measure matches concern stochastic Runge–Kutta, randomized coordinates or different splitting updates and are not special/stronger forms of the stated AR(2)-MA(1) classification."
+      ],
+      "reasoning": "The older exact harmonic and colored-noise claims have useful common ingredients but do not mathematically imply the new fixed-positive-momentum two-mode existence/uniqueness-of-invariants and strict signed bias using a single pair of shared real taps. Existing ARMA stationary-variance formulas are an input; the interpolation feasibility, exact error factorization and three-curvature barrier are the stated additional implications. Residual overlap uncertainty remains expressly qualified.",
+      "searches": [
+        "Schuh arxiv:2605.24070 equation (4) exact harmonic integrator and Sections 3-4",
+        "Leimkuhler–Matthews arxiv:1203.5428 equations (2) and colored-noise Brownian limit",
+        "Sharma arxiv:2611.26575v1 equation (A.91) and Appendix A.5",
+        "published-finding corpus IDs 2026/11/2/SCOPE-exact-gaussian-calibration-and-time-average-variance-gap-for-two--2f2752b5d5bf, 2026/11/8/SCOPE-spectral-minimax-calibration-and-unavoidable-fourth-order-depend--ba2056df054f, 2026/9/19/SCOPE-fractional-midpoint-noise-ubu-configurational-bias--516bd7b79285, 2026/10/25/SCOPE-sharp-temporal-noise-color-laws-and-an-injection-side-reversal-f--0e401eb67d48, 2026/11/8/SCOPE-sharp-gaussian-covariance-and-correlated-curvature-stability-of--a8b905db9264"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The AR(2)-MA(1) normal form of a harmonic stochastic process is classical and was searched as a possible alias.",
+        "Leimkuhler–Matthews (2012) provides colored-noise Brownian sampling and contains the zero-momentum equal-tap limiting construction.",
+        "Sharma (arxiv:2611.26575v1), Section 3 and Appendix A.5, defines a related stochastic Nesterov recurrence and analyzes fixed-noise Gaussian convergence; no parameter-freedom all-real-taps two-mode interpolation theorem was located in the inspected relevant sections."
+      ],
+      "reasoning": "A known ARMA(2,1) variance formula is a tool, not by itself a classification of which two distinct quadratic curvatures can be calibrated by a single shared pair of real taps. The \\(\\eta=0\\) all-mode equality is exactly prior and excluded. The \\(\\eta>0\\) classification gives a necessary AND feasible two-target interpolant, strict signed intermodal bias, and an obstruction to a third distinct curvature. No equivalent complete statement was found in examined materials; broad generic ARMA formulae remain a residual priority risk.",
+      "searches": [
+        "AR2 Gaussian sampler one fresh Gaussian noise per step two tap MA1 colored noise exact stationary covariance at two harmonic frequencies",
+        "momentum Gaussian sampler spectral invariant variance interpolation curvature band underdispersion two exact modes",
+        "two tap stochastic Nesterov sampler tuning noise polynomial exact two-mode Gaussian covariance no third",
+        "AR(2) MA(1) noise covariance calibration two frequencies exact position invariant measure Nesterov momentum",
+        "\"AR(2)\" \"MA(1)\" \"exact\" \"Gaussian\" \"Langevin\" sampler covariance",
+        "arxiv:1203.5428, Introduction and Section 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus similarity searches returned nearby Gaussian-calibration records, most notably the two stochastic Runge–Kutta samplers record and random-order splitting records; their summaries state different recurrences and error phenomena.",
+        "No relevant exact variance/interpolation database or tabulation was established by the searches."
+      ],
+      "reasoning": "The sought output is a full infinite-curvature-spectrum interpolation and attainability classification, not a particular computed finite table; checked published claims and available indexed claims do not state an equivalent result. Database silence alone does not establish novelty.",
+      "searches": [
+        "AR2 Gaussian sampler one fresh Gaussian noise per step two tap MA1 colored noise exact stationary covariance at two harmonic frequencies",
+        "momentum Gaussian sampler spectral invariant variance interpolation curvature band underdispersion two exact modes",
+        "two tap stochastic Nesterov sampler tuning noise polynomial exact two-mode Gaussian covariance no third",
+        "published-finding corpus records 2026/11/2/SCOPE-exact-gaussian-calibration-and-time-average-variance-gap-for-two--2f2752b5d5bf, 2026/11/8/SCOPE-spectral-minimax-calibration-and-unavoidable-fourth-order-depend--ba2056df054f, 2026/9/19/SCOPE-fractional-midpoint-noise-ubu-configurational-bias--516bd7b79285"
+      ]
+    },
+    "rationale": "Direct claim-to-implication comparisons of complete accessible motivating and colored-noise papers, a closely related later stochastic Nesterov article, published-finding corpus semantic records found no statement entailing the arbitrary-real-two-tap positive-momentum two-eigenvalue classification and exact signed bias. The \\(\\eta=0\\) all-mode equality, general ARMA identities, and exact harmonic integrators are explicitly credited. Full repository texts/unindexed ARMA sources remain priority risks; this is a qualified same-model best-knowledge assessment, not independent novelty certification.",
+    "residual_risks": [
+      "Broader ARMA(2,1) covariance-design theory or a published two-point Gaussian spectral calibration theorem with different terminology may imply the same result; targeted accessible searches cannot exclude it.",
+      "Full public text for the most similar published-finding corpus repository records was not available; comparisons there used actual returned titles/claim summaries and do not constitute whole-document exclusions.",
+      "The model is a deliberately constrained scalar-tap, single-fresh-innovation recurrence; mode-dependent or matrix-valued noise, exact harmonic propagation, and other algorithms may reproduce all curvatures.",
+      "The later correlated-noise Nesterov article has the same deterministic characteristic polynomial but preset noise; it was inspected as a strong overlap comparison, and later variants or unindexed appendices could affect priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: exact harmonic matrix-exponential splitting is structurally different and does not classify the single-common-two-tap gradient-extrapolation recurrence",
+        "evidence": [
+          "arxiv:2605.24070, equation (4), Sections 2-4, Appendix A; first public May 22, 2026"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.24070",
+        "material_read": "Complete accessible arXiv rendered text, focusing on Introduction, Section 2 exact harmonic step, Sections 3-4 convergence/accuracy, and Appendix A scheme proof",
+        "method": "Opened full-text-rendered arXiv abstract page containing manuscript sections; read method equations, proofs, and outlook",
+        "title": "Convergence and non-asymptotic error analysis for kinetic Langevin samplers using the exact harmonic Langevin integrator",
+        "trigger": "Recent motivating primary numerical sampling method, harmonic invariant accuracy and spectral effects"
+      },
+      {
+        "assessment": "Covers all-mode \\(\\eta=0\\) equal-tap boundary, which is credited; no positive-momentum shared-tap two-mode classification in examined text",
+        "evidence": [
+          "arxiv:1203.5428, Introduction, Section 4, Section 6"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1203.5428",
+        "material_read": "Full accessible arXiv text, Introduction equations defining correlated Gaussian update, Sections 3-4, Conclusions",
+        "method": "Read text-rendered arXiv article including derivation of Brownian limit",
+        "title": "Rational Construction of Stochastic Numerical Methods for Molecular Sampling",
+        "trigger": "Original colored-noise Brownian integration, possible full coverage at zero momentum"
+      },
+      {
+        "assessment": "Uses prescribed correlated-noise coefficients and obtains error/convergence bounds, but the inspected analysis does not give the common arbitrary-tap two-curvature interpolation and exact signed error law. This later manuscript is not the initiating source of the current claim.",
+        "evidence": [
+          "arxiv:2611.26575v1, first posted Nov 19, 2026, Section 3 and Appendix A.5, formulas (A.90)-(A.98)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.26575v1",
+        "material_read": "Accessible full HTML manuscript, especially Section 3 definition and Appendix A.5 Gaussian proof and stationarity discussion",
+        "method": "Read arXiv HTML formula for two-step recursion and characteristic polynomial, Gaussian covariance estimates and remainder",
+        "title": "Stochastic counterpart of Nesterov’s method for sampling and provable non-acceleration of samplers with heavy-ball structure",
+        "trigger": "Very close related recurrence and Gaussian stationary covariance analysis"
+      },
+      {
+        "assessment": "Summary-level comparisons show other updates and calibration invariants; full-text exclusion is NOT asserted and inaccessible contents remain a risk",
+        "evidence": [
+          "2026/11/2/SCOPE-exact-gaussian-calibration-and-time-average-variance-gap-for-two--2f2752b5d5bf",
+          "2026/11/8/SCOPE-spectral-minimax-calibration-and-unavoidable-fourth-order-depend--ba2056df054f",
+          "2026/9/19/SCOPE-fractional-midpoint-noise-ubu-configurational-bias--516bd7b79285",
+          "2026/10/25/SCOPE-sharp-temporal-noise-color-laws-and-an-injection-side-reversal-f--0e401eb67d48",
+          "2026/11/8/SCOPE-sharp-gaussian-covariance-and-correlated-curvature-stability-of--a8b905db9264"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026",
+        "material_read": "Indexed publication titles, summaries, and identifiers only; relevant full manuscript contents unavailable",
+        "method": "Read published scientific claim summaries and compared stated objects and implications",
+        "title": "Selected related published-finding corpus published Gaussian sampling findings",
+        "trigger": "Semantic overlap candidates for exact invariant Gaussian covariance and correlated noise"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5139658d-129b-4df2-a58f-bb25e3ab7c5a",
+  "value": {
+    "rationale": "Gaussian invariant covariance is a natural accuracy criterion for unadjusted kinetic/momentum samplers; the question is whether one-step-cost temporal correlation can repair spectral bias without full mode-dependent harmonic integration. The result gives the complete two-eigenvalue attainability frontier (both feasible, three impossible), the only feasible noise-power/correlation invariants, and a strict underdispersion/overdispersion map, including a quantified interior deficit. This is a motivated structural design boundary, not a selected small numerical example or table; no general nonlinear sampler guarantee is claimed.",
+    "status": "PASS"
+  }
+}
