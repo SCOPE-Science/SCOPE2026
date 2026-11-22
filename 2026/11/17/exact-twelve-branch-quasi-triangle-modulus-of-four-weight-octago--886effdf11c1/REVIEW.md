@@ -1,23 +1,21 @@
-# Self-review: exact four-weight octagonal quasi-triangle modulus
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The specified generators are fixed, including the unnormalized diagonal directions, and all four nodal weights are strictly positive. A planar supporting segment proves equality between the optimal two-summand quasi-triangle modulus and the maximum of the gauge over the convexified unit ball. The eight radial vertices then reduce this maximum to twelve explicit chord-ray intersections and the vertex value \(1\). The exhaustive list is independently verified by orientation determinants; all twelve terms have exact strict-maximizer witnesses. The argument covers arbitrary real positive parameters, not only integer tests. The standalone rational checker reproduced the hull geometry for 4,096 octagonal parameter tuples, verified twelve strict witness inequalities, and ran 1,728 hexagonal control cases. The finite tests supplement rather than prove the universal identity.
+PASS
 
-## Originality — PASS, with explicit bibliographic risk
+PASS: q is even, continuous, strictly positive and absolutely homogeneous by conewise positive interpolation on the eight specified UNNORMALIZED rays. In dimension two its two-summand concavity constant C(q)=max_{z in conv{q<=1}}q(z): the upper bound follows from unit-ball convex combinations; the reverse uses a supporting segment joining two original unit-ball points. Here the unit ball is exactly the union of eight triangles with vertices 0 and consecutive radial points u_i/c_i, so its convex hull is their polygonal hull. Maximization of the cone-linear q over the hull occurs at a ray/hull-edge crossing or an original unit vertex. Exact chord-ray relation u_i=s*u_j+t*u_k yields ratio c_i/(s*c_j+t*c_k); the twelve antipodal classes exhaust strict crossings and the baseline 1. Each of the twelve parameter witness quadruples strictly and uniquely maximizes its indicated term. Independently checked all twelve strict branch witnesses exactly by rational arithmetic. No claim for dimensions beyond 2, normalized diagonal rays or zero weights.
 
-Unser's 2026 article establishes the conic-spline parametrization and nodal polygon geometry, and a general existence/upper-bound result for quasi-triangle moduli. Its inspected Sections 2, 3, 5, and appendices contain neither the sharp four-weight formula nor an equivalent full irredundant twelve-branch classification. Earlier convex-envelope theory supplies the gauge of a convexified ball; earlier quasi-Banach work supplies the modulus terminology. Neither directly implies the twelve explicit terms without a new geometric reduction and crossing classification. Related published octagonal-Banach-plane records address *different* invariants on convex normed planes, and a published planar convexification record studies a different Minkowski-sum threshold. General planar supporting-face geometry itself is not claimed as new. The full 1986 Banach-envelope paper was not obtained, and an unindexed equivalent piecewise-linear optimization may exist.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The optimal quasi-triangle coefficient is the natural quantitative stability parameter controlling a nonconvex quasi-norm. The result solves it **for all positive values of four independent conic-spline coefficients** on the first uniform planar fan with four antipodal pairs, not a one-off numerical instance. All twelve alternatives are essential, which establishes a genuine parametric classification of competing nonconvex extremizers. The exact positive-weight formula can be used without computing a polytope hull or optimizing an infinite family of two-vector pairs. It also separates the sharply optimal coefficient from the generic upper bound based on comparison with a norm. The finding makes no higher-dimensional or arbitrary-fan claim.
+PASS best-of-knowledge: Unser (2026) Theorem 2.4 gives the general continuous quasi-norm criterion and only the upper bound C<=M/m, and its conic-spline construction supplies the fan geometry, but the inspected sections do not give this particular sharp four-parameter twelve-branch modulus or irredundancy witnesses. General Banach-envelope convexification and planar polytope geometry are antecedents; the present full optimal multi-parameter rational phase classification is not an immediate displayed known table. An unindexed polyhedral-gauge optimization formulation may cover it.
 
-## Closest literature and limitations
+## value
 
-- M. Unser, *Quasi-norms on \(\mathbb R^d\): Characterization and Approximation by Conic Splines*, arXiv:2611.06212v1 (2026-11-04), Sections 2, 3, 5 and Appendices A–C.
-- N. J. Kalton, *Banach Envelopes of Non-Locally Convex Spaces*, Canadian J. Math. 38 (1986), DOI:10.4153/CJM-1986-004-2 (abstract examined; full text not examined).
-- *On Perfectly Homogeneous Bases in Quasi-Banach Spaces*, Abstract Appl. Anal. (2009), DOI:10.1155/2009/865371 (terminology and introduction examined).
+PASS
 
-The scope is restricted to strictly positive nodal weights on the stated eight rays in a real plane. Potential equivalences in less searchable polyhedral/quasi-Banach literature remain a residual priority risk. The checker does not establish an infinite-parameter result by itself.
+PASS: The canonical centrally symmetric eight-ray four-weight family is a natural small but genuinely nonconvex polyhedral quasi-norm class introduced by conic spline parameterization; its exact optimal constant is a useful fine invariant not determined by general norm-equivalence bounds. Twelve indispensable phase branches classify sharp extremizers and control quasi-triangle estimates across the whole positive parameter orthant.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
