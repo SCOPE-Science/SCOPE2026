@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "The exact 2m-cell transition matrix yields the normalized invariant density; every m-step smooth branch has slope at least m, and the finite Markov graph is primitive, giving a unique acim. A full-branch central return gives iid uniform waits; conditioning on uniform excursion starts yields q_m(n)=2(1-1/m)^n-1 for n<=m. Stationary residual life gives the finite sum and exact C_m formula. Finite differences identify the minimum and the exceptional m=2 tie. Uniform exponent convergence gives the macroscopic negative limit. Independent rational Markov calculation verifies 493 m,n values, not relied on as proof of the infinite quantifier.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "García-Grimaldo and Campos-Cantón 2021 abstract: no fixed-point conditions, positive Lyapunov exponents, Devaney chaos at an example; its full article was inaccessible.",
+        "García-Grimaldo et al. 2023 full HTML §§2–4: parameter sweeps and numerical implementations, not model-specific renewal sign covariance.",
+        "published-finding corpus record-17c4441294fc and record-6720a7af9fc9 concern other piecewise maps."
+      ],
+      "reasoning": "A generic stationary alternating-renewal theorem gives a transform if the excursion distribution and stationary residual law are supplied, but does not by itself establish the concrete source map, exact density, finite-lag closed expression or minimum. The known earlier same-family full 2021 text remains an acknowledged risk, not a silently ruled-out source; accessible theses and articles compare distinct statements.",
+      "searches": [
+        "published-finding corpus: map no fixed points FPGA integer inner slope outer slope one topological entropy metric entropy gap",
+        "published-finding corpus: stationary Markov renewal sign flip uniform waiting times negative correlation",
+        "Web: \"Chaotic Features of a Class of Discrete Maps without Fixed Points\" 2021 October 26 Published",
+        "Web: \"Comparative Analysis of Chaotic Features of Maps Without Fixed Points\" pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.3390/electronics12020444",
+      "https://doi.org/10.1142/S021812742150200X",
+      "https://doi.org/10.1007/978-3-031-02472-6_8",
+      "https://repositorio.ipicyt.edu.mx/bitstream/handle/11627/6492/TesisClaudioGarcia-VersionFinal.pdf?sequence=4",
+      "https://doi.org/10.1016/j.chaos.2023.113951",
+      "published-finding corpus:record-af278b76d784",
+      "published-finding corpus:record-0e8f83f035e7",
+      "published-finding corpus:record-17c4441294fc",
+      "published-finding corpus:record-d95b4c65cf77"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "published-finding corpus record-af278b76d784 proves a period-three orbit count for other parameter chambers of the same original family; no stationary covariance follows.",
+        "published-finding corpus record-0e8f83f035e7 proves a Lyapunov lower bound, not a signed two-time law.",
+        "The extended 2023 thesis chapter 3 derives fixed-point and chaos criteria; chapter 6.3.3 defines empirical autocorrelation of BLS-based outputs; no closed stationary sign formula was established in the sections inspected."
+      ],
+      "reasoning": "Same-map period-three and Lyapunov results neither specialize to the neutral unit outer slope with integer inner slopes nor logically imply its invariant cell masses or sign covariance. A general positive Lyapunov exponent cannot determine stationary two-time correlations. The available statements do not dominate the exact formula, while uninspected 2021/2022 full texts are explicit residual risks.",
+      "searches": [
+        "published-finding corpus: Garcia Grimaldo Campos Canton piecewise linear chaotic map no fixed points exact invariant density integer slope m1=1 m2 integer",
+        "published-finding corpus: one-dimensional discontinuous map conjugacy invariant measure kneading dynamics",
+        "Web full HTML: doi:10.3390/electronics12020444 §2–4",
+        "Web PDF thesis: https://repositorio.ipicyt.edu.mx/bitstream/handle/11627/6492/TesisClaudioGarcia-VersionFinal.pdf?sequence=4 sections 3.1, 3.3, 6.3.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "García-Grimaldo et al. Electronics 2023, doi:10.3390/electronics12020444, Eq. (1), identifies the same four affine branches and includes outer slope one in its numerical sweep.",
+        "García Grimaldo thesis (2023), ch. 3 treats the four-branch source family; ch. 6.3.3 reports empirical autocorrelations of separate PRNG outputs.",
+        "published-finding corpus record-d95b4c65cf77 covers an equal-endpoint affine surface and a different bit process."
+      ],
+      "reasoning": "The sign law is equivalent to the signed stationary transition matrix for the 2m-cell graph or to an alternating-uniform-renewal correlation. The searched source- and sign-alias results do not give the exact finite-lag function or its m-scaled trough on the original four-branch map; the closest bit result has a different parameter slice, different observable and quasiperiodic structure.",
+      "searches": [
+        "published-finding corpus: Garcia Grimaldo Campos Canton piecewise linear chaotic map no fixed points exact invariant density integer slope m1=1 m2 integer",
+        "published-finding corpus: bounded interval fixed point free four branch integer slope renewal sign reversal exact time correlation",
+        "Web: \"García-Grimaldo\" \"Campos-Cantón\" \"correlation\" \"fixed points\" map",
+        "Web: \"chaotic map without fixed points\" \"autocorrelation\" sign PWL Garcia"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus retrieval returned records on exact stationary covariance for other interval maps but no table or formula for this map.",
+        "The 2023 Electronics article Fig. 3 contains finite-sample histograms; the thesis Fig. 6.5 contains separate PRNG sample autocorrelation plots.",
+        "The explicit new source-map formula depends on every integer m and lag n in 0..m, and is not a numerical tabulation."
+      ],
+      "reasoning": "Neither histograms nor numerical correlations of different generators determine the integer-parameter all-lag exact covariance. No matching indexed database/table was found. The absence of a search match is not claimed as proof of novelty.",
+      "searches": [
+        "published-finding corpus: finite 4branch piecewise affine map x->x+1 or m(x+1) stationary sign covariance profile 8exp(-t)+4t-7",
+        "published-finding corpus: Garcia Grimaldo Campos Canton piecewise linear no fixed points exact stationary sign autocorrelation negative dip O(m) integer inner slope",
+        "Web: \"Design of piecewise linear chaotic maps and their application in pseudorandom number generation\" autocorrelation"
+      ]
+    },
+    "rationale": "The searched original family has documented fixed-point/Devaney results, numerical bifurcations, Lyapunov and hardware time-series work, but the reviewed full same-family 2023 article and relevant 2023 thesis sections do not state the exact stationary sign correlation, its minimizing index or m-scaled negative trough. Closest indexed same-family results concern period-three orbits and Lyapunov floors, which do not imply two-time sign laws. Classical alternating-renewal tools are general prerequisites, not published proof of this specific distribution, closed finite-lag covariance, and universal minimum. Inaccessible full 2021/2022 source material and possible unindexed equivalences are explicitly recorded as publication-priority risks.",
+    "residual_risks": [
+      "Full 2021 original article and 2022 comparative chapter were not accessible from available lawful sources, so undiscovered equivalent results remain possible.",
+      "The author doctoral thesis was materially read in relevant chapters, but was not examined exhaustively page-by-page.",
+      "General deterministic renewal-process sign-covariance literature may contain an equivalent formula under a different model description; no absence or independence is certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Studies dynamics and implementation, but does not derive exact stationary sign covariance or the integer-slope anticorrelation trough.",
+        "evidence": [
+          "Section 2 Eq. (1) and m1 range in Section 3; Section 4.1 histograms."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/electronics12020444",
+        "material_read": "Full HTML article, especially sections 2–4 (branch equations, parameter study, Lyapunov and FPGA histograms).",
+        "method": "Direct web HTML section inspection, equations (1)–(3), Figure 2 and Figure 3 discussions.",
+        "title": "FPGA Implementation of a Chaotic Map with No Fixed Point",
+        "trigger": "Full freely accessible same-family source and numerical boundary m1=1"
+      },
+      {
+        "assessment": "The reviewed source-family discussion supplies fixed-point and chaotic-set conditions. The later autocorrelation discussion concerns different PRNG outputs (BLS-based constructions), not the exact sign observable of the integer-parameter boundary map. The remaining thesis text was not exhaustively reviewed.",
+        "evidence": [
+          "Thesis §3.1 Theorem 5 includes m1=1; §6.3.3 plots finite-sample autocorrelation rather than exact stationary sign covariance."
+        ],
+        "identifier_or_url": "https://repositorio.ipicyt.edu.mx/bitstream/handle/11627/6492/TesisClaudioGarcia-VersionFinal.pdf?sequence=4",
+        "material_read": "Contents; chapter 3 sections 3.1 and 3.3 source-family fixed-point and chaos analysis; chapter 6.3.3 empirical autocorrelation methodology and results.",
+        "method": "Read available PDF text in relevant chapter sections; graphical content not separately analyzed.",
+        "title": "Design of piecewise linear chaotic maps and their application in pseudorandom number generation",
+        "trigger": "Author doctoral thesis with same four-branch family and an explicit autocorrelation chapter"
+      },
+      {
+        "assessment": "The preview emphasizes existence of fixed-point-free branches, amplitude control and Devaney chaos. No negative-correlation formula is in the accessible material; full-text overlap is unresolved, not asserted absent.",
+        "evidence": [
+          "2021 abstract states fixed-point conditions and Devaney-chaotic example, not sign correlations."
+        ],
+        "identifier_or_url": "https://doi.org/10.1142/S021812742150200X",
+        "material_read": "Publisher-provided first-page preview and complete abstract; the remaining article not accessible.",
+        "method": "Publisher preview via ResearchGate; additional open-access and lawful full-text routes were unavailable.",
+        "title": "Chaotic Features of a Class of Discrete Maps without Fixed Points",
+        "trigger": "First known same-map source; plausible strong-coverage risk"
+      },
+      {
+        "assessment": "Abstract describes bifurcation, Lyapunov, entropy and statistical numerical tools but cannot exclude exact source-family correlation elsewhere in chapter; uncertainty retained.",
+        "evidence": [
+          "2022 chapter abstract discusses numerical and statistical comparisons of chaotic properties."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/978-3-031-02472-6_8",
+        "material_read": "Bibliographic record and complete available abstract; full chapter not accessible.",
+        "method": "Open scholarly index and chapter summary following unsuccessful lawful full-text checks.",
+        "title": "Comparative Analysis of Chaotic Features of Maps Without Fixed Points",
+        "trigger": "Same authors comprehensive comparison of related maps"
+      },
+      {
+        "assessment": "Discusses a Bernoulli-like shift family; no evidence of the exact original four-branch unit-outer-slope stationary sign law in available summary, but full content uninspected.",
+        "evidence": [
+          "2023 Chaos, Solitons & Fractals 175, 113951, focus on Bernoulli-like shift maps."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.chaos.2023.113951",
+        "material_read": "Title, bibliographic record and accessible abstract only.",
+        "method": "Scholarly-index literature search for published same-author derivatives.",
+        "title": "Exploring a family of Bernoulli-like shift chaotic maps and its amplitude control",
+        "trigger": "Same-author paper with possible symbolic comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bb71d530-7a1a-490c-b8e8-0bde9af4d9cf",
+  "value": {
+    "rationale": "Exact sign autocorrelation is a natural structural observable of a PWL map motivated as a random-output generator. The proof demonstrates a measurable long-memory effect at a physically meaningful neutral outer-slope boundary: one-step switching probability tends to zero, yet a universal negative time-correlation trough survives at a lag proportional to the inner slope. The model-specific stationary density, all-lags-up-to-m law and sharp extremum go substantively beyond numerical histograms, fixed-point checks, or elementary parameter substitution. No claims of cryptographic security are inferred.",
+    "status": "PASS"
+  }
+}
