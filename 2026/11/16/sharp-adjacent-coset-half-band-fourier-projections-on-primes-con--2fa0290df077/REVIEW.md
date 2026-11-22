@@ -1,13 +1,21 @@
-## Correctness
-PASS. The convolution-kernel norm, quartic-character Gauss–Jacobi identity, complete four-coset multiplicity count, and strict radical inequality establish the general classification. The checked integer Jacobi sums and direct Fourier kernels agree for all 43 relevant primes under 1000. The finite tests supplement, and do not replace, the general argument.
+# Independent mathematical audit
 
-## Originality
-PASS relative to checked evidence. The full 2026 Fourier-ratio source develops coefficient-ratio frameworks, not the half-band quartic multiplier selection theorem. The nearest indexed published-finding corpus item concerns cubic-residue projection norms, a different index-three spectrum with no adjacent-versus-opposite design family. The older quartic-period evaluations provide the character-sum ingredients, but the stated norm comparison and exact sum-of-two-squares tie criterion were not found as an evaluated half-band theorem. This distinction is at the level of statements and implications, not just wording; the classical identities can be used to rederive the result, so pre-existing cyclotomic design classifications remain the main residual priority risk.
+## correctness
 
-## Value
-PASS. At a fixed natural frequency budget of half the nonzero prime-cycle spectrum and with multiplicative quartic symmetry, the result identifies all optimal Fourier projection designs for infinitely many prime orders. It also gives the exact arithmetic tie criterion and quantitatively compares the two available geometries. This is an endpoint stability/design classification rather than an isolated numerical example.
+PASS
 
-## Closest literature and limits
-The Gauss–Jacobi identity and Gaussian-period methodology are prior mathematics. The general 2026 Fourier-ratio work is motivation, not a claim of priority on the norm formula. Indexed cubic-residue and square-residue results do not compare adjacent and opposite quartic unions. Potentially relevant older cyclotomic-number literature may already contain an equivalent inequality; no claim of independent validation is made.
+With m=(p-1)/4, -1 lies in the second quartic class; period conjugation and Gauss-Jacobi tau(chi)^2=sqrt(p)(a+ib) give y0^2+y1^2=p/4 and y0*y1=-b sqrt(p)/8. The two adjacent kernel squared absolute values are (p+1±b sqrt(p))/4; opposite pair quadratic periods yield (-1±sqrt(p))/2. Summing kernel magnitudes with t=0 term 2m gives exact stated endpoint formulas. Squaring the positive radical inequality reduces L_adj<=L_opp precisely to b^2>=4. Jacobi Gaussian integer norm p=a^2+b^2, b even for p≡5 mod8, and b≠0 since p prime, prove it for ALL such primes. Boundary b=±2 gives exact ties. Independently constructed quartic classes and full length-p convolution sums at p=5,13,29,37,53,61,101, reconstructing Jacobi sums and verifying both norms and exact tie predicate. These finite tests corroborate, not replace, the Gauss-Jacobi argument. The theorem is only within six two-coset spectra, not an unrestricted half-band minimization.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS is a bounded priority judgment for the new extremal adjacent-versus-opposite classification, not the classical quartic Gauss/Jacobi period evaluations. The cited general Fourier-ratio theory concerns coefficient recovery and complexity, not the same projection endpoint optimization; the earlier published cubic-residue result has a different residue order and a single class. Unindexed older cyclotomic idempotent norm tables remain a named risk.
+
+## value
+
+PASS
+
+The six-candidate symmetric half-band projection design is mathematically natural and the result gives an exact sharp choice, universal ordering and arithmetically exceptional equality family. It is not a mere isolated tiny prime table: the nontrivial all-prime optimization links additive Fourier endpoint norms to quartic multiplicative characters. Known period identities are correctly credited; there is no claim about arbitrary half-cardinality spectral sets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
