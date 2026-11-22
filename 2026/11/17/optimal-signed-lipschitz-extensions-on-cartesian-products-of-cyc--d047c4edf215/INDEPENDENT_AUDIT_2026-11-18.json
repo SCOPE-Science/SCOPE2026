@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T08:07:21.583796Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For k>=2 cycles of lengths n_i>=3 with unit shortest-path metrics, triangle inequality requires R>=D/2. A bounded real-linear one-point extension must have coefficient sum one; its norm is max(1,rho(w)/R). Averaging signed distance potentials across all x gives rho(w)>=c=sum floor(n_i²/4)/n_i, attained by uniform positive weights. If equality rho(w)=c holds then all S_x(w)=c; for any negative coefficient at z, select a vertex x at graph diameter D from z and increase only f_x(z)=-d(x,z) by small epsilon. Every adjacent edge remains 1-Lipschitz but its functional improves strictly, contradiction: all exact minimizers are positive. For positive w, rho(w)=max_x S_x(w). Additivity of distances means all S_x constant exactly when each factor marginal has constant cycle-distance convolution; cyclic second differences force odd marginal uniform or even marginal antipodally equal. Independent factor constraints yield affine dimension N-1-sum_odd(n_i-1)-sum_even(n_i/2), and strictly positive uniform weights ensure relative interior. For R>c, the rho sublevel set contains a full-dimensional open neighborhood of uniform weights and a negative coefficient via a four-cell zero-marginal checkerboard followed by a small signed transfer. Independently computed c and affine dimensions: (3,4): N12,c=5/3,dim7; (4,4): N16,c=2,dim11; (5,6): N30,c=27/10,dim22; (3,4,4): N48,c=8/3,dim41. Finite LP code inspected; analytic proof covers all k and lengths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bruè–Di Marino–Stra construct general bounded linear extensions from random projections without exact signed minimizer polytopes.",
+          "Published one-cycle theorem classifies all signed C_n optimizers and norm, including a full-dimensional supercritical region."
+        ],
+        "reasoning": "The general bounded-extension existence result is weaker; one-factor results supply the marginal building blocks, but do not by themselves prove a complete characterization of every joint signed optimizer on Cartesian products.",
+        "searches": [
+          "Resultary semantic search: signed optimal Lipschitz extension cycle Cartesian product antipodal marginal Wasserstein dual",
+          "arXiv:1801.07533",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-antipodal-simplices-classify-optimal-signed-linear-lipschitz-ext--3148291b8619/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1609.01450",
+        "arXiv:1801.07533",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-antipodal-simplices-classify-optimal-signed-linear-lipschitz-ext--3148291b8619/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known one-cycle odd/even equality characterization follows as each marginal projection of the product theorem.",
+          "The product theorem permits any correlated joint distribution satisfying these marginal constraints and proves all signed minimizers are nevertheless positive through a diameter-one-vertex perturbation."
+        ],
+        "reasoning": "A k=1 statement is not a direct logical covering theorem for k>=2 full-coupling and threshold geometry; the new proof supplies that lifting.",
+        "searches": [
+          "Resultary semantic search: signed optimal Lipschitz extension cycle Cartesian product antipodal marginal Wasserstein dual",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-antipodal-simplices-classify-optimal-signed-linear-lipschitz-ext--3148291b8619/RESULT.md",
+          "arXiv:1609.01450"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ambrosio–Puglisi identify linear extension with random projections and Lipschitz-free transport formulations.",
+          "The published single-cycle theorem gives uniform odd and antipodal even measures but only k=1."
+        ],
+        "reasoning": "The present answer is equivalent to a multi-marginal Kantorovich–Rubinstein Chebyshev-center classification, not to a mere product formula for an optimum number; correlated joint measures are essential.",
+        "searches": [
+          "Resultary semantic search: signed optimal Lipschitz extension cycle Cartesian product antipodal marginal Wasserstein dual",
+          "arXiv:1609.01450",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-antipodal-simplices-classify-optimal-signed-linear-lipschitz-ext--3148291b8619/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent evaluated N,c,dimension for cycle products C3xC4,C4xC4,C5xC6,C3xC4xC4.",
+          "No preexisting published exact multi-factor marginal-coupling optimizer dimension table found in reviewed Resultary results."
+        ],
+        "reasoning": "A few computational product examples cannot imply the arbitrary k dimension formula; the theorem derives the full affine rank of the multi-marginal constraints.",
+        "searches": [
+          "Resultary semantic search: signed optimal Lipschitz extension cycle Cartesian product antipodal marginal Wasserstein dual"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for the complete joint signed equality-polytope classification for products of at least two cycles, not for the earlier general vertex-transitive optimum norm. The full published single-cycle theorem exactly supplies each factor equality constraint but not the positivity of general correlated signed couplings, independent cross-factor geometry, dimension, or sharp signed transition for products; a potential general tensorization theorem is retained as priority risk.",
+      "residual_risks": [
+        "An unindexed tensorization or Wasserstein-centre theorem may already entail exactly these product-marginal equality sets.",
+        "Only the highly relevant published one-factor RESULT was independently read completely; original Lipschitz-extension framework PDF full text was not independently inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Self-contained mathematical reduction and rigidity proof inspected",
+          "evidence": "Farthest-point potential bump, factor second differences, marginal affine rank and checkerboard signed transition.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/optimal-signed-lipschitz-extensions-on-cartesian-products-of-cyc--d047c4edf215/RESULT.md",
+          "material_read": "Complete RESULT.md; all proof steps, k>=2 and odd/even boundaries",
+          "method": "Frozen Git blob 0e04bdef8e09728d3f941428c1f52a946470a760",
+          "title": "Assigned Cartesian-product signed Lipschitz extension RESULT.md",
+          "trigger": "Assigned theorem"
+        },
+        {
+          "assessment": "COVERING one-factor cases, NOT_COVERING product all-marginal coupling theorem",
+          "evidence": "Theorem exact argmin for odd and even C_n; product statement allows correlated couplings of several such marginals.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-antipodal-simplices-classify-optimal-signed-linear-lipschitz-ext--3148291b8619/RESULT.md",
+          "material_read": "Complete published RESULT.md including proofs and explicit k=1 optimizer polytope",
+          "method": "GitHub Resultary/2026 frozen public source",
+          "title": "Antipodal simplices classify optimal signed linear Lipschitz extensions from finite cycles",
+          "trigger": "Same signed operator problem for a single factor"
+        },
+        {
+          "assessment": "General operator existence framework; possible stronger equality description remains a risk",
+          "evidence": "Theorem 4.1 gives estimates but no inspected explicit Cartesian cycle optimizer polytope.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.07533",
+          "material_read": "Bibliographic and cited theorem statements; complete primary PDF not independently inspected",
+          "method": "Web scholarly record / assigned source references",
+          "title": "Linear Lipschitz and C1 extension operators through random projection",
+          "trigger": "Potential general extension domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Classifying all optimizers of an actual nonunique Lipschitz extension problem is a natural structural question in Lipschitz-free transport geometry. Arbitrary correlated couplings on product cycles form high-dimensional optimizer polytopes, and the sharp crossing to signed full-dimensional solutions at R=c is a meaningful qualitative change. These are mathematically useful even though the optimal numerical value itself follows from transitive averaging.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1609.01450",
+    "arXiv:1801.07533",
+    "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-antipodal-simplices-classify-optimal-signed-linear-lipschitz-ext--3148291b8619/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/optimal-signed-lipschitz-extensions-on-cartesian-products-of-cyc--d047c4edf215/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only scalar real-linear operators and unit-edge cycle Cartesian products; classification of vertices of coupling polytopes and weighted cycles not asserted.",
+    "The multi-factor conclusion depends on exact positivity bump; spot LP tests alone could not exclude all signed minimizers.",
+    "An unindexed tensorization or Wasserstein-centre theorem may already entail exactly these product-marginal equality sets.",
+    "Only the highly relevant published one-factor RESULT was independently read completely; original Lipschitz-extension framework PDF full text was not independently inspected."
+  ],
+  "schema_version": 1
+}

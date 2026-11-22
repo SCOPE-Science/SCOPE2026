@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reconstructs the operator norm as a maximum of free-space distances. Translation averaging gives the exact lower bound for arbitrary signed coefficients. Equality forces each distance profile to be constant; the farthest-point potential perturbation excludes negative coefficients. Cyclic second differences distinguish even antipodal-invariance from odd uniformity. The independent affine constraints and the strict supercritical signed perturbation close all quantifiers. Finite linear programs confirm eight small examples but are not the infinite proof.
+## correctness
 
-**Originality — PASS, with residual priority risk.** General random projection and linear Lipschitz extension theorems in Ambrosio–Puglisi and Bruè–Di Marino–Stra do not state the all-signed multi-cycle equality polytope. A single-cycle coefficient result handles only one marginal and cannot alone classify correlated couplings across multiple cycles. The minimum extension norm is an averaging consequence and is not presented in isolation as novel. Equivalent formulations in broader signed transport-center literature remain a possible priority risk.
+PASS
 
-**Value — PASS.** The complete optimizer classification is a natural minimax equality problem, not an arbitrary parameter slice. It yields genuine high-dimensional coupling polytopes, exact parity-dependent constraint counts, and a sharp threshold at which negative coefficients become optimal immediately. For example, \(C_5\square C_6\) changes from a \(22\)-dimensional nonnegative optimizer polytope to a full \(29\)-dimensional optimizer set when \(R\) exceeds \(27/10\).
+For k>=2 cycles of lengths n_i>=3 with unit shortest-path metrics, triangle inequality requires R>=D/2. A bounded real-linear one-point extension must have coefficient sum one; its norm is max(1,rho(w)/R). Averaging signed distance potentials across all x gives rho(w)>=c=sum floor(n_i²/4)/n_i, attained by uniform positive weights. If equality rho(w)=c holds then all S_x(w)=c; for any negative coefficient at z, select a vertex x at graph diameter D from z and increase only f_x(z)=-d(x,z) by small epsilon. Every adjacent edge remains 1-Lipschitz but its functional improves strictly, contradiction: all exact minimizers are positive. For positive w, rho(w)=max_x S_x(w). Additivity of distances means all S_x constant exactly when each factor marginal has constant cycle-distance convolution; cyclic second differences force odd marginal uniform or even marginal antipodally equal. Independent factor constraints yield affine dimension N-1-sum_odd(n_i-1)-sum_even(n_i/2), and strictly positive uniform weights ensure relative interior. For R>c, the rho sublevel set contains a full-dimensional open neighborhood of uniform weights and a negative coefficient via a four-cell zero-marginal checkerboard followed by a small signed transfer. Independently computed c and affine dimensions: (3,4): N12,c=5/3,dim7; (4,4): N16,c=2,dim11; (5,6): N30,c=27/10,dim22; (3,4,4): N48,c=8/3,dim41. Finite LP code inspected; analytic proof covers all k and lengths.
 
-The result is restricted to unweighted cycle factors, real scalar extensions, and the equal-distance one-point attachment. No independent mathematical review has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for the complete joint signed equality-polytope classification for products of at least two cycles, not for the earlier general vertex-transitive optimum norm. The full published single-cycle theorem exactly supplies each factor equality constraint but not the positivity of general correlated signed couplings, independent cross-factor geometry, dimension, or sharp signed transition for products; a potential general tensorization theorem is retained as priority risk.
+
+## value
+
+PASS
+
+Classifying all optimizers of an actual nonunique Lipschitz extension problem is a natural structural question in Lipschitz-free transport geometry. Arbitrary correlated couplings on product cycles form high-dimensional optimizer polytopes, and the sharp crossing to signed full-dimensional solutions at R=c is a meaningful qualitative change. These are mathematically useful even though the optimal numerical value itself follows from transitive averaging.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
