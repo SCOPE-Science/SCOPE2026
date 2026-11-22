@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproducible checks and their limits
+# Independent mathematical audit
 
-Execute `python VERIFY.py` in a directory containing `VERIFY.py`. Only the Python standard library is required; the program uses reproducible pseudorandom inputs and checks independently of the prose proof.
+## correctness
 
-The executed package tests every edge-sign configuration in dimensions \(2\) through \(10\), including the integer identity for the norm of the signed incidence transpose, the inner-product identity at each cut and the resulting sharp formula. It also checks explicit norming vectors for dimensions \(2\) through \(100\), tests \(7{,}540\) ordinary two-input inequalities, and numerically approaches the boundary derivative at three positive thresholds through dimension \(100\).
+PASS
 
-The recorded pass lines were:
+Orthogonal mean/contrast decomposition yields the given proximal map. On the active region its Jacobian modulo constants is aI+(1-a)uu^T, while inside the ball it is zero. Since the first-difference map onto R^(n-1) is surjective, the rank-one BV operator norm is V(u) max_j|<u,b_j>|. Dualizing edge signs and using the exact two-vector spectral radius formula gives (||D^T eps||||b_j||+|eps_j|)/2. Alternating edge signs maximize 4n-6, middle step maximizes floor(n^2/4)/n. The derivative at the shrinkage boundary gives the sharp limiting lower bound and the strict inequality on nondegenerate line segments gives nonattainment. Enumerated all sign chambers independently for n=2..9; the all-n bound is analytical.
 
-```
-EXACT_SIGN_CHAMBER_FORMULA_DEPTHS_2_TO_10_PASS 8194
-EXPLICIT_BOUNDARY_WITNESSES_DEPTHS_2_TO_100_PASS
-RANDOM_TWO_INPUT_BV_BOUND_CHECKS_PASS 7540
-BOUNDARY_APPROACH_ALL_DIMENSIONS_2_TO_100_PASS
-ALL_CENTERED_GROUP_SHRINK_CHECKS_PASS
-```
+## originality
 
-These checks establish finite arithmetic facts and test floating-point behavior only. The unlimited-dimension inequality, strict nonattainment assertion and parameter discontinuity are proved symbolically in `RESULT.md`; they are not inferred from samples or a finite search. Independently validated results have not been claimed.
+PASS
+
+Euclidean proximal nonexpansivity does not control the path variation seminorm. No relevant prior indexed result was found for this precise mean-preserving group shrinker, alternating-step BV constant or nonattainment. Other spectral/TV-ball/BV projection theorems examine different maps. Historical priority remains qualified because several proximal primary sources were accessible only in selected portions.
+
+## value
+
+PASS
+
+Measures a natural paradox of group shrinkage: a Euclidean nonexpansive map can have path-variation perturbation gain linear in sample count; the threshold-zero jump and unattainable sharp derivative boundary are structurally informative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

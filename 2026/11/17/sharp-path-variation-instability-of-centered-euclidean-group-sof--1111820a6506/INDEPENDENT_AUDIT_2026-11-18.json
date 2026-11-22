@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T12:58:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Orthogonal mean/contrast decomposition yields the given proximal map. On the active region its Jacobian modulo constants is aI+(1-a)uu^T, while inside the ball it is zero. Since the first-difference map onto R^(n-1) is surjective, the rank-one BV operator norm is V(u) max_j|<u,b_j>|. Dualizing edge signs and using the exact two-vector spectral radius formula gives (||D^T eps||||b_j||+|eps_j|)/2. Alternating edge signs maximize 4n-6, middle step maximizes floor(n^2/4)/n. The derivative at the shrinkage boundary gives the sharp limiting lower bound and the strict inequality on nondegenerate line segments gives nonattainment. Enumerated all sign chambers independently for n=2..9; the all-n bound is analytical.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tree BV projection and TV-ball projection address different nonlinear proximals and norm geometries; neither specializes to centered global ℓ2 shrinkage.",
+          "The current exact C_n includes nonattainment and λ-independence absent from the prior unrelated model summaries."
+        ],
+        "reasoning": "Neither a broader ball-projection bound nor Hilbert nonexpansivity logically implies the centered path-TV formula.",
+        "searches": [
+          "Resultary 2026/11/17 sharp rooted-tree variation sensitivity of Euclidean ball projection",
+          "Resultary 2026/11/17 sharp BV stability transition for projection onto TV ball",
+          "Chambolle Pock 2016 Euclidean proximal regularization BV bounds"
+        ]
+      },
+      "checked_sources": [
+        "GitHub frozen RESULT.md blob f03a0657f35c7b37052fe5af9edf7ef8067ebbcd",
+        "Resultary semantic results: rooted-tree ball projection, TV-ball projection, Haar/DCT soft thresholding",
+        "Argyriou et al. arxiv:1104.1436; Friedman et al. arxiv:1001.0736; Chambolle–Pock DOI"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Derivative P_const+aQ+(1-a)uu^T reduces to different induced seminorm than a spectral coefficientwise shrinker.",
+          "No inspected primary theorem supplied the alternating-edge optimization or strict finite-pair nonattainment."
+        ],
+        "reasoning": "The proof requires a two-vector eigenvalue maximization on a centered hyperplane; no prior general euclidean contraction theorem dominates that result.",
+        "searches": [
+          "group Euclidean shrinkage Hilbert nonexpansive versus BV nonexpansive",
+          "Resultary DCT Haar soft threshold BV norm versus group shrinkage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The standard group shrinker is the Hilbert norm proximal of lambda||Qz||_2.",
+          "The target norm is the induced ℓ1 norm on first differences, not the Euclidean norm in proximal nonexpansivity."
+        ],
+        "reasoning": "Proximal map identity is established background; no mathematical equivalence permits transferring a Hilbert contraction constant to the graph-TV metric.",
+        "searches": [
+          "centered Euclidean group soft threshold shrinkage sharp path total variation Lipschitz coefficient n alternating",
+          "group lasso soft threshold proximal operator difference variation BV"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned this exact current finding and separate Haar/DCT soft-thresholding coefficients.",
+          "The other finite-dimensional tables use different bases/masks and are not tables of centered group proximal responses."
+        ],
+        "reasoning": "Small n numerical coincidences cannot establish coverage of a distinct global radial shrinker or its all-n constant.",
+        "searches": [
+          "Resultary centered group shrink n path BV table",
+          "radial soft threshold variation norm sharp alternating discrete path n"
+        ]
+      },
+      "rationale": "Euclidean proximal nonexpansivity does not control the path variation seminorm. No relevant prior indexed result was found for this precise mean-preserving group shrinker, alternating-step BV constant or nonattainment. Other spectral/TV-ball/BV projection theorems examine different maps. Historical priority remains qualified because several proximal primary sources were accessible only in selected portions.",
+      "residual_risks": [
+        "Unindexed variation-norm estimates for radial proximal maps in image processing could reproduce the formula.",
+        "Exact claim depends on centered Euclidean metric and unweighted nonperiodic path; other graphs and weights not addressed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known group shrinkage mechanism, no justified whole-document noncoverage.",
+          "evidence": "The Euclidean proximal shrinker is an established analytic ingredient.",
+          "identifier_or_url": "https://arxiv.org/abs/1104.1436",
+          "material_read": "Arxiv identifier, abstract/section-2 proximal formula referenced; full primary text not exhaustively read",
+          "method": "Public arXiv indexing and selected mathematical formula",
+          "title": "Efficient First Order Methods for Linear Composite Regularizers",
+          "trigger": "Same Euclidean prox formula"
+        },
+        {
+          "assessment": "Statistical shrinkage model prior, exact BV norm not established from inspected parts.",
+          "evidence": "Friedman–Hastie–Tibshirani (2010).",
+          "identifier_or_url": "https://arxiv.org/abs/1001.0736",
+          "material_read": "Introductory/group-lasso expression and abstract-level context, not every appendix",
+          "method": "Public arXiv source description",
+          "title": "A note on the group lasso and a sparse group lasso",
+          "trigger": "Group-shrinkage original formula"
+        },
+        {
+          "assessment": "Different metric; conservative priority risk for any uninspected BV variants.",
+          "evidence": "Chambolle–Pock (2016).",
+          "identifier_or_url": "https://doi.org/10.1017/S096249291600009X",
+          "material_read": "Sections on group sparsity and Hilbert nonexpansivity identified; not fully read this run",
+          "method": "Journal source indexing and cited mathematical framework",
+          "title": "An introduction to continuous optimization for imaging",
+          "trigger": "Potential more general proximal theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Measures a natural paradox of group shrinkage: a Euclidean nonexpansive map can have path-variation perturbation gain linear in sample count; the threshold-zero jump and unattainable sharp derivative boundary are structurally informative.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub frozen RESULT.md blob f03a0657f35c7b37052fe5af9edf7ef8067ebbcd",
+    "Resultary semantic results: rooted-tree ball projection, TV-ball projection, Haar/DCT soft thresholding",
+    "Argyriou et al. arxiv:1104.1436; Friedman et al. arxiv:1001.0736; Chambolle–Pock DOI"
+  ],
+  "disposition": "passed",
+  "final_claim": "The centered global Euclidean group-proximal shrinkage has the exact two-input adjacent-TV gain C_n=(1+sqrt((4n-6)*floor(n^2/4)/n))/2 for positive threshold and n>=3; strict finite-pair nonattainment, n=2/zero threshold gain one, and n/2+1/8+O(1/n) growth.",
+  "limitations": [
+    "Unindexed variation-norm estimates for radial proximal maps in image processing could reproduce the formula.",
+    "Exact claim depends on centered Euclidean metric and unweighted nonperiodic path; other graphs and weights not addressed."
+  ],
+  "residual_risks": [
+    "Unindexed variation-norm estimates for radial proximal maps in image processing could reproduce the formula.",
+    "Exact claim depends on centered Euclidean metric and unweighted nonperiodic path; other graphs and weights not addressed."
+  ],
+  "schema_version": 1
+}
