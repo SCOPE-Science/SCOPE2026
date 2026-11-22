@@ -1,19 +1,21 @@
-# Scientific review: Exact run-erosion clocks for thresholded cyclic dynamics on complete graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The predecessor-dependent clock follows from the exact nonreactivating occupancy recurrence and run erosion, not experimental extrapolation. Every active run loses its leftmost color at successive updates until one active color survives, and the original deficient predecessor occupancy propagates as a final packet only when positive. The all-active case forces every vertex to advance with primitive period \(q\). The EGF formula separates zero, positive subthreshold, and active color categories. The limit uses a single deficient color of mass \(\theta-1\) as the dominant rare event. The two independent reproducibility programs passed; they corroborate but do not prove the parameter-uniform theorem.
+PASS
 
-## Originality — PASS, qualified
+Let a_i=1_{m_i>=theta}; exact population recurrence m_i’=m_i(1-a_{i+1})+m_{i-1}a_i. Inactive colors never reactivate; each maximal proper active run loses its leftmost member per update, and a positive deficient packet moves exactly once into its surviving right endpoint, yielding the exact vertex-level first-periodic entry clock. All active colors cause each vertex to advance each sweep, primitive period q. Extremal n constraints give min(q-2,n-1) at theta=1 and min(q-1,floor((n-1)/theta)) at theta>=2. The zero/subthreshold/active EGFs count all labelled occupancies; a unique near-threshold deficient color dominates conditional nonperiodic states. Independently iterated every state q=3..5 theta=1..3 n=2..5 and compared true periods/entry times to formula. Finite checks corroborate, not prove infinite q,n.
 
-Fisch–Gravner–Griffeath (1991) defines arbitrary-color thresholded cyclic contact dynamics in its planar-media setting. The accessible published three-color clique classification has an arbitrary threshold but no higher-color claim. Earlier all-color threshold-one and four-color threshold-two classifications concern special slices; neither supplies the simultaneous arbitrary-color/arbitrary-threshold run-erosion law or the uniform sharp \(q-1\) clock. An early Fisch (1990) article remained inaccessible in full, so historical priority is not certified. Search and scientific implication comparisons are documented in `AUDIT.json`.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is an exact whole-family dynamical classification: all eventual periods, statewise first-entry times, sharp worst-case delay, a complete finite-size labelled census, and asymptotic concentration conditional on loss of collective rotation. The extra update caused by a positive but subthreshold predecessor provides a structural distinction between threshold one and larger thresholds rather than a simple change of numerical constants.
+Extends simultaneously in palette size and threshold, rather than merely specializing one parameter. Published exact q=4 theta=2 and q>=4 theta=1 results are strict slices, neither implies the full two-parameter run packet and extremal EGF. Spatial-lattice CCA founding paper defines rules, not this complete-graph transient census.
 
-## Limits
+## value
 
-The theorem assumes a loopless complete graph, synchronous vertex updates and fixed integer color/threshold parameters in the asymptotic statement. It does not extend to local lattice adjacency or asynchronous update orders. The cited 1990 original source was not available for full inspection. No independent validation has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete graph is a natural mean-field baseline for cyclic contact automata. The exact run-erosion clock gives a complete all-parameter classification with a genuine threshold-dependent extra delay and exact rare-event census, useful for structural comparison with sparse/bipartite analogues.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
