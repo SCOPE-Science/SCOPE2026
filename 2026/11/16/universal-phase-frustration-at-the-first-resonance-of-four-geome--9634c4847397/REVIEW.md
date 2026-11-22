@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The exact half-order threshold is established by a minimal-index base-\(b\) divisibility argument after cancelling common terms in equal-length additive representations. At the first resonance only three disjoint collision fibers survive, with multinomial weights \(p,1\) twice and \(p,p\) once; Parseval supplies the formula. The three phase variables are independently realizable. The one-variable reduction to \(R=|\eta_0+\eta_2|\) gives sharp endpoints and all equality conditions. Binary phases force \(R\in\{0,2\}\); an algebraic-integer argument excludes all root-of-unity alphabets at the unrestricted minimum. Direct packaged exact-arithmetic convolution checks pass, but finite checks are not treated as infinite proof.
+PASS
 
-## Originality (PASS subject to historical priority)
+Parseval P^r reduces moment collisions to equality of geometric-base multisets with equal cardinality. After cancelling common atoms, mod-b counting excludes s≤b and forces exactly three two-element collision fibers at s=b+1: (j,k)=(0,2),(1,3),(0,3), with multinomial weights p,1,p. Thus the displayed correction uses phase ratios η_j=a_j^b conjugate(a_{j+1}). Every η triple is realizable by recursion. With R=|η0+η2|∈[0,2], completing square yields min −2p²−1 at R=1/p and max 2p²+4p at R=2; binary R∈{0,2} gives +1 gap. If phases were roots of unity, ζ+ζ^{-1}=1/p²−2 would be a nonintegral rational algebraic integer, impossible. Independent exact integer/Parseval binomial collision checks b=2..6 reproduce three fibers and all binary phase moments.
 
-The full texts of the cited lacunary deviation study, survey, and geometric-circle extension study establish different statistical limits or operators. Accessible mathematical records were compared by their actual claims: dyadic fourth-moment rigidity concerns an earlier moment; the three-frequency first-resonance formula cannot express the three coupled carry phases; the consecutive-four-tap sixth-moment result has a different support; and the one-defect four-term \(L^6\) norm theorem excludes the three-collision spectrum and optimizes arbitrary magnitudes in the opposite direction. The novel claim is specifically the all-base first-resonance *phase-only minimum and equality classification* for four geometric frequencies, including its binary and root-of-unity gaps. An older unindexed thin-set or lacunary moment formula might imply the theorem. Search absence is not proof of publication priority.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-Four geometric tones are the shortest chain with two adjacent carry interactions and a competing long carry interaction at the first resonant moment. Their coupling is frustrated: the true minimizer needs an interior phase angle and cannot use any finite root-of-unity alphabet, whereas binary phases miss the optimum by exactly one for every base. This identifies a natural phase-alphabet boundary across an infinite family, with complete equality cases, rather than an arbitrary cutoff or a numerical table. The exact difference is small relative to the moment baseline; no downstream performance claim is made.
+Resultary found prior three-tone first resonance (single cosine) and four-tone consecutive/two-block sixth moments, but different additive collision hypergraphs. Classical lacunary moment literature supplies Diophantine machinery, not an inspected equivalent three-edge frustrated range for this exact sparse support. This is a bounded best-of-knowledge judgment with explicit primary-text access risks.
 
-## Scope, literature and limitations
+## value
 
-The theorem covers every integer \(b\ge2\), the unit circle, exactly four geometric tones and exactly the first phase-sensitive even moment. It does not cover higher moments, variable amplitudes or finite-grid aliasing. Closest sources: Prochno–Strzelecka (2023), Aistleitner–Berkes–Tichy (2023), Ciccone–Gonçalves (2022), and the four published finite-support results compared in `RESULT.md`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first onset of phase sensitivity for geometric frequencies and an exact frustrated minimum/non-torsion optimizer classification are meaningful spectral-combinatorial distinctions. The universal one-unit binary gap is exact but value rests on the collision geometry and rigidity rather than its numerical size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The standalone `verify_geometric_first_resonance.py` was executed from the package source before packaging. It uses the Python standard library to generate exact integer Fourier coefficients by multinomial expansion. Gaussian-unit coefficient powers have exact complex-integer arithmetic; their squared moduli are integral. It confirms phase-independence through half-order \(b\), the three-collision identity for bases two through five on all 256 Gaussian-unit phase arrays per base, all 16 binary phase arrays through base six, and the exact character-phase upper bound. Expected output: `EXACT_FIRST_RESONANCE_CHECKS_PASS 1129`.
+# Independent mathematical audit
 
-The unrestricted minimum for every integer base follows from the displayed analytical completion of the square and the exhaustive three-fiber collision classification; finite tests are corroboration, not completeness over all bases or all phases. The root-of-unity obstruction is proved independently by the rational-algebraic-integer argument. No independent external audit or formal proof-system certification has been performed.
+## correctness
+
+PASS
+
+Parseval P^r reduces moment collisions to equality of geometric-base multisets with equal cardinality. After cancelling common atoms, mod-b counting excludes s≤b and forces exactly three two-element collision fibers at s=b+1: (j,k)=(0,2),(1,3),(0,3), with multinomial weights p,1,p. Thus the displayed correction uses phase ratios η_j=a_j^b conjugate(a_{j+1}). Every η triple is realizable by recursion. With R=|η0+η2|∈[0,2], completing square yields min −2p²−1 at R=1/p and max 2p²+4p at R=2; binary R∈{0,2} gives +1 gap. If phases were roots of unity, ζ+ζ^{-1}=1/p²−2 would be a nonintegral rational algebraic integer, impossible. Independent exact integer/Parseval binomial collision checks b=2..6 reproduce three fibers and all binary phase moments.
+
+## originality
+
+PASS
+
+Resultary found prior three-tone first resonance (single cosine) and four-tone consecutive/two-block sixth moments, but different additive collision hypergraphs. Classical lacunary moment literature supplies Diophantine machinery, not an inspected equivalent three-edge frustrated range for this exact sparse support. This is a bounded best-of-knowledge judgment with explicit primary-text access risks.
+
+## value
+
+PASS
+
+The first onset of phase sensitivity for geometric frequencies and an exact frustrated minimum/non-torsion optimizer classification are meaningful spectral-combinatorial distinctions. The universal one-unit binary gap is exact but value rests on the collision geometry and rigidity rather than its numerical size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
