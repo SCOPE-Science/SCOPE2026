@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For q>=3, m>=1 and every word with y_i unequal to y_j for 1<=|i-j|<=2, the candidate position sets S_i={j in {i,i+1,i+2}:x_j=y_i} are pairwise disjoint and their total size is at most m+2; positive embeddings require each nonempty. The two possible surplus positions force at most four embeddings. The c_i=3 and two c=2 cases give exactly 2m-1 multiplicity-three hosts and binomial(m,2) multiplicity-four hosts; T=q^2 binomial(m+2,2) and S=sum_{j=0}^2 binomial(m+2,j)(q-1)^j give all other counts. Posterior probabilities are e_y(x)/T. Full-host DP and insertion-history algorithms independently passed the documented finite test grid (1226 patterns, 513126 histories, 484024 direct DP evaluations). No argument uses a finite cutoff as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tavakoli, Nguyen and Bose, arXiv:2607.19559, Sections II–IV: general q-ary embedding-count recurrence, column sum, aggregate entropy/capacity bounds.",
+        "Singhvi, Sabary, Bar-Lev and Yaakobi, arXiv:2407.10026, Sections III–VI: conditional entropy identities and one/two-deletion extrema; binary for the two-deletion extrema.",
+        "Column-sum identities fix only the first embedding moment; the new classification fixes the complete finite spectrum and exact posterior entropy for a nonlinear family."
+      ],
+      "reasoning": "A general embedding recurrence gives a means of computation but no proved exact parameter-uniform histogram for locally distinct received words. The q-ary entropy identity sums across all words, rather than separating source words with embeddings 3 or 4. Such coverage does not imply the new closed spectrum.",
+      "searches": [
+        "\"q-ary\" \"subsequence embeddings\" \"multiplicity\" \"two deletions\" conditional entropy",
+        "arxiv:2607.19559 Section II-C Proposition 1 and Section III Lemmas 2-5",
+        "arxiv:2407.10026 Sections IV–VI"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.01064",
+      "arxiv:2407.10026",
+      "arxiv:2607.19559",
+      "arxiv:2306.07870",
+      "https://www.paperpeel.com/paper/2611.01064"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ma and Zhang, arXiv:2611.01064 (2026-10-31), Sections 2–6: binary-alternating embedding histograms, binary entropy extrema, higher-radius binary formulas.",
+        "Tavakoli, Nguyen and Bose, arXiv:2607.19559, Sections II–IV: general q-ary embedding-count recurrence, column sum, aggregate entropy/capacity bounds.",
+        "Singhvi, Sabary, Bar-Lev and Yaakobi, arXiv:2407.10026, Sections III–VI: conditional entropy identities and one/two-deletion extrema; binary for the two-deletion extrema.",
+        "A genuine extension is required to establish that e<=4 and N3=2m-1, N4=binomial(m,2), which are not consequences of knowing S and T alone."
+      ],
+      "reasoning": "The candidate includes the earlier universal q-ary normalization as a proof ingredient, and makes no novelty claim for that. Neither a binary-only family nor nonbinary first-moment identity subsumes the local-rainbow all-length histogram or the resulting exact conditional entropy.",
+      "searches": [
+        "arxiv:2611.01064 Theorem on binary alternating received words and higher-radius histograms",
+        "arxiv:2607.19559 Lemma 3 q-ary column-sum identity",
+        "arxiv:2407.10026 Theorem 3 embedding-entropy characterization",
+        "\"nonbinary two insertion embedding multiplicity distribution 3 rainbow cyclic word independent of alphabet\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ma and Zhang, arXiv:2611.01064 (2026-10-31), Sections 2–6: binary-alternating embedding histograms, binary entropy extrema, higher-radius binary formulas.",
+        "Menon and Singh, arXiv:2306.07870, Sections 2–4: frequencies of fixed binary subsequence patterns, especially counts for occurrence multiplicity at most four.",
+        "The candidate is a host-word occurrence-count histogram for an arbitrary nonbinary distance-two-distinct pattern at host length m+2; it is equivalently a fixed-output two-deletion posterior mass spectrum."
+      ],
+      "reasoning": "The binary alternating histogram cannot be renamed into this statement: q>=3 and adjacent two-step distinctness are impossible over a binary alphabet when m>=3, and the 3/4 host counts differ in shape. Binary pattern-frequency formulas do not cover all alphabets by mere substitution. No exact alias/equivalence was found in the inspected work.",
+      "searches": [
+        "\"two-deletion\" \"histogram\" \"ternary\" \"embeddings\" input entropy",
+        "\"supersequence\" \"multiplicity\" \"three\" \"four\" q-ary subsequence",
+        "\"locally distinct\" \"embedding multiplicity\" deletion",
+        "\"nonbinary two insertion embedding multiplicity distribution 3 rainbow cyclic word independent of alphabet\"",
+        "arxiv:2611.01064 Sections 2 and 5",
+        "arxiv:2306.07870 Section 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Menon and Singh, arXiv:2306.07870, Sections 2–4: frequencies of fixed binary subsequence patterns, especially counts for occurrence multiplicity at most four.",
+        "The search and the inspected primary papers contain binary formula tables or aggregate q-ary sums, not an all-m all-q table of these five multiplicity counts."
+      ],
+      "reasoning": "A finite numerical table, even with matching small cases, would not imply the stated infinite-family classification; no exact tabulation across all q,m was found. Absence in search is not proof of uniqueness.",
+      "searches": [
+        "\"two-deletion\" \"histogram\" \"ternary\" \"embeddings\" input entropy",
+        "\"supersequence\" \"multiplicity\" \"three\" \"four\" q-ary subsequence",
+        "\"locally distinct\" \"embedding multiplicity\" deletion",
+        "\"supersequence\" \"multiplicity\" \"three\" \"four\" q-ary subsequence",
+        "arxiv:2306.07870 Tables and Propositions 3.2,3.4,3.8,3.11"
+      ]
+    },
+    "rationale": "The 2026 full-text binary alternation theorem and the 2024 general posterior-entropy identities do not imply the exact nonbinary locally distance-two-distinct multiplicity spectrum. The 2026 q-ary general recurrence and sum identities determine only aggregate constraints, insufficient to infer the 3- and 4-multiplicity host classification. Binary subsequence-frequency work treats a different alphabet. Specific source-by-source comparison and bounded searches found no equivalent all-q locally distinct formula; residual risk remains of an unindexed or implicit specialization.",
+    "residual_risks": [
+      "Previously unindexed or unpublished nonbinary locally distinct embedding-histogram specialization could be equivalent.",
+      "The work reuses known normalization and conditional-entropy identities; only the restricted-pattern complete classification is claimed as new.",
+      "An independent mathematical priority audit has not been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for q>=3: binary alternating entropy extrema and histograms do not state or dominate nonbinary locally distinct all-length exact multiplicity spectrum.",
+        "evidence": "Ma and Zhang, arXiv:2611.01064 (2026-10-31), Sections 2–6: binary-alternating embedding histograms, binary entropy extrema, higher-radius binary formulas.",
+        "identifier_or_url": "https://arxiv.org/abs/2611.01064",
+        "material_read": "Full public HTML treatment: introduction, Sections 2–6, alternating histogram theorem, cited binary frequency work.",
+        "method": "Read accessible structured full text at https://www.paperpeel.com/paper/2611.01064 and compare definitions and implications.",
+        "title": "Maximal input entropy for binary two-deletion and two-insertion channels",
+        "trigger": "Main fresh motivating paper; strongest matching title/claim."
+      },
+      {
+        "assessment": "NOT_COVERING; established conditional probability/embedding formulas are used, but no q>=3 locally distinct multiplicity classification.",
+        "evidence": "Singhvi, Sabary, Bar-Lev and Yaakobi, arXiv:2407.10026, Sections III–VI: conditional entropy identities and one/two-deletion extrema; binary for the two-deletion extrema.",
+        "identifier_or_url": "https://arxiv.org/abs/2407.10026",
+        "material_read": "Accessible article HTML: introduction, Sections III–VI statements and definitions and entropy results.",
+        "method": "Read arXiv full HTML and inspect source theorems and their domains.",
+        "title": "Conditional Entropies of k-Deletion/Insertion Channels",
+        "trigger": "General conditional entropy identity and source of binary extrema."
+      },
+      {
+        "assessment": "NOT_COVERING; recurrence and column sums do not specify the sharp restricted-pattern histogram.",
+        "evidence": "Tavakoli, Nguyen and Bose, arXiv:2607.19559, Sections II–IV: general q-ary embedding-count recurrence, column sum, aggregate entropy/capacity bounds.",
+        "identifier_or_url": "https://arxiv.org/abs/2607.19559",
+        "material_read": "Public article HTML: Sections II–IV including embedding scalar, Proposition 1, normalization and entropy/capacity theorems.",
+        "method": "Read full-text HTML and compare its q-ary recurrence and aggregate identities with each multiplicity class.",
+        "title": "Combinatorial Capacity Bounds for the q-ary Deletion Channel",
+        "trigger": "Same nonbinary embedding scalar; possible dominating recurrence."
+      },
+      {
+        "assessment": "NOT_COVERING the q>=3 family; binary occurrence-frequency results need nonbinary extension beyond a name change.",
+        "evidence": "Menon and Singh, arXiv:2306.07870, Sections 2–4: frequencies of fixed binary subsequence patterns, especially counts for occurrence multiplicity at most four.",
+        "identifier_or_url": "https://arxiv.org/abs/2306.07870",
+        "material_read": "Accessible paper HTML introduction and Sections 2–3, including Propositions 3.1–3.2 and description of low-frequency counts.",
+        "method": "Read arXiv article HTML and check alphabet and quantifier scope.",
+        "title": "Subsequence frequency in binary words",
+        "trigger": "Explicit low-multiplicity host-frequency formulas in binary."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c5a46f7c-5888-4069-8965-750c9a1d5734",
+  "value": {
+    "rationale": "The object is the natural posterior input multiplicity distribution after exactly two deletions, specialized to a structurally motivated locally rainbow family (all contiguous triples pairwise distinct). The all-length, all-q>=3 theorem provides exact N0..N4, proves sharp bounded maximal embedding multiplicity, identifies the precise high-multiplicity configurations and yields an explicit channel entropy formula and asymptotic correction 4/q. This is neither a trivial first-moment calculation nor a single arbitrary finite slice. It does not assert global entropy maximization.",
+    "status": "PASS"
+  }
+}
