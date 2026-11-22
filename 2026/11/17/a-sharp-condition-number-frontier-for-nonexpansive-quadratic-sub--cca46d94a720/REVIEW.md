@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact reflected-Jacobian identity converts pairwise nonexpansiveness into positivity of a rank-one update. A convex-chord reduction shows that the worst spectral distribution is supported on the extreme eigenspaces, and its explicit quadratic discriminant yields the dimension-independent threshold \(2+\sqrt3\). The critical equality and both supercritical witness regimes are constructed. The global Lipschitz conclusion follows from segment integration, including segments through the origin. The attached exact-algebra verifier passed; it corroborates, but is not substituted for, the proof.
+## correctness
 
-**Originality — PASS (best-knowledge, qualified).** The 2013 fixed-point/Bregman paper proves only quasi-nonexpansivity and gives the classical map, not a pairwise condition-number threshold. The 2014 comprehensive study gives precisely the quadratic formula (Proposition 7.1) and separately investigates nonexpansivity, primarily via one-dimensional and other examples; the sharp spectral threshold is not stated there. The 2014 subgradient-projection manuscript supplies general Lipschitz implications but does not evaluate the SPD quadratic family sharply. Searches also considered condition numbers, spectral reductions, accelerated mappings, and related projection operators. Unindexed equivalents remain a priority risk. The new conclusion is not the known projector formula or the general derivative criterion, but its sharp all-dimensional evaluation.
+PASS
 
-**Mathematical value — PASS.** The distinction between quasi-nonexpansive fixed-point attraction and full pairwise nonexpansiveness matters in iterative feasibility and operator theory. A natural continuous spectral class exhibits a sharp, attained boundary with an explicit two-eigenspace extremizer and no dimension dependence; the same result supplies a constructive expansive counterexample beyond the threshold. This is not just a numeric test, tautological restatement, or unmotivated parameter slice.
+The derivative formula has been reconstructed: for u=Ax/||Ax||, t=u^TA^{-1}u, reflection R=I-2uu^T, RDG_A=(I-uu^T)-(t/2)A, symmetric. Nonexpansivity of the derivative iff 4I-tA-2uu^T is PSD. Normalizing minimal eigenvalue1 and k=max, k<4, Sherman–Morrison gives 2 E[h/(4h-t)]<=1 for h=reciprocal eigenvalues with mean t. This integrand is strictly convex; chord bound is attained by extreme eigenspaces, producing Q_k(t)=3kt²-4(k+1)t+8. Its constrained minimum changes sign at k=2+sqrt(3), with an exact critical eigenvector. At k=4 a rank-2 determinant -1/3 witnesses expansion, for k>4 an extreme eigenvector suffices. Homogeneity/continuity at zero and path integration give global iff, with strictly smaller modulus below threshold. The radial square identity subtracts 3(x^TAx)^2/(4x^TA²x)>0 for every nonzero x.
 
-**Scientific limitations and residual risks.** Finite-dimensional, real, SPD quadratic case; no full exact Lipschitz formula outside the threshold, no infinite-dimensional generality, and no independent mathematical validation. Priority may be affected by older or unindexed literature on quadratic subgradient projections or nonlinear Rayleigh-step maps.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new result is sharp all-dimensional pairwise nonexpansiveness threshold for the standard quadratic subgradient/Polyak projector. Bauschke et al. 2014 Proposition7.1 already gives the formula; its Section8 nonexpansivity examples do not give the extreme-eigenvalue condition-number classification. 2013 quasi-Bregman fixed-point contraction is weaker; Pauwels gives general Lipschitz estimates. Resultary returned identical record as a self-match, unrelated conditions on optimization algorithms otherwise.
+
+## value
+
+PASS
+
+Pairwise nonexpansiveness versus radial contraction is a significant distinction for subgradient projection operators. A universal sharp spectral phase boundary and explicit extremal two-dimensional obstruction give meaningful classification for a classical nonlinear map in arbitrary dimension, not a reparameterization of a known theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

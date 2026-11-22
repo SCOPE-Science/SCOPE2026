@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T14:55:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The derivative formula has been reconstructed: for u=Ax/||Ax||, t=u^TA^{-1}u, reflection R=I-2uu^T, RDG_A=(I-uu^T)-(t/2)A, symmetric. Nonexpansivity of the derivative iff 4I-tA-2uu^T is PSD. Normalizing minimal eigenvalue1 and k=max, k<4, Sherman–Morrison gives 2 E[h/(4h-t)]<=1 for h=reciprocal eigenvalues with mean t. This integrand is strictly convex; chord bound is attained by extreme eigenspaces, producing Q_k(t)=3kt²-4(k+1)t+8. Its constrained minimum changes sign at k=2+sqrt(3), with an exact critical eigenvector. At k=4 a rank-2 determinant -1/3 witnesses expansion, for k>4 an extreme eigenvector suffices. Homogeneity/continuity at zero and path integration give global iff, with strictly smaller modulus below threshold. The radial square identity subtracts 3(x^TAx)^2/(4x^TA²x)>0 for every nonzero x.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bauschke et al 2014 §8 discusses nonexpansive related cases and one-dimensional examples without equivalence involving extreme spectral ratio",
+          "Pauwels general Lipschitz bounds would require additional sharp spectral optimization for this SPD family"
+        ],
+        "reasoning": "Neither general projector theory nor fixed-point quasi-nonexpansivity implies the exact universal condition on min/max eigenvalues.",
+        "searches": [
+          "arXiv:1403.7135 Section8 nonexpansiveness",
+          "Pauwels arXiv:1403.7237 subgradient projection operators Lipschitz bounds",
+          "Resultary semantic quadratic subgradient nonexpansive"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md with reflection and convex chord proof; verify.py source inspected",
+        "Independent Jacobian singular-value scans at k=1.001,2,3,2+sqrt3,3.8,4,4.5,8; threshold observed, not proof",
+        "Bauschke et al arXiv:1403.7135 Proposition7.1 and §8 full relevant sections",
+        "Resultary semantic searches for Polyak quadratic projector and exact threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition7.1 implies the map formula but not classification of all pairs x,y; §8 addresses different/nonquadratic examples",
+          "This review derives a new Jacobian reflection and convex spectral endpoint extremum, leading to iff kappa<=2+sqrt3"
+        ],
+        "reasoning": "The prior results set the object and supply weaker contractions; exact spectral nonexpansiveness requires the nontrivial new extremal argument.",
+        "searches": [
+          "Full arXiv:1403.7135 Proposition7.1 and Section8",
+          "arXiv:1309.6402 Example4.9",
+          "arXiv:1403.7237 §3.2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bauschke et al. 2014 Proposition 7.1 presents exact quadratic subgradient projection, not the kappa<=2+sqrt3 threshold",
+          "Example4.9 of 2013 quasi-Bregman work supplies fixed-point quasi-nonexpansivity, not pairwise"
+        ],
+        "reasoning": "Aliases include Polyak projector of x^TAx, subgradient projector for quadratic, and radial Rayleigh-quotient projection. Formula is known, exact global pairwise spectral frontier not established by those statements.",
+        "searches": [
+          "Resultary: quadratic Polyak subgradient projector SPD spectral condition number threshold",
+          "arXiv:1403.7135 Proposition 7.1 §8",
+          "arXiv:1309.6402 Example4.9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary first same-day entry is precisely assigned source; next hits pertain to AdamP, MINRES and other operators",
+          "No matching prior exact parameter table identified for this projector family"
+        ],
+        "reasoning": "No existing table or database of the kappa boundary for this exact quadratic map appeared; a failed semantic search is not a definitive novelty proof.",
+        "searches": [
+          "Resultary: nonexpansive quadratic subgradient projection condition number 2+sqrt 3",
+          "Resultary: Polyak projector Lipschitz matrix quadratic"
+        ]
+      },
+      "rationale": "Best-of-knowledge new result is sharp all-dimensional pairwise nonexpansiveness threshold for the standard quadratic subgradient/Polyak projector. Bauschke et al. 2014 Proposition7.1 already gives the formula; its Section8 nonexpansivity examples do not give the extreme-eigenvalue condition-number classification. 2013 quasi-Bregman fixed-point contraction is weaker; Pauwels gives general Lipschitz estimates. Resultary returned identical record as a self-match, unrelated conditions on optimization algorithms otherwise.",
+      "residual_risks": [
+        "General subgradient-projector literature might contain a mathematically equivalent all-spectra criterion under other terminology; historical priority not proven.",
+        "The exact Lipschitz modulus for every kappa above threshold is not supplied; no claim about nonpositive/semidefinite A."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same formula already classical; no full SPD spectral threshold provided in inspected relevant sections",
+          "evidence": "Proposition7.1 identifies quadratic projector and §8 tests nonexpansivity in cases not the complete spectral kappa classification",
+          "identifier_or_url": "https://arxiv.org/pdf/1403.7135",
+          "material_read": "PDF full text sections 7 (especially Proposition7.1) and 8 (nonexpansivity examples), page images/parsed pages inspected",
+          "method": "primary arXiv PDF pages and mathematical propositions",
+          "title": "On subgradient projectors",
+          "trigger": "Same projector and possible global nonexpansivity coverage"
+        },
+        {
+          "assessment": "Fixed-point quasi-property cannot force arbitrary pairwise Euclidean nonexpansion",
+          "evidence": "Quasi-Bregman comparison is relative to fixed points; theorem is for all input pairs",
+          "identifier_or_url": "https://arxiv.org/abs/1309.6402",
+          "material_read": "Example4.9 identified in primary scientific source citation; only quoted context in package separately compared",
+          "method": "available citation/context, not full-text NOT_COVERING",
+          "title": "A Bregman projection method for approximating fixed points of quasi-Bregman nonexpansive mappings",
+          "trigger": "Possible fixed-point nonexpansivity alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Pairwise nonexpansiveness versus radial contraction is a significant distinction for subgradient projection operators. A universal sharp spectral phase boundary and explicit extremal two-dimensional obstruction give meaningful classification for a classical nonlinear map in arbitrary dimension, not a reparameterization of a known theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite-dimensional real SPD matrices only, d>=2.",
+    "A strict radial decrease for each x does not imply pairwise contraction."
+  ],
+  "schema_version": 1
+}
