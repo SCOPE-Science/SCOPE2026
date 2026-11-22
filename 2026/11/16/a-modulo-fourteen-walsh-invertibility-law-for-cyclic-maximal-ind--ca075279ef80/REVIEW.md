@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** The cyclic no-`11`/no-`000` characterization gives an integer three-state transfer trace for all binary Walsh frequencies. The Perrin counts and fixed-vertex composition counts have rigorously verified modular periods, giving all zero-free cases. Five finite matrix products exhibit actual zeros in the remaining residues; the displayed seven-letter transfer product squares to the identity and extends them by fourteen. All hypotheses, normalizations and residue cases are stated in RESULT.md. A standalone integer checker directly compares signed enumeration with the transfer trace and exhaustively checks the reported finite lengths.
+## correctness
 
-**Originality: PASS, subject to historical-priority risk.** Bisdorff–Marichal's full arXiv manuscript and journal material were examined at the level of the setup, gap characterization, orbit-count theorems and composition arguments. Their Perrin enumeration and cyclic-gap representation are existing results, but an ordinary count and dihedral-orbit census do not imply that every signed Walsh coefficient is nonzero or produce an all-frequency modular invertibility criterion. A published incidence-context result for precisely these maximal independent sets was separately inspected; its implication-base counts and Boolean trace dimension are not equivalent to, nor do they imply, Fourier convolution invertibility. A related path result also does not imply the cyclic trace identity. The exact recurrence and signed cancellation witness structures are compared in AUDIT.json; an earlier indexed or unindexed all-sign specialization remains possible.
+PASS
 
-**Mathematical value: PASS.** The complete infinite-family classification answers a natural binary harmonic-analysis question for a classical set family. It distinguishes cyclic from path boundary conditions, identifies the non-obvious even-cardinality yet zero-free class, and provides explicit singular frequencies for every other even-cardinality residue. It is an exact structural threshold rather than a small numerical improvement.
+Maximal independence is equivalent to avoiding cyclic 11 and 000; the unique periodic three-state path gives a signed integer transfer trace without double-counting. Unweighted trace P_n has recurrence P_n=P_{n-2}+P_{n-3} with (3,0,2); Q_n containing a marked vertex has (1,0,1). Finite recurrence-state transitions establish P_n mod 2 period 7, mod 4 period 14, and Q_n mod2 period 7, not an empirical extrapolation. Odd P_n makes all W odd; at n=8 mod14, character expansion modulo 4 yields W= P_n-2|b|Q_n=2 mod4. Explicit trace-zero seeds at n=4,9,11,15,16 cover singular residue representatives, and 7-letter transfer J with J^2=I extends seeds by 14. Boundary n=3 and unnormalized convention checked. Independent integer checks recomputed all five seed traces, J^2 and recurrence parity patterns; this is supplementary, not the all-n proof.
 
-**Closest literature and limits.** The Perrin recurrence and circular two-/three-gap encoding belong to Bisdorff–Marichal (first posted 2007-01-23), not to this result. The main result classifies existence of Walsh zeros, not their multiplicities or sharp inverse norms. Full historical priority and independent validation remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Unweighted Perrin counts equal the zero-frequency specialization only; their parity offers sufficient zero-free classes but not the exact cancellation/no-cancellation pattern for all signs. This law is not a restatement of those counting formulas. A general signed independence-domination polynomial specialized to ±1 could subsume the zero locus if one proved all values; no demonstrably dominating theorem found. Unexamined weighted-domination literature is residual risk. Prior cycle gap combinatorics is a structural premise, not a theorem about Fourier invertibility. Even P_n does not itself force zeros; n≡8 mod14 is a counterexample to that potential shortcut.
+
+## value
+
+PASS
+
+Classifies singularity of the natural Boolean-group convolution by the entire maximal-independent-set indicator in every cycle length, with a mathematically distinctive even-mass but zero-free n=8 mod14 class. The transfer involution and mod-four obstruction constitute structural rather than artificial finite sampling information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
