@@ -1,0 +1,15 @@
+# Scientific review: toroidal Gauss-normal pair angles
+
+## Correctness — PASS
+The statement is about two independent surface-area-uniform samples on every embedded circular ring torus, not independent uniform parameter angles. The normalized area pushforward gives an independent uniform normal azimuth and arcsine vertical coordinate. The spherical-harmonic addition theorem proves every Legendre coefficient, and the coefficient asymptotic together with Legendre interior and derivative bounds establishes the sharp, integrable two-ended logarithmic density law. Its integrated rare-angle constant is computed exactly. The actual packaged checker confirms nine exact polynomial identities, three area-uniform sample configurations and a finite spectral log test. Numerical tests do not substitute for the infinite proof.
+
+## Originality — PASS, with historical limitations
+Horn's July 1983 memo is explicitly acknowledged as prior work for the *entire one-normal extended Gaussian image* and its aspect-ratio independence: those are background, not claimed discoveries. The additional independently sampled **two-normal dot-product** Legendre spectrum, the sharp density singularity coefficient and the sharp aligned/anti-aligned event tails were not found in the inspected torus sections of that primary document or in the relevant comparative searches. The 1997 surface chord/normal angle literature establishes the use of normal-pair histograms but does not supply these toroidal constants. The 2008 spherical-harmonic reference provides the general identity used but not the specialized probability theorem. Published Euclidean torus chord moments concern different observables. Unindexed older orientation-correlation literature remains a genuine priority risk; the assessment is not independent certification.
+
+## Value — PASS
+A normal-pair angular law is a natural rotation-independent statistic of a surface's area-weighted Gauss image. The exact infinite moment spectrum determines the distribution, while its sharp logarithmic endpoint behavior characterizes nearly parallel and antiparallel normal pairs—rare configurations not quantified by the one-point image alone. The result also proves an exact nonidentifiability boundary: no statistic of independently sampled normals can recover the torus radii, despite Euclidean chord moments depending on them. The endpoint coefficient requires nontrivial harmonic asymptotic analysis rather than a routine one-line substitution.
+
+## Limits
+Only embedded circular ring tori with independent area-uniform samples and outward normals are addressed. No arbitrary toroidal perturbations, horn/spindle cases, correlated pairs, or reconstruction of radius ratio is claimed. Source dates for Horn's 1983 memo are documented at month precision; the earliest source bearing an explicit day-specific timestamp in the checked comparison is the 1997 normal-pair histogram study. The review is same-model only.
+
+Self-review: passed. Independent audit: not yet performed.
