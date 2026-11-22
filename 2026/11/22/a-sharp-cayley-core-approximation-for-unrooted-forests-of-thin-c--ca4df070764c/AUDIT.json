@@ -1,0 +1,172 @@
+{
+  "correctness": {
+    "rationale": "The forest/special-vertex rank identity bounds the number of branching B vertices by a-1; Cayley bijection gives the exact leading term; the only a-2 cases are two-component A forests and a contracted size-three hyperedge, giving H_a. Fixed-a finite patterns bound all lower terms and prove the TV asymptotic. Exact independent brute and recurrence checks pass; finite checks corroborate rather than replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Stark Theorem 1 explicitly assumes the first shore tends to infinity and the other is o(first-shore^(6/5)), inapplicable to fixed a and growing b.",
+        "Rooted-forest component-count likelihood-ratio ordering applies a different weighting: each unrooted forest receives a factor equal to the product of component orders.",
+        "The complete-split-graph result samples spanning trees, all vertices connected, so it cannot yield a positive linear fraction of isolated large-shore vertices in an unrooted biclique forest."
+      ],
+      "reasoning": "Stronger-scope coverage was compared by host graph, weighting, parameter quantifiers and conclusion; none of the inspected broader enumeration or rooted-forest theorems yields this full-distribution TV statement. The existence of general unrooted enumeration algorithms is not a demonstrated implication of this structural limit theorem.",
+      "searches": [
+        "uniform random spanning forests complete bipartite K_{a,b} fixed a, b increasing; dominant Cayley tree skeleton after suppressing degree-two right vertices, giant component, binomial isolated vertices",
+        "fixed-shore uniform arboreal gas of K_{a,b}; asymptotic distribution of right vertices of degree at least two; tree core uniform among Cayley trees",
+        "uniform spanning forests complete bipartite connected core from a-1 degree-two vertices with probability tending one",
+        "doi:10.1016/j.disc.2012.10.026",
+        "doi:10.46298/dmtcs.1248"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.18076v1 (2026-11-13, primary full-text)",
+      "doi:10.46298/dmtcs.1248 (2014, primary full-text)",
+      "doi:10.1016/j.disc.2012.10.026 (2013, author manuscript full-text)",
+      "arxiv:2103.05294 (2021 preprint theorem/abstract)",
+      "doi:10.1002/rsa.70048 (2026 open-access introduction)",
+      "Published split-graph spanning-tree Cayley-core record (2026; public summary only)",
+      "Published rooted-biclique forest component-count order record (2026; public summary only)",
+      "Published two-hub graphical-zonotope record (2026; public summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wu–Lu–Dong page 3 uses (a+1)^b isolated-or-leaf choices to derive a lower bound for F(K_{a,b}); the dominant event here instead requires a-1 degree-two connectors and has order b^(a-1)(a+1)^b.",
+        "Dong–Ge counts spanning-tree completions of prescribed forests, rather than the relative frequencies of unrooted forests.",
+        "The indexed K_{2,b} identity is the a=2 marginal; it does not imply the generic a>=3 Cayley-tree conditional distribution."
+      ],
+      "reasoning": "The lower-bound construction in the motivating preprint is exponentially of the correct type but smaller by a polynomial factor b^(a-1) at fixed a; the new theorem identifies the actual dominant forest type and first loss of mass. Claims, assumptions, and parameter implications were compared rather than titles. Historical priority remains qualified for unindexed literature.",
+      "searches": [
+        "uniform unrooted spanning forest of K_{a,b} asymptotic Cayley tree on small part plus isolated and leaf large part",
+        "uniform random spanning forests complete bipartite K_{a,b} fixed a, b increasing; dominant Cayley tree skeleton after suppressing degree-two right vertices, giant component, binomial isolated vertices",
+        "Spanning forest count inequality product of vertex degrees complete bipartite K_{a,b} all minimum degree at least three",
+        "arxiv:2611.18076v1",
+        "arxiv:2103.05294"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Stones 2014 counts unrooted biclique spanning forests by edge count, not by special-degree incidence patterns; read PDF sections 3–5.",
+        "Stark 2013 counts all unrooted biclique forests and obtains asymptotics assuming the smaller shore grows without bound; read introduction, Theorems 1–3 and generating-function derivation.",
+        "Published Cayley-core split-graph record concerns uniform spanning trees on complete split graphs, not unrooted spanning forests on K_{a,b}."
+      ],
+      "reasoning": "Equivalent formulations examined: a forest on K_{a,b} is a hyperforest of neighbour subsets on A; suppressing degree-two B vertices gives an A-tree when exactly a-1 such vertices occur. Neither total forest counts nor tree-completion formulas imply exact uniform Cayley-core conditional law plus sharp O(1/b) TV expansion without the additional rank and coefficient classification.",
+      "searches": [
+        "uniform unrooted spanning forest of K_{a,b} asymptotic Cayley tree on small part plus isolated and leaf large part",
+        "bipartite spanning forest fixed shore random skeleton degree-two vertices total variation Poisson binomial",
+        "Cayley core for uniformly random acyclic edge subsets of a complete bipartite graph fixed small part",
+        "arxiv:2611.18076v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published two-hub zonotope record notes the exact unrooted K_{2,b} hub-disconnection probability 3/(b+3), matching the a=2 complement event and therefore not claimed independently.",
+        "Stones 2014 computes h-edge counts for m,n up to 50 and gives algorithms; it does not index the general Cayley skeleton probability or κ_a as a table of fixed-a asymptotic coefficients.",
+        "Distinct uniform-subtree missing-vertex Poisson approximation samples connected subgraphs/trees on selected vertices, not all unrooted spanning forests."
+      ],
+      "reasoning": "Checked for exact database numbers or pre-existing finite tables that could subsume the theorem: the a=2 instance is explicitly acknowledged as known. The meaningful general-a structural law, its TV rate and Gaussian corollary are not supplied by finite total/edge-count tables.",
+      "searches": [
+        "bipartite spanning forest fixed shore random skeleton degree-two vertices total variation Poisson binomial",
+        "Cayley core for uniformly random acyclic edge subsets of a complete bipartite graph fixed small part",
+        "Computing the number of h-edge spanning forests in complete bipartite graphs Stones table"
+      ]
+    },
+    "rationale": "No inspected source states or implies the joint general fixed-a unrooted-biclique Cayley-core conditional law with sharp 1/b total-variation coefficient; Stones and Stark enumerate counts but do not give the structural distribution, and the motivating lower bound misses the polynomial core factor. The a=2 connection probability is previously known and explicitly excluded from independent novelty. Historical priority provisional because unindexed sources and some only-summary indexed records remain.",
+    "residual_risks": [
+      "A past unindexed fixed-width unrooted-forest study may contain the general structural result.",
+      "Split-graph and two-hub indexed sources were available as public summaries only, so unobserved full text could contain additional comparisons; their advertised theorems have different hosts or weights.",
+      "The a=2 disconnection probability is already known and is not an independent novelty claim.",
+      "The result is only a fixed-a asymptotic, not a two-parameter uniform theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivates the model; gives (a+1)^b lower bound, not the typical a-1 connector construction or TV expansion",
+        "evidence": [
+          "Page 3 states the isolated/one-neighbour construction and K_{3,14} count; Sections 2–4 prove general upper bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2611.18076v1",
+        "material_read": "Full introductory definitions, theorem statements, page 3 K_{a,b} construction, and proof sections on forest bounds",
+        "method": "Public arXiv PDF text and page screenshot; first version dated 2026-11-13",
+        "title": "Upper bounds for the number of spanning forests of a graph",
+        "trigger": "Qualifying current literature and fixed-small-shore biclique counterexample"
+      },
+      {
+        "assessment": "General h-edge counting scheme; no fixed-a Cayley-core conditional law, no first-order TV expansion",
+        "evidence": [
+          "Section 4.1 classifies component partitions for h-edge counts; no classification by number of B vertices with degree at least two."
+        ],
+        "identifier_or_url": "https://dmtcs.episciences.org/en/articles/1248/download",
+        "material_read": "Sections 3–5, including component decompositions and exact finite enumeration algorithms",
+        "method": "Open-access primary PDF text and page screenshot",
+        "title": "Computing the number of h-edge spanning forests in complete bipartite graphs",
+        "trigger": "Possible prior exact biclique forest enumeration"
+      },
+      {
+        "assessment": "Exact total-count generating functions; main asymptotic requires smaller part tending to infinity and excludes fixed-a regime",
+        "evidence": [
+          "Theorem 1 assumes first shore tends to infinity and second shore=o(first^(6/5)); Theorem 3 concerns edge correlations in the same growth setting."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2012.10.026",
+        "material_read": "Public author-deposited full text: introduction, Theorems 1–3, component generating functions and stated parameter regime",
+        "method": "Author manuscript full text available through publicly indexed archival upload",
+        "title": "The asymptotic number of spanning forests of complete bipartite labelled graphs",
+        "trigger": "Plausible stronger asymptotic biclique theorem"
+      },
+      {
+        "assessment": "Different tree-completion counting problem; no decisive overlap in stated theorem, possible unexamined details remain a low priority risk",
+        "evidence": [
+          "Formula counts spanning trees containing F with component part sizes, not uniform unrooted forest probabilities."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.05294",
+        "material_read": "Public original abstract and formula statement on preprint and journal full-text presentation",
+        "method": "Author-public summary and published theorem formula (not a whole-document exclusion)",
+        "title": "Counting spanning trees in a complete bipartite graph which contain a given spanning forest",
+        "trigger": "Potential enumeration by prescribed forest components"
+      },
+      {
+        "assessment": "Complete graph, not fixed-shore biclique, and weight includes a product of component sizes; does not cover measure here",
+        "evidence": [
+          "The article defines λ-massive forest weights proportional to λ^(component count) times product of component orders on K_n."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.70048",
+        "material_read": "Open-access article introduction and main measure definition",
+        "method": "Public full-text HTML",
+        "title": "Massive Spanning Forests on the Complete Graph: Exact Distribution and Local Limit",
+        "trigger": "Recent random-forest distribution theorem with a possible stronger scope"
+      },
+      {
+        "assessment": "Uniform spanning trees on split graphs with no isolated vertices; different host/measure, no implication of the unrooted-biclique forest law",
+        "evidence": [
+          "Public summary states a split-graph spanning-tree core law and TV error 1-(b)_{a-1}/(a+b)^{a-1}."
+        ],
+        "identifier_or_url": "Publicly indexed 2026 mathematical record on complete split graphs",
+        "material_read": "Available public record abstract/summary and exact distribution description",
+        "method": "Mathematical discovery index; full package not available in this retrieval",
+        "title": "A sharp total-variation Cayley-core approximation for split-graph spanning trees",
+        "trigger": "Closest phrase-level and total-variation implication comparison"
+      },
+      {
+        "assessment": "Contains the K_{2,b} disconnection probability 3/(b+3) already; a=2 is not advanced as a new separate result",
+        "evidence": [
+          "Public summary explicitly contrasts zonotope weighting with uniform-forest hub disconnection 3/(q+3)."
+        ],
+        "identifier_or_url": "Publicly indexed 2026 mathematical record on K_{2,q}",
+        "material_read": "Public summary including comparison with uniform-forest connectivity on K_{2,q}",
+        "method": "Mathematical discovery index; full package not available in this retrieval",
+        "title": "Two-hub graphical zonotopes: complete intrinsic volumes",
+        "trigger": "Check exact smaller-width special-case priority"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ca4df070-764c-4085-950d-d38994198c6d",
+  "value": {
+    "rationale": "Determines the typical full labelled unrooted-forest structure, an exact uniformly random Cayley skeleton, and the sharp convergence rate for an infinite natural fixed-shore family highlighted by 2026 graph-forest counterexamples. The macroscopic component fraction and binomial/Gaussian law are structural, motivated by the need to understand what the forest lower-bound construction misses.",
+    "status": "PASS"
+  }
+}
