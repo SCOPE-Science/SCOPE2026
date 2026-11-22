@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification procedures and limits
+# Independent mathematical audit
 
-`python3 check_permuto_width.py` runs with the Python standard library. A successful replay reports:
+## correctness
 
-`PERMUTO_WIDTH_CHECKS_PASS integer_inequalities=48534 cut_profiles=275 sharp_geodesics=275 maxima_permutations=5910`
+PASS
 
-The integer checks cover bounded zero-sum grids in block sizes from 2 to 8. The width and sharp angular formulas are additionally sampled at every block-size split for 3 through 24 coordinates, with each extremal tangent vector constructed explicitly. The sorted-chamber maximum is checked on 5,910 permuted integer gradients in dimensions 3 through 7. These tests are corroborative only: they do not explore an infinite range of dimensions or the continuum of real directions. The proof of those statements is contained in RESULT.md.
+PASS — For n>=3 on the Euclidean zero-sum unit sphere, the standard translated zonotope equals sum_{i<j}[e_i,e_j], so directional width is W=sum|u_i−u_j|. On any strict coordinate-order chamber W=<a,u>, where a_j=2j−n−1 and ||a||²=n(n²−1)/3; the only compatible spherical stationary maximum is normalized a, yielding n! strict global maxima. On two-level partitions A/A^c with t=|A|, W=sqrt(n t(n−t)); sorting any mean-zero m-vector and decomposing into monotone cut steps gives sharp within-block inequality T_m(z)>=sqrt(m(m−1))||z||. Tangents separately sum zero on both blocks; before tan θ < delta/sqrt(2) no cross-order changes, giving attained lower envelope W(theta)=sqrt(n t(n−t)) cos θ+gamma sin θ (gamma least nontrivial block sqrt(m(m−1))), proving strict local minima and exact slope. For >=3 distinct value levels, restriction to their positive-dimensional ordered block-constant stratum has no local minimum; splitting a repeated block increases W so no local maximum. Exhausts all extrema; smallest t=1 or n−1 give 2n global minima. Independent direct exact-numerical geodesics n,t=(7,3),(8,1),(5,2) reproduce sharp envelope to 1e−11. Global theorem rests on analytic proof, not finite diagnostics.
 
-Source comparison included the full arXiv web texts of arXiv:1904.11029 and arXiv:1911.11159, and the NIST definition of Gini mean difference. Those documents establish the known geometric and functional background, not independent verification of the new local-extremum theorem. Independent mathematical review remains unperformed.
+## originality
+
+PASS
+
+PASS best of knowledge — The permutohedral zonotope identity and complete-graph total variation/Gini mean difference are classical prior data. The novel assessed content is all spherical LOCAL extrema, their 2^n−2 and n! counts, and the precisely attained angular perturbation envelope with block-dependent sharp coefficient. A published regular simplex local-width theorem looks similar in cut counts but uses max_i u_i−min_i u_i, not sum of all pairwise differences; signed type-B permutohedron has different root directions and counts. No inspected source supplied the exact type-A Euclidean spherical landscape, though old Gini inequalities/nonsmooth graph spectra may overlap.
+
+## value
+
+PASS
+
+PASS — Width extrema and quantitative local stability are intrinsic geometric invariants of a fundamental n-dimensional family; strict nonglobal local minima reflect the nonconvex spherical energy landscape of total variation, with explicit cut-size-dependent barrier slopes. The result is a full natural classification and sharp angular bound for all n>=3, beyond a textbook Cauchy maximum or coordinate relabeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
