@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Equivariance gives a complete orbit/phase normal form. Since nilpotence makes the quotient digraph a rooted forest, gauge phases normalize without group commutativity. Orbit-stabilizer gives \(b!q^{b-r}/a(F)\). The commutation identity is checked at one representative per regular orbit, where the predecessor's image either vanishes or forces the next target to be one of its children with the same phase. Conditional subtree independence yields the displayed bottom-up recursion with precisely one \(q\)-factor for a fresh nonzero phase after a zero image. Verified by full independent finite enumeration for cyclic groups and \(S_3\), and direct unit conjugations; finite tests do not replace the all-group proof. The basepoint condition is essential at \(q=1\).
+
+**Originality — PASS (qualified).** The 2022 equivariant-endomorphism paper gives general structure and unit wreath products rather than the nilpotent commutant spectrum. The earlier Al-Aadhami thesis **does already establish** the total weighted nilpotent count, so that count is explicitly not claimed as new. The full-transformation centralizer theorem of Araújo–Konieczny characterizes digraph morphisms, not the group-labelled, all-nilpotent unit-conjugacy and centralizer-size refinement. A relevant 1998 partial-transformation article remained unavailable in full and could contain a stronger encompassing statement; this is a genuine residual priority risk. Published research records and available prior work were checked for semantic implication, not just wording.
+
+**Value — PASS.** The complete, explicitly computable centralizer spectrum refines a known enumeration on the natural monoid of pointed equivariant transformations. It simultaneously handles nonabelian groups, ranks, nilpotency heights, unit-orbit sizes, and full commuting maps. The order-only universality is a structural phenomenon, not an arbitrary isolated numerical slice. The example at \(b=4,q=2\) shows centralizer-size collisions, marking a meaningful limitation of the invariant.
+
+No external or independent mathematical audit was performed. Broader historical coverage remains possible; the complete 1998 article was not accessible for full comparison.
+
+Self-review: passed. Independent audit: not yet performed.
