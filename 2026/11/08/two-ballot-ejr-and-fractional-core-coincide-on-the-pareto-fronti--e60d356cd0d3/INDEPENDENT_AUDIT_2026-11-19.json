@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T21:13:05Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob 39900c2cad384f6d3d190df2ca71368b27bba2b8",
+        "Assigned coreplus_check.py blob e98b485d37b4c83e3fb789608de5b2e98d331e06",
+        "https://arxiv.org/html/2609.11912v2 Theorem 3.2/P1-P4",
+        "Independent worker10_coreplus_independent.py and its LP output"
+      ],
+      "rationale": "For all positive voter-type populations a,b, supported candidates and 1<=k<=|C|, Pareto optimality forces every shared candidate to be selected whenever a private winner exists; hence h=min(k,|A∩B|). If h=k, reserves and payments 1/(k+1) satisfy all P1-P4. Otherwise all losers are private: EJR+ is precisely n_i<(h+y_i+1)q for each type with private losers. In any core+ payment system P1/P2 imply individual r>=1/(u_i+1), giving necessity. For sufficiency, put rho_i*=q/n_i when n_i>=q and a loser exists, otherwise 1; private winners absorb up to y_i q, leaving D_i*=max(0,n_i-(y_i+1)q) for active types. Strict scalar inequalities give D_i*<h n_i rho_i*; when both deficits are positive D_A*+D_B*=(h-2)q<hq, and when only one is positive it is <hq. Small positive rational reserve perturbations preserve capacities and give strict P3. Equal payments over selected classes give P1, P2, P4. The non-Pareto (2 voters, 4 candidates, 3 seats) example has EJR+ but requires reserve sum >=3/4>2/3 and so is not core+. Independently constructed LP checks 6,912 finite aggregate configurations, 6,332 feasible and 580 obstructed, matching strict quota criteria; these numerical finite checks corroborate but do not prove unbounded claim.",
+      "residual_risks": [
+        "The proof relies on BGP Theorem 3.2 for equivalence of core+ and payment certificates, as is explicit in the claim.",
+        "The independent finite LP checker uses numerical optimization, so boundary strictness and unbounded domain are established by algebraic proof, not its tolerance.",
+        "No claim for three types or Droop quota."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Becker-Greger-Peters 2609.11912v2 proves existence of some core+ committee, core+ -> EJR+ and exact payment duality; it does not state every Pareto-efficient EJR+ committee is core+.",
+          "Becker-Greger-Peters 2605.06194v2 Theorems 2.4/2.5 prove ordinary integral-core existence under bounded voter types from fractional committee rounding, not core+ membership of each specified committee.",
+          "Resultary November 8 two-ballot FJR+ result proves FJR+=EJR+ for supported winners but offers no converse implication to core+."
+        ],
+        "reasoning": "A universal existence theorem, even on an unrestricted class, does not logically classify each committee. Core+ is strictly stronger than ordinary core and FJR+ in general, so the seven-type existence theorem and two-type FJR+ collapse are not dominating the target.",
+        "searches": [
+          "https://arxiv.org/html/2609.11912v2 Theorem 3.2, Section 6 and Appendix A",
+          "https://arxiv.org/html/2605.06194v2 Theorems 2.3-2.5 and seven voter-type existence",
+          "https://arxiv.org/html/2605.04612v1 Sections 2-4",
+          "Resultary: two voter types Pareto efficient EJR+ fractional core+ payment certificates shared approvals two ballot"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2609.11912v2",
+        "https://arxiv.org/html/2605.04612v1",
+        "https://arxiv.org/html/2605.06194v2",
+        "Resultary semantic search: two voter types Pareto efficient EJR+ fractional core+ payment certificates",
+        "Resultary November 8 two-ballot FJR+ published RESULT.md",
+        "Resultary November 2 EJR+ versus strong-payment-EJR+ published RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2609.11912v2 Theorem 3.2 supplies necessary and sufficient payment system; its general logical implication core+ => EJR+ is one direction only.",
+          "In an efficient two-type committee, each unselected candidate is private to one type unless every winner is shared; losing-private EJR+ precisely gives n_i<(u_i+1)q. The assigned proof constructs private and shared winner payments satisfying the extra P4 capacity, establishing the nontrivial reverse implication.",
+          "The November 2 payment-strong EJR+ separation is a different criterion and uses more than two approval types in its Pareto-efficient examples."
+        ],
+        "reasoning": "The new sufficiency is not a mechanical corollary of general core+ existence or the one-way core+ => EJR+ implication: it combines Pareto saturation, two-type aggregate demand D_A+D_B<(h)q, and strict reserve perturbation. Under the stated constraints that constitutes new mathematical work as far as the inspected sources establish.",
+        "searches": [
+          "https://arxiv.org/html/2609.11912v2 Theorem 3.2 Proposition A.4",
+          "https://arxiv.org/html/2605.04612v1 EJR+ axiomatic characterization",
+          "Resultary November 8: An exact two-ballot characterization of full justified representation plus",
+          "Resultary November 2: A sharp eight-entity separation between approval EJR+ and payment-strong EJR+"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Becker-Greger-Peters arXiv:2609.11912v2 Appendix A.2 Proposition A.4 identifies core+ with frugal Lindahl priceability, giving a genuine alternate formulation, but states no every-Pareto-two-type equivalence with EJR+.",
+          "Dong-Peters arXiv:2605.04612v1 Section 2 gives EJR+ candidate/group definition; for a private losing candidate, all n_i supporters have utility u_i and EJR+ is exactly n_i<(u_i+1)q.",
+          "Resultary November 8 published two-ballot FJR+ classification distinguishes FJR+ (on supported winners equal to EJR+) from stronger core+; equal FJR+/EJR+ alone does not imply core+."
+        ],
+        "reasoning": "Equating core+ to frugal Lindahl priceability changes terminology but not the proof obligations P1-P4. EJR+ scalar tests for private losers and a saturated common class yield the claimed restricted reverse implication; neither searched equivalent source supplies that implication.",
+        "searches": [
+          "Resultary: two voter types Pareto efficient EJR+ fractional core+ payment certificates shared approvals two ballot",
+          "Resultary: approval committee frugal Lindahl priceability core+ EJR+ equivalence for two types",
+          "web: 2026 two voter types approval voting EJR+ fractional core+ Pareto-efficient equivalence",
+          "https://arxiv.org/html/2609.11912v2 Appendix A.2 Proposition A.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the assigned record itself, the November 8 two-ballot FJR+ record, the November 2 EJR+ versus payment-strong-EJR+ separation, and a October 25 core+ versus ordinary core counting result; none supplies this same two-type universal committee-level core+ criterion.",
+          "The target has arbitrary integer populations and candidate inventories and is not a single finite count or numerical table."
+        ],
+        "reasoning": "No matching earlier exact table/classification was found among inspected published records. The related finite/minimal counterexample and FJR+ results are different properties; no conclusion of worldwide novelty is inferred from unsuccessful retrieval alone.",
+        "searches": [
+          "Resultary semantic search: two voter types Pareto efficient EJR+ fractional core+ payment certificates shared approvals two ballot",
+          "Resultary semantic search: approval committee frugal Lindahl priceability core+ EJR+ equivalence for two types",
+          "Resultary semantic search: two ballot committee extended justified representation plus fractional core Pareto",
+          "web: 2026 two voter types approval voting EJR+ fractional core+ Pareto-efficient equivalence"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality: primary core+ paper proves payment duality, one-way logical strength, and existence but not that EVERY two-ballot Pareto-efficient EJR+ committee is core+. The few-type ordinary-core theorem and the same-domain FJR+ classification do not imply this stronger per-committee stability. Searches of semantic published records and exact-alias terminology found no covered theorem; historical unindexed equivalent remains possible.",
+      "residual_risks": [
+        "Possible unindexed older theorem on frugal Lindahl priceability in two-ballot elections could duplicate the result; keyword and semantic searches do not certify novelty.",
+        "Relevant published primary papers were read in material sections, not every page and citation.",
+        "Exact historical priority remains provisional."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 3.2 validates exact duality used in source; existence and related implications do not prove per-Pareto two-type reverse implication.",
+          "evidence": [
+            "arXiv:2609.11912v2 lines 75-111, 175-179, 623-732, 408-427 (HTML)"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.11912v2",
+          "material_read": "Full-text HTML accessed; abstract/introduction, Section 3 payment-system theorem and P1-P4, Sections 6 and 9 statements, Appendix A.2 definition/proposition/proof of frugal Lindahl priceability and relevant EJR+ relationships",
+          "method": "Read primary arXiv HTML and compared actual quantified conclusions and payment inequalities",
+          "title": "Existence of the Core in Approval-Based Committee Elections",
+          "trigger": "Direct core+ definition, payment duality and strongest plausible covering theorem"
+        },
+        {
+          "assessment": "Characterizes EJR+ axiomatically, but gives no core+ payment membership equivalence for arbitrary two approval types.",
+          "evidence": [
+            "arXiv:2605.04612v1 lines 180-192, 316-322, 749-764"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.04612v1",
+          "material_read": "Full-text HTML accessed; introduction, Section 2 EJR+/PJR+ definitions, Section 3 and Theorem 12, discussion of witness-based axioms and selected Appendix D examples",
+          "method": "Primary arXiv HTML inspection and theorem/quantifier comparison",
+          "title": "An Axiomatic Analysis of Proportionality Notions in Approval-Based Multiwinner Voting",
+          "trigger": "Defines EJR+ and could imply committee-level characterization"
+        },
+        {
+          "assessment": "Proves ordinary core existence using fractional-core committee rounding, not an all-Pareto EJR+ to fractional core+ criterion.",
+          "evidence": [
+            "arXiv:2605.06194v2 lines 55-101, 172-198, 375-395, 492-530"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.06194v2",
+          "material_read": "Full-text HTML accessed; abstract, introduction, Theorems 2.3-2.5, main approach in Sections 4-6 and related core/fractional core discussion",
+          "method": "Primary arXiv HTML inspection of theorem statements and scope",
+          "title": "Core Existence in Approval-Based Committee Elections with up to Seven Voter Types",
+          "trigger": "Broader voter-type theorem might dominate target"
+        },
+        {
+          "assessment": "FJR+ collapses to EJR+ on supported winners, but the theorem does not furnish the core+ payment-cap constraints required here.",
+          "evidence": [
+            "Published RESULT.md Finding and Proof sections 1-5, Limitations"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-an-exact-two-ballot-characterization-of-full-justified-represent--eef17f7a8024/RESULT.md",
+          "material_read": "Complete published RESULT.md, including theorem, four tests, proof and limitations",
+          "method": "Actual GitHub connector file read and comparison of FJR+ constraints with core+",
+          "title": "An exact two-ballot characterization of full justified representation plus",
+          "trigger": "Same approval-type parameters and stronger justified-representation notion"
+        },
+        {
+          "assessment": "Concerns Skowron strong EJR+ up-to-one rather than BGP fractional core+; its two Pareto witnesses use 3 or 4 distinct ballots and do not cover this two-type result.",
+          "evidence": [
+            "Published RESULT.md Finding, Assumptions, Proof and References"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-eight-entity-separation-between-approval-ejr-and-payment--7ca677c2b8dc/RESULT.md",
+          "material_read": "Complete published RESULT.md: definitions, sharp census, examples and proof",
+          "method": "Actual GitHub connector file read",
+          "title": "A sharp eight-entity separation between approval EJR+ and payment-strong EJR+",
+          "trigger": "Payment-strengthening of EJR+ and potentially matching Pareto counterexamples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "BGP arXiv:2609.11912v2, payment-system formulation",
+        "Resultary two-ballot FJR+ classification, differing axiom",
+        "Constructive common/private payment inequalities from assigned RESULT.md"
+      ],
+      "rationale": "This is a natural infinite two-approval-type domain where shared and private candidates genuinely interact. A precise per-committee equivalence between easy EJR+ tests and stronger fractional coalition stability, with a constructive rational payment witness and sharp two-voter Pareto boundary, resolves a meaningful classification rather than restating core+ existence, a routine parameter substitution, or recomputing a table. It does not require a larger general theorem to be valuable.",
+      "residual_risks": [
+        "No claim that the two-type membership test extends to three or more types or to Droop quota.",
+        "Usefulness of explicit payments is limited to supported candidates and Pareto-efficient full committees."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge novelty only; unindexed earlier equivalent remains possible.",
+    "Finite LP checks do not replace universal proof or exact strictness; proof is independent of numerical optimization.",
+    "Public METADATA.json and AUDIT.json disclose internal provenance; REVIEW.md contains process-specific self-review text. Complete sanitized replacement bytes and source guards are not staged. No publication change until privacy is verified."
+  ],
+  "schema_version": 1
+}
