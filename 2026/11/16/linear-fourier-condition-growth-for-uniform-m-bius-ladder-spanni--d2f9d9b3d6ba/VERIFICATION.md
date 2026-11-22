@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the mathematical package
+# Independent mathematical audit
 
-`python check_mobius.py` compares the finite covariance formula against direct Moore–Penrose transfer-current matrices for sizes 3 through 30 and against independently enumerated uniform spanning trees for sizes 3 through 6. These enumerations contain 81, 392, 1815 and 8112 trees. Larger sizes 80, 160, 320, 640 and 1280 test convergence toward the predicted constant. All checks passed. `python symbolic_certificate.py` verifies the limiting Fourier-symbol determinant relation and endpoint identities exactly over radicals; it also passed.
+## correctness
 
-The proof of the infinite-dimensional-in-size statement resides in `RESULT.md`: geometric antiperiodic Green kernel, full Fourier block diagonalization, connected cycle-matroid rank, uniform exponentially accurate limiting symbol and rank-one perturbation. Numerical tests are evidence of consistency but not exhaustive infinite proofs. Historical priority remains provisional; independent audit not performed.
+PASS
+
+The classical transfer-current determinantal identity Cov(X_e,X_f)=P_ee delta_ef-P_ef^2 with P=B^T (BB^T)^+ B reduces covariance to circulant Green-current kernels. Laplacian eigenvalue 3-2cos(pi k/n)-(-1)^k separates odd massive antiperiodic sector O_d from even cycle sector. The exact O,H,T formulas generate rim/rim, chord/chord and cross covariances and diagonalize under Fourier transform into scalar odd modes and the stated Hermitian 2x2 blocks. All fixed-size spanning trees have 2n-1 edges; exchange along overlapping four-cycles connects all edge costs, giving one-dimensional covariance kernel, not inferred merely from finite eigenvalues. In the uniform n->infinity nonzero even modes the limiting block has eigenvalues A=1/(2sqrt3), L(theta)=3a(theta)-A, with L>=0 and a unique quadratic zero at theta=0. The finite correction (1/2n)diag(1,0) acts on the lower eigenvector with rim weight p(theta)>=2/3, yielding min 1/(3n)+O(n^-2); all other modes remain bounded and max tends to A. I independently built actual oriented incidence matrices and pseudoinverse currents for n=3,4,6,9,20; the explicit covariance differs by <4e-16 and exactly one eigenvalue vanishes. A separate 2n FFT computation for n=64..1024 showed n lambda_min approaching 1/3 and max approaching 1/(2sqrt3). These are finite corroborations; the proof requires the uniform symbol error O(n alpha^n) and spectral perturbation.
+
+## originality
+
+PASS
+
+Transfer currents, graph Laplacian pseudoinverses and tree enumeration are classical; Azimi–Farrokhi explicitly compute Möbius ladder Laplacian inverse, resistance and tree numbers. Those inputs do not assert the full edge covariance Fourier spectrum or the first-order small eigenvalue induced by a finite-size topological correction; compared published SCOPE squared-cycle and wheel results concern distinct graphs and constants. Historical structure-factor literature still presents residual priority risk.
+
+## value
+
+PASS
+
+Uniform spanning-tree edge observability is a natural Fourier-covariance invariant of a canonical 3-regular nonplanar twisted cycle family. The exact 3n spectrum and sharp linear condition coefficient distinguish a meaningful topological finite-size near-null mode from wheel and squared-cycle behavior and provide a reusable exact benchmark. It is not just the known tree count or resistances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

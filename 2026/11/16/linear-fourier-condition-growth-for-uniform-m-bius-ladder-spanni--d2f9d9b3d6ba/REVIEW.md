@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The covariance is obtained independently from the transfer-current projection and spanning-tree enumeration. Fourier decomposition gives the finite spectrum. Algebraic limiting-symbol identities and a uniform rank-one perturbation argument prove the sharp linear condition coefficient. `check_mobius.py` passed direct pseudoinverse comparisons for sizes 3–30, direct enumeration for sizes 3–6, and further large-order numerical tests. `symbolic_certificate.py` passed exact radical identities. The theorem does not infer an infinite statement solely from finite computations.
+## correctness
 
-## Originality: PASS (historical priority provisional)
-Azimi–Farrokhi (2023, arXiv:2306.10497v1) gives Möbius-ladder pseudoinverses and tree counts; its Section 5 and corollaries were inspected. Those are inputs, but do not state the edge-occupation Fourier covariance conditioning law. The classical tree-determinantal formula is credited. A publicly indexed wheel-graph covariance result concerns a different graph and a quadratic law, so it does not imply the Möbius-ladder linear coefficient. Search coverage and source-specific implications are recorded in `AUDIT.json`. Potential unindexed structure-factor antecedents remain a priority risk.
+PASS
 
-## Mathematical value: PASS
-The first-coordinate observation covariance of a natural spanning-tree ensemble has a nontrivial Fourier soft mode with exact \(1/(3n)\) decay, producing sharp \(\sqrt3/2\) linear conditioning rather than the quadratic wheel rate. The result also supplies all finite Fourier blocks, the exact rank, and reproducible independent covariance checks.
+The classical transfer-current determinantal identity Cov(X_e,X_f)=P_ee delta_ef-P_ef^2 with P=B^T (BB^T)^+ B reduces covariance to circulant Green-current kernels. Laplacian eigenvalue 3-2cos(pi k/n)-(-1)^k separates odd massive antiperiodic sector O_d from even cycle sector. The exact O,H,T formulas generate rim/rim, chord/chord and cross covariances and diagonalize under Fourier transform into scalar odd modes and the stated Hermitian 2x2 blocks. All fixed-size spanning trees have 2n-1 edges; exchange along overlapping four-cycles connects all edge costs, giving one-dimensional covariance kernel, not inferred merely from finite eigenvalues. In the uniform n->infinity nonzero even modes the limiting block has eigenvalues A=1/(2sqrt3), L(theta)=3a(theta)-A, with L>=0 and a unique quadratic zero at theta=0. The finite correction (1/2n)diag(1,0) acts on the lower eigenvector with rim weight p(theta)>=2/3, yielding min 1/(3n)+O(n^-2); all other modes remain bounded and max tends to A. I independently built actual oriented incidence matrices and pseudoinverse currents for n=3,4,6,9,20; the explicit covariance differs by <4e-16 and exactly one eigenvalue vanishes. A separate 2n FFT computation for n=64..1024 showed n lambda_min approaching 1/3 and max approaching 1/(2sqrt3). These are finite corroborations; the proof requires the uniform symbol error O(n alpha^n) and spectral perturbation.
 
-## Limitations
-The theorem does not optimize the finite-dimensional largest-frequency labels at every size or address higher-order sampling. Historical priority is provisional and no independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Transfer currents, graph Laplacian pseudoinverses and tree enumeration are classical; Azimi–Farrokhi explicitly compute Möbius ladder Laplacian inverse, resistance and tree numbers. Those inputs do not assert the full edge covariance Fourier spectrum or the first-order small eigenvalue induced by a finite-size topological correction; compared published SCOPE squared-cycle and wheel results concern distinct graphs and constants. Historical structure-factor literature still presents residual priority risk.
+
+## value
+
+PASS
+
+Uniform spanning-tree edge observability is a natural Fourier-covariance invariant of a canonical 3-regular nonplanar twisted cycle family. The exact 3n spectrum and sharp linear condition coefficient distinguish a meaningful topological finite-size near-null mode from wheel and squared-cycle behavior and provide a reusable exact benchmark. It is not just the known tree count or resistances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

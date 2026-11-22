@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T08:15:47.487947Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The classical transfer-current determinantal identity Cov(X_e,X_f)=P_ee delta_ef-P_ef^2 with P=B^T (BB^T)^+ B reduces covariance to circulant Green-current kernels. Laplacian eigenvalue 3-2cos(pi k/n)-(-1)^k separates odd massive antiperiodic sector O_d from even cycle sector. The exact O,H,T formulas generate rim/rim, chord/chord and cross covariances and diagonalize under Fourier transform into scalar odd modes and the stated Hermitian 2x2 blocks. All fixed-size spanning trees have 2n-1 edges; exchange along overlapping four-cycles connects all edge costs, giving one-dimensional covariance kernel, not inferred merely from finite eigenvalues. In the uniform n->infinity nonzero even modes the limiting block has eigenvalues A=1/(2sqrt3), L(theta)=3a(theta)-A, with L>=0 and a unique quadratic zero at theta=0. The finite correction (1/2n)diag(1,0) acts on the lower eigenvector with rim weight p(theta)>=2/3, yielding min 1/(3n)+O(n^-2); all other modes remain bounded and max tends to A. I independently built actual oriented incidence matrices and pseudoinverse currents for n=3,4,6,9,20; the explicit covariance differs by <4e-16 and exactly one eigenvalue vanishes. A separate 2n FFT computation for n=64..1024 showed n lambda_min approaching 1/3 and max approaching 1/(2sqrt3). These are finite corroborations; the proof requires the uniform symbol error O(n alpha^n) and spectral perturbation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary wheel UST covariance theorem has kappa ~4m^2/(5 pi^2), whereas the Möbius ladder has linear kappa and antipodal-edge coupling.",
+          "Resultary squared-cycle UST linear law coefficient 8/(5 sqrt5) concerns different third-regular graph with different edges and spectrum; distinct graph results cannot imply this one without a proven reduction."
+        ],
+        "reasoning": "Transfer-current theory applies broadly to all graphs, but no inspected dominating family evaluation includes the Möbius ladder sharp constant. The presented topological even-odd Fourier block treatment adds graph-specific information.",
+        "searches": [
+          "Möbius ladder uniform spanning tree edge covariance Fourier spectrum condition number",
+          "spanning tree edge occupation Fourier covariance asymptotics wheel squared cycle generalized ladder graph",
+          "Resultary quadratic vertex covariance anisotropy wheel spanning-tree polytopes"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2306.10497 (primary Möbius ladder L+ formulas)",
+        "doi:10.1007/s00440-014-0588-2 (transfer current standard)",
+        "Resultary wheel covariance 2026/11/8",
+        "Resultary squared-cycle UST covariance 2026/11/16",
+        "Resultary query: Möbius ladder uniform spanning tree edge covariance Fourier spectrum condition number",
+        "Actual frozen Git record tree bfb1e6aa994e406c196505f025fec079ce369a04, RESULT.md bb34844f2e3fdb0a4b0694df316a7410b7e56b29; all source checker blobs and public metadata listed/read by GitHub read-only."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary exact L^+ formula gives an input to P, but additional squared-entry Fourier convolution and matrix perturbation is necessary.",
+          "Resultary squared-cycle UST sharp constant 8/(5 sqrt5) and wheel asymptotic 4m^2/(5 pi^2) are not Möbius graph invariants."
+        ],
+        "reasoning": "No prior inspected formula directly entails the precise sqrt3/2 leading covariance conditioning law; it is not a notational rename of prior graph family results.",
+        "searches": [
+          "Möbius ladder uniform spanning tree edge covariance Fourier spectrum condition number",
+          "arxiv:2306.10497 Section 5 pseudoinverse Mobius ladder tree count",
+          "Resultary squared-cycle spanning-tree covariance linear coefficient"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The covariance is exactly the determinantal spanning-tree transfer-current matrix P edge-square expression, so equivalence with transfer-impedance statistics must be considered.",
+          "Azimi–Farrokhi 2023 Section 5 provides explicit Moore–Penrose inverse and effective resistances for Möbius ladders."
+        ],
+        "reasoning": "Directly knowing L^+ determines all covariance entries *computationally*, but it is not the same evaluated 3n-edge Fourier spectrum with sharp eigenvalue extrema and kappa_n/n coefficient; those require deriving the Fourier-symbol perturbation.",
+        "searches": [
+          "Möbius ladder uniform spanning tree edge covariance Fourier spectrum condition number",
+          "Mobius ladder electrical transfer current spanning tree covariance spectrum pseudoinverse",
+          "arxiv:2306.10497"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Azimi–Farrokhi 2023 reports exact tree counts and resistance formulas but no edge-occupation covariance eigenvalue table in inspected Section 5.",
+          "Finite eigenvalues can in principle be generated from P, but the full symbolic 2x2 spectral formula and asymptotic coefficient are not an existing printed table in inspected primary material."
+        ],
+        "reasoning": "Tree-count or resistance tables are lower-order statistics, not automatically a complete covariance spectrum or a sharp small-eigenvalue formula for all n.",
+        "searches": [
+          "Möbius ladder uniform spanning tree edge covariance Fourier spectrum condition number",
+          "Mobius ladder spanning trees effective resistance Azimi Farrokhi formulas edge covariance eigenvalue list",
+          "Mobius ladder tree counts OEIS resistance graph"
+        ]
+      },
+      "rationale": "Transfer currents, graph Laplacian pseudoinverses and tree enumeration are classical; Azimi–Farrokhi explicitly compute Möbius ladder Laplacian inverse, resistance and tree numbers. Those inputs do not assert the full edge covariance Fourier spectrum or the first-order small eigenvalue induced by a finite-size topological correction; compared published SCOPE squared-cycle and wheel results concern distinct graphs and constants. Historical structure-factor literature still presents residual priority risk.",
+      "residual_risks": [
+        "An equivalent historical spanning-tree edge structure-factor formula may exist under electrical network/anti-periodic Green terminology not found by bounded searches.",
+        "Uniform O(n alpha^n) finite kernel symbol estimate is an analytic step inferred from geometric series; checked consistency numerically, not formally computer-certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers inverse Laplacian, resistance and tree counts on the identical graph, but the edge indicator covariance full Fourier spectrum/linear conditioning coefficient were not asserted in relevant results.",
+          "evidence": "Azimi–Farrokhi (2023), Sec. 5, Theorem 5.1 and Corollary 5.4.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.10497",
+          "material_read": "16-page primary PDF with Theorem 5.1, Corollary 5.4, surrounding Möbius ladder matrix and tree-count formulas read; screenshot inspected",
+          "method": "Primary full-text document opened and its relevant mathematical sections read in web PDF text and/or original publisher HTML; visual PDF screenshot inspected",
+          "title": "Explicit formulas for matrices associated to ladder, circular ladder, and Mobius ladder graphs",
+          "trigger": "Exact same graph and potentially stronger pseudoinverse formula"
+        },
+        {
+          "assessment": "Wheel family has quadratic growth and different graph connectivity; does not cover Möbius ladder coefficient.",
+          "evidence": "Resultary indexed theorem states kappa~4m^2/(5 pi^2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-quadratic-vertex-covariance-anisotropy-of-wheel-spanning-tree-po--20c51f1ae988",
+          "material_read": "Resultary published theorem statement and summary",
+          "method": "Published searchable theorem and summary, not a full-text inspection",
+          "title": "Quadratic vertex-covariance anisotropy of wheel spanning-tree polytopes",
+          "trigger": "Adjacent known graph family covariance condition theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniform spanning-tree edge observability is a natural Fourier-covariance invariant of a canonical 3-regular nonplanar twisted cycle family. The exact 3n spectrum and sharp linear condition coefficient distinguish a meaningful topological finite-size near-null mode from wheel and squared-cycle behavior and provide a reusable exact benchmark. It is not just the known tree count or resistances.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An equivalent historical spanning-tree edge structure-factor formula may exist under electrical network/anti-periodic Green terminology not found by bounded searches.",
+    "Uniform O(n alpha^n) finite kernel symbol estimate is an analytic step inferred from geometric series; checked consistency numerically, not formally computer-certified."
+  ],
+  "schema_version": 1
+}
