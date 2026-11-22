@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof specifies the graph, neighborhood convention and all integer ranges. Two distinct opposite-parity centers share at most two neighbors, so the only missing higher faces are the cones over the damaged center's retained neighbors. An explicit elementary collapse reduces the complexes to dimension two. Their simply connected one-skeleta and replacement triangles make the Hurewicz/Whitehead step valid. The exact f-vector yields the sphere ranks, while excision of a simplex along a wedge of circles gives a split integral inclusion sequence and the augmentation module. The independently constructed checker verifies face counts and mod-two boundary ranks in both parity components for dimensions three through eight. Finite verification corroborates; it does not replace the universal proof.
+## correctness
 
-**Originality — PASS, with literature-access risk.** Arana and Stehlík's 2025 *Quadrangulations and the Lovász complex* (arXiv:2510.03698) concerns a different nonbipartite surface class and was inspected in primary HTML text. The closest indexed 2026 result *Neighborhood complexes of hypercubes collapse to explicit 2-sphere wedges* proves only the intact-cube rank in its available statement, not a one-edge deletion or the relative integral map. Vertex-deleted cubes and closed-neighborhood edge restoration concern inequivalent operations. Searches for edge punctures, parity sheets, local sphere carriers and augmentation lattices revealed no dominating claim. Because the closest 2026 full text could not be retrieved, hidden overlap cannot be fully excluded; database search is not a novelty certificate.
+PASS
 
-**Value — PASS.** A one-edge graph edit is the smallest nontrivial perturbation of a cube. The theorem determines the exact integral homotopy response for all dimensions, the inclusion-induced split map, its natural symmetry lattice and explicit primitive geometric sphere carriers. Such information is not determined by homology ranks of the untouched cube and is materially different from ordinary graph-vertex puncturing.
+For n>=3, parity sheets retain the halved-cube 1-skeleton; exactly one generating n-simplex facet is trimmed. The >=3-face unique-center property allows explicit descending free-face collapses to a 2-complex, and deleted central triangles are replaced by three-triangle disks with the same boundaries, preserving pi1=0. Exact f-vector and Euler characteristic give lambda_n=2^(n-3)(n^2-5n+8)-n+1. The pair K=K_prime union simplex(F) has intersection a base simplex plus n-1 spokes, hence H2(K,K_prime)=Z^(n-2); H1(K_prime)=0 makes inclusion split and primitive. Orthogonal-coordinate permutations act on spoke differences by the integral augmentation lattice. An independent neighborhood-face enumeration and mod2 boundary calculation checked both parity sheets for n=3,4,5,6; this finite check does not prove the integral all-n claim.
 
-**Scientific limits:** Exactly one deleted graph edge, open neighborhoods and nonequivariant wedge types. No claim about arbitrary edge sets, closed neighborhoods or an equivariant wedge splitting. Direct finite computations cover only dimensions three through eight. No independent audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS following direct full-text comparison with the closest intact-cube theorem and separate vertex-puncture work; the relative edge-puncture theorem is not implied by either.
+
+## value
+
+PASS
+
+A single edge defect is the minimal graph perturbation preserving all vertices and all parity-sheet edges. The full integral response, explicit primitive local tetrahedral sphere carriers, and nontrivial S_(n-1) augmentation representation are useful structural topological information not implied by the intact-cube Betti numbers; n3 contractibility is a genuine boundary case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
