@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness.** The finite-Boolean Fourier coefficient equals a signed totally-unimodular Gram determinant by Cauchy--Binet. Rank deficiency \(b\) of its modulo-two Gram matrix forces the signed determinant to be divisible by \(2^b\). A set of \(b\) column restrictions forming a basis of the radical dual makes the top Boolean coefficient of the scaled determinant equal one; hence some signing has valuation exactly \(b\). The hypercube corollary uses a group-algebra calculation of the full binary Laplacian kernel, followed by removal of constant vectors. Direct integer checking corroborated the conclusions on 771 small connected graphs, three full cube spectra, a four-cube sharpness witness, and a cographic example. No finite computation is used as a proof of the universal quantifier.
+## correctness
 
-**Originality.** The closest sources treat the same underlying structures but different implications: the known unweighted basis determinant (Pendavingh, 2012), bicycle-space/kernel identification (Lamey--Silver--Williams, 2014), graph weighted-tree determinants (Klee--Stamps, 2019), and invariant factors of the unsigned tree count (Berman, 1986). These sources do not explicitly derive a universal *sharp* gcd over all signed regular-matroid basis sums. The existing exact special-graph Walsh formulas cover graph families without establishing the regular-matroid theorem. Similar binary-matroid, weighted-tree, Fourier, and bicycle-space formulations were searched, including possible implications from older stronger theorems. Priority remains bounded by an inaccessible older full paper and possible unindexed equivalents.
+PASS
 
-**Mathematical value.** The result makes bicycle dimension an exact harmonic-arithmetic invariant for every regular matroid, establishing both a universal divisibility barrier and attainability; neither follows from the classical unsigned count alone. The hypercube consequence has an explicit exponential-in-dimension valuation and applies uniformly to all its signed spanning-tree sums. It also gives a zero-free criterion and exact integral inverse-spectrum obstruction without requiring a Fourier census. It is a structural statement, not a routine single-instance spectrum computation.
+For a full-row-rank totally unimodular A, signed Walsh basis sum equals det(A diag((-1)^t) A^T) by Cauchy–Binet because nonzero maximal minors have squared determinant 1. A binary congruence separates the rank-k radical of AA^T from an odd-invertible block; its even Schur complement proves 2^k divides every signing determinant. Independent bottom rows of PA provide k columns with invertible reduced bottom matrix. The multilinear Boolean top coefficient of det(D+sum x_i z_i z_i^T) is det[z_1,...,z_k]^2=1, so some signing attains valuation exactly k. For Q_d, the mod-2 Laplacian is multiplication by y_1+...+y_d in the Boolean truncated group algebra, with kernel 2^(d-1); deleting one vertex reduces its nullity by one. This is a genuine infinite proof; the finite checks cannot establish arbitrary-rank sharpness.
 
-**Limitations.** The gcd gives a minimum two-adic valuation, not a minimum positive magnitude or a complete spectrum. No universal converse to the zero-free criterion is claimed. One plausible 1986 source was assessed only at bibliographic/abstract level and remains a priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sharp exact content across every signing is stronger than the classical unweighted determinant, but no prior universal signed-regular-matroid gcd implication was identified. Full primary inspection was strongest for Pendavingh; inaccessible Berman 1986 and potentially older arithmetic matroid interpretations remain explicit priority risks.
+
+## value
+
+PASS
+
+The exact dyadic content is a natural representation-independent harmonic invariant of any regular matroid; its universal divisibility and attainment theorem goes beyond textbook unsigned enumeration. The hypercube law gives a nontrivial exponential-dimension evaluation and the b=0 case characterizes guaranteed Fourier nonvanishing. Exact 2-adic content, not exact smallest nonzero absolute magnitude or all zeros, is the useful boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
