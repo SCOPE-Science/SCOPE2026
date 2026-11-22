@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "A two-direction finite proof reduces the 16-point shattering problem to 896 bent tables and 448 ten-point blocks: all supports of size >=7 must be proper subsets by weight and cardinality; all 4480 nine-subsets are one affine orbit of a 512-trace certified representative; all 14893 supports of size <=6 lie under some ten-block. The independent Walsh-transform C++ program enumerates all 65536 functions and compares all 65536 possible supports directly. Exact face and orbit counts and the seven-/eight-point obstruction equivalence replay successfully, with no random approximations. The Littlestone upper bound follows from fewer than 1024 hypotheses.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hu–Weinberger–Shayevitz arXiv:1703.01586, full-text §2-3: asymptotic rate/minimum-distance VC bounds for arbitrary codes, not exact projections of this bent class.",
+        "Meidl–Polujan–Pott arXiv:2012.06866 full-text §2: quadratic-bent automorphism group and associated 2-designs."
+      ],
+      "reasoning": "General VC size inequalities bound maximum possible dimension by floor(log2(896))=9, but do not supply the nontrivial matching lower bound or full face characterization. Design transitivity and block parameters do not alone imply all 512 labeling patterns on a nine-support.",
+      "searches": [
+        "all 896 bent Boolean functions on F2^4 queried at sixteen points: VC dimension 9; shattering polynomial 1+16z+120z2+560z3+1820z4+4368z5+8008z6+11200z7+10080z8+4480z9",
+        "Boolean quadratic bent code 4 variables VC-dimension Littlestone 9",
+        "\"bent functions\" \"shatter\" \"quadric\" affine 4",
+        "bent functions on four variables number 896 all quadratic affine equivalence arxiv 2018 2020"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2003.12308",
+      "https://arxiv.org/abs/2012.06866",
+      "https://arxiv.org/abs/1703.01586",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-walsh-spectrum-multiplicities-for-eight-point-subsets-of-t--b981e436a3b1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/8/SCOPE051"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Exact Walsh-spectrum multiplicities result, full RESULT.md Steps 1-5: an eight-set has a Walsh character basis iff it admits a complementing translation; NO bent-class projection claims.",
+        "Polujan–Pott arXiv:2003.12308 sections II/III: addition/translation design isomorphisms, not shattering.",
+        "Hu et al. 2017, Lemma 4: constant-weight code bound; the bent family contains both weights 6 and 10, and this bound alone does not exhibit 512 traces."
+      ],
+      "reasoning": "The prior Walsh theorem classifies orthogonal character systems and implies an exact 10080/2790 split of eight-sets by antiperiod; a separate argument is required to identify that split with bent-concept shattering. None inspected theorem implies existence of 512 distinct bent restrictions on a nine-set, nor the exact iff including all sizes and pure facet structure. Coinciding 8-set orbit numbers are explicitly credited.",
+      "searches": [
+        "VC dimension or shattering complex of all Boolean bent functions in four variables, exact shattered supports and orbit classification",
+        "quadratic bent functions 896 4 variables Boolean queries evaluation shattering complex affine symplectic",
+        "bent code 4 variable VC dimension Littlestone",
+        "\"bent\" \"shatter\" \"quadric\" affine 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Polujan–Pott arXiv:2003.12308, full-text introduction and sections II-IV; no projected-complete-trace statement.",
+        "Meidl–Polujan–Pott arXiv:2012.06866, full-text §2.1 and Theorem 2.3: 2-transitivity of associated codes/designs, not all Boolean coordinate restrictions."
+      ],
+      "reasoning": "Equivalent coding formulation is full surjectivity of the projection of the nonlinear 896-word bent code onto a chosen coordinate support. Equivalent geometric formulation is the proper-subface complex of the 448 ten-point affine quadrics. The searched primary articles treat incidence designs and affine equivalence, not these projection-surjectivity statements.",
+      "searches": [
+        "proper subsets of ten-point nondegenerate affine quadrics on AG(4,2) are exactly shattered by 4-variable bent functions",
+        "quadratic bent functions 4 variables shattering design 448 ten-point blocks 4480 9-element facets",
+        "\"bent functions\" \"VC dimension\" shattering",
+        "\"bent functions\" \"shattered\" \"VC\" four variables"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published Walsh census record https://github.com/published-finding corpus/2026/tree/main/2026/9/8/SCOPE051 gives 896 bent functions, their nonlinearity and weight-related background, not the shattering polynomial.",
+        "Published eight-point Walsh-spectra theorem https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-walsh-spectrum-multiplicities-for-eight-point-subsets-of-t--b981e436a3b1 gives orbit counts 10080,1920,840,30, but for existence and multiplicity of orthogonal frequency bases on eight-row Walsh submatrices.",
+        "Exact current independent calculations: 896 concepts; face coefficients 1,16,120,560,1820,4368,8008,11200,10080,4480; 4480 nine-faces in one affine orbit."
+      ],
+      "reasoning": "The precise eight-set partition has a prior mathematical source; it is not claimed as a standalone novel table. The new all-degree shattering polynomial, nine-face orbit and full trace realization are additional statements neither table furnishes.",
+      "searches": [
+        "all 896 bent Boolean functions on F2^4 queried at sixteen points: VC dimension 9; shattering polynomial 1+16z+120z2+560z3+1820z4+4368z5+8008z6+11200z7+10080z8+4480z9",
+        "quadratic bent functions 4 variables shattering design 448 ten-point blocks 4480 9-element facets",
+        "\"896\" \"bent\" \"VC\" \"9\"",
+        "bent functions 4 variables incidence 10-subsets 448 quasi symmetric design intersections"
+      ]
+    },
+    "rationale": "Within the directly compared public literature, no prior statement proves the equivalence between bent-function shattering and proper subfaces of ten-point nonsingular affine quadratic blocks, the 4480 nine-facet single affine orbit, or the complete nine-level trace realization. The 896 bent count, ten/six weights and the independent eight-set Walsh spectral orbit partition are credited prior facts. The closest eight-set spectrum theorem has coincident counts for eight-set types but a different quantified property; its proof does not provide 512 bent Boolean traces on any nine-set. Priority risk from unindexed design and cryptographic literature remains.",
+    "residual_risks": [
+      "Unindexed historical bent-design, coding and cryptographic enumeration literature may include an equivalent face classification.",
+      "Four-variable scope is narrow; the value depends on the exact all-support obstruction and affine-orbit structure, not merely on recomputing 896 or familiar design parameters."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact point-query shattering; provides classical bent design and equivalence background",
+        "evidence": "Intro §I, Definition II.1 and Theorem II.4, §III translation design definitions, §IV Theorem IV.8 classify designs/extension, not projection traces",
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2003.12308",
+        "material_read": "full-text introductory sections, §II addition designs, §III translation designs, §IV vectorial extension definitions and classification results",
+        "method": "Read public ar5iv full-text content, including definitions and displayed theorem statements",
+        "title": "On design-theoretic aspects of Boolean and vectorial bent functions",
+        "trigger": "Primary bent function and design source dated 2020-03-27"
+      },
+      {
+        "assessment": "NOT_COVERING full shattering family; related 2-transitive designs and automorphisms",
+        "evidence": "Theorem 2.3 states 2-transitivity of certain associated codes iff quadratic bent; no VC or shattering occurrence in document text searches",
+        "identifier_or_url": "https://arxiv.org/pdf/2012.06866",
+        "material_read": "PDF abstract, preliminaries and §2.1 including Theorem 2.3, associated automorphism group proof and design implications; PDF cover screenshot inspected",
+        "method": "Read extracted PDF page text and first-page screenshot",
+        "title": "Linear codes and incidence structures of bent functions and their generalizations",
+        "trigger": "Potential stronger coverage through quadratic bent code incidence structures"
+      },
+      {
+        "assessment": "NOT_COVERING exact finite bent-code projection faces",
+        "evidence": "General asymptotic rate/distance bounds and constant-weight lemma, no four-variable bent-family exact theorem",
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1703.01586",
+        "material_read": "Full-text §1 introduction, §2 upper bounds and §3 lower bounds, including constant-weight Lemma 4",
+        "method": "Read ar5iv full text",
+        "title": "On the VC-Dimension of Binary Codes",
+        "trigger": "Possible broader VC theorem for binary nonlinear codes"
+      },
+      {
+        "assessment": "PARTIAL_OVERLAP: eight-set orbit counts and antiperiod classification are prior and credited; full bent shattering and nine-facet theorem not implied by displayed statement",
+        "evidence": "Finding defines N(A) as number of orthogonal Walsh frequency bases; proof classifies N(A) by T(A), with no bent Boolean trace surjectivity or nine-set faces",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-walsh-spectrum-multiplicities-for-eight-point-subsets-of-t--b981e436a3b1/RESULT.md",
+        "material_read": "Entire RESULT.md including statement, five proof steps, verification and limitations",
+        "method": "Fetched public full text through authorized GitHub read endpoint",
+        "title": "Exact Walsh-spectrum multiplicities for eight-point subsets of the Boolean four-cube",
+        "trigger": "Same 10080,1920,840,30 eight-set partition appeared in searches"
+      },
+      {
+        "assessment": "PARTIAL_OVERLAP: 896 bent count prior, no shattering polynomial or geometrical facet criterion",
+        "evidence": "Result reports 896 bent functions, nonlinearity/resiliency marginals, witnesses and Walsh spectra; does not classify coordinate-shattered supports",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/8/SCOPE051/RESULT.md",
+        "material_read": "Entire RESULT.md including exact Walsh tables and scope",
+        "method": "Fetched full text through authorized GitHub read endpoint",
+        "title": "Replayable Walsh census of all 2^16 Boolean functions in n=4 and the 256 rotation-symmetric functions in n=5",
+        "trigger": "Classical 896 bent concept enumeration potentially subsumes a census-only result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9fca9e84-5555-43f5-8be0-fd1d559e51f4",
+  "value": {
+    "rationale": "Four binary variables are the first genuinely nontrivial bent setting with 28 nonsingular polar types. A complete proper-quadric subface criterion explains all projection patterns, a pure eight-dimensional simplicial complex with 4480 maximal nine-faces in one affine orbit, a sharp online dimension and a complementary-translation obstruction. This is a motivated complete invariant of a canonical maximal-nonlinearity hypothesis class, not merely an isolated known 896-count or unrelated tiny gain.",
+    "status": "PASS"
+  }
+}
