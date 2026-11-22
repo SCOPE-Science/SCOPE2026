@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The classical cycle-independence recurrence yields \(|\operatorname{Ind}(C_{11})|\simeq S^3\). The cyclic action is free. The two-frequency Fourier map never vanishes on any face because one positive linear separator works on a maximal face and all others are its translates. The embedded exact-arithmetic checker proves that a 28-simplex integral 3-cycle maps to degree \(-1\) by checking all boundaries, regular-ray intersections, and determinant-sign error bounds. Degree one in absolute value between simply connected homotopy 3-spheres implies equivalence, and the equivariant equivalence descends over free actions. Risks: an error in the mathematically stated covering-space descent or certified numerical perturbation would undermine the conclusion; both were separately reconstructed during this review.
+## correctness
 
-**Originality — PASS relative to inspected evidence.** The previous cyclic matching-complex quotient calculation already obtained the eleven-cycle integral homology and cup product, but explicitly did **not** claim lens-space homotopy equivalence. The stronger concrete Fourier equivariant map and degree proof are not implied by that statement. Classical cycle-independence sources calculate the covering sphere. Related circular-arc nerves and nonmatching complexes use different objects or give rational symmetry data, not the displayed classification. Risk: independently derived equivariant models may exist in unindexed literature; a closely relevant 2014 paper's full text was not completely accessible.
+PASS
 
-**Value — PASS.** This is a natural exact homotopy invariant for the first odd-prime cycle after the circle-valued cases, resolving what the earlier homology/cohomology classification left undecided. The explicit 2-character Fourier model also explains the particular lens-space parameter, which the abelian invariants alone cannot supply. It is not justified as an all-prime theorem and needs none to be mathematically meaningful.
+The known cycle-independence suspension recurrence gives Ind(C11) homotopy S^3; C11 prime rotation acts freely because a nontrivial invariant supporting face would contain all vertices. The Fourier map F=(sum_j x_j omega^(4j),sum_j x_j omega^(5j)) transforms by weights (4,5). On each maximal independent five-face a rotated real linear separator is strictly positive, so normalized F is globally defined. The supplied integral 28-tetrahedron cycle is boundaryless; the degree at ray (2,3,5,7) has exactly one positive cone meeting simplex (0,3,7,9) with coefficient+1 and determinant negative, degree -1. The original verifier uses rigorous rational trigonometric enclosures; an independent high-precision determinant and integer boundary check recovered the same unique signed crossing and |critical determinant|~0.48545. S^3 degree -1 is a homotopy equivalence; descent between free C11 quotients is a weak equivalence of CW spaces. Rescaling generator 4^(-1)=3 gives lens weights (1,4). High-precision numerics are only corroboration, not the source rational sign proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The closest already-published general odd-prime result determines full cohomology ring and fundamental group of this same quotient but explicitly does NOT establish its lens-space homotopy equivalence. The new degree-one equivariant Fourier map resolves the stronger homotopy question at p=11.
+
+## value
+
+PASS
+
+The exact geometric homotopy type is a structurally stronger quotient invariant than known torsion, cohomology ring or finite orbit-cell counts. An explicit C11-equivariant degree-one Fourier map could guide equivariant models for other prime-cycle independence quotients; the precise p=11 lens parameter is a natural finite boundary case, not arbitrary fitted data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
