@@ -1,19 +1,21 @@
-# Scientific review — Fugacity-driven Fourier bottleneck on cyclic ladders
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact weighted three-state transfer matrix gives one Perron, one even, and one odd eigenvalue. Centered rung-sum and rung-difference correlation functions decay geometrically with different negative ratios. Fourier transformation gives two strictly positive spectra; finite-volume trace formulas converge uniformly at fixed positive activity. Exact polynomial factorizations order their extrema and prove a single transverse crossing at \(z_*=1+2/\sqrt3\), with limiting condition-ratio slope jump \(9(\sqrt3-1)/4\). The all-size positive definiteness argument uses the empty configuration and every singleton. Symbolic tests, exact small-graph enumeration and numerical large-ring checks were executed from the provided standalone checker. They supplement the analytical proof and do not prove uniformity in varying activity.
+PASS
 
-## Originality — PASS, provisional priority
+The rung transfer matrix T_z=[[1,sqrt(z),sqrt(z)],[sqrt(z),0,z],[sqrt(z),z,0]] counts every legal cyclic hard-core configuration with weight z^{|I|}. Splitting rail parity gives Perron Λ, even secondary -z/Λ, and odd -z, with r=z/Λ in (0,1). Perron occupation m=2r/(1+2r-r²). The two centered covariance channels have exact geometric ratios rho_s=-r(1-r)/(1+r) and rho_a=-r, leading to the two positive Poisson-kernel multipliers by Fourier series. Spectral transfer expansion and Perron gap give uniform fixed-z convergence of the finite cyclic eigenvalues to 4 times those multipliers, so extremal frequencies are at theta=0 or pi. Their factorized comparisons show highest always rail-antisymmetric pi, and lower switches at r=1/sqrt(3), z*=1+2/sqrt(3). Direct symbolic independent derivation confirmed both condition branches and derivative jump 9(sqrt(3)-1)/4; low-activity series is 1+6z+O(z^3). Every finite Gram is positive definite because empty and singletons have positive mass. This is a fixed-z length limit, not a thermodynamic phase transition or joint scaling.
 
-The closest earlier case is the uniform-activity \(z=1\) first-Walsh spectrum of cyclic prisms, with limiting condition ratio \(4+2\sqrt2\). That isolated value is explicitly old. Published cycle independent-set covariance, proper-cycle-colouring sampling results, the general local-occupancy article arXiv:2003.14361v1 (2020-03-31), and the known prism independence-polynomial table do not entail the sharp arbitrary-activity two-rail minimum-sector switch. Searches included static structure-factor and equivalent two-point covariance terminology. One or more historical lattice-gas structure-factor formulas might cover this statement; some relevant published records were accessible only as summaries and priority remains provisional. See AUDIT.json for specific implication tests and material inspected.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This exact conditional stability classification addresses an independently motivated parameter of a classical exclusion ensemble. A nontrivial rail-parity bottleneck transition and the asymptotically quadratic loss of first-coordinate reconstruction stability distinguish the weighted theory from the already known uniform point; the result covers every positive activity at fixed thermodynamic limit.
+Best-of-knowledge statement-and-implication comparison: The published uniform hard-core cyclic-prism paper derives the full finite-ring two-branch spectrum at exactly z=1 and its limit 4+2sqrt2; the present continuum of activities and unique minimum-branch crossover cannot be deduced from one sampled fugacity. General one-dimensional transfer matrices yield correlation/structure-factor formulas but the searched graph hard-core occupancy references do not state this z*=1+2/sqrt3 rail-parity bottleneck nor the condition-ratio derivative kink. Classic thermodynamic analyticity is compatible with a spectral extremum switch. A published two-branch table is available for uniform hard-core prism configurations only (z=1). Weighted prism dimer and perfect-matching Fourier results use a different measure; no matching all-z hard-core covariance table appeared in checked Resultary searches.
 
-## Limitations
+## value
 
-No finite-size sharp mode ordering for arbitrary activity, joint scaling in size/activity, or independent audit is asserted. Transfer methods and the prism partition function are known background. The uniqueness of historical priority is not certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact fugacity threshold at which the least stable rail-parity Fourier channel changes, complete branch formulas, and derivative kink form a meaningful condition-number design boundary for a natural classical hard-core sampling model. It is not just the already-known z=1 spectrum or partition polynomial and has a physically interpretable all-activity stability consequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
