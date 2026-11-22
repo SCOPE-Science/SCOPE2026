@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Parseval reduces the joint two-parameter problem to one positive series after strict Fourier correlation alignment. Its derivative has sign G_t(a)-1, where G_t is strictly increasing because the exponential n-squared tilt decreases the baseline n-weighted mean, giving (log G_t)'≥tanh(a/2)>0. Endpoint limits yield a unique global minimizer, and evaluation at a=t yields strict first-moment bias. Uniform Riemann sums and Euler–Maclaurin establish the sharp small-time constants and the exactly canceled first correction; a convergent power series proves large-time coefficients. The 82 finite tests are ancillary, not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chaubey (2018), Sections 3–4: wrapped Cauchy kernel estimator and Fourier representation, not optimization against a heat kernel; doi:10.1155/2018/5372803",
+        "Ameijeiras-Alonso (2024), Section 5: asymptotic mean integrated squared error of estimators with random samples and optimal kernel selection; doi:10.1007/s11222-024-10384-x",
+        "Bailey–Codling (2020): available abstract concerns two-component mixtures of wrapped normal distributions fitted by one wrapped Cauchy; doi:10.1007/s10182-020-00380-7",
+        "Bailey thesis (Ch. 6 Sec. 6.3.2) derives the general two-source squared-loss and critical equation, which cover those preliminary formulas; no global one-source uniqueness or two-term singular asymptotics appear in the inspected discussion."
+      ],
+      "reasoning": "The mixture formulation strictly covers the elementary loss and stationarity equations and has been credited explicitly. The new analytical uniqueness and asymptotics are separate assertions not implied by possessing a numerical stationary equation; the related accepted manuscript remains inaccessible.",
+      "searches": [
+        "\"wrapped normal\" \"wrapped Cauchy\" \"integrated squared error\" optimal parameter",
+        "\"wrapped normal\" \"wrapped Cauchy\" \"minimize\" \"squared\"",
+        "\"heat kernel\" \"Poisson kernel\" \"best fit\" \"circle\"",
+        "heat versus Poisson semigroup Fourier spectral comparison best one-parameter approximation circle"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1155/2018/5372803 (full online article)",
+      "doi:10.1007/s11222-024-10384-x (full online article)",
+      "doi:10.1198/016214505000000286 (substantial original manuscript)",
+      "doi:10.1007/s10182-020-00380-7 (abstract and repository metadata; full text inaccessible)",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=42A10 (MSC ownership)",
+      "https://repository.essex.ac.uk/26383/1/Thesis_2%281%29.pdf (Ch.6 Sec.6.3.2 original parsed PDF text; screenshot retrieval failed)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jones–Pewsey evaluates an L2 discrepancy with r fixed by the first moment; that radius is provably not optimal for the present objective",
+        "Chaubey proves representational equivalence of estimators rather than one-kernel heat projection",
+        "Ameijeiras-Alonso optimizes AMISE and wrapped Epanechnikov kernel under statistical criteria, not deterministic two-family L2 mismatch",
+        "Bailey–Codling accessible abstract describes a model with two distinct wrapped-normal source distributions, without the current one-source theorem",
+        "Bailey thesis Section 6.3.2 gives the one-source objective and stationary equation by mixture degeneration, but supplies numerical root-finding rather than an all-parameter analytic uniqueness or the stated asymptotic expansion."
+      ],
+      "reasoning": "The claim does not count as novel the special-case Parseval equation already in Bailey. The analyzed new deductions are (a) all-time global uniqueness from a strict logarithmic monotonicity argument, (b) moment-match bias from the derivative, and (c) sharp two-term short-time asymptotics and energy law from uniform Euler–Maclaurin, including the first-term cancellation. No inspected primary theorem subsumes all these. The accepted journal manuscript remains a named unresolved priority risk.",
+      "searches": [
+        "doi:10.1198/016214505000000286 Section 4.1 L2 first-moment matching",
+        "doi:10.1007/s11222-024-10384-x Sections 5.1-5.3 optimal circular kernels",
+        "doi:10.1155/2018/5372803 Sections 3-4 circular kernel Fourier representation",
+        "doi:10.1007/s10182-020-00380-7 wrapped Cauchy two wrapped normal mixture"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jones–Pewsey (2005), Section 4.1 explicitly uses first-moment-matched wrapped-normal parameters in an L2 comparison; doi:10.1198/016214505000000286",
+        "Ameijeiras-Alonso (2024), Sections 5.1–5.2 gives Fourier coefficients nu^(n^2) and nu^n for the two families, without minimizing their mutual L2 discrepancy; doi:10.1007/s11222-024-10384-x",
+        "Bailey, Essex PhD thesis deposited 2020-01-08, Ch.6 Sec.6.3.2 equations (6.5)–(6.7), contains the same squared Fourier loss and first-order equation after specializing its wrapped-normal mixture to one source; https://repository.essex.ac.uk/26383/1/Thesis_2%281%29.pdf"
+      ],
+      "reasoning": "The general two-source wrapped-normal mixture Fourier least-squares formula of Bailey already implies the exact one-source loss and stationarity. These are prior, not part of the novelty claim. It does not by itself imply a unique global root or the asymptotic root and error laws, since the inspected discussion finds stationary roots numerically.",
+      "searches": [
+        "\"wrapped normal\" \"wrapped Cauchy\" \"L2\" best approximation",
+        "\"wrapped normal\" \"wrapped Cauchy\" \"least squares\" fit",
+        "unique minimizer r of sum (r^n - exp(-tau n^2))^2 wrapped normal wrapped Cauchy least squares",
+        "optimal semigroup time calibration heat e^{-tau n^2} and Poisson e^{-alpha |n|} circle Fourier kernel"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic indexed searches produced related heat/Poisson and circular density records, but not a record demonstrating the present all-time unique optimum and the c*=1.0777422543 and J*=0.06738055658 constants; Bailey thesis separately supplies the already-known scalar objective and stationarity equation.",
+        "Jones–Pewsey (2005), Eq. (7), tabulates/plots L2 distance with the first moments already matched, not a table of free-radius optima"
+      ],
+      "reasoning": "The underlying objective and stationarity equations are known from Bailey. The queried indexed results and inspected primary sections did not yield the global unique minimizer as a function of heat time or the c*, J* and high-order coefficients; lack of an indexed entry is not independent proof of novelty.",
+      "searches": [
+        "Poisson kernel wrapped Cauchy approximation of wrapped normal single source universal Gaussian Cauchy high concentration constant",
+        "circular density kernel projection first moment fit wrapped normal Cauchy heat",
+        "\"wrapped normal\" \"wrapped Cauchy\" \"optimal\" \"L2\" population single"
+      ]
+    },
+    "rationale": "Bailey’s 2020-deposited thesis, Ch.6 Sec.6.3.2, previously writes exactly the same Fourier loss and stationary equation as a special case of fitting a wrapped-normal mixture with wrapped Cauchy. Those formulas are NOT asserted novel. The claim evaluated for originality is instead strict global uniqueness and strict first-moment bias at every heat time, plus explicit large-time and two-term singular short-time optimum laws. The inspected thesis calculates stationary roots numerically and does not provide those analytic extensions. Jones–Pewsey fixes first moments; statistical circular-kernel AMISE is a different optimization. The related accepted journal article remained inaccessible, so priority is best knowledge.",
+    "residual_risks": [
+      "Exact global priority is not certified; related circular statistics work may use an equivalent loss under different terminology.",
+      "Bailey–Codling 2020 accepted manuscript could not be examined in full.",
+      "The 2005 L2 comparison original manuscript is available as an online transcription rather than through its publisher full article.",
+      "Bailey’s thesis has been inspected at its most directly relevant section, but its full text outside that section is not exhaustively priority-audited; the accepted journal manuscript is inaccessible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact free-radius heat-kernel L2 projection",
+        "evidence": "Sections 3–4 derive Carathéodory-based kernel estimation and Fourier estimator equivalence, with a bandwidth/concentration choice but not an optimal match to a single wrapped normal density.",
+        "identifier_or_url": "https://doi.org/10.1155/2018/5372803",
+        "material_read": "Full online HTML, abstract, Sections 1–4 and their equations and concluding discussion",
+        "method": "Direct full-text online section inspection",
+        "title": "Smooth Kernel Estimation of a Circular Density Function: A Connection to Orthogonal Polynomials on the Unit Circle",
+        "trigger": "motivating public source for wrapped Cauchy/Poisson Fourier density kernels"
+      },
+      {
+        "assessment": "NOT_COVERING; minimizes estimator AMISE, not deterministic one-kernel cross-family L2",
+        "evidence": "Section 5 explicitly treats wrapped normal coefficients nu^(j²) and wrapped Cauchy coefficients nu^j, and Sections 5.2–5.3 discuss AMISE and wrapped Epanechnikov optimality.",
+        "identifier_or_url": "https://doi.org/10.1007/s11222-024-10384-x",
+        "material_read": "Full online HTML including introduction, Sections 5.1–5.3, associated equations and concluding text",
+        "method": "Direct accessible full-text section inspection",
+        "title": "A reliable data-based smoothing parameter selection method for circular kernel estimation",
+        "trigger": "plausible stronger optimal kernel-selection and Fourier multiplier comparison"
+      },
+      {
+        "assessment": "NOT_COVERING; first trigonometric moments are matched before the L2 distance is computed",
+        "evidence": "Section 4.1 sets the wrapped-normal first moment equal to that of the model distribution, then evaluates squared Fourier differences; it does not optimize the Cauchy radius.",
+        "identifier_or_url": "https://doi.org/10.1198/016214505000000286",
+        "material_read": "Accessible full-length author manuscript in HTML transcription, especially Section 4.1, Eq. (7), comparative figures and associated text",
+        "method": "Direct substantial original-text transcription section inspection",
+        "title": "A Family of Symmetric Distributions on the Circle",
+        "trigger": "closest historical cross-family L2 comparison of wrapped normal and Cauchy distributions"
+      },
+      {
+        "assessment": "INACCESSIBLE_FULL_TEXT_PLAUSIBLE_SOURCE; historical-priority risk, not asserted to be non-covering in full",
+        "evidence": "Journal abstract says a single wrapped Cauchy may fit mixtures of two different wrapped normal sources; Essex repository has a 2020 accepted version, but PDF retrieval failed.",
+        "identifier_or_url": "https://doi.org/10.1007/s10182-020-00380-7",
+        "material_read": "Accessible journal abstract and Essex institutional repository metadata only; full accepted PDF could not be read",
+        "method": "Read journal and repository HTML; attempted repository accepted PDF and institutional full-text access; both unavailable",
+        "title": "Emergence of the wrapped Cauchy distribution in mixed directional data",
+        "trigger": "highly relevant two-source wrapped-normal-to-wrapped-Cauchy fitting comparison"
+      },
+      {
+        "assessment": "PARTIALLY_COVERING: exact loss and stationarity equations included by specialization; new uniqueness and time-asymptotic assertions not found in inspected section",
+        "evidence": "Mixture squared loss sum over n of (rho^n - [w rho_1^(n²)+(1-w)rho_2^(n²)])² and its derivative; the special case w=0 reproduces the entire starting objective and derivative here.",
+        "identifier_or_url": "https://repository.essex.ac.uk/26383/1/Thesis_2%281%29.pdf",
+        "material_read": "Chapter 6, Section 6.3.2, equations (6.5)–(6.7), neighboring discussion of numerical stationary root searches",
+        "method": "Accessible original repository PDF extracted text; page-image screenshot retrieval was attempted but the image endpoint failed",
+        "title": "Fitting probability models to mixtures of directional distributions (PhD thesis)",
+        "trigger": "Direct full-text predecessor with a wrapped-normal mixture fitted by wrapped Cauchy via squared L2 error"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ef5e05ae-5838-445f-b611-a7fa836d51dc",
+  "value": {
+    "rationale": "The conversion of one canonical diffusion multiplier family into another is a natural Fourier approximation problem with no arbitrary finite slice. The result determines the unique optimal Poisson time for every heat time, establishes a strict systematic bias relative to first-moment matching, and proves that the matched norm error is asymptotically t^{-1}, while optimal calibration achieves the provably sharp lower order J*/sqrt(t). The universal constant, exact short-time correction cancellation and explicit large-time coefficients make the fact useful as a precise analytic benchmark, not merely a computational exercise.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,19 @@
+# Self-review
+
+## Correctness — PASS
+
+The claim is for one explicitly normalized circle heat kernel and one unit-mass Poisson kernel, with the circular center and radius optimized jointly. Parseval shows exact equivalence to a positive series in the log-radius. The derivative sign is controlled by a single function \(G_t\); a decreasing exponential tilt bounds its logarithmic derivative below by \(\tanh(a/2)>0\). Its endpoint limits and the strict derivative sign at the first-moment-matching radius establish global existence, uniqueness, and strict inward bias. Large-time expansion is by a convergent radius series. Short-time limits follow from uniform Riemann sums; the two higher-order coefficients follow from uniform Euler–Maclaurin expansions of explicitly given smooth rapidly decaying functions. The high-order cancellation was separately checked algebraically. The extracted standard-library program passed 82 finite diagnostics. Numerical checks do not substitute for the infinite-dimensional proof.
+
+## Originality — PASS (best-knowledge)
+
+The most pertinent identified predecessor, Jones–Pewsey (2005), evaluates \(L^2\) distances with *first-moment matching* rather than solving the free radius minimization; its construction sets the parameter to \(e^{-t}\), which the present theorem proves is never minimizing. Chaubey (2018) derives wrapped Cauchy kernel estimation from Carathéodory/Fourier methods, not the exact projection of a heat kernel onto the Poisson family. Ameijeiras-Alonso (2024) compares circular kernels under statistical estimator AMISE and finds an optimal wrapped Epanechnikov kernel; that optimization is neither the present target nor the present norm-constrained family. Bailey’s 2020-deposited thesis, Chapter 6, Section 6.3.2, explicitly writes the same Fourier squared-loss and stationary equation for a two-wrapped-normal mixture; specialization to one source reproduces **exactly** the starting objective and first-order equation here. Those formulas are known and are excluded from the new claim. That inspected treatment solves stationary roots numerically and does not provide the analytic global uniqueness, strict moment bias, high-time expansion or small-time two-term Gaussian–Cauchy asymptotic and singular loss comparison proved here. The related Bailey–Codling accepted journal manuscript was inaccessible, leaving a real priority risk for further results. Multiple queries for direct optimization, cross-semigroup calibration, equivalent Fourier-series formulas, and broad dominating results yielded no matching result. Search absence is not proof of absolute novelty.
+
+## Value — PASS
+
+Heat diffusion and harmonic Poisson smoothing are canonical, distinct Fourier multiplier families. The best one-parameter, unit-mass \(L^2\) conversion between them has direct interpretive significance for kernel comparison. The result identifies a globally unique conversion at every positive time, shows that first-moment calibration is systematically biased, and quantifies a singular short-time regime: the moment-matched error is of order \(t^{-1}\) while the optimally calibrated error has the strictly smaller order \(t^{-1/2}\). Its universal numerical constants and unexpectedly absent first correction provide reproducible sharp benchmarks. This is a natural complete approximation question, not an arbitrary finite instance or a routine restatement of Parseval.
+
+## Scope and remaining risks
+
+The theorem addresses normalized \(L^2\) approximation on the circle, not statistical estimation risks, kernel mixtures, higher spheres, or other metrics. A related accepted manuscript could not be read in full; independent historical-priority review remains advisable. All asymptotics and global uniqueness rely on the supplied analytic argument, not the finite checker.
+
+Self-review: passed. Independent audit: not yet performed.
