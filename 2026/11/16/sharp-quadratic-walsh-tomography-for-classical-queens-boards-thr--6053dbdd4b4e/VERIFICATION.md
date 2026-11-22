@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact files `verify_pair_rank.py`, `check_certificate.py` and `rank_certificate.json` constitute a self-contained computational proof of the finite claims. Both scripts require only Python 3 standard-library facilities. Execute them from the same directory:
+## correctness
 
-```
-python3 verify_pair_rank.py
-python3 check_certificate.py
-```
+PASS
 
-The first program enumerates all valid placements by fixed difference/sum diagonal masks and computes high-bit binary pivots of the two-queen incidence matrix. It produces the complete witness for board orders seven through eleven. The second program independently uses shifted diagonal masks, reversed within-pair encoding and low-bit pivots, then checks the supplied high-bit pivot sequence and the absence of singleton pairs at order eleven. The recorded outputs are `verify_first.json` and `verify_second.json`.
+The occupancy identity χ_e=1−2x_e and χ_{e,f}=1−2x_e−2x_f+4x_ex_f proves restricted degree≤2 Walsh span equals columns x_ex_f of distinct-row/column pair incidences, since constants and coordinates sum from pair columns on a permutation. Independent deterministic recursion enumerated all nonattacking permutations n7..12 with counts 40,92,352,724,2680,14200 and constructed F2 bitset high-pivot elimination: full ranks n7..11; since integer minors nonzero modulo2 are nonzero over R, this establishes real tomography. Direct independent occurrence counts n11 yielded 5280 patterns with min frequency2, so no uniquely isolating pair. For n=12 at most C(12,2)*12*11=8712 columns, less than 14200 rows; nonzero signed left nullspace (whose sums vanish because constant in incidence span) gives distinct nearby probability laws. Degree1 upper dimension 1+(n−1)² < N for every n7..11. Every finite statement uses complete enumeration, not sample extrapolation. Source also contains replayable rank certificate and independent checker paths; our check did not treat their logs alone as proof.
 
-Observed solution counts for orders seven through twelve are 40, 92, 352, 724, 2680 and 14200. Their modular-two pair-incidence ranks for the first five orders equal the corresponding counts. At order eleven, 5280 pair patterns occur; the smallest positive completion count is two. At order twelve, the degree-two real rank is at most 8712 by a column count, so no modular rank of the full matrix is needed. Algebraic steps passing from modular pivots to real interpolation, the degree-one exclusion and distinct probability laws are detailed in `RESULT.md`.
+## originality
 
-These checks establish the stated finite-window theorem only. A modular certificate of an integer minor is not a claim of formal mechanized proof or independent expert validation. No check of orders beyond twelve or of noise stability is included.
+PASS
+
+Best-of-knowledge original scope after positive mathematical implication comparisons, not inferred from mere negative search. Counts alone are not equivalent to quadratic Walsh reconstruction, except the n12 dimension-failure direction; the positive n7..11 matrix ranks are genuinely extra. Existing stronger counting methods do not dominate the theorem’s central reconstruction claim, although the n12 easy dimension bound uses counts. The substantive positive-range reconstruction and no-isolating-pair witness are not implied by prior counts or generic sampling identities.
+
+## value
+
+PASS
+
+A sharp, natural finite order window in probability-law identifiability from pairwise square marginals for a classical constrained configuration space, including nontrivial n11 full rank despite no isolated pair, informs exact marginal tomography and the first dimension-driven obstruction at n12. The fact is a complete natural finite-window invariant, not an arbitrary tiny slice or an already known solution count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

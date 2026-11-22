@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The restricted degree-two Walsh span equals the two-queen incidence span by explicit occupancy identities. For orders seven through eleven, a modular-two pivot witness establishes full integer row rank, independently replayed by a separate shifted-mask enumeration and low-pivot elimination. Order twelve has 14,200 configurations but no more than 8,712 pair columns, giving a nullspace of dimension at least 5,488. The row sums force every null vector to have total mass zero, which provides distinct probability laws with the same pairwise marginals. The one-degree bound proves degree two is minimal for the successful sizes. The order-eleven no-isolating-pair statement follows from exact completion counts and is not inferred from mere rank.
+## correctness
 
-**Originality: PASS under bounded comparison.** Historical and current search covered Walsh interpolation, two-queen incidence ranks, pairwise marginal reconstruction, queens completion, related discrete Fourier sampling, and the recoverable local record. Direct reading of the archival inside-out-polytope papers found enumerative formulas, not incidence-matrix rank theorems; an explicitly checked published eight-queen mobility result determines reconfiguration graph distances, not marginal tomography. The ordinary solution-count table alone does not imply full row rank, and a collection of distinct configurations need not give independent pair-incidence rows. No stronger covering result was identified. Historical priority remains at risk from unindexed computational tables or literature with different terminology.
+PASS
 
-**Mathematical value: PASS.** Pairwise marginals of all queens placements form a canonical finite low-order observation system. Exact tomography persists through a relatively large 2,680-solution fiber even when every observed two-queen pattern belongs to at least two solutions, but becomes impossible by 14,200 solutions at the next board order. This is a sharp, motivated recovery boundary over the explicitly stated finite range, not simply a recomputation of the classical counting sequence; no all-order or conditioning assertion is made.
+The occupancy identity χ_e=1−2x_e and χ_{e,f}=1−2x_e−2x_f+4x_ex_f proves restricted degree≤2 Walsh span equals columns x_ex_f of distinct-row/column pair incidences, since constants and coordinates sum from pair columns on a permutation. Independent deterministic recursion enumerated all nonattacking permutations n7..12 with counts 40,92,352,724,2680,14200 and constructed F2 bitset high-pivot elimination: full ranks n7..11; since integer minors nonzero modulo2 are nonzero over R, this establishes real tomography. Direct independent occurrence counts n11 yielded 5280 patterns with min frequency2, so no uniquely isolating pair. For n=12 at most C(12,2)*12*11=8712 columns, less than 14200 rows; nonzero signed left nullspace (whose sums vanish because constant in incidence span) gives distinct nearby probability laws. Degree1 upper dimension 1+(n−1)² < N for every n7..11. Every finite statement uses complete enumeration, not sample extrapolation. Source also contains replayable rank certificate and independent checker paths; our check did not treat their logs alone as proof.
 
-**Closest literature and limits.** Chaiken–Hanusa–Zaslavsky Parts I and II provide the counting framework but no exact pair-incidence rank. OEIS A000170 supplies the known counts. The eight-queen mobility result gives a related, noncovering fixed-board classification. Verification depends on two included finite exact computations. Unindexed prior calculations remain an originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original scope after positive mathematical implication comparisons, not inferred from mere negative search. Counts alone are not equivalent to quadratic Walsh reconstruction, except the n12 dimension-failure direction; the positive n7..11 matrix ranks are genuinely extra. Existing stronger counting methods do not dominate the theorem’s central reconstruction claim, although the n12 easy dimension bound uses counts. The substantive positive-range reconstruction and no-isolating-pair witness are not implied by prior counts or generic sampling identities.
+
+## value
+
+PASS
+
+A sharp, natural finite order window in probability-law identifiability from pairwise square marginals for a classical constrained configuration space, including nontrivial n11 full rank despite no isolated pair, informs exact marginal tomography and the first dimension-driven obstruction at n12. The fact is a complete natural finite-window invariant, not an arbitrary tiny slice or an already known solution count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
