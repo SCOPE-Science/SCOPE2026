@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducible finite checks
+# Independent mathematical audit
 
-Execute from the folder containing all packaged artifacts, with Python 3 and no external dependencies:
+## correctness
 
-```sh
-python3 verify_finite_dynamics.py > full_dynamics_output.json
-python3 verify_independent_symmetry.py > independent_symmetry_output.txt
-```
+PASS
 
-Both commands were actually executed on the standalone programs accompanying this theorem, and their resulting files match the included captured outputs. Both programs check all 65,536 labelled binary configurations. The first constructs the full 65,536-state deterministic graph, removes nonrecurrent states by indegree pruning, identifies every cycle and computes every backward basin and entry layer. The second implements the update using a distinct direct-neighbor-bit expression, checks all trajectories through six rounds, checks the spectral fixed-vector relation and isolation, explicitly enumerates the full affine group of order 1,920, and verifies the fourteen spatial classes. `recurrent_classes.csv` matches the fourteen printed lines in the second program's output.
+PASS: Independently constructed all 65,536 states for strict simultaneous five-neighbor majority on F₂⁴ Cayley graph generators {1,2,4,8,15}, rather than trusting saved output. Exhaustive direct six-iterate check found F^6=F^4, 142 fixed orbits, 1165 primitive 2-cycles, exact first-entry table {(0,1):142,(0,2):2330,(1,1):2616,(1,2):14720,(2,1):11264,(2,2):23680,(3,1):8864,(4,1):1920}, all maximal depth 4, and 140 singleton nonconstant fixed-point basins. Source verify_finite_dynamics.py and verify_independent_symmetry.py at actual Git blobs 6bf0fba6df172a8ec9b6d93faff44d76f4294f70 and 2ecd9ffff89471505d5bcd20b199c2f0d99dfda0 were read. The Cayley spectrum 5¹,1¹⁰,(-3)⁵ yields cut bound |∂U|≥k(16-k)/4; fixed-state cut |∂U|≤2k excludes minority k<8, forcing all 140 nonconstant fixed sign vectors into eigenvalue one As=s. The full automorphism group (F₂)⁴ ⋊ S5 has 1920 maps; the packaged independent generator action verifies 4 fixed and 10 two-cycle geometric classes. This is a genuinely exhaustive finite theorem, not extrapolation to other graphs.
 
-The main proof uses exact integer arithmetic and a separate analytical spectral argument. The computations establish a **complete finite** fact, not an all-dimensions theorem or an externally certified formal proof. Independent mathematical audit remains unperformed.
+## originality
+
+PASS
+
+PASS, best of knowledge: the classic Goles–Olivos period-at-most-two theorem does not enumerate fixed points, basins, or symmetries. The fully read four-cube Q4 prior census concerns degree-four tie-retaining majority (702 fixed, 885 two-cycles, 30 geometry classes), whereas the Clebsch graph has an added antipodal matching, degree five and strict tie-free update. An exact Clebsch majority census was not found in the relevant published-record comparisons.
+
+## value
+
+PASS
+
+PASS: The Clebsch graph is a natural exceptional 16-vertex strongly regular graph (16,5,0,2). Exact recurrence, fourteen geometric orbit classes, four-update sharp cutoff and balanced isolated equilibria reveal structural behavior that differs sharply from the closely related four-cube. A natural finite classification with complete proof certificate has independent value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
