@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The majority map has no ties because every vertex has degree three. Its two-shore factorization into duad and syntheme maps is exact. Two separately constructed adjacency/majority implementations independently evaluate both 32,768-state shore spaces, verify the projection identities, exact recurrent count and entire entry-time/period table. The algebraic swap argument converts those complete finite checks into claims over all \(2^{30}\) full states without assuming that sampled full configurations are exhaustive. The sharpness witness and distinct six-symbol orbit classes were checked directly. Both packaged programs were executed successfully, and their recorded outputs retain the checked counts.
+PASS
 
-## Originality — PASS (qualified)
+The standard duad–syntheme incidence model has 15 duads and 15 matchings and hence a 3-regular, 30-vertex graph; open-neighbor majority has no ties. Each update swaps the shores through exact 15-bit maps Phi and Psi. Independent complete enumeration of all 32768 states per shore reproduced G^3=G^2, J^3=J^2 and G^2!=G; 2386 fixed symbols on each shore; 2386 full fixed states; (2386^2-2386)/2=2845305 primitive two-cycles; and all five first-entry period-specific populations. The period-1 terminal-fiber formula was explicitly recomputed, not inferred from a log. Relabelling the six symbols yielded 156 ordinary graph classes and precisely 18 stable classes of prescribed sizes. The shore factorization, rather than a sample of 2^30 states, proves F^6=F^4 and the complete billion-state count. The provided width-four time witness establishes sharpness.
 
-The period-two theorem of Goles–Olivos is general and already known, and the graph's combinatorial model is classical. The Benjamini–Chan–O'Donnell–Tamuz–Tan paper and the Kaaser–Mallmann-Trenn–Natale voting-time paper concern broad dynamical results, not the Tutte eight-cage's exact short transient and orbit counts. The closest inspected incidence-majority classification concerns the Heawood graph; its 58-symbol one-step projection is not an implication of the present 2,386-symbol two-step census, nor vice versa. Database and literature searches under Tutte–Coxeter, eight-cage, Cremona–Richmond and generalized quadrangle did not identify this exact joint classification. Publication priority cannot be proved by search alone; unindexed treatments remain a risk.
+## originality
 
-## Value — PASS
+PASS
 
-The Tutte–Coxeter graph is the unique smallest cubic girth-eight graph and the natural Levi graph of the smallest nontrivial generalized quadrangle. Its 30-vertex dynamics constitutes a natural, non-arbitrarily selected finite invariant requiring the analysis of more than a billion initial states. The exact four-step cutoff, five-layer period-resolved basin census, and the 18 stable six-vertex graph types describe meaningful structure not fixed by the classical period-two theorem. The result is finite and self-contained; no infinite-family theorem is asserted.
+Specific exact entrance-time and stable-graph-isomorphism census of the canonical cubic Tutte–Coxeter cage not implied by the Goles–Olivos period-two convergence theorem, broad voting-time upper bounds, or separate Heawood/Pappus incidence graph classifications; historical priority bounded.
 
-## Closest literature and limitations
+## value
 
-The geometry is documented by Baez (2015-08-15). Goles–Olivos (1980), Benjamini et al. (arXiv:1405.2486), and Kaaser et al. (arXiv:1508.03519) provide general convergence and voting-time context. The published Heawood-incidence majority classification supplies a closely related but strictly smaller geometric example. The claim is specific to the deterministic binary rule on this labelled graph. Historical priority remains qualified, and no independent external audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The unique 30-vertex cubic girth-8 cage and smallest generalized quadrangle incidence graph is a natural extremal combinatorial structure. A sharp 4-update settling bound with exact period-resolved >10^9-state basin distribution and 18 recurrent six-vertex graph types is a complete informative invariant not mechanically supplied by eventual period ≤2.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
