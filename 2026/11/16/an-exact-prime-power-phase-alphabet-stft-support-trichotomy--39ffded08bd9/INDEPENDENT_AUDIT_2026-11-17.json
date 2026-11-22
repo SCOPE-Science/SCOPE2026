@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T04:05:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For p prime, q=ell^r with ell != p, the p-term zero-frequency row sum of qth roots cannot vanish by the prime-power cyclotomic coefficient obstruction: a sum of p nonnegative integer multiplicities cannot have size divisible by ell. For k != 0, Q(zeta_q) and Q(zeta_p) are linearly disjoint; the only length-p kernel of evaluation at zeta_p^k is the scalar all-ones vector, so vanishing implies that translated pointwise product row is constant. Two constant rows of distinct translations force both f and g constant up to global phase. Thus either every row is constant (support p), exactly one row is constant (p²-p+1), or none (p²). The p choices of the unique constant row yield p(q^{p-1}-1) phase-normalized pairs; all remaining q^{2p-2} pairs fill support p². Critical algebra is all-parameter; five bounded direct-DFT enumerations (p,q)=(2,3),(3,2),(3,4),(5,2),(5,4) only corroborate it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nicola Theorem 1.1/1.2 proves the universal lower bound and support-p equality structure.",
+          "Bartusel §§4.1–4.2 studies phase retrieval under window ambiguity support assumptions, not cross-STFT phase-alphabet support multiplicities."
+        ],
+        "reasoning": "A theorem for all signal coefficients or all windows does not dominate a more precise enumeration for restricted roots-of-unity coefficients absent the precise intermediate cardinalities and pair counts.",
+        "searches": [
+          "Prime order cyclic short time Fourier transform support spectra for unimodular phase alphabet roots of unity, translated proportional sequences and count of support sets",
+          "arxiv:2204.14176",
+          "https://publications.rwth-aachen.de/record/968225/files/968225.pdf"
+        ]
+      },
+      "checked_sources": [
+        "pinned 2026/11/16/an-exact-prime-power-phase-alphabet-stft-support-trichotomy--39ffded08bd9/RESULT.md Git blob 2c868a586d3bc809753d9fffbbac8bc23d89999f",
+        "pinned verify.py Git blob e668e36867bdbcf455f372b42766717246439723",
+        "https://iris.polito.it/retrieve/handle/11583/2982201/f69879e4-fc23-4800-a55c-c2d4f78cebec/1-s2.0-S0022123623000812-main.pdf",
+        "https://publications.rwth-aachen.de/record/968225/files/968225.pdf",
+        "arxiv:2204.14176",
+        "arxiv:2206.06729",
+        "Resultary query: Prime order cyclic short time Fourier transform support spectra for unimodular phase alphabet roots of unity, translated proportional sequences and count of support sets"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nicola covers sharp support p and its equality cases but provides no p²-p+1/p² trichotomy for q=ell^r distinct from p.",
+          "Bartusel supplies support-conditioned phase retrieval, not the exact cross-transform support census."
+        ],
+        "reasoning": "The two standard implications leave a substantive exact intermediate-support count and geometric support-pattern classification unproved; thus they do not imply the final theorem.",
+        "searches": [
+          "prime-power phase alphabet cyclotomic roots STFT prime order support trichotomy exact multiplicities",
+          "https://iris.polito.it/retrieve/handle/11583/2982201/f69879e4-fc23-4800-a55c-c2d4f78cebec/1-s2.0-S0022123623000812-main.pdf",
+          "https://publications.rwth-aachen.de/record/968225/files/968225.pdf",
+          "arxiv:2206.06729"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A row with a Fourier zero at nonzero frequency is exactly a constant coefficient row because Phi_p is irreducible over the coprime cyclotomic field; this is a reformulation of the package proof, not a separate literature result.",
+          "Nicola characterizes p-support equality for general signals but not the phase-alphabet census."
+        ],
+        "reasoning": "Prime-cyclotomic vanishing/constant-row equivalence is the key algebraic mechanism; unrestricted STFT minimum equality is weaker and does not classify the two remaining finite-alphabet support sizes.",
+        "searches": [
+          "prime-power phase alphabet cyclotomic roots STFT prime order support trichotomy exact multiplicities",
+          "cyclotomic minimal polynomial Phi_p over Q(zeta_ell^r) cross STFT constant translation row"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned same manuscript as the strongest matching item; nearby pentaphase p=5 and hexaphase p=5/7 support censuses have different alphabet compatibility and/or self-vs-cross hypotheses.",
+          "No matching all-prime, coprime prime-power normalized multiplicity table was identified."
+        ],
+        "reasoning": "Small parameter tables can be instances, not a domination of the symbolic p,q family. A negative search does not certify novelty.",
+        "searches": [
+          "Prime order cyclic short time Fourier transform support spectra for unimodular phase alphabet roots of unity, translated proportional sequences and count of support sets",
+          "coprime root unity STFT exact support multiplicity table prime p q"
+        ]
+      },
+      "rationale": "No identified prior text implies the all-prime, coprime-prime-power three-stratum classification together with exact zero-row geometry and normalized pair counts; standard cyclotomic and minimal-support theorems are credited, with residual priority risk.",
+      "residual_risks": [
+        "Other unpublished or poorly indexed cyclotomic phase-only cross-STFT enumerations could contain equivalent all-prime strata.",
+        "Five exact/floating small-p checks are diagnostics; infinite quantifiers rest on the explicit cyclotomic proof, not enumeration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_OVERLAP—not equivalent to full prime-power alphabet classification",
+          "evidence": "The paper gives minimal p support and equality cases for unrestricted complex signals, rather than all q-root pair support sizes/counts.",
+          "identifier_or_url": "https://iris.polito.it/retrieve/handle/11583/2982201/f69879e4-fc23-4800-a55c-c2d4f78cebec/1-s2.0-S0022123623000812-main.pdf",
+          "material_read": "Full open-access journal PDF: abstract, Theorems 1.1–1.2 and their scope, proof context",
+          "method": "web PDF text plus page screenshot",
+          "title": "The uncertainty principle for the short-time Fourier transform on finite cyclic groups: cases of equality",
+          "trigger": "Prime cyclic support equality and general STFT lower bound"
+        },
+        {
+          "assessment": "NOT_COVERING the exact phase-alphabet cross-STFT cardinality census",
+          "evidence": "It addresses uniqueness of signals from |V_g f| for specified window support, not counting zeros of V_g f for all ordered phase-only f,g.",
+          "identifier_or_url": "https://publications.rwth-aachen.de/record/968225/files/968225.pdf",
+          "material_read": "Full 35-page open-access source; abstract/introduction, discrete §§4.1–4.2 theorem statements and proof passages",
+          "method": "web PDF text and page screenshot",
+          "title": "Injectivity conditions for STFT phase retrieval on Z, Z_d and R^d",
+          "trigger": "Same STFT objects, possible generalized coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural exact support/inverse rigidity problem for finite-alphabet phase windows, relevant to ambiguity-function zeros and constant-modulus coding. The sharp forbidden support gap, full exceptional shift geometry, and closed multiplicities for all coprime prime-power alphabets add information beyond universal p-support inequalities. Finite tests are not the contribution; the symbolic family and classification are.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "pinned 2026/11/16/an-exact-prime-power-phase-alphabet-stft-support-trichotomy--39ffded08bd9/RESULT.md Git blob 2c868a586d3bc809753d9fffbbac8bc23d89999f",
+    "pinned verify.py Git blob e668e36867bdbcf455f372b42766717246439723",
+    "https://iris.polito.it/retrieve/handle/11583/2982201/f69879e4-fc23-4800-a55c-c2d4f78cebec/1-s2.0-S0022123623000812-main.pdf",
+    "https://publications.rwth-aachen.de/record/968225/files/968225.pdf",
+    "arxiv:2204.14176",
+    "arxiv:2206.06729",
+    "Resultary query: Prime order cyclic short time Fourier transform support spectra for unimodular phase alphabet roots of unity, translated proportional sequences and count of support sets"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific completed C/O/V assessment is not a publisher, independent-human, or formal proof certificate.",
+    "No public-source changes, sanitized replacement or authorized publication was performed."
+  ],
+  "residual_risks": [
+    "Other unpublished or poorly indexed cyclotomic phase-only cross-STFT enumerations could contain equivalent all-prime strata.",
+    "Five exact/floating small-p checks are diagnostics; infinite quantifiers rest on the explicit cyclotomic proof, not enumeration."
+  ],
+  "schema_version": 1
+}

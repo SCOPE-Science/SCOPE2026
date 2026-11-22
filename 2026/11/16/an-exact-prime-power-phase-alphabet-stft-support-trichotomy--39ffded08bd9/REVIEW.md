@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The argument supplies all quantifiers and covers every pair of distinct primes, including the two-site case, and every prime-power coefficient alphabet. Its critical two algebraic steps are (i) the integer multiple-of-prime obstruction for zero sums of prime-power roots and (ii) the degree-\(p-1\) minimal polynomial over the disjoint cyclotomic field. The step from a singleton Fourier row to proportional translation is exact, as is the proof that two such shifts force both sequences constant. The resulting normalized pair counts have no overcount. Direct-DFT exhaustive checks on five parameter choices independently recover every stratum and count.
+PASS
 
-## Originality — PASS (historical priority provisional)
+For p prime, q=ell^r with ell != p, the p-term zero-frequency row sum of qth roots cannot vanish by the prime-power cyclotomic coefficient obstruction: a sum of p nonnegative integer multiplicities cannot have size divisible by ell. For k != 0, Q(zeta_q) and Q(zeta_p) are linearly disjoint; the only length-p kernel of evaluation at zeta_p^k is the scalar all-ones vector, so vanishing implies that translated pointwise product row is constant. Two constant rows of distinct translations force both f and g constant up to global phase. Thus either every row is constant (support p), exactly one row is constant (p²-p+1), or none (p²). The p choices of the unique constant row yield p(q^{p-1}-1) phase-normalized pairs; all remaining q^{2p-2} pairs fill support p². Critical algebra is all-parameter; five bounded direct-DFT enumerations (p,q)=(2,3),(3,2),(3,4),(5,2),(5,4) only corroborate it.
 
-Nicola's Theorem 1.2 characterizes only global minimal support, not the restricted-alphabet three-level spectrum or support-shape and multiplicity formulas. Bartusel's full 2022 cyclic-STFT phase-retrieval discussion addresses injectivity, not this exact cross-STFT census. Lam–Leung gives the zero-sum arithmetic underpinning one lemma but not the combined STFT result. Existing general prime-cycle spectrogram gap bounds are weaker and do not yield these forbidden bands or exact counts. No matching full theorem was identified in the checked literature and relevant indexed mathematical records. Historically unindexed specialized phase-code tables remain a possibility; no independent priority determination is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete infinite-family classification identifies an unexpectedly large forbidden range of time-frequency support cardinalities and a single exceptional time shift, with exact counts for every prime dimension and prime-power coprime alphabet. It determines precisely when cyclotomic phase quantization permits ambiguity zeros, an object natural in finite-waveform design and time-frequency uncertainty. The three support strata and algebraic boundary are substantive; they are not merely a one-off numerical enumeration. The theorem does not make claims about numerical stability, arbitrary phase alphabets, or injective intensity recovery.
+No identified prior text implies the all-prime, coprime-prime-power three-stratum classification together with exact zero-row geometry and normalized pair counts; standard cyclotomic and minimal-support theorems are credited, with residual priority risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A natural exact support/inverse rigidity problem for finite-alphabet phase windows, relevant to ambiguity-function zeros and constant-modulus coding. The sharp forbidden support gap, full exceptional shift geometry, and closed multiplicities for all coprime prime-power alphabets add information beyond universal p-support inequalities. Finite tests are not the contribution; the symbolic family and classification are.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
