@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-PASS. The critical constraint cancels the linear part of the weighted logarithmic derivative. The product is pulse-continuous and strictly decreases; global susceptible bounds prevent its vanishing through susceptible collapse, forcing infection extinction. Scalar pulse-logistic comparison yields the disease-free limit; Cesaro integration of the exact reciprocal-product law proves the phase-resolved infection coefficient. The positive periodic linear response yields the signed susceptible correction. Exact symbolic and finite integration checks support, but do not replace, the analytical proof.
+## correctness
 
-## Originality
-PASS on the inspected evidence. The exact-model 2023 source establishes the pulse map, disease-free orbit and threshold and gives open-side attractivity/persistence and local Floquet crossing. It does not state the strict global equality-case product identity or the paired universal phase coefficients. The 2016 stage-structured model and the 2024 pulse-SIR numerical-method work differ in their growth and intervention laws. The closest indexed mathematical claims on vaccinated SIR/SEIR criticality use different equations or address pulse timing, not this complete theorem. Search failure is not a uniqueness certificate; unindexed equivalents remain possible.
+PASS
 
-## Mathematical value
-PASS. The omitted equality threshold is nonhyperbolic, so the difference between exponential elimination and the actual algebraic, phase-dependent tail is structural. The result also globally excludes recurrent positive infections at the exact threshold and quantifies the susceptible lag from any positive initial state. These effects are useful precise invariants for future comparative or numerical studies of impulsive epidemic dynamics.
+Read frozen RESULT.md, derivation and check.py. Positivity and P=S+I bound follow from S<=max(A,S0) and P'<=K(A+delta)-delta P. In any low-S episode (S_n<delta e^{-AT}/(2beta)), I_{n+1}<=e^{-delta T/2}I_n and S_{n+1}/S_n>=e^{delta T/(2beta)}e^{-beta TI_n}; geometric summation plus one-step entry bound yields a strictly positive susceptible floor for each positive solution. Exactly log L derivative = -beta^2 I for L=q^{beta tau/T} S^beta I; at a pulse q^beta is offset by phase reset. L decreases to zero (a positive limit would force I bounded below), so I->0 by S floor. Logistic pulse comparison gives S->s uniformly in phase. Integrating (1/L)'=beta^2 q^{-beta tau/T}S^{-beta} across periods and Cesaro yields nL->1/C and the explicit I profile. Stable linear equation for z=log(S/s), with forcing -beta I and coefficient tending to s>0, gives uniform n z->-k/C and hence n(S-s)->-sk/C. Boundary: positive initial S,I, delta<beta A, fixed T>0, q in (0,1); no finite-time or seasonal assertion. The three trajectory RK4/script checks are finite corroboration, not the infinite argument.
 
-## Scope and residual priority risks
-This is a theorem for the unseasonal deterministic reduced model, not the general seasonally forced or stage-structured infection problem. One relevant numerical-method paper was available only via abstract and a model excerpt because full retrieval was limited; other unindexed equivalent work cannot be ruled out. The formal proof is analytical; the checker supplies finite diagnostics only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No searched prior theorem states the global neutral-threshold Lyapunov identity plus both universal phase-resolved 1/n coefficients in the exact unseasonal two-state pulse system. The originating paper determines the disease-free orbit and threshold, but its Theorem A analyzes p strictly above/below p2 and only identifies a Floquet crossing at p=p2. Other Resultary critical disease models change equations and cannot supply the explicit pulse profile. Best-of-knowledge PASS, not historical certification.
+
+## value
+
+PASS
+
+The exact invasion-eigenvalue-one boundary is a mathematically and epidemiologically natural missing case of the originating bifurcation theorem. A global exclusion of positive recurrent infection plus universal phase-profile and susceptible correction gives nontrivial information beyond the familiar local transcritical sign and is independently reusable to benchmark critical pulse dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

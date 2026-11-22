@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T21:44:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read frozen RESULT.md, derivation and check.py. Positivity and P=S+I bound follow from S<=max(A,S0) and P'<=K(A+delta)-delta P. In any low-S episode (S_n<delta e^{-AT}/(2beta)), I_{n+1}<=e^{-delta T/2}I_n and S_{n+1}/S_n>=e^{delta T/(2beta)}e^{-beta TI_n}; geometric summation plus one-step entry bound yields a strictly positive susceptible floor for each positive solution. Exactly log L derivative = -beta^2 I for L=q^{beta tau/T} S^beta I; at a pulse q^beta is offset by phase reset. L decreases to zero (a positive limit would force I bounded below), so I->0 by S floor. Logistic pulse comparison gives S->s uniformly in phase. Integrating (1/L)'=beta^2 q^{-beta tau/T}S^{-beta} across periods and Cesaro yields nL->1/C and the explicit I profile. Stable linear equation for z=log(S/s), with forcing -beta I and coefficient tending to s>0, gives uniform n z->-k/C and hence n(S-s)->-sk/C. Boundary: positive initial S,I, delta<beta A, fixed T>0, q in (0,1); no finite-time or seasonal assertion. The three trajectory RK4/script checks are finite corroboration, not the infinite argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary finds analogous 1/n critical decay for multi-group and other models with different flows, not this impulsive logistic reduction.",
+          "The source source theorem covers p in (p2,p1) and (0,p2), not p=p2."
+        ],
+        "reasoning": "A theorem on either open side does not imply critical nonlinear global attraction or its coefficient. Analogous critical reductions lack this pulse-continuous cancellation and phase integral.",
+        "searches": [
+          "Resultary: critical network SIRS extinction Perron profile",
+          "arXiv:2312.02306 Theorem A open regimes",
+          "Zhou Sattayatham Jiao 2016 stage structure pulse vaccination"
+        ]
+      },
+      "checked_sources": [
+        "Frozen source RESULT.md and check.py at assigned Git tree",
+        "https://arxiv.org/abs/2312.02306 (originating paper; full-text author transcription inspected)",
+        "Resultary search: critical pulse vaccination and critical network SIRS",
+        "https://doi.org/10.1186/s13662-016-0853-z (different stage-structured pulse model)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At p=p2 source establishes a multiplier crossing the unit circle (section 11), not the strict L descent.",
+          "Present proof needs a positive S floor to promote L->0 to I->0 and then a Cesaro integral and variational limit."
+        ],
+        "reasoning": "Neither Floquet threshold nor general inverse-time slowing logically entails initial-condition-independent phase coefficients and a global basin. Direct nonlinear inequalities are essential.",
+        "searches": [
+          "arXiv:2312.02306 Theorem A items 2–6 and section 11",
+          "Resultary critical network SIRS extinction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The originating equation is the identical two-state logistic susceptible pulse model with q=1-p; source Theorem A gives p2(T)=1-exp[-(A-Sc)T] but omits p=p2 equality dynamics.",
+          "Weighted-log product and inverse-integral expression are not stated in the inspected equality/threshold sections."
+        ],
+        "reasoning": "Equivalent forms sought: neutral Floquet center-manifold, inverse infection amplitude and periodic phase-resolved extinction. The exact global product identity and susceptibility correction are stronger than local linear neutrality.",
+        "searches": [
+          "Resultary: critical impulsive pulse vaccination SIR logistic susceptible exact threshold Lyapunov phase resolved reciprocal n infection decay",
+          "de Carvalho–Rodrigues arXiv:2312.02306, eq.(8), Theorem A, §§7–11",
+          "\"pulse vaccination\" \"S^beta I\" Lyapunov"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The originating paper tabulates regions and multipliers, not the phase-resolved nI and n(S-s) amplitudes."
+        ],
+        "reasoning": "The claim is a continuum all-positive-initial theorem, not a finite numerical table; no matching exact formula found in inspected materials, which is a residual rather than proof of universal novelty.",
+        "searches": [
+          "Resultary: pulse SIR critical Lyapunov reciprocal law",
+          "arXiv:2312.02306 threshold/floquet sections"
+        ]
+      },
+      "rationale": "No searched prior theorem states the global neutral-threshold Lyapunov identity plus both universal phase-resolved 1/n coefficients in the exact unseasonal two-state pulse system. The originating paper determines the disease-free orbit and threshold, but its Theorem A analyzes p strictly above/below p2 and only identifies a Floquet crossing at p=p2. Other Resultary critical disease models change equations and cannot supply the explicit pulse profile. Best-of-knowledge PASS, not historical certification.",
+      "residual_risks": [
+        "Unindexed exact-model critical-center-manifold work could imply a related rate.",
+        "The asymptotic result is restricted to fixed threshold, positive initial values and no seasonal forcing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING critical global rate; theorem cases exclude p=p2",
+          "evidence": "Theorem A p2(T)=1-exp[-(A-Sc)T]; section 9 assumes p∈(p2,p1); section 11 describes transcritical Floquet crossing.",
+          "identifier_or_url": "https://www.researchgate.net/publication/383190903_Pulse_vaccination_in_a_SIR_model_Global_dynamics_bifurcations_and_seasonality",
+          "material_read": "Author full-text HTML transcription: model eq.(8), Theorem A items and §§7,9,11 near Floquet multiplier crossing",
+          "method": "Full-text HTML inspected at theorem/section passages",
+          "title": "Pulse vaccination in a SIR model: global dynamics, bifurcations and seasonality",
+          "trigger": "Same original differential equations and pulse threshold"
+        },
+        {
+          "assessment": "DISTINCT_MODEL, no whole-text exclusion claimed",
+          "evidence": "Finite irreducible directed SIRS network, unlike pulse logistic reduction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-critical-network-sirs-extinction-a-universal-logarithmic-law-wit--5b81918ce12a",
+          "material_read": "Published title/abstract summary and model parameters, not entire RESULT.md",
+          "method": "Semantic search summary",
+          "title": "Critical network SIRS extinction: a universal logarithmic law",
+          "trigger": "Search returned same general threshold behavior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact invasion-eigenvalue-one boundary is a mathematically and epidemiologically natural missing case of the originating bifurcation theorem. A global exclusion of positive recurrent infection plus universal phase-profile and susceptible correction gives nontrivial information beyond the familiar local transcritical sign and is independently reusable to benchmark critical pulse dynamics.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen source RESULT.md and check.py at assigned Git tree",
+    "https://arxiv.org/abs/2312.02306 (originating paper; full-text author transcription inspected)",
+    "Resultary search: critical pulse vaccination and critical network SIRS",
+    "https://doi.org/10.1186/s13662-016-0853-z (different stage-structured pulse model)"
+  ],
+  "disposition": "passed",
+  "final_claim": "At neutral pulse coverage q=exp(-(A-delta/beta)T), positive logistic-susceptible SIR solutions converge globally to the pulse disease-free orbit; n I(nT+tau)->w(tau)/C and n(S-s)->-s(tau)k(tau)/C uniformly in tau, with exact strict pulse-continuous Lyapunov product.",
+  "limitations": [
+    "Unindexed exact-model critical-center-manifold work could imply a related rate.",
+    "The asymptotic result is restricted to fixed threshold, positive initial values and no seasonal forcing."
+  ],
+  "residual_risks": [
+    "Unindexed exact-model critical-center-manifold work could imply a related rate.",
+    "The asymptotic result is restricted to fixed threshold, positive initial values and no seasonal forcing."
+  ],
+  "schema_version": 1
+}
