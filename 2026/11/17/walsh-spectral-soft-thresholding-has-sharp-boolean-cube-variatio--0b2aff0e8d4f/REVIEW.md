@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The map is piecewise affine in Walsh coefficients, each derivative mask is genuinely realizable in a strict chamber, and integrating derivatives establishes the global coefficient. Discrete coarea plus layer cake proves the norm reduces to finite binary cuts; this does not rely on one-dimensional jump extremizers. The upper bound follows from orthogonal \(\ell^2\) contraction and commuting graph differences. The lower bound follows from independent random Walsh masks, exact cancellation on the frequency halfspace, and the Rademacher fourth moment inequality. The finite exact checker completely enumerates dimensions \(1\)–\(3\); selected higher-dimensional masks are only illustrative. The two-input masks are attained exactly by sufficiently small perturbations of interior points. A different source normalization of the Walsh coefficients merely rescales the strictly positive threshold and has no effect on the proved modulus.
+## correctness
 
-## Originality — PASS (qualified)
-Primary graph-signal recovery work (Chen et al., arXiv:1411.7414) uses a quadratic graph-variation objective and does not analyze the graph-edge \(\ell^1\) two-input norm of coefficient soft thresholding. Primary Walsh sparse transform work (Cheraghchi–Indyk, arXiv:1504.07648) does not assert spectral-shrinkage total-variation stability. The full accessible prior Walsh coordinate-shadow result concerns the **maximum** edge slope and Lipschitz-free dual; it is neither an equivalent norm nor a theorem covering the sum-of-edge-jumps problem. Previously known Haar/DCT finite-path soft thresholding estimates concern different bases and path-edge seminorms; they neither establish the hypercube cut formula nor yield the stated dimension-dependent gain. No exact or dominating theorem appeared in the searches recorded in the structured report. Historical unindexed projection-norm estimates and unspecified sharper constants remain risks.
+PASS
 
-## Value — PASS
-Walsh coefficient shrinkage is a standard spectral nonlinear transformation. Graph total variation penalizes neighbor jumps and captures a stability criterion distinct from the Hilbert metric where shrinkage is nonexpansive. A complete graph-cut reduction identifies the appropriate extremal geometry, while the theorem proves that worst-case perturbation instability grows exponentially in the number of cube coordinates. The precise onset at dimension three is exhaustive and sharp. The phenomenon clarifies when orthogonal spectral regularization ceases to preserve bounded-variation perturbations; this is not merely a single fixed-size coefficient or a change of notation from path estimates.
+The nonlinear map is continuous piecewise affine in Walsh coordinates. Every nonconstant active mask A is realized in an open threshold chamber and has derivative the corresponding Walsh projection modulo constants, so integrating along line segments and local witness perturbations proves the nonlinear sharp modulus equals max_A ||P_A||_{V->V}. Graph coarea/layer cake on indicator cuts is exact for any finite graph and P_A annihilates constants. Each P_A commutes with cube coordinate differences; orthogonal l1-l2 projection bounds give V(P_A f)<=sqrt(N)V(f). Random half-mask signs have a Rademacher sum over N/2 frequencies; its second/fourth moments and Hölder give (N-2)/(2 sqrt(6N)) lower bound from a singleton. Omitting the highest parity character gives 2-4/N witness, proving strict expansion for all d>=3. Independent exact rational all-masks/all-cuts enumeration (d=1,2,3) gave 1,1,3/2 with actual local active-chamber attainment; finite witnesses are not the all-d growth proof.
 
-## Closest literature and limits
-The closest accessible Walsh result computes projection constants in the cube Lipschitz-free geometry and uses coordinate-shadow kernels. Chen et al. develop graph variation optimization, and Cheraghchi–Indyk treat sparse Walsh recovery. No independently checked universal leading constant is asserted. The all-dimension result is analytical; finite tests are explicitly limited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: Walsh spectral soft thresholding: Boolean-cube edge variation amplification. The particular all-parameter statement is not directly implied by inspected previously published sources. Novelty limitations and primary material not obtained in full are retained below.
+
+## value
+
+PASS
+
+The graph edge-variation modulus is a natural stability quantity for Fourier/Walsh shrinkage. The exact nonlinear mask/cut identification, first expansive cube dimension and exponential dimension dependence contrast with Euclidean nonexpansivity and with maximum-edge Lipschitz spectral projection constants; this is a meaningful sharp structural instability result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

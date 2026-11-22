@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T19:58:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The nonlinear map is continuous piecewise affine in Walsh coordinates. Every nonconstant active mask A is realized in an open threshold chamber and has derivative the corresponding Walsh projection modulo constants, so integrating along line segments and local witness perturbations proves the nonlinear sharp modulus equals max_A ||P_A||_{V->V}. Graph coarea/layer cake on indicator cuts is exact for any finite graph and P_A annihilates constants. Each P_A commutes with cube coordinate differences; orthogonal l1-l2 projection bounds give V(P_A f)<=sqrt(N)V(f). Random half-mask signs have a Rademacher sum over N/2 frequencies; its second/fourth moments and Hölder give (N-2)/(2 sqrt(6N)) lower bound from a singleton. Omitting the highest parity character gives 2-4/N witness, proving strict expansion for all d>=3. Independent exact rational all-masks/all-cuts enumeration (d=1,2,3) gave 1,1,3/2 with actual local active-chamber attainment; finite witnesses are not the all-d growth proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General graph signal recovery literature primarily minimizes quadratic graph spectral variation, not the edge-absolute-sum modulus of nonlinear coefficient shrinkage.",
+          "The Walsh projection source handles arbitrary spectral families but a different Lipschitz norm."
+        ],
+        "reasoning": "A broader Fourier projector theory could dominate only with the exact graph-BV operator norm over all masks; inspected precise norm statements do not.",
+        "searches": [
+          "Walsh Hadamard soft thresholding boolean cube edge total variation sharp Lipschitz amplification graph cut projection",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-coordinate-shadow-norm-formula-for-walsh-projections-on-hamming--6d24f15eba8d/RESULT.md",
+          "arxiv:1411.7414",
+          "arxiv:1504.07648"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/walsh-spectral-soft-thresholding-has-sharp-boolean-cube-variatio--0b2aff0e8d4f",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-coordinate-shadow-norm-formula-for-walsh-projections-on-hamming--6d24f15eba8d/RESULT.md",
+        "https://arxiv.org/html/2302.00233v2",
+        "https://arxiv.org/abs/1411.7414"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The coordinate-shadow result establishes an analogous exact max-edge formula.",
+          "Our edge SUM norm requires coarea for cuts, and produces Theta(sqrt(2^d)) rather than a general equality with the max-edge shadow constant."
+        ],
+        "reasoning": "The two-input soft-threshold derivative reduction is standard piecewise-affine analysis, but combining it with exact all-cut norms and universal square-root lower bound on cube is not a routine restatement of earlier max-edge results.",
+        "searches": [
+          "Walsh Hadamard soft thresholding boolean cube edge total variation sharp Lipschitz amplification graph cut projection",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-coordinate-shadow-norm-formula-for-walsh-projections-on-hamming--6d24f15eba8d/RESULT.md",
+          "https://arxiv.org/html/2302.00233v2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published coordinate-shadow formula computes projection norms in Hamming Lipschitz norm (maximum edge difference) and the adjoint Lipschitz-free space.",
+          "Defant et al. 2023 Theorem 3.1 relates Walsh projection constants to sup-norm kernel moments."
+        ],
+        "reasoning": "The current norm is the sum over ALL cube edges rather than a maximum, and the nonlinear two-input modulus requires all active masks and cut coarea. These are not equivalent via duality without a norm-changing factor; no source supplies the sharp current constant.",
+        "searches": [
+          "Walsh Hadamard soft thresholding boolean cube edge total variation sharp Lipschitz amplification graph cut projection",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-coordinate-shadow-norm-formula-for-walsh-projections-on-hamming--6d24f15eba8d/RESULT.md",
+          "https://arxiv.org/html/2302.00233v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior 3-cube Walsh projection numbers pertain to selected convolution spectral ranges under l1/l-infty, not all cube-edge-BV masks and cuts.",
+          "Exact d<=3 enumeration is internally exhaustive, and the theorem includes an all-d analytical growth bound."
+        ],
+        "reasoning": "No matching finite all-mask/all-cut graph-TV table was located, and a different operator norm table is not a covering implication.",
+        "searches": [
+          "Walsh Hadamard soft thresholding boolean cube edge total variation sharp Lipschitz amplification graph cut projection",
+          "Resultary:2026/11/16/SCOPE-exact-walsh-rank-and-endpoint-projection-norm-of-three-cube-span--fb906f150e7e",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-coordinate-shadow-norm-formula-for-walsh-projections-on-hamming--6d24f15eba8d/RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: Walsh spectral soft thresholding: Boolean-cube edge variation amplification. The particular all-parameter statement is not directly implied by inspected previously published sources. Novelty limitations and primary material not obtained in full are retained below.",
+      "residual_risks": [
+        "Unindexed BV-Fourier multiplier literature may include a stronger equivalent order-of-growth theorem.",
+        "The leading constant lim L_d/sqrt(N), if any, is not determined, and no complete all-d maximizing mask classification is claimed.",
+        "Some primary graph-signal papers read only in limited abstract scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different maximum edge-difference norm (dual free norm) and no nonlinear soft-threshold graph sum-variation theorem.",
+          "evidence": [
+            "Result norm is max_i 2^{-(d-1)}sum |K_i(u)|; our TV is sum_i,x |edge differences|."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-coordinate-shadow-norm-formula-for-walsh-projections-on-hamming--6d24f15eba8d/RESULT.md",
+          "material_read": "Entire published RESULT.md, all norm identities and coordinate-shadow proof plus references.",
+          "method": "Read complete published mathematical source.",
+          "title": "Coordinate-shadow norm formula for Walsh projections on Hamming Lipschitz-free spaces",
+          "trigger": "Closest same-cube exact spectral projection result."
+        },
+        {
+          "assessment": "Its C(K) sup-norm projection constant does not imply the sum-edge graph BV cut maximum.",
+          "evidence": [
+            "Theorem 3.1 is a Walsh-kernel mean absolute-value formula for the supremum norm."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2302.00233v2",
+          "material_read": "Accessible full article HTML, Theorem 3.1 and discussion of projection constants for sup-norm Boolean-cube function spaces.",
+          "method": "Read theorem and surrounding norm definitions in OA HTML.",
+          "title": "Asymptotic insights for projection, Gordon–Lewis and Sidon constants in Boolean cube function spaces",
+          "trigger": "Potential broader arbitrary-Walsh-kernel projection theorem."
+        },
+        {
+          "assessment": "No full-document noncoverage asserted; general quadratic graph variation is a different norm on accessible scope.",
+          "evidence": [
+            "The work addresses graph variation minimization for signal reconstruction, not an explicitly stated Walsh mask/cut BV modulus."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1411.7414",
+          "material_read": "Abstract and bibliographic scope; complete article not re-read in this execution.",
+          "method": "Abstract-level context only.",
+          "title": "Signal Recovery on Graphs: Variation Minimization",
+          "trigger": "General graph spectral variation and recovery."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The graph edge-variation modulus is a natural stability quantity for Fourier/Walsh shrinkage. The exact nonlinear mask/cut identification, first expansive cube dimension and exponential dimension dependence contrast with Euclidean nonexpansivity and with maximum-edge Lipschitz spectral projection constants; this is a meaningful sharp structural instability result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For real Walsh coefficient soft-thresholding on the d-cube with constant preserved, the sharp two-input sum-of-edges TV modulus is an attained all-spectral-mask/all-vertex-cut maximum, independent of lambda>0, with exact L1=L2=1 and L3=3/2 and asymptotic order Theta(2^(d/2)).",
+  "limitations": [
+    "No sharp asymptotic prefactor or universal maximizing mask classification.",
+    "Only identical positive Walsh thresholds, real coefficients, and unweighted cube edges."
+  ],
+  "schema_version": 1
+}
