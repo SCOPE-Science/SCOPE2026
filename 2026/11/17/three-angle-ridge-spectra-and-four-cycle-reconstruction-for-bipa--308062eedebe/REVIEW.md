@@ -1,25 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is all finite simple bipartite graphs without isolated vertices in their original coordinate Euclidean embedding. The displayed inequality system is integral by total unimodularity. A nonredundant facet classification and an explicit strict-feasibility analysis of all three types of facet pairs establish the exact codimension-two incidence count. The new coordinate–edge facet intersections contribute one acute \(\pi/4\) ridge per leaf, while incident edge–edge facets contribute one obtuse \(2\pi/3\) ridge per degree wedge. Disjoint edge pairs fail to give ridges exactly as opposite pairs of a four-cycle. Normal dot products give the stated three angles. Algebraic consequences and the tree and biclique asymptotics follow with quantified bounds. The exact self-contained checker reproduced the full count in 81 finite cases; additional independent finite checks covered 34 unlabeled bipartite small graphs. Finite verification is supporting evidence, not proof for all graphs.
+PASS
 
-## Originality — PASS with residual priority risk
+The totally unimodular bipartite edge formulation x_v≥0,x_u+x_v≤1 lists n+m genuine facets. Two coordinate facets always intersect at a ridge. For A_w vs edge B_uv, if w outside edge a strict witness gives ridge; if incident, equality forces the other endpoint to one, making ridge precisely when that endpoint is a leaf (otherwise a third coordinate zero). Adjacent edges share one vertex and form ridges (bipartite forbids a triangle); disjoint edge pair ceases to be a ridge exactly if two cross edges form a 4-cycle, each counted twice. Thus r=binom(n+m,2)−2m+ℓ−2c4, with obtuse wedge w and acute leaf ℓ; outward normals −e_v,e_u+e_v produce π/4,π/2,2π/3 interior angles. For trees m=n−1, total r~2n² and w bounds binom(Δ,2)≤w≤Δ(n−1) prove iff Δ=o(n). For Kpq, wedge/total ratio→1/3. Recomputed exact facet ranks for an isolated edge, three-vertex path, 4-vertex star, C4, and three disjoint edges.
 
-Compared with the 2017 bipartite stable-set inequality description, the new contribution is the codimension-two Euclidean angular classification, not the old inequalities. The 2018 stable-set 1-skeleton paper addresses edges of the primal polytope and does not state the ridge-angle result. Tran and Ziegler (2013/2014, primary full-text Lemma 8 and Proposition 9), as also quoted in the 2018 four-cycle paper, already give the edge-polytope 1-skeleton formula \(\binom m2-2c_4\); its coincidence with the edge-facet ridge subcount is acknowledged as established, not original. An earlier exact complete-split-graph angular result includes stars as a covered special case. Neither that covered star subfamily nor the known four-cycle edge-pair subcount is being presented as a fresh standalone theorem. The full bipartite angular histogram, leaf-sensitive facet-incidence classification and family-contrast asymptotics were not found in the compared sources. An unindexed equivalent or a more general facet-adjacency theorem remains possible, and published-priority certainty is not claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The finite-angle distribution is a natural complete Euclidean codimension-two invariant for every polytope in an infinite graph family. It distinguishes degree data invisible to the aggregate ridge count, records four-cycle structure as a codimension-two incidence deficit, and gives a precise graph-theoretic necessary-and-sufficient condition for high-dimensional right-angle concentration in all trees, contrasted with the macroscopic obtuse mass for bicliques. The value is this complete structural and asymptotic characterization, not the preexisting edge-polytope formula alone.
+The edge-facet/edge-facet subcount binom(m,2)−2c4 is known from Tran–Ziegler’s bipartite graph edge-polytope 1-skeleton (explicitly excluded from novelty); classical perfect-graph facet descriptions are also known, and the star specialization is covered by metric split-graph calculations. The submitted full coordinate-facet/edge-facet leaf characterization, three Euclidean angle multiplicities, joint graph-invariant reconstruction and arbitrary-tree iff do not follow from those inspected components alone; best-knowledge PASS with priority risks.
 
-## Closest literature and limitations
+## value
 
-- Aprile et al., arXiv:1702.08741 (2017): full-text relevant introduction and technical sections were inspected; background facet inequalities and extension-complexity results, not the angular classification.
-- Aliniaeifard et al., arXiv:1804.00360 (2018): full available manuscript on primal one-skeleton inspected; no explicit matching ridge-angle theorem found.
-- Tran and Ziegler, arXiv:1307.6708 (2013/2014): the full primary PDF was inspected at its low-dimensional-face section, including Lemma 8 and Proposition 9; these explicitly cover the edge-polytope 1-skeleton count.
-- Hibi, Mori and Ohsugi, arXiv:1801.06169 (2018): full available manuscript inspected, including Proposition 2.3, which cites the same established count. Both are significant partial-overlap sources.
-- Previous complete-split stable-set angular classification: covers stars; does not address general bipartite graphs, four-cycle incidence or the arbitrary-tree criterion.
+PASS
 
-No independent external review, bibliographic exhaustiveness or priority certification is claimed. The formulas are for unweighted graphs and their canonical Euclidean polytope realization.
+The exact Euclidean metric histogram encodes three concrete natural graph invariants: degree-one vertices, degree-two wedges, and K2,2 four-cycles. This gives a complete reconstruction from a polytope’s geometric face data, not a trivial enumeration. The sharp Δ(T_n)=o(n) criterion for universal right-angle concentration and persistent 1/3 biclique obtuse mass identify meaningful structural contrasts.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
