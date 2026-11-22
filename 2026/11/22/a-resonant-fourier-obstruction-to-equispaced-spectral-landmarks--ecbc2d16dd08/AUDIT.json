@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "For all even \\(m=2q\\ge6\\), \\(\\var\\(\\varepsilon\\)ilon\\in(0,2/15)\\), positive Fourier coefficients imply strict RKHS PD, analytic kernel, and a unique top-three eigenspace. Distinct node sets both have \\(\\Phi^*\\Phi=mI_3\\) by q-gon sums for orders 1,2. At the regular grid, the explicit orthonormal vector \\((\\psi_0-\\psi_m-\\psi_{-m})/\\sqrt3\\) lies perpendicular to every translate, so \\(F\\ge1/3\\). At the staggered grid a displayed finite kernel combination matches each top target and cancels both high spikes; remaining RKHS squared norm is \\(\\le\\var\\(\\varepsilon\\)ilon(1-2^{1-m})/\\lambda_t\\), summing to \\((5/2)\\var\\(\\varepsilon\\)ilon(1-2^{1-m})\\). \\(F(S)>0\\) by the Vandermonde argument. This proves the strict inequality and unbounded factor, independently of the 16 numerical tests in verify.py.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schreiber 2611.20336v1 §4.3: for \\(m>s\\) the principal angles are not determined by Phi alone",
+        "Schreiber §4.5 Theorem 13 gives equispaced F for the periodic Gaussian spectrum, not a general optimality theorem",
+        "Wind-Andersen 2611.02379v1 measures first-order Fourier Gram compensation and not F"
+      ],
+      "reasoning": "Neither a general tight frame theorem nor Gaussian equispaced numerical observations dominate an explicit nonmonotone spectral spike counterexample. Fourier perturbation results do not imply its quantitative RKHS projection bounds.",
+      "searches": [
+        "kernel Nyström RKHS projection optimal landmark counterexample equally spaced Fourier spectral tail resonant peak harmonic",
+        "equispaced points not optimal kernel eigenspace alignment due to spectral Fourier aliasing bandlimited periodic kernels",
+        "Schreiber F(Z) nonlinear kernel spectral projector unequispaced optimal landmark analytic circle counterexample"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.20336v1 full accessible HTML, §§3,4,7, Appendix A",
+      "arxiv:2611.02379v1 accessible manuscript, introduction and alias framework",
+      "published record published findings: Exact two-landmark design for a cosine kernel: a noise-independent angle and a quarter-power collision law (published 2026-11-02)",
+      "published record published findings: Universal half-step spectral optimality for paired Fock sampling rings (published 2026-11-01)",
+      "published record published findings: Exact spectral staircases for periodic narrow-arc Fourier observation (published 2026-11-08)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Schreiber §4.3 presents a sphere cube-vs-square-antiprism counterexample for \\(m>s\\)",
+        "Schreiber Theorem 13 calculates regular m-gon F using Gaussian Fourier aliases",
+        "Wind-Andersen §1 concerns first-order Frobenius Gram defect after compensation"
+      ],
+      "reasoning": "The nonoptimal spherical tight set shows a qualitative possibility but no analytic circle strict-PD example, no explicit regular-grid 1/3 obstruction, no \\(O(\\var\\(\\varepsilon\\)ilon)\\) nonuniform competitor, and no unbounded ratio. A single-source formula for a regular grid cannot alone compare it with a nonregular competitor; the latter requires the new cancellation witness. The Fourier-perturbation paper targets a different loss.",
+      "searches": [
+        "spectral landmark alignment eigenspace periodic circle six landmarks uneven union of rotated triangles Fourier mode 6 aliasing nonuniform better than equispaced",
+        "kernel Nyström RKHS projection optimal landmark counterexample equally spaced Fourier spectral tail resonant peak harmonic",
+        "Schreiber F(Z) nonlinear kernel spectral projector unequispaced optimal landmark analytic circle counterexample"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Schreiber 2611.20336v1 §4.3 notes tightness does not control F for \\(m>s\\); does not supply this circle analytic example",
+        "published record result Exact two-landmark design for a cosine kernel: a noise-independent angle and a quarter-power collision law (published 2026-11-02) concerns integrated posterior variance for a rank-three cosine kernel with two landmarks"
+      ],
+      "reasoning": "The closest two-landmark circle result minimizes noisy posterior variance on a finite-rank kernel, not the three-mode RKHS projector alignment from \\(m\\ge6\\) full-rank analytic kernels. Equivalence fails because objectives, kernel spectra and landmark counts differ.",
+      "searches": [
+        "spectral landmark alignment eigenspace periodic circle six landmarks uneven union of rotated triangles Fourier mode 6 aliasing nonuniform better than equispaced",
+        "spectral landmarks Schreiber 2611.20336 analytic strictly positive definite Fourier spectral spike at harmonic m regular even m-gon nonoptimal half-staggered twin polygons RKHS projector alignment",
+        "top three Fourier eigenfunctions tight frame but poor spectral landmark alignment periodic kernel resonant high-frequency alias unbounded loss"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published record returned the two-landmark cosine-kernel study Exact two-landmark design for a cosine kernel: a noise-independent angle and a quarter-power collision law (published 2026-11-02)",
+        "published record returned Universal half-step spectral optimality for paired Fock sampling rings (published 2026-11-01), addressing Fock Gram spectra",
+        "published record returned Exact spectral staircases for periodic narrow-arc Fourier observation (published 2026-11-08), addressing restriction frame concentration"
+      ],
+      "reasoning": "No retrieved published tabulation or result shares the analytic kernel coefficients, all-even-m two-coset construction and exact top-three projection loss comparison. Absence from semantic results alone is not a uniqueness proof.",
+      "searches": [
+        "Spectral Landmarks Schreiber 2611.20336 2026 equispaced nonoptimal counterexample",
+        "spectral landmarks Schreiber 2611.20336 analytic strictly positive definite Fourier spectral spike at harmonic m regular even m-gon nonoptimal half-staggered twin polygons RKHS projector alignment",
+        "top three Fourier eigenfunctions tight frame but poor spectral landmark alignment periodic kernel resonant high-frequency alias unbounded loss"
+      ]
+    },
+    "rationale": "Full-text comparison to the source 2611.20336v1 finds a general circle aliasing identity for Bessel/Gaussian coefficients and a spherical nonoptimal tight example, but not the present explicit all-even-m analytic circle kernel and quantitative unbounded equispaced-vs-tight-staggered loss. The related 2611.02379v1 has a different Fourier Gram-defect objective. Semantic mathematical-result searches for spectral alignment, periodic circles, Fourier resonances, tightness and Nyström design did not return a statement covering this theorem. Historical priority remains a finite-search limitation.",
+    "residual_risks": [
+      "A general independently published counterexample for a different positive-definite circle kernel might imply the construction through a straightforward Fourier specialization; exhaustive historical coverage is impossible.",
+      "The explicit kernel depends on m and has a deliberately nonmonotone high-frequency spike; no Gaussian or monotone-spectrum extension is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes alignment functional and tight-frame facts; its circle aliasing theorem specializes to a Gaussian Fourier spectrum, and §4.3 explicitly lacks an implication from tightness to alignment for \\(m>s\\). Its nonoptimal tight example is spherical, not the analytic circle family with unbounded ratio proved here.",
+        "evidence": [
+          "arXiv 2611.20336v1 §3 and Eq. for \\(F=s-\\mathrm{tr}(K^{-1}K_{\\mathrm{top}})\\)",
+          "§4.3 lines explaining no equivalence of tightness and alignment for \\(m>s\\), with cube/square-antiprism illustration",
+          "§4.5 Theorem 13 for Bessel Fourier coefficients beta_k=e^-alpha I_k(alpha)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.20336v1",
+        "material_read": "Full accessible HTML text including the definitions in §3, the frame and tightness results in §§4.2–4.3, the circle aliasing formula in §4.5, numerical results §7, and Appendix A",
+        "method": "Direct reading and statement-level comparison of the spectral assumptions, objective, quantifiers, and constructions",
+        "title": "Spectral Landmarks: Alignment of Landmark Kernel Translates with the Leading Eigenfunctions of a Kernel Operator",
+        "trigger": "Original rank-s eigenspace alignment functional; equispaced circle experiments; tight frames and their limitations when \\(m>s\\)"
+      },
+      {
+        "assessment": "Studies a first-order Fourier Gram defect under node/weight perturbations, not RKHS eigenspace projector F; neither the specific m-frequency spike nor its constant-vs-vanishing alignment comparison is contained in the results inspected.",
+        "evidence": [
+          "arXiv 2611.02379v1 introduction identifies the Frobenius Gram defect as its local objective",
+          "One-dimensional results concern perturbative reweighting and local alias classes"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.02379",
+        "material_read": "Accessible manuscript text including introduction, general alias-class construction, first-order covariance defect, and one-dimensional oversampling results",
+        "method": "Direct full-text reading and comparison of the measured functional and perturbation hypotheses",
+        "title": "Alias Geometry and Density Compensation in Perturbed Fourier Sampling",
+        "trigger": "Alternative Fourier aliasing framework and density compensation could subsume the two-coset de-aliasing design"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ecbc2d16-dd08-42f7-bbb8-bbcbbbcd6e4b",
+  "value": {
+    "rationale": "Spectral landmark selection is a motivated numerical approximation objective whose relation to equal spacing and tight leading-mode frames is nontrivial when \\(m>s\\). The theorem isolates a real aliasing obstruction: both sets have *identical optimal* leading-eigenfunction conditioning while their full-RKHS projector losses differ by a factor unbounded in \\(\\varepsilon\\). The result is uniform in all even landmark counts, uses an analytic strictly PD kernel with a top-three spectral gap, supplies an explicit geometric de-aliasing design, and cautions against optimizing only tight-frame surrogates. Although a constructed nonmonotone spectrum rather than a Gaussian family, the separation is mathematically substantive and reproducible.",
+    "status": "PASS"
+  }
+}
