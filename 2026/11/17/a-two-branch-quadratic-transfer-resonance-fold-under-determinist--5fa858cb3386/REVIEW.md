@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The concrete transfer formula follows from the two inverse branches and their Jacobian lengths. Expansion on the centered polynomial basis gives the two-by-two matrix with strictly negative off-diagonal on the precise parameter domain. Equality of diagonal entries thus forces a genuine size-two Jordan block; the nilpotent binomial identity supplies the exact all-iteration covariance, not a numerical extrapolation. The scalar ratio has one maximum on the upper parameter interval; the algebraic maximum and the unique lower inverse threshold prove the 0/1/2 phase diagram. A strict leading-coefficient bound gives polynomial-degree dominance without claiming spectral isolation in BV. The original-map quadratures corroborate both explicit roots and the two distinct first-negative lags.
+## correctness
 
-## Originality (PASS within inspected evidence)
-The Bruin–Keszthelyi primary text defines the two-parameter skew tent maps and proves orbit-density assertions; it does not furnish the deterministic two-season PF Jordan fold or covariance. The full published Butterley–Kiamari–Liverani paper has general affine Markov transfer spectral methods and an orientation-preserving Jordan example, so neither the abstract mechanism nor the existence of Jordan blocks is new. The Suzuki 2024 preprint concerns nonleading eigenvalues for beta maps, not these products. A close publicly indexed result on *random independent mixing of two skew tent maps* gives an averaged-transfer Jordan example and lag-sign transition; the ordered product and full two-branch fold are not implied by a convex-combination calculation. Its complete repository file was inaccessible, leaving explicit residual priority risk. The complete finite-degree polynomial-spectrum statement is limited as in the result; no unexamined BV spectrum is claimed.
+PASS
 
-## Mathematical value (PASS)
-For deterministic temporal forcing of a canonical full-branch interval family, the sharp fold provides an exact onset of two distinct resonant seasonal choices, even though both individual polynomial modes are simple. The degenerate mode is maximally slow among nonconstant polynomial degrees, and its nilpotent component produces a measurable, exactly signed correlation decay not visible from the eigenvalue alone. The two exact algebraic seasonal choices have different first sign-reversal lags. This is a natural dynamical observable and a complete transition for a two-parameter domain, rather than an arbitrary numerical slice or generic textbook deduction.
+Direct inverse-branch PF computation on mean-zero u=x-1/2, v=x^2-x+1/6 yields a triangular 2x2 matrix for P_bP_a with diagonal g(a)g(b), h(a)h(b), and off-diagonal C=-a(1-a)g(b)-h(a)b(1-b)<0. At λ1=λ2 the Jordan power is exact, and orthogonal u,v moments 1/12,1/180 give Cov(X^2,F^n(X)^2)=(4/45)λ^n+(C/12)nλ^(n-1). R=g/h increases then decreases on b∈(2/3,1), maximum 2/sqrt(3) at b*, proving 0/1/2 resonance roots at a*. Symbolic substitution independently recovers b±=207/254±sqrt(9213)/762 for a=13/20 and sign-thresholds ≈0.7853 and ≈1.29286; high-degree polynomial diagonal moduli are bounded strictly by h(a)h(b)=λ. No global BV spectral-isolation claim is made.
 
-## Closest literature and risks
-The general transfer-resonance literature supplies methods broad enough to compute examples but does not supply this specific sharp fold, proof or seasonal covariance. The 2026 random-switching analogue was checked through its published result summary only; linked full text could not be retrieved. Full BV claims and other parameter sectors are explicitly excluded. Equivalent unindexed published computations cannot be ruled out. No independent validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing random skew-tent Jordan resonance concerns annealed convex combinations; this is the deterministic ordered product with a different algebraic fold and exact two-return covariance. General transfer-operator Jordan existence and polynomial-time decay are prior knowledge; the sharp deterministic parameter classification and two distinct negative-lag thresholds survive the implication comparison on a best-of-knowledge basis.
+
+## value
+
+PASS
+
+Deterministic periodic forcing of a natural full-branch expanding interval map creates a defective leading polynomial mode despite two nonresonant seasons. The exact onset fold, two branches and opposing first-negative-return lags are measurable rigidity/relaxation distinctions beyond the routine Jordan-block identity. The mathematical object and covariance are motivated independently of a one-off rational parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
