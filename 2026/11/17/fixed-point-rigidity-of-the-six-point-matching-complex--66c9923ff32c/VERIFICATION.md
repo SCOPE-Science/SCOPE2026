@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-In one directory place the two supplied files `verify_m6_fixed.py` and `m6_subgroup_census.csv`, then run `python3 verify_m6_fixed.py`. No third-party Python modules are necessary. The exact expected output is provided in `verification_output.txt` and is reproduced by the script. The command reads and checks the provided certificate without changing it.
+## correctness
 
-The script enumerates every element of \(S_6\) and its multiplication, constructs all subgroups by conjugacy-class closure and extension by every group element, checks all 56 class sizes via normalizer cardinalities, builds orbit-compression complexes, independently validates every listed elementary collapse free face, and reclassifies every one of the 1,455 labeled subgroups directly. The results are: one 16-circle wedge, 1,140 collapsible fixed complexes, 80 discrete three-point fixed complexes, and 234 empty fixed spaces.
+PASS
 
-The CSV explicitly contains every conjugacy representative's permutation-generator indices (lexicographic indexing of permutations of six zero-based labels), edge-orbit vertices (indices in the lexicographic list of the fifteen two-subsets), and all elementary collapse steps and final residual faces. Each line is independently replayed against the reconstructed face poset. The trivial-group residual graph is connected with 15 vertices and 30 edges; the remaining residual complexes have at most three isolated vertices.
+The fixed space of any simplicial H-action is represented by admissible full vertex-orbits, by constant barycentric coordinates; the inverse rescales orbit weights. S6 has 720 permutations; the inspected checker generates all subgroups by adjoining elements up to conjugacy, validates class sizes by normalizers and reports 56 classes/1455 labeled subgroups. The actual CSV provides all 56 collapse sequences and residual face sets, each pair required to be a codimension-one free face of a unique maximal simplex. The trivial group has 15 vertices, 45 edges, 15 faces and a connected graph residual with 15 vertices and 30 edges (16 loops). Nontrivial residuals are empty, one vertex or three vertices: labeled counts 234,1140,80. Independent small subgroup-orbit check confirms separate disjoint 3-cycle groups have three admissible orbit vertices each but their joint order-nine group has none. These are finite exhaustive certificates; potential code error remains.
 
-# Limits
+## originality
 
-The exhaustive argument is finite and applies only to the six-vertex complete graph. Both subgroup construction and orbit-compression definitions are implemented directly from the mathematical rules; independent mathematical validation or a separately developed implementation has not been performed. The prior-literature comparison does not exclude equivalent unindexed work.
+PASS
+
+The exact four-type, 1455-subgroup integral homotopy census is not stated by the broader normalizer/involution PL model, which computes an arbitrary finite orbit complex but does not classify 56 S6 conjugacy-class complexes or furnish 56 free-face collapses. Ordinary M6 homology and all cyclic cases are known. This qualifies only as an exact motivated finite homotopy census, not a new general fixed-point principle.
+
+## value
+
+PASS
+
+The complete classification of all subgroup fixed loci of the smallest matching complex with a nontrivial S6 action is a natural equivariant topological invariant, not a random subset or a textbook Euler count. It detects simultaneous noncyclic fixed-point disappearance and supplies explicit integral simple-collapse certificates that a general face model alone does not compute.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

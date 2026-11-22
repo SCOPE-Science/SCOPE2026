@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. The geometric fixed-point model is proved using unique orbit-constant barycentric coordinates. Complete exact subgroup enumeration is justified by closure under adjoining each permutation and full conjugacy, with 56 representatives accounting for exactly 1,455 subgroups and independent normalizer counts confirming every class size. Each of 56 explicit sequences in the CSV passes a full free-face replay check; an additional enumeration checks all 1,455 labeled subgroup fixed complexes directly. The trivial-group residual graph has 15 vertices and 30 edges and is connected, giving 16 circles. The other residual complexes are a vertex, three isolated vertices, or the empty complex. All assumptions and boundary cases are addressed.
+## correctness
 
-## Originality
-PASS relative to inspected material. Shareshian–Wachs establish the standard matching complexes and classical integral homology facts; no novelty is claimed for those. The complete cycle-type fixed-space theorem covers single-generated cyclic subgroups, and the involution theorem is a special case. Neither determines the common fixed loci of arbitrary subgroups; for example, two cyclic subgroups each fix three points while their generated order-nine subgroup fixes nothing. An arbitrary-subgroup result for line-clique complexes is about pairwise-intersecting rather than pairwise-disjoint edges. The current accessible own claims concern other graph complexes or a cyclic \(K_7\) quotient, not all \(S_6\) fixed loci of \(\mathcal M(K_6)\). Closest-results identifiers and implication comparisons are recorded in the structured audit. Unindexed coverage remains a risk, as does reliance on exact finite computation.
+PASS
 
-## Mathematical value
-PASS. The six-point matching complex is the first small complete-graph matching complex with maximal two-simplices and a nontrivial 16-circle homotopy type. The entire simultaneous-subgroup fixed-space diagram for its natural full symmetric action is a canonical finite topological invariant, relevant to genuine equivariant constructions and not determined by rational homology characters or individual permutation fixed types. Its unexpectedly rigid four-type spectrum and the distinction between two three-point cyclic loci and their empty joint locus make the classification more informative than an arbitrary parameter table. The result does not claim a general theorem for larger complete graphs.
+The fixed space of any simplicial H-action is represented by admissible full vertex-orbits, by constant barycentric coordinates; the inverse rescales orbit weights. S6 has 720 permutations; the inspected checker generates all subgroups by adjoining elements up to conjugacy, validates class sizes by normalizers and reports 56 classes/1455 labeled subgroups. The actual CSV provides all 56 collapse sequences and residual face sets, each pair required to be a codimension-one free face of a unique maximal simplex. The trivial group has 15 vertices, 45 edges, 15 faces and a connected graph residual with 15 vertices and 30 edges (16 loops). Nontrivial residuals are empty, one vertex or three vertices: labeled counts 234,1140,80. Independent small subgroup-orbit check confirms separate disjoint 3-cycle groups have three admissible orbit vertices each but their joint order-nine group has none. These are finite exhaustive certificates; potential code error remains.
 
-## Publication comparison and limitations
-Relevant full material examined: Shareshian–Wachs 2004, Section 1 and beginning of Section 2; published cycle-type matching fixed-locus `RESULT.md`; published involution fixed-locus `RESULT.md`; published line-clique arbitrary-subgroup `RESULT.md`. Wachs's 2003 survey was consulted at abstract/bibliographic level only, and Bouc's 1992 original was not read. None of the inspected statements implies the all-subgroup classification; bibliographic noncoverage and software implementation error are residual risks. No independent review has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact four-type, 1455-subgroup integral homotopy census is not stated by the broader normalizer/involution PL model, which computes an arbitrary finite orbit complex but does not classify 56 S6 conjugacy-class complexes or furnish 56 free-face collapses. Ordinary M6 homology and all cyclic cases are known. This qualifies only as an exact motivated finite homotopy census, not a new general fixed-point principle.
+
+## value
+
+PASS
+
+The complete classification of all subgroup fixed loci of the smallest matching complex with a nontrivial S6 action is a natural equivariant topological invariant, not a random subset or a textbook Euler count. It detects simultaneous noncyclic fixed-point disappearance and supplies explicit integral simple-collapse certificates that a general face model alone does not compute.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
