@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The stated rank identity follows from an exact monomial projection formula, a nonzero leading anti-diagonal after polynomial-pencil elimination, and a skew-symmetric bilinear pairing that forces even rank. The centered Wronskian degree is determined by the two distinct leading degrees, and the analytic range/vanishing-on-analytic-domain property proves square zero.
+# Independent mathematical audit
 
-`check_rank.py` runs with Python 3 and no third-party modules. Its exact-rational deterministic suite tests 1305 pairs, including every coefficient triple in a small finite grid and seeded higher-degree pairs, and checks both the rank formula and weighted skew-symmetry. These checks were run successfully on the packaged source. They are finite diagnostics, not an exhaustive universal proof.
+## correctness
 
-The closest published general finite-rank classification gives finiteness and square-zero, while quasihomogeneous rank formulas cover individual monomial-type symbols. The 2013 general rank paper was not available in full during this comparison; its possible additional polynomial results are a residual originality risk. No separate external verification or independent mathematical audit has been performed.
+PASS
+
+On normalized unweighted harmonic Bergman disk, T_{z^p} on z^j is z^{p+j} and on anti-analytic zbar^n has the two explicit projected branches. For monomial p<q the commutator maps only anti-analytic basis to analytic output on k+n=p+q, nonzero except the possible central k=n. Polynomial-pencil elimination picks distinct pivot degrees r>s and isolates a nonzero top anti-diagonal; skew-symmetry for B(h,k)=int hk dA yields even rank, proving rank=2 floor((r+s-1)/2)=2 floor(deg centered Wronskian/2). W=0 iff affine dependent, giving zero, and analytic range plus analytic annihilation implies C^2=0. An independent exact-rational monomial composition/rank check for (1,2),(1,3),(2,3),(2,6),(4,7) and the weighted skew identity matched; finite checks are not full proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS with priority risk: Cui-Huang-Lu-Zu general harmonic Bergman commutator theorem characterizes finite rank and square-zero, not exact arbitrary-polynomial Wronskian-degree rank. Dong-Zhou gives quasihomogeneous/monomial formulas. Chen-Koo-Lee 2013 abstract mentions parity and realizability but full article was inaccessible and could contain related formulas. No strongly covering prior assertion was found.
+
+## value
+
+PASS
+
+The exact rank of every pair of analytic polynomials, including arbitrary lower-degree cancellations, is a natural complete invariant of a two-dimensional centered polynomial pencil. Neither finite-rank characterization, even-rank necessity nor monomial examples answer it; this avoids mere table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
