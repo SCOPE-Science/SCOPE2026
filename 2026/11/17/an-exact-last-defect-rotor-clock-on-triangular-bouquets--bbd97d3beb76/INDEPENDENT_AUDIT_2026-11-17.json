@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T19:00:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For a bidirected bouquet of k triangles with a single chip at hub h and exact specified cyclic rotor order (increment-before-move), every nonhub directed rotor cycle is exactly the local two-cycle (a_j,b_j) with initial bits (1,0). By the recurrent-state unicycle criterion of Holroyd et al., the initially all-good states (3^k) are already recurrent. For any state with bad petals, scanning earlier petals in hub order costs six moves per good and four per bad, changing a bad petal to a good state; after the hub's arrival at the final bad petal J, the chip lies on the only remaining directed cycle. Thus first entry τ=6J−2B+1 (B prior bad petals), *not* first return to hub. Counting trailing good petals and independent preceding choices proves H_k(z)=3^k+Σ_{j=0}^{k−1}3^{k−1−j}z(z^4+3z^6)^j; H_k(1)=4^k, maximum 6k−5 has 3^{k−1} realizers. Differentiate at z=1 for Eτ=(11/2)k−21+21(3/4)^k. If S_k~Bin(k,1/4) and R=k−1−J is tight geometric trailing-good count, τ=6k−3−6R−2S_k on S_k>0. The binomial CLT yields normalization sqrt(3k/4). Independently implemented full deterministic chip+rotor orbit and first repetition, exhaustively checked all 1,364 initial assignments for k=1..5 against τ and H_k histogram, including maxima 1,7,13,19,25 and counts 1,3,9,27,81. Original verify_rotor.py source inspected; independent simulation corroborates the explicit all-k excursion proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Equal-arm spiders are trees with different rotor-graph cycles and formulas; triangular bouquets contain graph cycles.",
+          "Poghosyan–Priezzhev works on Euler tours/unicycles in recurrent dynamics."
+        ],
+        "reasoning": "Neither tree first-entry formulas nor the universal unicycle criterion dominates the explicit bouquet transient-count polynomial.",
+        "searches": [
+          "rotor router triangular bouquet single chip first recurrence time last bad petal distribution clock",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-first-recurrence-clocks-for-rotor-walks-on-equal-arm-spide--3c271a1bae4b",
+          "https://arxiv.org/abs/1310.1225"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob a13ef784772ea42257d6dc1ea239d753b67e20ab and verified tree f0eacc4924341e2ec271d0c778009c79db4e0db0",
+        "Frozen verify_rotor.py sha 3e7277db6faedf14749a20e845434c15ca2a92ce",
+        "Fresh full chip-and-rotor finite orbit detection for k=1..5, 1364 assignments",
+        "https://arxiv.org/html/0801.3306v4",
+        "rotor router triangular bouquet single chip first recurrence time last bad petal distribution clock"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.8 characterizes when a state is recurrent but not the first time a given initial state enters recurrence.",
+          "Specific τ=6J−2B+1 depends on 4/6 local excursion durations, rotor indexing and last bad petal."
+        ],
+        "reasoning": "Applying a general unicycle test does not automatically give this explicit enumeration or Gaussian fluctuation law; a nonstandard local excursion argument is essential.",
+        "searches": [
+          "rotor router triangular bouquet single chip first recurrence time last bad petal distribution clock",
+          "https://arxiv.org/html/0801.3306v4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Holroyd et al. Theorem 3.8: single-chip recurrent states on strongly connected bidirected digraphs exactly unicycles.",
+          "For this bouquet, non-hub two-cycles from initial (1,0) pairs determine first entry, not solely chip first return."
+        ],
+        "reasoning": "Terms 'rotor-router', 'Eulerian walker', 'unicycle recurrent state' are related but only establish a recurrence predicate; first-entry clock from arbitrary transient configurations requires the petal excursion analysis.",
+        "searches": [
+          "rotor router triangular bouquet single chip first recurrence time last bad petal distribution clock",
+          "https://arxiv.org/html/0801.3306v4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The general rotor-routing survey gives recurrent-state characterization and recurrent tours, not counts H_k(z) of all 4^k indexed peripheral initial rotor states.",
+          "Independent k≤5 histograms reproduce the stated exact polynomial."
+        ],
+        "reasoning": "No inspected specialized bouquet table supplies the exact law; this is not a proof of novelty in all unindexed graphs or rotor-order conventions.",
+        "searches": [
+          "rotor router triangular bouquet single chip first recurrence time last bad petal distribution clock",
+          "https://arxiv.org/abs/0801.3306",
+          "https://arxiv.org/abs/1310.1225"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge. The standard single-chip unicycle criterion and Eulerian recurrent tours are prior general results, but do not supply the labelled distribution of *transient entrance times* for initial peripheral rotor choices on this specific non-tree bouquet with a fixed hub cyclic order. Resultary contains related transient clocks on cycles, sunlets, comb trees and spiders, none of whose model-specific formulas imply the present last-bad-petal histogram. Novelty is the exact first-recurrence law/CLT, not the unicycle criterion or standard CLT.",
+      "residual_risks": [
+        "A specialized rotor-router bouquet transient classification may be hidden in unindexed graph literature.",
+        "Finite checks k≤5 are not an all-k argument; conclusions depend on stipulated hub direction/order and chip starting at hub."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the core recurrence test, but not the first-entry histogram on flower graph with this rotor order.",
+          "evidence": "A recurrent unicycle criterion is a membership test, not a formula for entrance times under arbitrary initial rotor bits.",
+          "identifier_or_url": "https://arxiv.org/html/0801.3306v4",
+          "material_read": "Full accessible HTML article, especially Theorem 3.8 on unicycles and Eulerian tour Lemma 4.9",
+          "method": "Read original arXiv HTML text, relevant proof sections",
+          "title": "Chip-Firing and Rotor-Routing on Directed Graphs",
+          "trigger": "Foundational same rotor-router dynamics and unicycle recurrence condition"
+        },
+        {
+          "assessment": "Cannot exclude detailed transient bouquet appendix on abstract evidence alone; recorded as residual priority risk.",
+          "evidence": "The consulted descriptions concern tours on recurrent unicycles and contours.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.1225",
+          "material_read": "Accessible metadata/abstract and author's cited summary, not complete primary text",
+          "method": "Targeted bibliographic comparison",
+          "title": "Euler tours and unicycles in the rotor-router model",
+          "trigger": "Similar unicycle terminology and rotor tours"
+        },
+        {
+          "assessment": "Spider is a tree, not a bouquet of cycles; no straightforward parameter specialization.",
+          "evidence": "Spider max clock (L−1)((2k−1)L−1) versus bouquet 6k−5; different rotor obstruction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-first-recurrence-clocks-for-rotor-walks-on-equal-arm-spide--3c271a1bae4b",
+          "material_read": "Published Resultary semantic hit with mathematical model and sharp bound, full RESULT not inspected",
+          "method": "Compare precisely summary statement to graph model",
+          "title": "Exact first-recurrence clocks for rotor walks on equal-arm spiders",
+          "trigger": "Published similar entrance-clock enumeration on another graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Entry to full deterministic rotor recurrence on a natural cactus graph is distinct from Eulerian period and hub return time. The last-defect formula completely classifies labelled initial rotor states, yields a sharp rare maximal-delay shell and demonstrates Gaussian versus extremal clocks. This is a motivated natural exact initial-condition invariant, not a generic restatement of a unicycle criterion. Fixed ordering and initial hub state are essential limits.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed hub rotor and cyclic order, peripheral rotor orders, one chip starting at h.",
+    "No conclusions for arbitrary hub initial rotor choices, chip starts, general cacti, or all graph types."
+  ],
+  "schema_version": 1
+}
