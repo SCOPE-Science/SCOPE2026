@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For every m,n>=2 spectral clipping is the Frobenius projector. At Z_s=(1+s)uv^T its derivative tends the tangent hyperplane map J_G=I-G tensor G. Its induced max-entry row norm has the explicit formula in the proof; Cauchy and equal-tail attainment optimize over unit singular vectors. At any almost-everywhere Euclidean projector derivative the symmetric positive contraction 0<=J<=I bounds an absolute row sum by (1+sqrt(mn))/2; mollification and segment integration give the full two-input bound. The 2-by-2 equality, square dimension growth and rank-one tangential asymptotic follow algebraically. Supplementary finite checks pass but do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "published-finding corpus: Sharp independent-entry Lipschitz constants for 2-by-2 semidefinite projection (2026/10/18), about the positive-semidefinite cone.",
+        "published-finding corpus: Small-order endpoint stability and a regular-face obstruction for Euclidean Birkhoff projection (2026/11/2), about doubly stochastic matrices.",
+        "General Hilbert-space metric-projection firm nonexpansivity controls the Frobenius norm, not the sharp entrywise instability lower bound."
+      ],
+      "reasoning": "Conic PSD repair and Birkhoff-polytope repair have different feasible sets and tangent restrictions, and their stated constants cannot imply the spectral-norm-ball result. A universal Hilbert projection upper bound is proved independently here; it cannot imply the lower bound or the exact rank-one family.",
+      "searches": [
+        "operator norm constrained matrix correction max entry error amplification dimension spectral projection",
+        "rank-one u v outer normal tangent projector I - uuT tensor vvT infinity induced norm asymptotic n/4",
+        "sharp independent-entry Lipschitz constants for 2x2 semidefinite projection"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1805.10408",
+      "https://arxiv.org/abs/1209.3318",
+      "https://mathscinet.ams.org/msc/msc2020.html?t=47H09",
+      "published-finding corpus: Sharp independent-entry Lipschitz constants for 2-by-2 semidefinite projection (2026/10/18)",
+      "published-finding corpus: Sharp diagonal and off-diagonal amplification in two-by-two semidefinite projection (2026/11/2)",
+      "published-finding corpus: A sharp rank-independent SVD positivity boundary with vanishing nonnegative-approximation cost (2026/11/2)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Spectral clipping in both source papers is adopted without a novelty claim.",
+        "New proof requires derivative at (1+s)uv^T, an absolute-row-sum optimization, and the positive-contraction Jacobian upper bound."
+      ],
+      "reasoning": "Knowing the proximal formula gives the projector but does not supply its sharp entrywise stability behavior. The closest general Hilbert projector estimate is an upper bound in the Frobenius norm. Neither inspected primary source establishes the rank-one tangent family maximization, linear dimension lower bound, or exact 2-by-2 entrywise constant; the claim remains narrower than an exact all-dimensional coefficient.",
+      "searches": [
+        "Frobenius nearest projection onto spectral operator norm ball ||X||2≤1 coordinate maximum entry ||·||max sharp Lipschitz grows linear in matrix order",
+        "operator norm constrained matrix correction max entry error amplification dimension spectral projection",
+        "arxiv:1805.10408 Section 3 Proposition 9",
+        "arxiv:1209.3318 Proposition 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lefkimmiatis--Ward--Unser, arXiv:1209.3318, Proposition 1, projects Schatten norms by singular-value projection.",
+        "Sedghi--Gupta--Long, arXiv:1805.10408, Section 3 / Proposition 9, uses operator-norm-ball singular-value clipping."
+      ],
+      "reasoning": "Equivalent formulation would be SVD singular-value clipping with a sharp global maximum-entry Lipschitz estimate. Both sources contain the clipping identity as an ingredient, but the inspected sections have no maximum-entry perturbation coefficient, rank-one tangential row-sum optimization, or linear-in-matrix-order instability theorem. Standard Euclidean nonexpansivity alone yields a weaker square-root-of-dimension estimate and does not imply the lower bound.",
+      "searches": [
+        "Frobenius nearest projection onto spectral operator norm ball ||X||2≤1 coordinate maximum entry ||·||max sharp Lipschitz grows linear in matrix order",
+        "singular value clipping SVD capping elementwise sensitivity rank-one boundary Jacobian tangent projector",
+        "arxiv:1805.10408",
+        "arxiv:1209.3318"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus: Sharp diagonal and off-diagonal amplification in two-by-two semidefinite projection (2026/11/2).",
+        "published-finding corpus: A sharp rank-independent SVD positivity boundary with vanishing nonnegative-approximation cost (2026/11/2).",
+        "No checked mathematical table gave the two-variable tangent maximum for the operator-norm ball."
+      ],
+      "reasoning": "The PSD repair record concerns a distinct convex cone; the SVD truncation result concerns entrywise signs of low-rank approximation rather than Lipschitz constants. Exact numerical coincidence in 2-by-2 cases is not an implication, and no exact spectral-ball norm table was identified.",
+      "searches": [
+        "Frobenius nearest projection onto spectral operator norm ball ||X||2≤1 coordinate maximum entry ||·||max sharp Lipschitz grows linear in matrix order",
+        "singular value clipping SVD capping elementwise sensitivity rank-one boundary Jacobian tangent projector",
+        "rank-one u v outer normal tangent projector I - uuT tensor vvT infinity induced norm asymptotic n/4"
+      ]
+    },
+    "rationale": "The primary sources explain singular-value clipping but do not provide an entrywise Lipschitz bound. The new statement proves a rank-one smooth-boundary tangent optimization and a dimension-linear lower bound with an exact 2-by-2 coefficient. Semantic searches for equivalent spectral-ball perturbation statements and comparisons with the closest database findings showed no evident implication; historical priority remains an explicit risk.",
+    "residual_risks": [
+      "The inspected primary texts and available semantic records do not exclude earlier equivalent spectral-ball results under different terminology.",
+      "The exact unrestricted Lipschitz coefficient for m,n beyond the 2-by-2 case is not established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes singular-value and operator-norm projection mechanics but not the claimed global coordinatewise Lipschitz bound.",
+        "evidence": [
+          "arXiv version 1 submitted May 26, 2018 UTC.",
+          "Proposition 9 and Section 3 describe projecting onto the operator-norm ball."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1805.10408",
+        "material_read": "Full accessible arXiv PDF, especially Section 3, the spectral clipping discussion, Proposition 9 and surrounding proof text.",
+        "method": "Read accessible full-text/PDF sections and inspected PDF page image containing Proposition 9.",
+        "title": "The Singular Values of Convolutional Layers",
+        "trigger": "Uses projection of convolutional layers onto operator-norm balls, potentially the same stability object."
+      },
+      {
+        "assessment": "Derives matrix projection by singular-value vector projection, but inspected portions do not present maximum-entry sensitivity or dimension-linear amplification.",
+        "evidence": [
+          "arXiv version 1 September 14, 2012; supporting earlier source only.",
+          "Proposition 1 supplies the singular-value projection relationship."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1209.3318",
+        "material_read": "Accessible manuscript at https://bigwww.epfl.ch/stamatis/publications/tipJ2013.pdf, Proposition 1 and Section III-F and associated explanation.",
+        "method": "Inspected extracted full-text portions and primary PDF page image around the projection proposition.",
+        "title": "Hessian Schatten-Norm Regularization for Linear Inverse Problems",
+        "trigger": "Underlying source for exact Frobenius Schatten-ball projection formula."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "79a64f1d-df26-4645-9f90-c7091b81e15e",
+  "value": {
+    "rationale": "Spectral-norm-ball projection is standard in conic and regularized matrix processing. Exact robust entrywise error budgets are not implied by Frobenius nonexpansivity. The theorem gives a dimension-linear instability mechanism, a sharp family of boundary tangents, a two-variable maximization valid in every rectangular dimension, and an exact 2-by-2 global coefficient; it explicitly leaves the general global sharp coefficient open. These are structural sensitivity facts about an intrinsic operation, not a parameter rename or arbitrary finite sample.",
+    "status": "PASS"
+  }
+}
