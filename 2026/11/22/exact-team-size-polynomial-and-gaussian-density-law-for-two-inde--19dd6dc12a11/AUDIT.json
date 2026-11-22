@@ -1,0 +1,170 @@
+{
+  "correctness": {
+    "rationale": "All four distinct nonzero row-pattern cases are necessary and sufficient; inclusion-exclusion covers all sizes and the independent multinomial formula agrees. Generic two-factor encodings are exactly 2 per matrix; a union bound makes defective encodings exponentially rare. A degenerate two-sample expansion yields the exact factor mean, variance and square-order CLT. The standard-library checker agrees with exhaustive direct unions for all 25 rectangles of sizes 1..5 and with exact latent moments for N=1..4. All-size proof is structural, not extrapolated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Full 22-page Haak et al. paper develops #·NP and #P-style counting-class characterizations for FO team logics; no finite rank-two weighted polynomial or Gaussian fluctuations identified",
+        "Parnas–Shraibman accessed article sections focus Boolean/binary/real rank inequalities for real rank ≤4",
+        "Barbero et al. discuss sequent calculi with tensor rather than weighted model counting"
+      ],
+      "reasoning": "General team-counting classes contain this fixed formula as a special case but do not determine its cardinality coefficients or distributional asymptotics. General factorization results are insufficient for a Gaussian law without explicit generic-multiplicity and variance analysis.",
+      "searches": [
+        "Boolean rank 2 binary matrices number of ones distribution bivariate generating polynomial weight enumerator",
+        "\"Boolean rank\" \"number of ones\" \"rank two\" enumeration matrices",
+        "\"Boolean rank two\" \"weight distribution\" matrices",
+        "doi:10.1145/3771721 Counting of Teams in First-Order Team Logics",
+        "doi:10.1016/j.dam.2026.02.014"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2606.31860",
+      "https://research-portal.uu.nl/ws/files/280122104/3771721.pdf",
+      "https://arxiv.org/abs/1902.00246",
+      "https://doi.org/10.1016/j.dam.2026.02.014",
+      "https://arxiv.org/abs/2507.05824",
+      "https://oeis.org/A354741",
+      "https://doi.org/10.1145/3522594",
+      "published-finding corpus published finding: Exact size enumerator for a two-dependence-atom disjunction (2026-10-18)",
+      "https://arxiv.org/abs/2107.10817",
+      "https://www.cambridge.org/core/journals/bulletin-of-symbolic-logic/article/team-semantics-and-independence-notions-in-quantum-physics/E095EBD19F457BBE1F6B8548E26BDE9C"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published published-finding corpus row-column-cross count handles dep(x,y)∨dep(x,z), a downward-closed property; the present y⊥z∨y⊥z counts unions of rectangles, not generally downward-closed",
+        "Haak et al. 2019/2025 give complexity-class completeness rather than a formula for this fixed cardinality distribution",
+        "Barbero et al. 2026 treat the team-semantics proof calculus, not a size-by-size census"
+      ],
+      "reasoning": "No cited theorem yields the proposed weighted coefficients as a direct corollary: known unweighted Boolean rank counts forget all but evaluation at t=1, and counting-complexity class membership does not produce exact formulas. The asymptotic normal law requires a separate argument, and generic factorization uniqueness alone does not give its constants.",
+      "searches": [
+        "two biclique coverable teams dependence independence logic disjunction exact weighted size spectrum model counting and typical density",
+        "exact area generating polynomial and Gaussian central limit theorem for two-rectangle Boolean matrices, Boolean rank 2, independent 2-variable team disjunction, asymptotic edge density 7/16 variance 19/128",
+        "published-finding corpus published finding: Exact size enumerator for a two-dependence-atom disjunction (2026-10-18)",
+        "https://arxiv.org/abs/1902.00246",
+        "https://arxiv.org/abs/2606.31860"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Two rectangles = Boolean rank at most two = lax split of two unconditional independence atoms, verified directly",
+        "OEIS A354741 has rank totals at t=1 but lacks individual |X| coefficients",
+        "Factorization work addresses uniqueness of factors rather than the exact weight polynomial"
+      ],
+      "reasoning": "Comparison treats Boolean rank and biclique-cover language as exact equivalents, not merely analogous terms. Known count at t=1 is explicitly excluded from claimed novelty; the claimed all-weights result is strictly more informative.",
+      "searches": [
+        "edge count generating polynomial for binary matrices Boolean rank at most two biclique cover density 7/16 asymptotic normal distribution of ones",
+        "two biclique coverable teams dependence independence logic disjunction exact weighted size spectrum model counting and typical density",
+        "exact area generating polynomial and Gaussian central limit theorem for two-rectangle Boolean matrices, Boolean rank 2, independent 2-variable team disjunction, asymptotic edge density 7/16 variance 19/128",
+        "OEIS A354741 Boolean row rank exactly two",
+        "https://doi.org/10.1145/3522594"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A354741 published the exact square counts T(n,0), T(n,1), T(n,2) and rank-two formula in 2022",
+        "The new polynomial at t=1 reproduces 356 at order 3 and 8776 at order 4; coefficients are separately verified by exhaustive rectangle unions",
+        "The published-finding corpus reversible dependence family counts a different atom and different rank parameter"
+      ],
+      "reasoning": "Existing tabular totals are a specialization of the candidate but do not imply the full weighted polynomial or the uniform-distinct-team normal limit. No exact weighted table was found in queries; absence is not a general originality guarantee.",
+      "searches": [
+        "\"A354741\" \"Boolean rank\"",
+        "https://oeis.org/A354741",
+        "published-finding corpus published finding: Sharp tensor width and counting law for reversible Boolean teams (2026-11-08)"
+      ]
+    },
+    "rationale": "Known unweighted square Boolean-rank-2 enumerations (OEIS A354741) and general Boolean factorization uniqueness are acknowledged. Closest primary counting-team result covers complexity classes, not the complete cardinality polynomial for the repeated independence atom. Same-domain published dependence-disjunction spectrum concerns a different model class. An equivalent older weighted-enumeration result cannot be ruled out, and priority remains provisional.",
+    "residual_risks": [
+      "The known unweighted OEIS A354741 formula might be accompanied by an unindexed weighted matrix-type enumeration elsewhere.",
+      "Full text of the 2026 motivating preprint and the general Boolean factorization uniqueness article was not completely inspected; no strong contradictory coverage was found, but priority remains provisional.",
+      "Older 2019 counting-team results supply the broad logic framework and could contain specialized examples not readily searchable; inspected main results did not imply this fixed-formula polynomial."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Counting-class complexity and fixed-formula expressibility rather than explicit team-cardinality polynomial; does not directly cover claim",
+        "evidence": [
+          "Definitions of independence atom and lax splitting, pages 3–4",
+          "Theorem 3.2 and broader #·NP characterization in main section",
+          "Conclusions discuss approximability of counting classes, not Gaussian finite-team laws"
+        ],
+        "identifier_or_url": "https://research-portal.uu.nl/ws/files/280122104/3771721.pdf",
+        "material_read": "22-page open-access PDF: introduction, definitions, main theorems, proof sections and concluding questions; search for cardinality, rectangles and random",
+        "method": "Text extraction in publisher PDF through open/read, plus visual inspection of first page",
+        "title": "Counting of Teams in First-Order Team Logics",
+        "trigger": "Most directly related model counting of team semantics and independence atoms"
+      },
+      {
+        "assessment": "Proof systems and sequent calculi, no size distribution stated in accessible abstract; limited full-text priority comparison",
+        "evidence": [
+          "First arXiv submission dated 2026-06-30",
+          "The abstract announces sound/complete sequent calculi and terminating proof search"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.31860",
+        "material_read": "ArXiv author abstract and source metadata; full PDF not inspected",
+        "method": "Search/indexed metadata and institutional abstract comparison",
+        "title": "Labelled Sequent Calculi for Propositional Team Logics",
+        "trigger": "2026 public team-semantics direction with tensor disjunction"
+      },
+      {
+        "assessment": "Compares real/binary/Boolean ranks and extremal examples; weighted rank-two census absent from inspected excerpts, but full-text risk remains",
+        "evidence": [
+          "Lemma 11 treats real rank two and Boolean rank two equivalence under hypotheses",
+          "Abstract describes rank inequalities for real rank at most four"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2026.02.014",
+        "material_read": "Accessible publisher article abstract and main-text extracts including Lemma 11; complete full text not inspected",
+        "method": "Article/index searches for rank two, weight distributions, matrix enumeration",
+        "title": "A study of the binary and Boolean rank of matrices with small constant real rank",
+        "trigger": "Equivalent Boolean-rank/biclique-cover formulation; possible coverage"
+      },
+      {
+        "assessment": "Covers unweighted square rank-two count, but not edge-count polynomial or normal law",
+        "evidence": [
+          "T(n,2)=(3^n-2·2^n+1)^2 + (4^n-2·3^n+2^n)^2/2",
+          "Entry author Geoffrey Critzer, June 12 2022"
+        ],
+        "identifier_or_url": "https://oeis.org/A354741",
+        "material_read": "Full indexed entry including formula, first rows, original entry dates and comments",
+        "method": "Search result inspection and independent evaluation of rank-zero, rank-one, rank-two totals",
+        "title": "OEIS A354741 triangular array of square Boolean matrices by row rank",
+        "trigger": "Exact database/sequence check for known rank-two totals"
+      },
+      {
+        "assessment": "General Boolean factorization uniqueness is prior art; neither accessible excerpt supports this exact weighted polynomial/CLT, with residual priority risk",
+        "evidence": [
+          "Abstract explicitly studies uniqueness of W,H factorization",
+          "Definitions distinguish Boolean from ordinary binary factorization"
+        ],
+        "identifier_or_url": "https://doi.org/10.1145/3522594",
+        "material_read": "Abstract and accessible foundational definitions; complete article inaccessible (403)",
+        "method": "Indexed article section/abstract and search comparisons",
+        "title": "Factorization of Binary Matrices: Rank Relations, Uniqueness and Model Selection of Boolean Decomposition",
+        "trigger": "Generic two-to-one factorization and possible coverage through uniqueness theory"
+      },
+      {
+        "assessment": "Relational/quantum independence and logical consequences; does not assert the two-rectangle size polynomial",
+        "evidence": [
+          "First public arxiv posting 2021-07-22, so journal revision not used for recent primary date",
+          "Cambridge text discusses empirical/hidden-variable teams and independence atoms"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2107.10817",
+        "material_read": "Full Cambridge HTML article, including introduction, team semantics, logical properties and references",
+        "method": "Full-text browse and section search for counting",
+        "title": "The 2021/2025 independence-logic quantum-team paper",
+        "trigger": "Relational independence atoms and possible counted-team results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "19dd6dc1-2a11-4de9-8430-b6ee4bcfd0d7",
+  "value": {
+    "rationale": "The exact cardinality polynomial is a natural size-refined model-count of a fixed split-independence formula, distinguishes sizes that preexisting Boolean rank totals collapse, and is computable by an explicit intersection-count sum rather than 2^(mn) brute force. The sharp 7/16 density and Gaussian 19/128 variance concern uniformly distinct models, requiring nontrivial representation-multiplicity control; they are not a trivial repeat of counts for random latent decompositions.",
+    "status": "PASS"
+  }
+}
