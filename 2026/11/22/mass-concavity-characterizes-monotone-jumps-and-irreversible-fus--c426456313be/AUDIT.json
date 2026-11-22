@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For each fixed signed block partition the unique weighted-TV minimizer is affine in lambda. The absolute gap derivative across adjacent blocks is bounded by the signed-mass chord deficit of the edge penalty profile and is nonpositive precisely under mass-concavity; piecewise-affine continuity gives the global all-data statement. A strictly increasing datum proves necessity for local gap shrinkage, while an exact local KKT construction with positive lambda_- < lambda_+ proves genuine positive-interval fusion then unfusion for every failed inequality. The three-site rational witness has been checked exactly and a standalone enumerator passed finite KKT tests; numerical tests do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bento et al. 2018 Theorems 3 and 4 prove general upper and lower quadratic path complexity, not the iff design criterion.",
+        "Condat 2013 solves unweighted paths, which satisfy the mass-concavity hypothesis as a strict special case."
+      ],
+      "reasoning": "Worst-case complexity results and fixed-parameter solvers include more general weighted data or more nodes, but do not dominate the asserted all-data structural iff theorem. The equal-weight monotone fusion theorem is a covered special case, not the claimed contribution.",
+      "searches": [
+        "concave regularization edge weights weighted fused lasso monotonic jump magnitudes all data",
+        "weighted fused lasso no splitting condition weights fusion unfusion three variables",
+        "total variation denoising weighted 1D no unfusing concave penalty weights fusion path"
+      ]
+    },
+    "checked_sources": [
+      "Tibshirani et al. 2004/2005, DOI 10.1111/j.1467-9868.2005.00490.x (abstract and publication data).",
+      "Condat 2013, IEEE Signal Processing Letters (open full text, main sections).",
+      "Bento–Furmaniak–Ray 2018, arXiv:1801.04987 (open PDF, main sections).",
+      "Published research result: Sharp mass-aware concavity law for variation stability of weighted isotonic regression (summary only; different map).",
+      "Search returns for weighted fused lasso no-splitting, weighted taut-string and mass-coordinate concavity variants."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bento et al. 2018 Eq. (10) bounds a possible dual activation and Section IV requests conditions for weights and signals; the present proof establishes both directions and individual primal jump monotonicity for arbitrary masses.",
+        "Condat 2013 Eq. (5)-(7) states a dual KKT representation for unit weights, without all-data mass-concavity design criteria."
+      ],
+      "reasoning": "The prior dual machinery helps derive the new result but neither the quadratic path-complexity bounds nor dual KKT statements alone assert its mass-weighted universal iff property. The new converse construction gives a genuine positive-time unfusion interval for every violation, not merely an example of some weighted unfusion.",
+      "searches": [
+        "On the Complexity of the Weighted Fused Lasso full text https://www.jbento.info/papers/1dwfl.pdf",
+        "1D total variation denoising Laurent Condat full text https://lcondat.github.io/publis/Condat-fast_TV-SPL-2013.pdf",
+        "weighted one dimensional total variation denoising fusion monotonicity weights 3 nodes breakpoint"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Condat 2013 gives the primal-dual taut-string formulation, not the weight-design iff theorem.",
+        "Bento et al. 2018 formula (10) is a related necessary condition for free-to-bound transitions, but no equality of the claimed conclusions is stated."
+      ],
+      "reasoning": "A taut-string dual transformation is equivalent at the level of optimizing the same signal, but the cited dual algorithms do not characterize for all data the precise weight profiles giving monotone magnitudes of each primal gap. The present theorem gives that classification and a necessity construction.",
+      "searches": [
+        "weighted taut string no unfusing exact condition cumulative fidelity mass concavity",
+        "weighted taut string regularization path concave weights no splitting",
+        "weighted fused lasso path monotone if edge weights concave no unfuse"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved exact-result record or numeric table states these universal mass-weighted penalty inequalities.",
+        "A published weighted-isotonic-regression record has a mass-coordinate concavity condition for two-input projection stability, but with a different map and quantifiers."
+      ],
+      "reasoning": "The statement is not a database lookup or finite table: it is an all-dimension and all-datum variational iff condition proved through KKT and convexity. Similar terminology in a different regression operator cannot imply this regularization-path theorem.",
+      "searches": [
+        "monotone fusion weighted 1D fused lasso concave penalty design necessary sufficient",
+        "weighted path total variation denoising pointwise jump absolute values nonincreasing lambda iff discrete concavity penalties fidelity weights",
+        "three node weighted fused lasso explicit sufficient necessary no split parameter edge weights"
+      ]
+    },
+    "rationale": "Bento, Furmaniak and Ray (2018, Sections II-IV) analyze arbitrary weighted 1D fused-lasso paths, prove quadratic event bounds and give unfusion examples, but do not assert the sharp mass-coordinate concavity equivalence or monotonicity of every individual jump magnitude. Their stated open direction concerns weights under which path events simplify. The 2004 introduction and 2013 unweighted TV solver do not imply the present classification. A superficially similar mass-concavity criterion for weighted isotonic projection is a different two-input stability question. These comparisons support originality within searched literature, but do not certify priority.",
+    "residual_risks": [
+      "An unindexed or inaccessible prior theorem may state the same full all-data mass-weighted characterization.",
+      "The founding fused-lasso full article text was not accessible for direct full-document comparison.",
+      "A result about the same mass-concavity inequalities for isotonic projection was seen only as a summary; operator and quantifiers differ, so no direct implication was found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the proposed exact mass-weighted iff and universal edgewise jump-shrinkage theorem; related dual inequality and examples acknowledged.",
+        "evidence": [
+          "Main text (10) gives a necessary dual-event inequality.",
+          "Theorems 3-4 give quadratic complexity bounds, and Section IV explicitly suggests determining conditions on weights and data."
+        ],
+        "identifier_or_url": "https://www.jbento.info/papers/1dwfl.pdf",
+        "material_read": "Main Sections I-IV, Theorems 1-4, Figure 1 and future-work statement; supplementary dual formulation inspected in part.",
+        "method": "Open-access PDF text and page screenshots.",
+        "title": "On the Complexity of the Weighted Fused Lasso",
+        "trigger": "Directly studies weighted path fusion/unfusion and could imply the claimed design law."
+      },
+      {
+        "assessment": "Gives unit-weight algorithm and KKT; no comparable iff for arbitrary positive mass and penalty weights in material inspected.",
+        "evidence": [
+          "Eq. (1) assumes unweighted quadratic TV denoising.",
+          "Eq. (5)-(7) supply dual constraints underlying path algorithms."
+        ],
+        "identifier_or_url": "https://lcondat.github.io/publis/Condat-fast_TV-SPL-2013.pdf",
+        "material_read": "Sections I-II, primal and dual equations (1), (5)-(7), numerical algorithm and taut-string discussion.",
+        "method": "Open-access PDF parsed text and first-page screenshot.",
+        "title": "A Direct Algorithm for 1D Total Variation Denoising",
+        "trigger": "Canonical 1D TV denoising proof and possible pathwise monotonicity antecedent."
+      },
+      {
+        "assessment": "Defines the fused-lasso framework; no whole-document noncoverage conclusion is asserted.",
+        "evidence": [
+          "First public online date 13 December 2004.",
+          "Abstract describes successive-difference penalty and signal constancy."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/j.1467-9868.2005.00490.x",
+        "material_read": "Accessible bibliographic data and abstract; full article text unavailable through tried publisher access.",
+        "method": "Publisher abstract and publication-history page.",
+        "title": "Sparsity and smoothness via the fused lasso",
+        "trigger": "Founding archival source and definition."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c4264563-13be-414b-bb6c-853ed563251f",
+  "value": {
+    "rationale": "Monotone fusion is a key simplification in 1D TV regularization, but arbitrary weight profiles can cause splitting. The theorem supplies the exact local and mass-aware all-data design criterion valid in every finite dimension, strengthens it to monotonicity of every edge gap, and constructs a real finite fusion/unfusion interval whenever the criterion fails. This is a motivated complete classification for a natural proximal family, not a single case or routine computation.",
+    "status": "PASS"
+  }
+}
