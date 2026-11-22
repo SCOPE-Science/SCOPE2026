@@ -1,0 +1,15 @@
+# Scientific review: modular gap-residue balance
+
+## Correctness
+PASS. The two-generator Apéry generating series gives a finite gap-polynomial identity. Reduction modulo a cyclic polynomial produces an exact difference equation for all residue counts. Normalization by the classical genus determines the entire histogram. Comparing two cyclic indices gives a difference between a floor increment and a subset count; the interval bounds imply the universal ceiling-quarter-modulus range. The explicit diagonal-residue construction proves the lower bound, with checked small-modulus boundary cases. `verify.py` independently checks 10,743 gap sets against the recurrence, 835,733 residue pairs against the inequality, and 179 witness moduli. Finite tests corroborate, but do not replace, the symbolic proof.
+
+## Originality
+PASS on accessible evidence. Shor's 2021/2022 primary treatment supplies a complete zero-discrepancy criterion and polynomial machinery, not the quantitative range law or its near-sharp witnesses. Shor–Sim's 2025 primary treatment extends the zero-discrepancy question to geometric generators rather than proving this general uniform quantitative statement. Komatsu and Zhang (arXiv:2101.04298, Theorems 1–4, and arXiv:2105.08274, Theorems 1–3) give weighted Sylvester sums whose root-of-unity specialization and inverse Fourier transform recover the whole histogram in principle; accordingly, *computing* the histogram is not claimed original. The proposed novelty is exclusively the universal size-independent near-quarter bound and its near-sharp infinite families, neither found in the inspected full primary texts. Parity/Sylvester-sum work may hide an equivalent quantitative estimate. Targeted database and literature searches yielded no dominating exact statement. The existence of an overlooked quantitative formulation remains a residual publication-priority risk.
+
+## Mathematical value
+PASS. The motivating gap is quantitative rather than merely yes/no: when Shor's equidistribution criterion fails, can the residue bias become arbitrarily large with generator size? The theorem shows it cannot, with a constant growing linearly in the modulus rather than in the genus, and supplies an efficient exact count formula. The explicit lower families show the \(m/4\) scale is unavoidable and attain the proposed bound for two infinite congruence classes of moduli. This is a uniform structural refinement for every two-generator semigroup with the natural modular-unit hypothesis, not an arbitrary finite table or substitution.
+
+## Closest work and limits
+Shor, arXiv:2101.01760, Sections 2.2, 3 and 5.2; Komatsu and Zhang, arXiv:2101.04298 and arXiv:2105.08274; Shor and Sim, arXiv:2503.10826, Introduction and primary result discussion. The exact best constant for modulus classes \(1,2\pmod4\) is not established here; the gap is one. The nonunit case is excluded, and there has been no independent mathematical audit.
+
+Self-review: passed. Independent audit: not yet performed.
