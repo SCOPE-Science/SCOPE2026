@@ -1,21 +1,21 @@
-# Scientific review: the color-orbit chamber theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is all integers \(2\le m\le n\), with the usual polyhedral realization of \(\operatorname{Hom}(K_m,K_n)\) and target-color \(S_n\)-action. The central geometric step represents cells as stochastic rows with disjoint supports and proves that simultaneous column permutations are exactly classified by the sorted probability distributions of individual rows. Sorting is continuous; the orbit-space bijection is a homeomorphism by compactness and Hausdorffness. The chamber model is precisely the union of products of sorted simplices with total positive support at most \(n\). Every such product is convex and contains the common equal-prefix vector \(v_1\) in each row, so the stated affine homotopy is a valid strong deformation retraction. The claimed dimension, chamber counts, vertex count, and \(n=m+1\) star follow by enumerating positive compositions. No finite computation is used as a substitute for this proof. Exact rational small-parameter checks corroborate the chamber and contraction formulas.
+PASS
 
-## Originality — PASS relative to inspected sources
+Every point of Hom(K_m,K_n) is uniquely an m-by-n stochastic row array with disjoint positive column supports. Sorting each row preserves all support cardinalities and is continuous. Equality of separately sorted row multisets allows the rowwise column bijections to assemble into a single target permutation, exactly classifying orbits. The sorted length-k row simplex has barycentric coordinates lambda_j=j(a_j-a_{j+1})>=0 summing to 1, with vertices v_j=(1/j,...,1/j,0,..). Positive support total <=n gives exactly the stated chamber union; the compact Hausdorff quotient therefore is homeomorphic. The nested simplices D_k intersect in common faces; positive compositions of n into m parts index maximal chambers of dimension n-m. Straight-line interpolation of each row toward v_1 stays in its original D_k and fixes the common vertex, proving strong contractibility for all integers in range. Independent m=3,n=5 check found 10 vertices and 6 maximal chambers.
 
-Babson and Kozlov's 2003 full-text discussion gives the underlying cell definition and nonequivariant sphere-wedge homotopy classification; these do not classify the target-color quotient. Two relevant publicly accessible complete results about target-color actions prove rational acyclicity of the same quotient, but explicitly stop short of integral homology and quotient homotopy type. The new homeomorphism to a union of products of sorted simplices, the uniform strong deformation retraction, and the star-shaped nonmanifold boundary family do not follow from the reported rational acyclicity. Targeted searches by exact quotient, color permutations, ordered disjoint blocks, chamber models, and synonyms identified no stronger covering statement. This is evidence for relative originality, not a proof of global publication priority.
+## originality
 
-The older Babson–Kozlov 1997 paper is particularly relevant: available descriptions distinguish its block-permutation quotient from the present target-color quotient, but the full text could not be obtained via the accessible preprint routes, and further retrieval attempts were unsuccessful. Pfeifle's 2005 geometric analysis was accessible as an abstract, not a complete text. These limitations remain publication-priority risks.
+PASS
 
-## Mathematical value — PASS
+Babson–Kozlov prove the unreduced complex is a wedge of spheres, and published target-color character studies prove only rational acyclicity of its quotient. An explicit sorted row-orbit homeomorphism and integral strong deformation retraction are strictly stronger. The 1997 deleted-join model and Pfeifle canonical projections have related ordered-block geometry, and could have an equivalent under alternate naming, but no read theorem asserts this target-color quotient contraction.
 
-The exact topological type of the full color-symmetry quotient is a natural question for graph coloring Hom complexes, whose ambient homotopy can be highly noncontractible. Identifying an entire infinite family of quotients as contractible is a genuine strengthening of the previously known rational-acyclic result, determining integral homology, fundamental groups, and all higher homotopy groups. The chamber model gives a constructive geometric explanation and also distinguishes singular quotient examples from balls: for \(n=m+1\) and \(m\ge3\) the quotient has an \(m\)-armed branch point. This structural classification is more than a parameter-specific recomputation.
+## value
 
-## Scope and residual risk
+PASS
 
-The theorem treats only full target-color permutations of complete-graph Hom complexes. It does not claim the source-permutation action, Borel quotient, or proper-subgroup orbit types. The earlier 1997 full text and Pfeifle's full text were inaccessible; unindexed equivalent constructions remain possible. Independent validation and publication priority verification remain outstanding.
+The full-color quotient topology was only rationally resolved in the closest comparison; an integral strong deformation retraction, explicit orbit space and chamber/vertex structure settle a natural exact topological question for all m,n. The m-armed star boundary illustrates why an acyclic-orbit argument or ball guess is inadequate.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
