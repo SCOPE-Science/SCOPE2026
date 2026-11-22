@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Prüfer words yield independent length n-2 multinomial rows. Exact coefficient extraction gives the entire pgf and exact marked p and q moments. First-order binomial/multinomial expansions give the distinct-label covariance limit -r(eta-rho)^2. A conditional Poisson Fourier CLT gives Gaussian variance rho(1-rho)-r(eta-rho)^2, strictly positive as a Schur complement; the exact second moment supplies variance convergence. An independently structured standalone verifier passed 249 checks, including the complete finite pgf and enumerated Prüfer words. Remainder bounds and proof limits are explicit in RESULT.md.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bogachev–Gnedin–Yakubovich 2006, arxiv:math/0609498, introduction and Theorem 1.1 concern infinite urn occupied-box counts and their bounded-variance classification, not parallel equality of fixed-total occupancy vectors.",
+        "Generic conditional-Poisson CLT methods apply once the right score is defined but do not explicitly state the specialized generating function or the degree-agreement variance."
+      ],
+      "reasoning": "The theoretical CLT step uses established Fourier conditioning methodology; the new assertion is the precise r-fold tree invariant, exact finite pgf, first-order distinct-label covariance and closed Gaussian variance. General conditional CLTs are mathematical tools, not automatically prior explicit coverage of all such constants.",
+      "searches": [
+        "\"multivariate conditional central limit theorem\" occupancy counts equal frequencies",
+        "Asymptotic normality number of matching occupancy counts two independent multinomial balls boxes",
+        "arxiv:math/0609498",
+        "labelwise equal degrees across independent Cayley trees exact Gaussian limit covariance Pruefer"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0609498 (2006-09-18)",
+      "doi:10.1017/CBO9781316339831.015 (2015-11-05, chapter excerpt)",
+      "doi:10.12691/ajams-4-6-4 (2016, full HTML)",
+      "arxiv:2205.06625 (2022, relevant preprint introduction)",
+      "2026/10/13/SCOPE-cayley-tree-degree-is-leaf-orthogonal-only-at-first-order--841548d3e0e4",
+      "2026/11/8/SCOPE-joint-leaf-cherry-fluctuations-in-uniform-labelled-trees--a294a38bb52a",
+      "2026/11/2/SCOPE-exact-cycle-cumulants-and-joint-poisson-overlap-laws-for-indepen--705bc2214115",
+      "2026/11/8/SCOPE-a-rational-cross-tree-covariance-kernel-for-correlated-uniform-a--3469578c4e97"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "published-finding corpus 2026/11/8 SCOPE-joint-leaf-cherry-fluctuations-in-uniform-labelled-trees addresses single-tree leaf/cherry covariance and Gaussian counts.",
+        "published-finding corpus 2026/11/2 SCOPE-exact-cycle-cumulants-and-joint-poisson-overlap-laws-for-indepen concerns shared edges, not labelled degree coincidences.",
+        "Frieze–Karoński, Chapter 14, DOI 10.1017/CBO9781316339831.015, supplies classical Prüfer encoding, not this r-fold statistic."
+      ],
+      "reasoning": "Single-tree degree counts do not determine the joint distribution of r independent degree profiles at identical labels under separate total constraints; shared-edge overlaps likewise do not determine vertex-degree agreement. The present exact pgf and limit require a different indicator and covariance calculation.",
+      "searches": [
+        "Number of vertices with matching degrees in two independent uniformly random Cayley trees Gaussian CLT Bessel variance",
+        "Asymptotic normality number of matching occupancy counts two independent multinomial balls boxes",
+        "labelwise equal degrees across independent Cayley trees exact Gaussian limit covariance Pruefer",
+        "matching vertex degrees in two uniform labeled spanning trees Poisson coincidence Bessel normal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact labelled-tree degree problem is identical by Prüfer coding to independent fixed-total occupancy rows; searches under degree agreement, count coincidences, and Hamming agreement were compared.",
+        "Nijimbere (2016), doi:10.12691/ajams-4-6-4, considers equality of independent Poisson variables at a single site, without the fixed-total dependence correction."
+      ],
+      "reasoning": "The per-label Poisson coincidence probabilities supply rho and eta, but independent-Poisson single-site formulas do not imply the n-cell conditioned covariance, complete exact generating function or Gaussian constant. No direct indexed equivalent was found; uncertainty about unindexed occupancy-coincidence formulations remains.",
+      "searches": [
+        "\"two random trees\" \"same degree\"",
+        "\"coincident frequencies two independent multinomial samples\"",
+        "\"same occupancy\" \"two\" multinomial samples normal",
+        "Number of vertices with matching degrees in two independent uniformly random Cayley trees Gaussian CLT Bessel variance",
+        "Exact joint degree coincidence similarity two uniform labeled random trees Prüfer codes occupancy Poisson conditioning",
+        "random trees degree sequence agreement Hamming distance two independent Prüfer codes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed comparative tree-degree results concern one-tree leaf or fan degrees, or shared edges between two Cayley trees; no matching finite coefficient table for cross-tree labelled degree agreement was identified."
+      ],
+      "reasoning": "This is an all-n and all-fixed-r distribution formula, not a previously tabulated single finite coefficient or numerical sequence.",
+      "searches": [
+        "\"matching degrees\" independent Cayley trees",
+        "Exact joint degree coincidence similarity two uniform labeled random trees Prüfer codes occupancy Poisson conditioning",
+        "matching vertex degrees in two uniform labeled spanning trees Poisson coincidence Bessel normal"
+      ]
+    },
+    "rationale": "The full labelled degree-agreement pgf and negative covariance correction in r independent Cayley trees were not found to be directly stated or implied by the inspected finite occupancy, random-tree or single-Poisson coincidence sources. Classical Prüfer encoding and generic conditional limit techniques are treated as prior tools, not claimed as new. Historical/unindexed equivalent probability formulas remain a residual priority risk.",
+    "residual_risks": [
+      "Generic conditional-occupancy central limit theorems could subsume the asymptotic framework when the matching score is substituted.",
+      "Older/unindexed exact occupancy coincidence formulas may match the coefficient generating function.",
+      "The cited random-tree textbook chapter could not be fully inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: infinite-box single-sample occupied count with bounded-variance focus, not independent fixed-total equality across row counts",
+        "evidence": [
+          "Public 2006-09-18 first release; introduction defines infinite boxes with fixed frequencies and theorem 1.1 characterizes finite variance limits."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0609498",
+        "material_read": "Abstract, introduction, Theorem 1.1 and principal setting extracted from the public full-text HTML",
+        "method": "Read the accessible arXiv text and compared object, assumptions and statement",
+        "title": "On the variance of the number of occupied boxes",
+        "trigger": "Potential dominating occupancy variance theorem"
+      },
+      {
+        "assessment": "Provides standard model/encoding, no verified direct coverage of degree-coincidence theorem; full-text access limitation retained",
+        "evidence": [
+          "Chapter online 2015-11-05; presentation of labelled random trees and Prüfer encoding in available material."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/CBO9781316339831.015",
+        "material_read": "Public abstract/excerpt and source information; full chapter text gated",
+        "method": "Compared exposed Cayley/Prüfer definition and scope",
+        "title": "Introduction to Random Graphs, Chapter 14: Trees",
+        "trigger": "Classical Cayley Prüfer-tree source for assumptions"
+      },
+      {
+        "assessment": "PARTIAL_BACKGROUND: exact one-site rho-like formulas, but not aggregate conditioned multinomial covariance or random-tree degree signature limit",
+        "evidence": [
+          "Section 1 defines all-equal independent Poisson counts at one site; sections 2–5 analyze their probability and moments."
+        ],
+        "identifier_or_url": "https://pubs.sciepub.com/ajams/4/6/4/",
+        "material_read": "Full public HTML, including introduction, probability and moments, asymptotic sections and conclusion",
+        "method": "Compared one-site independent Poisson coincidence and global fixed-total occupancy coincidence",
+        "title": "Coincidences, Goodness of Fit Test and Confidence Interval for Poisson Distribution Parameter via Coincidence",
+        "trigger": "Directly plausible name and exact Poisson coincidence object"
+      },
+      {
+        "assessment": "Different comparison event and source is supporting cross-era only",
+        "evidence": [
+          "Studies isomorphism likelihood, a global graph-structure event, not the coordinatewise degree agreement count."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2205.06625",
+        "material_read": "Accessible preprint introduction and theorem framing",
+        "method": "Compared unlabelled global isomorphism with labelled vertexwise degree agreement",
+        "title": "The probability of random trees being isomorphic",
+        "trigger": "Potential tree-pair similarity result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b3d73bd9-2af7-4365-88bf-10f9af57b8cc",
+  "value": {
+    "rationale": "The number of labels with equal degrees across independent trees is a natural graph-signature comparison invariant, providing a complete finite null law and an explicit nontrivial Gaussian standard error. The negative order-1/n cross-vertex covariance is substantial in the total variance, so a naive independent-indicator approximation is quantitatively wrong. The family for fixed r>=2 has a common mechanism and is not an arbitrary tiny table entry.",
+    "status": "PASS"
+  }
+}
