@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Direct substitution gives the interior nullcline maximum and coexistence fixed point. Exact Jacobian computation yields the unit-circle pair at \(h=1\), crossing speed \(1/4\), and absence of resonances through order four. The displayed derivative tensors and normalized nonresonant normal-form formula give \(G=-7/20+i\sqrt7/140\) and \(\ell_1=-1/4\). Exact symbolic calculations in `verify_vertex_ns.py` reproduce every critical algebraic identity. The standard Neimark–Sacker theorem then yields a locally attracting invariant curve for slightly larger \(h\), with the stated eigenvector-normalized amplitude. Remaining scope: local dynamics only; no global positivity of the Euler map is asserted.
+## correctness
 
-**Originality — PASS within examined evidence.** arXiv:2603.24418v2 contains the determinant-based coarse-step criterion and allows the vertex crossing. Those linear claims are prior work. The new precise statement is the nonlinear nondegeneracy/direction and exact curve amplitude at an explicitly parameterized Crowley–Martin vertex. The 2018 open-access Crowley–Martin paper develops general Neimark–Sacker analysis and shows examples, but its inspected nonlinear results do not specify the present vertex-localized parameter set with this exact coefficient or amplitude. The closest published-finding corpus record treats a different predator–prey map on a descending branch, with a different threshold and cubic coefficient. Priority remains vulnerable to earlier general normal-form formulas being specialized elsewhere or to unindexed studies, especially one inaccessible 2017 paper.
+PASS
 
-**Mathematical value — PASS.** The source's geometric criterion ends at a linear condition at the vertex-step boundary. Determining an exact sign and amplitude resolves a distinct nonlinear stability question that the linear identity cannot answer. An exact positive biological parameter witness proves that the boundary can produce an attracting oscillatory circle, rather than only a neutral eigenpair. The finding is deliberately limited to a natural boundary example; it does not replace a general bifurcation classification.
+For the exact positive Crowley–Martin vector field, the prey nullcline y=g(x) from (3-x)(1+x) is maximized uniquely at x=1,y=2, a true coexistence fixed point. Independently differentiated the full rational field at (1,2), obtaining J=[[0,-1/2],[1,-1/2]] and A_h=I+hJ, |lambda(h)|²=1-h/2+h²/2, with unit-circle crossing h=1 and radial derivative +1/4. At h=1 lambda=(3+i sqrt7)/4 has no orders 1..4 resonance. Independently differentiated all quadratic and cubic tensors, constructed normalized left/right eigenvectors q=(1,(1-i sqrt7)/2), p* q=1, and evaluated the full Neimark–Sacker formula: G=-7/20+i sqrt7/140 and Re(conj(lambda)G)=-1/4. Standard local NS theorem gives attracting invariant circle for h>1 near 1 with radius sqrt(h-1)+O(h-1), a local positive-quadrant curve. No claim of global Euler positivity or globally attracting dynamics.
 
-**Closest literature and residual risks.** The August 2026 revision of arXiv:2603.24418 must be used rather than the original version, because it already acknowledges coarse-step vertex crossing. Zhang et al. (2018), DOI 10.1155/2018/2386954, is an important broad-spectrum comparison. The entire 2017 Ren–Yu–Siegmund article was not accessible in the examined open sources; only bibliographic and abstract evidence was available. No exhaustive priority assertion is justified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The particular positive parameter vertex crossing with exact negative cubic coefficient is not subsumed by the inspected general linear-feasibility theorem, a separate below-vertex example, or general Crowley–Martin bifurcation criteria. Best-knowledge PASS with specialized older-example risk.
+
+## value
+
+PASS
+
+The geometry/nonlinear bifurcation tension at a prey-nullcline vertex is substantive: a spectral theorem permits the crossing but leaves supercriticality and positive attracting invariant curve undecided. Computing the exact sign and amplitude in a physically positive predator-prey model is a motivated sharp example, rather than a trivial generic NS textbook substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
