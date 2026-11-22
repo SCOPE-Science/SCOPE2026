@@ -1,0 +1,11 @@
+# Scientific review: Pell–Narayana dyadic value image
+
+**Correctness — PASS.** The exact recurrence, matrix and four integer-valued Mahler expansions are fully specified. Exact integer calculations give the matrix divisibilities and the first two coefficient valuations \((1,5),(3,5),(9,13),(9,15)\); the uniform remainder bound proves each claimed scaled isometry on all two-adic inputs. Two isometries fill the odd and eight-divisible balls, and two more fill the exceptional ball. The remaining index classes are confined by parity and three further explicit Mahler coefficients. The derived cardinality and Haar measure therefore follow at every level. `VERIFY.py` independently checks the finite certificates and all residue sets through modulus \(2^{13}\). No finite enumeration is substituted for an infinite argument.
+
+**Originality — PASS within inspected evidence.** The 2023 primary paper (arXiv:2305.04786, §§1–3) and the accessible full-text 2025 group-orbit article explain modular periods, not a classification of the attained residue set. Public search queries concerning Pell–Narayana, dyadic residues, image closure and the fraction 161/256 found no exact equivalent. A closely matching *method* occurs for a Pell–Lucas recurrence, but its second-order defining matrix and image balls differ and do not imply the asserted result. The closest published numerical-semigroup and other Narayana results have different objects. Residual risk: unindexed work on general linear-recursion p-adic images could contain a stronger specialization.
+
+**Value — PASS.** Period lengths are a natural arithmetic invariant of this recurrence but leave residue coverage undetermined. The three disjoint balls give a complete and precise local solvability criterion and show a sharp forbidden even shell, with an exceptional class surviving only at depth eight. This is a nontrivial infinite classification of a named third-order integer sequence, not an arbitrary finite table or an incremental small-modulus computation. The exact density \(161/256\) is derived from structural isometries.
+
+**Scientific limits.** No claim about within-period multiplicity, odd primes, arbitrary recurrences or independent validation is made. An implicit prior general theorem remains possible.
+
+Self-review: passed. Independent audit: not yet performed.
