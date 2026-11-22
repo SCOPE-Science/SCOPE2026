@@ -1,59 +1,83 @@
-# A single distance-scale reversal for cherry counts in uniform Cayley trees
+# A sharp single crossing of cherry–distance-shell covariances in uniform Cayley trees
 
 ## Finding
-Let \(T_n\) be uniform among the \(n^{n-2}\) labeled trees on \([n]\). Write \(C_n\) for the number of unordered pairs of leaves having a common neighbor (a center can contribute more than one such pair), and \(M_{n,k}\) for the number of unordered vertex pairs at graph distance \(k\).
-
-For \(n\ge4\), set
-\[p_{m,k}=\frac{(k+1)(m-2)_{\underline{k-1}}}{m^k}\quad(1\le k<m),\qquad p_{m,k}=0\quad\text{otherwise},\]
-where the falling factorial of length zero is one. Put
-\[c_n=\frac{\binom n2(n-2)^{n-3}}{n^{n-2}}.\]
-Then \(\mathbb E C_n=c_n\), \(\mathbb E M_{n,k}=\binom n2p_{n,k}\), \(\operatorname{Cov}(C_n,M_{n,1})=0\), and for \(2\le k\le n-1\),
-\[\boxed{\operatorname{Cov}(C_n,M_{n,k})=c_n\left(\binom{n-2}{2}p_{n-2,k}+2(n-3)p_{n-2,k-1}+\mathbf1_{\{k=2\}}-\binom n2p_{n,k}\right).}\]
-The sign is positive at shell \(k=2\), negative at \(k=n-1\), and switches **exactly once** from positive to negative as the shell index increases, allowing at most one intervening zero integer shell. If \(k_n^-\) denotes the first negative shell, then
-\[\frac{k_n^-}{\sqrt n}\longrightarrow\sqrt2.\]
-For each nondecreasing \(f:\{1,\dots,n-1\}\to\mathbb R\),
-\[\operatorname{Cov}\!\left(C_n,\sum_{u<v}f(d_T(u,v))\right)\le0,\]
-with strict inequality when \(f\) is strictly increasing; in particular \(\operatorname{Cov}(C_n,\operatorname{Wie}(T_n))<0\), where \(\operatorname{Wie}(T)=\sum_{u<v}d_T(u,v)\).
+Let \(T_n\) be uniform among the \(n^{n-2}\) unrooted trees labelled by \([n]\), with \(n\ge4\). Let \(C_n\) count **unordered pairs of degree-one vertices with the same neighbor**, with a center incident to \(r\) leaves contributing \(\binom r2\). For \(1\le k<n\), let \(M_{n,k}\) count unordered pairs of vertices at graph distance \(k\). Write
+\[
+ p_{m,k}=\begin{cases}
+ (k+1)(m-2)_{\underline{k-1}}/m^k,&1\le k<m,\\
+ 0,&\text{otherwise},
+ \end{cases}
+ \qquad c_n=\binom n2\frac{(n-2)^{n-3}}{n^{n-2}}.
+\]
+A falling factorial of length zero is one. Then \(\mathbb E C_n=c_n\), \(\mathbb E M_{n,k}=\binom n2p_{n,k}\), and \(\operatorname{Cov}(C_n,M_{n,1})=0\). For all \(2\le k<n\),
+\[
+ \boxed{\operatorname{Cov}(C_n,M_{n,k})=c_n\Delta_{n,k},\quad
+ \Delta_{n,k}=\binom{n-2}{2}p_{n-2,k}+2(n-3)p_{n-2,k-1}
+ +\mathbf1_{\{k=2\}}-\binom n2p_{n,k}.}
+\]
+The sequence \(\Delta_{n,2},\dots,\Delta_{n,n-1}\) begins strictly positive, ends strictly negative and has **exactly one positive-to-negative transition**, with at most one zero integer shell between the two signs. If \(k_n^-\) is the first strictly negative shell, then
+\[
+ \boxed{\lim_{n\to\infty}\frac{k_n^-}{\sqrt n}=\sqrt2.}
+\]
+For every nondecreasing function \(f:\{1,\dots,n-1\}\to\mathbb R\),
+\[
+ \operatorname{Cov}\!\left(C_n,\sum_{u<v}f(d_{T_n}(u,v))\right)\le0,
+\]
+with strict inequality for strictly increasing \(f\). In particular this **recovers** the already known strict negative cherry–Wiener-index covariance; its previously published exact scalar formula and asymptotic are not new claims here. The new result is the full shell-resolved mixed moment, single-crossing classification, sharp crossover scale and the corresponding inequality for all monotone distance costs.
 
 ## Assumptions and scope
-The tree is unrooted and uniformly labeled, not a uniformly chosen binary phylogenetic tree, recursive tree, or preferential-attachment tree. There are no random edge lengths. A cherry is an unordered *pair* of degree-one neighbors of a common center; a center with \(r\) leaf neighbors contributes \(\binom r2\). All formulas hold for every integer \(n\ge4\). The asymptotic statement concerns \(n\to\infty\) with distance on the square-root scale; no central limit theorem or concentration statement is asserted.
+Trees are unrooted, uniformly vertex-labelled, simple and unweighted, not plane, recursive, or uniformly binary phylogenetic trees. The center of a cherry is not constrained to degree three. All finite formulas and signs hold for integer \(n\ge4\), and the limit is on the \(\sqrt n\) scale. An integer shell of exactly zero covariance is possible. No full joint distribution, central limit law or assertion for other tree models is made.
 
 ## Proof
-**1. Fixed path and marked-cherry counts.** For distinct fixed vertices \(u,v\), the path \(u\to v\) has length \(k\) with probability \(p_{n,k}\). Indeed, choose its \(k-1\) internal vertices in order in \((n-2)_{\underline{k-1}}\) ways. The forest-extension form of Cayley's formula counts \((k+1)n^{n-k-2}\) trees containing that fixed path. Division by \(n^{n-2}\) proves the formula, including the terminal case \(k=n-1\).
+**1. Fixed-path enumeration.** Fix distinct vertices \(u,v\). A path of length \(k\) with these endpoints has \((n-2)_{\underline{k-1}}\) ordered choices of internal vertices. For a fixed path of \(k+1\) vertices, the Cayley forest-extension formula gives \((k+1)n^{n-k-2}\) trees containing that path: contract its component, assign one of its \(k+1\) vertices as attachment site for each external connection, and apply the weighted matrix-tree formula. The formula remains correct when \(k=n-1\), because the path spans the vertex set and has one completion. Division by \(n^{n-2}\) yields \(p_{n,k}\) and \(\mathbb EM_{n,k}=\binom n2p_{n,k}\).
 
-Mark an unordered cherry pair \(\{a,b\}\) and its unique common center \(c\). Deleting \(a,b\) leaves an arbitrary tree on the other \(n-2\) vertices, and \(c\) may be any of these vertices. Conversely any such tree and marked center determines exactly one marked-cherry tree. Hence the number of marked-cherry trees is \(\binom n2(n-2)^{n-3}\). Under cherry size bias, the residual tree is a uniform Cayley tree of order \(n-2\), and the center is uniform over its vertices.
+**2. Marked-cherry size bias and exact shells.** Mark an unordered leaf pair \(\{a,b\}\) and its common neighbor \(c\). Deleting \(a,b\) is a bijection to a tree on \([n]\setminus\{a,b\}\) and a marked center \(c\) among its \(n-2\) vertices. The number of marked triples-with-trees is \(\binom n2(n-2)(n-2)^{n-4}=\binom n2(n-2)^{n-3}\), so the expected number of cherries is \(c_n\). Under size bias by \(C_n\), the residual \((n-2)\)-vertex tree is uniform and the attachment center is uniformly marked.
 
-**2. Conditional distance-shell expectation.** Each old-old vertex pair contributes the ordinary \(\binom{n-2}2p_{n-2,k}\). Each new leaf has distance one from the uniformly marked center, and distance \(k\ge2\) from a different old vertex with expected multiplicity \((n-3)p_{n-2,k-1}\). The two new leaves form one additional distance-two pair. Therefore, writing \(\mu_{n,k}\) for the expectation in the cherry-size-biased tree,
-\[\mu_{n,k}=\binom{n-2}2p_{n-2,k}+2(n-3)p_{n-2,k-1}+\mathbf1_{\{k=2\}}\quad(k\ge2),\]
-whereas \(\mu_{n,1}=n-1\). By the definition of size bias,
-\[\operatorname{Cov}(C_n,M_{n,k})=\mathbb E C_n\left(\mu_{n,k}-\mathbb E M_{n,k}\right).\]
-This gives the exact formula and the zero first shell, since every tree has exactly \(n-1\) edges.
+Old–old pairs at distance \(k\) have expected count \(\binom{n-2}2p_{n-2,k}\). For each of the two new leaves, old vertices other than the attachment center contribute \((n-3)p_{n-2,k-1}\) expected pairs at distance \(k\ge2\); the two new leaves contribute one pair at distance two. Thus the conditional shell mean for \(k\ge2\) is
+\[
+ \mu_{n,k}=\binom{n-2}{2}p_{n-2,k}+2(n-3)p_{n-2,k-1}
+ +\mathbf1_{\{k=2\}}.
+\]
+Because \(C_n\)-size bias satisfies \(\mathbb E[C_nM_{n,k}]=c_n\mathbb E^*[M_{n,k}]\), the displayed covariance identity follows. For \(k=1\), \(M_{n,1}=n-1\) deterministically, giving covariance zero.
 
-**3. One sign reversal.** Let \(\Delta_{n,k}=\mu_{n,k}-\binom n2p_{n,k}\). At distance two, direct simplification yields
-\[\Delta_{n,2}=\frac{2(n-3)(n-1)}{n(n-2)}>0.\]
-At distance \(n-1\), the cherry-conditioned tree cannot be a path, so \(\Delta_{n,n-1}=-\binom n2p_{n,n-1}<0\). For \(3\le k\le n-2\), cancellation of falling factorials shows that the sign is that of \(H_n(k)-1\), where
-\[H_n(x)=\frac{(n-x-1)(n-x+2-4/(x+1))}{n(n-1)((n-2)/n)^x}\quad(3\le x\le n-2).\]
-Both factors in its numerator are positive on this interval. Since \(\log(n-x-1)\) is strictly concave and \(n-x+2-4/(x+1)\) is positive and strictly concave, \(\log H_n(x)\) is strictly concave; the denominator contributes only a linear term to its logarithm. Moreover
-\[H_n(3)-1=\frac{n^2-8n+4}{(n-2)^2(n-1)}>0\quad(n\ge8).\]
-At the right endpoint, the numerator is less than four while the denominator exceeds four: indeed \(((n-2)/n)^{n-2}\ge e^{-2}\), so \(n(n-1)((n-2)/n)^{n-2}\ge n(n-1)e^{-2}>4\) for \(n\ge8\). Thus \(H_n(n-2)<1\). Strict log concavity means the superlevel set \(\{x:H_n(x)\ge1\}\) is an interval: beginning strictly above one and ending strictly below one, it has a single crossing, with at most one integer zero. For \(4\le n\le7\), the formula directly gives \(\Delta_{n,2}>0\) and \(\Delta_{n,k}<0\) for every \(3\le k<n\), which is also independently checked in the attached exact enumerator.
+**3. One sign transition at every order.** At the first nontrivial shell,
+\[
+ \Delta_{n,2}=\frac{2(n-3)(n-1)}{n(n-2)}>0.
+\]
+At the terminal shell \(k=n-1\), a tree with a marked cherry cannot be a spanning path, so \(\Delta_{n,n-1}=-\binom n2p_{n,n-1}<0\). For integers \(3\le k\le n-2\), direct cancellation of the positive falling-factorial factors shows \(\operatorname{sgn}\Delta_{n,k}=\operatorname{sgn}(H_n(k)-1)\), where
+\[
+ H_n(x)=\frac{(n-x-1)\left(n-x+2-\frac4{x+1}\right)}
+ {n(n-1)\left(\frac{n-2}{n}\right)^x},\qquad 3\le x\le n-2.
+\]
+For \(n\ge8\), both numerator factors are positive on the displayed interval. The functions \(\log(n-x-1)\) and \(\log(n-x+2-4/(x+1))\) are strictly concave there: the former is elementary, and the latter follows because its positive argument has second derivative \(-8/(x+1)^3<0\). Subtracting the logarithm of the denominator changes the sum by an affine function of \(x\), hence \(\log H_n\) remains strictly concave. Directly,
+\[
+ H_n(3)-1=\frac{n^2-8n+4}{(n-2)^2(n-1)}>0\quad(n\ge8).
+\]
+At \(x=n-2\), the numerator is less than four and the denominator exceeds four, since \(((n-2)/n)^{n-2}\ge e^{-2}\) and \(n(n-1)e^{-2}>4\) for \(n\ge8\). Consequently \(H_n(n-2)<1\). The superlevel set \(\{x:H_n(x)\ge1\}\) is an interval by log-concavity, starts above one and ends below it; hence the integer shells have exactly one positive-to-negative transition and at most one zero. Direct exact evaluation of the displayed \(\Delta_{n,k}\) gives positive \(k=2\) and negative \(k=3,\ldots,n-1\) for \(n=4,5,6,7\), covering the smaller cases.
 
-For fixed \(t>0\) and \(x=t\sqrt n\), direct expansions of the two factors and the exponential give
-\[H_n(t\sqrt n)=1+\frac{2-t^2}{n}+o(n^{-1}).\]
-Therefore the first negative shell tends to \(\sqrt{2n}\) in ratio, by the established unique crossing.
+For each fixed \(t>0\), expanding the two numerator factors and the logarithm of the denominator at \(x=t\sqrt n\) gives
+\[
+ H_n(t\sqrt n)=1+\frac{2-t^2}{n}+o(n^{-1}).
+\]
+Applying this at every fixed \(t<\sqrt2\) and \(t>\sqrt2\), then using the single-crossing theorem, proves \(k_n^-/\sqrt n\to\sqrt2\). Integer rounding changes \(x\) by at most one and does not change this conclusion.
 
-**4. Monotone-distance functionals.** The exact identity \(\sum_{k=1}^{n-1}M_{n,k}=\binom n2\) implies \(\sum_k\operatorname{Cov}(C_n,M_{n,k})=0\). Since the shell covariances have one positive-to-negative transition, a nondecreasing sequence \(f(k)\) has nonpositive covariance-weighted sum. It is strictly negative for strictly increasing \(f\), because shell two is strictly positive and the terminal shell strictly negative. This yields the Wiener-index assertion.
+**4. All monotone pairwise-distance costs.** Every tree has \(\binom n2\) unordered pairs, so \(\sum_{k=1}^{n-1}\Delta_{n,k}=0\). The one-sign transition and positive second shell imply all proper partial sums \(S_j=\sum_{k\le j}\Delta_{n,k}\) are nonnegative, and some are strictly positive. Discrete summation by parts yields
+\[
+ \sum_{k=1}^{n-1}f(k)\Delta_{n,k}
+ =-\sum_{j=1}^{n-2}(f(j+1)-f(j))S_j\le0.
+\]
+If \(f\) is strictly increasing, the positive partial sum after the second shell makes the inequality strict. Choosing \(f(k)=k\) recovers the known cherry–Wiener negativity, but its prior scalar exact formula and leading asymptotic are credited below rather than claimed anew.
 
-## Verification
-The standalone pure-Python script `check_cherry_distance.py` independently constructs every labeled tree using Prüfer codes for \(n=4,5,6,7\) (18,244 trees in total), measures cherries and all-pairs distances directly, and compares exact rational covariances to the formula for every shell. It also checks the exact shell identities, sign sequence, and Wiener-index negativity for each integer size \(4\le n\le200\). Its output reports PASS. Enumeration confirms finite instances but does not replace the all-order forest-extension, log-concavity, and asymptotic proofs above.
+## Reproducibility and proof limits
+The existing `check_cherry_distance.py` independently reconstructs all labeled trees from Prüfer words for \(n=4,5,6,7\), directly measures cherries and distance shells, and checks the exact covariance by rational arithmetic; it also checks shell signs and summation identities through \(n=200\). Its finite computations corroborate, rather than prove, the all-order log-concavity and asymptotic steps. The tree conventions and identities in the script are unchanged.
 
-## Relationship to prior work
-Aldous and Pitman's 1998 report establishes a family of random labeled trees and tree-structure enumeration. The broad random-tree distance-profile work of Berzunza Ojeda and Janson studies scaling limits and leaf-size bias, not the exact cherry-count shell covariance here. A separate literature on leaf-to-leaf distances and tree extremal indices considers different objects and optimizations. Relevant published results on marked endpoints concern their degrees conditioned on their distance, whereas the current statistic counts *sibling leaf pairs anywhere* against *all vertex-pair distances*; one endpoint's degree is not the cherry statistic. Existing elementary fixed-path and marked-leaf identities are inputs, not claimed as new findings. This is a best-knowledge priority comparison, not proof of absolute historical novelty.
+## Relationship to earlier results and exact scope of novelty
+A published October 13, 2026 theorem, *Exact negative cherry–Wiener covariance in uniform Cayley trees* (https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-negative-cherry-wiener-covariance-in-uniform-cayley-trees--50ec71e1b4aa/RESULT.md), **already proves** for the same unrooted labeled model and exactly the same cherry statistic that \(\operatorname{Cov}(C_n,\operatorname{Wie}(T_n))<0\) for \(n\ge4\), gives its exact finite formula, and derives the asymptotic \(-e^{-2}\sqrt{\pi/2}\,n^{5/2}/4\). Those statements, the marked-cherry deletion method and the fixed-path enumeration are prior mathematical inputs, not fresh discoveries here. That theorem computes the conditional **total** Wiener sum, which is the distance-weighted sum of shell means; that scalar alone does not determine the entire sequence of shell covariances, the single sign transition or its sharp \(\sqrt{2n}\) location. The present claim is the latter shell-resolved refinement and its general monotone-functional inequality.
 
-## Limitations
-The theorem makes no claim for different tree distributions or edge-weight laws. The cutoff is asymptotic rather than an elementary closed-form integer expression at every order, and an integer shell may have zero covariance. Stronger distributional dependence or independence of statistics is not asserted. Historical coverage inside older specialized enumerative sources cannot be excluded without independent review.
+Erdős and Rényi, *Asymmetric graphs* (1963), Section 5, Theorem 6, define exactly this broad cherry event and count its occurrence and moments, but not covariance with the full distance profile. Berzunza Ojeda and Janson, *The distance profile of rooted and unrooted simply generated trees* (2022), Sections 8 and 13, give leaf marking and distance-profile/Wiener scaling limits for much broader tree laws, but do not state the cherry-marked finite shell formula or its sign crossing. Related conditional marked-path leaf laws use different markings and do not imply the cherry-marked shell result. These are statement-level distinctions, not claims of exhaustive priority; specialized older enumerators may encode the same mixed law implicitly.
 
 ## References
-- D. Aldous and J. Pitman, *A family of random trees with random edge lengths*, Berkeley Technical Report 526 (June 1, 1998), https://live-statistics.pantheon.berkeley.edu/tech-reports/526.
-- G. Berzunza Ojeda and S. Janson, *The distance profile of rooted and unrooted simply generated trees*, arXiv:2009.00572 (2020), https://arxiv.org/abs/2009.00572.
-- L. A. Székely, H. Wang, and T. Wu, *The sum of the distances between the leaves of a tree and the semi-regular property*, Discrete Mathematics 311 (2011), 1197–1203, https://doi.org/10.1016/j.disc.2010.06.005.
-- Cayley's labeled-tree formula and the standard rooted-forest extension (classical enumerative identities).
+- P. Erdős and A. Rényi, *Asymmetric graphs*, Acta Math. Acad. Sci. Hungar. 14 (1963), 295–315, Sections 5, Theorem 6. https://users.renyi.hu/~p_erdos/1963-04.pdf.
+- *Exact negative cherry–Wiener covariance in uniform Cayley trees* (published October 13, 2026), https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-negative-cherry-wiener-covariance-in-uniform-cayley-trees--50ec71e1b4aa/RESULT.md.
+- G. Berzunza Ojeda and S. Janson, *The distance profile of rooted and unrooted simply generated trees*, Combin. Probab. Comput. 31 (2022), 368–410, https://doi.org/10.1017/S0963548321000304.
+- S. Janson, *The Wiener Index of simply generated random trees*, Random Struct. Algorithms 22 (2003), 337–358, https://doi.org/10.1002/rsa.10074.
