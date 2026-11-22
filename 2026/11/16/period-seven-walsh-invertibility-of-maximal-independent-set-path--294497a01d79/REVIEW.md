@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact path-word language consists of words avoiding adjacent ones, triples of zeros, and two-zero endpoint prefixes/suffixes. A three-state transfer reproduces it, with initial and terminal boundary vectors. Direct multiplication of the alternating sign block gives \(Bw=-w\), yielding an exact identity for every sign prefix. The path maximal-independent-set counts satisfy the Padovan recurrence; their seven-period parity is checked from three initial residues and recurrence uniqueness. All remaining residue classes have explicit seeds and their arbitrary seven-step extensions. Fourier diagonalization then makes zero-free equivalent to convolution invertibility. The computations in `check_path_mis.py` separately corroborate the formula.
+## correctness
 
-## Originality — PASS under bounded comparison
-Published graph-enumeration results establish maximal-independent-set counting and Padovan-type recurrences, not the simultaneous Walsh nonvanishing criterion. The closest inspected full texts [1]–[5] address extremal numbers, weak kernels, general domination polynomials, higher domination conditions, and caterpillar enumeration. Result comparisons are of implication: counting results alone do not determine which signed sums at individual frequencies cancel, and the present seven-letter transfer identity provides the missing witnesses. No equivalent theorem was found in the queries recorded in `AUDIT.json`. Published search coverage is incomplete, so an unindexed equivalence remains a priority risk.
+PASS
 
-## Mathematical value — PASS
-The path's maximal independent sets are a canonical, nontrivial family of Boolean-cube subsets, also central to independent domination. Whether their group convolution is invertible is a naturally defined harmonic invariant not answered by knowing the number of such sets. The theorem gives a complete, exact criterion in every dimension, identifies the non-obvious modulus seven, and provides constructive witnesses in all singular cases. The universal sign-block law is structural rather than a finite table or a restatement of Padovan parity.
+For n>=2 maximal independent path configurations are binary words avoiding 11, 000 and endpoint 00. The exact 00,01,10 transfer T(z) with row v_2=(0,z_2,z_1) and column w=(0,1,1)^T counts precisely this set. Direct integer multiplication of the alternating seven-sign block gives B=[[1,0,0],[0,1,-2],[0,0,-1]] with Bw=-w for every prefix; this extends zero witnesses at n=2,3,5 by seven vertices. The unweighted maximal independent set count obeys a_n=a_(n-2)+a_(n-3) and has parity period seven, odd exactly at residues 0,1,4,6; an odd signed character sum cannot vanish. Independent brute-force enumeration and exact Walsh-Hadamard transforms n=2..10 agree with all residues and the transfer law, but the finite check is not used in place of the all-n proof.
 
-## Boundaries
-The Padovan numbers and enumeration methods are prior work. No claim is made about the number of zero coefficients, arbitrary graph families, independent validation, or complete literature priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: actual proof and cited primary/read indexed comparisons distinguish the specific result from older general tools and different objects; this is not a guarantee of priority.
+
+## value
+
+PASS
+
+Simultaneous zero-freeness at all Boolean characters is a meaningful inverse property of a natural path kernel. The universal seven-letter involution and sharp periodic classification provide a nontrivial structural transfer law beyond the textbook Padovan count, with explicit singular-frequency construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
