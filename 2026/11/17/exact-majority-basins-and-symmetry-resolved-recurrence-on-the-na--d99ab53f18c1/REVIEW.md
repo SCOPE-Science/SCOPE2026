@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two 12-vertex shore maps are constructed from the explicit graph; all 4096 inputs to each are exhausted, proving the fixed and depth tables exactly. The full two-shore factorization gives the phase count, exact entry-time equations and attraction-basin products. A separately constructed generalized Petersen realization exhaustively iterates every one of the 16,777,216 binary states and agrees on all entry-time/period cells. Five explicit permutations generate a group of 144 graph automorphisms, and the finite orbit search returns 17 fixed and 1,147 two-cycle symmetry classes. The statement concerns only this finite graph, so exhaustive enumeration is complete evidence rather than interpolation.
+## correctness
 
-**Originality — PASS, subject to historical-priority uncertainty.** Eppstein's complete graph description supplies the vertex model and 144 spatial symmetries but no majority dynamics. Goles and Olivos establish only eventual period at most two in this general undirected threshold setting; Kaaser–Mallmann-Trenn–Natale study general convergence bounds and complexity, not the exact Nauru census. The closest indexed dodecahedral and Heawood majority classifications involve nonisomorphic graphs, while the closest Nauru-specific indexed work instead studies edge-colouring Kempe dynamics. Alias-inclusive searches for GP(12,5), F24A, 4-star, 494 and 121771 did not find an equivalent census. Source access limitations and unindexed prior work remain potential risks.
+PASS
 
-**Value — PASS.** This is a full dynamical and geometric classification on a canonical cubic symmetric Cayley graph, including sharp transient, periodic populations, exact global basins, and symmetry classes. In particular, the unique alternating two-cycle basin has 924,800 states and the only fixed points with basins above 1,936 are the two unanimous states, each with 462,400 states. The large attraction-basin separation is meaningful beyond a mere periodic-point count.
+PASS. The exact named 3-regular Nauru graph GP(12,5) has bipartite shores of 12; F(a,b)=(H0(b),H1(a)), F²=(G0(a),G1(b)) with each 12-bit map explicitly computable for all 4096 inputs. Independently built GP graph (rather than copying package Cayley construction) and evaluated two shore maps: both have 494 fixed and preperiod counts (494,2498,1032,72) at depths 0..3, yielding 494 fixed 24-bit configurations, (494²-494)/2=121771 genuine two-cycle orbits, all 16,777,216 first-entry counts [244036,3739980,4968048,5548800,1691712,584640] and sharp F^7=F^5, F^6 !=F^4. Rooted shore basin fiber product independently reproduced fixed total 979268 and period-two basin total 15797948, largest unanimous basins 462400,924800. Separately identified GP graph with the 24 injective triples, independently constructed its 144 automorphism action and enumerated 17 fixed and 1147 temporal-two symmetry classes. All results are exhaustive finite math on this 24-vertex graph; finite means exactly all configurations, not extrapolation to graph families.
 
-**Closest literature and limitations.** Eppstein (2007) identifies this graph and its symmetries; Goles–Olivos (1980) gives qualitative convergence; Kaaser–Mallmann-Trenn–Natale (2015) provides general voting-time theory. Indexed graph-specific majority reports on the dodecahedron and Heawood graph do not cover this object; their full linked texts could not be accessed. Absolute priority and independent mathematical validation remain unestablished. No claim is made for other generalized Petersen graphs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, bounded. Goles–Olivos general threshold theorem supplies only period <=2, not exact graph-specific entry/basin/symmetry counts. Eppstein Nauru graph source supplies two graph models and order-144 automorphism group but does not analyze majority dynamics. Existing exact majority censuses for Heawood, Desargues, dodecahedral, Pappus and McGee concern nonisomorphic graphs; counts cannot be specialized to Nauru. Resultary searches found no earlier identical Nauru majority classification. Unindexed graph-dynamics tables remain possible.
+
+## value
+
+PASS
+
+PASS. This is a complete exact attractor and attraction-basin census for a natural distinguished symmetric 24-vertex cubic graph, including giant/isolated basin structure, sharp transient cutoff and full symmetry quotient. The invariant cannot be obtained from the general period-two theorem, and its exact numbers are plausibly reusable in comparative graph dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

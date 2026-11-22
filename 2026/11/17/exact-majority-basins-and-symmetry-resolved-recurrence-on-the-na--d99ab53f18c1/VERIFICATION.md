@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The package includes complete source code and captured outputs. Reproduce from its extracted working directory using:
+## correctness
 
-```sh
-g++ -std=c++17 -O3 nauru_direct.cpp -o nauru_direct
-./nauru_direct > nauru_direct_output.txt
-python3 nauru_cayley.py > nauru_cayley_output.json
-```
+PASS
 
-The first program constructs the generalized Petersen adjacency independently and checks all \(2^{24}\) labelled configurations directly. Its `t=` rows refine first periodic entry by ultimate least period. The second program reconstructs the same graph using its ordered-injective-triple Cayley representation, computes both twelve-bit maps over all 4,096 states, enumerates all 494-by-494 shore-fixed pairs, their exact basin products, and all group-and-time symmetry classes. It uses only the Python standard library.
+PASS. The exact named 3-regular Nauru graph GP(12,5) has bipartite shores of 12; F(a,b)=(H0(b),H1(a)), F²=(G0(a),G1(b)) with each 12-bit map explicitly computable for all 4096 inputs. Independently built GP graph (rather than copying package Cayley construction) and evaluated two shore maps: both have 494 fixed and preperiod counts (494,2498,1032,72) at depths 0..3, yielding 494 fixed 24-bit configurations, (494²-494)/2=121771 genuine two-cycle orbits, all 16,777,216 first-entry counts [244036,3739980,4968048,5548800,1691712,584640] and sharp F^7=F^5, F^6 !=F^4. Rooted shore basin fiber product independently reproduced fixed total 979268 and period-two basin total 15797948, largest unanimous basins 462400,924800. Separately identified GP graph with the 24 injective triples, independently constructed its 144 automorphism action and enumerated 17 fixed and 1147 temporal-two symmetry classes. All results are exhaustive finite math on this 24-vertex graph; finite means exactly all configurations, not extrapolation to graph families.
 
-Cross-checks from the recorded outputs: 494 fixed configurations, 243,542 primitive-two phases, initial 244,036 periodic configurations, sharp first-entry time five with 584,640 states entering then, and total 16,777,216 states. The Cayley certificate separately computes 121,771 temporal two-cycles, the basin totals 979,268 and 15,797,948, group order 144 and 17/1,147 symmetry classes.
+## originality
 
-Limit: These checks are exhaustive because the object has exactly 24 binary vertices; they do not establish any theorem on an unbounded graph family. Scientific evidence is computational with a fully specified finite algorithm, supported by the factorization in the proof, not an external independent certification.
+PASS
+
+PASS, bounded. Goles–Olivos general threshold theorem supplies only period <=2, not exact graph-specific entry/basin/symmetry counts. Eppstein Nauru graph source supplies two graph models and order-144 automorphism group but does not analyze majority dynamics. Existing exact majority censuses for Heawood, Desargues, dodecahedral, Pappus and McGee concern nonisomorphic graphs; counts cannot be specialized to Nauru. Resultary searches found no earlier identical Nauru majority classification. Unindexed graph-dynamics tables remain possible.
+
+## value
+
+PASS
+
+PASS. This is a complete exact attractor and attraction-basin census for a natural distinguished symmetric 24-vertex cubic graph, including giant/isolated basin structure, sharp transient cutoff and full symmetry quotient. The invariant cannot be obtained from the general period-two theorem, and its exact numbers are plausibly reusable in comparative graph dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
