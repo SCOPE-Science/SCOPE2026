@@ -1,11 +1,21 @@
-# Scientific review: nine-point Walsh-magnitude census
+# Independent mathematical audit
 
-**Correctness — PASS.** Affine relations yield a bijection between full-span nine-point affine classes and coordinate-permutation classes of even binary dimension-three length-nine relation codes of minimum distance at least four. The 148 admissible generator-column multisets form six classes under all 168 linear substitutions. A separately exhaustive four-space affine census gives three hyperplane classes. Direct character sums, dual-code weight counts, stabilizer orbit sizes, and the aggregate binomial total independently agree; the complete finite ranges and generation arguments are supplied in the result and checker.
+## correctness
 
-**Originality — PASS under bounded sources.** The inspected Danielsen–Parker code-equivalence paper provides a general classification method and counts, not this nine-point Walsh-histogram table. The inspected eight-point Walsh-support study concerns a different support size; the inspected short-code isospectral family concerns a different length and quantitative distortion. Searches for nine-point Boolean five-space magnitude histograms and equivalent length-nine even-code spectra did not recover a covering theorem. Historical code catalogs and potentially unindexed explicit tables remain a substantive priority risk.
+PASS
 
-**Mathematical value — PASS.** The unlabeled Walsh-magnitude histogram is a natural invariant of sparse binary patterns under affine coordinate change. A complete census establishes exactly where this invariant first becomes ambiguous within the natural nine-point, five-dimensional setting; it determines the number of ambiguous affine classes, their explicit witnesses, and exact labeled prevalence \(1792/5655\). This is a structural inverse-harmonic classification, not an arbitrary small numerical check.
+Every nine-point E in F2^5 has affine rank at least 4. Full-rank affine configurations correspond via their augmented columns to even dimension-3 binary length-nine relation codes of minimum weight≥4. Their generator-column multiplicity vectors form exactly 11,440 weak compositions and 148 admissible vectors; GL(3,2) basis changes produce six classes. Independently reconstructed all six rank-5 representative dual-code Walsh histograms and exact stabilizer orbit sizes, matching 27,339,520 labeled sets, including the (15,13,3,0,1) duplicate with orbit sizes 6,666,240 and 2,222,080. Independently enumerated all 11,440 nine-subsets in F2^4 under translations and elementary linear shears, finding rank-4 orbits 240,6,720,4,480 and 62 unique affine hyperplanes. Total 27,339,520+62*11,440=28,048,800=binomial(32,9). The original verifier independently checks direct Walsh sample histograms against relation dual weights and all six rank-5 code classes; the proof reduces to these complete finite sets. Different column-multiplicity multisets prove the two classes inequivalent.
 
-**Closest literature and limitations.** The MacWilliams transform and code equivalence are classical; finite tabulations of short binary codes may imply part of the affine classification. The newly assessed contribution is the stated eight-profile Fourier census with its exact two-class ambiguity and orbit-size distribution. No claim is made for labeled phaseless data, other support cardinalities or ambient dimensions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Danielsen–Parker short binary-code equivalence and graph ELC methods give classifying infrastructure, but the inspected primary work does not tabulate precisely these 9-point F2^5 Walsh-magnitude histograms, their sole double fiber and labeled prevalence. Published 6-, 7-, and 8-point Walsh profiles concern different support cardinalities; 8-point Fourier nonzero-support counts do not dominate the full nine-point odd-support magnitude profile. An old short-code weight-enumerator database could implicitly encode the six rank-5 types, and explicit transformations remain a residual novelty risk.
+
+## value
+
+PASS
+
+The unlabeled Walsh absolute-magnitude histogram is a natural phaseless invariant of sparse binary supports. Its exact injectivity failure and two inequivalent witnesses, complete nine-class census and count of 8,888,320 ambiguous sets give a substantive finite inverse-spectral classification, not an arbitrary small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
