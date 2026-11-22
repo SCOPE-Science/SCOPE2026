@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "All hypotheses and run boundaries are explicit. For distinct near-full subsequences, the previous-occurrence subtraction exactly removes duplicate outputs. Its two- and three-deletion run increments telescope to the displayed cubic-in-runs expression. Fibonacci recurrence and boundary symbols establish R_m, H_m and the suffix term; the asymptotic follows from the Fibonacci ratio. The checker literally exhausts all 612 admissible words at lengths 3..20 and independently verifies depths 3..17. No finite test is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sloane 2002, Section 5, Theorem 5.2 bounds the maximum D_k at each length and identifies alternating maximizers; it does not compute source-specific D3 for words with double runs.",
+        "Bar-Lev, Etzion, Yaakobi 2023, Section II describes general deletion-ball bounds, but its studied exact FLL balls have radius one and are not this D3 observable."
+      ],
+      "reasoning": "A universal maximum or two-sided run-count bound includes the restricted sources but cannot force their exact individual counts. Distinct words with the same run count can have different double-run counts and hence different sphere sizes.",
+      "searches": [
+        "Exact number of distinct one and two deletion subsequences in finite Fibonacci words, Fibonacci morphic words, Sturmian words",
+        "Exact deletion sphere for balanced Sturmian words, generalized Fibonacci word, run count subsequences",
+        "binary restricted run-length one or two deletion sphere size three deletions"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/0207197",
+      "https://yaakobi.net.technion.ac.il/files/2024/02/77_Levenshtein_Ball_IT23.pdf",
+      "https://www.academia.edu/121485266/Bounds_on_the_Number_of_String_Subsequences",
+      "Public indexed record 2026/11/2/SCOPE-exact-size-distribution-of-two-deletion-descendants-over-every-f--8af4e5cf362e",
+      "Public indexed record 2026/10/4/SCOPE-exact-preasymptotic-profile-for-n-n-3-3-in-binary-deletion-recon--6fda50f1a93d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sloane D2 formula covers two deletions, not D3; the new proof adds a three-deletion recurrence and uses the absence of adjacent doubled runs for cancellation.",
+        "Published three-deletion reconstruction result concerns intersections of two descendant balls, whereas the current statement counts one ball and provides a Fibonacci-word specialization."
+      ],
+      "reasoning": "Prior exact D2 formulas and general maximum D3 bounds do not entail the new equality for each constrained source; the new run-increment lemma supplies the missing implication.",
+      "searches": [
+        "Exact number of distinct one and two deletion subsequences in finite Fibonacci words, Fibonacci morphic words, Sturmian words",
+        "three deletion descendants binary words avoiding 00 and 111, exact size formula runs double 11 occurrences independent of order",
+        "\"On Single-Deletion-Correcting Codes\" \"D3\" Sloane formula restricted runs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sloane 2002, Section 5, Theorem 5.1 counts D2 and explicitly notes D3 cannot simply be a function of the same derivative weights; new formula is for D3 of a restricted no-00/no-111 language.",
+        "Targeted three-deletion/run-restriction searches returned related 2-deletion, maximum-overlap, and Fibonacci-factor studies, but no equal implication."
+      ],
+      "reasoning": "An equivalent may use near-length subsequence counts, deletion spheres, run compositions, or Fibonacci morphic words; all were considered as aliases. Specific prior statements do not assert or imply the displayed restricted D3 identity.",
+      "searches": [
+        "three deletion descendants binary words avoiding 00 and 111, exact size formula runs double 11 occurrences independent of order",
+        "distinct 3-deletion subsequences Fibonacci standard finite words exact closed formula Fib_m run count",
+        "\"On Single-Deletion-Correcting Codes\" \"D3\" Sloane formula restricted runs",
+        "\"Fibonacci word\" \"three deletion\" exact descendants count",
+        "\"Levenshtein\" \"no 00\" \"no 111\" deletion sphere formula"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public-record similarity queries for exact Fibonacci three-deletion counts returned Fibonacci absent-factor/duplication topics and unrelated three-deletion pairwise overlaps, not a table of the claimed values 1,4,22,104,578,2409."
+      ],
+      "reasoning": "No exact table was identified in the checked records. This is a limited negative search outcome, not a certificate of global novelty.",
+      "searches": [
+        "distinct 3-deletion subsequences Fibonacci standard finite words exact closed formula Fib_m run count",
+        "\"Fibonacci word\" \"three deletion\" exact descendants count"
+      ]
+    },
+    "rationale": "The exact three-deletion source-wise formula and arrangement insensitivity on the restricted run language are not direct consequences of the inspected Sloane two-deletion theorem, universal extremal bounds, or the FLL one-ball formulas. The Fibonacci corollary is derived from the new theorem rather than presented as an independent claim. Targeted public-record searches found no equivalent; unindexed or unavailable earlier sources remain a stated risk.",
+    "residual_risks": [
+      "Older or unindexed run-specific three-deletion identities may exist under a different presentation.",
+      "The older Hirschberg–Regnier general-subsequence paper was compared only at abstract level; cannot conclude noncoverage of its full text.",
+      "Similarity search and prefix ledger access do not guarantee uniqueness of scientific discovery."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 5.1 exact D2 and Theorems 5.2–5.3 maximum Dk; no restricted run-class D3 identity in the read material",
+        "evidence": [
+          "Section 5 pages 14–15, Theorem 5.1 and explicit D3 generalization caveat",
+          "Section 5 page 15, Theorems 5.2–5.3 maximum Dk"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0207197",
+        "material_read": "Introduction, Section 5 (pages 14–16), relevant statements and proofs",
+        "method": "Open-access arXiv preprint full text, examined section and page images",
+        "title": "On Single-Deletion-Correcting Codes",
+        "trigger": "Canonical archival treatment of deletion descendants including exact D2 and D3 bounds"
+      },
+      {
+        "assessment": "Cites general bounds and extremal Dk spheres; FLL one-ball result is different from restricted exact D3",
+        "evidence": [
+          "Section II equation for largest deletion sphere and run-count bounds",
+          "Introduction expressly scopes main exact FLL analysis to radius one"
+        ],
+        "identifier_or_url": "https://yaakobi.net.technion.ac.il/files/2024/02/77_Levenshtein_Ball_IT23.pdf",
+        "material_read": "Abstract, introduction, and Section II pages 2324–2325; key definitions and preceding results",
+        "method": "Author-hosted paper, full-text reading of relevant sections with page image inspection",
+        "title": "On the Size of Balls and Anticodes of Small Diameter Under the Fixed-Length Levenshtein Metric",
+        "trigger": "Modern source collecting run-dependent deletion sphere bounds and exact FLL ball results"
+      },
+      {
+        "assessment": "Abstract reports recurrences for maximum, average, and general bounds; insufficent full-text material for a whole-paper not-covering conclusion",
+        "evidence": [
+          "1999 abstract states maximum/average/bounds focus; no full-text exclusion asserted"
+        ],
+        "identifier_or_url": "https://www.academia.edu/121485266/Bounds_on_the_Number_of_String_Subsequences",
+        "material_read": "Abstract and bibliographic extract only; full primary text not confirmed accessible",
+        "method": "Published abstract inspection",
+        "title": "Tight Bounds on the Number of String Subsequences",
+        "trigger": "Older general subsequence enumeration and extremal bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a6d9e214-50c4-4e3c-9538-35020c146381",
+  "value": {
+    "rationale": "Exact source-specific triple-deletion ambiguity matters for synchronization-channel analysis. Despite general D3 bounds being known, an exact count for an entire run-constrained infinite class collapses to four run features and gives closed Fibonacci values and the density 8/phi^6. The class is motivated by classical finite Fibonacci words and forbidden-run source constraints, not by a chosen numeric slice. No general code capacity or downstream theorem is required for this self-contained structural fact.",
+    "status": "PASS"
+  }
+}
