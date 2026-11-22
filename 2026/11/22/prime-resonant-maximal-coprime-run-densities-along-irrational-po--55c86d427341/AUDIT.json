@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "For fixed length, a squarefree CRT modulus and Weyl equidistribution give p-local factor 1-min(p,r)/p^2. Holdridge 2026 Theorem 1.3, read in full theorem statement and final proof, supplies the uniformly vanishing large-prime tail for each of finitely many integer-constant translates of f. Endpoint inclusion-exclusion gives delta=C_r-2C_{r+1}+C_{r+2}. A local two-large-prime construction proves strict positivity. The exact ratio Q_r=prod_{p>r}(1-1/(p^2-r)) and delta/C=(1-Q)^2+Q(Q_next-Q) are algebraic identities. Mertens and PNT give C_r~exp(-gamma)/log r and 1-Q_r~1/(r log r). If r+1 composite, Q_next-Q=O(r^-3); if prime, Q_next-Q~r^-2. This establishes both sharp leading-constant regimes. Actual standard-library checker returned VERIFY_OK finite_checks=166 and is not promoted to an infinite proof. Scientific limitations and sequential limit order appear in RESULT.md.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published regular-residues RESULT.md gives finite n and a different von Neumann regularity predicate",
+        "Published square-gcd-totatives RESULT.md gives local square-gcd predicate at fixed n",
+        "Sanna–Szikszai arXiv:1704.01738v1 addresses mutual gcd among polynomial values at consecutive arguments"
+      ],
+      "reasoning": "These results offer exact finite-modulus run techniques but neither determine an averaged floor-polynomial-shift run density nor imply the prime-resonant asymptotic on the exact arithmetic event. Published sources with matching words were read for their objects, hypotheses and conclusions.",
+      "searches": [
+        "exact natural density of maximal length-r runs of consecutive coprime shifts from polynomial integer parts, split polynomial analytic sieve",
+        "joint distribution of gcd(n, floor alpha n^d +j) consecutive shifts polynomial natural density Jacobsthal",
+        "published-finding corpus IDs 2026/11/2/SCOPE-exact-higher-order-correlations-and-maximal-runs-of-regular-resi--ff65dda93828 and 2026/11/8/SCOPE-exact-cyclic-run-length-spectrum-of-square-gcd-totatives--f1ff76c679ca"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.02223v1",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-coprimality-densities-for-split-integer-polynomials-and-equidist--bcbc904e31ef/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-higher-order-correlations-and-maximal-runs-of-regular-resi--ff65dda93828/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-cyclic-run-length-spectrum-of-square-gcd-totatives--f1ff76c679ca/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-coprime-run-laws-for-the-three-quadratic-cyclotomic-sequen--469e9a38c454/RESULT.md",
+      "https://arxiv.org/html/1704.01738v1",
+      "arxiv:1209.3464v2 (withdrawn; abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior C_r numerical factors are the same when H is a consecutive interval, so they imply the purely numerical value of the displayed second difference once that arithmetic identity is independently established",
+        "Holdridge provides the requisite floor-shift large-prime control but does not state adjacent endpoint failure events or r-asymptotics",
+        "The new proof computes Q_r and isolates precisely the r+1-prime factor disappearance"
+      ],
+      "reasoning": "The final result needs both the new arithmetic event identification and the sharp prime/composite large-r analysis. It is not claimed that every intermediate identity is unknown; each conclusion is compared to the strongest plausible combination of cited results. No directly dominating theorem was found, but priority uncertainty remains.",
+      "searches": [
+        "joint events gcd(n, floor f(n)+j)=1 for j=0,...,r-1 universal density product over primes min(r,p) and prime-resonance second differences",
+        "two-scale asymptotics for maximal runs of consecutive numbers coprime to n and floor of irrational polynomial: prime r+1 spikes, e^-gamma/(r^2 log r) and composite r+1 background e^-gamma/(r^2 log^3 r)",
+        "maximal run length r of consecutive integers coprime to n natural density sum over n Euler product prime versus composite spikes",
+        "published-finding corpus ID 2026/11/8/SCOPE-coprimality-densities-for-split-integer-polynomials-and-equidist--bcbc904e31ef"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Holdridge arXiv:2611.02223v1 Theorems 1.2–1.3 and Section 6",
+        "Published split-integer-polynomial RESULT.md: product_{p}(1-rho_H(p)/p^2) for gcd(product_h(n+h), floor f(n))=1; H consecutive gives the same numerical C_r"
+      ],
+      "reasoning": "Same local density factors hold on swapping which coordinate is shifted, but the deterministic arithmetic events are not equivalent by any stated change of variables for general polynomial f. The prior theorem does not state the maximal floor-shift run event or its r-dependent prime/composite asymptotic. The numerical C_r sequence itself is acknowledged as pre-existing.",
+      "searches": [
+        "consecutive shifted coprimality gcd(n, floor f(n)+j) polynomial irrational coefficients Euler product runs density",
+        "joint events gcd(n, floor f(n)+j)=1 for j=0,...,r-1 universal density product over primes min(r,p) and prime-resonance second differences",
+        "prime-sensitive asymptotic maximal coprime runs r and r+1 prime Euler product C_r-2C_{r+1}+C_{r+2}",
+        "published-finding corpus ID 2026/11/8/SCOPE-coprimality-densities-for-split-integer-polynomials-and-equidist--bcbc904e31ef"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic database hits are fixed-modulus classifications and different quadratic polynomial-value sequences",
+        "Costello–Watts arXiv:1209.3464v2 withdrawn; accessible abstract about Jacobsthal maximal gap rather than the present density; no complete PDF for revised withdrawn version"
+      ],
+      "reasoning": "Actual database queries and closest public records yielded no tabulation of delta_r for varying modulus/floor shifts or the two distinct asymptotic leading terms. Search failure alone does not prove novelty; an implicit older source remains a residual risk.",
+      "searches": [
+        "Jacobsthal maximal consecutive totatives patterns as r grows prime successor spikes",
+        "two-scale asymptotics for maximal runs of consecutive numbers coprime to n and floor of irrational polynomial: prime r+1 spikes, e^-gamma/(r^2 log r) and composite r+1 background e^-gamma/(r^2 log^3 r)",
+        "Holdridge polynomial floor coprimality exact maximal consecutive shift runs prime spikes r+1 prime",
+        "published-finding corpus ID 2026/11/8/SCOPE-exact-coprime-run-laws-for-the-three-quadratic-cyclotomic-sequen--469e9a38c454"
+      ]
+    },
+    "rationale": "Existing literature supplies the large-prime theorem and a numerically identical C_r Euler product in a different event involving shifts of the first (integer) polynomial coordinate. That numerical product, CRT, and second differences are not claimed novel. The final theorem concerns maximal runs of shifts of a floor value relative to n and establishes a previously unlocated prime/composite two-scale asymptotic with e^-gamma leading constants. Full accessible primary/scientific comparisons show no covering statement; residual older-equivalence risk is explicitly retained.",
+    "residual_risks": [
+      "Older equivalent formulations in generalized Schemmel/Jacobsthal totient literature may implicitly yield the same asymptotic prime/composite dichotomy.",
+      "The numerical Euler product C_r is a known special case of a published result for a different arithmetic event; originality is confined to the specified deterministic maximal runs and sharp asymptotics.",
+      "Searches cannot certify worldwide novelty; independent priority review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the single-gcd zeta density and prime tails. Does not state the maximal-run two-scale conclusion. Its established tail result is used as an explicit premise.",
+        "evidence": [
+          "arXiv:2611.02223v1 2026-11-01, Theorems 1.2/1.3, Section 6"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.02223",
+        "material_read": "Full statement and hypotheses of Theorems 1.2 and 1.3 on pages 3–4; definitions on pages 1–3; Section 6 proof on pages 25–26",
+        "method": "Open 26-page open-access PDF and inspect actual mathematical text and theorem statement",
+        "title": "On the probability that the integer parts of polynomials are coprime",
+        "trigger": "Recent primary source; large-prime elimination could already imply selected runs"
+      },
+      {
+        "assessment": "For gcd(product(n+h), floor f(n)) supplies the same numerical consecutive-shift Euler product; arithmetic event shifts the opposite coordinate. No maximal floor-shift run prime-resonance result.",
+        "evidence": [
+          "Theorem and Proof sections, explicit rho_H(p), H fixed"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-coprimality-densities-for-split-integer-polynomials-and-equidist--bcbc904e31ef/RESULT.md",
+        "material_read": "Complete published RESULT.md theorem, scope, proof, relationships and limitations",
+        "method": "Fetch public repository RESULT.md directly",
+        "title": "Coprimality densities for split integer polynomials and equidistributed integer parts",
+        "trigger": "Identical local factor could dominate the block count"
+      },
+      {
+        "assessment": "Regular residue criterion and fixed n differ, no varying floor-polynomial density or prime-sensitive asymptotics.",
+        "evidence": [
+          "Equations for finite modulus B_n(L) and E_n(L)"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-higher-order-correlations-and-maximal-runs-of-regular-resi--ff65dda93828/RESULT.md",
+        "material_read": "Complete RESULT.md theorem, proof and limitations",
+        "method": "Fetch public repository RESULT.md",
+        "title": "Exact higher-order correlations and maximal runs of regular residues",
+        "trigger": "Second differences and run counts may cover our statistic"
+      },
+      {
+        "assessment": "Counts a square-gcd residue predicate at fixed modulus, not ordinary gcd=1 across floor shifts and no large-r averaged prime resonance.",
+        "evidence": [
+          "W_n(r) formulas, fixed-n maximal run result"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-cyclic-run-length-spectrum-of-square-gcd-totatives--f1ff76c679ca/RESULT.md",
+        "material_read": "Complete RESULT.md theorem, proof and prior-work comparison",
+        "method": "Fetch public repository RESULT.md",
+        "title": "Exact cyclic run-length spectrum of square-gcd totatives",
+        "trigger": "Identical second-difference method could cover novelty"
+      },
+      {
+        "assessment": "Pairwise coprimality among consecutive evaluations of fixed quadratic cyclotomic polynomials, a different and finite-period event.",
+        "evidence": [
+          "Periodic 399/10 run spectrum, pairwise gcd object"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-coprime-run-laws-for-the-three-quadratic-cyclotomic-sequen--469e9a38c454/RESULT.md",
+        "material_read": "Finding, hypotheses, proof, relationship and limitations in published RESULT.md",
+        "method": "Fetch public repository RESULT.md",
+        "title": "Exact coprime-run laws for the three quadratic cyclotomic sequences",
+        "trigger": "Title includes polynomial and run length and coprimality"
+      },
+      {
+        "assessment": "Studies pairwise gcd patterns among f(n+j) for integer polynomials, no irrational-floor fixed-modulus run-density or r-asymptotics.",
+        "evidence": [
+          "Theorem 1.1 and 2017 public date"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1704.01738v1",
+        "material_read": "Accessible HTML abstract, introduction, Theorem 1.1 and proof overview",
+        "method": "Open arXiv full HTML text, inspect theorem objects",
+        "title": "A coprimality condition on consecutive values of polynomials",
+        "trigger": "Earlier plausible title with consecutive polynomial coprimality"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "55c86d42-7341-4ade-8240-60a6d7e5da8a",
+  "value": {
+    "rationale": "The natural maximal-run statistic attached to floor-polynomial coprimality admits a complete positive exact density profile. Its new structurally sharp feature is a factor (log r)^2 prime-successor enhancement, with leading constants, against composite-successor lengths, uniformly across a large analytic family. This quantifies a nonobvious prime-sensitive long-run phenomenon beyond the already-known one-point zeta density and the numerically existing Euler product; it is a meaningful infinite classification, not an arbitrary small cutoff, a textbook substitution, or a finite numerical gain.",
+    "status": "PASS"
+  }
+}
