@@ -1,0 +1,165 @@
+{
+  "correctness": {
+    "rationale": "With known q>alpha>b, p=psi is recovered exactly as R/(1+R) from covariance and margins, then alpha,b,delta recover by algebra; all four probabilities are positive in the model. At q=1 the full 3-parameter Fisher determinant equals (1-p)t^2 exp(-delta*t)/(p+(1-p)alpha^2 exp(-delta*t)). The log derivative is 2/z-1/(1+C*exp(-z)), a strictly decreasing function crossing zero exactly once, so the unique global optimum is z=2+W(2*C*exp(-2)). Endpoint objective limits are zero. Monotonicity and p->0 asymptotic follow from monotonic W and its standard large-argument expansion. Replayed deterministic checker using rational exact mixture and Fisher identities: PASS exact_fraction_checks=1296 numeric_checks=2415. Finite checks supplement, not prove, the universal result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Royle and Link 2006 describes general two-class false-positive and false-negative detection, potentially a framework that permits time varying false-positive probabilities.",
+        "Lahoz-Monfort et al. 2015 author-uploaded full manuscript discusses false-positive eDNA occupancy, sample replication and calibration, with replicate error probabilities not tied to a two-date exponential decay with q=1 design.",
+        "Pilliod et al. 2013 full accepted manuscript concerns empirical decay and persistence in retained water and flowing water, not three-parameter two-date Fisher D optimum."
+      ],
+      "reasoning": "A more general model could logically contain this one without having supplied its new exact quantitative conclusion. Checked literature did not provide a dominating theorem giving the Lambert-W gap after unknown prevalence and marker level are nuisance-adjusted. However the oldest foundational complete text could not be obtained and may contain more extensive identifiability or design statements; the residual risk is not disguised.",
+      "searches": [
+        "environmental DNA persistence after removal two binary visits identify live occupancy decay rate detection optimal revisit gap Fisher information",
+        "two time point mixture persistence decaying false positive constant occupied perfect detectability D optimal exponential decay",
+        "two visit species occupancy residual DNA detectability declining after extirpation identifiability",
+        "Royle Link 2006 generalized site occupancy models false positive false negative errors",
+        "Lahoz-Monfort 2015 statistical approaches false positive errors environmental DNA samples",
+        "Pilliod 2013 factors influencing detection eDNA temporal degradation persistence"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1890/0012-9658(2006)87[835:GSOMAF]2.0.CO;2",
+      "https://doi.org/10.1111/1755-0998.12159",
+      "https://doi.org/10.1111/1755-0998.12486",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-detectability-dependent-optimal-revisit-interval-for-a-two-state--10edd02a8758",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-geometric-mean-clearing-law-for-indirect-ecological-occupancy--a8b4c9a7e7cd",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-two-visit-occupancy-experiment-breaks-equal-effort-optimality--b8f26f454426"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The turnover gap result estimates unknown switching rate gamma and nuisance occupancy while false positives are prohibited; it does not estimate decaying false-positive probabilities.",
+        "The clearing-law result optimizes delta itself for classification with both Z and marker evolving, not elapsed observation time t for estimating delta.",
+        "The unequal-visit occupancy result optimizes durations inside a fixed total budget for two unknown parameters with absent false positives, not t for three unknown parameters.",
+        "Royle–Link establishes generalized false-positive mixtures but, in accessible bibliographic text, states neither the exponential false-positive law nor a determinant-maximizing time interval."
+      ],
+      "reasoning": "The present exact full Fisher determinant includes unknown (psi,alpha,delta), with decay b=alpha*exp(-delta*t); it cannot be deduced by parameter relabeling of the turnover result (whose hidden Markov correlation changes), marker-clearing result (which chooses physical decay), or within-visit allocation result (which changes the experiment). The broad latent-class model may subsume its observation distributions, but the checked material does not imply the new exact D-optimal sampling law. Priority provisional pending general source full text.",
+      "searches": [
+        "environmental DNA persistence after removal two binary visits identify live occupancy decay rate detection optimal revisit gap Fisher information",
+        "two time point mixture persistence decaying false positive constant occupied perfect detectability D optimal exponential decay",
+        "two visit species occupancy residual DNA detectability declining after extirpation identifiability",
+        "published-finding corpus ID: 2026/11/2/SCOPE-detectability-dependent-optimal-revisit-interval-for-a-two-state--10edd02a8758",
+        "published-finding corpus ID: 2026/11/8/SCOPE-a-geometric-mean-clearing-law-for-indirect-ecological-occupancy--a8b4c9a7e7cd",
+        "published-finding corpus ID: 2026/11/8/SCOPE-a-two-visit-occupancy-experiment-breaks-equal-effort-optimality--b8f26f454426"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Royle & Link (2006) frame false-positive occupancy as an occupancy-mixture model, and a three-parameter time-varying mixture is algebraically equivalent to the present four-cell model when conditional independence holds.",
+        "Full RESULT.md of turnover-lag publication concerns CTMC state turnover and one known detector quality, not a persistent-class mixture with unknown false-positive decay.",
+        "Full RESULT.md of marker-clearing publication solves a four-state CTMC optimal physical marker clearance rather than statistical revisit-time optimization."
+      ],
+      "reasoning": "The generic latent-class representation is not claimed new; it would cover the observation probabilities but not automatically state their globally invertible three-parameter two-date specialization or the information-optimal lag. The Markov-turnover and marker-clearance statements optimize distinct quantities over distinct parameters; neither is stronger coverage of the present stationary-class joint-information theorem.",
+      "searches": [
+        "environmental DNA persistence after removal two binary visits identify live occupancy decay rate detection optimal revisit gap Fisher information",
+        "two time point mixture persistence decaying false positive constant occupied perfect detectability D optimal exponential decay",
+        "two visit species occupancy residual DNA detectability declining after extirpation identifiability",
+        "published-finding corpus ID: 2026/11/2/SCOPE-detectability-dependent-optimal-revisit-interval-for-a-two-state--10edd02a8758",
+        "published-finding corpus ID: 2026/11/8/SCOPE-a-geometric-mean-clearing-law-for-indirect-ecological-occupancy--a8b4c9a7e7cd"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned nearest occupancy turnover, marker clearance, and detector time-budget designs with different dependent parameters and optimization variables.",
+        "The 2013 empirical eDNA paper tabulates persistence measurements, not globally optimal parameter-information sampling gaps."
+      ],
+      "reasoning": "No exact special-function gap value or complete classification of the two-date latent-class decay design appeared in the searched findings or checked tables. Absence from a search is not sufficient priority proof; the positive comparison rests on the different mathematical objects and claims in inspected sources.",
+      "searches": [
+        "environmental DNA persistence after removal two binary visits identify live occupancy decay rate detection optimal revisit gap Fisher information",
+        "two time point mixture persistence decaying false positive constant occupied perfect detectability D optimal exponential decay",
+        "two visit species occupancy residual DNA detectability declining after extirpation identifiability",
+        "published-finding corpus search: occupancy false positive decay revisit information",
+        "published-finding corpus ID: 2026/11/8/SCOPE-a-two-visit-occupancy-experiment-breaks-equal-effort-optimality--b8f26f454426"
+      ]
+    },
+    "rationale": "The model itself is a specialization of classical false-positive occupancy mixtures, but the concrete exact two-date inverse for a calibrated occupied-site detector and exponentially decaying residual false positives, coupled with a fully joint nuisance-parameter Fisher design and the strict Lambert-W optimum when q=1, was not implied by the material read. Published closest ecological and statistical claims were inspected for objects, nuisance parameters, time-varying errors and target criteria; no direct coverage was found. Complete Royle–Link (2006) material was inaccessible, so historical priority is provisional and the unresolved general-design risk is preserved.",
+    "residual_risks": [
+      "Full Royle–Link 2006 article could not be inspected despite arXiv/open-access searches and an unavailable institutional-access attempt; general mixture-design material could cover some specialization.",
+      "No search provides an exhaustive historical novelty proof; external unseen ecology or diagnostic-design results may imply the same exact optimal gap.",
+      "Field validation of exponential binary false-positive decay and independent outcomes is absent; only structural mathematical value is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General mixture framework predates new claim; specific two-date exponential residual decay and D-optimum not ascertainable from incomplete full text",
+        "evidence": [
+          "2006-04-01 first public date verified in bibliographic record; journal Ecology 87, 835–841",
+          "The complete publication could not be obtained by lawful channels during this assessment; no full article inspection is claimed"
+        ],
+        "identifier_or_url": "https://doi.org/10.1890/0012-9658(2006)87[835:GSOMAF]2.0.CO;2",
+        "material_read": "Publisher bibliographic data and abstract; full paper not available",
+        "method": "Search DOI, arXiv and lawful OA alternatives; attempted permitted institutional full-text access after OA failure, but the complete text was unavailable",
+        "title": "Generalized site occupancy models allowing for false positive and false negative errors",
+        "trigger": "Closest founding false-positive occupancy mixture model; possible general mathematical dominance"
+      },
+      {
+        "assessment": "Supports real persistent and declining eDNA signals in some controlled waters; does not derive mixture identification or Fisher-optimal revisit schedule",
+        "evidence": [
+          "Pilliod et al. 2013 experiments measured environmental DNA detectability and decay over time in retained water; stream flow can alter persistence",
+          "2013-08-12 first public date verified"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/1755-0998.12159",
+        "material_read": "Author-accessible accepted manuscript, methods and results including retention-versus-flow comparison",
+        "method": "Read lawfully available online primary manuscript text",
+        "title": "Factors influencing detection of eDNA from a stream-dwelling amphibian",
+        "trigger": "Experimental motivation for eDNA remaining after animals are absent"
+      },
+      {
+        "assessment": "Analyzes false positives in eDNA occupancy with different replicate-error assumptions and no D-optimal closed form in sampling lag for decaying false positives",
+        "evidence": [
+          "Lahoz-Monfort et al. 2015 models false-positive errors and repeat tests, without the two-date exponential residual marker law under comparison"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/1755-0998.12486",
+        "material_read": "Author-hosted full-text manuscript with statistical model and inference discussion",
+        "method": "Read full manuscript as surfaced online, focusing on probability and calibration assumptions",
+        "title": "Statistical approaches to account for false-positive errors in environmental DNA samples",
+        "trigger": "Potential stronger coverage of unknown false positive and identification in eDNA"
+      },
+      {
+        "assessment": "Optimizes the lag for estimating Markov switching rate with no false positives; neither its assumptions nor claim dominate residual false-positive decay timing",
+        "evidence": [
+          "Result dated 2026-11-02 has p-dependent normalized turnover optimum 0.7968–1.1381 switching times"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-detectability-dependent-optimal-revisit-interval-for-a-two-state--10edd02a8758",
+        "material_read": "Entire RESULT.md including theorem, proof, scope and references",
+        "method": "Retrieved and read source from published published-finding corpus repository from the publicly hosted source",
+        "title": "Detectability-dependent optimal revisit interval for a two-state ecological occupancy process",
+        "trigger": "Closest published revisit-time optimization"
+      },
+      {
+        "assessment": "Optimizes physical clearing rate in a joint CTMC for instantaneous discrimination, not temporal gap for estimating decay",
+        "evidence": [
+          "Geometric mean physical optimum delta=sqrt(alpha*lambda), independent of extinction beta"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-geometric-mean-clearing-law-for-indirect-ecological-occupancy--a8b4c9a7e7cd",
+        "material_read": "RESULT.md theorem, assumptions, proof, verification and literature section",
+        "method": "Retrieved source from published repository from the public source",
+        "title": "A geometric-mean clearing law for indirect ecological occupancy markers",
+        "trigger": "Closest physical marker persistence design"
+      },
+      {
+        "assessment": "Two-parameter time-budget division with zero false positives; cannot imply third-parameter residual-decay optimal lag",
+        "evidence": [
+          "Design computes det I(psi,lambda) over durations t1+t2=T, rather than estimating delta from residual detection changes"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-two-visit-occupancy-experiment-breaks-equal-effort-optimality--b8f26f454426",
+        "material_read": "RESULT.md finding, assumptions, proof and related section",
+        "method": "Read published repository source from the public source",
+        "title": "A two-visit occupancy experiment breaks equal-effort optimality",
+        "trigger": "Closest two-visit Fisher determinant design in occupancy"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a7150a51-7039-47d9-9fc6-2dd2a2811c6a",
+  "value": {
+    "rationale": "Persistence of ecological evidence after organisms disappear makes binary positives an imperfect proxy for living occupancy. The explicit two-date identification of occupancy, residual detection level and residual decay rate is a meaningful structural inference statement. A unique revisit-time information optimum beyond two decay times and its logarithmically increasing rare-occupancy law expose real design tradeoffs missing from single-date or static false-positive models. Applied interpretation is a benchmark only; fixed status, perfectly calibrated detector in the timing theorem, independent Bernoulli outcomes, exponential binary probability decay and no delay costs sharply delimit validity.",
+    "status": "PASS"
+  }
+}
