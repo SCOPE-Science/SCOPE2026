@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The claim fixes the graph, leader budget, Laplacian, time normalization, scaling regime and universal constant. The exact mixed-boundary path eigenvalues give the trace decomposition. An explicit uniform midpoint quadrature estimate and fixed-mode spectral convergence establish the discrete-to-continuum limit. A closed-form theta correction and rigorous rational interval certificate establish the unique continuum optimum. The eigenvalue recurrence and 40-panel certificate replayed successfully; finite numerical matrix checks are not used as infinite proofs.
+
+**Originality — PASS on inspected evidence, qualified.** The closest published one-dimensional leader-placement theory optimizes stationary inverse trace or spectral convergence rate. The finite-time convergence-error literature optimizes a different norm or upper bound. These frameworks do not imply the exact grounded heat-trace boundary-layer location constant; the relevant proofs and objectives were compared. Distinct prior network findings on screened Nyström choices and grounded cycle heat traces do not cover the new path single-leader limit. Equivalent unindexed literature remains possible, and a related general finite-horizon location paper was available only in abstract form for comparison.
+
+**Value — PASS.** Finite-time intervention has a natural but substantially different objective from stationary coherence or the slowest-mode rate. The theorem identifies a universal, quantitative, noncentral optimal pinning location in a diffusive regime for every growing path and every corresponding observation-time sequence, not a one-off finite example or a numerical fitted constant. Its sharp asymptotic constant and short/long-horizon contrast explain how optimal network interventions relocate as their evaluation horizon changes.
+
+**Limits.** No full finite-size phase diagram, multiple-leader extension, or independent review is claimed. The result is conditional on perfect pinning, unit edges and an interval much larger than the diffusion scale. Other exact methods could conceal a previously known equivalent result despite the documented comparisons.
+
+Self-review: passed. Independent audit: not yet performed.
