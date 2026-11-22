@@ -1,0 +1,18 @@
+# Mathematical review: sparse signed-subtree resonances
+
+## Correctness
+**PASS.** For the specifically defined spider with \(m\) two-edge arms, every nonempty connected induced vertex subset either contains the center (independent prefix choices on each arm) or is wholly within a single arm (three nonempty intervals). These disjoint cases give the exact signed polynomial. Its four local sign substitutions force the complete \(4j-m\pm3^j\) spectral multiset with the stated multiplicities. Solving the integer zero equation uses \(3^j>4j\) for \(j\ge2\), yielding precisely the increasing sequence \(m=4r+3^r\). Ordering the two spectral branches proves the sharp surviving gap. Walsh diagonalization supplies rank and inverse-norm statements. The standalone verifier independently enumerates all connected subsets and computes all characters for \(1\le m\le8\), agreeing exactly. Limit: the computations are finite corroboration, not the all-order proof.
+
+## Originality
+**PASS, within the inspected literature and mathematical-record comparisons.** Tittmann–Averbouch–Makowsky (arXiv:0812.4147, §§2, 5, 6) develop the ordinary connected-component graph polynomial and univariate connected-induced-subgraph counts; the arXiv full text includes vertex-elimination and articulation recurrences but not a frequency-by-frequency signed incidence spectrum for subdivided stars. Li–Wang (arXiv:1204.6152, introduction, Theorem 1.1 and related definitions) explicitly treats balanced spiders and their *unsigned* subtree totals, not the \(\pm1\)-weighted spectrum, exponential zero sequence, rank, or sharp pseudoinverse gap. Existing path connected-subset and complete split-graph connected-subset convolution results have different vertex-set families and do not dominate the stated \(m\ge2\) spider claim. Related publicly indexed graph Fourier records concern spanning trees, independent sets, or acyclic orientations rather than connected induced vertex subsets of this spider. Both exact arithmetic-expression searches and alias searches were performed. Residual risk: an unindexed multivariate weighted-spider formula or equivalent signed evaluation might predate this result; search absence is not proof of priority.
+
+## Value
+**PASS.** Balanced subdivided stars are a canonical nontrivial tree family already used as extremizers for subtree enumeration. Their unsigned subtree counts \(3^m+3m\) do not by themselves determine invertibility; for example \(m=3,5\) have even counts but zero-free spectra, whereas singularity first reappears at the fifteen-vertex member \(m=7\). The exact exponential resonance law, nullity and sharp nonzero gap supply a structural all-orders classification of a natural Fourier recoverability problem and a tractable benchmark for signed connected-subgraph methods. Scope is deliberately restricted to two-edge arms; the result does not purport to solve the arbitrary-spider or all-tree problem.
+
+## Closest sources and limitations
+- P. Tittmann, I. Averbouch, J. A. Makowsky, *The Enumeration of Vertex Induced Subgraphs with respect to the Number of Components*, arXiv:0812.4147, first posted 2008-12-22; full-text sections on \(Q(G;x,y)\), connected subsets, and cut vertices inspected.
+- S. Li, S. Wang, *Further analysis on the total number of subtrees of trees*, arXiv:1204.6152, first posted 2012-04-27; full-text definition of spider and Theorem 1.1 inspected.
+- Related Fourier results for binary interval supports and complete split-graph connected-induced subsets were compared at the claim level; their objects and parameters differ.
+- Missing independent audit and the risk of an unindexed equivalent remain explicit.
+
+Self-review: passed. Independent audit: not yet performed.
