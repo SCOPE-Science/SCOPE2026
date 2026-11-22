@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T03:59:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The order-simplex triangulation with prod a_i! simplices proves volume. Facets are exactly bottom coordinate, top coordinate, and adjacent-layer comparisons; their unit normals yield n(2+k sqrt2) surface/vol. Verified the four exhaustive ridge-face classes BB, BE, same-interface shared-endpoint EE, distinct-interface disjoint EE with normalized measure 2,2k sqrt2,k sqrt3,k(k-1). Overlapping adjacent-interface edges and disjoint same-interface comparisons force extra ties and are not ridges. Normal angles are pi/2 except same-interface sharing endpoint pi/3. In V_(n-2)=sum area(phi/2pi), the class totals yield formula for every k=r-1 and a_i>=2. Recomputed formula at r=2,3 and unequal profiles. Source SciPy convex-hull verifier independently checks 16 finite profiles (1356 ridges), not an exhaustive proof. Intrinsic volumes use standard Steiner convention kappa_2=pi.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary chain-polytope theorem has area/volume n(r+sqrt r) instead of n(2+(r-1)sqrt2) for r>=3",
+          "The chain/order polytopes are isometric for r=2, explaining covered r=2 special case",
+          "Related Resultary rankwise chain-order first boundary formula covers first-order normalized area but not V_(n-2)"
+        ],
+        "reasoning": "The r=2 consequence and classical surface calculation are already accessible through neighboring results, but the r>=3 order-polytope second intrinsic volume is not implied by the noncongruent chain result or area-only theorem.",
+        "searches": [
+          "ordinal sum antichains layered order polytope Euclidean first second intrinsic volume Steiner coefficients normalized surface area"
+        ]
+      },
+      "checked_sources": [
+        "Stanley Two Poset Polytopes (1986) triangulation",
+        "arXiv:2309.01626 full manuscript",
+        "Resultary layered chain polytope complete RESULT.md",
+        "Resultary rankwise chain-order surface area result"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stanley Two Poset Polytopes (1986) gives triangulation/linear extensions and volume",
+          "Ahmad-Fourier-Joswig arXiv:2309.01626 main result is f-vector theory, not Frobenius curvature",
+          "Resultary chain formula different for r>=3"
+        ],
+        "reasoning": "Volume is a direct Stanley corollary and not separately claimed novel. Face counts and facet lists are known; an actual Euclidean coarea and exterior normal calculation is needed for V_(n-2), which those results do not imply.",
+        "searches": [
+          "ordinal sum antichains layered order polytope Euclidean first second intrinsic volume Steiner coefficients normalized surface area"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ahmad-Fourier-Joswig arXiv:2309.01626 identifies maximal-ranked posets with layers of antichains",
+          "The claimed second coefficient equals a ridge exterior-angle weighted curvature sum"
+        ],
+        "reasoning": "Aliases were compared at the level of geometric metric quantity, not merely the poset name. An f-vector classification gives combinatorial incidence but does not fix Euclidean ridge areas and angles; no exact equivalent second-Steiner result seen in inspected full text.",
+        "searches": [
+          "ordinal sum antichains layered order polytope Euclidean first second intrinsic volume Steiner coefficients normalized surface area"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search found this assigned result, chain analogue, interpolated first boundary and related order polytope invariants; none gave same second coefficient for canonical order polytope r>=3"
+        ],
+        "reasoning": "An exact order-polytope metric coefficient could be hidden in unindexed convex geometry tables; searched corpus has no direct prior value. Absence is weak evidence only.",
+        "searches": [
+          "ordinal sum antichains layered order polytope Euclidean first second intrinsic volume Steiner coefficients normalized surface area"
+        ]
+      },
+      "rationale": "Originality best-of-knowledge: Stanley triangulation/facet theory and Ahmad-Fourier-Joswig combinatorial ranked poset f-vectors are earlier; they do not determine weighted Euclidean ridge measures. Related Resultary chain-polytope Steiner theorem is for distinct (noncongruent when r>=3) object and has different constants. Related rankwise chain-order interpolation apparently covers the first boundary area but does not yield the second intrinsic volume formula, so that portion of claim survives. Full mathematical priority unknown.",
+      "residual_risks": [
+        "r=2 case is congruent to the chain-polytope case and not new in isolation.",
+        "Earlier interpolation result may cover the normalized surface-area formula; the second intrinsic volume carries substantive remaining novelty.",
+        "An unindexed Euclidean order-polytope curvature formula could cover part/all of the second coefficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Combinatorial face enumeration, no matching Euclidean normalized second Steiner coefficient",
+          "evidence": "Main face-vector theorems, facet construction",
+          "identifier_or_url": "arXiv:2309.01626, https://arxiv.org/abs/2309.01626",
+          "material_read": "Full accessible manuscript including introductory definitions and f-vector theorem",
+          "method": "arXiv full text read",
+          "title": "Order and chain polytopes of maximal ranked posets",
+          "trigger": "Same class of ordinal sums of antichains"
+        },
+        {
+          "assessment": "For r>=3 chain and order polytopes are noncongruent, constants differ; the r=2 order case is covered by orthogonal reflection",
+          "evidence": "Claim V_(n-2)/Vol n(n-1)[r^2/8+r sqrt(r)/4+...]",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-layer-size-universality-of-the-first-two-steiner-coefficients-of--a2f5cc300668",
+          "material_read": "Complete RESULT.md, including metric formula, proof and r=2 isometry statement",
+          "method": "GitHub full source read",
+          "title": "Layer-size universality of the first two Steiner coefficients of layered chain polytopes",
+          "trigger": "Closely matched title/shape, possible duality via Stanley order/chain"
+        },
+        {
+          "assessment": "Volume formula is prior; no whole-document noncoverage is claimed from uninspected 1986 original",
+          "evidence": "Original linear-extension normalized volume theorem",
+          "identifier_or_url": "DOI:10.1007/BF02187680, Stanley (1986)",
+          "material_read": "Classical triangulation/volume theorem as reproduced and cited in primary later mathematical work; original complete 1986 text not independently obtained",
+          "method": "Secondary theorem comparison with exact statement identified",
+          "title": "Two Poset Polytopes",
+          "trigger": "Foundational order-polytope volume, facets and triangulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The size-independence of two metric normalized Steiner coefficients is surprising given distinct individual layer sizes and facet numbers; the second coefficient requires a complete natural ridge classification and weighted curvature cancellation. It is a potentially reusable exact intrinsic volume for canonical order polytopes, not merely a textbook volume computation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Stanley Two Poset Polytopes (1986) triangulation",
+    "arXiv:2309.01626 full manuscript",
+    "Resultary layered chain polytope complete RESULT.md",
+    "Resultary rankwise chain-order surface area result"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the canonical Euclidean order polytope of ordinal-summed antichains with r>=2 and all layer sizes >=2, volume=prod a_i!/n!, surface/vol=n(2+(r-1)sqrt2), and V_(n-2)/vol=n(n-1)[1/2+(r-1)sqrt2/2+(r-1)sqrt3/6+(r-1)(r-2)/4], independent of individual layer sizes.",
+  "limitations": [
+    "Canonical Euclidean metric and all a_i>=2 are essential; singleton layers have additional degeneracies.",
+    "Only first two nonleading Steiner coefficients, not full intrinsic volume polynomial."
+  ],
+  "residual_risks": [
+    "r=2 case is congruent to the chain-polytope case and not new in isolation.",
+    "Earlier interpolation result may cover the normalized surface-area formula; the second intrinsic volume carries substantive remaining novelty.",
+    "An unindexed Euclidean order-polytope curvature formula could cover part/all of the second coefficient."
+  ],
+  "schema_version": 1
+}

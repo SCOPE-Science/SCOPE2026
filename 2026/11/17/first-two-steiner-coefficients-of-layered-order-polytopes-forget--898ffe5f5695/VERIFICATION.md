@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-The standalone `verify_layered_order.py` needs Python with NumPy and SciPy. Run:
+## correctness
 
-```bash
-python verify_layered_order.py
-```
+PASS
 
-Expected output from the supplied checker:
+The order-simplex triangulation with prod a_i! simplices proves volume. Facets are exactly bottom coordinate, top coordinate, and adjacent-layer comparisons; their unit normals yield n(2+k sqrt2) surface/vol. Verified the four exhaustive ridge-face classes BB, BE, same-interface shared-endpoint EE, distinct-interface disjoint EE with normalized measure 2,2k sqrt2,k sqrt3,k(k-1). Overlapping adjacent-interface edges and disjoint same-interface comparisons force extra ties and are not ridges. Normal angles are pi/2 except same-interface sharing endpoint pi/3. In V_(n-2)=sum area(phi/2pi), the class totals yield formula for every k=r-1 and a_i>=2. Recomputed formula at r=2,3 and unequal profiles. Source SciPy convex-hull verifier independently checks 16 finite profiles (1356 ridges), not an exhaustive proof. Intrinsic volumes use standard Steiner convention kappa_2=pi.
 
-```text
-LAYERED_STEINER_PASS profiles=16 ridges=1356 max_layers=5
-```
+## originality
 
-The program constructs all vertices as binary order filters, enumerates every facet, tests every pair's common intersection for exact expected affine rank (with numerical tolerance), projects the face into its affine span, computes its Euclidean measure using convex hulls, and weights ridge measures by exterior normal angles. It independently sums all facet measures and compares them with the closed formulas. Profiles include unequal layer sizes and two through five layers.
+PASS
 
-The mathematical proof, rather than this finite experiment, establishes the statement for all integer layer sizes at least two. Floating-point affine ranks and convex-hull volumes should not be treated as formal certificates or as exhaustive infinite checks. The complete proof and exact Jacobian/multiplicity calculations are in `RESULT.md`.
+Originality best-of-knowledge: Stanley triangulation/facet theory and Ahmad-Fourier-Joswig combinatorial ranked poset f-vectors are earlier; they do not determine weighted Euclidean ridge measures. Related Resultary chain-polytope Steiner theorem is for distinct (noncongruent when r>=3) object and has different constants. Related rankwise chain-order interpolation apparently covers the first boundary area but does not yield the second intrinsic volume formula, so that portion of claim survives. Full mathematical priority unknown.
+
+## value
+
+PASS
+
+The size-independence of two metric normalized Steiner coefficients is surprising given distinct individual layer sizes and facet numbers; the second coefficient requires a complete natural ridge classification and weighted curvature cancellation. It is a potentially reusable exact intrinsic volume for canonical order polytopes, not merely a textbook volume computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

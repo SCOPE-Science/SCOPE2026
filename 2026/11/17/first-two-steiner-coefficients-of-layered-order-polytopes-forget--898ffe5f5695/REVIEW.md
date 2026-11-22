@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finding fixes all coordinate conventions, positive integral layer sizes, the meaning of Euclidean surface area, and the Steiner intrinsic-volume normalization. Its proof enumerates every facet and compatible codimension-two incidence, computes the Euclidean metric Jacobians and relative measures, and derives the complete weighted angle sum. The potentially problematic overlapping equality pairs are explicitly excluded by dimension counts, not by numerical failure. The all-dimensional conclusion is analytic. A separate convex-hull checker independently compared 16 distinct layer profiles and 1356 actual ridges with the formula.
+PASS
 
-## Originality — PASS, with residual historical-priority risk
+The order-simplex triangulation with prod a_i! simplices proves volume. Facets are exactly bottom coordinate, top coordinate, and adjacent-layer comparisons; their unit normals yield n(2+k sqrt2) surface/vol. Verified the four exhaustive ridge-face classes BB, BE, same-interface shared-endpoint EE, distinct-interface disjoint EE with normalized measure 2,2k sqrt2,k sqrt3,k(k-1). Overlapping adjacent-interface edges and disjoint same-interface comparisons force extra ties and are not ridges. Normal angles are pi/2 except same-interface sharing endpoint pi/3. In V_(n-2)=sum area(phi/2pi), the class totals yield formula for every k=r-1 and a_i>=2. Recomputed formula at r=2,3 and unequal profiles. Source SciPy convex-hull verifier independently checks 16 finite profiles (1356 ridges), not an exhaustive proof. Intrinsic volumes use standard Steiner convention kappa_2=pi.
 
-Ahmad–Fourier–Joswig (arXiv:2309.01626) study the exact maximal-ranked-poset family through face-normal forms and \(f\)-vectors, not metric ridge measures. Can–Hibi (arXiv:2102.03651) study codes from related order polytopes. Stanley's classical triangulation underlies the calculation, but does not by itself deliver the stated Euclidean curvature invariant. Semantic comparisons also found results about rooted-tree surface-area ratios, layered order-polytope inertia, and their Hausdorff separation, which are not stronger statements implying the two new normalized coefficients. Broader unindexed metric literature and the uninspected full original 1986 text leave provisional historical-priority uncertainty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Exact surface and second Steiner coefficients are canonical Euclidean invariants. The cancellation over all nonsingleton rank sizes is meaningful: noncongruent examples with different face numbers share both normalized coefficients. In dimension eight the rank profiles \((2,2,4)\) and \((2,3,3)\) have 18 and 20 facets, respectively, although their normalized two-term Euclidean boundary expansions coincide. The theorem is a complete natural classification for every admissible dimension and layer number, not a numerical census. Higher Steiner coefficients and singleton-layer cases remain outside scope.
+Originality best-of-knowledge: Stanley triangulation/facet theory and Ahmad-Fourier-Joswig combinatorial ranked poset f-vectors are earlier; they do not determine weighted Euclidean ridge measures. Related Resultary chain-polytope Steiner theorem is for distinct (noncongruent when r>=3) object and has different constants. Related rankwise chain-order interpolation apparently covers the first boundary area but does not yield the second intrinsic volume formula, so that portion of claim survives. Full mathematical priority unknown.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The size-independence of two metric normalized Steiner coefficients is surprising given distinct individual layer sizes and facet numbers; the second coefficient requires a complete natural ridge classification and weighted curvature cancellation. It is a potentially reusable exact intrinsic volume for canonical order polytopes, not merely a textbook volume computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
