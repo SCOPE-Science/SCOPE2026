@@ -1,0 +1,19 @@
+# Review of the beta-mixture occupation theorem
+
+## Correctness (C): PASS
+
+The proposition applies to the precisely defined harmonic descent transition kernel for integers \(n\ge k\ge2\). The cited finite-difference identity is algebraically independent of the cited Berg–Durán positive Stieltjes expansion. The beta-integral calculation converts their combination into an absolutely convergent positive spectral law, because the weights sum to one at the index \(n=k\). This establishes every moment identity, the atom, strict finite differences, strict Hankel definiteness, and the finite-index spectral envelope without assuming numerical convergence or asymptotic interchange. The lowest nonzero digamma root is separated from every higher root, giving the exponent and strictness. The checker independently reconstructed the rational occupation probabilities and passed 4,416 exact assertions. Computation is diagnostic; the analytic proof covers all integer indices and all difference orders. Reliance on the exact published Berg–Durán spectral representation is explicit.
+
+## Originality (O): PASS against inspected evidence
+
+The 2024 Aldous–Janson–Li paper and Iksanov's 2024 regenerative-composition note establish the limiting visit probabilities. The 2025 Brandenberger–Chin–Mossel work already establishes strict first-order monotonicity and polynomial convergence rates, which are **not** claimed as original. Svihla's October 2026 paper supplies the exact alternating-binomial representation and a Rice-integral *asymptotic* spectral expansion, but does not assert a convergent positive beta-mixture for every finite pair \((n,k)\), strict complete monotonicity, Hankel positivity, or the present uniform-in-\(k,n\) spectral envelope. Berg and Durán's 2005 full text establishes the reciprocal-harmonic spectral measure but does not study harmonic descent occupation probabilities. The reviewed statement combines these two independent results to obtain an exact all-index structural probability law and a sharper bound, rather than repeating either input. Search against accessible prior claims and literature did not reveal a dominating statement; this does not prove absolute historical priority. Residual risk: an equivalent finite-index moment representation or general difference-transform theorem may exist under different terminology.
+
+## Value (V): PASS
+
+This is a motivated finite-size problem for the expected size-\(k\) clade profile in critical beta-splitting random trees. Prior work proves only first-order decrease and detailed asymptotic convergence, whereas the new all-index beta-mixture implies infinitely many strict discrete-shape inequalities and a closed two-sided convergence envelope with the optimal fixed-target exponent. The bound is uniform over every \(n\ge k\ge2\), which is useful when targets grow with tree size, and the strictly positive Hankel matrices supply stronger finite-size comparisons not implied by first-order monotonicity alone. This is a self-contained structural result, not a general solution of the recursive-statistics problem. Its value is limited to the specified kernel; no universal beta-splitting extension is claimed.
+
+## Closest sources and limits
+
+Svihla, arXiv:2611.00347v1, Sections 2.1 and 3; Berg and Durán, Canadian Journal of Mathematics 57 (2005), pp. 942–943 and 952–953; Brandenberger–Chin–Mossel, arXiv:2505.24821, Theorem 1.1; Aldous–Janson–Li, arXiv:2405.05102; and Iksanov, arXiv:2412.06826. The leading fixed-target exponent and coefficient are established in the literature and are used as consistency checks. A previously unlocated equivalent global moment theorem remains a historical-priority risk. Independent mathematical validation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
