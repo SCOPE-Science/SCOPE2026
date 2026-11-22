@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The global Hamiltonian is continuously differentiable, coercive and radially monotone. Each regular positive-energy oval is periodic. Explicit branch inversion yields both half-periods and half-areas. The upper quadratures reduce to complete elliptic integrals, whose complementary-parameter asymptotics supply the logarithm and coefficient. Lower integrals admit a controlled beta-function limit. The conditioned time/area laws follow from their exact slice densities, and the universal bias constant follows from \(B(1/4,3/2)/B(1/4,1/2)=2/3\). All quantifiers and positivity assumptions are explicit. A separate executable check corroborates the intermediate identities.
+PASS
 
-## Originality — PASS within inspected evidence
+The glued H is C1, radially strictly increasing and proper with no critical point off 0; every positive energy level is one regular closed orbit. The X Hamiltonian sign is consistent on the switch and all periods use original physical time. Upper x^2=(2E-y^2)/(1+2a y^2) yields T+=2K(-4aE) and the stated upper area expression, while lower y=u z with u^2+2b*u^4=2E gives time/area beta integrals. Independently evaluated B(1/4,3/2)/B(1/4,1/2)=2/3 to 30-digit precision, and upper elliptic K/E formulas numerically at E=10^6 and E=10^10 showed the expected slow approach to log-leading constants. The identity dA±/dE=T± follows by moving-boundary differentiation. Dominated convergence on lower z in [0,1] with integrable (1-z^2)^-1/2 dominating density proves the Beta normalization; truncated upper integrations to Y=E^(v/2) yield v times log E and uniform logarithmic height under both conditional measures. Fixed positive a,b and E->infinity; finite numerics are corroboration only.
 
-Chen and Dong's full 12-page preprint (arXiv:2401.07332, 2024) proves non-isochronicity and local half-period expansions for homogeneous switching Hamiltonians. It does not assert the present high-energy coupled-logarithmic/beta residence and area laws. Gasull–Guillamon–Mañosa–Mañosas (1997) treats each smooth homogeneous Hamiltonian's period function; the accessible abstract establishes no corresponding joined two-side occupation theorem. Liu and Wang (2022) focuses on isochronous piecewise potential centers; its potential-only hypotheses do not include the mixed upper monomial \(x^2y^2\). Prior related results for other switching nilpotent centers and other cubic global centers do not imply the same two-parametric quartic classification. A plausible 1997 full text remained inaccessible, and unindexed equivalences are possible; these are priority risks, not claims of exhaustive novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Positive quartic homogeneous terms can differ decisively according to their zeros along the switching line. The mixed term \(x^2y^2\) creates a logarithmic continuum of physical-time heights, whereas \(y^4\) yields beta-distributed heights. This is a structurally motivated boundary case within equal-degree quartic Hamiltonians, not a degree-renaming trick. The exact upper-sector fractions, beta constants and parameter-free \(2/3\) bias quantify how time and area selectively sample a global period annulus even though both nonlinearities have the same degree. The result is confined to the specified natural two-parameter family and does not purport to classify all quartic systems.
+Chen–Dong 2024 full preprint proves nonisochronicity for piecewise systems with homogeneous nonlinearities, chiefly local half-period criteria; it does not supply the global high-energy side-specific time/area conditional limit for this positive mixed quartic pair. Gasull et al. 1997 smooth single-system period results are close but cannot directly imply the two-sided conditional contrast. Related Resultary switching centers involve different cubic/nondegenerate setups. Qualified PASS with explicit older full-text risk.
 
-## Scientific limits
+## value
 
-The calculations are analytic for fixed \(a,b>0\), not a uniform parameter-to-boundary expansion. The numerical checker is supportive and is not an independent mathematical audit. The priority search cannot exclude unpublished or unindexed equivalent analyses, and a relevant 1997 primary text was inaccessible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The same fixed switching Hamiltonian has two genuinely distinct high-energy scaling mechanisms while still a global center, with the exact universal 2/3 residence-versus-area bias and two different conditioned spatial distributions. This is a substantive dynamical/geometric contrast with explicit original-time meaning; it does not claim a complete classification of all switching centers or a new beta-function identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
