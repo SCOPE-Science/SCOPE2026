@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The eight unit normals have exactly the required spherical moments through degree three. The discrete Minkowski theorem provides the equal-area polytope. Cauchy's formula makes its projection body an explicit eight-generator zonotope. A complete partition of all 56 generator triples into 8 same-square, 16 opposite-pair and 32 adjacent-pair triples proves the determinant sum with absolute-value signs checked throughout the fundamental twist interval. The classical zonotope volume identity then gives the claimed normalization, sharp extrema, equality cases, and endpoint deficit laws. The standalone checker passed exact rational determinant tests, cubic-moment checks, and independent convex-hull volume calculations. Numerical checks are secondary, not proofs for continuous twists.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The original 2026 spherical-design Minkowski paper was inspected in substantive full-text sections on realization and projection bodies; it derives general identities and uniform brightness bounds, not the exact eight-node twist-volume law. Published research on twisted latitude rings concerns spherical covering, while the six-normal spherical-design result concerns projection-area variance. Earlier work on aligned square-ring designs addresses their original-body geometry and projection-body support extrema; the full variable-twist volume formula is not a consequence of those statements. Classical Cauchy and zonotope volume identities supply general tools, but their application does not itself determine the sharp twist-dependent 56-term absolute determinant sum. Searches of published mathematical records and public literature were carried out using description, aliases, fixed-eight-node parameters and polar/projection interpretations. A still-unindexed exact formula remains a residual priority risk; two nearby indexed records were accessible only in summary.
+PASS
 
-## Mathematical value — PASS
-The family is a geometric one-parameter moduli class of eight-node spherical \(3\)-designs with exactly identical degree-three normal moments and fixed surface area. The computed projection-body volume varies by the nonzero sharp factor \((1+\sqrt2)/2\), giving a quantified obstruction to recovering this nonlinear geometric invariant from low-degree isotropy. It determines all extremizing twists and distinguishes a linear endpoint cusp from quadratic stability at the optimum. This is a complete natural classification of a motivated metric invariant, not an arbitrary finite table or a claim of new general projection-body identities.
+Eight vectors (two square latitude rings) have vanishing odd moments through degree three and mean second moment I_3/3. Positive equal normal weights and spanning set satisfy discrete Minkowski existence for a polytope of facet areas π/2. Cauchy projected-area formula identifies ΠP with the zonotope sum[-πu/4,πu/4]; determinant volume formula is π³/8 times 56 unordered absolute 3×3 minors. The complete classification by 8 same-ring, 16 opposite-pair and 32 adjacent-pair minors gives unscaled sum 32(1+cos d+sin d), hence vol=8π³/(3√3)(1+cos d+sin d). On d∈[0,π/4], cos d+sin d strictly increases, yielding all extremizers modulo square relabeling/reflection. Independently recomputed 56 minors and QHull volumes of all 256 endpoint sums at 0,.1,.34,π/4; results matched to floating precision. These checks are corroboration; closed symbolic partition proves all twists.
 
-## Residual limits
-The theorem is only for the two-square latitude family, not for every eight-node design. A few nearby published indexed records lacked accessible full manuscripts; the accessible motivating preprint was read beyond its abstract. External independent mathematical audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An’s accessible full manuscript establishes equal-area Minkowski spherical designs and generic brightness/Cauchy formulas but not this exact 8-point two-square twist-dependent zonotope volume. A related earlier two-latitude-ring theorem optimizes spherical covering radius, not projection body volume. A later/broad n brightness extremal paper concerns a limiting circumradius and does not determine n=4 volume. Distinguishing 3-design moments (identical) from nonlinear volume (varying) is the actual original content. Best-of-knowledge PASS.
+
+## value
+
+PASS
+
+Exact sharp variation of projection-body volume while all facet normal moments through degree three remain unchanged gives a concrete, motivated counterexample to inferring nonlinear projection statistics from low-order isotropy. The canonical eight-normal square-ring family, complete determinant calculation and unique optimum form a natural finite geometric invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
