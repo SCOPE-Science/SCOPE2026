@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The mapped Laplacian has strictly convex inverse trace for all individual edge weights, forcing a unique dihedrally invariant optimizer. Exact Fourier and quotient block inverse traces yield the correct objective A_n/c+B_n/a+2 sum_k 1/(a+2b t_k). Rim probabilities saturate their stochastic constraint. A finite cyclic resolvent proves c_n tends to zero; its derivative plus a uniform low-mode domination estimate proves eventual a_n=1/n, the sharp quarter-power leaf scale and the explicit n^(5/4) second coefficient. The maximum-degree asymptotic is a separate elementary Fourier integral. A packaged independent matrix assembly matched the orbit formula in 389 finite checks; those checks are not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 4 of Patel--Agharkar--Bullo proves convexity of the reversible Kemeny optimization with prescribed stationary vector but gives no family-specific helm allocation (https://motion.me.ucsb.edu/pdf/2014b-pab.pdf).",
+        "Durastante--Gnazzo--Meini describes general constrained perturbation algorithms and generic numerical examples (https://doi.org/10.1007/s10543-026-01152-6)."
+      ],
+      "reasoning": "Generic existence/convex/SDP formulations implicitly pose or compute a feasible optimum but do not imply the explicit exact rim/hub allocation, the quarter-power leaf probability, or the two-term asymptotic. These general theorems are acknowledged as prior coverage for the method, not falsely treated as new.",
+      "searches": [
+        "Robotic surveillance and Markov chains with minimal weighted Kemeny constant 2014",
+        "Kemeny’s constant minimization for reversible Markov chains via structure-preserving perturbations",
+        "optimal Kemeny stochastic walks on helm graphs wheel with pendant leaves"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1208.4716",
+      "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+      "https://link.springer.com/article/10.1007/s10543-026-01152-6",
+      "https://mathworld.wolfram.com/HelmGraph.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior wheel-only Kemeny calculations give the spoke saturation and a leading square-root spectral scale on a different graph.",
+        "Prior transitive leaf-corona Kemeny calculations have no universal hub and a different leaf scaling on cycles.",
+        "Patel--Agharkar--Bullo Theorem 4 establishes the optimization framework, not the combined helm Fourier blocks."
+      ],
+      "reasoning": "Deleting all leaves from a helm produces a wheel; deleting the hub produces a cycle corona. An optimizer on either changed graph does not restrict to an optimizer on the helm because both the feasible stochastic row constraints and Laplacian spectrum change. The present three-orbit quotient, quarter-power leaf scale, and subleading coefficient are not logical consequences of either special-graph theorem.",
+      "searches": [
+        "Kemeny optimal walk leaf-crowned wheel sunlet wheel corona holding probabilities",
+        "helm graph optimal symmetric Markov chain Kemeny constant saturated hub spokes square root asymptotic",
+        "Robotic surveillance and Markov chains with minimal first passage time"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The helm is a wheel with one private leaf at each rim vertex (https://mathworld.wolfram.com/HelmGraph.html).",
+        "General Kemeny representations and their modified-by-one conventions occur in arXiv:1208.4716v1."
+      ],
+      "reasoning": "A symmetric stochastic helm optimizer could be described as mean-hitting-time minimization, inverse Laplacian trace design, uniform-stationary reversible chain optimization, or wheel-corona edge allocation. Searches across these descriptions found no exact helm quarter-power rate. That lack is not proof of novelty.",
+      "searches": [
+        "\"helm graphs\" \"Kemeny\" constant random walk Laplacian eigenvalues",
+        "\"helm graph\" \"Kemeny constant\" optimal weighted",
+        "Kemeny sum optimizing symmetric weights wheel graph attached leaf per vertex helm Laplacian"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The available helm reference gives graph definition and graph polynomials, not minimum inverse-trace Markov weights (https://mathworld.wolfram.com/HelmGraph.html).",
+        "Search did not identify an exact weighted helm Kemeny optimizer table."
+      ],
+      "reasoning": "Even a table of unweighted helm spectra would not imply the independently adjustable stochastic optimum or large-size boundary layer. No exact table match was found; unindexed resources are a residual risk.",
+      "searches": [
+        "\"helm graph\" \"Kemeny constant\" optimal weighted",
+        "\"Kemeny constant\" \"helm\" reversible chain optimum",
+        "helm graph Kemeny constant random walk graph spectra data table"
+      ]
+    },
+    "rationale": "Literature and database searches identified general Kemeny convexity and computations, wheel-only and leaf-corona-only settings, and helm graph polynomials, but no statement implying the exact helm allocation, quarter-power leaf scaling or two-term optimum. Explicit comparison treats generic methods as known and does not infer novelty from a mere search failure.",
+    "residual_risks": [
+      "Unindexed or restricted helm-specific optimization work may already imply the same asymptotic law.",
+      "Prior results on other graph classes can be combined with separate new calculations; claim does not pretend their general methodology is new.",
+      "Independent bibliographic and mathematical priority checking has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supports normalization; does not formulate helm optimum",
+        "evidence": [
+          "arXiv abstract and v1 timestamp 2012-08-23",
+          "Page 3 explicitly distinguishes ordinary and modified Kemeny conventions"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1208.4716",
+        "material_read": "Opening, group-inverse development, Kemeny identities and normalization discussion on PDF pages 1--3",
+        "method": "Read PDF text and visually inspected page 3",
+        "title": "The Role of Kemeny’s Constant in Properties of Markov Chains",
+        "trigger": "Earliest independently dated theoretical source and normalization check"
+      },
+      {
+        "assessment": "General reversible fixed-stationary convex formulation covers setup, but no helm-specific allocation or rate identified",
+        "evidence": [
+          "Theorem 4: convexity of Kemeny objective with fixed stationary distribution",
+          "Conclusion discusses bounds for general topologies as an open direction"
+        ],
+        "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+        "material_read": "Abstract/introduction, convex theorem and SDP material on PDF pages 1 and 4, final conclusion and research directions, plus targeted searches for wheel and pendant",
+        "method": "PDF text read and page 1 and 4 screenshots inspected",
+        "title": "Robotic Surveillance and Markov Chains With Minimal Weighted Kemeny Constant",
+        "trigger": "Most directly relevant historical optimization framework"
+      },
+      {
+        "assessment": "Describes general perturbation algorithms, not an exact helm law",
+        "evidence": [
+          "Introduction states a constrained reversible optimization framework",
+          "Section 5 uses nearly reducible and synthetic/power-network examples"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10543-026-01152-6",
+        "material_read": "HTML introduction, basic definition, optimization framing, numerical examples section and targeted searches for helm, wheel, pendant, cycle",
+        "method": "Direct full-text HTML section reading and targeted within-document searches",
+        "title": "Kemeny’s constant minimization for reversible Markov chains via structure-preserving perturbations",
+        "trigger": "Recent plausible dominating treatment of reversible chain Kemeny minimization"
+      },
+      {
+        "assessment": "Confirms helm definition; graph-polynomial data do not cover Kemeny-optimal stochastic weights",
+        "evidence": [
+          "Definition is wheel plus one pendant at each cycle vertex",
+          "Tables describe chromatic, independence and matching polynomials"
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/HelmGraph.html",
+        "material_read": "Definition, graph polynomial tables and references",
+        "method": "Read entire short HTML page",
+        "title": "Helm Graph",
+        "trigger": "Check precise graph equivalence and possible exact tables"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7e060df3-1d29-4883-bc13-78d1749b7358",
+  "value": {
+    "rationale": "The helm is a classical natural network with one global hub and one private terminal demand per rim state. The full-support optimizer has the surprising coexistence of exact hub saturation, asymptotically half-weight rim steps, and a quarter-power leaf edge probability. The spectral cost has a nontrivial second term and outperforms a natural maximum-degree stochastic baseline by a diverging order-sqrt(n) factor. This design fact is neither a textbook normalization nor an arbitrarily chosen finite parameter slice.",
+    "status": "PASS"
+  }
+}
