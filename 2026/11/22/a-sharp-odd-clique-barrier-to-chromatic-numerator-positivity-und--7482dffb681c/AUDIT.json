@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Exact color-partition enumeration gives E_n(q). Bridge factorization is valid for arbitrary signs and attached tree shapes. Formal coefficient extraction gives h_3=2-(n+1)E_n(1) for r=0 and h_4=2^r E_n(3)-2(n+r+1) for r≥1. The binomial expansion of (2e^z-1)^{q/2} gives E_n(1)>0 for odd n and the exact rational 731229629/679477248>1 proves E_n(3)<0 for every odd n≥7. Direct polynomial evaluations yield the nonnegative one-bridge H for n=3,5; the Eulerian differential recurrence preserves nonnegativity for all further bridges. All ranges, cases and strict inequalities are addressed; verify.py independently checks exact computations and finite boundary cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 1.1 of arXiv:2611.16458 requires a balancing vertex. An all-negative clique of order at least five has no balancing vertex: deleting any vertex retains an all-negative triangle.",
+        "The four-clique bridge example in arXiv:2611.16458 establishes one positive finite instance, not an all-odd-orders criterion.",
+        "Proposition 3.1 of arXiv:2407.00883 is a closed-form zero-free coloring polynomial, not a positivity theorem for chromatic generating numerators."
+      ],
+      "reasoning": "Neither the balancing-vertex theorem nor its example covers the non-balancing clique cores or an infinite uniform impossibility assertion. The general clique-count formula gives input data but does not itself state the new inequality and the all-r sign transition; this comparison is the main priority caveat because sufficiently strong general coefficient theorems could imply the result.",
+      "searches": [
+        "arXiv:2611.16458 signed graph balancing vertex Theorem 1.1",
+        "arXiv:2407.00883 signed graph polynomial all-negative cliques and threshold graphs",
+        "balanced pendant tree attachment signed clique negative coefficient chromatic generating numerator h fourth coefficient"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2611.16458",
+      "https://arxiv.org/abs/2407.00883",
+      "Signed K4 subdivision chromatic root-exclusion result (published 2026; no numerator coefficient comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bridge multiplication Z_{n,r}=(q-1)^r E_n is standard and not new.",
+        "Existing formulas already imply every particular finite evaluation of E_n(q), including small displayed samples.",
+        "The uniform strict negativity for all odd n≥7 is proved here using a new finite binomial-series inequality and monotonicity across exponents.",
+        "The complete odd-order if-and-only-if classification additionally uses a positivity-preserving differential operator to handle arbitrarily many bridge attachments."
+      ],
+      "reasoning": "The main claim is an infinite qualitative parameter classification, not a claimed new base-polynomial computation. It is derivable from classical polynomial information only after proving a nontrivial uniform sign inequality; that inequality and the restoration/permanence classification were not established or stated by the compared sources. Any earlier stronger theorem on these signs would dominate it and change this status.",
+      "searches": [
+        "arXiv:2611.16458 Lemma 2.1, Theorem 1.1, Examples 4.2–4.3",
+        "arXiv:2407.00883 Proposition 3.1",
+        "all-negative complete signed graphs K_n zero-free chromatic h-polynomial nonnegative coefficients pendant bridges odd clique n=7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The classical zero-free signed clique chromatic polynomial is exactly the base E_n(q), but the sought statement concerns signs of the shifted rational-series numerator after an arbitrary number of bridges.",
+        "The relevant formal q=3 evaluation is not a legitimate signed 3-color count, so simple palette-combinatorial equivalence does not establish the needed signs."
+      ],
+      "reasoning": "An equivalent claim would determine coefficientwise numerator positivity for every odd negative clique and all bridge extensions, or prove Z_{-K_n}(3)<0 for all odd n≥7. The sources supply the base polynomial but neither the uniform sign inequality nor the restoration classification. The new sign analysis is not a substitution of an already evaluated fixed-parameter table.",
+      "searches": [
+        "all-negative complete signed graphs K_n zero-free chromatic h-polynomial nonnegative coefficients pendant bridges odd clique n=7",
+        "balanced pendant tree attachment signed clique negative coefficient chromatic generating numerator h fourth coefficient",
+        "arXiv:2407.00883, Proposition 3.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest recorded signed-chromatic result on a signed K4 subdivision gives real chromatic-root exclusion, not numerator positivity of tree extensions.",
+        "ArXiv:2611.16458 computes H(t) for a signed K4 with a pendant edge, not the odd negative-clique infinite family.",
+        "A Zaslavsky/Greaves symbolic formula is acknowledged as pre-existing, but no exact numerator-coefficient table covering this theorem was identified."
+      ],
+      "reasoning": "Queries on core signs, formal evaluation at three, bridges, h coefficients, and order-seven threshold found no identical threshold or sign table. Search absence alone is not a proof of novelty; the positive comparison rests on reading the relevant primary theorem and example.",
+      "searches": [
+        "negative complete graph signed chromatic polynomial evaluation at three Z(K_n,3) odd n 7 sign",
+        "tree extension signed clique all negative K5 K7 chromatic numerator positivity obstruction",
+        "signed K4 subdivision chromatic polynomials signed root exclusion",
+        "arXiv:2611.16458 Example 4.3"
+      ]
+    },
+    "rationale": "The new claim is the sharp odd-order classification of chromatic-numerator nonnegativity after arbitrary bridge-only attachments, not the classical zero-free chromatic polynomial of a signed clique. A formal odd-palette sign evaluation, a uniform eight-term rational certificate and a positivity-preserving Eulerian operator establish an infinite boundary not stated in inspected sources. Prior signed-clique enumeration is credited. Searches produced no exact or stronger covering assertion; unindexed prior work is a residual priority risk.",
+    "residual_risks": [
+      "Zaslavsky 1982 original article was not independently read; its known core polynomial is acknowledged, but an obscure later coefficient-sign analysis could exist.",
+      "The general polynomial formula logically determines all finite evaluations; independent priority review should decide whether a prior asymptotic/sign result already implies this exact classification.",
+      "The indexed mathematical-record search is not exhaustive of all historic and unpublished literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover the all-odd-orders threshold for signed negative cliques with any number of bridges; its balancing-vertex assumption fails at negative clique order five and above.",
+        "evidence": [
+          "Theorem 1.1: equivalence under balancing-vertex condition.",
+          "Example 4.3: all-negative K4 with one balanced pendant edge, positive numerator.",
+          "Lemma 2.1: product over signed blocks."
+        ],
+        "identifier_or_url": "arXiv:2611.16458; https://arxiv.org/abs/2611.16458",
+        "material_read": "Full rendered article sections 1–4, including definitions, Lemma 2.1, Theorem 1.1, Proposition 3.2 and Examples 4.1–4.4; appendix absent",
+        "method": "Open-access arXiv full-text HTML rendering; read relevant theorem and examples and compared exact hypotheses",
+        "title": "Chromatic polynomials of signed graphs with a balancing vertex",
+        "trigger": "Introduces the positivity criterion and the all-negative four-clique with one balanced bridge"
+      },
+      {
+        "assessment": "Supplies known core polynomial and cites Zaslavsky, but does not address sign of chromatic generating-function numerator or its bridge-attachment cutoff.",
+        "evidence": [
+          "Introduction notes Zaslavsky all-negative complete-graph polynomial.",
+          "Proposition 3.1 provides E(-K_n,q) through a Stirling-type expression."
+        ],
+        "identifier_or_url": "arXiv:2407.00883; https://arxiv.org/abs/2407.00883",
+        "material_read": "Open-access full-text HTML, especially introduction, signed-color definitions and Section 3 Proposition 3.1 and its surrounding complete-graph formulas",
+        "method": "Open-access arXiv full-text HTML rendering and targeted full-text queries for all-negative cliques and numerator terminology",
+        "title": "Chromatic polynomials of signed graphs and dominating-vertex deletion formulae",
+        "trigger": "Contains the classical zero-free chromatic polynomial of all-negative complete graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7482dffb-681c-4cf6-b76a-c66888acab3a",
+  "value": {
+    "rationale": "The 2026 balancing-vertex criterion and its signed K4 balanced-bridge counterexample motivate whether arbitrary balanced-tree attachments can restore chromatic-numerator positivity. The theorem gives a complete sharp answer for every odd all-negative clique, exposing a persistent order-seven barrier despite arbitrarily many balanced blocks. The key formal-palette sign mechanism and the bridge-preserving positivity operator explain the phase structurally; an infinite classification is not a routine fixed-n table. It does not claim an all-graph equivalence or a paper-sized general classification.",
+    "status": "PASS"
+  }
+}
