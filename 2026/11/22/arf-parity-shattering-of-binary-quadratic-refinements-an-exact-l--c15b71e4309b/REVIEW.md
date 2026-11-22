@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness: PASS.** The proof reduces every trace to a coset of the symplectic orthogonal complement of the support. The nonisotropic case forces both parity values on every coset; the isotropic case is resolved by the induced nondegenerate quotient form, with the single Lagrangian exception proved via the Arf sign. Exact isotropic-subspace and unordered-basis counts give every polynomial coefficient. Independent exhaustive incidence tests for both Arf classes in dimension six verify all query supports through size four; additional dimension-four and six-dimensional checks agree. No finite computation is used to assert the infinite case.
+
+**Originality: PASS within inspected literature.** Schmidt's full 2018 quadratic-form association-scheme paper addresses eigenvalues and codes, whereas the target is coefficientwise VC shattering by fixed-polar Arf-constrained forms. Full-text finite-field VC papers of 2021 and 2022 concern norm-sphere incidence and multiplicative-square translates. Three closest accessible research records were inspected in full: the split binary-quadric Walsh sampling spectrum, the fixed-rank affine-flat shattering theorem, and the four-rank-four theories of binary orthogonal polar point graphs. Their claims do not imply the present Lagrangian-coset characterization or its parity-localized polynomial. Synonym searches across Arf invariant, quadratic refinement, theta characteristic and symplectic incidence were conducted; unindexed older finite-geometry results remain a priority risk.
+
+**Value: PASS.** This is a complete all-rank structural classification of a canonical two-orbit concept family. The parity-sensitive difference is supported on precisely one degree and is counted by symplectic Lagrangians, while the scalar VC dimension cannot distinguish the parities. That exact link between a classical quadratic-form invariant and a learning-theoretic face enumerator is mathematically motivated and not a routine restatement of the Arf formula.
+
+**Scope and risk.** This statement is limited to fixed binary symplectic polar form and nonzero-vector queries. Neither adaptive dimension nor unindexed historical priority is settled. The finite verifiers provide checks, not an external scientific certification.
+
+Self-review: passed. Independent audit: not yet performed.
