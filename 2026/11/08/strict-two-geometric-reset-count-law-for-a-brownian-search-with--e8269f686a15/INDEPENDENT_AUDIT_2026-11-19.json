@@ -1,0 +1,180 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T18:02:14.139572Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For generator D*dxx, the gate-killed backward ODE system has two explicit positive decaying modes and reflecting/absorbing endpoint conditions H0'(0)=0, H1(0)=1; those uniquely give h0=p(Au-v)/B and h1=(pAu+qv)/B for strictly positive parameters. Gate resolvent U=r(rI-Q)^(-1) and strong Markov plus reset-clock memorylessness give K=U-h*U[1,:] for gate persistence. K is positive substochastic with row sums 1-h_i and det K=z(1-h1)>0; direct independent symbolic reduction verifies det(sI-K)=-pquv/(AB^2)<0 where s=pi K 1. This strictly interlaces s between two positive subunit eigenvalues for all positive physical parameters, making the two spectral weights strictly positive. Cayley-Hamilton yields P(N>=n)=pi K^n1=w+lambda+^n+w-lambda-^n for all n>=0. Positive distinct weights prove strict discrete tail log-convexity/decreasing hazard, and total variance yields strict excess 2w+w-(m+-m-)^2 over the geometric same-mean variance. This is an analytical proof; fresh symbolic checks and 9018 numerical comparisons support the identities only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General matrix-renewal/phase-type methods are broad enough to calculate a 2-state count transform when augmented with gate state, but do not ensure strict coefficient positivity for arbitrary models.",
+          "Bressloff 2020 resets both particle and gate to the stationary gate distribution (2021 comparison Appendix B): this is a scalar renewal count, not gate-persistent.",
+          "Biswas et al. 2023 analyze drift-diffusive gated mean completion times, without this all-parameter count classification.",
+          "Bressloff 2023 Section V Eq. (5.13) has a single geometric count for an ungated renewal search.",
+          "Żbik et al. 2025/2026 consider persistent ON/OFF target on the full line but OFF is transparent and the measured statistic is hitting time, not this half-line reflected-gate reset count."
+        ],
+        "reasoning": "Identical physical gate-persistent survival-time analysis is broad in time observables but does not state or immediately imply the strictly positive two-geometric count coefficients. General phase-type theory provides an algorithmic framework, not by itself the quantified sign identity; no checked stronger theorem or covering explicit formula was identified.",
+        "searches": [
+          "strict two geometric mixture number of resets Brownian search switching target gate stationary closed open persistent stochastic gating",
+          "count distribution stochastic resetting target switches between absorbing and reflecting boundary diffusion gate remains active during resets",
+          "discrete phase type distribution two state Markov renewal Brownian resetting count positive mixture",
+          "arxiv:2009.02739 Sections 2-3",
+          "arxiv:2304.10605 model and main equations",
+          "arxiv:2310.20502 Section V",
+          "arxiv:2512.09739 Sections II-III"
+        ]
+      },
+      "checked_sources": [
+        "Mercado-Vásquez and Boyer, arXiv:2107.02148 (2021), relevant full text and Appendix B",
+        "Bressloff, arXiv:2009.02739 (2020), model and renewal section",
+        "Biswas et al., arXiv:2304.10605 (2023), mean-time calculations",
+        "Bressloff, arXiv:2310.20502 (2023), Section V count truncation",
+        "Żbik et al., arXiv:2512.09739 (2025/2026), persistent blinking transparent target",
+        "Sunil et al., arXiv:2304.09348 (2023), joint reset-count/cost transform Section 2",
+        "Resultary published-record semantic search: three actual queries, related gate, cost, and stochastic reset-count records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mercado-Vásquez–Boyer Eq. (26) gives mean absorption time, agreeing with E[N]=r E[tau], but one mean and the unmarked survival transform do not algebraically determine a count-marked pmf without further state-dependent excursion calculations.",
+          "2021 Appendix B contrasts the physically different gate-reinitialized Bressloff model; its scalar geometric law is not the present two-component result.",
+          "Sunil et al. derive the transform of number of resets jointly with costs in an ordinary scalar fully renewed process; their Eq. (3) inserts the same F(N-1,...) at each reset and does not track a persisting gate.",
+          "The present determinant identity and explicit interlacing provide the strict positivity, strict hazard monotonicity and overdispersion, not consequences of an arbitrary two-state substochastic chain."
+        ],
+        "reasoning": "The prior time-moment and generic renewal formulas motivate but do not explicitly cover the all-positive-parameter conclusion. A suitably generalized matrix-renewal method could lead to the present statement, which is a real residual incremental novelty risk; no inspected publication was demonstrated to imply this exact sign result without new calculation.",
+        "searches": [
+          "arxiv:2107.02148 Eq. 26, Eq. 43 and Appendix B",
+          "arxiv:2009.02739 renewal construction",
+          "arxiv:2304.09348 Section 2 Eq. 3, count-marked transform",
+          "strict two geometric mixture number of resets Brownian search switching target gate stationary closed open persistent stochastic gating",
+          "count distribution stochastic resetting target switches between absorbing and reflecting boundary diffusion gate remains active during resets"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The count pgf is the order-two matrix phase-type transform F(t)=pi (I-tK)^(-1)h, and the tail is a two-exponential spectral sum. A generic 2-phase phase-type law need not be a positive mixture of two geometrics; coefficients may have opposite signs.",
+          "Mercado-Vásquez–Boyer 2021 derive Laplace-space survival of the identical persistent-target process but do not display a count-marked generating function or the strict interlacing certificate.",
+          "Sunil et al. 2023, Eq. (3) and Section 2 explicitly renew the entire post-reset process; this fails when the independent gate persists."
+        ],
+        "reasoning": "Rephrasing as a two-phase discrete phase-type distribution does not in itself imply the claimed positive-mixture or decreasing-hazard behavior, which follows from det(sI-K)=-pquv/(AB^2)<0 for this concrete gate. Scalar count/cost transforms and resetting-time survival transforms are different marked observables; exact coverage was not found in the inspected primary source text.",
+        "searches": [
+          "strict two geometric mixture number of resets Brownian search switching target gate stationary closed open persistent stochastic gating",
+          "discrete phase type distribution two state Markov renewal Brownian resetting count positive mixture",
+          "arxiv:2107.02148 Sections 2-5 Appendix B",
+          "arxiv:2304.09348 Sections 1-2 Eq. (3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This is a continuum five-parameter stochastic first-passage count law rather than a finite invariant with a natural precomputed table.",
+          "Published record hits included the identical indexed target record itself, which is not separate prior art, and related distinct target-geometry, mean-time, and first-passage results; none provided a separate source asserting the two positive coefficients for the exact model.",
+          "No exact comparable count-distribution table occurred in the directly inspected primary papers."
+        ],
+        "reasoning": "No applicable finite exact database/table lookup exists for this continuous stochastic parameter family. Search and direct full-text inspection found no independent prior exact all-parameter table, but negative search evidence is not proof of novelty.",
+        "searches": [
+          "strict two geometric mixture number of resets Brownian search switching target gate stationary closed open persistent stochastic gating",
+          "count distribution stochastic resetting target switches between absorbing and reflecting boundary diffusion gate remains active during resets",
+          "discrete phase type distribution two state Markov renewal Brownian resetting count positive mixture",
+          "Resultary published claim retrieval for gated Brownian reset count and geometric mixture",
+          "arxiv:2107.02148 primary full text",
+          "arxiv:2304.09348 primary full text"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS, qualified by an important generic Markov-renewal/phase-type derivability risk. The exact same persistent closed-reflecting/open-absorbing gated Brownian model was developed in Mercado-Vásquez–Boyer (2021), but inspected results give absorption-time transforms and first moments rather than the count-marked two-geometric pmf and strict positive weights. Sunil et al. (2023) supply general count-and-cost renewal transforms for scalar renewal resetting; their renewal Eq. (3) assumes full process renewal after a reset, not a persistent gate. Bressloff (2020) reinitializes the gate; Bressloff (2023) obtains ungated scalar-geometric count. A later 2025/2026 blinking-target paper has a transparent rather than reflecting closed gate and does not state the count law. The claimed novel content is the positive spectral mixing and strict hazard/variance assertions in the fully persistent gate model, not first discovery of gate-persistent Brownian resetting or phase-type matrices. Semantic published-record search found no distinct covering prior, but a literature search is not a novelty proof.",
+      "residual_risks": [
+        "An unindexed marked-count analysis of the exact persistent absorbing/reflecting gate system may already derive the two-geometric weights under another notation.",
+        "The direct model of Mercado-Vásquez–Boyer (2021) may imply the new count law after a nontrivial Markov-renewal extension and coefficient extraction; incremental novelty is more constrained than generic phase-type terminology suggests.",
+        "A general matrix-geometric/Markov-additive theorem could subsume interlacing under an additional monotone hazard condition, not located in the reviewed primary texts.",
+        "No exhaustive guarantee of publication priority beyond the searched sources and best-of-knowledge scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_TIME_LAW_NOT_EXPLICIT_COUNT_LAW",
+          "evidence": [
+            "2021 primary manuscript studies persistent gate under resetting and Laplace-space absorption-time survival; Eq. 26 gives mean first-passage time; Appendix B distinguishes reinitialized-gate renewal model.",
+            "No count-marked strict two-geometric pmf or coefficient-interlacing result in inspected full-text sections."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2107.02148",
+          "material_read": "Full primary PDF relevant Sections 2-5, model/backward transform and mean-time Eq. (26), time variance Eq. (43), model-comparison Appendix B; page image also inspected.",
+          "method": "Fetched public arXiv primary PDF, read parsed mathematical sections and appendix, inspected rendered PDF page via screenshot.",
+          "title": "Search of stochastically gated targets with diffusive particles under resetting",
+          "trigger": "Same 1D reflected/absorbed Brownian boundary model with gate persistent through position resetting."
+        },
+        {
+          "assessment": "DIFFERENT_RESET_GATE_PROTOCOL",
+          "evidence": [
+            "This model reinitializes the gate when resetting the particle, yielding independent cycles; Mercado-Vásquez–Boyer explicitly distinguish it in their Appendix B.",
+            "No implication of a strictly positive two-geometric count for a gate that continues through resets."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2009.02739",
+          "material_read": "Full PDF model Sections 2-3, renewal derivation and gate-initialization convention, with a rendered PDF page examined.",
+          "method": "Read open-access PDF and mathematical model, inspected screenshot.",
+          "title": "Diffusive search for a stochastically-gated target with resetting",
+          "trigger": "Earlier mathematical paper about the same keywords, resetting and stochastic gate."
+        },
+        {
+          "assessment": "MEAN_TIME_AND_DRIFT_NOT_COUNT_PMF",
+          "evidence": [
+            "The paper optimizes gated drift-diffusion mean completion times; the all-parameter persistent-boundary reset-count spectral formula is not stated."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.10605",
+          "material_read": "ArXiv primary PDF abstract, model and mean-time optimal-reset equations; representative PDF page inspected.",
+          "method": "Read mathematical text and rendered page of PDF.",
+          "title": "Rate enhancement of gated drift-diffusion process by optimal resetting",
+          "trigger": "Close 2023 gated drift/diffusion/resetting literature."
+        },
+        {
+          "assessment": "UNGATED_SCALAR_GEOMETRIC_COUNT",
+          "evidence": [
+            "Bressloff 2023 Section V treats one-reset-clock renewed diffusion, with geometric count for an ungated target; lacks independently persistent two-state gate."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2310.20502",
+          "material_read": "ArXiv primary PDF Section V, especially equations 5.9-5.22 and geometric count Eq. 5.13; screenshot of this section inspected.",
+          "method": "Read actual Section V formulas and rendered PDF page.",
+          "title": "Truncated stochastically switching processes",
+          "trigger": "Reset-count truncation for a target search, a close statistic."
+        },
+        {
+          "assessment": "PERSISTENT_BUT_TRANSPARENT_CLOSED_TARGET",
+          "evidence": [
+            "OFF target is transparent on full line, unlike closed reflecting boundary on half-line in the assigned theorem.",
+            "The paper focuses on first passage and resetting, not exact two-geometric number-of-resets distribution."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2512.09739",
+          "material_read": "Open-access primary preprint model Section II, Sections III-A and principal first-passage results; PDF title page screenshot inspected.",
+          "method": "Read open-access full-text model and relevant mathematical sections; inspected PDF page.",
+          "title": "Hitting the blinking target under stochastic resetting",
+          "trigger": "2025/2026 newer close blinking-target/persistent-gate study."
+        },
+        {
+          "assessment": "SCALAR_RENEWAL_GENERAL_METHOD_NOT_SAME_GATE_STATE",
+          "evidence": [
+            "Abstract explicitly computes joint transform of first-passage time, number of resets and cost.",
+            "Section 2 Eq. (3) inserts renewed identical process after reset; the currently assigned gate remains in its current state and requires matrix-state tracking, which the inspected paper does not provide for this system."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.09348",
+          "material_read": "Full primary PDF abstract, introduction and Section 2 renewal derivation equations (1)-(9), including page 4 rendered screenshot.",
+          "method": "Read open-access PDF equations and the renewal model; inspected PDF screenshot of page with Eq. (3).",
+          "title": "The cost of stochastic resetting",
+          "trigger": "General count-marked joint first-passage/number-of-resets/cost transform might dominate the specific claim."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A persistent switching absorber is a natural stochastic search model where position resetting does not erase environmental memory. The count N is an operationally meaningful number of interventions, not merely mean absorption time. Exact positive mixture scales, strictly decreasing conditional absorption hazard, and strict excess dispersion distinguish the persistent gate quantitatively from ordinary renewal resetting and give an all-positive-parameter classification. The core sign identity is a motivated nontrivial structural statement rather than one arbitrary parameter experiment. Boundaries: excludes nonstationary initial gate, singular rates, drift, multiple gates, non-exponential reset clocks.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For D,r,a,alpha,beta>0, half-line reflected Brownian with open-absorbing/closed-reflecting two-state independent gate left running through position-only Poisson resets and initially stationary gate has an exactly strict positive mixture of two distinct geometric reset-count laws, with explicit h,K, eigenvalues lambda+/- and positive weights. The reset-count tail is strictly log-convex, absorption-per-cycle hazard strictly decreases, and Var(N)>E[N](1+E[N]). Excludes zero/singular parameters, gate reinitialization and nonstationary initial gate.",
+  "limitations": [
+    "Best-of-knowledge originality, not absolute historical-priority certification. Closest physical source 2021 already gives time-law transforms; old theory may implicitly permit a count-marked extension.",
+    "Near singular parameters the smaller mixture weight may become extremely small; naive floating point can erase strict interlacing although exact symbolic proof stays strict.",
+    "Finite 501-case and 9018-step checks are not infinite proofs; analytical determinant and eigenvalue argument handles universal scope.",
+    "External expert attestation and Lean certification not performed, as original verification status states.",
+    "Public source AUDIT.json and METADATA.json reveal internal scope_run_id and same_model review-role fields; no sanitization/guarded full-file replacements delivered, so no publication intake."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The critical first-cycle hitting probabilities follow from the unique decaying solution of the killed two-component Brownian backward boundary-value problem with reflecting and absorbing conditions. The surviving-cycle kernel subtracts a gate resolvent started at the absorbing open state; this uses gate persistence, the strong Markov property, and exponential memorylessness, not an assumed ordinary renewal between successive gate states. The explicit characteristic identity \(\det(sI-K)=-pquv/(AB^2)<0\) forces a strict interlacing with the two positive eigenvalues, and hence two strictly positive mixture weights. Matrix-power probabilities, strict discrete log-convexity, and the law of total variance finish the result for every admissible parameter and count. The separate symbolic factorization and 10,914 numerical diagnostics support the algebra; neither numerical check is substituted for proof.
+PASS
 
-## Originality — PASS, qualified
+For generator D*dxx, the gate-killed backward ODE system has two explicit positive decaying modes and reflecting/absorbing endpoint conditions H0'(0)=0, H1(0)=1; those uniquely give h0=p(Au-v)/B and h1=(pAu+qv)/B for strictly positive parameters. Gate resolvent U=r(rI-Q)^(-1) and strong Markov plus reset-clock memorylessness give K=U-h*U[1,:] for gate persistence. K is positive substochastic with row sums 1-h_i and det K=z(1-h1)>0; direct independent symbolic reduction verifies det(sI-K)=-pquv/(AB^2)<0 where s=pi K 1. This strictly interlaces s between two positive subunit eigenvalues for all positive physical parameters, making the two spectral weights strictly positive. Cayley-Hamilton yields P(N>=n)=pi K^n1=w+lambda+^n+w-lambda-^n for all n>=0. Positive distinct weights prove strict discrete tail log-convexity/decreasing hazard, and total variance yields strict excess 2w+w-(m+-m-)^2 over the geometric same-mean variance. This is an analytical proof; fresh symbolic checks and 9018 numerical comparisons support the identities only.
 
-Mercado-Vásquez and Boyer (arXiv:2107.02148, Sections 2–5 and Appendices A–B) analyze this same physical gate-persistent search system but calculate time-to-absorption laws, means, and coefficients of variation, not the reset-count distribution or the positive two-geometric decomposition. Their Appendix B expressly distinguishes Bressloff's 2020 gate-reinitializing model, which does have ordinary renewal. Bressloff (arXiv:2310.20502, Section V) treats reset-count truncation for ungated diffusion and cannot supply the gate-dependent two-component law. Biswas et al. (arXiv:2304.10605, primary equations and analysis) treat mean drift-diffusion completion time. General matrix-geometric theory explains a rational generating function, but a generic two-phase law need not be a positive mixture of geometrics; the strict characteristic sign is the nontrivial comparison. Relevant semantic mathematical-record and primary-literature searches yielded no exact covering result. The remaining risk is an unindexed treatment of the same gate-persistent count observable or a more general theorem covering the sign identity.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The number of resets measures search intervention cost. This model's persistent gate breaks ordinary renewal at reset times; a single-geometric count law and its constant hazard are physically plausible but false here. Exact positive mixture weights, strictly decreasing absorption hazard, exponential tail scales, and a strictly quantified variance penalty give experimentally meaningful predictions about rare search costs, beyond the known mean completion time. The full all-parameter strict classification is structurally motivated, not a parameter-specific calculation.
+Best-of-knowledge PASS, qualified by an important generic Markov-renewal/phase-type derivability risk. The exact same persistent closed-reflecting/open-absorbing gated Brownian model was developed in Mercado-Vásquez–Boyer (2021), but inspected results give absorption-time transforms and first moments rather than the count-marked two-geometric pmf and strict positive weights. Sunil et al. (2023) supply general count-and-cost renewal transforms for scalar renewal resetting; their renewal Eq. (3) assumes full process renewal after a reset, not a persistent gate. Bressloff (2020) reinitializes the gate; Bressloff (2023) obtains ungated scalar-geometric count. A later 2025/2026 blinking-target paper has a transparent rather than reflecting closed gate and does not state the count law. The claimed novel content is the positive spectral mixing and strict hazard/variance assertions in the fully persistent gate model, not first discovery of gate-persistent Brownian resetting or phase-type matrices. Semantic published-record search found no distinct covering prior, but a literature search is not a novelty proof.
 
-## Boundaries and limitations
+## value
 
-The gate is stationary initially, independent of position and clock, and is not reinitialized on reset. All five model parameters are positive; excluded singular limits can collapse one component. No inference is made about a larger family of switching gates or nonexponential reset clocks. Existing time-law results are explicitly acknowledged. Literature review does not certify global publication priority; formal independent scientific validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A persistent switching absorber is a natural stochastic search model where position resetting does not erase environmental memory. The count N is an operationally meaningful number of interventions, not merely mean absorption time. Exact positive mixture scales, strictly decreasing conditional absorption hazard, and strict excess dispersion distinguish the persistent gate quantitatively from ordinary renewal resetting and give an all-positive-parameter classification. The core sign identity is a motivated nontrivial structural statement rather than one arbitrary parameter experiment. Boundaries: excludes nonstationary initial gate, singular rates, drift, multiple gates, non-exponential reset clocks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
