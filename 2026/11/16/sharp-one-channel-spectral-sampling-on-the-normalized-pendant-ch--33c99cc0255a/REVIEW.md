@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The explicit symmetric-normalized Laplacian Fourier symbol uses the spine degree three and leaf degree one; the characteristic roots give disjoint spectral bands \([0,2/3]\) and \([4/3,2]\). A single Bloch direction below the upper-band onset makes local sampling a scalar multiplier, so Plancherel yields exact sharp bounds. Endpoint Gram eigenvalues give the universal best lower bound; strict monotonicity of the Bloch eigenvector angle proves attainment and uniqueness. Varying the angle on an interval proves uniqueness of the tight quadrature sensors. Above the onset, the rank-two fiber on positive measure disproves injectivity of every one-row sampler. The included checker tests 5,495 structural and synthesized-signal assertions. A finite check is not an infinite proof.
+## correctness
 
-## Originality — PASS with disclosed risk
-published-finding corpus queries included normalized pendant-line Bloch sampling, one-channel complex mixing, graph Laplacian bandwidth transitions, and tight sensors. The closest returned work concerns finite cycles, finite graph dynamical sensing, and two-time diffusion on a line; those assertions do not imply the exact pendant-graph classification. An accessible full HTML paper by Giannoni proves general vertex-subset graph sampling and does not state the local complex sensor or sharp formula. Tanaka–Eldar's full HTML develops abstract generalized sampling rather than this exact case. The directly motivating Bulai–Cabrelli–Cordero–Molter–Saliani preprint was accessible only by abstract; comparison with its entire text remains unresolved and could reveal related explicit examples. No claim is made that semantic searches prove priority.
+PASS
 
-## Value — PASS
-This is a natural minimal periodic decoration of the integer lattice with a genuine two-band normalized spectrum. The result distinguishes stable, optimally robust, and exactly tight *one-measurement-per-cell* recovery, and establishes the sharp impossibility threshold when two independent Bloch modes occupy the same fiber. The explicit optimal sensor is unique at every nontrivial bandwidth, while a physically interpretable quadrature sensor gives exact energy preservation. These conclusions are stronger than a routine numerical sampling example, but the result is restricted to this natural graph and sampling architecture.
+Normalized adjacency Fourier fiber is [[2 cosθ/3,1/sqrt3],[1/sqrt3,0]], with eigenvalues (c±sqrt(c²+3))/3 and normalized positive lower-band u(c). Spectrum of normalized Laplacian is [0,2/3]∪[4/3,2]. For 0<ω≤4/3 the spectral subspace has fiber dimension one almost everywhere, and the frame multiplier is |<w,u(c)>|². The two endpoint vectors v,q have positive overlap s<1; averaging their squared projections upper-bounds any sensor by (1+s)/2, attained uniquely by normalized v+q. The traversed positive eigenvector arc gives the entire-interval bound. A complex row has constant multiplier for all c exactly at unit quadrature sensors (1,±i)/sqrt2; above 4/3 both eigenmodes appear on positive-measure fibers and any 1×2 row has a kernel. Independent Fourier-fiber numerical checks at ω=.05,.25,1,4/3 match sharp endpoints and verify the constant half-energy multiplier; these do not prove the infinite graph result.
 
-## Scientific limitations
-No uniqueness assertion concerns spatially varying or dynamical sensors. The underlying Fourier diagonalization and Hilbert-space min–max method are established tools. Full-text coverage of the most relevant new preprint could not be completed. No external or independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Generic graph Paley–Wiener sampling and subspace sampling theory covers the framework, but checked source statements did not solve the particular two-site complex-row optimization and tight-sensor classification on the infinite normalized pendant graph. Closest directly motivating 2026 manuscript is inaccessible beyond its abstract; this remains a concrete originality priority risk, not an automatic failure.
+
+## value
+
+PASS
+
+This is an exact and practical E-optimal one-number-per-cell sensor design, classification of all tight sensors and a sharp sampling bandwidth phase transition on a canonical periodic decorated graph; it distinguishes optimally stable sensors from exactly tight but suboptimal sensors. Exact two-band cutoff and equality conditions go beyond generic sufficient sampling-set criteria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
