@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T18:44:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the canonical metric on the column simplex in 1-perp: barycentric inward facet normals are L^+ e_v and their Gram is C=(L^+)^2. For the clique-windmill, orthogonal eigenspaces inside blade (eigenvalue s+1), block variation (1), and hub direction (N=sm+1) give exact entries C_00=sm/N^3, C_0v=-N^-3, diagonal D=(s+3)/(s+1)^2-q, same blade U=(s+2)/(s+1)^2-q, distinct blades -q, q=(1-N^-3)/(sm). Interior cosine is negative normalized Gram, giving cross q/D, hub (sm N^3 D)^-1/2, blade -U/D. The inequalities U>0,D>q>0 and q^2 sm N^3>D prove strict order. Ridge multiplicities partition binom(N,2), and mK_s plus one isolate reconstructs the blades; one-blade m=1 is regular with cosine 1/s. Fixed-s expansions follow q~1/(sm), D~(s+3)/(s+1)^2. Independently computed Laplacian Moore-Penrose pseudoinverse matrices for 2<=s,m<=4 and compared all Gram entries exactly/numerically; these finite examples check formulas but the spectral proof covers all integers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Braun/Meyer introduce Laplacian simplices and lattice/Ehrhart properties.",
+          "General normal Gram/pseudoinverse and inverse angle recovery hold for arbitrary weighted Laplacians; these supply the mechanism, but do not tabulate ridge angles for K1 join mKs nor prove cross-versus-hub order."
+        ],
+        "reasoning": "The source is non-vertex-transitive, and no known generic theorem forces exactly three angular classes from graph symmetry alone without calculating the particular pseudoinverse projections. Angular recognition is a broader but different classification of inverse image, not exact angular spectrum.",
+        "searches": [
+          "arxiv:1706.07085 Laplacian simplices",
+          "arxiv:1809.02960 Laplacian Simplices II",
+          "Resultary: vertex transitive Laplacian simplices inradius",
+          "Resultary: angular recognition weighted graph"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1706.07085",
+        "arxiv:1809.02960 background",
+        "Resultary 2026-11-17 angular-recognition full primary RESULT.md",
+        "Resultary vertex-transitive Laplacian simplices",
+        "Resultary symmetric edge polytope of clique windmills",
+        "Frozen RESULT.md and rational checker"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general graph inverse angle theorem implies the claim full angle data can recover the graph, but not the explicit angle values, obtuse ridge graph, counts or rates.",
+          "A symmetric edge polytope of the same windmill is geometrically a different polytope and has a different facet-normal matrix."
+        ],
+        "reasoning": "The candidate includes genuinely more specific quantitative and sign-threshold structure beyond existing generic reconstruction. It is not completely implied by the generic inverse criterion; derivation of q,D,U and their strict ordering is the substantive new part.",
+        "searches": [
+          "Resultary published 2026-11-17 angular-recognition RESULT.md",
+          "arxiv:1706.07085 Laplacian simplex basic definition",
+          "Resultary symmetric edge polytope windmill"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026-11-17 general angular recognition theorem recovers any connected weighted graph from the full pair-indexed angle matrix by forming K=diag(a)Cdiag(a), R=(K†)^(1/2).",
+          "It gives no windmill-specific values q,D,U, angle multiplicities, obtuse-only recognition or two distinct asymptotic scales."
+        ],
+        "reasoning": "A general full-matrix inverse theorem includes the bare graph recovery from *all* angles, so that broad implication is prior-covered. The assertion that the simple sign pattern of only obtuse ridges is precisely mK_s plus an isolated hub, together with explicit angular values, remains stronger in a different targeted direction, not a direct corollary without doing the new windmill computation.",
+        "searches": [
+          "Resultary: clique windmill Laplacian simplex dihedral facet angles obtuse ridge reconstruction",
+          "Resultary: angular recognition and weighted graph reconstruction for Laplacian-column simplices",
+          "arxiv:1706.07085"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Retrieved matches concern this candidate itself, matched-deleted complete graphs, cycle Laplacian simplices, and general angular recognition, not any independent exact q,D,U windmill table.",
+          "A windmill graph Laplacian spectral theorem does not automatically identify normal Gram off-diagonals and interior angle order."
+        ],
+        "reasoning": "The spectral multiplicity three projection formula has been independently derived from actual L; unlike a known angle table it is not simply looking up a finite graph invariant. Search absence is not decisive novelty evidence; the checked stronger angular recognition theorem was read in full.",
+        "searches": [
+          "Resultary: dihedral spectra obtuse ridge clique windmill",
+          "Resultary: matching deleted Laplacian simplex angles",
+          "arxiv:1706.07085 examples"
+        ]
+      },
+      "rationale": "The exact three-angle windmill spectrum, strict obtuse threshold, signed ridge multiplicities and two-scale asymptotics were not supplied by earlier checked literature. HOWEVER, same-day published general angular-recognition theorem already proves the broad claim that a complete indexed dihedral angle matrix recovers any connected graph up to weight scaling. Only the explicit windmill-specific spectral and obtuse-only graph reconstruction, not the unrestricted recovery implication, are counted as novel.",
+      "residual_risks": [
+        "General angular matrix -> entire graph recovery implication is precovered by a same-day published theorem.",
+        "Unindexed exact windmill angle calculation may exist; historical priority of separate same-day findings is unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The broad full-angle graph recovery portion is covered; exact windmill-specific spectrum/obtuse-only fingerprint not stated or implied without calculation",
+          "evidence": [
+            "All connected weighted graphs recoverable from complete pair-indexed dihedral angle matrix; no windmill angle type evaluation"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-angular-recognition-and-weighted-graph-reconstruction-for-laplac--49d3b46853da",
+          "material_read": "Entire published RESULT.md Finding, inverse PSD-square-root proof, explicit example, scope and references",
+          "method": "Read-only Resultary primary GitHub file",
+          "title": "Angular recognition and weighted-graph reconstruction for Laplacian-column simplices",
+          "trigger": "Stronger all-graph dihedral-angle reconstruction with direct overlap"
+        },
+        {
+          "assessment": "Gives column simplex, lattice geometry and examples; does not tabulate three windmill angle classes",
+          "evidence": [
+            "2017 Laplacian-column simplex construction and Ehrhart approach"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1706.07085",
+          "material_read": "Abstract, introduction, defining construction and examples, primary PDF first page visually inspected",
+          "method": "arXiv primary PDF read and screenshot",
+          "title": "Laplacian Simplices",
+          "trigger": "Foundational same Euclidean/lattice object"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete explicit ridge-angle classification for a natural non-vertex-transitive graph family, an exact obtuse-only combinatorial reconstruction, and different m^-1/m^-2 acute angle scaling give meaningful Euclidean Laplacian-simplex geometric information. The new result is more than the textbook observation that Laplacian columns define a simplex or that a complete angle matrix can in principle recover a graph.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:1706.07085",
+    "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-angular-recognition-and-weighted-graph-reconstruction-for-laplac--49d3b46853da"
+  ],
+  "disposition": "passed",
+  "final_claim": "For s,m>=2, the canonical full-column Euclidean Laplacian simplex of G=K_1 join (mK_s) has precisely three dihedral-angle values, with exact multiplicities and cross<hub<pi/2<within-blade angles; the obtuse ridge-label graph is mK_s plus an isolated hub, and the two acute defect scales are m^-1 and m^-2.",
+  "limitations": [
+    "Canonical full-column inherited Euclidean metric only, equal-sized unweighted blades s,m>=2; one blade m=1 is boundary.",
+    "The more general all-angle graph reconstruction portion is precovered; only exact windmill-specific quantitative structure receives originality credit."
+  ],
+  "residual_risks": [
+    "General angular matrix -> entire graph recovery implication is precovered by a same-day published theorem.",
+    "Unindexed exact windmill angle calculation may exist; historical priority of separate same-day findings is unresolved."
+  ],
+  "schema_version": 1
+}
