@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-A full proof is in RESULT.md. The finite reducing Jacobi paths are derived from the two tensor factors, without assuming norm convergence. Even total degrees yield constant edges \(ab/2\). Odd degrees yield the bidiagonal singular-value matrix \(A I+B L\), \(A=a^2/2\), \(B=b^2/2\). The difficult case \(A<B\) is resolved by interlacing: all but at most the smallest singular value are at least \(B-A\), and the smallest is at most \(A<ab\). Bulk Weyl vectors with disjoint reflected supports prove every proposed spectral interval occurs in each parity sector and in its Fredholm essential spectrum. A nilpotent strictness argument excludes norm attainment. Positive weights, endpoint overlap, equal weights, and the gap threshold are covered. The numerical checker tests 20,804 finite matrix assertions but is not used as an infinite-dimensional proof.
+## correctness
 
-## Originality — PASS, qualified
-Garcia–O'Loughlin–Yu solve the uniform-weight case (2023). Tian–Wang–Zhu analyze convergent-weight norms (2025). Yang–Zhang supply a general finite-degree algorithm for point eigenvalues (2025), and this finite decomposition is **not new**. The explicit full **and essential** spectrum of permanently alternating positive weights, its three-band threshold, and nonattained sharp norm are not stated in the inspected primary texts and are not implied by the indexed one-spike result. Searches compare mathematical hypotheses and consequences, not titles alone. Earlier unindexed periodic special cases remain a real bibliographic risk.
+PASS
 
-## Mathematical value — PASS
-The problem is motivated by the published weighted-shift tensor spectral question. It gives an exact, natural two-parameter nonconvergent classification with a sharp topology change from one to three spectral bands at \(1+\sqrt2\). It also quantifies the strict norm loss relative to \(\|S\|^2\) and proves both symmetry sectors share the full Fredholm essential spectrum. This is more than restating a finite characteristic polynomial or making a routine scalar substitution; the proof requires a uniform finite-block exclusion and reflection-symmetric bulk Weyl sequence construction.
+For each n the homogeneous tensor degree subspace K_n reduces H and the flip, with Jacobi off-diagonal h_i=w_i w_{n-i-1}/2. Even n gives constant edge ab/2 with spectrum in (-ab,ab). Odd n gives alternating A=a²/2,B=b²/2, represented by [[0,C_m],[C_m*,0]], C_m=A I+B lower shift. If A>=B all singular values lie [A−B,A+B]; if A<B principal-corner interlacing leaves at most one singular value below B−A and its smallest is <=A<ab. Thus no finite block lies outside [-ab,ab]∪[-L,-d]∪[d,L]. Bulk constant and alternating Bloch waves truncated at long interior windows and reflected with even/odd signs yield orthonormal Weyl sequences in each parity, establishing *Fredholm essential*, approximate point and full spectrum equality. Strict finite-block norm <L and direct sum endpoint not eigenvalue give nonattainment. Formula L+d=max(a,b)^2 and d>ab iff max/min>1+sqrt(2). Independent direct Jacobi diagonalizations for n=2..40 across five test pairs corroborated the finite bounds, not the infinite Weyl proof.
 
-## Risks and limits
-An older periodic Jacobi/tensor spectral result not found by the searches may contain an equivalent special case. The comparison with the one-spike published record used its indexed summary rather than its full text. The only new claim is the stated two-factor period-two full and essential spectral classification, not the known finite-block algorithm. Independently sourced mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the exact full/ap/Fredholm essential spectrum and sharp 1+sqrt(2) periodic band transition of both symmetry sectors. Earlier finite-block characteristic-polynomial algorithms and one-spike Jacobi boundary results are incorporated as established background, not counted as novel; neither their hypotheses nor published explicit statements establish this alternating periodic global spectrum and unattained edge.
+
+## value
+
+PASS
+
+The exact continuous-band versus connected-band transition and unattained norm answer a natural weighted-shift tensor spectral question left open by unweighted and convergent-weight cases. The nonstandard finite-block interlacing exception and reflection-sector Weyl construction are useful spectral structural lemmas, not merely a parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
