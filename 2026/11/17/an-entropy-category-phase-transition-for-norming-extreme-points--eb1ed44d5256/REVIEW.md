@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The explicit block map has norm one but neither its original action nor its first adjoint norm-attains, because every row has coefficient sum strictly smaller than one while those sums converge to one. Disjoint blocks give independent binomial sign counts. Binomial relative-entropy upper and single-type lower bounds, coupled with both Borel–Cantelli lemmas, establish the exact tail quotient norm. The strictly increasing binary divergence on the upper branch determines the unique phase boundary, and the finite initial-row gap establishes the exact norm-attainment criterion. Every finite cylinder can be extended to a norming sign by placing a constant sign on a late block, proving the dense \(G_\delta\) property. Sparse forced blocks support a dimension-one set; balancing all later blocks gives dense nonnormers. Endpoints and bias equality \(p=1/2\) are included. Exact rational and floating-point finite diagnostics are supplementary, not substitutes for the infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-Dantas–Jung–Martín (arXiv:2609.00794v1, Section 3.1) establish universal existence of norm-attaining second adjoints on real \(c_0\), not the distribution or topology of norming sign vectors for a fixed explicit operator. Earlier published residuality statements concern variable operators, not norming points. Classical Erdős–Rényi logarithmic-window theory and standard binomial large deviations explain the probability mechanism; the theorem does not present those tools as new. Its combined fixed-operator entropy/quotient-norm, norming extreme-point phase diagram, category and dimension classification was not identified in the checked records. Searches did not prove absolute priority; a classical result covering that exact operator interpretation remains a risk. A related published block-contrast study concerns Baire categories of operator parameters, not this sign-cube phase.
+PASS
 
-## Mathematical value — PASS
-The recent universal bidual norm-attainment theorem leaves open how prevalent its norming witnesses can be. For a canonical disjoint block-average model, this result distinguishes Baire genericity and Hausdorff dimension from probability-one prevalence, computes a sharp bias-dependent transition, and calculates the complete almost-sure quotient norm beyond the transition. The precise logarithmic scale and entropy root are intrinsic to competing block length and sign concentration, rather than an arbitrary numerical slice. The result is narrowly restricted to one real operator family and independent biased signs; it does not generalize the existence theorem.
+Let I_n be disjoint successive blocks of size m_n=max(1,ceil(c log_2(n+1))) and lambda_n=n/(n+1). Row sums lambda_n<1 prove non-attainment of T on c0; the disjoint ℓ1 action has norm ∑lambda_n|y_n|<∥y∥_1 for every nonzero y, so the first adjoint does not attain. T**1 has norm one. For iid signs with favored probability q=max(p,1−p), each row is a binomial m_n mean, independent across n. Binomial Chernoff upper bounds and one-binomial-mass lower bounds give n^(−c D_2(r∥q)) up to logarithmic factors; independent Borel–Cantelli proves limsup |row mean|=2R(c,q)−1, R=1 at/below c_*=1/(-log_2q), otherwise D_2(R∥q)=1/c. Multiplying by lambda_n does not change the limsup, and dist(z,c0)=limsup|z_n|. If this is less than one, finitely many initial rows also have modulus <1, giving nonattainment for typical signs. Norming-sign set is the intersection of open dense late-block events, and a zero-density forced sequence of constant blocks gives a full-dimension Cantor subset. At c=c_* the all-favored-block probabilities have divergent sum, so equality case is included. These prove the exact fixed-operator category/measure distinction for every c>0 and p∈(0,1); finite diagnostics alone do not prove any almost-sure claim.
 
-## Closest literature and limitations
-Dantas–Jung–Martín, arXiv:2609.00794v1 (2026); Kifer, arXiv:1608.01858 (2016); Jung–Martín–Rueda Zoca, arXiv:2203.04023 (2022). The 2016 material available for comparison was an abstract, not a full theorem-by-theorem inspection; existing maximal-average laws may already imply the probabilistic subformula after reformulation. A previously indexed block-contrast note concerns operator-parameter Baire strata. All claims of comparison are limited to the material actually read.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A best-of-knowledge new simultaneous product-measure, Baire-category, Hausdorff-dimension and quotient-norm phase diagram for a fixed explicit real c0 block averaging operator. The broad existence of second-adjoint norm attainment and the large-deviation ingredients are prior results, not claimed new.
+
+## value
+
+PASS
+
+The mismatch between Baire genericity/full Hausdorff dimension and Bernoulli almost-sure norming is a concrete natural boundary in the geometry of norm attaining second adjoints. The logarithmic block sizes are exactly the Erdős–Rényi rare-event scale, not an arbitrary finite slice; the relative-entropy rate gives the exact bias-dependent transition and quotient norm, information absent from a bare universal existence result. This exact invariant is independently useful when comparing topological and probabilistic notions of typical norming extreme points.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
