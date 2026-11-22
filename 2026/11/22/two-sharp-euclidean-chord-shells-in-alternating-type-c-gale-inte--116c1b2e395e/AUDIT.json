@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For the explicitly normalized type-C upper Gale interval, feasible binary vertices are precisely reversed length-2r simple walks constrained to height >= -1; reflection gives binom(2r+1,r) vertices. A complementary feasible pair has both height h and -h >= -1, so each even time has height zero and yields 2^(r-1) unordered diameter pairs. A pair at squared distance 2r-1 has exactly one equal bit, necessarily zero. Decomposing at its position leaves a five-state walk on -1,0,1,2,3; the two-step continuation recurrence has row sum three, giving 3^m and 2*3^m. Both parity sums have 2(3^r-2^r) ordered pairs, hence exactly 2(3^r-2^r) unordered near-diameter pairs in total. Strict convexity excludes nonvertex diametral endpoints. Verified independently by complete integer vertex-pair enumeration for r=1..6 (1,586,479 pairs) and a separate integer dynamic program for r=1..15, run from this package.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen et al., arXiv:2311.15441v1, sections 2,4,5, give general feasible interval inequalities, combinatorial structure, triangulations and volumes.",
+        "Eur et al., arXiv:2209.06752, introduction and relevant structural discussion cover delta-matroid polytopes and volume/lattice invariants, not Euclidean pair-shell counts.",
+        "Read full RESULT.md of https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-four-state-euclidean-distance-spectrum-and-antipodal-rigidity-of--0acaa0ef9409; its theorem is explicitly restricted to linked snake intervals, hence it is not broader in domain than the new alternating upper interval."
+      ],
+      "reasoning": "General geometric descriptions of all feasible polytopes do not directly give the top pair counts without the new two-walk and five-state arguments. A broader interval class in a structural theorem does not automatically subsume its new distance multiplicity statements; the identified metric theorem is narrower in a disjoint parameter class.",
+      "searches": [
+        "delta matroid feasible polytope complete Hamming distance spectrum non-snake alternating Schubert lower intervals",
+        "symmetric Catalan paths pair complementary feasible sets diameter graph perfect matching 2 power",
+        "lattice path delta matroid feasible polytope Euclidean enclosing sphere inradius",
+        "2026/11/17/SCOPE-four-state-euclidean-distance-spectrum-and-antipodal-rigidity-of--0acaa0ef9409"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2311.15441v1",
+      "arxiv:2209.06752",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-four-state-euclidean-distance-spectrum-and-antipodal-rigidity-of--0acaa0ef9409",
+      "Published published-finding corpus semantic search results from the stated actual queries",
+      "Earlier indexed mathematical claims on related geometry were compared by their scientific statements"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen et al. provide the suffix inequalities used as an initial definition but do not state a two-shell count.",
+        "In the full public metric paper https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-four-state-euclidean-distance-spectrum-and-antipodal-rigidity-of--0acaa0ef9409, the four-state transfer product enumerates only [S,S union {n}] linked type-C snake profiles, with n native coordinates.",
+        "For r>=2, the alternating upper interval [emptyset,{2,4,...,2r}] is not [S,S union {2r}] for any S since its lower end is empty and upper end has r elements."
+      ],
+      "reasoning": "Domain checks rule out direct corollaries of the closest metric theorem. The new count of almost-complement pairs involves five-state continuation after one agreement; neither its 3^r count nor the complete matching is an immediate implication of existing structural or volume formulas. No stronger full family metric theorem was identified.",
+      "searches": [
+        "delta matroid feasible polytope complete Hamming distance spectrum non-snake alternating Schubert lower intervals",
+        "type C Catalan lattice path delta matroid polytope Euclidean diameter diametral pairs complementary incidence vectors",
+        "2026/11/17/SCOPE-four-state-euclidean-distance-spectrum-and-antipodal-rigidity-of--0acaa0ef9409"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For 0/1 vertex pairs, squared Euclidean distance is Hamming distance; top shell is the count of complementary feasible pairs and penultimate shell counts pairs sharing one coordinate.",
+        "Full text https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-four-state-euclidean-distance-spectrum-and-antipodal-rigidity-of--0acaa0ef9409 expresses a four-state metric enumerator for linked toric snake intervals only."
+      ],
+      "reasoning": "Looked for Hamming-distance, antipodal, complement-pair and Gale-interval language rather than merely identical titles. The relevant previous formula cannot be substituted because its linked-toric domain requires T=S union {n}, whereas T here contains r>=2 elements and S is empty. No equivalent counts were found in inspected primary source or indexed results.",
+      "searches": [
+        "Euclidean squared distance near-diameter shells alternating top type C Gale interval empty set even positions 2r 2 to power pairs",
+        "type C Catalan lattice path delta matroid polytope Euclidean diameter diametral pairs complementary incidence vectors",
+        "lattice path delta matroid type C Catalan Hamming diameter",
+        "2026/11/17/SCOPE-four-state-euclidean-distance-spectrum-and-antipodal-rigidity-of--0acaa0ef9409"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The current accessible result catalog returned the linked snake spectral claim 2026/11/17/SCOPE-four-state-euclidean-distance-spectrum-and-antipodal-rigidity-of--0acaa0ef9409 and separate Catalan Hausdorff/inball records, but no exact table of alternating upper Gale interval distances for all r.",
+        "No full-table statement appeared in the relevant inspected parts of the two primary arXiv documents."
+      ],
+      "reasoning": "The new expressions classify an infinite natural family, not just a previously tabulated finite sequence; small exact values were independently recomputed and are reported as checks rather than evidence of novelty. Unindexed tables remain an acknowledged risk.",
+      "searches": [
+        "Euclidean squared distance near-diameter shells alternating top type C Gale interval empty set even positions 2r 2 to power pairs",
+        "lattice path delta matroid type C Catalan Hamming diameter",
+        "type C Catalan lattice path delta matroid polytope Euclidean diameter diametral pairs complementary incidence vectors"
+      ]
+    },
+    "rationale": "The closest identified primary antecedent supplies type-C Gale feasible interval inequalities and triangulation/volume properties, not the native Euclidean top-two pair counts. The closest discovered published metric theorem is limited to linked toric snake intervals [S,S union {n}]; the subject [emptyset,{2,4,...,2r}], r>=2, is never such an interval. Other delta-matroid constructions and polytope-metric records inspected do not imply the stated two-shell counts, as their ambient metric problems, domain families or statements differ. Priority remains provisional because unpublished or unindexed equivalent counts cannot be excluded.",
+    "residual_risks": [
+      "Unindexed or unpublished equivalent vertex-distance distribution for alternating type-C upper Gale intervals could predate the present claim.",
+      "The arXiv source provides the native feasible-polytope definition; metric statements inferred only from its actual relevant sections, not a proof of absence in all external literature.",
+      "No independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source defines exactly the feasible zero-one object and proves general structural assertions but does not furnish top-two Euclidean chord shell counts",
+        "evidence": [
+          "arXiv:2311.15441v1 (first public 2023-11-26)",
+          "Theorem A: suffix feasibility; paper sections 4–5: polytope structure and volume"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2311.15441",
+        "material_read": "Full PDF relevant sections 2,4,5, including Theorem A, type-C suffix order and volume sections",
+        "method": "Opened and read accessible arXiv PDF text and page images for defining statements; searched text for metric terminology",
+        "title": "Lattice Path Delta Matroids",
+        "trigger": "Primary construction of type-C Gale intervals and feasible polytopes"
+      },
+      {
+        "assessment": "No exact native Euclidean chord-shell expression found; supplies broader background rather than a stronger metric result",
+        "evidence": [
+          "arXiv:2209.06752, introduction and delta-matroid framework"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2209.06752",
+        "material_read": "Abstract, introduction, contents and relevant discussion of feasible delta-matroid polytopes",
+        "method": "Opened lawful arXiv PDF and searched for diameter/Hamming metrics",
+        "title": "Signed permutohedra, delta-matroids, and beyond",
+        "trigger": "Potentially broader theory implying a type-C feasible polytope metric invariant"
+      },
+      {
+        "assessment": "Claim covers precisely linked toric snake intervals [S,S union {n}] and their all-distance enumerators, not the non-snake upper interval [emptyset,{2,4,...,2r}] with r>=2; it cannot directly imply the new pair counts",
+        "evidence": [
+          "Published title and full proof, identifier 2026/11/17/SCOPE-four-state-euclidean-distance-spectrum-and-antipodal-rigidity-of--0acaa0ef9409",
+          "Explicit limitation to toric snake intervals [S,S union {n}]"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-four-state-euclidean-distance-spectrum-and-antipodal-rigidity-of--0acaa0ef9409",
+        "material_read": "Entire RESULT.md including findings, scope, proof, relationship to prior work and limitations",
+        "method": "Fetched and read full published RESULT.md through its publicly accessible repository",
+        "title": "Four-state Euclidean distance spectrum and antipodal rigidity of linked type-C snake polytopes",
+        "trigger": "High-similarity exact prior distance-spectrum claim; strongest plausible overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "116c1b2e-395e-45d1-b52d-a769be09ea21",
+  "value": {
+    "rationale": "The two maximal Euclidean chord shells and the complete diameter graph are canonical metric invariants of a natural infinite family of non-snake type-C feasible polytopes. The exponential ratio 4((3/2)^r-1) separates top and almost-top distances and the proof supplies a compact two-walk/five-state defect method. The result is exact for all dimensions and does not rely on arbitrary parameter slicing or a finite table.",
+    "status": "PASS"
+  }
+}
