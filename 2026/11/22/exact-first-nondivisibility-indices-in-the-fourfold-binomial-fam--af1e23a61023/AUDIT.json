@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "For any positive b and n, the exact identity 4n·binom((b+4)n,4n)=(bn+1)·binom((b+4)n,4n-1) proves odd-prime divisibility and reduces odd b,odd n to ≤1 binary carry in an addition. At all odd depths h≥3, the explicit seven-coordinate binary-state transition has 4 reachable states at depth 3, 11 at depth 5, and the depth-5 set is invariant under two transitions. Each reachable terminal state with 3n−1<2^h has a capped count of at least two carries, proving every smaller index works. At the explicit index (2^h+1)/3 the carry count is ν₂((b+3)/2^h)≤1, so it fails. checker.py reconstructs and checks the finite state sets and tests 6689 assertions, while the all-b conclusion follows from the invariant rather than finite samples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guo–Krattenthaler, arXiv:1301.7651v3, Theorem 2.1, gives infinite failures with an upper bound involving Euler’s totient, not a formula for f(4,b).",
+        "A previously indexed prime-power initial-obstruction classification establishes whether the *first eligible index* fails, but does not state the least later failing index for all b."
+      ],
+      "reasoning": "The general existence theorem provides a possibly very large upper bound, not the exact minimum. The initial-obstruction criterion is insufficient when the earliest eligible candidate does not fail. Neither logically implies the unbounded two-adic plateau law, even on restriction to a=4.",
+      "searches": [
+        "Guo Krattenthaler binomial divisibility first failure 4n binomial coefficient fourfold n 2-adic",
+        "Sun first nondivisibility function f(a,b) broad exact classification a prime power 4 2-adic plateau",
+        "arXiv:1301.7651v3 Sections 2, 4 and 7 first-failure upper bound",
+        "Sun arXiv:1005.1054v12 theorem list"
+      ]
+    },
+    "checked_sources": [
+      "Z.-W. Sun, arXiv:1005.1054v12",
+      "Z.-W. Sun, doi:10.1017/S1446788712000171",
+      "V. Guo and C. Krattenthaler, arXiv:1301.7651v3",
+      "Kummer carry theorem",
+      "Indexed prior work on fixed parameter three and first eligible prime-power failures"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun’s gcd bound eliminates every odd-prime obstruction when a=4 but does not locate the first residual two-primary failure.",
+        "Kummer’s carry theorem supplies a valuation algorithm for each particular pair but not the global parameter-uniform minimality obstruction established by the eleven-state closure.",
+        "Guo–Krattenthaler establishes infinitely many failures but not the first one."
+      ],
+      "reasoning": "Combining standard divisibility and Kummer provides a reduction; obtaining the sharp minimum for every b additionally requires the nontrivial all-odd-depth carry lemma. That lemma, proved by a closed finite-state invariant, is not present among the inspected implications. Earlier unpublished or broader methods could nevertheless cover the result.",
+      "searches": [
+        "least failure threshold quadruple binomial family a=4 odd b Sun f(a,b) 2-adic",
+        "Sun f(a,b) first positive index n bn+1 does not divide binomial (a+b)n choose an exact a=4 2-adic valuation b+3 odd h threshold (2^h+1)/3",
+        "Sun first nondivisibility function f(a,b) broad exact classification a prime power 4 2-adic plateau",
+        "Kummer’s theorem on binary carries for binomial valuations",
+        "Sun Theorem 1.1 gcd-adjusted divisibility (2012)",
+        "Guo–Krattenthaler Theorem 2.1 and §7 (2013)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun, arXiv:1005.1054, §1, defines f(k,l) and lists isolated numerical values, not an exact a=4 formula.",
+        "Sun (2012), printed p.190, repeats the definition and sample f(k,l) values; Theorem 1.1 gives the gcd-adjusted divisibility bound, not sharp first failures."
+      ],
+      "reasoning": "The formula with k=ν₂(b+3) is equivalent to a complete first-failure classification for the fixed parameter a=4 in Sun’s definition; this exact equivalence was used when comparing all known claims. The original papers give definitions, isolated examples, and nonsharp bounds, so those statements do not entail the proposed classification.",
+      "searches": [
+        "first nondivisibility index f(4,b) binomial ((b+4)n choose 4n) divided by bn+1 power of two",
+        "least failure threshold quadruple binomial family a=4 odd b Sun f(a,b) 2-adic",
+        "Sun f(a,b) first positive index n bn+1 does not divide binomial (a+b)n choose an exact a=4 2-adic valuation b+3 odd h threshold (2^h+1)/3",
+        "arXiv:1005.1054v12, introduction, first-failure function and theorem list",
+        "doi:10.1017/S1446788712000171, printed pages 189-201"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Sun’s recorded table includes (7,36), (10,192), (11,100), (22,200), etc., not an all-b a=4 classification.",
+        "Guo–Krattenthaler compare upper bounds with Sun’s isolated computed values; neither source supplies a parameterized a=4 table or sequence theorem."
+      ],
+      "reasoning": "Individual numerical f(k,l) entries cannot establish a formula quantified over every b. Searches of descriptions and primary results identified no exact table covering the full branch. Search absence is not a uniqueness certificate.",
+      "searches": [
+        "first nondivisibility index f(4,b) binomial ((b+4)n choose 4n) divided by bn+1 power of two",
+        "binomial 4n numerator bn+1 first failure 2-adic carry classification",
+        "Sun (2012), p.190 listed exact computed examples of f(k,l)",
+        "Guo–Krattenthaler (2013), §7, example upper bounds for f(k,l)"
+      ]
+    },
+    "rationale": "Compared precise claims rather than keywords or matching parameters: the originating Sun papers provide the function and sample values and the full Guo–Krattenthaler paper establishes existence and an upper bound, not the exact a=4 minimum. The closest indexed a=3 finding and first-eligible prime-power criterion do not entail a complete formula for all odd b. No inspected source gives the two-adic parity-plateau threshold, though absolute historical priority is not certified.",
+    "residual_risks": [
+      "An unindexed or unpublished general exact first-index theorem could subsume this special case.",
+      "Indexed old work was consulted through recoverable claims rather than exhaustive full-text reading; literature search cannot certify uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The first-failure function is defined and sample values given; neither an all-b a=4 formula nor the sharp carry obstruction is stated.",
+        "evidence": [
+          "arXiv:1005.1054v12, introduction around definition of f, and Theorem 1.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1005.1054v12",
+        "material_read": "Full available arXiv HTML, introduction, defining paragraph, theorem statements, and applicable proof sections",
+        "method": "Read math definitions, theorem hypotheses and fixed-parameter implications; searched f(k,l)",
+        "title": "On divisibility concerning binomial coefficients",
+        "trigger": "Earliest public paper defining the f(k,l) first-failure function and the divisibility problem"
+      },
+      {
+        "assessment": "GCD-adjusted divisibility and isolated first-failure examples appear; no complete a=4 least-index classification was found.",
+        "evidence": [
+          "Sun (2012), p.190, Conjecture 1.2 and function f; Theorem 1.1; subsequent named theorems"
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S1446788712000171",
+        "material_read": "Lawful publicly reachable full journal PDF, 13 printed pages 189–201, with first-failure definition on p.190 and accompanying theorem statements",
+        "method": "Inspected PDF page images and parsed textual results; compared f(4,b) against Theorems 1.1–1.6 and sample exact values",
+        "title": "On divisibility of binomial coefficients",
+        "trigger": "Original journal paper with exact same f(k,l) function and potential full coverage"
+      },
+      {
+        "assessment": "Existence and nonsharp global upper bound do not imply the exact first failure for every odd b.",
+        "evidence": [
+          "arXiv:1301.7651v3, Theorem 2.1, proof Section 4 and (7.1)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1301.7651v3",
+        "material_read": "Full arXiv HTML: introduction, Theorem 2.1, proof in Section 4 and refinements in Section 7",
+        "method": "Compared quantified hypothesis and strength of upper bound to an exact minimum for a=4",
+        "title": "Some divisibility properties of binomial and q-binomial coefficients",
+        "trigger": "Theorem 2.1 is the nearest general infinite-failure and first-index upper-bound statement"
+      },
+      {
+        "assessment": "Controls failure of the first eligible candidate at a prime power, not all later candidates; could not derive this claimed global first minimum from the recovered statement.",
+        "evidence": [
+          "Recovered claim gives iff criterion for f(p^r,b)>j at first eligible j; no exact f(p^r,b) when greater than j"
+        ],
+        "identifier_or_url": "Indexed title: A logarithmic first-obstruction law for prime-power binomial divisibility",
+        "material_read": "Indexed summary and one recoverable archived claim, not the entire old paper or implementation",
+        "method": "Direct statement implication comparison using the available quantified criterion",
+        "title": "Prime-power first-obstruction classification in indexed number-theory findings",
+        "trigger": "Prime power first-index criterion might dominate the proposed fixed a=4 law"
+      },
+      {
+        "assessment": "A distinct a=3 slice and no stated reduction to a=4.",
+        "evidence": [
+          "Indexed claim is restricted to the family with first parameter three"
+        ],
+        "identifier_or_url": "Indexed title: The exact first nondivisibility index for the triple-binomial family",
+        "material_read": "Indexed claim and summary",
+        "method": "Compared first parameter a=3 and its three-adic formula against a=4 two-adic law",
+        "title": "Exact first nondivisibility index for the triple-binomial family",
+        "trigger": "Identical first-failure problem with a different first parameter"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "af1e23a6-1023-4d7c-bd79-8fb8b6e36eff",
+  "value": {
+    "rationale": "The first-failure function is a directly motivated natural invariant from Sun’s explicit binomial divisibility problem. The theorem completely evaluates a whole fixed-parameter family for every positive b, obtains unbounded thresholds 1,3,11,43,… with exact odd/even 2-adic plateaus, and gives an all-depth structural carry obstruction. This is more than a known existence bound, a routine single-instance Kummer computation, or an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
