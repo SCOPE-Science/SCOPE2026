@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The unique-cycle/forest decomposition, signed net-Laplacian identity and parity proof establish the general ingredients. Two independent constructions of labelled unicyclic masks agree at every rank from three to seven. All \(1024\) five-vertex and \(32768\) six-vertex Fourier coefficients were reconstructed three ways: a binary Walsh transform, direct integer character sums and determinant-weighted cycle/forest sums. The exact weight-four graph-shape criterion was checked against all \(1365\) choices and zero-freeness at lower degrees. Integer spectral data and projection-kernel absolute sums are reproduced by the bundled checker. The all-dimensional parity result uses a counting and valuation proof, not finite extrapolation.
+## correctness
 
-## Originality — PASS under bounded comparison
-Relevant comparisons include van der Hofstad–Spencer's unsigned connected-graph enumeration (arXiv:math/0502579v1), Goodall's graphical Fourier methods (arXiv:0806.4848v1), and Mallik's signed net-Laplacian theorems (arXiv:2210.03711v2). The public finding *Exact centered Walsh stability for uniform labelled unicyclic graphs* (identifier `191cfc31fb25`) addresses precisely the same object but only a centered first-degree Gram spectrum. It already implies the five-vertex single-edge cancellation, which is not claimed independently novel. It does not imply the six-vertex complete multiplier zero count, minimum-degree-four two-shape classification or sharp Fourier-range projection norm. Related historical claims were compared by object, parameters and implication. Unindexed equivalents remain possible.
+PASS
 
-## Mathematical value — PASS
-The six-vertex first four-edge resonance is a complete, graph-isomorphism-sensitive cancellation boundary: it specifies both shapes and multiplicities, not simply an unsigned graph count. Convolution rank and unrestricted endpoint projection constants give exact recoverability and stability benchmarks. The neighbouring invertible/singular orders and the infinite congruence-class invertibility consequence motivate the cutoff. This is a finite exact classification; no unsupported larger-dimensional claims are made.
+PASS. Each connected simple n-vertex graph with exactly n edges consists of one unique undirected simple cycle plus a forest rooted at its cycle vertices. Choosing k cycle vertices and applying all-minors matrix-tree yields U_n=(n−1)!/2·∑_{j=0}^{n−3}n^j/j!; exact cases U_3=1,U_4=15,U_5=222,U_6=3660,U_7=68295. For n≡3 mod4 the terminal rooted-forest summand is odd and all preceding summands even (their integer combinatorial factors carry n−3), so U_n odd and every ±1 Walsh coefficient W_n(S) is odd and nonzero. For arbitrary signed edge mask S, expand over unique cycles C and use signed net Laplacian L_σ to obtain W_n(S)=∑_C(∏_{e∈C}σ_e)det L_σ[[n]outsideV(C)]; this is an exact identity. Inspected source verify.cpp builds unicyclic families independently by connected n-edge masks and cycle-plus-rooted-forest parent maps, checks equality through n=7; for n=5,6 performs 1024/32768 full signed Walsh butterflies, direct signed summation for every coefficient, and independent signed forest determinants. Separately independently enumerated all n5/n6 connected edge masks and recomputed Walsh spectra, obtaining n5 212 zeros and rank812, zero weights 1:10,5:192,9:10; n6 1200 zeros and rank31568, zero weights 4:420,7:180,8:180,11:420, minimum nonzero gap 4. The zero four-edge supports at n6 are exactly degree multiset (0,1,1,2,2,2), i.e. P5⊔K1 (360) or triangle⊔edge⊔K1 (60); all lower weights nonzero. The Fourier-support indicator inverse Walsh transform has absolute numerator sums 8104 over 1024 and 580928 over32768, proving sharp min l1/l∞ endpoint projection constants 1013/128 and 9077/512 by translation averaging arbitrary projections onto the range. Exact complete finite census is exhaustive, not a claim about uncomputed higher n.
 
-## Residual limitations
-Historical priority is not externally certified. The finite computation is reproducible exact integer arithmetic rather than an independently formalized proof. The theorem does not classify all higher-order spectra or supply a converse to the odd-count criterion.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original residual scientific increment after explicitly excluding known prior coverage; exact historical priority is not certified. Material compared at the statement and implication level; finite or generic overlaps are acknowledged.
+
+## value
+
+PASS
+
+PASS. The small natural labelled-unicyclic ensemble has a nontrivial first zero-support boundary at four negative edges, an exhaustive graph-isomorphism classification of those first resonances, and exact optimal inverse and endpoint-projection constants. These are precise recoverability invariants a future graph-Fourier analyst could need, and the separate all-n parity guarantee gives structural context; the finite census need not be a general all-n spectrum theorem to be valuable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

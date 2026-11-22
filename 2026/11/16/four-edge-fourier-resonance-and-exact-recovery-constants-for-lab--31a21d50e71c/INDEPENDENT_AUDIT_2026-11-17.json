@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T06:15:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Each connected simple n-vertex graph with exactly n edges consists of one unique undirected simple cycle plus a forest rooted at its cycle vertices. Choosing k cycle vertices and applying all-minors matrix-tree yields U_n=(n−1)!/2·∑_{j=0}^{n−3}n^j/j!; exact cases U_3=1,U_4=15,U_5=222,U_6=3660,U_7=68295. For n≡3 mod4 the terminal rooted-forest summand is odd and all preceding summands even (their integer combinatorial factors carry n−3), so U_n odd and every ±1 Walsh coefficient W_n(S) is odd and nonzero. For arbitrary signed edge mask S, expand over unique cycles C and use signed net Laplacian L_σ to obtain W_n(S)=∑_C(∏_{e∈C}σ_e)det L_σ[[n]outsideV(C)]; this is an exact identity. Inspected source verify.cpp builds unicyclic families independently by connected n-edge masks and cycle-plus-rooted-forest parent maps, checks equality through n=7; for n=5,6 performs 1024/32768 full signed Walsh butterflies, direct signed summation for every coefficient, and independent signed forest determinants. Separately independently enumerated all n5/n6 connected edge masks and recomputed Walsh spectra, obtaining n5 212 zeros and rank812, zero weights 1:10,5:192,9:10; n6 1200 zeros and rank31568, zero weights 4:420,7:180,8:180,11:420, minimum nonzero gap 4. The zero four-edge supports at n6 are exactly degree multiset (0,1,1,2,2,2), i.e. P5⊔K1 (360) or triangle⊔edge⊔K1 (60); all lower weights nonzero. The Fourier-support indicator inverse Walsh transform has absolute numerator sums 8104 over 1024 and 580928 over32768, proving sharp min l1/l∞ endpoint projection constants 1013/128 and 9077/512 by translation averaging arbitrary projections onto the range. Exact complete finite census is exhaustive, not a claim about uncomputed higher n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mallik arXiv:2210.03711 supplies weighted signed net-Laplacian spanning-tree tools, not enumerated all signed unicyclic edge-frequency Fourier zeros in available compared material.",
+          "The earlier Resultary full first-band paper for the same U_n ensemble derives only centered degree-one covariance eigenvalues, not higher-order sign mask spectra."
+        ],
+        "reasoning": "General matrix-tree determinant identities and degree-one sampling Gram data do not determine n6 four-edge zeros, entire support cardinality, or canonical range projection norms; the graph model overlaps but results differ.",
+        "searches": [
+          "Mallik net Laplacian signed graph matrix tree theorem principal minors 2022",
+          "Resultary Exact centered Walsh stability for uniform labelled unicyclic graphs"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-centered-walsh-stability-for-uniform-labelled-unicyclic-gr--191cfc31fb25",
+        "https://arxiv.org/abs/2210.03711",
+        "https://arxiv.org/abs/0806.4848",
+        "https://arxiv.org/abs/math/0502579",
+        "https://doi.org/10.1093/acprof:oso/9780198571278.003.0007"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary n=4+ centered degree-one theorem provides an exact first-band dependence and implies the n5 weight-one zero, which is acknowledged as covered.",
+          "Earlier fixed-unicyclic-graph edge-character projection constants concern a Banach space of its edges, not the convolution range of all n-vertex unicyclic incidence vectors."
+        ],
+        "reasoning": "An entire n6 zero distribution and unrestricted projection norm cannot be reconstructed from first and second edge marginals, nor from a fixed-graph Fourier projection constant. The known n5 single-edge consequence is not counted as novel.",
+        "searches": [
+          "centered first Walsh Gram unicyclic graph implies single edge zero n=5",
+          "projection constant single unicyclic graph edge Walsh space vs unicyclic family convolution range"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "W_n(S) is the signed cycle-plus-rooted-forest partition function on the complete labelled graph with edge weights σ_e∈{±1}.",
+          "The Fourier-support projection is equivalent to a translation-invariant projection onto the ideal/range of the unicyclic indicator convolution."
+        ],
+        "reasoning": "Signed Laplacian determinant, full edge-character Walsh transform, and group-convolution eigenvalues are equivalent formulas within this theorem; a first-degree covariance Gram is not equivalent to the full transform.",
+        "searches": [
+          "labelled connected unicyclic graph edge Walsh transform signed graph partition sum",
+          "unicyclic graph parity odd Fourier convolution invertible n congruent 3 mod4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The audited SPECTRA.txt contains complete n5/n6 absolute-value and zero-weight frequency histograms; the finite exhaustive algorithm verifies them.",
+          "Other inspected results concern spanning forests, Petersen spanning trees or fixed unicyclic graph edge-Walsh spaces rather than the uniform ensemble over all labelled connected unicyclic graphs."
+        ],
+        "reasoning": "No older exact n5/n6 zero table was located; distinguish absence of an indexed table from proof no prior calculation exists.",
+        "searches": [
+          "labelled unicyclic 6 vertex signed Walsh zero spectrum 420 1200 graph census",
+          "Resultary unicyclic graph Fourier projection endpoint norm table"
+        ]
+      },
+      "rationale": "Best-of-knowledge original residual scientific increment after explicitly excluding known prior coverage; exact historical priority is not certified. Material compared at the statement and implication level; finite or generic overlaps are acknowledged.",
+      "residual_risks": [
+        "The first-band n5 one-edge cancellation is already implied by an older same-ensemble theorem; only higher full-support census and sharp unrestricted endpoint constants remain distinct.",
+        "An unindexed exhaustive integer enumeration could contain the n5/n6 table, and no claim of verified historical priority is made.",
+        "The all-n parity theorem is one-way: invertible n≡3 mod4, no converse beyond finite n3–7; large-n full spectra remain unknown."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers centered degree-one Gram and one low-weight implication, not all edge frequency zero set, rank or range projections",
+          "evidence": "Explicit limit: higher degree Walsh spectra are not determined; zero relation for fixed-edge count is first-band only.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-centered-walsh-stability-for-uniform-labelled-unicyclic-gr--191cfc31fb25",
+          "material_read": "Complete RESULT.md: exact edge Gram spectrum, forest counting, proof and limitations",
+          "method": "Read full published source-result text via GitHub",
+          "title": "Exact centered Walsh stability for uniform labelled unicyclic graphs",
+          "trigger": "Exactly same labelled unicyclic ensemble and relevant degree-one Fourier overlaps"
+        },
+        {
+          "assessment": "Underlying signed matrix-tree method is prior; no conclusion about full document noncoverage is made from limited read",
+          "evidence": "The audited new information lies in exact all-frequency unicyclic census and optimal projection not the determinant identity itself.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.03711",
+          "material_read": "Available preprint abstract and publisher-related description of signed net-Laplacian matrix-tree identity; no full-text assertion of absent graph census",
+          "method": "Public primary abstract/metadata and matching formula comparison",
+          "title": "Matrix tree theorem for the net Laplacian matrix of a signed graph",
+          "trigger": "Same signed-Laplacian determinant mechanism"
+        },
+        {
+          "assessment": "General framework, no demonstrated exact n5/n6 unicyclic signed census and endpoint norm within inspected material",
+          "evidence": "Fourier diagonalization and translation average are generic facts, not claimed as new.",
+          "identifier_or_url": "https://doi.org/10.1093/acprof:oso/9780198571278.003.0007",
+          "material_read": "Readable author manuscript passages on graphical Fourier transforms, Potts/Tutte and graph polynomials",
+          "method": "Read author-readable full source and inspected relevant pages",
+          "title": "Fourier Analysis on Finite Abelian Groups: Some Graphical Applications",
+          "trigger": "General graph Fourier transformations could dominate a special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The small natural labelled-unicyclic ensemble has a nontrivial first zero-support boundary at four negative edges, an exhaustive graph-isomorphism classification of those first resonances, and exact optimal inverse and endpoint-projection constants. These are precise recoverability invariants a future graph-Fourier analyst could need, and the separate all-n parity guarantee gives structural context; the finite census need not be a general all-n spectrum theorem to be valuable.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-centered-walsh-stability-for-uniform-labelled-unicyclic-gr--191cfc31fb25",
+    "https://arxiv.org/abs/2210.03711",
+    "https://arxiv.org/abs/0806.4848",
+    "https://arxiv.org/abs/math/0502579",
+    "https://doi.org/10.1093/acprof:oso/9780198571278.003.0007"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite signed Fourier census fully certified by reproducible exact algorithm only at n5/6; n7 used to verify graph count and odd parity.",
+    "Convolution on full F2^(n choose 2) with counting measure; directed graph conventions or normalized Fourier transforms would alter constants."
+  ],
+  "residual_risks": [
+    "The first-band n5 one-edge cancellation is already implied by an older same-ensemble theorem; only higher full-support census and sharp unrestricted endpoint constants remain distinct.",
+    "An unindexed exhaustive integer enumeration could contain the n5/n6 table, and no claim of verified historical priority is made.",
+    "The all-n parity theorem is one-way: invertible n≡3 mod4, no converse beyond finite n3–7; large-n full spectra remain unknown."
+  ],
+  "schema_version": 1
+}
