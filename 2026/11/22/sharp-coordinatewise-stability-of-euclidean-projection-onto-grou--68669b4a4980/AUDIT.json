@@ -1,0 +1,196 @@
+{
+  "correctness": {
+    "rationale": "A complete finite-dimensional piecewise-affine KKT derivation computes each row coefficient and optimizes all strict faces. Explicit strict-feasible inputs realize the maximizing Jacobian row as a finite-pair gain. Exact rational face enumeration of 340 small size patterns and separate numerical projection tests supplement, not substitute for, the proof. Radius-zero and overlapping-group exceptions are excluded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Quattoni et al. (2009), Lemmas 1–3, prove projection clipping and scalar threshold uniqueness; §§4.2–5 address efficient computation and experiments rather than the global induced max norm.",
+        "The published weighted cross-polytope projection result describes a different set except for singleton groups."
+      ],
+      "reasoning": "Compared claims by implication: a Euclidean nonexpansivity theorem cannot furnish the stated coordinatewise sharp coefficient, while the algorithms for individual projections and KKT systems do not state or compute the global worst-case across all active patterns. No stronger general group-norm sensitivity theorem was found among inspected material.",
+      "searches": [
+        "published-finding corpus: sharp Lipschitz constant projection onto convex sets coordinate norm matrix",
+        "published-finding corpus: group sparse projection sum of group infinity norms sensitivity smallest group other group sizes",
+        "published-finding corpus: sparse group l1 infinity ball Euclidean projection perturbation amplification",
+        "Web: Quattoni Carreras Collins 2009 efficient projection l1 infinity ball pdf",
+        "full text: https://studylib.net/doc/12431853/an-efficient-projection-for-l1--regularization-please-share"
+      ]
+    },
+    "checked_sources": [
+      {
+        "claim": "KKT threshold and clipping rather than sharp global sensitivity",
+        "identifier": "doi:10.1145/1553374.1553484",
+        "type": "primary_full_text"
+      },
+      {
+        "claim": "Exact projection algorithms, motivating 2018 source",
+        "identifier": "arxiv:1806.10041",
+        "type": "primary_full_text"
+      },
+      {
+        "claim": "Dual proximity algorithm",
+        "identifier": "arxiv:1910.03749",
+        "type": "primary_full_text"
+      },
+      {
+        "claim": "Semismooth Newton and KKT derivatives",
+        "identifier": "pmlr:v119/chu20b",
+        "type": "primary_full_text"
+      },
+      {
+        "claim": "Same projector algorithms",
+        "identifier": "arxiv:2307.09836",
+        "type": "primary_full_text"
+      },
+      {
+        "claim": "Different non-Euclidean multilevel projector",
+        "identifier": "arxiv:2405.02086",
+        "type": "primary_full_text"
+      },
+      {
+        "claim": "Weighted cross-polytope geometry does not cover multi-entry blocks",
+        "identifier": "2026/10/11/SCOPE-exact-lipschitz-stability-and-contractivity-threshold-for-weight--c92b6dad1bd0",
+        "type": "Resultary_summary_and_implication"
+      },
+      {
+        "claim": "l1 ambient best selection is different than Euclidean projector",
+        "identifier": "2026/11/8/SCOPE-optimal-lipschitz-nearest-point-selections-for-real-ell-1-balls--77979dc14d49",
+        "type": "Resultary_summary_and_implication"
+      },
+      {
+        "claim": "Singleton-block only",
+        "identifier": "2026/10/11/SCOPE-exponent-invariant-cross-polytope-projection-and-its-sharp-lipsc--5177ec842d41",
+        "type": "Resultary_summary_and_implication"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chu et al. (2020), projection KKT and semismooth Newton derivatives, allow local linearizations but provide no exact global absolute-row-sum maximum over group cardinalities.",
+        "Perez–Barlaud (2024) explicitly distinguish their multilevel rule from Euclidean nearest-point projection.",
+        "The formula at singleton group size recovers l1 ball sensitivity already in related records; the m>=3 general-block statement is not covered by the singleton subcase."
+      ],
+      "reasoning": "A prior operator with the same norm-ball definition and KKT equations is not the same scientific claim: the new statement optimizes the entire Jacobian family and produces a full group-count dichotomy and finite-pair sharpness. The 2024 multilevel result cannot dominate it because the map differs; l1-ball theorems supply only a strictly narrower special case.",
+      "searches": [
+        "Primary full text: https://arxiv.org/abs/1910.03749",
+        "Primary full text: https://proceedings.mlr.press/v119/chu20b/chu20b.pdf",
+        "Primary full text: https://arxiv.org/html/2307.09836v2",
+        "Primary full text: https://arxiv.org/abs/2405.02086",
+        "published-finding corpus: sharp dual cross norm Lipschitz constants for radial retractions",
+        "published-finding corpus: optimal Lipschitz nearest point selections for real ell-1 balls"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Quattoni et al. (2009) §4 and Perez–Condat–Barlaud (2023) §§II–III formulate exactly the sum-of-row-maxima Euclidean projection and clipping caps.",
+        "The target bound evaluates coordinatewise input/output perturbations, not the group-norm distortion or one-point projector evaluation."
+      ],
+      "reasoning": "Checked naming order (mixed l1-infinity and l-infinity-one depending on indexing), dual proximity, weighted l1 special case, and active-cell Jacobian descriptions. Identical projector algorithms did not imply the exact maximum absolute row sums without the further face-size optimization and strict attainability construction; no matching global modulus was found.",
+      "searches": [
+        "published-finding corpus: Euclidean projection onto l1 infinity mixed norm ball sharp global infinity to infinity Lipschitz norm depending on group sizes",
+        "published-finding corpus: ordered weighted l1 OWL projection exact infinity Lipschitz sensitivity",
+        "Web: \"l1,infinity\" ball projection sensitivity Lipschitz derivative exact infinity norm grouped",
+        "full primary: https://arxiv.org/abs/1806.10041",
+        "full primary: https://arxiv.org/abs/2307.09836"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus entry 2026/10/11/SCOPE-exact-lipschitz-stability-and-contractivity-threshold-for-weight--c92b6dad1bd0 concerns weighted cross-polytope projection in non-Hilbert norms.",
+        "Closest published-finding corpus entry 2026/11/8/SCOPE-optimal-lipschitz-nearest-point-selections-for-real-ell-1-balls--77979dc14d49 concerns optimal selections in the l1 ambient geometry, rather than Euclidean projection onto a mixed block-max ball."
+      ],
+      "reasoning": "Targeted record searches did not return a table of grouped maxima projection coefficients or an entry assigning the exact sorted-prefix formula. Absence in a search database is not proof of novelty; checked closest result statements for implication.",
+      "searches": [
+        "published-finding corpus: l infinity one ball coordinatewise Lipschitz constant clipping grouped max constraints",
+        "published-finding corpus: norm ball projected gradient mixed group regularizer exact nonexpansivity two groups",
+        "published-finding corpus: Euclidean projection onto l1 infinity mixed norm ball sharp global infinity to infinity Lipschitz norm depending on group sizes"
+      ]
+    },
+    "rationale": "Six primary papers on exactly the relevant group-supremum projection, its proximal dual, or computationally different multilevel maps were inspected. Their KKT algorithms are acknowledged, and their stated results do not give the exact sharp global coordinatewise modulus and group-size dichotomy. Closest published published-finding corpus records concern different maps or the singleton block special case; novelty beyond accessible sources remains an explicit risk.",
+    "residual_risks": [
+      "An older sensitivity theorem with another group-norm name or a more general polyhedral projection theorem could imply this coefficient without repeating its formula.",
+      "Record matching and targeted literature inspection cannot certify universal historical novelty.",
+      "MIT PDF delivery returned HTTP 405, but recoverable original-manuscript text of the relevant sections was read through another source; transcription quality is a minor source-access risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "KKT and clipping formulas are prior, but no global coordinatewise Lipschitz norm or group-size extremum is given.",
+        "evidence": [
+          "Equations (7)–(19) and Lemmas 1–3 give threshold and optimal caps; §4.2 gives an algorithm, not the proposed sensitivity law."
+        ],
+        "identifier_or_url": "https://dspace.mit.edu/entities/publication/28ba4c03-2baf-4d6a-a5b0-323056c0ed25",
+        "material_read": "Author manuscript text §§2–5, chiefly §4.1 Lemmas 1–3 and §4.2, as represented at https://studylib.net/doc/12431853/an-efficient-projection-for-l1--regularization-please-share; MIT download endpoint itself returned HTTP 405.",
+        "method": "Read original manuscript text through a separately available lawful descriptive copy, compare displayed formulae and assertions.",
+        "title": "An Efficient Projection for l1,infinity Regularization (Quattoni et al., 2009)",
+        "trigger": "Exact same group-maximum Euclidean projection was introduced earlier"
+      },
+      {
+        "assessment": "Same set and one-point projection framework; not covering the global size-only sensitivity modulus.",
+        "evidence": [
+          "The 2018-06-26 initial arXiv posting predates current run and lies inside middle cohort; one-point KKT derivations do not state the claimed sorted-prefix extremum."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1806.10041",
+        "material_read": "Full available arXiv HTML, introduction and mathematical projection derivation and algorithms §§II–VI.",
+        "method": "Compare precise clipping conditions and claimed performance to sharp induced max norm.",
+        "title": "A Fast Projection Method for the l1,infinity Norm Ball (Chau et al., 2018)",
+        "trigger": "Mid-cohort motivating source that develops the same projection"
+      },
+      {
+        "assessment": "Algorithmic proximal results; does not provide the maximum-norm grouped-size law.",
+        "evidence": [
+          "The proximally transformed dual map requires an additional norm-analysis step to recover this exact global projected-map modulus."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1910.03749",
+        "material_read": "Full available arXiv HTML, proximal characterization and algorithm sections.",
+        "method": "Check dual correspondence and compare operator and norm to exact projection bound.",
+        "title": "The Fastest l1,infinity Prox in the West (Béjar et al., 2019)",
+        "trigger": "Dual proximal-map formulation plausibly equivalent by Moreau decomposition"
+      },
+      {
+        "assessment": "Characterizes computational derivatives; no stated exact size-only maximal row sum or attainment.",
+        "evidence": [
+          "KKT system and generalized Newton methods are foundational but lack the theorem’s global all-face optimization."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v119/chu20b/chu20b.pdf",
+        "material_read": "PMLR original PDF, mathematical §§2–3, relevant pages including numbered page images 3–4 and discussion of semismooth derivatives.",
+        "method": "Read original PDF with page images and search mathematical content; compare local generalized derivative use with global induced norm.",
+        "title": "A Semismooth Newton Algorithm for Efficient Projections onto l1,infinity-Norm Ball (Chu et al., 2020)",
+        "trigger": "Projection derivative method might dominate local Jacobian analysis"
+      },
+      {
+        "assessment": "Closest modern exact-projection algorithmic literature; no explicit sharp global max-norm modulus for arbitrary group sizes in inspected text.",
+        "evidence": [
+          "Proposition 1 and related descriptions locate the correct one-point solution but do not optimize all possible strict-cell absolute row sums."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2307.09836v2",
+        "material_read": "Full available arXiv HTML, especially §§II–IV, KKT propositions and computational results.",
+        "method": "Compare projection definition, exact KKT clipping, and stated complexity to perturbation claim.",
+        "title": "Efficient Projection Algorithms onto the l1,infinity-Norm Ball (Perez et al., 2023)",
+        "trigger": "Later near-linear exact projector algorithms, identical set"
+      },
+      {
+        "assessment": "Different (non-Euclidean nearest-point) multilevel projection rule, not directly covering this exact Euclidean projector.",
+        "evidence": [
+          "§3 explicitly allows an output that is not Euclidean nearest point."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2405.02086",
+        "material_read": "Full available arXiv HTML §§3–4 and statement distinguishing multilevel projection geometry.",
+        "method": "Test mapping equality before any purported implication of stability.",
+        "title": "Multi-level projection with exponential parallel speedup (Perez–Barlaud, 2024)",
+        "trigger": "Recent related projection algorithm with potentially stronger coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "68669b4a-4980-426f-a95c-21db122483ad",
+  "value": {
+    "rationale": "The exact coefficient supplies a non-Euclidean endpoint error budget for joint-sparsity projection, establishes the sharp two-group versus three-group transition, and reduces an otherwise high-dimensional face optimization to sorting block sizes. The increasing sensitivity under wider blocks is a substantive geometric effect and useful structural design constraint.",
+    "status": "PASS"
+  }
+}
