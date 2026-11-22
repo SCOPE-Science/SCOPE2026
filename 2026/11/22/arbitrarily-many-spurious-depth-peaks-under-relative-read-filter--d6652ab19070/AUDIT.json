@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "PASS: conditioning gives an exact positive Poisson series; on the event that the Poissonized total stays within its nearest-integer margin the count-ratio test equals a Poisson integer threshold. Chebyshev supplies an explicit O(1/K) comparison at every noninteger effort; each positive jump of the limiting tail yields a strict finite-K interior peak, and analyticity makes it strict. The packaged outward-rounded standard-library checker establishes fourteen separated interval inequalities for the actual 0.1% cutoff, with a positive analytic truncation bound. No finite experiment is used as proof of arbitrarily many peaks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published finding: The sharp abundance-level bound for peaks of expected singleton richness : a bound on an expectation of singletons under fixed species proportions, not a probability of sample-relative threshold exceedance.",
+        "Published finding: Repeated richness uncertainty peaks from separated species abundances : variance peaks of observed richness, not spurious-call probability.",
+        "Drake et al. (2022) and Alberdi et al. (2018): varying sequencing depth affects filtering behavior, with no analytical bound on repeated spurious retention peaks."
+      ],
+      "reasoning": "A singleton-richness or richness-variance peak theorem does not imply a bound on this count-ratio tail event: even with only two aggregate read classes the threshold crosses successive integer count levels as depth changes. The general discrete-test sawtooth literature is related but not a demonstrated broader theorem covering the precise claim.",
+      "searches": [
+        "Poisson read counts rare spurious species relative read abundance threshold 0.1 percent expected sequencing depth 7 peaks maxima",
+        "Poisson multinomial sequencing relative abundance threshold read depth nonmonotone multiple local maxima staircase false positive rare taxa",
+        "Poisson ratio tail sample size multiple local maxima Poissonization frequency threshold"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1002/ece3.10612 (full text, published 2023-10-14)",
+      "https://doi.org/10.1111/2041-210X.13780 (full text, published online 2021-12-04)",
+      "https://doi.org/10.1111/2041-210X.12849 (full text)",
+      "https://doi.org/10.1002/bimj.202200183 (full text)",
+      "https://doi.org/10.1198/000313002317572835 (abstract only)",
+      "Published finding: The sharp abundance-level bound for peaks of expected singleton richness",
+      "Published finding: Repeated richness uncertainty peaks from separated species abundances"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chernick and Liu compare testing power against target type-I error with integer trial count, not the false-retention of one sub-threshold contamination source under random Poisson read depth.",
+        "Gentile and Sambucini compare Poisson count tests with sample-size-dependent critical values; their tests lack the sample-internal random denominator in this claim.",
+        "The exact-event identity C>=1 and K*C>=C+G, its K-dependent Poisson mixture, and its noninteger rare-fraction limit are independently established in the proof."
+      ],
+      "reasoning": "The core new implication is that repeated strict extrema persist for a smooth probability curve indexed by continuous effort, with an explicit 0.1% seven-maxima witness. Prior qualitative sawtooth observations do not by themselves prove this quantitative Poissonized event or the finite certificate. The possibility of an earlier, more general discrete-threshold theorem remains a residual priority risk.",
+      "searches": [
+        "Chernick Liu saw tooth exact binomial test power 2002 paper",
+        "Exact sample size determination for a single Poisson random sample sawtooth",
+        "Poissonized binomial relative frequency rare taxon threshold arbitrarily many oscillations multiple maxima sampling effort"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chernick and Liu (2002), DOI 10.1198/000313002317572835, abstract: discrete exact-binomial test power can exhibit a sawtooth in deterministic sample size.",
+        "Gentile and Sambucini (2023), DOI 10.1002/bimj.202200183, full text Sections 2 and 4: discrete Poisson-test rejection critical values cause nonmonotone power as integer sample size changes."
+      ],
+      "reasoning": "The established sawtooth mechanisms are analogous but do not assert the continuous-effort two-Poisson relative-read event, the explicit rare-fraction discontinuous limit, or an arbitrary number of strict local maxima surviving Poissonization. This is a statement/implication comparison, not a title test.",
+      "searches": [
+        "Poissonized binomial relative frequency rare taxon threshold arbitrarily many oscillations multiple maxima sampling effort",
+        "Poisson random sample size probability relative frequency exceeds threshold nonmonotonic oscillations local maxima",
+        "Poissonized sample size binomial fraction threshold tail oscillations local maxima"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Westerduin et al. (2023), DOI 10.1002/ece3.10612, full text Methods: an inclusive 0.1% filter is specified; Results report read counts, not a depth-indexed Poisson false-call extrema table.",
+        "Drake et al. (2022), DOI 10.1111/2041-210X.13780, full text: practical filtering methods compared across field and control data, not an exact 14-inequality certificate."
+      ],
+      "reasoning": "The 0.1% number is taken from the ecological paper, but the seven-peak conclusion is a new calculation under explicitly different idealized Poisson assumptions; empirical reported read counts cannot act as this probability table. No checked database/table contains the exact certificate.",
+      "searches": [
+        "sequencing relative abundance filtering nonmonotone false detection peak as depth grows",
+        "metabarcoding relative abundance sequencing depth repeated peaks false positives poisson threshold"
+      ]
+    },
+    "rationale": "PASS on material inspected: primary metabarcoding papers empirically motivate relative-abundance filters; known binomial/Poisson exact-test sawtooth literature concerns discrete test-power critical values, not this continuous-effort two-Poisson ratio-tail probability and its rare-threshold limit. Related published mathematical findings concern singleton-richness or richness-variance peaks, not a dominating proposition. Historical priority is provisional due to broad potentially related statistical literature.",
+    "residual_risks": [
+      "The Chernick–Liu full text was not available through the inspected public route; only its abstract was compared.",
+      "Priority against all older statistical sawtooth, Poissonized testing, and relative-abundance filtering literature cannot be established by bounded searches; related general mechanisms may be extensible.",
+      "The ecology application assumes idealized independent Poisson reads and is not empirically calibrated."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivation and empirical context; not an exact Poissonized depth-extrema theorem",
+        "evidence": [
+          "First published 2023-10-14",
+          "Methods: RRA <0.1% removed; 0.1% equality retained",
+          "Results: counts for nonlocal sequences; no smooth false-call probability as effort varies"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/ece3.10612",
+        "material_read": "Full HTML Methods on filtering and negative controls; Results on nonlocal sequences and thresholded reads; Discussion",
+        "method": "Open-access HTML primary full text",
+        "title": "Exploring and validating observations of non-local species in eDNA samples",
+        "trigger": "Direct source of an inclusive 0.1% metabarcoding filter and concrete contamination motivation"
+      },
+      {
+        "assessment": "Empirical threshold tradeoffs but does not provide the claimed peak-count theorem or certificate",
+        "evidence": [
+          "First published 2021-12-04",
+          "Sample-based and taxon-based filters; depth dependence; field-specific thresholds",
+          "Recommended combined filtering with maximum-control contamination"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/2041-210X.13780",
+        "material_read": "Full HTML abstract, threshold methods, results, Discussion §§4.1, 4.3–4.5 and conclusions",
+        "method": "Open-access HTML primary full text",
+        "title": "An assessment of minimum sequence copy thresholds for identifying and reducing the prevalence of artefacts in dietary metabarcoding data",
+        "trigger": "Directly pertinent minimum-read filtering and sequencing-depth methodological literature"
+      },
+      {
+        "assessment": "Provides empirical depth-versus-filter context, not the Poisson two-source relative threshold event",
+        "evidence": [
+          "Experimental depth comparisons and artifact counts",
+          "Relative cutoffs recommended to track sequencing depth, without an extrema count theorem"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/2041-210X.12849",
+        "material_read": "Full HTML Methods and Results §§3.2–3.3 and Discussion §§4.4–4.5",
+        "method": "Free full HTML primary text",
+        "title": "Scrutinizing key steps for reliable metabarcoding of environmental samples",
+        "trigger": "Earlier high-relevance comparison of depth and read-count/relative filtering"
+      },
+      {
+        "assessment": "Known sawtooth for integer sample size and varying test critical values; distinct from continuous Poissonized read-fraction event",
+        "evidence": [
+          "Discussion of nonmonotone power as integer n changes",
+          "No model with two random Poisson read classes and variable relative-count threshold"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/bimj.202200183",
+        "material_read": "Full HTML Methods §2 and examples §4, including discrete-test power critical values",
+        "method": "Open-access HTML primary full text",
+        "title": "Exact sample size determination for a single Poisson random sample",
+        "trigger": "Plausible broader prior for multiple extrema in Poisson-based procedures"
+      },
+      {
+        "assessment": "General related principle but no demonstrated direct coverage of the Poissonized ratio theorem; full-document priority unresolved",
+        "evidence": [
+          "2002 deterministic-sample binomial test power can decrease with added observations",
+          "Full article not materially read; comparison is limited accordingly"
+        ],
+        "identifier_or_url": "https://doi.org/10.1198/000313002317572835",
+        "material_read": "Published abstract and available bibliographic metadata; full text not available through inspected public route",
+        "method": "Publisher abstract and metadata only",
+        "title": "The Saw-Toothed Behavior of Power Versus Sample Size and Software Solutions",
+        "trigger": "Original classical statistical sawtooth phenomenon potentially subsuming the mechanism"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d6652ab1-9070-45f4-b4d1-fdcfc1e3651d",
+  "value": {
+    "rationale": "PASS: 0.1% relative abundance is directly used by a motivating ecological study, and the exact finite seven-peak certificate proves that repeated spurious acceptance peaks are not merely a scaling-limit artifact. Arbitrarily many maxima under decreasing cutoffs expose a counterintuitive limit to choosing sequencing depth from one unimodal error curve. The result is a motivated analytical boundary for fixed-fraction read filtering, not an arbitrary table recomputation or field recommendation.",
+    "status": "PASS"
+  }
+}
