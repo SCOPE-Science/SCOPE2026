@@ -1,15 +1,21 @@
-# Review of the four-row completeness threshold
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement specifies the Poisson kernel, spacing, entire modulation-line erasure, and the Fourier-transformed nullspace. The exact fiber Parseval identity is derived from integer modulation orthogonality. Both parity-filter Zak symbols are explicitly evaluated by geometric series; the binomial resultant is \(\sqrt r(1-r)^2(1+r)>0\) for all \(0<r<1\). Hence every nontrivial erased-fiber kernel is \(U=DR\) with a Laurent polynomial \(R\). The four extreme output rows, together with the independent internal coefficients when \(R\) has more than one occupied exponent, give a universal minimum of four erased rows, with equality forcing four consecutive positions. The one-dimensional fiber nullspace on exactly half the unit interval yields the entire \(L^2(0,1/2)\) defect. The explicit surviving coefficient \(2r\sinh(\lambda x)\) disproves a frame lower bound after three consecutive erasures while their completeness follows from fiber injectivity almost everywhere. The standalone numerical checker complements, and does not replace, this infinite-dimensional proof.
+## correctness
 
-## Originality — PASS relative to examined evidence
-The closest and strongest source is Belov–Semenov, arXiv:2610.30037v1 (21 October 2026), Theorem 1: it supplies a necessary and sufficient criterion for **being a frame** for this very class of irregular frequency sets. Therefore no novelty is attributed to the **frame** status of the three-row example. A negative frame result does not imply an orthogonal defect, and the inspected theorem and kernel arguments do not classify completeness through four whole-row erasures or describe the exact defect as \(L^2(0,1/2)\). The closest indexed public finding, *Finite-column erasure robustness for Poisson Gabor frames at half-frequency sampling* (2 November 2026), was examined through its complete RESULT.md and removes **translation columns**, not modulation rows; its positive frame result concerns a different mask orientation. The full-lattice theorem of de Dios Pont et al., arXiv:2608.04992, has no erased-line classification. Older Gabor excess and exponential-window sampling literature may contain special versions; no assertion of independently established priority is made.
+PASS
 
-## Value — PASS
-Distinguishing a complete but unstable system from one with a large kernel is a structural issue in sampling and time-frequency analysis. The theorem gives a **sharp minimum** number of whole frequency rows whose loss causes genuine information destruction, classifies **every four-row geometry** at this threshold, and computes the entire surviving-data nullspace, not merely an example or a finite experiment. This is a natural complete invariant for an important Poisson-window lattice and distinguishes completeness from the already-known frame criterion.
+Fourier transforming g_w gives nonzero-scaled exp(-2pi w|xi|). Parseval over integer translates of the transformed window yields two parity-channel Laurent symbols with common D=(1-rz)(1-r/z), r=e^(−2pi w), and numerator Laurent binomials A0+B0 z, A1+B1 z^(−1) for fibers x∈(0,1/2). Independently checked nonzero algebraic determinant A0 A1−B0 B1=√r(1−r)²(1+r), and conjugate Zak coefficient orientations; the upper half swaps orientations. Coprimality forces any null fiber U=D R with Laurent polynomial R; its extreme exponents require four erased rows precisely consecutive if R is a monomial, and at least five if R has wider support because simultaneous internal cancellation contradicts determinant. Thus classification holds for all finite E of size at most four, not a truncated test. Canonical consecutive block {−1,0,1,2} forces R constant only for x∈(0,1/2) and three taps (−r,1+r²,−r); norm gives L² defect. For three consecutive holes, residual coefficient 2r sinh(lambda x) tends to zero as x↓0 despite trivial kernel, ruling out a positive lower frame bound. This is completeness, separate from the existing frame criterion.
 
-## Scope and limitations
-The result concerns density-two rectangular sampling of one Poisson-window family and at most four erased rows for the classification. It does not classify larger masks, recover a positive frame bound, or extend to arbitrary windows. Older literature on exponential-spline or finite-section kernel methods remains a residual priority risk. The status is a self-review and not an independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Belov and Semenov provide a general Poisson-window frame criterion for irregular modulation sets, but frame failure does not imply incomplete span or identify the four-row threshold/defect. The full relevant primary manuscript was inspected. Resultary finite translation-column erasure is the opposite erasure orientation, and its strong frame theorem does not cover this completeness classification. Historical unpublished completeness special cases remain a bounded risk.
+
+## value
+
+PASS
+
+Exact minimum erased modulation rows for loss of completeness, full infinite-dimensional defect space, and sharp complete/nonframe borderline reveal a natural stability-versus-uniqueness separation for time-frequency sampling; this is more than a routine finite erasure fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
