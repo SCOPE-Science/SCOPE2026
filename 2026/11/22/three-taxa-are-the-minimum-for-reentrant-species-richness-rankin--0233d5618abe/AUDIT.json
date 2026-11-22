@@ -1,0 +1,163 @@
+{
+  "correctness": {
+    "rationale": "Linearity of expectation gives an exact Poisson no-detection formula. The two-taxon opposite-advantage case reduces to one hyperbolic sine ratio; its second derivative has a fixed sign and the endpoint slopes give a complete unique crossing criterion, including equality boundaries. The three-taxon difference factors exactly as -y(y-1)(y^3+y^2-1)(y^6+y^4-1). The two increasing polynomials each have one distinct interior zero; y=e^{-v} gives two simple roots at (log rho)/2 and log rho with all signs fixed. The locally available standard-library checker recomputed exact factor coefficients, rational brackets and 128304 finite comparison assertions. Finite enumeration is supplementary, not the all-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chase et al. (2018), Ecology Letters 21, 1737-1751, analyzes multiple observed crossings of rarefaction curves in high-richness communities.",
+        "The 2026 fixed-census rarefaction theorem concerns the hypergeometric law at equal N and cannot be applied to two capture methods with unequal Poisson means.",
+        "Chao and Jost (2012) addresses coverage standardization and crossing counts between common-effort conventions, not a three-taxon unequal-intensity classification."
+      ],
+      "reasoning": "The broader crossing phenomenon is prior art; the restricted minimum under two capture-method intensity vectors is not entailed by mere existence of higher-dimensional crossings or by normalizations that eliminate the 16 versus 15 intensity contrast.",
+      "searches": [
+        "rarefaction curve multiple crossings sampling effort species richness ranking reversing 2024",
+        "species accumulation curves reentrant crossings expected richness three species sample size",
+        "2026/10/12/SCOPE-a-single-crossing-law-for-three-species-individual-based-rarefac--3d789b92bf80"
+      ]
+    },
+    "checked_sources": [
+      "Kirtane et al. 2024 public data https://doi.org/10.5061/dryad.bzkh189jt",
+      "Kirtane et al. 2024 full text https://doi.org/10.1002/edn3.70042",
+      "Chase et al. 2018 https://doi.org/10.1111/ele.13151",
+      "Chao and Jost 2012 https://doi.org/10.1890/11-1952.1",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-four-species-are-necessary-and-sufficient-for-two-reversals-in-e--4a0966e867d7/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/12/SCOPE-a-single-crossing-law-for-three-species-individual-based-rarefac--3d789b92bf80/RESULT.md",
+      "Colwell et al. 2012 abstract and model description https://doi.org/10.1093/jpe/rtr044"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "published-finding corpus research note at https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-four-species-are-necessary-and-sufficient-for-two-reversals-in-e--4a0966e867d7/RESULT.md explicitly assumes iid draws from equal-normalized positive probability profiles and the same sample count.",
+        "published-finding corpus research note at https://github.com/published-finding corpus/2026/blob/main/2026/10/12/SCOPE-a-single-crossing-law-for-three-species-individual-based-rarefac--3d789b92bf80/RESULT.md explicitly assumes equal finite census and sampling without replacement.",
+        "Kirtane (2024) studies eDNA capture-method differences and reports greater yield without greater alpha diversity for one method; it does not state the minimal-taxa Poisson crossover theorem.",
+        "The candidate analytically proves a sharp two-taxon one-switch criterion and supplies a three-taxon factorization whose two positive roots are related to the plastic constant."
+      ],
+      "reasoning": "Known per-species species-detection expectation formulas imply the first line of the proof but not the parameter-independent two-taxon classification plus exact unequal-total three-taxon double-switch. Published equal-normalization results restrict a different domain and cannot simply be used as a stronger covering result.",
+      "searches": [
+        "Four species are necessary and sufficient for two reversals in expected species accumulation rankings",
+        "A single-crossing law for three-species individual-based rarefaction",
+        "How, What, and Where You Sample Environmental DNA Affects Diversity Estimates and Species Detection pdf Kirtane",
+        "rarefaction curve multiple crossings sampling effort species richness ranking reversing 2024"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Poisson capture gives R_A(v)=m-sum exp(-a_i v), which is the Laplace transform of an unnormalized empirical intensity measure.",
+        "A fixed-N iid categorical law gives m-sum(1-p_i)^N with sum p_i=1; the published four-species result assumes equal total sampling normalization.",
+        "The witness has unequal intensity totals 16 versus 15, so a common effort is not a common expected individual count."
+      ],
+      "reasoning": "Poissonizing iid category draws at a common total rate would require equal sums of the method rates. Rescaling separately to make those sums equal changes the common-effort comparison; thus the nearest normalized theorem does not imply the unequal-rate three-taxon witness.",
+      "searches": [
+        "expected detected species richness two sampling methods Poisson taxon specific detection rates as sample volume increases multiple rank reversals minimum three taxa and exact crossings",
+        "Laplace transforms of two finite empirical distributions exponential sums two crossing positive and negative taxon rarefaction curves",
+        "2026/11/8/SCOPE-four-species-are-necessary-and-sufficient-for-two-reversals-in-e--4a0966e867d7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Dryad dataset doi:10.5061/dryad.bzkh189jt contains biological count/metadata tables, not the hypothetical (2,3,11)/(1,6,8) rate vectors or polynomial factorization.",
+        "Kirtane et al. (2024) compare grab and tow-net field data; no mathematical capture-rate enumeration is reported in the inspected methods/discussion.",
+        "The exact witness is derived by direct polynomial factorization and checked in the standalone checker."
+      ],
+      "reasoning": "This is a new analytic thought experiment, not a recalculation of a known ecological lookup table or the field dataset.",
+      "searches": [
+        "rarefaction or species accumulation curves crossing twice for two assemblages three species and exact threshold of smallest species number",
+        "expected species richness rarefaction curves cross twice three species sampling methods exponential detection",
+        "expected detected species richness two sampling methods Poisson taxon specific detection rates as sample volume increases multiple rank reversals minimum three taxa and exact crossings"
+      ]
+    },
+    "rationale": "The source-supported motivation concerns comparing two eDNA capture technologies. The claimed mathematical minimum is specific to independent positive Poisson taxon capture rates with unequal total intensities. Closest published mathematical notes establish three-species one-crossing in normalized equal-size iid sampling, and in equal-census finite hypergeometric rarefaction; those are not stronger coverage of the unequal-intensity method comparison. Chase et al. discuss multiple curve crossings across broad ecological communities, but do not prove this minimum or exact three-taxon construction. Classical Poisson-species richness and elementary hyperbolic arguments are explicitly excluded from novelty. These inspections did not identify an exact covering statement; unlocated prior is a residual risk.",
+    "residual_risks": [
+      "An earlier general Laplace-transform crossing theorem may immediately imply the two-rate criterion and the special witness; generalized theory is not claimed new.",
+      "Published observations of repeated rarefaction crossings make the broad phenomenon prior art, limiting novelty to the sharp restricted minimum and exact method comparison.",
+      "Rate calibration and ecological relevance of the exact integer witness are hypothetical; no real-world model fit is claimed.",
+      "The motivating article was published in December 2024, whereas middle-cohort dating relies on its explicitly dated August 27, 2024 public dataset, not journal publication."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DOES_NOT_REPORT_THEOREM",
+        "evidence": [
+          "Methods compare grab sample and tow-net collection, qPCR/ddPCR and metabarcoding with distinct filtration volumes and pore sizes.",
+          "Discussion documents greater eDNA yield in tow-net sampling but equal or lower alpha diversity; does not vary common effort continuously with assumed Poisson rate vectors."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/edn3.70042",
+        "material_read": "Open-access HTML: introduction, §§2.1-2.2 methods, field results near Table 4, §§4.1-4.2 discussion; journal first publication December 16 2024.",
+        "method": "Read HTML lines 237-253 and 445-472 at publisher full-text URL and compared stated study design and conclusions.",
+        "title": "How, What, and Where You Sample Environmental DNA Affects Diversity Estimates and Species Detection",
+        "trigger": "Direct physical motivation: sampling methods produce different eDNA yields and detected richness."
+      },
+      {
+        "assessment": "PUBLIC_DATE_2024-08-27; DATASET_MOTIVATION_NOT_A_THEOREM",
+        "evidence": [
+          "Dryad states Published Aug 27, 2024 and lists versioned data files on that date.",
+          "Abstract compares eDNA capture methods with different detected communities and calls for sampling-method research."
+        ],
+        "identifier_or_url": "https://doi.org/10.5061/dryad.bzkh189jt",
+        "material_read": "Public Dryad landing page, publication date line 12, abstract lines 40-45 and file listing/README description; actual data table not downloaded.",
+        "method": "Read indexed full HTML page text.",
+        "title": "Public research data for How, what, and where you sample environmental DNA affects diversity estimates and species detection",
+        "trigger": "Date eligibility and verification of material publicly available before the 2024-11-15 cohort boundary."
+      },
+      {
+        "assessment": "NOT_COVERING_UNEQUAL_POISSON_METHOD_INTENSITIES",
+        "evidence": [
+          "Positive normalized probability vectors each sum to one and draws are iid with replacement at equal n.",
+          "Sharp minimal four species for two reversals is within that fixed-number equal-normalization model."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-four-species-are-necessary-and-sufficient-for-two-reversals-in-e--4a0966e867d7/RESULT.md",
+        "material_read": "Entire published RESULT.md including theorem, assumptions, zero-count proof, example, relationship and limitations.",
+        "method": "Read the complete publicly posted result document, including hypotheses, proof and limits.",
+        "title": "Four species are necessary and sufficient for two reversals in expected species accumulation rankings",
+        "trigger": "Highly similar claimed support-size threshold under species-richness sampling."
+      },
+      {
+        "assessment": "NOT_COVERING_SEPARATELY_CALIBRATED_POISSON_CAPTURE",
+        "evidence": [
+          "Finite equal census N and uniformly sampling individuals without replacement.",
+          "It expressly does not extend to unequal total census or replacement models."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/12/SCOPE-a-single-crossing-law-for-three-species-individual-based-rarefac--3d789b92bf80/RESULT.md",
+        "material_read": "Entire published RESULT.md including hypotheses, derivation via total positivity, and limitations.",
+        "method": "Read the complete publicly posted result document, including hypotheses, proof and limits.",
+        "title": "A single-crossing law for three-species individual-based rarefaction",
+        "trigger": "Similar three-species one-switch conclusion under equal-census sampling."
+      },
+      {
+        "assessment": "BROADER_PHENOMENON_KNOWN; SHARP_POISSON_METHOD_SPECIFIC_THREE_TAXON_MINIMUM_NOT_GIVEN",
+        "evidence": [
+          "Figure 1 gives richness curves for hypothetical multi-taxon communities; text reports some pairs of curves crossed more than once.",
+          "The discussion addresses abundance distributions and comparison across communities, not two detection technologies with arbitrary unequal per-taxon molecule capture rates."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/ele.13151",
+        "material_read": "Full open-access PDF searchable text for abstract, introduction and crossing discussion; physical page 3 figure and caption checked visually.",
+        "method": "Read the article text and visually inspected the curve-crossing figure and its caption.",
+        "title": "Embracing scale-dependence to achieve a deeper understanding of biodiversity and its change across communities",
+        "trigger": "Published observations of repeated species accumulation ranking crossings."
+      },
+      {
+        "assessment": "CROSSING_RELATIONS_FOR_STANDARDIZED_SAMPLING; NOT_SAME_METHOD_RATE_THEOREM",
+        "evidence": [
+          "The central comparison standardizes communities to sample coverage and analyzes expected richness estimator rankings.",
+          "No directly stated three-taxon unequal-Poisson capture-rate threshold appears in inspected relevant material."
+        ],
+        "identifier_or_url": "https://doi.org/10.1890/11-1952.1",
+        "material_read": "Open HTML introduction, equations discussion, comparison-of-samples section and cited curve-crossing correspondence.",
+        "method": "Read the relevant article sections and mathematical comparisons.",
+        "title": "Coverage-based rarefaction and extrapolation: standardizing samples by completeness rather than size",
+        "trigger": "Potential stronger coverage through a change from sample size to completeness."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0233d561-8abe-41f7-8486-8588a930682a",
+  "value": {
+    "rationale": "Comparing sampling technologies by richness at a single volume is experimentally natural but can be structurally misleading even when the true community and method sensitivities are fixed. This result establishes the smallest number of taxa necessary for a return to the original method preference and gives a complete, easily tested two-taxon diagnostic. The explicit three-taxon construction demonstrates a genuine positive-effort reentrant regime with robust sharp boundaries. This is a motivated model-boundary fact, not an empirical recommendation, and does not rely on the already known generic observation that rarefaction curves may cross.",
+    "status": "PASS"
+  }
+}
