@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "Complete proof in RESULT.md: conditional binomial/Poisson split establishes estimator, independent covariance and Poisson Touchard moments give exact risks, endpoint sign decomposition and strict critical-polynomial monotonicity establish the unique global optimizer at all λ>0, and implicit-function signs establish λ-monotonicity and sharp asymptotics. Exact SymPy identities and 96 rational conditional-mean integrations plus independent path simulation reproduce key formulas; finite checks are supplemental only. Boundaries x=0,1, λ↓0, λ→∞ accounted for.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Przybyłowicz (2017) primary preprint examines global strong approximation of SDE paths based on finite Poisson/Wiener evaluations, reporting optimal sampling in a different functional and cost setting.",
+        "Przybyłowicz, Sobieraj and Stępień (2021) investigates pointwise SDE solution approximations and randomized Euler schemes, not the claimed scalar quadratic-energy Bayes risk.",
+        "Beentjes (2021) specialist article is material to Poisson bridges, but full text was not accessed; only abstract-level comparison possible."
+      ],
+      "reasoning": "General SDE trajectory or pathwise approximation rates do not imply exact optimum for posterior mean-squared error of ∫N_t²dt after one noiseless count. Inaccessible Beentjes remains a named risk but its accessible topic is simulation antithetic variance reduction, not this conditional-design objective.",
+      "searches": [
+        "Optimal sampling design for global approximation of jump diffusion SDEs arXiv:1701.08311",
+        "Efficient approximation SDEs Poisson random measure arXiv:2108.02394",
+        "Poisson bridge constructions variance reduction Beentjes 2021 DOI:10.1515/mcma-2021-2090",
+        "information-based complexity optimal sampling nonlinear functionals of Poisson counting processes one measurement exact count"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1701.08311",
+      "https://doi.org/10.1017/S0004972700007838",
+      "https://doi.org/10.1109/TIT.1976.1055551",
+      "https://arxiv.org/abs/2108.02394",
+      "https://doi.org/10.1515/mcma-2021-2090",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-coupling-dependent-variance-and-error-laws-for-poisson-pat--e2ce5e771c40"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cressie (1978) formula optimizes a linear functional for a general independent-increment process, whose solution is intensity-invariant 2/3 at n=1.",
+        "This claim optimizes a nonlinear functional under the same one-point information constraint, with an intensity-dependent unique root in (2/3,√(3/5)).",
+        "The closest direct published Poisson-path quadrature theorem uses randomized stratum sampling for a different target."
+      ],
+      "reasoning": "Neither the known linear result nor the more general global-trajectory information complexity results contain the nonlinear Bayes risk or its strictly moving stationary-point equation as a corollary. This is a positive implication comparison based on the inspected statements, not title comparison.",
+      "searches": [
+        "Cressie 1978 full text Sections 1-3 optimum linear integral",
+        "Przybyłowicz 2017 arXiv:1701.08311 preliminary sections and theorem statements",
+        "Poisson process integrated squared counts optimal one observation time Bayes risk conditional expectation first and second moment",
+        "Poisson bridge conditional second moment integrated squares exact fixed-time observation risk minimization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cressie (1978), Sec. 1–3, equations (1),(2),(8),(11), optimizes a linear path integral of stationary-independent-increment processes; at n=1 optimal observation is t=2/3.",
+        "Exact proposed target is the quadratic energy integral of N_t squared and its Bayes conditional estimator is a quadratic polynomial in N_x; for every λ>0 its optimizer exceeds 2/3."
+      ],
+      "reasoning": "The classical linear-integral theorem is not an equivalent formulation: nonlinear conditional moments and fourth-order count statistics enter the risk and produce strict rate dependence. No alternate equivalent statement was identified in searched publications; this is evidence-limited, not a uniqueness proof.",
+      "searches": [
+        "Poisson process integrated squared counts optimal one observation time Bayes risk conditional expectation first and second moment",
+        "single count observation time minimizing mean square estimation error integrated quadratic count functional Poisson process",
+        "Bayes-optimal observation point homogeneous Poisson count integrated square count path energy conditional mean normalized time intensity",
+        "optimal single Poisson N_t observation integral N_s squared ds conditional expectation risk best time",
+        "Cressie 1978 full text https://doi.org/10.1017/S0004972700007838"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected published Poisson-path randomized quadrature result computes variance under one random uniform sample per time cell for I=∫N_tdt, not optimal deterministic one-count prediction of Q=∫N_t²dt.",
+        "Classical Samaniego/Cressie linear-integral optimum 2/3 does not list a rate-dependent quadratic-energy root."
+      ],
+      "reasoning": "No direct table or database entry with the quartic P_λ or rate-dependent optimizer found in actual indexed searches. A failed search is not proof that no such entry exists.",
+      "searches": [
+        "nonlinear Poisson path energy exact optimal sampling time intensity 2/3 sqrt 3/5",
+        "one count Poisson process quadratic integrated energy Bayes optimal observation time intensity unique quartic root",
+        "quadratic Poisson path count exposure one point observation 2/3 sqrt(3/5)",
+        "Published Poisson-path quadrature variance coupling 2026-11-08 published-finding corpus semantic search",
+        "Samaniego 1976 optimal stationary independent increments sampling design"
+      ]
+    },
+    "rationale": "An exact claim-versus-implication comparison with the original linear-integral SII optimal sampling theorem (Samaniego/Cressie), 2017/2021 jump-diffusion numerical approximation literature, a full published Poisson-path random-stratum quadrature proof, and multiple actual semantic searches supports this new nonlinear single-count Bayes optimizer as not directly implied; Beentjes 2021 inaccessible full text and unseen literature remain genuine priority risks.",
+    "residual_risks": [
+      "Search and inspected sources are not exhaustive; mathematical novelty does not establish publication priority.",
+      "Beentjes (2021) full text could not be obtained; abstract-level context only.",
+      "The 2017 and 2021 primary preprints were read in relevant sections rather than cover to cover, leaving a lower but nonzero buried-corollary risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers linear target ∫X_tdt, not nonlinear ∫N_t²dt; no implication of intensity-dependent quartic optimizer",
+        "evidence": [
+          "Equations (1) and (2) specify the linear target and its conditional estimator; equation (11) yields sample points 2i/(2n+1)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0004972700007838",
+        "material_read": "Full-text PDF substantive Sections 1–3 including hypotheses, conditional predictor, risk formulas and minimizer, pages 83–89; page images of opening and risk derivation",
+        "method": "Read publicly accessible full-text PDF and checked theorem equations (1),(2),(8),(11)",
+        "title": "Estimation of the integral of a stochastic process",
+        "trigger": "Direct classic optimal one-point sampling for independent-increment integrals, including Poisson processes"
+      },
+      {
+        "assessment": "Pathwise strong SDE approximation from finitely many Poisson/Wiener observations does not directly optimize posterior integrated squared Poisson count energy",
+        "evidence": [
+          "Abstract: minimal global approximation errors for jump-diffusion SDEs, optimal asymptotic observation designs; arXiv initial posting 2017-01-28."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1701.08311",
+        "material_read": "Primary 2017 arXiv PDF opened and relevant introduction/problem statement and opening optimal approximation results inspected; not every page reviewed",
+        "method": "Read arXiv abstract, primary preprint beginning and main objective framing",
+        "title": "Optimal sampling design for global approximation of jump diffusion SDEs",
+        "trigger": "Primary numerical-analysis motivation with explicit 65C30 and Poisson process sampling designs"
+      },
+      {
+        "assessment": "Pointwise SDE solution and randomized Euler error, different target and information design; residual possibility of unexamined corollary acknowledged",
+        "evidence": [
+          "Abstract and opening state pointwise approximation, truncated-dimensional randomized Euler scheme, and ε-complexity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2108.02394",
+        "material_read": "Primary 2021 preprint front matter, introduction and framing; remaining pages not exhaustively checked",
+        "method": "Read arXiv primary source opening and stated numerical algorithm and objective",
+        "title": "Efficient approximation of SDEs driven by countably dimensional Wiener process and Poisson random measure",
+        "trigger": "Closely related pointwise stochastic-numerical scheme with Poisson observations"
+      },
+      {
+        "assessment": "Linear path integral ∫N_tdt with one randomized time per equal cell; no deterministic one-count quadratic-energy Bayes optimum",
+        "evidence": [
+          "Its theorem sets I=∫N(t)dt and Q_n=(1/n)∑N((i-1+U_i)/n), and proves conditional unbiasedness and coupling variance floor."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-coupling-dependent-variance-and-error-laws-for-poisson-pat--e2ce5e771c40",
+        "material_read": "Entire public RESULT.md including assumptions, proof, limitations and references",
+        "method": "Read primary public proof text, compared target and information model",
+        "title": "Exact coupling-dependent variance and error laws for Poisson-path quadrature",
+        "trigger": "Poisson-path quadrature under sampling, strongest indexed nearby object"
+      },
+      {
+        "assessment": "Linear integral t_i=2iA/(2n+1) not nonlinear squared count target",
+        "evidence": [
+          "Abstract states integral of SII process and parameter-independent optimal times t_i=2iA/(2n+1)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TIT.1976.1055551",
+        "material_read": "Abstract and bibliographic metadata; full article not inspected",
+        "method": "Read available abstract summarizing n-point linear-integral optimum",
+        "title": "The optimal sampling design for estimating the integral of a process with stationary independent increments",
+        "trigger": "Foundational first statement of classical optimal one-time design"
+      },
+      {
+        "assessment": "Unresolved full-text comparison; abstract suggests simulation variance reduction rather than analytic one-count Bayes design",
+        "evidence": [
+          "Specialist publication title and accessible abstract on Poisson-bridge simulation variance reduction."
+        ],
+        "identifier_or_url": "https://doi.org/10.1515/mcma-2021-2090",
+        "material_read": "Only accessible abstract; full text unavailable via open access and authorized institutional route",
+        "method": "Checked preprint/open access and attempted authorized institution route without bypassing access controls",
+        "title": "Optimising Poisson bridge constructions for variance reduction methods",
+        "trigger": "Potentially adjacent specialist article on conditional Poisson bridges"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "eb9a587b-bdf1-45a0-b273-6060bf73aef7",
+  "value": {
+    "rationale": "Nonlinear integrated count-squared exposure is mathematically motivated by quadratic occupancy/congestion costs. Exact unique and intensity-dependent one-count design (2/3 to √(3/5)) and a sharp 24.158% high-rate Bayes risk improvement over the traditional 2/3 observation are useful and not routine consequences of classical linear Lévy-integral design. The scope excludes noise, unknown rates, adaptivity and multiple sampling and does not claim a paper-scale generalization.",
+    "status": "PASS"
+  }
+}
