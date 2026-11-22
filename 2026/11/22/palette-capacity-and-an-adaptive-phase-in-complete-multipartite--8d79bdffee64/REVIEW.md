@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+PASS. The upper bound first forbids repeated-vertex equality queries and then uses a simultaneous mixed-sign trace to bound the number of parts containing at least two tested vertices. The lower bound selects all vertices in the largest admissible parts, one in every other part, and uses Hall's marriage theorem to allocate disjoint colour slots in every binary labelling. The chromatic-palette case is proved separately by the permutation structure of complete multipartite colourings. A universal all-positive-branch argument bounds Littlestone dimension by the vertex count. On the six-vertex octahedral graph, the four-colour depth-five impossibility is established by an exhaustive finite recurrence, and the five-colour depth-six possibility by a complete 64-leaf checked certificate. The extracted standalone verification is required for the finite assertions.
+
+## Originality
+PASS within inspected evidence, with historical-priority risk. The published complete-bipartite equality-query result proves the two-part specialization and VC/Littlestone equality, but its quantified graph family excludes multipartite graphs with three or more parts. The present exact multi-part palette-capacity law and the five-colour octahedral adaptive gap are not implications of that two-part result. Studies of forcing partial colourings, weighted properly-ordered colouring, structure learning from whole-colouring samples, and independent-function zero sets use different concepts or objectives; the latter equal-rank theorem cannot cover the exhibited strict gap without a false conclusion. Relevant source sections were inspected, though unindexed equivalent research remains possible.
+
+## Value
+PASS. A transparent color-budget invariant yields the sharp VC dimension for every complete multipartite graph and every feasible named palette, including a distinct jump from the chromatic palette and a plateau at twice the number of parts. The minimal multipartite case with three 2-vertex parts exhibits a one-unit adaptive/static separation precisely at five colors, in contrast with the already-understood two-part case. The exact finite certificate and the all-parameter theorem establish a meaningful natural boundary rather than an arbitrary census.
+
+## Closest literature and remaining limitations
+The closest direct predecessor is *Exact shattering polynomial and palette transition for complete-bipartite proper colourings* (8 November 2026), which establishes the two-part case. Guingona et al. (2021) study a different zero-set concept family, Blanca et al. (2017) learn unknown graph structure from sampled colourings, and Fujita et al. (2021) study weighted properly ordered chromatic parameters of complete multipartite graphs. This proof claims no all-parameter Littlestone formula beyond the explicit octahedral palette table, and the finite rank-four impossibility rests on fully exhaustive standalone computation. Historical priority cannot be certified by search alone.
+
+Self-review: passed. Independent audit: not yet performed.
