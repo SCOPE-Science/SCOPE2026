@@ -1,15 +1,21 @@
-# Mathematical review: two-edge matching Walsh transform on \(K_{3,n}\)
+# Independent mathematical audit
 
-## Correctness — PASS
-The frequency set consists of exactly \(3n(n-1)\) distinct two-edge matchings. Their signed character sum is the row-pair identity \(W_n=\sum_{i<j}(S_iS_j-C_{ij})\). An edge-sign flip changes this sum by minus twice an even-length signed sum, giving the uniform residue modulo four. The four displayed Hadamard-type columns, repeated and optionally followed by one extra column, produce zeros in every complementary dimension. These arguments prove both directions of the classification for all \(n\ge2\), rather than inferring it from computations. The exact multinomial multiplicity identity is simply an exhaustive grouping of the eight possible sign columns. Translation invariance proves the exact endpoint norm; the multivariate CLT, an explicit \(L^2\) bound on the correlation correction, Parseval uniform integrability and an exact exponential integral establish the constant \(2/\sqrt3\). The checker separately reconstructs the full Walsh transform in small dimensions, confirms all multinomial multiplicities through dimension 12 and tests the explicit constructions.
+## correctness
 
-## Originality — PASS under bounded scientific comparison
-Goodall (arXiv:0806.4848, especially Sections 4–5, examined in full-text form) supplies finite Abelian character identities and graph-polynomial applications, but not Walsh-zero arithmetic for the complete-bipartite two-matching orbit. Nourdin, Peccati and Reinert (arXiv:0810.2890, Sections 1 and 4.1–4.2 examined) supply general Rademacher-chaos methods and Gaussian approximation, not this non-Gaussian quadratic limit or the exact sign criterion. The closest inspected published Hamming degree-two projection result concerns a radial primitive idempotent on the complete degree-two frequency shell, unlike the nonradial matching subset here; the excluded pairs are a positive proportion and its operator norm cannot imply the present numerical constant. Earlier work on \(K_{3,n}\) spanning trees, four-cycles and six-cycles concerns different edge-incidence frequency sets and claims. Searches for signed matching polynomials, two-edge bipartite matching Walsh coefficients, Fourier projection norms, alias formulations and the residue law found no source establishing these specific statements. No exhaustive historical uniqueness guarantee is made.
+PASS
 
-## Mathematical value — PASS
-The two-edge matching family is a natural and nontrivial intersection of two partition-matroid independence constraints. The exact zero-free congruence classes settle invertibility of its incidence-convolution operator for an infinite family, while the four-column construction proves the obstruction is attained rather than merely permitted by parity. The complete coefficient-multiplicity formula makes all finite norms evaluable in polynomially many terms. The sharp endpoint asymptotic has a non-Gaussian, indefinite quadratic-chaos constant \(2/\sqrt3\); it is structurally different from the radial Hamming degree-two constant. These are linked features of one harmonic-invariant calculation, not arbitrary numerical subcases.
+PASS: Each matching consists of disjoint row i<j and distinct columns a!=b; expanding sum over these gives S_i S_j-C_ij. Flipping one sign changes W by -2s_e times 2(n-1) disjoint signed edges, hence W remains all-positive 3n(n-1) modulo4. Hadamard 4-column balanced-sign block yields every row sum and pair inner-product sum zero; adding one arbitrary column covers n=0,1 mod4 (n>=4). Fourier diagonalization separates invertibility of counting convolution from noninvertibility of idempotent projection. Eight sign-column multiplicities give exact multinomial formula. Random independent column signs yield centered joint CLT of row sums; C_ij/n -> 0 in L2 and bounded EW²/n² ->3 ensure uniform integrability; diagonalized Q=U²-(V²+T²)/2 yields E|Q|=2/sqrt(3). Exhaustive independently assembled signs for n=2..5 verified zero counts 0,0,1160,7560 and congruence.
 
-## Residual limits
-The sources checked may not exhaust historical signed-matching or multivariate Rademacher literature. One related 2001 matchings-enumeration abstract concerns incidence graphs and does not appear to evaluate the matching Walsh transform; it was not treated as whole-document negative evidence. Generalization to other matching sizes, other left-part sizes, an exact constant-size finite norm formula, and a quantitative asymptotic error remain unproved. The same-model computations do not constitute independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best-of-knowledge: targeted Resultary, relevant published research and primary mathematical comparisons did not show claim coverage; overlap and residual risks separately specified.
+
+## value
+
+PASS
+
+PASS: The exact all-n singularity classification and sharp asymptotic amplification for the natural two-edge-matching frequency layer in K_{3,n} is a structural Fourier recovery boundary, distinct from the full matching generating function and distinct four/six-cycle orbits; precise fixed-layer invariant has motivated uses in diagonalization and projection norm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

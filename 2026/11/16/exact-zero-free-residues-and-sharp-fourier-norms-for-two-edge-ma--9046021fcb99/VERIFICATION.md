@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The standalone `verify.py` is executable with Python 3 and the standard library. It independently constructs the complete matching-incidence Walsh transform for dimensions \(2\) through \(5\); checks the direct matching-sign sum against the row-sum identity; and uses exact eight-column multinomial aggregation for dimensions \(2\) through \(12\). It tests all coefficients' mod-four residues, the predicted existence of zero coefficients, exact Parseval second moments and rational endpoint norms. The checker also tests the zero constructions through dimension \(64\) and compares a numerical Gaussian chaos sample with the analytically derived constant. Finite checks do not prove infinite congruence or limit assertions.
+# Independent mathematical audit
 
-Recorded exact output includes `n 4 freqs 4096 coeff_types 10 zeros 1160 norm 567/128`, `n 5 freqs 32768 coeff_types 16 zeros 7560 norm 5805/1024`, and `n 6 freqs 262144 coeff_types 23 zeros 0 norm 231435/32768`. Final marker: `K3N_TWO_MATCHING_WALSH_ALL_CHECKS_PASS`.
+## correctness
 
-Fourier normalization, matching cardinality, exact boundary classes and uniform integrability are proved in `RESULT.md`. The source manuscript's two central arithmetic steps (mod-four edge-flip invariance and four-column zero construction) need no computational completeness assumption. The Gaussian constant comes from an exact exponential/chi-square integral, not from Monte Carlo.
+PASS
+
+PASS: Each matching consists of disjoint row i<j and distinct columns a!=b; expanding sum over these gives S_i S_j-C_ij. Flipping one sign changes W by -2s_e times 2(n-1) disjoint signed edges, hence W remains all-positive 3n(n-1) modulo4. Hadamard 4-column balanced-sign block yields every row sum and pair inner-product sum zero; adding one arbitrary column covers n=0,1 mod4 (n>=4). Fourier diagonalization separates invertibility of counting convolution from noninvertibility of idempotent projection. Eight sign-column multiplicities give exact multinomial formula. Random independent column signs yield centered joint CLT of row sums; C_ij/n -> 0 in L2 and bounded EW²/n² ->3 ensure uniform integrability; diagonalized Q=U²-(V²+T²)/2 yields E|Q|=2/sqrt(3). Exhaustive independently assembled signs for n=2..5 verified zero counts 0,0,1160,7560 and congruence.
+
+## originality
+
+PASS
+
+PASS, best-of-knowledge: targeted Resultary, relevant published research and primary mathematical comparisons did not show claim coverage; overlap and residual risks separately specified.
+
+## value
+
+PASS
+
+PASS: The exact all-n singularity classification and sharp asymptotic amplification for the natural two-edge-matching frequency layer in K_{3,n} is a structural Fourier recovery boundary, distinct from the full matching generating function and distinct four/six-cycle orbits; precise fixed-layer invariant has motivated uses in diagonalization and projection norm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
