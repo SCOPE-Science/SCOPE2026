@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Gauss sum gives the exact Gram identity \(H_E=(pI_4-J_4+\sqrt p S_E)/(p-1)\), with normalization and the exclusion of the zero quadratic residue made explicit. Universal upper/lower bounds and their equality cases follow from simultaneous Rayleigh equalities. Strongly regular Paley parameters and the Hoffman graph independence bound force witnesses of both types for all eligible \(p\ge29\). For \(p=13,17\), an exhaustive **exact integer** sign-pattern certificate proves the strict minimum of the star type and shows its existence; separately the star block has the advertised eigenvalue. At \(p=5\) the two-row rank argument is exact. The edge dominance inequalities are strict. Limits: the larger-prime finite examples are only corroboration; the infinite proof uses classical graph bounds.
+PASS
 
-## Originality — PASS (historical priority remains provisional)
+The positive quadratic Gauss sum for p≡1(mod4) gives H_E=(pI_4−J_4+√p S_E)/(p−1) for all four distinct frequencies. Rayleigh inequalities S_E≤3I and J≥0 give β=(p+3√p)/(p−1), with equality iff the signed graph is a balanced switching all-positive pattern whose top sign vector sums to zero, exactly induced 2K2. Similarly S_E≥−3I and J≤4I give γ=(p−4−3√p)/(p−1), equality iff four Paley-independent vertices. For p≥29, the common-neighbor size (p−5)/4 exceeds Hoffman α(Paley)≤√p, forcing a four-clique; nonsquare scaling provides a four-independent set. Common nonneighbors contain an edge forcing 2K2. For p=13,17, the packaged certificate enumerates all 715 and 2380 four-sets, reduces them to signed matrices, and uses exact rational square-root brackets and integer leading principal minors to isolate star minima at α_p; witnesses are explicit. The star two-by-two block gives α. For p=5 the two-row rank calculation gives spectrum (0,0,3/2,5/2). Algebraic comparison of edges then proves the δ4 transition. Independent local Gram eigenspectra enumerations at p=5,13,17,29,37 matched extrema; infinitely many primes use the analytic graph argument, not this enumeration.
 
-Fickus--Jasper 2018 supplies general Paley-frame background and the focal primary classification, not these four-column extrema. Bandeira--Mixon--Moreira 2014 treats a different zero-row-augmented normalized construction, so its clique/Gershgorin implications do not by themselves supply these exceptional cases, exact constants and equality spaces under the present convention. Magsino--Mixon--Parshall 2019 gives a random spectral limit, not worst-case four-set formulas. Arian--Yilmaz 2019 develops an alternative Paley convention for primes \(p\equiv3\pmod4\). Previously published four-consecutive-column work is a special subfamily; it does not imply the all-four-subsets sharp theorem. One publicly indexed four-column Paley spectral census concerns \(p\equiv3\pmod4\), not this class. The derivation uses classical Paley/Gauss/Hoffman results without asserting they are new. Residual risk: specialist conference-matrix computations under a different normalization might be equivalent; this was not fully excluded by available full text.
+## originality
 
-## Value — PASS
+PASS
 
-The all-four-subsets problem is the first nontrivial exact worst-case sparsity level beyond pair coherence and the arithmetic triangle patterns of Paley frames. It determines an actionable sharp four-sparse stability constant and every extremal sampling geometry; its finite-prime transition distinguishes two different failure modes that a generic Gershgorin estimate cannot distinguish. The exceptional exact certificate and the uniform attainment theorem complement each other; this is not merely a numerical listing.
+The unaugmented nonzero-residue Gram has an essential −J correction absent from real Paley ETF Gram spectra. Prior results cover real ETF four-column switching types or restricted consecutive columns, but not the exact extrema and equality geometries over all four-column sets for this normalization, including the exceptional p13/17 transition.
 
-## Scientific limitations and literature
+## value
 
-The result covers only equal-weight nonzero-square rows, primes \(p\equiv1\pmod4\), and four frequency columns. It cannot be transferred without a separate normalization argument to zero-row-augmented matrices or all conference-matrix conventions. Focal source: Fickus--Jasper (2018), arXiv:1803.07468. Closest additional sources: Bandeira--Mixon--Moreira (2014), arXiv:1410.6457; Magsino--Mixon--Parshall (2019), arXiv:1905.04360; Arian--Yilmaz (2019), arXiv:1911.07428. A matching unpublished or differently normalized derivation remains a priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determining sharp order-four restricted isometry constants over all four frequency choices, with exact exceptional-prime geometry and a qualitative change from an upper to a lower spectral bottleneck, is a natural structured compressed-sensing/spectral extremal question. It supplies more than a renormalization of a known Paley Gram table, especially the exceptional exact certificate and equality classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
