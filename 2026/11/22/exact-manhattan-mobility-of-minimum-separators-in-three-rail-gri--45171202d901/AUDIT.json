@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Three disjoint paths and left/right row boundary give an exact cut classification. A coordinatewise feasible-region proof establishes an all-pairs Manhattan slide metric; optimization of a convex endpoint eccentricity formula yields the sharp radius and diameter. Two standalone independently constructed graph methods exhaustively check up to nine and 24 columns, respectively, including all-pairs shortest paths. The proof, not bounded runs, establishes every n>=3.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2307.07782 Lemma 7 and Theorem 8 establish forward paths and optimal shortest slides when reachable, not connectivity of the specific 3-by-n grid configuration family or its radius/diameter.",
+        "arXiv:2004.10873 describes complexity and algorithms for non-minimum separator reconfiguration, with series-parallel graphs; full-text comparison incomplete."
+      ],
+      "reasoning": "The general theorem implies Manhattan distance conditional on connectivity and canonical-path positioning. Without the new all-n cut characterization and proof of connectedness it does not yield the claimed concrete state/edge/metric formulas. No stronger inspected source states the quantitative family theorem.",
+      "searches": [
+        "Minimum Separator Reconfiguration arxiv 2307.07782 full-text sections 1-4 10",
+        "Some results on Vertex Separator Reconfiguration arxiv 2004.10873",
+        "minimum separator reconfiguration rectangular grids exact diameter sliding",
+        "n-rung 3 by n grid 3-vertex separator 9(n-2) token slide 16n-36"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2307.07782 (relevant full-text proofs)",
+      "arxiv:2004.10873 (abstract; full-text not inspected)",
+      "doi:10.4230/LIPIcs.IPEC.2023.9 (conference record)",
+      "published-finding corpus search: minimum s-t separators of 3 by n rectangular grid with terminals at middle ends exactly nine times n minus two and 3n minus 5 token sliding diameter",
+      "published-finding corpus search: exact reconfiguration of minimum s-t vertex separators in grids ladders hypercubes and distance spectra",
+      "published-finding corpus search: n-rung 3 by n grid 3-vertex separator 9(n-2) token slide 16n-36"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2023 Theorem 8 computes shortest slides given minimum separators, and the forward-moving lemma establishes an optimal path in the canonical path direction when connected.",
+        "The current theorem additionally proves exactly which triple positions are separators for every n and that all such positions are mutually reachable."
+      ],
+      "reasoning": "The specific Manhattan metric follows from the general forward-moving mechanism only after nontrivial family-specific feasibility and reachability are established. The complete counts, explicit eccentricities and sharp radius/diameter are not a restatement or corollary of a supplied numerical table. The 2020 general reconfiguration results address a broader problem but do not present the grid quantities in the accessible material.",
+      "searches": [
+        "arxiv:2307.07782 Theorem 8 shortest TS reconfiguration and canonical path",
+        "arxiv:2004.10873 vertex separator reconfiguration series parallel",
+        "exact reconfiguration of minimum s-t vertex separators in grids ladders hypercubes and distance spectra"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gomes et al. arXiv:2307.07782, canonical-path Lemma 3 and shortest-slide Theorem 8: one token per disjoint s-t path and forward sliding; the paper gives no three-rail all-state enumeration.",
+        "Results indexed under other three-rail grid subjects (geodesic position, super domination) use different predicates."
+      ],
+      "reasoning": "A minimum cut can also be called a minimum terminal vertex separator or a minimum vertex-disconnecting set. The explicit model with middle-row terminals is mathematically identical under these names. The cited general shortest-slide theorem supplies a partial ingredient, but not the exact 9(n-2)-state configuration family, 16n-36 edges, all-state eccentricity, or extremal metrics.",
+      "searches": [
+        "minimum s-t separators of 3 by n rectangular grid with terminals at middle ends exactly nine times n minus two and 3n minus 5 token sliding diameter",
+        "exact reconfiguration of minimum s-t vertex separators in grids ladders hypercubes and distance spectra",
+        "\"minimum separators\" \"grid\" \"reconfiguration\" \"token sliding\"",
+        "\"3 x n grid\" \"minimum\" \"separator\" count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus candidate 2026/10/26/SCOPE-the-three-geodesic-position-number-of-every-rectangular-grid--594f9b1248d5 concerns geodesic position sets, not s-t separators.",
+        "published-finding corpus candidate 2026/11/8/SCOPE-circular-bounded-gap-token-systems-have-transport-optimal-slidin--edbf2b8cafb9 treats different token constraints.",
+        "No direct indexed matching formula/table was returned in the actual record and literature searches."
+      ],
+      "reasoning": "This negative search is an overlap screen, not a uniqueness certificate; external and unpublished tables can be missing.",
+      "searches": [
+        "minimum s-t separators of 3 by n rectangular grid with terminals at middle ends exactly nine times n minus two and 3n minus 5 token sliding diameter",
+        "exact reconfiguration of minimum s-t vertex separators in grids ladders hypercubes and distance spectra",
+        "n-rung 3 by n grid 3-vertex separator 9(n-2) token slide 16n-36",
+        "\"9(n-2)\" \"separator\" grid",
+        "\"3n-5\" \"separator\" grid"
+      ]
+    },
+    "rationale": "Independent mathematical gap relative to inspected 2023 canonical-path and shortest-slide results: the explicit 9(n-2) minimum-cut classification, full isometric coordinate state graph, 16n-36 edges, eccentricity function, and sharp all-length radius/diameter are not stated there. Actual exact-claim published-finding corpus searches and corresponding primary-source literature searches produced no covering result; an earlier full text was not available, so priority remains qualified.",
+    "residual_risks": [
+      "Original shortest-slide algorithm already proves a generic forward-moving metric conditional on connectivity; novelty is confined to this grid family classification and quantitative geometry.",
+      "Unindexed or differently titled specialized grid-cut tables could cover part or all of the new counts.",
+      "The full 2020 precursor was not materially inspected; accessible summary suggests different emphasis but cannot eliminate its priority risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General distance/algorithmic machinery partly covers metric conditional on connectedness, but no explicit three-rail all-state theorem or enumeration was found.",
+        "evidence": [
+          "Lemma 3, Corollary 6, Lemma 7 and Theorem 8; sections 1-4, 10; arXiv first version 2023-07-15."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.07782",
+        "material_read": "Full arXiv rendered text: introduction, canonical path lemma, forward lemma, polynomial shortest-slide theorem, preprocessing material and conclusions; text searched for grid, ladder and Cartesian products.",
+        "method": "Read web-rendered 574-line full-text representation, inspecting relevant statements and proofs, plus title/date abstract metadata.",
+        "title": "Minimum Separator Reconfiguration",
+        "trigger": "Exact minimum terminal-separator token sliding problem and original first-public source"
+      },
+      {
+        "assessment": "Abstract reports complexity and selected graph classes rather than explicit middle-terminal three-rail cut geometry; full-text priority risk remains.",
+        "evidence": [
+          "arXiv version 2004.10873 public 2020-04-22; accessible abstract describes series-parallel and forbidden-subgraph classes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2004.10873",
+        "material_read": "Public abstract and accessible alphaXiv summary; full paper not obtained/read.",
+        "method": "Searched OA arXiv and alphaXiv rendered pages and compared stated graph families and objectives.",
+        "title": "Some results on Vertex Separator Reconfiguration",
+        "trigger": "Earlier general separator reconfiguration algorithms and potential dominance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "45171202-d901-4973-8dd9-2ee7bbef037b",
+  "value": {
+    "rationale": "A natural planar width-three network has a complete quantified minimum-cut configuration space and exact rearrangement cost without non-minimum intermediate states. The 9(n-2) state law, 16n-36 edges, all-pairs metric, radius and diameter 3n-5 form a motivated all-length benchmark for optimum-preserving network separation, going beyond generic algorithmic feasibility. Limitations to these terminal placements are explicit.",
+    "status": "PASS"
+  }
+}
