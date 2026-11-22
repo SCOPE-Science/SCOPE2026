@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The quadratic family is exactly Jamilov's four-species operator, and the central scalar dynamics is not approximated. Its normalization by peripheral mass yields the exact stochastic kernel \(B_{ij}=\alpha I+(1-\alpha)P_{ij}\). A symbolic multiplication and an independent analytic derivation give the sum-zero trace \(-\alpha(\alpha^2-6\alpha+3)\), determinant \((2\alpha-1)^3\), and discriminant \((1-\alpha)^4(\alpha^2-8\alpha+4)\). Only \(4-2\sqrt3\) lies in the permitted parameter interval. Relabeling the three edges proves all six calendars are covered, not merely a chosen example. At the collision, \(M_{12}-M_{21}=\alpha(1-\alpha)^2\ne0\), so the restriction cannot be scalar; the Jordan power identity follows for all integer powers from Cayley–Hamilton. The standalone script checks all six characteristic polynomials, the exact nonzero nilpotent, four powers, and 21 rational original-system steps. The proof does not mistake those finite checks for general certification.
+PASS
 
-## Originality — PASS within inspected sources
+PASS. For 0<w0<1 the central coordinate satisfies z_t=(2w_t-1), z_{t+1}=z_t^2 and normalized peripheral composition exactly obeys p_{t+1}=B_pi p_t; hence all iterates are defined and p_{3n}=M_alpha^n p0. Every order of the three distinct edges is related by simultaneous S3 relabeling, so six calendars are spectrally conjugate. Independently symbolically multiplied the 3x3 swap kernels and recovered restricted trace -alpha(alpha²-6alpha+3), determinant (2alpha-1)^3, discriminant (1-alpha)^4(alpha²-8alpha+4), and off-diagonal skew alpha(1-alpha)^2. Unique interior zero alpha=4-2sqrt3, lambda=15sqrt3-26; nonzero skew rules out a scalar E restriction, while Cayley–Hamilton establishes the nontrivial rank-one nilpotent N²=0 and exact Jordan-binomial powers. The statement is for equal alpha on a complete three-edge season, not arbitrary forcing.
 
-The full primary text of Jamilov (arXiv:2210.05107, Section 3 and Theorem 3.5) studies fixed-permutation autonomous evolution, not a periodically changing permutation covering all three peripheral pairs. A prior two-season transposition analysis establishes a different collision at \(2\sqrt3-3\), which is explicitly excluded from novelty. Its two-factor discriminant does not imply the three-factor discriminant: the additional factor fails to commute with the first two, and the resulting spectral phase changes direction. Search of the public mathematical literature and the accessible indexed finding database did not locate an equivalent complete three-edge seasonal theorem. The 2022 and 2023 superposition/permutation papers were identifiable but their full texts remained unavailable; the novelty judgment is provisional to that specific limitation, not a claim of an exhaustive search.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Three distinct pair exchanges are the unique minimal complete interaction calendar on the peripheral triangle, up to relabeling. The result classifies **all six** orders at once and reveals that completing the interaction graph causes a transition from real-to-complex spectra opposite to the two-edge case. The exact algebraic threshold and nontrivial Jordan relaxation factor resolve a structural change in convergence for a natural periodically switched quadratic population model; these are not normalization checks or arbitrary isolated parameter samples.
+Best-of-knowledge PASS for the exact six-order three-season spectral classification, parameter threshold and defective Jordan power law. The source model and individual fixed-permutation dynamics are Jamilov’s, the two-season threshold is already published, and the full-text Jamilov–Mukhitdinov 2025 composition is for a different operator. Two highly related articles remain inaccessible after a lawful access attempt, so priority is explicitly uncertain.
 
-## Limitations and risks
+## value
 
-The common mixing parameter, fixed four-species simplex, deterministic three-period schedule, and positive initial central mass are essential as stated. No independent audit has been performed. Related publisher full texts were unavailable, and other Markov-product formulations may encode the same specialized result. The two-season observation is fully prior and excluded from the claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. A sharp exceptional-point transition across all permutations of a noncommuting three-edge seasonal schedule is a mathematically motivated finite structural classification, not merely a numerical eigenvalue. Exact Jordan relaxation (including the n*lambda^(n-1) term) and reversed phase compared with two-season calendars expose genuinely different finite-time population dynamics at fixed coefficients; no claim of a general switching theorem is necessary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
