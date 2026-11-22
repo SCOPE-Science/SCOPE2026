@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The object is a subset of the 27 ternary length-three words, with exact absence of the two splices at every ordered codeword pair (including self-concatenation), and minimum aligned pairwise Hamming distance 2 or 3. Constant words are forbidden, and each of eight nonconstant rotation classes contributes at most one word. The resulting \(4^8=65536\) choice vectors are all enumerated in `verify_rotations.cpp`, with no truncated search. Its exact histogram is \((1,24,174,336,132,0,0,0,0)\) for distance 2 and \((1,24,66,12,0,0,0,0,0)\) for distance 3. A separate direct 27-word subset enumeration checks the maxima and upper-bound exclusion without using rotation classes, and enumerates all 12 and three symmetry classes with their representatives. The assertion of completeness is justified by finite universe and exact predicates, not a computational timeout or conjectural extrapolation.
+
+## Originality — PASS, with residual historical risk
+The classical 1958 comma-free capacity bound and the full 13-page 2004 Levenshtein survey concern broader synchronization problems. The survey's Sections 2–4, inspected in full, give the primitive-orbit bound, fixed-index constructions and general error-synchronization results, but no exact ternary length-three aligned-Hamming-distance equality census. Churchill's 2009 open text treats related restrictions but no equivalent count or classification was identified in the inspected text. A published exact count of maximal ternary length-three two-symbol-overlap-free codes gives 42 eight-word maxima, and those have aligned distance one; this does not imply the combined comma-free/distance-2 or distance-3 counts. A published ternary length-three comma-free-index-two classification gives nine four-word maxima, all with aligned distance one; its *distance from splices* condition is different from *distance between aligned codewords*. A standard database tabulates unrestricted ternary Hamming capacities and does not count comma-free dictionary optima. Targeted published-finding corpus claim-and-parameter searches did not find an equivalent classification; absence from a search is not a priority certificate. An obscure historic compilation may nevertheless have an equivalent finite census.
+
+## Value — PASS
+The exact tradeoff between ordinary synchronization and aligned substitution detection is natural at the smallest nonbinary triple length, and the full list of optimum designs is relevant when optimizing additional properties. Twelve versus three symmetry types reveal structural diversity invisible from capacity alone. Both capacities and all equality cases follow from the complete finite classification, not just an isolated negative test or a known-table recomputation.
+
+## Remaining scientific limits
+No conclusions are drawn about longer words, larger alphabets, ambiguous boundaries with substitutions, or unspecified independent priority. Verification is exhaustive only because the stated alphabet and word length yield a finite universe.
+
+Self-review: passed. Independent audit: not yet performed.
