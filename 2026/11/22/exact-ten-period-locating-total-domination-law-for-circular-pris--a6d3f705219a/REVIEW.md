@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The predicate is encoded without loss by five consecutive columns for every prism of circumference at least five: two outsiders with equal nonempty open-neighborhood signatures must have a common neighbor and hence be within two columns. The 256-state overlap automaton therefore gives exact cyclic optimization. The complete tropical matrix identity at exponents eight and eighteen was reproduced by the supplied standalone integer checker, yielding the ten-step recurrence. Direct whole-graph enumeration confirms the initial small orders and independently tests the transfer modelling through order eight. The code uses exact integer comparisons rather than probabilistic testing. The necessary finite identity is computer-assisted and is fully reproducible but has not received independent validation.
+
+**Originality — PASS, subject to publication-priority risk.** The 2021 Raza–Iqbal–Khan–Botmart prism theorem gives an upper-bound construction and a conjectured five-residue equality, not this exact ten-residue formula. The previously indexed 2026 counterfamily covers all orders congruent to three modulo five, so that entire branch is credited as prior art. The new assertion is the **complete** classification, including the precise non-sharp residue six modulo ten and sharpness in all remaining residues, proved by one all-order transfer identity. Closest indexed alternatives concern ordinary domination, identifying codes, or complete rather than cyclic prisms. A full-text comparison with the 2026 counterfamily was unavailable; unindexed equivalent work remains a residual risk.
+
+**Mathematical value — PASS.** This settles every parameter of a specific published conjecture, identifies its exact correction, and isolates a parity-dependent obstruction not visible from the universal cubic lower bound or the existing counterfamily. Unlike an arbitrary finite census, it gives a global result for every cycle length and a compact reproducible proof certificate.
+
+**Limits.** The statement does not enumerate all configurations, treat general generalized Petersen graphs, or claim independent validation. The proof depends on exact computation of an explicit finite min-plus identity.
+
+Self-review: passed. Independent audit: not yet performed.
