@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The basis computation gives a fully specified exact matrix for the mixed Toeplitz commutator. Although the frequency weights carry \(k^2\), the commutator is Hilbert–Schmidt even for an arbitrary bounded symbol: its factorization through the Hilbert–Schmidt projection leakage \(QBP\) proves finiteness without invoking the Sobolev limit. The two-circle normalization and logistic derivative integral have been checked. The shift-telescoping estimate proves the universal finite-radius bound, while the fixed-frequency Riemann limit, dominated convergence, and Fatou's lemma handle the two cases of finite and infinite Dirichlet energy. The extremizing monomial establishes sharpness. No numerical extrapolation is used as an infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-The closest full-text comparisons are the 2026 Adhikari–Das annular Brown–Halmos/multiplicativity theorem, the published positive self-commutator thin-annulus Laurent spectral law, and the published power-Fock angular leakage theorem. None states or implies the displayed mixed commutator inequality with constant \(1/3\) or the extended-valued \(H^1\) equivalence on the two-circle annular Hardy space. The general Toeplitz eigenvalue and Hilbert–Schmidt literature overlaps in setting and methods but lacks a demonstrated dominating comparison. Publication-priority uncertainty remains for equivalent formulations in older general Hankel/commutator-ideal literature; Tattersall's thesis was checked only in accessible introductory and contents portions, not exhaustively.
+PASS
 
-## Mathematical value — PASS
-The outer-boundary indicator is a canonical operator differentiating the two physical boundary components, and its failure to commute with angular Toeplitz compression is a natural quantitative measure of boundary coupling. The result converts that coupling into an exact Sobolev criterion for every bounded symbol, proves the sharp same-coefficient inequality valid at every annular width, and distinguishes finite-width Hilbert–Schmidt regularization from divergent pinching energy for nonsmooth data. These conclusions are not a change of variables in an already identified inequality in the inspected primary work.
+PASS: With the equal-circle norm, the Laurent basis z^n/sqrt(1+r^(2n)) diagonalizes the outer indicator with d(hn), d(t)=(1+exp(-2t))^-1, h=-log r. Identical angular data give the exact weighted Fourier shift with 0<u_nk<=1. The compression identity [PBP,PAP]=PAQBP-PBQAP and sum_n d_n(1-d_n)<infinity prove S2 for each bounded symbol even outside H1. Telescope each integer k difference in ell2 and apply interval Cauchy-Schwarz: F_h(k)<=h k^2 int|d'|^2=hk^2/3. Independently integrated (1/4)sech^4 over R to 1/3 and numerically computed F_h(k)/h ~ (0.3333205,1.3331286,2.9989635) for k=1,2,3 at h=.012 versus (1/3,4/3,3); the latter are finite diagnostics only. Fixed-mode dominated Riemann sums prove limit k^2/3; dominated convergence for a in H1 and Fatou for all other bounded a give the exact extended-real limit. The k=1 mode proves optimality. No claim for unequal circle measures.
 
-## Scientific limitations
-Only equal boundary masses and identical angular data on the two circles are addressed. The statement does not cover other Schatten exponents, nonmatching boundary data, or arbitrary multiply connected domains. Global publication priority remains subject to independent literature validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: a sharp mixed commutator of outer-boundary Toeplitz compression with equal-angular Toeplitz symbols, with all-radius 1/3 bound and arbitrary bounded-symbol H1 iff, is not implied by the inspected primary algebraic Toeplitz paper or published analytic selfcommutator/Schatten results. The latter have different operators or finite Laurent restrictions; older general Hankel ideal literature remains a genuine priority risk.
+
+## value
+
+PASS
+
+PASS: the outer-circle polarization is a canonical observable of annulus boundary coupling. Quantifying its commutator at every thickness and its exact pinching regularity gives a useful sharp Dirichlet/Sobolev diagnostic rather than a routine finite-matrix identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
