@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The analytical proof is in `RESULT.md`. To reproduce independent checks from the accompanying source, run `python3 check.py` with Python 3 and no third-party packages. The code recursively enumerates each triangulation for \(5\le n\le11\), compares every ear marginal and pair frequency with Catalan probabilities using exact fractions, and matches the exact count variance with the constant Fourier eigenvalue. It checks all sixteen finite rational inequalities needed to separate the crossover at \(n=20/21\), and stress-tests spectral ordering through \(n=1000\). The recorded execution returned `PASS 6100 assertions`.
+# Independent mathematical audit
 
-The proof for all \(n\ge21\) is symbolic: the polynomial \(147t^3+5389t^2+49281t+359\) has strictly positive coefficients for \(t\ge0\). The sharp all-size conditioning bound comes from exact rational monotonicity and case separation, not sampled data. Numerical spectral loops in the script are corroborative only. No independent mathematical audit or external formal certification has been performed. Historical novelty remains subject to independent priority checks.
+## correctness
+
+PASS
+
+A fixed boundary ear in a uniform n-gon triangulation has probability p=C_(n-3)/C_(n-2)=(n-1)/(2(2n-5)), adjacent ears cannot coexist, and each nonadjacent pair has probability q=C_(n-4)/C_(n-2)=(n-1)(n-2)/(4(2n-7)(2n-5)). Consequently K=(p-q)I-qA_cycle+(q-p²)J, giving constant lambda0=(n-5)(n-4)(n-1)/(2(2n-7)(2n-5)²), and nonconstant lambda_j=p-q-2q cos(2pi j/n). Lambda0 vanishes only at n=5. Compare lambda_1-lambda0 and bound cos by exact rational inequalities for all 5<=n<=20 (each checked by script), then a positive-coefficient cubic after n=21 for the reverse sign. These prove the only switch between n=20 and 21. Max mode nearest pi, and n6 yields lambda_min=1/49, max=1/2 so ratio=49/2; rational monotonic bounds cover all other n and limit 5. Independently recomputed p,q and sample spectra n=5,6,7,20,21,22,100,1000, and inspected full check.py and RESULT.md. Finite tests were not used to establish unbounded-size bounds.
+
+## originality
+
+PASS
+
+Known Catalan ear counts and variance are credited, not presented as new. Mansour--Rastegar calculates total ear laws and constrained triangle-weight variances, but not the full cyclic Fourier covariance spectrum with n=21 minimizing-eigenmode switch and global condition ratio 49/2. Same-day Resultary noncrossing-matching crossover is a different Catalan object, and earlier diagonal-ear dependence work studies distinguished diagonals rather than these spatial eigenvalues.
+
+## value
+
+PASS
+
+Position-resolved ear indicators in random polygon triangulations form a natural cyclic stochastic observation frame. Identifying rank, exact modes, the nontrivial 20/21 switch and unique dimension-uniform worst-conditioning at six vertices are sharp structural facts not supplied by the routine Catalan moments alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

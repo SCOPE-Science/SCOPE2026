@@ -1,9 +1,21 @@
-# Review: Catalan ear Fourier observability
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact covariance kernel follows from the Catalan bijection for one or two prescribed ear triangles; Fourier diagonalization yields all modes and their multiplicities. The sole exceptional constant zero mode at \(n=5\) follows from the closed-form variance. Strict frequency ordering, the sixteen exact rational finite-crossover checks, and the positive-coefficient polynomial bound for all \(n\ge21\) prove the global mode switch. Rational monotonicity gives the unique global extremal condition number \(49/2\). The standalone Python script passed 6100 checks, including independent exact triangulation enumeration. The analytical arguments, not the finite stress tests, establish the unbounded statements.
+## correctness
 
-**Originality — PASS, provisional priority.** The 2019 Mansour–Rastegar paper gives the distribution and variance of total ear count, plus a general side-length-invariant triangle-weight formula, but not position-dependent Fourier-frame eigenvalues or sharp size-dependent spectral extrema. Published diagonal/ear covariance and compatible-diagonal association theorems encode nearby pairwise facts but do not give this sharp mode reversal or the all-size optimization. The full relevant Results and proofs, not titles alone, were compared. Residual risk: a more general unpublished or differently described spectral covariance result could imply the theorem; no search establishes absolute novelty.
+PASS
 
-**Value — PASS.** The ear-location observables form a natural cyclic sampling frame on Catalan triangulations. The theorem identifies the precise polygon size at which the dominant uncertainty changes its spatial character and supplies the sharp worst-case noise-amplification bound across all dimensions, beyond total-ear variances. Its boundary case is a genuine rank defect, and the limit is a different exact stability scale. These are motivated complete structural classification results, not arbitrary numeric parameter slices.
+A fixed boundary ear in a uniform n-gon triangulation has probability p=C_(n-3)/C_(n-2)=(n-1)/(2(2n-5)), adjacent ears cannot coexist, and each nonadjacent pair has probability q=C_(n-4)/C_(n-2)=(n-1)(n-2)/(4(2n-7)(2n-5)). Consequently K=(p-q)I-qA_cycle+(q-p²)J, giving constant lambda0=(n-5)(n-4)(n-1)/(2(2n-7)(2n-5)²), and nonconstant lambda_j=p-q-2q cos(2pi j/n). Lambda0 vanishes only at n=5. Compare lambda_1-lambda0 and bound cos by exact rational inequalities for all 5<=n<=20 (each checked by script), then a positive-coefficient cubic after n=21 for the reverse sign. These prove the only switch between n=20 and 21. Max mode nearest pi, and n6 yields lambda_min=1/49, max=1/2 so ratio=49/2; rational monotonic bounds cover all other n and limit 5. Independently recomputed p,q and sample spectra n=5,6,7,20,21,22,100,1000, and inspected full check.py and RESULT.md. Finite tests were not used to establish unbounded-size bounds.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Known Catalan ear counts and variance are credited, not presented as new. Mansour--Rastegar calculates total ear laws and constrained triangle-weight variances, but not the full cyclic Fourier covariance spectrum with n=21 minimizing-eigenmode switch and global condition ratio 49/2. Same-day Resultary noncrossing-matching crossover is a different Catalan object, and earlier diagonal-ear dependence work studies distinguished diagonals rather than these spatial eigenvalues.
+
+## value
+
+PASS
+
+Position-resolved ear indicators in random polygon triangulations form a natural cyclic stochastic observation frame. Identifying rank, exact modes, the nontrivial 20/21 switch and unique dimension-uniform worst-conditioning at six vertices are sharp structural facts not supplied by the routine Catalan moments alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
