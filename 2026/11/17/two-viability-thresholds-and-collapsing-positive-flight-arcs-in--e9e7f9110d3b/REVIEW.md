@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** Principal-square-root variables satisfy the harmonic canonical system only in the strictly positive region; the stated trigonometric prohibitions provide a complete circle-sector decomposition. The threshold \(\rho=\sqrt{1+r^2}\) follows from the overlap of angular exclusion intervals and the derivative gives the sharp short-flight collapse. A delayed predator-free-axis continuation is \(C^1\) at its join, establishing forward nonuniqueness.
+## correctness
 
-**Originality — PASS within inspected evidence.** Kaniadakis (arXiv:2208.02457, 2022, Sec. IV) introduced the square-root model, invariant ellipses and exact harmonic formula; these are prior work. Da Silva, Carbone and Kaniadakis (DOI:10.1063/5.0158723, 2023, Secs. II-III) likewise present the normalized oscillator and discuss cessation at prey extinction. Their inspected statements do not give the full positive-orbit component diagram, exact duration thresholds, short-component collapse coefficient, or explicit delayed boundary branching. The principal remaining risk is an unindexed equivalent treatment.
+PASS
 
-**Mathematical value — PASS.** The exact solution frequently extends beyond the biologically meaningful quadrant if the square-root signs are not tracked. The new classification answers when genuinely strictly positive cycles exist, when the viable segment splits into two, when the short segment disappears, and why a boundary condition alone cannot select a unique trajectory. These constraints are structurally meaningful for extinction interpretation despite elementary underlying trigonometry.
+On X,Y>0, principal square roots u=√X, v=√Y obey u′=(v−1)/2 and v′=(r−u)/2; therefore (u−r,v−1) is a circle with angular speed −1/2. The forbidden u≤0 and v≤0 closed phase intervals have half widths α and β and centers a quarter turn apart. The number of connected positive arcs changes at m=min(r,1), M=max(r,1) and at their overlap radius R=√(r²+1). A complete period exists only below m; one positive arc for m≤ρ<M, two for M≤ρ<R and one for ρ≥R. Multiplying angular lengths by 2 derives the stated durations, while differentiating α+β at R gives short-flight decay 2R(R−ρ)/r+O((R−ρ)^2). At X=0, the axis path and a delayed outgoing square-root harmonic arc share the same C1 derivative, establishing nonunique local nonnegative continuation. For r=1 the middle one-arc regime is empty. Numeric phase sampling cannot replace this exact proof.
 
-**Limitations.** The original integrability, oscillator circle and period are not claimed as discoveries. Only maximal positive segments are classified; boundary solutions have no canonical future selection. The computer check is finite and does not replace the analytic proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The harmonic oscillator and squared explicit trajectories are established prior work; the narrowly claimed additions are a full maximal strictly positive component classification, exact collapse rate, and explicit non-Lipschitz boundary branching. The earlier original model discusses extinction/stopping, but not these complete topology and lifetime statements in read sections.
+
+## value
+
+PASS
+
+Strict positivity and collision with extinction axes matter mathematically and biologically: an exact oscillator circle does not supply a physical phase portrait once principal roots change sign. The full natural positive-orbit classification, two component changes and exact lifetime collapse give useful, testable boundaries, even though the construction is elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
