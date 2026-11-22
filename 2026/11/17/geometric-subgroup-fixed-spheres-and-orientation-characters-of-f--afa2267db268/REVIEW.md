@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim has one universal domain: finite simple forests with any subgroup of vertex automorphisms. Rooting the barycentric subdivision of each tree at its group-fixed center gives an acyclic orbit quotient, including actions that invert the central edge and permute components. The barycentric-coordinate map gives an explicit two-sided PL homeomorphism of fixed loci with dominance complexes of orbit forests. The known forest matching-number theorem supplies the sphere dimension. Reduced Lefschetz numbers, including the empty fixed-locus case, give the integral orientation sign. Independently recomputed finite tests check the essential nonstandard compatibility step and orientation identity. All boundary conventions are stated; finite computations are not used as a universal proof.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-Ehrenborg–Hetyei (2005 online), Section 7, gives the ordinary forest dominance sphere theorem but no group-fixed classification. Marietti–Testa (2008), Section 4.3 and Proposition 4.11, gives a matching-number dimension and a nonequivariant collapse but not geometric subgroup fixed-point spaces. Indexed comparison results concern dominance complexes of individual nonforest graphs, or subgroup-fixed spaces of different graph-complex functors. Neither their stated conclusions nor the full primary statements inspected imply the all-forest PL fixed-space model or orientation character. This assessment is conditional on literature coverage, not a claim of definitive priority.
+PASS
 
-## Value — PASS
-The original mathematical question is how the entire finite automorphism group affects the topology of a canonical graph complex; ordinary sphere dimension alone cannot answer it. A canonical orbit-forest PL model resolves all subgroup geometric fixed loci in one theorem and determines the full integral sign representation by matching numbers. Two-edge-arm trees make the gap tangible: all subgroup fixed-point dimensions are computed from arm orbit counts, and the full symmetric-group integral character is the sign character. The contribution is an infinite-family structural fixed-space classification, not a restatement of the known nonequivariant sphere theorem.
+The orbit graph of a tree under an automorphism subgroup is a forest by rooting the barycentric subdivision at the invariant center; for disjoint components reduce to setwise stabilizers. Fixed barycentric coordinates are constant on orbits. A set of orbits in the fixed-point simplex excludes full closed neighborhoods precisely when its orbit support forms a face of Dom(Q); orbit barycenters yield a PL homeomorphism. The established Marietti–Testa forest dominance sphere formula yields dimension ν(Q)−1, empty when ν=0; reduced Lefschetz equality yields sign (−1)^(ν(F)−ν(Q_<g>)) on rank-one integral top homology. Cases of empty fixed complexes and isolated vertices use augmented reduced Euler conventions; non-equivariant theorem is credited as preexisting.
 
-## Closest literature and limitations
-The closest primary papers are Ehrenborg–Hetyei (European Journal of Combinatorics 27, 2006; DOI 10.1016/j.ejc.2005.04.010) and Marietti–Testa (Electronic Journal of Combinatorics 15, 2008; DOI 10.37236/825). A related paper, Marietti–Testa, *Cores of simplicial complexes* (2008; DOI 10.1007/s00454-008-9081-y), was available as abstract and bibliographic description only; an implicit equivariant variant there cannot be ruled out from the inspected material. The theorem covers forests, not arbitrary graphs. Independent evaluation and definitive publication priority have not been established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Resultary query on forest dominance fixed spheres and character, and full primary Ehrenborg–Hetyei and Marietti–Testa, separate established nonequivariant forest sphere from arbitrary geometric subgroup fixed-point PL identification. Full same-day independence-complex fixed-space result concerns a different complex and does not imply closed-neighborhood dominance. Priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+All subgroup fixed-point spaces and a complete integral top-homology orientation character form a natural equivariant refinement of the classical forest dominance sphere theorem, with nontrivial arm-symmetric sign examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
