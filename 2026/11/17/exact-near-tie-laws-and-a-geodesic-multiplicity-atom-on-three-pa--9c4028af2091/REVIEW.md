@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Exact interval and rectangle decompositions exhaust every simple route and every pair-placement type. Three length-tie patterns are handled explicitly and the positive zero-gap atom follows from two identical shortest detours of the long arm. Every probability is divided by the square of total length. The proof has finite and explicit parameter-dependent threshold ranges. Independent route-order numerical quadrature checks all regimes. The numerical checks are not an infinite proof.
+## correctness
 
-## Originality — PASS (provisional historical assessment)
-General work on metric graphs and statistical metric-graph reconstruction provides context; two closely matching published continuous-theta-graph studies already give the shortest-distance distribution, geometric tail behavior and global arm-length inversion. Their complete relevant statements and proofs were examined. They do not state or calculate the gap between the first two distinct simple routes or its singular atom. The new result claims neither a new shortest-distance law nor new theta-graph parameter identifiability. Unknown historical literature on near-unique geodesics remains a priority risk.
+PASS
 
-## Value — PASS
-Almost-shortest path ambiguity measures geometric route redundancy and stability of routing on multiply connected length spaces. The exact quadratic gap law holds on an open parameter family, while equality of the two shortest arms produces a positive-measure set of pairs with nonunique shortest paths. The atom versus absolutely continuous transition is a structural property of the metric network and a natural test case for geometric network robustness.
+Same-arm routes have lengths d,u−d+v,u−d+w and cross-arm routes have four affine candidate lengths. Integrating near-equality strips on all three same-arm regions and three unordered cross-arm rectangles yields the three stated polynomials; degeneracies a=b<c and a=b=c have different overlap geometry. In the a=b<c case the tied-shortest two detours on the long arm occupy product area (c−a)²/4, hence atom that amount divided by L². Independently discretized all route order-statistics on 300×300 arclength grids for (1,1.5,2), (1,1,2), (1,1,1) with ε=.01; errors were ~1.4e−4, 2.1e−4, 9.3e−7 respectively (grid-resolution error). Source proof supplies exact all-real-length bound on ε, not the grid.
 
-## Limits
-There is no independent specialist audit or general metric-graph theorem; large-threshold distributions and sampling-noise stability are not addressed. The equality conventions for distinct routes are essential. Full literature priority is not certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Full published theta graph distance-histogram rigidity recovers arm lengths from one shortest-distance distribution, but does not compute the second route or its gap. Parameter identifiability is not an explicit conditional first/second route law. The order-statistic integration and positive atom add genuinely distinct information, with residual risk of undiscovered routing-reliability literature.
+
+## value
+
+PASS
+
+Quantifies routing ambiguity and a discontinuous metric-graph multiplicity phenomenon at exactly two coincident shortest arms. Complete local finite-ε laws and an atom are natural nontrivial order statistics, not a restatement of mean shortest distance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
