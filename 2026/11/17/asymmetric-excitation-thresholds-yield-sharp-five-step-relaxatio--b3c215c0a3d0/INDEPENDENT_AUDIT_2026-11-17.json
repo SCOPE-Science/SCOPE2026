@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T19:09:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS — Every labelled vertex belongs forever to one of six cohorts determined by initial state and shore. Because activation thresholds are 1 or 2, each cohort multiplicity may be capped at 2 without changing any future excitation test; absent cohorts remain absent, so the deterministic six-cohort recurrence exhausts the trajectories of *all* m,n (not just bounded sizes). A separate implementation of all 3^6=729 capped signatures gave the complete first-entry/least-period table exactly: t0 (p1=9,p3=8,p4=8); t1 (p1=72,p4=32); t2 (p1=234,p4=56); t3 (p1=178,p4=24); t4 (p1=68,p4=8); t5 (p1=32); no other classes. All nonzero t5 signatures require >=3 left and >=2 right, and (2,0,1;0,1,1) realizes the bound at all such sizes. Primitive 3 profiles need all left three color counts >=2 and all right colors >=1, giving A_m(3^n−3·2^n+3), while primitive 4 profiles give 2 B_m(2^n−2). EGF factors 1,z,e^z−1−z count every label allocation, establishing the full all-size N_{t,p}(m,n) without extrapolating a finite-size sample. K_{6,3} counts 540 and 600; endpoint m,n>=1, mixed shore thresholds and synchronous updates are essential.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gravner–Lyu–Sivakoff treats broad graph classes for common threshold-one rule rather than shore-specific threshold-two on one part.",
+          "Threshold-two biclique all-size theorem lacks mixed threshold and is not a monotone comparison for periodic orbits."
+        ],
+        "reasoning": "General graph topology coverage does not mean stronger exact combinatorial classification when the dynamical rule and parameter vary; no verified encompassing exact heterogeneity theorem found.",
+        "searches": [
+          "Greenberg Hastings three color bipartite graph asymmetric thresholds one and two relaxation five steps",
+          "Gravner Lyu Sivakoff 2018 limiting behavior 3 color excitable arbitrary graphs full paper",
+          "Durrett Griffeath excitation common threshold"
+        ]
+      },
+      "checked_sources": [
+        "Git tree 54d1d60d2bddf26cf458e2c893a07dad40564175 RESULT.md 9d0399a300bdb31717cb96ab433d70f240e9b5b8",
+        "Git verify_profiles.py 740397d01838d3631e2af1347f7ca098baec8fe2",
+        "Git verify_micro.py aa4e2eea383093aa43f4ba2701051197230162a9",
+        "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-threshold-two-excitation-on-bicliques-sharp-orbit-onsets-and-a-f--5bef754e247f",
+        "https://www.math.ucdavis.edu/~gravner/papers/fgg.pdf",
+        "https://arxiv.org/abs/patt-sol/9303002"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published threshold-two P3=H(a)H(b), P4=2F(a)F(b) with both shore restrictions, whereas present P3=A_m(3^n−3·2^n+3), P4=2B_m(2^n−2).",
+          "The all-size first-entry polynomial comes from a recurrence with threshold1 on left and threshold2 on right."
+        ],
+        "reasoning": "Prior homogeneous formulas do not imply mixed counts by symmetry, taking a special case, or increasing one threshold; period and transient shapes are nonmonotone and must be recalculated.",
+        "searches": [
+          "Greenberg Hastings three color bipartite graph asymmetric thresholds one and two relaxation five steps",
+          "Fisch Gravner Griffeath threshold range scaling 1991",
+          "2018 arbitrary graph GH paper",
+          "Resultary 2026-11-1 threshold-two exact onsets"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The six-cohort dynamics is an exact lumping of synchronous GH states, not an unlabeled or mean-field approximation.",
+          "Common-threshold papers apply different activation rules."
+        ],
+        "reasoning": "Checked aliases three-color excitable automata, Greenberg–Hastings media, heterogeneous/contact thresholds and bipartite complete graph. None of inspected equivalent formulations includes the (1,2) shore choice and all-size period census.",
+        "searches": [
+          "Greenberg Hastings three color bipartite graph asymmetric thresholds one and two relaxation five steps",
+          "Greenberg Hastings 3-state cyclic excitable graph complete bipartite heterogeneous thresholds",
+          "cohort capped signatures GH map"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Threshold-two homogeneous table has 676 nonempty-shore signatures and onsets a,b>=6 (period3), a,b>=4 (period4).",
+          "Mixed threshold has new 729-signature temporal table and nonempty-shore onsets m>=6,n>=3 and m>=4,n>=2."
+        ],
+        "reasoning": "A known homogeneous signature table cannot be relabeled into the mixed one: shore thresholds alter several recurrence transitions and counts. The complete finite coefficient table is therefore a distinct exact invariant.",
+        "searches": [
+          "Greenberg Hastings three color bipartite graph asymmetric thresholds one and two relaxation five steps",
+          "Resultary threshold-two excitation bicliques full 676 signature table",
+          "Resultary four-step relaxation homogeneous threshold-one biclique"
+        ]
+      },
+      "rationale": "PASS best of knowledge — The 1991/2018 general excitable cellular automaton literature gives broad theory for lattice graphs or common threshold one, not this exact mixed threshold (1,2) biclique census. A published threshold-two biclique result has a superficially similar six-cohort finite method, but its **different dynamical transition** needs sizes >=6 on both shores for period3 and >=4 on both for period4; the mixed case shifts onsets to (6,3) and (4,2) and changes every temporal class. No conjugacy or parameter substitution preserves these orbit counts. Related one-edge-deleted and threshold-coloring results are different systems. Unindexed heterogeneous-threshold finite graph literature remains a priority risk; identical computational technique alone does not negate the new exact all-size data.",
+      "residual_risks": [
+        "General literature may contain previously unindexed heterogeneous-threshold biclique formulas; inspected primary and published records were not exhaustive.",
+        "The 729-cohort exhaustion is a finite program-supported proof lemma; independently reproduced recurrence and table, not a formal verification artifact for all code/environment assumptions.",
+        "No extension to asynchronous or state-dependent/nonuniform within-shore activation or graphs outside K_{m,n}."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_THRESHOLD_RULE; no exact heterogeneous biclique finite census",
+          "evidence": "The update rule examined is the common threshold-one three-color automaton; no formula for (1,2) two-shore dynamics.",
+          "identifier_or_url": "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+          "material_read": "Full available primary PDF; read model setup, main theorems and statements on graph dynamics and excitation",
+          "method": "read primary PDF and first-page image",
+          "title": "Limiting Behavior of 3-Color Excitable Media on Arbitrary Graphs",
+          "trigger": "closest high-authority general 3-color dynamics source"
+        },
+        {
+          "assessment": "SAME_TECHNIQUE, DIFFERENT_RULE; no implication of heterogeneous census",
+          "evidence": "It states C3=H(a)H(b)/3, C4=F(a)F(b)/2 and onsets both shores >=6 or >=4, unlike mixed thresholds.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-threshold-two-excitation-on-bicliques-sharp-orbit-onsets-and-a-f--5bef754e247f",
+          "material_read": "Full RESULT.md finding, six-cohort proof, first-entry matrix and exact primitive cycle formulas",
+          "method": "read GitHub published source full text",
+          "title": "Threshold-two excitation on bicliques: sharp orbit onsets and a five-step clock",
+          "trigger": "same biclique Greenberg–Hastings model under homogeneous threshold two"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS — Shore-dependent excitation thresholds are a natural heterogeneity in excitable networks. The sharp 5-step global memory horizon, exact two distinct wave onsets, and full labelled transient statistics quantify a meaningful loss of shore symmetry relative to homogeneous dynamics. Finite state space is used as a *complete* six-cohort quotient for arbitrary sizes, not a tiny unmotivated enumeration. Unlike a trivial threshold substitution, onset asymmetry yields a structural contrast future work can use.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "General literature may contain previously unindexed heterogeneous-threshold biclique formulas; inspected primary and published records were not exhaustive.",
+    "The 729-cohort exhaustion is a finite program-supported proof lemma; independently reproduced recurrence and table, not a formal verification artifact for all code/environment assumptions.",
+    "No extension to asynchronous or state-dependent/nonuniform within-shore activation or graphs outside K_{m,n}."
+  ],
+  "schema_version": 1
+}
