@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "For every \\(A,d,k>0\\) and \\(x\\in\\mathbb R\\), strict exterior monotonicity confines optima to the crop segment. On the segment, the expected-coverage derivative has the sign of \\(t/\\sinh(t)-q\\), where \\(t=k|x|\\), \\(q=Ae^{-kd}\\). Strict decrease of \\(t/\\sinh t\\) from \\(1\\) to \\(D/\\sinh D\\) proves the exact three-phase classification and both equality cases. Strict concavity of \\(\\log(1-e^{-q e^t})\\) proves midpoint uniqueness for both served. The fixed-strength separation thresholds and square-root onset follow analytically. The exact logarithmic instance and the standalone check.py supply supplementary reproducible evidence; grid tests are not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Desaegher et al. (2021), DOI 10.1111/1365-2664.13949, Methods §2.4 uses exponential spatial decline of visitation; Results §3.2 classify competition/facilitation distance numerically under InVEST.",
+        "Feldman, Morris and Wilson (2004), DOI 10.1111/j.0030-1299.2004.12845.x, derive the Poisson 1-exp(-u) response in a two-species demographic setting; accessible text includes their equations (1)-(3), not a one-source placement analysis.",
+        "Kortsch et al. (2023), DOI 10.1111/1365-2435.14353, distinguish visitation and functional pollination in an individual-based spatial simulation.",
+        "published-finding corpus 2026/11/8/SCOPE-balanced-specialist-allocation-maximizes-one-link-adaptive-polli--46ffca678a37 proves a reliability theorem for network pollinator specialists, not a distance-decay location theorem."
+      ],
+      "reasoning": "Desaegher gives an antecedent geometric attenuation model, Feldman the independent success-link ingredient, and Kortsch the reason to distinguish effective service from raw visitation. None of their inspected statements supplies the required global optimizer in the joint specialized model; merely combining the ingredients without the derivative and concavity analysis does not imply the sharp conditions.",
+      "searches": [
+        "Two-site reliability facility placement exponential dispersal Poisson visits saturation; all-target coverage probability always maximized midpoint whereas expected number served maximized endpoint at low intensity.",
+        "pollination spatial exponential distance Poisson probability one visit 1 - exp(- exp(- distance)) optimal site location threshold",
+        "pollinator location two crop fields maximize probability pollination both rather than total visits"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1111/1365-2664.13949 (primary full HTML)",
+      "https://doi.org/10.1002/ece3.4631 (primary full HTML)",
+      "https://doi.org/10.1111/1365-2435.14353 (primary full HTML)",
+      "https://doi.org/10.1111/j.0030-1299.2004.12845.x (partial original PDF extraction and bibliographic abstract)",
+      "published-finding corpus semantic records 2026/10/26/SCOPE-noncommuting-detection-range-and-landscape-size-limits-for-two-e--4b47353a8a35, 2026/11/8/SCOPE-balanced-specialist-allocation-maximizes-one-link-adaptive-polli--46ffca678a37, 2026/11/2/SCOPE-a-strict-separation-between-joint-parameter-and-location-only-op--79a14601ec93, 2026/11/2/SCOPE-exact-two-target-path-separation-a-finite-bernoulli-decompositio--cc91b5893eca, 2026/11/8/SCOPE-optimal-shared-core-versus-paired-module-pollination-reliability--65d5a9ce0e0e",
+      "published-finding corpus final exact-claim semantic comparisons: 2026/10/26/SCOPE-two-sharp-patch-allocation-transitions-for-a-generalized-type-ii--7d3ca49da7d6; 2026/11/1/SCOPE-exact-triple-poisson-peak-resolution-threshold-and-fold-contrast--5e3c72a92424"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Desaegher 2021: exponential bee foraging and spacing/aggregation experiments, not two-site independent service objectives or the thresholds.",
+        "Ganser et al. 2018, DOI 10.1002/ece3.4631: crop-edge field visitation observations; no exact global source placement theorem.",
+        "Feldman et al. 2004: Poisson service transformation, with plant-population interaction model; not a spatial two-point maximizer classification.",
+        "published-finding corpus 2026/11/2/SCOPE-exact-two-target-path-separation-a-finite-bernoulli-decompositio--cc91b5893eca has two-target path separation-time laws for random paths; neither objective nor kernel match.",
+        "published-finding corpus 2026/11/8/SCOPE-optimal-shared-core-versus-paired-module-pollination-reliability--65d5a9ce0e0e concerns a discrete shared-core versus paired-module network, not continuous site choice.",
+        "published-finding corpus 2026/10/26/SCOPE-two-sharp-patch-allocation-transitions-for-a-generalized-type-ii--7d3ca49da7d6 has two prey-budget allocation transitions under generalized Type III predation, but its object, response and decision variable are different; it does not imply the two-crop spatial theorem.",
+        "published-finding corpus 2026/11/1/SCOPE-exact-triple-poisson-peak-resolution-threshold-and-fold-contrast--5e3c72a92424 concerns the harmonic Poisson extension of three point masses; it is not a stochastic encounter model or a two-crop placement result."
+      ],
+      "reasoning": "The claim is neither a restatement of distance-dependent visitation (whose objective is different) nor of Poisson conversion alone (which imposes no spatial placement ranking). The critical \\(t/\\sinh t\\) identity and strictly concave log-joint-service argument supply implications not present in the inspected sources. A general symmetric facility-location or mixture-mode theorem might nevertheless subsume this exact specialization, so independent priority research remains appropriate.",
+      "searches": [
+        "Symmetric two-crop pollination service target locations at +/-d; strip at x; independent Poisson visits with intensity A exp(-k distance). Exact optimizer count serviced 1-exp(-mu1)+1-exp(-mu2) versus both serviced product. Sharp center versus interior +/-x versus endpoint bifurcation.",
+        "Two-site reliability facility placement exponential dispersal Poisson visits saturation; all-target coverage probability always maximized midpoint whereas expected number served maximized endpoint at low intensity.",
+        "Optimal spatial positioning of pollinator habitat restoration between crop fields with distance decay e^{-distance} and saturating pollination yield 1-exp(-A exp(-distance)); symmetry breaking bifurcation",
+        "\"x/sinh x\" \"facility\" \"exponential\"",
+        "Two equidistant target crop fields with a single point pollinator nest at variable position; independent Poisson foraging arrival means exponential in distance; exact three-phase global optimum for number served and midpoint optimum for joint coverage.",
+        "Spatial two-point Poisson coverage sharp transition in source strength between central optimal and bimodal interior optimal and boundary optimal sites, q=t/sinh(t)."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus close IDs 2026/10/26/SCOPE-noncommuting-detection-range-and-landscape-size-limits-for-two-e--4b47353a8a35 and 2026/11/2/SCOPE-a-strict-separation-between-joint-parameter-and-location-only-op--79a14601ec93 concern trap separation and Gaussian-plume sensor spacing, respectively, not single-source two-crop Poisson success.",
+        "The generic two-component Gompertz/symmetry search did not identify an equal-objective theorem, but absence of an indexed result is not proof of historical novelty."
+      ],
+      "reasoning": "The precise positive stationary equation is \\(t/\\sinh t=q\\). Closest indexed spatial site problems have different objective functions, kernels, or decision variables and do not entail both the sharp three phases and the competing full-coverage maximum.",
+      "searches": [
+        "Symmetric two-crop pollination service target locations at +/-d; strip at x; independent Poisson visits with intensity A exp(-k distance). Exact optimizer count serviced 1-exp(-mu1)+1-exp(-mu2) versus both serviced product. Sharp center versus interior +/-x versus endpoint bifurcation.",
+        "Optimal spatial positioning of pollinator habitat restoration between crop fields with distance decay e^{-distance} and saturating pollination yield 1-exp(-A exp(-distance)); symmetry breaking bifurcation",
+        "Pollination optimal location saturating exponential distance service threshold hyperbolic t/sinh t.",
+        "\"Gompertz\" \"symmetric mixture\" modes",
+        "Two equidistant target crop fields with a single point pollinator nest at variable position; independent Poisson foraging arrival means exponential in distance; exact three-phase global optimum for number served and midpoint optimum for joint coverage.",
+        "Spatial two-point Poisson coverage sharp transition in source strength between central optimal and bimodal interior optimal and boundary optimal sites, q=t/sinh(t)."
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus queries returned no exact numerical table or classification for the analytic threshold pair \\(q=1\\) and \\(q=D/\\sinh D\\).",
+        "The theorem covers continuously many positive parameters; the exact benchmark at \\(D=\\log4\\), \\(A=16\\log2/3\\) is proved directly rather than copied from a table."
+      ],
+      "reasoning": "No known tabular classification settles the entire continuum. A failed index lookup cannot establish uniqueness or exclude older handbooks; the proof does not rest on a claim that no such table exists.",
+      "searches": [
+        "Symmetric two-crop pollination service target locations at +/-d; strip at x; independent Poisson visits with intensity A exp(-k distance). Exact optimizer count serviced 1-exp(-mu1)+1-exp(-mu2) versus both serviced product. Sharp center versus interior +/-x versus endpoint bifurcation.",
+        "Pollination optimal location saturating exponential distance service threshold hyperbolic t/sinh t.",
+        "two target exponential kernel saturating Poisson response facility location optimize double peaks"
+      ]
+    },
+    "rationale": "In the inspected primary studies and semantic mathematical records, no theorem supplies the exact three-phase global maximizer law for expected crop units served together with the opposite, universal midpoint optimum for both served. The prior individual ingredients are explicitly credited. Comparison is implication-based and historical priority remains provisional.",
+    "residual_risks": [
+      "Historical mathematical priority is provisional; the theorem could be a previously known special case of a general symmetric facility-location or mode-transition result.",
+      "The 2004 Poisson-pollination original PDF was not successfully inspected visually and its later pages were not fully compared; that paper is acknowledged as covering the standard one-hit transformation.",
+      "A related 2021 plant–pollinator network inference full text was not accessible as full text; its accessible description concerns network reconstruction rather than spatial placement.",
+      "No empirical assessment of exponential effective-encounter independence or spatial attenuation parameters has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the precise theorem: targets visitation-change curves and spacing experiments rather than expected count/joint probability of two Poisson-served crop units",
+        "evidence": [
+          "First public article date 2021-06-17",
+          "Methods §2.4 states visitation falls exponentially with nest distance",
+          "Results §3.2 reports empirically calibrated optimal facilitation distance and competition effects; no two-crop Poisson threshold formulas"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/1365-2664.13949",
+        "material_read": "Full accessible HTML: abstract, introduction, Methods §2.4, experiment design, Results §3.2, Discussion and Conclusions",
+        "method": "Direct primary full-text reading and comparison of objective, spatial kernel, and reported optimality statements",
+        "title": "Optimising spatial distribution of mass-flowering patches at the landscape scale to increase crop pollination",
+        "trigger": "Nearest 2021 primary research on pollinator-support source placement and exponential foraging"
+      },
+      {
+        "assessment": "NOT_COVERING the analytic location classification: assesses sampled field edges and visitation outcomes",
+        "evidence": [
+          "First published 2018-11-06",
+          "19 strawberry field sites; wild bee visitation increased near strips relative to centers",
+          "No abstract or method theorem specifying the one-source two-crop expected/full coverage functions"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/ece3.4631",
+        "material_read": "Full accessible HTML: abstract, introduction, study design, and species-specific results on crop edge versus center",
+        "method": "Direct full-text reading focused on empirical estimands and spatial arrangement",
+        "title": "Wildflower strips enhance pollination in adjacent strawberry crops at the small scale",
+        "trigger": "Real field data on distance dependence from wildflower strip to crop"
+      },
+      {
+        "assessment": "NOT_COVERING the exact two-crop independent Poisson geometric optimization; different movement, six-species and functional service model",
+        "evidence": [
+          "First published 2023-05-14",
+          "Explicit distinction between visitation and probability of meaningful pollination",
+          "Individual-based NetLogo model with six plant species and variable foraging preferences"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/1365-2435.14353",
+        "material_read": "Full accessible HTML: abstract, Introduction, model Methods §2.1 and study objectives",
+        "method": "Direct reading of assumptions, objectives and underlying individual-based simulation design",
+        "title": "Landscape composition and pollinator traits interact to influence pollination success in an individual-based model",
+        "trigger": "Critical distinction between effective service and visit counts, and spatial ecological model"
+      },
+      {
+        "assessment": "COVERING the response ingredient 1-exp(-u), but full-document comparison of the spatial theorem is unresolved; accessible methods concern two-plant population facilitation rather than movable-source geometry",
+        "evidence": [
+          "Methods explicitly assume Poisson good visits and give probability 1-e^{-phi_i}",
+          "Separate plant-density and population dynamic goals; no placement model in accessible portion"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/j.0030-1299.2004.12845.x",
+        "material_read": "Accessible PDF-derived text: abstract, full Introduction and Methods equations (1)-(3) near pp. 197–199; screenshot attempt timed out; remainder not assessed",
+        "method": "Web-extracted source text, cross-checked with original Wiley bibliographic abstract; visual PDF inspection unavailable",
+        "title": "When can two plant species facilitate each other's pollination?",
+        "trigger": "Earlier derivation of Poisson one-hit pollination success and potential dominating model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d74952a9-6f76-49e5-ad75-f186de5f94ba",
+  "value": {
+    "rationale": "The motivating 2021 field-informed placement paper predicts different spatial visitation effects; the 2023 functional pollination model notes visitation is not success. The two-crop idealized model resolves a natural ambiguity between maximizing expected crop coverage and ensuring every crop is served: the objectives have provably incompatible best locations over a nonempty and exactly characterized parameter region. It gives complete sharp conditions including boundary cases, a pair of fixed-strength spacing thresholds and a near-critical square-root location law. This is a mathematically interpretable allocation tradeoff, not a claim of ecological calibration or a minor numerical gain.",
+    "status": "PASS"
+  }
+}
