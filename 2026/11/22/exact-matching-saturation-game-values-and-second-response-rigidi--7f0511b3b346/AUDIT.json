@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For every available-vertex subset S and named player, the minimax recurrence in RESULT.md considers every edge of the induced graph, removes its endpoints, switches players and counts one move. The base case is zero for no legal edge. Induction on |S| proves the recurrence computes optimal terminal matching size. verify_bottomup.cpp visits every one of 2^n masks (up to 1,048,576 for the dodecahedron) and every legal transition. Independently verify_recursive.py uses formula-generated graphs and memoized search. Both code artifacts were executed, agree exactly on the complete JSON in checks.json, and verify all opening-edge and second-response histograms. The icosahedral and dodecahedral graph representations were checked as isomorphic to standard constructions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 2.3 of arXiv:1208.0085 gives |g_+(G)-g_-(G)|<=1, not either absolute score.",
+        "Theorem 3.1 gives a sufficient equality condition for certain Cartesian products, not these two Platonic duals.",
+        "Proposition 5.3 gives a lower bound on games on regular graphs; it does not determine dodecahedral or icosahedral values.",
+        "On saturation games, doi:10.1016/j.ejc.2015.05.017, studies adding edges on a host graph and avoidance of different properties; its introductory formulation is not the same fixed-edge matching game."
+      ],
+      "reasoning": "Generic bounds and realizability of a reversed pair do not say which particular dual-icosahedral graphs realize it. First/second-response multiplicities likewise do not follow from the universal one-unit bound. The only exact overlapping Platonic case in the primary paper is the octahedron.",
+      "searches": [
+        "game matching numbers of all five Platonic solids, tetrahedron cube octahedron dodecahedron icosahedron, reverse first-move disadvantage",
+        "game matching numbers alpha'_g of icosahedral and dodecahedral graphs (5,6) and (8,9)",
+        "\"game matching number\" \"3-regular\" \"dodecahedron\"",
+        "site:arxiv.org \"game matching number\" \"cubic\" \"perfect matching\" 2016 2022",
+        "https://arxiv.org/abs/1208.0085 (Theorems 2.3, 3.1, 3.4, 5.3)"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1208.0085 (original full text, 2012-08-01)",
+      "https://doi.org/10.1016/j.dam.2013.03.010 (journal record of original)",
+      "https://doi.org/10.1016/j.dam.2017.11.038 (different matcher game)",
+      "https://doi.org/10.1016/j.ejc.2015.05.017 (different saturation-game setup)",
+      "published-finding corpus: 2026/11/2/SCOPE-two-leak-forcing-polynomials-and-fort-spectra-of-the-five-platon--23d377ed733b (different invariant)",
+      "published-finding corpus: 2026/10/26/SCOPE-five-frozen-icosahedral-matchings-become-the-centers-under-six-c--98a001e14839 (different invariant)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known octahedral score (2,3) is a special case of Cranston et al. Proposition 2.1, hence treated only as background.",
+        "Their bound |g_+-g_-|<=1 is attained by the two dual Platonic graphs, but is compatible with many different absolute scores.",
+        "The 2018 vertex-choice matcher game has different quantifiers: each player controls one endpoint of each matching edge rather than alternating control of complete edges."
+      ],
+      "reasoning": "Neither prior general inequality nor the known octahedral special case implies (8,9) and (5,6) together with every-first-edge response histograms. The work does not rebrand the octahedron or elementary tetrahedron/cube entries as new.",
+      "searches": [
+        "first-player disadvantage in greedy matching saturation game of Platonic graph, dual polyhedra",
+        "https://arxiv.org/abs/1208.0085 (Proposition 2.1, Theorems 2.3, 3.1, Proposition 5.3)",
+        "https://doi.org/10.1016/j.dam.2017.11.038"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cranston et al. define the fixed-host P3-saturation game as alternating disjoint edge selection; the same two values are denoted alpha'_g and hatted alpha'_g (arXiv:1208.0085, Sections 1–2).",
+        "Proposition 2.1 of arXiv:1208.0085 constructs (2,3) on K6 minus a perfect matching, precisely the octahedral graph.",
+        "The matcher game (doi:10.1016/j.dam.2017.11.038) has Maximizer choose a vertex and Minimizer choose an adjacent vertex in each round, a different legal-game tree."
+      ],
+      "reasoning": "The P3-saturation and game-matching aliases were checked for equivalent statements. The familiar octahedral example is expressly subtracted from novelty. A result for the vertex-choice matcher game cannot imply these alternating-edge-choice scores without an additional reduction, none identified.",
+      "searches": [
+        "icosahedron dodecahedron competitive matching saturation game player starting order and unique winning second response graph game matching numbers",
+        "octahedral graph K6 minus matching 2 3 game matching number Cranston Kinnersley O West",
+        "\"game matching number\" \"icosahedral\"",
+        "\"matching game\" \"Platonic solids\" graph Max Min",
+        "https://arxiv.org/abs/1208.0085 (Sections 1–2)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results include two-leak forcing polynomials for Platonic graphs and icosahedral perfect-matching flip geometry, neither studying alternating game values.",
+        "The targeted searches surfaced no exact table of fixed-host matching-game scores for both dual graphs or counts of their second replies."
+      ],
+      "reasoning": "The queried published tables have distinct graph invariants: leakage tolerance and perfect-matching flip adjacency, not the alternating game minimax. Search absence is only bounded evidence, not proof no prior table exists.",
+      "searches": [
+        "icosahedron dodecahedron competitive matching saturation game player starting order and unique winning second response graph game matching numbers",
+        "Platonic solids exact game matching numbers and response counts on 20 vertex cubic dodecahedron and 12 vertex five regular icosahedron",
+        "game matching numbers of all five Platonic solids, tetrahedron cube octahedron dodecahedron icosahedron, reverse first-move disadvantage",
+        "\"game matching number\" \"dodecahedron\"",
+        "\"game matching number\" \"icosahedral\"",
+        "published-finding corpus published: 2026/11/2/SCOPE-two-leak-forcing-polynomials-and-fort-spectra-of-the-five-platon--23d377ed733b",
+        "published-finding corpus published: 2026/10/26/SCOPE-five-frozen-icosahedral-matchings-become-the-centers-under-six-c--98a001e14839"
+      ]
+    },
+    "rationale": "The principal earlier study (Cranston et al., arXiv:1208.0085) proves general bounds and explicitly realizes the octahedron as K6 minus a perfect matching; no novelty is attributed to that case. Its general results do not determine game values (5,6) for the icosahedral graph and (8,9) for the dodecahedral graph or the unique and eightfold second-player replies. Searches in the mathematical-result index and bibliographic literature found no exact or dominating calculation for the dual pair. The 2018 matcher game and the general saturation game are distinct edge-selection protocols. This is a best-knowledge priority comparison rather than a uniqueness guarantee.",
+    "residual_risks": [
+      "An unindexed paper, computational appendix or equivalently labelled polyhedral game calculation may already contain these two scores or second-response counts.",
+      "Only one direct original preprint was inspected in full; the later matcher/saturation papers were inspected sufficiently to identify different game protocols, not exhaustively for all examples.",
+      "No independent scholarly verification or literature-priority certification has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS octahedral (2,3) as K6-minus-perfect-matching; does not cover dual dodecahedral and icosahedral exact values or reply multiplicities.",
+        "evidence": [
+          "Proposition 2.1 first constructs (2k,2k+1) on K_{4k+2} minus a perfect matching.",
+          "Theorem 2.3 only bounds the difference; Section 5 deals with general regular-graph bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1208.0085",
+        "material_read": "HTML full text: Sections 1–5, especially Proposition 2.1, Theorem 2.3, Theorem 3.1, Proposition 5.3; searched for Platonic, octa, dodeca, icosa.",
+        "method": "Read open-access full text and compare mathematical claims and reductions, not merely title or abstract.",
+        "title": "Game matching number of graphs",
+        "trigger": "Exact original game definition and potentially stronger coverage"
+      },
+      {
+        "assessment": "DISTINCT game: vertex chosen by Maximizer, adjacent vertex by Minimizer in each round, not alternating complete edge choices.",
+        "evidence": [
+          "The abstract explicitly describes two choices per round, one by each player."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2017.11.038",
+        "material_read": "University research profile abstract and the game protocol.",
+        "method": "Read definition and compare whose choice determines each matching edge.",
+        "title": "The matcher game played in graphs",
+        "trigger": "Plausible naming alias and later literature"
+      },
+      {
+        "assessment": "Studies construction from an empty host in K_n and different avoided subgraph properties; the displayed results do not subsume these fixed Platonic graph games.",
+        "evidence": [
+          "The introduction defines progressively adding edges to a graph G with H subset G subset K_n."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.ejc.2015.05.017",
+        "material_read": "Open publisher page abstract, introduction, definition and statement of studied avoidance properties.",
+        "method": "Compare host graph and legal move rules.",
+        "title": "On saturation games",
+        "trigger": "Potential stronger saturation-game theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7f0511b3-b346-403d-a64a-616080314410",
+  "value": {
+    "rationale": "The five Platonic graphs form a natural complete collection, and their game scores separate first-move neutrality (tetrahedron/cube) from strict disadvantage (octahedron and both dodecahedral–icosahedral duals). The two duals demonstrate reversed starting advantage while occupying different positions relative to their ordinary maximum matching sizes. Exactly one successful Max second move out of 21 on the icosahedron, versus eight out of 25 on the dodecahedron, gives a sharp strategy-sensitivity contrast that cannot be inferred from the general one-unit theorem or ordinary matching numbers. The work is an exact fully reproduced classification of a motivated family, albeit finite.",
+    "status": "PASS"
+  }
+}
