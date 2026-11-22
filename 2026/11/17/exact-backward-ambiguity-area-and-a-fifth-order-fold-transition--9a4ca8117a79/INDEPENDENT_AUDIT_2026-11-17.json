@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T23:45:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-backward-ambiguity-area-and-a-fifth-order-fold-transition--9a4ca8117a79/RESULT.md",
+        "Git blob 68f04d23fb62db465ddbe287f035637a72ac20af",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-backward-ambiguity-area-and-a-fifth-order-fold-transition--9a4ca8117a79/check.py"
+      ],
+      "rationale": "Solve x(2−x−y)=u, with 0<u<1, to get y=2−x−u/x on x∈[1−sqrt(1−u),1]. The target predator coordinate h_u(x)=(2−x−u/x)(A+γx) has h″=−2γ−2Au/x³<0; derivatives at left/right boundary are positive/negative, proving a unique strict interior fold maximum, hence exactly two interior antecedents iff (1−u)(A+γ)<v<h_u(x*). Parametrize fold by t=x, y_c=2(1−t)(A+γt)/A, u_c=t²(1−2γ/A+2γt/A), t∈[max(0,1−A/(2γ)),1]. Integrate (v_c−v0)du_c/dt to obtain branches (5A²−5Aγ+2γ²)/(30A) for γ≤A/2 and A²(A²−10Aγ+40γ²)/(480γ³) for γ≥A/2. Their analytic expression difference is (2γ−A)^5/(480Aγ³); first four jets match, fifth difference 64/A⁴. The double-region ratio at transition is 2/17; explicitly checked both algebraic predecessors at r=1/2,gamma=1/3. I independently differentiated and integrated the polynomial fold integrand with SymPy and numerical quadrature for parameters on both sides; the continuum concavity proof, not finite samples, establishes all fibers.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vidiella et al. use F=(μx(1−x−y), βxy), so the predator multiplier vanishes on x=0; present A>0 has nonzero predator response on that source edge, changing critical-boundary geometry.",
+          "General stable-set bifurcation theory explains critical curves qualitatively without this exact area or a fifth-order coefficient.",
+          "Same-model prime-two orbit exclusion concerns forward recurrence rather than inverse geometric multiplicity."
+        ],
+        "reasoning": "No identified broader mathematical statement logically determines the piecewise exact target-area dependence on A and gamma.",
+        "searches": [
+          "Vidiella Lazaro Alseda Sardanyes 2019 On Dynamics and Invariant Sets in Predator-Prey Maps Proposition 1.5",
+          "England Krauskopf Osinga 2005 Bifurcations of Stable Sets in Noninvertible Planar Maps",
+          "Resultary: global exclusion of prime-two cycles in the discrete linear-response plankton model"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2505.09968v1",
+        "https://www.intechopen.com/chapters/70218",
+        "https://doi.org/10.1142/S0218127405012466",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-global-exclusion-of-prime-two-coexistence-cycles-in-the-discrete--8dd374b0e558"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source 2025 paper studies forward convergence/equilibria, not one-step inverse target-area and boundary derivative jumps.",
+          "The other predator–prey critical curve has multiplier βx rather than A+γx and cannot specialize with A=1−r strictly positive."
+        ],
+        "reasoning": "Neither forward stability nor general critical-curve existence implies the two rational branches and their order-five tangency, which require direct global fiber integration.",
+        "searches": [
+          "arXiv:2505.09968v1 stability bifurcation linear-response plankton model",
+          "DOI:10.5772/intechopen.89572 Proposition 1.5",
+          "DOI:10.1142/S0218127405012466 critical curves"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inverse area can be written ∫(v*(u)−(1−u)(A+γ))du and as the image of a Jacobian fold arc.",
+          "Shoyimardonov uses precisely the same F but analyzes forward fixed points and bifurcations."
+        ],
+        "reasoning": "Same map alone does not imply inverse-count region measure. The final statement is genuinely one-step target geometry, not another forward bifurcation classification.",
+        "searches": [
+          "Resultary: plankton map x(2-x-y) y(1-r+gamma*x) exact inverse critical curves area",
+          "Shoyimardonov arXiv:2505.09968 phytoplankton zooplankton linear response"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published tabulation of the exact target-area law appeared among indexed results; checked special values at (A,γ)=(1/2,1/5) and (1/2,1/3) are symbolic test points, not an existing table."
+        ],
+        "reasoning": "A continuously parameterized fold-area function is the invariant. Search failure itself is not evidence of originality; full primary same-model and closest competing analysis were mathematically compared.",
+        "searches": [
+          "Resultary: plankton map exact inverse critical curves area two preimages fifth order",
+          "phytoplankton zooplankton inverse map two-to-one area gamma=(1-r)/2"
+        ]
+      },
+      "rationale": "The backward-fiber target-area calculation and its fifth-order fold/boundary regularity transition are not furnished by inspected same-model forward-dynamics literature or general noninvertible-map fold analysis. The 2019 two-preimage study has genuinely different prey/predator equations; no algebraic parameter or topological implication supplies this formula.",
+      "residual_risks": [
+        "The general critical-curves 2005 article was not fully inspected, though it is unlikely to contain this model-specific fifth-order area expression.",
+        "Only target u∈(0,1),v>0 and interior biological antecedents; not whole-plane or multistep inverse trees."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MAP_DIFFERENT_INVARIANT",
+          "evidence": "Forward invariant regions and equilibrium stability are given; exact backward ambiguity area not established.",
+          "identifier_or_url": "https://arxiv.org/html/2505.09968v1",
+          "material_read": "Full accessible arXiv HTML including fixed-point and Neimark–Sacker analyses",
+          "method": "Read relevant full primary sections and searched for folds/preimages",
+          "title": "Stability and Bifurcation Analysis of a Phytoplankton-Zooplankton Model with Linear Functional Responses",
+          "trigger": "Exact same biological quadratic map"
+        },
+        {
+          "assessment": "DIFFERENT_MODEL_NO_IMPLICATION",
+          "evidence": "The predator equation βxy differs at x=0 from current y(A+γx) with A>0; exact area formulas cannot specialize.",
+          "identifier_or_url": "https://www.intechopen.com/chapters/70218",
+          "material_read": "Accessible full chapter, especially Proposition 1.5 and critical region",
+          "method": "Read full primary web chapter and compared equations",
+          "title": "On Dynamics and Invariant Sets in Predator-Prey Maps",
+          "trigger": "Potential stronger full preimage-region theorem for ecological maps"
+        },
+        {
+          "assessment": "GENERAL_BACKGROUND_LIMITED_ACCESS",
+          "evidence": "Explains critical-curve mechanism but no exact plankton target-area evaluation; do not infer entire source noncoverage from abstract.",
+          "identifier_or_url": "https://doi.org/10.1142/S0218127405012466",
+          "material_read": "Accessible abstract and bibliographic scope; full text not confirmed",
+          "method": "Read available indexed result and abstract",
+          "title": "Bifurcations of Stable Sets in Noninvertible Planar Maps",
+          "trigger": "General theory of preimage folds"
+        },
+        {
+          "assessment": "SAME_MAP_DIFFERENT_CLAIM",
+          "evidence": "No prime-two periodic trajectories is a forward dynamical statement; two inverse predecessors can coexist with one absorbing forward attractor.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-global-exclusion-of-prime-two-coexistence-cycles-in-the-discrete--8dd374b0e558",
+          "material_read": "Indexed mathematical statement/summary",
+          "method": "Resultary search",
+          "title": "Global exclusion of prime-two coexistence cycles in the discrete linear-response plankton model",
+          "trigger": "Same map with potentially stronger dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-backward-ambiguity-area-and-a-fifth-order-fold-transition--9a4ca8117a79/RESULT.md"
+      ],
+      "rationale": "Exact noninvertibility/observational ambiguity area is a natural invariant for ecological discrete maps. The onset of an interior fold from a different boundary stratum produces a verified, nontrivial C4/not-C5 parameter transition and precise double-observation fraction even in a forward-attracting regime; these are meaningful geometric facts, not a textbook negative check.",
+      "residual_risks": [
+        "Target-space, one-step biological inverse multiplicity only; no multi-step tree/whole-plane claim.",
+        "Biological forward invariance guaranteed only for γ≤r; geometric area formula valid for γ>0 even when not invariant."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Target-space, one-step biological inverse multiplicity only; no multi-step tree/whole-plane claim.",
+    "Biological forward invariance guaranteed only for γ≤r; geometric area formula valid for γ>0 even when not invariant."
+  ],
+  "schema_version": 1
+}
