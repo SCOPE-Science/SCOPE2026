@@ -1,0 +1,19 @@
+# Scientific review: five-channel counting noise in the three-site TASEP–Langmuir process
+
+## Correctness — PASS
+
+The 8-state generator follows the accepted-event rates: boundary injection and extraction one, each successful internal hop one, middle-site attachment/detachment \(w>0\). Finite irreducibility makes the Perron eigenvalue analytic locally at zero counting field and establishes all long-time cumulant-rate limits. The proof derives the stationary vector, solves five centered Poisson equations, and obtains the complete marked-count covariance matrix by second derivatives. Every ten off-diagonal cross-covariance expression and every Fano formula is verified by exact symbolic elimination in `verify_counts.py`. Positive polynomial coefficients certify signs and Fano derivative signs; the hopping derivative has an explicitly strictly increasing cubic factor with exactly one positive root. An separate finite-difference tilted-matrix check tests selected cross-covariances at two positive rates. The latter is supplementary, not the basis of the proof.
+
+## Originality — PASS, with specified residual risk
+
+The leading full-text source, Silva et al. (arXiv:2611.07053), derives the established open-chain TASEP-Langmuir generator and stationary occupation statistics, including spatial correlations; it does **not** supply the five-channel long-time integrated-count covariance/Fano classification. The classic TASEP-Langmuir density theory of Parmeggiani–Franosch–Frey and the ring-based relaxation analysis of Sato–Nishinari do not cover these finite open-chain marked-count cumulants. Pure open-TASEP current statistics lack a Langmuir exchange channel. The closest indexed comparison, *Exact time-ordered reaction–transport covariance on balanced exclusion networks*, assumes a circulation-balanced network rather than this open asymmetric channel and treats a different count-correlation comparison. The indexed publication was accessible as an abstract/summary only; it was not claimed to be fully inspected. Searches for Fano, full-counting statistics, temporal correlations and the specific five-count classification did not locate a covering theorem. Novelty is assessed by statement implication, not title similarity. A broader unindexed exact-count formula could still imply this finite specialization, so priority remains subject to independent literature audit.
+
+## Value — PASS
+
+Three sites are the smallest open TASEP-Langmuir chain with a genuinely internal adsorption/desorption site under the usual boundary-versus-bulk separation. The five natural physically marked fluxes provide an exact complete second-order counting-noise benchmark for a finite interacting open transport system. The simultaneous strict cross-sign pattern and the **different monotonicity classes** of boundary, Langmuir and internal-hop Fano factors distinguish fluctuations in alternative traffic or molecular-transport channels. The unique hopping-noise maximum is a nontrivial threshold over the entire positive control range, not an isolated numerical observation. The result does not assert generalization to larger chains or arbitrary rates.
+
+## Limits and close literature
+
+The proof is restricted to rate-one boundaries and bonds with one equal-rate bulk exchange site. Finite-time counting distributions, large-chain limits, experimental error budgets and general off-symmetric rate families are not established. Sources: https://arxiv.org/abs/2611.07053; https://arxiv.org/abs/cond-mat/0408034; https://arxiv.org/abs/1601.02651; https://doi.org/10.1088/1751-8113/44/31/315001; https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-time-ordered-reaction-transport-covariance-on-balanced-exc--5c264ddb40d9.
+
+Self-review: passed. Independent audit: not yet performed.
