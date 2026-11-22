@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "Proved via an exact finite-index decomposition for pairwise centered Hilbert features and explicitly computed one- and two-variable polynomial integrals. The key mixed contraction equals 13/1260, the mean-mode contraction equals 1/126, and their difference 1/420. Diagonal moment calculations and variance contractions give all six rational expressions. Derivative factorizations prove strict all-n correlation monotonicity and ordering. Standard-library checker independently verified all polynomial identities and 13,510 checks, while the all-integer proof uses the displayed formulas rather than finite numerical tests. n=1 Watson zero variance excluded from correlation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hwang and Kuriki (2024), arXiv:2404.06040, Sections 1, 3–4, treats iterated empirical measure and classical EDF eigenstructures; the source does not introduce Ebner's f_t statistic.",
+        "Ebner et al. (2021), arXiv:2108.06391, Theorem 2.1 derives the limiting variance 109/4050 of T_n but not a same-sample joint covariance with W_n or V_n."
+      ],
+      "reasoning": "Broader Hilbert-space and degenerate-kernel results provide a mechanism for deriving covariance, yet do not contain evaluated rational constants, a full-n classification or the rank-one fraction for the specified new statistic. No stronger covering theorem was identified in material inspected.",
+      "searches": [
+        "Web: 'Integrated empirical measures and generalizations of classical goodness-of-fit statistics' arxiv 2404.06040",
+        "published-finding corpus: '2021 Ebner Liebenberg Visagie new omnibus T_n finite sample variance moments'",
+        "Web: 'characterization-based test of uniform distribution joint asymptotic null correlation Cramer von Mises Watson'"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2108.06391 (primary, inspected)",
+      "https://arxiv.org/pdf/2404.06040 (closely related, inspected)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-cram-r-von-mises-and-watson-statistics-have-an-exact-finite-samp--5b761aa791ae (nearest same-null classical pair)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-exact-finite-sample-covariance-of-watson-and-anderson-darling-go--6e915b815835 (another classical pair)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2.1 of Ebner et al. supplies the marginal Gaussian covariance kernel K_T(s,t) but no cross-process kernel C(s,t)=E[f_s(U)h_t(U)] needed to infer its coupling to the empirical CDF.",
+        "The classical Watson–Cramér–von Mises correlation record does not imply the third statistic's covariance; neither of its two feature maps is f_s(U)."
+      ],
+      "reasoning": "Deriving a joint cross covariance requires explicitly introducing C(s,t), integrating its square over two triangles, computing finite diagonal contributions, and using M as a one-dimensional projection. The new theorem neither restates the marginal limit variance nor follows as a numerical specialization of a documented two-classical-test theorem.",
+      "searches": [
+        "Web primary manuscript arxiv:2108.06391 equations (4),(5), Theorem 2.1 and Sections 4,6",
+        "Web primary manuscript arxiv:2404.06040 sections 1,3,4",
+        "published-finding corpus: 'Ebner Liebenberg Visagie uniform characterization statistic covariance Cramer von Mises Watson exact covariance'"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2021 source's equation (4) gives f_t(U)=(2U-1)1(U>=t)-t(1-t). The claimed result simultaneously uses classical h_t(U)=1(U>=t)-(1-t), which is not a test treated jointly there.",
+        "The nearest published research record, 'Exact finite-sample covariance of Watson and Anderson–Darling goodness-of-fit statistics', concerns different paired test kernels."
+      ],
+      "reasoning": "Aliases (weighted indicator empirical process, characterization-based uniformity test, empirical integrated quadratic, Watson/CvM cross moments) were compared. No returned statement matches the two-feature contraction or its decomposition; a general Hilbert-space covariance identity alone does not evaluate this particular kernel pair.",
+      "searches": [
+        "published-finding corpus: 'uniformity characterization test (2U-1)1(U>=t) joint covariance Cramer von Mises'",
+        "published-finding corpus: 'same-sample covariance of characterization-based weighted indicator U-statistic 2021 with Watson U2 and Cramer von Mises W2; mean-shift decomposition'",
+        "Web: 'Ebner Liebenberg Visagie covariance Cramer Watson 2021'"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ebner et al., Table 1, lists approximate critical values for sample sizes 10–500, not the exact joint null covariances or rank-one decomposition.",
+        "published-finding corpus hit 'Cramér–von Mises and Watson statistics have an exact finite-sample correlation' is about those two classical tests, not T_n."
+      ],
+      "reasoning": "The closest tabulations and database summaries do not directly give values for Cov(T_n,W_n), Cov(T_n,V_n), or Cov(T_n,M_n), nor parameters matching their exact expressions. Failed exact-formula searches are supporting evidence, not a mathematical uniqueness proof.",
+      "searches": [
+        "published-finding corpus: 'exact finite n correlation (2U-1) indicator uniform test versus EDF bridge quadratics 26n-17 210n'",
+        "published-finding corpus: 'characterization-based uniformity test 2021 finite n second cumulant exact 218n-49 8100n'",
+        "Web: 'A new omnibus test of fit based on a characterisation finite sample variance'"
+      ]
+    },
+    "rationale": "The 2021 primary source defines the characterization statistic and derives limiting single-test cumulants, not the exact finite-sample covariance of its weighted-indicator kernel with classical EDF tests. The 2024 integrated-empirical-process paper covers classical and generalized EDF tests but not that specific cross-kernel. published-finding corpus searches returned nearest results for pairs of classical EDF tests and unrelated same-sample covariances, none containing the characterization feature f_t or the rank-one share. The new exact joint contractions, sample-size monotonicity and a universal 10/13 mean-mode bound are not implied by those inspected statements without additional computations. Historical uniqueness is not asserted.",
+    "residual_risks": [
+      "A broader historical paper on integrated weighted empirical processes may already have evaluated this particular cross-kernel without referencing its characterization-test name.",
+      "Searches and material inspected are finite; an unindexed source could imply the theorem. No independent audit of priority was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes T_n and its limiting moments but does not state the claimed finite-sample exact cross-covariances or rank-one share",
+        "evidence": [
+          "Equation (4) exactly defines T_n",
+          "Theorem 2.1: limiting variance 109/4050",
+          "Section 4 compares empirical powers against CvM and Watson without reporting their null joint covariance"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2108.06391",
+        "material_read": "Full-text sections 1–4 and 6, equations (3)–(5), Theorems 2.1 and 2.2, Tables 1–3 and conclusion; references and section context assessed",
+        "method": "Read arXiv PDF text and inspected displayed pages 2 and 9 visually; checked occurrence of cross-covariance and Watson",
+        "title": "A new omnibus test of fit based on a characterisation of the uniform distribution",
+        "trigger": "Exact same characterization test T_n and power comparisons to CvM/Watson"
+      },
+      {
+        "assessment": "Provides broad classical EDF theory but not Ebner–Liebenberg–Visagie weighted-indicator cross-statistic",
+        "evidence": [
+          "Section 1 formulas define ordinary CvM and Watson quadratics",
+          "Section 3.2 studies generalized Watson covariance eigenkernels, not the f_t characterization process"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2404.06040",
+        "material_read": "Introduction, scope/contents, definitions and Sections 3.1–3.2 on Watson limiting processes; Section 4 topics reviewed by contents and text search",
+        "method": "Read arXiv PDF passages, visually inspected page 3, searched for 'Liebenberg', 'characterisation', and 'cross-covariance'",
+        "title": "Integrated empirical measures and generalizations of classical goodness-of-fit statistics",
+        "trigger": "Potential broader coverage for classical EDF quadratic tests and their covariance kernels"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cd8665ff-c3df-497d-a32c-3d6d1a9321db",
+  "value": {
+    "rationale": "The original 2021 paper directly compared practical performance of its omnibus statistic with Cramér–von Mises and Watson but did not quantify same-sample null dependence. The new exact all-size coupling provides a reproducible calibration ingredient for combined tests and identifies the structurally surprising dominance of the empirical-mean mode (strictly more than 10/13 of the total covariance) despite both tests being omnibus. It is one coherent motivated comparison, not arbitrary polynomial arithmetic. No power or independence claim is made.",
+    "status": "PASS"
+  }
+}
