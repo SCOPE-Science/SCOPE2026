@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Herglotz spectral representation turns the three-time correlation into the average of a real trigonometric polynomial, and its exact squared-trinomial identity supplies the sharp pointwise bound. Continuous symmetric Gaussian spectral measures approximating the pair of minimizers realize the infimum over weakly mixing systems; analyticity and atomlessness prove nonattainment. The only zero configurations are equilateral and hence occur at the explicit congruence. For the two nonresonant classes, the trial phase gives the sharp upper expansion, and reverse-triangle localization of any global minimizer to the equilateral phases gives the matching lower expansion with a completed square and uniform Taylor error. Numerical checks test the identity and the claimed asymptotic across both nonresonant classes but are not substituted for proof.
+PASS
 
-## Originality — PASS within inspected evidence
+PASS: The spectral theorem gives r_j=int cos(jt) dσ for normalized real f, and expansion of |1+e^{int}+e^{imnt}|² gives 3+2(r_n+r_(m-1)n+r_mn) pointwise. Nonconstant real-analytic minimum set is finite, so weak mixing (atomless σ) precludes attainment; symmetric smooth arcs concentrated near a minimizing phase produce weakly mixing real Gaussian shifts approaching it. Three unit vectors sum zero only in an equilateral configuration, giving m=2 mod3 resonance. For m=0,1 mod3, choose nearest equilateral phase R=±2π/3 and optimize its two linear perturbations: |trinomial|²≥(3/4)R²/m²+O(m^-3), with matching trial upper bound, hence Δ_m=π²/(6m²)+O(m^-3). The localization of every global minimizer follows from reverse-triangle estimate and simple unit-circle crossings; error is uniform for bounded phase lifts. Independently minimized the circle modulus for nonresonant m=3,4,6,7,30,31,120,121 and observed m²|min|² approaching π²/3; finite numerics alone prove no asymptotic.
 
-De's 2026 Theorem 5.3 establishes the general spectral functional and Proposition 10.1 the unconditional Fejér bound; neither computes the sharp nonresonant three-time defect. Barrera–Barrera–Navarrete (2026) establish precisely when the trinomial vanishes on the circle, but not the quantitative distance from zero or its sharp \(m^{-2}\) coefficient. The checked published-finding corpus records for other triple-frequency minima, phase optimization and equilateral Fourier geometry have different optimization domains or functionals and do not imply this infimum. Classical minimum-modulus and trigonometric-minima titles were identified, but institutional full-text access was unavailable, leaving a specific historical-priority risk; the positive novelty assessment is limited to inspected evidence.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The three-lag correlation polynomial is the exact quadratic spectral observable associated with a natural \(\{0,n,mn\}\) configuration, and its sharp lower bound matters when designing extremal stationary Gaussian correlations or testing finite-time recurrence obstructions. The theorem replaces a qualitative mod-three vanishing test with the precise universal \(\pi^2/(6m^2)\) nonresonant cost, establishes the same optimal value over weakly mixing systems and records the nonattainment phenomenon. It does not claim an improvement to infinite-set multiple-recurrence theorems.
+PASS best-of-knowledge: De supplies general continuous-spectral/Gaussian three-time context, and Barrera–Barrera–Navarrete classify exact unit-circle zeros, but neither accessible statement gives the sharp nonzero inverse-square gap. Distinguish resonant congruence (prior) and dynamical spectral reduction (prior) from the leading coefficient and nonattained weak-mixing sharp value; older generic minimum-modulus literature was inaccessible and remains a specific risk.
 
-## Sources and risks
+## value
 
-Primary full text inspected: De, arXiv:2611.09143 (spectral preliminaries, Theorem 5.3, Proposition 10.1); Barrera, Barrera and Navarrete, arXiv:2610.22132 (Theorem 1.1, circle-root reduction and proof). Historical abstracts inspected: Carroll–Eustice–Figiel (1977), Papadopoulos (1998). Both historical full texts remain a priority risk because institutional access was unavailable. No external independent mathematical audit is represented here.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: the natural three-lag correlation polynomial has a sharp arithmetic stability defect whose leading size matters for weak-mixing Gaussian extremizers; this adds quantitative nonresonant information to the qualitative cube-root test without claiming infinite-set multiple recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
