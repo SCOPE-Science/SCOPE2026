@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The non-atomic support-perfectness argument forces any affine relation between Gini and variance first projections to have a strictly positive coefficient and an affine CDF on a connected bounded support, hence uniform. Direct overlapping-pair covariance yields all three exact finite moments, including contrast variance 1/[90n(n-1)]. The exact Bernoulli-polynomial representation equates the contrast with a centered Watson statistic for every sample. A Fourier CLT with uniform summable tail proves the weighted chi-square limit, whose variance is 1/90. The checker passed 56,331 deterministic rational and numerical Fourier assertions; it is supplementary, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hoeffding (1948) gives generic covariance machinery for U-statistics.",
+        "Fortiana and Grané (2003), Sections 1-5 discuss maximum correlations and Gini L-statistics.",
+        "Čiginas and Pumputis (2014), arxiv:1406.2275, use sampling without replacement."
+      ],
+      "reasoning": "Generic projection identities yield the limiting correlation but do not state its complete equality class; the published maximum-correlation condition is for the rank-coupling statistic, not for Gini versus variance sampling fluctuations; finite-population results do not dominate the iid atomless classification.",
+      "searches": [
+        "Gini’s mean difference sample variance correlation asymptotically 1 uniform distribution characterization Hoeffding",
+        "https://halweb.uc3m.es/esp/Personal/personas/agrane/ficheros_articulos/JRSSB2003.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1405.5027v1",
+      "https://arxiv.org/abs/1406.2275",
+      "https://halweb.uc3m.es/esp/Personal/personas/agrane/ficheros_articulos/JRSSB2003.pdf",
+      "https://doi.org/10.1093/biomet/48.1-2.109",
+      "https://doi.org/10.6092/issn.1973-2201/50"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gerstenberger and Vogel (2014): equal asymptotic efficiencies for uniform law, no general iff.",
+        "Fortiana and Grané (2003): maximal correlation equals 1 only for location-scale equality of distributions, different random quantity.",
+        "Watson (1961): classical circular-uniformity test and limiting distribution, not claimed new."
+      ],
+      "reasoning": "Prior one-way uniform efficiency is implied by the new theorem but does not imply its converse over all non-atomic laws. The maximum-correlation criterion concerns a functional of CDFs and is not a stronger result about estimator fluctuations. Watson provides the already-known distribution; the sample-wise link to the Gini-minus-variance contrast is the distinct structural statement.",
+      "searches": [
+        "uniform law uniquely characterized by asymptotic perfect correlation of empirical Gini mean difference and sample variance; Watson U square identity",
+        "Gini’s mean difference sample variance correlation asymptotically 1 uniform distribution characterization Hoeffding",
+        "https://halweb.uc3m.es/esp/Personal/personas/agrane/ficheros_articulos/JRSSB2003.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gerstenberger and Vogel (2014), arxiv:1405.5027v1, sections 2-3: same estimators and first-order influences, only one-way uniform equal efficiency.",
+        "Fortiana and Grané (2003), JRSSB 65: sample Gini related to population maximum rank correlation, not random cross-estimator correlation."
+      ],
+      "reasoning": "Perfect alignment is equivalent to equality up to scale of two order-two first projections. Neither studied equality of those two projections under general atomless F; the Watson equivalence is a sample-wise equality, not an equivalence of goodness-of-fit tests based on Gini alone.",
+      "searches": [
+        "uniform sample Gini mean difference sample variance asymptotically perfect correlation degenerate U statistic Bernoulli polynomial",
+        "Watson U squared statistic equals difference Gini mean difference sample variance uniform",
+        "uniform law uniquely characterized by asymptotic perfect correlation of empirical Gini mean difference and sample variance; Watson U square identity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Fortiana and Grané (2003), Tables 1-2 report critical values for the Gini-based statistic, not the cross-estimator Watson contrast.",
+        "Closest available public research records concern Gini-Greenwood spacing correlations and exponential Gini-variance correlation, different model distributions."
+      ],
+      "reasoning": "No located exact table or formula has both the complete finite uniform Gini-variance covariance/correlation and the sample-wise Watson transform. Absence from retrieved tables alone is not a novelty proof; the relevant explanatory text was compared.",
+      "searches": [
+        "Watson U squared statistic equals difference Gini mean difference sample variance uniform",
+        "sample Gini pairwise distance minus squared distance second Bernoulli polynomial Watson U statistic"
+      ]
+    },
+    "rationale": "Older primary work supplies general U-statistic methods, uniform Gini efficiency and maximal rank-correlation relationships, but the inspected claims do not entail the all-atomless iff characterization of perfect estimator alignment or the exact Gini-minus-variance Watson identity. Comparison is by implication: the 2003 maximum-correlation criterion applies to a different correlation, and 2014 equal efficiency is only a one-way statement. Priority remains qualified by partially inaccessible older literature.",
+    "residual_risks": [
+      "A differently named full iff result may occur in older distribution-characterization literature.",
+      "The original Watson (1961) and the 2004 Gini-variance estimator paper were not fully accessible, and visual inspection of the 2003 PDF was unavailable despite a full text extraction.",
+      "The known-support contrast identity is unsuitable for estimating unknown uniform endpoints without new calibration."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ONE_WAY_PRIOR, not full claim",
+        "evidence": "Asymptotic efficiency of Gini and variance/standard deviation at uniform; no iff non-atomic alignment or Watson sample identity.",
+        "identifier_or_url": "https://arxiv.org/html/1405.5027v1",
+        "material_read": "Full accessible HTML, particularly sections 1–3, estimator influence functions and uniform comparison",
+        "method": "Read and compared general influence formula and special uniform case against the iff and exact contrast",
+        "title": "On the efficiency of Gini’s mean difference",
+        "trigger": "Same two scale estimators and asymptotic efficiency at the uniform law"
+      },
+      {
+        "assessment": "CLOSEST_RELATED_NONCOVERING_BY_STATED_RESULTS",
+        "evidence": "Proposition 1 links Gini variability to maximum rank correlation, the test uses Gini as an L-statistic; no Watson reference or Gini-minus-variance identity in the extracted material.",
+        "identifier_or_url": "https://halweb.uc3m.es/esp/Personal/personas/agrane/ficheros_articulos/JRSSB2003.pdf",
+        "material_read": "Extracted full 12-page paper text, sections 1–5, Proposition 1, principal-component construction and tables; PDF page image not available",
+        "method": "Compared stated maximum rank-correlation and Gini-based test against cross-estimator correlation and exact Watson identity",
+        "title": "Goodness-of-fit tests based on maximum correlations and their orthogonal decompositions",
+        "trigger": "Explicit Gini, empirical variance, uniform goodness-of-fit and correlation; high relevance"
+      },
+      {
+        "assessment": "NOT_COVERING_IDENTIFIED_STATEMENT",
+        "evidence": "Studies simple random sampling without replacement, bootstrap and Edgeworth expansions, not an iff iid atomless classification or exact Watson transform.",
+        "identifier_or_url": "https://arxiv.org/abs/1406.2275",
+        "material_read": "Accessible article text, introductory and mathematical sections including finite-population framework",
+        "method": "Compared law/sampling assumptions and functional claims",
+        "title": "Gini’s mean difference and variance as measures of finite populations scales",
+        "trigger": "Same two sample scale estimators, different sampling design"
+      },
+      {
+        "assessment": "PRIOR_FOR_WATSON_COMPONENT; possible incomplete historical comparison",
+        "evidence": "The Watson statistic and its null distribution are classical and excluded from the novelty assertion.",
+        "identifier_or_url": "https://doi.org/10.1093/biomet/48.1-2.109",
+        "material_read": "Bibliographic/abstract material only; original full text inaccessible",
+        "method": "Attributed preexisting Watson statistic and chi-square-series distribution",
+        "title": "Goodness-of-fit tests on a circle",
+        "trigger": "Original definition of Watson circular goodness-of-fit statistic"
+      },
+      {
+        "assessment": "INACCESSIBLE_MATERIAL_PRIORITY_RISK",
+        "evidence": "Abstract discusses variance of the Gini estimator and related estimators, not explicit characterization/Watson formula.",
+        "identifier_or_url": "https://doi.org/10.6092/issn.1973-2201/50",
+        "material_read": "Public abstract and bibliographic details, not the full article",
+        "method": "Compared described Gini variance estimation against paired Gini/sample variance covariance and Watson identity",
+        "title": "The variance of Gini’s mean difference and its estimators",
+        "trigger": "Older exact finite Gini variance formula might dominate parts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "76bf42cb-8b31-4496-bdb1-4ab046c196c3",
+  "value": {
+    "rationale": "The result resolves the natural complete classification of distributions for which two widely used scale estimators share all first-order fluctuation; this distinguishes the uniform law from arbitrary non-atomic alternatives. The exact n-dependent correlation and rigorous second-order Watson link explain what is left after first-order cancellation, making a precise goodness-of-fit interpretation useful. Neither standard U-statistic correctness nor generic uniform efficiency alone establishes this classification.",
+    "status": "PASS"
+  }
+}
