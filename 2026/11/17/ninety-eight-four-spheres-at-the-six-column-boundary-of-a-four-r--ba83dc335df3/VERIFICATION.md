@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification of the finite homotopy certificate
+# Independent mathematical audit
 
-## Replay
+## correctness
 
-`python3 verify_chessboard.py`
+PASS
 
-Requires only Python 3 standard-library modules. The exact expected standard output is the companion file `verification_output.txt`; the program is deterministic and contains explicit assertions for each crucial count and check.
+Reconstructed the 24-square legal rook complex with row caps (1,2,2,2) and six unit columns. Independent column-state and row-combinations enumerations gave 6309 nonempty faces, f=(24,225,1020,2250,2160,630). The stated 24-vertex toggle order gives 3105 disjoint Morse pairs, 27090 cover arrows, a complete acyclic topological sort, and exactly one critical 0-cell plus 98 critical 4-cells. This yields the integral wedge of 98 S4 directly, not merely mod-two Betti. Sum of capacities seven ensures every <6-rook face can be extended, so purity in dimension five and non-shellability are correctly qualified. No torsion.
 
-## Exact checks
+## originality
 
-Two separately structured exhaustive recursions — column-first and row-first — enumerate the identical set of 6,310 faces including the empty face. The nonempty-dimensional vector is \((24,225,1020,2250,2160,630)\). A fixed vertex permutation and increasing-mask scan generate 3,105 disjoint matched face pairs and leave one critical vertex and 98 critical four-cells. Every matched pair is checked to be a legitimate codimension-one incidence and no simplex is reused.
+PASS
 
-A distinct pass constructs every one of the 27,090 nonempty face-cover incidences and orients them according to the matched-Hasse criterion. The topological sort visits all 6,309 faces; this certifies the nonexistence of directed cycles, the critical hypothesis of Forman's theorem. The matching-pair serialization has SHA-256 `1ac49f5ec41f4e2deaf3a255080727b3d6e624413a392a622fcafbe58fed7352`.
+Full text of Limonchenko–Yu 2026-10-27 was inspected, including Theorems 1.2, 1.3, 5.5 and boundary examples. Its four-row family (2,2,2,m-5) assumes m>=7, so the m=6 point (1,2,2,2) is genuinely excluded and its torsion hypotheses do not directly apply. Resultary other four-row capacity cases (1,1,1,2), all-two rows, and 7-column rows are different. Reiner–Roberts homology/syzygies and general connectivity cannot imply this precise integral wedge. Limited risk of implicit unindexed table.
 
-The full mod-two reduced boundary calculation has ranks \((1,23,202,818,1432,630,0)\), where the first is the augmentation rank. It yields reduced mod-two Betti rank 98 in degree four and zero elsewhere. Integral homotopy follows instead from the certified cell-dimensional Morse model (one zero-cell plus only four-cells), so no finite-field torsion inference is made.
+## value
 
-## Scope and limits
+PASS
 
-This is an exhaustive certificate for the finite specified 24-square board, not an infinite-parameter enumeration or an independent external certification. The executable algorithm, its precise vertex order, the complete Hasse acyclicity test and its output are included so the integer and homotopy reasoning can be replayed. A second implementation could supply additional independent assurance. Independent audit has not been performed.
+At the natural six-column endpoint of a recently studied torsion family, the integral homotopy type and torsion-freeness are natural missing boundary data; nonshellability despite wedge below top dimension distinguishes behavior. A complete finite classification of the first excluded width has independent mathematical significance without needing a downstream general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

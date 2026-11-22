@@ -1,19 +1,21 @@
-# Review: the six-column multiple chessboard boundary
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Two mathematically independent finite face descriptions produce the same 6,309 nonempty simplices, and the complete face histogram gives Euler characteristic 99. The deterministic checker verifies every one of the 3,105 disjoint codimension-one matched pairs, then independently checks acyclicity by topologically sorting all 6,309 faces of the 27,090-edge oriented Hasse diagram. Exactly one critical vertex and 98 critical four-cells remain. The integral discrete-Morse theorem therefore yields a CW complex with constant four-cell attaching maps and hence the stated sphere wedge. Direct mod-two boundary ranks agree but are not used to infer the integral homotopy type. Risks: any bug shared by the two methods is a residual implementation risk; the complete executable is supplied for replay.
+PASS
 
-## Originality
+Reconstructed the 24-square legal rook complex with row caps (1,2,2,2) and six unit columns. Independent column-state and row-combinations enumerations gave 6309 nonempty faces, f=(24,225,1020,2250,2160,630). The stated 24-vertex toggle order gives 3105 disjoint Morse pairs, 27090 cover arrows, a complete acyclic topological sort, and exactly one critical 0-cell plus 98 critical 4-cells. This yields the integral wedge of 98 S4 directly, not merely mod-two Betti. Sum of capacities seven ensures every <6-rook face can be extended, so purity in dimension five and non-shellability are correctly qualified. No torsion.
 
-**PASS within searched literature, with residual risk.** The nearest primary treatment is Limonchenko–Yu's 2026 four-row family for seven or more columns, with parameters \((2,2,2,m-5)\). Their Theorem 5.5 assumes \(m\ge7\), while the six-column case here is \((2,2,2,1)\). Their torsion criterion in Theorem 1.3 requires four rows having capacity at least two, which this case lacks. Reiner–Roberts give rational homological machinery, and Jojić–Panina–Vrećica–Živaljević give discrete-Morse connectivity bounds, neither directly establishing this integral wedge type. No exact matching theorem was identified among the inspected sources. Residual risk: the specific endpoint calculation could be implicit in older general formulas or unindexed work, and a ranking search cannot establish uniqueness.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The six-column member is the natural missing endpoint in the principal four-row torsion family, not a detached parameter substitution. Its complete integral homotopy calculation exhibits a pure, nonshellable but torsion-free complex just before a family with forced two-torsion. The explicit perfect acyclic matching determines actual cell attachments, beyond Betti ranks or torsion absence. This gives a reproducible benchmark for the boundary between combinatorial homotopy and integral torsion phenomena, while remaining a finite classification rather than a claimed general theorem.
+Full text of Limonchenko–Yu 2026-10-27 was inspected, including Theorems 1.2, 1.3, 5.5 and boundary examples. Its four-row family (2,2,2,m-5) assumes m>=7, so the m=6 point (1,2,2,2) is genuinely excluded and its torsion hypotheses do not directly apply. Resultary other four-row capacity cases (1,1,1,2), all-two rows, and 7-column rows are different. Reiner–Roberts homology/syzygies and general connectivity cannot imply this precise integral wedge. Limited risk of implicit unindexed table.
 
-## Closest literature and limitations
+## value
 
-Limonchenko–Yu, arXiv:2610.37827v1 (2026-10-27), Theorems 1.2, 1.3 and 5.5; Reiner–Roberts (2000), Theorem 3.3; Jojić et al., arXiv:2003.04018, Theorem 6.1. The result does not determine homotopy types outside the specified six-column complex. Overlap risk includes unpublished, unindexed, or implicit equivalent classification. Independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At the natural six-column endpoint of a recently studied torsion family, the integral homotopy type and torsion-freeness are natural missing boundary data; nonshellability despite wedge below top dimension distinguishes behavior. A complete finite classification of the first excluded width has independent mathematical significance without needing a downstream general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
