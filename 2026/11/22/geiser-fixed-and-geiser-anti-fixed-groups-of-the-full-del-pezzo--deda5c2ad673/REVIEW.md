@@ -1,0 +1,11 @@
+# Review: Geiser-fixed and anti-fixed boundary component groups
+
+**Correctness — PASS.** The source geometry gives 56 explicit exceptional classes and a canonical Geiser partner map. The action on the reduced degree-zero divisor lattice is spelled out exactly; each of its two quotient presentations has 55 rows and 110 columns. The perfect, graph-automorphism-invariant monodromy pairing converts their cokernels into the abstract fixed and anti-fixed groups. Exact modular Smith reductions at all possible torsion primes, repeated for four deleted vertices, give consistent factors, and the base Laplacian determinants are checked independently. The result holds unconditionally for the canonical weighted intersection graph.
+
+**Originality — PASS, provisional.** The same graph's nonequivariant Smith form is explicitly prior knowledge. It contains no specified action of the Geiser involution and does not imply the two new subgroup structures. Primary geometric sources fix the 56-curve action, while existing graph-cover and graph-action papers describe general methods but not these precise Geiser integral factors. The currently identified closest results and searches do not supply a stronger implication; unindexed older calculations remain a residual priority risk.
+
+**Value — PASS.** The involution is the geometrically distinguished deck transformation, not an arbitrary symmetry of a convenient graph. Its fixed group is the natural invariant relevant to quadratic descent of boundary component groups, and the anti-fixed group detects Prym-like complement information. The contrast between complete five-primary anti-invariance and a nontrivial two-primary failure of direct splitting is a substantive arithmetic refinement of the known total group, not a change of notation or a copied corollary.
+
+**Scope and risks.** The computation is independent of nodality of the union, but any Néron component interpretation requires an actually nodal full boundary and a regular equivariant split semistable smoothing with unit thicknesses. It does not assert a universal arithmetic realization over all finite fields. Graph double-cover formulas for free deck actions do not automatically cover swapped-branch Geiser edges. Independent mathematical validation has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
