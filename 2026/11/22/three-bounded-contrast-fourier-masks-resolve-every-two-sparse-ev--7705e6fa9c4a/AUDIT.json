@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Correctness: Fourier inversion exactly supplies three cyclic autocorrelations. Zero-lag Hankel determinant separates 0/1/2-sparse strata; the nonantipodal ratio supplies the ordinary support sum and a quadratic recovers both support weights; the antipodal half-period chirp reads the missing imaginary phase. For two possible antipodal supports, exact factorization of distinct candidate squared chirped-lag magnitudes proves they cannot coincide. Positive weights and all phase boundary cases, including zero real product, are treated. Symbolic identity independently verified with SymPy and standard-library checker passed 3678 two-sparse cases plus 18 exact rational identities. Finite checks are supplementary, not all-N proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Huang–Li arxiv:2608.02450 Theorem 1 uses O(log N) random masks and explicitly notes its guarantee is nonuniform in fixed input x.",
+        "Li–Li 2021 specifies O(log^4 N) complex random masks for general-signal stability and excludes real-mask recovery of complex signals in even dimension."
+      ],
+      "reasoning": "General-signal random-mask probability theorems neither assert that three fixed deterministic masks suffice for all two-sparse even vectors nor imply it for one fixed all-signal-independent mask family. The different quantifiers and size regime matter.",
+      "searches": [
+        "two masks geometric coded diffraction phase retrieval two sparse cyclic signals antipodal ambiguity",
+        "masked Fourier magnitude measurements of two sparse signals geometric real exponential masks three full recovery",
+        "https://arxiv.org/abs/2608.02450",
+        "https://doi.org/10.3934/ipi.2021028"
+      ]
+    },
+    "checked_sources": [
+      "https://raw.githubusercontent.com/published-finding corpus/2026/main/2026/11/8/SCOPE-sharp-two-mask-fourier-recovery-of-complex-two-sparse-signals-on--cead19f36641/RESULT.md",
+      "https://arxiv.org/abs/2608.02450",
+      "https://doi.org/10.3934/ipi.2021028",
+      "https://arxiv.org/abs/2205.08753",
+      "https://arxiv.org/abs/1303.4458",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-sharp-two-mask-phase-retrieval-trichotomy-on-prime-cyclic-sidon--467688bb9324"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published closest RESULT.md Steps 1–3 require N odd and two real positive masks, and Step 5 explicitly proves real-mask impossibility on even N. Its Limitations exempt complex masks from the obstruction.",
+        "New complex m2 carries exp(pi i j/N), and for antipodal indices gives C2(h)=-2q^(a+b) Im(x_b conj(x_a)); the prior two real masks cannot measure this part.",
+        "Huang–Li 2026 Theorem 1 states an O(log N) random guarantee for fixed signal and expressly lacks simultaneous uniform recovery."
+      ],
+      "reasoning": "The new theorem is not a corollary or special case of odd-size sufficiency or even real-mask impossibility; its structural assumptions explicitly cross both boundaries. No identified theorem implies this specific deterministic three-mask uniform even-cycle guarantee.",
+      "searches": [
+        "even cyclic Fourier intensity three complex diagonal masks two-sparse deterministic reconstruction antipodal signals",
+        "https://raw.githubusercontent.com/published-finding corpus/2026/main/2026/11/8/SCOPE-sharp-two-mask-fourier-recovery-of-complex-two-sparse-signals-on--cead19f36641/RESULT.md",
+        "https://www.researchgate.net/publication/411181124_PhaseLift_for_Coded_Diffraction_Patterns_Optimal_Sampling_Rate",
+        "https://www.aimsciences.org/article/doi/10.3934/ipi.2021028"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest full theorem has odd N and m0,m1 strictly real, explicitly excluding even N from its positive construction; its stated limitation says complex masks might evade the even obstruction.",
+        "The present theorem treats even N and adds a chirped third mask, directly reading the missing antipodal imaginary product.",
+        "Jaming–Rathmair 2022 constructs three masks on L²(R) and explicitly warns about finite-dimensional undersampling."
+      ],
+      "reasoning": "Cross-correlation recovery, Fourier-power spectra, coded diffraction, and support phase retrieval were queried as aliases. Neither the odd-only deterministic theorem nor the continuous theorem yields uniform injectivity for even finite cycles with three prescribed bounded-gain complex masks.",
+      "searches": [
+        "even cyclic Fourier intensity three complex diagonal masks two-sparse deterministic reconstruction antipodal signals",
+        "three positive amplitude chirped Fourier masks exact two-sparse recovery even dimension zero-lag weighted moments",
+        "two-sparse coded diffraction patterns even lengths autocorrelation Nyquist phase three masks",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-two-mask-fourier-recovery-of-complex-two-sparse-signals-on--cead19f36641"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published odd-cycle two-positive-mask theorem https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-two-mask-fourier-recovery-of-complex-two-sparse-signals-on--cead19f36641 states only an even real-mask obstruction, not the even complex construction.",
+        "The published odd-prime Sidon-support theorem concerns supports of at least three, so it does not cover even two-sparse signals.",
+        "Targeted mathematical claim and alias searches returned no compared theorem implying deterministic three-complex-mask even two-sparse recovery."
+      ],
+      "reasoning": "Searches compared complete Fourier intensity patterns, two-sparse even Nyquist collisions, polynomial moment weights, complex mask ramps, and coded diffraction equivalents. None of the inspected scientific statements dominates the new even-complex construction. A bounded search is not an exhaustive originality certificate.",
+      "searches": [
+        "even cyclic Fourier intensity three complex diagonal masks two-sparse deterministic reconstruction antipodal signals",
+        "three positive amplitude chirped Fourier masks exact two-sparse recovery even dimension zero-lag weighted moments",
+        "two-sparse coded diffraction patterns even lengths autocorrelation Nyquist phase three masks",
+        "minimal two masked Fourier intensity measurements all two-sparse cyclic vectors support and phase classification",
+        "even cyclic dimensions full two sparse complex phase retrieval three Fourier masks antipodal support optimal sharp 2026 geometric"
+      ]
+    },
+    "rationale": "Originality: the closest fully inspected published Fourier statement proves two positive masks only in odd dimensions and explicitly says that its real-mask even impossibility does not rule out complex masks. Here three bounded-contrast masks, including a half-Nyquist phase-coded mask, identify every complex two-sparse vector in every even dimension uniformly, overcoming that exact missing parity case. The 2026 probabilistic full-signal O(log N)-mask PhaseLift theorem does not imply a uniform deterministic three-mask guarantee, as its own Theorem 1 notes its nonuniform fixed-signal quantifier. Older works use random many-mask or continuous-space three-mask settings. Absence of indexed matching text alone is not novelty proof; earlier unindexed equivalent special-case designs remain possible.",
+    "residual_risks": [
+      "A prior unindexed special-purpose finite two-sparse Fourier mask construction may be equivalent under a nonobvious reduction.",
+      "The full 2021 Li–Li article and full Jaming–Rathmair article were not read; assessments of their scope beyond accessible abstracts/tables remain limited.",
+      "Bibliographic searches and accessible ledger claims cannot establish global novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: odd N two real masks; forbids all-real even masks only; states complex-mask even case unruled-out",
+        "evidence": [
+          "Theorem fixes odd n and real positive masks m0,m1; Step 5 fixes even n and arbitrary real masks; Limitations explicitly say complex-valued masks are not ruled out."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/published-finding corpus/2026/main/2026/11/8/SCOPE-sharp-two-mask-fourier-recovery-of-complex-two-sparse-signals-on--cead19f36641/RESULT.md",
+        "material_read": "Complete public RESULT.md, including theorem, proof Steps 1–5, assumptions, relationship and limitations",
+        "method": "Full plaintext read from public GitHub repository",
+        "title": "Sharp two-mask Fourier recovery of complex two-sparse signals on odd cycles",
+        "trigger": "Closest directly overlapping published theorem with parity obstruction and exactly two-sparse support"
+      },
+      {
+        "assessment": "NOT_COVERING: high-probability O(log N) random masks for each fixed arbitrary signal; no three-mask deterministic all-two-sparse statement",
+        "evidence": [
+          "Theorem 1: L>=C omega log n random masks; Remark 6: theorem is nonuniform for each fixed signal, not simultaneous over all x."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.02450",
+        "material_read": "Public full-text HTML reproduction: introduction, Assumption 1, Theorem 1, and nonuniform-versus-uniform discussion around Section 1.2",
+        "method": "Full-text web HTML reproduction of lawful open preprint, compared theorem quantifiers",
+        "title": "PhaseLift for Coded Diffraction Patterns: Optimal Sampling Rate",
+        "trigger": "Recent motivating complete-pattern coded diffraction theorem"
+      },
+      {
+        "assessment": "No direct three deterministic mask result in accessible published statements; full-text omission leaves limited bibliographic risk",
+        "evidence": [
+          "Table separates real even complex-signal no-recovery from O(log^4 d) random complex-mask recovery; sparse section depends on composite general-signal measurements."
+        ],
+        "identifier_or_url": "https://doi.org/10.3934/ipi.2021028",
+        "material_read": "Journal abstract, keywords and explicit case-by-case mask-complexity table; full proof inaccessible from inspected OA surfaces",
+        "method": "Publisher HTML abstract and table plus alternate OA/preprint search",
+        "title": "Phase retrieval from Fourier measurements with masks",
+        "trigger": "Older real-even obstruction and complex-mask recovery general theorem"
+      },
+      {
+        "assessment": "Different L²(R) Fourier-domain measurement with explicit finite-dimensional undersampling caveat; uninspected full text is residual risk",
+        "evidence": [
+          "Abstract constructs three real masks on L²(R) and says natural finite-dimensional analogs need not imply uniqueness due to undersampling."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2205.08753",
+        "material_read": "Abstract and university bibliographic summary; full article not read",
+        "method": "arXiv abstract and institutional metadata",
+        "title": "Uniqueness of phase retrieval from three measurements",
+        "trigger": "Potential stronger exactly-three-mask theorem using coded diffraction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7705e6fa-9c4a-4e8b-b649-acd1bdbd3311",
+  "value": {
+    "rationale": "Value: complex two-sparse Fourier phase retrieval is the first nontrivial unknown-support phaseless recovery case. Real masks intrinsically lose the imaginary component of antipodal correlations in every even cycle; an explicit all-N fixed-cardinality, bounded-gain complex design removes that structural blind spot and supplies a completely constructive decoder. The nontrivial two-candidate weighted-moment factorization gives a meaningful guarantee rather than a routine reparametrization. No optimal count or larger-sparsity claim is made.",
+    "status": "PASS"
+  }
+}
