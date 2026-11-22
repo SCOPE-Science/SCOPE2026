@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T00:54:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A generic Gaussian direction maximizes each interval simplex at its unique largest coordinate; independent continuous labels make every local relative order equally likely. Interior X_i is a sum of exactly five interval-winner indicators from [-1,0],[0,1],[-2,-1,0],[-1,0,1],[0,1,2], so it is a bounded five-site stationary statistic and E X_i=2. Means at the four boundary sites are 5/6 and 5/3. The finite combinatorial lemma is exactly exhaustive: pairs at lag k use 5+k labels, k=0..4, so enumerating all permutations of 5..9 labels establishes Cov(X_i,X_{i+k})=(56/15,-173/90,-3/20,11/60,1/45) and quadratic Cov((X_i-2)²,(X_{i+k}-2)²)=(2114/225,-187/75,-8173/6300,2147/6300,421/3150). I independently reimplemented these winner tests (not opaque source code) and verified all five exact rational pairs across 409080 local permutations. Nonoverlapping windows give 4-dependence. Boundary variances 29/36 and 23/9 yield exact inertia (n-4)*56/15+2(29/36+23/9), and pair squared distance doubles by independence. Sum of quadratic covariances gives positive 4352/1575 long-run variance. Independent separated blocks of length floor(n^(1/3)) with four deleted sites, Lindeberg plus variance o(n) of removed terms and bounded end effects prove full n->infinity normal law. Exact small-n global permutations in source verifier further corroborate but do not prove the CLT.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2022 defining paper determines Hopf algebra and f-polynomial data, with Example 3.4 for L4 at m=1,2,3; face counts do not determine the canonical Euclidean Gaussian squared radius.",
+          "The full interval associahedron uses all connected intervals, so vertex coordinates and maximum-window span are not the present bounded-length-3 statistic."
+        ],
+        "reasoning": "Broader graph-polytope combinatorial theorems neither imply numeric Gaussian second/fourth moments nor exact 4-dependence. Standard m-dependent CLT only gives limiting normality once the special variance constant is calculated.",
+        "searches": [
+          "Pešović Stojadinović f-polynomials normal fans path m=2 2209.12053",
+          "Resultary: Poisson extreme directional widths full interval associahedra",
+          "Resultary: wheel spanning tree polytope covariance anisotropy 2026/11/08"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2209.12053",
+        "https://arxiv.org/pdf/1812.09770",
+        "https://doi.org/10.1112/jlms.12596",
+        "Resultary semantic search: path 2-graph polytope Gaussian vertex exposure covariance radial CLT local rank statistics"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source graph m-polytopes and weighted quasisymmetric enumerators count faces/normal fan integer points rather than Gaussian angular masses.",
+          "The 2018 hypergraphic paper gives lattice-point enumerators and f-polynomials, with no standardized Euclidean radial central limit."
+        ],
+        "reasoning": "The prescribed isotropic Euclidean angular measure depends on metric chamber volumes and vertex sums. No earlier paper read gives the rational inertia, signed five-band covariance, or positive long-run radial variance; these are not formal consequences of face counts.",
+        "searches": [
+          "arXiv:2209.12053 Definition 2.1 Example 3.4 Theorem 3.5",
+          "arXiv:1812.09770 Theorem 4.2 and uniform hypergraph examples"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2209.12053 Definition 2.1 exactly defines Q_{G,2} as connected vertex subsets of cardinality<=3; for path this is the same sum of adjacent edges/triples plus singleton translation.",
+          "arXiv:1812.09770 uses hypergraphic Minkowski-sum language, equivalent polytope class."
+        ],
+        "reasoning": "The singleton-summand translation cancels in centered X and Euclidean distances. In local rank language the problem reduces to a four-dependent five-site process; the source does not give the exact covariance arithmetic or limiting radial variance.",
+        "searches": [
+          "Pešović Stojadinović arXiv:2209.12053 Definition 2.1 path graph m=2",
+          "hypergraphic path consecutive simplex sum random max rank statistic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Example 3.4 in the 2022 primary paper lists f-polynomials (for example Q_{L4,2} has q^3+8q²+18q+12), not a distribution of Euclidean vertex coordinates.",
+          "The exact signed covariance table obtained by exhaustive local rank permutations is a new geometric table, not a repetition of published f-vectors."
+        ],
+        "reasoning": "The local finite table is necessary for an infinite-family invariant and CLT; its exactness follows from complete finite event-space enumeration, not unsupported sampling.",
+        "searches": [
+          "path 2-graph polytope face enumerator Example 3.4 2209.12053",
+          "m-graph polytope exact Gaussian second moment 56/15 739/90 table"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality; four explicit comparisons and actual primary-source material inspections below. The prescribed isotropic Euclidean angular measure depends on metric chamber volumes and vertex sums. No earlier paper read gives the rational inertia, signed five-band covariance, or positive long-run radial variance; these are not formal consequences of face counts.",
+      "residual_risks": [
+        "Priority is conditional on accessible math literature; Forcey–Ronco full text was not inspected.",
+        "Only isotropic Gaussian normal-cone exposure of the unit-coordinate Minkowski realization; not uniform vertices or uniform volume, not all interval lengths.",
+        "The CLT concerns squared radial distance about exposure barycenter; finite exact enumeration only verifies its local moment constants and does not itself prove convergence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OBJECT_AND_FACE_ENUMERATORS_NOT_METRIC_MOMENTS",
+          "evidence": [
+            "Source defines interval-simplex family and enumerates weighted faces but does not state Gaussian-exposure inertia or radial central limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.12053",
+          "material_read": "Abstract, Definition 2.1, Example 3.4 for L4, Theorem 3.5, discussion of normal fans and H-poset examples in §§3-4",
+          "method": "Original freely available arXiv PDF text and rendered pp.3-4",
+          "title": "Between graphical zonotope and graph-associahedron",
+          "trigger": "Defines exact path 2-graph polytope"
+        },
+        {
+          "assessment": "COMBINATORIAL_PRIOR_NOT_GAUSSIAN_STATISTICS",
+          "evidence": [
+            "Hypergraph enumerator is not a metric Gaussian-sampled vertex covariance law."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1812.09770",
+          "material_read": "Abstract, Introduction and Sections 3-4 on Hopf algebras, quasisymmetric integer point/face enumerators, with rendered p.6",
+          "method": "Original arXiv PDF text and rendered page",
+          "title": "Integer points enumerator of hypergraphic polytopes",
+          "trigger": "General hypergraphic simplex-sum theory potentially covering same object"
+        },
+        {
+          "assessment": "PARTIAL_READ_NO_WHOLE_DOCUMENT_NONCOVERAGE_CLAIM",
+          "evidence": [
+            "Read material suggests combinatorial Hopf structures, but no assertion that entire inaccessible source omits a hidden Gaussian moment result."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/jlms.12596",
+          "material_read": "Bibliographic metadata and public abstract, not full article",
+          "method": "Public abstract and references only",
+          "title": "Algebraic structures on graph associahedra",
+          "trigger": "Plausible related graph-associahedron theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The path 2-graph family is the first non-zonotopal stage in a natural interpolation between graph zonotope and associahedron. Gaussian objective exposure induces an intrinsic Euclidean vertex measure whose exact expected separation and five-band signed covariance reveal geometry invisible to the earlier f-vectors. The positive rational radial CLT variance is a natural asymptotic metric invariant of a growing graph family, not an arbitrary small-instance number.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2209.12053",
+    "https://arxiv.org/pdf/1812.09770",
+    "https://doi.org/10.1112/jlms.12596",
+    "Resultary semantic search: path 2-graph polytope Gaussian vertex exposure covariance radial CLT local rank statistics"
+  ],
+  "disposition": "passed",
+  "final_claim": "For n>=5 canonical path 2-graph polytope sum of consecutive edge and triple simplices, Gaussian-exposed vertex X has mean (5/6,5/3,2,...,2,5/3,5/6), exact inertia E||X-EX||²=56n/15-739/90, independent-pair distance twice that, a signed interior covariance kernel at lags 0..4 (56/15,-173/90,-3/20,11/60,1/45) and zero above, and an exact-centered radial CLT with variance 4352/1575.",
+  "limitations": [
+    "Priority is conditional on accessible math literature; Forcey–Ronco full text was not inspected.",
+    "Only isotropic Gaussian normal-cone exposure of the unit-coordinate Minkowski realization; not uniform vertices or uniform volume, not all interval lengths.",
+    "The CLT concerns squared radial distance about exposure barycenter; finite exact enumeration only verifies its local moment constants and does not itself prove convergence.",
+    "Scientific PASS is a qualified assessment rather than bibliographic priority proof, third-party attestation or authority to publish; status transport is separate."
+  ],
+  "residual_risks": [
+    "Priority is conditional on accessible math literature; Forcey–Ronco full text was not inspected.",
+    "Only isotropic Gaussian normal-cone exposure of the unit-coordinate Minkowski realization; not uniform vertices or uniform volume, not all interval lengths.",
+    "The CLT concerns squared radial distance about exposure barycenter; finite exact enumeration only verifies its local moment constants and does not itself prove convergence."
+  ],
+  "schema_version": 1
+}

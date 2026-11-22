@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exposed point is uniquely determined almost surely because all Gaussian coordinates are distinct. Maximization of each interval simplex chooses exactly one greatest-label coordinate, producing a bounded five-site statistic for every interior exposed vertex coordinate. Boundary means and variances are separately accounted for. The exact local-rank table exhausts all \((5+k)!\) relative label orders for each \(k=0,\ldots,4\); its independent operational check is included in `verify_path2.py`. The stationary squared-center statistic is four-dependent and bounded. The long-run covariance sum is exactly \(4352/1575>0\), and a separated-block proof yields the nondegenerate Gaussian limit. The limits are analytic for all \(n\ge5\); a finite-dimensional experiment is not being mistaken for a general proof.
+## correctness
 
-## Originality — PASS, provisional priority
-The principal defining source, Pešović–Stojadinović (arXiv:2209.12053, first public September 24, 2022), provides the 2-graph polytope and normal-fan/face-enumerator theory; its inspected §§2–4 do not present the present Euclidean Gaussian-exposure inertia, five-band signed covariance, or radial central limit. Pešović (arXiv:1812.09770, first public December 23, 2018) develops hypergraphic simplex sums and enumerators rather than these directional metric moments. The nearest separately checked published research notes on interval-simplex associahedra concern random **directional widths** for the full interval range, and notes about graph associahedra on complete bipartite graphs concern other graph families and exposure variables. Their claims neither cover nor imply the restricted-range path 2-graph radial quadratic law. Existing local-dependence limit theorems supply the general probabilistic method but not these exact constants. Searches and accessible previous-claim comparisons did not identify a covering theorem. Bibliographic indexing cannot rule out an equivalent unlocated result.
+PASS
 
-## Mathematical value — PASS
-The normal-cone-weighted vertex distribution is a geometrically intrinsic sampling measure for a fixed Euclidean realization. Its second moment measures average vertex separation, complementary to the face enumerators defining the family. Adding length-three connected simplices introduces a nontrivial signed covariance kernel of range four: negative correlation at separations one and two but positive at three and four. Exact finite-dimensional inertia and nondegenerate radial fluctuations with explicit rational constants describe a natural infinite family, not a chosen isolated numerical slice. The result is not asserted to be a universal property of all graph associahedra or a large downstream theorem.
+A generic Gaussian direction maximizes each interval simplex at its unique largest coordinate; independent continuous labels make every local relative order equally likely. Interior X_i is a sum of exactly five interval-winner indicators from [-1,0],[0,1],[-2,-1,0],[-1,0,1],[0,1,2], so it is a bounded five-site stationary statistic and E X_i=2. Means at the four boundary sites are 5/6 and 5/3. The finite combinatorial lemma is exactly exhaustive: pairs at lag k use 5+k labels, k=0..4, so enumerating all permutations of 5..9 labels establishes Cov(X_i,X_{i+k})=(56/15,-173/90,-3/20,11/60,1/45) and quadratic Cov((X_i-2)²,(X_{i+k}-2)²)=(2114/225,-187/75,-8173/6300,2147/6300,421/3150). I independently reimplemented these winner tests (not opaque source code) and verified all five exact rational pairs across 409080 local permutations. Nonoverlapping windows give 4-dependence. Boundary variances 29/36 and 23/9 yield exact inertia (n-4)*56/15+2(29/36+23/9), and pair squared distance doubles by independence. Sum of quadratic covariances gives positive 4352/1575 long-run variance. Independent separated blocks of length floor(n^(1/3)) with four deleted sites, Lindeberg plus variance o(n) of removed terms and bounded end effects prove full n->infinity normal law. Exact small-n global permutations in source verifier further corroborate but do not prove the CLT.
 
-## Closest literature and limitations
-The object and normalization are tied to arXiv:2209.12053. The earlier arXiv:1812.09770 covers general hypergraphic polytopes but not their Gaussian radial geometry. Also compared: Forcey–Ronco, *Algebraic structures on graph associahedra* (2022), for combinatorial background, and separately indexed results on Poisson interval-maxima widths. The exact formulas concern isotropic random objective directions, not uniformly selected vertices. General independent priority verification and independent mathematical audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality; four explicit comparisons and actual primary-source material inspections below. The prescribed isotropic Euclidean angular measure depends on metric chamber volumes and vertex sums. No earlier paper read gives the rational inertia, signed five-band covariance, or positive long-run radial variance; these are not formal consequences of face counts.
+
+## value
+
+PASS
+
+The path 2-graph family is the first non-zonotopal stage in a natural interpolation between graph zonotope and associahedron. Gaussian objective exposure induces an intrinsic Euclidean vertex measure whose exact expected separation and five-band signed covariance reveal geometry invisible to the earlier f-vectors. The positive rational radial CLT variance is a natural asymptotic metric invariant of a growing graph family, not an arbitrary small-instance number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
