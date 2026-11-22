@@ -1,0 +1,15 @@
+# Review: reversal-pair law for a successful telegraph crossing
+
+## Correctness — PASS
+For every \(c=\gamma L/v>0\), the two-state backward generator with velocity-selective absorbing boundary conditions gives the exact conditional generating function. The positive Robin–Dirichlet Sturm–Liouville problem has simple eigenvalues and a genus-zero spectral product, which proves an independent geometric sum and the compound-Poisson Lévy measure, rather than merely a finite enumeration. The limit follows from the pointwise Laplace-transform limit and Euler's hyperbolic-sine product. Direct verification of the supplied standalone checker yielded 71 passing finite cases, including independent trajectory sampling. The checker cannot certify infinitely many parameters or eigenvalues; the written analytic argument provides that part.
+
+## Originality — PASS, qualified
+The 2026 Monthus analysis of run-and-tumble drawups and drawdowns, the two-absorber telegrapher treatment of Masoliver–Porrà–Weiss (1992), and the fixed-time telegraph maximum analysis of Cinque–Orsingher (2020) were examined at their relevant results. Their statements do not imply a conditional successful-crossing compound-Poisson reversal-pair law or its Robin-root and non-Gaussian scaling representations. Foong–Kanno (1994) studies reversal-resolved telegraph first passages, and is especially close; only its accessible abstract could be inspected, so implicit coverage in its full text is an explicit residual priority risk, not a negative full-text claim. Generic canonical-product and geometric/Poisson decompositions are prior methods; their application to this precise conditional two-trap count is the claimed result. Searches of indexed mathematical findings and public literature did not reveal exact or broader coverage, but absence of a match is not proof of priority.
+
+## Value — PASS
+Successful transmission across a two-sided absorbing interval is an informative rare event for persistent transport. The theorem separates a microscopic reversal budget from absorption probability, supplies all conditional count probabilities through a convergent positive spectral representation, and shows that the large-domain count is order \(c^2\) and asymptotically *non-Gaussian*. The compound-Poisson law supplies a natural infinite-divisibility structure and the zero-reversal benchmark \((1+c)e^{-c}\). These results concern a physically defined observable and cannot be reduced to its mean alone. They do not cover asymmetry, physical crossing time, or experimental noise.
+
+### Closest literature and unresolved limits
+Monthus (2026), arXiv:2611.18270; Masoliver, Porrà and Weiss (1992), DOI:10.1103/PhysRevA.45.2222; Cinque and Orsingher (2020), arXiv:2003.04044; Foong and Kanno (1994), DOI:10.1016/0304-4149(94)90061-2; Martinucci, Paraggio and Zacks (2025), DOI:10.1017/apr.2024.49. The last two are especially relevant for first-passage methodology; the 1994 full text remains a gap. No conclusion of independent scientific certification follows from these comparisons.
+
+Self-review: passed. Independent audit: not yet performed.
