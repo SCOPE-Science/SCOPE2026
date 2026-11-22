@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "For vertex in color a, the neighbor count of a is c_a-1 and of b!=a is c_b. This yields exactly three cases by number of globally most-populated colors: unique winner implies one-update unanimity; exactly two maxima exchange forever; three or more maxima are fixed. A coefficient extraction with exactly two maximum bins counts states, whose cycle count is half. Exact multinomial factorial moments produce Poisson(lambda) size-k cells under q~c*n^(k/(k-1)); higher-size bins vanish by union bound and (k-1)-cell counts diverge by second moments, proving the limit lambda^2 exp(-lambda)/2. The same moment argument proves disappearance between critical exponents. Embedded exhaustive checker confirmed all q=2..5 and n=2..8 (585996 states), independent of the coefficient recurrence in its direct graph transitions. Limits: fixed k only, n>=2 and q>=2.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gnedin, Janson and Malinovsky, arXiv:2506.20411, Introduction and Sections 5 and 10, study box-load maxima and their multiplicity in stopped occupancy schemes; the deterministic plurality update is absent.",
+        "Becchetti et al., arXiv:1407.2565, Introduction and dynamics sections, analyze an undecided-state gossip protocol with additional state and stochastic updates.",
+        "Di Ianni, doi:10.3390/appliedmath5040147, full Introduction and Sections 3-5, studies three distinct majority-based dynamics with different threshold/anti-conservative rules."
+      ],
+      "reasoning": "Classical multinomial occupancy theory can cover Poisson counts of k-occupied boxes. That probabilistic machinery is explicitly credited, not claimed as a standalone novelty. No identified broader dynamical theorem derives the clique tie-retaining orbit classification and all-index explicit oscillation law.",
+      "searches": [
+        "Multicolour plurality dynamics on complete graph with ties and recoloring two-cycles asymptotic threshold q versus n",
+        "synchronous plurality dynamics complete graphs multiple opinions fixed points two cycles",
+        "arxiv:2506.20411 fixed-time extreme loads section 5 and multiplicity of maximum section 10",
+        "arxiv:1310.2858 full Introduction Sections 2-4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1310.2858",
+      "https://arxiv.org/abs/1407.2565",
+      "https://link.springer.com/article/10.1007/s10458-024-09651-y",
+      "https://www.mdpi.com/2673-9909/5/4/147",
+      "https://arxiv.org/abs/2506.20411",
+      "https://pure.uai.cl/en/publications/periodic-behaviour-of-generalized-threshold-functions/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest related multicolor plurality study on complete bipartite graphs has separate shore pluralities and one birthday-scale window. Its transition and limit formulas do not imply the full-clique all-k result.",
+        "Palette-run and four-color contact clique studies use ordered cyclic successor activation, not the unique most-frequent neighbor color with retained ties.",
+        "The occupancy tie multiplicity relationship used in the proof is classical; deterministic recurrence under clique voting is an additional fact."
+      ],
+      "reasoning": "The claimed theorem is neither a simple parameter restriction nor a corollary of the retrieved bipartite, cyclic-contact, or random-sampling results. Generic occupancy maximal-multiplicity tools could imply the stochastic component but not the deterministic period classification, and no specific previously proved all-k oscillation identity was identified.",
+      "searches": [
+        "published-finding corpus: An isolated birthday-scale oscillation peak and reentry in multicolor plurality, item 1d707ef0-c3f2-4db0-b07b-5b61c4b429b7",
+        "published-finding corpus 2026/11/17/...1658af9b9f39, exact palette-run relaxation on complete graphs",
+        "published-finding corpus 2026/11/17/...3a54ec4ce2d2, four-colour two-contact dynamics on complete graphs",
+        "arxiv:2506.20411 max occupancy tie counts, 2025"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Closest indexed candidate: published-finding corpus 2026/10/25/...131a77706642 concerns binary synchronous tie-retaining majority on complete tripartite graphs, rather than multi-color deterministic plurality on a clique.",
+        "published-finding corpus 2026/10/25/...1ecb60578123 concerns trembling-hand plurality, a different voting protocol.",
+        "Becchetti et al., arXiv:1310.2858, Introduction and 3-majority rule: each agent samples three random neighbors and breaks ties uniformly."
+      ],
+      "reasoning": "Two tied maximal global color counts is an exact and equivalent formulation of period-two behavior under the specified clique rule, but the retrieved binary, sampled-neighbor, or different-graph dynamics do not share this transition map. No searched result established the claimed period-two iff condition for this rule.",
+      "searches": [
+        "Complete graph synchronous full-neighborhood multicolor plurality voting retain current opinion in event of tie, initial two tied largest color counts swap oscillatory two-cycle; exact counts",
+        "q color plurality deterministic K_n open neighborhood, random initial colors, infinitely many Poisson resonance peaks q ~ n^(k/(k-1)), two equal maximum occupied colors, universal peak 2/e^2",
+        "\"two colors\" \"plurality\" \"complete graph\" \"two-cycle\" synchronous",
+        "\"tie\" \"top\" \"plurality\" \"two-cycle\" graph dynamics"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching orbit table in the published-finding corpus queries; nearest occupancy-only work is arXiv:2506.20411, which explicitly discusses multiplicities of maxima under random stopping.",
+        "Standalone check_dynamics.py computes and verifies the claimed orbit-count expression for 28 small (n,q) pairs; this is a new calculation, not a retrieved database row."
+      ],
+      "reasoning": "No discovered exact table jointly enumerates the specified deterministic dynamical attractors for arbitrary n,q and establishes the fixed-k palette-limit cascade. Occupancy-only counts can be used as supporting ingredients.",
+      "searches": [
+        "q color plurality deterministic K_n open neighborhood, random initial colors, infinitely many Poisson resonance peaks q ~ n^(k/(k-1)), two equal maximum occupied colors, universal peak 2/e^2",
+        "probability maximum occupancy achieved exactly twice balls bins asymptotic",
+        "Maximal Counts in the Stopped Occupancy Problem ties for the maximum"
+      ]
+    },
+    "rationale": "No covering claim was identified for simultaneous full-neighborhood deterministic plurality, the exact primitive-two census, and the infinite Poisson-resonance hierarchy. Published clique plurality consensus uses random sampling or undecided states; cited deterministic multi-opinion work uses other update rules; the closest prior complete-bipartite plurality census cannot imply clique dynamics. Classical occupancy-maxima work informs but does not identify these dynamical oscillations. Unindexed equivalences and unexamined sources remain possible.",
+    "residual_risks": [
+      "Classical occupancy results on fixed-time maximum multiplicities may independently imply the Poisson term, although they do not provide the identified deterministic dynamical link.",
+      "An unindexed exact complete-graph multicolor tie-retaining rule or unpublished equivalent may exist.",
+      "Historical comparisons are bounded to the inspected sources and actual search results, not exhaustive priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the specified deterministic orbit count or palette-resonance laws",
+        "evidence": [
+          "The Introduction defines 3-majority sampling three randomly chosen neighbors and uniformly resolving ties (arXiv text lines 9-20)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1310.2858",
+        "material_read": "Full text at the arXiv text rendering, Introduction and stated rule and results; source has 492 rendered lines",
+        "method": "Read definition, hypotheses and stated theorems and distinguish sampled-neighbor stochastic protocol from full-neighborhood deterministic update",
+        "title": "Simple Dynamics for Plurality Consensus",
+        "trigger": "Same complete-graph and multi-opinion setting"
+      },
+      {
+        "assessment": "NOT_COVERING because extra undecided state and random communication induce different transitions",
+        "evidence": [
+          "Introduction describes the undecided-state gossip protocol and randomized contacts (arXiv text lines 8-23)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1407.2565",
+        "material_read": "Full text at arXiv text rendering including Introduction and protocol definition; source has 514 rendered lines",
+        "method": "Compared undecided-state protocol and its convergence theorem to the proposed full-neighbor update",
+        "title": "Plurality Consensus in the Gossip Model",
+        "trigger": "Potential more general clique plurality coverage"
+      },
+      {
+        "assessment": "NOT_COVERING the full-palette unique-global-plurality clique dynamics",
+        "evidence": [
+          "Main theorems concern weighted signed graph constructions, reachability complexity and special ternary update rules (HTML sections 3-5)."
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2673-9909/5/4/147",
+        "material_read": "Full open-access article HTML including Sections 3 to 5 and Conclusions",
+        "method": "Compared the three defined update rules and theorem domains, especially the underpopulation and anti-conservative rules",
+        "title": "Three Majority-Based Deterministic Dynamics for Three Opinions",
+        "trigger": "Potential general deterministic multi-opinion theory"
+      },
+      {
+        "assessment": "RELATED but lacks multi-palette occupancy resonance theorem",
+        "evidence": [
+          "Binary blue-white setting and compare deterministic tie retention with random tie resolution (Introduction and abstract)."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10458-024-09651-y",
+        "material_read": "Full open-access HTML, abstract, Introduction, definitions and convergence discussion",
+        "method": "Compared binary local majority rule to a named-q-color unique plurality on cliques",
+        "title": "Majority opinion diffusion: when tie-breaking rule matters",
+        "trigger": "Same incumbent-retaining tie behavior for binary opinions"
+      },
+      {
+        "assessment": "COVERS related classical occupancy methods but NOT the clique voting dynamical statement; possible implicit probabilistic specializations are acknowledged",
+        "evidence": [
+          "Introduction defines stopping when at most fixed number of boxes remain below a target load; Sections 5 and 10 analyze order statistics and ties at stopping, not deterministic plurality orbits."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2506.20411",
+        "material_read": "Full arXiv text rendering, Introduction, Section 5 and Section 10, plus definitions and theorem descriptions",
+        "method": "Compared stopped-time occupancy order statistics, maximal multiplicities, and power-law sparse multinomial regime",
+        "title": "Maximal Counts in the Stopped Occupancy Problem",
+        "trigger": "Possible stronger coverage of the extreme occupancy / maximum-tie portion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1e5d7526-23e9-4190-94d7-99d5e4bc6ec1",
+  "value": {
+    "rationale": "The rule is a natural deterministic full-neighborhood plurality process and the exact orbit criterion captures the central distinction between unique plurality and nonconvergence. Beyond the known birthday case k=2, every fixed k>=3 has a separate critical palette power n^(k/(k-1)), and all those peaks share the exact maximum 2 exp(-2). The sharp exact coefficient count and multiscale stochastic nonconvergence benchmark are useful for studying how growing opinion diversity affects network stabilization. This is not presented as a mere special case of binary majority or as a new general Poisson theorem.",
+    "status": "PASS"
+  }
+}
