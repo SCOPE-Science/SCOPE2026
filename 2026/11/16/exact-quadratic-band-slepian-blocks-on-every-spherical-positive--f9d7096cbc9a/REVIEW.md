@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement restricts to the full low-pass spherical harmonic band of degrees zero, one, and two, for all ambient dimensions at least four. The orthant gamma-moment identity determines every entry. The trivial, standard, and incidence-kernel spaces are orthogonal and exhaustive, with multiplicities summing to the correct full-band dimension. The displayed matrices have been checked independently against full absolute-sphere monomial Gram matrices in dimensions three through nine (224 comparisons/checks). Positivity follows from real analyticity. The asymptotic proof uses the delta-method variance \(1-3/\pi\), moment convergence, conditional quadratic orthogonalization, and a separate lower eigenvalue bound for the standard block. No finite experiment is treated as proof for all dimensions.
+PASS
 
-## Originality — PASS with residual historical risk
+For X=|Gaussian|/norm, direct gamma monomial moments of degrees ≤4 give stated B0 and B1. S_d coordinate permutation representation splits exactly as 3 trivial + 3(d−1) standard + d(d−3)/2 edge-incidence kernel; full sphere basis functions are orthonormal and total dimension d(d+3)/2. Eigenvalues strictly between 0 and 1 because no quadratic polynomial vanishes on an open orthant or its complement. A delta method for S_d gives centered variance 1−3/π; conditional quadratic residual has norm 2ν², forcing symmetric-block min ~(π−3)^2/(2d²) and max ~2d²/π², while the standard block has min Ω(d^(−1)), giving κ∼[2/(π(π−3))]d². Independently evaluated reduced spectra at d=4,5,6,10,30,100,500, including κ(d=4)=387.23607; original checker.py independently forms full monomial Gram matrices for d=3..9. Finite checks do not establish asymptotics.
 
-The closest direct preceding orthant theorem concerns the *pure* degree-two space, not the simultaneous low-pass degrees zero through two. Its two-by-two and scalar sectors cannot determine mixed-degree coefficients: in the present formulas both full-band invariant types have new nonzero off-diagonal entries, and the sharp restriction growth is quadratic in dimension, not linear. A separately available ambient-three-dimensional full-band octant computation supplies only the fixed-dimensional special case and not the general formula or its asymptotic. The published general Slepian method of Simons, Dahlen and Wieczorek supplies a kernel eigenvalue framework, not the evaluated all-dimensional orthant spectrum; Roddy and McEwen develop wavelets for incomplete data rather than this exact spectral result. Related work on hemispheres and quarter-wedges concerns different regions. A general algorithm to form a matrix is not an explicit closed block decomposition or asymptotic constant. The public full texts of the closest orthant theorem and the classical Slepian framework were materially read; the accessible PDF text of the motivating wavelet work was inspected, but screenshot rendering of its large PDF was unavailable. A previously undiscovered specialized table or equivalent formulation remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact orthant is a canonical region for incomplete spherical observation, not a chosen arbitrary slice. The complete low-pass spectrum in unbounded ambient dimension is structurally reduced to two fixed-size matrices, and the sharp \(2/[\pi(\pi-3)]\) dimension-squared condition-number asymptotic identifies a new cross-degree cancellation mechanism absent from pure quadratic analysis. The restriction stability benchmark directly quantifies reconstruction difficulty from an orthant even at fixed low harmonic cutoff; the information is not merely a numerical instance or a renaming of a general kernel formula.
+Best-of-knowledge: substantive comparison of the exact claim and implications with closest published scientific results, including generalizations and potential near-equivalences; residual priority risks explicitly retained.
 
-## Limitations and closest literature
+## value
 
-The analysis does not assert an exact all-dimensional ordering among every root of the two blocks, and it addresses continuous noiseless restriction rather than finite noisy sampling. Historical priority remains provisional and independent mathematical validation has not occurred. Relevant literature: Simons–Dahlen–Wieczorek (2004), Roddy–McEwen (2021), Michel–Plattner–Seibert (2021), and the published pure-quadratic orthant spectrum (2026).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full degree-0..2 mixed-band restriction has an exactly diagonalizable operator of growing dimension and a sharp d² restriction-condition law; the cross-degree cancellation causes asymptotic instability absent from the exact-degree-two result. The low-degree mixed sector and its d-dependent stability are natural quantitative spherical harmonic observation invariants, not just a reparameterized hemisphere law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

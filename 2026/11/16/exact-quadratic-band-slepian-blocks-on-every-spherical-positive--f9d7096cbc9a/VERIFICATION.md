@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-The standalone `checker.py` independently computes full low-pass spherical-harmonic orthant Gram matrices using products of gamma functions for all monomial moments of degree at most four, and compares their eigenvalue multisets with the asserted reduced blocks in ambient dimensions 3 through 9. It reported `PASS: direct absolute-sphere monomial moments vs block spectra, dimensions 3..9: 224 checks` on the delivered source before packaging. Its additional diagnostic dimensions were 10, 20, 50, 100, 300, and 1000; the computed condition-number-to-dimension-squared ratios approached the analytic limit \(2/[\pi(\pi-3)]\). The first computational dimension, 3, is included only as an independent boundary check; the new theorem is stated for dimensions at least 4. Code needs Python 3, NumPy and SciPy.
+## correctness
 
-All-dimensional validity rests on the moment identity, the explicit symmetric-group decomposition, the positive-definite exact moment matrix, and the rigorous asymptotic moment argument in RESULT.md. Floating-point eigenvalue comparisons are supplemental and do not certify the limiting identity. No independent audit was performed.
+PASS
+
+For X=|Gaussian|/norm, direct gamma monomial moments of degrees ≤4 give stated B0 and B1. S_d coordinate permutation representation splits exactly as 3 trivial + 3(d−1) standard + d(d−3)/2 edge-incidence kernel; full sphere basis functions are orthonormal and total dimension d(d+3)/2. Eigenvalues strictly between 0 and 1 because no quadratic polynomial vanishes on an open orthant or its complement. A delta method for S_d gives centered variance 1−3/π; conditional quadratic residual has norm 2ν², forcing symmetric-block min ~(π−3)^2/(2d²) and max ~2d²/π², while the standard block has min Ω(d^(−1)), giving κ∼[2/(π(π−3))]d². Independently evaluated reduced spectra at d=4,5,6,10,30,100,500, including κ(d=4)=387.23607; original checker.py independently forms full monomial Gram matrices for d=3..9. Finite checks do not establish asymptotics.
+
+## originality
+
+PASS
+
+Best-of-knowledge: substantive comparison of the exact claim and implications with closest published scientific results, including generalizations and potential near-equivalences; residual priority risks explicitly retained.
+
+## value
+
+PASS
+
+The full degree-0..2 mixed-band restriction has an exactly diagonalizable operator of growing dimension and a sharp d² restriction-condition law; the cross-degree cancellation causes asymptotic instability absent from the exact-degree-two result. The low-degree mixed sector and its d-dependent stability are natural quantitative spherical harmonic observation invariants, not just a reparameterized hemisphere law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

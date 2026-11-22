@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T12:41:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For X=|Gaussian|/norm, direct gamma monomial moments of degrees ≤4 give stated B0 and B1. S_d coordinate permutation representation splits exactly as 3 trivial + 3(d−1) standard + d(d−3)/2 edge-incidence kernel; full sphere basis functions are orthonormal and total dimension d(d+3)/2. Eigenvalues strictly between 0 and 1 because no quadratic polynomial vanishes on an open orthant or its complement. A delta method for S_d gives centered variance 1−3/π; conditional quadratic residual has norm 2ν², forcing symmetric-block min ~(π−3)^2/(2d²) and max ~2d²/π², while the standard block has min Ω(d^(−1)), giving κ∼[2/(π(π−3))]d². Independently evaluated reduced spectra at d=4,5,6,10,30,100,500, including κ(d=4)=387.23607; original checker.py independently forms full monomial Gram matrices for d=3..9. Finite checks do not establish asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Simons–Dahlen–Wieczorek and Michel–Plattner–Seibert give general spherical concentration integral/kernel matrices; no evaluated all-d orthant three-block spectrum in inspected sections."
+        ],
+        "reasoning": "The general kernel framework formally determines any mask but deriving explicit invariant blocks and the asymptotic extremal constant is additional mathematics; stronger coverage has not been established.",
+        "searches": [
+          "Resultary semantic search: spherical Slepian positive orthant lowpass harmonics 0 1 2 dimension d exact eigen spectrum conditioning",
+          "https://arxiv.org/abs/math/0408424",
+          "https://arxiv.org/abs/2103.14650"
+        ]
+      },
+      "checked_sources": [
+        "Original RESULT.md and checker.py at source tree b28d659f317d83278fea6b774efc36ae764770f6",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-quadratic-spherical-orthant-concentration-and-a-sharp-dime--043aca2fd738",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-complete-quadratic-hemispherical-slepian-spectrum-in-every-s--b091257c4da7",
+        "https://arxiv.org/abs/math/0408424",
+        "https://arxiv.org/abs/2103.14650",
+        "Resultary semantic search: spherical Slepian positive orthant lowpass harmonics 0 1 2 dimension d exact eigen spectrum conditioning"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "H2 theorem gives 2×2 standard blocks and a scalar; current mixed theorem produces 3×3 blocks including constants and linears."
+        ],
+        "reasoning": "Full low-pass restriction is not the direct sum of the separate degree restrictions under an orthant mask; off-diagonal Gram couplings invalidate any naive spectral union.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-quadratic-spherical-orthant-concentration-and-a-sharp-dime--043aca2fd738",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-complete-quadratic-hemispherical-slepian-spectrum-in-every-s--b091257c4da7",
+          "https://arxiv.org/abs/math/0408424"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known exact positive-orthant prior is pure H2, not H0⊕H1⊕H2; hemisphere theorem uses same band but mask {x1>0}."
+        ],
+        "reasoning": "These do not have the nonzero inter-degree Gram couplings in the three-copy trivial and standard blocks on a d-dimensional positive orthant.",
+        "searches": [
+          "Resultary semantic search: spherical Slepian positive orthant lowpass harmonics 0 1 2 dimension d exact eigen spectrum conditioning",
+          "Resultary semantic search: degree 2 lowpass spherical octant Slepian exact eigenvalues positive octant triangle",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-quadratic-spherical-orthant-concentration-and-a-sharp-dime--043aca2fd738",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-complete-quadratic-hemispherical-slepian-spectrum-in-every-s--b091257c4da7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published positive orthant H2 table has four sectors and κ(C_H2)∼d², κ(restriction)∼d, not mixed-band κ∼d²."
+        ],
+        "reasoning": "A pure-degree known table neither gives the 3×3 mixed lowpass blocks nor the fourth-power concentration ratio.",
+        "searches": [
+          "Resultary semantic search: spherical Slepian positive orthant lowpass harmonics 0 1 2 dimension d exact eigen spectrum conditioning",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-quadratic-spherical-orthant-concentration-and-a-sharp-dime--043aca2fd738"
+        ]
+      },
+      "rationale": "Best-of-knowledge: substantive comparison of the exact claim and implications with closest published scientific results, including generalizations and potential near-equivalences; residual priority risks explicitly retained.",
+      "residual_risks": [
+        "An unindexed general quadratic-orthant matrix table could encode the same blocks.",
+        "The all-dimensional asymptotic uses CLT/uniform integrability and positive limiting standard-block Gram, not just the sampled spectra.",
+        "At d=3 the displayed matrices continue algebraically and nearly cover the next record, though the stated theorem is d≥4."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "does not state lowpass H0⊕H1⊕H2 blocks or d² restriction law",
+          "evidence": "Its operator is restricted to H2; current operator has cross-degree couplings.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-quadratic-spherical-orthant-concentration-and-a-sharp-dime--043aca2fd738",
+          "material_read": "full RESULT.md including theorem, fourth moments, B-incidence decomposition and limitations",
+          "method": "read primary published Resultary Git blob",
+          "title": "Exact quadratic spherical-orthant concentration and a sharp dimension-squared stability law",
+          "trigger": "same domain, pure degree-two"
+        },
+        {
+          "assessment": "hemisphere parity cannot be specialized to an orthant",
+          "evidence": "Hermitian sign reflection gives centered half-energy eigenvalues, unlike orthant.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-complete-quadratic-hemispherical-slepian-spectrum-in-every-s--b091257c4da7",
+          "material_read": "full RESULT.md theorem, symmetry decomposition and proof",
+          "method": "read primary published Resultary Git blob",
+          "title": "The complete quadratic hemispherical Slepian spectrum in every sphere dimension",
+          "trigger": "same full band but different positive region"
+        },
+        {
+          "assessment": "general framework only, no orthant exact three-block formula found in material read",
+          "evidence": "Spherical concentration Gram formulation covers arbitrary mask in principle.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0408424",
+          "material_read": "accessible arXiv HTML general concentration construction and relevant formal sections",
+          "method": "arXiv HTML reading",
+          "title": "Spatiospectral concentration on a sphere",
+          "trigger": "foundational generic spectral coverage"
+        },
+        {
+          "assessment": "not the all-d orthant lowpass asymptotic theorem",
+          "evidence": "Different regions and no explicit positive-orthant 3×3 sector theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.14650",
+          "material_read": "accessible arXiv HTML eigenmatrix framework and cap-specific constructions",
+          "method": "arXiv HTML reading",
+          "title": "A Unified Approach to Scalar, Vector, and Tensor Slepian Functions on the Sphere and Their Construction by a Commuting Operator",
+          "trigger": "general spectral operator and commuting constructions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full degree-0..2 mixed-band restriction has an exactly diagonalizable operator of growing dimension and a sharp d² restriction-condition law; the cross-degree cancellation causes asymptotic instability absent from the exact-degree-two result. The low-degree mixed sector and its d-dependent stability are natural quantitative spherical harmonic observation invariants, not just a reparameterized hemisphere law.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Original RESULT.md and checker.py at source tree b28d659f317d83278fea6b774efc36ae764770f6",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-quadratic-spherical-orthant-concentration-and-a-sharp-dime--043aca2fd738",
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-complete-quadratic-hemispherical-slepian-spectrum-in-every-s--b091257c4da7",
+    "https://arxiv.org/abs/math/0408424",
+    "https://arxiv.org/abs/2103.14650",
+    "Resultary semantic search: spherical Slepian positive orthant lowpass harmonics 0 1 2 dimension d exact eigen spectrum conditioning"
+  ],
+  "disposition": "passed",
+  "final_claim": "For d≥4 and V_d=H0⊕H1⊕H2, orthant Slepian spectrum equals 2^(−d) times three roots B0 once, three roots B1 repeated d−1, scalar (1−2/π)^2 repeated d(d−3)/2; κ(restriction)/d² → 2/[π(π−3)].",
+  "limitations": "Only one positive orthant and degree cut-off two for d≥4; no finite sampling or higher degrees, no exact universal dimension ordering of six roots.",
+  "residual_risks": [
+    "An unindexed general quadratic-orthant matrix table could encode the same blocks.",
+    "The all-dimensional asymptotic uses CLT/uniform integrability and positive limiting standard-block Gram, not just the sampled spectra.",
+    "At d=3 the displayed matrices continue algebraically and nearly cover the next record, though the stated theorem is d≥4."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "does not state lowpass H0⊕H1⊕H2 blocks or d² restriction law",
+      "evidence": "Its operator is restricted to H2; current operator has cross-degree couplings.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-quadratic-spherical-orthant-concentration-and-a-sharp-dime--043aca2fd738",
+      "material_read": "full RESULT.md including theorem, fourth moments, B-incidence decomposition and limitations",
+      "method": "read primary published Resultary Git blob",
+      "title": "Exact quadratic spherical-orthant concentration and a sharp dimension-squared stability law",
+      "trigger": "same domain, pure degree-two"
+    },
+    {
+      "assessment": "hemisphere parity cannot be specialized to an orthant",
+      "evidence": "Hermitian sign reflection gives centered half-energy eigenvalues, unlike orthant.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-complete-quadratic-hemispherical-slepian-spectrum-in-every-s--b091257c4da7",
+      "material_read": "full RESULT.md theorem, symmetry decomposition and proof",
+      "method": "read primary published Resultary Git blob",
+      "title": "The complete quadratic hemispherical Slepian spectrum in every sphere dimension",
+      "trigger": "same full band but different positive region"
+    },
+    {
+      "assessment": "general framework only, no orthant exact three-block formula found in material read",
+      "evidence": "Spherical concentration Gram formulation covers arbitrary mask in principle.",
+      "identifier_or_url": "https://arxiv.org/abs/math/0408424",
+      "material_read": "accessible arXiv HTML general concentration construction and relevant formal sections",
+      "method": "arXiv HTML reading",
+      "title": "Spatiospectral concentration on a sphere",
+      "trigger": "foundational generic spectral coverage"
+    },
+    {
+      "assessment": "not the all-d orthant lowpass asymptotic theorem",
+      "evidence": "Different regions and no explicit positive-orthant 3×3 sector theorem.",
+      "identifier_or_url": "https://arxiv.org/abs/2103.14650",
+      "material_read": "accessible arXiv HTML eigenmatrix framework and cap-specific constructions",
+      "method": "arXiv HTML reading",
+      "title": "A Unified Approach to Scalar, Vector, and Tensor Slepian Functions on the Sphere and Their Construction by a Commuting Operator",
+      "trigger": "general spectral operator and commuting constructions"
+    }
+  ]
+}
