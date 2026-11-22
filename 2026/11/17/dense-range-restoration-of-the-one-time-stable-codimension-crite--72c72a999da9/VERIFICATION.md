@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Verification notes
-The full proof is analytic and relies only on the primary theorem expressly cited in RESULT.md plus the independently derived stable-codimension lemma. At time zero the cocycle yields \(\mathcal S(0)=T(s,0)^{-1}\mathcal S(s)\). From the uniform noncritical inequality and bounded growth, the supremum of any bounded future orbit is controlled by a constant times its initial norm, so \(\mathcal S(s)\) is closed. The finite-dimensional complement image is disjoint from \(\mathcal S(s)\) and its sum is closed and dense, therefore the sum is the whole Banach space. This proves stable quotient dimensions at all positive times. Theorem 3 of arXiv:2611.08451v2 supplies the remaining dichotomy equivalence.
+# Independent mathematical audit
 
-The diagonal example is exactly compositional, densely ranged at positive times because finite sequences are in its range, and non-surjective because the test sequence \((q^{n/2})_{n\ge1}\) is square summable while its formal inverse is not. The stable space and invariant splitting are evident from the multiplier formula. No finite experiments or automated theorem certification are used. Historical uniqueness is not asserted.
+## correctness
+
+PASS
+
+After time change tau=log h(t), bounded growth becomes exponential. Uniform noncriticality at r-C bounds each bounded future orbit on [s+C,infinity) by theta times its total supremum; hence supremum occurs in the initial C-window, giving M<=K exp(omega C)||v|| and making every stable bounded-orbit subspace S(s) closed. Cocycle and finite-time boundedness imply S(0)=T(s,0)^(-1)S(s). Choose a d-dimensional complement Z to closed S(0). Then T(s,0)Z is d-dimensional and transverse to S(s); T(s,0)X lies in S(s)+T(s,0)Z, which is closed. Dense range yields X=S(s) directsum T(s,0)Z, so codim S(s)=d at every time. This supplies exactly the missing hypothesis for Dragičević Theorem 3; its other implications close the equivalence cycle. Independent operator analysis of T(t,s)=diag((h(s)/h(t))^n,(h(t)/h(s))) on ell^2(N) plus R confirms dense non-surjective positive-time ranges, invariant stable codim1 and dichotomy. No finite simulation is used as a general functional-analytic proof.
+
+## originality
+
+PASS
+
+The primary Dragičević arXiv:2611.08451 theorem requires finite stable codimension at every s, and Example 1 demonstrates initial-only codimension fails for some noninvertible evolutions. The new dense-range assumption is a precise sufficient regularity condition, not present in the theorem, making the all-time assumption automatic while allowing non-surjective smoothing evolutions. The proof is a short functional-analytic bridge, but its applicability is mathematically motivated and not mechanically a restatement.
+
+## value
+
+PASS
+
+The result removes a difficult continuum-of-times hypothesis from a natural h-dichotomy characterization for an important smoothing class. The dense-range non-surjective diagonal semigroup proves that the class is genuinely broader than invertible/surjective flows, so the clean one-time criterion has practical operator-dynamical usefulness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
