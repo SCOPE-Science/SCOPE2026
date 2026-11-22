@@ -1,15 +1,21 @@
-# Review of sharp lacunarity cutoff
+# Independent mathematical audit
 
-## Correctness — PASS
-The Taylor coefficient expansion follows by geometric division. For \(N=1\), the derivative has positive real part. For \(p=1,2\), comparison to the convex primitive \(\phi_p\) proves close-to-convexity directly. For \(p\ge3,N\ge2\), an exact boundary factorization reveals two consecutive numerator-zero crossings; each contributes negative \(\pi\) to the winding of the tangent, producing a finite-radius arc that violates Kaplan's necessary condition. The endpoints stay away from all boundary zeros and denominator poles, so passage to the limit is valid. No assertion about univalence of the negative examples is required or established.
+## correctness
 
-## Originality — PASS against inspected sources, with explicit risk
-Prajapat (arXiv:2611.02290v1, Theorem 2.1) proves the positive direction for lacunarities one and two but does not classify the higher-lacunarity failure in this family. Kaplan's angular-turn characterization is a classical tool, not a claimed innovation. Searches for the rational derivative, one-jump coefficients, phase aliases, and implication-equivalent statements yielded no covering statement in the inspected sources or available research index. The older Sahoo–Wankhede paper could not be read in full, and indexed search cannot prove absolute novelty.
+PASS
 
-## Value — PASS
-The family has the smallest possible nonconstant monotone coefficient jump and saturates the limit-two hypothesis of a current lacunary close-to-convexity theorem. Its all-integer phase diagram establishes that the published restriction to one or two residue classes is substantive rather than only a proof artifact for this natural testing family. The result isolates the geometric obstruction—two negative turning jumps—without overreaching to injectivity.
+PASS: Geometric series verifies derivative coefficients c0=1, c_k=1 before N, c_k=2 afterward. If N=1, F' has positive real part; if p=1,2, phi_p'=1/(1-z^p) is derivative of a convex map because Re(1+p z^p/(1-z^p))>0, and Re(F'/phi_p')=Re(1+z^{pN})>0. For p≥3,N≥2, the two consecutive numerator boundary zeros at alpha=π/(pN) and beta=3π/(pN) occur strictly in a pole-free sector; unwrapped argument of zF'(z) loses π at each, between smooth slope L=1+p(N-1)/2. For exact eta=(1-2/p)π/(4NL), selected arc has limiting turn -π-(1-2/p)π/(2N)<-π, contradicting Kaplan necessary condition at sufficiently large r<1. Independently checked exact symbolic formula and finite-radius unwrapped turns for (3,2),(4,3),(7,5); finite samples are only corroboration.
 
-## Limitations and closest literature
-The positive direction is already contained in the cited 2026 source; the addition is the exact sharp negative boundary and the exceptional no-delayed-jump subfamily. A related older paper on monotone harmonic coefficients and MacGregor's early analytic article may contain further comparable examples; available full-text coverage was incomplete. No global injectivity classification and no independent audit are claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with full-text priority risk: Prajapat 2026 explicitly proves monotone coefficient sufficient close-to-convexity only for p=1,2 (positive half covered), not the universal obstruction for all p≥3 after one jump. Kaplan is classical but application gives the sharp classification. Sahoo–Wankhede earlier coefficient paper plausibly overlaps; full text inaccessible due disconnected institutional VPN, recorded as priority risk rather than automatic fail.
+
+## value
+
+PASS
+
+PASS: A natural minimal step-function lacunary coefficient family exposes an exact sharp boundary between sufficient monotonicity and failure of close-to-convexity; proving negative p≥3 with a universal angular-turn obstruction is a motivated counterexample to extending the classical coefficient theorem, not merely a numeric small case or a cosmetic parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

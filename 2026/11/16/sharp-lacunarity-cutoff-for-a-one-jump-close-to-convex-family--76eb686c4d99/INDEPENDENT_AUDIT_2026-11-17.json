@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T10:13:12.219457Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Geometric series verifies derivative coefficients c0=1, c_k=1 before N, c_k=2 afterward. If N=1, F' has positive real part; if p=1,2, phi_p'=1/(1-z^p) is derivative of a convex map because Re(1+p z^p/(1-z^p))>0, and Re(F'/phi_p')=Re(1+z^{pN})>0. For p≥3,N≥2, the two consecutive numerator boundary zeros at alpha=π/(pN) and beta=3π/(pN) occur strictly in a pole-free sector; unwrapped argument of zF'(z) loses π at each, between smooth slope L=1+p(N-1)/2. For exact eta=(1-2/p)π/(4NL), selected arc has limiting turn -π-(1-2/p)π/(2N)<-π, contradicting Kaplan necessary condition at sufficiently large r<1. Independently checked exact symbolic formula and finite-radius unwrapped turns for (3,2),(4,3),(7,5); finite samples are only corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prajapat Theorem 2.1 applies to p=1,2 as a sufficient theorem.",
+          "Sahoo–Wankhede title and abstract indicate monotone coefficient context; full text not read."
+        ],
+        "reasoning": "There is no inspected higher-lacunarity necessity/if-and-only-if result. Older broader sufficient monotonicity work could overlap; without its full proof no claim of entire-document noncoverage is made.",
+        "searches": [
+          "Resultary query: close-to-convex one-jump lacunary coefficient family F derivative (1+z^(pN))/(1-z^p) Kaplan criterion",
+          "arXiv:2611.02290v1",
+          "doi:10.4213/rm10072e",
+          "doi:10.1016/j.jmaa.2025.129898"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md and CHECK.py",
+        "arXiv:2611.02290v1, Theorem 2.1 PDF pp.2–3",
+        "doi:10.4213/rm10072e",
+        "doi:10.1016/j.jmaa.2025.129898 (abstract/metadata only)",
+        "MacGregor 1969 bibliographic context"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prajapat gives sufficient positive cases p=1,2, not p≥3 failure.",
+          "Kaplan only supplies necessary turning inequality; determining sharp explicit violating arcs is a new calculation for this family."
+        ],
+        "reasoning": "The positive half follows from known convex comparison, but negative universal obstruction for all higher lacunarity does not logically follow from a sufficient theorem restricted to small p. A related historical manuscript remains inaccessible.",
+        "searches": [
+          "Resultary query: close-to-convex one-jump lacunary coefficient family F derivative (1+z^(pN))/(1-z^p) Kaplan criterion",
+          "arXiv:2611.02290v1",
+          "doi:10.4213/rm10072e",
+          "doi:10.1016/j.jmaa.2025.129898"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Coefficient sequence (1,...,1,2,2,...) on powers z^{pk} matches geometric derivative ratio.",
+          "For p≥3,N≥2 the two boundary zeros create turn less than -π and therefore violate Kaplan."
+        ],
+        "reasoning": "Equivalent formulations checked by derivative coefficients, univalence/close-to-convex terminology, angular turning criterion; failure of close-to-convexity is strictly weaker than noninjectivity.",
+        "searches": [
+          "Resultary query: close-to-convex one-jump lacunary coefficient family F derivative (1+z^(pN))/(1-z^p) Kaplan criterion",
+          "arXiv:2611.02290v1",
+          "doi:10.4213/rm10072e",
+          "doi:10.1016/j.jmaa.2025.129898"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic results include exact current record but no named prior exact iff-cutoff record.",
+          "Prajapat explicitly restricts monotonicity theorem p∈{1,2}."
+        ],
+        "reasoning": "This is a continuous geometric classification, not an exact database/table invariant. Searches cannot rule out unindexed coefficient-sequence examples; specific reason table coverage is inapplicable is that no finite-table quantity is asserted.",
+        "searches": [
+          "Resultary query: close-to-convex one-jump lacunary coefficient family F derivative (1+z^(pN))/(1-z^p) Kaplan criterion",
+          "arXiv:2611.02290v1",
+          "doi:10.4213/rm10072e",
+          "doi:10.1016/j.jmaa.2025.129898"
+        ]
+      },
+      "rationale": "PASS with full-text priority risk: Prajapat 2026 explicitly proves monotone coefficient sufficient close-to-convexity only for p=1,2 (positive half covered), not the universal obstruction for all p≥3 after one jump. Kaplan is classical but application gives the sharp classification. Sahoo–Wankhede earlier coefficient paper plausibly overlaps; full text inaccessible due disconnected institutional VPN, recorded as priority risk rather than automatic fail.",
+      "residual_risks": [
+        "Full Sahoo–Wankhede 2026 paper not read; institutional VPN disconnected and request cannot proceed without human intervention",
+        "A broader historical close-to-convex coefficient example may imply this explicit higher-p cutoff"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "POSITIVE_HALF_COVERED, negative p≥3 cutoff not established there",
+          "evidence": "Theorem 2.1 allows lacunarity p in {1,2}; our negative p≥3 for N≥2 requires separate Kaplan arc",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.02290",
+          "material_read": "PDF pages 2–3, including Theorem 2.1 hypothesis and its proof, inspected as page images",
+          "method": "Public arXiv PDF opened and page screenshots read",
+          "title": "Monotonicity and bounded variation for harmonic mappings with applications to special functions",
+          "trigger": "Identical monotone lacunary coefficient conditions"
+        },
+        {
+          "assessment": "INACCESSIBLE; material does not determine whether paper covers this family. No forced originality FAIL from access alone",
+          "evidence": "Oxford download status vpn_disconnected; priority overlap unresolved",
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2025.129898",
+          "material_read": "Only metadata and abstract-related information accessible; full text NOT obtained",
+          "method": "Open-access/preprint discovery tried, then authorized institutional full-text request returned VPN disconnected",
+          "title": "Monotone coefficients of univalent harmonic functions with applications to special functions",
+          "trigger": "Plausible earlier higher-lacunarity coefficient coverage"
+        },
+        {
+          "assessment": "CLASSICAL_PREREQUISITE, explicit negative arcs are separate",
+          "evidence": "Close-to-convex functions satisfy turn along arcs greater than -π",
+          "identifier_or_url": "https://doi.org/10.4213/rm10072e",
+          "material_read": "Accessible cited theorem description and claimed criterion, not full historical proof re-derived",
+          "method": "Citation and mathematical application",
+          "title": "Kaplan close-to-convex angular-turn criterion",
+          "trigger": "Necessary turn bound used in negative proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A natural minimal step-function lacunary coefficient family exposes an exact sharp boundary between sufficient monotonicity and failure of close-to-convexity; proving negative p≥3 with a universal angular-turn obstruction is a motivated counterexample to extending the classical coefficient theorem, not merely a numeric small case or a cosmetic parameter substitution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Failure of close-to-convexity does NOT imply non-univalence",
+    "Only one-jump coefficients and integer p,N, not all monotone lacunary families"
+  ],
+  "schema_version": 1
+}
