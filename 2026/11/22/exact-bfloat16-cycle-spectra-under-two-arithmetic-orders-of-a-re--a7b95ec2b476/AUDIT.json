@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "All 16,385 nonnegative bfloat16 codes 0x0000..0x4000 are enumerated, including subnormals and positive zero. The bfloat16 value is exactly v/2^133 with integer v=f for exponent zero and v=(128+f)2^(e-1) otherwise. Exact integer rounding with even-pattern tie breaking creates the two complete successor lists, separately cross-checked for every state by exact fractions. Two distinct functional-graph algorithms agree on every cycle vertex set, basin multiset and maximum preperiod. This exhaustively proves the listed primitive period and basin counts and 3,545 unequal successor edges. The invariant range [0,2] is independently bounded. Extracted check.py is necessary for the finite certificate. It proves neither real chaos nor any physical implementation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Klöwer et al. 2023 PMC10349059 §§ Periodic orbits, logistic and generalized Bernoulli analyzes generic precision collapse and bfloat16 but not this precise remainder-added map.",
+        "published-finding corpus hit 2026/11/8/SCOPE-two-exact-cycle-spectra-for-differently-rounded-half-precision-b--384041ddfda5 gives an exact binary16 beta-shift census at beta=3/2, with different symbols, domain and output periods."
+      ],
+      "reasoning": "General inevitability of eventual periodicity on finite sets does not imply the counts. The existing complete binary16 beta-shift result is structurally relevant but uses x -> frac(3x/2), whereas here x -> x/10 + frac(100x) and bfloat16; no conjugacy or change-of-variable was found that transforms one rounded graph into the other. Exact calculated period spectra differ.",
+      "searches": [
+        "published-finding corpus semantic: finite precision remainder operator addition chaotic map rounding placement 100 x plus x divided ten exact functional graph",
+        "published-finding corpus semantic: periodic collapse quantization state space robust chaos modulo map exact cycle count bfloat16",
+        "published-finding corpus semantic: 2022 Moysis Kafetzis Baptista Volos exact bfloat16 finite state 100x remainder plus x/10, two rounding orders, 24 cycle 18 cycle 3 cycle",
+        "web: Klöwer finite precision chaotic dynamical systems logistic map artificial periodicity 2020 2022 paper",
+        "web: roundoff remainder chaotic map implementation finite precision cycles bfloat16 cryptography"
+      ]
+    },
+    "checked_sources": [
+      "https://www.mdpi.com/2227-7390/10/15/2801",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC10349059/",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-two-exact-cycle-spectra-for-differently-rounded-half-precision-b--384041ddfda5",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-a-sharp-confinement-transition-and-exact-golden-ratio-transport--2024fba9948d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Moysis et al. (2022), eq. (23), Figure 5 and §§2.3,4.1: source map and parameters, no bfloat16 census.",
+        "Klöwer et al. (2023), full HTML §§ Periodic orbits and number formats, logistic and beta shift: general low-precision periods, no exact counts for this source recurrence.",
+        "Published exact binary16 beta-shift RESULT.md (read via public GitHub connector) gives period spectra {1,3,8,18,164} and {1,3,4,24,41} for a pure beta map, not the combined fractional-part plus contraction.",
+        "Published exact-real remainder RESULT.md (read via public GitHub connector) proves a k=1 transport boundary and convergence claims, not bfloat16 code graphs at k=10."
+      ],
+      "reasoning": "The target theorem asserts complete code-to-code successor graphs at a specific published finite-precision specification; the cited real-valued expansivity, generic finite periodicity, and other models do not contain exact values of those edges or counts, so they cannot entail the numerically specific result without a new computation. No decisive stronger same-map tabulation was found.",
+      "searches": [
+        "published-finding corpus semantic: bfloat16 remainder addition chaotification linear seed 2022 Moysis Kafetzis Baptista Volos finite precision cycle basin graph",
+        "published-finding corpus semantic: finite precision remainder operator addition chaotic map rounding placement 100 x plus x divided ten exact functional graph",
+        "published-finding corpus semantic: periodic collapse quantization state space robust chaos modulo map exact cycle count bfloat16",
+        "published-finding corpus semantic: 2022 Moysis Kafetzis Baptista Volos exact bfloat16 finite state 100x remainder plus x/10, two rounding orders, 24 cycle 18 cycle 3 cycle",
+        "web: 2022 new chaotic map tent logistic invariant density dynamical properties one dimensional map exact recurrence",
+        "web: Klöwer finite precision chaotic dynamical systems logistic map artificial periodicity 2020 2022 paper"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2022 source equation (23) specializes to H(x)=x/10+rem(100x,1); its Figure 5 uses k=10, a=100, N=1.",
+        "published-finding corpus hit 2026/11/1/SCOPE-a-sharp-confinement-transition-and-exact-golden-ratio-transport--2024fba9948d gives exact-real confinement and critical golden-mean transport but no rounding semantics."
+      ],
+      "reasoning": "The only meaningful algebraic reformulation of the source at these parameters is a contraction plus fractional part, not a pure beta shift. The exact-real recurrence is not equivalent to A or B because both are defined on finite bfloat16 codes and explicitly round; the staged product changes the modulo phase. No retrieved same-map bfloat16 identity implies the enumerated graph.",
+      "searches": [
+        "published-finding corpus semantic: bfloat16 remainder addition chaotification linear seed 2022 Moysis Kafetzis Baptista Volos finite precision cycle basin graph",
+        "published-finding corpus semantic: finite precision remainder operator addition chaotic map rounding placement 100 x plus x divided ten exact functional graph",
+        "web: \"finite precision dynamics remainder addition chaotification 2022 Moysis Kafetzis bfloat16 periodic\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Source Figure 5 gives real-number cobweb rather than exhaustive bfloat16 transition table.",
+        "published-finding corpus hit 2026/11/8/SCOPE-two-exact-cycle-spectra-for-differently-rounded-half-precision-b--384041ddfda5 tables 15,360 binary16 states; the present calculation has 16,385 bfloat16 states and different map."
+      ],
+      "reasoning": "No inspected paper, published tabulation, or own accessible claim lists the 16,385-state bfloat16 results for this source parameter and both operation orders. This is a bounded evidence assessment rather than proof of global uniqueness.",
+      "searches": [
+        "published-finding corpus semantic: 2022 Moysis Kafetzis Baptista Volos exact bfloat16 finite state 100x remainder plus x/10, two rounding orders, 24 cycle 18 cycle 3 cycle",
+        "web: finite precision dynamics remainder addition chaotification 2022 Moysis Kafetzis bfloat16 periodic"
+      ]
+    },
+    "rationale": "The 2022 originating article specifies the exact recurrence and source parameters, but its Lyapunov/phase-diagram analysis and precision discussion do not give either bfloat16 graph. The 2023 full low-precision study treats logistic and Bernoulli maps, not this remainder-plus-contraction map. The closest published exact binary16 beta-shift rounding comparison has different transition functions and cannot imply the specific periods, basin populations, and changed-edge count. The published exact-real confinement and golden transport theorem for the same family does not determine finite-rounding dynamics. Independent comprehensive priority verification is outstanding.",
+    "residual_risks": [
+      "Unindexed or unpublished precise bfloat16 computations of this map and rounding semantics may exist.",
+      "Different platform remainder implementation or intermediate optimizations could produce a different state graph; the theorem fixes exact arithmetic conventions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces same real map and numerical context; does not classify any finite bfloat16 state graph or operation-stage distinction",
+        "evidence": [
+          "Published 2022-08-07",
+          "Equation (23) H(x)=x/k+rem(ax,N), Figure 5 k=10,a=100,N=1",
+          "§2.3 discusses device accuracy and remainder mixing"
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2227-7390/10/15/2801",
+        "material_read": "HTML §§1.3, 2.1, 2.3, 4.1, figure captions and numerical implementation discussion",
+        "method": "Read the primary full open-access HTML, including displayed formulas and exact canonical parameter caption",
+        "title": "Chaotification of One-Dimensional Maps Based on Remainder Operator Addition",
+        "trigger": "Primary same-map recurrence and parameter values"
+      },
+      {
+        "assessment": "Proves/motivates general low-precision cycle mechanism on different maps; no equivalent two-order census for this remainder-added recurrence",
+        "evidence": [
+          "Published 2023-07-14",
+          "Generalized beta map is frac(beta x); paper studies bfloat16 and finite cycle artifacts"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10349059/",
+        "material_read": "Open full PMC HTML: abstract, introduction, Periodic orbits and number formats, logistic and generalized Bernoulli map discussions",
+        "method": "Read text and compared dynamical formulas, rounding stage and exact tabulated quantities",
+        "title": "Periodic orbits in chaotic systems simulated at low precision",
+        "trigger": "Potential broad domination by precision-collapse and bfloat16 study"
+      },
+      {
+        "assessment": "Different map beta=3/2 in binary16, not a stronger theorem covering the source remainder-added map in bfloat16",
+        "evidence": [
+          "Published result uses x -> frac(3x/2), binary16 15,360 states",
+          "Five cycles per arithmetic order, distinct from target three versus ten cycles"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-two-exact-cycle-spectra-for-differently-rounded-half-precision-b--384041ddfda5",
+        "material_read": "Full RESULT.md, including theorem, proof, exact tables, limitations and references",
+        "method": "Read public repository file through GitHub connector and compared precise successor functions and finite domains",
+        "title": "Two exact cycle spectra for differently rounded half-precision beta shifts",
+        "trigger": "Very close finite-state two-rounding published result"
+      },
+      {
+        "assessment": "Confines real dynamics and analyzes critical k=1 golden-ratio phase; neither implies exact staged bfloat16 graph at k=10",
+        "evidence": [
+          "Exact-real theorem for H_{a,k}(x)=x/k+rem(ax,1)",
+          "Golden-ratio transport at k=1 is disjoint from current numerical setting"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-a-sharp-confinement-transition-and-exact-golden-ratio-transport--2024fba9948d",
+        "material_read": "Full RESULT.md including scope and proof",
+        "method": "Read public repository source through GitHub connector; compared parameter k, exact real versus rounded state spaces and theorem implications",
+        "title": "A sharp confinement transition and exact golden-ratio transport statistics for a remainder-added linear map",
+        "trigger": "Closest published same-map family under real semantics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a7b95ec2-b476-4a49-85af-cdfc6ba37852",
+  "value": {
+    "rationale": "The paper itself highlights the linear source k=10,a=100,N=1 and its digit-mixing implementation for chaotic pseudo-random sequences. Complete periods and basins for a standard 16-bit arithmetic format are direct practical dynamical invariants, not an arbitrary parameter slice. Inserting intermediate rounding replaces two nonzero cycles (period 18 and 24) by a fixed point plus eight period-3 cycles, and exactly 3,545 of 16,385 immediate successors change. The result gives a meaningful concrete warning about dependence on evaluation semantics, while explicitly avoiding unverified security claims. General finite-state eventual periodicity, known already, does not provide these spectra or basin partitions.",
+    "status": "PASS"
+  }
+}
