@@ -1,0 +1,15 @@
+# Scientific review: A unique rate-optimal gain for packet-erased one-step-delayed gradient descent
+
+## Correctness — PASS
+For iid packet-delivery probability \(p\in(0,1)\), the full covariance transfer of the fixed-gain scalar quadratic recursion \(X_{k+1}=X_k-h B_kX_{k-1}\) is primitive after three steps. The Perron eigenvalue is therefore the exact asymptotic expected-square contraction factor from every nonzero deterministic initialization. Exact expansion of its determinant and the stationary resultant gives \(Q_p(h)=(1-p)^2h^3-8(1+p)h^2+8h-1\). The strict sign and concavity argument proves one global minimizing positive gain and establishes its reliability monotonicity, not merely a tested numerical optimum. The verification script replays symbolic identities, 405 exact-rational finite path/moment comparisons and 99 supplemental numerical rate comparisons. Those finite checks are not substituted for the all-parameter proof.
+
+## Originality — PASS, subject to historical priority
+The closest published Bernoulli fresh-or-stale gradient theorem has the **same algebraic stability boundary** after parameter substitution, so that formula is not advanced as new. The new result optimizes a different covariance transfer, arising when a packet is either missing or one-step-stale, and proves its unique exact spectral-rate optimizer, cubic and strict reliability dependence. The general 2014 lifted stochastic-delay stability method is explicitly acknowledged as prior art. The close public 2026 fresh-or-stale theorem and separate Bernoulli-erased heavy-ball theorem were inspected in full. The primary 2018/2020 consistently-delayed SGD, 2021 iid random-channel control, and 2022 delay-adaptive learning papers were inspected in their actual PDF text. A 2023 predictor-like random-packet controller paper was checked at abstract level only, and broader specialized coverage cannot be excluded. The claim therefore does not assert definitive first historical discovery.
+
+## Value — PASS
+An intermittent feedback mechanism with one-update latency is a standard numerical optimization design constraint. The exact rate-optimal gain depends nontrivially on delivery probability, is not the mere stability threshold, and is strictly inferior to an optimally tuned fresh-packet baseline. Its limits and monotonicity provide a directly applicable calibration rule; neither finite-horizon optimality nor pathwise optimality is asserted.
+
+## Scope and remaining risks
+The theorem covers one scalar positive quadratic curvature, noiseless delivered gradients, iid Bernoulli delivery, no packet replacement, constant gain, and asymptotic mean-square rate. It does not extend to adaptive gains, correlated erasures, multiple delays, general Hessians, or optimized wall-clock throughput. The 2023 random-packet control publisher full text and the broader switched-system literature leave a residual historical-priority risk. Independent mathematical and priority validation are not performed.
+
+Self-review: passed. Independent audit: not yet performed.

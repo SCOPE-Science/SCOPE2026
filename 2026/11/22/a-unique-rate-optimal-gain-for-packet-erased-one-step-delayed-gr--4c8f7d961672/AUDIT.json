@@ -1,0 +1,175 @@
+{
+  "correctness": {
+    "rationale": "For the exact iid erased-or-one-step-stale iteration, the 2-by-2 covariance operator is primitive at third power. Its Perron eigenvalue therefore is the asymptotic squared-error factor for every nonzero deterministic initial state. Direct determinant and resultant identities give the characteristic cubic and optimizer cubic. F(1,h), a strict lower bound on Perron r, positivity of F_r, and strict concavity of Q on [0,h_c] imply exact stability and unique global minimization. Q_p<0 and Q_h<0 on the larger-root branch prove h_* strictly decreasing. Exact series and a positive Perron functional prove the endpoint laws and strict gap to fresh packets. The standalone verifier reproduces key identities, 405 exact-rational finite branch/moment checks and 99 supplemental numerical optimizer comparisons; numerical tests do not substitute for the proof. Boundaries are 0<p<1 and h>0.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arjevani et al., PMLR 117, model with systematically stale gradients and tight bounds does not use iid erasure-or-stale updates or optimize the exact second-moment Perron eigenvalue of the proposed transfer.",
+        "Wu et al., PMLR 162, delay-adaptive algorithms and guarantees concern variable delays and a different tuning objective; abstract and method sections were inspected.",
+        "Xu et al., SIAM 2023, abstract concerns stabilization with random delays and packet drops by a predictor-like controller; full text was not inspected, so dominance risk remains.",
+        "Published record 11f2caf45cc5 concerns unbiased fresh-gradient Bernoulli erasure with raw heavy-ball momentum, not erased one-step-delayed observations.",
+        "Su, Li and Lu arxiv:2108.12795 models an iid random-delay/packet-drop control channel and gives frequency-domain input-output stability/stabilizability criteria, but analyzes stabilizing controllers rather than a unique fixed-step scalar gradient asymptotic squared-error rate.",
+        "Gomez et al. 2014, equation (1) treats X(k+1)=A X(k)+B X(k-tau(k)) with mutually independent positive-integer random delays and fixed A,B; its exact lifted second-moment stability method predates this result. It does not state the rate-optimal fixed gain for erasure-or-one-step-old feedback, which randomly zeros the delayed coefficient."
+      ],
+      "reasoning": "General lifted-covariance stability and spectral-radius optimization frameworks could encompass the recurrence implicitly, and earlier strong general results could dominate it. The actual inspected sources do not explicitly yield the unique algebraic optimizer or strictly monotone reliability tuning for this precise recurrence; the inaccessible full text and broader control literature are residual priority risks.",
+      "searches": [
+        "published-finding corpus: \"optimal step size fastest mean square convergence Bernoulli packet erased one step delayed scalar gradient\"",
+        "published-finding corpus: \"randomized asynchronous delayed gradient x k minus eta Bernoulli x k-1 optimal step spectral radius\"",
+        "Primary: Arjevani Shamir Srebro 2020 tight convergence delayed updates; PMLR 117 full PDF and appendix characteristic-root treatment",
+        "Primary: Wu Magnusson Feyzmahdavian Johansson 2022 delay-adaptive step sizes asynchronous learning; PMLR 162 full PDF",
+        "Primary: Xu Zhang Gu Tang 2023 stabilization random delays packet drops doi:10.1137/22M1496062 abstract",
+        "Primary: Su Li Lu 2021, arxiv:2108.12795, mean-square input-output stability and channel dropout",
+        "Primary: Gomez Qin Orosz Murray 2014, Exact Stability Analysis of Discrete-Time Linear Systems with Stochastic Delays, full PDF"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1806.10188 and https://proceedings.mlr.press/v117/arjevani20a/arjevani20a.pdf",
+      "https://proceedings.mlr.press/v162/wu22g/wu22g.pdf",
+      "https://doi.org/10.1137/22M1496062 (abstract only)",
+      "published-finding corpus published 2026/11/2/1b8d6aef9d3a (complete RESULT.md)",
+      "published-finding corpus published 2026/11/2/11f2caf45cc5 (complete RESULT.md)",
+      "Accessible current-week own historical ledger claims, checked for duplication only",
+      "arxiv:2108.12795, primary PDF sections inspected",
+      "Gomez et al. 2014 ACC full open primary PDF, https://websites.umich.edu/~orosz/articles/ACC_2014_paper2.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Both the present and fresh/stale models share h+ph^2<2, hence the stability boundary is already covered in substance and is explicitly marked nonnovel.",
+        "The present moment characteristic F(r,h)=r^3+(ph-1)r^2+ph(1-h)r-p^2h^3 differs from the published fresh/stale transfer characteristic; the unique optimality condition is Q(h)=(1-p)^2h^3-8(1+p)h^2+8h-1.",
+        "The previous fresh-erased heavy-ball study has update X_{n+1}=(1+beta-gamma B_n/p)X_n-beta X_{n-1}, so erasure retains momentum and observed gradients are current. Neither reproduces an erased-or-stale gradient iteration."
+      ],
+      "reasoning": "The new claim is limited to global uniqueness of the asymptotic mean-square-optimal gain, its cubic characterization and strictly decreasing reliability dependence, with a quantified gap from fresh delivered gradients. The common stability threshold is context only. Distinct covariance maps and objective optimizers rule out a direct corollary from the most relevant inspected prior results; broad uninspected specializations remain possible.",
+      "searches": [
+        "published-finding corpus: \"skipped stale gradient fixed delay fastest mean square rate exact cubic\"",
+        "published-finding corpus: \"randomly skipped delayed gradient mean square optimal contraction rate\"",
+        "published-finding corpus identifier 2026/11/2/1b8d6aef9d3a full RESULT.md",
+        "published-finding corpus identifier 2026/11/2/11f2caf45cc5 full RESULT.md"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published record 1b8d6aef9d3a defines fresh-or-stale update X_{n+1}=X_n-zX_{n-D_n}, with fixed D_n Bernoulli(q), and proves q z^2+z<2. Its full RESULT.md was read.",
+        "The new erased-or-stale transfer has first coefficients (1, -2ph,ph^2), whereas the published fresh-or-stale transfer has ((1-p)(1-h)^2+p,-2ph,ph^2) and different second row. They have the same algebraic critical boundary, not the same characteristic polynomial.",
+        "For p=1/2, the new minimum is 0.630225254562... at h=0.508001532586..., while the fresh-or-stale covariance operator has an approximate minimum of 0.309016994375 at h=0.381966..."
+      ],
+      "reasoning": "The sharp stability inequality itself is shared algebraically with a different published model and is excluded from the novelty claim. A shared stability root does not imply equal covariance transfer, spectral radius, optimal tuning, unique cubic, or reliability monotonicity. The two models have distinct optimization objectives and different optimizer values; no exact reduction supplying the newly claimed rate optimization was identified.",
+      "searches": [
+        "published-finding corpus: \"one-step delayed Bernoulli packet-loss gradient exact minimizing asymptotic squared-error rate\"",
+        "published-finding corpus: \"erased versus one-step delayed gradient descent optimal fixed gain cubic convergence\"",
+        "published-finding corpus: \"Bernoulli erased delayed gradient update spectral radius fastest optimal learning rate\"",
+        "published-finding corpus: \"scalar delayed gradient descent Bernoulli packet dropout mean square stability threshold p h squared plus h minus two cubic optimal step\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published record 1b8d6aef9d3a has a different fresh/stale transfer and the same stability boundary, not the present optimizer cubic.",
+        "Closest published record 11f2caf45cc5 studies another packet-delivery model and three objectives; no exact cubic for this model was found.",
+        "In the accessible current-week ledger, 137 earlier finding claims were read for deduplication; no match for erased one-step-stale gradient optimal spectral rate was identified."
+      ],
+      "reasoning": "The central result is not a finite tabulation: it is a quantified optimizer for a continuous reliability family. Local and indexed searching found no exact record/table for this same model, but absence from search does not prove absolute novelty.",
+      "searches": [
+        "published-finding corpus: \"packet erasure delayed update second moment cubic unique optimal gain\"",
+        "published-finding corpus: \"one-step delayed Bernoulli packet-loss gradient exact minimizing asymptotic squared-error rate\"",
+        "Own ledger: claim keyword/alias search of available current-week JSONL (Bernoulli; packet; staleness; gain; gradient delay; mean-square; spectral rate)"
+      ]
+    },
+    "rationale": "The acceptance claim is the unique reliability-dependent global mean-square rate optimizer, its exact cubic and strictly decreasing optimal-gain law for erased one-step-stale gradient packets. The previously published fresh-or-stale model has the identical algebraic stability threshold, and this shared threshold is not claimed to be original. The full relevant published results involve genuinely different moment maps and do not imply the new rate-minimizing cubic. General random-control specializations remain a priority risk.",
+    "residual_risks": [
+      "Publisher full text of the 2023 predictor-like controller work was not accessible; it may contain a specialized optimization implication.",
+      "A general stochastic packet-loss control result might imply the cubic through a specialization even if not explicitly indexed.",
+      "Search negative results are not a uniqueness or historical-priority certificate; independent priority review not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Consistently delayed SGD with stochastic gradient noise, not iid dropping of one-step-delayed gradient packets and global second-moment optimal gain",
+        "evidence": [
+          "PMLR 117 (2020), main deterministic lag recurrence and Appendix A root calculations"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v117/arjevani20a/arjevani20a.pdf",
+        "material_read": "Full PDF portions covering model, main convergence results, delay-one recursion and characteristic-root appendix; 22-page primary source; PDF page 2 visually inspected",
+        "method": "Read primary PDF text and viewed PDF page image; inspected equations and appendix root methodology",
+        "title": "A Tight Convergence Analysis for Stochastic Gradient Descent with Delayed Updates",
+        "trigger": "Relevant scalar quadratic delayed-gradient convergence analysis"
+      },
+      {
+        "assessment": "Different delay-adaptive optimization objective and scheduling, not direct sharp gain result for iid erased-and-stale gradient packets",
+        "evidence": [
+          "PMLR 162 (2022), delay-adaptive step-size algorithm and convergence bounds"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v162/wu22g/wu22g.pdf",
+        "material_read": "Primary 21-page PDF model and algorithm sections, convergence statements and relevant searches for Bernoulli scheduling; page 3 visually inspected",
+        "method": "Read PDF text; inspected main results and screenshot",
+        "title": "Delay-Adaptive Step-sizes for Asynchronous Learning",
+        "trigger": "Potential general results on adaptive steps with delays"
+      },
+      {
+        "assessment": "Exactly same algebraic stability threshold after parameter relabeling, which is not claimed novel; distinct covariance rate and optimized gain remain separate",
+        "evidence": [
+          "Fresh-or-stale recurrence X_{n+1}=X_n-zX_{n-D_n}; positive energy identity qz^2+z<2"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-quadratic-energy-and-the-sharp-mean-square-frontier-for-be--1b8d6aef9d3a/RESULT.md",
+        "material_read": "Complete public RESULT.md including theorem, proof, verification, references and limitations",
+        "method": "Fetched complete file and compared mathematical recursions, moment maps, stability inequality and objectives",
+        "title": "Exact quadratic energy and the sharp mean-square frontier for Bernoulli stale-gradient descent",
+        "trigger": "Very close Bernoulli stale-gradient model; potential exact coverage"
+      },
+      {
+        "assessment": "Fresh unbiased Bernoulli-erased gradient plus momentum, rather than delayed delivered-gradient feedback; no direct proof of new root",
+        "evidence": [
+          "Raw heavy-ball update with current-gradient B_n X_n/p and momentum beta"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-a-three-objective-conflict-for-bernoulli-erased-heavy-ball-optim--11f2caf45cc5/RESULT.md",
+        "material_read": "Complete public RESULT.md including theorem, moment recursion, proof, examples and references",
+        "method": "Fetched complete file; compared feedback timing and covariance operator",
+        "title": "A three-objective conflict for Bernoulli-erased heavy-ball optimization",
+        "trigger": "Bernoulli erasure of gradient in two-state optimization recursion"
+      },
+      {
+        "assessment": "Could provide a broad implicit stability framework; whether it explicitly yields the exact optimal gain is unresolved",
+        "evidence": [
+          "2023 SIAM article abstract on random delay and packet-drop stabilization"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/22M1496062",
+        "material_read": "Publisher abstract and bibliographic data only; full article inaccessible",
+        "method": "Abstract-level comparison only, no full-text assessment",
+        "title": "Stabilization of Discrete-Time Systems with Random Delays and Packet Drops: A Predictor-Like Controller",
+        "trigger": "Possible broader control-system theorem"
+      },
+      {
+        "assessment": "Broad frequency-domain mean-square stability framework, no explicit fixed-gain spectral-radius optimizer for a scalar gradient iteration located in the examined material",
+        "evidence": [
+          "arxiv:2108.12795, pp. 1–5 model; sections 3–4 stability and stabilizability criteria; section 6 conclusions"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2108.12795",
+        "material_read": "30-page open PDF, abstract, introduction, channel/receiver formulation, stability criterion and stabilizability equations through section 4, conclusions; page 5 visually inspected",
+        "method": "Read primary PDF text, searched optimal and mean-square stability theorem, and inspected model page screenshot",
+        "title": "Mean-Square Input-Output Stability and Stabilizability of a Networked Control System with Random Channel Induced Delays",
+        "trigger": "Highly relevant iid channel-induced delay/dropout model that could imply the scalar feedback optimization"
+      },
+      {
+        "assessment": "General exact lifted-moment framework is prior and acknowledged, but it assumes a constant delayed feedback coefficient with randomly chosen positive delay rather than an iid coefficient that vanishes on erasure; no exact gain-minimizing spectral-rate cubic identified",
+        "evidence": [
+          "2014 ACC paper pp.1–6, equation (1) fixed A,B and random positive-integer delay; second-moment stability lift"
+        ],
+        "identifier_or_url": "https://websites.umich.edu/~orosz/articles/ACC_2014_paper2.pdf",
+        "material_read": "Complete six-page primary paper text, including problem formulation, random-state lift, necessary and sufficient stability conditions and example; first page visually inspected",
+        "method": "Read the primary PDF, checked model equation (1), covariance lift, stability result and searched for optimizer/rate formulations",
+        "title": "Exact Stability Analysis of Discrete-Time Linear Systems with Stochastic Delays",
+        "trigger": "Potential dominating stochastic-delay second-moment theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4c8f7d96-1672-45cc-a75e-674e1f410a6b",
+  "value": {
+    "rationale": "For a natural optimization feedback constraint—independently erased one-step-old gradients—the globally best fixed learning rate is not the stability ceiling or the delay-free optimizer. The cubic gives exact usable calibration at every delivery probability, proves monotone movement between limiting gains 1 and 1/4, and quantifies the irreducible second-moment rate cost of staleness. It is a motivated scalar baseline for intermittent delayed-gradient methods rather than arbitrary parameter numerology. Finite-horizon and multidimensional extensions are unproved.",
+    "status": "PASS"
+  }
+}
