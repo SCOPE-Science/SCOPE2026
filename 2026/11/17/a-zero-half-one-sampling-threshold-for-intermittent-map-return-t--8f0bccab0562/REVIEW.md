@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact first-return law follows from the source's right-branch linearization and inverse iterates. Coupling to a power of a shifted exponential variable is exact. The mean-scale asymptotic, gamma tilted law and CLT, truncation variance, and three-part critical decomposition prove the stated convergence for all fixed sampling exponents. `verify.py` numerically tests identities and finite analytic bounds, not an infinite proof.
+## correctness
 
-**Originality — PASS (with priority risk).** Li (arXiv:2611.06416v1) treats macroscopic return-time spectra along individual orbits, not independently restarted return-mean estimation at the parameter/sample-size double limit. The shifted-exponential law is deducible from its inverse branches and is explicitly credited; the three-regime empirical convergence requires additional rare-event and gamma asymptotics. Published-record comparisons include general thin-tail near-maxima and small-Weibull-shape results. A more general unindexed triangular-array theorem might imply the result.
+PASS
 
-**Mathematical value — PASS.** First-return means are natural recurrence invariants, but severe intermittency makes naive independent-seed estimation unreliable. Identifying exactly how exponentially growing sample counts restore consistency, including the one-half boundary, provides a concrete, parameter-uniform threshold rather than merely a finite example.
+Reconstructed source Proposition 4.22 inverse return shells x_n=exp(1-(n+1)^delta). Because right first branch sends normalized uniform Y seeds to uniform [0,1], P(tau>n)=exp(1-(n+1)^delta), hence tau has exact floor((1+E)^(1/delta)) law with E~Exp(1). Integerization costs less than one per observation; true mean is asymptotically e Gamma(q+1) for q=1/delta. Tilted Z^q weights have a truncated Gamma(q+1,1) mass law, which concentrates at q with O(sqrt q) spread. For c<1 maxima lie below bq, c<b<1 while that truncated expectation mass→0; for c>1 truncate at bq with 1<b<c and variance ≤(bq)^q/(e^(cq)mu_q)→0, missing expectation→0. At c=1 cutoff q±q^(1/4) leaves half tilted mass below the cutoff, negligible middle mass, concentrated lower sum, and vanishing probability of any upper extreme. This proves deterministic critical 1/2 without assuming finite tests imply the triangular-array theorem. Independent Gamma CDF check at q=100,400,1600 gives at q .47344,.48671,.49335.
 
-Limitations: independence of sampled initial seeds, no claim for successive returns in one orbit; fixed sampling exponent, and no independent certification. The closest original literature and the uninspected Pakes full text are described in AUDIT.json.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded best-of-knowledge originality of the exact final claim, not of its credited general framework or existing endpoint computations. Full primary text was read where available; sources inaccessible in full are clearly identified and retained as priority risks.
+
+## value
+
+PASS
+
+A precise, natural sample-complexity threshold for estimation of a finite but astronomically rare-event-dominated first-return mean. The one-half critical regime is a non-obvious quantitative obstruction to using independent orbit restarts, distinct from the cited orbitwise Hausdorff spectra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

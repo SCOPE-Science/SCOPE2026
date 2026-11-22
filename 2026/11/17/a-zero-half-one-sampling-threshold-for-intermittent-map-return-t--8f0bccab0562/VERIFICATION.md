@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The independent-seed first-return survival function is derived from the published inverse-iterate identities for Li's map, then coupled exactly to the integer part of a shifted exponential power. The two error controls are the unit-floor bound and the gamma upper-tail cutoff. The analytical proof uses gamma concentration, the gamma central-limit theorem, union/Markov bounds, and a direct one-sided variance estimate.
+## correctness
 
-Run `python verify.py` in an environment with SciPy. It checks 63 exact survival probabilities, four central gamma windows, four critical variance/extreme-event exponent inequalities, and seven strict side-regime cutoff conditions. No Monte Carlo convergence inference replaces the proof.
+PASS
 
-This verification is a same-model calculation and does not constitute independent mathematical audit. The result is for independent normalized-uniform initial points on a parameter-dependent inducing base; it is not a single-trajectory limit.
+Reconstructed source Proposition 4.22 inverse return shells x_n=exp(1-(n+1)^delta). Because right first branch sends normalized uniform Y seeds to uniform [0,1], P(tau>n)=exp(1-(n+1)^delta), hence tau has exact floor((1+E)^(1/delta)) law with E~Exp(1). Integerization costs less than one per observation; true mean is asymptotically e Gamma(q+1) for q=1/delta. Tilted Z^q weights have a truncated Gamma(q+1,1) mass law, which concentrates at q with O(sqrt q) spread. For c<1 maxima lie below bq, c<b<1 while that truncated expectation mass→0; for c>1 truncate at bq with 1<b<c and variance ≤(bq)^q/(e^(cq)mu_q)→0, missing expectation→0. At c=1 cutoff q±q^(1/4) leaves half tilted mass below the cutoff, negligible middle mass, concentrated lower sum, and vanishing probability of any upper extreme. This proves deterministic critical 1/2 without assuming finite tests imply the triangular-array theorem. Independent Gamma CDF check at q=100,400,1600 gives at q .47344,.48671,.49335.
+
+## originality
+
+PASS
+
+Bounded best-of-knowledge originality of the exact final claim, not of its credited general framework or existing endpoint computations. Full primary text was read where available; sources inaccessible in full are clearly identified and retained as priority risks.
+
+## value
+
+PASS
+
+A precise, natural sample-complexity threshold for estimation of a finite but astronomically rare-event-dominated first-return mean. The one-half critical regime is a non-obvious quantitative obstruction to using independent orbit restarts, distinct from the cited orbitwise Hausdorff spectra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
