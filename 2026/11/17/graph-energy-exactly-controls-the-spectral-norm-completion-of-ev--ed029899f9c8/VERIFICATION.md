@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,5 +19,24 @@
 }
 ---
 
-# Verification
-The explicit lower and upper bounds in `RESULT.md` match exactly, including strict zero-eigenvalue convention. The cycle Fourier series is absolutely summable, so interchange and average over roots of unity are justified; the denominator expansion has a uniform summable \(O(L^{-4}q^{-4})\) error. The three congruence coefficients have separately been checked. The supplementary script `CHECK.py` was executed successfully with standard Python; its finite probes cover 198 cycle sizes, eight larger cycle asymptotic probes, 49 complete graphs and 529 complete bipartite graphs. The universal argument is analytic and does not rely on an enumeration. Bibliographic priority is not independently certified, and independent validation has not been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+For every finite simple undirected edge-transitive G with m>0, tr(AB)=2m for every feasible B and trace/operator duality yields norm >=2m/tr|A|. The sign involution U=I-2P_-(A) commutes with every graph automorphism; edge transitivity forces constant edge entry tr|A|/(2m), hence scaled U meets all constraints with equality, including zero adjacency eigenvalues and disconnected graphs. The Fourier series of |cos| yields the three cycle residues and correct n^-2 coefficients. An independently implemented symmetric eigendecomposition of C3..C14 yielded maximum prescribed-edge error 1.34e-15. Only one minimizer, not uniqueness, is claimed.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of actual statement/implications, including relevant primary material and related published records; residual priority limitations stated.
+
+## value
+
+PASS
+
+The all-edge-transitive completion norm and constructive minimizer form a useful explicit graph/spectral invariant beyond known complete-graph cases. A congruence-sensitive sharp second-order cycle correction shows nontrivial arithmetic structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

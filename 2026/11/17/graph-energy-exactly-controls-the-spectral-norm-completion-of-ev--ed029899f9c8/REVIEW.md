@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain is every finite simple undirected edge-transitive graph with at least one edge; all Hermitian diagonal and non-edge entries are free. A prescribed-edge trace identity yields \(\operatorname{tr}(AB)=2m\), so the adjacency trace norm gives a universal lower bound. The negative-spectral projection of \(A\) forms a real orthogonal involution commuting with graph automorphisms. Edge-transitivity then makes its edge entries constant and the trace identity determines them to be \(\mathcal E(G)/(2m)\), making the scaled involution a feasible matching upper bound. Zero adjacency eigenvalues, disconnected cases, and the complex-Hermitian feasible class are explicitly covered. The Fourier derivation for cycles uses an absolutely convergent series, valid root-of-unity averaging, and a uniform \(O(n^{-4})\) remainder for each congruence class. The attached finite checker passed but is supplementary.
+## correctness
 
-## Originality — PASS (with bibliographic qualification)
-The closest primary source is Bottazzi–Varela, arXiv:2611.10323v1, whose Section 6.1 characterizes when the *uncompleted adjacency matrix* is already optimal and supplies complete-graph and complete-bipartite special cases. That property is mathematically different from evaluating the global optimum with arbitrary free diagonal/non-edge entries. It does not state the all-edge-transitive adjacency-energy formula, spectral-sign completion, or three-branch cycle asymptotics in the inspected relevant full-text portions. Faber–Liesen–Tichý arXiv:2506.09687 supplies a general optimization framework rather than this exact invariant. Bottazzi–Varela arXiv:2604.16041 treats a unital subalgebra setting, not general free entries. Relevant graph-energy literature concerns trace-norm changes, not completion. Semantic searches of indexed mathematical results covered completion, spectral sign, adjacency energy, edge transitivity, dual norms, and cycle aliases; no exact implication-covering theorem emerged. This is evidence of originality under the accessible record, not proof of worldwide priority; an unindexed spectral completion theorem remains possible.
+PASS
 
-## Mathematical value — PASS
-The numerical optimum of a matrix completion problem is a natural nontrivial invariant. The theorem provides its exact graph-energy value and explicit optimizer for a broad natural symmetry class, including infinitely many cycles where zero-filling is suboptimal; the residue-sensitive sharp finite-size law makes an additional quantitative prediction. This is not merely the established general dual bound: matching it using a uniform edge value of the adjacency spectral sign is the key structural step. While the proof is short, it simultaneously settles all such finite graphs and connects two independently useful spectral graph invariants.
+For every finite simple undirected edge-transitive G with m>0, tr(AB)=2m for every feasible B and trace/operator duality yields norm >=2m/tr|A|. The sign involution U=I-2P_-(A) commutes with every graph automorphism; edge transitivity forces constant edge entry tr|A|/(2m), hence scaled U meets all constraints with equality, including zero adjacency eigenvalues and disconnected graphs. The Fourier series of |cos| yields the three cycle residues and correct n^-2 coefficients. An independently implemented symmetric eigendecomposition of C3..C14 yielded maximum prescribed-edge error 1.34e-15. Only one minimizer, not uniqueness, is claimed.
 
-## Scientific limitations
-The completion is unrestricted outside prescribed edges; the result does not cover arbitrary weighted patterns or all graphs. The optimal completion need not be unique. Existing general matrix best-approximation theory may contain an equivalent but unindexed formulation. The numerical checker is a finite probe, not a substitute for the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of actual statement/implications, including relevant primary material and related published records; residual priority limitations stated.
+
+## value
+
+PASS
+
+The all-edge-transitive completion norm and constructive minimizer form a useful explicit graph/spectral invariant beyond known complete-graph cases. A congruence-sensitive sharp second-order cycle correction shows nontrivial arithmetic structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
