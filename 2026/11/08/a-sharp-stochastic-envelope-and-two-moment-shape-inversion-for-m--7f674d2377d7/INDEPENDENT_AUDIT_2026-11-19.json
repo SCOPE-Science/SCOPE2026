@@ -1,0 +1,214 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T02:52:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md Git blob 9ca170fd54d96e4ea00819e29660461afe95cf64, Proof 1--6",
+        "Assigned triangle_extreme_verifier.py Git blob 2d90fbc50da995cf45054923569f95b387844298",
+        "Independent exact rational 1680 six-point checks and 3 exact root inversions",
+        "Independent 249-point survival comparisons on 4 nondegenerate rate triples and 3,000 simulation replicates at N=1200"
+      ],
+      "rationale": "Every triangular side proportion p_i is in (0,1/2), and alpha_i=1-p_i is the perimeter fraction of the two sides incident to vertex i. For fractional corner gap M_i=min_j(1-lambda_i(X_j)), the threshold neighborhood has exactly P alpha_i t/N arclength for 0<=t<N; for fixed joint thresholds the disjoint corner neighborhoods give joint survival (1-sum alpha_i t_i/N)^N and independent Exp(alpha_i) limits. The unique full-area inscribed triangle is T; compactness localizes each near-maximal sampled triangle to distinct parent vertices. Barycentric multilinearity yields signed area/A=1-sum u_i+O((sum u_i)^2). A near-corner candidate and a matching maximizing-triple lower bound yield Z_N-sum NM_i=o_P(1). Telescoping the determinant from identity bounds the normalized deficit by 2 sum M_i, including coincident selected corner indices, and exponential marginal tails give uniformly bounded moments of every order, proving fixed positive-real moment convergence. The exact survival for rates r+-d, e^-rt(cosh dt+(r/d)sinh dt), increases strictly with d>0; equal-sum pair averaging and majorization place alpha between (2/3,2/3,2/3) and (1,1/2,1/2), with correct strict/equality/degenerate cases. Finally mu=sum t_i, variance=sum t_i^2, sum alpha_i=2 imply elementary symmetric e2=q and e3=q/2, so the cubic recovers the side proportions. These are analytic arguments, not inferences from finite trials.",
+      "residual_risks": [
+        "The source does not establish rates uniform over shapes approaching degeneracy; asymptotics are fixed-shape.",
+        "Finite diagnostic computations do not justify the infinite-N theorem; its force rests on the localization and uniform-integrability arguments.",
+        "Numerical simulation cannot certify strict stochastic comparison at all t; the two-rate formula and majorization do."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reitzner--Schütt--Werner arxiv:1911.05917v3, Theorems 1.1 and 1.2: number of facets and expected missing *whole-hull* volume for polytope-boundary sampling, in the plane of order N^-2",
+          "Nikitin--Polevaya 2019, Theorem 3, Russian OA PDF: maximum inscribed-area limit for samples on a circle, with 2m/(m-1) power scaling; Sec.3 ellipse examples",
+          "Resultary 2026/10/18 69daac1de0bc and 2026/11/02 d34158c449fe: exact mean area of entire random convex hull, not the maximum-area 3-point triangle"
+        ],
+        "reasoning": "The closest broader setting is boundary sampling from simple polytopes; its volume deficit concerns the convex hull of *all* samples and decays as N^-2 in planar polygons, whereas the maximal triangle loses area at order N^-1. Neither the general hull theorem nor the fixed-three-point shape law logically implies the maximum-triple statistic or the full limiting survival comparisons. The 2019 paper still has smooth circular support.",
+        "searches": [
+          "Resultary query: geometric extreme value random polygons corner localization Poisson exponential maximum area",
+          "web: largest inscribed triangle random points polygon perimeter extreme value limit distributions convex polygon vertices",
+          "arxiv:1911.05917v3",
+          "2019 Nikitin--Polevaya Zap. Nauchn. Sem. POMI 486, pp200--213"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1301.1360v1",
+        "arxiv:2010.04460v1",
+        "arxiv:1911.05917v3",
+        "arxiv:1804.11007v1",
+        "Nikitin--Polevaya Zap. Nauchn. Sem. POMI 486 (2019) pp.200--213 (Russian OA primary)",
+        "Resultary 2026/10/18 69daac1de0bc complete RESULT.md",
+        "Resultary 2026/10/25 b972c9513f97 complete RESULT.md",
+        "Resultary 2026/11/02 d34158c449fe complete RESULT.md",
+        "Resultary semantic queries for maximum sampled triangle, stochastic ordering and corner extrema",
+        "web search for polygon-boundary maximum-triangle extreme-value laws, hypoexponential limits and inverse shape"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The maximizer of the candidate is asymptotically forced to the three fixed parent vertices, giving joint nearest-corner gaps with rates alpha_i and first-order N^-1 area deficit",
+          "Theorem 4.1 in 2010.04460 assumes a rotating circle support and Hessian at smooth maxima; its n^(2m/(m-1)) Weibull law cannot be specialized to the triangle-corner law",
+          "Theorem 1.2 in 1911.05917 concerns expected N-sample hull missing volume of different order, not maximum triangle area",
+          "Maesumi 1804.11007 samples exactly one point per side of the parent triangle and calculates distribution/moments, not the maximal triangle of N i.i.d. perimeter samples"
+        ],
+        "reasoning": "The local exponential spacing and Schur-ordering of independent exponential sums are classical ingredients, not claimed as new. But connecting three vertex-local nearest gap variables to the sample maximum, proving all positive-moment convergence, deriving sharp shape extrema and recovering p_i from only mu and var is not a statement or logical corollary of the specifically read prior theorems. The finite six-point reduction alone follows routinely from convexity and is not offered as the principal novelty.",
+        "searches": [
+          "arxiv:1301.1360 Theorem B, Theorem 2",
+          "arxiv:2010.04460 Theorem 4.1",
+          "arxiv:1911.05917 Theorem 1.2",
+          "arxiv:1804.11007 Theorem 2",
+          "2019 Nikitin--Polevaya POMI Section 2 and 3",
+          "Resultary 2026/10/18, 10/25, 11/02 primary RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Koroleva--Nikitin arxiv:1301.1360v1, Theorem B and Theorem 2, random vertices constrained to a circle, n^3 scale for triangles and Weibull limit",
+          "Nikitin--Simarova arxiv:2010.04460v1, Conditions A1--A6 and Theorem 4.1: smooth rotational kernels on a circle, nondegenerate Hessian and Weibull law",
+          "Resultary pre-claim 2026/10/25 b972c9513f97 RESULT.md: full three-point area mixture with sharp ordering and shape recovery from first and third moments; no N-point maximum"
+        ],
+        "reasoning": "Equivalent formulations to check include maximal-area U-max statistics, near-corner covering, the best triangle in a boundary random hull, and exponential vertex-nearest-neighbor spacings. Circle-supported smooth U-max events require a rotational family of optima and Hessian scaling, unlike the three isolated nonsmooth triangle vertices and linear N^-1 loss. The single-triple perimeter law concerns N=3, not the maximum over all triples as N grows. None proves the candidate N-scaled limit plus its shape-dependent stochastic envelope.",
+        "searches": [
+          "Resultary query: maximum area triangle from N arclength uniform random samples on boundary of triangle exponential corner limit mean variance shape inversion",
+          "web: maximum area triangle uniform random points boundary of triangle asymptotic exponential limit Poisson",
+          "web: hypoexponential limit law largest triangle boundary samples max area",
+          "arxiv:1301.1360v1",
+          "arxiv:2010.04460v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/18 69daac1de0bc: exact finite-n expected *hull* area and Schur ordering, same parent sampler but different statistic and order of loss",
+          "2026/10/25 b972c9513f97: single-triple area-moment reconstruction requires first and third moments, and its second equals first/3; disjoint from two-moment limit of maximal triples",
+          "2026/11/02 d34158c449fe: repeats exact hull-area formula with a thin-triangle crossover"
+        ],
+        "reasoning": "No inspected database row/table provides the candidate limiting maximum-triangle law. Nearby exact formulas and shape orderings are for the whole sampled convex hull, or for a single triple, which cannot substitute for the N-sample maximization. The Resultary item with suffix 7f674d2377d7 is the very claim being audited, not an independent earlier source.",
+        "searches": [
+          "Resultary query: sharp stochastic ordering exponential sums triangular perimeter side ratios maximum sample triangle area",
+          "Resultary 2026/10/18 69daac1de0bc, 2026/10/25 b972c9513f97, 2026/11/02 d34158c449fe",
+          "web: two moments determine triangle shape perimeter random maximal area sampled boundary"
+        ]
+      },
+      "rationale": "The final claim concerns a maximum among all sample triples on a fixed triangle boundary, whose N-scaled loss is a hypoexponential sum with three corner rates, plus sharp whole-distribution bounds and two-moment shape inversion. Reading the closest mathematical source statements distinguishes this from (i) circle/ellipse U-max Weibull laws, (ii) full sampled-convex-hull missed area of order N^-2, and (iii) the area law of a single boundary-random triple. The exact same candidate has a Resultary cross-post dated 2026-11-08, which is not an independent precursor. No inspected earlier result entails this final joint claim. This is best-of-knowledge, not historical proof.",
+      "residual_risks": [
+        "A differently indexed polygon-corner U-max theorem or older geometric extreme-value result may prove the same corner limit; search noncoverage is not proof of priority.",
+        "Generic convolution majorization for sums of exponentials is long known and is treated as a premise, not novelty.",
+        "Related maximum-triangle numerical algorithms were checked through records rather than their complete original proofs; they are not expected to contain a distribution theorem.",
+        "Resultary has a 2026-11-08 copy of this exact candidate; it is an identical record, not separate independent prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not cover a fixed triangular boundary: random vertices lie on the circle, maximal-area deficit has different scaling and Weibull law",
+          "evidence": [
+            "arxiv:1301.1360v1 Theorem B and Theorem 2, pp.3,10--12"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1301.1360",
+          "material_read": "PDF introduction, Theorem B and Section 2.2 Theorem 2 and their model/scaling; pages 1--4 and 10--12 examined",
+          "method": "Primary arXiv PDF text plus visual screenshot of theorem/model",
+          "title": "U-max-Statistics and Limit Theorems for Perimeters and Areas of Random Polygons",
+          "trigger": "Same maximum-area statistic with random inscribed polygons"
+        },
+        {
+          "assessment": "Conditions require smooth rotational kernel on a circle and nondegenerate Hessian; candidate has polygon-corner boundary and linear deficits",
+          "evidence": [
+            "arxiv:2010.04460v1 Conditions A1--A6, pp.4--5; Theorem 4.1, p.6"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2010.04460",
+          "material_read": "PDF introduction, hypotheses A1--A6 and Theorem 4.1, especially pp.4--6",
+          "method": "Primary arXiv PDF text and visual inspection of hypothesis page",
+          "title": "Generalized Limit Theorems For U-max Statistics",
+          "trigger": "General theorem potentially dominating the candidate U-max result"
+        },
+        {
+          "assessment": "Theorem 1.2 determines expected missed hull volume, not the distribution of maximum 3-vertex area; no direct implication",
+          "evidence": [
+            "arxiv:1911.05917v3 Theorem 1.2, p.4"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1911.05917",
+          "material_read": "PDF abstract and introduction including Theorems 1.1 and 1.2, pp.1--4; focus on exact stated observables",
+          "method": "Primary arXiv PDF text and screenshot of Theorem 1.1",
+          "title": "The convex hull of random points on the boundary of a simple polytope",
+          "trigger": "Broader random boundary-polytope theorem with the identical arclength sample support in two dimensions"
+        },
+        {
+          "assessment": "Three uniform points are forced one per side; not the all-triples maximum among N i.i.d. perimeter samples",
+          "evidence": [
+            "arxiv:1804.11007v1 Theorems 1--2, pp.1--2"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1804.11007",
+          "material_read": "PDF abstract, barycentric model, Theorems 1--2 and distribution section; pp.1--4",
+          "method": "Primary arXiv PDF text and screenshot of area determinant and Theorem 2",
+          "title": "Triangle Inscribed-Triangle Picking",
+          "trigger": "Exact triangle-boundary area law on the same parent triangle"
+        },
+        {
+          "assessment": "Area U-max laws again concern samples on a circle, with ellipse transformations; triangular sides not covered",
+          "evidence": [
+            "POMI 486 (2019) pp.200--210, Theorems 3 and 5"
+          ],
+          "identifier_or_url": "https://m.mathnet.ru/php/getFT.phtml?jrnid=znsl&option_lang=eng&paperid=6891&what=fullt",
+          "material_read": "Russian-language OA primary PDF, relevant pp.200,202--203,208,210 (PDF pages 1,3--4,9,11), including model and Theorems 3 and 5",
+          "method": "Read primary PDF parsed text and original-page screenshots",
+          "title": "Limit theorems for areas and perimeters of random inscribed and circumscribed polygons",
+          "trigger": "Closest 2019 full original text available where 2021 English edition previously abstract-only"
+        },
+        {
+          "assessment": "Exact expectation of full random hull area only; does not imply maximum triangle loss of order N^-1",
+          "evidence": [
+            "RESULT.md Finding and Proof 1--5; Git blob 9b8fb06ee24898809836f1f1a5545385ba523a17"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-finite-sample-area-and-sharp-shape-order-for-boundary-rand--69daac1de0bc/RESULT.md",
+          "material_read": "Complete published RESULT.md, including statement, occupancy proof, asymptotic",
+          "method": "GitHub file read with actual blob SHA",
+          "title": "Exact finite-sample area and sharp shape order for boundary-random triangles",
+          "trigger": "Same N-point perimeter sampler; potential domination"
+        },
+        {
+          "assessment": "One three-point sample, with first/third-moment inversion; not maximum over N samples, not the same limit",
+          "evidence": [
+            "RESULT.md Finding and Proof 1--5; Git blob 974295812bccd4f3ddfc1727581bec191fb2c8e9"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-area-law-ordering-and-shape-reconstruction-for-triangles-s--b972c9513f97/RESULT.md",
+          "material_read": "Complete published RESULT.md, including mixture, strict stochastic ordering, and moments",
+          "method": "GitHub file read with actual blob SHA",
+          "title": "Sharp area-law ordering and shape reconstruction for triangles sampled by boundary arclength",
+          "trigger": "Identical parent boundary and triangle area observable, known sharp shape inverse"
+        },
+        {
+          "assessment": "Covered hull-area problem only, not the fixed-vertex maximum triangle area and its limit law",
+          "evidence": [
+            "RESULT.md Finding and Proof 1--4; Git blob 5518ad7574256b40df64e0b5eeb124d6e78db334"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-boundary-hull-area-and-sharp-shape-ordering-for-arbitrary--d34158c449fe/RESULT.md",
+          "material_read": "Complete published RESULT.md, exact all-n hull-area formula and thin crossover proof",
+          "method": "GitHub file read with actual blob SHA",
+          "title": "Exact boundary-hull area and sharp shape ordering for arbitrary triangles",
+          "trigger": "Same N-point perimeter sampler and sharp equilateral/thin-triangle comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md Finding, Proof 1--6 and Limitations",
+        "Resultary 2026/10/25 b972c9513f97 contrasts N=3 shape inversion",
+        "Resultary 2026/10/18 69daac1de0bc contrasts full-hull area",
+        "Reitzner--Schütt--Werner arxiv:1911.05917 Theorem 1.2"
+      ],
+      "rationale": "Maximal 3-point area from a boundary sample is a canonical extremal geometric statistic, different from the area of its entire random hull. Its N^-1 corner-gap law is qualitatively unlike circular U-max Weibull extrema and planar polygonal hull-area N^-2 asymptotics. A sharp simultaneous stochastic comparison over all triangle shapes and recovery of the three unordered side proportions from only two limit moments are natural, exact and independently usable classifications. The six-extreme-point reduction gives a practical finite-sample computational link; it is elementary supporting structure, not the sole claimed value. The result makes no unsupported claim about finite-sample estimation stability.",
+      "residual_risks": [
+        "Quantitative inference rates and noise robustness of moment-based shape reconstruction were not proved.",
+        "The upper envelope is attained only as a degenerating-shape limit after N tends to infinity; it is not a theorem uniform across nearly degenerate shapes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed nondegenerate triangle, uniform normalized arclength sampling, N to infinity before shape degeneration.",
+    "Upper envelope is a limiting thin-triangle supremum, never attained by a positive-area triangle.",
+    "No uniform shape convergence rate, finite-sample estimator guarantees, or absolute historical originality certification.",
+    "Unresolved public metadata confidentiality means publication plan not_ready despite complete scientific PASS/PASS/PASS."
+  ],
+  "schema_version": 1
+}
