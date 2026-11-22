@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T12:58:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Polynomial vanishing on x^2+y^2=1 forces F=omega Jp+(R-1)G with degree F=degree G+2. The exact periodic adjoint identity s=-(omega/2)h_prime-kh with k=p·G and s=Jp·G follows by differentiating the phase PDE in radial direction. If k has nonzero highest Fourier frequency N>=1, the leading coefficient of kh at m+N forces e^{iθ}(k+is) to have frequency m+N+1; if k is constant and m>=1, imaginary coefficient -(im omega/2+k)h_m is nonzero and forces m+1. The m=0 case uses nonzero mean radial damping to force degree G>=1. Thus degree F>=m+3, and equality makes k constant. The explicit H=(kappa h-omega h_prime)/2 harmonic polynomial makes radial ODE rdot=kappa*r*(1-r^2)/2 and linear transverse exponent -kappa; its adjoint matches Z. Independent SymPy test verified m=4 h=2sin2θ-2sin4θ, exact phase adjoint, logistic radial identity, degree seven.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General polynomial realization theorems allow specified cycle configurations and stability, but not a fixed normalized infinitesimal phase gradient h.",
+          "Resultary multi-circle degree theorem fixes radial cycles/periods but no pointwise phase sensitivity."
+        ],
+        "reasoning": "These cover broader orbit configurations but do not dominate the extra phase-adjoint Fourier constraint or minimal degree m+3.",
+        "searches": [
+          "Margalef Bentabol Peralta Salas 2015 polynomial limit cycles prescribed periods stability",
+          "Resultary 2026/11/17 sharp degree simultaneous period Floquet concentric circles",
+          "Zeng 2026 closed-loop isochron feedback design"
+        ]
+      },
+      "checked_sources": [
+        "Frozen oscillator RESULT blob f83bea916d1fc595bb0cc268d29543d2caefa42b",
+        "Namura–Ishii–Nakao arxiv:2301.07237 targeted full PDF text/section",
+        "Margalef-Bentabol–Peralta-Salas arxiv:1507.00698 theorem abstract",
+        "Resultary 2026/11/17 degree-concentric-circles published finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known uniform rotating orbit implies F-omega Jp divisible by R-1; the adjoint equation gives the noncancelling highest-frequency obstruction.",
+          "Existing general realization theorems do not constrain the adjoint Fourier degree."
+        ],
+        "reasoning": "Prior existence constructions cannot imply the necessary m+3 lower bound from their hypotheses; the new divisibility-plus-Fourier argument is specific to this fixed-time circular iPRC problem.",
+        "searches": [
+          "polynomial vector field prescribed phase response limit cycle degree lower bound",
+          "adjoint equation Fourier top harmonic polynomial degree realization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Namura et al. prescribe an actual 5th-harmonic Cartesian response that has radial h top harmonic 4 and present a polynomial design of degree 7.",
+          "The new theorem shows no degree <=6 realization is possible for the specified uniform-time orbit and sensitivity, and supplies a general formula for every trigonometric h."
+        ],
+        "reasoning": "The existence example is overlapping prior work, but a general sharp lower bound without rotational symmetry is not equivalent to demonstrating one numerical degree-seven construction.",
+        "searches": [
+          "polynomial oscillator prescribed circular phase response Fourier harmonic minimal degree m+3",
+          "Namura Ishii Nakao 2301.07237 oscillator polynomial degree seven exact phase response"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original 2023 numerical example at degree seven coincides with m+3 for the specific fourth radial harmonic.",
+          "No earlier exact table of minimum polynomial degrees indexed for every h of top harmonic m was found."
+        ],
+        "reasoning": "One known degree-seven example gives an existence bound only, not a complete minimization or an all-m frequency degree law.",
+        "searches": [
+          "Namura Ishii Nakao polynomial oscillator fifth harmonic phase response degree seven",
+          "Resultary sharp polynomial degree phase response minimal degree"
+        ]
+      },
+      "rationale": "Namura–Ishii–Nakao (2023) already demonstrates this exact target shape with a numerical degree-seven oscillator; the newly claimed mathematical contribution is not degree-seven existence in isolation but sharp necessity for every polynomial field and an exact globally attracting construction with adjustable Floquet exponent. General polynomial limit-cycle realization results prescribe periods/stability without infinitesimal phase-response gradients. No stronger specified-h Fourier minimum-degree theorem was found in the searched indexed sources; priority remains qualified.",
+      "residual_risks": [
+        "An independent isochron-realization paper could contain an equivalent Fourier-degree lower bound under a different degree convention.",
+        "The minimum requires an exact uniform physical-time parametrized unit circle; no assertion for other trajectories or time reparametrizations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original particular construction is credited; inspected discussion does not present general m+3 lower-bound obstruction.",
+          "evidence": "Namura, Ishii, Nakao (2023), Sec. IV.3.1 and Eq. for Z*.",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.07237",
+          "material_read": "Model equations, Section IV.3.1 degree-seven numerical design and stated response, including PDF page 7 and nearby mathematical description",
+          "method": "arXiv PDF with page screenshot and text inspection",
+          "title": "Designing two-dimensional limit-cycle oscillators with prescribed trajectories and phase-response characteristics",
+          "trigger": "Same particular 5th harmonic Cartesian phase-response target"
+        },
+        {
+          "assessment": "Broader geometric realization does not prescribe the exact iPRC, full-text priority remains qualified.",
+          "evidence": "Margalef-Bentabol and Peralta-Salas (2015), Theorem 1.2.",
+          "identifier_or_url": "https://arxiv.org/abs/1507.00698",
+          "material_read": "Abstract and Theorem 1.2 scope concerning cycle configurations, multiplicities and transverse stability; not full appendix",
+          "method": "arXiv public source description",
+          "title": "Realization problems for limit cycles of planar polynomial vector fields",
+          "trigger": "General polynomial limit-cycle existence theorem"
+        },
+        {
+          "assessment": "Closed-loop control authority differs from lowest-degree autonomous polynomial realization; no whole-text noncoverage inference.",
+          "evidence": "Zeng (2026).",
+          "identifier_or_url": "https://doi.org/10.1007/s11071-026-12664-9",
+          "material_read": "Published abstract and 2026 citation information; full text not independently inspected",
+          "method": "Primary indexing",
+          "title": "Feedback design of isochron fields for nonlinear oscillators",
+          "trigger": "Potentially stronger isochron targeting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact inverse design problem couples a prescribed physical-time orbit, infinitesimal phase response, and polynomial complexity. A sharp universal degree obstruction and realizability at equality provide a natural certificate of minimal model complexity, and show that a known seventh-degree numerical design was optimal for its target.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen oscillator RESULT blob f83bea916d1fc595bb0cc268d29543d2caefa42b",
+    "Namura–Ishii–Nakao arxiv:2301.07237 targeted full PDF text/section",
+    "Margalef-Bentabol–Peralta-Salas arxiv:1507.00698 theorem abstract",
+    "Resultary 2026/11/17 degree-concentric-circles published finding"
+  ],
+  "disposition": "passed",
+  "final_claim": "For an exactly uniform physical-time unit-circle orbit with prescribed radial phase-sensitivity trigonometric polynomial h of top frequency m, every exponentially attracting polynomial planar oscillator has degree >=m+3; this is attained by an explicit globally attracting polynomial with any prescribed negative transverse Floquet exponent, and degree-minimal fields have constant radial linear damping.",
+  "limitations": [
+    "An independent isochron-realization paper could contain an equivalent Fourier-degree lower bound under a different degree convention.",
+    "The minimum requires an exact uniform physical-time parametrized unit circle; no assertion for other trajectories or time reparametrizations."
+  ],
+  "residual_risks": [
+    "An independent isochron-realization paper could contain an equivalent Fourier-degree lower bound under a different degree convention.",
+    "The minimum requires an exact uniform physical-time parametrized unit circle; no assertion for other trajectories or time reparametrizations."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement quantifies over every real planar polynomial vector field with the precisely parametrized unit-circle trajectory and the specified normalized phase response, and proves the unrestricted degree lower bound by circle-polynomial divisibility and the highest Fourier mode of the phase-adjoint identity. The constant-transverse-rate rigidity at equality is derived, not assumed. The constructive flow has an exact radial logistic equation and an exact periodic adjoint solution, which prove degree-optimality, global cycle attraction away from the origin, and the assigned transverse Floquet exponent. The original degree-seven example's target PSF is identified by exact trigonometric reduction; all symbolic checker runs passed, including an exhaustive 30-unknown coefficient-space inconsistency for degrees at most six in the published example. Risks are confined to interpretation of the fixed physical-time parametrization and the assumed smooth phase gradient at the hyperbolic cycle, both explicit in the theorem. Finite checks do not substitute for the all-degree lower-bound proof.
+PASS
 
-## Originality — PASS within inspected evidence
+Polynomial vanishing on x^2+y^2=1 forces F=omega Jp+(R-1)G with degree F=degree G+2. The exact periodic adjoint identity s=-(omega/2)h_prime-kh with k=p·G and s=Jp·G follows by differentiating the phase PDE in radial direction. If k has nonzero highest Fourier frequency N>=1, the leading coefficient of kh at m+N forces e^{iθ}(k+is) to have frequency m+N+1; if k is constant and m>=1, imaginary coefficient -(im omega/2+k)h_m is nonzero and forces m+1. The m=0 case uses nonzero mean radial damping to force degree G>=1. Thus degree F>=m+3, and equality makes k constant. The explicit H=(kappa h-omega h_prime)/2 harmonic polynomial makes radial ODE rdot=kappa*r*(1-r^2)/2 and linear transverse exponent -kappa; its adjoint matches Z. Independent SymPy test verified m=4 h=2sin2θ-2sin4θ, exact phase adjoint, logistic radial identity, degree seven.
 
-Namura, Ishii and Nakao, arXiv:2301.07237 (2023-01-18), Sections III and IV.3.1, perform a least-squares polynomial design and numerically approximate their fifth-harmonic target with degree seven. They do not give a general exact synthesis, any polynomial-degree obstruction, or the rigidity of minimal degree. Margalef-Bentabol and Peralta-Salas, arXiv:1507.00698 (2015), Theorem 1.2, solve a different realization problem prescribing periods, multiplicities and stability but not phase sensitivity. Zeng, DOI:10.1007/s11071-026-12664-9 (2026), Theorem 1, shapes a locally prescribed phase field using state feedback; it gives no polynomial-degree bound for autonomous circular trajectories. Searches of relevant indexed findings on circular degree constraints, Fourier phase response and the same arXiv source found only related claims about multiple concentric cycles, not an implied solution of the current inverse-design problem. Priority remains provisional owing to possible earlier unindexed exact constructions and broader unspecified realizability literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A high-harmonic infinitesimal phase response in oscillator design naturally raises an architectural complexity question: how large a polynomial is necessary, not just sufficient. The theorem gives an exact answer for every finite-Fourier target, with no symmetry restriction on competitors, a simultaneously global attracting construction, and a new rigidity conclusion for all minimizers. The concrete degree-seven target in the motivating work makes the bound testable and practically interpretable rather than an arbitrary parameter slice. It is not a mere stability calculation or restatement of polynomial approximation.
+Namura–Ishii–Nakao (2023) already demonstrates this exact target shape with a numerical degree-seven oscillator; the newly claimed mathematical contribution is not degree-seven existence in isolation but sharp necessity for every polynomial field and an exact globally attracting construction with adjustable Floquet exponent. General polynomial limit-cycle realization results prescribe periods/stability without infinitesimal phase-response gradients. No stronger specified-h Fourier minimum-degree theorem was found in the searched indexed sources; priority remains qualified.
 
-## Scientific limitations
+## value
 
-Only exact circular physical-time trajectories and finite-Fourier phase-response profiles are classified. The constructed field, not all minimizers, is proved globally attracting on the punctured plane. More general noncircular inverse-design problems are untouched. No independent audit has been performed; absence of a matching indexed result cannot prove publication priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact inverse design problem couples a prescribed physical-time orbit, infinitesimal phase response, and polynomial complexity. A sharp universal degree obstruction and realizability at equality provide a natural certificate of minimal model complexity, and show that a known seventh-degree numerical design was optimal for its target.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
