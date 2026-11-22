@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Exact spline tridiagonal system has explicit Green recurrence M_i=6(-a)^i(1-q^(N-i))/(1-q^N). The first-cell derivative stays positive because 2a<1; later cells have one signed cubic excursion with unique internal stationary maximum, yielding the finite formula. Three asymptotic regimes follow by geometric domination and a uniform Lipschitz bound for F. An independent standard-library tridiagonal solver and derivative-root variation calculation agrees with the closed formula on 120 numerical cases; subcritical, critical and supercritical limits checked. Computation supports, rather than substitutes for, the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.1016/j.cam.2012.04.001",
+        "doi:10.1137/0710088",
+        "doi:10.1137/0723058"
+      ],
+      "reasoning": "A general natural-spline shape or BV theorem with sharp fixed-ratio step asymptotics could imply the claim. Weighted C1 shape schemes are different operators, and classical smooth-input error results are not an implication for discontinuous limiting step data. Abstract-only sources are unresolved rather than certified non-covering.",
+      "searches": [
+        "geometrically graded spline knots third-order interpolation global variation instability exponential growth",
+        "natural cubic spline geometric mesh variation and inverse tridiagonal Green recurrence"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1403.1388v1",
+      "doi:10.1016/j.cam.2012.04.001",
+      "doi:10.1137/0710088",
+      "doi:10.1137/0723058",
+      "published-finding corpus:2026/10/4/SCOPE-a-sharp-three-knot-positivity-defect-for-natural-cubic-interpola--0b51d8330304",
+      "published-finding corpus:2026/11/8/SCOPE-exact-two-periodic-spline-projection-norms-and-a-quadratic-mesh--5a407f379fb4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "published-finding corpus 2026/10/4/SCOPE-a-sharp-three-knot-positivity-defect-for-natural-cubic-interpola--0b51d8330304",
+        "arxiv:1403.1388v1",
+        "doi:10.1016/j.cam.2012.04.001"
+      ],
+      "reasoning": "Even knowing exact N=2 overshoot for arbitrary data and unbounded overshoot as r varies does not imply behavior as N grows at a fixed r, or the threshold R* and rates. The natural basis representations are a starting point, not the claimed completed recurrence and TV asymptotics.",
+      "searches": [
+        "natural cubic spline interpolation on geometric knots mesh ratio critical golden ratio 2.618 phase transition total variation single step",
+        "geometrically graded spline knots third-order interpolation global variation instability exponential growth",
+        "sharp three knot natural cubic interpolation positivity defect mesh ratio arbitrary skew three knots total variation amplification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus closest ID 2026/10/4/SCOPE-a-sharp-three-knot-positivity-defect-for-natural-cubic-interpola--0b51d8330304",
+        "arxiv:1403.1388v1"
+      ],
+      "reasoning": "Equivalent form sought as step-input BV, natural spline oscillation, geometric grid inverse tridiagonal Green function, and graded-mesh stability. No equivalent phase theorem identified in available material.",
+      "searches": [
+        "natural cubic spline interpolation on geometric knots mesh ratio critical golden ratio 2.618 phase transition total variation single step",
+        "three knot natural cubic splines variation amplification nonuniform mesh monotone data overshoot",
+        "natural cubic spline geometric mesh variation and inverse tridiagonal Green recurrence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/10/4/SCOPE-a-sharp-three-knot-positivity-defect-for-natural-cubic-interpola--0b51d8330304",
+        "published-finding corpus 2026/11/8/SCOPE-exact-two-periodic-spline-projection-norms-and-a-quadratic-mesh--5a407f379fb4"
+      ],
+      "reasoning": "Indexed three-knot natural-spline positivity-defect and periodic linear-spline projection results are mathematically distinct: finite N=2 vs all N plus large-N fixed grading, and natural interpolation vs projection. No exact table containing the critical ratio and three growth phases identified.",
+      "searches": [
+        "three knot natural cubic splines variation amplification nonuniform mesh monotone data overshoot",
+        "sharp three knot natural cubic interpolation positivity defect mesh ratio arbitrary skew three knots total variation amplification"
+      ]
+    },
+    "rationale": "Indexed and accessible primary work was compared for equivalent interpolation operators, fixed-ratio asymptotics, and full-data dominance, not title similarity. Closest three-knot natural-spline defect is an N=2 computation and cannot entail the geometric fixed-R large-N transition. Natural basis/weighted-shape references do not establish the displayed exact step-variation identity. Residual historical-priority risk persists because some plausible older full texts were unavailable.",
+    "residual_risks": [
+      "Historical-priority search cannot rule out older geometric-mesh step-response or variation theory indexed under different terminology.",
+      "The full texts of Hall (1973), Beatson (1986), and the closest indexed three-knot finding were not inspected. No whole-document exclusion is asserted for them.",
+      "The result pertains only to the specified step data and must not be advertised as a sharp arbitrary-data operator norm."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines natural splines and basis methodology but does not present the specific single-step geometric-grid TV threshold or its fixed-grid formula",
+        "evidence": [
+          "arXiv:1403.1388v1 first posted 2014-03-06; natural basis and noisy spline estimation rather than variation growth on geometric knot arrays"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1403.1388",
+        "material_read": "PDF first page and parsed sections on natural spline basis, noisy estimation, and appendices; PDF searches for total variation and geometric grading",
+        "method": "Full-text PDF reading and targeted term searches",
+        "title": "Estimation of noisy cubic spline using a natural basis",
+        "trigger": "Earliest verified archival primary natural-cubic-spline literature; possible basis representation yielding the same recursion"
+      },
+      {
+        "assessment": "Uses weighted cubic splines for shape preservation, whereas the claim concerns unweighted natural C2 interpolation with an explicit grading-ratio threshold",
+        "evidence": [
+          "Sections on shape preservation, adaptive weighted spline behavior, and overshoot motivations"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.cam.2012.04.001",
+        "material_read": "Accessible article, introduction and sections discussing weighted cubic construction and shape preservation",
+        "method": "Full HTML article section reading and comparison of spline construction and functional",
+        "title": "A shape-preserving approximation by weighted cubic splines",
+        "trigger": "Possible stronger shape-variation theorem for cubic interpolation"
+      },
+      {
+        "assessment": "Classical error/convergence work on differentiable functions; priority remains uncertain without full article",
+        "evidence": [
+          "C. A. Hall (1973), abstract about natural cubic and bicubic interpolation error/convergence"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0710088",
+        "material_read": "Bibliographic abstract and indexing only; full body unavailable",
+        "method": "Abstract-level comparison, not a whole-document exclusion",
+        "title": "Natural Cubic and Bicubic Spline Interpolation",
+        "trigger": "Classical natural spline convergence and interpolation theory could dominate stability claim"
+      },
+      {
+        "assessment": "Some cubic schemes and smooth-data approximation; no documented implication to the step-variation threshold, but full text not checked",
+        "evidence": [
+          "Beatson (1986) abstract treats convergence of spline interpolation schemes"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0723058",
+        "material_read": "Abstract only; full text inaccessible",
+        "method": "Abstract-level scope comparison, with explicit unresolved-priority risk",
+        "title": "On the Convergence of Some Cubic Spline Interpolation Schemes",
+        "trigger": "1986 mesh-ratio dependent convergence could contain comparable geometric grading instability"
+      },
+      {
+        "assessment": "Covers three knots (two intervals), a positivity defect for arbitrary data, not the fixed-R limit N to infinity or the threshold from recurring tridiagonal curvatures",
+        "evidence": [
+          "Published synopsis: three-knot defect M max(r^{-1},r²)/(3 sqrt(3)(1+r))"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-sharp-three-knot-positivity-defect-for-natural-cubic-interpola--0b51d8330304",
+        "material_read": "Published indexed abstract/summary; linked repository text could not be fetched",
+        "method": "Comparison of exact asserted parameter and quantifier scope of published summary",
+        "title": "A sharp three-knot positivity defect for natural cubic interpolation",
+        "trigger": "Closest indexed natural-spline shape result involving unequal adjacent mesh lengths"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "91a2a75d-4541-425d-81d5-548748315495",
+  "value": {
+    "rationale": "A fixed local adjacent mesh-growth ratio separating bounded, linear and exponential total variation of a globally smooth natural cubic interpolant is a structural interpolation-stability boundary. It is mathematically motivated by nonuniform mesh instability and spline overshoot and supplies exact finite-grid and sharp asymptotic laws, not an arbitrary fixed-size example. The explicit recurrence explains the instability mechanism, with a simple monotone one-jump input.",
+    "status": "PASS"
+  }
+}
