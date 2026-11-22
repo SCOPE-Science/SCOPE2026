@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T06:08:49.486589Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every convex noncrossing tree is one of the 54264 six-edge subsets of the 21 edges, with acyclicity and cyclic crossing constraints. I independently enumerated this complete 54264 candidate set using a distinct DSU/crossing implementation, obtaining exactly 1428 admissible edge masks. An independently coded 21-stage exact integer Walsh-Hadamard transform across all 2097152 edge characters gave exactly 160484 zero multipliers, least positive |W|=4, and 14 two-edge zero masks; Parseval sum 2097152*1428 matched. A second 21-stage exact transform of the nonzero-frequency indicator gave absolute sum 312904152, hence projection convolution l1/linfty norm 312904152/2097152=39113019/262144. The analytic argument for universal multiple-of-four from even single-edge incidence and two-edge orbit cancellation was reconstructed. This is exhaustive finite integer arithmetic, not extrapolation to other polygon sizes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full Flajolet-Noy primary PDF gives general noncrossing graph/tree enumeration; Wettstein gives crossing-free graph enumeration algorithms."
+        ],
+        "reasoning": "General enumeration over all n or all geometric graphs does not by itself imply the heptagon 21-variable Walsh zero histogram or endpoint Fourier-projection absolute sum. A hidden specialization of a joint edge polynomial remains an explicit risk.",
+        "searches": [
+          "all Walsh coefficients noncrossing spanning trees convex heptagon 1428 nullity 160484 exact projection 39113019",
+          "https://web.mat.upc.edu/marc.noy/uploads/2013/05/NC-configurations.pdf",
+          "arXiv:1604.05350"
+        ]
+      },
+      "checked_sources": [
+        "https://web.mat.upc.edu/marc.noy/uploads/2013/05/NC-configurations.pdf",
+        "https://doi.org/10.37236/5164",
+        "https://arxiv.org/abs/1604.05350"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source formula number of heptagon trees 1428, but Walsh coefficient requires all higher joint edge incidences, not just total and degrees."
+        ],
+        "reasoning": "The 1428 count and vertex-degree refinements do not imply signs of sums indexed by arbitrary frequency edge subsets; rank and endpoint norm need exhaustive joint-incidence information, independently supplied here.",
+        "searches": [
+          "all Walsh coefficients noncrossing spanning trees convex heptagon 1428 nullity 160484 exact projection 39113019",
+          "Flajolet and Noy 1999",
+          "Okoth and Wagner 2015"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Flajolet-Noy count/refinements of noncrossing objects, Okoth-Wagner locally oriented tree degree sequences."
+        ],
+        "reasoning": "Noncrossing tree counting or vertex-degree generating functions do not encode the full joint binary edge-incidence parity transform on all 21 potential edges; these are distinct invariants unless an additional explicit transform is furnished.",
+        "searches": [
+          "all Walsh coefficients noncrossing spanning trees convex heptagon 1428 nullity 160484 exact projection 39113019",
+          "Flajolet and Noy 1999",
+          "Okoth and Wagner 2015"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published exact Walsh projector tables for three-cube trees and K4,4 spanning trees have different underlying edge-incidence distributions."
+        ],
+        "reasoning": "Those exact tables concern unrelated fixed graphs; no checked table matches convex heptagon noncrossing trees or its 160484 zeros and 39113019/262144 endpoint norm.",
+        "searches": [
+          "all Walsh coefficients noncrossing spanning trees convex heptagon 1428 nullity 160484 exact projection 39113019",
+          "2026/11/16/...fb906f150e7e",
+          "2026/11/16/...db7ff7be48bc"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: actual Resultary searches, relevant published statements and accessible primary text reveal no matching or stronger theorem implying this exact final claim; source-specific residual risks remain, and a search miss is never treated as novelty proof. The 1428 count and vertex-degree refinements do not imply signs of sums indexed by arbitrary frequency edge subsets; rank and endpoint norm need exhaustive joint-incidence information, independently supplied here.",
+      "residual_risks": [
+        "Unindexed exact edge-incidence Walsh tables for convex noncrossing trees may exist; no claim of absolute historical novelty.",
+        "Some relevant published primary full texts not fully inspected beyond abstract and located sections."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COUNT_COVERED, NO MATCH FOUND IN EXAMINED MATERIAL",
+          "evidence": "General noncrossing tree enumeration at n=7 yields 1428; inspected statements do not tabulate 21-variable Walsh parity or endpoint projection.",
+          "identifier_or_url": "https://web.mat.upc.edu/marc.noy/uploads/2013/05/NC-configurations.pdf",
+          "material_read": "Accessible full PDF and located counting/degree-refinement portions with page images",
+          "method": "PDF text review and selected page screenshots",
+          "title": "Analytic Combinatorics of Non-crossing Configurations",
+          "trigger": "Original exact noncrossing-tree counting formula and possible higher correlation refinements"
+        },
+        {
+          "assessment": "POSSIBLE_PRIORITY_RISK_NOT_WHOLE_DOCUMENT_NONCOVERAGE",
+          "evidence": "Degree-sequence and local-orientation refinements are distinct from binary edge character histogram, but full article was not exhaustively read.",
+          "identifier_or_url": "https://doi.org/10.37236/5164",
+          "material_read": "Accessible bibliographic abstract and indexed topic; publisher full text not established as read",
+          "method": "Web indexed abstract review",
+          "title": "Locally Oriented Noncrossing Trees",
+          "trigger": "Relevant noncrossing-tree refinements"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH",
+          "evidence": "Three-cube has 384 spanning trees and 4096 frequencies, not heptagon 1428 trees and 2097152 frequencies.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-walsh-rank-and-endpoint-projection-norm-of-three-cube-span--fb906f150e7e",
+          "material_read": "Resultary published summary/title, not full proof",
+          "method": "Resultary semantic search",
+          "title": "Exact Walsh rank and endpoint projection norm of three-cube spanning-tree convolution",
+          "trigger": "Similar invariant and possible database coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Convex noncrossing spanning trees form a classical and naturally enumerated geometric combinatorial class. The first exact parity-cancellation orbit, complete character nullity and sharp endpoint projector norm measure real information loss/recovery for the edge-incidence orbit; they are not implied by the count 1428 or vertex-degree refinements. A nontrivial finite exact invariant is independently useful even without an all-n theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A fixed n=7 exact result; no general polygon-size theorem.",
+    "One route to finite exact integer certificate was independently recomputed; supplied second route inspected but its saved result alone was not accepted as proof.",
+    "The complete finite integer Fourier transform spans every character and cannot be dismissed as a sample; no larger-n classification is claimed."
+  ],
+  "schema_version": 1
+}

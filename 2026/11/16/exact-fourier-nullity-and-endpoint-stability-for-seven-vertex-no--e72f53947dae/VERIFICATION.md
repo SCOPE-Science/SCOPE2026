@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Exact arithmetic and reproducibility
+# Independent mathematical audit
 
-The theorem concerns 21 binary edge characters and 1428 trees. The first checker enumerates all 16807 Prüfer codes and independently calculates the two Walsh transforms. The second checker enumerates all 54264 unordered six-edge subsets and independently validates tree connectivity and crossing exclusion. Both checkers use exact integer arithmetic, not floating-point zero thresholds.
+## correctness
 
-Run `c++ -O2 -std=c++17 check_prufer.cpp -o check_prufer && ./check_prufer` and `python check_subsets.py` in this directory. The Python route requires NumPy. The two CSV tables are included with exact entries and verified by the Python checker. The recorded outputs were:
+PASS
 
-```
-PRUFER_WALSH_PASS count=1428 zeros=160484 rank=1936668 min=4 gcd=4 twozeros=14 projection_l1_numer=312904152 projection_l1_denom=2097152
-SUBSET_WALSH_PASS count=1428 zeros=160484 rank=1936668 gcd=4 min=4 pairzeros=14 projection_norm=39113019/262144
-```
+Every convex noncrossing tree is one of the 54264 six-edge subsets of the 21 edges, with acyclicity and cyclic crossing constraints. I independently enumerated this complete 54264 candidate set using a distinct DSU/crossing implementation, obtaining exactly 1428 admissible edge masks. An independently coded 21-stage exact integer Walsh-Hadamard transform across all 2097152 edge characters gave exactly 160484 zero multipliers, least positive |W|=4, and 14 two-edge zero masks; Parseval sum 2097152*1428 matched. A second 21-stage exact transform of the nonzero-frequency indicator gave absolute sum 312904152, hence projection convolution l1/linfty norm 312904152/2097152=39113019/262144. The analytic argument for universal multiple-of-four from even single-edge incidence and two-edge orbit cancellation was reconstructed. This is exhaustive finite integer arithmetic, not extrapolation to other polygon sizes.
 
-The first-stage Walsh Parseval identity is 2994733056. Every low-support zero is in the one 14-element two-chord orbit. The second-stage absolute sum is 312904152; dividing by the group size 2097152 yields the exact endpoint norm 39113019/262144. No unseen full group or other polygon sizes are claimed to have been checked. External independent mathematical validation has not occurred.
+## originality
+
+PASS
+
+Best-of-knowledge originality: actual Resultary searches, relevant published statements and accessible primary text reveal no matching or stronger theorem implying this exact final claim; source-specific residual risks remain, and a search miss is never treated as novelty proof. The 1428 count and vertex-degree refinements do not imply signs of sums indexed by arbitrary frequency edge subsets; rank and endpoint norm need exhaustive joint-incidence information, independently supplied here.
+
+## value
+
+PASS
+
+Convex noncrossing spanning trees form a classical and naturally enumerated geometric combinatorial class. The first exact parity-cancellation orbit, complete character nullity and sharp endpoint projector norm measure real information loss/recovery for the edge-incidence orbit; they are not implied by the count 1428 or vertex-degree refinements. A nontrivial finite exact invariant is independently useful even without an all-n theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

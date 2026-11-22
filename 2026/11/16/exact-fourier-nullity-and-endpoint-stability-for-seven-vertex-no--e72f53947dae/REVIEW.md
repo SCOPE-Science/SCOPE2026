@@ -1,22 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim fixes the labelled heptagon, the full twenty-one-edge Boolean group, and unnormalized Fourier and convolution conventions. The established count of 1428 trees is reconstructed by two complete finite enumerations: 7^5 Prüfer codes and 21-choose-6 six-edge subsets with crossing and union-find tests. The exact twenty-one-coordinate Walsh–Hadamard transform gives 160484 zero multipliers and 1936668 surviving modes; the Parseval checksum is 2994733056. The first two-edge cancellation is fully covered by twenty-one dihedral orbits. Even single-chord incidence counts give a noncomputational modulo-four divisibility argument; the checker witnesses absolute magnitude four. The projection identity and its exact absolute-sum certificate yield the sharp rational norm 39113019/262144. Both checkers were run successfully from the delivered source files.
+PASS
 
-## Originality — PASS under bounded comparison
+Every convex noncrossing tree is one of the 54264 six-edge subsets of the 21 edges, with acyclicity and cyclic crossing constraints. I independently enumerated this complete 54264 candidate set using a distinct DSU/crossing implementation, obtaining exactly 1428 admissible edge masks. An independently coded 21-stage exact integer Walsh-Hadamard transform across all 2097152 edge characters gave exactly 160484 zero multipliers, least positive |W|=4, and 14 two-edge zero masks; Parseval sum 2097152*1428 matched. A second 21-stage exact transform of the nonzero-frequency indicator gave absolute sum 312904152, hence projection convolution l1/linfty norm 312904152/2097152=39113019/262144. The analytic argument for universal multiple-of-four from even single-edge incidence and two-edge orbit cancellation was reconstructed. This is exhaustive finite integer arithmetic, not extrapolation to other polygon sizes.
 
-Flajolet–Noy (1999) tabulates the total noncrossing tree count, degree partitions and leaves; Okoth–Wagner (2015) derives local orientation indegree/outdegree distributions; Wettstein (2016) analyzes algorithms enumerating crossing-free geometric spanning trees. Their inspected theorems and passages do not imply exact full edge-incidence Fourier cancellations or the range-projection endpoint norm. Published results concerning Fourier transforms of noncrossing perfect matchings, triangulations and general spanning trees refer to inequivalent edge distributions. Targeted literature and record searches found no equivalent evaluated 7-gon nullity or endpoint constant. This does not prove absolute priority; unindexed earlier signed-enumeration tables and incomplete primary-text coverage remain risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Convex noncrossing spanning trees are a classical natural combinatorial ensemble. Seven vertices is the first polygon size beyond the small square at which a genuine nonzero signed Fourier nullity reappears after the odd-cardinality zero-free cases of five and six vertices. The exact two-edge orbit is a structural explanation of initial parity balance, and the full convolution rank and optimal endpoint projection constant are natural recoverability and amplification invariants, not selected ad hoc coordinates. These complete finite benchmarks are not supplied by the classical total and degree-sequence enumeration formulas. The scope is deliberately limited to one first nontrivial finite configuration; no general polygon-size theorem is claimed.
+Best-of-knowledge originality: actual Resultary searches, relevant published statements and accessible primary text reveal no matching or stronger theorem implying this exact final claim; source-specific residual risks remain, and a search miss is never treated as novelty proof. The 1428 count and vertex-degree refinements do not imply signs of sums indexed by arbitrary frequency edge subsets; rank and endpoint norm need exhaustive joint-incidence information, independently supplied here.
 
-## Closest sources and residual limits
+## value
 
-- Flajolet and Noy (1999): noncrossing-tree count and degree/leaf enumeration, not this signed all-character table.
-- Okoth and Wagner (2015): local orientation and indegree/outdegree sequences, not edgewise binary Fourier projection.
-- Wettstein (2016): crossing-free spanning-tree enumeration algorithm, not the sharp Walsh nullspace or projection norm.
-- Remaining uncertainty: literature priority beyond indexed and materially inspected sources and absence of an independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Convex noncrossing spanning trees form a classical and naturally enumerated geometric combinatorial class. The first exact parity-cancellation orbit, complete character nullity and sharp endpoint projector norm measure real information loss/recovery for the edge-incidence orbit; they are not implied by the count 1428 or vertex-degree refinements. A nontrivial finite exact invariant is independently useful even without an all-n theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
