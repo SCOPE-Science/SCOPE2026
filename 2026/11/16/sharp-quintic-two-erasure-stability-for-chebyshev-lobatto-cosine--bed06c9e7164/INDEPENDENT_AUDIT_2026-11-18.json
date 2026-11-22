@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T01:42:55.598151Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The DCT-I orthogonality identity with endpoint weights w0=wN=v0=vN=1/2 gives full (N+1) orthogonal Q. Two-row/two-last-column block partition identifies the N−3 unit singular squares of the surviving (N−1)×(N−1) matrix and the two eigenvalues of BᵀB. The deleted-row block has vectors (−1)^j√(2w_j/N)(x_j,1/√2), yielding trace 2t/N and determinant 2w_jw_l(x_j−x_l)²/N² and positive eigenvalues for distinct nodes. Lower bound μ−≥2w_jw_lΔ²/[3N(w_j+w_l)] for every pair, combined with Rayleigh upper bound μ−_{0,1}≤2δ²/(3N), and cosine-grid spacing (>2δ between interiors, >3δ non-nearest endpoints, Δ=2 between endpoints), strictly rules out every erasure except endpoint neighbors. Reflection ties two patterns. Exact formula α=(t−√(t²−δ²))/N with t=5/4+c², δ=1−c yields α~π⁴/(18N⁵), κ=1/α~18N⁵/π⁴. Independent SVD and formula agree for all erased pairs at N=4,5,8,16,32 and locate same optimizers; tests are finite corroboration, proof all N analytical.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic orthogonal complement minor theory is the shared standard technique; it does not order all erased pairs for weighted endpoint DCT-I.",
+          "Weisbrich interpolates point clouds on Chebyshev nodes but contains no identified sharp two-erasure DCT-I spectral classification in inspected full text."
+        ],
+        "reasoning": "Generic singular-value identities and image-coding literature are relevant methodological background, not an inspected theorem dominating the sharp minimizer for this exact grid. IEEE full text still inaccessible, recorded as risk.",
+        "searches": [
+          "Chebyshev Lobatto DCT-I two erasure sampling sharp smallest singular value endpoint neighbor fifth power",
+          "Weisbrich 2021 Chebyshev node interpolation full text",
+          "DCT coding Goren Zamir 2021 abstracts",
+          "Resultary two-erasure DCT-II full result"
+        ]
+      },
+      "checked_sources": [
+        "https://www.degruyterbrill.com/document/doi/10.1515/jag-2021-0010/html",
+        "https://doi.org/10.1109/TIP.2021.3087404",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/16/SCOPE-sharp-two-erasure-stability-of-near-nyquist-chebyshev-gauss-cosi--315913bd2281/RESULT.md",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/18/SCOPE-single-erasure-boundary-layers-for-chebyshev-lobatto-interpolati--a3c5beff381f/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gauss result proves N⁻⁷ for half-shifted grid and nonendpoint samples; no logical implication to Lobatto endpoint-half weights.",
+          "Single-erasure L∞ operator bound and exact N⁵ squared spectral law are incomparable without further theorem."
+        ],
+        "reasoning": "Present global two-erasure DCT-I lower spectral bound is not a corollary of the inspected neighboring results; an inaccessible 2021 IEEE DCT source could alter priority assessment, not correctness.",
+        "searches": [
+          "Chebyshev Lobatto DCT-I two erasure sampling sharp smallest singular value endpoint neighbor fifth power",
+          "Resultary Gauss Chebyshev two erasure 2026 full RESULT",
+          "Resultary Lobatto single erasure 2026 full RESULT",
+          "doi:10.1515/jag-2021-0010"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier two-erasure theorem is Gauss-Chebyshev half-offset DCT-II with N observations, N−2 retained and N⁻⁷ floor; this one is Lobatto DCT-I with N+1 observations, N−1 retained and N⁻⁵ floor.",
+          "The Lobatto single-erasure result computes L∞ Lebesgue norms, not weighted squared ℓ² singular spectra."
+        ],
+        "reasoning": "Neither prior formula can be substituted into present operator without changing sampling grid, weights and column dimensionality; the exact spectra and exponent are genuinely different.",
+        "searches": [
+          "Chebyshev Lobatto DCT-I two erasure sampling sharp smallest singular value endpoint neighbor fifth power",
+          "Resultary SCOPE-sharp-two-erasure-stability-of-near-nyquist-chebyshev-gauss-cosi--315913bd2281",
+          "Resultary SCOPE-single-erasure-boundary-layers-for-chebyshev-lobatto-interpolati--a3c5beff381f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "DCT-I orthogonality, endpoint half weights and baseline cosine grid are standard; no inspected table lists all two-erasure μ± or unique minimizers."
+        ],
+        "reasoning": "The closed formulas are not a known-table recomputation in inspected sources; ordinary DCT table supplies only entries, not full global spectral optimization.",
+        "searches": [
+          "Chebyshev Lobatto DCT-I two erasure sampling sharp smallest singular value endpoint neighbor fifth power",
+          "SciPy DCT-I orthonormal specification",
+          "Chebyshev Lobatto 2 erasure exact spectrum"
+        ]
+      },
+      "rationale": "Best-of-knowledge original scope after positive mathematical implication comparisons, not inferred from mere negative search. Neither prior formula can be substituted into present operator without changing sampling grid, weights and column dimensionality; the exact spectra and exponent are genuinely different. Generic singular-value identities and image-coding literature are relevant methodological background, not an inspected theorem dominating the sharp minimizer for this exact grid. IEEE full text still inaccessible, recorded as risk. Present global two-erasure DCT-I lower spectral bound is not a corollary of the inspected neighboring results; an inaccessible 2021 IEEE DCT source could alter priority assessment, not correctness.",
+      "residual_risks": [
+        "Full text of Goren–Zamir (IEEE TIP 2021) could not be read through preprint/OA/authorized publisher access, so any previously derived equivalent erasure theorem there remains a documented originality risk; abstract alone cannot resolve it.",
+        "General DCT submatrix singular value theory could contain equivalent DCT-I endpoint ordering without matching title, not exhaustively ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Uses Chebyshev-Lobatto points and DCT machinery, no sharp two-deletion singular-value min/max classification in inspected sections",
+          "evidence": "§2.3 Lobatto coordinates and subsequent interpolation/noise sections",
+          "identifier_or_url": "https://www.degruyterbrill.com/document/doi/10.1515/jag-2021-0010/html",
+          "material_read": "Complete open HTML available; §2 Chebyshev nodes and §3–5 interpolation/noise point-cloud application examined",
+          "method": "Publisher open HTML full article inspection",
+          "title": "On the Fast Approximation of Point Clouds Using Chebyshev Polynomials",
+          "trigger": "Uses the exact Chebyshev–Lobatto node family and weighted approximation"
+        },
+        {
+          "assessment": "Different half-shifted DCT-II grid with squared floor N^-7, not DCT-I Lobatto N^-5",
+          "evidence": "Gauss nodes θ=(j+1/2)π/N and N−2-dimensional sampler",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/16/SCOPE-sharp-two-erasure-stability-of-near-nyquist-chebyshev-gauss-cosi--315913bd2281/RESULT.md",
+          "material_read": "Complete 10-KB RESULT.md statement, block proof, minimizers, relationships and limitations inspected",
+          "method": "Full published result text",
+          "title": "Sharp two-erasure stability of near-Nyquist Chebyshev–Gauss cosine sampling",
+          "trigger": "Closest published two-erasure DCT spectral theorem"
+        },
+        {
+          "assessment": "One deletion plus L∞ norm; cannot provide two-erasure weighted Euclidean spectrum",
+          "evidence": "Uniform L∞ Lebesgue constant with one missing index",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/18/SCOPE-single-erasure-boundary-layers-for-chebyshev-lobatto-interpolati--a3c5beff381f/RESULT.md",
+          "material_read": "Complete RESULT.md theorem, cardinal-function proof, limits and references inspected",
+          "method": "Full published result text",
+          "title": "Single-erasure boundary layers for Chebyshev–Lobatto interpolation",
+          "trigger": "Same Lobatto nodes with erasure stability"
+        },
+        {
+          "assessment": "Inaccessible plausible source. No assertion of whole-paper noncoverage; originality assessed best-of-knowledge and risk explicit.",
+          "evidence": "Title/abstract mention interpolation coding; full spectral formulas unverified",
+          "identifier_or_url": "https://doi.org/10.1109/TIP.2021.3087404",
+          "material_read": "Abstract and publication metadata only; arXiv/preprint and lawful OA full text unavailable; authorized publisher access unavailable",
+          "method": "Public scholarly abstract and author/bibliographic record; no whole-document conclusion",
+          "title": "Diversity Image Coding Using Irregular Interpolation",
+          "trigger": "Plausible DCT/interpolation primary source from 2021"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp loss-of-two-data stability for a natural quadrature-orthogonal interpolation grid identifies the unique bad missing-node geometry and the exact polynomial blowup of energy conditioning. This complements, rather than renames, known single deletion Lebesgue growth and near-Nyquist half-shifted cosine results; researchers assessing erasure resilience could need the precise DCT-I weighted constants.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.degruyterbrill.com/document/doi/10.1515/jag-2021-0010/html",
+    "https://doi.org/10.1109/TIP.2021.3087404",
+    "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/16/SCOPE-sharp-two-erasure-stability-of-near-nyquist-chebyshev-gauss-cosi--315913bd2281/RESULT.md",
+    "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/18/SCOPE-single-erasure-boundary-layers-for-chebyshev-lobatto-interpolati--a3c5beff381f/RESULT.md"
+  ],
+  "disposition": "passed",
+  "final_claim": "For each N≥4, deleting any two rows and retaining degrees 0..N−2 of the orthonormal DCT-I matrix yields an invertible square sampler. Nonunit squared singular values are [t±√(t²−2w_jw_l(x_j−x_l)²)]/N, and unique worst erasures up to reflection are {0,1}, {N−1,N}. Their least squared singular value ~π⁴/(18N⁵) and worst squared condition ratio ~18N⁵/π⁴.",
+  "limitations": "N≥4 weighted orthonormal DCT-I and exactly two known erasures; no unweighted/unknown erasure/noisy-node claim.",
+  "residual_risks": [
+    "Full text of Goren–Zamir (IEEE TIP 2021) could not be read through preprint/OA/authorized publisher access, so any previously derived equivalent erasure theorem there remains a documented originality risk; abstract alone cannot resolve it.",
+    "General DCT submatrix singular value theory could contain equivalent DCT-I endpoint ordering without matching title, not exhaustively ruled out."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Uses Chebyshev-Lobatto points and DCT machinery, no sharp two-deletion singular-value min/max classification in inspected sections",
+      "evidence": "§2.3 Lobatto coordinates and subsequent interpolation/noise sections",
+      "identifier_or_url": "https://www.degruyterbrill.com/document/doi/10.1515/jag-2021-0010/html",
+      "material_read": "Complete open HTML available; §2 Chebyshev nodes and §3–5 interpolation/noise point-cloud application examined",
+      "method": "Publisher open HTML full article inspection",
+      "title": "On the Fast Approximation of Point Clouds Using Chebyshev Polynomials",
+      "trigger": "Uses the exact Chebyshev–Lobatto node family and weighted approximation"
+    },
+    {
+      "assessment": "Different half-shifted DCT-II grid with squared floor N^-7, not DCT-I Lobatto N^-5",
+      "evidence": "Gauss nodes θ=(j+1/2)π/N and N−2-dimensional sampler",
+      "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/16/SCOPE-sharp-two-erasure-stability-of-near-nyquist-chebyshev-gauss-cosi--315913bd2281/RESULT.md",
+      "material_read": "Complete 10-KB RESULT.md statement, block proof, minimizers, relationships and limitations inspected",
+      "method": "Full published result text",
+      "title": "Sharp two-erasure stability of near-Nyquist Chebyshev–Gauss cosine sampling",
+      "trigger": "Closest published two-erasure DCT spectral theorem"
+    },
+    {
+      "assessment": "One deletion plus L∞ norm; cannot provide two-erasure weighted Euclidean spectrum",
+      "evidence": "Uniform L∞ Lebesgue constant with one missing index",
+      "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/18/SCOPE-single-erasure-boundary-layers-for-chebyshev-lobatto-interpolati--a3c5beff381f/RESULT.md",
+      "material_read": "Complete RESULT.md theorem, cardinal-function proof, limits and references inspected",
+      "method": "Full published result text",
+      "title": "Single-erasure boundary layers for Chebyshev–Lobatto interpolation",
+      "trigger": "Same Lobatto nodes with erasure stability"
+    },
+    {
+      "assessment": "Inaccessible plausible source. No assertion of whole-paper noncoverage; originality assessed best-of-knowledge and risk explicit.",
+      "evidence": "Title/abstract mention interpolation coding; full spectral formulas unverified",
+      "identifier_or_url": "https://doi.org/10.1109/TIP.2021.3087404",
+      "material_read": "Abstract and publication metadata only; arXiv/preprint and lawful OA full text unavailable; authorized publisher access unavailable",
+      "method": "Public scholarly abstract and author/bibliographic record; no whole-document conclusion",
+      "title": "Diversity Image Coding Using Irregular Interpolation",
+      "trigger": "Plausible DCT/interpolation primary source from 2021"
+    }
+  ]
+}
