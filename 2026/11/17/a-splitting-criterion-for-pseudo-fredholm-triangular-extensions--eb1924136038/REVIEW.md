@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof identifies the analytic core of each surjective-corner extension, uses its forced inclusion in any generalized Kato semi-regular summand, and derives the exact condition \(SV=-J\) by classifying the complementary invariant graph. It directly checks surjectivity and \(SJ=0\) for the quotient-based extension. Standard, explicitly named theorems yield uncomplemented \(Y\subset\ell^p\) and uniform convexity of the resulting sum. No finite computation is treated as proof. The full necessity and sufficiency are justified for all complex Banach spaces in the stated scope.
+PASS
 
-## Originality — PASS with residual risk
+For surjective S, bounded open-mapping preimage selection yields K(S)=E and K(T)=E⊕0. A reducing generalized Kato decomposition has its quasinilpotent summand disjoint from analytic core, hence E⊕0 lies in semi-regular M. Any extra f≠0 in M leads via onto S to a kernel vector not in ran(T|M), contradiction; thus M=E⊕0. Its closed invariant complement is graph(V), and T graph(V)=0 iff SV=−J. Converse graph splitting gives surjective-plus-zero decomposition. If SJ=0, T^n=diag(S^n,0) for n≥2. For U=l^p (1<p<∞,p≠2), Lindenstrauss–Tzafriri supplies a closed non-complemented Y; q:U→U/Y has no bounded right inverse; the constructed S is onto with SJ=0 and solving SV=−J would split q. Uniform convexity is retained by the quotient and the l² direct sums. These are proof arguments, not numerical experiments.
 
-The recent paper arXiv:2611.04004 gives a Banach-space power counterexample using a nonsplit surjection, not a universal equivalence for each surjective triangular block or a uniformly convex realization. ArXiv:2610.23229 covers closely related counterexamples; its abstract was checked but its full text could not be inspected, so a prior formulation remains possible. ArXiv:1602.00626 supplies upper-triangular generalized Kato context, but its accessible abstract states sufficient spectral conditions, not the necessary-and-sufficient splitting equivalence. Direct mathematical-record queries did not find a matching statement; unsuccessful searches are not proof of priority.
+## originality
 
-## Value — PASS
+PASS
 
-The splitting criterion isolates the exact Banach extension obstruction behind pseudo-Fredholmness for a broad natural operator class, rather than merely supplying another matrix example. Its uniformly convex consequence separates the Hilbert-space power axiom from reflexivity and strong convexity: even superreflexive geometry does not suffice. The theorem is self-contained once standard complemented-subspace and uniform-convexity facts are supplied. It does not classify all generalized Kato decompositions outside the surjective-corner family.
+Theorem 4.1 of Aznay–Chabbabi–Zariouh already contains the analytic-core/graph obstruction for one l1-based Banach example and almost explicitly yields the general triangular criterion. The distinctive claim under assessment is the upgrade to separable uniformly convex, superreflexive l^p-quotient constructions for every p≠2; the inspected paper has no such example. Accordingly the criterion should not be advertised as independently new in isolation. Best-of-knowledge originality survives solely through this strengthened reflexive-space conclusion.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Showing that a fundamental power-regularity failure persists on uniformly convex/reflexive spaces rules out a natural geometric remedy to a published Banach-space pathology; the bounded splitting formulation clarifies the mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
