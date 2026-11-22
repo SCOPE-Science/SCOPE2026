@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "Explicit finite Laurent projection identity for d=0,1,2, confirmed by full-support integer polynomial arithmetic, combined with exact expansion modulo nine yields A(3m+d) ≡ A(m)A(d)+3md(A(m)-3A(m-1)). Lucas modulo three and A(1)=3,A(2)=15 give 3|A(m) for all m>0, annihilating the corrective term; iteration establishes the all-index digit product. Finite census follows combinatorially. Actual checker also replays independent sums and all three Laurent identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mellit–Vlasenko Theorem 1 gives Dwork relations and directly states only ordinary mod-p digit Lucas factorization.",
+        "Delaygue supplies valuation lower bounds for Abelian-square counts, forcing nine-divisibility with at least two nonzero ternary digits but not the reverse direction.",
+        "Malik–Straub Theorem 3.1 concerns ordinary mod-p Lucas; its remark says the property does not generally lift to prime powers."
+      ],
+      "reasoning": "The new statement refines Delaygue precisely on one-nonzero-digit cases and on complete residues. No inspected general theorem gives the required mod-nine product formula without an additional identity; Dwork-type general identities could potentially imply it after specialized algebra, recorded as a residual risk. The 2014 generalized Apéry mod-nine paper addresses sums with different binomial coefficients, not this multinomial-square sequence.",
+      "searches": [
+        "arXiv:1306.5811 Theorem 1 and Section 1",
+        "arXiv:1310.4131 Theorem 1 and Section 1.5",
+        "arXiv:1508.00297 prime powers Lucas",
+        "Web: Generalised Apéry numbers modulo 9"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0807.5028 full HTML",
+      "arXiv:1306.5811 full HTML",
+      "arXiv:1310.4131 full HTML",
+      "arXiv:1508.00297 full HTML",
+      "arXiv:1607.02483 full HTML",
+      "OEIS:A002893 indexed text (not complete landing page)",
+      "Published mathematical research abstracts including the 2026-10-13 modulo-eight multinomial-square theorem and the 2026-11-02 ternary central-trinomial theorem"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Delaygue lower bound already yields 9-divisibility for two or more nonzero digits, and is acknowledged as prior coverage.",
+        "Amdeberhan–Tauraso Section 5 sums over triple boxes whose bounds scale by a prime, distinct from a fixed total n.",
+        "Direct Laurent projection gives a mod-nine factorization and residues 3/6 for single-nonzero-digit indices, information not determined by lower bounds or box-sum congruences."
+      ],
+      "reasoning": "The previously proved implication 2+ nonzero digits ⇒ 9-divisibility is not treated as novel. The claimed new equivalence and nonzero residue values require a converse and a stronger prime-square digit product; these are established by the finite Cartier identity and are not logical consequences of the cited lower bounds. Older implicit derivations remain possible.",
+      "searches": [
+        "arXiv:1310.4131 Section 1.5 C_i(n), Theorem 1 and inequality",
+        "arXiv:1607.02483 Section 5 supercongruence for sum of abelian squares",
+        "Published mathematical research index query: trinomial-squared multinomial coefficients sum over i+j+k=n modulo nine sparse nondivisibility"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The same sequence is f_3(n) in Richmond–Shallit, and OEIS A002893; the Laurent model and multinomial-square sum are algebraically identical.",
+        "Richmond–Shallit, Section 2, provides enumerations and finite examples but no modulo-nine digit theorem."
+      ],
+      "reasoning": "The binomial representation, multinomial-square abelian-word count and Laurent constant term define the same A(n), so those aliases were treated as identical, not distinct novelties. The inspected 2008 source studies counting/asymptotics rather than this exact residue law.",
+      "searches": [
+        "Published mathematical research index query: A002893 abelian squares 3 symbols modulo 9 exact digit residue classify base three nonzero digits",
+        "Web: A002893 congruence mod 9",
+        "arXiv:0807.5028 Sections 1–3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A002893 search-indexed entries give initial terms, recurrence and aliases; direct landing-page retrieval was blocked, so no whole-page exclusion is claimed.",
+        "The published 2026-10-13 result titled Complete modulo-eight binary-digit law for multinomial-square sums gives a modulo-eight law for multinomial-square sums, not modulo nine.",
+        "The published 2026-11-02 result titled An exact ternary-language criterion for nine dividing central trinomial numbers treats central trinomial coefficients, a different sequence."
+      ],
+      "reasoning": "Known tables list the object but available content did not state the exact mod-nine theorem. The closest same-family published record is in a different characteristic and the closest modulo-nine record concerns a distinct polynomial sequence. Database discovery is incomplete, so no absolute negative inference is made.",
+      "searches": [
+        "OEIS A002893 main and internal sequence descriptions",
+        "Published mathematical research index query: A002893 abelian squares 3 symbols modulo 9 exact digit residue classify base three nonzero digits",
+        "Published mathematical research index query: (n!)^2/(a! b! c!)^2 multinomial squares binomial 3 Lucas congruence modulo 9"
+      ]
+    },
+    "rationale": "The complete modulo-nine digit factorization and converse for the three-letter Abelian-square count were not implied by the closest inspected prior statements. Delaygue lower bound already covers divisibility for two nonzero digits (not claimed as new). Residues 3 and 6 at the remaining indices and the prime-square Lucas identity provide new exact information, subject to residual risk of implicit prior specialization.",
+    "residual_risks": [
+      "Possible unlocated equivalent modulo-nine congruence in older Apéry-like/hypergeometric literature",
+      "An implicit specialization of Dwork-type congruences may produce the same formula without an explicit published statement",
+      "Malik–Straub covers the exact sporadic sequence at prime level, but a nonobvious specialization of its general machinery might still yield the mod-nine identity",
+      "Direct OEIS page 403 prevented whole-page check; indexed material only",
+      "No finite or semantic search proves global priority"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exactly A(n), enumerates and estimates it, but does not state a mod-nine digit law",
+        "evidence": [
+          "Section 2 lists f_3(n)=1,3,15,93,639,... and identifies OEIS A002893",
+          "Section 3 analyzes asymptotics"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0807.5028",
+        "material_read": "Introduction, Section 2 Preliminaries and recurrence and Section 3 asymptotics",
+        "method": "Full accessible arXiv HTML, including table and derivation of f_3",
+        "title": "Counting Abelian Squares",
+        "trigger": "Definitive first source of this count and exact multinomial definition"
+      },
+      {
+        "assessment": "Proves stronger general Dwork-style relations but not the specific unrestricted mod-nine product for this zero-divisible sequence in the inspected statements",
+        "evidence": [
+          "Theorem 1 (1) and (2), modulo p^s",
+          "Discussion after Theorem 1 distinguishes the s=1 digit congruence and higher cases"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1306.5811v1",
+        "material_read": "Full Section 1 Theorem 1, displayed congruences (1)–(3), and ghost-term mechanism",
+        "method": "ArXiv full HTML",
+        "title": "Dwork's congruences for the constant terms of powers of a Laurent polynomial",
+        "trigger": "General prime-power congruence scheme possibly dominating this lemma"
+      },
+      {
+        "assessment": "Covers the sufficient 9-divisibility condition but not the claimed exact residual and converse digit language",
+        "evidence": [
+          "Section 1.5 introduces C_i(n) and counts for three letters",
+          "Theorem 1 supplies lower bounds by nonzero ternary digit counts"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1310.4131",
+        "material_read": "Introduction, main valuation theorems, Section 1.5 equations and discussion of C_i(n)",
+        "method": "Full accessible arXiv HTML",
+        "title": "Arithmetic properties of Apéry-like numbers",
+        "trigger": "Same three-letter Abelian-square sequence, explicit valuation lower bound"
+      },
+      {
+        "assessment": "Table 1 sequence (c) is precisely the present three-letter abelian-square sequence; Theorem 3.1 gives ordinary mod-p Lucas and Remark 3.2 states this does not generally lift to prime powers, with no mod-nine specialization for (c) in the inspected text",
+        "evidence": [
+          "Table 1 row (c), parameters (10,3,9) and the exact binomial sum",
+          "Theorem 3.1 proves ordinary prime-modulus Lucas congruences",
+          "Remark 3.2 highlights prime-power non-extension and discusses mod-nine for different Apéry sequences"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1508.00297",
+        "material_read": "ArXiv full HTML Sections 1–3, 5, Table 1 and the explicit prime-power limitation",
+        "method": "Full accessible arXiv HTML",
+        "title": "Divisibility properties of sporadic Apéry-like numbers",
+        "trigger": "Possible broader Lucas-congruence coverage"
+      },
+      {
+        "assessment": "The prime-power box-truncated triple sums differ from the fixed-total-index n count A(n)",
+        "evidence": [
+          "Section 5 is titled Supercongruence for sum of abelian squares",
+          "The theorem ranges over independent rectangular triple-index cutoffs"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1607.02483v1",
+        "material_read": "Full HTML introduction, theorem statements and Section 5 supercongruence",
+        "method": "ArXiv full HTML",
+        "title": "Two Triple binomial sum supercongruences",
+        "trigger": "Title and Section 5 explicitly concern abelian-square multinomial terms"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c4fd043a-3f0e-452f-83e9-61b5d50eaf34",
+  "value": {
+    "rationale": "The sequence is the classical three-letter abelian-square count (also a multinomial-square Apéry-like sequence). The exact first nontrivial prime-square residue spectrum, sharp iff digit criterion and exact frequency in each ternary block naturally strengthen prior lower valuation bounds without arbitrary parameter cutting. Results can support higher prime-power investigations and exact automatic digit phenomena; no unsupported downstream theorem is claimed.",
+    "status": "PASS"
+  }
+}
