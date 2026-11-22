@@ -1,11 +1,21 @@
-# Scientific review: boundary-pair Reuleaux chord law
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact probability is a count of six different-arc and three same-arc event areas divided by squared perimeter. The explicit two-arc squared-distance defect and its monotonicity produce the exact quadrature. A central hyperbolic corner and two thin edge bands have controlled \(o(h)\) errors and yield the evaluated \(\varepsilon\log(1/\varepsilon)\) and \(\varepsilon\) terms. The change of variables from endpoint arcs to logarithmic arclength and normalized deficit proves total-variation convergence by density convergence and Scheffé. The standalone checker independently verifies coordinates, quadrature, the asymptotic and selected Monte Carlo frequencies. Numeric checks do not certify infinite limits.
+## correctness
 
-**Originality — PASS, with historical-priority risk.** Direct inspection of the full published Reuleaux invariant-line RESULT.md and area-uniform Reuleaux odd-gon RESULT.md identifies different probability measures and conclusions. Bäsel's full regular-polygon paper and the inspected sections of Tong et al. treat straight polygons and/or interior point sampling. Neither a line-sampling scalar tail nor an area-pair scalar tail implies the new boundary endpoint exact quadrature, its two-term constant or the joint log and deficit law. Coleman (1969) and Gates (1987) were examined only by their publisher descriptions; full-article historical equivalents remain a risk. The searched index is not an exhaustive originality guarantee.
+PASS
 
-**Value — PASS.** The Reuleaux triangle is a basic nonsmooth constant-width body, and independently uniform boundary endpoints define a natural chord model distinct from invariant lines and interior sampling. The exact finite-threshold formula, evaluated first correction, and logarithmic marked law identify the corner/arc contact mechanism and enable precise comparisons of sampling conventions. A fixed-length circle comparator has a square-root terminal tail instead, making the difference geometric rather than cosmetic.
+Each of six ordered distinct-arc pairs is parameterized by u,v∈[0,π/3], with exactly 1−D²=F(u,v)=8sin(u/2)sin(v/2)cos((u+v)/2). F is nondecreasing separately; solving F=h=2epsilon−epsilon² gives the exact u0 threshold and integral. Three equal-arc sectors contribute (L−2asin((1−epsilon)/2))². Hyperbolic area in the small corner plus outer strips using ∂_vF(u,0)=2sin u gives I(h)=h/2[log(1/h)+1+log(8/3)]+o(h), hence 6epsilon/π²[log(1/epsilon)+1+log(4/3)]+o(epsilon). Density change (u,v)→(log u/log epsilon,(1−D)/epsilon) has Jacobian asymptotic epsilon log(1/epsilon), giving TV by Scheffé, with uniform six labels. Independently evaluated exact integral at epsilon=.01,.001 agrees with the two-term asymptotic. No simulation supplies the proof.
 
-**Limitations.** The result is specific to the unit Reuleaux triangle and the specified boundary-arclength measure. The logarithmic asymptotic assumes vanishing length deficit. Full publication-priority guarantees and independent mathematical validation are not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge targeted statement-and-implication comparison supports an original claim in its specified model and conclusion; inaccessible/unindexed literature is named as residual risk rather than treated as proof of novelty. Boundary point-pair Euclidean distances are not motion-invariant random-line chord lengths or interior point-pair distances: their sampling Jacobians differ. A later general regular Reuleaux odd-gon result explicitly assumes n>=5 and credits the triangle boundary law as preexisting; it has no identical n=3 finding.
+
+## value
+
+PASS
+
+Arclength-uniform boundary chord sampling is distinct from invariant random lines and area-uniform interior pairs; the two-term constant and independent logarithmic marks isolate corner geometry of a canonical constant-width non-smooth body. The finite-threshold formula and joint marked rare-event law are useful mathematical descriptors, not merely a repackaged perimeter or general shape identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
