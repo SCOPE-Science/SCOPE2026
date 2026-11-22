@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "Map every production to an edge of an acyclic multigraph with terminal sink. Every word is read along a source--sink path. Splitting p edges into r initial edges and p-r remaining edges bounds the path count by r*M(p-r), with M(0)=1, and layered parallel-edge graphs attain the integer-break recurrence for every positive budget. Equality analysis uses strict increase of M(p) for p>=2: all remaining edges must be reachable from each branch head, forcing a common head in a DAG, then the same argument inductively. Full-path label injectivity is necessary and sufficient. A unary mixed-radix label assignment generates every exponent 0..M(p)-1 exactly once, proving the inverse cover complexity. Two standalone checkers corroborate the recurrence for p<=24 and all small topologically ordered multigraphs with p<=9, but these finite tests are not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hajac et al. (arXiv:2606.16095) describe maximization of the total number of paths in a connected acyclic digraph with N edges; the displayed all-path functional has different endpoints and its optimum does not directly determine sharp designated source--terminal counts.",
+        "Wolfsteiner (2020) p.54 cites Bucher et al. Theorem 5 for a logarithmic production bound depending on the longest unary word, without a displayed exact inverse capacity."
+      ],
+      "reasoning": "These are plausible broader frameworks. Neither material actually inspected states a theorem implying the exact grammar production capacity and all optimal directed multigraph topologies; limitations of available material mean that stronger unseen graph results remain an explicit risk.",
+      "searches": [
+        "exact regular cover complexity unary interval epsilon a a^2 ... a^(N-1) smallest grammar",
+        "maximum directed acyclic multigraph source sink paths with m edges integer break all extremal graphs",
+        "\"The maximal dimensions of path and graph algebras\" theorem acyclic graph path count",
+        "\"Concise description of finite languages\" unary exact production complexity finite regular grammars theorem 5"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.16562v1",
+      "https://www.dmg.tuwien.ac.at/hetzl/research/oncovcomp.pdf",
+      "https://www.dmg.tuwien.ac.at/hetzl/teaching/d_wolfsteiner.pdf",
+      "arxiv:2606.16095 (abstract only)",
+      "doi:10.1016/0304-3975(81)90044-X (secondary summaries only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General NP-completeness places no fixed bound on optimal production cardinality or the shape of its extremizers.",
+        "At \\(p=6\\), the established \\(2^{p-1}=32\\) upper bound is strictly weaker than the sharp \\(C(6)=9\\).",
+        "An O(log N) upper bound on grammar size is compatible with many possible exact constants and step functions; it does not imply the asserted inverse integer-break threshold."
+      ],
+      "reasoning": "The stated prior results do not logically imply the new exact maximum, extremizer rigidity, or cover threshold. Conversely the new result gives exact special-instance optimization without affecting the general NP-hardness. No claim of uniqueness follows from the classification or searches.",
+      "searches": [
+        "arxiv:2611.16562v1 Theorems 3.7, 4.6 and Definition 2.1",
+        "Hetzl-Wolfsteiner 2019 Lemma 7 and Lemma 11",
+        "Wolfsteiner 2020 thesis p.54",
+        "acyclic regular grammar covering the unary interval language {a^0,a^1,...,a^{n-1}} exact minimal number productions equals integer break inverse"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Each acyclic regular grammar corresponds to an edge-labelled directed acyclic multigraph with one designated start and terminal; its generated language counts distinct start-to-terminal path labels, not all graph paths.",
+        "The checked 2019 source gives the weaker cardinality inequality |L(G)| <= 2^(p-1), not the equality spectrum."
+      ],
+      "reasoning": "The potential equivalent description is an extremal single-source/single-terminal path count with a fixed edge budget plus injective unary edge labels and a grammar cover inverse. Search comparisons did not locate that complete package; source-endpoint path count must not be confused with counts of all paths across all endpoints.",
+      "searches": [
+        "acyclic regular grammar covering the unary interval language {a^0,a^1,...,a^{n-1}} exact minimal number productions equals integer break inverse",
+        "maximum number distinct words produced by acyclic regular grammar with k productions integer break 3^(k/3)",
+        "sharp maximum finite language cardinality with p acyclic right-linear productions integer break 3-ary branching all extremizers",
+        "\"3^(n/3)\" \"grammar\" \"productions\" number words"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published-finding corpus matches concern unary NFA transition-graph restrictions and automaton state complexity, not exact acyclic-grammar production capacity.",
+        "The complete p>=1 capacity is a closed infinite formula with a necessary-and-sufficient extremizer classification, not a finite computational table."
+      ],
+      "reasoning": "No located published database or exact table covers the all-parameter statement. A finite census under another cost measure or a similarly named unary invariant would not by itself imply the result.",
+      "searches": [
+        "regular cover problem universal cardinality bound sharp over unary interval languages",
+        "finite acyclic regular grammar maximum output cardinality for number of productions",
+        "sharp maximum finite language cardinality with p acyclic right-linear productions integer break 3-ary branching all extremizers"
+      ]
+    },
+    "rationale": "The source paper proves NP-completeness for general regular cover (Theorems 3.7 and 4.6), not the exact per-production maximal finite-language cardinality, equality-rigid directed multigraphs, or the all-parameter unary interval cover threshold. The previously published cardinality bound is \\(2^{p-1}\\) (Hetzl--Wolfsteiner 2019, Lemma 7), strictly weaker than the exact integer-break bound for \\(p\\ge3\\) (for instance \\(p=4\\): the former is 8 while the latter is 4). The 2020 thesis reports only logarithmic regular descriptions of arbitrary unary languages; it does not assert the sharp constant, inverse threshold or equality structure. published-finding corpus comparisons found related unary automata and grammar-like state costs but no implication of this statement. The 1981 original and a 2026 all-path graph article were not fully accessible; the residual priority risk is stated and is not counted as a verified noncoverage result.",
+    "residual_risks": [
+      "The full 1981 article was unavailable; a sharper unquoted capacity or structural lemma could reduce priority.",
+      "The 2026 Hajac et al. paper on all-endpoint DAG paths was available only in abstract/secondary summary; an internal single-terminal special lemma might cover part of the result.",
+      "Unindexed works describing the exact same source--terminal path bound or mixed-radix unary grammar may exist.",
+      "Grammar production models that count terminal letters rather than whole terminal strings differ and are not covered."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers general NP-completeness and definitions; does not state the proposed extremal language capacity or exact unary-interval cover classification",
+        "evidence": [
+          "Definition 2.1 permits terminal blocks in Sigma* and at most one trailing nonterminal",
+          "Theorem 3.7 proves NP-completeness and Theorem 4.6 the binary alphabet restriction"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.16562v1",
+        "material_read": "Full HTML material comprising Definition 2.1, Lemma 3.1, Theorems 3.7 and 4.6, and their proofs (Sections 1--4)",
+        "method": "Direct source HTML section and theorem inspection",
+        "title": "The Regular Cover Problem is NP-complete",
+        "trigger": "Recent primary source defining the precise regular-cover decision problem and production cost"
+      },
+      {
+        "assessment": "Explicit weaker bound 2^(p-1) on |L(G)| for p-rule linear grammars; no exact integer-break capacity or complete equality classification in inspected sections",
+        "evidence": [
+          "Lemma 7 quotes universal |L(G)|<=2^(p-1)",
+          "Lemma 11 gives a general bounded-nonterminal growth estimate"
+        ],
+        "identifier_or_url": "https://www.dmg.tuwien.ac.at/hetzl/research/oncovcomp.pdf",
+        "material_read": "Introduction, Section 4 including Lemma 7 and Lemma 11, and their local context; screenshot of printed page 113",
+        "method": "PDF text and page-image comparison",
+        "title": "On the cover complexity of finite languages",
+        "trigger": "Closest established cardinality-versus-production theorem"
+      },
+      {
+        "assessment": "Reports asymptotically logarithmic production-size descriptions for arbitrary unary finite languages, but not the exact capacity and rigid maximal grammar claim in inspected material",
+        "evidence": [
+          "Chapter 4 p.54 explicitly attributes logarithmic unary regular grammar descriptions to BMCIW81 Theorem 5"
+        ],
+        "identifier_or_url": "https://www.dmg.tuwien.ac.at/hetzl/teaching/d_wolfsteiner.pdf",
+        "material_read": "Chapter 4 pages 54--56 including the attribution to 1981 Theorem 5; adjacent original-result discussion; page-image inspection",
+        "method": "PDF text finding plus page screenshot",
+        "title": "Grammatical Complexity of Finite Languages",
+        "trigger": "Thesis summarizing 1981 grammar production bounds and unary grammars"
+      },
+      {
+        "assessment": "Published functional maximizes total path count over all ordered endpoints, not the designated start--terminal count used here; details and possible internal stronger lemmas remain unverified",
+        "evidence": [
+          "Abstract: optimal bound for number of paths among connected acyclic digraphs with N edges"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.16095",
+        "material_read": "Abstract and external summary of an all-endpoint-path extremal result; full primary text not retrieved",
+        "method": "Abstract and bibliographic/source synopsis; attempted primary full text",
+        "title": "The maximal dimensions of path and graph algebras",
+        "trigger": "Potentially stronger graph path extremal theorem"
+      },
+      {
+        "assessment": "A substantive uninspected priority source. Only known bound and logarithmic summary can be compared, not full-document noncoverage",
+        "evidence": [
+          "Hetzl--Wolfsteiner 2019 Lemma 7 attributes the 2^(p-1) inequality to the 1981 paper",
+          "Wolfsteiner 2020 p.54 cites 1981 Theorem 5 for logarithmic regular grammars"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0304-3975(81)90044-X",
+        "material_read": "Full original not retrieved; only precisely attributed Lemma 2.3 and Theorem 5 via 2019 and 2020 sources",
+        "method": "Historical citation and secondary mathematical statement inspection; unsuccessful full text acquisition",
+        "title": "Concise description of finite languages",
+        "trigger": "1981 source cited as preceding linear-grammar cardinality inequality and unary logarithmic construction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e6ccbb70-5eb1-4ca7-b322-da870a833778",
+  "value": {
+    "rationale": "This is a sharp universal cardinality-per-production budget, not a restatement of the elementary integer-break exercise: the grammar-to-DAG inequality is exact, all equality *grammar structures* are classified, and a nontrivial unary mixed-radix labeling saturates the bound with a natural consecutive-length language. Consequently the regular-cover problem has an explicit sharp threshold for every unary interval, and its exact asymptotic leading constant is determined. The previous 2^(p-1) growth estimate is substantially loose (e.g. 32 versus 9 at p=6); this supplies a rigorous baseline and extremal test family for grammar minimization despite the general NP-completeness. It neither asserts a paper-sized downstream theorem nor claims hardness has been solved.",
+    "status": "PASS"
+  }
+}
