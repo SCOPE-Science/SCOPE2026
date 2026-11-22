@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement uses the standard Euclidean integer-coordinate realization with \(n\ge m\ge2\). Known and independently reconstructed normal-cone edge classification gives the swap and insertion/deletion classes. Factorial edge counting proves the exact metric spectrum, and asymptotics of exponential partial sums prove the Poisson and rare-length transition. A standalone program independently computes edge incidence via the rank of common tight inequalities in six small instances; it is a finite corroboration, not a general proof.
+## correctness
 
-## Originality — PASS, with qualification
-Heuer–Striker's original partial-permutohedron description and Behrend et al.'s general anti-blocking edge criterion are closest. Behrend et al. **already give both adjacency moves**, and no novelty is claimed for them. The claim assessed is the all-parameter Euclidean edge-length multiplicity spectrum and especially the size-biased geometric transition and conditional Poisson law, not supplied as such by the inspected results. An earlier vertex-cloud minimum-spanning-tree metric is not the facial-edge distribution. The elementary derivability from known edge classification and potential unindexed equivalent discussions remain explicit historical-priority risks.
+PASS
 
-## Mathematical value — PASS
-An established combinatorial polytope family has unchanged graph-edge counts while its Euclidean total edge length becomes concentrated on an asymptotically zero-density edge class at the exact surplus scale \(n-msymp m\). The resulting marked Poisson distribution provides a complete intrinsic metric sampling law for that class, rather than a facet-count restatement.
+Generic normal-vector support maximizes by assigning the k largest positive coefficients the labels n,n-1,...,n-k+1. Adjacent coefficient switches exchange consecutive labels, length sqrt(2); a coefficient crossing zero inserts/deletes the smallest positive label, length n-k=d+m-k. Their multiplicities are A=((m-2)N+2)/2 and B_j=m!/(j-1)! for j=1..m. Exact combinatorics sum to mN/2 edges and total insertion length m![(d+1)E_(m-1)+E_(m-2)]. Since N~e*m!, substitution gives insertion-length share 2c/(sqrt(2)+2c) for d/m->c (including 0,infinity) and the fixed-d refinement; B_j/(N-1) is the shifted truncated Poisson(1) law, and length-bias decomposes as mixture of 1+Y and 2+Y. Separately recomputed exact factorial edge counts and insertion length sums for m=2..8 with d=0,1,m,2m; those computations only corroborate all-parameter normal-fan proof.
 
-## Limits
-Only the ordinary Euclidean facial 1-skeleton for \(n\ge m\ge2\) is addressed. No independent validation or historical-priority certification has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Behrend et al Proposition 5.7 characterizes the very same two classes of edges for anti-blocking permutohedra, and Corollary 5.8/Remark 5.9 explicitly transfer them to partial permutohedra: the original combinatorial edge classification is covered. The audited statement, however, counts edges at each actual Euclidean length and derives an exact Poisson insertion-edge spectrum and count-versus-total-length transition as dimension and label surplus co-grow. The inspected published face-lattice/volume/Ehrhart results do not give these metric-weighted limits. Comparison to published mean-width and covariance results also concerns different integrals over directions/vertices.
+
+## value
+
+PASS
+
+The one-skeleton Euclidean length distribution is a canonical geometric invariant of a natural polytope family, and length-bias reveals a concrete qualitative transition invisible to the known m-regular edge count. A vanishing 2/m fraction of edges controls nonzero asymptotic fraction of metric length when surplus d is linear in m, with a precise shifted-Poisson local spectrum. This is a motivated full exact classification, despite relatively elementary factorial arithmetic once adjacency is known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

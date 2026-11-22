@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T08:49:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md blob d55a718955a09471d33846649f093019c55c756a",
+        "pinned verify_edges.py blob 897440f171302c0e4646d5e41fb1a3187600e5fe",
+        "https://arxiv.org/pdf/2207.14253"
+      ],
+      "rationale": "Generic normal-vector support maximizes by assigning the k largest positive coefficients the labels n,n-1,...,n-k+1. Adjacent coefficient switches exchange consecutive labels, length sqrt(2); a coefficient crossing zero inserts/deletes the smallest positive label, length n-k=d+m-k. Their multiplicities are A=((m-2)N+2)/2 and B_j=m!/(j-1)! for j=1..m. Exact combinatorics sum to mN/2 edges and total insertion length m![(d+1)E_(m-1)+E_(m-2)]. Since N~e*m!, substitution gives insertion-length share 2c/(sqrt(2)+2c) for d/m->c (including 0,infinity) and the fixed-d refinement; B_j/(N-1) is the shifted truncated Poisson(1) law, and length-bias decomposes as mixture of 1+Y and 2+Y. Separately recomputed exact factorial edge counts and insertion length sums for m=2..8 with d=0,1,m,2m; those computations only corroborate all-parameter normal-fan proof.",
+      "residual_risks": [
+        "Regularity n>=m is essential to the integer label normal fan; no n<m claim.",
+        "Original prior face-adjacency theorem supplies the edge classes; the novelty is a metric weighting/limiting law, not new combinatorial adjacency."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Behrend et al describe entire face lattice, volumes and Ehrhart polynomials; Gaussian mean width treats directional support rather than sum of Euclidean one-face lengths."
+        ],
+        "reasoning": "The stronger face description is a premise, but it does not itself state a distribution of all edge lengths or the offset-dependent transition. Mean width is not an edge-length functional.",
+        "searches": [
+          "partial permutohedron all edge lengths length distribution Poisson size bias asymptotic n-m",
+          "https://arxiv.org/pdf/2207.14253",
+          "https://arxiv.org/abs/2012.09901",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-third-order-gaussian-mean-width-transition-in-partial-permutoh--96ab817e00b2"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2207.14253",
+        "https://arxiv.org/abs/2012.09901",
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-third-order-gaussian-mean-width-transition-in-partial-permutoh--96ab817e00b2",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-quadratic-principal-axis-transition-in-uniform-vertex-partial-pe--dabf9d23a880"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "New formulas A=((m-2)N+2)/2, B_j=m!/(j-1)! and length share ratio are obtained by applying the previously known edge criterion and subsequent factorial-sum/limit arguments."
+        ],
+        "reasoning": "The claim is a genuine calculable consequence of prior adjacency, not independent new adjacency; it passes originality as the explicit exact metric distribution and sharp asymptotic separation were not found stated or mechanically identical in the sources examined.",
+        "searches": [
+          "partial permutohedron all edge lengths length distribution Poisson size bias asymptotic n-m",
+          "https://arxiv.org/pdf/2207.14253",
+          "https://arxiv.org/abs/2012.09901"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Behrend et al 5.7 and 5.8 explicitly identify all skeleton edges as adjacent positive-label swaps or smallest-label insertion/deletion; this is equivalent to the audited edge-type list but not the length histogram asymptotics."
+        ],
+        "reasoning": "Separated the already-covered edge incidence classification from the Euclidean counting measure and its length-biased sampling law; the latter is not merely a relabeling of face incidence.",
+        "searches": [
+          "partial permutohedron all edge lengths length distribution Poisson size bias asymptotic n-m",
+          "https://arxiv.org/pdf/2207.14253",
+          "https://arxiv.org/abs/2012.09901",
+          "partial permutohedra edge length distributions Euclidean skeleton 2025"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Behrend Proposition 3.5 provides simple-polytope degree m; Proposition 5.7 yields adjacency. No exact length-multiplicity table or Poisson limit identified in inspected sections."
+        ],
+        "reasoning": "A simple regular-graph edge count mN/2 cannot determine the number at each distinct Euclidean distance; exact spectrum is a natural finer measurement.",
+        "searches": [
+          "partial permutohedron all edge lengths length distribution Poisson size bias asymptotic n-m",
+          "https://arxiv.org/pdf/2207.14253",
+          "partial permutohedron m stellohedron edge metric length multiplicity table"
+        ]
+      },
+      "rationale": "Behrend et al Proposition 5.7 characterizes the very same two classes of edges for anti-blocking permutohedra, and Corollary 5.8/Remark 5.9 explicitly transfer them to partial permutohedra: the original combinatorial edge classification is covered. The audited statement, however, counts edges at each actual Euclidean length and derives an exact Poisson insertion-edge spectrum and count-versus-total-length transition as dimension and label surplus co-grow. The inspected published face-lattice/volume/Ehrhart results do not give these metric-weighted limits. Comparison to published mean-width and covariance results also concerns different integrals over directions/vertices.",
+      "residual_risks": [
+        "The weighted metric spectrum follows by short counting once the published adjacency criterion is known; priority could lie in prior exact edge enumerations or generalized-permutohedron metric literature.",
+        "Original Heuer–Striker full paper was not read line-by-line; relevant primary references and Behrend et al complete edge theorem were read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT prior coverage of edge types, not metric length spectrum or weighted asymptotic",
+          "evidence": [
+            "Proposition 5.7, Corollary 5.8, Remark 5.9, Section 3 simple polytope"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2207.14253",
+          "material_read": "Available 42-page arXiv PDF accessed; introduction, vertices, Proposition 5.7, Corollary 5.8 and Remark 5.9 plus associated proof/remarks examined.",
+          "method": "arXiv PDF textual read and page-0 screenshot",
+          "title": "Partial Permutohedra",
+          "trigger": "Same exact canonical polytope and full face-adjacency classification"
+        },
+        {
+          "assessment": "Credit for introduction/face formulas; residual risk for unstated exact metric edge counts",
+          "evidence": [
+            "Behrend introduction cites Heuer–Striker for prior definition, vertices/facets"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2012.09901",
+          "material_read": "Title, cited definition and named results through Behrend literature; original full primary paper not independently read.",
+          "method": "arXiv record and explicit citations in full Behrend paper",
+          "title": "Partial permutation and alternating sign matrix polytopes",
+          "trigger": "Original definition and structural precursor for same family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2207.14253",
+        "pinned RESULT.md; exact edge-multiplicity and asymptotic derivation"
+      ],
+      "rationale": "The one-skeleton Euclidean length distribution is a canonical geometric invariant of a natural polytope family, and length-bias reveals a concrete qualitative transition invisible to the known m-regular edge count. A vanishing 2/m fraction of edges controls nonzero asymptotic fraction of metric length when surplus d is linear in m, with a precise shifted-Poisson local spectrum. This is a motivated full exact classification, despite relatively elementary factorial arithmetic once adjacency is known.",
+      "residual_risks": [
+        "Do not present original edge adjacency or combinatorial regularity as novel."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Regularity n>=m is essential to the integer label normal fan; no n<m claim.",
+    "Original prior face-adjacency theorem supplies the edge classes; the novelty is a metric weighting/limiting law, not new combinatorial adjacency.",
+    "The weighted metric spectrum follows by short counting once the published adjacency criterion is known; priority could lie in prior exact edge enumerations or generalized-permutohedron metric literature.",
+    "Original Heuer–Striker full paper was not read line-by-line; relevant primary references and Behrend et al complete edge theorem were read.",
+    "Do not present original edge adjacency or combinatorial regularity as novel."
+  ],
+  "schema_version": 1
+}
