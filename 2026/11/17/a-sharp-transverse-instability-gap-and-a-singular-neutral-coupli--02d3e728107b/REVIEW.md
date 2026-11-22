@@ -1,19 +1,21 @@
-# Review of the exact transverse-instability theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The statement specifies the polynomial duopoly map, \(a,k,c>0\), \(d\ge0\), the full-chaos condition \(ka=3\), and almost-everywhere qualification with respect to the diagonal arcsine invariant law. The normal multiplier follows by differentiating the full map before restricting to the diagonal; the direction \((1,-1)\) is fixed. Birkhoff's theorem applies because the log multiplier is integrable, and Jensen's logarithmic-cosine identity yields both exact branches. The strictly positive physical gap, unique neutral coupling, one-sided asymptotic orders, and ray conservation follow algebraically. The independent script's exact and quadrature checks all passed; numerical tests are not substituted for the proof.
+PASS
 
-## Originality
+For ka=3 the full 2x2 Cournot Jacobian, differentiated before diagonal restriction, has eigendirections (1,1),(1,-1) with transverse eigenvalue 4(1-2eta u), eta=(2+c)/(2+c+d), where diagonal u follows u->4u(1-u). The arcsine invariant law is ergodic via circle-doubling conjugacy; the logarithm is integrable despite at most one zero. Jensen cosine integral yields lambda=log(2eta) for eta>=1/2 and lambda=log(2(1-eta+sqrt(1-2eta))) otherwise, including the singular neutral boundary eta=1/2. For d∈[0,1], s=2+c>2 implies eta>s/(s+1)>2/3, yielding strict lambda>log(4/3), approached at c->0,d=1. For d=s exactly the two coordinates acquire the same multiplicative factor, conserving x/y; expansion d->s± gives linear/square-root one-sided cusps. Almost-everywhere statement is with respect to the natural invariant diagonal logistic measure, not all trajectories.
 
-**PASS within checked literature.** Askar and Alshamrani (2024) establish the same diagonal dynamics and transverse-exponent setup without the exact evaluation, uniform sharp gap, or one-sided cusp. Bischi, Stefanini, and Gardini (1998) already identify positive generic transverse growth at maximal logistic chaos for the older fixed-ratio duopoly model; this qualitative endpoint is credited rather than claimed. The new model's full physical parameter family, optimal constant, exact neutral locus, and unequal cusp scales are not implied by the older fixed-ratio numerical discussion. A 2019 related consumer-surplus Cournot article could not be read beyond its abstract; possible stronger unindexed analytic formula remains a risk. The standard Jensen identity is not novel.
+## originality
 
-## Value
+PASS
 
-**PASS.** Synchronization at an invariant chaotic diagonal is explicitly studied in the source model; determining whether the chaotic synchronized motion is normally attracting is a natural structural question. The sharp universal \(\log(4/3)\) gap is a quantitative obstruction across the entire economically admissible substitutability range, not an arbitrary sampled parameter. The unique neutral extension has exact ray conservation and a nonsmooth, asymmetric critical exponent law; this distinguishes a genuine invariant-foliation resonance from numerical near-synchronization.
+Askar–Alshamrani (2024) define the same cost-adjusted symmetric Cournot map, logistic diagonal and transverse exponent criterion, while Bischi–Stefanini–Gardini (1998) note transverse instability at a specific ratio. These are credited. The sharp all-physical-parameter lower bound log(4/3), full analytic continuation formula and exceptional neutral-coupling cusp are not presented in the inspected source sections. Although Jensen is classical and the calculation is short, it answers a specific, nontrivial stability question with a sharp universal constant.
 
-## Limits and closest work
+## value
 
-The result does not describe global basins, nonlinear transverse trajectories, all synchronized periodic orbits, or feasibility of extended \(d>1\) under the original economic interpretation. Closest inspected works: Askar–Alshamrani, DOI 10.1155/2024/9912671 (2024), and Bischi–Stefanini–Gardini, DOI 10.1016/S0378-4754(97)00100-6 (1998). The relevant abstract-only work by Ji and coauthors, DOI 10.1142/S0218127419300313 (2019), was access-limited. Independent expert checking of this proposed priority claim remains appropriate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp positive transverse Lyapunov gap uniformly forbids robust chaotic synchronization in the physical substitute-products domain; the exact exceptional extension d=s conserves output ratio and has different left/right exponents with square-root singularity. These directly sharpen parameter stability margins and identify a singular boundary not resolved by a numerical transverse criterion, despite classical Jensen machinery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
