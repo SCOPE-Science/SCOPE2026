@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "Identity (1) was algebraically reconstructed and its quartic part verified exactly. All terms are nonnegative since s<=1, Re(z conjugate(w))<=|z||w|, and remaining terms are squares. Summed row norms produce 5/4 with no missing columns. Equality implies exactly four nonzero endpoint-supported columns, equal quarter powers, phase product relation and the specified orthogonality. Four-by-four Walsh construction attains; single-lag and Fourier benchmarks agree with exact arithmetic. The fourth-moment formula follows from proper i.i.d. moments and the traceless shift. Remaining limitations: no independent audit and no claims for other lag sets.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.02843 Theorem 1 and its Appendix B address single k and prefix {1,...,r}; Proposition 1 Appendix G addresses fixed k.",
+        "The selected set {N-2,N-1} is not a prefix for N>=4, and its optimal Walsh block is not the general full Fourier prefix optimizer for N>4."
+      ],
+      "reasoning": "The prior full-EISL theorem concerns all lags and does not imply the optimum of a proper nonprefix subset. Two separate maximizers can conflict: their maxima sum to 3/2 while the new joint max is 5/4. Hence the known single-lag results do not dominate.",
+      "searches": [
+        "arbitrary aperiodic sidelobe lag set optimized unitary basis OFDM two nonconsecutive late lags",
+        "aperiodic OFDM unitary Fourier modulation optimal expected sidelobe energy arbitrary nonconsecutive two lag sets exact N=4 or N=5, tradeoff",
+        "Xiong On the Optimality of OFDM for Aperiodic Ranging 2026 October 2 single lag prefix lag unitary autocorrelation",
+        "unitary modulation aperiodic sidelobe optimized two last time lags 5/4 Walsh OFDM",
+        "unitary bases aperiodic autocorrelation last two lags complement Fourier Walsh optimum"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.02843",
+      "https://www.paperpeel.com/paper/2610.02843 (full secondary rendering cross-check)",
+      "Published mathematical-finding record searches for tail-lag optimization and Walsh four-row equivalences"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Single-lag formula yields maxima 1 and 1/2, which only bound the joint optimum by 3/2.",
+        "Full Fourier yields two-tail energy 5/N, and prefix optimality says nothing about the sharp upper envelope 5/4 on the nonprefix tail pair.",
+        "New explicit sum-of-squares defect certifies 5/4 and characterizes exactly four active columns."
+      ],
+      "reasoning": "No valid implication from the inspected source results fixes the joint two-tail energy: both naive sum of single-lag maxima and Fourier prefix benchmark differ from 5/4 for N>4. An independent joint inequality and equality proof is necessary.",
+      "searches": [
+        "arxiv:2610.02843 sections II-D, III-A, IV-A, IV-B, Appendix A, B, G, H, I",
+        "On the Optimality of OFDM for Aperiodic Ranging sum of two largest time lags N-2 N-1 unitary optimal five quarters, 5/4",
+        "finite unitary matrix last two aperiodic autocorrelation sums squared sharp 5/4 Walsh four endpoint rows"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The objective is the sum of two squared diagonal entries of conjugated noncyclic shifts J_{N-2},J_{N-1}, equivalently the tail-pair expected sidelobe loss for proper symbols (arXiv:2610.02843 Lemma 1).",
+        "The terminal four-row Walsh block differs from single-lag chain DFT optima for N>4."
+      ],
+      "reasoning": "Explicitly compared noncyclic shift diagonal energies, summed aperiodic two-tail lags, and OFDM expected sidelobes under the affine fourth-moment identity. No retrieved equivalent-formulation statement supplies a sharp 5/4 joint maximum.",
+      "searches": [
+        "On the Optimality of OFDM for Aperiodic Ranging sum of two largest time lags N-2 N-1 unitary optimal five quarters, 5/4",
+        "finite unitary matrix last two aperiodic autocorrelation sums squared sharp 5/4 Walsh four endpoint rows",
+        "arbitrary aperiodic sidelobe lag set optimized unitary basis OFDM two nonconsecutive late lags",
+        "unitary modulation aperiodic sidelobe optimized two last time lags 5/4 Walsh OFDM",
+        "unitary bases aperiodic autocorrelation last two lags complement Fourier Walsh optimum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned nearest orthogonal Fourier-aperture, Walsh frame, and two-deletion chirp records; none provides the unitary tail-lag pair optimum or full equality class.",
+        "The available prior scientific claims were compared on object and parameters; no matching terminal-pair sharp theorem or equality class was identified."
+      ],
+      "reasoning": "The searched scientific records and literature sources did not return this exact dimension-free value and equality classification. Failed search alone is not novelty proof; the evidence consists chiefly in an actual implication comparison with the closest primary source.",
+      "searches": [
+        "On the Optimality of OFDM for Aperiodic Ranging sum of two largest time lags N-2 N-1 unitary optimal five quarters, 5/4",
+        "finite unitary matrix last two aperiodic autocorrelation sums squared sharp 5/4 Walsh four endpoint rows",
+        "arbitrary aperiodic sidelobe lag set optimized unitary basis OFDM two nonconsecutive late lags"
+      ]
+    },
+    "rationale": "Against the fully inspected relevant 2026 paper, single-lag and prefix theorems do not imply the non-prefix joint tail-lag optimum or its equality family; targeted published mathematical-finding and literature searches show no matching claim. Broader unindexed published coverage is a residual bibliographic risk.",
+    "residual_risks": [
+      "Unindexed or unpublished solutions of arbitrary subset unitary aperiodic lag optimization may subsume the result.",
+      "The full text of the 2025 fourth-moment/aperiodic conjecture reference was not independently available; the claims as reproduced in the October 2026 paper are narrower than the two-tail formula.",
+      "Reproducibility tests are finite; the infinite-dimensional statement rests on the displayed algebraic proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING precise claim: no formula for the joint two-tail non-prefix lag maximum 5/4 or a four-active-column complete equality class; single-lag values 1 and 1/2 do not force joint 5/4. The prefix theorem includes lag 1 and so is inapplicable to this tail-only set for N>4.",
+        "evidence": [
+          "arXiv:2610.02843 Lemma 1 equations 15a–b; Theorem 1; Proposition 1; Appendix A equations 91–96; Appendix B; Appendix G equations 114–118; Appendices H/I."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.02843",
+        "material_read": "Full HTML: introduction, fourth-moment reduction Lemma 1; Theorem 1; Proposition 1; Section IV (single lag and prefixes); proofs in Appendices A, B, G, H and I (including equality cases).",
+        "method": "Compared actual mathematical domains and quantifiers: arbitrary one-lag optima, prefix subsets, and tail pair {N-2,N-1}; checked fourth moment expansion in Appendix A and exact single-lag tradeoff in Appendix G.",
+        "title": "On the Optimality of OFDM for Aperiodic Ranging",
+        "trigger": "Same randomized unitary modulation and exact expected aperiodic correlation objective"
+      },
+      {
+        "assessment": "COVERAGE_UNRESOLVED only for material not independently read; as reproduced, it proves global/prefix or periodic statements and not the terminal two-lag exact maximum.",
+        "evidence": [
+          "arXiv:2610.02843 section I-B and Appendix A cites its Corollary 4 for the identity."
+        ],
+        "identifier_or_url": "Reference [7] in arXiv:2610.02843, cited by Appendix A of that paper",
+        "material_read": "The directly reproduced prior statement and identity in the 2026 primary paper, with prior-reference description. Full independent primary text not obtained.",
+        "method": "Checked the cited mathematical claim as reproduced in the inspected 2026 primary source.",
+        "title": "CP-OFDM Achieves the Lowest Average Ranging Sidelobe under QAM/PSK Constellations",
+        "trigger": "Original full aperiodic expected integrated sidelobe conjecture and fourth moment identity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9cd0b6bd-2890-48c1-a77e-7f78eb2a2001",
+  "value": {
+    "rationale": "The natural two latest aperiodic delays are a nonprefix ranging window explicitly outside the source prefix classification. The theorem determines its global optimum for every dimension, a full optimizer family, an exact 1/4 incompatibility loss between individual lag optima, and a strict dimension-dependent OFDM performance penalty for proper sub-Gaussian alphabets. The standalone nonnegative identity supplies a useful exact quantitative optimality certificate, not merely a numerical example.",
+    "status": "PASS"
+  }
+}
