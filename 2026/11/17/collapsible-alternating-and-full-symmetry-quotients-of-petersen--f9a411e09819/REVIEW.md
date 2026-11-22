@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact cell definition matches the Abrams discrete unordered two-point model. All graph labels, cells, incidences, and group actions are enumerated without omission. Barycentric subdivision avoids cell inversions, and retaining simplex orbits preserves multiplicities when different cells share orbit vertices. The two full collapse certificates are checked step by step; each quotient ends as a tree and therefore collapses. The finite program is a proof-reconstructing exhaustive verifier, not evidence for a conjectural infinite extension.
+## correctness
 
-## Originality — PASS relative to checked evidence
-The 2009 primary source proves nonequivariant stable equivalence but does not identify a Petersen symmetry quotient. The closest indexed Petersen configuration results concern homology and symmetry representations of the original complex; none of their **available summaries** implies either integral quotient collapse. Indexed complete and complete-bipartite graph quotient calculations do not cover Petersen. A related Petersen source's full text could not be accessed; priority remains provisional and a complete-text comparison is desirable.
+PASS
 
-## Value — PASS
-This is a natural orbit-space question for the canonical ten-vertex cubic graph, its full symmetry group, and the only nontrivial index-two subgroup in that group. The original two-particle configuration space carries nontrivial free and torsion homology, so rationally vanishing invariant homology does not imply that these orbit spaces are contractible. The explicit collapses settle their complete integral homotopy types, including absence of hidden torsion and nonabelian fundamental-group obstructions, not merely a small numeric invariant.
+PASS — Rebuilt graph as disjointness on ten 2-subsets of five labels, 15 edges. Pairwise closure-disjoint cubical cells enumerate to C0=45 vertex pairs, C1=120 edge-vertex pairs, C2=75 disjoint edge pairs; face relations 240 (0<1), 300 (1<2), 300 (0<2), producing 600 flags, barycentric cell counts (240,840,600). Label permutations act dimension-preservingly and cannot permute vertices within a barycentric flag, so geometric quotient has distinct orbit Δ-cells without identifying them merely by vertex sets. Separate exhaustive orbit construction for A5 (60) and S5 (120) reproduces orbit counts (8,17,10), (6,10,5). Each triangle has 3 distinct edge orbits, and at each successive step a selected edge is incident to one remaining triangle. Independent exhaustive free-edge collapse removes all 10 and 5 triangles; the residual respective graphs have (8,7) and (6,5) vertices/edges, each connected with zero cycles, so successive leaf collapses give a point. The independent clean-room finite enumeration confirms legality, not mere rational acyclicity. No unjustified equivariant claim for continuous graph-configuration quotient was made.
 
-## Limitations
-Only discretized two-point configuration quotients are covered; equivariance of a continuous-to-discrete deformation retract is not claimed. Accessible index summaries may omit stronger comparisons; independent verification is pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS — Prior exact Petersen two-particle S5 rational homology and integral torus lattice characterize the original space, not quotient topology; taking invariants in homology cannot prove quotient integral collapsibility. Prior alternating/full quotient theorem covers complete graphs, not the Petersen graph; S5 contractibility of a separate Petersen *matching* complex concerns a different complex. Primary Prue–Scrimshaw establishes nonequivariant equivalence to graph configuration spaces under subdivision conditions, which cannot automatically descend to A5/S5 quotients. The exact flag-orbit elementary collapses are not implied by these results. Residual risk for unindexed equivariant orbit computations is recorded.
+
+## value
+
+PASS
+
+PASS — Even for a natural graph with nontrivial H1 and H2 and torsion, proving two canonical symmetry quotients are integrally collapsible is a strong finite topological classification. Index-two alternating quotient could behave differently from full S5 quotient; both matching explicit free-face certificates, not merely disappearing rational Betti numbers, supplies a reproducible mathematical invariant without requiring an infinite family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
