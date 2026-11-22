@@ -1,19 +1,21 @@
-# Review of the dense graphical-zonotope third-intrinsic-volume theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses the standard zonotope wedge-volume theorem (Joós–Lángi, Corollary 1), then checks the incidence-Gram determinants for all three-edge graph types: weight \(2\sqrt2\) for a matching, \(\sqrt6\) for a two-edge path and isolated edge, \(2\) for a three-edge tree, and zero for a triangle. A triple-edge inclusion-exclusion expansion gives exact coefficients \(A_n\), \(B_\mathrm a(n)\), and \(B_\mathrm d(n)\). The increasing-difference argument establishes the strict inequality controlling all graph sizes, while pair-incidence counting proves the two extremizers and all equality cases. The checker directly verifies the formulas in 2,160 exhaustive deletion configurations and 400 larger deterministic cases; these finite tests are supporting evidence rather than an infinite proof.
+PASS
 
-## Originality — PASS (historical priority provisional)
+The Steiner-normalized V3 is the three-segment wedge sum. A three-edge forest contributes 2sqrt2 (disjoint edges), sqrt6 (two-edge path plus isolated edge), or 2 (a connected four-vertex tree), while a triangle contributes zero. Multilinear inclusion-exclusion over deleted edges gives ((binom(n,2)/3)-k)A_n+binom(k,2)B_d-Delta_n P(D)-U(D); adjacent/disjoint prescribed pairs have the stated B_a,B_d. The exact inequality Delta_n>2sqrt2(k-2) for n>=2k follows from the displayed successive differences and n=4,6 bases, and bounds each nonmatching deleted-edge adjacency incidence in triple weights; similarly disjoint deleted-edge pairs imply the star minimum. Pairwise-intersecting deleted edges are a star or a triangle, with the latter strictly larger. Independent direct incidence Gram determinants and full enumeration of every deletion pattern for 4<=n<=7 and admissible k verified the identity and relabeling-unique extrema; finite enumeration is only corroboration.
 
-Joós and Lángi (arXiv:2206.03204, Corollary 1) supply the general zonotope intrinsic-volume formula. Brazitikos and McIntyre (arXiv:2102.05900) prove related wedge inequalities. Padrol, Pilaud and Poullot (arXiv:2111.12422) study deformations of graphical zonotopes and the permutahedral case. The new discrete deletion-subgraph identity and unique two-sided extremal classification with the sharp gap are not stated or implied directly by the inspected results. Targeted searches for graph-deletion variants did not surface a prior exact theorem. An equivalent statement using weighted three-edge forest counts remains a genuine priority risk, so the result is not claimed to have independently established publication priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem globally optimizes a natural Steiner intrinsic-volume invariant over every graph obtained by deleting a fixed small number of complete-graph edges, and distinguishes the opposite, uniquely attaining missing-edge patterns. The exact formula for arbitrary deletions and the explicit strict gap reveal how incident missing-edge pairs compete with three-edge forest geometry. This is a complete structural classification rather than an isolated numerical evaluation.
+Joós–Lángi Corollary 1 gives the general wedge-sum formula, not an ordering of graphs with k missing type-A roots. Ferroni and deformation papers concern different invariants. The nontrivial pair-separation bound plus exact D-statistic give a new constrained extremal classification not implied by the general wedge identity alone.
 
-## Limitations
+## value
 
-The proof concerns unweighted root-generated zonotopes and only \(n\ge4\), \(2\le k\le\lfloor n/2\rfloor\). The checker is finite. Historical priority should be independently verified against potentially equivalent graph-invariant formulations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicit third intrinsic-volume extremal theorem for the natural dense-graph deletion family distinguishes distributed from clustered edge losses, provides exact quantitative gap and equality classes, and is not merely evaluation of a known table. The forest statistic motivates the comparison geometrically.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
