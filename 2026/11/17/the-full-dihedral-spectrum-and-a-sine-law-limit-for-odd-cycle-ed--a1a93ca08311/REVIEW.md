@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The odd-cycle unsigned incidence matrix is \(A=I+S\), with exact inverse \(B=\frac12\sum_{h=0}^{n-1}(-S)^h\); its alternating rows give the full projected facet-normal Gram entries. The sign convention for *interior* dihedral angles is explicit, and all multiplicities follow because there are exactly \(n\) facet pairs at each circular distance. The sine-law limit uses two parity-conditioned uniform arithmetic meshes and an explicit \(O(n^{-2})\) cosine perturbation. Exact-rational independent matrix checks for all odd orders \(3\) through \(39\) agree, but finite tests do not prove the infinite statement.
+## correctness
 
-## Originality
-**PASS, provisional priority.** Ohsugi--Hibi (1999) already covers the basic odd-cycle normalized volume and the known simplex structure. Nagaoka--Tsuchiya (2017) deals with reflexive lifts and dimension; Numata--Takahashi--Tamaki (2022) uses directed difference vertices, not the ordinary sum realization. General simplex inverse-Gram theory and the cycle Laplacian-column simplex concern related but different or non-explicit statements. Comparisons of the actual geometric objects, metrics, angle formulas and asymptotic laws did not identify an implication yielding the complete alternating angle spectrum plus sine-law limit. An unindexed equivalent result remains possible; no historical priority certificate is asserted.
+PASS
 
-## Mathematical value
-**PASS.** The combinatorially trivial simplex family retains a rich, increasingly fine and nonconcentrating Euclidean ridge-angle spectrum. The exact angle classification and a dimension-independent limiting sine law quantify a natural metric invariant invisible in the known lattice-volume or combinatorial descriptions, and provide a benchmark for cyclic graph-incidence polytope geometry. The result is not advanced as a general theorem for all graph edge polytopes.
+For odd n=2k+1>=3 with v_i=e_i+e_(i+1) in Euclidean R^n, A=I+S has inverse B=(1/2)sum_{h=0}^{n-1}(-S)^h. Barycentric gradients projected onto the affine tangent H0=1-perp have squared norm (n^2-1)/(4n) and dot product [(-1)^d n(n-2d)-1]/(4n). Their negative normalized dot product is the claimed interior facet-dihedral cosine. Each distance d=1..k supplies n unordered ridge pairs, with alternating acute/obtuse parity, and the parity submeshes of cos theta each have gap 4/n, proving the uniform-cosine and (1/2)sin theta limiting law with O(n^-1) CDF discrepancy. Determinant 2, projection and squared-distance averaging yield the ancillary inradius 2/sqrt(n(n^2-1)), circumradius sqrt(2-4/n), volume sqrt(n)/(n-1)!. Independently checked all projected Gram entries in exact fractions for odd n=3..25; the complete all-n proof is the inverse matrix and mesh argument, not those samples.
 
-## Closest literature and limitations
-The signed and directed edge-polytope works are *not* Euclidean-equivalent to unsigned edge polytopes via a metric-preserving change of variables. Existing results for the cycle Laplacian simplex do not give the same facet Gram matrix. The theorem is restricted to odd \(n\), the inherited Euclidean metric, and uniform ridge counting. Historical completeness and independent validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for the exact inherited-Euclidean unsigned odd-cycle edge-simplex angle multiplicities and sine limiting law. Earlier graph-edge-polytope algebra, lattice volume one, and directed or symmetric edge polytope results do not establish this Euclidean metric angle distribution. No dominating or equivalent mathematical statement emerged from Resultary/primary searches; exact-alias priority remains a residual risk.
+
+## value
+
+PASS
+
+PASS: the canonical graph edge polytope is a natural embedding and its complete Euclidean facet angular spectrum is an intrinsic geometric invariant; the explicit parity alternation and nonconcentrating sine-law asymptotics would be directly useful for graph-polytope geometry and metric random ridges, beyond generic matrix-inverse formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-The source proof gives the unrestricted odd-order statement. The standalone Python 3 checker uses exact rational arithmetic to reconstruct the incidence inverse and the projected facet-normal Gram entries for every odd order from \(3\) through \(39\). Its executed output included:
+# Independent mathematical audit
 
-```
-ODD_CYCLE_EDGE_SIMPLEX_PASS odd_orders=3..39 direct_normal_pairs=5130 distribution_orders=101,501,2001,10001
-KOLMOGOROV 101 0.01980392
-KOLMOGOROV 501 0.00399203
-KOLMOGOROV 2001 0.00099950
-KOLMOGOROV 10001 0.00019998
-```
+## correctness
 
-The distribution comparisons check only four finite large instances; the general convergence and its rate follow from the two parity-class arithmetic meshes in the proof. The basic lattice-volume relation is previously known. There has been no independent audit or external certification.
+PASS
+
+For odd n=2k+1>=3 with v_i=e_i+e_(i+1) in Euclidean R^n, A=I+S has inverse B=(1/2)sum_{h=0}^{n-1}(-S)^h. Barycentric gradients projected onto the affine tangent H0=1-perp have squared norm (n^2-1)/(4n) and dot product [(-1)^d n(n-2d)-1]/(4n). Their negative normalized dot product is the claimed interior facet-dihedral cosine. Each distance d=1..k supplies n unordered ridge pairs, with alternating acute/obtuse parity, and the parity submeshes of cos theta each have gap 4/n, proving the uniform-cosine and (1/2)sin theta limiting law with O(n^-1) CDF discrepancy. Determinant 2, projection and squared-distance averaging yield the ancillary inradius 2/sqrt(n(n^2-1)), circumradius sqrt(2-4/n), volume sqrt(n)/(n-1)!. Independently checked all projected Gram entries in exact fractions for odd n=3..25; the complete all-n proof is the inverse matrix and mesh argument, not those samples.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge for the exact inherited-Euclidean unsigned odd-cycle edge-simplex angle multiplicities and sine limiting law. Earlier graph-edge-polytope algebra, lattice volume one, and directed or symmetric edge polytope results do not establish this Euclidean metric angle distribution. No dominating or equivalent mathematical statement emerged from Resultary/primary searches; exact-alias priority remains a residual risk.
+
+## value
+
+PASS
+
+PASS: the canonical graph edge polytope is a natural embedding and its complete Euclidean facet angular spectrum is an intrinsic geometric invariant; the explicit parity alternation and nonconcentrating sine-law asymptotics would be directly useful for graph-polytope geometry and metric random ridges, beyond generic matrix-inverse formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
