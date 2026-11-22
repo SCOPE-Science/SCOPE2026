@@ -1,0 +1,169 @@
+{
+  "correctness": {
+    "rationale": "Under 0<theta<pi and S in [0,1], D=1-2E[S(1-S)](1-cos theta)>0. Isotropic feature covariance equals (r^2 D/2)I, yielding unique all-real-matrix least-squares minimizer. Exact covariance and Pythagorean identities give the residual proportional to Var S, and differentiating the angular coefficient gives a single cosine zero for q<1/4, with the deterministic-midpoint boundary handled separately. Taylor expansion gives necessary and sufficient mean=1/2 and variance=1/12 for full O(h^4) generator recovery. Rational arithmetic checker verifies exact normal equations, risk and coefficients over extensive offset laws/angles; finite tests corroborate rather than prove universal statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2611.00448 section 4.2 and Appendix C: continuous-stage RK/average-vector-field residual and qualitative Jacobian penalty",
+        "https://arxiv.org/abs/2507.14491 sections 1-3: stability-region consequences for rollout-based linear dynamic-system learning",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-midpoint-rigidity-sharp-frequency-threshold-and-mass-inflation-f--530fd3576bbd RESULT.md: three-node trigonometric SBP derivative/norm, with separate positivity limit 2pi/3",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-critical-sampling-resonances-in-a-planar-oscillator-s-reachabili--09c3340f336a RESULT.md: finite-sampling reachability singularity at integer half periods"
+      ],
+      "reasoning": "General average-vector-field and implicit-midpoint properties do not solve the random-offset least-squares normal equations or classify their exact minimum loss. The same numeric 2pi/3 constant in the three-node SBP result enforces a positive diagonal derivative norm for a different three-node function space; no direct implication to an arbitrary-law regression objective is present. The reachability record concerns singular-value blow-up of a sampled control matrix, not the regression loss.",
+      "searches": [
+        "average vector field velocity matching linear skew symmetric oscillator identifiability exact sampling frequency",
+        "gradient matching linear oscillator chord least squares fourth order frequency bias noninjective Nyquist",
+        "https://arxiv.org/abs/2611.00448",
+        "https://arxiv.org/abs/2507.14491",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-midpoint-rigidity-sharp-frequency-threshold-and-mass-inflation-f--530fd3576bbd",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-critical-sampling-resonances-in-a-planar-oscillator-s-reachabili--09c3340f336a"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2611.00448",
+      "https://www.math.uakron.edu/~kreider/anpde/Lele_JCP_1992.pdf",
+      "https://doi.org/10.1002/num.23036",
+      "https://arxiv.org/abs/2507.14491",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-midpoint-rigidity-sharp-frequency-threshold-and-mass-inflation-f--530fd3576bbd",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-critical-sampling-resonances-in-a-planar-oscillator-s-reachabili--09c3340f336a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Farenga–Manzoni: chord interpolation with uniform offset; general objective bias-variance, not the specialized all-law optimum.",
+        "Lele and Li–Li–Liao: uniform special imaginary transfer function is known; does not describe variance-dependent optimized chord loss or asymmetric-law radial bias.",
+        "Lu–Tsai: integrator rollout fitting can create false anti-damping; distinct objective and mechanism.",
+        "Three-node SBP and sampled reachability public claims are about matrix differentiation norms and control-system rank, respectively."
+      ],
+      "reasoning": "Exact claims compared, not only titles: the new statement quantifies a unique unconstrained matrix population estimator for every [0,1]-valued offset law and sharp necessary/sufficient fourth-order conditions. Previous compact wavenumber claims imply the uniform frequency specialization, and the motivating VM paper implies existence of bias/variance decomposition, but neither implies the asserted full formulas and all-law necessity from its stated results. The research report explicitly limits originality to these remaining conjunctive claims.",
+      "searches": [
+        "https://arxiv.org/abs/2611.00448",
+        "https://arxiv.org/abs/2507.14491",
+        "https://www.math.uakron.edu/~kreider/anpde/Lele_JCP_1992.pdf",
+        "https://doi.org/10.1002/num.23036",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-midpoint-rigidity-sharp-frequency-threshold-and-mass-inflation-f--530fd3576bbd",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-critical-sampling-resonances-in-a-planar-oscillator-s-reachabili--09c3340f336a",
+        "novel exact error constants low rank numerical integrators rational Chebyshev matrix iterations preservation positivity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2611.00448 sections 4.1-4.4: general uniform VM objective, expectation-based bias-variance but no displayed arbitrary-offset moment solution",
+        "https://www.math.uakron.edu/~kreider/anpde/Lele_JCP_1992.pdf sections 2.1, 3.1: tridiagonal first-derivative Padé symbol already equals 3 sin(theta)/(2+cos(theta))",
+        "https://doi.org/10.1002/num.23036 equation (2.3): explicit fourth-order compact first-derivative stencil yielding same symbol"
+      ],
+      "reasoning": "The uniform-law imaginary coefficient is algebraically equivalent to a known fourth-order compact differentiation modified wavenumber. It is therefore excluded as an independent originality claim; however the full exact all-law minimizer over all real 2x2 matrices, variance-dependent irreducible population loss and mean-dependent radial drift are not consequences of the compact-derivative stencil. Arbitrary-law optimization and its fourth-order moment necessity form the noncovered assessed result.",
+      "searches": [
+        "velocity matching stochastic collocation arbitrary time sampling distributions moment mean variance exact harmonic oscillator regression loss zero bias damping",
+        "compact Padé differentiation frequency 3 sin theta over 2 plus cos theta implicit midpoint spectral phase velocity matching",
+        "velocity matching piecewise linear interpolation harmonic oscillator frequency learning exact transfer 3sin(theta)/(2+cos(theta)) fold 2pi/3",
+        "https://arxiv.org/abs/2611.00448",
+        "https://www.math.uakron.edu/~kreider/anpde/Lele_JCP_1992.pdf",
+        "https://doi.org/10.1002/num.23036"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published searchable mathematical records returned trigonometric-SBP, reachability and compact-derivative comparisons; no all-law chord-regression residual table was identified.",
+        "https://www.math.uakron.edu/~kreider/anpde/Lele_JCP_1992.pdf tabulates and analyzes the previously known compact Padé symbol"
+      ],
+      "reasoning": "A closed-form uniform compact-difference Fourier symbol is already in a classical table, and that special component is not new. The searched record titles, summaries and two closest full RESULT texts did not show a table for the combined arbitrary-law population risk, dissipative drift and complete order/fold constraints. Absence from these indexes is only a bounded search result.",
+      "searches": [
+        "velocity matching stochastic collocation arbitrary time sampling distributions moment mean variance exact harmonic oscillator regression loss zero bias damping",
+        "moment conditions stochastic collocation velocity matching sharp fourth order oscillator frequency and fold Nyquist",
+        "velocity matching piecewise linear interpolation harmonic oscillator frequency learning exact transfer 3sin(theta)/(2+cos(theta)) fold 2pi/3",
+        "compact Padé differentiation frequency 3 sin theta over 2 plus cos theta implicit midpoint spectral phase velocity matching"
+      ]
+    },
+    "rationale": "The full-text motivating article gives the uniform stochastic chord objective, bias–variance identity and second-order general loss consistency but no arbitrary-offset-law planar-rotation minimizer or exact risk/frequency/damping moment phase diagram. Lele and Li–Li–Liao contain the exact uniform-law fourth-order compact derivative symbol (including its easily deduced fold): this special Fourier statement is explicitly credited, not treated as original. Lu–Tsai studies rollout integrator-fitting, not stochastic chord-velocity regression. Two relevant full-text public records on trigonometric SBP and oscillator reachability have different objects and do not imply the joint statistical regression classification. A historical equivalent formulated as complex linear regression may exist outside indexed searches.",
+    "residual_risks": [
+      "Published classical compact difference results cover the uniform imaginary response; no standalone novelty is attributed to that response or its fold.",
+      "The general all-law linear least-squares formula might be present as an unindexed corollary in older gradient-matching or flow-matching literature; indexed and full-text comparisons cannot prove its historical absence.",
+      "Lele primary PDF was read through an accessible textual rendering; its page screenshots could not be fetched, so visual equation inspection used the full open Wiley article as an independent corroboration."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes general VM construction and uniform offset; no explicit optimized rotation normal equations or arbitrary offset phase law found",
+        "evidence": [
+          "Section 4.1 equation 27 defines chord and slope",
+          "Section 4.2 links VM bias to average-vector-field and variance regularization",
+          "Section 6 discusses collocation distributions for oscillatory or conservative systems"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.00448",
+        "material_read": "Full scholarly HTML, methods sections 4.1-4.4, proofs in Appendix C and concluding open questions",
+        "method": "Read equations for piecewise-linear interpolation and expectation loss, bias-variance argument, average-vector-field interpretation and limitations",
+        "title": "Learning to evolve by matching velocities",
+        "trigger": "Origin of chord-velocity objective and implicit collocation"
+      },
+      {
+        "assessment": "The uniform-law frequency response and its fold are reducible to an established fourth-order Padé modified wavenumber, explicitly credited; not the proposed stochastic population theorem",
+        "evidence": [
+          "Section 2.1 identifies classical Padé alpha=1/4",
+          "Section 3.1 analyzes modified wavenumber w prime versus physical angle"
+        ],
+        "identifier_or_url": "https://www.math.uakron.edu/~kreider/anpde/Lele_JCP_1992.pdf",
+        "material_read": "Primary PDF parsed text sections 2.1 and 3.1, including compact Padé coefficients and Fourier wavenumber analysis",
+        "method": "Compared classical fourth-order first-derivative tridiagonal stencil and its Fourier symbol; graphical page screenshot was inaccessible",
+        "title": "Compact Finite Difference Schemes with Spectral-like Resolution",
+        "trigger": "Exact Fourier transfer function collision with the proposed uniform formula"
+      },
+      {
+        "assessment": "Confirms prior art of the fourth-order compact symbol; the article treats spatial PDE differencing, not statistical chord regression",
+        "evidence": [
+          "Equation (2.3): 1/4 vprime[i-1] + vprime[i] + 1/4 vprime[i+1] = (3/4h)(v[i+1]-v[i-1])"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/num.23036",
+        "material_read": "Open full HTML article, introduction and equation (2.3) of Section 2",
+        "method": "Verified the exact compact derivative relation with weights 1/4, 1, 1/4 and right-hand 3/4 centered derivative",
+        "title": "A combined compact finite difference scheme for solving the acoustic wave equation in heterogeneous media",
+        "trigger": "Independent full-text statement of Padé stencil"
+      },
+      {
+        "assessment": "Different numerical integration rollout loss and possible anti-damping; does not give arbitrary chord-offset expected regression normal equations",
+        "evidence": [
+          "Section 1 equation 7 minimizes rollout mismatches",
+          "Section 1 contributions identify numerical-integrator stability region as bias mechanism"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2507.14491",
+        "material_read": "Full scholarly HTML sections 1-3, including linear scalar rollout objective and integrator stability discussion",
+        "method": "Compared formal objective and learned generator characterization",
+        "title": "Artifacts of Numerical Integration in Learning Dynamical Systems",
+        "trigger": "Learning a wrong oscillator generator despite accurate discrete data"
+      },
+      {
+        "assessment": "No implication: the 2pi/3 value is a boundary for SBP positive diagonal weights, not a VM learning frequency fold; matching constant alone is not coverage",
+        "evidence": [
+          "SBP result characterizes a diagonal P satisfying P D + D transpose P = diag(-1,0,1)"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-midpoint-rigidity-sharp-frequency-threshold-and-mass-inflation-f--530fd3576bbd",
+        "material_read": "Full public RESULT.md: statement, hypotheses, four proof steps and limitations",
+        "method": "Compared the three-node SBP derivative and positive norm existence test against chord regression coefficients",
+        "title": "Midpoint rigidity, sharp frequency threshold, and mass inflation for three-node trigonometric SBP",
+        "trigger": "Same angular constant 2pi/3 in mathematical record search"
+      },
+      {
+        "assessment": "Different invariant (control-input reachability singular values), does not contain arbitrary offset law regression or training residual",
+        "evidence": [
+          "Result characterizes W_h=[B_h,A_h B_h] singular at theta=m pi"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-critical-sampling-resonances-in-a-planar-oscillator-s-reachabili--09c3340f336a",
+        "material_read": "Full public RESULT.md, proof and limitations",
+        "method": "Compared the sampled reachability singularity and parity asymptotics with phase-regression loss",
+        "title": "Critical sampling resonances in a planar oscillator's reachability matrix",
+        "trigger": "Potential oscillator sampling and alias reduction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bb5d9459-ac20-4114-970f-aa81858f4723",
+  "value": {
+    "rationale": "The exact phase diagram resolves how to choose collocation distributions for an oscillatory inverse-ODE problem, a question raised by the motivating source. It separates preservation of conservation (offset mean), irreducible training loss (variance), fourth-order learned generator (two prescribed moments) and the unavoidable loss of monotone angular response above 2pi/3 for fourth-order laws. A deterministic midpoint gives zero loss and no interior angular fold but only second-order frequency recovery. This is a motivated structural distinction beyond routine mere parameter substitutions.",
+    "status": "PASS"
+  }
+}
