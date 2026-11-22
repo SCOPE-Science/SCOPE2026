@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T07:54:35.607197Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every allowed binary digit pair is (0,0),(1,0),(0,1), so the cyclic Fourier coefficient factors over j as ∏(1+ζ^(2^j u)+ζ^(2^j v)). For a power-of-two M, any two Mth roots z,w satisfy |1+z+w|≥||1+z|−1|=|2cos(πt)−1|≥3|t−1/3|≥1/M; the concavity/chord and tangent estimates cover t∈[0,1/2], and 3∤M ensures separation. Thus σ_n≥2^{−n(n+1)/2}. The explicit conjugate frequencies u_n=(2^n−(−1)^n)/3,v_n=−u_n modulo 2^n are simultaneously within 1/(3·2^(n−j)) of primitive cube-root cancellation at each digit scale; Lipschitz bound 4π gives σ_n≤(4π/3)^n2^{−n(n+1)/2}. Triangle inequality makes max multiplier 3^n, so κ=3^n/σ and log2 κ/n²→1/2. Does not prove exact finite minimizers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lam–Leung's vanishing-weight theory implies 3-term dyadic root sums are nonzero, but supplies no quantitative lower bound for a product of n factors; general self-similar harmonic analysis supplies digit products but not this explicit scale of σ_n.",
+          "Checked https://arxiv.org/abs/math/9511209 and https://arxiv.org/abs/1011.6083 for potential implication"
+        ],
+        "reasoning": "Lam–Leung's vanishing-weight theory implies 3-term dyadic root sums are nonzero, but supplies no quantitative lower bound for a product of n factors; general self-similar harmonic analysis supplies digit products but not this explicit scale of σ_n.",
+        "searches": [
+          "Resultary semantic: dyadic no-carry convolution cyclic Fourier multiplier minimum 2^{-n(n+1)/2} condition number",
+          "https://arxiv.org/abs/math/9511209",
+          "https://arxiv.org/abs/1011.6083"
+        ]
+      },
+      "checked_sources": [
+        "Frozen assigned RESULT.md and factorization at blob c8a9adda7ba2302b44f543d5d505791e471331a0",
+        "Lam–Leung arXiv:math/9511209, Main Theorem (view and screenshot)",
+        "Resultary semantic query for dyadic no-carry Fourier conditioning",
+        "https://arxiv.org/abs/1011.6083"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lam–Leung plus digit factorization implies σ_n>0 (qualitative). It does not imply σ_n≥2^{−T_n} nor σ_n≤(4π/3)^n2^{−T_n}; these require separately proved separation and the simultaneous witness. Hence known qualitative theorem does not cover the central quantitative claim.",
+          "Checked https://arxiv.org/abs/math/9511209 and https://arxiv.org/abs/1011.6083 for potential implication"
+        ],
+        "reasoning": "Lam–Leung plus digit factorization implies σ_n>0 (qualitative). It does not imply σ_n≥2^{−T_n} nor σ_n≤(4π/3)^n2^{−T_n}; these require separately proved separation and the simultaneous witness. Hence known qualitative theorem does not cover the central quantitative claim.",
+        "searches": [
+          "Resultary semantic: dyadic no-carry convolution cyclic Fourier multiplier minimum 2^{-n(n+1)/2} condition number",
+          "https://arxiv.org/abs/math/9511209",
+          "https://arxiv.org/abs/1011.6083"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The set S_n is the digitwise binary disjointness/odd Pascal-binomial locus, equivalently the n-fold product digit alphabet {(0,0),(1,0),(0,1)}. The claim concerns two-dimensional complex cyclic Fourier singular values, not Boolean Walsh coefficients or a probability-normalized convolution.",
+          "Checked https://arxiv.org/abs/math/9511209 and https://arxiv.org/abs/1011.6083 for potential implication"
+        ],
+        "reasoning": "The set S_n is the digitwise binary disjointness/odd Pascal-binomial locus, equivalently the n-fold product digit alphabet {(0,0),(1,0),(0,1)}. The claim concerns two-dimensional complex cyclic Fourier singular values, not Boolean Walsh coefficients or a probability-normalized convolution.",
+        "searches": [
+          "Resultary semantic: dyadic no-carry convolution cyclic Fourier multiplier minimum 2^{-n(n+1)/2} condition number",
+          "https://arxiv.org/abs/math/9511209",
+          "https://arxiv.org/abs/1011.6083"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct finite n frequency tables are only checks: a finite table or an exact minimum at bounded lengths cannot imply the global quadratic-log conditioning law. No exact pre-existing table giving the claimed all-n rate was located in the cited sources.",
+          "Checked https://arxiv.org/abs/math/9511209 and https://arxiv.org/abs/1011.6083 for potential implication"
+        ],
+        "reasoning": "Direct finite n frequency tables are only checks: a finite table or an exact minimum at bounded lengths cannot imply the global quadratic-log conditioning law. No exact pre-existing table giving the claimed all-n rate was located in the cited sources.",
+        "searches": [
+          "Resultary semantic: dyadic no-carry convolution cyclic Fourier multiplier minimum 2^{-n(n+1)/2} condition number",
+          "https://arxiv.org/abs/math/9511209",
+          "https://arxiv.org/abs/1011.6083"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for the quantitative n²/2 logarithmic conditioning coefficient and explicit two-sided bounds, not for qualitative zero-freeness. The primary Lam–Leung theorem implies no odd-weight 3-term sum of 2-power roots vanishes, and Fourier digit factorization is standard, but neither states the scale-by-scale lower modulus or an all-digit simultaneous cube-root near-cancellation witness. Resultary semantic search located the current record and unrelated finite convolution spectra, not a dominating same dyadic no-carry bound.",
+      "residual_risks": [
+        "Unindexed quantitative estimates for near-cancellation of dyadic cyclotomic sums could already imply the exact logarithmic coefficient.",
+        "A claimed exact finite-n minimizer would not be justified; no such claim is made.",
+        "Shevelev full text was not independently inspected during this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE: qualitative zero-freeness only",
+          "evidence": "Main Theorem weights W(2^r)=2N, excluding vanishing length 3, not a modulus lower bound",
+          "identifier_or_url": "https://arxiv.org/pdf/math/9511209",
+          "material_read": "Primary paper first-page statement and main theorem about possible weights, including W(m) generated by prime divisors; relevant theorem context",
+          "method": "Opened full arXiv PDF, inspected first-page screenshot and text passages",
+          "title": "On vanishing sums of roots of unity",
+          "trigger": "Three roots of 2-power unity are the Fourier factors"
+        },
+        {
+          "assessment": "Digit combinatorics context, uncertain uninspected quantitative content",
+          "evidence": "Assigned RESULT.md attributes integer-encoding identities rather than cyclic Fourier minimum",
+          "identifier_or_url": "https://arxiv.org/abs/1011.6083",
+          "material_read": "Bibliographic record and theorem context cited in assigned package; full paper not independently read",
+          "method": "Identified related primary source",
+          "title": "On Stephan's conjectures concerning Pascal triangle modulo 2 and their polynomial generalization",
+          "trigger": "No-carry odd binomial/Pascal digit product"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: No-carry pairs form a canonical binary/Sierpinski digit set and invertibility is insufficient for stable recovery. Its exact quadratic-exponent condition growth exposes a sharp asymptotic obstruction to cyclic convolution inversion, supported by genuinely uniform dyadic separation and a matched explicit near-extremal family. This is stronger than an elementary nonzero-multiplier observation; no exact finite minimizer is asserted.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen assigned RESULT.md and factorization at blob c8a9adda7ba2302b44f543d5d505791e471331a0",
+    "Lam–Leung arXiv:math/9511209, Main Theorem (view and screenshot)",
+    "Resultary semantic query for dyadic no-carry Fourier conditioning",
+    "https://arxiv.org/abs/1011.6083"
+  ],
+  "disposition": "passed",
+  "limitations": "All n>=1 for S_n⊂(Z/2^nZ)^2 and complex unnormalized convolution; exact minimizer and O(n) term in log2 κ unknown. Finite checks do not prove the limit.",
+  "residual_risks": [
+    "Unindexed quantitative estimates for near-cancellation of dyadic cyclotomic sums could already imply the exact logarithmic coefficient.",
+    "A claimed exact finite-n minimizer would not be justified; no such claim is made.",
+    "Shevelev full text was not independently inspected during this run."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The central claim is the asymptotically sharp quadratic-logarithmic condition number. The digit factorization is immediate from the three admissible bit choices. The key quantitative lower bound is proved independently for each dyadic root-of-unity factor using unit-circle geometry, a concavity estimate, and \(3\nmid2^m\). The explicit frequencies near the cube roots of unity give matching quadratic-order upper estimates. Fourier diagonalization then yields the operator claim. The checker confirms every frequency at lengths one through five. Numerical evidence is not substituted for the all-length proof.
+## correctness
 
-## Originality
-**PASS under bounded comparison.** The qualitative absence of zeros is covered by applying Lam–Leung's classical vanishing-sum theorem to the digit factors, and is **not** claimed as an original standalone discovery. The fresh assertion compared against prior literature is the two-sided exponential-in-\(n^2\) bound on the *least* multiplier and the exact \(1/2\) coefficient in \(\log_2\kappa_2(C_n)/n^2\). The inspected Lam–Leung and Shevelev results do not imply these quantitative bounds from their stated conclusions without additional analysis. Searches against equivalent digital-fractal and convolution vocabulary and related indexed results yielded no stronger direct coverage. Residual historical-priority risk remains, particularly from specialized digital Riesz-product and cyclotomic-product literature.
+PASS
 
-## Mathematical value
-**PASS.** This describes an infinite family of natural combinatorial operators arising from the odd entries of Pascal's triangle. It distinguishes exact invertibility from extreme numerical instability and supplies the sharp asymptotic *quadratic* logarithmic rate, rather than an arbitrary finite computation or a restatement of nonvanishing. The near-cube-root witness explains the deterioration structurally. No exact finite-length minimizer or full spectrum is claimed.
+Every allowed binary digit pair is (0,0),(1,0),(0,1), so the cyclic Fourier coefficient factors over j as ∏(1+ζ^(2^j u)+ζ^(2^j v)). For a power-of-two M, any two Mth roots z,w satisfy |1+z+w|≥||1+z|−1|=|2cos(πt)−1|≥3|t−1/3|≥1/M; the concavity/chord and tangent estimates cover t∈[0,1/2], and 3∤M ensures separation. Thus σ_n≥2^{−n(n+1)/2}. The explicit conjugate frequencies u_n=(2^n−(−1)^n)/3,v_n=−u_n modulo 2^n are simultaneously within 1/(3·2^(n−j)) of primitive cube-root cancellation at each digit scale; Lipschitz bound 4π gives σ_n≤(4π/3)^n2^{−n(n+1)/2}. Triangle inequality makes max multiplier 3^n, so κ=3^n/σ and log2 κ/n²→1/2. Does not prove exact finite minimizers.
 
-## Closest literature and limitations
-Lam–Leung (arXiv:math/9511209, 1995) dominates the qualitative nonvanishing claim, not the condition-number asymptotics. Shevelev (arXiv:1011.6083, 2010) treats related binary Pascal constructions without this cyclic convolution question. An equivalent quantitative estimate in inaccessible or unindexed fractal Fourier literature is not ruled out. The independently unverified exact extremizers and subleading conditioning terms remain outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for the quantitative n²/2 logarithmic conditioning coefficient and explicit two-sided bounds, not for qualitative zero-freeness. The primary Lam–Leung theorem implies no odd-weight 3-term sum of 2-power roots vanishes, and Fourier digit factorization is standard, but neither states the scale-by-scale lower modulus or an all-digit simultaneous cube-root near-cancellation witness. Resultary semantic search located the current record and unrelated finite convolution spectra, not a dominating same dyadic no-carry bound.
+
+## value
+
+PASS
+
+PASS: No-carry pairs form a canonical binary/Sierpinski digit set and invertibility is insufficient for stable recovery. Its exact quadratic-exponent condition growth exposes a sharp asymptotic obstruction to cyclic convolution inversion, supported by genuinely uniform dyadic separation and a matched explicit near-extremal family. This is stronger than an elementary nonzero-multiplier observation; no exact finite minimizer is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
