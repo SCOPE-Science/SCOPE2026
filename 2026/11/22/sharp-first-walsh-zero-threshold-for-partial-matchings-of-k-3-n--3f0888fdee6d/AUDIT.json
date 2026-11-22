@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Every matching count is exact: N_n=sum_j C(3,j)C(n,j)j!=n^3+2n+1, Q_n=N(K_(2,n-1))=n^2-n+1. Odd-intersection matching counts are bounded by |S|Q_n, giving W>=N_n-2|S|Q_n>=2n for odd n and |S|<=(n+1)/2. Even n have odd N_n and thus all multipliers odd. For odd n, the r-star evaluates to 2n, and appending an edge of a second row at a selected column changes the sum by exactly -2n because its conditional signed completion is n. This forces a first zero at r+1 and proves exact minimality. Since r>=2, each of 6r C(n,r) witnesses is uniquely encoded by its r-edge row. Complete exact Walsh enumerations at n=3..7 and independent signed-rook enumeration at n=3..23 corroborate; proof is valid all n>=3.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Walter, arXiv:1607.01880, treats matching-incidence polytope facets with one quadratic coordinate and its b-matching extensions, not character sums or first zeros.",
+        "The perfect-matching orbit of K8 and noncrossing perfect matchings are different constrained ensembles, so their results do not encompass all partial matchings of K_(3,n)."
+      ],
+      "reasoning": "A general signed monomer-dimer polynomial result could dominate; inspected polyhedral/fixed-ensemble materials do not contain such a theorem. All-order quantifiers and the inclusion of empty/partial matchings rule out implication from perfect-matching-only results.",
+      "searches": [
+        "Complete bipartite K_{3,n} all matchings indicator binary cube convolution sharp first zero degree odd n half, even n invertible",
+        "arxiv:1607.01880v1",
+        "https://arxiv.org/abs/1607.01880"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1607.01880",
+      "https://arxiv.org/html/1607.01880v3",
+      "https://arxiv.org/abs/1610.00805",
+      "https://mathworld.wolfram.com/RookPolynomial.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A result on K_(3,n) spanning-tree frequencies concerns a subset of maximal acyclic edge configurations and cannot be substituted for the set of all partial matchings.",
+        "The classical rook count implies invertibility at even widths via the odd total number of matchings, but does not imply the sharp positive gap and explicit cancelling frequency at every odd width.",
+        "Walter/Leake-Ryder make no claim of the needed signed Walsh degree bound."
+      ],
+      "reasoning": "Only the even-width parity corollary and unsigned counting ingredient are directly classical. The main odd-width sharp threshold with an explicit first-zero family is neither stated nor implied by inspected closest prior results. Global priority remains conditional on unindexed signed-rook literature.",
+      "searches": [
+        "Walsh Fourier nullity partial matchings K3n complete bipartite 3 by odd n minimum support zeros",
+        "Signed rook polynomial K3,n partial matchings exact zeros Walsh Fourier",
+        "Complete bipartite K_{3,n} all matchings indicator binary cube convolution sharp first zero degree odd n half, even n invertible",
+        "Signed rook permanent polynomial complete bipartite three left vertices, Walsh cancellation first zero weight",
+        "Matching incidence K5,5 partial matchings Walsh transform",
+        "Fourier rank spectra of monomer dimer matchings on complete bipartite graphs K3,n",
+        "Low support Fourier coefficients of matchings signed rook polynomial edge occupancy 1/2 threshold",
+        "https://arxiv.org/abs/1610.00805"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For a signed board whose negative squares form frequency support S, W_n(S) is the signed monomer-dimer/rook sum; this exact equivalence was used in the search.",
+        "Leake and Ryder, arXiv:1610.00805, study matching polynomial real rootedness and independence polynomial stability, not Walsh coefficient cancellation degree."
+      ],
+      "reasoning": "Signed rook evaluations are a reformulation of the same Fourier problem, so absence of the phrase Fourier is not sufficient to establish novelty. The inspected matching polynomial paper concerns different invariants; no zero-degree result is implied.",
+      "searches": [
+        "Walsh Fourier nullity partial matchings K3n complete bipartite 3 by odd n minimum support zeros",
+        "Signed rook polynomial K3,n partial matchings exact zeros Walsh Fourier",
+        "Complete bipartite K_{3,n} all matchings indicator binary cube convolution sharp first zero degree odd n half, even n invertible",
+        "Signed rook permanent polynomial complete bipartite three left vertices, Walsh cancellation first zero weight",
+        "arxiv:1610.00805v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The rectangular-board rook coefficients r_j=binom(3,j)binom(n,j)j! determine N_n but not a coefficient-wise signed Fourier-zero table.",
+        "Finite complete-bipartite matching Fourier enumeration at K_(5,5) does not determine an all-n K_(3,n) statement."
+      ],
+      "reasoning": "There is no tabulation of the all-order first-zero threshold in the checked results. The n=3,5,7 finite checks in this package alone do not prove the all-n result; the independent proof does.",
+      "searches": [
+        "Matching incidence K5,5 partial matchings Walsh transform",
+        "Signed rook polynomial K3,n partial matchings exact zeros Walsh Fourier",
+        "mathworld:RookPolynomial"
+      ]
+    },
+    "rationale": "The result is an all-width exact first-zero degree for signed matching-count Fourier multipliers in K_(3,n), plus a sharp positive low-degree gap and an explicit family of zeros. The rectangular rook formula supplies only unsigned totals, including the easy even-width parity corollary, while inspected polytope and matching polynomial results make no implication giving the odd-width sharp threshold. Fixed-size and spanning-tree Fourier claims have different quantifiers/configuration families. Indexed equivalence and dominating-parameter queries produced no decisive coverage; residual unindexed priority is acknowledged.",
+    "residual_risks": [
+      "Unindexed or differently named signed-rook/monomer-dimer evaluations may already imply the result.",
+      "The zero family lower bound is not a complete classification; in n=5 enumeration shows additional first-degree zeros.",
+      "The even-width invertibility claim alone is already an immediate classical rook-count parity corollary and is not asserted to be separately novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the claimed Fourier threshold; it is a polyhedral facet classification.",
+        "evidence": "Abstract and introduction define extended convex hulls with a binary quadratic-coordinate indicator; discussion describes polyhedral linearization/facet methods, not signed sums.",
+        "identifier_or_url": "https://arxiv.org/html/1607.01880v3",
+        "material_read": "Full HTML table of contents, abstract, introduction, main-results sections and discussion on matching polytope facets and b-matching extension; v1 date verified on arXiv record.",
+        "method": "Read HTML mathematical results and section scope; checked for Fourier/Walsh character statements and compared quantifiers.",
+        "title": "Complete Description of Matching Polytopes with One Linearized Quadratic Term for Bipartite Graphs",
+        "trigger": "Same incidence vectors of all partial matchings of complete bipartite graphs; potential stronger all-board result."
+      },
+      {
+        "assessment": "Not covering the odd-width threshold or cancellation support classification.",
+        "evidence": "The abstract and theorems concern root bounds, real rootedness, stability, and graph divisibility; no first Walsh zero degree appears.",
+        "identifier_or_url": "https://arxiv.org/abs/1610.00805",
+        "material_read": "Available full article HTML, abstract, introduction, real-rootedness and stability theorems, and main result descriptions.",
+        "method": "Read mathematical scope and searched for Fourier; compared universal-root statements to sharp Walsh support-degree zero.",
+        "title": "Generalizations of the Matching Polynomial to the Multivariate Independence Polynomial",
+        "trigger": "A multivariate matching/independence polynomial might cover signed character cancellations."
+      },
+      {
+        "assessment": "Covers the unsigned N_n ingredient; not the odd-width first Fourier-zero degree.",
+        "evidence": "The article gives r_j=binom(m,j)binom(n,j)j!, but no frequency subset S or Walsh cancellation theorem.",
+        "identifier_or_url": "https://mathworld.wolfram.com/RookPolynomial.html",
+        "material_read": "Entire short article, formula for rectangular rook coefficients and cited classical references.",
+        "method": "Compared unsigned polynomial coefficients to sign-weighted frequency-dependent sums.",
+        "title": "Rook Polynomial",
+        "trigger": "Exact rectangular complete-bipartite matching census."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3f0888fd-ee6d-489e-8f3c-656b3a7af1ed",
+  "value": {
+    "rationale": "The first vanishing Walsh degree is the exact threshold at which convolution by the matching-incidence indicator loses a low-degree character. Its linear growth with odd graph width, even-odd invertibility distinction, and explicit 6r C(n,r) lost modes quantify an information-recovery boundary for a natural matching model, beyond a textbook total rook count. Neither complete spectral nullity nor all-first-zero classification is claimed.",
+    "status": "PASS"
+  }
+}
