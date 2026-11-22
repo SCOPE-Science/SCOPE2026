@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "Independent earlier-edge Bernoulli representation; exact fair-interleaving mean 2/p and variance 2/(2-p); conditional variance pV -> 1 in L2; conditional Berry--Esseen; finite balanced-word coupling O(log^2(1/p)/(np^2)); both peak tails O(p^9); exact finite centering. The standalone rational verifier checked all balanced sides n=1..3 and p=1/3,1/2,2/3 plus five exact infinite moment identities. Finite checks are not substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary preprint proves a fixed-p bipartite limit and explicitly declares the p -> 0 bipartite Gaussian regime open.",
+        "Baldi--Rinott--Stein (1988/1989) offers deterministic-graph normal approximation via local dependence, but the accessible bibliographic material does not establish an implication for this random high-degree regime."
+      ],
+      "reasoning": "Taking p -> 0 after a fixed-p limit does not establish a triangular-array central limit. The generic bounded-degree dependency estimate cannot simply be applied with maximum degree growing on the order of np and fluctuations on the p^{-1/2} scale. An older inaccessible full text remains a priority risk, rather than proof of noncoverage.",
+      "searches": [
+        "arXiv:2611.17989v1, Section 5.4 Proposition 9 and Section 6",
+        "Web: Baldi Rinott Stein 1989 local maxima graph normal approximation dependency graph"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2611.17989v1 Section 5.4 Proposition 9 and Section 6",
+      "Stanford Statistics EFS NSF 306 bibliographic record",
+      "published-finding corpus semantic searches on sparse bipartite local maxima and self-stabilizing colouring",
+      "Web topical and synonym searches including random acyclic orientations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 9 supplies only the conditional product formula and a fixed-p law; Section 6 explicitly lists p -> 0 as open.",
+        "The earlier Stanford report was publicly described as a normal approximation for local maxima on a graph, with no accessible specific theorem statement implying the balanced random-graph result."
+      ],
+      "reasoning": "The present statement needs new triangular-array control of environmental randomness: Var M(q) = 2/(1+q) is bounded, making the Bernoulli CLT transferable. That cancellation and finite-size coupling are not immediate consequences of the fixed-p proposition alone.",
+      "searches": [
+        "Primary PDF: arXiv:2611.17989v1 Lemma 1; Propositions 8, 9; Appendix F; Section 6",
+        "Stanford technical report bibliographic URL: https://statistics.stanford.edu/technical-reports/normal-approximation-number-local-maxima-random-function-graph",
+        "published-finding corpus: local maxima peak counts random order balanced random bipartite graph sparse edge density normal distribution CLT"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The Gaussian peak count is equivalent in law to the centered number of recolorings for the monochrome random-central-daemon algorithm (de Panafieu et al., Lemma 1).",
+        "The searched local-maxima/sink formulations did not return a theorem with balanced p -> 0 scaling."
+      ],
+      "reasoning": "Every equivalent label-order or sink-count formulation would need to imply the specific sparse balanced Gaussian limit, not just a matching expectation; no inspected statement did.",
+      "searches": [
+        "published-finding corpus: random bipartite graph peaks central limit sparse graph conditional permutation labels p -> 0 mean variance",
+        "Web: local maxima peak counts random order balanced random bipartite graph sparse edge density normal distribution CLT",
+        "Web: Gaussian limit number sinks random acyclic orientation permutation random bipartite graph edge probability tending zero"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest published hits concern unrelated graph colourings and bipartite fluctuations, not the sparse peak-count central limit.",
+        "No queried scientific database table states a Gaussian law for the varying-p balanced model in the claimed regime."
+      ],
+      "reasoning": "The theorem is an infinite Gaussian limit and an exact conditional-mean cancellation rather than a numerical census. Indexed scientific results found by the recorded queries do not dominate this statement.",
+      "searches": [
+        "published-finding corpus: self-stabilizing coloring random central daemon bipartite Erdos Renyi p tends to zero Gaussian limit theorem total recolorings",
+        "published-finding corpus: stabilization coloring K n n monochrome random activation p sparse Gaussian number of peaks",
+        "Published literature: normal approximation local maxima random graph, sparse bipartite p to zero"
+      ]
+    },
+    "rationale": "The eligible primary source proves the conditional peak representation but explicitly leaves p -> 0 bipartite Gaussian behavior open. The new result supplies an annealed CLT in a quantified sparse balanced regime and an exact cancellation lemma not supplied by the source. Closest historical title search and published literature comparisons found no implication covering this theorem; historical priority remains qualified.",
+    "residual_risks": [
+      "The older 1988 Stanford report full text was not accessible; historical priority is provisional.",
+      "Indexed semantic search cannot prove worldwide novelty.",
+      "Extending the CLT to the full np -> infinity regime is a separate open problem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains conditional product representation and fixed-p limit but explicitly leaves p -> 0 open",
+        "evidence": [
+          "Section 5.4 Proposition 9 and Section 6 pages 14--15; Appendix F pages 33--35",
+          "v1 first public 2026-11-13"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2611.17989v1",
+        "material_read": "Abstract, introduction, model and reduction lemma, relevant Section 4 context, Sections 5.4 and 6, Appendix F including Proof of Proposition 9, and references",
+        "method": "Web PDF full-text examination of cited sections and Appendix F, with page-one visual screenshot to confirm document identity; direct implication comparison",
+        "title": "The Exact Stabilization Time of Self-Stabilizing Coloring: Mean, Variance, and Distribution",
+        "trigger": "Identical process and bipartite random-graph model"
+      },
+      {
+        "assessment": "Could not justify a full-text noncoverage claim; retained as residual priority risk",
+        "evidence": [
+          "Stanford report EFS NSF 306, November 1988",
+          "Repository https://purl.stanford.edu/tn772ff5474 returned timeout"
+        ],
+        "identifier_or_url": "https://statistics.stanford.edu/technical-reports/normal-approximation-number-local-maxima-random-function-graph",
+        "material_read": "Stanford technical-report bibliographic page, report date November 1988; publication citation in the newer preprint",
+        "method": "Open published bibliographic record and attempted linked institutional repository; linked full text timed out",
+        "title": "A Normal Approximation for the Number of Local Maxima of a Random Function on a Graph",
+        "trigger": "Plausible earlier broadly named normal-approximation result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8708d0bf-3b74-49a8-a7eb-2e6d477a7f66",
+  "value": {
+    "rationale": "Resolves a mathematically motivated subregime of the explicit p -> 0 bipartite Gaussian question left open by the motivating source. The exact bounded environmental variance identity shows that balanced side-interleaving noise cancels to first order, so all leading fluctuations come from independent edge exposures. Gives a robust sparse random-graph central limit on infinitely many n,p sequences, not a finite check, table increment, or generic specialization.",
+    "status": "PASS"
+  }
+}
