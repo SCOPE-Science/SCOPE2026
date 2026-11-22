@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-The result has an analytic proof based on independently distributed Gaussian signs and absolute values, the Dirichlet moments of normalized squared Gaussians, and the known Johnson incidence spectral theorem. The derivation addresses all integer dimensions and sign counts in the stated domain. In particular, the exact fourth-correlation formula proves the quadratic non-isotropy obstruction for every admissible dimension, not merely those tested computationally.
+## correctness
 
-Run `python3 verify_sign_layer.py` with NumPy installed to construct the full continuous concentration matrix independently by enumerating sign vectors and integrating absolute moments. The test passed 37 complete matrix eigenspectra in dimensions \(4\) through \(8\) (degrees up to \(4\)), with maximum eigenvalue error less than \(8\times10^{-16}\). It also verified the linear tightness criterion for every \(2\le d\le39\) and every sign count. Run `python3 verify_exact_signs.py` using only the Python standard library; the exact rational checks passed all 20,291 dimension/sign-count pairs for \(4\le d\le200\). Both programs test claimed identities but cannot independently certify infinitely many cases or historical novelty.
+PASS
 
-No independent mathematical audit has been performed.
+Independent centered Gaussian normalization gives conditional sign correlation rho_m(d,s)=C(d,d-s)^-1 sum_j (-1)^j C(m,j)C(d-m,d-s-j). The normalized monomials x_S are orthonormal on S^(d-1); off-diagonal restriction entries are w(2/pi)^(k-r)rho_(2(k-r)), where r=|S∩T|, w=2^-d C(d,s). Binomial inversion expands this matrix in W_l W_l^T inclusion products, whose classical Johnson eigenvalues on V_i are C(k-i,l-i)C(d-l-i,k-l), multiplicities C(d,i)-C(d,i-1). The proof accounts for every C(d,k) dimension and gives a strict 0<lambda<1 because nonzero homogeneous polynomials cannot vanish on open subsets of region/complement. rho2=(t²-d)/(d(d-1)) with t=2s-d gives k1 isotropy iff t²=d. For k2, rho4|_(t²=d)=-2/((d-2)(d-3)) excludes isotropy, and Kneser pair-disjoint adjacency gives the displayed three levels. Independent full-matrix eigenvalue comparisons over d4..9 supported these exact identities. This proof does NOT claim all pure harmonics, only the squarefree subspace.
+
+## originality
+
+PASS
+
+The Johnson inclusion eigenvalues and Krawtchouk sign-shell correlation are established prior combinatorial facts, and the spherical Slepian framework is established. The continuous sign-count-region compression requires integrating Gaussian absolute moments, introducing (2/pi)^h factors and strict positive definiteness, and leads to distinct isotropy/obstruction laws. Compared published discrete Hamming-shell and continuous hemisphere work: neither has the same operator or proves the all-(d,k,s) assembled squarefree spectrum. Best-knowledge original assembled result; specialized earlier continuous sphere-plus-Johnson reduction remains a risk.
+
+## value
+
+PASS
+
+Fixed-coordinate-sign-count sectors are natural observation regions of the sphere, and squarefree harmonic monomials form a canonical symmetric degree-k subspace. Exact all-degree concentration spectra and sharp leakage quantify observability; the unexpected square-dimension linear isotropy and its quadratic obstruction are nontrivial classification boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
