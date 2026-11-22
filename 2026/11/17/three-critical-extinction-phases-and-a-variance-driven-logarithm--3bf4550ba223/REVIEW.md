@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns only the strictly positive reduced map in RESULT.md. Exact rational subtraction proves sign invariance of the population difference. A uniformly positive quadratic drift forces global extinction at order \(n^{-1}\). The ratio is monotone on either side of cross-competition unity, fixing the three global regimes. Summable-error bootstraps then establish finite **nonzero** signed imbalance and minority amplitudes, not merely upper bounds. At equality, the exact reciprocal Taylor identity produces the channel-variance logarithm and a convergent finite remainder. A symbolic factorization, rational identities and numerical examples are independently checked from `verify.py`; finite numerical tests are not used as proofs of infinite claims. Residual risk: technical summability steps must be interpreted for each fixed parameter, not uniformly at the critical parameter boundary.
+## correctness
 
-## Originality — PASS within inspected evidence
-The source article proves **qualitative** convergence to extinction when critical low-density growth equals one, but does not give the exact three-phase profiles or the channel-variance logarithmic correction. Other mathematically relevant published trichotomies concern a swapping Ricker–Beverton–Holt map or rank-one continuously evolving harvested competition and do not imply the present rational-mixture formulas. The 2011 supercritical Leslie–Gower work assumes growth conditions absent here. General parabolic normal forms make algebraic relaxation unsurprising, so originality is asserted for this explicit global multi-phase theorem, sharp amplitudes/exponents and heterogeneity coefficient, not for the existence of algebraic decay. An unindexed equivalent theorem is an acknowledged priority risk.
+PASS
 
-## Value — PASS
-The double-neutral extinction threshold in a two-host shared-parasite competition reduction is precisely where convergence-to-extinction theorems leave ecological timescales unresolved. The theorem distinguishes synchronized decay, retention of initial composition and competitive selection for **all** positive initial states, with parameter-continuous noninteger rates. The equality law isolates a directly interpretable variance in crowding strengths as the exact source of a logarithmic clock correction, a quantitative feature absent from the homogeneous single-channel model. This is a motivated asymptotic classification, not an arbitrary parameter slice or a numerical fit.
+The frozen proof exactly factors the difference, showing strictly positive iterates and preserved sign. Uniform small-cone expansion yields z_n=Theta(1/n); monotonicity of log ratio forces ratio→1 for tau<1, ratio fixed at tau=1, and dominant-species selection for tau>1. In synchronizing phase, summable normalized imbalance squares bootstrap z_n=1/(An)+summable remainder (A=c(1+tau)/2) and compensated logarithmic product yields finite nonzero D. In selecting phase y/x=O(n^-delta) gives summable errors and finite positive minority amplitude L. At tau=1 reciprocal increment c-v z+O(z^2), with v=eta(1-eta)(a-b)^2, yields the finite H correction -v/c log n; a=b gives v=0 and exact linear reciprocal. The n limits are pointwise fixed-parameter, not uniform as tau→1. Inspected symbolic verifier identities; numerics at finite horizons only diagnostic.
 
-## Limits
-This is a result on the two-dimensional reduced deterministic dynamics. It does not claim a corresponding rate for the finite-timescale, four-compartment epidemic system. The remainder and amplitudes are not uniform as \(\tau\to1\); publication priority beyond the inspected record is unresolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full author-posted Bravo de la Parra/Sanz 2020 22-page paper was read (model, reduced eqs, Theorem 3.2, Appendix B). Theorem 3.2 proves qualitative extinction for subcritical/critical multipliers but no noninteger imbalance/minority exponent or channel variance logarithm. Other Resultary critical trichotomies are on parity-swapping Ricker or harvested proportional-row systems, not this map. No stronger implication found, priority qualified by difference-equation literature.
+
+## value
+
+PASS
+
+Sharp rates separate three physically meaningful critical competition phases and identify a nonzero logarithmic correction exactly measuring mixture variance, invisible to equilibrium stability. The rates resolve a nonhyperbolic asymptotic question in a natural two-channel population model rather than merely repackaging qualitative extinction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
