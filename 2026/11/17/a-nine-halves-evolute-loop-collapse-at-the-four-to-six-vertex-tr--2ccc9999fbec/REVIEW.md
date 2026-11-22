@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-The curvature-radius derivative factors as an explicit quadratic in cosine, giving an exhaustive root count in the strictly convex domain. The evolute coordinates are exact; an even/odd split, a one-turning-point monotonicity comparison, and the derivative-angle identity show the small loop has no hidden self-crossings. The area coefficient follows from a \(C^1\) local blow-up and direct polynomial integration. The standalone computation is a check, not the proof.
+## correctness
 
-## Originality
-The closest classical sources establish lower vertex bounds, zero-count principles or general evolute/equilibrium topology. The full open-access 2021 treatment of plane convex equilibria and Musin's primary manuscript were compared by the mathematical objects, statements, and implications; neither provides the explicit mixed \(2,3\)-harmonic local loop, its closing point or its nine-halves area constant. Other indexed records treat Wigner caustics, which are different envelopes. A definitive historical priority claim is not made; the original 2006 survey was available in bibliographic/abstract form, and the separate 2021 article was read in its full HTML text.
+PASS
 
-## Value
-The four-vertex theorem is qualitative. The finding identifies a concrete birth/death mechanism for two extra curvature extrema, locates the associated three-cusp evolute loop exactly, and measures its disappearance through a sharp noninteger exponent and coefficient. The chosen low Fourier harmonics form a natural minimal mixed-frequency test family and the loop area is a geometric invariant, not an arbitrary numerical sample.
+For p=1+a cos2theta+b cos3theta the curvature radius is rho=1-3a cos2theta-8b cos3theta>0; rho prime=12 sin theta[a cos theta+2b(4 cos²theta-1)]. Its negative cosine root enters (-1,0) exactly at a<6b, giving six vs four vertices and cubic degeneracy at a=6b. The evolute E=p prime t-p doubleprime n has symmetric local coordinates Ex even, Ey=4(a-6b cos u)sin³u odd. At a=6b-delta the closure u0=acos(a/(6b)) identifies transverse endpoints, with interior ordinary cusp and two additional cusps; coordinate turning and tangent slope tan u rule out hidden self intersections near collapse. Under u=s sqrt(delta/b), scaled limit C1 curve X=-6s²+15s^4,Y=-4s³+12s^5 and endpoints ±1/sqrt3. Independent exact SymPy integral ∫X Y prime ds = -128 sqrt3/8505 verifies the area leading coefficient and exponent delta^(9/2)/b^(5/2).
 
-## Scientific risks and limits
-The loop conclusion requires fixed \(b>0\) and sufficiently small positive \(6b-a\). The model is not claimed generic in all multi-parameter oval spaces; unrelated prior singularity theory could classify its local germ without reproducing its exact normalized area coefficient. Numerical tests do not certify novelty or generality. Independent checking is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical four-vertex theorem and Chebyshev zero theory provide existence bounds, while Allemann–Hungerbühler–Wasem study evolute/equilibrium topology. Separate two-harmonic SCOPE cusp saturation concerns Wigner caustics and centre symmetry sets with different harmonics, not this ordinary evolute. No inspected theorem implies the precise 2,3-harmonic three-cusp loop, Jordan simplicity, or 9/2 metric area coefficient. Specialist catastrophe-theory normal forms remain a historical reduction risk.
+
+## value
+
+PASS
+
+The 2,3-harmonic support family is a natural low-complexity Fourier model of convex oval vertex birth/death. Exact three-cusp evolute-loop geometry with a sharp noninteger 9/2 enclosed-area collapse quantifies a singularity not settled by the qualitative four-vertex bound, and is a motivated local invariant rather than an arbitrary coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
