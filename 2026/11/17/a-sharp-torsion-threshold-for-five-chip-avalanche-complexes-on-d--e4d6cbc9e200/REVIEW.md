@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For binary initial conditions on a directed cycle, the exact parallel firing sets are all cyclic translates of the support, so the complex is the complete downward closure of those translates. Dihedral reflection is a simplicial isomorphism of these orbit-generated complexes. The exhaustive verifier checks all 747 dihedral support classes for 3–15 vertices and up to five chips, takes only genuine free-face collapses, builds every integral boundary matrix, and obtains all Smith invariant factors. The split exact sequence between homology and the boundary cokernel justifies reading torsion directly from the Smith factors. The fourteen exceptional groups are also checked from the uncollapsed chain matrices for two independent representative patterns. The limit is explicitly finite.
+## correctness
 
-**Originality — PASS, qualified.** The primary 2026 avalanche-homology paper treats selected cycle configurations and raises integral torsion as a question. A September 2026 directed-*tree* realization theorem already answers unrestricted existence of avalanche torsion and must not be ignored; this finding claims neither priority for that broad existence statement nor its corollaries. The original content is the exact sparse *directed-cycle* threshold through 15 vertices, classification of fourteen dihedral exceptional classes, and their two integral-homology signatures. Earlier three-chip classifications and four-grain torus families are inapplicable to the five-chip exceptions and do not imply the sharp finite census. The tree manuscript's detailed proof could not be accessed, leaving residual possibility of a relevant hidden cycle corollary; available title and summary concern trees, not these 15-cycle Smith computations. Other unindexed prior computations remain possible.
+PASS
 
-**Mathematical value — PASS.** This resolves a natural finite boundary for integral torsion in a new dynamical homology theory, based on *all* sparse binary conditions rather than a chosen numerical example. The first torsion occurs in fourteen non-equivalent patterns and distinguishes a five-grain complex from a related four-grain torus; it is invisible to rational Betti numbers. Its exact finite cutoff and two homology signatures are useful targets for broader classification of directed-cycle avalanche homology, without needing a general infinite-parameter theorem.
+PASS: A binary state on the outdegree-one directed n-cycle shifts exactly to S+t under every parallel firing step, so avalanche faces are the downward closure of all n cyclic translates. Dihedral support orbit reduction is mathematically valid (reflection induces an abstract simplicial isomorphism even though it reverses directed arrows). Independently implemented all-support canonicalization across 3<=n<=15,1<=k<=min(5,n), free face/coface elementary collapse, integer simplicial boundary matrices and SymPy Smith normal forms. This separate full 747-dihedral-class computation completed and reproduced exactly 111 classes at n=15,k=5, 14 exceptional supports all there, all first-homology torsion (Z/2)^2 and none in other degrees. Four cases have (rank H1,rank H2)=(1,0), ten have (2,1), all other configurations torsion-free. Torsion of H_{j-1} equals torsion of coker d_j because im d_{j-1} is a free subgroup and the quotient extension splits. The claimed length fifteen and five-chip threshold is confined to the EXHAUSTED finite domain; no extrapolation for n>15.
 
-The Smith computations establish integral homology, not a homotopy classification. The finite-range result does not make a global minimum-chip claim beyond the enumerated cycle sizes. Source availability and uncatalogued equivalent results remain bibliographic risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge, with genuinely read exact-object comparators and explicitly bounded coverage risks. Selected consecutive/3-chip cyclic theorems and unrestricted directed-tree realization show neither a five-chip threshold nor the exact 14 binary directed-cycle supports. The 747-class integral Smith census supplies additional nonimplied data.
+
+## value
+
+PASS
+
+PASS: Integral torsion is a topologically meaningful obstruction to wedge-of-spheres descriptions. Enumerating a natural finite sparse binary cyclic sandpile family exhaustively through the first 5-chip torsion boundary, identifying all 14 exceptional dihedral classes and exact free/torsion ranks, is a motivated independently useful finite classification, notwithstanding lack of an all-n theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

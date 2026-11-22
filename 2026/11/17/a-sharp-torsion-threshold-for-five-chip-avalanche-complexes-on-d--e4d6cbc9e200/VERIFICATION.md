@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Integral verification
+# Independent mathematical audit
 
-Execute `python verify.py` in the same directory as `census.csv`, using `sympy>=1.13,<2` (see `requirements.txt`). The program independently regenerates and overwrites the entire census from graph dynamics' exact cyclic-translate description; it does not take the CSV as an input.
+## correctness
 
-The command was executed successfully. Its exact result was:
+PASS
 
-```
-dihedral_classes=747; length15_five_chip_classes=111
-torsion_cases=14; each has H1_torsion=(Z/2)^2
-ten cases: H1_free=2,H2_free=1; four cases: H1_free=1,H2_free=0
-all other listed integral groups torsion-free
-uncollapsed_witness_matrix_checks=2 passed
-census.csv bytes=28044 sha256=7b680b2b1242115d43cdf44c974c40e515e5335043e9cc3eb549615b963e231b
-```
+PASS: A binary state on the outdegree-one directed n-cycle shifts exactly to S+t under every parallel firing step, so avalanche faces are the downward closure of all n cyclic translates. Dihedral support orbit reduction is mathematically valid (reflection induces an abstract simplicial isomorphism even though it reverses directed arrows). Independently implemented all-support canonicalization across 3<=n<=15,1<=k<=min(5,n), free face/coface elementary collapse, integer simplicial boundary matrices and SymPy Smith normal forms. This separate full 747-dihedral-class computation completed and reproduced exactly 111 classes at n=15,k=5, 14 exceptional supports all there, all first-homology torsion (Z/2)^2 and none in other degrees. Four cases have (rank H1,rank H2)=(1,0), ten have (2,1), all other configurations torsion-free. Torsion of H_{j-1} equals torsion of coker d_j because im d_{j-1} is a free subgroup and the quotient extension splits. The claimed length fifteen and five-chip threshold is confined to the EXHAUSTED finite domain; no extrapolation for n>15.
 
-For each representative, exact integer Smith forms are taken for all boundary maps surviving the elementary collapses; homology free ranks follow by rank–nullity and torsion by the Smith factors. Two witnesses are separately checked using the original uncollapsed complexes. The verifier explicitly asserts the fourteen canonical supports and both free-rank signatures. Its loops are exhaustive only over the finite domain \(3\le n\le15\), \(|S|\le5\); no conclusion about longer cycles or larger chip budgets is computed or claimed. The integer Smith routine is a library implementation and no independent external validation is claimed.
+## originality
+
+PASS
+
+PASS best of knowledge, with genuinely read exact-object comparators and explicitly bounded coverage risks. Selected consecutive/3-chip cyclic theorems and unrestricted directed-tree realization show neither a five-chip threshold nor the exact 14 binary directed-cycle supports. The 747-class integral Smith census supplies additional nonimplied data.
+
+## value
+
+PASS
+
+PASS: Integral torsion is a topologically meaningful obstruction to wedge-of-spheres descriptions. Enumerating a natural finite sparse binary cyclic sandpile family exhaustively through the first 5-chip torsion boundary, identifying all 14 exceptional dihedral classes and exact free/torsion ranks, is a motivated independently useful finite classification, notwithstanding lack of an all-n theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
