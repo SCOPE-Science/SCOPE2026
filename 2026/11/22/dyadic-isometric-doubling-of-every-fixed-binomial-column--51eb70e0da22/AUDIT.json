@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "For m>=1, a=floor(log2(m)), L=a+1, each input residue r mod 2^L has one uniquely closest root j* among 0..m-1, strictly larger in 2-adic distance valuation than all other roots. The product-difference telescoping formula isolates a uniquely minimal-valuation summand, proving exact branch isometry depth d=L+sum_{i!=j*}nu_2(r-i)-nu_2(m!). For lower index 2m and input 2r+epsilon, the nearest root is 2j*+epsilon; the depth is the same by nu_2((2m)!)=m+nu_2(m!). Equality of binomial valuations and the bound nu_2(B_m(r))>=d-1 make the branch image centers identical mod 2^d. Thus both branches biject onto the same output ball; branch inverses compose into a global class-preserving bijective isometry. Exact finite computation through m=32 for branch quantities and through m=24,k=6 for full histograms yielded 30,890 passing checks. Computation is supplemental; the proof is not inductive extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barat-Grabner full PDF Introduction and the Section 3 global sums use a two-dimensional triangular range of (row, lower-index) pairs, rather than fixed-column Haar pushforwards.",
+        "Sun-Zhang Theorem 1.1 and Corollary 1.2 concern which fixed columns are p-adically universal, not whether all scaled index columns have identical measures.",
+        "OEIS A385557 gives minimal periods of columns 5 and 6 modulo general integers, which neither determine all output residues and their weights nor furnish arbitrary-m dyadic conjugacies."
+      ],
+      "reasoning": "A result about all residues occurring or asymptotic triangular frequencies is not logically strong enough to imply classwise equal target-fiber counts between m and 2m, let alone existence of input isometries. No stronger all-column covering theorem was found in inspected source sections.",
+      "searches": [
+        "2-adic binomial polynomial Haar measure distribution invariance under doubling lower index m to 2m",
+        "Haar distribution fixed binomial coefficients column dyadic doubling index and p-adic measure",
+        "Distribution of binomial coefficients and digital functions Barat Grabner 2001 full paper",
+        "Binomial coefficients and the ring of p-adic integers Sun Zhang arxiv 0812.3089"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/0812.3089",
+      "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-three-level-2-adic-fibers-of-the-fifth-binomial-column--68ab08bc975b",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-ternary-residue-images-of-the-sixth-binomial-polynomial--2c5deda1b9d1",
+      "https://oeis.org/A385557",
+      "https://doi.org/10.1112/S0024610701002630"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kummer/Legendre valuation identity gives nu_2(B_{2m}(2n+epsilon))=nu_2(B_m(n)) for all n>=m; matching valuations does not identify the remaining units modulo 2^k.",
+        "Sun-Zhang Corollary 1.2 supplies surjectivity of both columns separately, not equality of their residue weights.",
+        "Barat-Grabner describes asymptotic triangular distribution over varying lower indices; its scope differs from fixed-m branches and isometric reparametrization."
+      ],
+      "reasoning": "A stronger mathematical identity has been established: each parity branch of the doubled fixed column is a polynomial pullback along a residue-preserving dyadic isometry. None of the closest inspected sources implies it without the new unique-closest-root/dominant-factor argument. Corollaries at m=3,5,6,10 are instances and are not being counted separately.",
+      "searches": [
+        "Sun Zhang arxiv 0812.3089 Corollary 1.2 binomial 2-adic density",
+        "Barat Grabner Distribution of Binomial Coefficients and Digital Functions pdf Section 3",
+        "Kummer valuation binomial 2n+epsilon 2m and binomial n m",
+        "for all m the p-adic Haar distribution of binomial n choose m is identical to binomial n choose 2m over Z2 doubling lower binomial column",
+        "2-adic binomial polynomial Haar measure distribution invariance under doubling lower index m to 2m",
+        "same multiset modulo powers of two binomial n choose k and 2n choose 2k"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun-Zhang (arXiv:0812.3089) Corollary 1.2 proves all positive fixed binomial columns surject onto all 2-adic residue classes; it does not compare their multiplicity measures.",
+        "Full published fifth-column result 2026/11/8/SCOPE-exact-three-level-2-adic-fibers-of-the-fifth-binomial-column--68ab08bc975b gives a single lower-index output measure, and mentions lower-column distributions but no universal doubling conjugacy.",
+        "No returned relevant indexed record states a global input-class-preserving isometry between B_{2m}(2x+epsilon) and B_m(x)."
+      ],
+      "reasoning": "The claim is equivalent to equality of output residue-fiber distributions plus the stronger existence of a residue-class-preserving 2-adic isometry. Classical Lucas/Kummer match only mod-two residues/valuations and do not force the entire odd-unit output. The exact isometry under doubling for every m is not directly equivalent to the examined individual fixed-column or index-ray laws.",
+      "searches": [
+        "for all m the p-adic Haar distribution of binomial n choose m is identical to binomial n choose 2m over Z2 doubling lower binomial column",
+        "binomial 2n+1 choose 2m and binomial n choose m exact dyadic value fiber equidistribution",
+        "2-adic binomial polynomial Haar measure distribution invariance under doubling lower index m to 2m",
+        "same multiset modulo powers of two binomial n choose k and 2n choose 2k",
+        "binomial coefficients binomial n k 2-adic distribution depends only odd part of k 2^a k",
+        "binomial polynomial 2-adic distribution k and 2k same residue frequencies"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A385557 (https://oeis.org/A385557) explicitly records period of fixed columns 5 and 6; it does not report a common Haar law under arbitrary doubling of the lower index.",
+        "The published fifth-column result 2026/11/8/SCOPE-exact-three-level-2-adic-fibers-of-the-fifth-binomial-column--68ab08bc975b supplies a three-level formula only for the fifth fixed lower index, not a universal odd-part classification.",
+        "The published sixth-column ternary result 2026/11/2/SCOPE-exact-ternary-residue-images-of-the-sixth-binomial-polynomial--2c5deda1b9d1 concerns residue images modulo powers of three, not all dyadic column equivalences."
+      ],
+      "reasoning": "Checked finite tables, period records, and two closely related exact single-column published formulas. They provide examples and separate local facts, but not an exact arbitrary-index dyadic isometry or full family-wide distribution identity.",
+      "searches": [
+        "OEIS binomial coefficients fixed column periods A385557 binomial k 5 2-adic",
+        "OEIS A385557 binomial column periods",
+        "binomial coefficient n choose 6 modulo 2^k distribution fibers image isometry",
+        "all binomial columns modulo powers two exact fiber counts valuation residues"
+      ]
+    },
+    "rationale": "The specific all-positive-m dyadic isometric conjugacy is stronger than Lucas congruences or Kummer valuation matching, and not a consequence of Sun-Zhang image surjectivity, Barat-Grabner triangular-family asymptotics, the known single fifth-column fiber formula, or the unrelated three-adic sixth-column image. Published-record and web searches for doubling/fiber/odd-part equivalents were carried out. An unindexed earlier general polynomial-image result could implicitly cover it and remains a historical-priority risk.",
+    "residual_risks": [
+      "An unindexed historical equivalence, especially within broader p-adic polynomial-image or measure-preserving transformation literature, might contain the all-column statement implicitly.",
+      "Source comparisons are based on accessible primary passages and search results, not an exhaustive proof of mathematical priority.",
+      "Independent mathematical validation has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: all-column dyadic universality is weaker than exact between-column fiber equality or global classwise isometric conjugacy",
+        "evidence": [
+          "Theorem 1.1 covers universality for particular lower-index ranges; Corollary 1.2 states density of every fixed lower column in Z_2.",
+          "The paper does not state matching target-fiber distributions of column m and column 2m."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0812.3089",
+        "material_read": "Accessible ten-page full-text PDF: Abstract, Problem 1.1, Definition 1.1, Theorem 1.1, Corollary 1.2 and relevant proof passages; page two visually inspected",
+        "method": "Primary open-access PDF text and page screenshot",
+        "title": "Binomial coefficients and the ring of p-adic integers",
+        "trigger": "Same fixed-binomial-column objects and universal dyadic residue-image theorem"
+      },
+      {
+        "assessment": "NOT_COVERING: the variables are pooled over the Pascal triangle rather than a fixed lower-index dyadic Haar distribution",
+        "evidence": [
+          "Introduction sums over pairs 0<=k<=n<N.",
+          "Section 3 counts all lower-index classes in a row, rather than relating two fixed columns via an isometry."
+        ],
+        "identifier_or_url": "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+        "material_read": "Accessible PDF: abstract, Introduction, Section 3 definition of triangular sums and associated proof excerpts; first page visually inspected",
+        "method": "Author-hosted full PDF text and screenshot",
+        "title": "Distribution of binomial coefficients and digital functions",
+        "trigger": "Plausible general distribution theorem for binomial coefficients modulo prime powers"
+      },
+      {
+        "assessment": "NOT_COVERING: computes lower index five, notes indices one through four, but not dyadic conjugacy between all m and 2m",
+        "evidence": [
+          "Exact density one-half plus one-half on even targets plus two on targets divisible by eight at m=5.",
+          "Section on preceding lower indices treats only m<=5."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-three-level-2-adic-fibers-of-the-fifth-binomial-column--68ab08bc975b",
+        "material_read": "Complete RESULT.md from the published source, including eight branch valuations, proof, lower-column comparison and limitations",
+        "method": "Authorized public repository file read",
+        "title": "Exact three-level 2-adic fibers of the fifth binomial column",
+        "trigger": "Exact dyadic fiber law for a fixed lower index, likely precedent for the claimed law"
+      },
+      {
+        "assessment": "NOT_COVERING: prime three, lower index six, image-set cardinalities rather than dyadic Haar conjugacy for arbitrary m",
+        "evidence": [
+          "Three disjoint three-adic image components and density five-twelfths.",
+          "Does not treat two-adic lower-index doubling."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-ternary-residue-images-of-the-sixth-binomial-polynomial--2c5deda1b9d1",
+        "material_read": "Complete RESULT.md including full exact image proof and relationship-to-prior section",
+        "method": "Authorized public repository file read",
+        "title": "Exact ternary residue images of the sixth binomial polynomial",
+        "trigger": "Same sixth lower binomial index, though at a different prime"
+      },
+      {
+        "assessment": "NOT_COVERING: period identities, not same-measure conjugacy or arbitrary index doubling",
+        "evidence": [
+          "Entries list the period of n choose five and n choose six modulo n.",
+          "No all-m output-fiber law is stated."
+        ],
+        "identifier_or_url": "https://oeis.org/A385557",
+        "material_read": "Sequence definition, formula and examples for columns five and six",
+        "method": "Direct publicly accessible database page read",
+        "title": "OEIS A385557: fixed binomial-column periods",
+        "trigger": "Exact database/table source possibly dominating period or fiber claims"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "51eb70e0-da22-40fc-9ecf-1e8bcac3950c",
+  "value": {
+    "rationale": "The lower-index doubling map gives an exact structural invariance for every positive column, every dyadic depth and each input residue ball, via globally defined 2-adic isometries. It collapses infinitely many apparently separate residue-fiber distribution problems into one problem per odd lower-index value, preserves nonuniform laws such as the fifth-column distribution along its full doubling orbit, and yields an explicit all-depth local conjugacy rather than a routine valuation corollary. This is a mathematically motivated, reusable identity with no reliance on finite enumeration for the proof.",
+    "status": "PASS"
+  }
+}
