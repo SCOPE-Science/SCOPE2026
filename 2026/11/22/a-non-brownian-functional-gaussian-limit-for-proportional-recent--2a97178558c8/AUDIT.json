@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For fixed 0<c<1 and 0<p<(3+sqrt(1-c))/4, the proof reconstructs deterministic innovation coefficients, establishes independently a sub-square-root bound by positive-renewal comparison, derives LLN by bounded-difference Azuma concentration, proves weighted finite-dimensional martingale CLTs with explicit Gram kernel, then supplies a new L^2 coefficient increment bound and Burkholder fourth moments for C([0,T]) tightness. Differentiation of the kernel is justified by the coefficient-growth exponent <1/2. The standalone finite checker passed 4,196 exact-rational assertions; asymptotic proof does not rely on enumeration. Hu--Xue Lemma 3.6 is an openly cited source premise.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bertenghi--Laulin arXiv:2402.09202 (https://arxiv.org/abs/2402.09202) has full-past weighted sampling and a Brownian-plus-noise-reinforced Brownian limit.",
+        "Coletti--dos Santos--Valle arXiv:2609.14871 (https://arxiv.org/abs/2609.14871) has positive smooth-amnesia memory probabilities for all past indices; it also permits random increment laws.",
+        "Vázquez-Guevara--González-Navarrete arXiv:2506.12145v1, model (1.2) (https://arxiv.org/html/2506.12145v1) fixes k rather than k/n."
+      ],
+      "reasoning": "Hard truncation to indices j-floor(cj),...,j-1 is not covered by fixed k, cumulative-total predictor, or globally positive age weights. Their functional theorems do not imply the specific sliding-window covariance without new verification of compact-log coefficient and tightness hypotheses. A general-purpose martingale transfer theorem is not itself an explicit coverage claim unless these model-specific facts are supplied.",
+      "searches": [
+        "elephant random walk proportionally growing recent memory functional central limit theorem 2026",
+        "Hu Xue growing recent memory elephant random walk functional central limit theorem finite-dimensional covariance kernel Gaussian Volterra process, nonstationary increments",
+        "elephant random walk full trajectory sliding last floor(cn) positions CLT functional invariance principle"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2611.17664v1 (https://arxiv.org/html/2611.17664v1)",
+      "arXiv:2506.12145v1 (https://arxiv.org/html/2506.12145v1)",
+      "arXiv:2507.01708v1 (https://arxiv.org/html/2507.01708)",
+      "arXiv:2402.09202 (https://arxiv.org/abs/2402.09202)",
+      "arXiv:2609.14871 (https://arxiv.org/abs/2609.14871)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hu--Xue (https://arxiv.org/html/2611.17664v1) Thm 1.2: S_n/sqrt(n) converges to a centered normal; their Lemma 3.6: scalar weight convergence.",
+        "Vázquez-Guevara--González-Navarrete (https://arxiv.org/html/2506.12145v1) eq. (1.2): fixed recent k.",
+        "Tokumitsu (https://arxiv.org/html/2507.01708) eq. (1.1): conditional mean proportional to all-history S_n/n.",
+        "Bertenghi--Laulin (https://arxiv.org/abs/2402.09202): positive all-history memory rather than window truncation."
+      ],
+      "reasoning": "A one-time CLT does not imply joint distributional convergence or tightness. Fixed recent k and globally weighted prior-index sampling are different kernels and generally different covariance structures. The new L^2 increment estimate and the delayed Volterra covariance are not provided by the cited model-specific statements.",
+      "searches": [
+        "Functional central limit theorem for dependent models with finite memory arxiv 2506.12145 fixed k",
+        "Functional central limit theorems for the dynamic elephant random walk arxiv 2507.01708 conditional mean S_n/n",
+        "A universal scaling limit for diffusive amnesic step-reinforced random walks arxiv 2402.09202"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hu--Xue arXiv:2611.17664v1, eq. (1.4), Thm 1.2 and Lemma 3.6 (https://arxiv.org/html/2611.17664v1) identify w and one-time variance, but not a full Gaussian Volterra process.",
+        "Tokumitsu arXiv:2507.01708v1, Thm 1.1 (https://arxiv.org/html/2507.01708) gives a power-law covariance for full-past dynamic memory, rather than a retarded delay kernel."
+      ],
+      "reasoning": "The proposed covariance uses the entire log-relative-age fundamental solution. It agrees with the published variance on the diagonal, but the off-diagonal kernel is not determined by a scalar CLT. The full-history power-kernel Gaussian law is not an equivalent formulation because it responds identically to histories having the same total sum; the sliding-window model need not.",
+      "searches": [
+        "elephant random walk with proportional recent memory f.d.d. convergence non-Brownian Gaussian kernel w(log t/u)",
+        "restricted recent memory elephant random walk functional CLT Gaussian process nonstationary increments",
+        "Gaussian process covariance ∫0^{min(s,t)} w(log(s/u))w(log(t/u))du sliding-window elephant random walk"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The examined literature records scalar variance sigma^2=integral(exp(-v)w(v)^2 dv), but not the full two-time K(s,t) or diagonal future-to-present slope.",
+        "No numerical or exact database table for a proportional sliding-window two-time covariance was identified in the actual semantic search results."
+      ],
+      "reasoning": "The result is a limit-process theorem, not a finite enumeration or table lookup. Failure to locate a database result is not used as a proof of uniqueness.",
+      "searches": [
+        "functional central limit theorem proportionally growing recent memory elephant random walk limit Gaussian Volterra covariance w(log(t/u)) retarded differential delay",
+        "elephant random walk with growing recent memory asymptotic fluctuations autocorrelation phase transition",
+        "elephant random walk proportionally growing recent memory variance universal first derivative memory fraction second order response"
+      ]
+    },
+    "rationale": "The source arXiv:2611.17664v1, Theorem 1.2, supplies only a one-time scalar central limit theorem, not the joint law, tightness, functional covariance or nonstationary-increment signature. Full primary text of fixed-memory and dynamic-memory FCLTs was compared by actual conditioning dynamics. A precise, non-implied sliding proportional recent-window kernel remains after comparison. Historical priority beyond inspected sources cannot be certified.",
+    "residual_risks": [
+      "A broad historical martingale-kernel functional limit theorem may yield the stated result as a specialization even if these particular cited model papers do not.",
+      "The primary paper is recent; independent priority and full mathematical validation are not certified.",
+      "The exact compact-log-time coefficient lemma remains cited from the original paper; the new proof independently supplies the separate global square-summable envelope."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides critical deterministic coefficient compact limit and scalar CLT; does not state process-level convergence or two-time kernel",
+        "evidence": "arXiv:2611.17664v1 lines 30--118, 140--170, 190--319, 458--503, 540--632, 650--711",
+        "identifier_or_url": "https://arxiv.org/html/2611.17664v1",
+        "material_read": "Substantial material in the full open-access HTML Sections 1--4, particularly Theorem 1.2, Lemmas 2.1, 3.1, 3.3, 3.6--3.9, and 4.1, and the scalar-CLT argument",
+        "method": "Read exact Markov conditional step, coefficient recurrence, asymptotic weights, and distributional conclusion",
+        "title": "The elephant random walk with proportionally growing recent memory",
+        "trigger": "Exactly matching process, phase and delay solution"
+      },
+      {
+        "assessment": "Fixed k recent-step predictor, no proportional window m_n~cn",
+        "evidence": "arXiv:2506.12145v1, Eq. (1.2), Theorem in Section 3",
+        "identifier_or_url": "https://arxiv.org/html/2506.12145v1",
+        "material_read": "Open-access HTML Introduction (fixed-k model (1.2)), Section 2 elephant specialization and Section 3 functional limit theorem",
+        "method": "Matched exact memory size and conditional mean to current hypothesis",
+        "title": "Functional central limit theorem for dependent models with finite memory",
+        "trigger": "Named functional recent-memory theorem"
+      },
+      {
+        "assessment": "Different predictor and resulting power-kernel covariance; not dominating present hard-window result",
+        "evidence": "arXiv:2507.01708v1 lines 24--85, 110--131",
+        "identifier_or_url": "https://arxiv.org/html/2507.01708",
+        "material_read": "Open-access HTML Introduction, conditional drift equation (1.1), Theorem 1.1 and prior FCLT comparison",
+        "method": "Compared dependence on cumulative S_n/n versus window S_{n-1}-S_{n-m_n-1}",
+        "title": "Functional central limit theorems for the dynamic elephant random walk",
+        "trigger": "Another elephant functional Gaussian limit"
+      },
+      {
+        "assessment": "Memory measures and limiting kernel are structurally different; no identified theorem for proportional hard cutoff",
+        "evidence": "arXiv:2402.09202, Introduction and main-result description",
+        "identifier_or_url": "https://arxiv.org/abs/2402.09202",
+        "material_read": "Open-access arXiv full-text Introduction, Section 2 positive regularly varying memory weights, and main-result summary",
+        "method": "Compared allowed positive full-history sampling to hard zero weight outside recent window",
+        "title": "A universal scaling limit for diffusive amnesic step-reinforced random walks",
+        "trigger": "Potential universal FCLT under general memory"
+      },
+      {
+        "assessment": "Smooth full-history positive weights do not instantiate a hard proportional recent-window truncation",
+        "evidence": "arXiv:2609.14871, Introduction lines 17--29",
+        "identifier_or_url": "https://arxiv.org/abs/2609.14871",
+        "material_read": "Open-access arXiv indexed full-text Introduction, specification of the positive amnesia weights and stated functional regimes",
+        "method": "Checked sampled past-index distribution versus strictly bounded recent relative age",
+        "title": "Limit theorems for amnesic elephant random walks with random increment sizes",
+        "trigger": "Recent FCLT with amnesia"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2a971785-58c8-45fc-816c-980ebeae32bc",
+  "value": {
+    "rationale": "The recently introduced proportional recent-memory random walk had only a one-time normal law. The entire diffusive trajectory has a non-Brownian Gaussian Volterra limit, with explicit two-time kernel, self-similarity and a sharp sign-sensitive memory diagnostic. This enables path functionals and distinguishes correlated diffusive scaling from Brownian motion. The new tightness estimate is a genuine structural step rather than parameter substitution.",
+    "status": "PASS"
+  }
+}
