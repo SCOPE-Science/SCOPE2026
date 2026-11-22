@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Exact prefix/suffix separation is valid for all binary codewords with forbidden overlap 1. For n>=14 the middle 2^(n-14) factor is exact. A finite 64-by-64 mask computation with include/exclude exhaustion and mathematically safe cardinality and dominated-state pruning proves max product=744. Forward/reverse transpose searches independently agree (9209/9191 nodes); small cases 1..6 match published values and cutoffs 1..4 are directly enumerated. The known 24-by-31 witness attains the bound. No finite extrapolation is used for the all-length factorization.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Stanovnik (2024) discusses broad q-ary upper bounds and a middle-block independence reduction, and remarks on exact known special cases.",
+        "Yang and Ding (2026) discuss general construction families, not an asserted sharp unrestricted binary (1,7) upper."
+      ],
+      "reasoning": "A general upper inequality does not subsume the sharp 744 bound when its specialization remains strictly larger. Broader families of lower constructions and non-expandability are not global maximum-cardinality proofs.",
+      "searches": [
+        "arXiv:2411.02899 general upper bounds and expandability statements",
+        "DOI:10.1587/transfun.2025EAL2050 q-ary (t1,t2) codes",
+        "For all n at least 14 the maximum size binary (1,7) overlap free cross-bifix code equals 744 times 2 to the n minus 14"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2211.10309v4 full HTML",
+      "arXiv:2411.02899 article content",
+      "DOI:10.1587/transfun.2025EAL2050 open HTML",
+      "DOI:10.1109/TIT.2023.3319010 abstract only",
+      "The published non-overlapping and fixed-weight restricted-overlap comparison records named in the literature review, as to their stated objects and claims"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier paper establishes equality for cutoffs at most six and explicitly treats the cutoff-seven 744 value as only a lower bound.",
+        "2024 general treatment does not present a cutoff-seven exact theorem."
+      ],
+      "reasoning": "The present sharp bound neither follows from previously proved lower bounds nor from previously listed larger upper bounds. The earlier bipartite reduction is used and credited rather than passed off as novel. The new implication is the rigorous exhaustive upper certificate.",
+      "searches": [
+        "Blackburn et al. Sections IV-A, V, Tables II-III and V",
+        "arXiv:2411.02899 Introduction and main bound statements",
+        "Blackburn Esfahani Kreher Stinson first unresolved k seven optimal code"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The same theorem can be formulated as maximal product |P|*|S| of a biclique in the compatibility complement of the 64-by-64 forbidden-overlap graph.",
+        "Blackburn et al. use precisely this graph reduction and explicitly list only a 744 lower bound at cutoff seven."
+      ],
+      "reasoning": "The formulation as a maximum compatible bipartite product is mathematically equivalent and was compared at the level of exact optimality, not title. Existence of a 24-by-31 construction is not equivalent to a proved upper. No source inspected asserts the 744 upper.",
+      "searches": [
+        "binary (1,7) overlap-free code C(n,7) optimum 744 exact 7 prefix suffix 2023 Blackburn",
+        "restricted overlaps k=7 maximum independent product code size 744 744*2^(n-14)",
+        "arXiv:2211.10309 sections IV and V"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table III gives |P|=24, |S|=31 and C(7,n)>=744*2^(n-14); Table V reports an upper substantially exceeding 744.",
+        "Relevant indexed results concern fixed-weight, complete non-overlap, and cutoffs other than seven."
+      ],
+      "reasoning": "The exact value 744 is a previously tabulated construction value, so mere recomputation of it would not be new. Certifying that no other compatible prefix/suffix family beats 744 converts that prior table lower bound into a sharp exact capacity.",
+      "searches": [
+        "Blackburn et al. arXiv:2211.10309 Table III and Table V",
+        "binary (1,7) overlap-free code C(n,7) optimum 744 exact 7 prefix suffix 2023 Blackburn"
+      ]
+    },
+    "rationale": "The 2022 original study explicitly gives 744 times 2^(n-14) as a lower construction, and Table V a larger upper; an exact matching finite certificate for the first unresolved cutoff is not stated in the inspected primary research. Later inspected general bounds do not imply 744. Remaining inaccessible/unindexed coverage is documented.",
+    "residual_risks": [
+      "The Cai–Wang–Feng complete paper was not accessible for full-text comparison; its abstract alone is not sufficient to conclude noncoverage.",
+      "An equivalent optimality certificate could exist in unindexed work, software appendices or later papers.",
+      "Machine checked exhaustive argument requires independent source review for external certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes reduction and lower 744 but does not assert a sharp k=7 upper; table upper greater than 744",
+        "evidence": [
+          "Table III: k=7, 24 prefixes and 31 suffixes, lower 744",
+          "Table V: k=7 upper greater than 744",
+          "Section V: exhaustive k>=7 reported infeasible"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2211.10309v4",
+        "material_read": "Sections I, IV and V, especially statements and numerical Tables II, III, V",
+        "method": "Direct reading of HTML full text and numerical bound comparisons",
+        "title": "Constructions and bounds for codes with restricted overlaps",
+        "trigger": "Exact objects, parameters and earlier 24-by-31 lower construction"
+      },
+      {
+        "assessment": "Bounds and expandability; the inspected statements do not establish k=7 exact capacity",
+        "evidence": [
+          "General bounds and construction scope in abstract",
+          "Prior research and reduction noted in introduction"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2411.02899",
+        "material_read": "Abstract and introductory discussion, general upper-bound scope and references",
+        "method": "Direct reading of available article HTML",
+        "title": "Codes with restricted overlaps: expandability, constructions, and bounds",
+        "trigger": "Later upper bounds might dominate the cutoff-seven claim"
+      },
+      {
+        "assessment": "Does not state the same sharp k=7 cardinality; construction and general-parameter focus",
+        "evidence": [
+          "General (t1,t2) framework and construction aims"
+        ],
+        "identifier_or_url": "https://globals.ieice.org/en_transactions/fundamentals/10.1587/transfun.2025EAL2050/_f",
+        "material_read": "Accessible introduction, mathematical setup and relevant constructions",
+        "method": "Direct reading of open full-text HTML",
+        "title": "Q-Ary (t1,t2)-Overlap-Free Codes",
+        "trigger": "Recent q-ary general overlap theory might cover binary sharp case"
+      },
+      {
+        "assessment": "Unresolved full-document overlap risk; no full-text not-covering determination",
+        "evidence": [
+          "Abstract discusses constructions and bounds, and specific cases; entire text not inspected"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TIT.2023.3319010",
+        "material_read": "Abstract and accessible bibliographic description only; full text unavailable",
+        "method": "Open/abstract access checked; authorized full-text route attempted but unavailable",
+        "title": "Constructions and Bounds for q-Ary (1,k)-Overlap-Free Codes",
+        "trigger": "Another central study with identical code family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "47abd322-0a26-4fbc-b307-7015251b9fe2",
+  "value": {
+    "rationale": "This proves sharpness of the 744 lower construction at the first cutoff beyond the previously published exact list, yielding a stable all-length synchronization-code capacity. The required precise invariant was directly motivated by a stated numerical gap and previously unsuccessful full search; it is not a routine arbitrary slice. The finite machine certificate is reproducible and small enough to audit.",
+    "status": "PASS"
+  }
+}
