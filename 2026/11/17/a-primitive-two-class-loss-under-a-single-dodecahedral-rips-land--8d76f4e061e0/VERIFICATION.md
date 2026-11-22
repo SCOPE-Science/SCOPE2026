@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification steps and limitations
+# Independent mathematical audit
 
-The `verification.py` file uses only Python 3 standard-library facilities, with integer graph distances and bit-mask faces. Run `python3 verification.py`. It enumerates the exact dodecahedral graph via the generalized Petersen model, certifies rotation and an explicit outer-to-inner automorphism, checks every pairwise graph distance, generates all three face sets, and checks three complete acyclic discrete-Morse matchings by exhausting every Hasse cover and topologically sorting all directed arrows. The output matches `verification_output.txt`.
+## correctness
 
-Only one deletion representative is enumerated, because the two explicitly verified graph automorphisms make the action vertex transitive. The reported complex is the induced subcomplex using the original distances; no distance recomputation is made after deleting the point. Finite exhaustive verification proves this fixed finite graph calculation, not any generalization to arbitrary spaces. The integral inclusion conclusion comes from the written long exact sequence, not a mod-prime numerical experiment.
+PASS
+
+Explicit BFS computes all 190 pair distances; exhaustive increasing-face enumeration yields X=3272,Y=2550,L=721 faces. Independent pivot matching and all codimension-one directed Hasse covers (14420,11005,2679) are acyclic with critical cell spectra X {0:1,3:9}, Y {0:1,3:7}, L {0:1,2:2}. Forman yields integral sphere-wedge models, not merely field Betti ranks. The star/link pair long exact sequence H4(X,Y)=H3(L)=0, H3(X,Y)=H2(L)=Z^2 and H2(Y)=0 yields a primitive inclusion of Z^7 in Z^9 with free rank-2 quotient. Graph automorphism swapping 0 and 10 and rotation covers every vertex.
+
+## originality
+
+PASS
+
+Best-of-knowledge O PASS with concrete primary statements compared against the full claim and retained residual priority risks; inaccessible abstracts are not treated as conclusive NOT_COVERING. 
+
+## value
+
+PASS
+
+A single landmark deletion is a canonical robustness perturbation in topological data analysis, and the integral primitive image and lost classes quantify survival of existing scale-three dodecahedral features rather than merely re-counting the intact nine spheres. A nontrivial finite homotopy classification with exact attaching information is a motivated standalone target.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

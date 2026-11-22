@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full, deleted and vertex-link simplicial complexes have exact deterministic complete-face acyclic Morse matchings with the critical cells listed in `RESULT.md`. The embedded verifier checks all 28,104 nonempty codimension-one Hasse covers, directed-graph acyclicity, face enumeration and a concrete vertex-transitivity certificate. The resulting CW models are wedges because only a single vertex and positive-dimensional cells in one dimension remain. The pair long exact sequence and the freeness of its quotient prove primitive splitting. No finite-to-infinite inference is made: the object is a fixed finite graph with twenty vertices.
+PASS
 
-## Originality — PASS with residual priority risk
+Explicit BFS computes all 190 pair distances; exhaustive increasing-face enumeration yields X=3272,Y=2550,L=721 faces. Independent pivot matching and all codimension-one directed Hasse covers (14420,11005,2679) are acyclic with critical cell spectra X {0:1,3:9}, Y {0:1,3:7}, L {0:1,2:2}. Forman yields integral sphere-wedge models, not merely field Betti ranks. The star/link pair long exact sequence H4(X,Y)=H3(L)=0, H3(X,Y)=H2(L)=Z^2 and H2(Y)=0 yields a primitive inclusion of Z^7 in Z^9 with free rank-2 quotient. Graph automorphism swapping 0 and 10 and rotation covers every vertex.
 
-The primary 2023 Platonic-solids paper is fully material for the intact \(\bigvee^9S^3\) result; its theorem and the relevant dodecahedral proof sections were inspected. The present deletion/link/inclusion calculation is absent from that theorem, and the original's cellular framework does not by itself certify these data. The 2026 robustness paper motivates exact vertex-loss questions but supplies general robustness definitions, complexity results and a heuristic, not this instance. A separate published result on the intact dodecahedron's integral symmetry lattice was read in full: its ten-tetrahedron augmentation-lattice proof gives potentially useful homology input, but does not determine the punctured homotopy type or link. The exact punctured homotopy and primitive inclusion are not claimed to be independently priority-certified. Residual risk: nonindexed or inaccessible stronger prior work could already imply this result.
+## originality
 
-## Value — PASS
+PASS
 
-This canonical transitive metric point set is the standard exceptional nine-three-sphere case in the Platonic-solid Rips classification. Its one-point deletion is a natural first exact robustness test: it kills precisely two primitive classes regardless of which point is removed. The answer is an exact integral homotopy type and inclusion, rather than a field-only rank or arbitrary small computational example, and can serve as a checked benchmark for homological vertex-cut methods.
+Best-of-knowledge O PASS with concrete primary statements compared against the full claim and retained residual priority risks; inaccessible abstracts are not treated as conclusive NOT_COVERING. 
 
-## Limits
+## value
 
-No multi-vertex result, arbitrary-point-cloud theorem, full punctured barcode or independent certification is asserted. The intact symmetry-lattice manuscript was inspected in full; its results remain restricted to the unpunctured complex.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A single landmark deletion is a canonical robustness perturbation in topological data analysis, and the integral primitive image and lost classes quantify survival of existing scale-three dodecahedral features rather than merely re-counting the intact nine spheres. A nontrivial finite homotopy classification with exact attaching information is a motivated standalone target.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
