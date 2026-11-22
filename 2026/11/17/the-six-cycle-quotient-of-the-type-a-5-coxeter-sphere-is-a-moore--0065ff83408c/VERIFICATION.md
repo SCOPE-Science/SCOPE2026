@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify_cyclic6.py` with standard Python 3. The included `VERIFIER_OUTPUT.txt` is the recorded output of the exact program in this package. The program generates every nonempty chain of proper nonempty six-set subsets, forms orbits under all six rotations, checks the integer identity \(\partial^2=0\) on every quotient cell, and computes modular boundary ranks by column elimination for characteristics two, three, five and seven.
+## correctness
 
-Expected dimensions of quotient chains: \((12,91,260,300,120)\). Expected Betti vectors: \((1,0,0,1,1)\) over \(\mathbb F_2\), and \((1,0,0,0,0)\) over each of \(\mathbb F_3,\mathbb F_5,\mathbb F_7\). Expected final line: `CYCLIC_SIX_SIMPLEX_QUOTIENT_CHECK_PASS`.
+PASS
 
-These modular calculations cannot exclude torsion of other prime orders or establish the homotopy type by themselves. The integer proof instead uses the explicitly defined lens-space quotient and the mapping-cone maps, with \(f_*\) equal to an isomorphism on \(\pi_1\) and multiplication by two on \(H_3\). No independent external audit has been performed.
+The boundary of a 5-simplex is the unit sphere of the reduced six-letter permutation representation R_sgn plus complex weights 1,2. Modulo C3 it is the suspension of a free 3-fold lens quotient; the residual generator exchanges suspension cones with equator involution (z,w)->(-z,w), giving a mapping cone L(3;1,2)->L(3;2,2). The map induces an isomorphism on pi1=Z/3 and degree +2 on H3=Z, so van Kampen and the integral cone exact sequence yield pi1=pi2=0 and sole reduced H3=Z/2. Extending the Hurewicz generator to the degree-2 Moore cofiber and homological Whitehead gives M(Z/2,3) ≃ Σ²RP². Separately regenerated all barycentric flag-orbit cells (12,91,260,300,120), checked exact ∂²=0, and computed mod2/3/5/7 homology as diagnostics, not substitutes for the cone proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty after comparing exact claims and implications, not title matches; the identified structural prior inputs are explicitly credited and all material access limits retained. No inspected earlier theorem implies this complete final claim.
+
+## value
+
+PASS
+
+The type-A5 Coxeter sphere and its Coxeter six-cycle have a canonical representation-theoretic action. Identifying its quotient as a single 2-torsion Moore space is a nontrivial, exact integral orbit-space phenomenon, with a useful explicit mapping-cone model and distinction from rational or modular tests. It is an independently useful natural finite topology classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

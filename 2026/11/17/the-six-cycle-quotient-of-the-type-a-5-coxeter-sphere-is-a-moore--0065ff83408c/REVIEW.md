@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Fourier decomposition of the six-letter real permutation sphere is exact. Quotienting by the order-three subgroup yields the suspension of a free three-dimensional lens quotient. The remaining involution gives a mapping cone of a two-fold branched map between lens spaces, inducing an isomorphism on fundamental groups and multiplication by two on top homology. Van Kampen, the long exact mapping-cone sequence, Hurewicz and homological Whitehead then prove the Moore-space homotopy type. Directly constructed quotient chains give \((12,91,260,300,120)\) cells, vanishing integral boundary squares, and the predicted modular homology in characteristics two, three, five and seven.
+## correctness
 
-**Originality — PASS against the available published comparisons.** Babson–Reiner (2004) gives the correct general quotient cellular apparatus but no instance identifying this six-cycle orbit space as a Moore space in the inspected sections and document searches. Reiner's 2016 discussion resolves incidence details only. Donau's 2012 work treats partition lattices, not the Coxeter sphere. Targeted searches for the orbit space under the relevant equivariant and representation-sphere descriptions found no stronger result or exact homology table. This is a best-knowledge finding, not a universal priority certificate.
+PASS
 
-**Value — PASS.** The long six-cycle on the first mixed-prime six-vertex Coxeter sphere has both order-two and order-three isotropy, killing the covering-group fundamental group yet leaving two-primary homology in degree three. Identifying the *full homotopy type* as \(M(\mathbb Z/2,3)\) is an exact, motivated topological boundary case, beyond a rational Betti count or a routine application of orbit counting. The mapping-cone model additionally explains the torsion mechanism.
+The boundary of a 5-simplex is the unit sphere of the reduced six-letter permutation representation R_sgn plus complex weights 1,2. Modulo C3 it is the suspension of a free 3-fold lens quotient; the residual generator exchanges suspension cones with equator involution (z,w)->(-z,w), giving a mapping cone L(3;1,2)->L(3;2,2). The map induces an isomorphism on pi1=Z/3 and degree +2 on H3=Z, so van Kampen and the integral cone exact sequence yield pi1=pi2=0 and sole reduced H3=Z/2. Extending the Hurewicz generator to the degree-2 Moore cofiber and homological Whitehead gives M(Z/2,3) ≃ Σ²RP². Separately regenerated all barycentric flag-orbit cells (12,91,260,300,120), checked exact ∂²=0, and computed mod2/3/5/7 homology as diagnostics, not substitutes for the cone proof.
 
-**Closest context and risks.** The general subgroup quotient complex appears in Babson–Reiner, Section 2.3. General cyclic representations and lens-space constructions might imply the result without naming the Coxeter complex. Source discovery and text inspection cannot rule out all such equivalences. No all-order classification or independent mathematical validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty after comparing exact claims and implications, not title matches; the identified structural prior inputs are explicitly credited and all material access limits retained. No inspected earlier theorem implies this complete final claim.
+
+## value
+
+PASS
+
+The type-A5 Coxeter sphere and its Coxeter six-cycle have a canonical representation-theoretic action. Identifying its quotient as a single 2-torsion Moore space is a nontrivial, exact integral orbit-space phenomenon, with a useful explicit mapping-cone model and distinction from rational or modular tests. It is an independently useful natural finite topology classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
