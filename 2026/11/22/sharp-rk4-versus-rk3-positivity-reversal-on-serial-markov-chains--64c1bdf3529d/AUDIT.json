@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "Exact finite-state row Markov generator; nonnegative update iff all entries nonnegative; explicit walk-power formulas prove necessity/sufficiency for H3/H4 with positive rates. The one-jump cubic is strictly decreasing by a positive R2 integrand, 2-jump RK4 entries positive by R2 curvature, 3-jump entries furnish sharp thresholds. Extremal two-case algebra proves constants; five-rate witness proves attainment; vanishing-rate family proves supremum; n<=4 case excludes loss. 2441 direct exact-rational / boundary tests successfully replayed from actual verify.py; finite tests not used to prove infinity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The heterogeneous-cycle RK4 theorem https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-rk4-positivity-on-heterogeneous-directed-cycles-and-a-shar--36d0a038ee0c proves local pair cubic and four-window positivity threshold for a cyclic geometry; it does not compare with RK3.",
+        "The homogeneous birth-chain theorem https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-exact-state-count-positivity-thresholds-for-classical-rk4-on-pur--f681978f4cc7 proves RK4 threshold as a function of state count for equal rates only.",
+        "The present proof explicitly imports/rederives the same class of local formulas and adds the two-method sharp optimization and the five-state rate witness."
+      ],
+      "reasoning": "For nonzero rates on a cycle the previously studied domain differs from absorbing paths; zero-rate degeneration reproduces local RK4 ingredients. Existing local formulas cover those ingredients, so these are not claimed novel. Neither inspected broader result states or logically immediately resolves the extremal optimization over all positive birth rates and RK3 comparison. Generic finite-root algorithms do not supply the exact sharp constants without the new extremal argument.",
+      "searches": [
+        "published-finding corpus: Runge Kutta polynomial divided differences positivity triangular Metzler matrices birth death chain",
+        "published-finding corpus: fourth order Runge Kutta positivity pure birth Markov chain serial absorbing chain uniform rates precise stepsize",
+        "published-finding corpus: exact RK4 positivity on heterogeneous directed cycles and a sharp CFL gain",
+        "Published published-finding corpus RESULT.md for heterogeneous directed-cycle RK4 and homogeneous birth-chain RK4"
+      ]
+    },
+    "checked_sources": [
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-rk4-positivity-on-heterogeneous-directed-cycles-and-a-shar--36d0a038ee0c",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-exact-state-count-positivity-thresholds-for-classical-rk4-on-pur--f681978f4cc7",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-cycle-length-positivity-frontiers-for-fourth-order-runge-k--6cbc274839ff",
+      "https://arxiv.org/pdf/2102.08242",
+      "https://optimization-online.org/wp-content/uploads/2016/07/5534.pdf",
+      "Own accessible current-week historical claim summaries (122 records)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior heterogeneous-cycle RK4 gives H4 as min of pair cubic roots and four-rate sums, but no H3 comparison; the current comparison requires optimizing across the two nonidentical active constraints.",
+        "Prior homogeneous birth result yields RK4 steps 1 for >=5 states and no heterogeneous inversion witness.",
+        "The comparison 4/(3+rho)<=H4/H3<delta/rho, with equality at (rho,(3-rho)/2,(3-rho)/2,rho) and minimality n=5, is proved by a new two-case extremal inequality."
+      ],
+      "reasoning": "A consequence of prior data that can be derived with additional mathematical reasoning is not automatically new; this theorem disclaims the local formulas and makes the sharp cross-method extremizers the sole claim. The precise global bounds and minimal-state inversion were not found as statements in inspected prior sources. A specialist unpublished or nonindexed comparison remains a residual priority risk.",
+      "searches": [
+        "GitHub published-finding corpus exact heterogeneous cycle RK4 RESULT.md full text",
+        "GitHub published-finding corpus homogeneous birth RK4 RESULT.md full text",
+        "GitHub published-finding corpus unit-cycle RK4 RESULT.md relevant text",
+        "Horváth Song Terlaky 2014/2015 steplength thresholds PDF sections 1-3",
+        "Blanes Iserles Macnamara arxiv 2102.08242 PDF pages 1-3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus returned no matching RK4/RK3 sharp comparison; closest: 2026/11/8/SCOPE-exact-rk4-positivity-on-heterogeneous-directed-cycles-and-a-shar--36d0a038ee0c",
+        "The prior RK3/RK2 chain ratio is different pair of methods; published RK4 homogeneous birth chain is single-method.",
+        "Explicit claim-level H4/H3 constants and five-state extremal configuration are not present in inspected RESULT.md of 2026/11/8/SCOPE-exact-rk4-positivity-on-heterogeneous-directed-cycles-and-a-shar--36d0a038ee0c or 2026/10/12/SCOPE-exact-state-count-positivity-thresholds-for-classical-rk4-on-pur--f681978f4cc7"
+      ],
+      "reasoning": "Equivalent problems could be stated as Markov stochasticity, nonnegative semigroup approximation, positivity CFL, or Taylor step thresholds. Retrieved records establish individual local RK4 thresholds, but inspected statements do not assert the rate-uniform cross-order extremal ratio or minimum state count. A negative search does not prove exhaustive priority.",
+      "searches": [
+        "published-finding corpus: fourth versus third order Runge Kutta positivity 13 percent loss birth chain",
+        "published-finding corpus: sharp positivity interval RK4 versus RK3 acyclic one-way Markov chain path worst case ratio",
+        "published-finding corpus: RK4 RK3 positivity timestep sharp universal comparison pure birth Markov chain ratio 4/(3+rho)",
+        "Own current-week ledger: item titles/claim phrases, 122 records, including RK3/RK2 cycles and RK4 three-state directed cycle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest database/table is 2026/10/12/SCOPE-exact-state-count-positivity-thresholds-for-classical-rk4-on-pur--f681978f4cc7 with dimension-dependent RK4 thresholds for equal rates.",
+        "Another closely related table is 2026/11/2/SCOPE-sharp-cycle-length-positivity-frontiers-for-fourth-order-runge-k--6cbc274839ff with homogeneous directed-cycle positivity by order.",
+        "Neither inspected table has the heterogeneous 4/(3+rho) extremal rate configuration or RK4/RK3 loss/gain range."
+      ],
+      "reasoning": "The five-state attained rate vector and two sharp ratio limits do not appear in the checked tabulations. Exhaustive database coverage or unpublished tables cannot be guaranteed; similarity search is not an originality certificate.",
+      "searches": [
+        "published-finding corpus: RK4 RK3 positivity timestep sharp universal comparison pure birth Markov chain ratio 4/(3+rho)",
+        "published-finding corpus: third fourth order Runge Kutta Markov positivity ordering reversal path birth rates",
+        "published-finding corpus: sharp RK4 vs RK3 positivity ratio on directed cycle heterogeneous rates",
+        "Own accessible ledger: full title/claim dedup listing for numerical-optimization-control-middle"
+      ]
+    },
+    "rationale": "Published records cover most local RK4 ingredients, specifically homogeneous birth chains and heterogeneous directed cycles. Claim-level published-finding corpus searches plus full published RESULT.md comparisons did not identify the new sharp RK4/RK3 universal extremal ratio, attained rate architecture, limiting opposite ratio or five-state minimality. Those require a separate rate-uniform optimization and are the only originality claim. Historical priority remains provisional.",
+    "residual_risks": [
+      "Existing local RK4 positivity classification is very close and could be used to derive these cross-method bounds; the value claimed is the extremal comparison, not those formulas.",
+      "Bibliographic coverage is bounded; unindexed work under absolute monotonicity, SSP or acyclic positivity terminology could contain the cross-order constant.",
+      "Only introductory sections of the Blanes–Iserles–Macnamara paper were read; it is not asserted wholly noncovering."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS adjacent-rate cubic, four-window threshold and nonreentry; does not state RK4/RK3 comparison constants or five-state birth-chain extremizer",
+        "evidence": [
+          "Proof displays F_{a,b} cubic and W four consecutive rate sums",
+          "Its comparison is with forward Euler and one-defect rate, not RK3"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-rk4-positivity-on-heterogeneous-directed-cycles-and-a-shar--36d0a038ee0c",
+        "material_read": "Full RESULT.md including finding, all proof sections, limitations and references",
+        "method": "Direct GitHub public file retrieval",
+        "title": "Exact RK4 positivity on heterogeneous directed cycles and a sharp CFL gain",
+        "trigger": "Strongest same-method local-formula coverage; directed cycles with unequal rates"
+      },
+      {
+        "assessment": "COVERS homogeneous pure-birth RK4 thresholds, not heterogeneous rate vectors or RK3/RK4 extremal comparison",
+        "evidence": [
+          "N>=5 common-rate RK4 sharp step 1",
+          "Limitations explicitly exclude nonuniform rates"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-exact-state-count-positivity-thresholds-for-classical-rk4-on-pur--f681978f4cc7",
+        "material_read": "Full RESULT.md: state-count theorem, proof, comparisons and limitations",
+        "method": "Direct GitHub public file retrieval",
+        "title": "Exact state-count positivity thresholds for classical RK4 on pure-birth chains",
+        "trigger": "Same geometry and same RK4 end-step"
+      },
+      {
+        "assessment": "COVERS small-cycle homogeneous RK3/RK4 endpoints; does not imply heterogeneous serial birth extremum directly",
+        "evidence": [
+          "Positivity table by cycle size and order",
+          "No arbitrary-rate optimization"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-cycle-length-positivity-frontiers-for-fourth-order-runge-k--6cbc274839ff",
+        "material_read": "Result and proof sections, including homogeneous cycle table and limitations",
+        "method": "Direct GitHub public file retrieval",
+        "title": "Sharp cycle-length positivity frontiers for fourth-order Runge–Kutta",
+        "trigger": "Previously published multi-order RK cycle table"
+      },
+      {
+        "assessment": "General computational root conditions; no matched two-method sharp extremum in inspected portions",
+        "evidence": [
+          "Section 3.1 proposes root threshold algorithms for Taylor discretizations",
+          "Does not specialize a four-rate birth extremizer in the read material"
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2016/07/5534.pdf",
+        "material_read": "Abstract, introduction, Sections 2 and beginning Section 3 including Taylor polynomial threshold method and explicit step guarantees; page 4 visually inspected",
+        "method": "Web PDF text and page screenshot",
+        "title": "Steplength thresholds for invariance preserving of discretization methods of dynamical systems on a polyhedron",
+        "trigger": "General polynomial-root and polyhedral positivity methodology"
+      },
+      {
+        "assessment": "Motivates nonsymmetric positive generators and alternative positive methods; inspected sections do not supply compared sharp RK3/RK4 rate constants, but entire remainder not checked",
+        "evidence": [
+          "Introduces non-symmetric graph Laplacian mass/positivity framework",
+          "Studies specially constructed positivity methods"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2102.08242",
+        "material_read": "Abstract and introductory graph-Laplacian/nonnegativity sections through Proposition 1, with page 2 screenshot",
+        "method": "Web arXiv PDF extracted text and screenshot",
+        "title": "Positivity-preserving methods for ordinary differential equations (preprint initially titled population models)",
+        "trigger": "Motivating source, first public preprint 2021-02-16"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "64c1bdf3-529d-4284-b337-1b7251a34b87",
+  "value": {
+    "rationale": "The sharp method-order positivity inversion is an informative nontrivial structural boundary: for all positive-rate pure-birth paths a fourth-order step can be almost 13% more restrictive or nearly 75% less restrictive than third order, and the first disadvantage arises at five states. A natural rate architecture attains the worst ratio. This is a positivity-constrained solver selection fact rather than generic polynomial root computation; it does not imply accuracy superiority.",
+    "status": "PASS"
+  }
+}
