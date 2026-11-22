@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T01:10:39.385887Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified precise linear order P_n=T_(n-1)...T_1, n>=2, and all-pair Gini seminorm modulo constants. Every real signal has a positive layer-cake binary-cut decomposition, so cut tests suffice. Each local averaging loses at least |a-b| in Gini; for a binary vector the carry recursion has at least geometric dissipation 1+1/2+...+2^{-(k-1)} after choosing the minority side, while a suffix block of k trailing 1s makes every triangle inequality an equality. This proves gamma_n exactly, not via finite sampling. Direct algebra comparing adjacent k choices gives small cases and strict minimum at floor(n/2) for n>=9, asymptotic n²(1-gamma)->8. Independently exhausted all nontrivial binary initial vectors at n=2..11, including gamma_5=3/4, gamma_8=53/60, gamma_9=29/32; all matched. Source RESULT.md blob 53c0ef1a689e0ec16bc672078d23291a0e3605fe.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General deterministic gossip convergence theory gives long-run contraction but not the exact complete-pair Gini ratio for a fixed one-pass order.",
+          "Cao treats Gini decay for a stochastic interaction model, a different averaging law."
+        ],
+        "reasoning": "A general convergence rate does not yield the exact one-sweep Gini induced norm; neither stochastic nor simultaneous mechanisms dominate a specified deterministic ordered product.",
+        "searches": [
+          "Resultary search: path sweep deterministic gossip complete pair Gini contraction step sharp 1 minus 2 power",
+          "Deterministic Gossiping 2011 DOI 10.1109/JPROC.2011.2159689",
+          "Cao arXiv:2108.07904"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-gini-contraction-of-a-left-to-right-path-gossip-sweep--a87a1a4ca010",
+        "https://doi.org/10.1007/978-3-642-11278-2_19",
+        "https://doi.org/10.1109/JPROC.2011.2159689",
+        "https://arxiv.org/abs/2108.07904"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Candidate gamma=1-min_k 2(1-2^-k)/[k(n-k)] and exact suffix-block sharpness, with n>=9 balanced optimal.",
+          "Classical deterministic and randomized papers establish convergence/Euclidean spectral estimates but not the binary-cut equality mechanism and n=9 optimizing transition."
+        ],
+        "reasoning": "A contraction proof in another seminorm or order does not imply the claimed exact Gini constant; the candidate analytical carry inequality and equality example supply the missing comparison.",
+        "searches": [
+          "Resultary search: path sweep deterministic gossip complete pair Gini contraction step sharp 1 minus 2 power",
+          "Liu et al 2010 complete gossip contraction",
+          "Boyd et al 2006 Randomized Gossip Algorithms"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu and collaborators study complete gossip sequences in a matrix Euclidean seminorm/singular-value framework.",
+          "Candidate uses the all-pairs absolute-difference Gini seminorm, nonlinear in coordinate differences, and determines exact ordered path sweep norm and extremizing cut."
+        ],
+        "reasoning": "The ordered sequence may be a special gossip sequence, but the target seminorm is not equivalent to Euclidean operator-norm constants. Their numerical coefficients cannot imply this sharp Gini formula without an independent cut optimization.",
+        "searches": [
+          "Resultary search: path sweep deterministic gossip complete pair Gini contraction step sharp 1 minus 2 power",
+          "Liu et al The Contraction Coefficient of a Complete Gossip Sequence DOI 10.1007/978-3-642-11278-2_19"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "These exact Gini tables concern cyclic local averaging or Markov kernels, not the sequential noncommuting product T_(n-1)...T_1.",
+          "Finite source checker and independent exhaustive binary cuts n=2..11 reproduce the piecewise optimizing-k pattern."
+        ],
+        "reasoning": "No retrieved table for this exact product and seminorm other than the candidate same-record result; other path walks have different transition matrices.",
+        "searches": [
+          "Resultary search: path sweep deterministic gossip complete pair Gini contraction step sharp 1 minus 2 power",
+          "Resultary sharp Gini coefficients for cyclic two-tap, reflecting-path random walk, cyclic three-point averaging"
+        ]
+      },
+      "rationale": "A natural but specific exact one-sweep Gini norm and phase change in sharp binary extremizers are not supplied by cited Euclidean gossip convergence or stochastic Gini-decay theory; broad exact-seminorm search found only the submitted same-record match.",
+      "residual_risks": [
+        "Liu et al 2010 full text unavailable in this run; an implicit sharp Gini analogue cannot be conclusively excluded.",
+        "Other edge schedules and weighted Gini seminorms are outside the claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "POTENTIAL_PRECEDENT_LIMITED_ACCESS",
+          "evidence": [
+            "No exact Gini coefficient in accessible material; cannot assert whole article lacks one."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-642-11278-2_19",
+          "material_read": "Abstract and bibliographic description of Euclidean seminorm contraction, not full body",
+          "method": "Open publisher/indexed abstract",
+          "title": "The Contraction Coefficient of a Complete Gossip Sequence",
+          "trigger": "Plausibly same ordered pair-averaging product"
+        },
+        {
+          "assessment": "GENERAL_THEORY_NOT_EXACT_GINI",
+          "evidence": [
+            "Classical convergence of deterministic schedules; distinct target optimal Gini cut constant."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/JPROC.2011.2159689",
+          "material_read": "Bibliographic citation, published scope and abstract-level descriptions",
+          "method": "Source-level literature comparison",
+          "title": "Deterministic Gossiping",
+          "trigger": "Foundational complete-gossip convergence"
+        },
+        {
+          "assessment": "DIFFERENT_STOCHASTIC_MODEL",
+          "evidence": [
+            "Random repeated averaging does not equal a single fixed left-to-right path sweep."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.07904",
+          "material_read": "Abstract/model description, not full text",
+          "method": "Open-access abstract",
+          "title": "Explicit decay rate for the Gini index in repeated averaging model",
+          "trigger": "Closest Gini terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete-pair absolute-difference dispersion is an interpretable consensus metric. A sharp contraction factor for a fixed deterministic sweep, its optimizing cut-size transition at n=9, and n^-2 asymptotic deficit are exact, nontrivial information not recoverable from generic monotonicity or spectral estimates; independently useful for designing and comparing gossip schedules.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-gini-contraction-of-a-left-to-right-path-gossip-sweep--a87a1a4ca010",
+    "https://doi.org/10.1007/978-3-642-11278-2_19",
+    "https://doi.org/10.1109/JPROC.2011.2159689",
+    "https://arxiv.org/abs/2108.07904"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific correctness is based on reconstructed analytic proof; bounded independent tests do not establish universal claims by themselves.",
+    "Best-of-knowledge originality retains specific primary-literature and indexing risks recorded in source_inspections and residual_risks.",
+    "Package METADATA.json contains a public operational scope_run_id requiring sanitation. All possible public files must be inspected before any publication; no full verified replacement or source-tree guards prepared."
+  ],
+  "schema_version": 1
+}
