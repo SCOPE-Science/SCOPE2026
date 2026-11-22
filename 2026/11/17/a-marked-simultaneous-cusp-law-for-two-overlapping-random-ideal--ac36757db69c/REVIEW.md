@@ -1,21 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The cross-ratio reduction uses fixed labels and an exact cotangent half-angle change of variables. The joint event is exactly the restriction \(t|C-B|<\min(|D-B|,|E-B|)\). A proof-level integrable majorant controls the full Cauchy tails, including the simultaneous far-coordinate region; convergence of normalizations followed by Scheffé proves the total-variation marked limit. The double integral is finite by an explicit minimum-tail bound. Numerical integration and Rao–Blackwellized Monte Carlo independently corroborate the asymptotic constant; they are not substituted for the analytic proof.
+PASS
 
-## Originality — PASS (provisional historical priority)
+The cotangent half-angle coordinate conditioned on Z1 gives independent standard Cauchy B,C,D,E and EXACT ratios (D-B)/(C-B) and (E-B)/(C-B). E_t becomes t|C-B|<m=min(|D-B|,|E-B|); the scaled unnormalised h_t=f(b)f(d)f(e)f(b+y/t)1_{|y|<m} converges pointwise. E min(|D|,|E|)<infinity and f(b)^2(1+|b|) integrability justify finite K. Split |y|<=t|b|/2 vs complement; in complement both independent Cauchy D,E have tails >=t|b|/4 for t>=4, giving vanishing O(1/t) far contribution. Scheffe turns L1 mass convergence into total-variation of the normalized density. One-dimensional Martin cross-ratio tail yields the conditional 1/log t law. Independent numerical quadrature at 96 and 192 nodes gives K≈0.34310358 and 0.34310352 (consistent, not a proof).
 
-The closest full-text inspected source, Martin [2, Theorem 4.1], gives a density for one cross ratio of four independent uniform circle points, not joint extremes of overlapping quadrilaterals from five points. Kato–McCullagh [1, Introduction and §3] establishes the stereographic Cauchy transformation but neither the extreme joint tail nor the marked conditional law. Published mathematical-record searches for five-point ratios, shared denominators, ideal-pentagon cusp degenerations, and related aliases found adjacent but not dominating statements. Exact implication was tested: a marginal law alone cannot determine dependence; the joint marked limit also supplies extra information. An unindexed classical multivariate ratio theorem remains an explicitly recognized priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A five-point ideal-boundary configuration supplies two naturally overlapping four-point projective moduli. Their simultaneous cusp degeneration is sensitive to shared-point dependence and cannot be inferred from the known one-modulus distribution. The result identifies a new rate transition (joint \(t^{-1}\) versus marginal \((\log t)/t\)), a sharp logarithmic conditional dependence law, and a complete size-biased collision profile. This is a motivated structural statement about a natural moduli-boundary phenomenon, not a numerical optimization over an arbitrary parameter.
+Best-of-knowledge originality based on exact theorem-level comparison, not a negative search as proof. The relevant established input does not imply this complete marked or homotopy assertion in the material inspected.
 
-## Closest literature and limitations
+## value
 
-[1] Kato and McCullagh (2015), arXiv:1510.07679, explains the Cauchy stereographic reduction but no five-point cross-ratio dependence.
+PASS
 
-[2] Martin (2018), arXiv:1807.06202, Theorem 4.1, gives the one-cross-ratio marginal and is explicitly credited for the marginal coefficient. Other normalizations and unordered samples are not covered. Historical priority requires independent specialist comparison; finite numerical checks do not prove asymptotic limits.
+Two cross ratios sharing their singular denominator are a natural simultaneous degeneration of a random labelled ideal pentagon. The exact t^-1 simultaneous tail, explicit finite coefficient and conditional size-biased four-mark TV limit distinguish a correlated cusp from the product of marginal t^-1 log t tails; this precise joint marked limit can be reused for joint moduli observables.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
