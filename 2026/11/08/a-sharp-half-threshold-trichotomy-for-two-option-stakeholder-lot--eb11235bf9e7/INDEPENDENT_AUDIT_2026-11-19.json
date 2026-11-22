@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T02:45:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen source concerns only n>=1, 0<=K<=n, public 0<a<=b<=1 and a finite known rational grid with both endpoints, normalized binary utilities (1,0)/(0,1), deterministic finite membership queries and at most K DISTINCT contacted agents. At t=1/2 all accept for b<=1/2. For a>1/2 the right and left closed acceptance intervals are disjoint; OPT is the size of the minority orientation. A query at t=1 identifies every contacted orientation, so pure majority among K queried has regret at most max(0,U-(K mod 2)), U=n-K. The lower adaptive transcript assigns alternating orientations on first contacts (q<=K), consistently answering any repeated queries using threshold a; its imbalance is d=q mod 2 and completing all U=n-q unknown agents against the output yields >=max(0,n-q-d) regret, which bounds below the target. Gap output only worsens the regret. For a<=1/2<b, all K contacted intervals can be learned exactly by finite-grid bisection, and optimizing queried overlap yields <=n-K extra rejections. For the lower bound, respond to all queries as right orientation threshold a, then choose untouched types based on output t: right threshold b if t<b (global comparator t*=1), left threshold a if t>=b>1-a (global comparator t*=a), otherwise left threshold b if b<=t<=1-a (comparator t*=a). In every case untouched agents reject output and all agents accept comparator; a<=1/2,b>1/2 make the cases exhaustive, including equality. When K=n regret=0; when K=0 the constructions still apply; a=b=1/2 is common-feasibility, a=b>1/2 is strict. Independent exact rational exhaustive full-observation minimax over 70 cases (5 endpoint subfamilies, n=1..4, K=0..n) matched the formula. This check is NOT a proof over all grids, n or adaptive policies; the preceding transcript arguments are the uniform proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 6.1–6.2 of arXiv:2610.37828 require m>=3; H.1 explicitly invokes option e_3 to maintain nondegeneracy while contacted agents accept both pure e_1 and e_2.",
+          "The general n-K sampled-agent upper bound applies but cannot imply the strictly stronger n-K-1 bound for odd K with a>1/2; general Theorem I.3 is an unevaluated conditional formula.",
+          "The higher-dimensional hardness and sampling results do not imply the exact deterministic m=2 query minimax classification."
+        ],
+        "reasoning": "Parameter restrictions and proof hypotheses matter: m>=3 cannot be specialized to m=2. The generic prior fixed-history max regret is broad but does not state or mechanically instantiate an all-policy optimum under this finite-grid threshold-range restriction.",
+        "searches": [
+          "https://arxiv.org/abs/2610.37828 Theorems 6.1,6.2; Appendix H.1-H.2; Appendix I.1",
+          "web: stochastic maximum feasible subsystems elicitation two alternatives worst case regret"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.37828 Sections 2,5,6, Appendix E.1,H.1,H.2,I.1 (full primary rendered source; date 2026-10-27)",
+        "https://arxiv.org/html/2604.17505v1 Sections 1–4 and Appendix B.3 (primary full-text HTML; 2026-04-19)",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-distribution-free-failure-law-and-critical-window-for-two-altern--f629a7e684ab/RESULT.md full RESULT.md read (published mathematical result in closely matching object)",
+        "https://neurips.cc/virtual/2026/loc/paris/poster/155546 poster listing / author bibliography only; full text unavailable",
+        "https://www.cs.ox.ac.uk/people/paul.goldberg/publications.html (authors’ listings)",
+        "https://nicteh.fyi/ (authors’ listings)",
+        "https://ijcai.org/proceedings/2005/19 (general regret-based elicitation; unlike count-regret with multiple stakeholder oracle budget)",
+        "Resultary semantic searches for lottery two-alternative minimum violations, interval-stabbing and public threshold boundary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Teh–Goldberg Appendix H.1 lower-bound construction requires m>=3 and does not produce a two-option crossing adversary.",
+          "Their E.1 optimal endpoint sweep supplies the known K-agent upper-bound routine, while their Theorem I.3 is exact for fixed observed histories, not optimal adaptive choice of up to K distinct agents.",
+          "Choo–Goldberg–Teh seeks a common feasible lottery or infeasibility certificate; no Min-Viol additive-regret threshold classification is stated.",
+          "The published Resultary random-threshold work asks the distribution of V_n at full information, not limited elicitation."
+        ],
+        "reasoning": "The new proof needs adversarial completion under adaptive first-contact transcripts: alternating orientations in strictly above-half regime for sharp odd-K correction, and a three-case endpoint construction below/crossing/above public thresholds. Neither general fixed-history theorem nor full-information sweep contains this particular evaluated all-parameter conclusion. The distance-loss paper uses a distinct objective; full text was unavailable, so residual priority risk is expressly retained.",
+        "searches": [
+          "https://arxiv.org/abs/2610.37828 Section 6, Appendix E.1, H.1–H.2, I.1",
+          "https://arxiv.org/html/2604.17505v1 Sections 1,2,3,4",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-distribution-free-failure-law-and-critical-window-for-two-altern--f629a7e684ab/RESULT.md",
+          "web: Learning Acceptable Lotteries via Queries Minimizing Aggregated Violation Distances 2026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In two alternatives right and left acceptability halfspaces are closed upper and lower intervals, so the target is exactly interval-stabbing additive regret under at most K adaptively chosen revealed agents.",
+          "Teh–Goldberg Proposition E.1 maximizes overlap with all intervals known; Theorem I.3 gives a fixed-history two-lottery max-difference expression, not the evaluated optimal acquisition policy.",
+          "Resultary hit 2026/11/8/SCOPE-distribution-free-failure-law-and-critical-window-for-two-altern--f629a7e684ab concerns stochastic full-information interval overlap, not contact-limited minimax regret."
+        ],
+        "reasoning": "Binary normalized utility makes interval orientation and cutoff the entire private type, so interval stabbing/approval elicitation is the correct alias. Existing generic formulations are applicable as tools, but no inspected statement eliminates the adaptive worst-case optimization or yields the parity/crossing trichotomy without additional derivation.",
+        "searches": [
+          "Resultary: binary approval interval stabbing unknown agents adaptively query limited distinct agents additive rejection regret",
+          "Resultary: deterministic elicitation two-option lotteries thresholds half phase transition parity minimax",
+          "Resultary: Learning Lotteries with Minimal Stakeholder Violations from Membership Queries",
+          "https://arxiv.org/abs/2610.37828 Appendix E.1; Theorem I.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact-title/semantic queries found the audited record itself and the separate 2026/11/8 two-option distribution-free failure law; no retrieved mathematical table gave this K,n,a,b deterministic regret spectrum.",
+          "The related stochastic paper has a ballot-number tail for full-information optimal rejections, rather than a table of deterministic contact-budget regret.",
+          "The exact finite-instance experiments in check_exact.py are a reproducibility check, not an established published all-parameter table."
+        ],
+        "reasoning": "No relevant exact database/table covering this minimax phase diagram was found in the actual named searches, but index incompleteness and unindexed literature remain risks. Parameter-free negative search results are not evidence of proof of novelty.",
+        "searches": [
+          "Resultary: two alternatives stakeholder lottery membership query minimum violations worst case regret finite threshold interval n K",
+          "Resultary: binary approval interval stabbing unknown agents adaptively query limited distinct agents additive rejection regret",
+          "Resultary: deterministic elicitation two-option lotteries thresholds half phase transition parity minimax",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-distribution-free-failure-law-and-critical-window-for-two-altern--f629a7e684ab/RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty is the full deterministic two-option, public-threshold-range, distinct-contact-budget phase diagram, not the known full-information interval sweep or the generic n-K upper bound. Teh and Goldberg arXiv:2610.37828 Sections 6 and Appendix H prove a matching lower bound only for m>=3: the construction requires a third alternative to let contacted agents accept both pure options while remaining nondegenerate. Their Appendix E.1 solves fully elicited m=2 interval overlap, and Appendix I Theorem I.3 exactly expresses the worst gap after a fixed history, but it does not evaluate the minimax over all adaptive-contact policies for public a,b or the odd-K correction. Choo–Goldberg–Teh studies unanimity, and the related stochastic threshold law studies fully observed random profiles, not deterministic worst-case partial-contact regret. Searches did not establish an earlier all-parameter equivalent; an inaccessible same-authors 2026 distance-loss NeurIPS paper is a documented risk, not represented as read. Novelty is qualified and not independently certified.",
+      "residual_risks": [
+        "Theorem I.3 of Teh–Goldberg provides an exact fixed-history adversarial regret formula. An unrecognized earlier specialization or mechanical simplification under a,b could weaken originality; no evaluated adaptive K-agent theorem identified in material read.",
+        "The related same-author 2026 aggregated-violation-distance paper is accessible in listings only; full text was blocked by disconnected Oxford VPN after arXiv/OA attempts. The available objective differs, and this access limitation alone is not a scientific failure.",
+        "No result-index or web search is exhaustive; unindexed interval stabbing/minimax regret literature may have an equivalent parameterized claim.",
+        "No Lean, expert, or independent external certification is inferred from finite checks or the present mathematical audit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "H.1 needs a third alternative; E.1 is the known-information interval sweep; I.3 is a fixed-history expression not an evaluated K-contact phase diagram.",
+          "evidence": [
+            "2026-10-27 arXiv v1, Section 6 Theorems 6.1, 6.2 states m>=3 and explains third coordinate is needed",
+            "Appendix E.1 equations for right/left intervals and O(n log n) endpoint sweep",
+            "Appendix I.1 Theorem I.3 expresses fixed-history minimax D_h(x,z), without the public interval a,b threshold trichotomy"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.37828",
+          "material_read": "Primary arXiv full rendered source, especially Section 2 normalizations, Section 5 sampling, Section 6 Theorems 6.1-6.2, Appendix E.1 Proposition E.1, Appendix H.1-H.2 and Appendix I.1 Theorem I.3 with proof.",
+          "method": "Read full online source and proof sections, comparing quantified domains and implied inequalities.",
+          "title": "Learning Lotteries with Minimal Stakeholder Violations from Membership Queries",
+          "trigger": "Exact same objective, deterministic limited-contact model, neighboring m>=3 lower bound and m=2 appendix."
+        },
+        {
+          "assessment": "Studies unanimity feasibility and query complexity, not exact additive regret for optimum rejection count when unanimity fails.",
+          "evidence": [
+            "Section 1.1: output universally feasible lottery or infeasibility certificate",
+            "Appendix B.3 treats computational hardness under partial acceptance, not the exact K-contact phase formula"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.17505v1",
+          "material_read": "Open primary full-text HTML; introduction and formal problem in Sections 1–2, algorithms and bounds in Sections 3–4, Appendix B.3 partial-acceptance objective.",
+          "method": "Read HTML formal model, target and theorem descriptions rather than judging on title alone.",
+          "title": "Learning Unanimously Acceptable Lotteries via Queries",
+          "trigger": "Earlier primary paper with same stakeholder membership query and binary utilities."
+        },
+        {
+          "assessment": "Different stochastic fully observed optimal violation count; no minimax over deterministic adaptive agent contacts.",
+          "evidence": [
+            "Random IID cutpoints and orientations and ballot/reflection formula for optimal V_n, not per-agent oracle query budget",
+            "Brownian critical-window law is about n->infinity under a distribution, not worst-case fixed n,K,a,b"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-distribution-free-failure-law-and-critical-window-for-two-altern--f629a7e684ab/RESULT.md",
+          "material_read": "Complete published RESULT.md: theorem, all five proof steps, assumptions, relation and limitations.",
+          "method": "GitHub source-file full reading, comparison of probabilistic input and information structure.",
+          "title": "Distribution-free failure law and critical window for two-alternative stakeholder lotteries",
+          "trigger": "Very similar two-option stakeholder threshold model surfaced by Resultary."
+        },
+        {
+          "assessment": "Known description minimizes aggregated distances, not the discrete count of rejecting agents. Full-theorem comparison incomplete; retain as priority risk, do not assert whole-document noncoverage.",
+          "evidence": [
+            "Goldberg official research page lists title as separate NeurIPS poster",
+            "Teh–Goldberg Min-Viol 2026 Section 1 and Section 6 explicitly distinguish the aggregated-distance objective and parallel but nonidentical lower bound"
+          ],
+          "identifier_or_url": "https://neurips.cc/virtual/2026/loc/paris/poster/155546",
+          "material_read": "Official NeurIPS 2026 poster listing, author publication pages, and its objective summary in Sections 1/6 of arXiv:2610.37828; primary full text not obtained.",
+          "method": "Searched arXiv, lawful open-access and official poster; full text not obtainable, authorized institutional access returned vpn_disconnected; no retry or bypass.",
+          "title": "Learning Acceptable Lotteries via Queries: Minimizing Aggregated Violation Distances",
+          "trigger": "Same authors, 2026, same membership-query model; possibly stronger general information bound."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves the first genuinely excluded alternative count in a central recent membership-query minimization problem. With two alternatives, normalized utilities force interval acceptance, and public threshold bounds create three mathematically different information regimes: universal center feasibility, mutually exclusive orientation majorities with an odd-contact parity gain, and an adversarial mixed-threshold regime restoring the full n-K obstruction. The complete finite-grid all-n,K classification is an interpretable natural minimax invariant needed to know when deterministic stakeholder elicitation can or cannot improve worst-case outcomes. It is more than a numeric curiosity or routine re-labeling of the m>=3 proof, whose nondegenerate lower construction is impossible in dimension one; the mixed case needs a new exact adversarial completion. It makes no claim on randomized algorithms, total number of queries, real continuum thresholds, m>=3, or average-case performance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "This mathematical result assumes normalized binary utilities, a known finite rational threshold grid with endpoints and arbitrary many queries per at most K distinct contacted agents. Claims do not extend to arbitrary real thresholds, randomized procedures, average case, or total query cap.",
+    "The 70 independent exhaustive finite checks corroborate only sampled finite subfamilies; uniform theorem relies on analytic adversarial transcripts.",
+    "Teh–Goldberg Theorem I.3 is close prior generic coverage; exact simplified K-contact implication was scrutinized, and residual unindexed equivalence risk remains.",
+    "The same-authors distance-loss paper could not be read in full following arXiv/OA search and institution VPN disconnected; objective described in available text differs. Not falsely treated as whole-document exclusion.",
+    "Public original METADATA.json and AUDIT.json contain a private scope_run_id; original REVIEW.md refers to internal self-review and pending independent audit; privacy-preserving complete replacements with guarded hashes were not prepared. Scientific PASS does not authorize publishing existing public files unchanged.",
+    "No formal Lean proof, expert attestation, or external certification is claimed."
+  ],
+  "schema_version": 1
+}
