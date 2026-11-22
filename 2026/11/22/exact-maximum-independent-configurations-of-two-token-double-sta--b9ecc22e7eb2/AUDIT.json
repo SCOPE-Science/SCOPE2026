@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The eight token-pair types yield three vertex-disjoint induced blocks and only two extra edge classes. In each incidence block a cycle matching and an explicit endpoint/pair cover attain min(t,C(t,2)); the mixed block has a+b disjoint edges by Hall or an explicit singleton-branch matching, and a cover XV union UY. Their disjoint union gives equal-size matching and global vertex cover. All minima are forced to be blockwise minima; the mixed block cover is uniquely XV union UY, with separate singleton-branch forcing. The incidence block has two minimum covers only at size three. Complementation proves both formulas and exactly the independent optimizer choices. All parameter boundaries (a,b>=1) are covered, and the packaged standard-library verifier builds token edges directly from the host and checks 64 sizes and 9 exact optimizer counts.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "De Alba et al. Theorem 1.1 requires the host matching number equal to floor(host order/2); for double stars of order at least six, the maximum host matching number is two, so that hypothesis fails. Their explicitly solved hosts are stars, paths, cycles and complete bipartite graphs.",
+        "Rivera and Vázquez Briones (2025) study join graphs E_n+H, which is not the diameter-three double star family; their abstract covers fans/wheels and E_n+K_n."
+      ],
+      "reasoning": "The small hosts P4 and S_{1,2} can be subsumed by older general matching estimates, and the new theorem does not claim these endpoints in isolation. For a+b>=4 the hypothesis of the general matching theorem fails. The full optimizer census has no stronger covering general theorem among the inspected sources.",
+      "searches": [
+        "arxiv:1606.06370 matching lower bound perfect near-perfect host",
+        "arxiv:2505.17419 independence numbers two-token join graphs",
+        "2-token graph of double star S_{a,b}: maximum matching number, independence number, vertex cover, bipartite matching formula"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.15124",
+      "arxiv:1606.06370",
+      "arxiv:2505.17419",
+      "1748ee050eeb (published two-token biclique independent-domination finding)",
+      "97778cac6c50 (published two-token biclique maximal-independence finding)",
+      "6179dfc83bcc (published double-star fractional forcing finding)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Benítez-Bobadilla et al. establish gamma(F_2(S_{a,b}))=2min(a,b)+max(a,b)-1; gamma does not determine alpha, nu, or maximum independent sets.",
+        "The old matching theorem yields at most small boundary cases under a host near-perfect matching condition and has no uniqueness count.",
+        "A published indexed result on independent-dominating sets of two-token bicliques addresses F_2(K_{m,n}) and does not specialize by an induced subgraph relationship preserving optimum structure."
+      ],
+      "reasoning": "The candidate supplies full minimum-vertex-cover and maximum-independent-set structure for a different graph family. None of the identified prior formulas, under their hypotheses, entails the all-double-star statement. A matching result for a larger graph would not by itself transfer optimal covers to the smaller token graph.",
+      "searches": [
+        "arxiv:2611.15124 Section 2.2 double stars",
+        "arxiv:1606.06370 Theorems 1.1-1.3",
+        "Domination in token graphs of graphs with domination number two; double star",
+        "All maximum independent sets of two token graph F2(S_{a,b}) for a double star tree: unique except three-leaf centers, with count 2^(delta_{a,3}+delta_{b,3})"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No same-claim match among inspected ranked indexed results; nearest two-token complete-bipartite optimizer records have host K_{m,n}, not a double star.",
+        "Web searches combining two-token/symmetric-square, bistar/double-star, independence/matching/vertex cover produced no explicit exact maximum-set census."
+      ],
+      "reasoning": "By complementation, maximum independent sets are precisely minimum vertex covers. The search included matching number, vertex cover and independent-set optimizer nomenclature; none of the retrieved close claims covers the three-leaf choice formula.",
+      "searches": [
+        "2-token graph of double star S_{a,b}: maximum matching number, independence number, vertex cover, bipartite matching formula",
+        "Double-star token graph matching saturation, independent sets graph F_2(S_{a,b})",
+        "All maximum independent sets of two token graph F2(S_{a,b}) for a double star tree: unique except three-leaf centers, with count 2^(delta_{a,3}+delta_{b,3})",
+        "Matching number and minimum vertex covers of token graph of diameter-three tree double star S(a,b): 2(a+b) minus small branch corrections",
+        "Maximum independent configurations of two indistinguishable tokens on a bistars or bistar, simultaneous nonadjacent token placements",
+        "\"double star\" \"token graph\" \"independence number\"",
+        "\"double-star\" \"2-token\" \"matching number\"",
+        "\"bistar\" \"token graph\" \"maximum independent sets\"",
+        "\"two-token graph\" \"tree\" \"independence\" \"double star\"",
+        "\"double star\" \"F_2\" \"independence number\" token graph",
+        "\"double star\" \"two-token graph\" \"maximum independent\"",
+        "\"double star\" \"token graph\" \"vertex cover\" 2026",
+        "\"bistar\" \"symmetric square\" graph independence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest indexed results report exact independent-dominating polynomials for F_2(K_{m,n}), not F_2(S_{a,b}).",
+        "The November 2026 arXiv article supplies a figure for F_2(S_{2,3}) and a domination formula, but no independence/matching table for all a,b."
+      ],
+      "reasoning": "None of the checked tables or database hits provides the all-parameter alpha/nu formula or the 2^(number of three-leaf branches) optimizer count.",
+      "searches": [
+        "All maximum independent sets of two token graph F2(S_{a,b}) for a double star tree: unique except three-leaf centers, with count 2^(delta_{a,3}+delta_{b,3})",
+        "Matching number and minimum vertex covers of token graph of diameter-three tree double star S(a,b): 2(a+b) minus small branch corrections",
+        "\"double star\" \"token graph\" \"independence number\"",
+        "\"double-star\" \"2-token\" \"matching number\"",
+        "\"bistar\" \"token graph\" \"maximum independent sets\"",
+        "\"two-token graph\" \"tree\" \"independence\" \"double star\""
+      ]
+    },
+    "rationale": "The exact all-parameter independence and matching formulas together with the complete optimizer classification are not consequences of the cited domination theorem or the inspected prior token-matching results; nearby indexed findings concern different host classes or different invariants. Historical priority remains provisional for unindexed equivalents.",
+    "residual_risks": [
+      "An unindexed older result using the names bistar, double vertex graph or symmetric square could cover the exact classification.",
+      "The 2025 join-graph paper was compared using its abstract rather than complete full text; the stated host-class separation is clear but does not constitute exhaustive full-text exclusion.",
+      "This is an internal originality assessment, not an independent historical priority determination."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The article proves ordinary domination and establishes the host notation; not covering matching, independence or classification of their optimizers.",
+        "evidence": [
+          "Section 2.2 gives the formula for the domination number, and its argument counts dominating configurations; the introduction cites earlier independence/matching works rather than claiming a result for this host."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.15124",
+        "material_read": "Complete arXiv HTML introductory statements and Section 2.2 double-star proof through Corollary 2.1, including types of configurations, cases and theorem",
+        "method": "Full-text arXiv HTML sections and in-text keyword searches",
+        "title": "Domination in token graphs of graphs with domination number two",
+        "trigger": "Same double-star host and same two-token graph, released in 2026"
+      },
+      {
+        "assessment": "General matching lower bounds assume a near-perfect-matching host; explicitly evaluated families do not include nontrivial double stars. Small boundary instances overlap general results.",
+        "evidence": [
+          "Theorem 1.1 uses nu(G)=floor(|G|/2); Theorem 1.2 concerns K_{m,n}; Theorem 1.3 concerns cycles."
+        ],
+        "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/76/ajc_v76_p387.pdf",
+        "material_read": "Abstract, introduction and main statements including Theorems 1.1, 1.2 and 1.3 and their hypotheses; full-text search for double star; visible PDF page 390",
+        "method": "PDF parsed text, full-text search and visual screenshot of journal page 390",
+        "title": "Independence and matching numbers of some token graphs",
+        "trigger": "Direct prior research on exactly the proposed graph invariants"
+      },
+      {
+        "assessment": "The studied join host classes and examples are not double stars; no claim of the proposed optimizer census. No full-text noncoverage assertion is made.",
+        "evidence": [
+          "The abstract lists fan graphs, wheel graphs and E_n+K_n as the families solved."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2505.17419",
+        "material_read": "Title and complete abstract on arXiv and linked abstract",
+        "method": "Abstract comparison with double-star host definition",
+        "title": "Independence numbers of the 2-token graphs of some join graphs",
+        "trigger": "Potential broader solution via host classes that might include double stars"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b9ecc22e-7eb2-4170-aaa7-0b0d44a02445",
+  "value": {
+    "rationale": "The result answers a natural extremal question for the same two-token double-star family whose domination number was recently determined, adding an exact matching/independence formula and a complete maximum-configuration classification. The factor-two degeneracy localized precisely at three-leaf branches, and unique optimal configurations for all other sizes, are structural rather than mere numerical small-instance facts. The all-parameter result offers exact test cases and demonstrates how host degree transitions control optimizer rigidity. It does not assert a general token-graph theorem.",
+    "status": "PASS"
+  }
+}
