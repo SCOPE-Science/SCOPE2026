@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-20",
+  "audited_at_utc": "2026-11-20T19:43:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the quotient by constants, every signal decomposes into adjacent prefix-step differences, so the exact operator seminorm is the maximum variation of expected prefix images. Given a deterministic a-label assignment, the prefix ones occupy at most a contiguous block per packet in label-sorted order, giving ≤2a−1 jumps. Positive packet probabilities let one choose three quarter/half probes in every packet, and Hoeffding bounds force each ideal jump with probability 1−O(a exp(−np_*²/32)), proving matching limit and explicit lower bound. The two-packet prefix image is computed by exact binomial double sum, and independent rational arithmetic verified every 2≤n≤7, including sharp C_7=67/64 and C_6=29/32. Composition of inverse shuffles gives tensor-product packet labels, while the no-collision event for fixed n tends to one, yielding the uniform-rank averaging operator of zero adjacent-output variation. These are all-limit arguments, not finite-enumeration extrapolations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fulman 1997 applies to arbitrary biased a-label shuffles and establishes product convolution; no sharp expected-signal path BV bound.",
+          "Assaf et al. treat repeated decks and mixing in total variation/separation; not all numeric input signal discontinuities."
+        ],
+        "reasoning": "A stronger shuffle mixing theorem in distribution does not dominate a uniform, potentially >1, one-step BV amplification theorem on signals.",
+        "searches": [
+          "https://arxiv.org/pdf/math/9712240",
+          "https://arxiv.org/pdf/0905.4698",
+          "https://www2.stat.duke.edu/~scs/Courses/Stat376/Papers/ConvergeRates/Shuffling/BayerDiaconis1992.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/math/9712240",
+        "https://arxiv.org/pdf/0905.4698",
+        "https://www2.stat.duke.edu/~scs/Courses/Stat376/Papers/ConvergeRates/Shuffling/BayerDiaconis1992.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The shared inverse packet model gives a path step image that can jump at most 2a−1 times for each deterministic label sequence.",
+          "The new lower bound uses packet-isolated probes/concentration uniformly for fixed positive p_j, while the finite binary case computes exact max over prefix steps."
+        ],
+        "reasoning": "The older kernel and convolution alone allow reconstruction of a proof but do not logically state/derive the sharp BV norm without new step basis and concentration arguments; no covered corollary is claimed as new.",
+        "searches": [
+          "https://arxiv.org/pdf/math/9712240",
+          "https://arxiv.org/pdf/0905.4698",
+          "https://www2.stat.duke.edu/~scs/Courses/Stat376/Papers/ConvergeRates/Shuffling/BayerDiaconis1992.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fulman describes identical independent bucket assignment/sorting and exactly the biased product-of-packet-probabilities rule.",
+          "Assaf–Diaconis–Soundararajan define total variation as 1/2∑_π|Q_a(π)−U(π)|, not ∑_{i=1}^{n−1}|(Tf)_{i+1}−(Tf)_i|."
+        ],
+        "reasoning": "The stochastic permutation kernel and its mixing are inputs, but probability TV and adjacent-signal variation are different spaces/operators; equivalence would require a proved norm identity absent from the primary texts.",
+        "searches": [
+          "Resultary semantic query: inverse biased riffle shuffle operator adjacent signal total variation seminorm norm two a minus one seven card first amplification",
+          "https://arxiv.org/pdf/math/9712240",
+          "https://arxiv.org/pdf/0905.4698"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact finite table n=2,…,7 is (1/2,1/2,5/8,11/16,29/32,67/64), with first gain greater than one at n=7.",
+          "Classic a-shuffle transition matrices and repeated-card tables are different quantities and do not produce this norm table by direct citation."
+        ],
+        "reasoning": "The finite onset is a natural sharp threshold of amplification and is independently certified by a complete binomial expression, not read from a known shuffle counting table.",
+        "searches": [
+          "Resultary semantic query: inverse biased riffle shuffle operator adjacent signal total variation seminorm norm two a minus one seven card first amplification",
+          "https://arxiv.org/pdf/math/9712240",
+          "https://arxiv.org/pdf/0905.4698"
+        ]
+      },
+      "rationale": "Direct reading distinguishes permutation-distribution total variation in classical riffle literature from the bounded-variation seminorm on the *expected output signal*. The inverse model and biased packet convolution are credited as prior. No inspected source states the operator gain 2a−1 uniformly in positive packet bias, n=7 onset, or fixed-r product-law extension.",
+      "residual_risks": [
+        "Related BV transfer-operator research and older biased-shuffle analyses may contain an equivalent operator norm under alternate vocabulary; bibliographic search is not a novelty certificate.",
+        "The 2a−1 limit assumes fixed a, all packet probabilities strictly positive and n→∞; cannot interchange with vanishing packet weights or growing a."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_MODEL_AND_COMPOSITION_NOT_SIGNAL_BV",
+          "evidence": "Inverse independent packet labels and product rule are published; no sharp norm for path-adjacent total variation of the conditional expectation signal or first n=7 amplification theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/9712240",
+          "material_read": "Full 11-page arXiv PDF: four equivalent biased inverse shuffle constructions, Eq. description 4, Proposition 1 on convolution p⊗q, and subsequent descent/mixing results",
+          "method": "Primary full PDF text; screenshot attempted",
+          "title": "The Combinatorics of Biased Riffle Shuffles (Jason Fulman, 1997)",
+          "trigger": "exact same biased inverse packet-labelled permutation law"
+        },
+        {
+          "assessment": "DIFFERENT_VARIATION_NOTION",
+          "evidence": "Total variation in this paper is between permutation probability measures (or repeated-card output distributions), not adjacent-difference BV seminorm of the expected numeric signal.",
+          "identifier_or_url": "https://arxiv.org/pdf/0905.4698",
+          "material_read": "Complete 11-page arXiv PDF, introduction, formulas (1)–(4), single-card transition and mixing sections",
+          "method": "Primary arXiv PDF read",
+          "title": "Riffle Shuffles of a Deck with Repeated Cards (Assaf, Diaconis, Soundararajan, 2009)",
+          "trigger": "same shuffle kernel with potential stronger observable-specific TV conclusion"
+        },
+        {
+          "assessment": "COVERS_INVERSE_GSR_DISTRIBUTIONAL_MIXING_NOT_SIGNAL_BV",
+          "evidence": "The classical cutoff controls permutation-distribution mixing, not the sharp 2a−1 adjacent-path signal variation norm.",
+          "identifier_or_url": "https://www2.stat.duke.edu/~scs/Courses/Stat376/Papers/ConvergeRates/Shuffling/BayerDiaconis1992.pdf",
+          "material_read": "Full primary 1992 Annals of Applied Probability article read from a lawful academic PDF, including Figures 1–2, Theorems 1–2 and sections on inverse GSR representation, rising sequences and distributional mixing",
+          "method": "Full lawful Duke-hosted PDF text and screenshot of printed page 295",
+          "title": "Trailing the Dovetail Shuffle to Its Lair (Bayer and Diaconis, 1992)",
+          "trigger": "foundational inverse GSR shuffle and mixing bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A stochastic averaging operator can amplify adjacent path variation even though shuffle distributions mix. The exact packet-count dependent sharp gain, universal independence from fixed bias and first seven-card onset describe a well-motivated noncontractivity phenomenon in a familiar probability operator; the threshold is not an arbitrary toy table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/math/9712240",
+    "https://arxiv.org/pdf/0905.4698",
+    "https://www2.stat.duke.edu/~scs/Courses/Stat376/Papers/ConvergeRates/Shuffling/BayerDiaconis1992.pdf"
+  ],
+  "disposition": "passed",
+  "final_claim": "For n-site inverse a-packet biased riffle expectation T_{n,p} acting on real signals modulo constants with adjacent-difference variation, the exact norm is bounded by 2a−1 and tends to 2a−1 as n→∞ for each fixed positive packet probability vector. In the unbiased two-packet case the first norm exceeding one occurs sharply at n=7 with C_7=67/64; for r fixed repeated inverse shuffles have limiting gain 2a^r−1, whereas for n fixed gain tends to zero with r.",
+  "limitations": [
+    "Acts on real scalar signals with adjacent path variation, not total variation distance of distributions or physical forward-shuffle ordering.",
+    "Asymptotic sharpness requires a fixed packet probability vector with all entries positive; r→∞ is for fixed deck size n."
+  ],
+  "residual_risks": [
+    "Related BV transfer-operator research and older biased-shuffle analyses may contain an equivalent operator norm under alternate vocabulary; bibliographic search is not a novelty certificate.",
+    "The 2a−1 limit assumes fixed a, all packet probabilities strictly positive and n→∞; cannot interchange with vanishing packet weights or growing a."
+  ],
+  "schema_version": 1
+}
