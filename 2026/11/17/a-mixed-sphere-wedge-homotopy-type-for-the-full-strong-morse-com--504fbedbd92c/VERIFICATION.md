@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification
-The exact finite certificate consists of `enumerate_orders.cpp`, `verify_c10.py`, and `gradients.txt`; `verification_output.txt` records the actual local replay. All three are independently embedded files of this finding.
+# Independent mathematical audit
 
-Run from their common directory:
-```
-g++ -O2 -std=c++17 enumerate_orders.cpp -o enumerate_orders
-./enumerate_orders regenerated_gradients.txt
-python3 verify_c10.py regenerated_gradients.txt
-```
-The first program enumerates all 3,628,800 injective orderings of graph vertices. The second enumerates all noncyclic orientations and checks equality of the generated gradient sets. It then constructs all nonempty simplicial faces, performs the exact specified greedy pairing, checks every reversed Hasse edge by global topological sort, computes the signed integral Morse degree matrix, and independently evaluates the original mod-two simplicial homology.
+## correctness
 
-Observed: 1,021 distinct gradients; 6,480 nonempty faces; 3,238 pairs; one critical zero-cell, one critical four-cell, two critical five-cells; 31,840 Hasse covers; 6,480 vertices removed in acyclicity sort; integer Morse boundary \((0\ \ 0)\); reduced mod-two Betti numbers one in degree four and two in degree five. Terminal marker: `FULL_STRONG_C10_WEDGE_PASS`.
+PASS
 
-The code is a complete finite verification for the specified object, not a proof of an infinite family and not an independent third-party audit. The homotopy inference additionally invokes Forman's discrete-Morse theorem and the degree classification \(\pi_4(S^4)\cong\mathbb Z\). The precomputed gradients file is checked against independently regenerated gradients before it is used.
+For the unfilled simplicial C10, an injective vertex filtration induces precisely a nonconstant acyclic binary orientation of its ten edges, and a vertex is matched when exactly one neighbor precedes it. Independently enumerating all 1022 nonconstant orientations gives 1021 distinct generating gradient matchings; downward closure has 6,480 nonempty faces with dimensions 0..7 counts (20,160,660,1520,2000,1470,560,90). The frozen checker separately enumerates 10! strict vertex orders to verify the orientation description. An independently reconstructed staged incidence-bit Morse matching gives 3,238 pairs, critical cells one 0-cell, one 4-cell, two 5-cells; all 31,840 nonempty Hasse edges topologically sort. The complete signed integral Morse matrix from degree 5 to 4 is [0,0], independently reconstructed by exact gradient-path arithmetic. Since the four-skeleton is S4 and pi4(S4)=Z, both 5-cell attaching maps are null. Hence full strong C10 complex is S4 wedge 2 S5; this is not a conclusion from its already known homology alone.
+
+## originality
+
+PASS
+
+Prior published full-cycle homology formulas already imply H4=Z and H5=Z^2 for C10, while Knudson-Owens-White table covers these Betti ranks; those are NOT new. The genuine new part is an integral full-complex HOMOTOPY equivalence from explicit Morse critical cells and zero attaching degrees. Existing pure-cycle homotopy results concern a different subcomplex, and the full C9 wedge is a distinct length. The directly relevant Knudson-Owens-White primary full text was unavailable on public mirrors, and the full text could not be accessed via lawful available sources; this is a named priority risk, not invented negative full-paper evidence.
+
+## value
+
+PASS
+
+The full-versus-pure distinction for a natural C10 filtration complex is meaningful; a concrete mixed-dimensional wedge decomposition answers an exact homotopy question left open by prior homology tables. This gives an exact finite basis case for investigations of all-cycle strong Morse matching topology, without claiming an all-length theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

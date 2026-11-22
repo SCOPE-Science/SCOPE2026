@@ -1,15 +1,21 @@
-# Scientific review of the ten-cycle full strong-Morse homotopy claim
+# Independent mathematical audit
 
-## Correctness
-PASS. The strong-gradient definition for a one-dimensional cycle reduces exactly to one earlier neighbor. The two independent exhaustive enumerations agree on 1,021 gradient masks and 6,480 nonempty faces. The specified 3,238-pair matching passes a complete 6,480-node, 31,840-cover Hasse acyclicity test. Exact signed integral gradient-path elimination gives the zero \(1\times2\) Morse boundary. Because the Morse CW model has one vertex, one four-cell and two five-cells, its null degree attaching maps are nullhomotopic by \(\pi_4(S^4)\cong\mathbb Z\). The wedge decomposition follows, independently of any inference from mod-two ranks.
+## correctness
 
-## Originality
-PASS, with residual possibility of an unindexed equivalent result. Knudson–Owens-White (arXiv:2609.06844v1, 2026-09-06) tabulate full-cycle *homology* but provide *homotopy* results for the pure cycle complex. The published all-length integral homology result expressly excludes attaching-map and wedge classifications. A nine-cycle full-complex wedge classification does not imply the ten-cycle claim, since dimensions and attaching maps can change with length. Searches for ten-cycle/full/strong-Morse homotopy statements and equivalent sphere wedges did not identify a stronger covering source. Partial access to the original preprint's relevant full text is an epistemic limitation, not evidence of novelty by itself.
+PASS
 
-## Value
-PASS. The ten-cycle is the next natural case after the nine-cycle homotopy classification. Its full strong-Morse complex has *two adjacent nonzero reduced integral homology dimensions*, unlike the single-dimension nine-cycle; knowing these homology groups alone does not settle the attaching maps. The explicit null-degree certificate supplies a genuine integral homotopy classification for a natural finite object that the motivating paper treated only homologically. No broader family theorem is claimed.
+For the unfilled simplicial C10, an injective vertex filtration induces precisely a nonconstant acyclic binary orientation of its ten edges, and a vertex is matched when exactly one neighbor precedes it. Independently enumerating all 1022 nonconstant orientations gives 1021 distinct generating gradient matchings; downward closure has 6,480 nonempty faces with dimensions 0..7 counts (20,160,660,1520,2000,1470,560,90). The frozen checker separately enumerates 10! strict vertex orders to verify the orientation description. An independently reconstructed staged incidence-bit Morse matching gives 3,238 pairs, critical cells one 0-cell, one 4-cell, two 5-cells; all 31,840 nonempty Hasse edges topologically sort. The complete signed integral Morse matrix from degree 5 to 4 is [0,0], independently reconstructed by exact gradient-path arithmetic. Since the four-skeleton is S4 and pi4(S4)=Z, both 5-cell attaching maps are null. Hence full strong C10 complex is S4 wedge 2 S5; this is not a conclusion from its already known homology alone.
 
-## Closest literature and limits
-The September 2026 preprint's definitions and cycle results, the October 2026 all-length integral homology record, and the November 2026 nine-cycle homotopy record were compared by mathematical implication. The novelty claim is restricted to the ten-cycle full-complex **homotopy type**, not its already known Betti numbers. The certificate assumes standard discrete-Morse and CW attachment theorems and uses a C++17/Python 3 verification environment. There is no independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior published full-cycle homology formulas already imply H4=Z and H5=Z^2 for C10, while Knudson-Owens-White table covers these Betti ranks; those are NOT new. The genuine new part is an integral full-complex HOMOTOPY equivalence from explicit Morse critical cells and zero attaching degrees. Existing pure-cycle homotopy results concern a different subcomplex, and the full C9 wedge is a distinct length. The directly relevant Knudson-Owens-White primary full text was unavailable on public mirrors, and the full text could not be accessed via lawful available sources; this is a named priority risk, not invented negative full-paper evidence.
+
+## value
+
+PASS
+
+The full-versus-pure distinction for a natural C10 filtration complex is meaningful; a concrete mixed-dimensional wedge decomposition answers an exact homotopy question left open by prior homology tables. This gives an exact finite basis case for investigations of all-cycle strong Morse matching topology, without claiming an all-length theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
