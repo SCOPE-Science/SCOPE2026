@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For B_i=n e_i e_i^T, exactly one row is multiplied by 1+beta-beta y, y=n||row||^2, beta=eta n. The exact scalar identity y_new-1=(y-1)[1-beta y(2-beta(y-1))], with 0<beta<=1/(2n) and 0<y<=n, has a strictly positive bracket below 1; all nonzero rows monotonically approach squared magnitude 1/n when sampled. Every index is sampled infinitely often almost surely, row directions and rank are preserved, and the deterministic limit follows. Its Gram trace is s/n<=1. The matrix Cauchy-Schwarz inequality yields the claimed floor, attained at n=p, X0=I. The delivered standalone checker passed 96,768 supplementary exact/numerical assertions; finite checks do not establish infinite-time behavior.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Source 2026 Section VI proves expected convergence for its unbiased independent-sketch method under a safe-region hypothesis.",
+        "Source 2024, Eq. (3) and subsequent convergence statements, concern the unbiased two-sample field.",
+        "published-finding corpus closest record 2026/11/8/SCOPE-sharp-dimension-dependent-calibration-of-row-normalized-and-pola--98e805bb9182 analyzes row-normalized polar directions in a different matrix approximation setting."
+      ],
+      "reasoning": "Their theorems do not cover a permanently biased same-sample normal field. The more general language of stochastic manifold optimization does not itself establish this modified scheme’s deterministic long-run row-normalization for every Stiefel initial frame. An unindexed result may still provide broader coverage.",
+      "searches": [
+        "single-sketch Stiefel normal update row normalization almost sure universal infeasibility error floor p dimension",
+        "sparse shared-sketch landing rank one row equalization off-manifold limit for orthonormal frame",
+        "coordinate sparse stochastic Stiefel retraction free landing reusing B_zeta twice almost sure convergence nonfeasible support",
+        "https://arxiv.org/abs/2605.31505",
+        "https://arxiv.org/abs/2405.01702"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2605.31505",
+      "https://arxiv.org/abs/2405.01702",
+      "https://mathscinet.ams.org/msc/msc2020.html?btn=Current&t=90Cxx",
+      "published-finding corpus queries for source title, method names, row normalization, independent/same sample and quartic surrogate"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original 2026 Sections III-A/VI require and use independent sketches, including unbiasedness in the convergence proof.",
+        "Original 2024 Equation (3) has two separate covariance samples.",
+        "The current theorem gives a nonzero constraint floor for every initial orthonormal frame when p>=2 after the samples are forced equal."
+      ],
+      "reasoning": "A statement about an unbiased field does not imply convergence properties of a biased field with different conditional expectation. The source gives the shared estimator’s algebraic ingredients, but not its support-independent, all-frame almost-sure limit. The exact row dynamics and trace obstruction complete that comparison.",
+      "searches": [
+        "Goyens Mataigne Absil sketch sample orthogonality",
+        "single-sketch Stiefel normal update row normalization almost sure universal infeasibility error floor p dimension",
+        "single-sample stochastic generalized Stiefel landing bias squared sampled constraint spurious feasible supports diagonal quartic objective",
+        "\"stochastic landing\" \"same sample\" \"normal\" orthogonality",
+        "https://arxiv.org/abs/2605.31505",
+        "https://arxiv.org/abs/2405.01702"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 paper, Section III-A, prescribes independent samples for each of two normal-direction factors.",
+        "The 2024 paper Equation (3) defines an unbiased estimator by using separate random covariance samples.",
+        "For a shared sample, the expected field equals half the gradient of a row-separable quartic; the complete orbit theorem is not an independent-sample identity."
+      ],
+      "reasoning": "A source using the phrase one-sample gradient or quartic surrogate might describe the same coupling; the conditional law of all Stiefel frames and Frobenius floor were compared, not just titles. The independent estimator does not imply the shared estimator by setting the draws equal in its expectation identity.",
+      "searches": [
+        "\"sketched landing\" \"Stiefel\"",
+        "Goyens Mataigne Absil sketch sample orthogonality",
+        "double sampled covariance gradient reuse same coordinate frame quartic surrogate",
+        "single-sample stochastic generalized Stiefel landing bias squared sampled constraint spurious feasible supports diagonal quartic objective",
+        "\"landing\" \"shared sketch\" \"normal\" \"Stiefel\" bias convergence",
+        "https://arxiv.org/abs/2605.31505",
+        "https://arxiv.org/abs/2405.01702"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest distinct published-finding corpus ID 2026/11/2/SCOPE-sharp-cumulative-feasibility-tuning-beyond-the-bernoulli-randpro--81fc4c4ccce8 concerns dual feasibility tuning, not Stiefel sampling coupling.",
+        "Closest distinct published-finding corpus ID 2026/10/12/SCOPE-an-exact-orientation-only-optimal-sparsity-law-for-planar-sketch--12906704f9bb concerns planar sketch-and-project, not the shared normal direction.",
+        "Accessible own mathematical ledger included no claim matching Stiefel landing or perfect within-step sample reuse and its all-frame limit."
+      ],
+      "reasoning": "Exact source phrase, method name, row-normalization and coupling searches found no database or theorem record with this quantified all-frame limit. These searches cannot certify uniqueness.",
+      "searches": [
+        "\"sketched landing\" \"Stiefel\"",
+        "single-sketch Stiefel normal update row normalization almost sure universal infeasibility error floor p dimension",
+        "sparse shared-sketch landing rank one row equalization off-manifold limit for orthonormal frame",
+        "double sampled covariance gradient reuse same coordinate frame quartic surrogate",
+        "single-sample stochastic generalized Stiefel landing bias squared sampled constraint spurious feasible supports diagonal quartic objective",
+        "coordinate sparse stochastic Stiefel retraction free landing reusing B_zeta twice almost sure convergence nonfeasible support"
+      ]
+    },
+    "rationale": "The 2026 independent-sketch normal estimator and the 2024 generalized-Stiefel estimator are credited; the new result characterizes a different perfect within-update sample coupling for every initial Stiefel frame and proves its deterministic infeasible limit and dimension-sharp universal floor. Direct claim implication and equivalence comparisons did not locate coverage. Database searches are non-exhaustive and independent mathematical review remains necessary.",
+    "residual_risks": [
+      "A relevant unindexed paper on double-sampling bias or stochastic Stiefel coordinate descent may contain an equivalent or stronger theorem.",
+      "The cited 2026 article is a recent preprint; the priority comparison is necessarily limited to accessible material and searchable records.",
+      "The scientific novelty judgment is same-model, not independent or exhaustive."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The prescribed estimator uses independent sketches; no same-sample all-initial-frame limiting statement in the inspected material.",
+        "evidence": [
+          "Section III-A: two independent sketches from the same unbiased law",
+          "Section IV-B: single-row sampling scaled by n/k",
+          "Section VI: expected convergence proof uses unbiased field"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.31505",
+        "material_read": "Sections II, III-A and III-B, IV-B, VI, especially independent-sample assumptions, scalar and matrix normal estimator, sparse scaling, and convergence conditions",
+        "method": "accessible full-text arXiv rendering; read mathematical expressions, assumptions and theorem text",
+        "title": "The sketched landing method for large-scale optimization under orthogonality constraints",
+        "trigger": "same low-rank sparse row sketches and stochastic normal field"
+      },
+      {
+        "assessment": "Two separate sketch factors yield an unbiased normal estimator; shared-coupling almost-sure row equilibration is not present in inspected mathematical statements.",
+        "evidence": [
+          "Equation (3): normal field equals 2 B_zeta X(X^T B_zeta-prime X-I)",
+          "Section 1 describes two independently sampled stochastic covariance factors"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2405.01702",
+        "material_read": "Introduction and Equation (3) with normal estimator; related convergence and stochastic-constraint discussion",
+        "method": "accessible arXiv full-text rendering; targeted comparison of operator factors and assumptions",
+        "title": "Optimization without retraction on the random generalized Stiefel manifold",
+        "trigger": "antecedent for stochastic normal estimator and independence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b81232aa-4e82-4cf6-9a1a-64c5a6af2e7a",
+  "value": {
+    "rationale": "In constrained stochastic optimization, the two independent sketch draws are essential to the correct normal-field expectation. Reusing one sparse sample—an obvious computational simplification—makes every initially feasible rank-p Stiefel frame for p>=2 converge to an infeasible row-normalized matrix at arbitrarily small constant steps. The nonvanishing sharp dimension-family violation lower bound and all-initial-frame classification identify a substantial algorithm-design obstruction, not just a normalization exercise or a finite test.",
+    "status": "PASS"
+  }
+}
