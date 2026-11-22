@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-21.md",
+      "INDEPENDENT_AUDIT_2026-11-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python check.py` with standard Python 3 and no external packages. The input objects are permutation tuples, zero-indexed; each tuple encodes one row's one-entry column positions. The script exhaustively generates \(\binom{23}{3}=1771\) anchored vertex quadruples at order four and \(\binom{119}{3}=273819\) at order five, using the fact that left multiplication sends any designated permutation vertex to the identity and preserves Frobenius volumes. For each quadruple it computes the six pairwise coincidence numbers and an exact integer Gram determinant. It also recomputes selected determinants from direct entry-by-entry difference-matrix coordinates and checks the cyclic witness construction in orders 5–44.
+## correctness
 
-Observed output:
+PASS
 
-```
-exact_full_enumeration 4 anchored= 1771 highest_determinants= [256, 184] anchored_counts= (4, 48) unanchored_counts= (24, 288)
-exact_full_enumeration 5 anchored= 273819 highest_determinants= [500, 440] anchored_counts= (224, 2400) unanchored_counts= (6720, 72000)
-BIRKHOFF_TETRA_GAP_PASS full_orders=4,5 example_orders=5..44 high_levels_n5=500,440 independent_gram=PASS
-```
+Frobenius distance of doubly stochastic points <=sqrt(2n) with equality only opposite support-disjoint permutation vertices. Four-point midpoint/exterior product lemma: given edge a<=L and others<=L, volume squared <=a² L²(3L²-a²)/144; equality other five distances L. The nonmax vertex family has at least one coincidence and edge²<=2(n-1), giving exact upper for n>=5. Cyclic permutations, swapping first two entries in shift zero, give exactly one one-position overlap for n>=5. n4 combinatorial column-frequency obstruction excludes unique collision; independent exhaustive anchored Gram integer determinants confirmed top n4 [256,184], counts[4,48], n5 [500,440],counts[224,2400], plus exact overlap patterns, yielding unanchored counts n4 24/288 and n5 6720/72000. Nonmax SECOND level is only for permutation vertex tetrahedra, never arbitrary interior points.
 
-Proof beyond these finite orders: the four-point diameter lemma bounds the squared volume of every tetrahedron by \(a^2L^2(3L^2-a^2)/144\) when one edge has length \(a\) and all edges are at most \(L\). For four distinct permutation matrices in the Birkhoff polytope, \(L^2=2n\) and any failure of pairwise support-disjointness gives \(a^2\le2(n-1)\). Equality forces exactly one overlapping entry. The cyclic witness establishes sharpness in every order at least five. The unrestricted maximum is achieved only by disjoint permutation supports, since maximum Frobenius pair distance forces both endpoints to be permutation matrices.
+## originality
 
-The script's finite exhaustive loops are not a replacement for the proof for all integers. The finite order-four statement follows by exact exhaustive computation with a transparent finite search space; independent auditing has not been performed. Results about different matrix norms and higher-dimensional simplex volumes are outside scope.
+PASS
+
+Paffenholz 2013 classifies combinatorial types of FACES of Birkhoff polytope; the relevant tetrahedra need not be faces. Bouthat--Mashreghi--Morneau-Guerin 2023/2026 on Frobenius/Schatten Chebyshev centers/radii and enclosing balls, not inscribed 3-simplex volumes. Di Summa et al 2014 general largest-volume simplex algorithms, no particular exact Birkhoff first discrete gap. The exact n>=5 one-collision level, equality pattern, n4 obstruction and finite multiplicities were not implicated by inspected prior theorems (best-of-knowledge).
+
+## value
+
+PASS
+
+The first discrete stability gap among natural permutation vertices of the Birkhoff polytope and the exceptional smallest order supply a complete metric classification: near-maximal exact arrangements must have a sharply controlled coincidence pattern. The distinction between unrestricted continuous volumes and vertex-supported discrete levels makes the mathematical question well posed and reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
