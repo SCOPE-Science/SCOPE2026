@@ -1,0 +1,15 @@
+# Review of the complete ideal-dimension polynomial
+
+## Correctness — PASS
+The nonunital radical is \(E\oplus Z\), with multiplication supported on \(E\times E\to Z\) and \(ZJ=JZ=0\). Every ideal is uniquely a graph lift from its horizontal projection \(T\) and central intersection \(K\), and closure is equivalent to \(TJ+JT\subseteq K\). The product-space identity \(TJ+JT=L\otimes W^*+U\otimes R\) is proved by varying pure opposite-block matrix units. Double Gaussian Möbius inversion counts the exact support spaces, and the remaining Gaussian and linear-map factors count \(K\) and lifts. Exhaustive row-echelon enumeration of seven small finite-field examples independently confirms every dimension coefficient. The general theorem rests on the symbolic proof, not finite tests.
+
+## Originality — PASS, with risk
+The original scope is \(b\ge2\), in which the middle layer amalgamates at least two copies of the bipartite Lie bracket over a shared central matrix space. Published complete-bipartite graph Lie-ideal censuses do cover \(b=1\), and are credited rather than relabeled. The full checked mathematical statements of these records are about distinct edge-label graph algebras, not their repeated-center amalgamations. An archival treatment of *unital* triangular-ring ideals and a separate treatment of *parabolic-stable* ideals classify different ideals. Bauer–Schein's inspected rationality theorems on local ideal zeta functions do not state the present exact finite-field polynomial. Residual possibility: an equivalent formula may occur in earlier specialized amalgamated Lie-ring ideal-count literature not identified by the completed searches.
+
+## Value — PASS
+The ideal-dimension polynomial is a canonical complete embedded-subspace invariant of a natural class-two associative algebra family. The middle-block amplification introduces genuine central-label identification, changing the dimension census beyond the already treated \(b=1\) graphical case. The formula counts all two-sided ideals, including linked non-coordinate subspaces and central lifts, for every triple of block sizes and every field order. At \((a,b,c,q)=(2,2,1,2)\), it determines all nine coefficients and the nontrivial total \(2859\), not merely a routine single ideal or small correction. Such spectra measure the supply and dimensions of quotients of these radicals and provide finite-field input for more general ideal-growth comparisons.
+
+## Limitations and closest literature
+No independent historical priority certification is asserted. The result does not count ideals of the unital parabolic algebra, arbitrary four-block radicals, or integral orders. The three closest full-text primary comparisons are the 2009 unital triangular-ring study, the published all-ideal graphical Lie-algebra classifications for single-center-label copies, and the 2022 amalgamated-power ideal-growth paper. The complete-bipartite \(b=1\) case is not claimed as new.
+
+Self-review: passed. Independent audit: not yet performed.
