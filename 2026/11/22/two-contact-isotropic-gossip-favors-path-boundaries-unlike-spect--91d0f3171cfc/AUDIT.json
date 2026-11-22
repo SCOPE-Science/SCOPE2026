@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "The exact covariance-centered trace reduces to n-3+p^T B p; orientation-free unsigned incidence gives B=(1/2)I+(1/4)M^TM, hence strict convexity. The path inverse solves a second-order difference boundary problem with positive closed form for every m>=1. Uniform and boundary asymptotics follow from the explicit geometric formula. The competing spectral solution is proved by a universal linear Rayleigh quotient and a polynomial-flag eigenbasis. A standalone exact-rational verifier passed 297 assertions; these are supporting checks, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd et al. 2004 equations (12)-(15) optimize the second largest eigenvalue under edge masses; 2006 paper similarly develops spectral-rate optimization.",
+        "The result on synchronous full matchings has a different product distribution; homogeneous strongly regular graph rounds use spatially homogeneous Markov kernels, not iid one-edge projections."
+      ],
+      "reasoning": "A general random-gossip framework subsumes the dynamical object, but the previous objectives do not yield or dominate the two-contact isotropic squared-loss optimum; the central-bias spectral solution explicitly contrasts with the new boundary-bias solution.",
+      "searches": [
+        "optimal two step randomized gossip mean square isotropic disagreement edge probabilities line graph inverse adjacency",
+        "two step iid edge averaging random gossip trace covariance optimal sampling line graph",
+        "Analysis and Optimization of Randomized Gossip Algorithms 2004 eigenvalue SDP",
+        "Randomized Gossip Algorithms 2006 Sections II-IV"
+      ]
+    },
+    "checked_sources": [
+      "Boyd et al. CDC 2004, DOI 10.1109/CDC.2004.1429652",
+      "Boyd et al. IEEE TIT 2006, DOI 10.1109/TIT.2006.874516",
+      "Exact Gini contraction of a left-to-right path gossip sweep, published 2026-11-17",
+      "Exact two-round matching-averaging spectrum and logarithmic rank loss, published 2026-11-02",
+      "A common-neighbor phase transition in two-round stochastic mixing on strongly regular graphs, published 2026-11-02"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For n=4 the finite-budget optimizer (3/8,1/4,3/8) differs from the spectral-gap optimizer (3/10,2/5,3/10). Thus the prior spectral optimization does not imply the claimed finite-budget optimizer.",
+        "Path Gini result fixes deterministic one-pass edge order; random full-matching result simultaneously averages all agents in each round, not one edge per contact."
+      ],
+      "reasoning": "The full claim is not a special case of the published exact results compared. The shared projection mechanism and graph Laplacian are credited; the optimality criterion and all-size solution are new relative to inspected literature.",
+      "searches": [
+        "two independent sequential gossip pair averages minimize isotropic mean-square disagreement path edge probabilities tridiagonal inverse alternating endpoints",
+        "line graph Gram matrix covariance edge average projections two-step contact objective p inverse 1",
+        "Boyd 2004 algorithm (12)-(15)",
+        "Boyd 2006 covariance recursion and optimization section"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact two-contact covariance-isotropic loss equals the Frobenius trace of two independent edge projections and a strictly convex quadratic involving the line-graph adjacency. The 2004 Boyd paper optimizes the second eigenvalue of an expected projection, a different objective.",
+        "No inspected published title or proof stated the tridiagonal inverse or the alternating boundary law."
+      ],
+      "reasoning": "Equivalent-formulation search covered random gossip, trace/Frobenius moment, second-moment, line-graph Gram and short-horizon sampling. An equivalent classical Markov-chain design problem remains possible, but no found source yields this specific optimization and all-size solution.",
+      "searches": [
+        "two independent sequential gossip pair averages minimize isotropic mean-square disagreement path edge probabilities tridiagonal inverse alternating endpoints",
+        "shortest finite horizon random edge-averaging gossip two contacts path optimal nonuniform edge sampling",
+        "line graph Gram matrix covariance edge average projections two-step contact objective p inverse 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest public finding titles: Exact Gini contraction of a left-to-right path gossip sweep; Exact two-round matching-averaging spectrum and logarithmic rank loss; A common-neighbor phase transition in two-round stochastic mixing on strongly regular graphs.",
+        "No checked source provided the probability vector on paths, the two-contact loss value or the −2+sqrt(3) geometric layer."
+      ],
+      "reasoning": "No exact dataset, table or closed expression returned by the searches matches the edge probabilities or their implication; negative searches alone do not preclude unindexed records.",
+      "searches": [
+        "shortest finite horizon random edge-averaging gossip two contacts path optimal nonuniform edge sampling",
+        "optimal fixed iid edge gossip path two contact isotropic loss vs spectral gap optimal parabolic edge selection",
+        "two-step randomized pair averaging path sampling probabilities alternating boundary layer",
+        "published-finding corpus nearest-title queries for exact path gossip trace two contacts"
+      ]
+    },
+    "rationale": "Originality is the exact finite-budget covariance-isotropic optimal edge distribution, its all-path alternating boundary layer, and the rigorous opposite ranking to a separately optimal spectral-gap design. The fully inspected key Boyd 2004 and 2006 material optimizes spectral convergence, not this two-contact trace objective. Closest published research-record claims concern deterministic Gini sweeps, synchronous full matchings, or spatially homogeneous rounds; they do not imply the claim. Semantic searches are negative evidence only and older unindexed equivalent convex-design formulations remain a genuine priority risk.",
+    "residual_risks": [
+      "An older exact finite-horizon Frobenius/trace or minimum-collision design for paths could be published under different terminology.",
+      "The 2004 conference manuscript has a precise public IEEE online posting on 2005-05-16; no earlier day-specific public release date was verified for the December 2004 proceedings.",
+      "Source comparisons include selected full-text sections rather than a complete census of every historical publication."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers iid edge averaging and spectral-gap SDP, not the two-contact isotropic trace optimum",
+        "evidence": [
+          "projection dynamics and edge probabilities in Sections I and III",
+          "optimization (14) minimizes the second eigenvalue"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/gossip_opt.pdf",
+        "material_read": "Introduction, second-moment discussion, Sections III–IV including objective (14) and conclusion; selected full-text pages",
+        "method": "Opened lawful author PDF, examined text and page image",
+        "title": "Analysis and Optimization of Randomized Gossip Algorithms",
+        "trigger": "Foundational identical random edge-projection mechanism and optimal edge law"
+      },
+      {
+        "assessment": "The paper studies spectral convergence and covariance recursion, no explicit two-contact path inverse sampling law",
+        "evidence": [
+          "equations (1)–(3), (17)–(19), (53)–(55) concern projection, covariance and spectral objectives"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~balaji/papers/06randomizedgossip.pdf",
+        "material_read": "Sections I–IV, covariance recurrence, eigenvalue objectives and optimization; selective full text",
+        "method": "Opened lawful author PDF and inspected page image plus text/search",
+        "title": "Randomized Gossip Algorithms",
+        "trigger": "Expanded highly relevant original work"
+      },
+      {
+        "assessment": "Deterministic left-to-right complete sweep and worst-case Gini coefficient do not determine the stochastic two-contact optimizer",
+        "evidence": [
+          "Fixed ordering of all path edges and Gini semi-norm vs iid two contacts and isotropic squared loss"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-exact-gini-contraction-of-a-left-to-right-path-gossip-sweep--a87a1a4ca010",
+        "material_read": "Finding, scope and initial proof of full public RESULT.md",
+        "method": "Retrieved published full-source file and examined claim and definitions",
+        "title": "Exact Gini contraction of a left-to-right path gossip sweep",
+        "trigger": "Same graph and operation, different norm and deterministic schedule"
+      },
+      {
+        "assessment": "Random perfect matchings average all vertices in parallel per round, not a single randomly selected edge",
+        "evidence": [
+          "Rank/singular value of two complete matchings vs two contacts and optimal iid edge masses"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-two-round-matching-averaging-spectrum-and-logarithmic-rank--ace060b21935",
+        "material_read": "Finding, scope and initial proof of full public RESULT.md",
+        "method": "Retrieved published file and examined main theorem",
+        "title": "Exact two-round matching-averaging spectrum and logarithmic rank loss",
+        "trigger": "Two rounds of pair averages"
+      },
+      {
+        "assessment": "Homogeneous Laplacian kernels and operator norm on strongly regular graphs; no iid single-edge isotropic trace problem",
+        "evidence": [
+          "R(p,q) is centered operator norm of P(q)P(p), not expectation of iid pair projections"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-common-neighbor-phase-transition-in-two-round-stochastic-mixin--097c8c11c67a",
+        "material_read": "Finding, scope and opening proof of public RESULT.md",
+        "method": "Retrieved published file and examined operator and objective",
+        "title": "A common-neighbor phase transition in two-round stochastic mixing on strongly regular graphs",
+        "trigger": "Two-round stochastic consensus optimization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "91d0f317-1cfc-416b-bda0-f58db0515680",
+  "value": {
+    "rationale": "A natural two-contact communication-budget design is entirely degenerate at one contact, yet becomes a unique all-size nonuniform optimum at the very next contact. Its alternating endpoint profile with an exact geometric decay constant and opposite ordering to the unique spectral-gap-optimal distribution is a substantive structural finite-horizon-versus-long-horizon contrast. The effect and its precise invariant are motivated by sampling policy, not an arbitrary enumeration. The small P4 numerical gain is not offered as the sole significance.",
+    "status": "PASS"
+  }
+}
