@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS (self-review).** The exact consistent simplex mass matrix has eigenvalue ratio \(d+2\). Firm nonexpansivity of Frobenius spectral interval projection yields a block-diagonal positive contraction relating input/output differences. The classical Kantorovich/Wielandt estimate supplies the upper bound. For even vertex count, half active nodes attain it; for odd vertex count, a three-projector equiangular tensor frame, together with scalar active/frozen nodes, gives an explicit finite input pair attaining equality. Scalar active-set maximization and lumped-mass contraction complete the statement. Exact-symbolic cases and finite actual clipping examples were replayed with the packaged verifier; these tests are supporting checks, not a proof of all dimensions.
+
+**Originality — PASS under documented search limits.** The 2026 Amiri–Barrenechea–Pryer work studies tensor eigenvalue-range preservation but does not state this sharp universal consistent-mass Lipschitz modulus or scalar/tensor dimension parity. The 2023 scalar nodal-bound method gives different stability machinery, and the 2019 flux-correction tensor article studies a distinct limiter. Published mathematical record comparisons show related nodal Dirichlet-energy amplification but not the same mass-norm theorem. The upper Kantorovich inequality is known; the exact restricted spectral-clipping equality and parity gap are the asserted contribution. Broader historical priority is not independently certified.
+
+**Value — PASS.** Nodal eigenvalue clipping is used to preserve tensor physical admissibility, yet elementwise consistent-mass error estimates can be amplified even though each node is individually nonexpansive. The exact dimension-dependent factor is an immediately usable mesh-independent error-propagation constant, with an explicit finite worst case. The scalar/tensor gap explains when scalar admissibility intuition understates tensor perturbation sensitivity; this is a substantive numerical-analysis distinction beyond a renaming of norm equivalence.
+
+**Limits.** No sharpness for fixed arbitrary meshes, high-order or constrained nodal spaces, or seminorms is claimed. More remotely related projection papers could exist beyond the accessed corpus.
+
+Self-review: passed. Independent audit: not yet performed.
