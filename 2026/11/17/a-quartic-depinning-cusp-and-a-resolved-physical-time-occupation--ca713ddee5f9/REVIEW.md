@@ -1,15 +1,21 @@
-# Self-review — quartic depinning cusp
+# Independent mathematical audit
 
-## Correctness (PASS)
-The theorem is restricted to a specified cubic vector field, fixed positive parameters and fixed scaled detuning \(\tau\). Its polar reduction is an exact polynomial identity, verified both algebraically in the proof and symbolically by `aux_check.py`. The angular sign polynomial gives the complete rotating-versus-pinned dichotomy, including the critical equality. The angular radial-square equation is linear and contracting on every full positive-rotation turn, so the asserted unique attracting nonzero cycle exists. The period coefficient follows from the exact original-physical-time quadrature and the normalized quartic integral. Uniform gatewise radial relaxation provides the scaled time-density limit; its exact normalization and Scheffé's lemma justify the stated total-variation, rather than only weak, convergence. The explicit density's stationary points verify the one-peak/two-peak classification. The code checks finite examples, not the asymptotic theorem; no external validation is claimed.
+## correctness
 
-## Originality (PASS within inspected evidence)
-The primary contracting-star-node classification by Alarcón, Castro and Labouriau already proves the existence of invariant cycles and the role of angular zeros. The published general angular-return result already supplies the exact physical-time period identity, so that identity is fully credited as background. Kuehn's 2008/2009 degeneration analysis already proves the \(3/4\) delay exponent for a quartic saddle-node, so that exponent alone is not new. The closest published cubic example is a four-gate **quadratic** slowdown with ordinary Cauchy layers and unequal gate weights; it does not imply the two-parameter quartic cusp, its sharp signed detuning boundary, or its total-variation quartic-rational density. Actual published-finding corpus semantic searches of these and alternative formulations and available prior claims did not show an implication of the joint claim. The general local-normal-form literature is a genuine residual priority risk; search absence is not proof of absolute priority.
+PASS
 
-## Mathematical value (PASS)
-At the codimension-two collision of quadratic angular bottlenecks, standard single-parameter phase portraits do not resolve the transition between rotating and pinned motion. The explicit critical window \(\delta=\tau\sqrt\varepsilon\) identifies that frontier, its original-time divergence coefficient, and a **non-Cauchy** time-occupation law which itself changes from one to two peaks. This is a natural quantitative invariant of a globally contracting cubic flow and resolves where a periodic trajectory spends physical time, rather than merely reparameterizing the previously known scalar delay exponent. The exact coefficient and density, including the phase boundary, are specific to the polynomial problem; no general theorem for all cubic systems is claimed.
+The direct polar reduction gives F=a+η cos2θ+δ cosθ sinθ+ω cosθ sin³θ>0 and angular G=ε+τ√ε sin²θ+ω sin⁴θ. Minimizing G as a quadratic in s=sin²θ gives strictly positive drift exactly for τ>−2√ω and invariant rays otherwise; positive G makes radial square linear in angular time with contractive positive full-turn return and one orbit attracting each r>0. The known exact original-time period identity λT=∫F/G removes odd numerator terms by reflection. At gates 0,π, θ=jπ+ε^(1/4)v yields G/ε→1+τv²+ωv⁴ and the exact integral π/√(τ+2√ω), giving ε^−3/4 slowdown uniformly on compact τ subsets. Damping in the radial angular ODE forces u=r²→λ/(a+η) through each gate; normalized p(θ)=1/(T u G) yields the claimed per-gate density integrating to 1/2. Scheffe upgrades densities to total variation in (gate,v), while planar atoms only converge weakly. Finite independent quadrature checks corroborate constants, not limit proof.
 
-## Closest literature and limitations
-Primary source: Alarcón, Castro, and Labouriau, arXiv:2307.16020v2, polar and invariant-circle theory. Closest established period identity: `2026/10/11/SCOPE-exact-angular-return-and-physical-time-floquet-rigidity-for-cont--7c00337eaa41`. Closest explicit time-occupation law: `2026/10/11/SCOPE-four-gate-physical-time-concentration-with-unequal-residence-wei--41d1dd3d23ee`. General known degenerate saddle-node exponent: Kuehn, arXiv:0807.1546v2, Proposition 2.1. The theorem does not describe detunings outside the displayed square-root window, and cannot be extended to the threshold \(\tau=-2\sqrt\omega\) while retaining a limit cycle. Broader priority remains a risk, and independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge O PASS with concrete primary statements compared against the full claim and retained residual priority risks; inaccessible abstracts are not treated as conclusive NOT_COVERING. 
+
+## value
+
+PASS
+
+A codimension-two quartic depinning boundary with coalescing gates yields a physically measurable original-time occupation law, including exact crossover density and a modal split at τ=0. This is a motivated nontrivial refinement of known radial-contraction phase portraits and generic degenerate saddle-node exponents.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
