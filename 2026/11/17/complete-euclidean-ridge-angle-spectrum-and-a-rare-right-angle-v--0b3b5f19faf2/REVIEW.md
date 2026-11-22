@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The argument supplies definitions, complete facet provenance, an exhaustive pairwise ridge-incidence proof, intrinsic Gram-normal computations, strict classification of angular levels, and the central-limit and rare-event estimates. Its critical determinant identity and all small-dimensional hull-incidence patterns have been checked by the included executable. The finite checks do not establish the general theorem; the analytical proof does.
+## correctness
 
-## Originality
-The closest primary sources give the facet normals and graph-theoretic face structures, but the inspected sections do not establish the complete Euclidean ridge-angle spectrum or its non-Gaussian and rare-variance limits. A relevant earlier facet-area calculation also does not determine the dihedral data. The most plausible remaining historical risk is an earlier treatment under root-polytope, metric-polytope or polyhedral-curvature terminology. This is a best-knowledge comparison, not a guarantee of first discovery.
+PASS
 
-## Value
-Ridge angles measure local curvature and geometry not captured by a face lattice or Ehrhart invariant. The theorem determines every angular level and multiplicity in a natural infinite family. The rare-right-angle variance effect gives a rigorous example in which a negligible fraction of geometrically exceptional faces controls the leading variance, even as the typical angle converges to a flat limit.
+C PASS: With the standard K_{2,q} root embedding (q>=2), the known facets consist of 2^q signed-leaf B_s and 2 exceptional A_±. Direct common-vertex affine ranks give exactly 2^{q+1} A-B ridges and q2^{q-1} B-B ridges (q-cube edges), with class-r incidence r*binom(q,r). Centering potential normals in the zero-sum hyperplane gives the exact cosine C_{q,r} and exceptional right angles. Gram determinant monotonicity distinguishes h^2=(2r-q-1)^2 classes and handles q=2. Conditioned on B-B, h is a sum of q-1 fair signs; Taylor expansion yields exterior-angle 2/sqrt(q)+(Z^2-2/3)/q^(3/2), and a Hoeffding-controlled mixture proves q Var(theta)->pi^2 because the 4/(q+4) right-angle fraction has O(1) deviation. Independent exact small-q Gram/ridge multiplicity tests, and a symbolic asymptotic expansion, corroborate the all-q proof.
 
-## Limitations
-Only the standard root embedding, unweighted graph and uniformly sampled ridges are covered. No independent mathematical validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+O PASS (qualified): Higashitani-Jochemko-Michalek Proposition 3.4 already gives facet families of K_{2,q}; full broader K_{p,q} face-lattice classification also predates this review and necessarily includes ridge incidences for p=2. Neither supplies intrinsic angle cosines from centered normals nor the non-Gaussian second-order limit and the vanishing-class-dominated variance. An earlier exact facet-area study provides different metric data, not angle correlations. Search found no broader previously evaluated ridge-angle distribution. Root-polytope angular/curvature terminology remains a priority risk.
+
+## value
+
+PASS
+
+V PASS: This is a full metric ridge-angle classification for an infinite, standard graph polytope family, including degeneracy at q=2. It identifies a mathematically informative rare-event variance mechanism: a vanishing right-angle fraction controls a finite limiting rescaled variance while typical angles tend to pi.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
