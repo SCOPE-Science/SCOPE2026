@@ -1,105 +1,188 @@
 {
   "correctness": {
-    "rationale": "The square ideal is exactly the annihilator line and therefore endomorphisms preserve it. The verified equations \\(P(v+sz)=Tv+(\\ell(v)+\\alpha s)z\\) reduce idempotents to identity or to a projection onto a totally bilinear-isotropic subspace, with \\(q^{r(2n-r+1)}\\) choices per isotropic r-space. Pairwise ordered isotropy implies orthogonal coordinate projections when \\(\\lambda^2\\ne1\\); the vector-space Goursat count proves the generic expression. Hyperbolic orthogonal/symplectic ordered frame counts prove exceptional branches. Direct finite-field Gaussian/RREF enumeration over fields of orders three, four, five, and seven and brute-force endomorphism checks in dimension three agree. Finite tests are corroboration only; no unproved infinite extrapolation is used.",
+    "rationale": "The actual 2026-11-08 RESULT defines A=V⊕kz with multiplication B_lambda(v,w)z, V=k^n⊕k^n and lambda≠0. Since A²=kz, every homomorphism has block form (T,ell,alpha). The complete multiplicativity and idempotence equations are B(Tv,Tw)=alpha B(v,w), T²=T, alpha²=alpha, ell T+alpha ell=ell. For alpha=1, nondegeneracy of B forces T invertible; T²=T yields T=I and ell=0. For alpha=0, W=im T is totally two-sided B-isotropic, dim W=r≤n and ell factors through T. Each r-plane W has exactly q^{r(2n-r)} projection complements and q^r central graph shifts, hence E_r=q^{r(2n-r+1)} times its isotropic-plane count; the only other rank is full 2n+1. If lambda²≠1, the two ordered equations p+lambda p_rev=0 and p_rev+lambda p=0 force p=p_rev=0. The coordinate projections X,Y of W obey X⊥Y and a+b≤n. Their Goursat kernels have common quotient dimension t=a+b-r and are parametrized by Gaussian choices for X,Y, kernels and GL_t isomorphisms, yielding the stated finite sum. For odd lambda=1, the form is split symmetric: hyperbolic-orthogonal frame counts give [n r]_q ∏(q^{n-i-1}+1). For lambda=-1 (including even characteristic lambda=1) the form is alternating: symplectic frames give ∏(q^{2(n-i)}-1)/(q^{r-i}-1). Edge cases r=0,n, n=1, q=2 and q=4 are consistent; no claimed prime-field-only assumption. As independent finite corroboration, a new RREF checker counted all bilinear-isotropic subspaces for n=2 in F3 (lambda 1,2), F4 (lambda 1,2), and F5 (lambda 1,2,4), plus n=1 in F7. Each matched exact formulas; an independent direct 3×3 matrix map check tested multiplication on every basis pair and F²=F for n=1 and five (q,lambda) pairs: (3,1),(3,2),(5,1),(5,2),(5,4), reproducing rank counts [1,18,0,1], [1,36,0,1], [1,50,0,1], [1,50,0,1], [1,150,0,1]. The finite tests are only corroboration for the universal algebraic proof.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "finding": "Complete rank distribution of idempotent associative algebra endomorphisms of A_{n,lambda}=F_q^n⊕F_q^n⊕F_q z with nondegenerate bilinear-product multiplication.",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "limitations": [
+    "Finite enumeration covers only small n and q, not the theorem universally; the general proof explicitly supplies the all-dimension argument.",
+    "The group/isotropic-frame counts used in classical orthogonal and symplectic branches are standard; no independent formal proof assistant or expert attestation was performed.",
+    "The alternating branch and its q^{r(2n-r+1)} symplectic counts were already known; any presentation implying all three phases are new would overclaim priority.",
+    "A broader older theorem on simultaneous isotropic subspaces of nonsymmetric bilinear forms or Goursat classifications may imply the generic sum, despite no such exact dominating theorem located.",
+    "The large corpus of associative algebra endomorphism and finite-field bilinear count literature is not exhaustively indexed or searched; absolute publication priority remains unverified.",
+    "The finite-field Goursat counting ingredients are classical and may be reorganizations of known general bilinear-space enumeration results.",
+    "No general theorem for arbitrary extra-special associative algebras or orbit classification is established, and the known alternating case contributes no standalone novelty."
+  ],
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "arxiv:2212.01425, Sections 3.1-3.3, gives central-sum classification and Schur-multiplier/capability results but not endomorphism-rank enumerators.",
-        "General vector-space Goursat counting is an ingredient in the derived formula, not an independently identified encompassing associative-algebra enumeration theorem."
+        "Mainellis Theorem 3.1.2 classifies extra-special associative algebras and central sums of H2(lambda) blocks (over an algebraically closed base, char !=2); Theorems 3.2.1 and 3.3.2 study multipliers and capability, not idempotent algebra-map enumerators.",
+        "Anil Kumar–Pradhan Theorem Ω and 5.2 describe extraspecial odd-p groups and symplectic isotropic subspaces, covering established alternating-pairing numbers but not arbitrary lambda²!=1 nonsymmetric associative products or all prime powers.",
+        "Facchini–Heidari Zadeh Theorems 2.4 and 3.6 establish weak-augmentation/bilinear-form categorical equivalences in unital extensions; they do not count all idempotent endomorphism images by rank in the present nonunital algebra.",
+        "Gluesing-Luerssen–Ravagnani Section 2 gives general closed counting formulas for isotropic and ell-complementary subspaces of symmetric nondegenerate finite-field forms; this covers familiar symmetric-form input but not generic nonsymmetric B_lambda or the associated algebra-map fiber."
       ],
-      "reasoning": "Mainellis identifies objects and their multiplier/capability, not idempotent endomorphism fibers. The present three-phase distribution adds the associative-preservation constraint and counts the resulting finite-field maps; an unidentified broader bilinear-space result remains a priority risk.",
+      "reasoning": "Structural algebra classification, category equivalence, symplectic odd-p group enumeration and symmetric finite geometry yield partial ingredients or special phases, but their stated results do not directly imply the exact generic nonsymmetric Goursat summation and full 3-phase labeled retraction enumerator. Because the formula is derived from those classical ingredients, the claim of originality is confined to this particular combined associative rank spectrum, not their standard components.",
       "searches": [
-        "https://arxiv.org/abs/2212.01425",
-        "\"extra special associative algebra\" \"endomorphisms\" \"retraction\" bilinear forms",
-        "\"totally isotropic\" \"nonsymmetric bilinear forms\" finite fields enumeration subspaces"
+        "https://arxiv.org/pdf/2212.01425 (Theorems 3.1.2, 3.2.1, 3.3.2; Sections 3–4)",
+        "https://arxiv.org/pdf/1908.00331 (Theorem Ω, Section 5 and Theorem 5.2)",
+        "https://arxiv.org/pdf/2210.08230 (Theorems 2.4, 3.6; Sections 1–4)",
+        "https://arxiv.org/pdf/2212.07777 (Section 2 enumerative symmetric-bilinear results)",
+        "web search: count subspaces totally isotropic for both bilinear forms x transpose y lambda y transpose x finite field"
       ]
     },
     "checked_sources": [
-      "Mainellis (2022), arxiv:2212.01425, Sections 1, 3 and 4",
-      "Anil Kumar and Pradhan (2019), arxiv:1908.00331, relevant definitions and Theorem Omega",
-      "MSC2020 entry 16W20, automorphisms and endomorphisms of associative rings and algebras"
+      "https://arxiv.org/pdf/2212.01425",
+      "https://arxiv.org/pdf/1908.00331",
+      "https://arxiv.org/pdf/2210.08230",
+      "https://arxiv.org/pdf/2212.07777",
+      "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-heisenberg-lie-retractions-isotropic-affine-strata-and-a-rank-do--9cf8810a2ae3/RESULT.md",
+      "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-endomorphism-rank-spectra-and-an-automorphism-density-transition--1690381834d2/RESULT.md",
+      "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-retraction-rank-spectra-of-evolution-algebras-with-one-dimension--78ccea9942e8/RESULT.md"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "arxiv:2212.01425 classifies extra-special associative central sums but does not count their retractions.",
-        "arxiv:1908.00331 concerns finite extra-special p-groups and symplectic isotropic spaces. In odd characteristic its alternating/Heisenberg special geometry is relevant prior coverage.",
-        "For \\(\\lambda^2\\ne1\\), ordered associative products impose both \\(x\\cdot y′=0\\) and \\(x′\\cdot y=0\\) on image projections, yielding a Goursat sum different from the symplectic product."
+        "For lambda=-1, the rank count equals the established Heisenberg Lie retraction formula exactly, so the full original claim contains a previously known special case.",
+        "Mainellis already identifies the central-sum structure; its result does not enumerate projections/central graph shifts over finite fields.",
+        "The October 13 evolution-algebra rank-count theorem assumes symmetric form on a space where the square generator lies, so it does not yield counts for A with an independent annihilator line and nonsymmetric product.",
+        "The category and subspace-count theorems supply standard derivational tools, not the specific generic nonsymmetric rank distribution for lambda²!=1."
       ],
-      "reasoning": "The Mainellis classification alone does not imply the precise rank counts without an additional isotropic subspace enumeration. Symplectic counts cover the alternating branch, not the nonsymmetric or symmetric branch. The final claim includes a uniform parameter-phase classification that is not a restatement of the earlier object classification.",
+      "reasoning": "Strongest demonstrated implication is partial: alternating phase follows from the earlier Heisenberg retraction theorem; symmetric isotropic subspaces are classical and Mainellis supplies the underlying algebra objects. Neither that result nor the other inspected full texts determine the generic nonsymmetric phase and its q-Goursat multiplicities, so the surviving full all-parameter classification is not shown to be a corollary of an earlier theorem. This is a best-of-knowledge, not an absolute-priority, assessment.",
       "searches": [
-        "https://arxiv.org/abs/2212.01425",
-        "https://arxiv.org/abs/1908.00331",
-        "\"extra special associative algebra\" \"endomorphisms\" \"finite\""
+        "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-heisenberg-lie-retractions-isotropic-affine-strata-and-a-rank-do--9cf8810a2ae3/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-endomorphism-rank-spectra-and-an-automorphism-density-transition--1690381834d2/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-retraction-rank-spectra-of-evolution-algebras-with-one-dimension--78ccea9942e8/RESULT.md",
+        "https://arxiv.org/pdf/2212.01425",
+        "https://arxiv.org/pdf/1908.00331",
+        "https://arxiv.org/pdf/2210.08230",
+        "https://arxiv.org/pdf/2212.07777"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "In odd characteristic, \\(\\lambda=-1\\) makes the associative multiplication one half of the Lie bracket; the known alternating/symplectic geometry is therefore a covered special case.",
-        "arxiv:1908.00331 studies group endomorphisms using alternating symplectic forms rather than two-sided isotropy for generic nonsymmetric associative products."
+        "The alternating B_{-1} multiplication is an associative 2-step counterpart of a Heisenberg Lie bracket, whose exact rank-r retraction count q^{r(2n-r+1)}[n r]_q∏(q^{n-i}+1) was proved in the October 26 Heisenberg Lie retractions theorem; this branch is known, not independently new.",
+        "The October 12 alternating two-step associative-algebra theorem also treats the same alternating B form and its general endomorphism monoid; its nonidempotent rank census is a broader nearby object, while projection-idempotence gives the rank count as a specialization via the known symplectic classification.",
+        "The October 13 evolution-algebra theorem counts idempotent maps for E=(V,B,c) with nondegenerate symmetric B and c∈V; its annihilator and complement constraint c∈ker F differ from the current A=V⊕kz where z spans the annihilator. The generic nonsymmetric B_lambda does not satisfy the evolution-algebra symmetry hypothesis."
       ],
-      "reasoning": "Algebra endomorphisms at \\(\\lambda^2\\ne1\\) preserve all ordered products, not only commutators. The simultaneous equations for \\(B(w,w′)\\) and \\(B(w′,w)\\) enforce two separate orthogonality constraints, unlike Lie/Heisenberg isotropy. Known symplectic formulas account for the alternating phase and are not claimed as new.",
+      "reasoning": "Two-sided associative B-isotropy can be expressed as simultaneous annihilation by symmetric and alternating pieces; for lambda²≠1 both p and transpose p must vanish, equivalent to X⊥Y. This is not the same as isotropy for the commutator alone, so known symplectic formula covers only the alternating phase. The existing symmetric evolution-algebra count concerns a different multiplication/codomain. No exact equivalent all-parameter associative retraction census was found in these inspected records.",
       "searches": [
-        "\"idempotent endomorphisms\" \"extra special\" associative algebra finite field",
-        "https://arxiv.org/abs/1908.00331",
-        "retractions of two step associative algebras bilinear product hyperbolic non-symmetric symplectic endomorphisms"
+        "Resultary semantic query: full rank spectrum idempotent endomorphisms retractions finite-dimensional extra-special associative algebra central sum two-step split bilinear product finite fields isotropic subspaces",
+        "Resultary query: totally isotropic spaces nonsymmetric bilinear forms x.y plus lambda y.x rank counting Goursat retractions generic lambda",
+        "web search: extra-special associative algebra endomorphism idempotent retractions finite fields bilinear form",
+        "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-heisenberg-lie-retractions-isotropic-affine-strata-and-a-rank-do--9cf8810a2ae3/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-endomorphism-rank-spectra-and-an-automorphism-density-transition--1690381834d2/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-retraction-rank-spectra-of-evolution-algebras-with-one-dimension--78ccea9942e8/RESULT.md"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "The inspected arxiv:1908.00331 paper counts symplectic isotropic subspaces for extra-special group endomorphisms, which match only the alternating branch.",
-        "No exact all-phase table for these split nonsymmetric associative central sums was found in the queried literature or mathematical-result summaries."
+        "The indexed October 26 Heisenberg Lie record gives the alternating branch identical rank counts, so that special case is known.",
+        "The indexed October 13 evolution-algebra record contains a different symmetric-form retraction formula, including a correction depending on whether the square generator is isotropic.",
+        "No queried Resultary entry or identified primary finite-field table states the full generic lambda²!=1 associative rank distribution or its all-phase comparison; this is only a bounded search result, not a novelty proof."
       ],
-      "reasoning": "Absence of a matched database entry is not a proof of priority. Numerical values follow from the proved formulas, not a preexisting table. Residual database coverage risk is explicitly retained.",
+      "reasoning": "A known exact table for the alternating subclass must be credited. A table for symmetric bilinear subspaces is not automatically a table for idempotent associative maps. The generic Goursat summand requires the specific simultaneous X⊥Y classification; despite bounded searches, unindexed equivalent tables remain a realistic priority risk.",
       "searches": [
-        "\"idempotent endomorphisms\" \"nilpotent associative\" finite field",
-        "\"totally isotropic\" \"nonsymmetric bilinear forms\" finite fields enumeration subspaces",
-        "counting algebra retractions \"extra special\" associative H_2 lambda finite field"
+        "Resultary semantic query: totally isotropic spaces nonsymmetric bilinear forms x.y plus lambda y.x rank counting Goursat retractions generic lambda",
+        "Resultary semantic query: orthogonal symmetric alternating phases retraction idempotent endomorphism associative algebras",
+        "web search: retractions nilpotent associative algebra one dimensional square endomorphisms finite field idempotent",
+        "web search: isotropic subspaces nonsymmetric bilinear finite fields counting"
       ]
     },
-    "rationale": "The concrete central-sum family and its canonical two-generator blocks are known from Mainellis, and symplectic isotropic counts/odd-characteristic alternating special cases are prior results. The purported new fact is the uniform associative retraction-rank distribution for all fields and parameters, especially the generic \\(\\lambda^2\\ne1\\) Goursat spectrum and precise all-phase comparison. Relevant primary sections, earlier mathematical findings, and mathematical research search results revealed no stronger directly covering theorem; publication priority remains provisional.",
+    "rationale": "Earlier results decisively cover the standard symplectic isotropic counts and thus the entire alternating Heisenberg special case, plus symmetric orthogonal finite-geometry inputs and the underlying central-sum algebra classification. The October 26 Heisenberg Lie result gives precisely the same alternating retraction fiber q^{r(2n-r+1)}, and the October 12 alternating associative record treats the same algebra form. These are explicitly credited; the audited complete three-phase theorem is not new in every branch. Mainellis Theorem 3.1.2 classifies the underlying central-sum family, while its multiplier/capability results do not count idempotents. Facchini–Heidari Zadeh gives a unital weak-augmentation categorical equivalence rather than this finite-field rank spectrum; Gluesing-Luerssen–Ravagnani covers symmetric subspace counts, not generic nonsymmetric associative maps. The generic lambda²!=1 Goursat formula and uniform comparison were not implied by those inspected primary results or directly located by multiple bounded Resultary/web searches. Best-of-knowledge PASS for the complete all-parameter classification with substantial explicit historical-priority risk; failed searches are not positive novelty proof.",
     "residual_risks": [
-      "A broader finite-bilinear-space enumeration theorem not located in the searches might subsume the generic Goursat formula.",
-      "Publication priority is not established by negative search results.",
-      "Other work on associative central sums, including unindexed or inaccessible sources, could contain equivalent rank counts."
+      "The alternating branch and its q^{r(2n-r+1)} symplectic counts were already known; any presentation implying all three phases are new would overclaim priority.",
+      "A broader older theorem on simultaneous isotropic subspaces of nonsymmetric bilinear forms or Goursat classifications may imply the generic sum, despite no such exact dominating theorem located.",
+      "The large corpus of associative algebra endomorphism and finite-field bilinear count literature is not exhaustively indexed or searched; absolute publication priority remains unverified."
     ],
     "source_inspections": [
       {
-        "assessment": "Provides object classification and multiplier/capability, not the idempotent-endomorphism rank count.",
+        "assessment": "PRIOR OBJECT CLASSIFICATION; no all-parameter idempotent algebra-endomorphism rank enumeration.",
         "evidence": [
-          "Theorem 3.1.2 identifies central sums and \\(H_2(\\lambda)\\) factors.",
-          "Theorem 3.2.1 computes multiplier dimensions; Theorem 3.3.2 treats capability."
+          "Theorem 3.1.2: extra-special algebras are central sums of J, Gamma and H blocks.",
+          "Theorem 3.2.1 computes Schur multipliers; Theorem 3.3.2 determines capability."
         ],
-        "identifier_or_url": "https://arxiv.org/abs/2212.01425",
-        "material_read": "Abstract; Introduction; Section 3.1 classification; Section 3.2 multipliers; Section 3.3 capability; Section 4 context; relevant named results and definitions.",
-        "method": "Read rendered full-text sections from lawful arXiv source.",
+        "identifier_or_url": "https://arxiv.org/pdf/2212.01425",
+        "material_read": "Complete seven-page arXiv paper via indexed text and rendered Section 3 page image; Introduction, classification Theorem 3.1.2, multiplier Theorem 3.2.1, capability Theorem 3.3.2, Section 4 and references.",
+        "method": "Read open-access arXiv PDF text and inspect page 3 screenshot.",
         "title": "Associative Algebras with Small Derived Ideal",
-        "trigger": "The same extra-special associative algebras and two-generator central-sum blocks occur in the construction."
+        "trigger": "Same extra-special associative algebras and central sums of two-generator H2(lambda) blocks."
       },
       {
-        "assessment": "Covers group endomorphisms and symplectic/alternating forms, but not the generic nonsymmetric bilinear-product associative constraint.",
+        "assessment": "PRIOR SYMPLECTIC COUNTS and group endomorphisms; cannot directly cover nonsymmetric associative products, general q, and all-phase retractions.",
         "evidence": [
-          "Theorem Omega expresses group endomorphisms via a symplectic similitude condition.",
-          "The paper states symplectic isotropic subspace counts for extra-special p-groups."
+          "Theorem Ω applies to odd-prime group endomorphisms via symplectic similitudes.",
+          "Theorem 5.2 counts k-dimensional isotropic spaces and matrices for an alternating symplectic form."
         ],
-        "identifier_or_url": "https://arxiv.org/abs/1908.00331",
-        "material_read": "Abstract; Section 1 introduction; definitions of the extra-special group and symplectic form; statement of Theorem Omega and its endomorphism equations, together with its stated isotropic-count purpose.",
-        "method": "Read relevant rendered mathematical sections of the arXiv full text.",
+        "identifier_or_url": "https://arxiv.org/pdf/1908.00331",
+        "material_read": "23-page arXiv PDF text: Introduction, Theorem Ω and endomorphism equations, Section 5/Theorem 5.2 on symplectic isotropic subspaces; visually checked page 11.",
+        "method": "Read lawful arXiv PDF text and inspect theorem-context screenshot.",
         "title": "On the Endomorphism Semigroups of Extra-special p-groups and Automorphism Orbits",
-        "trigger": "Potential dominating symplectic isotropic-subspace enumeration and Heisenberg endomorphism counts."
+        "trigger": "Potentially dominating symplectic retraction counts via extra-special p groups."
+      },
+      {
+        "assessment": "Unital categorical weak-augmentation and bilinear-form equivalence; no finite-field rank distribution for this nonunital split product.",
+        "evidence": [
+          "Theorem 2.4 proves equivalence between k-BFAlg and k-Algwa; its extended product includes unital cross terms.",
+          "Theorem 3.6 studies compatible bilinear forms and weak augmentations."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2210.08230",
+        "material_read": "Fifteen-page lawful arXiv PDF: abstract and introduction, Section 1 on unital splittings, Section 2 categorical equivalence Theorem 2.4, Section 3 compatibility Theorem 3.6, reviewed section statements and examples; inspected page 6 image.",
+        "method": "Read arXiv PDF indexed mathematical text, cross-check screenshot.",
+        "title": "Algebras with a bilinear form, and Idempotent endomorphisms",
+        "trigger": "Title and subject could subsume idempotent endomorphisms of bilinear-product algebras."
+      },
+      {
+        "assessment": "Known symmetric-form finite-geometry counts; nonsymmetric lambda²!=1 and associative algebra retract count outside stated hypotheses.",
+        "evidence": [
+          "Section 2 explicitly fixes symmetric nondegenerate B; self-orthogonal equals k-complementary.",
+          "It computes finite-field isotropic-subspace numbers, making the symmetric counting ingredient nonnovel."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2212.07777",
+        "material_read": "Introduction, Section 2 definitions/Notation 2.3, Theorems 2.5 and 2.7, enumerative outline; inspected page 4 image; did not claim full 28-page negative inspection.",
+        "method": "Read open arXiv PDF relevant mathematical sections and page image.",
+        "title": "ell-Complementary Subspaces and Codes in Finite Bilinear Spaces",
+        "trigger": "Broad finite-field isotropic-space enumerator might dominate symmetric phase."
+      },
+      {
+        "assessment": "COVERS the alternating lambda=-1 special case, not the generic nonsymmetric associative phase.",
+        "evidence": [
+          "Theorem gives q^{r(2n-r+1)} [n r]_q ∏_{i=0}^{r-1}(q^{n-i}+1), identical to the alternating branch."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-heisenberg-lie-retractions-isotropic-affine-strata-and-a-rank-do--9cf8810a2ae3/RESULT.md",
+        "material_read": "Complete published RESULT.md: finding, five proof sections, exact retraction formula, verification, limitations.",
+        "method": "Read complete GitHub primary RESULT via connected repository.",
+        "title": "Heisenberg Lie retractions: isotropic affine strata and a rank-dominance transition",
+        "trigger": "Identical alternating form and image-rank map count are suspected prior coverage."
+      },
+      {
+        "assessment": "Broad full endomorphism census for alternating associative form; strong partial overlap, but not the nonsymmetric/symmetric parameter phases.",
+        "evidence": [
+          "Its multiplication uses (v+az)(w+bz)=omega(v,w)z and rank enumerator for all algebra endomorphisms, including singular isotropic-image maps."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-endomorphism-rank-spectra-and-an-automorphism-density-transition--1690381834d2/RESULT.md",
+        "material_read": "Complete published RESULT.md, including full matrix normal form and finite-field rank enumerator.",
+        "method": "Read complete GitHub primary RESULT.",
+        "title": "Endomorphism rank spectra and an automorphism-density transition in alternating two-step algebras",
+        "trigger": "Same alternating associative multiplication and possible stronger monoid count."
+      },
+      {
+        "assessment": "Different (generally nonassociative) algebra with square generator inside the nondegenerate bilinear space; different complement constraints; no coverage of generic B_lambda.",
+        "evidence": [
+          "Its algebra E=(V,B,c) has multiplication B(u,v)c with c∈V and constraint c in kernel; present algebra A=V⊕kz has independent annihilator line and nonsymmetric B_lambda."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-retraction-rank-spectra-of-evolution-algebras-with-one-dimension--78ccea9942e8/RESULT.md",
+        "material_read": "Complete published RESULT.md including arbitrary-field classification, full odd-field retraction polynomial, proof, prior literature.",
+        "method": "Read complete GitHub primary RESULT.",
+        "title": "Retraction rank spectra of evolution algebras with one-dimensional square",
+        "trigger": "Potential general theorem on idempotents for bilinear multiplication with one-dimensional square."
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
-  "schema_version": 1,
-  "scope_run_id": "7bb1168c-556c-4890-b74e-8ec8724a8f83",
+  "previously_published_pending_reaudit": false,
   "value": {
-    "rationale": "Algebra retracts are natural splittings of finite-dimensional associative algebras. The theorem completely determines the rank spectrum of idempotent endomorphisms for every algebra in a coherent infinite family; the generic case has a nontrivial Goursat sum, a sharp missing-rank interval, and a parameter-independent spectrum despite nonsymmetric products. Comparing symplectic, split-orthogonal and generic phases exhibits a genuine algebraic distinction; these are not arbitrary fixed-size slices.",
+    "rationale": "Idempotent algebra endomorphisms are natural retracts, and their full image-rank spectrum is a meaningful invariant of a coherent infinite family of central-sum associative algebras. The generic nonsymmetric lambda²!=1 regime requires simultaneous two-sided isotropy, not merely the known symplectic constraint, and yields a nontrivial Goursat/Gaussian formula whose maximal proper rank n has ∑_{a=0}^n[n a]_q possible image spaces. The symmetric and alternating phases form mathematically motivated boundary comparisons with different rank multiplicities (e.g. q=5,n=2: rank-2 map counts 125000, 187500, 2437500), while proper rank n+1..2n is impossible. This is a natural all-dimension, all-prime-power classification with independently useful exact counts, not an arbitrary small-instance table. Standard frame counts and the previously covered alternating subclass are explicitly excluded from claims of new technique or priority.",
     "status": "PASS"
   }
 }
