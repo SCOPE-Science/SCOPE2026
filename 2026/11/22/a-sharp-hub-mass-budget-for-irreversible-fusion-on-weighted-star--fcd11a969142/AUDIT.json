@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "For all k>=1 and strictly positive real masses/penalties, the scalar monotone hub KKT equation gives the unique proximal fit. After rescaling tau=1/lambda, at every upper clipping contact all incident affine slopes of v-tau*y_i are nonnegative, and at every lower contact all are nonpositive, provided m_i sum_{j!=i} a_j <= (m0+mi) a_i. This prevents exits even at simultaneous events; a separate small-lambda block argument covers initial ties. If one inequality fails, observations with one low leaf and other leaves sufficiently high create a strict positive-length fused interval and a subsequent separation. Diagonal-dominance and design-budget equivalences follow by exact algebra. Explicit four-leaf rational solution is verified by KKT. Standard-library exact rational checker passed 175512 independent sampled comparisons, supportive but not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hoefling 2009 §3.2 treats arbitrary graphs by maximum-flow splitting tests, without closed star-specific necessity.",
+        "Chiquet--Gutierrez--Rigaill 2014 §5 Theorem 2 studies positive complete-pair data-dependent fusion weights, not the fixed sparse star weights uniformly over all observations.",
+        "Previously recorded weighted path and cycle criteria concern different graphs; two-leaf star reduces to the path special case."
+      ],
+      "reasoning": "General algorithms are broader in graph domain but weaker in the universal no-split classification, whereas published sufficient families impose different pairwise weight hypotheses. The current classification is not inferred by simply restricting those theorems, except its sufficient direction.",
+      "searches": [
+        "weighted tree fused lasso universal no split property star graph edges become unfused after fusion sufficient necessary conditions flow capacity",
+        "graph total variation denoising stars hub leaf fusion persistence weighted fused lasso no split",
+        "2014 generalized fused lasso no split star network graph no splitting edge weights mass",
+        "arxiv:0910.0526 §3.2",
+        "arxiv:1407.5915 §5"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0910.0526 (Hoefling 2009)",
+      "arxiv:1005.1971 (Tibshirani and Taylor 2010/2011)",
+      "arxiv:1407.5915 (Chiquet et al. 2014)",
+      "2026/11/17/SCOPE-sharp-gini-stability-and-reciprocal-mass-thresholds-for-star-gra--cdbf64e27ce9",
+      "2026/11/17/SCOPE-sharp-weighted-huber-location-star-variation-modulus-and-mass-ba--f2d941e4aa72",
+      "Previously recorded path and cycle claim IDs c4264563-13be-414b-bb6c-853ed563251f and 10d1e07e-c47c-4e1b-ad82-2ce28b0092bc (dedup claim comparison only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tibshirani--Taylor diagonal dominance implies no boundary release for general penalty matrices, covering the present sufficiency.",
+        "Hoefling includes splitting events but does not provide the star-specific necessary condition.",
+        "Chiquet et al. complete-graph data-dependent no-split sufficient family cannot establish universal stability of arbitrary fixed star edge weights."
+      ],
+      "reasoning": "The exact incremental claim is the converse of known row-dominance sufficiency on the star, constructive positive-parameter unfusion upon failure, and the feasibility threshold sum m_i/(m0+2m_i)<=1. These are neither equivalent to the three earlier sufficient/algorithmic conclusions nor a subcase of the published Huber/Gini input-sensitivity results.",
+      "searches": [
+        "arxiv:1005.1971 §5.1 and §6",
+        "arxiv:0910.0526 §3.2",
+        "arxiv:1407.5915 §5",
+        "star graph total variation denoising irreversible fusion all inputs exact weights condition hub leaf mass penalty no unfusing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Weighted-star condition equals row diagonal dominance of B M^{-1} B^T, with diagonal a_i^2(1/m0+1/mi) and off-diagonal a_i a_j/m0.",
+        "Tibshirani--Taylor, The solution path of the generalized lasso, §6, states diagonal dominance as sufficient for boundary persistence; converse not stated in inspected material."
+      ],
+      "reasoning": "Boundary persistence is the natural dual formulation. The known sufficient condition matches the new test algebraically, so sufficiency is attributed. The new implication is that failure produces explicit primal unfusion on a star; searches found no theorem giving that converse.",
+      "searches": [
+        "star graph total variation denoising irreversible fusion all inputs exact weights condition hub leaf mass penalty no unfusing",
+        "m_i sum other edges <= (m0+mi) ai fusion star K1,k",
+        "\"boundary lemma\" \"only if\" diagonally dominant lasso",
+        "\"diagonally dominant\" \"no splits\" \"necessary\" fused lasso",
+        "arxiv:1005.1971 §6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest records include 2026/11/17/SCOPE-sharp-gini-stability-and-reciprocal-mass-thresholds-for-star-gra--cdbf64e27ce9 (sharp two-input Gini gain) and 2026/11/17/SCOPE-sharp-weighted-huber-location-star-variation-modulus-and-mass-ba--f2d941e4aa72 (Huber location variation), inspected RESULT.md through authorized public repository reads; neither discusses a regularization-path no-splitting iff criterion.",
+        "Previously recorded dedup claims include c4264563-13be-414b-bb6c-853ed563251f (weighted paths) and 10d1e07e-c47c-4e1b-ad82-2ce28b0092bc (weighted cycles); neither is a general star classification."
+      ],
+      "reasoning": "The searches compare actual quantified objects and implications, not only titles or exact weight vectors. No checked searchable record states both the all-observations star converse and the mass-budget iff. The search is not a proof of uniqueness; residual risk is recorded.",
+      "searches": [
+        "weighted tree fused lasso universal no split property star graph edges become unfused after fusion sufficient necessary conditions flow capacity",
+        "graph total variation denoising stars hub leaf fusion persistence weighted fused lasso no split",
+        "sharp characterization of fusion monotonicity graph fused lasso weighted star tree",
+        "star graph total variation denoising irreversible fusion all inputs exact weights condition hub leaf mass penalty no unfusing",
+        "m_i sum other edges <= (m0+mi) ai fusion star K1,k",
+        "single hub Huber regression clipping intervals persist under regularization star fused lasso"
+      ]
+    },
+    "rationale": "This is a sharp converse and penalty-existence classification for weighted stars, not a claim of new diagonal-dominance sufficiency. Tibshirani--Taylor 2011 Section 6 already implies the sufficient half. Hoefling 2009 provides general split-detecting path machinery and Chiquet et al. 2014 gives complete-pair data-dependent sufficient families, neither of which states the weighted-star necessary implication or exact mass budget. published-finding corpus records for star Gini/Huber sensitivity concern input perturbation norms rather than the regularization parameter fusion event. Historical overlap remains possible.",
+    "residual_risks": [
+      "The sufficient half is explicitly known from the generalized-lasso row-dominance criterion; its algebraic restatement is not independently new.",
+      "An unindexed, unpublished or currently inaccessible source may already establish the star converse; the searchable corpus is not a uniqueness certificate.",
+      "No independent mathematical audit has yet checked the proof, especially simultaneous clipping transitions and universal parameter quantifiers."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains maximum-flow splitting algorithm and general KKT, not an all-data weighted-star converse or hub-mass feasibility criterion.",
+        "evidence": [
+          "Section 3.2.1 necessary/sufficient subgradient equations and 3.2.2 max-flow split condition",
+          "arXiv first version marked 2009-10-03"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0910.0526",
+        "material_read": "Main general-graph KKT and split/fusion exposition in Sections 3.1–3.2, including pages 10, 11 and 15, plus original submission marker.",
+        "method": "Web PDF text and page screenshots.",
+        "title": "A path algorithm for the Fused Lasso Signal Approximator",
+        "trigger": "General graph fusion and split-algorithm coverage"
+      },
+      {
+        "assessment": "Explicitly gives diagonal dominance as sufficient for boundary lemma, which already subsumes present sufficiency; no necessity on weighted stars in the inspected sections.",
+        "evidence": [
+          "Section 5.1 boundary lemma for one-dimensional fused lasso",
+          "Section 6 criterion (23) for general D and need for leaving events outside that sufficient class"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1005.1971",
+        "material_read": "Sections 5.1 and 6 (including boundary lemma, diagonal-dominance equation (23), and hitting/leaving path discussion).",
+        "method": "Web PDF text, find and screenshot.",
+        "title": "The solution path of the generalized lasso",
+        "trigger": "Potential stronger known boundary lemma and row-dominance coverage"
+      },
+      {
+        "assessment": "Theorem 2 supplies sufficient data-dependent complete-graph penalty families, but not a fixed-star universal iff and mass budget.",
+        "evidence": [
+          "Section 5 Theorem 2: w_{kℓ}=n_k n_ℓ f(|ybar_k-ybar_ℓ|) decreasing f",
+          "Section 6 general homotopy event descriptions"
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1407.5915",
+        "material_read": "Introduction, objective (Section 2), optimality and Sections 4–6 including Theorem 2 and assumptions on all-pair penalties.",
+        "method": "Accessible ar5iv full-text HTML sections read directly.",
+        "title": "Fast tree inference with weighted fusion penalties",
+        "trigger": "No-splitting weight conditions might dominate star criterion"
+      },
+      {
+        "assessment": "Concerns two-input path variation of a one-step Huber location replacement; no increasing-regularization fused-edge persistence.",
+        "evidence": [
+          "Source defines E_w replacing only hub, with sharp two-input modulus 1+(m-2)Q(w)"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/17/SCOPE-sharp-weighted-huber-location-star-variation-modulus-and-mass-ba--f2d941e4aa72/RESULT.md",
+        "material_read": "Complete RESULT.md: finding, proof, verification, relationship and limitations.",
+        "method": "Read public repository file via connected GitHub read-only action.",
+        "title": "Sharp weighted Huber-location star-variation modulus and mass-balance discontinuity",
+        "trigger": "Overlap of clipped scalar hub equations"
+      },
+      {
+        "assessment": "Determines two-input Gini Lipschitz modulus at fixed penalties, independent of those penalties; no classification of persistent fusion as lambda varies.",
+        "evidence": [
+          "Result is L_k(a) reciprocal hub-mass interval for Gini-nonexpansivity, not no-splitting"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/17/SCOPE-sharp-gini-stability-and-reciprocal-mass-thresholds-for-star-gra--cdbf64e27ce9/RESULT.md",
+        "material_read": "Complete RESULT.md: objective, sharp modulus, proof, prior work and limits.",
+        "method": "Read public repository file via connected GitHub read-only action.",
+        "title": "Sharp Gini stability and reciprocal mass thresholds for star-graph fusion denoising",
+        "trigger": "Same graph proximal operator, potential source of dominating theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fcd11a96-9142-4b17-98af-ef2df81f06df",
+  "value": {
+    "rationale": "No-split fusion paths are a central condition for whether a proximal homotopy algorithm may irreversibly merge fitted groups. The result converts a general sufficient dominance check into a complete necessary-and-sufficient criterion on a fundamental branching family, locates the first universal obstruction at four equal-mass leaves, and gives the exact hub-mass threshold for whether any fixed positive edge-weight design exists. These structural classifications distinguish fixed-star data-independent regimes and are not a tiny numerical gain or an arbitrary slice.",
+    "status": "PASS"
+  }
+}
