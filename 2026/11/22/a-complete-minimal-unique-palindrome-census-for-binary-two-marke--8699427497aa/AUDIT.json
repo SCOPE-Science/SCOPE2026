@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Every possible palindrome has zero, one or two marked ones, and the proof computes the exact unique/nonunique transition of the centered trims in all three cases. The resulting disjoint cases give all three K values, rational generating functions and limiting law. Two different literal algorithms agree for all 3375 bounded parameter triples and the entire length 5..50 census (17296 triples); these are checks, not infinite certifications.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mieno and Funakoshi (2022/2024) prove general MUPS length bounds and SUPS data-structure results according to the abstract, not the claimed sparse-family exact count.",
+        "The 2026 Mieno paper Theorems 4 and 12 give maximal-palindrome query data structures."
+      ],
+      "reasoning": "A general ability to enumerate MUPS algorithmically or bound their total length does not entail a closed form for the equality cases, generating functions and limiting distribution. The 2024 article might contain examples not visible in its abstract and is disclosed as an access risk.",
+      "searches": [
+        "minimal unique palindromic substrings five run binary words classification all run parameters",
+        "shortest unique palindromic substring two-marker binary word all lengths",
+        "\"minimal unique palindromic substrings\" run length encoding 2026 2025"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2508.14384",
+      "https://drops.dagstuhl.de/storage/00lipics/lipics-vol369-cpm2026/html/LIPIcs.CPM.2026.4/LIPIcs.CPM.2026.4.html",
+      "https://arxiv.org/abs/2204.07327",
+      "https://doi.org/10.1007/s00453-023-01170-8",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-minimal-unique-factors-of-binary-words-with-two-marked-symbols-e--82dd9adea10e",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-a-sharp-five-run-threshold-for-three-shortest-unique-palindromic--3513680a544d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 full article proves O(n)-bit maximal-palindrome representation and O(log n) internal longest-palindrome queries, not a closed two-marker MUPS census.",
+        "The published five-run SUPS result bounds number of answers per query at 3 with threshold length 14; here K counts all globally minimal unique palindromes and first reaches 3 at length 8.",
+        "Earlier ordinary MUS result has different minimality criterion, so its counts cannot be substituted for K."
+      ],
+      "reasoning": "The existence of efficient maximal-palindrome or SUPS queries does not yield this exact all-parameter classification and limit without a new counting argument. The general query-specific sharp threshold has a different quantified object; there is no contradiction or logical coverage.",
+      "searches": [
+        "minimal unique palindromic substrings five run binary words classification all run parameters",
+        "exact minimal unique palindrome MUPS sparse two one binary words gaps",
+        "2026/10/25/SCOPE-a-sharp-five-run-threshold-for-three-shortest-unique-palindromic--3513680a544d",
+        "arxiv:2508.14384",
+        "arxiv:2204.07327"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The generic MUPS equivalence of unique palindrome with a repeated centered trim is applied, not asserted new.",
+        "The two-marker ordinary MUS result classifies a different logical predicate; a palindrome can be MUPS while its nonpalindromic proper factor is unique."
+      ],
+      "reasoning": "Reversal swaps the outer gaps, and bit-complementation preserves palindromic uniqueness; these symmetries yield the same three-case count but were included in the alias search. Neither a SUPS-answer count nor an ordinary MUS count determines the full MUPS list, so no equivalent implication was found.",
+      "searches": [
+        "complete minimal unique palindromic substring classification two-marker binary word 0^a1 0^b1 0^c",
+        "exact minimal unique palindrome MUPS sparse two one binary words gaps",
+        "minimal unique palindrome two marker palindromic interior nonunique exact classification all lengths",
+        "2026/10/26/SCOPE-minimal-unique-factors-of-binary-words-with-two-marked-symbols-e--82dd9adea10e"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching sparse two-marker MUPS coefficient table appeared in these actual published-finding corpus hits or targeted web queries.",
+        "The closest two-marker table concerns ordinary MUS and the SUPS count is an interval-query bound."
+      ],
+      "reasoning": "Checks looked for the complete three-class spectrum and its rational length enumerators, including parameter aliases. Search absence alone is not proof; equivalence is judged against concrete mathematical summaries.",
+      "searches": [
+        "number of minimal unique palindromic substrings in a binary word with exactly two ones zero gaps a b c full classification single one versus two ones",
+        "MUPS 0^a1 0^b1 0^c minimum unique palindromes exact generating functions asymptotic 1/3 three occurrences",
+        "2026/10/26/SCOPE-minimal-unique-factors-of-binary-words-with-two-marked-symbols-e--82dd9adea10e",
+        "2026/10/25/SCOPE-a-sharp-five-run-threshold-for-three-shortest-unique-palindromic--3513680a544d"
+      ]
+    },
+    "rationale": "Actual published-finding corpus searches, own claim-dedup, and inspected primary published content did not expose the exact global minimal-unique-palindrome list, coefficient formula, or limit law in two-marker words. The closest two-marker MUS theorem concerns ordinary (not palindrome-specific) minimality; the query-specific SUPS ceiling concerns a different count. The relevant Mieno 2026 full article proves maximal-palindrome indexing, not this enumeration. Full 2024 MUPS-related primary content could not be read, leaving a real priority risk.",
+    "residual_risks": [
+      "Published 2024 directly relevant MUPS article full text could not be inspected; its abstract is insufficient to exclude all possible sparse enumeration in appendices.",
+      "Search and available published mathematical summaries do not establish exhaustive historical novelty; nonindexed or differently titled equivalent work remains possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING claim: maximal-palindrome representation, not MUPS census over two marker gaps",
+        "evidence": [
+          "2026 article §§1-5, Theorems 4 and 12, Appendix A; first arXiv 2025-08-20, formal 2026-06-08."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol369-cpm2026/html/LIPIcs.CPM.2026.4/LIPIcs.CPM.2026.4.html",
+        "material_read": "Entire open-access HTML main sections, conclusion, references, and Appendix A, focusing on maximal palindrome and uniqueness statements",
+        "method": "Full-text HTML sections and stated Theorems 4 and 12 inspected",
+        "title": "Compact Representation of Maximal Palindromes",
+        "trigger": "Current primary literature on palindromic factors and compressed representations"
+      },
+      {
+        "assessment": "UNRESOLVED_FULLTEXT: broad generic results known from abstract, possible unindexed sparse exact treatment cannot be excluded",
+        "evidence": [
+          "arXiv abstract describes max four SUPS answers per query, O(n) total MUPS length, and data structures; DOI:10.1007/s00453-023-01170-8."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.07327",
+        "material_read": "Abstract and bibliographic description only; full text unavailable via arxiv/available open-access and authorized institutional route",
+        "method": "Abstract inspected; open-access mirrors retried; institutional access returned disconnected status",
+        "title": "Data Structures for Computing Unique Palindromes in Static and Non-Static Strings",
+        "trigger": "Directly relevant MUPS definitions and general SUPS data structures"
+      },
+      {
+        "assessment": "NOT_ESTABLISHED_COVERAGE: arbitrary unique contiguous factors rather than palindromically minimal unique factors",
+        "evidence": [
+          "Published summary gives at most four ordinary MUS and one-third four-factor limit; this is not the MUPS K count."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-minimal-unique-factors-of-binary-words-with-two-marked-symbols-e--82dd9adea10e",
+        "material_read": "Published record title and complete scientific summary of theorem (not full manuscript)",
+        "method": "published-finding corpus searchable mathematical statement, compared on predicates and implications",
+        "title": "Minimal unique factors of binary words with two marked symbols: exact spectrum",
+        "trigger": "Same source family with ordinary minimal unique factor enumeration"
+      },
+      {
+        "assessment": "NOT_ESTABLISHED_COVERAGE: counts answers to a given interval query; not global MUPS",
+        "evidence": [
+          "Summary: first three-answer SUPS at length 14, unlike global MUPS triple cases at length 8."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-a-sharp-five-run-threshold-for-three-shortest-unique-palindromic--3513680a544d",
+        "material_read": "Published record title and complete scientific summary of theorem (not full manuscript)",
+        "method": "published-finding corpus searchable statement, implication comparison",
+        "title": "A sharp five-run threshold for three shortest unique palindromic substrings",
+        "trigger": "Closest directly palindrome-unique source family, different query scope"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "86994274-97aa-4e1e-bd4a-06c23264993a",
+  "value": {
+    "rationale": "The complete all-length equality classification for a naturally sparse text family yields exact strings, a sharp three-MUPS onset at length eight, all three rational length series, and nondegenerate limiting frequencies. These quantify global MUPS anatomy not supplied by general data structure complexity bounds. No unsupported algorithmic improvement is claimed.",
+    "status": "PASS"
+  }
+}
