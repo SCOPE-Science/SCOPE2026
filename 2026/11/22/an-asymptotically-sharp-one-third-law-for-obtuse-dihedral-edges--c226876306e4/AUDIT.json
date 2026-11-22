@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The spherical normal fan consists of 2F-4 triangles. Every triangle with all three sides >= pi/2 occupies at least pi/2 area by spherical cosine law and Girard. For F>=7 at most seven triangles can have this property. Every other triangle meets one short spherical edge, each incident to two triangles, giving 2F-4-2m<=7 and hence m>=F-5. For the upper bound, Li–Wang–Yu normals satisfy a strictly positive three-term recurrence and remain a simple vertex-truncation sequence; pairwise normal dot products have negative sign at index gaps 1 and 2, positive at gap 3, and negative with the bottom normal. Thus there are F-4 strictly obtuse edges and max dihedral < pi/2 + asin(4/R), with R arbitrarily large. Mpmath checker passed 12 finite witness instances (F=4..10 and 4..8), not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2611.09021 Theorem 1.2 establishes arbitrary facet count under near-right upper pinching, which covers the upper existence statement only.",
+        "https://arxiv.org/abs/2207.13346 focuses on dihedral bounds via curvature; no equivalent count found in examined abstract and searches.",
+        "Published mathematical record 2026/11/17/SCOPE-quantitative-two-sided-dihedral-pinching-bounds-the-facets-of-si--b679c61cdead: imposes a lower bound on every dihedral angle to derive a facet upper bound; not the unrestricted numerical count statement."
+      ],
+      "reasoning": "The broader-looking existence theorem is one-sided: existence of witnesses cannot force a lower bound for all polytopes. The two-sided angle-pinching record has a genuinely different lower-angle hypothesis and output, so its exposed theorem does not dominate this density inequality; its unread full text remains a priority risk.",
+      "searches": [
+        "published-finding corpus: Dihedral angles bounded above by pi/2 + delta Li Wang Yu 2026 linear number obtuse edges",
+        "published-finding corpus: Gromov dihedral threshold Li Wang Yu near right simple polytopes one obtuse ridge per facet",
+        "Web: Gromov Convex Polytopes Dihedral Angles Mean Curvature Scalar Curvature 2024 number obtuse edges count"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2611.09021",
+      "https://sites.math.washington.edu/~billey/classes/reflection.groups/references/Coxeter.1934.pdf",
+      "https://arxiv.org/abs/2207.13346",
+      "2026/11/17/SCOPE-quantitative-two-sided-dihedral-pinching-bounds-the-facets-of-si--b679c61cdead",
+      "Own prior scientific claim UUID 55d932ec-6624-4469-8c42-6ae35c802caa"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://sites.math.washington.edu/~billey/classes/reflection.groups/references/Coxeter.1934.pdf Theorem 2 implies m=0 is impossible for F>=7, but not the stronger linear lower bound m>=F-5.",
+        "https://arxiv.org/abs/2611.09021 Section 2 implies only the upper witness m=F-4 once normal-dot-product signs are analyzed.",
+        "Accessible own mathematical claim 55d932ec-6624-4469-8c42-6ae35c802caa concerns sharp graph diameter of the same polytope family, not minimum obtuse counts.",
+        "Published record 2026/11/17/SCOPE-quantitative-two-sided-dihedral-pinching-bounds-the-facets-of-si--b679c61cdead is a facet bound under minimum-angle pinching, not a statement of universal obtuse-edge density."
+      ],
+      "reasoning": "The one-third asymptotic follows only after combining the new universal spherical-area inequality with the already-known construction. None of the exposed prior statements supplies this missing universal inequality; a possible unpublished equivalent is residual risk.",
+      "searches": [
+        "published-finding corpus: Minimum number obtuse interior dihedral edges simple convex 3 polytopes number facets F at least F-5 spherical Gauss Bonnet normal fan",
+        "published-finding corpus: One third asymptotically sharp minimum proportion of strictly obtuse interior dihedral edges for simple convex three dimensional polytopes",
+        "Own accessible ledger current-week claim UUID 55d932ec-6624-4469-8c42-6ae35c802caa: diameter of Li–Wang–Yu construction",
+        "published-finding corpus published record 2026/11/17/SCOPE-quantitative-two-sided-dihedral-pinching-bounds-the-facets-of-si--b679c61cdead"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2611.09021 Section 2: the construction bounds maximum dihedral angle and gives explicit normals and facet adjacencies, but states no universal lower count of obtuse edges.",
+        "https://sites.math.washington.edu/~billey/classes/reflection.groups/references/Coxeter.1934.pdf Theorem 2: classifies entirely nonobtuse polytopes as products of simplices."
+      ],
+      "reasoning": "The dual reformulation is: among the 2F-4 normal-fan spherical triangles, at most seven can have all sides >= pi/2 when F>=7. Neither source states or implies that partial-short-edge counting inequality, and the construction-only theorem says nothing universally about other simple polytopes.",
+      "searches": [
+        "published-finding corpus: Minimum number obtuse interior dihedral edges simple convex 3 polytopes number facets F at least F-5 spherical Gauss Bonnet normal fan",
+        "published-finding corpus: Sharp lower bound number of obtuse dihedral angles 3D convex polyhedron arbitrary many facets near right angles",
+        "published-finding corpus: One third asymptotically sharp minimum proportion of strictly obtuse interior dihedral edges for simple convex three dimensional polytopes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searched mathematical-record collections using explicit values F-5, F-4, pi/2, one-third and spherical fan triangulation terms; closest surfaced record was about two-sided angle pinching, not an obtuse-edge census.",
+        "https://arxiv.org/abs/2611.09021 provides the facet-adjacency pattern, not a universal exact minimum table."
+      ],
+      "reasoning": "No matching exact minimization table was identified. The theorem does not claim to compute the exact minimum at each F, which remains within a one-edge interval.",
+      "searches": [
+        "published-finding corpus: Spherical Gauss map triangles area pi/2 bound nonobtuse edges deficit F-5 simple polyhedra",
+        "Web: convex polyhedron at least one third obtuse dihedral angles facets edges Gauss Bonnet",
+        "Web: minimum number obtuse dihedral angles convex polyhedron with n faces lower bound n-5 n-4"
+      ]
+    },
+    "rationale": "The new part is the universal lower bound for every simple spatial polytope and the resulting sharp asymptotic one-third law. Li–Wang–Yu provides upper witnesses but not the universal lower count. Coxeter gives zero-obtuse classification, not the partial-obtuse count. The nearest accessible published-finding corpus record establishes a two-sided angular pinching facet bound under extra lower angle hypothesis, with no stated count lower bound; its full proof was not accessible. Accessible own previous claim on the same construction establishes graph diameter, not obtuse-edge density. Search failure is not proof of historical novelty; priority remains provisional.",
+    "residual_risks": [
+      "Published summary rather than full text of the two-sided pinching record was accessible; it might contain additional related statements.",
+      "Unknown unpublished or older mathematical literature could contain an equivalent one-third law.",
+      "The classification of exact fixed-facet minima remains open in the present argument."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives the upper family, not the claimed universal lower bound or one-third law; the upper incidence facts are credited.",
+        "evidence": [
+          "https://arxiv.org/abs/2611.09021",
+          "https://arxiv.cnoctave.top/pdf/2611.09021"
+        ],
+        "identifier_or_url": "arXiv:2611.09021v1",
+        "material_read": "Full six-page manuscript, especially Theorems 1.2–1.3, Lemmas 2.1–2.3, induction and adjacency properties in Section 2; relevant pages also visually inspected",
+        "method": "Official arXiv bibliographic record and open-access full-paper PDF text and page images",
+        "title": "Infinitely many convex polytopes with dihedral angles bounded above by π/2 + δ",
+        "trigger": "Direct motivating construction and possible inclusion of exact dihedral counts"
+      },
+      {
+        "assessment": "Classifies m=0 case as products of simplices, does not provide partial-obtuse linear minimum count.",
+        "evidence": [
+          "https://sites.math.washington.edu/~billey/classes/reflection.groups/references/Coxeter.1934.pdf"
+        ],
+        "identifier_or_url": "Coxeter, Annals of Mathematics 35 (1934) 588–621",
+        "material_read": "Introduction and Theorem 2 with preparatory lemmas in Sections 1–3, PDF text and an inspected page image",
+        "method": "Open-access scanned full-paper text and page image",
+        "title": "Discrete Groups Generated by Reflections",
+        "trigger": "Classical nonobtuse dihedral classification potentially dominating the zero-obtuse boundary"
+      },
+      {
+        "assessment": "Abstract addresses dihedral lower bounds rather than a counting theorem; no whole-document negative conclusion drawn.",
+        "evidence": [
+          "https://arxiv.org/abs/2207.13346"
+        ],
+        "identifier_or_url": "arXiv:2207.13346",
+        "material_read": "Accessible title, abstract and public source metadata, not whole paper",
+        "method": "Public abstract and targeted literature searches",
+        "title": "Convex Polytopes, Dihedral Angles, Mean Curvature and Scalar Curvature",
+        "trigger": "Dihedral inequalities and geometric curvature bounds near the right-angle threshold"
+      },
+      {
+        "assessment": "Published statement requires lower angular pinching and bounds facet numbers. It does not imply the unrestricted obtuse-edge count, but uninspected full text leaves priority risk.",
+        "evidence": [
+          "2026/11/17/SCOPE-quantitative-two-sided-dihedral-pinching-bounds-the-facets-of-si--b679c61cdead"
+        ],
+        "identifier_or_url": "2026/11/17/SCOPE-quantitative-two-sided-dihedral-pinching-bounds-the-facets-of-si--b679c61cdead",
+        "material_read": "Published title and semantic summary, not full document",
+        "method": "published-finding corpus record semantic search and title/summary implication comparison",
+        "title": "Quantitative two-sided dihedral pinching bounds the facets of simple spatial polytopes",
+        "trigger": "Closest mathematical-record result sharing simple polytopes and near-right pinching"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c2268763-06e4-4dac-b608-a2060f4e416a",
+  "value": {
+    "rationale": "The paper establishing the sharp near-right dihedral facet-count threshold leaves the natural quantitative question of how many edges must cross a right angle. The theorem forces at least F-5 such edges, and the known construction, when its sign spectrum is calculated, realizes F-4, so the limiting proportion is exactly one third even under arbitrary upper pinching. This is a motivated asymptotic extremal invariant, not a routine numerical slice; fixed-F exact minima remain unresolved.",
+    "status": "PASS"
+  }
+}
