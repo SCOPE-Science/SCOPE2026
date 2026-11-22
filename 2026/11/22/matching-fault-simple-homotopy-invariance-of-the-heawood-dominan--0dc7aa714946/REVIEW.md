@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The full finite universe consists of \(3{,}462\) graph-edge matchings of the Heawood graph, determined by a complete edge-by-edge enumeration. Exact Fano collineation enumeration plus polarity yields all \(336\) automorphisms and checks their edge action. The resulting \(30\) orbits cover the matching universe without overlap. All \(121\) orbit-representative elementary deletions admit literal free-face collapse sequences, totaling \(28{,}910\) elementary simplex pairs and leaving no relative faces. The target is a downward-closed subcomplex, ensuring a free face outside it has no concealed cofaces inside it. The intact dominance complex is independently verified to be \(S^6\) via an exhaustive acyclic ordinary face-poset matching (one critical vertex and one critical six-cell); hence every inclusion is a simple-homotopy equivalence and an integral homology isomorphism. A finite executable proof is legitimate here because all graph instances and transitions are bounded and exhaustively enumerated; no sampling or extrapolation is involved.
+
+## Originality — PASS against checked evidence
+The full published Matsushita–Wakatsuki source identifies dominance complexes as Alexander duals of complement neighborhood complexes, without this specific fault classification. The two closest pre-existing Heawood dominance results prove the intact \(S^6\) sphere and symmetry action; neither treats the smaller dominance complexes after deleted graph matchings nor their inclusion maps. Those existing claims are credited, not reasserted as new. Related graph matching-deletion results use different vertex-set or edge-set simplicial constructions. Both text-level implication comparisons and targeted matching, fault, duality, and simple-collapse searches failed to locate an actual covering claim. Residual risk: equivalent research might be unindexed or unavailable; search absence is not proof of first priority.
+
+## Value — PASS
+The exact relative collapse is a strict persistent-invariant statement, stronger than computing individual Betti numbers. It survives up to one third of graph edges deleted, covers nonextendible matchings, and specifies actual inclusion maps for every nested matching filtration rather than only one edge order. The phenomenon is not a general fact about dominance complexes: deleting an edge from a seven-cycle changes its dominance Euler characteristic. The Fano incidence graph is a canonical finite nonchordal example, and complete matching-fault tolerance is a natural stability question. No claim is made for nonmatching faults, higher projective planes or equivariant collapses.
+
+## Sources and scientific limitations
+Matsushita and Wakatsuki (arXiv:2312.02639, first public 2023-12-05); the two named public Heawood dominance-complex calculations; and Forman's discrete Morse theorem. Source abstracts, statements, and relevant proofs were compared as mathematical implications. The exact standalone certificate has been executed, not independently audited, and bibliographic priority remains provisional.
+
+Self-review: passed. Independent audit: not yet performed.
