@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T11:14:31.660575Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md column-weight reduction and two full local cone lemmas: on Z_3 each dead cell sees all other cells in own column plus all six neighbor-column cells; T(w)_i=3-w_i iff local weight sum is 2; after two steps no 2 and no adjacent 1, after three weights only 0 or 3, after four all zero. Short ring exhaustive cases and n>=5 witness establish optimal exponents.",
+        "Independently implemented full 4^5, 4^6, 4^7 local column cone checks and every 4^3/4^4 cyclic weight state; exact local-certificate proof covers all n."
+      ],
+      "rationale": "PASS: Derivation of the weight factor from 8 distinct Moore neighbors on Z3 x Zn is exact for n>=3. Independently enumerated all 4^5 five-column inputs (2-step central outputs 963 zero, 18 one, 43 three) and all 4^6 six-column inputs (no adjacent two-step ones), and all 4^7 seven-column inputs (third-step center 16375 zero, 9 three). Therefore the universal 4-step conclusion follows from finite local lemmas for arbitrary n. Enumerated all 4^3 and 4^4 cyclic weight states and confirmed sharp exponents 2 and 3. The n>=5 explicit (1,1,1,0,...) witness gives nonzero third step. These finite local enumerations are exhaustive over dependencies, not finite-size empirical substitutes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Plane growth and computation results are not statements on all binary configurations of Z3 x Zn; no broad all-circumference torus nilpotency theorem located in sources checked."
+        ],
+        "reasoning": "Known existence of oscillators or growth on Z2 does not imply the same behavior on a height-three periodic quotient because distinct neighbor sets collapse to column totals.",
+        "searches": [
+          "Eppstein Growth and Decay Life-like Cellular Automata Section 4 B2; Martínez et al 2013 Seeds Diffusion; Resultary 3row Moore torus"
+        ]
+      },
+      "checked_sources": [
+        "Git tree d82e69b106e7ccf153e060cdcb0a418f41d77db7, RESULT.md 5398011f22303cd56a761f814d3decc3cc9f4429, verify_weight_cones.py 88fc375c0e33908bc21c5f1e195ca32da16fee1c",
+        "Eppstein 2009 full HTML https://ar5iv.labs.arxiv.org/html/0911.2890, Section 4",
+        "Resultary related Moore automata and Brian Brain toroidal results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eppstein Sec 4 constructs an expanding 2x2 B2 plane pattern; the toroidal three-row local weight factor invalidates inference from that pattern."
+        ],
+        "reasoning": "Neither planar growth nor other periodic Moore cellular automata imply uniform F_n^4=0 or the exact sharp exponent for Seeds.",
+        "searches": [
+          "Eppstein ar5iv full text Secs 2,4; 2013 Martínez et al abstract; Resultary Moore-neighborhood alternative rules"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eppstein proves B2 rules have an unbounded growth pattern on the infinite plane, not three-row toroidal nilpotence. Related three-row Brian Brain and XOR rules have different states/updates."
+        ],
+        "reasoning": "The current nilpotency identity on periodic height three cannot follow from unrestricted-plane B2 growth and is not the same as linear parity/Jordan-chain dynamics.",
+        "searches": [
+          "Resultary Seeds B2/S three-row torus nilpotency extinction; Eppstein Life-like automata 0911.2890; Brian Brain 3-row torus"
+        ]
+      },
+      "evidence": [
+        [
+          "Eppstein proves B2 rules have an unbounded growth pattern on the infinite plane, not three-row toroidal nilpotence. Related three-row Brian Brain and XOR rules have different states/updates."
+        ],
+        [
+          "Plane growth and computation results are not statements on all binary configurations of Z3 x Zn; no broad all-circumference torus nilpotency theorem located in sources checked."
+        ],
+        [
+          "The existing Seeds catalogue lists ordinary planar oscillators; not a tabulated universal extinction exponent e(n)=2,3,4 for every ring circumference."
+        ],
+        [
+          "Eppstein Sec 4 constructs an expanding 2x2 B2 plane pattern; the toroidal three-row local weight factor invalidates inference from that pattern."
+        ]
+      ],
+      "exact_database_or_table": {
+        "evidence": [
+          "The existing Seeds catalogue lists ordinary planar oscillators; not a tabulated universal extinction exponent e(n)=2,3,4 for every ring circumference."
+        ],
+        "reasoning": "The small-ring brute-force tables are genuine boundary checks of an infinite family proved from a five-/six-column exhaustive local lemma.",
+        "searches": [
+          "Resultary semantic Seeds B2/S torus period 3; LifeWiki OCA Seeds oscillator catalogue; Eppstein 2009"
+        ]
+      },
+      "rationale": "Best-of-knowledge original within the precise stated scope; structurally adjacent work does not imply the complete assigned conclusion, as compared below.",
+      "residual_risks": [
+        "Silverman 1996 historical Seeds text not retrieved in full; relevant archive unindexed and priority provisional.",
+        "Short ring binary configurations not independently enumerated here; weight-factor proof and local finite cones are sufficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING PERIODIC THREE-ROW GEOMETRY",
+          "evidence": "Section 4 states every B2 rule has a 2x2 expanding pattern on the infinite grid, a different spatial domain.",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/0911.2890",
+          "material_read": "Accessible full HTML paper, especially Sections 2 and 4, and lines 90–107 on Moore-neighbor B2 growth",
+          "method": "web HTML full text, not snippets",
+          "title": "Growth and Decay in Life-Like Cellular Automata",
+          "trigger": "same B2/S birth rule and potential prior result"
+        },
+        {
+          "assessment": "PRIOR_CONTEXT_ONLY, no full-document exclusion claimed",
+          "evidence": "Cannot assert complete text lacks three-row periodic result; preserves priority risk.",
+          "identifier_or_url": "arxiv:1304.1242",
+          "material_read": "Abstract/index-level metadata and mentions of Seeds in source report; full arXiv HTML not available",
+          "method": "web search and original-paper lookup",
+          "title": "Computation and Universality: Class IV versus Class III Cellular Automata",
+          "trigger": "Seeds and computation prior context"
+        },
+        {
+          "assessment": "DEFINITIONAL_CONTEXT",
+          "evidence": "The catalogues are for plane patterns, not a fixed-height toroidal all-states theorem.",
+          "identifier_or_url": "https://conwaylife.com/wiki/OCA:Seeds",
+          "material_read": "Catalogue description as surfaced by source references; not a primary rigorous theorem",
+          "method": "web lookup/search",
+          "title": "OCA:Seeds",
+          "trigger": "named rule and known planar oscillator catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "RESULT.md column-weight reduction and two full local cone lemmas: on Z_3 each dead cell sees all other cells in own column plus all six neighbor-column cells; T(w)_i=3-w_i iff local weight sum is 2; after two steps no 2 and no adjacent 1, after three weights only 0 or 3, after four all zero. Short ring exhaustive cases and n>=5 witness establish optimal exponents."
+      ],
+      "rationale": "A universal nilpotency exponent four for every circumference at a fixed naturally degenerate three-row periodic Moore geometry is a meaningful sharp structural boundary: the same Seeds rule sustains propagating patterns in the infinite plane, yet every ring state dies uniformly.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git tree d82e69b106e7ccf153e060cdcb0a418f41d77db7, RESULT.md 5398011f22303cd56a761f814d3decc3cc9f4429, verify_weight_cones.py 88fc375c0e33908bc21c5f1e195ca32da16fee1c",
+    "Eppstein 2009 full HTML https://ar5iv.labs.arxiv.org/html/0911.2890, Section 4",
+    "Resultary related Moore automata and Brian Brain toroidal results"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fully periodic 3xN torus, N>=3, B2/S simultaneous eight-distinct-neighbor semantics only."
+  ],
+  "residual_risks": [
+    "Silverman 1996 historical Seeds text not retrieved in full; relevant archive unindexed and priority provisional.",
+    "Short ring binary configurations not independently enumerated here; weight-factor proof and local finite cones are sufficient."
+  ],
+  "schema_version": 1
+}

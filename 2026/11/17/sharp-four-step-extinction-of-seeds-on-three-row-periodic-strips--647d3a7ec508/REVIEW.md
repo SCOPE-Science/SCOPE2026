@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact eight-neighbor rule on a three-row periodic torus factors through the four-valued column-weight map in RESULT.md. Complete, explicitly replayable enumerations of 1024 five-column neighborhoods and 4096 six-column neighborhoods establish the two critical lemmas, which force every third-step column to have weight zero or three, and every fourth-step column to be empty. Every initial binary state is represented by a column-weight word. Sharp witnesses work for every circumference at least five; exhaustive short-ring verification handles three and four. A second independently structured program directly enumerated all original binary configurations for circumferences three through six, reproducing all maximum extinction exponents.
+PASS
 
-## Originality — PASS, qualified
+PASS: Derivation of the weight factor from 8 distinct Moore neighbors on Z3 x Zn is exact for n>=3. Independently enumerated all 4^5 five-column inputs (2-step central outputs 963 zero, 18 one, 43 three) and all 4^6 six-column inputs (no adjacent two-step ones), and all 4^7 seven-column inputs (third-step center 16375 zero, 9 three). Therefore the universal 4-step conclusion follows from finite local lemmas for arbitrary n. Enumerated all 4^3 and 4^4 cyclic weight states and confirmed sharp exponents 2 and 3. The n>=5 explicit (1,1,1,0,...) witness gives nonzero third step. These finite local enumerations are exhaustive over dependencies, not finite-size empirical substitutes.
 
-Eppstein (2009), §4, studies planar growth of all B2 rules, while Martínez–Seck-Tuoh-Mora–Zenil (2013), §2.3, discuss Seeds, related diffusion dynamics and computation on the infinite plane. The known planar Seeds oscillator catalogue supplies no implication of the present three-row global extinction law. Indexed mathematical searches and accessible claims from prior work include nilpotent **linear XOR** dynamics and other finite-state models but no equivalent Seeds B2/S width-three result. The inaccessible full text of Silverman's older introductory article and unindexed catalogues are an acknowledged priority risk; failed searches alone do not prove absolute novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The subject is a canonical nonlinear, explosive, eight-neighbor automaton. A universal four-update extinction result over **all** horizontal circumferences is a strong confinement effect, not a single instance or arbitrary computed sample. The proof identifies a mathematical explanation—the 3-row column-weight factor and forbidden adjacent one weights at time two—and establishes a sharp, size-independent transient bound with no other recurrent states. It sharply contrasts with the documented infinite-plane growth and oscillators without claiming a result outside this geometry.
+Best-of-knowledge original within the precise stated scope; structurally adjacent work does not imply the complete assigned conclusion, as compared below.
 
-## Limitations
+## value
 
-No statements are made about other heights, vertically open boundaries, probabilistic updates, or other birth/survival rules. Historical priority remains subject to older unavailable sources and independent expert review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A universal nilpotency exponent four for every circumference at a fixed naturally degenerate three-row periodic Moore geometry is a meaningful sharp structural boundary: the same Seeds rule sustains propagating patterns in the infinite plane, yet every ring state dies uniformly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

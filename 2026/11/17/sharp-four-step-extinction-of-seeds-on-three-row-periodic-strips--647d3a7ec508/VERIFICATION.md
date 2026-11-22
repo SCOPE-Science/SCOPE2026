@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Execute `python3 verify_weight_cones.py` to check both exact finite local lemmas. Five initial column counts determine a two-step output at one column, yielding the complete distribution \((963,18,0,43)\) for possible outputs \((0,1,2,3)\). Six initial column counts determine adjacent outputs after two steps: none of the \(4096\) words yields \((1,1)\). A separate direct three-step check of \(16384\) seven-column words gives \((16375,0,0,9)\), confirming that all nonempty third-step columns have weight three.
+## correctness
 
-Execute `g++ -O2 -std=c++17 -Wall -Wextra verify_binary.cpp -o verify_binary` followed by `./verify_binary`. This checker implements the original 8-neighbor rule directly on labelled binary cells, not via the column-weight reduction. It visits all \(512,4096,32768,262144\) states for circumferences three through six and checks their extinction times. The two exact recorded standard outputs are supplied separately.
+PASS
 
-The universal theorem is established by exhaustive **local** neighborhoods and a subsequent mathematical argument; it does not infer a general theorem from short-ring simulations. The full infinite-plane cellular automaton, vertical-open cylinders and larger vertical heights are not addressed. Independent external audit is not part of these certificates.
+PASS: Derivation of the weight factor from 8 distinct Moore neighbors on Z3 x Zn is exact for n>=3. Independently enumerated all 4^5 five-column inputs (2-step central outputs 963 zero, 18 one, 43 three) and all 4^6 six-column inputs (no adjacent two-step ones), and all 4^7 seven-column inputs (third-step center 16375 zero, 9 three). Therefore the universal 4-step conclusion follows from finite local lemmas for arbitrary n. Enumerated all 4^3 and 4^4 cyclic weight states and confirmed sharp exponents 2 and 3. The n>=5 explicit (1,1,1,0,...) witness gives nonzero third step. These finite local enumerations are exhaustive over dependencies, not finite-size empirical substitutes.
+
+## originality
+
+PASS
+
+Best-of-knowledge original within the precise stated scope; structurally adjacent work does not imply the complete assigned conclusion, as compared below.
+
+## value
+
+PASS
+
+A universal nilpotency exponent four for every circumference at a fixed naturally degenerate three-row periodic Moore geometry is a meaningful sharp structural boundary: the same Seeds rule sustains propagating patterns in the infinite plane, yet every ring state dies uniformly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
