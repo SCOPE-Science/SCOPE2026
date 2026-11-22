@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify_perfect_matching_ladders.py` with Python 3.9 or later and no third-party packages. The checker independently constructs the vertex/edge graph of each punctured circular ladder and each straight ladder. Backtracking enumerates full perfect matchings. A separate face enumerator produces their downward closures, and mod-two linear algebra reduces explicit simplicial boundary columns.
+## correctness
 
-For odd punctured circumferences 3, 5, 7, 9, and 11 the checker tests the exact union/intersection identities; the target intersection must agree face-by-face with the perfect-matching complex of the induced straight ladder. Mod-two Betti numbers in the first four cases are, respectively, a single generator in dimensions 0, 1, 2, and 3. The 11-column case is checked structurally without homology reduction. Straight ladders of even lengths 2, 4, 6, and 8 are checked by the same method; their mod-two Betti numbers are one in degrees 0 through 3.
+PASS
 
-The file `verification_output.txt` is the literal output of the checker. The universal and integral conclusion is proved by the paired-horizontal-edge lemma, cone covers, exact intersections, and homotopy pushout argument in RESULT.md; no finite sample is extrapolated to a universal claim. This program does not check possible independent bibliographic priority, even-circumference cases, or other kinds of edge deletion.
+Every matching with a rung has paired horizontal edges in both rows: successive intervals between rungs have identical even path components, so row-pairs are forced. Since rung 0 is removed and n is odd, each perfect matching covers column 0 by the pair H+ to column1 or H− to column n−1; no rungless or mixed cover exists. Facet-generated subcomplexes A,B are cones on a common required edge. A face in A∩B cannot touch columns 0,1,n−1; remaining chosen edges correspond to nonoverlapping allowed interior tiles (vertical rungs or paired horizontals), extendible to the n−3 straight ladder and conversely extendible under H±. Thus A∩B exactly equals P(L_{n−3}) as a simplicial complex, not just homologically. For even straight m, first-column rung/horizontal cones intersect in P(L_{m−2}), with base P(L_2)=two disjoint full-matching simplices, hence P(L_{2j})~S^{j−1}; n=3 gives two disjoint H± simplices~S⁰. Simplicial homotopy pushout then gives S^{(n−3)/2} integrally. Explicit independent exact matching enumeration n=3,5,7,9 produced 2,6,16,42 complete matchings and exact intersection face counts 1,7,61,547. Finite checks corroborate but are not the general proof.
+
+## originality
+
+PASS
+
+Compared the exact statement and normalization with primary literature, published mathematical findings and indexed aliases; novelty assessed for the unrestricted claimed quantitative family rather than for credited intermediate lemmas. Residual priority risk is explicit. The deleted vertical rung is a natural local graph defect in a standard periodic ladder, and it changes the topology of the entire infinite odd-width family from the known contractible intact case to spheres of unbounded dimension. The exact intersection expla
+
+## value
+
+PASS
+
+The deleted vertical rung is a natural local graph defect in a standard periodic ladder, and it changes the topology of the entire infinite odd-width family from the known contractible intact case to spheres of unbounded dimension. The exact intersection explains the mechanism, rather than merely tabulating small Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

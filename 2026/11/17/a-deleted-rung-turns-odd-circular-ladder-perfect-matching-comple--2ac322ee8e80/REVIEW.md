@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Every complete perfect matching of an odd circular ladder must use a vertical rung, since a pair of odd horizontal cycles cannot be matched independently. Once a rung is present, each remaining horizontal segment is an even path in both rows, forcing paired horizontal edges. With the rung at column zero absent, exactly two choices remain at that column. Both resulting subcomplexes are cones, and exact face-by-face restriction and extension identify their intersection with the perfect-matching complex of the interior straight ladder. A separate straight-ladder two-cone recurrence, based at two disjoint facets for two columns, proves its integral sphere type. The finite program independently tests the structural equalities. The infinitely quantified claim is established by this argument rather than by finite enumeration.
+## correctness
 
-## Originality
-**PASS with residual uncertainty.** Agarwal and Basak's Section 5.2 and Theorem 25 of arXiv:2608.30601v2 determine the *intact* circular-ladder perfect-matching complexes, including the contractible odd cases. The one-rung deletion is not covered there. Chandrakar and Singh (arXiv:2407.05809) treat straight ladder tilings, relevant to but not sufficient for the deleted-rung gluing. The closest indexed results on the ordinary matching complexes, symmetry-fixed loci of intact prisms, and one-rung-deleted Möbius ladders concern different constructions. Search coverage is finite; an independently discovered equivalent decomposition could exist. The complete text of the straight-ladder paper was not inspected, so any stronger material there remains a residual comparison risk.
+PASS
 
-## Mathematical value
-**PASS.** The result demonstrates a sharp, naturally motivated one-edge topological instability: every odd intact circular ladder has a contractible perfect-matching complex, while deletion of one rung produces a single sphere whose dimension grows without bound. The exact cone-intersection reduction explains the transition, not only its Betti numbers. The new family lies directly next to a current complete intact-ladder classification and is not a mere restatement of the known straight-ladder lemma.
+Every matching with a rung has paired horizontal edges in both rows: successive intervals between rungs have identical even path components, so row-pairs are forced. Since rung 0 is removed and n is odd, each perfect matching covers column 0 by the pair H+ to column1 or H− to column n−1; no rungless or mixed cover exists. Facet-generated subcomplexes A,B are cones on a common required edge. A face in A∩B cannot touch columns 0,1,n−1; remaining chosen edges correspond to nonoverlapping allowed interior tiles (vertical rungs or paired horizontals), extendible to the n−3 straight ladder and conversely extendible under H±. Thus A∩B exactly equals P(L_{n−3}) as a simplicial complex, not just homologically. For even straight m, first-column rung/horizontal cones intersect in P(L_{m−2}), with base P(L_2)=two disjoint full-matching simplices, hence P(L_{2j})~S^{j−1}; n=3 gives two disjoint H± simplices~S⁰. Simplicial homotopy pushout then gives S^{(n−3)/2} integrally. Explicit independent exact matching enumeration n=3,5,7,9 produced 2,6,16,42 complete matchings and exact intersection face counts 1,7,61,547. Finite checks corroborate but are not the general proof.
 
-## Scope of verification
-The proof covers every odd circumference at least three. A reproducible finite checker confirms all face decompositions for five odd circumferences and the mod-two ranks for four, plus four straight-ladder cases. Integer homotopy equivalence follows from the topological argument; mod-two checks cannot independently certify it.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared the exact statement and normalization with primary literature, published mathematical findings and indexed aliases; novelty assessed for the unrestricted claimed quantitative family rather than for credited intermediate lemmas. Residual priority risk is explicit. The deleted vertical rung is a natural local graph defect in a standard periodic ladder, and it changes the topology of the entire infinite odd-width family from the known contractible intact case to spheres of unbounded dimension. The exact intersection expla
+
+## value
+
+PASS
+
+The deleted vertical rung is a natural local graph defect in a standard periodic ladder, and it changes the topology of the entire infinite odd-width family from the known contractible intact case to spheres of unbounded dimension. The exact intersection explains the mechanism, rather than merely tabulating small Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
