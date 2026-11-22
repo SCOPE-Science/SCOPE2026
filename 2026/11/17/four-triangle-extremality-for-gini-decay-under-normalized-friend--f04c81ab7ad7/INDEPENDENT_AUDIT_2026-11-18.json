@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T05:16:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact generator decomposes into complementary C (constants), P (peripheral pair means centered across pairs), and R, with Q eigenvalues 0,-1/2,-3/2. Thus modulo constants H=bI+(a-b)P with a=e^{-t/2}, b=e^{-3t/2}. Layer-cake decomposition of any signal into nested indicator cuts reduces the projection norm to cuts. Randomly replacing split pairs by full/empty pairs preserves expected cross-pair and hub variation and deletes within-pair variation, so only whole-pair indicators need testing. For r whole pairs their Gini ratio is 2h(m+1)/(m(2h+1)), h=m-r, maximized by r=1, giving c_m=2(m²-1)/(m(2m-1)). The one-full-pair witness aligns signs in the triangle inequality, giving equality for all t. d_m=c_m-1=(m-2)/(m(2m-1)) has its unique maximum 1/14 at m=4; its bound proves strict contraction. Independently enumerated ALL binary cuts for m=1..6 at t=.7: norms match formula to <4e-16. Inspected source verify.py rational spectral and orbit checker. The symbolic cut reduction proves all m and real t.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier edge-sum theorem is exact on same graph and generator but not the all-pair semimetric; its sharp constant is 2(m-1)/m a-(m-2)/m b.",
+          "Estrada 2015/2016 graphs/spectra source concerns combinatorial Laplacian and clustering, not norm of H in Gini."
+        ],
+        "reasoning": "The prior exact edge formula neither bounds nor gives equality for the all-pair Gini norm without new pair-difference calculation; no inspected stronger result dominates this exact C/O/V claim.",
+        "searches": [
+          "Resultary semantic search: friendship graph normalized heat semigroup Gini complete-pair variation norm four triangles",
+          "https://strathprints.strath.ac.uk/id/eprint/54532"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, verify.py, checked Git tree 5635794c505c211581f24b47adeae104e94a9b3b",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-normalized-heat-variation-amplification-and-a-four-triangl--64e84c2d1e15/RESULT.md",
+        "https://strathprints.strath.ac.uk/id/eprint/54532",
+        "https://arxiv.org/abs/1307.0468",
+        "Resultary query: friendship graph normalized heat semigroup Gini complete-pair variation norm four triangles"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact earlier J formula gives m≥5 transient amplification, unlike universal strict G contraction.",
+          "Both calculations use spectral modes 0,-1/2,-3/2, but different sign-sensitive cut counts and pair averaging, so eigenvalues alone do not prove all-pair norm."
+        ],
+        "reasoning": "Shared generator solution and witness do not supply the new sharp all-pairs norm; the randomization/coarea argument plus cross-pair combinatorics is essential.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-normalized-heat-variation-amplification-and-a-four-triangl--64e84c2d1e15/RESULT.md",
+          "Resultary semantic search: friendship graph normalized heat semigroup Gini complete-pair variation norm four triangles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same normalized heat and F_m occurs in related prior exact theorem, but its J(f)=Σ_edges|f(u)-f(v)| rather than G(f)=Σ_all_pairs|f(u)-f(v)|.",
+          "For m≥5, edge-variation norm exceeds one near time zero while Gini theorem is strictly contracting for all t>0; the norms cannot be equivalent here."
+        ],
+        "reasoning": "Identical generator and four-triangle terminology are not enough for same conclusion; objective seminorm and its quantified extremum differ materially.",
+        "searches": [
+          "Resultary semantic search: friendship graph normalized heat semigroup Gini complete-pair variation norm four triangles",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-normalized-heat-variation-amplification-and-a-four-triangl--64e84c2d1e15/RESULT.md",
+          "arXiv:1307.0468"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The searched same-model Resultary entry provides an exact EDGE variation table, while complete-pair Gini occurs in other graph families (e.g. normalized heat on complete bipartite) but not this friendship graph.",
+          "No pre-existing independent m→ c_m table for friendship all-pair Gini was identified."
+        ],
+        "reasoning": "Exact all-pairs operator norm and m=4 maximizer are not a known-table recomputation according to actual bounded sources; absence of an external table is a residual-priority claim only.",
+        "searches": [
+          "Resultary semantic search: friendship graph normalized heat semigroup Gini complete-pair variation norm four triangles",
+          "Frozen Git tree 5635794c505c211581f24b47adeae104e94a9b3b"
+        ]
+      },
+      "rationale": "A closely related published RESULT.md computes the same normalized semigroup on the same family but in EDGE-SUM variation J and finds amplification for m≥5, rather than Gini. This is real partial overlap in dynamics and witness; not covering because variation functionals differ and the Gini sharp constant/always-contracting conclusion cannot follow directly from an edge-sum bound. Estrada studies graph spectra and clustering, and Sandryhaila–Moura adjacency-shift graph variation.",
+      "residual_risks": [
+        "The structurally identical normalized heat generator and single-triangle witness are covered by published edge-variation work; mathematical originality rests specifically on all-pairs Gini and its separate norm calculation.",
+        "Unindexed general complete-pair semigroup cut-norm theorems may provide a shortcut; searched prior exact examples do not give this coefficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong overlap in generator/witness; conclusively different functional, edge J can amplify m≥5 while complete-pair G cannot",
+          "evidence": "Theorem eq.1 J norm, proof Steps 2–5, J=Σ_edges|differences|",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-normalized-heat-variation-amplification-and-a-four-triangl--64e84c2d1e15/RESULT.md",
+          "material_read": "Entire source RESULT.md including exact edge-sum formula, proof, all-time comparison, assumptions, limitations",
+          "method": "Read full public GitHub RESULT and compared variation definitions/equalities term by term",
+          "title": "Exact normalized-heat variation amplification and a four-triangle stability boundary on friendship graphs",
+          "trigger": "Same model and same four-triangle number, decisive possible prior domination"
+        },
+        {
+          "assessment": "Does not in inspected material assert exact normalized semigroup complete-pair Gini norm; full-paper priority not certified",
+          "evidence": "Friendship graph combinatorial spectra vs degree-normalized Gini target",
+          "identifier_or_url": "https://strathprints.strath.ac.uk/id/eprint/54532",
+          "material_read": "Accessible author PDF text and initial page image, spectral/clustering passages; not all appendices examined",
+          "method": "Read PDF portions including spectrum discussion and screenshot page",
+          "title": "When Local and Global Clustering of Networks Diverge",
+          "trigger": "Prior friendship-graph spectra, candidate stronger norm theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Gini all-pairs variation is a natural global dispersion statistic distinct from graph-edge total variation. Exact contraction for every friendship-graph size despite slow spectral decay, with the nonmonotone sharp four-triangle extremal size, is a motivated exact operator-norm fact useful for comparing dissipation geometries on hub graphs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The structurally identical normalized heat generator and single-triangle witness are covered by published edge-variation work; mathematical originality rests specifically on all-pairs Gini and its separate norm calculation.",
+    "Unindexed general complete-pair semigroup cut-norm theorems may provide a shortcut; searched prior exact examples do not give this coefficient."
+  ],
+  "schema_version": 1
+}

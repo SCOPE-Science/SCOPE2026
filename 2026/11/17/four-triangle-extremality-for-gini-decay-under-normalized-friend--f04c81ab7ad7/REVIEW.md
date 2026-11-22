@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact spectral decomposition of the degree-normalized generator is verified by direct matrix identities, and the Gini quotient proof reduces to binary cuts using an explicit coarea decomposition. The nonstandard sharp projection lemma is proved by random completion of split peripheral pairs; the key expectation subtracts exactly one within-pair difference for each split pair. Full-pair cuts yield a rational maximization, and their signs give sharp equality for the heat semigroup. The difference formula for the dimension-dependent coefficient establishes the unique four-triangle maximum. Exact-rational tests in the separately embedded checker reproduce the generator, spectral projectors, cut-orbit inequalities, attainment, and signed-signal bounds. Finite diagnostics are not substituted for the general proof.
+PASS
 
-## Originality — PASS (qualified)
+The exact generator decomposes into complementary C (constants), P (peripheral pair means centered across pairs), and R, with Q eigenvalues 0,-1/2,-3/2. Thus modulo constants H=bI+(a-b)P with a=e^{-t/2}, b=e^{-3t/2}. Layer-cake decomposition of any signal into nested indicator cuts reduces the projection norm to cuts. Randomly replacing split pairs by full/empty pairs preserves expected cross-pair and hub variation and deletes within-pair variation, so only whole-pair indicators need testing. For r whole pairs their Gini ratio is 2h(m+1)/(m(2h+1)), h=m-r, maximized by r=1, giving c_m=2(m²-1)/(m(2m-1)). The one-full-pair witness aligns signs in the triangle inequality, giving equality for all t. d_m=c_m-1=(m-2)/(m(2m-1)) has its unique maximum 1/14 at m=4; its bound proves strict contraction. Independently enumerated ALL binary cuts for m=1..6 at t=.7: norms match formula to <4e-16. Inspected source verify.py rational spectral and orbit checker. The symbolic cut reduction proves all m and real t.
 
-The inspected Estrada windmill-graph paper (repository copy of 2015 manuscript) supplies unnormalized Laplacian and adjacency spectral results, not the degree-normalized heat operator norm in complete-pair Gini variation. Sandryhaila–Moura (2013) studies adjacency-shift graph variation, a distinct norm, and does not yield the pair-mean projection norm. The closest published mathematical-record statements on normalized graph heat, clique windmills, graph-edge variation, and Wasserstein contraction do not imply the specific Gini formula; their objectives and input metrics differ. Searches for Gini, mean absolute difference, windmill/friendship graphs, projections, normalized heat, equivalent cut formulas, and four-triangle extremality found no matching published statement. An unindexed historical calculation remains possible, so novelty is qualified rather than independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural exact operator-stability problem for random-walk diffusion measured by unweighted pairwise dispersion rather than a quadratic energy or graph-edge gradient. It yields a complete all-time, all-dimension formula, an unexpected unique *finite* worst size (four triangles), a sharp spectral-rate deficit and a structural random-cut reduction with potential use in other grouped Markov systems. The exact distinction between Gini contraction and alternative graph-variation behavior is substantive, rather than a numerical improvement to an established bound.
+A closely related published RESULT.md computes the same normalized semigroup on the same family but in EDGE-SUM variation J and finds amplification for m≥5, rather than Gini. This is real partial overlap in dynamics and witness; not covering because variation functionals differ and the Gini sharp constant/always-contracting conclusion cannot follow directly from an edge-sum bound. Estrada studies graph spectra and clustering, and Sandryhaila–Moura adjacency-shift graph variation.
 
-## Scope and priority risk
+## value
 
-All assertions apply only to real finite friendship graphs with homogeneous edge weights and continuous-time degree-normalized heat. The primary sources inspected do not prove historical nonexistence, and a same-claim unindexed source could change the originality assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Gini all-pairs variation is a natural global dispersion statistic distinct from graph-edge total variation. Exact contraction for every friendship-graph size despite slow spectral decay, with the nonmonotone sharp four-triangle extremal size, is a motivated exact operator-norm fact useful for comparing dissipation geometries on hub graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
