@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result has exact quantifiers: fixed \(0<\alpha<1\), \(\tau>0\), all \(0<t<1\), and the limit \(t\uparrow1\). The weight is submultiplicative, symmetric and GRS. The inverse coefficient formula is an absolutely convergent weighted geometric series, and its difference-coordinate mass is exactly the Green function of the symmetric random walk. The saddle point, curvature, Gaussian scale and sharp multiplicative prefactor follow from concavity and a uniform local Taylor expansion with negligible tails. The weak central limit for the weighted inverse coefficient distribution uses those same estimates. A standalone checker passed 82 direct and independent finite comparisons, which are corroboration and not a proof of infinite assertions.
+PASS
 
-## Originality — PASS relative to inspected sources
+For 0<alpha<1 the difference-coordinate weight exp(tau|m-n|^alpha) is symmetric submultiplicative and GRS: nth roots along each lattice direction tend to 1. The algebra therefore has exactly the torus of multiplicative characters, including the nonproper diagonal direction. Geometric convolution inverse of delta_0-(t/2)(delta_(1,0)+delta_(0,1)) is the binomial random-walk resolvent. Summing over difference fibers reduces its exact weighted l1 norm to (1+2 sum_{k>=1} exp(tau k^alpha-beta k))/sqrt(1-t²), beta=acosh(1/t). A strictly concave saddle h(x)=tau x^alpha-beta x has r=(alpha tau/beta)^(1/(1-alpha)), H=(1-alpha)tau r^alpha, and curvature sigma^-2=tau alpha(1-alpha)r^(alpha-2). Since sigma→infinity and sigma/r→0, Taylor expansion with controlled tails yields the full Gaussian Laplace equivalent and weak Gaussian limit for |m-n|. beta~sqrt(2(1-t)) gives the exponent constant; the zero fiber is negligible. Independent finite Green-kernel recurrence at t=.61,k=3 agreed with explicit formula to floating accuracy. Finite tests do not establish infinite sum asymptotics.
 
-The closest literature is Spronk–Zhang, *Spectra of Beurling algebras of abelian groups* (2026, arXiv:2611.03437), which identifies the relevant GRS spectra; Chen–Wang, *Spectral Invariance and Gevrey Regularity* (2026, arXiv:2607.03074), which gives general inverse seminorm estimates; and Jaure, *Wiener's lemma for quasicrystals* (2026, arXiv:2610.12770), whose Theorem 5.13 provides norm-controlled inversion for stretched-exponential weights. All three 2026 primary texts were inspected, together with the 2018 quantitative weighted-inversion paper of Samei and Shepelska. Their statements do not give the sharp one-filter equivalent and Gaussian coefficient location. The two-dimensional filter projects to a one-dimensional random-walk Green function; that identity and Laplace asymptotics are explicitly acknowledged as classical ingredients rather than innovations. Actual search comparisons and priority risks appear in `AUDIT.json`.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact quantity measures stability of inverse filtering at a closing Fourier spectral gap. It exhibits a sharp, arbitrarily varying stretched-exponential blowup despite the torus Gelfand spectrum remaining identical for all weights. The Gaussian concentration law identifies the decisive lattice difference scale and width. This is a meaningful quantitative spectral-invariance boundary rather than just reparametrizing a known existence theorem.
+Known weighted convolution inverse-closedness/GRS principles and standard simple-random-walk Green functions are prior facts. The evaluated sharp stretched-exponential prefactor, diverging stability modulus and Gaussian coefficient concentration in the specific natural two-direction filter with a difference-coordinate weight are additional combined quantitative statements; no inspected broad norm-control theorem provides the explicit filter-specific equivalent.
 
-## Limitations and remaining priority risks
+## value
 
-The weight is nonproper, and the filter reduces to a one-dimensional random-walk resolvent. The statement is limited to this explicit filter, fixed weight parameters and weak Gaussian localization; it does not claim a global best inverse bound. The closest known arguments might yield an older equivalent result by combining classical random-walk Green formulas and saddle-point estimates. No claim of complete historical priority or independent validation is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A concrete, motivated sharp stability witness for inverse-closed Beurling algebras: the character spectrum stays fixed at the torus while the inverse develops explicitly quantified stretched-exponential norm blow-up and a concentrated Gaussian difference displacement. Such a tight localized counterpoint to qualitative GRS spectral invariance is useful even though the filter is simple; the novel contribution asserted is the exact evaluated asymptotic, not a new generic Wiener lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

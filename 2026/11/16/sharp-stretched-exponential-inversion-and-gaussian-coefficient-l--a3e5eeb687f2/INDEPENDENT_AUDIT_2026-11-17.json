@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T09:07:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 0<alpha<1 the difference-coordinate weight exp(tau|m-n|^alpha) is symmetric submultiplicative and GRS: nth roots along each lattice direction tend to 1. The algebra therefore has exactly the torus of multiplicative characters, including the nonproper diagonal direction. Geometric convolution inverse of delta_0-(t/2)(delta_(1,0)+delta_(0,1)) is the binomial random-walk resolvent. Summing over difference fibers reduces its exact weighted l1 norm to (1+2 sum_{k>=1} exp(tau k^alpha-beta k))/sqrt(1-t²), beta=acosh(1/t). A strictly concave saddle h(x)=tau x^alpha-beta x has r=(alpha tau/beta)^(1/(1-alpha)), H=(1-alpha)tau r^alpha, and curvature sigma^-2=tau alpha(1-alpha)r^(alpha-2). Since sigma→infinity and sigma/r→0, Taylor expansion with controlled tails yields the full Gaussian Laplace equivalent and weak Gaussian limit for |m-n|. beta~sqrt(2(1-t)) gives the exponent constant; the zero fiber is negligible. Independent finite Green-kernel recurrence at t=.61,k=3 agreed with explicit formula to floating accuracy. Finite tests do not establish infinite sum asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Samei–Shepelska gives general norm-controlled inversion estimates, including stretched-exponential classes, not an exact τ,alpha,t specific two-direction Green-kernel norm asymptotic in the inspected relevant sections",
+          "Spronk–Zhang classifies a broader spectrum, but spectra are unchanged while exact inverse norm diverges"
+        ],
+        "reasoning": "General spectral invariance cannot imply exact tight constants of a particular inverse, and general seminorm bounds do not give this concentrated Gaussian coefficient law. Those theorems are stronger in scope but weaker in claimed numerical specificity.",
+        "searches": [
+          "Samei Shepelska arXiv 1809.04097 norm-controlled inversion weighted convolution algebras",
+          "Chen Wang 2607.03074 Gevrey spectral invariance",
+          "Jaure 2610.12770 Wieners lemma quasi crystals"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md blob 32cc1418502a6d2a40ba4d299cecdf9e6297e659",
+        "Assigned checker.py blob 45bcd2c87c4a7e183e24e20860d4abc0be6f89fa",
+        "Spronk–Zhang arXiv:2611.03437 HTML section2",
+        "Samei–Shepelska arXiv:1809.04097 PDF selected theorem pages",
+        "Resultary semantic two-direction Beurling inverse search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "GRS establishes algebra character spectrum=T²; it does not bound the exact inverse as t↑1",
+          "The Gaussian concentration uses the second derivative of tau k^alpha-beta k at its moving maximizer and cannot be read off merely from an inverse-closedness theorem"
+        ],
+        "reasoning": "Prior general results explain why the inverse exists for t<1 and why norm-control matters; they do not state the combined filter-specific sharp equivalent and CLT. Routine asymptotic methods remain background tools.",
+        "searches": [
+          "Spronk Zhang spectral Beurling arxiv 2611.03437 Corollary GRS",
+          "Samei Shepelska inverse estimates arxiv 1809.04097"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Spronk–Zhang general GRS spectral theorem establishes the torus spectrum but not this inverse filter norm and Gaussian difference-coordinate coefficients",
+          "The exact filter is a weighted 1D simple-walk Green function, with saddle location r and Gaussian scale sigma computed explicitly"
+        ],
+        "reasoning": "The global GRS condition characterizes the spectrum, not quantitative inverse-norm divergence or coefficient localization for a moving parameter; the standard random-walk identity alone leaves the saddle asymptotic to prove.",
+        "searches": [
+          "Resultary semantic: two-direction Beurling weighted inverse filter stretched exponential Gaussian localization difference coordinate random walk",
+          "Spronk Zhang arXiv:2611.03437 spectral Beurling GRS torus"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The finding is a two-continuous-parameter asymptotic formula with weak convergence, not a finite exact database",
+          "No table evaluated the displayed sharp saddle prefactor in the inspected sources"
+        ],
+        "reasoning": "Finite tables are inapplicable to the all-parameter asymptotic statement; absence of a matched formula in a bounded search is not a novelty proof.",
+        "searches": [
+          "Resultary weighted inverse norm two-direction Green resolvent Gaussian coefficient limit",
+          "lattice random walk weighted resolvent stretched exponential tables"
+        ]
+      },
+      "rationale": "Known weighted convolution inverse-closedness/GRS principles and standard simple-random-walk Green functions are prior facts. The evaluated sharp stretched-exponential prefactor, diverging stability modulus and Gaussian coefficient concentration in the specific natural two-direction filter with a difference-coordinate weight are additional combined quantitative statements; no inspected broad norm-control theorem provides the explicit filter-specific equivalent.",
+      "residual_risks": [
+        "An earlier classical lattice Green-function weighted saddle calculation may be equivalent but not indexed; failure to find one does not certify priority.",
+        "Chen–Wang and Jaure full papers were not obtained in this session; broader results potentially contain more specialized illustrative examples."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers torus-spectral part only; no displayed two-direction inverse saddle equivalent in the inspected sections",
+          "evidence": "GRS spectral equivalence and character analysis are established as background",
+          "identifier_or_url": "https://arxiv.org/html/2611.03437v1",
+          "material_read": "HTML full text with emphasis on Section 2 and Corollary 2.13",
+          "method": "open-access arXiv HTML primary read",
+          "title": "Spectra of Beurling algebras of abelian groups",
+          "trigger": "same nonproper GRS weighted algebra spectrum"
+        },
+        {
+          "assessment": "general upper inverse bounds rather than specialized sharp Green-filter equivalent in reviewed passages",
+          "evidence": "framework provides sufficient conditions for norm-controlled inversion, without an evaluated r,sigma Gaussian location law",
+          "identifier_or_url": "https://arxiv.org/pdf/1809.04097",
+          "material_read": "PDF introduction, relevant norm-control theorem/selected proof pages",
+          "method": "open-access PDF and page visual inspection",
+          "title": "Norm-controlled inversion in weighted convolution algebras",
+          "trigger": "stretched-exponential inverse norm bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A concrete, motivated sharp stability witness for inverse-closed Beurling algebras: the character spectrum stays fixed at the torus while the inverse develops explicitly quantified stretched-exponential norm blow-up and a concentrated Gaussian difference displacement. Such a tight localized counterpoint to qualitative GRS spectral invariance is useful even though the filter is simple; the novel contribution asserted is the exact evaluated asymptotic, not a new generic Wiener lemma.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Weight is intentionally nonproper and t∈(0,1), fixed alpha,tau; no uniform joint limit in them.",
+    "The Gaussian limit is for J=|m-n|, not a two-dimensional joint normal law."
+  ],
+  "schema_version": 1
+}
