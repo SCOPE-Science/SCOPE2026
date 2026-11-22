@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the sharp first-band torus result
+# Independent mathematical audit
 
-The argument in `RESULT.md` is self-contained: its only nontrivial inequality is the sign of a polynomial affine in each cosine variable on the complement of the proposed square. Splitting \(X=\cos(2\pi x)\le-1/3\) at \(X=-1/2\) yields maximum values \(-(X+1)/2\) and \((3X+1)/2\), both nonpositive. The analogous bound holds after exchanging coordinates. Equality gives precisely three cosine pairs and five torus points. The first-harmonic moment equations then force the unique five positive masses stated in the finding. The explicit measure satisfies every one of the nine first rectangular Fourier moments.
+## correctness
 
-`CHECK.py` is a standalone Python 3 program (no external packages). It checks all nine complex Fourier moments in exact \(\mathbb Q(i\sqrt2)\) arithmetic; the total mass; the three equality-contact identities; the affine endpoint inequalities for both rectangles; and the forced moment-weight identities. On preparation it completed without errors and reported 29 assertions, including one approximate printing-value check. Numerical sampling and these finite identities are *not* invoked to prove the universal theorem; the proof includes the required infinite positive-measure support argument.
+PASS
 
-The proof does not classify higher Fourier bands, alternative metrics, or signed measures. The publication-priority assessment is based on the primary literature described in `RESULT.md` and is not an independent audit.
+Let X=cos2π(x−a),Y=cos2π(y−b). The zero-mean first-band polynomial H=XY+(X+Y)/2 satisfies H≤0 wherever X≤−1/3 or Y≤−1/3 and vanishes in that complement exactly at (-1,-1),(-1/3,1),(1,-1/3). A maximal empty square at or beyond r*=acos(-1/3)/(2π) thus confines the support, by positivity and zero integral, to five torus sites. The first sine moments force opposite contacts equal; mass and coordinate cosine moments then force mass 1/4 at the antipode and 3/16 at four contacts. Their complex Fourier moments vanish at all eight nonzero frequencies; strict larger holes contradict the forced contact distances. Independently recomputed all nine first-band moments of the five-atom measure with maximal complex residual 5.6e-17. This is not enumeration over all positive measures.
+
+## originality
+
+PASS
+
+Best-of-knowledge original quantitative conclusion after matching exact objects, normalizations and implication checks. The d≥3 theorem as stated has hypothesis d≥3 so it does not logically imply a d=2 conclusion without carrying its proof across the boundary. Its proof explicitly acknowledges the d=2 formula and uniqueness, making separate novelty non-independent. Both records share the same public release batch, so there is no demonstrated strictly prior source and this completed audit retains a best-of-knowledge acceptance with explicit duplication risk.
+
+## value
+
+PASS
+
+The 2-torus first rectangular frequency cubature hole radius is a natural sharp geometric extremal question; its explicit sign certificate and complete unique positive five-atom optimizer matter independently of minimal node count. The simultaneously released d>=3 companion overlaps heavily and should be cross-referenced rather than counted as a separate disjoint novelty claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
