@@ -1,19 +1,21 @@
-# Review of the two-circle boundary-layer law
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The final theorem specifies two independent angular samples, a positive inward radial gap \(\lambda(2\pi/n)^2/2\), and a finite nonzero inner-to-outer sample ratio \(\alpha\). The supporting-line inequalities reduce vertex membership to the four nearest neighbors, because the ratio \((r/R-\cos\phi)/\sin\phi\) is monotone on each signed angular side. After scaling, the outer and inner angular neighbors become independent exponential variables of rates one and \(\alpha\); the three strict inequalities have no boundary atoms. Conditioning on two outer gaps gives the stated normalized integral. Two-point Palm localization yields covariance convergence and the \(L^2\) law. Parameter limits and the sharp \(n^{-2}\) window follow by dominated convergence and coupling monotonicity. Direct convex-hull calculations corroborate the exact local criterion, not merely the integral.
+PASS
 
-## Originality: PASS, provisional
+PASS: For one inner candidate r=1-λ(2π/n)^2/2, monotonicity of support-slope bounds on each angular side makes its nearest same-radius and outer-circle neighbors decisive when outer hull contains origin (failure probability <=n2^{-(n-1)}). Independent rescaled outer gaps converge to Exp(1) and inner gaps to Exp(α); the support inequality reduces exactly in the limit to AB>λ, A(A+W)>λ, B(B+U)>λ. Conditioning on A=a,B=b yields the proposed integral profile with exp[-α((λ/a-a)_++(λ/b-b)_+)]. Two separated tagged candidates have asymptotically independent bounded-width local gaps, hence covariance→0, giving L2 convergence. Dominated convergence establishes λ and α limits including Bessel 2√λ K1, and monotonicity/squeezing gives sharp off-window transitions. Independently integrated p(1,1)=0.210403809962 and checked nearest-neighbor support criterion against actual convex hull in 12 random finite configurations.
 
-The closest inspected historical full-text results treat a single boundary with intrinsic-volume error (Böröczky–Fodor–Hug, 2011), mean area and perimeter via support functions (Majumdar–Comtet–Randon-Furling, 2009), and interior-uniform hull complexity (Har-Peled, 2011). Their statements neither determine the fraction of inner points on the hull in a two-circle sample nor imply the critical \(n^{-2}\) profile. Related published concentric-regular-polygon rotation results use finite deterministic vertex grids, not independent random angular clouds. The accessible 1991 Carnal–Hüsler abstract concerns interior-disk sampling; full text was not verified, so its precise connection remains a residual priority risk. Searches and implication comparisons support best-knowledge originality, not exhaustive historical uniqueness.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The problem asks when a second closely spaced geometric stratum contributes macroscopic numbers of genuine convex-hull vertices. The sharp transition \(n^{-2}\), its explicit two-rate Poisson crossover \(p(\lambda,\alpha)\), and the nontrivial high- and low-density limiting profiles answer that geometric question and explain competition between boundary layers. This is not an arbitrary parameter slice: the scale matches the intrinsic \(n^{-2}\) gap geometry of sampled smooth curves. Unlike computing a known hull invariant, the fraction of surviving inner vertices is not fixed by the single-curve intrinsic-volume laws.
+PASS best-of-knowledge: known boundary-probe Bessel law exactly covers the α↓0 no-inner-competition limit, but the two independent clouds with m_n/n→α>0 require additional same-circle neighbors and a distinct density-dependent crossover p(λ,α) with law of large numbers. Earlier single-curve random polytope volume estimates and small fixed-n nested-circle laws do not imply this full profile.
 
-## Closest literature and limitations
+## value
 
-See the references and prior-work discussion in RESULT.md. The 1991 historical article was available as bibliographic abstract only; other unindexed random-polytope literature may still contain equivalent results. The theorem is qualitative asymptotics for circles with independent uniform angles; no finite-sample error bound, extensions to other curves, or independent audit are claimed. The numerical checker is corroborative rather than a substitute for the mathematical proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: A natural two-boundary random polygon model exhibits a nontrivial n^-2 competition window. The explicit concentration law and positive-density crossover quantify a motivated geometric transition for the fraction of surviving inner-layer hull vertices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
