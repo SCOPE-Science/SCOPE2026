@@ -1,15 +1,21 @@
-# Scientific review: two-line finite-field Fourier conditioning
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed domain is every prime-power field and every unordered pair of distinct lines through the origin, with the ambient Fourier transform normalized by \(1/q\). Nondegeneracy of the dot product, Gauss sums of magnitude \(\sqrt q\), and an orthonormal multiplicative-character decomposition give all singular blocks, including the three-dimensional origin/constant sector. The characteristic polynomials of the three possible nonsingular geometries reproduce the two exact spectral lists. The smallest-singular-value comparison is algebraically uniform; the separate binary case is explicitly handled. The geometry counts follow from the isotropic-line classification and the orthogonal-complement involution. Direct full-matrix calculations on 589 line pairs in eleven fields corroborate these formulas; the proof does not depend on enumeration.
+## correctness
 
-## Originality — PASS (provisional priority)
-The closest published exact two-line theorem, *Arithmetic rank and exact failure distribution for two-line finite Fourier sampling* (2026-11-08), gives nullity, rank, kernel vectors and projective-pair counts. Its proof already contains the character blocks, so the algebraic ingredients for this spectral refinement are not wholly new. The present claim adds the complete nonzero singular spectra **in all invertible cases** and optimizes the actual Euclidean reconstruction condition number over every two-line geometry and finite field, obtaining a universal golden-ratio constant, a characteristic-dependent optimum and exact counts of minimizing configurations. Those quantitative assertions are not provided by the prior theorem. Lai–Liu–Prince (2020) instead study exponential frames of continuous additive spaces; Iosevich–Mayeli (2023) study broader support and restriction estimates; Biswas et al. (2015) treat row-restricted two-dimensional DFT spark. Searches found no exact matching result. This is a relatively short extension of prior block algebra; a prior equivalent conditioning analysis is the principal remaining historical-priority risk.
+PASS
 
-## Mathematical value — PASS
-For invertible finite sampling systems, rank alone does not bound noise amplification. The sharp choice between perpendicular and isotropic geometries changes the optimal condition-number scale from \(q\) to \(\varphi\sqrt q\) on an infinite family of fields, an unbounded quantitative advantage. Determining the exact set and count of optimal two-line sensor layouts over *every* finite field is a natural, complete sampling-design question, not an arbitrary fixed-size census. The complete singular spectra also give full noise gains, not merely a binary reconstructibility criterion.
+Multiplicative characters on F_q^* and the origin split the 2q-1 principal Fourier matrix into q-2 two-by-two blocks (scaled Gauss sums of modulus sqrt(q)) and a symmetric 3-by-3 constant block. Gram determinant ab-c²≠0 partitions every pair into perpendicular, doubly isotropic, singly isotropic or singular geometries. In the invertible groups the nontrivial-block squared singular values are respectively 1/q or φ^(±2)/q; the 3-by-3 block yields the stated exact radicals. Comparing minimum and maximum gives κ=q or φ sqrt(q), q=2 exceptional. Counting isotropic projective lines gives all optimizer multiplicities. Independently rebuilt q=3 and q=5 full principal complex Fourier matrices for every unordered projective-line pair: q=3 had 2 perpendicular and 4 singular; q=5 had 2 perpendicular, 1 doubly isotropic, 8 singly isotropic, 4 singular. Direct singular values matched q or φ sqrt(q in their proper geometries. Finite verification corroborates the all-field proof; it does not replace the character argument.
 
-## Limitations and literature
-The result applies to same-row/column, linear two-line masks only; no arbitrary affine or rectangular designs are classified. Eleven finite fields are checked computationally, but the all-size proof is analytic and algebraic. The rank/character-block predecessor has particularly close coverage and limits the conceptual novelty. The continuous additive-space and finite restriction papers motivate the subject without implying the exact optimized finite-field conditioning theorem. Historical priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original quantitative conclusion after matching exact objects, normalizations and implication checks. A rank/nullity distribution cannot imply Euclidean condition number; the full prior matrices do allow a modest extra algebraic diagonalization. Exact spectra and minimizers are not explicitly concluded by the full prior result.
+
+## value
+
+PASS
+
+Noise amplification and optimal design for finite-field self-Fourier sampling on two one-dimensional subspaces are natural beyond rank alone. The exact φ sqrt(q) versus q stability gap and counts of all minimizers provide a usable design invariant for every finite field.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

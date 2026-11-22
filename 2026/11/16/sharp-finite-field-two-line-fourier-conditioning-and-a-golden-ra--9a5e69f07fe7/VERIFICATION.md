@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility
 
-The exact proof is in `RESULT.md`. The accompanying `check_two_line_conditioning.py` independently constructs full complex Fourier matrices over explicitly implemented prime and extension fields. It computes singular values using NumPy, checks the predicted complete squared-singular-value lists and condition numbers of each invertible two-line restriction, checks every predicted geometric multiplicity, and compares arithmetic nullity for singular restrictions. It checks all unordered pairs of projective lines for field orders \(2,3,4,5,7,8,9,11,13,16,17\), for 589 complete matrices in all.
+# Independent mathematical audit
 
-To rerun, install Python 3 and the package in `requirements.txt`, then execute `python check_two_line_conditioning.py`. Output from the tested run is in `check_output.txt`. These checks are finite corroboration; they do not prove statements for arbitrary prime powers. No source files other than those embedded in this package are needed to execute the checker.
+## correctness
 
-Analytic proof boundaries: the argument relies on finite-field Gauss-sum orthogonality, the exact constant-character matrix, and the complete classification of isotropic projective directions. It does not address translated or rectangular sampling masks. Historical priority has not been independently verified.
+PASS
+
+Multiplicative characters on F_q^* and the origin split the 2q-1 principal Fourier matrix into q-2 two-by-two blocks (scaled Gauss sums of modulus sqrt(q)) and a symmetric 3-by-3 constant block. Gram determinant ab-c²≠0 partitions every pair into perpendicular, doubly isotropic, singly isotropic or singular geometries. In the invertible groups the nontrivial-block squared singular values are respectively 1/q or φ^(±2)/q; the 3-by-3 block yields the stated exact radicals. Comparing minimum and maximum gives κ=q or φ sqrt(q), q=2 exceptional. Counting isotropic projective lines gives all optimizer multiplicities. Independently rebuilt q=3 and q=5 full principal complex Fourier matrices for every unordered projective-line pair: q=3 had 2 perpendicular and 4 singular; q=5 had 2 perpendicular, 1 doubly isotropic, 8 singly isotropic, 4 singular. Direct singular values matched q or φ sqrt(q in their proper geometries. Finite verification corroborates the all-field proof; it does not replace the character argument.
+
+## originality
+
+PASS
+
+Best-of-knowledge original quantitative conclusion after matching exact objects, normalizations and implication checks. A rank/nullity distribution cannot imply Euclidean condition number; the full prior matrices do allow a modest extra algebraic diagonalization. Exact spectra and minimizers are not explicitly concluded by the full prior result.
+
+## value
+
+PASS
+
+Noise amplification and optimal design for finite-field self-Fourier sampling on two one-dimensional subspaces are natural beyond rank alone. The exact φ sqrt(q) versus q stability gap and counts of all minimizers provide a usable design invariant for every finite field.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
