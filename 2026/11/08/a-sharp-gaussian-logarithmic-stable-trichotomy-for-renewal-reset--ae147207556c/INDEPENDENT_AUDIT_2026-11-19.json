@@ -1,0 +1,178 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T02:19:53Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-sharp-gaussian-logarithmic-stable-trichotomy-for-renewal-reset--ae147207556c/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-sharp-gaussian-logarithmic-stable-trichotomy-for-renewal-reset--ae147207556c/checker.py",
+        "https://arxiv.org/pdf/2207.07521"
+      ],
+      "rationale": "For exact Pareto tail P(T>u)=u^(-α), α>2, and independent restarted Brownian excursions, Brownian scaling yields R=2DT²J with J=∫_0^1 W_s²ds independent of T. Wick gives E J=1/2 and E J²=7/12, E R=D E T², E R²=(7/3)D² E T⁴, E RT=D E T³, so centered Y=R-μT has mean zero, μ=D(α-1)/(α-2). Renewal age A_t is tight (nonlattice finite-mean Pareto); U_t|A_t has law 2D A_t²J and is also tight. The exact decomposition t(Q_t-μ)=Σ_{i≤N(t)}Y_i+U_t-μA_t and renewal strong law prove Q_t→μ a.s.; the last full-cycle reward is o(t) a.s. by integrability and Borel-Cantelli. For α>4, Var(Y)/E T gives σ²=D²/m[(7/3)a4-2qa3+q²a2]>0, confirmed α=5→172/27, α=6→695/192, α=8→2597/1080 for D=1. For 2<α<4, β=α/2∈(1,2), Breiman lemma and all positive Gaussian-area moments give P(Y>x)~cα x^-β, cα=E(2DJ)^β. The negative tail is O(x^-α) because Y≥-μT; centering/negative-tail upper bound and the positive-tail sandwich justify spectrally positive β-stable DOA with exponent β cα Γ(-β)(-iu)^β/m after random time change. At α=4, c4=(7/3)D² and truncated second moment ~2c4 log z, so normalized variance c4/m=7D²/4 after sqrt(t/log t). Independent sympy arithmetic verified formulas and independent 160000-draw Brownian KL experiment yielded E(2J)≈0.99972, E(2J)²≈2.32069 (exact 7/3), E(2J)^1.5≈1.40182. This only corroborates moment identities; infinite distributional limits depend on analytic DOA, renewal and random-time-change theorems. D>0 essential; no α≤2, non-Pareto, path-level theorem, finite-time variance convergence or formal Lean attestation asserted.",
+      "residual_risks": [
+        "The random-time-change result uses functional weak convergence and deterministic uniform convergence of renewal clock; dependence of reward on T is not removed by independence assumptions.",
+        "Brownian area numerical checks are finite and do not validate renewal-age tightness or weak convergence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zamparo 2022 Theorem 3.2 with Lemma 4.1 implies α>4 finite-variance CLT for f(x)=x²; this branch is NOT independently new.",
+          "Méndez/Flaquer-Galmés Eq (11) and Eqs (15)-(16) give transform/first-two-moment machinery, not an explicit centered distributional fluctuation limit for x² at α=4 and 2<α<4.",
+          "Published thermal-work theorem studies signed switching work with two tail constants and power q; Brownian signed-area theorem has cycle scale T^(3/2), symmetric stable index 2α/3. Neither dominates the quadratic T²J result."
+        ],
+        "reasoning": "Checked whether apparently stronger general resetting claims logically imply the exact result without deriving model-specific reward law. General random-sum stable theorems remain classical tools; their applicability requires the independently evaluated Brownian quadratic reward moments and tail. Gaussian branch is covered and credited.",
+        "searches": [
+          "Zamparo 2022 Theorem 3.2 and Lemma 4.1, pages 6, 9",
+          "Méndez/Flaquer-Galmés 2025 Sections III-IV",
+          "Resultary: renewal reward heavy tail Brownian occupation quadratic functional Pareto clock stable central limit"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2207.07521",
+        "https://arxiv.org/html/2507.05955",
+        "https://arxiv.org/pdf/2306.13621",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-three-fluctuation-regimes-for-heavy-tailed-thermodynamic-work-in--4e1f14f7a20a/RESULT.md",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/26/SCOPE-stable-signed-area-fluctuations-and-a-critical-variance-anomaly--615283e54117/RESULT.md",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-a-sharp-gaussian-logarithmic-stable-trichotomy-for-renewal-reset--ae147207556c/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2022 normal/large deviations framework provides α>4 but does not state the β=α/2 non-Gaussian limit or α=4 logarithmic constant for x².",
+          "The 2023 paper models the same renewed Brownian diffusion but analyzes position density and renewal-age ergodicity, chiefly heavy-tail 0<α<1.",
+          "The 2025 half-occupation functional yields a different observable and explicit cases 0<α<2, not this centered T² reward with α>2.",
+          "Analogous prior stable-sum trichotomies involve distinct functionals; there is no direct substitution equating their cycle rewards to 2DT²J."
+        ],
+        "reasoning": "Compared parameter domains, observables, consequence strength and distributional normalization. Exact x² coefficient cα=E(2DJ)^(α/2) is derived afresh; prior tools imply the structure only after this computation. The known Gaussian consequence is explicitly separated.",
+        "searches": [
+          "arxiv:2207.07521 Theorem 1.2, Theorem 3.2, Lemma 4.1",
+          "arxiv:2306.13621 initial renewal-age and invariant-density analysis",
+          "arxiv:2507.05955 Eqs (11), (15), (16), Section V",
+          "Resultary 2026/10/26 signed-area and 2026/11/8 thermal-work full RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cycle decomposition R=2DT²J, Y=R-(E R/E T)T makes the claim a regenerative-reward limit problem. Zamparo 2022 p3 says stable limits beyond finite variance can arise, but its own Theorem 3.2 proves the Gaussian CLT under second-moment conditions.",
+          "The 2025 transform Eq (11) is general for additive stochastic functionals; Section V solves half-occupation rather than centered Brownian quadratic reward stable limit."
+        ],
+        "reasoning": "Equivalent random variables and normalizations were compared; general theorems supply the method, not an already evaluated identical T²J Pareto-tail amplitude and weak trichotomy in the inspected work.",
+        "searches": [
+          "Resultary: Brownian resetting Pareto renewal time averaged squared displacement integrated X^2 stable law alpha/2 logarithmic fourth-moment Gaussian trichotomy",
+          "Zamparo arXiv:2207.07521 Sec 1,3.1,4",
+          "Méndez/Flaquer-Galmés arXiv:2507.05955 Sec II-V"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns the IDENTICAL title/slug ae147207556c and text as the assigned source, showing the result has already appeared in its own public record.",
+          "Closest other indexed rows concern signed Brownian area, thermal work, and scaled Brownian absolute area; the reward kernels differ (T^(3/2) normal, T times shifted Gaussian-square, etc.)."
+        ],
+        "reasoning": "Same-identifier duplicate is the present work rather than independent prior coverage; no separate table entry with the evaluated quadratic occupation constants was identified. Semantic index incompleteness is not proof of historical novelty.",
+        "searches": [
+          "Resultary semantic search: Brownian resetting Pareto renewal time averaged squared displacement integrated X^2 stable law alpha/2 logarithmic fourth-moment Gaussian trichotomy",
+          "Resultary semantic search: renewal reward heavy tail Brownian occupation quadratic functional Pareto clock stable central limit",
+          "Resultary semantic search: renewal resetting non Poisson power-law reset Brownian additive functional fluctuations"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty is restricted to the exactly normalized Pareto-reset quadratic Brownian occupation stable/log-critical fluctuation trichotomy, not classical stable-limit methods or the finite-variance CLT. Zamparo 2022 explicitly covers the finite-moment Gaussian branch; Méndez/Flaquer-Galmés 2025 derive general transform/moment formulas and an explicit half-occupation distribution, but not the present centered quadratic stable weak limit. Related published Brownian signed-area and thermal-work trichotomies involve different rewards and are not implication theorems for squared occupation. A Resultary record with the identical identifier/title is a public mirror of THIS claim, not an independent prior discovery; it is disclosed as pre-existing publicity, not counted as disjoint priority evidence.",
+      "residual_risks": [
+        "Classical general stable renewal-reward theorems together with Brownian scaling make the stable/logarithmic derivation relatively direct; a prior explicit specialization not indexed in searched literature may exist.",
+        "The identical Resultary entry shows this is already publicly available as its own work; this audit does not establish first publication or independent provenance.",
+        "Méndez/Flaquer-Galmés general transform could potentially yield the law by specialized additional analysis, but examined sections do not state or mathematically force the coefficients without such analysis.",
+        "Comparisons are best-of-knowledge, not exhaustive priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS Gaussian finite reward-variance regime, NOT explicitly the present evaluated stable/log-critical quadratic weak limits",
+          "evidence": [
+            "Theorem 1.2 random-time CLT; page 3 explicitly notes stable limits beyond finite variance.",
+            "Theorem 3.2 plus Lemma 4.1 supplies polynomial Brownian f(x)=x² CLT when fourth renewal duration moment is finite."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2207.07521",
+          "material_read": "46-page arXiv v2 PDF: introduction, Theorem 1.2 pages 2-3, Theorem 3.2 pages 6-7, Lemma 4.1 page 10, statements on Brownian area/occupation applications; screenshot page 3 read",
+          "method": "Open full-text PDF, inspect theorem hypotheses and application section, specific line searches and page screenshot",
+          "title": "Statistical fluctuations under resetting: rigorous results",
+          "trigger": "General renewal-reward fluctuation theorem could dominate candidate"
+        },
+        {
+          "assessment": "Supplies general transforms/moments but no directly stated centered quadratic Pareto-reset stable/logarithmic weak distribution with constants",
+          "evidence": [
+            "Section IV general ergodic and first-two-moment scaling; Section V application to half occupation, with heavy-tail examples mainly 0<α<2."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2507.05955",
+          "material_read": "Complete arXiv HTML document structure, Introduction, Sections II-IV with Eq (11) and moment formulas Eqs (15)-(16), Section V half occupation and conclusion, including stated limiting distribution regimes",
+          "method": "Direct arXiv full-text HTML reading, theorem and section-level comparisons",
+          "title": "Statistical properties of stochastic functionals under general resetting",
+          "trigger": "General transform for any functional, potentially stronger"
+        },
+        {
+          "assessment": "Stationary density/renewal-age ergodicity, not centered time-integrated x² distributional fluctuation law",
+          "evidence": [
+            "Abstract and Section II explicitly study normalized/non-normalized invariant spatial densities and age, not Gaussian/log/stable occupation fluctuation distributions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.13621",
+          "material_read": "Full-text PDF introduction, model and backwards recurrence time/invariant density results and scope; page 1 screenshot checked",
+          "method": "Direct arXiv PDF text and screenshot, scope/statement comparison",
+          "title": "Ergodic properties of Brownian motion under stochastic resetting",
+          "trigger": "Identical renewed Brownian process with power-law waiting"
+        },
+        {
+          "assessment": "Different switching-work observable and signed cycle reward with two heavy tails; neither exact quadratic occupation nor implication",
+          "evidence": [
+            "Cycle compensated reward is T(κD Z²-v)+cross term, vs nonnegative quadratic Brownian integral R=2DT²J and exponent β=α/2."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-three-fluctuation-regimes-for-heavy-tailed-thermodynamic-work-in--4e1f14f7a20a/RESULT.md",
+          "material_read": "Entire public RESULT.md, theorem, model, cycle-reward proof, constants, prior-literature and limitations",
+          "method": "Read raw published GitHub scientific text",
+          "title": "Three fluctuation regimes for heavy-tailed thermodynamic work in harmonic resetting",
+          "trigger": "Very similar three-regime stable/log/Gaussian structure in published records"
+        },
+        {
+          "assessment": "Does not dominate x² law: signed reward is T^(3/2) times Gaussian, giving index 2α/3 and α=3 boundary, unlike α/2 and α=4",
+          "evidence": [
+            "Published signed-area theorem assumes stationary initialization and reports α=3 critical weak/second-moment variance anomaly."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/26/SCOPE-stable-signed-area-fluctuations-and-a-critical-variance-anomaly--615283e54117/RESULT.md",
+          "material_read": "Entire published RESULT.md with proof and stationary covariance",
+          "method": "Read raw GitHub text and compare Brownian area scaling",
+          "title": "Stable signed-area fluctuations and a critical variance anomaly for Pareto-reset Brownian motion",
+          "trigger": "Same Pareto-renewed Brownian motion, different time integral"
+        },
+        {
+          "assessment": "SAME FINDING public mirror; not distinct prior mathematical coverage, but demonstrates claim is already available publicly",
+          "evidence": [
+            "Identical title, parameter constraints α>2, constants 7D²/4, β=α/2 and exact source slug ae147207556c."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-a-sharp-gaussian-logarithmic-stable-trichotomy-for-renewal-reset--ae147207556c/RESULT.md",
+          "material_read": "Entire matching public RESULT.md",
+          "method": "Read complete public mirror and compare theorem equations, hypotheses and identifier with pinned source",
+          "title": "A sharp Gaussian–logarithmic–stable trichotomy for renewal-reset quadratic occupation",
+          "trigger": "Semantic search returned exact same-title record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-sharp-gaussian-logarithmic-stable-trichotomy-for-renewal-reset--ae147207556c/RESULT.md",
+        "https://arxiv.org/pdf/2207.07521",
+        "https://arxiv.org/html/2507.05955"
+      ],
+      "rationale": "Mean-squared displacement exposure is a natural quadratic path functional of renewal-reset Brownian motion; the finite-mean threshold α>2 and finite-Gaussian-fluctuation threshold α>4 are distinct, making exact critical √(t/log t) and spectrally positive α/2-stable limits relevant to sampling uncertainty. The sharp fourth-moment transition and evaluated physical-time amplitudes are nontrivial natural invariants that are not simply a table lookup. The model-specific R=2DT²J calculation contributes concrete constants beyond the classical renewal reward template. Value does not rely on a new general stable theorem or downstream application; the Gaussian α>4 part is already known.",
+      "residual_risks": [
+        "Exact Pareto lower cutoff one and independent complete restart are essential; practical reset clocks may violate them.",
+        "No finite-sample error guarantees or second-moment convergence at criticality follow from weak limits."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact cutoff-one Pareto waiting distribution, α>2, D>0, independent Brownian excursions, complete renewal resets.",
+    "No functional limit theorem, finite-time variance/accuracy, results for α≤2 or non-Pareto clocks.",
+    "Best-of-knowledge priority, not exhaustive; identical public mirror noted; no Lean or human attestation."
+  ],
+  "schema_version": 1
+}
