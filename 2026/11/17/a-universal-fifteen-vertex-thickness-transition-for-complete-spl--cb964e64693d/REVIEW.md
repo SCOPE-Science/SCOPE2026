@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The canonical Minkowski-sum realization is explicitly fixed. Every Euclidean width is reduced to a normalized connected-tube crossing count using support-function additivity, the ordered-gap decomposition and the triangle inequality. Equality in the triangle inequality excludes multi-level minimizers. The split-graph cut count is an exact subset identity. An exact exhaustive certificate establishes the sharp threshold and all equality conditions for orders 4 through 63, and an unconditional analytic comparison treats every larger order. The checker was replayed from the final staged source file, with 1,830 complete profiles and 750,605 integer cut inequalities.
+PASS
 
-## Originality — PASS, with residual historical risk
+For a sorted unit normal in the coordinate-sum-zero hyperplane, simplex widths decompose into positive adjacent gaps times counts C(A) of crossing connected tubes. Triangle inequality with the centered cut indicators proves a reduction to cut widths, and equality with more than one gap is impossible because nested distinct centered indicators are not positive collinear. In K_c joined to an independent class m, C(a,b)=(2^c-1)2^m-2^{a+b}-2^{n-a-b}+2^b+2^{m-b}; independent manual subset-count reconstruction agrees. Independently reran an exact integer certificate over all 1,830 (n,c) profiles with 4<=n<=63, 750,605 admissible cut classes and all 4,116 equality classes, matching the actual verify.py specification. For n>=64 the source inequalities bound noncentral cut counts below by B[1-(4/3)(2^-k+2^(k-n))] and compare their normalized widths to central cuts, so all noncentral cuts are strictly wider; central C minimizes when b is one of the two middle integers and n cut size is central. Correct switch at n=15, all equality normals and strict lack of ties follow. This is all n, not an extrapolation of the finite table.
 
-The 2021 papers on complete split graph associahedron skeleton diameters and on graph-associahedron deformation cones were inspected in their relevant full-text sections. They provide the combinatorial family and the canonical realization, not its intrinsic Euclidean minimum width. The nearest accessible research records concern the stellohedron, the complete-bipartite graph associahedron and the complete-graph associahedron. These families have distinct connected-tube sets; their exact formulas and common fifteen-vertex threshold do not imply the present two-class cut count, its parameter-uniform minimum or the complete simultaneous class-balancing condition. A broader previously unpublished theorem or an inaccessible equivalent formulation remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Complete split graph associahedra form a natural two-parameter interpolation between the stellohedron and permutohedron, previously analyzed through their graph diameters. The result supplies an exact Euclidean invariant for every genuine split profile, identifies a surprisingly class-composition-independent sharp change of all minimizing normals at a fixed ambient order, and yields an explicit combinatorial census of the optimal cut orbits. The result is about the concrete canonical Euclidean geometry, not a generic consequence of a shared normal fan.
+The graph is the complete split join, neither a complete graph nor a genuine complete biclique. Prior published fifteen-vertex transitions share a threshold and the cut-reduction technique but use different crossing-tube families; their statements do not imply the split two-class all-parameter formula or exact minimizer classes. Best-of-knowledge.
 
-## Limitations
+## value
 
-Only the unweighted tube-simplex realization and clique/independent class sizes at least two are covered. The result does not determine widths of arbitrary realizations or deformations. Independent audit has not been performed. Historical priority is provisional because not every potentially relevant source can be exhaustively inspected.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Euclidean minimum width and its complete normal classification are natural optimization invariants of the canonical graph-associahedron realization. The universal cutoff and double balancing across clique and independent classes provide a nontrivial structurally useful classification for a graph family not covered by neighboring complete/biclique results; this is more than repeating a numerical threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
