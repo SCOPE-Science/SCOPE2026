@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The theorem follows from the exact monomial-integral formula and seven-by-seven matrix in `RESULT.md`. `verify_exact.py` evaluates all spherical cubic norm squares and quarter-lune Gram entries in exact symbolic arithmetic, and compares its complete characteristic polynomial against the seven claimed radical eigenvalues. `verify_numeric.py` independently integrates the original polynomial basis over the lune using tensor-product Gauss–Legendre quadrature and checks the seven eigenvalues to within \(10^{-12}\).
+# Independent mathematical audit
 
-These checks prove only the stated exact degree-three, ninety-degree region through the analytic moment derivation. The numerical test is corroborative and is not an infinite-domain or novelty certificate. No independent audit has been performed.
+## correctness
+
+PASS
+
+PASS. In pure H_3(S^2), the seven displayed homogeneous harmonic cubics are pairwise full-sphere orthogonal and span dimension seven. The gamma/beta formula for monomials on x,y>=0 and odd-z cancellation gives the exact symmetric regional Gram matrix after dividing by explicitly listed norms. The block decomposition 3+4 has characteristic factors with seven distinct roots 1/4, 1/4±sqrt(15)/(10*pi), 1/4±(sqrt(115)−5)/(30*pi), 1/4±(sqrt(115)+5)/(30*pi). All lie strictly between 0 and 1; the largest and smallest simple eigenvalues give sharp two-sided energy bounds with one-dimensional equality spaces. Independently reconstructed symbolic moment-matrix/eigenvalue identities from the polynomial basis, agreeing to symbolic equality, with a numerical eigensystem cross-check at ~3e-17. This exact finite-dimensional calculation is a proof for the fixed degree/region; Gaussian numerical quadrature is only a check, not proof of any broader family.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS on distinct scientific statement/implication comparisons and primary evidence, with explicit source-access and index limitations. Pure cubic spherical lune quarter aperture
+
+## value
+
+PASS
+
+PASS. The ninety-degree lune is the intersection of two coordinate hemispheres, a canonical nonsymmetric observation window; exact pure-cubic eigenvalues and extremal eigenlines quantify stability of regional harmonic reconstruction in its first seven-mode octupole sector. This is a naturally defined exact invariant, not an arbitrary polynomial substitution. No general aperture or higher-band statement is needed for the useful degree-3 benchmark; no novel general Slepian theory is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

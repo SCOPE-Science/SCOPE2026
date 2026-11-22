@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** All seven displayed cubics are degree-three harmonic restrictions and form a full-sphere orthogonal basis. Exact beta/gamma monomial integration gives the regional Gram matrix and its exact radical spectrum. Two locally executable stand-alone checkers confirm the symbolic identities and independent Gauss–Legendre integration; the integral proof, not the quadrature, establishes the theorem.
+## correctness
 
-**Originality: PASS, with priority uncertainty.** Searches for cubic spherical-lune concentration, ninety-degree lune spectra, the radical \(\sqrt{115}\), and the seven eigenvalues found no equivalent formulation in the accessible indexed records. The closest indexed work treats pure quadratic harmonics on arbitrary lunes and quarter-wedges, not pure cubic harmonics. The 2004 spherical Slepian foundation formulates the eigenproblem without these evaluated values. The inspected full-text HTML sections of the 2023 manifold-wavelet article address general regional Slepian wavelets without these constants. The indexed descriptions of two closely related published quadratic results were compared; their linked full texts could not be inspected, so an unindexed equivalent specialist calculation remains a risk.
+PASS
 
-**Value: PASS.** A quarter-longitude spherical lune is a natural intersection of two perpendicular hemispheres and a canonical non-axisymmetric observation mask. This is its complete seven-mode cubic spectral stability benchmark, including exact sharp bounds, simplicity of both extremizers, and a central symmetry of the spectrum. It is not a routine normalization or a numerical census, and its exact constants have a clear role in regional inversion and observation conditioning.
+PASS. In pure H_3(S^2), the seven displayed homogeneous harmonic cubics are pairwise full-sphere orthogonal and span dimension seven. The gamma/beta formula for monomials on x,y>=0 and odd-z cancellation gives the exact symmetric regional Gram matrix after dividing by explicitly listed norms. The block decomposition 3+4 has characteristic factors with seven distinct roots 1/4, 1/4±sqrt(15)/(10*pi), 1/4±(sqrt(115)−5)/(30*pi), 1/4±(sqrt(115)+5)/(30*pi). All lie strictly between 0 and 1; the largest and smallest simple eigenvalues give sharp two-sided energy bounds with one-dimensional equality spaces. Independently reconstructed symbolic moment-matrix/eigenvalue identities from the polynomial basis, agreeing to symbolic equality, with a numerical eigensystem cross-check at ~3e-17. This exact finite-dimensional calculation is a proof for the fixed degree/region; Gaussian numerical quadrature is only a check, not proof of any broader family.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS on distinct scientific statement/implication comparisons and primary evidence, with explicit source-access and index limitations. Pure cubic spherical lune quarter aperture
+
+## value
+
+PASS
+
+PASS. The ninety-degree lune is the intersection of two coordinate hemispheres, a canonical nonsymmetric observation window; exact pure-cubic eigenvalues and extremal eigenlines quantify stability of regional harmonic reconstruction in its first seven-mode octupole sector. This is a naturally defined exact invariant, not an arbitrary polynomial substitution. No general aperture or higher-band statement is needed for the useful degree-3 benchmark; no novel general Slepian theory is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
