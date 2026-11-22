@@ -1,0 +1,15 @@
+# Scientific assessment: thermally calibrated symmetric Gaussian resetting
+
+## Correctness — PASS
+
+The candidate specifies the Ornstein–Uhlenbeck equation, the independent Poisson clock, two exactly equilibrium-width Gaussian reset packets, and the domain of all positive parameters. The stationary law \(X=LSU+Z\), with \(U\sim\operatorname{Beta}(r/\kappa,1)\) and \(Z\sim\mathcal N(0,D/\kappa)\), follows by direct last-reset conditioning and Gaussian variance addition. A constructive derivative identity produces a strictly decreasing comparison integral, proving that no additional off-axis extrema exist; the critical root is unique. The small-argument expansion proves quartic flattening and the precise opening coefficient. The proof covers both sides of every boundary. The independent standard-library checker passed 59 numerical consistency assertions and is not used as a substitute for infinite-parameter proof.
+
+## Originality — PASS with explicit priority risk
+
+Olsen (arXiv:2310.04840, Sections II–III) supplies the general reset-to-distribution renewal law and stationary moment hierarchy, not the complete mode count of symmetric thermal-width Gaussian packets. Trajanovski et al. (arXiv:2301.12304, Section III) treat fixed-position resetting; Gueneau et al. (arXiv:2306.09453) reset the *driving noise*, which is a different model. A closely related public result, *Separation-independent modal transition for harmonically confined diffusion under symmetric resetting*, studies reset measures supported **outside a central gap**, notably two atoms at \(\pm L\). The present reset law has positive density throughout that gap and has Gaussian packet variance \(D/\kappa\); its exact threshold is separation-dependent rather than the previously reported point-reset condition \(r=\kappa\). The full published RESULT text for that related theorem was compared. Another public result on reentrant fourth cumulants uses a single Gaussian reset packet and classifies kurtosis rather than bimodality. The all-parameter proof and threshold are not direct implications of either. Independent publication-priority verification is still absent, and implicit coverage in the broader Gaussian-convolution or mode-count literature remains possible.
+
+## Mathematical value — PASS
+
+Thermalized reset packets are a natural experimental idealization that separates the spatial separation of two preparations from bath thermal broadening. Unlike point resets, the stationary peak count depends on both reset rate and a sharp, nontrivial separation-to-width integral threshold. A rigorous one-zero theorem classifies all possible modes, not merely the sign of central curvature or a finite parameter scan. The quartically flat boundary and explicit critical example make a reusable structural benchmark for stationary inverse and modality problems; it is not only a renamed forward renewal formula. The result does not claim performance of a finite-sample estimator, non-Poisson universality, or experimental implementation.
+
+Self-review: passed. Independent audit: not yet performed.
