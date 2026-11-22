@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Both laws are derived from exact event-time representations and Bernoulli conditional expectation. The Poisson mean, variance, covariance and conditional means are computed directly; the fixed-count counterparts follow by independent uniforms. Derivative equations reduce globally to intersections of strict monotone functions, or a strictly decreasing finite power sum. Limiting root and fractions follow from a Riemann sum and continuous parameter equations. The standard-library verifier independently tests 7,219 numerical assertions, including path simulations. The unconditioned endpoint \\(t=1\\) remains informative and was explicitly checked. No infinite claim relies on simulation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cressie (1978), Estimation of the integral of a stochastic process, https://doi.org/10.1017/S0004972700007838 (sections 1–4, especially full-observation formula (11)).",
+        "Samaniego (1976), The optimal sampling design for estimating the integral of a process with stationary independent increments, https://doi.org/10.1109/TIT.1976.1055551 (public summary).",
+        "El-Sayyad (1972), A Comparison of Methods of Sampling from a Poisson Process, https://doi.org/10.1111/j.2517-6161.1972.tb00921.x (public summary only; relevant inaccessible source)."
+      ],
+      "reasoning": "The strongest directly relevant accessible full-text theorem optimizes times of full path-value observations, not their one-bit coarsening. Its general independent-increment statement does not identify a Bayes information ratio after many-to-one quantization. El-Sayyad may consider alternate Poisson sampling schemes, but its abstract does not specify a saturated-bit predictor for the count-path integral, and the unavailable full text remains a risk rather than declared not covering.",
+      "searches": [
+        "\"The optimal sampling design for estimating the integral of a process with stationary independent increments\"",
+        "\"A Comparison of Methods of Sampling from a Poisson Process\"",
+        "\"2018 2021 counting process integral one bit binary event observation optimal timing area estimator\""
+      ]
+    },
+    "checked_sources": [
+      "Cressie 1978 full PDF, https://doi.org/10.1017/S0004972700007838",
+      "Dokter et al. 2017 full article, https://doi.org/10.1002/ece3.3281",
+      "Samaniego 1976 bibliographic summary, https://doi.org/10.1109/TIT.1976.1055551",
+      "Yoder et al. 2017 public abstract only, https://doi.org/10.1177/1053815117748407",
+      "El-Sayyad 1972 public abstract only, https://doi.org/10.1111/j.2517-6161.1972.tb00921.x",
+      "2026 public note A two-visit occupancy experiment breaks equal-effort optimality, complete posted theorem"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cressie (1978), Estimation of the integral of a stochastic process, https://doi.org/10.1017/S0004972700007838 (sections 1–4, especially full-observation formula (11)).",
+        "Dokter et al. (2017), Analyzing time-ordered event data with missed observations, https://doi.org/10.1002/ece3.3281 (full sections 1–4).",
+        "Yoder et al. (2017), Partial-Interval Estimation of Count: Uncorrected and Poisson-Corrected Error Levels, https://doi.org/10.1177/1053815117748407 (public abstract; full text restricted).",
+        "A two-visit occupancy experiment breaks equal-effort optimality (2026), public research note, full theorem and proof examined; its maximizer of the function \\(f(x)=x^2/(e^x-1)\\) is acknowledged as prior mathematical calculus."
+      ],
+      "reasoning": "Cressie implies the full-count Poisson comparator \\(t=2/3\\), which is explicitly not asserted new; it does not imply the different saturated-bit node, the strict monotonicity in rate, or the fixed-count polynomial root. Partial-interval studies are motivators but not known stronger risk-minimization theorems for this integral. A prior independent result gives the scalar root \\(c_*\\) under another objective; the proof here shows a distinct finite-model relation and matching normalized information-loss coefficient.",
+      "searches": [
+        "\"1976 optimal sampling design integrated process stationary independent increments\"",
+        "\"2017 partial interval recording Poisson corrected count\"",
+        "\"one-bit counting bridge Poisson area optimal observation\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cressie (1978), Estimation of the integral of a stochastic process, https://doi.org/10.1017/S0004972700007838 (sections 1–4, especially full-observation formula (11)).",
+        "A two-visit occupancy experiment breaks equal-effort optimality (2026), public research note, full theorem and proof examined; its maximizer of the function \\(f(x)=x^2/(e^x-1)\\) is acknowledged as prior mathematical calculus."
+      ],
+      "reasoning": "A full count \\(N(t)\\) and the saturated indicator \\(1_{N(t)>0}\\) define different sigma fields for nontrivial count laws. The former is treated by Cressie; neither its linear conditional predictor nor its prescribed node implies the bit optimum. The named related detection result optimizes a Fisher determinant for two visits with unknown occupancy and detection rate, not squared error for path-integrated counts. Although the identical scalar constant appears there, this numerical root is expressly not claimed as new.",
+      "searches": [
+        "\"Poisson process conditioned on exactly m arrivals, estimate integral of counting path from one binary observation whether any arrival by fixed time; optimal time solves 2 sum_{k=1}^m (1-t)^k=m\"",
+        "\"One bit first arrival detection optimal sampling quantile for binomial point process integrated count, asymptotic 1.59362/m\"",
+        "\"Poisson process area integral count path one observation event before time optimal sampling mean square\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Yoder et al. (2017), Partial-Interval Estimation of Count: Uncorrected and Poisson-Corrected Error Levels, https://doi.org/10.1177/1053815117748407 (public abstract; full text restricted).",
+        "Dokter et al. (2017), Analyzing time-ordered event data with missed observations, https://doi.org/10.1002/ece3.3281 (full sections 1–4).",
+        "The accessible public result records returned no exact finite-population root \\(2\\sum_{k=1}^{m}(1-t)^k=m\\) nor the paired two-ensemble information fractions."
+      ],
+      "reasoning": "The matched event-recording sources study count-rate and interval distortion, rather than a published exact table for Bayes squared-error count-path-integral information. Search absence alone is weak novelty evidence; no claim of exhaustive database coverage is made.",
+      "searches": [
+        "\"One-bit partial interval recording of event count, optimal observation timing for integrated cumulative count or occupation, saturation vs count\"",
+        "\"Bayes quadrature of order-statistics counting bridge with one indicator observation and exact optimal sampling time\"",
+        "\"2019 2020 integrated Poisson process sampling mean square one observation quadrature\""
+      ]
+    },
+    "rationale": "A directly covering full-valued count-path quadrature theorem is credited and excluded. The novel statement concerns exact one-bit coarsened observations, two distinct finite sampling laws, and their identical normalized high-density information decay. Result-comparison searches and accessible full texts found no implication of these finite-design and information-loss claims. The constant c* already arises in other binary designs and is expressly not claimed independently novel. Publication priority is provisional because older Poisson sampling and interval-count articles are not completely accessible.",
+    "residual_risks": [
+      "The 1972 El-Sayyad paper has a title plausibly related to Poisson sampling; its full target/observation classes were inaccessible.",
+      "Yoder et al. (2017) full paper was inaccessible; only its abstract could be compared.",
+      "The identical high-rate root occurs in separate binary sensing literature and is not inherently novel.",
+      "Independent historical priority review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers full-valued point sampling and hence the exact-count Poisson comparator, not a coarsened single binary report.",
+        "evidence": [
+          "Observable data explicitly \\(X_{t_i}\\) (p.84), with conditional estimator; optimal nodes \\(2i/(2n+1)\\) (p.89)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0004972700007838",
+        "material_read": "Full accessible 11-page article, definitions, exact predictor (2), covariance partition and formulas (8)-(11), concluding sections",
+        "method": "HTML-extracted PDF text and direct visual inspection of PDF pp.1 and 6",
+        "title": "Estimation of the integral of a stochastic process",
+        "trigger": "Same target integral and Poisson special case; strongest apparent covering theorem"
+      },
+      {
+        "assessment": "Studies interarrival distributions, missing detections and correction of event-rate estimates; no count-path-integral one-bit Bayes design theorem.",
+        "evidence": [
+          "Introduction defines mean interarrival-time inference; discussion recommends interval recording, not integrals of count paths."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/ece3.3281",
+        "material_read": "Complete open-access article sections 1 to 4 including likelihood construction, simulations, data and discussion",
+        "method": "Full HTML article inspected by section",
+        "title": "Analyzing time-ordered event data with missed observations",
+        "trigger": "2017 motivating primary event-sensing source and missing-event statistics"
+      },
+      {
+        "assessment": "The root value and scalar maximization are already known; its Fisher determinant for two occupancy visits cannot imply the two path-integral MSE risk formulas for one saturated observation.",
+        "evidence": [
+          "The note optimizes \\(f(x)+f(T-x)\\) with \\(f(x)=x^2/(e^x-1)\\) and derives bounded short-visit length."
+        ],
+        "identifier_or_url": "public research note, 2026-11-08",
+        "material_read": "Complete publicly accessible RESULT.md including theorem, proof, assumptions, references and limitations",
+        "method": "Read full posted mathematical note",
+        "title": "A two-visit occupancy experiment breaks equal-effort optimality",
+        "trigger": "The identical positive root \\(2(1-e^{-c})=c\\) occurs in a related binary-event design"
+      },
+      {
+        "assessment": "Abstract indicates simulation and Poisson-corrected count estimates, not count-path-integral Bayes quadrature; full-text coverage not ruled out.",
+        "evidence": [
+          "Publisher abstract describes 3000 simulated event streams and count estimation error, not an exact time-node theorem."
+        ],
+        "identifier_or_url": "https://doi.org/10.1177/1053815117748407",
+        "material_read": "Public abstract, date, research topic and bibliographic details; publisher full text access restricted",
+        "method": "Viewed publisher article and references pages; no full research body available",
+        "title": "Partial-Interval Estimation of Count: Uncorrected and Poisson-Corrected Error Levels",
+        "trigger": "2017 direct comparison of binary interval recording and counts"
+      },
+      {
+        "assessment": "Possibly related but its exact experiment/target cannot be compared without full text; residual originality risk explicitly retained.",
+        "evidence": [
+          "Abstract mentions fixed sampling schemes, minimum average risk, priors and sampling costs, without specifying target integrated count area."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1972.tb00921.x",
+        "material_read": "Title, date, published summary and references; full article inaccessible from open access and institutional retrieval",
+        "method": "Publisher abstract / bibliographic searches; attempted licensed retrieval returned no document",
+        "title": "A Comparison of Methods of Sampling from a Poisson Process",
+        "trigger": "Broad older comparison of fixed Poisson sampling and average risk, potentially relevant to bit design"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d3842c2a-4a49-4a92-b771-ecb47ade0035",
+  "value": {
+    "rationale": "The stochastic path integral is a natural time-integrated exposure statistic, but a one-bit detector coarsens arbitrarily many arrivals. The theorem determines a unique optimal deterministic observation time for every rate and every known total count, proves strict movement of the node with increasing density, and quantifies a sharp information loss: a single saturated bit explains only about \\(1.94283/\\lambda\\) or \\(1.94283/m\\) of prior variance at high intensity, whereas a full count preserves fractions \\(8/9\\) and \\(3/4\\). The shared coefficient across conditional and unconditioned ensembles is a mathematically motivated comparison, not an arbitrary numerical table.",
+    "status": "PASS"
+  }
+}
