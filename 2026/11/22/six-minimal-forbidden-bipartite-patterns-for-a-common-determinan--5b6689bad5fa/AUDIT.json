@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Proof gives exact fiberwise cross semantics, matching/Koenig vertex-cover dichotomy, all minimal counterexamples as three-edge matchings or four edges from two same-shore centers, three neighbor-intersection cases, and disjoint combinatorial type counts. The classical Koenig theorem is correctly applied to all finite simple bipartite graphs, including isolated vertices. The extracted verifier confirms 16 full alphabet rectangles through 4x4, direct split semantics through 3x3, and all 2x2x2 subsets. Computations are not relied on for the general quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fröhlich–Kolaitis–Meier (arXiv:2508.16146), Theorem 22, covers the same formula but establishes four-coherence and complexity classification.",
+        "Barlag et al. (arXiv:2605.31269) discuss coherence and first-order rewritability of broad families; abstract and introduction were inspected, not a complete exact-obstruction enumeration."
+      ],
+      "reasoning": "General 4-coherence contains the qualitative upper bound that all minimal falsifiers have at most four rows, but does not imply the six-type labelled count or exclude 3-row obstructions. No accessible broader exact theorem was found; remaining general-paper full-text access is a recorded risk.",
+      "searches": [
+        "Dependence logic team semantics disjunction of functional dependence atoms =(x,y) ∨ =(x,z), 4-coherence, four-assignment minimal counterexamples, bipartite vertex cover",
+        "coherence of disjunction of two dependence atoms with shared determinant, three versus four coherence",
+        "https://arxiv.org/abs/2605.31269",
+        "https://arxiv.org/abs/2508.16146"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2508.16146 (original public date 2025-08-22)",
+      "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.10/LIPIcs.CSL.2026.10.html (Theorem 22 full relevant text)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-size-enumerator-for-a-two-dependence-atom-disjunction--e22bc6a91416 (complete RESULT.md)",
+      "https://arxiv.org/abs/2605.31269 (abstract/introduction preview)",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL8/Mansour/mansour.html (2005 matrix-pattern abstract)",
+      "published-finding corpus IDs: 2026/11/8/SCOPE-exact-minimal-obstruction-spectrum-for-two-disjoint-boolean-depe--df44209fab27; 2026/11/8/SCOPE-sharp-minimal-falsifier-spectra-for-inverse-functional-dependenc--2a96c3a15333; 2026/10/18/SCOPE-exact-size-enumerator-for-a-two-dependence-atom-disjunction--e22bc6a91416"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The disjoint-variable source treats dep(x,y) or dep(u,v) and gives 132 Boolean minimal falsifiers, rather than the shared-determinant disjunction here.",
+        "The inverse-functional source treats dep(x,y) or dep(y,x), which has a distinct graph coloring condition and arbitrarily long obstruction-size spectra.",
+        "An accessible own-ledger prior claim treats dep(x,y) or dep(y,z) for a three-valued determinant with a different overlap pattern; it reports 4/6/7/8-row falsifiers, not these 3/4-row shapes."
+      ],
+      "reasoning": "None of the cited different-variable formulas is equivalent under a bijective renaming to the common-determinant formula. Prior upper bound or satisfying count supplies only components of the argument, not a stronger statement from which the full minimal-falsifier counting polynomial follows directly.",
+      "searches": [
+        "Minimal falsifying teams for dependence disjunction dep(x,y) or dep(x,z): exactly bipartite 3-edge matching, C4, P5, two disjoint 2-edge stars; 3 and 4 assignment minimal forbidden patterns and polynomial counts",
+        "4-coherence exact labelled obstruction count dep(x,y) vee dep(x,z) inclusion-minimal counterexamples disjunction functional dependencies",
+        "minimal non-cross-coverable bipartite graphs edge set not covered by one vertex of each side, forbidden subgraphs matching 3 C4 P5 disjoint 2-stars",
+        "2026/11/8/SCOPE-exact-minimal-obstruction-spectrum-for-two-disjoint-boolean-depe--df44209fab27",
+        "2026/11/8/SCOPE-sharp-minimal-falsifier-spectra-for-inverse-functional-dependenc--2a96c3a15333"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "CSL 2026 Theorem 22 states exactly four-coherence for the same formula and constructs a four-assignment witness.",
+        "Cross-coverable bipartite edge sets are the equivalent interpretation of satisfying one common-determinant disjunction; original published derivation is acknowledged.",
+        "Target theorem additionally classifies ALL inclusion-minimal false graphs and gives a polynomial with nonzero terms in degrees 3 and 4, which coherence alone does not specify."
+      ],
+      "reasoning": "The graph-language translation is an equivalent semantics, not itself an originality claim. The new invariant is the complete minimal-falsifier graph spectrum with counts, not the already established witness-size cutoff.",
+      "searches": [
+        "Minimal falsifying teams for dependence disjunction dep(x,y) or dep(x,z): exactly bipartite 3-edge matching, C4, P5, two disjoint 2-edge stars; 3 and 4 assignment minimal forbidden patterns and polynomial counts",
+        "4-coherence exact labelled obstruction count dep(x,y) vee dep(x,z) inclusion-minimal counterexamples disjunction functional dependencies",
+        "web: \"dep(x,y)\" \"dep(x,z)\" \"forbidden\"",
+        "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.10/LIPIcs.CSL.2026.10.html#Sec5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published published-finding corpus record computes coefficient-by-coefficient counts of ALL satisfying teams; its cross-polynomial has no classification or count of inclusion-minimal failing teams.",
+        "Kitaev–Mansour–Vella (J. Integer Sequences 2005) study avoidance of fixed 2-by-2 and right-angle binary matrix patterns; accessible abstract does not report a cross-coverability minimal-falsifier census."
+      ],
+      "reasoning": "The all-satisfying-team enumerator concerns a different counting statistic. Its coefficient values alone cannot recover the number of inclusion-minimal false teams without additional inclusion structure. No exact same six-type count was identified in searched graph/matrix/logic records.",
+      "searches": [
+        "Minimal falsifying teams for dependence disjunction dep(x,y) or dep(x,z): exactly bipartite 3-edge matching, C4, P5, two disjoint 2-edge stars; 3 and 4 assignment minimal forbidden patterns and polynomial counts",
+        "4-coherence exact labelled obstruction count dep(x,y) vee dep(x,z) inclusion-minimal counterexamples disjunction functional dependencies",
+        "2026/10/18/SCOPE-exact-size-enumerator-for-a-two-dependence-atom-disjunction--e22bc6a91416",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL8/Mansour/mansour.html"
+      ]
+    },
+    "rationale": "The original primary Theorem 22 already establishes 4-coherence for this same disjunction, and a published exact satisfying-team enumerator already uses a row-column cross normal form. Neither inspected primary statement gives the complete six minimal non-coverable graph classes, distinguishes 3-assignment from 4-assignment obstructions across all alphabets, or counts their labelled multiplicities. These are derived here with a matching/cover argument. Distinct published-finding corpus obstruction results use different variable identifications; this prevents specialization. Priority remains qualified by accessible-source limits.",
+    "residual_risks": [
+      "Historical graph-theory or binary-matrix terminology may hide an equivalent forbidden-pattern list or exact census not located by the searches.",
+      "The full 2026 general coherence preprint was not available for complete text inspection; only abstract and introduction preview were read.",
+      "Not independently audited and no claim of universal historical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CUT_OFF_AND_SEMANTICS_PRIOR_ONLY",
+        "evidence": [
+          "Theorem 22 specifically states dep(x,y)∨dep(x,z) has coherence-level four.",
+          "The proof supplies a four-row counterexample and small-subteam bound, not the six minimal graphs or labelled all-alphabet census."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.10/LIPIcs.CSL.2026.10.html",
+        "material_read": "Full HTML relevant definitions, statements, Theorem 22 and proof and surrounding classification",
+        "method": "Published publisher HTML, substantive mathematical comparison",
+        "title": "Disjunctions of Two Dependence Atoms",
+        "trigger": "Same atom formula, known 4-coherence bound"
+      },
+      {
+        "assessment": "SAME_SEMANTICS_DIFFERENT_INVARIANT",
+        "evidence": [
+          "F_{m,r,s}(t)=H_{r,s}(t)^m counts all SATISFYING teams by cardinality.",
+          "Their single-fiber criterion is containment in one row-column cross, a prior lemma used here; they give no minimal-falsifying graph taxonomy or polynomial."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-exact-size-enumerator-for-a-two-dependence-atom-disjunction--e22bc6a91416/RESULT.md",
+        "material_read": "Complete RESULT.md: Finding, Assumptions and scope, three proof steps, Verification, Relationship, Limitations, References",
+        "method": "Primary published text fetched by repository content read",
+        "title": "Exact size enumerator for a two-dependence-atom disjunction",
+        "trigger": "Exact same formula and overlapping size enumeration vocabulary"
+      },
+      {
+        "assessment": "RISK_NOT_EXHAUSTIVELY_EXCLUDED",
+        "evidence": [
+          "Focus is equivalence of coherence and FO rewritability, and complexity of coherence decision.",
+          "No six-pattern count visible in accessible material; no negative full-text claim is made."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.31269",
+        "material_read": "Abstract and available introduction PDF preview, pages approximately 1–2; remaining full body unavailable in inspected sources",
+        "method": "ArXiv abstract and lawful full-paper preview embedded in publicly accessible HTML",
+        "title": "Aspects of Coherence in Dependence Logic",
+        "trigger": "Broader later 2026 coherence study; plausible general priority"
+      },
+      {
+        "assessment": "POTENTIAL_CROSS_DOMAIN_RISK",
+        "evidence": [
+          "The abstract concerns avoidance of prescribed small binary submatrices, not explicitly minimal failures of one-row-plus-one-column covering.",
+          "Possible hidden equivalent enumeration is left as a residual risk."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL8/Mansour/mansour.html",
+        "material_read": "Journal landing-page abstract describing enumerations of fixed 2x2 and right-angle binary patterns; full version was not read",
+        "method": "Primary publisher page",
+        "title": "Pattern Avoidance in Matrices",
+        "trigger": "Possible older matrix-pattern equivalent"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5b6689ba-d5fa-446c-87f0-ea6860d395e6",
+  "value": {
+    "rationale": "The complete minimal forbidden-subteam basis is a natural and consequential refinement of the already-known 4-coherence cutoff for a canonical two-dependence-atom formula. It exposes the possible 3-row failures, classifies all four-row structural mechanisms including shore orientation, and gives a reusable closed labelled census for every determinant and consequent alphabet size. This enumerates all minimal counterexamples for testing database dependence splits rather than providing arbitrary finite instances or only a routine fixed-size calculation. Scope and historical uncertainty are explicitly bounded.",
+    "status": "PASS"
+  }
+}
