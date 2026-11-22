@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 checker.py` with Python 3 and SymPy installed. The executed command returned:
+## correctness
 
-`ALTERNATING_JAMILOV_EXCEPTIONAL_POINT_OK symbolic_Jordan_powers=8 rational_trajectories=220`
+PASS
 
-The checker verifies the symbolic characteristic polynomial, discriminant factorization, a nontrivial nilpotent Jordan component on the sum-zero plane, eight exact Jordan power identities, and 220 exact-rational four-species trajectories and normalized two-season recurrences. It additionally tests the spectral discriminant signs on either side of the critical parameter. The proof in `RESULT.md` supplies the uniform parameter inequalities, exact recurrence for all times, and infinite-time asymptotics; the finite tests are not a certificate of an infinite statement. The literature check examined the primary original full text, a full text of the closest open-access later superposition paper, and general spectral background; at least one similar journal article was accessible only through its abstract. No independent audit is represented.
+With 0<x4<1 the quadratic map has scalar b_(t+1)=b_t² where b=2x4−1 and normalized peripheral vector p evolves by P12=αI+(1−α)swap12 and P23 similarly, hence p_(2n)=(P23P12)^n p0 exactly. Independent symbolic multiplication yielded charpoly (λ−1)[λ²−(α²+2α−1)λ+(2α−1)²] and Δ=(1−α)²(α²+6α−3). α*=2sqrt3−3, λ*=7−4sqrt3 are in (0,1). Nonstationary block at α* has nonzero N with N²=0 on sum-zero plane, checked independently on two spanning differences; binomial power gives the exact n λ*^(n−1) coefficient for every n, not merely sampled times. For α<α* discriminant<0; above it roots real nonnegative <1 (primitive doubly stochastic M²), and the scalar x4 law gives doubly exponential approach to 1/2. Boundary x4=0 or 1 intentionally excluded; generic prefactor fails on ker N.
+
+## originality
+
+PASS
+
+The original autonomous Jamilov operator is prior art, while the verified alternating two-transposition product has a distinct defective discriminant and exact Jordan polynomial relaxation. The contemporary three-transposition paper explicitly cites this two-season threshold as prior and proves a different calendar.
+
+## value
+
+PASS
+
+Alternating two individually reversible directional kernels is a minimally dimensioned mechanism for a non-semisimple exceptional point in a nonlinear population law. The radical threshold and exact Jordan-prefactor relaxation quantify a behavior invisible in autonomous Jamilov dynamics. The result has independent dynamical value without claiming that Jordan blocks themselves are new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed map is the source's quadratic stochastic family with four species and alternating transpositions. Dividing peripheral population by its exact total produces the stated two-season product, while the fourth coordinate satisfies the exact squaring recurrence. A direct characteristic-polynomial calculation yields the factorized discriminant and its unique interior root. On the two-dimensional sum-zero invariant plane, Cayley–Hamilton proves nilpotence, and an explicit nonzero coefficient proves a genuine Jordan block. The exact binomial identity gives the polynomial-exponential asymptotic for every initial direction outside its one-dimensional exceptional kernel. The primitive stochastic matrix and scalar recurrence establish the full limit. The symbolic and exact-rational checker ran successfully. There are no infinite-case extrapolations from numerical data.
+## correctness
 
-## Originality — PASS within inspected evidence
-The full primary text of Jamilov (arXiv:2210.05107), especially the autonomous family and its limit-point theorem, concerns iterating one fixed permutation and does not state alternating noncommuting transpositions or their spectral collision. Aralova–Jamilov (2022, DOI:10.1080/10236198.2022.2126316) considers superposition on a two-dimensional simplex; a full copy could not be accessed, but its stated ambient dimension leaves only two peripheral types in the corresponding four-species construction and cannot yield this minimal three-peripheral noncommuting pair. Jamilov–Mukhitdinov (2025, DOI:10.68381/jca32052), inspected in full, studies explicit, different operators on a two-dimensional simplex and does not establish this four-species matrix or its collision. General nonreversible-chain eigenvalue phenomena are known from Seabrook–Wiskott (arXiv:2207.02296), but are not an exact parameter classification for this population model. The closest searchable mathematical records concerning Jamilov's fixed-permutation relaxation and annealing for a single permutation do not imply the new alternating-permutation discriminant. Residual risk is equivalent analysis in unindexed or inaccessible sources, notably the later fixed-permutation paper by Jamilov and Khudoyberdiev (DOI:10.1080/10236198.2023.2284827).
+PASS
 
-## Value — PASS
-Three peripheral species are the smallest dimension allowing two noncommuting distinct transpositions. The exact boundary \(\alpha=2\sqrt3-3\) separates two qualitatively different relaxation spectra and produces a genuine defective return operator from two reversible diagonalizable normalized exchange kernels. The formula identifies an unavoidable generic polynomial prefactor missed by eigenvalue-modulus-only convergence estimates, in a natural quadratic inheritance system rather than an arbitrary parametrized matrix. No general theorem beyond this concrete deterministic two-season model is claimed.
+With 0<x4<1 the quadratic map has scalar b_(t+1)=b_t² where b=2x4−1 and normalized peripheral vector p evolves by P12=αI+(1−α)swap12 and P23 similarly, hence p_(2n)=(P23P12)^n p0 exactly. Independent symbolic multiplication yielded charpoly (λ−1)[λ²−(α²+2α−1)λ+(2α−1)²] and Δ=(1−α)²(α²+6α−3). α*=2sqrt3−3, λ*=7−4sqrt3 are in (0,1). Nonstationary block at α* has nonzero N with N²=0 on sum-zero plane, checked independently on two spanning differences; binomial power gives the exact n λ*^(n−1) coefficient for every n, not merely sampled times. For α<α* discriminant<0; above it roots real nonnegative <1 (primitive doubly stochastic M²), and the scalar x4 law gives doubly exponential approach to 1/2. Boundary x4=0 or 1 intentionally excluded; generic prefactor fails on ker N.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The original autonomous Jamilov operator is prior art, while the verified alternating two-transposition product has a distinct defective discriminant and exact Jordan polynomial relaxation. The contemporary three-transposition paper explicitly cites this two-season threshold as prior and proves a different calendar.
+
+## value
+
+PASS
+
+Alternating two individually reversible directional kernels is a minimally dimensioned mechanism for a non-semisimple exceptional point in a nonlinear population law. The radical threshold and exact Jordan-prefactor relaxation quantify a behavior invisible in autonomous Jamilov dynamics. The result has independent dynamical value without claiming that Jordan blocks themselves are new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
