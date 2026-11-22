@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible finite checks and exact proof boundary
+# Independent mathematical audit
 
-The accompanying `verify_rank_interval.py` requires Python 3.9 or later and no third-party package. From the extracted package directory run `python3 verify_rank_interval.py`. This enumerates every face at orders \(4\le n\le8\), implements the **actual two-stage matching** of the proof, checks the full directed Hasse graph is acyclic by a topological sort, and compares the unmatched faces exactly to one critical vertex and the four-triple tetrahedra indexed by four-sets. It also verifies the complete eight-vertex antipodal graph and maximality of every critical tetrahedron.
+## correctness
 
-Run `python3 verify_rank_interval_mod2.py` for a separate finite test. It uses Bron–Kerbosch maximal-clique generation followed by full simplex expansion and binary boundary-matrix elimination to calculate reduced \(\mathbb F_2\)-Betti numbers at \(n=4,5,6,7\). The results match the predicted sole nonzero third Betti numbers \(1,5,15,35\).
+PASS
 
-The attached `morse_output.txt` and `mod2_output.txt` are actual output from these programs; they are not independent certification and they are not a substitute for a proof in arbitrary dimension.
+In the induced rank-[1,3] Boolean Hamming scale-two flag complex, a singleton is adjacent to a higher-rank support exactly when included; pair families form Johnson cliques. The first Morse matching along smallest common singleton removes every higher-support family with nonempty intersection. Remaining critical candidates are the three 2-subsets of each triple, the cone with its triple, and four triples of each four-set; second matching cancels triangle-to-cone. Directed cycles are excluded by nonincrease of number of rank-two vertices and forced strict drop after second-stage arrows. Critical cells are one vertex and binom(n,4) 3-cells. Cross-polytope sphere z_U pairs with an ambient maximal-triple cocycle C_U by a diagonal integral unit, making a primitive integral basis; coordinate permutations produce exterior-fourth-power signs. Inspected full RESULT and structural verifier; independently enumerated full mod-two reduced ranks for n=3,4,5, confirming 0,1,5 top generators. Those finite enumerations are corroboration, not the uniform proof.
 
-**The infinite argument** is the fiberwise canonical-singleton matching, exact classification of Johnson cliques with empty intersection, elimination of triangle-to-cone pairs, a monotone rank-two count proving global acyclicity, Forman's CW reduction, and the primitive diagonal pairing between induced octahedral cycles and maximal three-faces. No computation establishes the universal result by extrapolation. The claim does not extend to rank four or to other Rips scales.
+## originality
+
+PASS
+
+PASS qualified: novel distinction is deletion of zero support and a primitive integral basis/action on exactly ranks 1,2,3; the prior cumulative ranks 0..3 rational action and full Boolean cube theorems are not the same complex or enough to imply the new integral lattice.
+
+## value
+
+PASS
+
+Deletion of the empty support is a motivated topological boundary operation on the natural Boolean weight filtration; the resulting all-n wedge classification and integral S_n lattice, with explicit fundamental 3-cycles, are natural structural invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
