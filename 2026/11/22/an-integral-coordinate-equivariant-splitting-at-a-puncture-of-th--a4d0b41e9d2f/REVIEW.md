@@ -1,0 +1,11 @@
+# Scientific review: An integral coordinate-equivariant splitting at a puncture of the scale-two hypercube Rips complex
+
+**Correctness — PASS.** The explicitly determined link \(L_n\) has a contractible core and one integral two-cell for each coordinate triple; this gives a primitive basis of \(H_2(L_n;\mathbb Z)\). Oriented three-cube four-crosspolytope boundary cycles are honest integral cycles, each mapping by the pair boundary to one basis vector. Their signed coordinate-permutation action identifies an equivariant right inverse. The exact sequence, character and rational quotient conclusion follow for every \(n\ge3\). A pure-standard-library verifier checked all faces and these chain coefficients through \(n=6\), with finite-vs-infinite limits disclosed.
+
+**Originality — PASS, subject to recorded priority risk.** The 2021 complete-hypercube and initial-segment-deletion homotopy theorem already subsumes the *nonequivariant* puncture type; the 2024 crosspolytope theorem already gives independent cube cycles, and a 2026 published link classification provides the link wedge type. Those are explicitly not new. The new statement identifies the actual relative connecting map and supplies its **integral \(S_n\)-equivariant right inverse** and geometric quotient-homology consequence. The recent cohomological full text was inspected in relevant sections. The full representation preprint was unavailable and is a bounded priority risk.
+
+**Value — PASS.** The vertex-puncture map is a natural morphism in metric simplicial topology; rank information and ambient rational representation theory do not determine its integral symmetry lattice or equivariant splitting. The theorem identifies exactly which three-dimensional coordinate cycles are removed, with unit coefficients and orientations, and proves that puncturing changes ordinary third homology but not the third rational homology of the symmetric quotient. This is a motivated structural refinement, not a re-tabulated Betti count.
+
+**Known limits.** The statement concerns only Hamming scale two, one puncture, and the integral degree-three module. It does not compute an irreducible decomposition of the complementary lattice or establish an equivariant homotopy wedge. Independent validation has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
