@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-At each order \(2\le n\le5\), exhaustive restricted-growth-string enumeration gives all set partitions, and the nonnesting family is independently generated as positive type-\(A\) root-poset antichains. Direct character sums agree with the entire integer Walsh–Hadamard transform, not merely selected values. Exact signed histograms, group cardinalities and Parseval identities agree. Affine inequivalence follows rigorously because invertible affine changes preserve Fourier zero multiplicity.
+PASS
 
-## Originality — PASS under bounded comparison
+PASS: Independently enumerated all set partitions via restricted growth words and independently imposed four-point crossing and consecutive-arc nesting predicates. Both family sizes n=2..5 are 2,5,14,42. Complete Walsh butterflies on 2^binom(n,2) frequencies yield respective zero counts (1,1),(0,0),(16,16),(0,119), equal signed histograms through n4 and rank gap 1024/905 at n5. Original 22-row spectrum.csv multiplicity sums are 1024 for each class and zeros 0/119. As an additional structural check, the source generates type-A root antichains yielding the same NN support. Affine Walsh frequency reindexing and phase multiplication preserve zero count; inequivalence follows.
 
-Mamede (arXiv:0810.1422v1, initial 2008-10-08) and Armstrong–Stump–Thomas (arXiv:1101.1277v1) demonstrate Catalan correspondence, not equal spectra of edge-equivalence embeddings. A related published noncrossing-only mod-four Fourier congruence does not include nonnesting partitions or imply their 119 zeros. Relevant indexed results on noncrossing perfect matchings and partition-statistic covariances have distinct objects or observables. No dominating claim was found in bounded searches, but absence of a match is not a priority proof; weighted partition-polynomial literature remains a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is the first order at which Fourier rank separates two classical equinumerous Catalan partition families in the natural same-block pair-coordinate realization. The difference changes exact deconvolution recoverability and rigorously prohibits any linear-affine explanation of the Catalan bijection in those coordinates. The result is a motivated finite boundary, not a free parameter slice.
+PASS for the comparative n5 NC-versus-NN rank separation. A stronger prior n-all modulo-4 congruence theorem for noncrossing partitions was read in full and ALREADY implies NC5 nonvanishing (since Cat5=42≡2 mod4); this NC half is not novel. It says nothing about nonnesting 119 zero modes or identical small-order histograms, so the combined first contrast is not a corollary. The general type-A Catalan bijection does not preserve pair-incidence Walsh data.
 
-## Scope
+## value
 
-Only the finite orders two through five are certified. The complete 22-row signed histogram for order five and the standalone checker are embedded. No general asymptotic claim or external validation is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Natural same-block embedding tests whether classical Catalan-bijection equinumerosity can arise via a linear-affine Fourier equivalence. The first n5 exact 119-nullspace obstruction is a motivated finite boundary and reflects a real change in convolution recoverability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
