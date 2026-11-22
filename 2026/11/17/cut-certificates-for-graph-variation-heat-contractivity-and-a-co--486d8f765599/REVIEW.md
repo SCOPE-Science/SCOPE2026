@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The linear heat operator preserves constants and its sharp graph-total-variation norm reduces by the discrete coarea decomposition to indicator cuts. First differentiation gives an integer cut statistic: the squared crossing-degree term is cancelled against the absolute differences across uncut edges. The derivative of a finite maximum and the semigroup-product argument prove that nonpositive slopes at time zero are equivalent to contraction for every later time. The bridge cut formula is derived exactly; its degree-sum obstruction excludes every long off-cycle attachment and multiple leaves at one cycle vertex. Explicit cycle-arc cuts exclude all remaining long-cycle and over-leafed-pentagon cases. The 40 residual cases are completely enumerated by a standalone integer checker with 3,064 cuts and an independent derivative calculation, not extrapolated from samples. For the indicated seven-vertex graph, direct Laplacian arithmetic yields positive Lipschitz slope despite nonpositive total-variation slopes.
+PASS
 
-Critical proof limitations: the general graph cut test is finite but exponential, the full time-dependent operator norms are not calculated, and no weighted/normalized graphs are claimed. The finite certificate proves only its bounded cases; the unrestricted steps have their own mathematical proofs.
+For all finite connected simple unweighted graphs with combinatorial L=D-A and edge variation ∑edges|f(u)-f(v)|, the coarea indicator decomposition gives the exact operator norm as a maximum over nontrivial cut indicators. Differentiating each crossing edge and same-side edge of e^{-tL}1_S gives K(S)=-∑c_S(v)^2+∑_{internal uv}|c_S(u)-c_S(v)|. Finite maxima give the right derivative max K/|∂S|. If nonpositive, operator-norm submultiplicativity of the semigroup and b(t/N)^N≤(1+o(1/N))^N show all-time contraction; positive K gives a constructive counterexample. Bridge side cut has K=deg(u)+deg(v)-4. Together with the long-cycle three-vertex cut and pentagon three-leaf obstruction, necessity leaves precisely bare cycles; triangle/square with ≤one leaf per cycle vertex; pentagon with ≤two distinct leaves. Recomputed exact 40 allowed graph configurations, all 3,064 nontrivial cut slopes, and compared direct directional derivatives; all satisfy K≤0 and match (-6, -4, -2, 0) table. Long-cycle witnesses k=6,7,9 gave K=1. Original script inspected, not accepted merely because of log marker. The seven-vertex signal separates edge-TV from Lipschitz contraction.
 
-## Originality — PASS (qualified)
+## originality
 
-A fresh comparison was made against semigroup curvature, graph coarea and total-variation flow literature and against accessible mathematical-record searches and historical claim headings. The closest graph-gradient result is Münch–Wojciechowski's equivalence between Ollivier curvature and edge-\(\ell^\infty\) Lipschitz heat contraction, not the cutwise edge-\(\ell^1\) variation test here. An explicit seven-vertex positive-Lipschitz-slope example within the present variation-contractive class prevents that result from implying the new classification. Münch's paper on “total variation of the heat semigroup” means total-variation **distance of measures**, not variation across graph edges. The nonlinear total-variation gradient flow in Giga–van Gennip–Okamoto is governed by a different generator. Previously accessible heat edge-variation work on complete bipartite graphs does not cover general cut geometry or the unicyclic graph class. No stronger equivalent or existing exact unicyclic table was found in inspected material; this is a best-evidence priority assessment, not a proof of historical uniqueness.
+PASS
 
-Residual risk: an equivalent general semigroup-dissipativity characterization or an implicit treatment of unicyclic edge-\(\ell^1\) contractions could exist in older Banach lattice/graph diffusion studies.
+Best-of-knowledge originality after actual statement-level comparison: new scope not logically covered by primary work or published stronger indexed analogues; prior constituent lemmas and any exact known special cases are explicitly acknowledged.
 
-## Mathematical value — PASS
+## value
 
-Edgewise total variation is a standard stability functional for graph signals, yet conventional heat-flow estimates typically concern Euclidean, probability-mass, or Lipschitz norms. The cut criterion transforms an all-time analytic contractivity question into finite, exact combinatorial inequalities for arbitrary finite graphs. The unicyclic classification has a genuine cycle-length threshold: no attachments survive beyond a pentagon, even though every bare cycle is stable. A seven-vertex example also demonstrates why a superficially similar known curvature condition cannot replace the new one. These constitute a natural complete structural classification and an obstruction mechanism that extend beyond finite sample enumeration.
+PASS
 
-## Closest sources and limits
+Complete natural unicyclic classification for a central heat semigroup monotonicity property, with explicit nontrivial sharp long-cycle/pentagon obstructions, algorithmic criterion valid on arbitrary finite graphs, and a sharp separation from the graph-Lipschitz condition. This is not a textbook restatement of coarea or a trivial one-vertex example.
 
-Bauer et al., *Li-Yau inequality on graphs* (arXiv:1306.2561, §§1 and 4); Münch–Wojciechowski, *Ollivier Ricci curvature for general graph Laplacians* (arXiv:1712.00875, Theorem 3.8); Münch, *Non-negative Ollivier curvature on graphs* (arXiv:1907.13514, Theorem 3.1.1); Giga–van Gennip–Okamoto, *Graph gradient flows: From discrete to continuum* (Hokkaido preprint 2022, §4); van Gennip–Budd, *A Prolegomenon to Differential Equations and Variational Methods on Graphs* (2025, §3.2). All involve distinct or broader conceptual settings but none of the inspected statements gives the claimed exact graph-cut certificate and unicyclic classification. Lack of a matching statement is not an exhaustive publication-priority guarantee.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

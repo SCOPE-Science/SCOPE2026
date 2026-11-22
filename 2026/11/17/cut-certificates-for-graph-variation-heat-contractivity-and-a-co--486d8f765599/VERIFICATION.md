@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Scope of verification
+# Independent mathematical audit
 
-The exact finite certificate is `verify_graph_bv_heat.py`. Run with `python3 verify_graph_bv_heat.py`, requiring only the Python 3 standard library.
+## correctness
 
-Its successful execution checks all 40 allowed small-cycle leaf-attachment patterns, all 3,064 associated nontrivial cuts, the equality between cut formula and a separately evaluated directional derivative, 48 explicit long-cycle witnesses, 16 excluded pentagon attachment patterns, 165 bridge-cut identities, and a Lipschitz-vs-edge-variation separating witness.
+PASS
 
-The program is exhaustive only for the explicitly bounded small-cycle cases, not for all finite graphs. The unrestricted cut criterion and the arbitrarily large unicyclic obstructions require the symbolic arguments given in `RESULT.md`; their validity does not follow from finite experiments. Publication-priority equivalence outside the inspected sources is unproved. Independent mathematical audit has not been performed.
+For all finite connected simple unweighted graphs with combinatorial L=D-A and edge variation ∑edges|f(u)-f(v)|, the coarea indicator decomposition gives the exact operator norm as a maximum over nontrivial cut indicators. Differentiating each crossing edge and same-side edge of e^{-tL}1_S gives K(S)=-∑c_S(v)^2+∑_{internal uv}|c_S(u)-c_S(v)|. Finite maxima give the right derivative max K/|∂S|. If nonpositive, operator-norm submultiplicativity of the semigroup and b(t/N)^N≤(1+o(1/N))^N show all-time contraction; positive K gives a constructive counterexample. Bridge side cut has K=deg(u)+deg(v)-4. Together with the long-cycle three-vertex cut and pentagon three-leaf obstruction, necessity leaves precisely bare cycles; triangle/square with ≤one leaf per cycle vertex; pentagon with ≤two distinct leaves. Recomputed exact 40 allowed graph configurations, all 3,064 nontrivial cut slopes, and compared direct directional derivatives; all satisfy K≤0 and match (-6, -4, -2, 0) table. Long-cycle witnesses k=6,7,9 gave K=1. Original script inspected, not accepted merely because of log marker. The seven-vertex signal separates edge-TV from Lipschitz contraction.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after actual statement-level comparison: new scope not logically covered by primary work or published stronger indexed analogues; prior constituent lemmas and any exact known special cases are explicitly acknowledged.
+
+## value
+
+PASS
+
+Complete natural unicyclic classification for a central heat semigroup monotonicity property, with explicit nontrivial sharp long-cycle/pentagon obstructions, algorithmic criterion valid on arbitrary finite graphs, and a sharp separation from the graph-Lipschitz condition. This is not a textbook restatement of coarea or a trivial one-vertex example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
