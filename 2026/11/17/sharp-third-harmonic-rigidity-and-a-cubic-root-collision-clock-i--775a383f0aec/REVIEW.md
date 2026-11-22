@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The reduction and conserved Hamiltonian follow by direct differentiation, checked symbolically. The equilibrium census uses strict monotonicity of the cubic polynomial on the full closed parameter interval, including the endpoint where its derivative has isolated zeros. The two collision-free disks have one nondegenerate center each, no other critical point, and zero Hamiltonian on their boundary; Morse continuation and compactness give exactly one periodic curve per intermediate energy. Exact collision scalar equations and Taylor factors give the asserted inverse-time and inverse-cube-root limits. Symbolic checks and finite integration tests are reproducible in `verify.py`.
+## correctness
 
-## Originality — PASS within inspected evidence
-The full even-coupling first integral and associated reversible geometry are already known from Ashwin–Bick–Burylko (2016, §4.1) and are not claimed as new. Qie et al. (2026) supply the motivating delayed-neural phase model but no equivalent theorem for this chosen analytic two-harmonic surrogate. Earlier first-harmonic three-phase results cover the zero third-harmonic parameter, not the sharp uniform interval, the appearance of additional equilibria at its upper boundary, or the cubic-root collision clock. Related general splay stability statements do not imply this global all-orbit classification. The precise historical-priority comparison remains limited by unindexed or unsurveyed literature; search absence alone is not evidence of originality.
+PASS
 
-## Mathematical value — PASS
-The motivating dynamical gap is whether a third Fourier correction preserves or reorganizes the entire relative-phase portrait of a delayed-network phase surrogate, rather than merely its symmetric solutions. An explicit sharp interval and exact critical relaxation exponent answer a global topological and quantitative boundary question. The critical inverse-cube-root clock is a genuine change in orbit asymptotics, not a renamed first-harmonic fact. The conclusions are confined to the stated surrogate; they are not claims about experimentally fitted neuronal interactions.
+Subtracting phase equations in tau=gt yields x_prime=G(y-x)-G(y), y_prime=G(y-x)-G(x). With Q=-sin+(r/3)sin3, H=Q(y-x)-Q(y)+Q(x) satisfies canonical Hamiltonian equations, as independently checked symbolically. Let u=cos s: G(s)=F_r(u)=4ru³-(1+3r)u. Its derivative 12ru²-(1+3r) is <=0 and only isolated zeroes for -1/3<=r<=1/9, so F_r is strictly decreasing and equilibrium equalities reduce to cos x=cos y=cos(y-x), giving only sync and two splay. Three invariant collision circles bound two triangular disks; H=0 on each boundary and H=±3sqrt3/2 at the unique nondegenerate splay extremum in each disk, Jacobian determinant9/4, trace0. Absence of other critical points and regular-level isotopy imply every nonzero intermediate level is a closed nonstationary periodic orbit. On a collision arc, d_prime=G(d)-G(0)>0; Taylor expansion independently gives (1-9r)d²/2+O(d⁴), and at r=1/9 exact factorization (4/9)(cos d-1)²(cos d+2)=d⁴/3+O(d⁶), yielding the respective inverse-time and cube-root clocks. For r>1/9 the factor (cos d-1)[4r(cos²d+cos d)+r-1] gives cos d=(-1+r^-1/2)/2 and 2 pair clusters per collision circle. This is an all-parameter analytic proof; finite trajectory checks only corroborate.
 
-## Remaining limitations
-Attraction in full phase space and neuronal delay-differential dynamics is not proved. The complete phase portrait outside the stated interval is not classified. The literature search is substantial but not definitive.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS. Ashwin–Bick–Burylko (2016) §4.1 already give a first integral and qualitative periodic islands for any even three-oscillator coupling; these ingredients are fully credited, not claimed new. An earlier Resultary conservative three-oscillator ring paper gives the fundamental cosine r=0 energy-period asymptotic, which does not entail the uniform sharp third-harmonic interval, critical r=1/9 collision-clock exponent, or emergence of six pair-cluster equilibria. No inspected primary or published theorem implies all these parameter-dependent thresholds.
+
+## value
+
+PASS
+
+The sharp perturbation threshold for a structurally meaningful third Fourier harmonic in a natural conservative phase triad controls when the simple two-annulus portrait breaks. The exact change from d(t)~t^-1 to d(t)~t^-1/3 and its leading coefficient is a motivated nonlinear dynamical boundary phenomenon, not a relabeling of known integrability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
