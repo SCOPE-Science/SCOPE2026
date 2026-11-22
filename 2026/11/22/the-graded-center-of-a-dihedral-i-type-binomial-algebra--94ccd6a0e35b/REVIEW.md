@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (C): PASS.** The I-type embedding and dihedral permutation data are explicitly taken from the cited primary construction. Four displayed kernel translation vectors have determinant eight, equal to the dihedral quotient order, proving the lattice congruences. The group-algebra finite-conjugacy argument proves the center invariant-ring formula in all characteristics. Eight exact fixed-vector generating functions yield the rational series algebraically. The independently implemented degree-sixteen finite checker confirms all initial terms without being used as infinite proof.
+
+**Originality (O): PASS, with residual priority risk.** Source and equivalent-formulation searches included the 2026 primary paper, general IG/I-type monoid algebras, group algebra finite-conjugacy centers, permutation Zhang-twist centers, explicit dihedral I-type examples, and exact central Hilbert series. The source computes dihedral permutation holonomy and group cohomology but not the central lattice or its rational series. The closest cyclic Zhang-twist center result has a different permutation action and does not contain this dihedral computation; general invariant-ring principles need the new index-eight kernel and fixed-point enumerators to obtain this exact series. Unindexed prior calculations could coincide and have not been ruled out absolutely.
+
+**Value (V): PASS.** The center is a natural invariant of a distinguished noncommutative four-generator regular monoid algebra from the new classification. The theorem identifies every central homogeneous dimension, not only a few low-degree coefficients, and exhibits the nontrivial congruence-lattice action responsible for the entire series. It also gives a concrete characteristic-independent invariant-ring model against which twisted families and other I-type algebras can be compared; this is not merely an isolated substitution into a known general numerical table.
+
+The result excludes nontrivial coefficient twists and does not supply a minimal presentation of the center. The relevant closest published work was inspected at material level; independent expert checking remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
