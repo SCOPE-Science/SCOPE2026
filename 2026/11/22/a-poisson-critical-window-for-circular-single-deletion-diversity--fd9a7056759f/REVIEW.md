@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness: PASS.** Definitions distinguish indexed fixed-weight sources and unindexed deletion outputs. The factor-collision forest proof is independent of any finite experiments, uses the correct conditional binomial denominator, and enforces the strict short-factor length boundary. Fixed-weight run enumeration is a rooted positive-composition count; the Poisson limit follows by factorial moments with controlled overlapping edge patterns. The finite verifier checked 8,164 sources and 9,690 forest instances. Limitation: this is a probabilistic asymptotic theorem, not pointwise exactness for all words.
+
+**Originality: PASS (qualified).** The prior circular short-factor theorem gives deterministic run equality and fixed-alphabet i.i.d. Gaussian behavior but neither a fixed-composition collision bound nor the sparse critical Poisson deletion law. Sloane's original linear-deletion survey treats a different output equivalence. Balado–Silvestre and the classical runs literature contain antecedent run counts, explicitly credited. Targeted published-index comparisons did not identify a previously stated equivalent coupling-plus-Poisson law. Residual risk: an earlier unindexed sparse-necklace result could imply the joint conclusion.
+
+**Mathematical value: PASS.** At the natural birthday scale \(k\asymp\sqrt n\), adjacent markers create a genuinely discrete non-Gaussian loss of deletion-output diversity, in contrast to the Gaussian dense-source law. The explicit finite-size total-variation bound turns a source-specific synchronization count into a computable full probability law rather than a mere average. This supports quantitative modeling of sparse circular synchronization tags. The novelty is not the classical Poisson adjacent-pair count in isolation.
+
+Self-review: passed. Independent audit: not yet performed.
