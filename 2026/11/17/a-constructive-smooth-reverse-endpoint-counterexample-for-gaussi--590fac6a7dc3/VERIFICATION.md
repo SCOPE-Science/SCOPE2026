@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3. The checker uses only the standard library. It evaluates exact rational squared Toeplitz shift weights for several degrees, compares analytic logarithmic heat maxima against their Stirling bounds, and checks the explicit polynomial-degree envelope. A successful run outputs `PASS: finite normalized-weight/heat-bound checks: 306`.
+## correctness
 
-The proof's infinitely many terms are controlled analytically, not by finite tests. The center selection requires, for each fixed index, a finite list of Gaussian-polynomial norm, compact-supremum, and matrix-coefficient bounds; all tend to zero along sufficiently distant integer translations. Certified rational interval bounds therefore produce a terminating integer search, though the center sequence is not exhaustively printed or timed. The verification does not certify numerical realizability at enormous indices.
+PASS
 
-The critical noncomputational claims to inspect are: Gaussian moment normalization in step 1, exact heat convolution in step 2, finite-stage termination in step 3, the distinction between kernel admissibility and domain membership for the selected vectors in step 4, and matrix-coefficient cross-term estimates in step 5. No independent mathematical validation has been performed.
+The normalized antiholomorphic Gaussian monomial h_n with C_n=2^(n/2+1)(n²+1/2)^(n+1)/sqrt(n!) has Toeplitz weighted backward shifts w_k=(1+2n²)^-k sqrt(binom(n+k,k)), with w_0=1 and ratios <=sqrt(n+1)/(1+2n²)<1. Its conjugate packet does not affect the e_n-to-e_0 coefficient. Direct Gaussian convolution yields heat packet C_n bar z^n/(1+n²)^(n+1)*exp(-n²|z|²/(1+n²)); radial maximization and Stirling give ∥H p_n∥∞<=4e/(2πn)^1/4. Taking n_j=(j+1)^12 scales the j-th packet heat bound O(j/(j+1)^3), making the tail uniformly O(J^-1) and in C_0. At finite stage every required separation inequality is an eventually strict Gaussian-decay condition; the least passing integer center exists. Those conditions imply local C^∞ convergence, coherent-kernel L² admissibility and form-domain inclusion for translated e_{n_j}. The main matrix coefficient is j and all past/future off-diagonal terms are summable <2^-j-4. Independently evaluated high-precision heat maxima and weighted-shift ratios at n=1,2,4,16,4096; peaks and ratios obey asserted envelopes. This does not compute the infinite centers; their existence follows from the proved decay, not numerical search. No extrapolation from the finite code alone was used.
+
+## originality
+
+PASS
+
+The published reverse endpoint counterexample is existential via Baire methods; the claimed novelty is a fully deterministic smooth real construction with quantitative uniform heat-tail and divergent witness coefficients. An earlier explicit smooth Fock witness is in the opposite bounded-operator/unbounded-heat direction, so is not stronger coverage. Full original Virtanen text was not obtained and priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+The abstract failure of the reverse Berger-Coburn endpoint is known, but replacing an existence/Baire argument by one uniquely specified real smooth symbol and an effective center recursion with quantitative uniform heat-tail and explicit unbounded matrix coefficients is a substantive constructive refinement for a natural operator-theoretic endpoint. It supplies verifiable witness structure not mechanically contained in existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
