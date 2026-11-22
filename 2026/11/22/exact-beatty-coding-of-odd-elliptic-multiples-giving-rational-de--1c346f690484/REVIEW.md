@@ -1,0 +1,9 @@
+# Scientific assessment
+
+**Correctness — PASS.** The real elliptic component is explicitly identified with a circle group by integrating its translation-invariant differential from the window's right torsion endpoint. The canonical rational point has exactly phase \(\beta/2\), the window is precisely the two symmetric arcs of width \(\beta/2\), and odd elliptic multiples become rotation by \(\beta\). Infinite order excludes rational phase and boundary ambiguity. Telescoping gives the exact floor count; a self-contained checker independently verifies 136 finite rational cases. Boundary integrals and group-law normalization are explicit.
+
+**Originality — PASS with residual risk.** The closest first-public manuscript [1] proves infinitely many odd-multiple hits but gives no exact Beatty index set, first-hit formula, or finite-prefix identity. The related paper [2] treats primitive squares by a Pell mechanism, not this canonical elliptic orbit. The classical rotation-to-mechanical-word principle is acknowledged and does not alone specify the arithmetic phase \(\beta\) or force the starting-intercept cancellation. Targeted semantic-index and primary-literature searches found no covering claim; an unindexed equivalent remains possible.
+
+**Value — PASS.** The natural question is which multiples in the paper's explicit elliptic construction actually produce triples, not simply whether infinitely many do. The exact integral slope, first successful multiplier, two-gap restriction, and discrepancy below one characterize all successful iterations uniformly across every rational quotient. This is a structural refinement of the construction rather than an arbitrary isolated finite computation. It does not determine minimal squares or prove global uniqueness among all rational triples.
+
+Self-review: passed. Independent audit: not yet performed.
