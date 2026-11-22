@@ -1,0 +1,19 @@
+# Scientific review: exact dimer jamming on the Heawood graph
+
+## Correctness — PASS
+
+The claimed terminal size distribution follows by conditioning on the first feasible edge in a finite uniform-priority dimer process. The recurrence strictly reduces the vacant-vertex set, so induction proves it, including all normalizations and boundary cases. Two independently constructed exact rational dynamic programs using vertex occupancy and edge conflicts agree on the probabilities, while the first-two-edge partition independently resolves into two classes of eight choices. An exhaustive census of inclusion-maximal matchings and all graph symmetries, with rational order-of-deposition weights for every matching, establishes the finer five-orbit law. The three runnable, standalone verifiers reproduce the intermediate and final values without numerical approximations.
+
+## Originality — PASS on examined evidence
+
+Penrose–Sudbury (2005, arxiv:math/0503519v1) develops the general deposition model and formulas for occupation probabilities on trees, not an explicit Heawood terminal matching distribution. Gamarnik–Goldberg (2008, arxiv:0807.1277v1) gives bounds and finite-girth corrections on greedy matching output sizes, not exact probabilities of the five Heawood symmetry classes. Dhara–van Leeuwaarden–Mukherjee (2016, arxiv:1604.03918) addresses generalized adsorption on Erdős–Rényi networks. Static Heawood sources give twenty-four perfect matchings, but a static count does not determine probabilities under irreversible edge arrivals. A published exact dimer law on the Petersen graph concerns a different host and is not a dominating or equivalent statement. Specific searches for Heawood dimer adsorption, Fano-incidence greedy matching, line-graph formulations, the calculated fractions, and matching orbits did not locate a covering theorem or table. Negative searches alone do not prove worldwide priority; unlocated older computations are a residual risk.
+
+## Mathematical value — PASS
+
+The Heawood graph is the smallest cubic graph of girth six and a canonical finite incidence network, making its full kinetic jamming law a natural exact benchmark. The exact fraction of irreversible depositions that miss a perfect matching, \(2713/3960\), is not determined by the existence or count of perfect matchings. More sharply, all size-six terminal states occupy identical numbers of sites yet have **three different** per-microstate probabilities. That dynamical distinction between static matching structure and kinetic accessibility is the principal structural fact, beyond a generic enumeration. The result is a complete finite classification rather than an arbitrary numerical slice; no infinite-size consequence is claimed.
+
+## Literature and limitations
+
+Public sources examined in material detail: Penrose–Sudbury, *Exact and approximate results for deposition and annihilation processes on graphs* (https://arxiv.org/pdf/math/0503519, pages 1–4 and model statements); Gamarnik–Goldberg, *Randomized greedy algorithms for independent sets and matchings in regular graphs* (https://arxiv.org/html/0807.1277v1, introduction and main theorem sections); Dhara–van Leeuwaarden–Mukherjee, *Generalized Random Sequential Adsorption on Erdős–Rényi Random Graphs* (https://link.springer.com/article/10.1007/s10955-016-1583-z, introduction and scope); and standard Heawood perfect-matching data. The cited general frameworks cannot be construed as claims of first discovery of the deposition model or the twenty-four perfect matchings. The computed law is for equal continuous edge priorities on the fixed fourteen-vertex graph only. Historical priority is best-knowledge provisional and independent scientific validation remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
