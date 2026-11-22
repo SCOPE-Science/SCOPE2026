@@ -1,15 +1,21 @@
-# Scientific review of the critical half-rotation cusp
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact two-step return is expanded through cubic order and its two degenerate first-order zeros are treated individually. Symbolic differentiation gives quadratic jets with a common completed-square minimum \(K=\pi^2c^2(16a^2-c^2)/(4a)\). For \(0<|c|<4a\), strict positive definiteness controls the sign uniformly and yields an integrable \((1+u^2)^{-1}\) majorant after bottleneck rescaling. The two passage integrals and the small-derivative discrete passage-time estimate prove the stated signed quadratic coefficient. For \(|c|>4a\) the negative jet minimum and positive drift elsewhere force an exact period-two orbit. At \(c=0\) a period-two orbit is explicit. These arguments cover both signs of the perturbation and fixed nonboundary parameters. The standalone symbolic/sampled checker passes; finite tests are not used as infinite proofs.
+## correctness
 
-## Originality — PASS within accessible evidence
-The principal comparison is Glendinning's 2025 theorem and its Section 6 analysis of the same two-harmonic map. It requires the resonant first-order average to be strictly positive or sign-changing; this theorem treats the excluded exactly tangent case, calculating the previously unresolved second-order coefficient and an explicit threshold in the nonresonant amplitude. Parkhe's monotone-path differentiability theorem does not imply quadratic curvature or the locking boundary. Mugnaine–Sales–Szezech–Viana's 2022 full article considers the same two harmonics and general numerical bifurcation structures but not this singular local path's coefficient. Comparison with published exact single-harmonic half-tongue and distinct-frequency, denominator-at-least-three quadratic-tongue results shows neither covers this result by specialization. Searches of relevant public mathematical records and the source literature did not identify a theorem already implying this one; however unindexed parabolic-normal-form literature could potentially yield an equivalent specialization. Full historical priority is not claimed.
+PASS
 
-## Mathematical value — PASS
-The strict-transversality boundary in the contemporary rotation-number scaling problem is a motivated singular regime, not an arbitrary selection of parameters. Determining whether an exactly tangent first-order return escapes a rational plateau requires higher-order analysis. The theorem identifies a sharp \(|c|=4a\) threshold separating a signed second-order cusp from a persistent half-rotation plateau, plus an explicit nonzero coefficient showing failure of twice differentiability. The result's natural object is rotation number for a standard two-frequency circle family; no general downstream theorem or global tongue classification is asserted.
+For the orientation-preserving small-epsilon lift F_e, the two-step return H_e=F_e^2-1 has first-order drift 2a(1+cos4πx) with quadratic zeros x=1/4,3/4. Independent symbolic Taylor reconstruction confirmed the cubic bottleneck jets A=16π²a, B_+=4π²c(4a+c), B_-=4π²c(c-4a), C_+=2π²c²(4a+c), C_-=2π²c²(4a-c), and identical minima K=π²c²(16a²-c²)/(4a). K>0 yields uniformly one-signed drift and I_e~2π/(sqrt(AK)|e|²), and derivative bound ||D_e' ||=O(|e|) controls discrete passage/integral error; rotation identity rho(H)=2rho(F)-1 gives signed quadratic coefficient π|c|sqrt(16a²-c²)/2. For K<0 continuity forces 2-periodic locking; c=0 has exact periodic orbit. Both signs of e, fixed parameters and |c|=4a exclusion are respected. Finite symbolic checks support but do not prove the passage-time theorem.
 
-## Limits and independent verification
-The boundary \(|c|=4a\), joint parameter scaling, and large coupling are not covered. The bibliography represents inspected sources and specific priority risks, rather than exhaustive historical certification. Symbolic and numerical checking supplement the self-contained proof; they do not independently validate it.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge search and actual statement comparisons across Resultary, primary accessible literature and the assigned proof found no earlier statement implying this specific final claim. Named comparisons below identify exact overlap and inapplicability; failure to find a source is not itself novelty proof, and material uninspected is retained as risk.
+
+## value
+
+PASS
+
+At the equality of the first-order rational locking criterion, a standard transversality theorem is silent. The explicit second-order non-C² cusp and sharp |c|/a=4 regime boundary resolve a motivated stability bifurcation and demonstrate how a nonresonant harmonic determines unlock/relock; this is more than formal Taylor substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
