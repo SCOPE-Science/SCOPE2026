@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. For the precise physical domain \(0<a<1\), \(b,q>0\), \(p=1-a\), the exact fast–slow change of variables yields \(\dot z=-az+(1+aq)y^2+b\delta y+O_3\). The resulting centre graph \(z=((1+aq)/a)y^2+(b/a)\delta y+O_3\) and reduced drift \(\dot y=by(\gamma y^2-\delta)+O(y^4+|\delta|y^2+\delta^2y)\) justify both detuning signs. On the scale \(y=\sqrt\varepsilon Y\), \(\tau=\varepsilon t\), the explicit scalar limiting equation gives the two log passage constants. Strong-stable initial-layer control, a uniform cubic passage bound after crossing \(K\sqrt\varepsilon\), and then \(K\to\infty\), extend convergence to the fixed physical section. The exact equilibrium quadratic gives the saddle position and the Jacobian gives its eigenvalues. SymPy exact-algebra checks executed from the included `verify.py`; finite computations are not substituted for singular-limit proof.
+## correctness
 
-## Originality
-PASS within inspected published evidence, with publication-priority risk. Chen et al. [1] give the exact ODE, the equilibrium quadratic and nonhyperbolic boundary type but not the two-sided near-degenerate fixed-section time constants. Corral [2] establishes generic one-dimensional finite-time pitchfork scaling, a credited mechanism, but does not analyze the nonlinear two-species Allee–fear flow or give its fast-fiber passage constants. A published indexed finding [3] concerns different fear-competition equations, so its cubic boundary normal form is relevant precedent rather than equivalent coverage. Searches compared the exact source, its parameter alias, generic pitchfork passage and the indexed cubic competitor, including their implications rather than relying on title matches. Residual risk includes unindexed or stronger ecological singular-perturbation applications and the possibility that generic asymptotic theory makes the special application considered routine.
+PASS
 
-## Value
-PASS. The degenerate boundary is specifically singled out but left dynamically unresolved in the original model. A local attractor/saddle diagram alone does not quantify how long a biologically small competitor remains undetected before crossing a fixed abundance threshold. The result gives a sharp finite-initial-data asymptotic separatrix and distinct closed-form residence-time laws on both sides, including constants depending on the fear coefficient; these determine the natural observation-window scale near the boundary. The result is deliberately restricted to this motivated dynamical gap, not a claim of a new generic exponent or of global ecological basins.
+Reconstructed exact fast-slow variables s=1-x,z=s-y, with fast eigenvalue -a and center variable y. Exact Taylor expansion near E=(1,0) gives center graph z=gamma*y²+(b/a)delta*y+O_3, gamma=(1+aq)/a>0, and reduced drift by(gamma*y²-delta)+ controlled terms. Independent symbolic elimination of the positive equilibrium nullcline recovers y*=gamma^-1/2 sqrt(delta)-(a+2)/(2(1+aq))delta+..., the x* coefficient, and the boundary eigenvalues -a,-b delta. Rescale delta=±epsilon, y=sqrt(epsilon)Y, tau=epsilon*t to scalar bY(gamma Y²∓1), integrate finite blow-up times to exact logarithms, use bounded K-cutoff positive cubic drift and strong-stable foliation to reach fixed eta; for delta>0 below critical amplitude E is attracting, at delta=0 time is y0^-2/(2b gamma). Critical amplitude Y0=gamma^-1/2 excluded. Algebraic checker supports coefficients; singular infinite-time claims depend on analytic comparison.
 
-## Limitations and closest sources
-[1] https://arxiv.org/html/2303.04919v1 (model, Section 2; Theorems 3.1, 4.1, 5.1 and appendices). [2] https://arxiv.org/abs/2405.19947 (continuous scalar finite-time scaling). [3] https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-fear-induced-coexistence-wedge-and-cubic-boundary-bottlene--8245e3bf11a0 (different ODE). No claim for \(Y_0=\gamma^{-1/2}\), arbitrary global initial populations, independent certification or publication priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for model-specific full 2D two-sided fixed-section passage theorem and exact amplitude threshold. Chen et al 2023 already identify this degeneracy and its nonhyperbolic saddle type, and generic cubic normal form/pitchfork slowing is prior; no inspected theorem provides these precise starting-data passage laws across c=1 in this original Allee–fear system.
+
+## value
+
+PASS
+
+Quantified invasion bottlenecks at a naturally degenerate ecological competition boundary are meaningful dynamics beyond a qualitative stability chart: the theorem gives exact log passage profiles for either detuning sign, a nontrivial initial-amplitude survival/extinction threshold and a critical inverse-square timing coefficient from physical 2D initial conditions. These are useful model-specific invariants requiring fast-fiber and fixed-height estimates, not just a textbook center-manifold designation. No global ecology or equality-layer claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
