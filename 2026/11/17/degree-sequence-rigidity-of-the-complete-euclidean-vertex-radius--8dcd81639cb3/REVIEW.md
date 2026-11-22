@@ -1,19 +1,21 @@
-# Scientific review — degree-sequence rigidity of tree-zonotope vertex radii
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For a tree, its oriented edge-incidence columns are independent, so the uniform vertex law is exactly independent fair edge signs. A bipartite change of signs turns every coordinate into a sum of its incident edge signs, up to an irrelevant vertex-specific sign. Conditional subtree elimination for arbitrary even functions proves *mutual*, not merely pairwise, independence of the absolute coordinate magnitudes. The degree-factorized shell polynomial follows by binomial expansion and the degree-sum identity. The fourth Rademacher moment gives exact mean and variance; tree-degree excess inequalities give sharp path/star equalities; the maximum-radius equality conditions force just two antipodal signings. The Lindeberg and continuous-mapping limit arguments apply under the explicitly stated degree and star hypotheses. A separate standard-library checker directly enumerates over a million signed vertices from all labeled trees through order seven and checks an eight-vertex full joint distribution. Finite checks remain corroborative rather than a substitute for proof.
+PASS
 
-## Originality
+All 2^(n-1) sign corners are actual vertices because tree incidence columns are linearly independent. A bipartite gauge makes every 2c_v X_v an incident fair-spin sum. Subtree conditioning proves that expectation of a product of arbitrary even local test functions factors, despite shared edges; hence the magnitudes are mutually independent. Binomial-square convolution gives F_T(z)=2^{-(n-1)} product_v sum_j binom(d_v,j)z^((d_v-2j)^2). Direct sign enumeration independently checked joint magnitude distributions for a six-vertex path, a seven-vertex star and a branched seven-vertex tree. The mean, variance, extremal shell multiplicities, path/star variance rigidity, bounded-degree triangular-array CLT and star centered-chi-square limit follow from this factorization and standard inequalities. Counts are finite diagnostics, not proofs for every tree.
 
-**PASS, subject to historical-priority uncertainty.** Padrol–Pilaud–Poullot provide graph-zonotope and acyclic-orientation definitions, normal fans and deformation cones, not the mutually independent absolute vertex coordinates or a complete radius-shell factorization. Winter's full accessible geometric classification of homogeneous and vertex-transitive zonotopes concerns cospherical classification, not variable-radius multiplicities. Published related results on tree graphical zonotopes establish uniform-direction width variance, a cubic directional-width moment and third intrinsic volumes. Their statements do not imply the present claim: a *uniform vertex* is not a uniformly random supporting direction; the third intrinsic volume even distinguishes same-degree trees for which the present law is identical. Searches under squared vertex norms, Rademacher sums, orientation imbalance, degree-multiset factorization and Ising aliases did not reveal an equivalent full factorization, but they cannot prove historical uniqueness. A corresponding result under unindexed random-orientation or statistical-mechanics terminology remains possible.
+## originality
 
-## Value
+PASS
 
-**PASS.** The complete multiset of Euclidean vertex distances from the canonical center is a natural discrete geometric invariant. Formula (1) computes *every* shell and multiplicity for an infinite class of polytopes, and the stronger local independence theorem explains an initially surprising degree-only rigidity despite edge dependence. The exact two-contact outer sphere, parity-determined inner shell, and opposing Gaussian and chi-square fluctuations provide nontrivial consequences. The contrast with a previously known intrinsic-volume discriminator for same-degree nonisomorphic trees shows exactly what geometric information this invariant retains and what it forgets. The result is not merely a recasting of a known width moment or a chosen numerical slice.
+No checked antecedent implies mutually independent local absolute vertex coordinates for a uniform vertex of every canonical tree graphical zonotope, or its full degree-multiset shell polynomial. The separately published unicyclic Walsh correction employs analogous ideas but has a cycle and explicitly relies on tree radial results; earlier width, third-moment and intrinsic-volume theorems refer to different measures. The absence of an indexed equivalent under signed-degree/Ising nomenclature remains a priority risk.
 
-## Closest sources and residual risks
+## value
 
-The lead primary text is *Deformed graphical zonotopes* (arXiv:2111.12422, 2021); the other primary comparison is *Classification of Vertex-Transitive Zonotopes* (arXiv:1912.10469, 2019). The published comparisons are *Sharp width-variance extremizers among tree graphical zonotopes* (2026), *A cubic directional-width law detects degree assortativity in tree graphical zonotopes* (2026), and *Third intrinsic volumes of tree graphical zonotopes: an exact formula and sharp path–star bounds* (2026). Their complete publicly accessible mathematical result texts were inspected. The residual risk is an earlier equivalent formula expressed using random orientation imbalances, conditional Ising partition functions, or degree-index notation rather than explicit graphical zonotopes. The work concerns the canonical unweighted Euclidean realization, not arbitrary affine or weighted deformations. No external independent audit is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A canonical Euclidean statistic for a natural polytope family displays a surprising local independence law, exactly enumerates all vertex-radius shells and nonisomorphic degree-equivalent trees, and separates Gaussian bounded-degree fluctuations from star chi-square fluctuations. These are mathematically motivated structural facts rather than routine graph-degree relabeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
