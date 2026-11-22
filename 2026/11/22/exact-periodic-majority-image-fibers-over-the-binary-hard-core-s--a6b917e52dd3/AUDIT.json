@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "For a cyclic 11-free source, the only majority-one triple is 101, forcing output ones to mark input gap 2. Each output-one gap g is zero/nonzero according as it admits a composition of g-2 into nonempty parts at least 3, with g=2 represented by the empty composition. These independent local pieces glue uniquely around an indexed ring, proving the all-length product and singleton thresholds. The exceptional zero fiber is the trace of an explicit 3x3 integer matrix; cycle marking proves both all-length rational generating functions; aperiodic positive gap sets give sharp asymptotics. The extracted stdlib verifier enumerated every admissible input, every output fiber and independent gap counts through n=15 and passed. Finite checks alone are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jen (1989) Rule 232 case e covers unrestricted sources and counts predecessors by recurrences; two published Rule 232 documents treat unrestricted image languages/counts; Salo (2022) gives general subshift frameworks."
+      ],
+      "reasoning": "Unrestricted one-step preimage counts do not imply the restricted counts without retaining every source preimage and testing a cyclic forbidden-pair condition. The published Rule 232 image sets are strictly larger, with exponential image rate 1.784598933 rather than 1.443268791. No cited broad theorem evaluates the requested constrained product, gap support, singleton threshold or two counting series.",
+      "searches": [
+        "exact cyclic image counts spectral growth majority cellular automaton rule 232 unrestricted source image and periodic points",
+        "exact first-image subshift entropy binary majority cellular automaton image forbidden factors",
+        "majority rule restriction hard core golden mean shift gap 2 or at least 5 preimage multiplicity",
+        "2026/11/8/SCOPE-exact-cyclic-image-counts-and-spectral-growth-for-elementary-maj--da4a182e6a5a",
+        "2026/10/26/SCOPE-the-exact-first-image-subshift-and-entropy-of-binary-majority-ce--9a5867630f75"
+      ]
+    },
+    "checked_sources": [
+      "E. Jen (1989), Enumeration of Preimages in Cellular Automata, Section 4 Case e, pp. 441–442, https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+      "V. Salo (2022), On von Neumann regularity of cellular automata, arXiv:2209.13373, https://arxiv.org/abs/2209.13373",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-cyclic-image-counts-and-spectral-growth-for-elementary-maj--da4a182e6a5a/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/26/SCOPE-the-exact-first-image-subshift-and-entropy-of-binary-majority-ce--9a5867630f75/RESULT.md",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=68-04"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jen pp. 441–442 develop rule-specific unrestricted preimage recurrences. Published 2026 Rule 232 full texts prove unrestricted images, and Salo 2022 develops CA/subshift regularity. The new statement conditionally factors each nonzero received word over source gap choices subject to 11 exclusion."
+      ],
+      "reasoning": "The earlier results are not stronger theorems implying the explicit restricted count as a stated or immediate corollary: they omit the source constraint in the enumerated set. A derivation using generic automata is possible in principle but requires the new nontrivial gap bijection; prior direct closed formulas did not supply it.",
+      "searches": [
+        "independent set majority cellular automaton image subshift",
+        "periodic majority CA on Fibonacci shift restrictions complete inverse multiplicity polynomial",
+        "2026/11/8/SCOPE-exact-cyclic-image-counts-and-spectral-growth-for-elementary-maj--da4a182e6a5a",
+        "2026/10/26/SCOPE-the-exact-first-image-subshift-and-entropy-of-binary-majority-ce--9a5867630f75",
+        "2026/10/26/SCOPE-radius-two-rigidity-across-binary-hard-core-shifts-with-sharp-fo--824122558fbf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus searches returned no cyclic-golden-mean Rule 232 inverse-product statement. The closest cyclic-image full text fixes all 2^n inputs and counts output words but not restricted fibers."
+      ],
+      "reasoning": "The golden-mean shift, Fibonacci shift and cyclic binary hard-core input all denote the source forbidding 11; searching these aliases did not surface the same restricted predecessor product or rational counts. A generic matrix implementation is not the evaluated closed expression.",
+      "searches": [
+        "elementary cellular automaton rule 232 majority image of golden mean shift independent sets cyclic binary adjacent ones",
+        "majority rule 232 Fibonacci shift forbidden gaps 2 5 image language",
+        "cyclic golden mean input majority rule 232 exact output one-step preimage fiber factor gap composition",
+        "periodic majority CA on Fibonacci shift restrictions complete inverse multiplicity polynomial",
+        "2026/11/8/SCOPE-exact-cyclic-image-counts-and-spectral-growth-for-elementary-maj--da4a182e6a5a"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The compared all-length cyclic Rule 232 count is indexed for unrestricted inputs. Exact finite direct enumeration in verify.py gives restricted outputs 1,3,1,3,6,9,15,19,28,38 through length 10; these differ from unrestricted 2,4,2,8,22,34,58,96,182,334."
+      ],
+      "reasoning": "No checked exact table or database gives the constrained all-length individual-fiber distribution. Finite strings cannot constitute an equivalent infinite formula.",
+      "searches": [
+        "rule 232 cyclic no adjacent ones images gap 4 no 3",
+        "hard-core binary ring one-step majority image unique predecessor nonzero outputs Fibonacci spectral",
+        "rule 232 image of independent sets isolated 101 gap counts output profiles",
+        "2026/11/8/SCOPE-exact-cyclic-image-counts-and-spectral-growth-for-elementary-maj--da4a182e6a5a"
+      ]
+    },
+    "rationale": "The evaluated predecessor-fiber factorization for the cyclic golden-mean source, its exact allowed output-gap set, the singleton fiber criterion, and the two rational enumerators were not found in the compared original results. Jen studies unrestricted predecessor counts; the closest published Rule 232 image analyses also use unrestricted binary inputs. Restrictions to a subshift cannot be recovered merely by substituting the unrestricted image counts; multiple unrestricted preimages differ in whether they avoid 11. The known generic finite-automaton construction is not claimed as novel. Semantic searches, concrete own-ledger claim comparisons and full-text inspections support qualified originality subject to a genuine historical-priority risk.",
+    "residual_risks": [
+      "An uncatalogued earlier automata/sofic-subshift enumeration might give an equivalent restricted majority-image calculation.",
+      "The hard-core-shift rigidity source was checked at indexed-statement level only; its claimed scope is materially different.",
+      "The scientific review is not an independent mathematical audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: input words unrestricted and predecessor counts use different recurrences; no cyclic hard-core source or gap product",
+        "evidence": [
+          "Rule 232 preimage recurrences treat all possible local binary triples",
+          "The source model does not forbid 11 cyclically"
+        ],
+        "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+        "material_read": "Section 4 Case e, manuscript pages 441–442 on elementary majority rule",
+        "method": "Full-document PDF search and direct page-level visual reading",
+        "title": "Enumeration of Preimages in Cellular Automata",
+        "trigger": "Rule 232 case e is the primary plausible exact predecessor-counting result"
+      },
+      {
+        "assessment": "NOT_COVERING: framework of von Neumann regularity and sofic factors, not the specific Rule 232 hard-core inverse fiber formula",
+        "evidence": [
+          "Paper addresses regularity and split epicness",
+          "No evaluated cyclic majority image/singleton enumerators"
+        ],
+        "identifier_or_url": "arxiv:2209.13373",
+        "material_read": "Abstract, introductory subshift and de Bruijn automaton setup, and relevant theorem/automaton discussion",
+        "method": "Full-text arXiv open version, source and claim comparison",
+        "title": "On von Neumann regularity of cellular automata",
+        "trigger": "Relevant first-public 2022 treatment of cellular automata over one-dimensional subshifts"
+      },
+      {
+        "assessment": "NOT_COVERING: unrestricted binary input alphabet; counts distinct outputs only, not inverse fibers after 11 exclusion",
+        "evidence": [
+          "Unrestricted image series is a logarithmic derivative of two quintics",
+          "Its leading output growth is 1.784598933 per site, whereas constrained source image growth is 1.443268791"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-cyclic-image-counts-and-spectral-growth-for-elementary-maj--da4a182e6a5a",
+        "material_read": "Complete RESULT.md: Finding, Assumptions, Proof, Verification, prior work and limitations",
+        "method": "Original published full-text retrieval and statement-level comparison",
+        "title": "Exact cyclic image counts and spectral growth for elementary majority cellular automaton Rule 232",
+        "trigger": "Exact same majority rule and periodic outputs"
+      },
+      {
+        "assessment": "NOT_COVERING: unbounded two-sided full-shift input language without source restriction; block growth rather than cyclic restricted inverse fibers",
+        "evidence": [
+          "Six-word first-image forbidden presentation concerns unrestricted inputs",
+          "The entropy is log(1.784598933...), different from restricted-image entropy"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-the-exact-first-image-subshift-and-entropy-of-binary-majority-ce--9a5867630f75",
+        "material_read": "Complete RESULT.md: six forbidden words, 12-state subset automaton, entropy and limitations",
+        "method": "Original published full-text retrieval and implication comparison",
+        "title": "The exact first-image subshift and entropy of binary majority cellular automaton",
+        "trigger": "Potentially stronger full shift-language classification for the same local rule"
+      },
+      {
+        "assessment": "NOT_DECISIVELY_COVERING: about surjective radius-two maps on shifts with at least two separating zeros, not radius-one Rule 232 restricted images",
+        "evidence": [
+          "The theorem classifies surjective local maps, not preimage multiplicities"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-radius-two-rigidity-across-binary-hard-core-shifts-with-sharp-fo--824122558fbf",
+        "material_read": "Published indexed title and scientific summary (full text not fetched)",
+        "method": "published-finding corpus semantic index statement comparison",
+        "title": "Radius-two rigidity across binary hard-core shifts, with sharp forbidden-block horizons",
+        "trigger": "Terminological overlap with hard-core cellular automata"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a6b917e5-2dd3-476e-adcd-0264aca818bc",
+  "value": {
+    "rationale": "Inverse ambiguity of one-step data from a canonical constrained source shift matters for finite-alphabet reconstruction and restricted cellular communication. The nontrivial all-length gap-product theorem determines individual inverse fiber sizes; rational image and singleton enumerators give exact distinguishable outputs and uniquely recoverable outputs for every cyclic length, with a sharp exponential decay in the singleton-output share. This is not a mere numerical tabulation, minor threshold increment or generic automata restatement.",
+    "status": "PASS"
+  }
+}
