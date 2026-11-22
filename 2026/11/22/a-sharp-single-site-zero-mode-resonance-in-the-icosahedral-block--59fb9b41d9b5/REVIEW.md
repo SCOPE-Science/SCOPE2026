@@ -1,0 +1,15 @@
+# Scientific self-review
+
+## Correctness — PASS
+The finite physical Hilbert space is the complete set of independent subsets of the explicitly defined twelve-vertex graph: \(1+12+36+20=69\). The precise zero-detuning Hamiltonian is the weighted single-vertex-flip adjacency on that state set. Its excitation-parity block is \(37\times32\). The homogeneous Gram characteristic polynomial has precisely six zero roots, giving block rank twenty-six and seventeen total zero modes. The explicit full-column square minor is identically \(2(t^2-1)^6\), proving rank thirty-two for every real \(|t|\ne1\); conjugation by the local sign operator handles \(t=-1\). The identities are exact and both standalone programs replayed successfully from the packaged source paths, using independently generated graphs and different determinant computations.
+
+## Originality — PASS (best knowledge, not independent validation)
+Earlier Rydberg blockade papers establish the constrained-spin framework, and prior one-dimensional PXP results establish the chiral lower-bound mechanism; neither statement alone specifies the icosahedral seventeen-fold zero-energy degeneracy, and neither provides the exact site-drive determinant or sharp resonance. Published icosahedral independence-complex homology determines the Euler parity imbalance but does not determine the Hamiltonian's matrix rank. The compared Platonic-graph experiment studies tetrahedron, cube, and octahedron, not the icosahedral exact spectrum. Actual bibliographic and published-research searches found no equivalent full-claim coverage. There remains risk from unindexed computational spectra and uncatalogued calculations.
+
+## Mathematical value — PASS
+This is a natural finite Rydberg-blockade network, not an arbitrary subgraph selection: the regular icosahedron has twelve sites and icosahedral symmetry. The exact difference between seventeen and five zero modes quantitatively distinguishes symmetry-dependent degeneracy from the robust chiral imbalance. The analytic single-site condition \(|t|=1\) is a precise physical control boundary, and the exact characteristic polynomial gives a reproducible benchmark for ideal coherent dynamics. The conclusion is not a thermodynamic-limit theorem or a robustness claim for finite blockade and longer-range interactions.
+
+## Closest sources and limitations
+Lesanovsky, arXiv:1010.2349, supplies the archived 1D constrained-spin motivation. Buijsman, arXiv:2203.09264, covers chiral zero-mode bounds on chains. Byun, Kim and Ahn, PRX Quantum 3, 030305, covers three other Platonic graphs in Rydberg settings. Published integral independence homology on the icosahedron covers its face vector and topology, rather than this weighted flip Hamiltonian. The originality assessment is conditional on the examined available literature; an unindexed numerical table might duplicate the exact spectrum. Both verification codes require Python packages stated in the result and use only exact arithmetic.
+
+Self-review: passed. Independent audit: not yet performed.
