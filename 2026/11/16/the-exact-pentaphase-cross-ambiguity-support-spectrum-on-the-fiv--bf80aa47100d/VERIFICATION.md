@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-Exact finite verification uses only integer arithmetic. The cyclotomic vanishing criterion is proved in RESULT.md; it converts every transform zero into the assertion that five residue exponents form a permutation of \(\mathbb F_5\). The Python checker enumerates all \(5^8=390625\) normalized ordered pairs and compares six complete row-profile counts with fixed constants. The separate C++ checker uses bit masks rather than sorted-permutation testing, enumerates the same domain and asserts the exact counts. Both were run successfully from the package source paths prior to delivery. Neither program uses numerical tolerances or stochastic tests.
+# Independent mathematical audit
 
-Reproduction:
+## correctness
 
-```text
-python3 artifacts/verify_pentaphase.py
-g++ -O2 -std=c++17 artifacts/checker.cpp -o checker
-./checker
-```
+PASS
 
-The proof is finite and exhaustive: it does not assert any general statement about larger cyclic groups, unrestricted continuous coefficients, or magnitude stability. The harmonic-analysis literature comparison is reported separately in REVIEW.md and AUDIT.json. Independent audit has not been performed.
+For five fifth-root terms, Φ5 minimal polynomial forces vanishing iff each exponent residue 0,...,4 appears once. Normalizing f(0)=g(0)=1 leaves 5^8=390625 pairs. Direct independently written finite-field permutation predicate enumerated every pair and shift, reproduced six profiles (0,0,0,0,0):313000; (0,0,0,0,4):2500; (0,1,1,1,1):50000; (1,1,1,1,1):12500; (1,1,1,1,4):12500; (4,4,4,4,4):125 and supports 25,21,20,17,5. Inspected attached Python and independent C++ checker paths; matched-curvature quadratic minimum class size 125. This is exhaustive finite verification of specified alphabet, not an infinite theorem.
+
+## originality
+
+PASS
+
+Best-of-knowledge claim is exact μ5 restricted nonminimal support census and row profile multiplicities. Published broader five-or-at-least-seventeen gap and quadratic chirp extremizers are explicitly credited.
+
+## value
+
+PASS
+
+Five-phase codes on a five-element cyclic group are natural for discrete Gabor/radar sequence design. The full finite classification quantifies which nonminimal cancellation patterns are possible and distinguishes two geometrically different 21-support profiles, beyond the previously known coarse phase-only gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
