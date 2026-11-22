@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,25 +19,24 @@
 }
 ---
 
-# Exact arithmetic verification
+# Independent mathematical audit
 
-`verify_walsh.py` enumerates all perfect matchings of the 16-vertex hypercube recursively, derives a canonical 15-edge spanning-tree gauge, constructs the 17-bit matching indicator and applies two full Walsh--Hadamard transforms to obtain the multiplier histogram and projection-kernel norm. It exhaustively tests all singleton and two-edge frequencies. `verify_permanent.cpp` instead computes every signed partition function as an exact 8-by-8 permanent by subset dynamic programming; after constructing the same canonical gauge from the graph, it independently computes the support transform and histogram. The two implementations agree on every asserted shared scalar and histogram entry.
+## correctness
 
-Execution in the final package:
+PASS
 
-```sh
-python3 verify_walsh.py > walsh_result.json
-c++ -O2 -std=c++17 verify_permanent.cpp -o verify_permanent
-./verify_permanent > permanent_result.json
-python3 - <<'PY'
-import json
-w=json.load(open('walsh_result.json'))
-p=json.load(open('permanent_result.json'))
-assert all(w[k] == v for k,v in p.items())
-print('Exact two-method verification: PASS')
-PY
-```
+Checked Q4 identification as 16-vertex 32-edge connected bipartite graph, 272 perfect matchings by disjoint recursion. Spanning-tree coboundary gauge is dimension 15, quotient 17. Independently computed exact 131072-point integer Walsh transform of 272 chord restrictions and support-indicator second transform: zeros 44230; full rank (131072−44230)2^15=2,845,638,656, nullity 1,449,328,640, min nonzero |W|=8, 15 absolute levels, projection absolute mass 10,389,668/131072=2,597,417/32768. Parseval 35,651,584 confirmed. Every singleton gives W=136; 96 adjacent edge pairs yield zero and no disjoint pair zero. Translations average any projection onto this Fourier-invariant range to its unique translation-invariant support projection without enlarging endpoint norm, proving projection-optimality. Exact only Q4, no extrapolation to larger cubes.
 
-The supplied `verification_results.json` records the evaluated exact integer reference values, including the full 15-level absolute histogram. The calculations exhaust 131,072 reduced Fourier characters, which represent all \(2^{32}\) full characters by the proved 15-dimensional gauge quotient. The use of a spanning tree is exact and its basis does not alter the zero spectrum, norm or histogram. No probabilistic approximations, timeout-based impossibility claims, or external computational certifications are used.
+## originality
 
-The verification establishes the explicitly finite theorem. It does not prove any formula for higher-dimensional cubes, rule out unindexed prior literature, or substitute for independent external audit.
+PASS
+
+Best-of-knowledge new numerical signed-gauge spectrum and optimal Fourier-range projection constant for Q4, distinct from known matching totals and toroidal parity/homology classifications.
+
+## value
+
+PASS
+
+For the first nontrivial 16-vertex hypercube/toroidal 4x4 dimer graph, the complete gauge-reduced signed partition-function spectrum and exact sharp inverse range-projection endpoint amplification quantify recoverable Fourier information, not only enumerate matchings. The precise norm is an independently meaningful stability invariant for finite signed-dimer measurement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

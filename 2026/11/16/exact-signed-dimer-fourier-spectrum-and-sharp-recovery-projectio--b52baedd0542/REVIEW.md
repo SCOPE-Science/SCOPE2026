@@ -1,11 +1,21 @@
-# Scientific review: signed four-cube dimer Fourier spectrum
+# Independent mathematical audit
 
-**Correctness — PASS.** Each perfect matching has one edge at every vertex, giving the 15-dimensional coboundary gauge quotient and a unique 17-bit spanning-tree gauge. The finite reduction includes *all* 32-edge frequencies, rather than a sampled subclass. Exact recursive matching enumeration (272 matchings) and a separately implemented signed-bipartite permanent recurrence both compute the entire 131,072-case reduced absolute spectrum. Their complete histograms, 35,651,584 Parseval sum and 10,389,668 Fourier-projection kernel absolute sum agree. The two-edge boundary is independently checked against all 496 pairs, with 96 exactly adjacent pairs giving zeros. Rank, pseudoinverse norm and projection norm then follow by Fourier diagonalization and a translation-average argument. No infinite-dimensional assertion is inferred from finite computations.
+## correctness
 
-**Originality — PASS under bounded comparison.** Vertex gauge equivalence, weighted dimer partition functions, the toroidal Pfaffian/Arf formula, the 272 matching total, and homology-parity cancellation are established prior art. The specific full 131,072-sign gauge-quotient multiplier distribution and sharp support-projection constant are not provided by Kenyon's 2009 lecture Sections 3--4 or the full accessible Kiwi--Loebl toroidal paper, whose principal theorems concern homology types. Earlier cube matching enumeration work supplies totals, not a signed Walsh histogram in its accessible abstract. Related published work on four-cube matching complexes/anti-forcing, complete-graph perfect-matching Fourier spectra, and the open four-by-four square does not imply these values because it addresses different invariants or underlying graphs. Historical unindexed material and the inaccessible complete 2012 enumeration article are residual priority risks; negative search is not a uniqueness proof.
+PASS
 
-**Mathematical value — PASS.** The four-cube is the first nonplanar binary hypercube and is also a canonical 16-vertex toroidal dimer graph. Its 32 independently signed edges leave 17 genuinely different gauge parameters. This complete signed-partition-function classification quantifies the exact loss of Fourier recovery, the smallest surviving gap and a projection amplification greater than 79, a natural stability invariant not captured by the known unsigned matching count or the four toroidal homology sectors. The invariant is a motivated exact finite benchmark, not a renamed elementary table entry or an arbitrary slice.
+Checked Q4 identification as 16-vertex 32-edge connected bipartite graph, 272 perfect matchings by disjoint recursion. Spanning-tree coboundary gauge is dimension 15, quotient 17. Independently computed exact 131072-point integer Walsh transform of 272 chord restrictions and support-indicator second transform: zeros 44230; full rank (131072−44230)2^15=2,845,638,656, nullity 1,449,328,640, min nonzero |W|=8, 15 absolute levels, projection absolute mass 10,389,668/131072=2,597,417/32768. Parseval 35,651,584 confirmed. Every singleton gives W=136; 96 adjacent edge pairs yield zero and no disjoint pair zero. Translations average any projection onto this Fourier-invariant range to its unique translation-invariant support projection without enlarging endpoint norm, proving projection-optimality. Exact only Q4, no extrapolation to larger cubes.
 
-The results have no general larger-hypercube extension and have not undergone an external independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new numerical signed-gauge spectrum and optimal Fourier-range projection constant for Q4, distinct from known matching totals and toroidal parity/homology classifications.
+
+## value
+
+PASS
+
+For the first nontrivial 16-vertex hypercube/toroidal 4x4 dimer graph, the complete gauge-reduced signed partition-function spectrum and exact sharp inverse range-projection endpoint amplification quantify recoverable Fourier information, not only enumerate matchings. The precise norm is an independently meaningful stability invariant for finite signed-dimer measurement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

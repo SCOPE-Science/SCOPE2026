@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T05:14:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked Q4 identification as 16-vertex 32-edge connected bipartite graph, 272 perfect matchings by disjoint recursion. Spanning-tree coboundary gauge is dimension 15, quotient 17. Independently computed exact 131072-point integer Walsh transform of 272 chord restrictions and support-indicator second transform: zeros 44230; full rank (131072−44230)2^15=2,845,638,656, nullity 1,449,328,640, min nonzero |W|=8, 15 absolute levels, projection absolute mass 10,389,668/131072=2,597,417/32768. Parseval 35,651,584 confirmed. Every singleton gives W=136; 96 adjacent edge pairs yield zero and no disjoint pair zero. Translations average any projection onto this Fourier-invariant range to its unique translation-invariant support projection without enlarging endpoint norm, proving projection-optimality. Exact only Q4, no extrapolation to larger cubes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kiwi–Loebl Theorem 3 identifies homological/parity types of toroidal matchings, not Walsh magnitudes over all 2^17 gauge signings.",
+          "Östergård–Pettersson enumerates 272 Q4 matchings but not all signed partition function values."
+        ],
+        "reasoning": "Even detailed matching-type enumeration is not a count of signed Fourier zeros or absolute transform of the nonzero-support indicator; neither checked broader result logically determines the claimed sharp projection mass as a stated theorem.",
+        "searches": [
+          "Kiwi Loebl types of perfect matchings toroidal square grids theorem 3",
+          "signed dimer Fourier spectrum recovery projection stability graph dimers"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/0910.3129",
+        "https://kam.mff.cuni.cz/~loebl/clanky/afterEJC07.pdf",
+        "https://doi.org/10.1007/s11083-012-9279-8",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/exact-signed-dimer-fourier-spectrum-and-sharp-recovery-projectio--b52baedd0542/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/exact-signed-dimer-fourier-spectrum-and-sharp-recovery-projectio--b52baedd0542/verify_walsh.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nontrivial explicit values: rank (131072−44230)*2^15=2,845,638,656; min nonzero 8; projection norm 10,389,668/131072=2,597,417/32768."
+        ],
+        "reasoning": "General Fourier inversion implies operator norm from support once support known but does not supply its 131072-bit support pattern. Translation averaging proves the Fourier support projection is endpoint-optimal among projections; this finite computed constant is an additional invariant.",
+        "searches": [
+          "signed dimer Fourier spectrum recovery projection stability graph dimers",
+          "Kenyon lectures dimers 2009 gauge",
+          "Kiwi Loebl 2014 toroidal matchings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Q4 graph is isomorphic to C4 × C4; W(s) is the Ising-sign evaluation of perfect matching partition function modulo spanning-tree coboundary.",
+          "Kenyon arXiv:0910.3129 explains graph gauge transformations and toroidal dimer determinants."
+        ],
+        "reasoning": "Equivalent form: 17-dimensional cycle-space signed matching partition function; Fourier convolution range is its nonzero-signing spectrum. Standard Pfaffian techniques evaluate individual signs but not automatically the entire absolute histogram and range projection norm.",
+        "searches": [
+          "signed dimer Fourier spectrum recovery projection stability graph dimers",
+          "Q4 perfect matching toroidal square grid Z2 gauge signed dimer partition function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact independent computation produces 15 |W| levels, 44,230 vanishing reduced signings, projection Fourier support absolute sum 10,389,668.",
+          "Resultary search returned different two-edge K8 matching Fourier support, without a matching Q4 signed histogram."
+        ],
+        "reasoning": "No known-table value was substituted: the exact counts were independently recomputed across all 131072 gauges, though older specialist tabulations remain a priority risk.",
+        "searches": [
+          "Q4 signed dimer Walsh Fourier 44230 2597417 toroidal grid",
+          "signed dimer Fourier spectrum recovery projection stability graph dimers"
+        ]
+      },
+      "rationale": "Best-of-knowledge new numerical signed-gauge spectrum and optimal Fourier-range projection constant for Q4, distinct from known matching totals and toroidal parity/homology classifications.",
+      "residual_risks": [
+        "Q4 has 272 matchings already known and vertex-switching gauge is classical; no novelty attributed to either.",
+        "Finite 2^17 Walsh histogram and exact endpoint constant are natural but specific to Q4/C4×C4 torus; unindexed signed-dimer tables may predate this computation.",
+        "Finite exact enumeration proves the stated 4-cube only, not all cubes or unrestricted weighted dimers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "METHOD_COVERED_NOT_HISTOGRAM",
+          "evidence": [
+            "Vertex sign gauges and toroidal Kasteleyn treatment established."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0910.3129",
+          "material_read": "Primary PDF Section 3.2 gauge equivalence and Section 4.2 toroidal model; relevant pages including p. 18",
+          "method": "arXiv PDF text and page image",
+          "title": "Lectures on Dimers",
+          "trigger": "identical weighted perfect-matching and gauge methodology"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": [
+            "Matching types and homology do not give all 2^17 signed Walsh values."
+          ],
+          "identifier_or_url": "https://kam.mff.cuni.cz/~loebl/clanky/afterEJC07.pdf",
+          "material_read": "Author-hosted complete PDF, introductory setup and Theorems 3/9 concerning parity/homology types",
+          "method": "lawful author OA PDF text and page images",
+          "title": "Types of Perfect Matchings in Toroidal Square Grids",
+          "trigger": "exact same C4×C4 toroidal graph class"
+        },
+        {
+          "assessment": "MATCHING_TOTAL_ALREADY_KNOWN",
+          "evidence": [
+            "272 matchings already known; no novelty claimed."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11083-012-9279-8",
+          "material_read": "Citation/abstract and published enumeration description; full article not read",
+          "method": "bibliographic comparison",
+          "title": "Enumerating Perfect Matchings in n-Cubes",
+          "trigger": "known count for Q4"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the first nontrivial 16-vertex hypercube/toroidal 4x4 dimer graph, the complete gauge-reduced signed partition-function spectrum and exact sharp inverse range-projection endpoint amplification quantify recoverable Fourier information, not only enumerate matchings. The precise norm is an independently meaningful stability invariant for finite signed-dimer measurement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/0910.3129",
+    "https://kam.mff.cuni.cz/~loebl/clanky/afterEJC07.pdf",
+    "https://doi.org/10.1007/s11083-012-9279-8",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/exact-signed-dimer-fourier-spectrum-and-sharp-recovery-projectio--b52baedd0542/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/exact-signed-dimer-fourier-spectrum-and-sharp-recovery-projectio--b52baedd0542/verify_walsh.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Complete exhaustive finite Q4 gauge census; no larger-dimensional formula, no unrestricted weighted torus result, and specialist older table risk.",
+    "Q4 has 272 matchings already known and vertex-switching gauge is classical; no novelty attributed to either.",
+    "Finite 2^17 Walsh histogram and exact endpoint constant are natural but specific to Q4/C4×C4 torus; unindexed signed-dimer tables may predate this computation.",
+    "Finite exact enumeration proves the stated 4-cube only, not all cubes or unrestricted weighted dimers."
+  ],
+  "residual_risks": [
+    "Q4 has 272 matchings already known and vertex-switching gauge is classical; no novelty attributed to either.",
+    "Finite 2^17 Walsh histogram and exact endpoint constant are natural but specific to Q4/C4×C4 torus; unindexed signed-dimer tables may predate this computation.",
+    "Finite exact enumeration proves the stated 4-cube only, not all cubes or unrestricted weighted dimers."
+  ],
+  "schema_version": 1
+}
