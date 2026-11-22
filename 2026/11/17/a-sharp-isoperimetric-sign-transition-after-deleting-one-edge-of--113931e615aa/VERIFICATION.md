@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python checks/check_one_missing_edge.py` with Python 3, NumPy and SciPy. The program directly constructs standard vertex coordinates, uses orthonormal projection into the intrinsic affine difference space, and compares `scipy.spatial.ConvexHull` volume and boundary-area outputs with the closed formulas for eleven parameter pairs through \((5,5)\). Both independent metric comparisons pass.
+## correctness
 
-For the seven pairs not handled by the uniform analytic inequalities, the program encloses each square root between exact fractions with denominator \(10^{12}\). It then propagates rational intervals through \((1-z\varepsilon)^d-(1-\varepsilon)^{d-1}\), and asserts that the resulting interval excludes zero with the claimed strict sign. It prints `RATIONAL_BOUNDARY_PASS cases=7`. This is an exact finite certificate conditional only on ordinary integer arithmetic, and its whole sign logic is visible in the script.
+PASS
 
-The infinite range requires the symbolic inequalities in `RESULT.md`. Finite convex-hull tests and seven strict arithmetic enclosures do not by themselves prove those general inequalities or historical novelty. All measures are in the intrinsic standard Euclidean metric, for a product with two factors of size at least two and exactly one deleted corner. No independent mathematical validation has been performed.
+The removed vertex is isolated by intrinsic hyperplane x_p+y_q=1, so the cut is exactly one d-simplex with Gram determinant pq and relative volume eps=1/binom(d,p-1). Facet subtraction plus new base with intrinsic normal norm sqrt((p-1)/p+(q-1)/q) gives S/V ratio (1-z eps)/(1-eps)^((d-1)/d). The sign reduces to z<T=[1-(1-eps)^((d-1)/d)]/eps. The broad p≥4 and p=3,q≥5 ranges have z>1>T; p=2,q≥7 follows the stated positive N_q and Taylor bound T-t≤eps²; seven remaining cases have exact rational square-root enclosures, independently reconstructed here. Direct substitution yields balanced m→∞ and fixed-p q→∞ coefficients, not a numerical extrapolation.
+
+## originality
+
+PASS
+
+PASS as a distinct complete strict four-exception one-deletion isoperimetric classification. Product-of-simplices root-polytope structure and standard simplex facet/volume calculus are existing background, not new. Closest published symmetric ± root deletion and crown-matching deletion are different polytopes/invariants; primary algebraic/tropical root-polytope article does not state the Euclidean quotient transition in its inspected sections. Unindexed classical truncation geometry may imply it; retain priority risk.
+
+## value
+
+PASS
+
+The sharp sign change under the smallest possible graph-edge perturbation of a natural root polytope is a motivated geometric stability phenomenon; the exact classification and dramatically different balanced versus fixed-side scales supply reusable exact benchmarks rather than an arbitrary small-parameter tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
