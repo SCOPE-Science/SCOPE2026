@@ -1,19 +1,21 @@
-# Scientific comparison and review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The original local rule is encoded by the exact neighbor count \(N_r(a,b,c)=|a|+|b|+|c|-b_r\), valid for all \(n\ge3\). A configuration is fixed if and only if its periodic sequence of columns describes a length-\(n\) closed walk in the specified sixty-four-vertex graph. The supplied integer certificate checks all 512 local triples, both cyclic-component decompositions, the complete size-thirty and size-twenty-seven characteristic polynomials, and strict rational Collatz-Wielandt bounds. The common \(1,1,2\) family is also counted directly, and a separate exhaustive Moore-update program tests the predicted results through circumference seven. The all-size argument uses exact finite graph identities and primitivity, not the small-size tests. Remaining correctness risk is a possible implementation error shared by finite computations, mitigated by the explicitly stated graph definition and independent direct checker.
+PASS
 
-## Originality — PASS, with residual priority risk
+For 3-by-n Moore torus n>=3, the eight neighbors are distinct and the three-site middle column sees total neighboring column weight |a|+|b|+|c|-b_r. Counting labelled fixed configurations becomes the trace of a complete 64-state directed de Bruijn transfer. Inspected 512-triple Boolean-condition verifier enumerates 155 HighLife versus 156 Life edges, common recurrent components sizes 30 and 27, and sole removed edge (7,0)->(0,7); characteristic polynomials of size-30 blocks are z^20 p_H(z), z^20 p_L(z), and of the other block z^24(z^3-27). A common 3^{n+1} term is present exactly for 3|n. Primitivity of both 30-state blocks and strict entrywise edge deletion give 2.65923<rho_H<2.65924<2.70363<rho_L<2.70364<3 by the disclosed exact integer Collatz vectors. Trace Perron asymptotics imply ratio 1 on 3k and 0 on 3k+1,3k+2, with Life-HighLife difference asymptotic rho_L^n. Independently written direct synchronous torus census exhausts all 2^{3n} states for n=3..7, reproducing counts (127,37,91,2539,1009) for HighLife and (127,39,121,2595,1177) for Life. The finite transfer characteristic computation is exhaustively specified, not inferred from those small n.
 
-The exact claim is a comparison of labelled fixed-state sequences for B36/S23 and B3/S23 on every \(\mathbb Z_3\times\mathbb Z_n\) Moore torus, together with two distinct asymptotic regimes depending on divisibility by three. Eppstein's 2009 full preprint discusses HighLife pattern growth, not this exact census. Bell's original HighLife discussion and McIntosh's Life still-life chapter are the closest historical sources, but their full contents were not obtainable; this is explicitly a priority risk, not evidence of their absence. An accessible prior three-row Conway Life fixed-state result already provides the complete Life-side characteristic polynomial and the common resonance family; neither this nor related results for other rules implies the newly computed HighLife spectrum or the cross-rule contrast. No exact matching sequence or table was identified by the searches performed. The Conway Life-only formula, ordinary transfer technique and known inclusion of HighLife still lifes in Life still lifes are prior facts, not independent claims to priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-HighLife differs from Life by a single birth condition; that perturbation deleting just one cyclic transition has an exponential effect on off-resonance fixed-state counts while leaving a common, asymptotically overwhelming family on resonant widths. The exact invariant and the split asymptotic are natural diagnostics for a canonical pair of well-known cellular automata. The theorem is not merely a computation at arbitrary small sizes: it covers all circumferences and determines complete recurrent transfer spectra with a structural explanation of the arithmetic effect. No claim is made for wider strips or the infinite-plane stationary-state measure.
+Earlier published width-three Life-only fixed-state formula and 3-column weight resonance give the exact Life polynomial and dominant subsequence, so that part is covered and not counted as new. The final theorem additionally computes the HighLife transfer polynomial, shows that exactly one Life transition is removed under B36, proves a smaller positive Perron root, and derives ratio 1 versus exponentially vanishing along distinct residues; Life-only statements and classical inclusion do not imply those. Bibliographic uncertainty remains concerning Bell 1994 compressed archive and uninspected portions of McIntosh.
 
-## Literature and verification limitations
+## value
 
-Primary full text consulted: D. Eppstein, *Growth and Decay in Life-Like Cellular Automata*, arXiv:0911.2890, sections on Life-like rules and HighLife; and Eppstein's author-authored HighLife replicator account. Bell's 1994 author-hosted compressed archive was located but not read; McIntosh's pertinent chapter was only available as bibliography and abstract. Two standalone programs and their actual stdout records accompany the proof. Independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact quantitative comparison of two canonical natural Life-like rules on the smallest genuinely eight-neighbor periodic strip is a meaningful finite-width phase distinction. A single extra birth transition changes the primitive Perron root but leaves a period-three recurrent component untouched, yielding a genuinely arithmetic 0/1 subsequence comparison. The explicit all-n count and spectral witness could be reused by researchers studying fixed-state entropy, not merely a handful of tabulated instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

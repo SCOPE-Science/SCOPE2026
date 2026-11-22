@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T13:12:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 33a86ab847d0723347bec418884e3da43ef73dab",
+        "Frozen transfer_check.py 74dfb04c5c601eddac9a86898efa8133467f2c87",
+        "Independent 3x3 through 3x7 direct synchronous update census"
+      ],
+      "rationale": "For 3-by-n Moore torus n>=3, the eight neighbors are distinct and the three-site middle column sees total neighboring column weight |a|+|b|+|c|-b_r. Counting labelled fixed configurations becomes the trace of a complete 64-state directed de Bruijn transfer. Inspected 512-triple Boolean-condition verifier enumerates 155 HighLife versus 156 Life edges, common recurrent components sizes 30 and 27, and sole removed edge (7,0)->(0,7); characteristic polynomials of size-30 blocks are z^20 p_H(z), z^20 p_L(z), and of the other block z^24(z^3-27). A common 3^{n+1} term is present exactly for 3|n. Primitivity of both 30-state blocks and strict entrywise edge deletion give 2.65923<rho_H<2.65924<2.70363<rho_L<2.70364<3 by the disclosed exact integer Collatz vectors. Trace Perron asymptotics imply ratio 1 on 3k and 0 on 3k+1,3k+2, with Life-HighLife difference asymptotic rho_L^n. Independently written direct synchronous torus census exhausts all 2^{3n} states for n=3..7, reproducing counts (127,37,91,2539,1009) for HighLife and (127,39,121,2595,1177) for Life. The finite transfer characteristic computation is exhaustively specified, not inferred from those small n.",
+      "residual_risks": [
+        "Exactly three periodic rows; no behavior for two rows, open strips or temporal periods >1",
+        "Full rational root brackets rely on exact full-component integer checker, not an independent separate 30x30 characteristic-polynomial derivation in this run"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eppstein classifies qualitative growth/decay and describes HighLife replicators; no three-row fixed-state transfer polynomial in sections read",
+          "McIntosh framework for 1988 Life analysis predates introduction of HighLife in 1994 and accessible abstract only, not a verified exclusion of all potential tables"
+        ],
+        "reasoning": "General transfer frameworks are applicable tools, not an automatic proof of the specific 30-state HighLife characteristic polynomial and ratio regimes.",
+        "searches": [
+          "Eppstein arxiv:0911.2890 growth and decay Life-like automata full text",
+          "McIntosh Lifes Still Lifes de Bruijn methods book chapter",
+          "Resultary 2026/11/17 Conway Life three-column resonance full result"
+        ]
+      },
+      "checked_sources": [
+        "Resultary search: HighLife versus Life fixed states width three strip entropy modulo three",
+        "Resultary full Life-only 2026/11/17 RESULT.md",
+        "https://ar5iv.labs.arxiv.org/html/0911.2890",
+        "https://doi.org/10.1007/978-1-84996-217-9_4",
+        "https://www.tip.net.au/~dbell/"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known p_L plus HighLife-fixed subset Life-fixed does not determine the new p_H, Perron gap, or exact removed-transition spectral effect",
+          "The shared 3^{n+1} 3-divisible component is prior covered, while strict exponential difference off-resonance is an additional implication of a newly computed rho_H"
+        ],
+        "reasoning": "Acceptance is for the comparative HighLife theorem, not the already covered Life-only characteristic polynomial or generic transfer trace method.",
+        "searches": [
+          "Resultary Life-only three-column resonance RESULT.md full",
+          "Eppstein Growth and Decay HighLife sections ar5iv",
+          "McIntosh Life’s Still Lifes publisher abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/11/17 target is same record; a separate three-column resonance for Conway Life gives only p_L and three-divisible 3^{n+1} term",
+          "The extra HighLife six-birth is exactly the one deleted de Bruijn edge (7,0)->(0,7) in the 3-by-n torus"
+        ],
+        "reasoning": "Stationary configurations/one-step fixed points/still lifes were compared, not just article titles; previous Life-only invariant lacks the HighLife factor and ratio comparison.",
+        "searches": [
+          "Resultary: HighLife versus Life fixed states width three strip entropy modulo three",
+          "HighLife B36/S23 Life B3/S23 stationary periodic strip transfer matrices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Conway Life width-three record lists Life n=3..10 counts and polynomial, not HighLife n-dependent counts",
+          "Independent direct census n=3..7 reproduces two distinct sequences; no other exact HighLife width-three table verified in accessible indexed results"
+        ],
+        "reasoning": "Finite counts alone, even if historically tabulated, are weaker than an all-n spectral factorization; inaccessible historic HighLife pattern catalogues remain priority risks.",
+        "searches": [
+          "Resultary: HighLife versus Life fixed states width three strip entropy modulo three",
+          "LifeWiki HighLife still lifes width three torus counts",
+          "1994 Bell HighLife archive exact fixed configurations"
+        ]
+      },
+      "rationale": "Earlier published width-three Life-only fixed-state formula and 3-column weight resonance give the exact Life polynomial and dominant subsequence, so that part is covered and not counted as new. The final theorem additionally computes the HighLife transfer polynomial, shows that exactly one Life transition is removed under B36, proves a smaller positive Perron root, and derives ratio 1 versus exponentially vanishing along distinct residues; Life-only statements and classical inclusion do not imply those. Bibliographic uncertainty remains concerning Bell 1994 compressed archive and uninspected portions of McIntosh.",
+      "residual_risks": [
+        "Bell 1994 original compressed article inaccessible; older HighLife fixed-strip tables may exist",
+        "McIntosh chapter not read in full; its theoretical transfer method may overlap other count techniques",
+        "Precise same-day chronology for separate 2026 Life-only published finding not established; only scientific implication compared"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covering for Conway Life baseline only, not HighLife comparison",
+          "evidence": "Life-only polynomial p_L=z^10-z^9-z^8-14z^7+6z^6+63z^4-63z^3-81z+243; shared 3^{n+1} if 3|n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-three-column-resonance-in-conway-life-s-width-three-fixed-stat--123f185b2261/RESULT.md",
+          "material_read": "Full published RESULT.md, weighted 16-state transfer, polynomial, component decomposition, asymptotics",
+          "method": "GitHub primary result full-file reading",
+          "title": "A three-column resonance in Conway Life’s width-three fixed-state spectrum",
+          "trigger": "Exact same torus and Life part of claim"
+        },
+        {
+          "assessment": "Qualitative growth/decay coverage, not the 3-row stationary transfer count in material inspected",
+          "evidence": "Addresses growth of Life-like rules and HighLife patterns, not n-indexed fixed-state polynomials.",
+          "identifier_or_url": "https://arxiv.org/abs/0911.2890",
+          "material_read": "Accessible full primary text via ar5iv, growth/decay taxonomy and HighLife discussions",
+          "method": "web full-text reading",
+          "title": "Growth and Decay in Life-Like Cellular Automata",
+          "trigger": "HighLife B36/S23 and general Life-like behavior"
+        },
+        {
+          "assessment": "Priority remains uncertain; no whole-document not-covering assertion",
+          "evidence": "Conway Life still-life analysis, source text unavailable in full.",
+          "identifier_or_url": "https://doi.org/10.1007/978-1-84996-217-9_4",
+          "material_read": "Publisher description and bibliographic abstract; complete chapter not inspected",
+          "method": "web abstract only",
+          "title": "Life’s Still Lifes",
+          "trigger": "Historical use of transfer/de Bruijn enumeration"
+        },
+        {
+          "assessment": "Unresolved historic exact-pattern enumeration risk",
+          "evidence": "An inaccessible plausible original cannot be treated as verified not covering.",
+          "identifier_or_url": "https://www.tip.net.au/~dbell/",
+          "material_read": "Author archive listing and bibliographic description; compressed original article not retrieved",
+          "method": "archive metadata",
+          "title": "HighLife — An Interesting Variant of Life",
+          "trigger": "Original 1994 HighLife source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "HighLife/Life 64-state transfer construction",
+        "Published Life-only baseline and independent direct census"
+      ],
+      "rationale": "The exact quantitative comparison of two canonical natural Life-like rules on the smallest genuinely eight-neighbor periodic strip is a meaningful finite-width phase distinction. A single extra birth transition changes the primitive Perron root but leaves a period-three recurrent component untouched, yielding a genuinely arithmetic 0/1 subsequence comparison. The explicit all-n count and spectral witness could be reused by researchers studying fixed-state entropy, not merely a handful of tabulated instances.",
+      "residual_risks": [
+        "Width three and fixed states only; no all-width entropy claim"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exactly three periodic rows; no behavior for two rows, open strips or temporal periods >1",
+    "Full rational root brackets rely on exact full-component integer checker, not an independent separate 30x30 characteristic-polynomial derivation in this run",
+    "Bell 1994 original compressed article inaccessible; older HighLife fixed-strip tables may exist",
+    "McIntosh chapter not read in full; its theoretical transfer method may overlap other count techniques",
+    "Precise same-day chronology for separate 2026 Life-only published finding not established; only scientific implication compared",
+    "Width three and fixed states only; no all-width entropy claim"
+  ],
+  "schema_version": 1
+}
