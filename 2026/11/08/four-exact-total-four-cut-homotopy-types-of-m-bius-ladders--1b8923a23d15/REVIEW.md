@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite claim for precisely four Möbius ladders is reconstructed by exhaustive face enumeration and a deterministic vertex-toggle Morse matching. All face-poset incidences are visited and an exact directed acyclicity test succeeds; the critical CW cells consist only of a point and cells of dimension \(2n-8\). This establishes the **integral homotopy type**, rather than deducing it from finite-field ranks. A separate reduced simplicial \(\mathbb F_2\)-chain calculation agrees for all degrees. The non-shellability consequence uses pure facet dimension \(2n-5\), which is three greater than the nonzero homology degree.
+## correctness
 
-**Originality — PASS, with a named access risk.** The full 19-page Agarwal–Basak Möbius-ladder paper was read: its main theorems classify independence and perfect-matching complexes, whereas its Section 6 specifically lists total-cut complexes as future work. Previous total-three-cut results for Möbius ladders, complete-multipartite total-cut cases, cyclic-power and grid constructions do not state these four cut-four homotopy equivalences. The simpler width \(n=5\) is already equivalent to a complete-bipartite total-four-cut construction, so is excluded. Indexed mathematical-record searches of the graph/cut level, all four numerical results, Alexander-dual aliases, and implication-equivalent descriptions did not return these four claims. The broad total-cuts paper arXiv:2602.21427 was checked at abstract level only because full-text retrieval was unavailable; unindexed or stronger coverage remains possible.
+PASS
 
-**Mathematical value — PASS.** The four consecutive widths \(n=6,7,8,9\) are the first four after the elementary width-five coincidence; they cover two bipartite and two nonbipartite Möbius ladders. The exact sphere wedges establish integral homotopy and failure of pure shellability at the next unexplored cut parameter in a graph family explicitly selected for investigation in recent primary literature. They form an exact finite cutoff rather than an arbitrary isolated parameter or an unsupported infinite extrapolation.
+Reconstructed the graph definition and face/facet condition for each n∈{6,7,8,9}. Independently implemented an exhaustive C++17 enumeration of all independent four-sets, exact complements/subfaces, descending-dimension greedy vertex-toggle pairings, complete reoriented Hasse DAG and Kahn acyclicity test. All counts equal the original package: (indep4,nonempty faces,incidences,matching pairs,critical) = (48,2545,12876,1257,{0:1,4:30}); (154,13463,87038,6699,{0:1,6:64}); (384,60578,467728,30242,{0:1,8:93}); (810,254369,2255346,127119,{0:1,10:130}). The topological sorting visited every nonempty face. Forman acyclic matching yields CW models with one 0-cell and exclusively d≥4 cells, whose attaching maps land in a point, hence the asserted integral wedge equivalences; mod-2 ranks alone would not justify them. Complements of distinct independent 4-sets are equal-sized facets of dimension 2n−5; nonzero homology in 2n−8 implies failure of pure shellability. Checked n=5 excluded K5,5 coincidence. The certificate is exhaustive only for these four widths; no infinite extrapolation.
 
-**Closest literature and limitations.** Agarwal–Basak, arXiv:2608.30601 (full text inspected), studies the same graphs with different associated complexes. Carnero Bravo, arXiv:2602.21427 (abstract only), covers other families and leaves a material uncertainty. The original cut-complex work, DOI:10.1137/23M1569034 (abstract inspected), supplies the definitions and includes complete-multipartite results. Previous published total-three-cut Möbius-ladder results have different cut parameters. Only the four displayed widths are proved; no general recurrence, symmetry decomposition or independent validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the four specified total-four-cut integral homotopy types: the exact Resultary mirror is the same work, while full-text adjacent total-three-cut and ordinary-four-cut classifications have mathematically inequivalent facet conditions, dimensions and ranks. Primary papers on these graphs or total-cut graph families do not imply the exact claims. Explicit residual risk remains for unindexed equivalences; unsuccessful searches alone are not novelty proof.
+
+## value
+
+PASS
+
+The graphs are a natural highly symmetric cubic family. Agarwal–Basak (2026) Problem 26 specifically motivates cut/total-cut topology for Möbius ladders. The n=5 total-four-cut instance is already a complete-bipartite coincidence, while n=6..9 are the first four nontrivial consecutive widths, spanning both bipartite and nonbipartite graphs. Exact integral sphere-wedge decompositions (not just Betti numbers), a full acyclic matching and non-shellability constitute a useful natural finite classification/benchmark at the next cut parameter, even without an all-n theorem or paper-sized advance. Correctness, novelty and reproducibility alone are not used as the motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
