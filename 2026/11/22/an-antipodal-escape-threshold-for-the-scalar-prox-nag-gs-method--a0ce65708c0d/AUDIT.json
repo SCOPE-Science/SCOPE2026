@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The theorem derives Algorithm 1 exactly at constant damping and positive scalar l1 penalty. The Schur inequalities prove bounded input-stable subcritical dynamics, while soft-threshold deadzone gives local exponential attraction at all curvature ratios. For \\(k>1+((2-a)/a)^2\\), direct substitution determines the only antipodal cycle and an exact invariant cone whose positive two-by-two transfer matrix has Perron eigenvalue above one; diagonal-start entry gives exponential escape. The equality case and other periodic cycles are excluded explicitly. Package checker.py passed 160 exact-rational parameter cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wiykiynyuy–Ekuri–Leplat (2026), full text Sections 2.3 and 3: linear convergence only under \\(h\\ge L\\), including a nonsmooth regularizer.",
+        "Leplat et al. (2022), smooth spectral analysis, with no positive l1 regularizer.",
+        "Published related records considered: composite ProxSPS cycle, exact soft-threshold bypass in nonlinear conjugate-gradient, and fixed-radius composite trust-region; different iteration maps."
+      ],
+      "reasoning": "The source proves a sufficient rate under \\(k\\le1\\); the new conclusion concerns sharp positive-regularizer boundedness for \\(k<1+((2-a)/a)^2\\) and specific unbounded orbits beyond. More general proximal convergence results have assumptions that fail for the large-curvature-ratio regime or concern a different update, so their conclusions do not dominate this claim.",
+      "searches": [
+        "semi implicit NAG GS lasso deadzone stable origin divergent infinite initial states period two threshold proximal curvature",
+        "2026 proximal Nesterov Gauss Seidel l1 quadratic flat region globally attractive despite negative eigenvalues",
+        "arxiv:2605.26260 original full HTML Sections 2.3, 3.1, 3.7 and conclusion"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2605.26260v1",
+      "https://arxiv.org/pdf/2209.14937",
+      "https://web.stanford.edu/~boyd/papers/prox_algs.html",
+      "https://doi.org/10.1137/080716542"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2209.14937 establishes smooth quadratic spectral stability, matching the linear companion spectrum here.",
+        "arXiv:2605.26260v1 verifies the exact proximal recurrence and a conservative convergence guarantee; neither full text presents the invariant-cone argument or the antipodal cycle at positive penalty."
+      ],
+      "reasoning": "The candidate does not claim the smooth Schur radius as new. Its novelty claim is specifically the dead-zone local stability at arbitrary curvature ratio together with nonzero threshold-dependent antipodal cycles and source-diagonal escaping trajectories for the positive \\(\\ell_1\\) composite iteration. The other comparison algorithms have different maps and cannot imply these method-specific formulas without further proof.",
+      "searches": [
+        "arxiv:2209.14937 Schur stability quadratic semi implicit NAG GS",
+        "Prox-NAG-GS constant damping quadratic spectral eigenvalue exact stability optimal parameter",
+        "related piecewise affine inertial proximal lasso periodic orbits"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2605.26260v1 Section 3.1 explicitly gives the same coupled recurrence and Section 3.7 a sufficient Lyapunov condition.",
+        "arXiv:2209.14937 smooth quadratic NAG-GS uses the same Schur-stability matrix without the positive soft-threshold penalty."
+      ],
+      "reasoning": "The only direct reformulation found is as a piecewise-affine two-state proximal recursion. Smooth Schur stability alone yields the subcritical linear condition but cannot imply the coexistence of a locally attracting origin and a finite-amplitude antipodal orbit in the nonsmooth system.",
+      "searches": [
+        "\"Prox-NAG-GS\" \"two-cycle\" proximal l1 divergence scalar",
+        "\"NAG-GS\" \"proximal\" \"bifurcation\" divergence",
+        "Prox-NAG-GS scalar quadratic l1 soft threshold antipodal two cycle sharp global convergence critical curvature ratio"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No examined exact table or numerical dataset supplied a two-state positive l1 antipodal cycle amplitude or the invariant-cone threshold.",
+        "The published source reports Elastic Net and Group Lasso experiments, not a complete scalar orbit classification."
+      ],
+      "reasoning": "This is a symbolic theorem about an entire continuous parameter family. Published numerical examples in the source cannot by themselves imply its if-and-only-if antipodal-cycle criterion and exact escape cone. A missing tabulation is not a proof of novelty.",
+      "searches": [
+        "\"Prox-NAG-GS\" \"soft threshold\" instability unbounded",
+        "Prox-NAG-GS semi implicit proximal method quadratic lasso active set identification sharp global stability curvature ratio spectral radius stationary two sequence"
+      ]
+    },
+    "rationale": "The positive \\(\\ell_1\\) amplitude, local-attraction-versus-escape coexistence and invariant cone are not implications of the motivating source Lyapunov guarantee or the older smooth NAG-GS Schur stability theorem. Related published composite methods considered use different update maps. Historical-priority risk from other inertial-proximal piecewise-affine classifications remains.",
+    "residual_risks": [
+      "An older method-equivalent piecewise-affine inertial-proximal analysis may contain a stronger result under alternate parameters.",
+      "The exact equality boundary is not classified and no claim of global subcritical convergence is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives two-state update and sufficient h≥L convergence; does not present the antipodal cycle and invariant escape-cone result.",
+        "evidence": [
+          "arXiv HTML 2605.26260v1, Algorithm 1, equation (7), Theorem 1, Sections 4–5"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.26260v1",
+        "material_read": "Relevant arXiv HTML passages: Algorithm 1, Sections 2.3 and 3.1–3.8, numerical discussion and conclusion",
+        "method": "Compared exact update, objective class, parameter conditions, theorem conclusions, and relevant experiments",
+        "title": "Prox-NAG-GS: A Semi-Implicit Proximal Method for Composite Optimization",
+        "trigger": "Exact motivating method; potential same-map coverage"
+      },
+      {
+        "assessment": "Smooth Schur frontier is prior; no positive soft-threshold deadzone, finite antipodal cycle, or nonlinear escaping cone follows directly.",
+        "evidence": [
+          "arXiv:2209.14937, quadratic stability sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2209.14937",
+        "material_read": "Relevant original smooth quadratic stability sections, spectral discussion and source formulation",
+        "method": "Compared linear spectral conditions to current Jury bounds and inspected positive-regularizer applicability",
+        "title": "NAG-GS: A Semi-Implicit Stochastic Optimizer with Large-Step Stability",
+        "trigger": "Same smooth spectral matrix and possible dominating stability theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a0ce6570-8c0d-4e22-9f1b-0c08db8caae9",
+  "value": {
+    "rationale": "A sharp global-boundedness versus explicit source-start escape frontier for the actual nonsmooth semi-implicit method, plus an explicit finite-amplitude antipodal orbit coexisting with a locally attractive minimizer, exposes a genuine limitation of local proximal identification as a global numerical stability diagnostic. The result supplies a reusable closed-form test family without claiming generic multivariate behavior.",
+    "status": "PASS"
+  }
+}
