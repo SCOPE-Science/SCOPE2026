@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "computed_checks": [
+      "python VERIFY.py: DIRECT_ALL_SUBSETS_OK instances 34 subsets 46608",
+      "python VERIFY.py: COEFFICIENT_AND_SHAPE_FORMULAS_OK cases 1680",
+      "python VERIFY.py: VERIFY_OK"
+    ],
+    "proof_boundaries": [
+      "c=3 and c=4 handled separately for log-concavity",
+      "t=1 handled separately for all longer cycles",
+      "c≥5,t≥2 gives strict negative log-concavity determinant",
+      "full-cycle initial sets counted exactly once"
+    ],
+    "rationale": "Necessity and sufficiency prove exactly the interval-plus-tail-prefix classification for all c≥3,t≥1, including the hub initially white and hub initially blue. The rotational interval counts give the entire polynomial. A coefficient difference identity proves unimodality for all parameters, while a strict three-coefficient determinant and exhaustive elementary boundary cases prove the exact log-concavity criterion. The checker constructs the graph directly and independently confirms 34 exhaustive examples (46,608 subsets), then verifies 1,680 parameter-level arithmetic cases; finite checks are corroborative, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mukherjee and Ray (2026) determine the polynomial for all finite trees and ask for the unicyclic polynomial in Problem 5.2. A tree theorem cannot cover a graph with a cycle.",
+        "Brimkov (2016) supplies the general unicyclic connected forcing number, not a distribution by initial-set size.",
+        "Indexed connected-forcing polynomial results for wheels and sunlets treat a universal-apex graph or a cycle with one leaf attached at every vertex, not the stipulated one-leaf family."
+      ],
+      "reasoning": "A general theorem on the connected zero-forcing polynomial of every unicyclic graph would subsume the new formula, but none is established by the inspected sources. The complete one-leaf class and its coefficient-shape threshold go beyond previously cited scalar minimum results; bounded failure to find coverage is not a proof of absolute priority.",
+      "searches": [
+        "connected zero forcing polynomials unicyclic graphs sunlet lollipop exact",
+        "connected-forcing polynomial of unicyclic one-leaf graph with cycle length c pendant length t",
+        "arXiv:2611.10985v1, Problem 5.2",
+        "arXiv:1607.00658v1, Theorem 5.1"
+      ]
+    },
+    "checked_sources": [
+      "Mukherjee and Ray (2026), arXiv:2611.10985, abstract, relevant main sections and Problem 5.2",
+      "Brimkov (2016), arXiv:1607.00658v1, Section 5.1 Lemmas 3–5 and Theorem 5.1",
+      "Newton and Brimkov (2026), arXiv:2611.11352, abstract and nonunimodality result",
+      "Indexed scientific summaries of connected-forcing polynomials for sunlets and wheels",
+      "Indexed scientific summary of ordinary zero-forcing polynomials for clique-path lollipop graphs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2016 unicyclic number specializes to a minimum size of two here, compatible with the first coefficient, but provides no formula for larger initial sets.",
+        "The 2026 tree-polynomial result has no unicyclic hypothesis and states the relevant open problem.",
+        "Newton and Brimkov (2026) produce nonunimodal examples in larger graph families, which do not contradict unimodality in this special one-leaf unicyclic family."
+      ],
+      "reasoning": "The previous statements neither contain a theorem on every size of connected initial set for one-leaf unicyclic graphs nor yield the threshold c≤4 or t=1 by a direct specialization. The current result credits the pre-existing segment lemma and minimum value rather than claiming them as new.",
+      "searches": [
+        "arXiv:1607.00658v1, Lemma 3 and Theorem 5.1",
+        "arXiv:2611.10985v1, Sections 1 and 5, Problem 5.2",
+        "arXiv:2611.11352, main theorem",
+        "connected zero forcing polynomial cycle with pendant path attached hub graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brimkov (2016), Section 5.1, Lemma 3, establishes that connected forcing sets omit at most one cycle interval; Theorem 5.1 computes only the least cardinality, not the coefficient polynomial.",
+        "The same graph may be called a tadpole or a cycle-path lollipop; the indexed studies found for these aliases concern other invariants or ordinary (not connected) forcing."
+      ],
+      "reasoning": "The structural segment lemma is an ingredient, not a complete equivalence: it does not count tail-prefix choices, ensure sufficiency of each interval, or imply unimodality and the precise log-concavity threshold. The ordinary forcing-set polynomial is a strictly different invariant because connectedness is imposed on the initial induced subgraph.",
+      "searches": [
+        "\"connected zero forcing polynomial\" \"tadpole\" graph",
+        "\"connected zero forcing\" \"lollipop\" \"polynomial\"",
+        "tadpole lollipop cycle path connected zero forcing set polynomial coefficients unimodal not log concave",
+        "arXiv:1607.00658v1, Section 5.1 (excluded cycle segment formulation)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The checked mathematical record summaries of sunlet connected forcing, wheel connected forcing and clique-path ordinary forcing do not contain the two-parameter one-leaf graph polynomial or its exact log-concavity classification.",
+        "The source arXiv:2611.10985 explicitly lists the unicyclic polynomial as a problem rather than a known table."
+      ],
+      "reasoning": "No checked formula or tabulation with the same graph family, connected-set definition, and both parameters was located. A general sparse polynomial table could potentially cover isolated small parameters but would not by itself imply the unrestricted two-parameter formula or sharp shape boundary.",
+      "searches": [
+        "connected zero-forcing tadpole cycle attached path total connected forcing sets",
+        "\"connected zero forcing polynomial\" \"unicyclic\" 2026",
+        "Connected zero forcing polynomials of unicyclic graphs with one pendant leaf, a cycle with attached path (tadpole graphs). Exact cardinality formula and log concavity."
+      ]
+    },
+    "rationale": "Available full primary literature and historical record comparisons do not imply this exact one-leaf unicyclic connected-forcing polynomial or the sharp log-concavity threshold. The motivating Nov 7, 2026 paper explicitly poses the unicyclic connected polynomial as Problem 5.2; the 2016 unicyclic result computes only the scalar forcing number. Earlier segment lemmas and ordinary forcing studies are credited; novelty is bounded-best-knowledge, not a proved absence from all literature.",
+    "residual_risks": [
+      "Unindexed or non-digitized exact one-leaf unicyclic counting formulas may exist.",
+      "Full texts of the indexed sunlet and wheel enumerations were not accessible; their indexed graph definitions are nevertheless structurally disjoint from the one-leaf class.",
+      "A general graph-theoretic polynomial formula, not found in bounded searches, could imply the result after substantial specialization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: polynomial theorems are for trees; Problem 5.2 asks for unicyclic graphs.",
+        "evidence": [
+          "Problem 5.2: determine connected zero forcing polynomial of a unicyclic graph; first posted 2026-11-07."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.10985",
+        "material_read": "ArXiv accessible HTML abstract, definitions and Introduction; Sections 4 and 5 including Problem 5.2 and references.",
+        "method": "Full accessible arXiv HTML with section-level examination",
+        "title": "On the connected zero forcing polynomial of finite trees",
+        "trigger": "Same polynomial and explicit problem on unicyclic graphs"
+      },
+      {
+        "assessment": "PARTIALLY_RELATED: segment constraint and minimum cardinality, not all-size polynomial or coefficient inequalities.",
+        "evidence": [
+          "Lemma 3: at most one omitted cycle segment; Theorem 5.1: minimum connected forcing size and algorithm."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1607.00658v1",
+        "material_read": "Full available HTML, specifically Introduction, Section 3 preliminaries, and Section 5.1 Lemmas 3–5, Theorem 5.1 and Proposition 4.",
+        "method": "Direct inspection of original arXiv HTML theorem and proof paragraphs",
+        "title": "Complexity and Computation of Connected Zero Forcing",
+        "trigger": "Potentially dominating structural result on unicyclic connected forcing"
+      },
+      {
+        "assessment": "NOT_COVERING: shows general nonunimodality, not one-leaf unicyclic classification.",
+        "evidence": [
+          "Constructed graphs yield nonunimodal forcing polynomials, including connected forcing; no covered one-leaf unicyclic family."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.11352",
+        "material_read": "ArXiv accessible abstract, Introduction, main construction and enumerative nonunimodality argument.",
+        "method": "Direct inspection of accessible arXiv text",
+        "title": "Zero forcing is not unimodal",
+        "trigger": "Potential contrary general-unimodality result for connected forcing polynomial"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECT: a sunlet has one pendant leaf at each of its at least three cycle vertices; cannot be a one-leaf unicyclic graph.",
+        "evidence": [
+          "Summary explicitly identifies the graph as a cycle with a leaf at each vertex."
+        ],
+        "identifier_or_url": "Published mathematical-record entry dated 2026-10-13",
+        "material_read": "Public title and indexed scientific summary only; full result page not accessible in this check.",
+        "method": "Semantic mathematical-record search and attempted public full-text retrieval",
+        "title": "Cardinality enumerator of connected forcing sets of sunlet graphs",
+        "trigger": "A cycle-with-leaves connected forcing enumeration could appear to subsume the claim"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECT: a wheel has a universal apex, not a pendant path, and is not a one-leaf unicyclic graph.",
+        "evidence": [
+          "Summary identifies its family as W_n=K_1 join C_n."
+        ],
+        "identifier_or_url": "Published mathematical-record entry dated 2026-10-13",
+        "material_read": "Public title and indexed scientific summary only; full result page not accessible in this check.",
+        "method": "Semantic mathematical-record search and attempted public full-text retrieval",
+        "title": "Connected-forcing polynomial of wheel graphs",
+        "trigger": "Same invariant on a cycle-based graph class"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "70cd56b3-b772-40d3-bddb-7af0777ae9d9",
+  "value": {
+    "rationale": "The parameter of exactly one pendant vertex defines a natural complete class of connected unicyclic graphs and the 2026 Problem 5.2 asks precisely for unicyclic connected-forcing polynomials. The result computes every size of forcing set and the exact total across all cycle and tail lengths; it also proves a sharp shape dichotomy: universal unimodality despite log-concavity failure exactly when c≥5,t≥2. This distinguishes structurally meaningful graph boundaries and supplies a test family for future broader unicyclic polynomial results, beyond the old scalar minimum.",
+    "status": "PASS"
+  }
+}
