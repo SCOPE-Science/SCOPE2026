@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. A point is in its vertex-to-origin diameter disk exactly when its squared norm is at most its dot product with that vertex. The sorted angular separations on a regular polygon give a rank-by-rank radial threshold. A separate product-to-sum trigonometric inequality shows every point covered at least twice is inside the polygon, so no boundary clipping is needed from rank two onward. Integrating radial squares over a fundamental sector establishes the complete exact distribution, including the exceptional triangle cutoff. Every claim concerns almost-everywhere multiplicity; the origin is separately identified as an exceptional point. Direct numerical quadrature of unsorted original disk membership inequalities verifies 462 rank-size cases through 30 vertices, without being invoked as an infinite proof.
+## correctness
 
-## Originality
-PASS on examined evidence, with residual historical-priority risk. Pavlík's 2026 Thales covering theorem proves a union covers the polygon, and its power-diagram construction partitions the polygon into one cell per vertex; neither provides areas stratified by simultaneous membership in two or more disks. Huemer–Pérez-Lantero (2014) and Herrera–Pérez-Lantero (2018) use side-diameter disks, not vertex-to-center disks, and discuss intersection graphs rather than area multiplicities. Searches of published published-finding corpus records for Thales balls, regular polygons, disks and multiplicity yielded related spherical-cap and covering results but no equivalent exact planar law. The accessible own ledger was searched for diameter disks, Thales, overlap, and multiplicity; the closest recorded point-pair diameter-disk probability is a distinct random model. Search absence alone does not prove absolute novelty.
+PASS
 
-## Mathematical value
-PASS. The source establishes coverage but leaves overlap geometry unquantified. An exact natural area invariant for every multiplicity in every regular polygon distinguishes ordinary coverage from higher-order redundancy and identifies a global twofold-overlap containment phenomenon. It also provides all-order explicit probabilities and the parity-dependent maximal generic multiplicity, not an arbitrary numerical slice or a recasting of the source's union theorem.
+For x=r e^{iθ}, membership is r≤[cos(θ−2πj/n)]_+. Ordering angular vertex distances in half-sector 0≤θ≤π/n gives kth radial cutoff cos(a_k+s_k θ). For k≥2, the second cutoff never exceeds r_P=cosδ/cos(δ−θ), so the polar integral has no polygon clipping. I independently evaluated numerical rank-cutoff quadratures against the printed closed trigonometric tails for all k at n=3,4,5,6,11,20, agreeing within 1e−7; the angular and monotonicity proof extends to arbitrary integer n. Origin belongs to all n disks but has zero area.
 
-## Limits
-The formula applies only to centrally anchored equal-circumradius regular polygons; it does not classify arbitrary polygons or arbitrary anchor points. Literature outside the retrieved corpus may contain an equivalent formulation. Finite computational checks are supplementary. Independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pavlík Theorem 5.1 proves union coverage and Corollary 5.3 partitions power cells; neither computes overlap multiplicity. The same-object published diameter-disk depth paper already proves exact mean depth and a limiting CDF but explicitly leaves the finite-n full PMF undetermined. The current full rank-by-rank distribution therefore survives that direct comparison.
+
+## value
+
+PASS
+
+The complete finite-n multiplicity-area spectrum is a natural overlap invariant of a canonical geometric disk cover; it goes beyond mean redundancy and the large-n limiting distribution, including finite-n parity boundaries and singly-covered area.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
