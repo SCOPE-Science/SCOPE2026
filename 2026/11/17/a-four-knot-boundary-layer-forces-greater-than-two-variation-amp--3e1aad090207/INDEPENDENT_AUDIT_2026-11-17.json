@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T12:54:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any chosen active second-difference rows S, all H_S are linearly independent and the KKT construction chooses z with H_S z=R, other curvature entries zero, and input u=z+H_S^T lambda (lambda>0). Strict complementarity ensures local derivative Q_S=I-H_S^T(H_SH_S^T)^(-1)H_S. Taking four inactive rows at indices 1,4,n-5,n-2 yields six affine truncated-power basis functions; the midpoint step has BV seminorm one. A separately implemented SymPy orthogonal projection at n=30 produces exactly increments [11/196,(-33/392)x3,(13/196)x21,(-33/392)x3,11/196], sum of absolute values 197/98>2. It independently verifies the actual finite input pair u and v=u+0.001h: active KKT multipliers stay strictly positive; all four inactive output curvatures stay strictly inside R=1; active curvatures equal one. Scaling yields every positive R. For n→∞ the central affine L2 fit to a half-interval step is -1/4+(3/2)s, giving central variation 3/2; boundary layer least squares gives each edge variation 11/28, total 16/7. The same coercive Riemann-sum and fixed-width boundary argument applies to odd lengths. This proves a lower limit only, not an exact limit or global upper bound; finite tests support rather than replace the asymptotic reasoning.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published all-face trend filtering theorem is for prox of lambda||H z||_1, not projection onto {|H z|<=R}.",
+          "Kim et al 2009 work uses L1 curvature penalty and affine-knot fitting, not sharp hard-curvature projection BV two-input modulus."
+        ],
+        "reasoning": "Generic active-set laws require additional exact six-dimensional Gram and boundary-layer evaluation; none of the checked stronger results states or quantitatively implies the explicit 16/7 hard-cap lower limit as an identified corollary.",
+        "searches": [
+          "curvature constrained projection bounded second differences total variation Lipschitz amplification four knot boundary layer",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-path-variation-instability-thresholds-for-second-difference-tren--14a24ab95f1f",
+          "https://arxiv.org/abs/1005.1971",
+          "https://doi.org/10.1137/070690274"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-path-variation-instability-thresholds-for-second-difference-tren--14a24ab95f1f",
+        "https://web.stanford.edu/~boyd/papers/pdf/l1_trend_filter.pdf",
+        "https://arxiv.org/pdf/1005.1971",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-bounded-variation-stability-transition-for-projection-onto--43b65933e518"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier L1 trend-filter local-face formula is similar, but its explicit 3/2 lower bound does not entail a gain exceeding 2.",
+          "Kim et al introduce L1 second-difference penalty and piecewise-affine trend fitting; their exact statements do not give a hard-cap two-input 16/7 BV bound."
+        ],
+        "reasoning": "The new exact n=30/limit constants are nontrivial evaluations from a specified four-knot geometry and an explicit hard-cap KKT witness, beyond the previously stated formulas.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-path-variation-instability-thresholds-for-second-difference-tren--14a24ab95f1f",
+          "https://web.stanford.edu/~boyd/papers/pdf/l1_trend_filter.pdf",
+          "https://arxiv.org/pdf/1005.1971"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For fixed active sets both hard-cap and L1-trend-filter local derivatives are orthogonal projectors onto nullspaces of subsets of the same second-difference matrix.",
+          "The earlier penalty source maximizes the same local projector BV norms but uses a different map and only gives its explicit dimension values through eight and asymptotic bound >=3/2."
+        ],
+        "reasoning": "Shared local projector geometry means related sensitivity mechanisms, but the 30-site finite hard-cap pair and analytic four-knot limit are distinct evaluated statements. Generic computational access to a formula alone is not an explicit prior 197/98 or 16/7 theorem.",
+        "searches": [
+          "curvature constrained projection bounded second differences total variation Lipschitz amplification four knot boundary layer",
+          "curvature capped projection all faces total variation amplification second difference trend filtering",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-path-variation-instability-thresholds-for-second-difference-tren--14a24ab95f1f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest prior table for penalized trend filter lists dimensions 2..8: 1,1,6/5,4/3,7/5,28/19,11/7.",
+          "No identified previously tabulated C_30=197/98 hard-cap witness or four-knot asymptotic limit."
+        ],
+        "reasoning": "The source gives an exact finite realized lower bound, not a recomputation of known n=4..8 coefficients.",
+        "searches": [
+          "hard curvature cap projection C30 197/98 four free knots",
+          "curvature constrained projection bounded second differences total variation Lipschitz amplification four knot boundary layer",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-path-variation-instability-thresholds-for-second-difference-tren--14a24ab95f1f"
+        ]
+      },
+      "rationale": "The closest published second-difference trend-filtering result gives an all-active-set formula and small BV constants for an L1-PENALIZED denoiser, not the two-sided hard-curvature-cap projection. It implies a general shared local projector mechanism, and thus is genuinely close, but does not evaluate the concrete four-knot hard-cap finite witness or prove its 16/7 boundary-layer lower envelope. Earlier Kim et al. and Tibshirani/Taylor establish trend-filter and generalized-lasso active-set methods, which are credited, without this hard-cap two-input BV instability result. Related TV-ball projection uses first differences and a sharp factor two on a different feasible set. Historical possibility that a broader unstated active-face computation yields the same formula remains explicit.",
+      "residual_risks": [
+        "A different presentation of the common active-set projection formula could encode this 30-site example implicitly; no absolute priority claim.",
+        "No upper bound, first instability dimension or exact limiting C_n is established; weight and boundary variations are outside scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "close_but_not_covering",
+          "evidence": "Operator is penalized L1 trend filter; explicit six-function four-knot hard-cap construction and >=16/7 are absent.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-path-variation-instability-thresholds-for-second-difference-tren--14a24ab95f1f",
+          "material_read": "Full published RESULT.md including all-face formula, n<=8 exact table, and lower asymptotic >=3/2",
+          "method": "Read original public GitHub mathematical text",
+          "title": "Path-variation instability thresholds for second-difference trend filtering",
+          "trigger": "same second-difference operator and BV output norm"
+        },
+        {
+          "assessment": "background_only",
+          "evidence": "Introduces penalty sum |second difference| and piecewise affine fits, not hard second-difference slab projection with sharp two-input BV gain.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/l1_trend_filter.pdf",
+          "material_read": "Sections 1,3 and main properties/constraints including page 5 facsimile; entire document searchable",
+          "method": "Read lawful OA full-text PDF relevant sections and page image",
+          "title": "L1 Trend Filtering",
+          "trigger": "original core signal smoothing theory"
+        },
+        {
+          "assessment": "background_only",
+          "evidence": "Active-set formulas motivate local piecewise linear response but do not state the numerical four-knot amplification and 16/7 limit.",
+          "identifier_or_url": "https://arxiv.org/pdf/1005.1971",
+          "material_read": "Relevant solution-path/dual sections including page image, not entire paper reviewed",
+          "method": "Read primary arXiv PDF relevant sections",
+          "title": "The Solution Path of the Generalized Lasso",
+          "trigger": "active-face and generalized lasso mechanisms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit finite pair with strict gain >2 invalidates a plausible uniform twofold stability bound for physically motivated curvature-capped least-squares smoothing. The all-size four-knot boundary layer forces a nontrivial asymptotic 16/7 lower envelope, a structurally motivated mechanism rather than an arbitrary dimension slice. The claim carefully avoids asserting optimality or full n-classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Hard two-sided curvature cap R>0 on equally spaced unweighted finite paths only; proves lower bound 197/98 at n=30 and liminf >=16/7, not sharp global C_n."
+  ],
+  "schema_version": 1
+}
