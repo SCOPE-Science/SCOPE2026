@@ -1,0 +1,18 @@
+# Scientific review: a logarithmic-source stationary SIS window
+
+## Correctness (C) — PASS
+The continuous-time Markov chain reduces exactly to infection count with upward rate \(b_k=(n-k)(k+\alpha_n)/n\) and downward rate \(d_k=k\). Strictly positive external infection for each finite \(n\) makes the chain irreducible. Detailed balance produces the stated finite distribution. Writing its weights as the rising-factorial factor \((\alpha_n)_k/k!\) times the birthday-collision factor \(\prod_{j<k}(1-j/n)\) yields an exact partial-sum identity and uniform two-sided bounds on the normalization. The collision factor is uniformly one below \(n^{1/2-\delta}\), exponentially small above \(n^{1/2+\delta}\), and the precise normalization is \(e^{c/2}\) when \(\alpha_n\log n\to c\). The proof handles the atom at zero, the continuous interior, the endpoint and the stronger-importation regime separately. The standalone `VERIFY.py` also passes full-configuration rational detailed balance and finite numerical sanity checks, which are explicitly not substituted for the asymptotic argument.
+
+## Originality (O) — PASS on examined evidence
+The finite-population birth–death stationary law is **not** claimed as original. Van Mieghem–Cator (2012) give its equivalent complete-graph spontaneous-infection law. Cator–Van Mieghem (2013) analyze a different, extinction-preventing modified process, and Van Mieghem (2020) analyzes small fixed-population self-infection and prevalence threshold behavior. Their examined text does not state the simultaneous singular scaling \(\alpha_n\log n\to c\) or the associated nontrivial law for \(\log(1+K_n)/\log n\). A published finite weighted-clique reversibility classification also contains a static complete-graph stationary formula, but not this scale-dependent distribution. The new theorem is a nonuniform asymptotic analysis of known exact weights; it is not a new formula for those weights. Risks: an older asymptotic result under the aliases immigration, spontaneous contact process or critical branching may be unindexed; the derived limit may admit a shorter probabilistic proof and historical-priority specialists should recheck. The literature comparison does not prove global novelty.
+
+## Mathematical value (V) — PASS
+The window \(\alpha_n\asymp1/\log n\) identifies a genuinely singular source strength. Fixed \(c>0\) yields a positive no-infection mass combined with a continuum of polynomial infection scales \(n^y\), \(0<y<1/2\), whereas slowly larger sources concentrate at \(n^{1/2+o(1)}\). This distinguishes the full stationary distribution from mean-prevalence descriptions and supplies an exact benchmark for critical finite-population epidemic models. It is motivated by the competition between importation and critical infection excursions; the exponent law is not a parameter renaming or a trivial finite-n statistic. The value is confined to the stated complete-graph equilibrium mechanism.
+
+## Closest material and remaining limitations
+- P. Van Mieghem and E. Cator (2012), DOI 10.1103/PhysRevE.86.016116: full-text finite stationary law, credited as prior.
+- E. Cator and P. Van Mieghem (2013), DOI 10.1103/PhysRevE.87.012811: full-text exact complete-graph analysis for an extinction-preventing model.
+- P. Van Mieghem (2020), DOI 10.1103/PhysRevE.101.032303: full-text small-importation prevalence and finite-size threshold.
+- Published study “Reversibility of spontaneous SIS epidemics: a weighted clique classification” (2026): exact reversible stationary distribution, not a logarithmic-size asymptotic.
+
+Self-review: passed. Independent audit: not yet performed.
