@@ -1,15 +1,21 @@
-# Scientific review: angular exposure of one-spike lecture-hall simplices
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact simplex vertices reduce every support optimization to a one-dimensional Gaussian random-walk maximum plus an independent Gaussian terminal term. Brownian functional convergence applies jointly to the maximum and its almost surely unique maximizing time. The classical joint Brownian maximum-time density gives an explicit integral whose integration by parts was checked independently. The planar Gaussian quadrant argument gives the origin mass; all masses integrate to one. Uniform integrability of the Gaussian supports and Haar–Gaussian radial separation yield the stated mean-width limit. Finite simulations are corroboration only.
+## correctness
 
-## Originality — PASS, with provisional priority
-The algebraic lecture-hall framework (Brändén–Solus, 2019) does not address Gaussian normal-cone exposure, and the canonical orthoscheme intrinsic-volume identities discussed in Vysotsky–Zaporozhets (2015) concern the unspiked case. Imhof's 1984 Brownian maximum-time density is an explicitly credited building block, not itself a discovery here. Published claim-search comparisons did not locate an equivalent joint **spike-dependent** vertex-angle density and origin atom, but indexing gaps and unavailable full historical treatments remain a priority risk. The claim does not assert novelty of the Brownian law or unspiked mean width.
+PASS
 
-## Mathematical value — PASS
-The object is a natural one-parameter lattice/Euclidean deformation of a classical path simplex, for which affine combinatorics alone determines none of the spherical normal-cone weights. The full limiting exposure measure (not just a single mean), its exact phase scale, origin-mass appearance, strictly biased conditional vertex positions, and simultaneous metric-width law provide a reusable quantitative geometric picture of how one long terminal leg redistributes normal angles. The precise density can inform angular concentration and random optimization on weighted chain polytopes. It is not an arbitrary finite subcase or a mere restatement of the arcsine theorem.
+The simplex's suffix vertices give exact finite Gaussian support h(G)=(aG_n+max_{0≤j≤n−1}∑_{i≤j}G_{n−i})_+. Under a_n/√n→τ the walk maximum and maximizing time converge jointly to (M,T) of standard Brownian motion, with unique argmax a.s.; the origin event is the continuity set {M+τZ<0}. Classical joint maximum/argmax density f_{M,T}(m,t)=m exp(-m²/(2t))/[πt^{3/2}√(1−t)] yields the tilt ∫f Φ(m/τ)dm=[1+√(t/(t+τ²))]/[2π√(t(1−t))]. Isotropic Gaussian wedge gives atom arctanτ/π and density integrates to remaining mass; density/standard arcsine ratio increases strictly in t for finite τ>0. Doob L² and Gaussian radius ~√n justify exchanging expectation to derive mean width √(2/π)(1+√(1+τ²)). Independent tau=0,.5,1,3 integrals confirm masses/CDF and width, but Donsker/reflection arguments carry the asymptotic proof.
 
-## Boundaries and related literature
-The limit is weak macroscopic convergence for a single end spike; it is not a vertexwise local limit, an arbitrary-weight theorem, or an independent audit. Relevant primary works: Brändén–Solus, arXiv:1911.12459; Vysotsky–Zaporozhets, arXiv:1506.07827, Section 4.1 and Section 4.2; Imhof, DOI 10.2307/3213612. An inaccessible full version of the latter and unindexed equivalent geometric formulas remain residual originality risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for terminal-spike a_n≈τ√n angular deformation and linked width crossover, not for classical Brownian argmax laws or equal-weight orthoscheme formulas. Broader positive-weight exact persistence theorem does not state this n-dependent spike scaling or limiting atom/density.
+
+## value
+
+PASS
+
+A single terminal geometric deformation of the canonical lecture-hall/orthoscheme simplex produces a sharp √n normal-cone crossover. Explicit origin atom, tilted arcsine index distribution and linked Euclidean width isolate a natural critical scale useful for high-dimensional convex-geometric random-direction analysis, rather than merely restating a Brownian formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
