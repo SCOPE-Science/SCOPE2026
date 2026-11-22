@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The plane-sextic partial derivatives prove geometric smoothness precisely for t^3 != 6. Adjunction gives genus 10 and a ten-element basis. The standard Hasse--Witt coefficient extraction from F^10 yields three A scalar blocks, three B exchange blocks and one C scalar block, where A=t^2(1-t^3), B=2t(2t^3+1), C=t(t^3-1)(t^3+2)(t^3+4) modulo 11. This gives the exact determinant 9 t^13(t^3-1)^4(2t^3+1)^6(t^3+2)(t^3+4), and the block support proves p-rank equals one-step rank over the algebraic closure, including semilinear twists. The attached pure-Python verifier reconstructs coefficients in homogeneous and affine coordinates, checks all entries and determinant, and tests rational fibers and stabilized ranks. Roots, Frobenius degrees and multiplicities follow symbolically, not from partial enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bartoli et al., arXiv:1910.11098, Section 5, Proposition 5.2: Jacobian isogeny decomposition over the quadratic base; Proposition 5.3: selected maximality pairs",
+        "Badr--Bars, doi:10.1007/s10231-025-01558-z, Theorem 2.1 restricts automorphism classifications to characteristic zero or p>21"
+      ],
+      "reasoning": "The genus-ten elliptic decomposition determines factor dimensions but does not itself determine which elliptic factors are ordinary at each characteristic-eleven parameter or the multiplicities of the relative Hasse divisor. Those require new exact extraction/factorization. The automorphism classification does not apply at p=11, and is not a p-rank theorem.",
+      "searches": [
+        "Bartoli Giulietti Kawakita Montanucci Up,b genus 10 sextic arithmetic stratification",
+        "Bartoli Giulietti Kawakita genus 10 U_{p,b} p rank Frobenius 11",
+        "arxiv:1910.11098 Section 5 Proposition 5.2 Proposition 5.3"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1703.02127",
+      "https://arxiv.org/abs/1910.11098",
+      "https://doi.org/10.1007/s10231-025-01558-z",
+      "2026/11/2/SCOPE-the-5-rank-eight-stratum-of-a-symmetric-genus-ten-plane-sextic-f--2ab4759fb510",
+      "2026/11/2/SCOPE-cartier-rank-and-an-embedded-hasse-degeneracy-along-the-characte--86cdf442a53d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bouyer et al. 2017: smooth branch locus condition t^3 != -27 and K3 Picard-lattice arithmetic over characteristic zero",
+        "Bartoli et al. 2019: an elliptic-factor description for the genus-ten family over finite fields",
+        "Badr--Bars 2025: automorphism group of same polynomial form, characteristic zero or p>21"
+      ],
+      "reasoning": "These earlier conclusions cover the family, its smoothness framework, some isogeny structure and symmetries; they do not contain the explicit characteristic-eleven parameter stratification. The new claim is the symbolic Hasse determinant and five precise rank strata with their scheme multiplicities. Fermat superspeciality alone is not offered as new. The possible consequence of computing Hasse invariants of prior elliptic factors is acknowledged, but the explicit data and nonreduced divisor do not follow from a stated earlier rank classification.",
+      "searches": [
+        "arxiv:1703.02127 §§2,4 branch sextics and arithmetic",
+        "arxiv:1910.11098 §5 genus-ten curve isogenies and maximality",
+        "doi:10.1007/s10231-025-01558-z Proposition 10.4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bouyer et al., arXiv:1703.02127, §§2 and 4",
+        "Bartoli et al., arXiv:1910.11098, §5",
+        "2026/11/2/SCOPE-the-5-rank-eight-stratum-of-a-symmetric-genus-ten-plane-sextic-f--2ab4759fb510 (different characteristic and mixed monomials)"
+      ],
+      "reasoning": "The exact equation is indexed in the K3 and maximal-curve literature, but no inspected source states an equivalent characteristic-eleven Cartier block decomposition or the same rank/divisor classification. The closest published mathematical record has a different polynomial and characteristic, so no change of parameter over the same ground field makes it equivalent.",
+      "searches": [
+        "x^6+y^6+z^6 x^2y^2z^2 11 Cartier Hasse",
+        "genus ten plane sextic x^6 + y^6 + z^6 + b x^2 y^2 z^2 Weil polynomial p rank Cartier Hasse invariant characteristic 11",
+        "degree two K3 family branch sextics B_t characteristic 11 nonordinary Jacobians Cartier p rank locus Frobenius"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:1703.02127 has K3 Picard-lattice and tritangent/singularity data, not a branch-curve Hasse rank table",
+        "arXiv:1910.11098 Section 5 has maximality examples, not rank tables",
+        "2026/11/2/SCOPE-the-5-rank-eight-stratum-of-a-symmetric-genus-ten-plane-sextic-f--2ab4759fb510 concerns a different sextic pencil over characteristic five"
+      ],
+      "reasoning": "No exact table of the five characteristic-eleven ranks or the 49-degree determinant was identified in the checked articles or ranked mathematical records. Absence of an indexed table is evidence only of bounded non-coverage, not a proof of absolute uniqueness.",
+      "searches": [
+        "For smooth genus ten sextics B_t: X^6+Y^6+Z^6+t X^2Y^2Z^2 in characteristic eleven, Hasse Witt determinant t^13 (t^3-1)^4 (2t^3+1)^6 (t^3+2)(t^3+4) and p ranks 0,4,6,9,10",
+        "Fermat sextic deformation 11 p-rank",
+        "x^6+y^6+z^6 x^2y^2z^2 Hasse genus ten"
+      ]
+    },
+    "rationale": "The 2017 Bouyer--Costa--Festi--Nicholls--West source establishes the branch pencil and characteristic-zero K3 Picard/singularity structure, not characteristic-eleven branch-curve Hasse strata. Bartoli--Giulietti--Kawakita--Montanucci (2019), Section 5, studies the genus-ten sextic family and gives Jacobian isogeny factors and maximality examples, but no exact characteristic-eleven Hasse divisor, parameterwise ranks or multiplicity pattern. Badr--Bars (2025) classifies automorphism groups only for characteristic zero or above 21 and therefore cannot imply the positive-characteristic 11 rank classification. Published mathematical-record hits concern different curves or characteristics. A prior unindexed computation is still possible.",
+    "residual_risks": [
+      "An unindexed earlier computation could give the same Hasse polynomial or equivalent p-rank stratification.",
+      "A general decomposition into elliptic factors can recover some p-ranks after additional calculations; the exact relative Hasse-divisor multiplicities were not identified in prior work.",
+      "The automorphism family can have geometrically equivalent parameters, so the result intentionally counts coefficient-marked parameters, not moduli classes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING characteristic-eleven Jacobian Hasse ranks; covers pre-existing pencil and smoothness context",
+        "evidence": [
+          "Equation (2), Proposition 2.1, Section 4 on characteristic-zero K3 Picard geometry"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1703.02127",
+        "material_read": "Introduction, Section 2 including Proposition 2.1 and branch equation, Section 4 consequences and appendix scope",
+        "method": "Full-text arXiv HTML direct inspection and term checks for Cartier and p-rank",
+        "title": "On the arithmetic of a family of degree-two K3 surfaces",
+        "trigger": "Exact same branch-sextic pencil in characteristic zero"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE of construction and Jacobian factorization, but not an exact Hasse divisor or p=11 rank strata",
+        "evidence": [
+          "Section 5, Proposition 5.2 describes elliptic factors, Proposition 5.3 records seven maximality pairs for larger primes"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1910.11098",
+        "material_read": "Full-text introduction and complete Section 5, including Definitions 5.1 and Propositions 5.2-5.3 and adjoining proof; PDF page 3 inspected",
+        "method": "arXiv full-text HTML and PDF textual/visual cross-check",
+        "title": "New examples of maximal curves with low genus",
+        "trigger": "Same plane genus-ten sextic family and Jacobian isogeny coverage"
+      },
+      {
+        "assessment": "NOT_COVERING; studies automorphisms, restricted to characteristic zero or primes greater than 21, hence no p=11 Cartier result",
+        "evidence": [
+          "Theorem 2.1 characteristic restriction, Proposition 10.4 case with only the X^2Y^2Z^2 mixed term"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10231-025-01558-z",
+        "material_read": "Abstract, Theorem 2.1 assumptions, Section 10.1 and Proposition 10.4",
+        "method": "Open-access HTML inspection",
+        "title": "The stratification by automorphism groups of smooth plane sextic curves",
+        "trigger": "Same four-term polynomial appears in its plane-sextic automorphism classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d00d1a34-5c8d-491e-b595-1c46af973eb7",
+  "value": {
+    "rationale": "The natural genus-ten branch curve pencil occurs simultaneously in an arithmetic K3 family and a maximal-curve/Jacobian-isogeny construction. A complete nonordinary scheme divisor of degree 49 with four distinct multiplicity types, a unique superspecial coefficient, and precise geometric ranks 0,4,6,9,10 addresses a motivated arithmetic-geometric invariant. The proof gives a structural Frobenius block decomposition valid over the entire algebraic closure, not an isolated computed example or an unsupported claim about K3 Newton polygons.",
+    "status": "PASS"
+  }
+}
