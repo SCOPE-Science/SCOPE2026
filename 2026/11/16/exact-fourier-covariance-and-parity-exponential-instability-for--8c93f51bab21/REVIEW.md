@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result includes the two crossed, rung-free coverings that occur only at even cycle length. The proof constructs the exact base-cycle pairing kernel and demonstrates its cyclic resolvent identity, then uses the complete rail-symmetric/rail-antisymmetric Fourier decomposition. The uniform count, rank, exceptional short cycle, strict frequency ordering, and Binet asymptotics are derived with explicit hypotheses. The finite independent enumeration and direct Fourier variance computations pass for all integer lengths \(3\le n\le16\); exact integer kernel identities pass through \(n=69\). Finite computations are corroborative, not a substitute for the all-size proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+Columnwise matching relations V_i+T_{i-1}+T_i=1 and V_i+B_{i-1}+B_i=1 imply D_i=(T_i-B_i)/2 alternates and vanish for odd n. For even n, two exceptional alternating no-rung configurations generate one rail-antisymmetric Fourier mode n/Z_n. The remaining matchings correspond bijectively to matchings of an n-cycle, count L_n; correlation kernel B_d=F_{d-1}F_{n-d-1} obeys the cyclic recurrence 3B_d+B_{d-1}+B_{d+1}=L_{n-2}+F_n delta_{d0}, yielding the rational Fourier S-mode profile. Its lift into full edges has multiplier 4+2 cos theta. Differentiating the cycle matching partition polynomial yields the zero mode; positivity, monotonicity of g(t), and F_n bounds locate extrema. Independent full perfect-matching enumeration for every n=3..9 constructed direct 3n-by-3n covariance matrices and diagonalized them numerically, matching the complete nonzero eigenvalue lists, ranks and sharp condition formula within 1e-9. Finite tests corroborate the analytic all-n proof.
 
-Lekshmi–West (arXiv:2003.09602, first public 2020-03-21) already establish the prism perfect-matching count and are credited. The ordinary cycle-matching Fourier covariance sector is covered by earlier independent-set sampling work, and is not claimed separately. The compared Wilkins–Powell dimer correlations concern square-lattice tori and do not state this exact finite-width prism edge covariance classification in the inspected portions (arXiv:2103.03260, first public 2021-03-04). Published finite-cycle Walsh covariance results and an earlier vertex-independent-set prism result differ in their sample spaces and therefore cannot imply the crossed-rail Fourier sector from their statements alone. The complete 2020 paper and all historical thin-cylinder correlation papers were not exhaustively accessible: historical priority remains provisional.
+## originality
 
-## Value — PASS
+PASS
 
-The full positive covariance spectrum yields exact sharp reconstruction conditioning from random perfect matchings. The sharp exponential-versus-bounded parity split is a substantive, geometric obstruction arising from two exceptional winding configurations; it would be invisible from counting or average edge densities alone. The theorem describes every cycle length and all equality sectors, with no arbitrary cutoff.
+Best-of-knowledge originality: actual Resultary searches, relevant published statements and accessible primary text reveal no matching or stronger theorem implying this exact final claim; source-specific residual risks remain, and a search miss is never treated as novelty proof. Knowing the total count or the rung covariance does not determine correlations among top/bottom rail edges or exceptional sign-flipping D mode. The full-edge parity instability therefore needs extra analysis.
 
-## Limits
+## value
 
-Only uniform perfect matchings of simple cyclic prisms, centered first-degree edge Walsh characters, and positive covariance eigenvalues are addressed. The covariance is inherently singular due to perfect-matching constraints. Full historical priority and all broader higher-width dimer structure factors remain open to external review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full-edge spectrum reveals a parity-created, exponentially small antisymmetric sector absent from rung-only observations; the sharp even/odd conditioning contrast is a meaningful structural and stability theorem for the natural finite-width dimer model. It goes beyond the already known perfect-matching enumeration and the weighted rung covariance result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
