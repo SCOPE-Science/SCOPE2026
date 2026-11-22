@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The one-dimensional Ricker two-cycle follows uniquely from its two step equations and the strict monotonicity of \(t\coth(t/2)\). The two-step planar Jacobian is triangular at the predator-free cycle and its transverse multiplier is a strictly increasing quadratic in effective fecundity. Strict concavity of the log rare-predator factor, together with the midpoint identity for cycle abundances, proves a genuinely positive interval between the coexistence equilibrium threshold and loss of transverse attraction. The full-map sink and positive-interior attraction claim is explicitly conditional on the tangential multiplier lying inside the unit disk. The expansion has a positive symbolic leading coefficient; exact rational and finite computational checks corroborate, but do not establish, the proof.
+PASS
 
-## Originality — PASS, subject to publication-priority limitations
+The boundary Ricker two-cycle is uniquely parameterized by u=r−t,v=r+t, r=t coth(t/2)>2. At y=0 the Jacobian is upper triangular, hence λ_x=(1−u)(1−v), λ_y=q(u)q(v), q(x)=s+βx/(1+γx). Since log q is strictly concave and r=(u+v)/2, q(u)q(v)<q(r)². At coexistence onset β_eq=(1−s)(1+γr)/r, q(r)=1, so the strictly monotone transverse λ_y remains <1 and gives β_eq<β_cyc; fixed-point equation is strictly monotone in x. Near r=2+, λ_x=1−(2/3)t²+O(t⁴) so local attracting positive-state basin exists. Taylor expansion of the explicit Jensen defect gives gap 3(1−s)(4γ+1−s)(r−2)/(8(1+2γ)) plus O((r−2)²). The exact logarithmic example has q(r)=71/70, λ_y=195/196, λ_x=(1−2ln2)(1−4ln2)∈(0,1). Independently recalculated β thresholds at multiple s,γ,t and coefficient convergence. No assertion of globally attracting boundary or stable interior equilibrium.
 
-The inspected primary source arXiv:2405.11806v1 gives this exact map, the existence of its interior equilibrium, the predator-free fixed point's stability, and the interior equilibrium's flip bifurcation, but not a predator-free primitive two-cycle's transverse invasion factor or the strict coexistence-equilibrium/boundary-attractor parameter window. The 2022 open-access paper with a similar title studies a different update with bilinear predation. Published related findings on juvenile/adult predators and other Ricker-type systems do not imply the exact assertion. A full proof of nonoverlap with all publications is impossible; equivalence in unindexed literature is the outstanding risk.
+## originality
 
-## Value — PASS
+PASS
 
-The result proves a sharp ecological-dynamical distinction: positive invasion at stationary carrying density does not ensure invasion of the corresponding endogenous periodic resident state, even when a unique positive coexistence equilibrium exists. The strict full-dimensional attracting boundary cycle gives positive predator-present initial conditions that asymptotically lose predators. The exact threshold formula, first-order onset width and rational Floquet witness quantify the discrepancy rather than merely noting a possible Jensen effect.
+The primary Niu–Wang model has fixed-point existence and interior flip/bifurcation results, not the simultaneous positive interior equilibrium and locally attracting *boundary primitive two-cycle* with explicit strict invasion threshold. Published stage-specific prey-cycle invasion comparisons use a different three-species adult/juvenile response, not this rational Kolmogorov map. Present Jensen inequality alone is classical, but combined exact gap, full admissible inequality and rational witness are not mechanically contained in those sources. Best-of-knowledge PASS.
 
-## Scientific boundaries
+## value
 
-The positive equilibrium's stability is not claimed. The basin is local, the transversely neutral threshold is not analyzed nonlinearly, and no global persistence conclusion is drawn. Relevant newer articles on other predator-prey updates may share general methods without settling this exact map.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact nonlinear mismatch between invasion over an equilibrium and over a boundary two-cycle is a motivated ecological/dynamical obstruction to naive equilibrium-invasion reasoning. The sharp interval and positive first-order opening above the flip threshold provide a concrete independently usable classification, not merely a numeric example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

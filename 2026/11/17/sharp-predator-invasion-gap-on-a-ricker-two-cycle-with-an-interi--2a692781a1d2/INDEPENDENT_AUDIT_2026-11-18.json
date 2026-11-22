@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T13:12:23.751926Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The boundary Ricker two-cycle is uniquely parameterized by u=r−t,v=r+t, r=t coth(t/2)>2. At y=0 the Jacobian is upper triangular, hence λ_x=(1−u)(1−v), λ_y=q(u)q(v), q(x)=s+βx/(1+γx). Since log q is strictly concave and r=(u+v)/2, q(u)q(v)<q(r)². At coexistence onset β_eq=(1−s)(1+γr)/r, q(r)=1, so the strictly monotone transverse λ_y remains <1 and gives β_eq<β_cyc; fixed-point equation is strictly monotone in x. Near r=2+, λ_x=1−(2/3)t²+O(t⁴) so local attracting positive-state basin exists. Taylor expansion of the explicit Jensen defect gives gap 3(1−s)(4γ+1−s)(r−2)/(8(1+2γ)) plus O((r−2)²). The exact logarithmic example has q(r)=71/70, λ_y=195/196, λ_x=(1−2ln2)(1−4ln2)∈(0,1). Independently recalculated β thresholds at multiple s,γ,t and coefficient convergence. No assertion of globally attracting boundary or stable interior equilibrium.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Niu–Wang proves global stability for other parameter windows and studies interior flip; not claimed all-r parameter boundary two-cycle coexistence gap.",
+          "Stage-specific juvenile/adult invasion theorem has distinct host map and predator structure."
+        ],
+        "reasoning": "Neither a generalized-sounding invasion comparison nor a fixed-point threshold gives the submitted exact β_cyc or strict gap for this exact rational-response map.",
+        "searches": [
+          "https://arxiv.org/html/2405.11806v1",
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-adult-survival-creates-a-strict-stage-specific-invasion-gap-on-p--3d3b21ce1f59/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-counterattack-threshold-reverses-predator-invasion-over-a-two--068869ecfe94/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2405.11806v1",
+        "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-adult-survival-creates-a-strict-stage-specific-invasion-gap-on-p--3d3b21ce1f59/RESULT.md",
+        "https://doi.org/10.1007/s12190-022-01737-8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Niu–Wang’s interior flip theorem does not give predator-free 2-cycle transverse λ_y.",
+          "The separate stage-specific source uses F(H)=σH+F(H)H and two specialized predator recruitment factors; algebraic conjugacy to the rational update is not established."
+        ],
+        "reasoning": "An implication requires the full cycle return product and joint fixed point existence; those are supplied and checked directly here.",
+        "searches": [
+          "https://arxiv.org/html/2405.11806v1",
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-adult-survival-creates-a-strict-stage-specific-invasion-gap-on-p--3d3b21ce1f59/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Niu and Wang give exact map F(x,y) including saturated predator recruitment.",
+          "Boundary invasion uses transverse Floquet product, logically different from interior-equilibrium local Jacobian."
+        ],
+        "reasoning": "Standard Ricker prey orbit is an equivalent parametrization, but prior fixed-point stability does not imply the two-period transverse threshold.",
+        "searches": [
+          "Resultary: predator free Ricker two cycle coexistence fixed point explicit invasion threshold Jensen concavity",
+          "https://arxiv.org/html/2405.11806v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matched Ricker rational-response β_eq, β_cyc table found in the examined theorem sections.",
+          "The explicit rational q(u)=13/14,q(v)=15/14,q(r)=71/70 witness is distinct from stage-specific 7/8 versus 9/8 two-predator comparison."
+        ],
+        "reasoning": "Published point witnesses for other models are not a database of this one; priority remains best-of-knowledge.",
+        "searches": [
+          "https://arxiv.org/html/2405.11806v1",
+          "Resultary: predator invasion gap Ricker two cycle equilibrium"
+        ]
+      },
+      "rationale": "The primary Niu–Wang model has fixed-point existence and interior flip/bifurcation results, not the simultaneous positive interior equilibrium and locally attracting *boundary primitive two-cycle* with explicit strict invasion threshold. Published stage-specific prey-cycle invasion comparisons use a different three-species adult/juvenile response, not this rational Kolmogorov map. Present Jensen inequality alone is classical, but combined exact gap, full admissible inequality and rational witness are not mechanically contained in those sources. Best-of-knowledge PASS.",
+      "residual_risks": [
+        "A different model may be reducible by hidden parameter transformations not encountered in inspected sources, though the rational predator factor is substantive.",
+        "Interior equilibrium existence is claimed; not its stability or coexistence of two attracting sets.",
+        "Expansion O((r−2)²) requires fixed positive s,γ; no uniform boundary claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact map input and fixed-point existence are prior; no all-r strict boundary cycle invasion gap in inspected theorem statements",
+          "evidence": [
+            "arXiv 2405.11806v1, Lemma 4 positive fixed point, §4 positive equilibrium period-doubling"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2405.11806v1",
+          "material_read": "Complete arXiv HTML, equations defining recurrence, §§2–4 fixed point existence and local flip analysis, discussion",
+          "method": "Read source article primary full HTML and compared maps/quantifiers",
+          "title": "Global stability and period-doubling bifurcations of a discrete Kolmogorov predator-prey model with Ricker-type prey growth",
+          "trigger": "Original paper states exactly submitted map and equilibrium threshold"
+        },
+        {
+          "assessment": "Strict Jensen principle antecedent; different stage-structured model and predator pairing",
+          "evidence": [
+            "Two transverse factors Λ_J/Λ_A<1 for 3D juvenile/adult recurrence, unlike this one-predator β_eq versus β_cyc"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-adult-survival-creates-a-strict-stage-specific-invasion-gap-on-p--3d3b21ce1f59/RESULT.md",
+          "material_read": "Full RESULT.md finding, assumptions, proof via strict Jensen and exact Ricker example",
+          "method": "Read GitHub primary math record in full",
+          "title": "Adult survival creates a strict stage-specific invasion gap on prey cycles",
+          "trigger": "Previously published strict prey-cycle invasion gap"
+        },
+        {
+          "assessment": "Bilinear response distinct, full-document priority not excluded",
+          "evidence": [
+            "DOI 10.1007/s12190-022-01737-8; source describes no rational predator factor 1/(1+γx)"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s12190-022-01737-8",
+          "material_read": "Reference and source-reported update; no complete direct primary reading",
+          "method": "Compared model equation cited in actual submitted RESULT.md",
+          "title": "Bifurcations and dynamics of a discrete predator–prey model of ricker type",
+          "trigger": "Close title/model family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact nonlinear mismatch between invasion over an equilibrium and over a boundary two-cycle is a motivated ecological/dynamical obstruction to naive equilibrium-invasion reasoning. The sharp interval and positive first-order opening above the flip threshold provide a concrete independently usable classification, not merely a numeric example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2405.11806v1",
+    "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-adult-survival-creates-a-strict-stage-specific-invasion-gap-on-p--3d3b21ce1f59/RESULT.md",
+    "https://doi.org/10.1007/s12190-022-01737-8"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A different model may be reducible by hidden parameter transformations not encountered in inspected sources, though the rational predator factor is substantive.",
+    "Interior equilibrium existence is claimed; not its stability or coexistence of two attracting sets.",
+    "Expansion O((r−2)²) requires fixed positive s,γ; no uniform boundary claim."
+  ],
+  "schema_version": 1
+}
