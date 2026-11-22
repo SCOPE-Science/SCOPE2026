@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The theorem gives a fixed-detuning, large-rate limit for a reflected Brownian interval with permanently retained endpoint-visit history. Every boundary-value transform is explicit; exact Poisson renewal and event inclusion–exclusion reduce cover survival to three single-target survivals. Their Laplace transforms converge after rescaling to exponential clocks with intensities \(e^\delta\), \(e^{-\delta}\), and their sum. A separate negative-Laplace-argument geometric-cycle bound controls positive exponential moments, justifying convergence of *all* positive moments. The accompanying checker independently passes 222 finite-parameter identities and asymptotic consistency tests; those do not substitute for the proof.
+
+**Originality — PASS, with residual risk.** Linn–Lawley 2024 explicitly covers the known symmetric \(3/2\) mean prefactor, arbitrary fixed-site mean and broad frequent-reset moment bounds. Ghosh–Sabhapandit 2026 gives the exact midpoint law, so the zero-detuning specialization is derivative of existing results. The full moving-site \(O(r^{-1/2})\) distributional crossover with unequal competing exponential rates and all positive moment limits was not found in their inspected primary text or in the closest accessible published mathematical findings. General multi-target renewal theory could contain an implicit equivalent; publication priority is not certified.
+
+**Value — PASS.** The boundary layer is physically selected by the Brownian diffusion length per reset, not an arbitrary parameter slice. It clarifies the singular transition from a unique farthest target to two equally rare, competing endpoint detections. The resulting non-exponential time law and moments are observables not supplied by the known mean-only phase diagram. The result is restricted to this one-dimensional reflected, full-resetting, persistent-memory model.
+
+**Closest coverage:** Linn–Lawley (arXiv:2406.12154), Ghosh–Sabhapandit (arXiv:2605.31207), and the two cited 2026 finite-rate Brownian cover-time studies. The 2023 thesis was inspected in relevant portions only. Unindexed or implicit prior coverage remains the principal originality risk.
+
+Self-review: passed. Independent audit: not yet performed.
