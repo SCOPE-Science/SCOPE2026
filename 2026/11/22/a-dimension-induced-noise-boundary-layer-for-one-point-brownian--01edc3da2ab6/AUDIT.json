@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The product covariance integrations yield \\(\\operatorname{Var}(J)=3^{-d}\\), \\(\\operatorname{Cov}(J,Y_x)=\\prod_j(x_j-x_j^2/2)\\), \\(\\operatorname{Var}(Y_x)=\\prod_jx_j+\\eta\\). Gaussian regression reduces risk to one explicit nonnegative function. Its global maximum is interior; first-order equations enforce equality of all coordinates by strict monotonicity, and a one-crossing scalar equation gives unique global site. High-d bounds and log expansions yield the Lambert-W and crossover formulas. The standalone checker verifies finite covariance and root examples; those checks do not substitute for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Agram et al. 2024 Section 7.2, https://arxiv.org/pdf/2407.06386, uses continuous observation of a Brownian-sheet field through a random-measure noise channel and an SPDE filter, unlike one point with independent scalar noise.",
+        "Karvonen et al. 2019, Sections 3.7-3.9, https://doi.org/10.1007/s11222-019-09901-0, analyzes positive weights and tensor-product rules, not optimized single-point noise location across dimension."
+      ],
+      "reasoning": "Neither the continuous filtering model nor the positivity and stability theorem yields the exact one-point risk optimizer and noise scaling. Generic Gaussian conditioning is stronger at the level of risk calculation but does not automatically imply the asymptotic location and information-rate assertions.",
+      "searches": [
+        "Brownian sheet numerical integration tensor Wiener kernel 2019 2020 papers optimal algorithms noisy information",
+        "Brownian sheet noisy information numerical integration average case optimal sites one sample",
+        "arxiv:2407.06386v1 Sections 2 and 7.2",
+        "https://link.springer.com/article/10.1007/s11222-019-09901-0 Sections 2, 3.7 and 3.9"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1808.10722",
+      "https://doi.org/10.1007/s11222-019-09901-0",
+      "https://arxiv.org/pdf/2407.06386",
+      "https://doi.org/10.1007/s00365-023-09647-z"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pronzato–Zhigljavsky: known product-kernel integration identities do imply the covariance input, but the noisy-design global optimization and large-dimensional singular regimes require separate monotonicity and asymptotic arguments.",
+        "Karvonen–Kanagawa–Särkkä: conditional-mean quadrature and tensor product weights are not a theorem on one-noisy-point global placement.",
+        "Agram–Øksendal–Proske–Tymoshenko: continuous filtering state covariance is for a different observation sigma-field and target."
+      ],
+      "reasoning": "The new quantified claim is a distinct one scalar observation design on the Brownian sheet for all d>=2 and all finite eta, including fixed positive eta vs eta~(2/3)^d/d. General Gaussian-conditioning formulas and one-dimensional roots are premises, not implication certificates for the new location/critical-layer conclusion.",
+      "searches": [
+        "arxiv:1808.10722v1 Sections 3.6 and 4.1",
+        "https://link.springer.com/article/10.1007/s11222-019-09901-0 Sections 3.7 and 3.9",
+        "arxiv:2407.06386v1 Section 7.2",
+        "Brownian sheet single observation integral optimal placement one sample"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pronzato–Zhigljavsky 2018 Eqs. (3.19)-(3.20), https://arxiv.org/pdf/1808.10722, factorize kernel potential and energy, so the generic one-point posterior-variance objective is known.",
+        "The present global stationary-point classification for independent additive measurement noise couples product coordinates through the single denominator; it is not the direct tensor product of one-dimensional noisy optimizers."
+      ],
+      "reasoning": "Equivalent RKHS worst-case integration error is the posterior variance for a Gaussian prior and an optimally chosen linear coefficient; this equivalence is credited. It does not itself establish the uniqueness of unrestricted multidimensional noisy sites, dimensional drift, Lambert-W layer, or competing 8/9 and 3/4 information exponents. The old one-dimensional noisy Wiener result is explicitly excluded from the asserted contribution.",
+      "searches": [
+        "Brownian sheet one-point exact Bayesian integration with noisy point observation unique optimum diagonal d dimensions Lambert W asymptotic noise threshold",
+        "High-dimensional tensor product Wiener kernel optimal quadrature node for one noisy evaluation, variance explained 8/9 3/4 exponential rate",
+        "arxiv:1808.10722v1 Sections 2 and 3.6, Eq. (3.19)-(3.20)",
+        "Optimal one sample point Brownian sheet integral noisy Gaussian observations all dimension r^d (3r-2) = 4 eta (1-r) variance reduction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "One-point Brownian sheet and high-dimensional noise boundary layer were not identified as exact table entries in the accessible finding-record comparisons or the searched literature.",
+        "The 2018 tensor-kernel paper supplies a general energy/potential table (Table 3.1) for other individual kernels and product factorization, not a noise/dimension optimal-site table.",
+        "A second exact-equation/parameter search in available semantic mathematical records returned no Brownian-sheet one-point noisy-site classification; strongest nearby matches concerned other kernels, multiple nodes or different observation laws."
+      ],
+      "reasoning": "No matching exact classification or tabulation was found. This is limited negative search evidence, not a mathematical proof of uniqueness of discovery. The previously known noiseless and one-dimensional rules are not reclaimed.",
+      "searches": [
+        "Brownian sheet integrated quadrature optimal design point sampling noise all dimension symmetric coordinates",
+        "Gaussian process tensor product Wiener kernel noisy one-point integration optimal location",
+        "Brownian sheet one-point exact Bayesian integration with noisy point observation unique optimum diagonal d dimensions Lambert W asymptotic noise threshold",
+        "Ritter 2000 optimal one point Brownian sheet integration node 2/3 average case",
+        "Optimal one sample point Brownian sheet integral noisy Gaussian observations all dimension r^d (3r-2) = 4 eta (1-r) variance reduction"
+      ]
+    },
+    "rationale": "The claim is not the known Gaussian conditioning identity, the noiseless/one-dimensional Wiener case, tensor product formulas, or continuous Brownian-sheet filtering. The asserted new comparisons are the all-dimensional unrestricted noisy one-site optimizer and the sharp noncommuting dimension/noise asymptotics. Accessible primary material and semantic mathematical records were checked; no dominating statement was identified. Priority remains qualified, not independently certified.",
+    "residual_risks": [
+      "Older average-case Wiener-sheet/optimal-information monographs and unindexed results may contain an equivalent noisy specialization; not exhaustively verified.",
+      "A generic closed posterior formula could permit the design statement to be derived, but the cited sources do not display the sharp all-dimensional/global asymptotics.",
+      "No independent priority search or independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVARIANCE_FRAMEWORK_COVERED; NO_IDENTIFIED_COVERAGE of the single-noisy-site optimizer, high-dimensional noise regime or sharp crossover in the material inspected",
+        "evidence": [
+          "Equation (3.20) factorizes product-kernel potential; Section 4.1 identifies Brownian kernel discrepancies; there is no displayed noise-location theorem in the inspected product-kernel sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1808.10722",
+        "material_read": "Full-text PDF sections 2, 3.6, 4.1 (including Eqs. 3.19-3.20 and product Brownian paragraph), abstract/introduction and referenced appendix description",
+        "method": "arXiv full-text PDF text and visual inspection of opening and Section 4 pages",
+        "title": "Bayesian quadrature and energy minimization for space-filling design",
+        "trigger": "Same numerical-integration objective, high-dimensional product kernels and Brownian-discrepancy connection"
+      },
+      {
+        "assessment": "WEIGHTS_AND_PRODUCT_STRUCTURE_COVERED; the focus is positive quadrature weights, not a scalar noisy measurement location across growing dimension",
+        "evidence": [
+          "Section 3.7 discusses the Brownian-motion kernel; Section 3.9 gives Cartesian products of one-dimensional weights and notes local optimality does not automatically tensorize."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11222-019-09901-0",
+        "material_read": "Full-text HTML abstract, Sections 2, 3.7, 3.9 and discussion of locally optimal sites",
+        "method": "Publisher lawful open-access HTML full-text",
+        "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+        "trigger": "Relevant stability and higher-dimensional tensor product Bayesian quadrature"
+      },
+      {
+        "assessment": "DIFFERENT_OBSERVATION_MODEL: noisy continuous spatial filtering rather than one offline point sample and a cubature target",
+        "evidence": [
+          "Section 7.2 models dU(z)=Y(z)dz+B2(dz), hence an observation field, unlike scalar Y_x=W_d(x)+epsilon."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2407.06386",
+        "material_read": "Full-text PDF abstract, Sections 1, 2, 4 and 7.1-7.2 (model and examples), theorem statements",
+        "method": "ArXiv PDF extracted text and visual first-page inspection",
+        "title": "A Kalman filter for linear systems driven by time-space Brownian sheet",
+        "trigger": "Plausible same Gaussian sheet with noisy observations"
+      },
+      {
+        "assessment": "BACKGROUND_COVARIANCE; article addresses sample path regularity, not observation design for integrals",
+        "evidence": [
+          "Section 3 defines covariance as product of coordinate minima."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00365-023-09647-z",
+        "material_read": "Open-access HTML abstract and Brownian sheet definition in Section 3",
+        "method": "Publisher lawful open-access HTML",
+        "title": "Path Regularity of the Brownian Motion and the Brownian Sheet",
+        "trigger": "Brownian-sheet product covariance and infinite-dimensional approximation context"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "01edc3da-2ab6-4f48-8c0d-33aaeabe7f38",
+  "value": {
+    "rationale": "High-dimensional Bayesian quadrature with measurement noise has a substantive scale-selection problem: the noiseless point stays at \\(2/3\\) in every coordinate, but any fixed positive noise pushes the global optimum to a logarithmic corner boundary layer and accelerates the relative information decay from \\((8/9)^d\\) to \\((3/4)^d/\\eta\\). The precise exponential-noise crossover gives a calibration law that cannot be obtained by simply tensoring one-dimensional noisy optimizers; it separates two physically meaningful sensing regimes.",
+    "status": "PASS"
+  }
+}
