@@ -1,0 +1,25 @@
+# Review of complete five-run minimal unique factor theorem
+
+## Correctness — PASS
+
+All run parameters are quantified as positive integers. The proof first reduces minimal uniqueness to repetition of the two length-one-shorter factors; it then exhausts pure runs, repeated zero-to-one and one-to-zero boundaries, each three-run pattern, and factors with at least four runs. Two distinct collision mechanisms are explicitly controlled: a pure zero power can itself be unique and defeat an otherwise valid bridge, and a single-unit difference between the one runs defeats the mixed boundary factor via a unique pure-one deletion. The last complete central-zero run identifies a unique three-run factor inside any factor spanning four runs. The lower bound on the total length for eight factors follows from all eight necessary predicates, not extrapolation. The ten-bit witness supplies the matching upper bound and extends at every length above ten.
+
+The direct occurrence checker exhausts all 7,776 tuples with parameters one through six, comparing **sets** of minimal unique factors, rather than only counts. A second suffix-order checker independently confirms all 16,807 tuples with parameters one through seven, 180 longer cases and the threshold. The second checker derives minimal unique prefixes from neighboring suffix LCPs and tests the other endpoint deletion. The universal proof does not depend on the finite computation. No unproved computation or inaccessible certificate supports a critical lemma.
+
+## Originality — PASS against inspected literature
+
+The closest published factor-specific result is *Seven-or-eight minimal unique factors in separated five-run binary words* (2026-10-25). Its full result restricts positive run lengths by four pairwise separation inequalities and expressly leaves violating tuples unclassified. The new necessary-and-sufficient table handles all of those exceptions, including equal longest runs, a unit gap, and the collision between candidate bridge factors and an already unique pure zero factor. The previous separated eight-factor family first occurs at length thirteen; the unrestricted theorem proves the sharp onset at ten. Thus the prior specialized theorem is a consequence on its subdomain, not a statement covering every parameter combination.
+
+*Minimal unique factors of binary words with two marked symbols: exact spectrum* (2026-10-26) covers the specialization with both one-run lengths equal to one, already known and not claimed as novel. *Exact minimal-unique-factor spectrum of four-run binary words* (2026-11-02) has a different number of runs, five templates, and first five-factor attainment at eight. Mieno et al. (2019) give definitions and a general procedure for computing MUSs; their full text does not state this five-run table. The 2016 run-length paper supplies an upper bound, not a sharp eight-factor classification. Charalampopoulos et al. (2026-05-06) address fastest shortest-unique and shortest-absent algorithms and do not give the present all-parameter MUS family. A general algorithm able to compute a given instance does not, by itself, imply the stated closed classification and sharp first onset as an already published formula.
+
+The literature and semantic searches are necessarily incomplete. Unindexed older special-case statements or unnoticed equivalent formulations remain residual priority risks. The work is offered with self-review, not independent assessment.
+
+## Value — PASS
+
+Minimal unique factors underpin shortest-unique-substring representations and repetition-sensitive text indexing. The five-run binary family is the first simple alternating family in which *three* same-symbol runs collide while *two* opposite-symbol runs provide two competing boundaries. A complete parameter-specific description is mathematically useful in this setting: it resolves the nongeneric equality and near-equality regimes, improves the generic run-based nine-factor ceiling to eight for this family, supplies a sharp first-attainment cutoff, and gives exact factors rather than only a count. This is not a restatement of a generic algorithm or a trivial renaming of four-run results: the pure-run uniqueness exceptions and internal three-run factors are essential. The claim is restricted to exactly five runs; no unrelated downstream application or stronger asymptotic conclusion is asserted.
+
+## Closest literature, scope and limitations
+
+The relevant complete published specialized statements were read as primary result files, together with the full 2019 MUS paper. The 2016 source was considered for its general upper-bound statement, not certified here as supplying the five-run formula. The motivating 2026 study is about shortest rather than minimal unique strings. The result has neither independent audit nor refereeing; novelty may be affected by uncatalogued equivalent work. The two finite checkers corroborate the formulas but do not prove infinite quantifiers.
+
+Self-review: passed. Independent audit: not yet performed.
