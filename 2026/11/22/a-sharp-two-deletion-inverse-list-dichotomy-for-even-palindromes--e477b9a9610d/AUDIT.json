@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "For any q>=2,m>=1 exactly two deletions are considered. Symmetric embedding of a palindromic receiver in a palindrome parent reduces to one insertion into its half and gives exactly 1+m(q-1) distinct parents. For a nonpalindromic receiver, stripping equal endpoints leaves two unequal outer letters; each of two possible parent outer letters gives an odd residual word with at most one even-palindromic one-insertion parent, proving <=2. Exhibited two-parent witnesses make the bound sharp. Verified independently for all 22 enumerated (q,m) families, 2609 source words. Only the proof yields all-parametric validity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kulkarni–Kiyavash address upper bounds for deletion correcting code cardinalities, not all inverse lists over the palindromic source family.",
+        "Brakensiek–Guruswami–Zbarsky address efficient multi-deletion correcting constructions, not exact receiver-by-receiver inversion of the entire palindrome source family."
+      ],
+      "reasoning": "General code cardinality bounds may apply to the palindrome family as a special case but do not specify the number and explicit identity of palindromic parents of each received word. Such a strengthening was not found in inspected accessible material; a part of the general code-bounds paper was only text-extracted, leaving finite coverage risk.",
+      "searches": [
+        "published-finding corpus: even palindrome code two deletions inverse list at most two for non-palindromic received word maximum q-1 times m plus one",
+        "published-finding corpus: palindromic double deletion correcting codes confusability graph",
+        "Full source: Non-asymptotic Upper Bounds for Deletion Correcting Codes arxiv:1211.3128"
+      ]
+    },
+    "checked_sources": [
+      "On Single-Deletion-Correcting Codes — https://arxiv.org/html/math/0207197v1",
+      "Non-asymptotic Upper Bounds for Deletion Correcting Codes — https://arxiv.org/abs/1211.3128",
+      "Efficient Low-Redundancy Codes for Correcting Multiple Deletions — https://eccc.weizmann.ac.il/report/2015/116/",
+      "Exact one-deletion confusability and capacity of palindromic codes — https://github.com/published-finding corpus/2026",
+      "A binomial-tree model for binary palindromic single-deletion codes — https://github.com/published-finding corpus/2026",
+      "Exact size distribution of two-deletion descendants over every finite alphabet — https://github.com/published-finding corpus/2026"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The first result explicitly restricts its theorem to one deletion, giving the rigidity lemma but not incoming two-deletion list counts.",
+        "The binomial-tree result classifies binary one-deletion confusability only; our q-ary receiver-conditioned two-deletion classification is distinct.",
+        "The all-alphabet distribution work counts |D_2(w)| per transmitting word; inverse parent list sizes |{p:z in D_2(p)}| are not determined by a forward-size histogram."
+      ],
+      "reasoning": "Implication comparison was performed at the level of source/receiver domains and quantifiers, not result titles. A prior one-deletion injectivity lemma is used explicitly, while the new decomposition into palindromic/nonpalindromic receivers, sharp inverse maximum, and complete two-branch reconstruction are additional assertions that are not logical consequences of an outgoing sphere-size distribution.",
+      "searches": [
+        "Published full text: Exact one-deletion confusability and capacity of palindromic codes",
+        "Published full text: A binomial-tree model for binary palindromic single-deletion codes",
+        "Published full text: Exact size distribution of two-deletion descendants over every finite alphabet",
+        "arxiv:math/0207197v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Complete published single-deletion palindrome graph result: even palindromes do not share a one-deletion output; no two-deletion receiver inverse theorem.",
+        "A full published result on two-deletion sphere-size distributions counts outgoing descendants by source, unlike incoming parents by receiver."
+      ],
+      "reasoning": "Two inserted letters into the receiver is the inverse channel formulation. Neither insertion encoding nor reversal symmetry reduces a two-deletion parent list to the one-deletion confusability graph. The new theorem recovers a complete conditional list size and maximum characterization, which are not statements of the inspected papers.",
+      "searches": [
+        "published-finding corpus: palindrome parent supersequences two arbitrary insertions after first first unequal endpoints at most two",
+        "published-finding corpus: exact two-deletion inverse list sizes of all length 2m palindromes over q-ary alphabet",
+        "web: palindromic supersequence exactly two insertions nonpalindromic receiver"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest recorded table concerns all-alphabet forward two-deletion sphere distributions rather than incoming inverse lists.",
+        "Current-week accessible claim fields yielded no identical theorem; a separately published single-deletion palindrome result is relevant but does not cover two deletions."
+      ],
+      "reasoning": "A fixed-parameter output list from direct enumeration would not imply the all-parameter theorem. No exact incoming parent-count table or sequence providing this assertion was identified. A negative search is not a priority proof; missing older ledger snapshots remain an access limitation.",
+      "searches": [
+        "published-finding corpus: sharp two deletion list decoding of palindrome source even length all palindrome outputs exactly m(q-1)+1 nonpal outputs at most two",
+        "published-finding corpus: exact two-deletion inverse list sizes of all length 2m palindromes over q-ary alphabet",
+        "Own accessible research ledgers: source/claim/title/alias search on both current-week parts"
+      ]
+    },
+    "rationale": "Actual searches of published findings, own accessible claim ledgers, and primary literature included equivalent insertion formulations, stronger general coverage, exact tables and implication comparisons. Closest full-read works concern one-deletion palindrome confusability and forward two-deletion sphere-size spectra; neither implies two-deletion incoming palindromic inverse lists. Unindexed priority and partial access remain residual risks.",
+    "residual_risks": [
+      "Unindexed or inaccessible earlier results may contain an equivalent receiver-specific palindrome inversion statement.",
+      "Full body of the general upper-bound article and ECCC construction report were not completely compared; their accessible material gives no dominating theorem.",
+      "A missing older ledger snapshot means claims recoverable from accessible ledgers do not establish an exhaustive historical inventory."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING (inspected relevant sections): classical single deletion, not exact two-deletion inverse palindromic lists",
+        "evidence": [
+          "First posted July 22, 2002; study of single-deletion-correcting codes and descendants"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0207197v1",
+        "material_read": "Definitions, introductory treatment, code and sphere sections, references",
+        "method": "Read accessible full-text HTML and compare deletion count and palindrome-domain hypotheses",
+        "title": "On Single-Deletion-Correcting Codes",
+        "trigger": "Archival origin of synchronization deletion codes; possible precursor to inverse lists"
+      },
+      {
+        "assessment": "No covering theorem in inspected material; residual full-document overlap risk",
+        "evidence": [
+          "Studies cardinality bounds on transmitting codebooks rather than precise parent lists of every receiver"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1211.3128",
+        "material_read": "Extracted paper introduction and bound framework; complete detailed proof comparison not established",
+        "method": "Read accessible text and checked for palindrome-specific inverse-list theorem",
+        "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+        "trigger": "General upper bounds could dominate a restricted-channel claim"
+      },
+      {
+        "assessment": "No applicable implication in inspected abstract, with explicit remaining inspection risk",
+        "evidence": [
+          "Multiple-deletion correcting code constructions for unrestricted words"
+        ],
+        "identifier_or_url": "https://eccc.weizmann.ac.il/report/2015/116/",
+        "material_read": "Public abstract and report description; not a complete full-paper comparison",
+        "method": "Compared announced code constructions with receiver-specific inverse-list quantifiers",
+        "title": "Efficient Low-Redundancy Codes for Correcting Multiple Deletions",
+        "trigger": "General two-deletion decoding might imply restricted exact list bound"
+      },
+      {
+        "assessment": "Covers the even-palindrome single-deletion rigidity lemma but explicitly not two-deletion inverse lists",
+        "evidence": [
+          "One-deletion confusability and capacity; even-length graph has no edges; limitations exclude multi-deletion channels"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026",
+        "material_read": "Complete public RESULT.md including proof, scope and limitations",
+        "method": "Direct published full-text read and statement comparison",
+        "title": "Exact one-deletion confusability and capacity of palindromic codes",
+        "trigger": "Closest shared source palindrome geometry and one-deletion result"
+      },
+      {
+        "assessment": "One-deletion graph structure only; does not settle q-ary two-deletion receiver lists",
+        "evidence": [
+          "Odd binary palindromes have a binomial-tree one-deletion confusability graph"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026",
+        "material_read": "Complete public RESULT.md and proof",
+        "method": "Compare source word parity, binary scope, and deletion count",
+        "title": "A binomial-tree model for binary palindromic single-deletion codes",
+        "trigger": "Potential stronger structural classification of palindrome deletion graphs"
+      },
+      {
+        "assessment": "Counts outgoing shadows for all source words; not our sharp inverse lists of palindrome parents",
+        "evidence": [
+          "Polynomial histogram F_{q,n}(z) sums over sources by |D_2(w)|, not over received words by incoming palindrome-parent count"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026",
+        "material_read": "Complete public RESULT.md including deterministic identity and generating-function proof",
+        "method": "Compare inverse and forward quantifiers with fixed palindrome domain",
+        "title": "Exact size distribution of two-deletion descendants over every finite alphabet",
+        "trigger": "Closest all-alphabet two-deletion enumeration"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e477b9a9-610d-4730-a254-f2878c64cb11",
+  "value": {
+    "rationale": "The exact worst-case list size and all maximizing receiver characterization quantify an intrinsic synchronization decoding ambiguity across all lengths and alphabets. A sharp binary distinction between symmetric and asymmetric receiver data leads to complete and efficient finite-branch reconstruction. This structural theorem is useful without requiring a general deletion-code optimum.",
+    "status": "PASS"
+  }
+}
