@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "Proof verified: on each cell the exact mass-matrix normal equations give traces A=(1-t)(1-3t), B=(1-t)(1+3t); the piecewise quadratic edge and interior trace-inclusive jump variation norms maximize at 16/9 and 2, with one-cell 3/2. Distributional derivative jump representation and triangle inequality extend the estimate from step functions to all BV inputs. Exact rational checker verifies 98 normal-equation positions, 1790 step cases and 2400 signed multijump tests, none substituted for the infinite-input analytic proof. Mesh grading cancels by affine cell rescaling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nochetto–Salgado arXiv:1211.1069v1 Theorem 3.7 treats a different continuous averaging interpolant, TV coefficient 1.",
+        "Diening–Storn–Tscherpel SIAM J. Numer. Anal. doi:10.1137/20M1358013 concerns Sobolev and Lp stability of conforming L2 projection, not exact BV of broken P1.",
+        "published-finding corpus Exact Sobolev widths from discontinuous affine splines and a sharp mesh law (2026) handles H1 approximation widths rather than full jump-inclusive BV norm."
+      ],
+      "reasoning": "General stability or approximation statements that do not bound the full distributional variation of this exact broken L2 map cannot imply its sharp coefficient; a conforming or TV-diminishing projector is structurally different. No inspected broader theorem covers all nonuniform meshes with exact equality constants.",
+      "searches": [
+        "exact sharp bounded variation norm of L2 projection onto piecewise linear finite element space uniform interval mesh",
+        "total variation amplification orthogonal linear spline projection step function extremizer",
+        "least squares continuous linear splines L2 projection bounded variation norm inverse mass matrix",
+        "orthogonal projection onto discontinuous piecewise-linear elements total variation norm",
+        "web: On the Sobolev and Lp Stability of the L2-Projection Diening Storn Tscherpel 2021"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1107.3903",
+      "https://arxiv.org/pdf/1211.1069",
+      "https://arxiv.org/abs/1804.07477",
+      "https://webdoc.sub.gwdg.de/ebook/serien/e/sfb611/495.pdf",
+      "https://epubs.siam.org/doi/abs/10.1137/11083277X",
+      "https://epubs.siam.org/doi/10.1137/20M1358013",
+      "Sharp bounded-variation gain of the cardinal linear-spline orthoprojector (2026)",
+      "Exact Sobolev widths from discontinuous affine splines and a sharp mesh law (2026)",
+      "Exact two-periodic spline projection norms and a quadratic mesh-contrast law (2026)",
+      "One anomalous cell destroys the sharp uniform-mesh spline projection bound (2026)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wang arXiv:1107.3903v1 §4 uses degree-one DG, but its bilinear form has gradient and jump penalties (Eq. (9)), so it is not the cellwise mass-only orthogonal projector.",
+        "Nochetto–Salgado arXiv:1211.1069v1 establishes variation diminution for continuous Q1 interpolants; its inequality cannot transfer to a distinct discontinuous orthogonal projector (whose first-cell single-step witness already yields 16/9).",
+        "Herrmann et al. arXiv:1804.07477 §§2–4 distinguish total from discrete TV on discontinuous polynomial elements, without proving the exact L2 projection norm.",
+        "Bartels doi:10.1137/11083277X addresses TV minimization with conforming P1 or discontinuous P0 approximation, different maps."
+      ],
+      "reasoning": "The precise antecedent for implication is the cellwise affine L2 normal equations and full mesh jump variation. Neither earlier numerical optimization results nor continuous interpolation/stability statements provide that antecedent or a theorem dominating the claimed sharp constants. Similar vocabulary does not amount to coverage.",
+      "searches": [
+        "total variation amplification orthogonal linear spline projection step function extremizer",
+        "sharp Jordan total variation of discontinuous piecewise affine L2 orthogonal projection finite uniform mesh exactly 2",
+        "orthogonal projection onto discontinuous piecewise-linear elements total variation norm",
+        "web: Discrete Total Variation with Finite Elements and Applications to Imaging arxiv 1804.07477",
+        "web: Total Variation Minimization with Finite Elements Bartels 2012"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus closest Sharp bounded-variation gain of the cardinal linear-spline orthoprojector (2026) concerns a continuous cardinal P1 projector with sqrt(3) variation norm.",
+        "Wang arXiv:1107.3903v1 §4 defines broken P1 and mesh jumps but uses a coupled penalized DG differential-equation bilinear form, not a cellwise projection."
+      ],
+      "reasoning": "Rephrasing as BV norm, total variation of broken L2 projected step functions, or DG interface-jump amplification does not make it the continuous P1 projection. The actual local operator is independent per cell and its norm counts interface jumps. No exact equivalent statement was located in checked results or inspected primary articles.",
+      "searches": [
+        "sharp Jordan total variation of discontinuous piecewise affine L2 orthogonal projection finite uniform mesh exactly 2",
+        "DG piecewise linear discontinuous Galerkin L2 projector bounded variation sharp norm jump at element midpoint",
+        "exact BV stability constants local linear polynomial projection discontinuous splines 3 cells",
+        "discontinuous affine least squares projection variation (16/9) and (2)",
+        "web: discontinuous Galerkin L2 projection total variation stability sharp piecewise affine"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest known records (IDs listed in checked_sources) discuss continuous spline BV sqrt(3), DG approximation widths, or periodic L-infinity projection norms, not a table of broken-P1 BV norms.",
+        "Wang arXiv:1107.3903v1 provides finite element matrices and numerical inpainting examples but no exact 3/2,16/9,2 operator norm table."
+      ],
+      "reasoning": "Exact normalization must include the slope and all interior trace jumps. Checked tables/abstracts do not show this exact invariant; the mathematical formula is derived independently by local affine projection and signed-jump reduction. Negative search is not a uniqueness certificate.",
+      "searches": [
+        "exact BV stability constants local linear polynomial projection discontinuous splines 3 cells",
+        "BV seminorm norm of broken \\(P_1\\) \\(L^2\\) projection on interval meshes, step extrema 16/9, 2, 3/2",
+        "finite-cell DG local affine projector from \\(BV\\) to \\(BV\\) exact sharp variation",
+        "web source: https://arxiv.org/pdf/1107.3903",
+        "web source: https://arxiv.org/pdf/1211.1069"
+      ]
+    },
+    "rationale": "Actual semantic searches, own-file claim deduplication, and four primary literature inspections separate the cellwise discontinuous L2 projector and its full trace-inclusive BV norm from continuous TVD interpolation, coupled DG inpainting, and DG-TV discretization. No inspected theorem or stronger result implies the exact mesh-independent 3/2,16/9,2 classification. Residual historical-priority risk is acknowledged; absence from search results is not asserted as proof of uniqueness.",
+    "residual_risks": [
+      "The explicit 3/2,16/9,2 law might have appeared in unindexed DG approximation notes or textbooks; no global mathematical novelty guarantee.",
+      "A May 2011 institutional working-paper title and date were visible but its exact earliest public availability could not be established; the earliest verified arXiv public date of a cited primary source is 2011-07-20.",
+      "Published abstract-level comparisons for conforming Sobolev stability do not justify a full-document negative claim; assessment relies on actual inspected primary full texts for the most plausible overlapping works."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same broken affine space and interior jump concepts, but its projection-like update is the solution of a coupled penalized DG variational problem, not independent cellwise L2 least squares; no sharp norm stated.",
+        "evidence": [
+          "arXiv:1107.3903v1 2011-07-20",
+          "PDF p.5 defines D1, jump averages; pp.6–8 Eq.(9) uses stiffness and penalty coupling"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1107.3903",
+        "material_read": "Primary preprint introduction, §3, and §4.1–4.2 including the discontinuous degree-one trial space, penalty bilinear form and local matrices",
+        "method": "Read parsed primary PDF text, inspected PDF page 5 image, compared displayed bilinear form and operator definitions",
+        "title": "Discontinuous Galerkin Method for Total Variation Minimization on one-dimensional Inpainting Problem",
+        "trigger": "Earliest archived one-dimensional broken P1 DG finite-element and TV inpainting literature with explicit interface-jump definitions"
+      },
+      {
+        "assessment": "Distinct operator: continuous Q1 TVD interpolant with variation factor <=1, rather than discontinuous local L2 projector; exact three-cell transition not implied.",
+        "evidence": [
+          "arXiv:1211.1069v1 2012-11-05",
+          "§3 TV-diminishing interpolation theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1211.1069",
+        "material_read": "Primary paper introduction, construction, §3 variation theorem and later applications",
+        "method": "Read PDF text and screenshot of page 3; compared continuous Q1 averaging interpolation with broken cellwise L2 fit",
+        "title": "A Total Variation Diminishing Interpolation Operator and Applications",
+        "trigger": "Closest archive TVD interpolation result for low-degree elements"
+      },
+      {
+        "assessment": "Defines DG TV and discrete quadrature-based TV for imaging; no theorem yielding the full BV norm of local affine L2 projection.",
+        "evidence": [
+          "arXiv:1804.07477 published 2018-04-20",
+          "DG/DTV definitions and associated optimization theorems"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1804.07477",
+        "material_read": "Public arXiv full-text HTML, introduction, §§2–4 and conclusion",
+        "method": "Inspected primary full-text HTML; compared definition of DTV versus full distributional variation of cellwise L2 projected functions",
+        "title": "Discrete Total Variation with Finite Elements and Applications to Imaging",
+        "trigger": "Full DG finite-element total-variation including interface-jump theory"
+      },
+      {
+        "assessment": "Discusses conforming affine and discontinuous piecewise constant TV minimization, not this cellwise discontinuous affine L2 projection norm.",
+        "evidence": [
+          "doi:10.1137/11083277X, journal publication 2012",
+          "Working-paper PDF with May 2011 date; no precise verified online release date established"
+        ],
+        "identifier_or_url": "https://webdoc.sub.gwdg.de/ebook/serien/e/sfb611/495.pdf",
+        "material_read": "Working-paper PDF abstract, initial definitions, finite element spaces and convergence arguments",
+        "method": "Read lawful university-hosted PDF and viewed page-image screenshot; compared source operators and target norms",
+        "title": "Total Variation Minimization with Finite Elements: Convergence and Iterative Solution",
+        "trigger": "Historical finite-element TV minimization article; possible stronger continuity/projection result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d577ba2a-2e06-467b-8f00-0a21b1a4ece1",
+  "value": {
+    "rationale": "The full distributional BV norm including interelement jumps is the natural stability measure for discontinuous degree-one finite-element projection. The sharp mesh-independent values 3/2,16/9,2 distinguish one, two and three or more cells and are simultaneously exact for arbitrary nonuniform meshes, with attainable step extremizers. This gives concrete worst-case variation calibration and a structural contrast with TV-diminishing continuous interpolation. It is not a renaming or a trivial slice of a preexisting full-coverage statement.",
+    "status": "PASS"
+  }
+}
