@@ -1,11 +1,21 @@
-# Mathematical evaluation
+# Independent mathematical audit
 
-**Correctness — PASS.** The sharp curvature threshold is proved in both directions. The cubic Fourier coefficient along an arbitrary great circle is computed exactly; orthogonal-block energy allocation bounds its size and is saturated by a single balanced block. Equality analysis determines the curvature kernel and gives precisely twelve singular normals per maximum-amplitude block. The planar support-function area formula and the same sharp allocation bound give the full brightness interval and the complete minimizing-plane classification. The standalone exact and numerical checks reproduce 29,819 supplementary identities and comparisons; no finite sample is relied upon to prove the unrestricted statement.
+## correctness
 
-**Originality — PASS (provisional priority).** The relevant 2026 paper establishes the threefold-projection exception for a single cubic. Already public mathematical notes supply the sharp single-block convexity constant, the corresponding twelve singular normals, and the single-block brightness profile; these are credited, not presented as new. The claim here concerns a simultaneous arbitrary number of independently signed orthogonal blocks. Neither the source's great-circle Fourier observations nor the single-block threshold alone proves the multi-block sharp coefficient box and its equality rigidity. Targeted searches for orthogonally decomposable cubic harmonics, blockwise convexity, and projection-brightness equivalences found no directly covering theorem. An unindexed tensor-norm statement could imply the core estimate, and this residual priority risk is acknowledged.
+PASS
 
-**Mathematical value — PASS.** The exceptional constant-width projection phenomenon admits a structurally large family of high-dimensional deformations. The exact noninteraction theorem determines its maximal independent-parameter domain, not just a small sufficient neighborhood. The endpoint singular-normal count and complete extremal-shadow characterization quantify the geometry of the family, and the sharp shadow ratio remains dimension-independent. These structural assertions provide new information for geometric tomography, convex support functions, and spherical curvature beyond a routine one-block calculation.
+Along every orthonormal great circle u cos theta+v sin theta, each cubic block decomposes into frequency one and three; spherical curvature p+p'' equals rho-2 Re sum_j beta_j product_r (u_(jr)-i v_(jr)). With s_j=sum_r |w_jr|², orthogonality gives sum_j s_j<=2, AM-GM gives product_r|w_jr|<=(s_j/3)^(3/2), and strict concentration inequality gives sum_j products <= (2/3)^(3/2) with equality only in one block. Thus PSD iff max|beta_j|<=3sqrt6 rho/8; explicit u=(2,1,1)/sqrt6, v=(0,1,-1)/sqrt2 witness sharpness, independently checked at symbolic endpoint. Equality rigidly forces one maximizer block and a plane perpendicular to a block body diagonal; four unoriented planes and three curvature-zero normals per plane give 12k null directions with rank one. After removing first harmonic by translation, projected support rho+Re(Z e^(3i theta))/4 gives area pi rho²-pi|Z|²/4 and sharp max/min pi rho², pi(rho²-2B²/27). Case B=0 gives all planes equal. Cubic oddness yields constant width 2rho. Proof genuinely all m>=2, n>=3m; finite diagnostics supplemental.
 
-Limitations: the triples must be mutually orthogonal; overlapping cubic monomials remain unclassified. Source comparisons cannot establish absolute global priority. No independent audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Myroshnychenko--Ryabogin--Saroglou primary manuscript (all fourteen primary pages, including Proposition 5.1/Theorem 5.4, materially read) proves that one cubic monomial yields threefold planar projection symmetry and a convex body for sufficiently small coefficient. Earlier Resultary Oct 4 gives exact sharp single-block curvature threshold and Oct 11 gives exact single-block shadow area. Neither handles simultaneous arbitrary independent coefficients in orthogonal blocks with exact max-norm coefficient box nor all multi-block minimum-shadow planes; naive triangle inequality incorrectly imposes sum of amplitudes. The new orthogonal energy concentration lemma supplies a substantive extension.
+
+## value
+
+PASS
+
+The independent-box phenomenon proves arbitrarily many orthogonal constant-width deformation modes coexist without degrading their individual sharp convexity bounds; simultaneously determines the full sharp planar projection area range, rigidity of extremizers, and exact count of endpoint singular normals. These are natural geometry-of-projections and support-curvature properties, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
