@@ -1,0 +1,12 @@
+# Review of even-cardinality circular-arc shattering
+
+## Correctness (C): PASS
+The domain is all even-length cyclic intervals on even cycle orders at least four, including the empty and full sets. Each possible trace on singleton, pair, and nonconsecutive triple supports has an explicit construction. The consecutive-middle singleton trace fails, and cyclic alternation forbids every four-query shattering. For even orders at least six, every missing triangular loop bounds three present triangles with cone vertex four steps ahead, giving simple connectivity. Euler characteristic and free integral top homology, followed by Hurewicz and Whitehead, give the wedge-of-two-spheres type. Two independent finite trace enumerators agree through orders eighteen and twenty; binary boundary ranks agree through fourteen. These computations are supporting checks, not infinite proofs.
+
+## Originality (O): PASS, with residual historical risk
+published-finding corpus mathematical records were searched using the precise parity/arc/face polynomial description, aliases involving graph balls, convexity, geodesics and circular intervals, and topological equivalents. The most relevant published full texts were compared by inclusion of hypothesis sets and statement implication. The graph-ball radius result counts every triple in even cycles at maximal radius, so its formula is different; its odd-order case is explicitly excluded from this theorem because it covers complements of balls. The shortest-path geodesic result has a different support criterion and a mixed-dimensional complex. Chalopin et al. prove a cycle-ball compression scheme, not this even-length arc support count or homotopy type. Unindexed equivalent formulations in range-space or topological literature remain possible.
+
+## Value (V): PASS
+The parity restriction changes the complete shattering complex of a canonical geometric range class. The result identifies exactly which \(n\) triangles are lost, proves that the remaining two-complex is still simply connected for every even order at least six, and computes an all-parameter integral wedge rank with an exceptional four-vertex boundary. This is a structural/topological classification rather than a numerical recomputation or an automatic corollary of the ordinary circular-arc VC bound. The explicit failure on odd cycle orders of novelty by complementation is handled by restricting the theorem to even orders.
+
+Self-review: passed. Independent audit: not yet performed.
