@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is finite and completely specified: the nine ice-rule equations on a labelled eighteen-edge simple torus select exactly 148 binary orientations. Two independent exhaustive generators agree state-for-state. The direct sums over all 1,024 quotient frequencies agree with the full 262,144-entry exact-integer Walsh transform, the full signed histogram, and Parseval. The independently transformed Fourier-support mask has absolute kernel sum 1,822,720. Counting convolution is diagonal in Walsh characters; translation averaging proves that the displayed endpoint norm is the unrestricted minimum, not only an invariant-projector bound. Proof scope and computational bounds are explicit in `RESULT.md` and the checker.
+## correctness
 
-## Originality — PASS, with bounded historical risk
-The closest primary results concern finite and asymptotic periodic six-vertex partition functions with local vertex or homogeneous integrable weights (Tavares–Ribeiro–Korepin, arXiv:1501.02818, especially sections 2–3 and 7; Jacobsen–Jiang–Zhang, arXiv:1812.00447, especially sections 2, 4 and 7). The unsigned orientation count 148 is already recorded in OEIS A054759 and is expressly not new. Those inspected results do not give the full independent edge-sign Walsh distribution, the extra even-frequency nullity, or sharp unrestricted projection constant. Published mathematical-record comparisons included Eulerian orientations of squared cycles and their winding-sector counts, which are not the same graph or object, and earlier accessible related claims concern acyclic rather than Eulerian orientations. The novelty comparison is one of mathematical implications, not only matching titles. An unlocated older fully inhomogeneous signed torus calculation is a residual priority risk.
+PASS
 
-## Value — PASS
-This is a natural complete finite classification at the smallest simple four-valent periodic square-ice torus, rather than an arbitrary subcase: it separates the classical unsigned count (148) from recoverable Fourier dimension (99,328), reveals 31,744 even-weight cancellations not explained by global arrow reversal, gives the sharp Hilbert-space deconvolution gap four and condition number 37, and determines the optimal endpoint projection constant. The exact full-character benchmark is useful for checking analytic or numerical treatments of inhomogeneous signed ice and for understanding information loss in finite convolution models. It does not purport to settle larger tori.
+The exact integer ice rules h_{r,c}+v_{r,c}=h_{r,c−1}+v_{r−1,c} characterize 2-in/2-out orientations on the 3x3 periodic simple four-regular grid. Independent complete full enumeration of all 2^18 edge words produced exactly 148 states. Recomputed unnormalized integer Walsh transform on the whole cube reproduced every signed histogram entry, 162816 zeros, rank99328, min |W|4. The Eulerian bit words lie in the binary 10-dimensional cycle space, forcing 256-fold repeats by the 8-dimensional orthogonal cut space. Recomputed inverse Walsh of nonzero support gives absolute sum1,822,720/262144=445/64; translation averaging proves it is the optimum among all linear projections. Source SPECTRUM.json has all 1024 quotient coefficients, and source check_ice3.py independently describes two complete orientation enumerations; full finite exhaustion is appropriate to this exact finite claim.
 
-## Residual limits
-The exhaustive certificate is specific to the 3-by-3 simple torus. The source search was bounded; all publication-priority conclusions remain best-knowledge and not an independent certification. No external independent audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge signed eighteen-edge character spectrum for the first simple square-ice torus is distinct from 148 unsigned configuration count and integrable six-vertex homogeneous-weight torus partition functions. No exact full Walsh table or sharp unrestricted range-projection constant found in searched published records; priority remains bounded.
+
+## value
+
+PASS
+
+The first simple 3x3 periodic ice lattice is a canonical natural small torus, and an exhaustive independent-edge Walsh spectrum plus sharp range projection constant is a nontrivial exact, reusable benchmark of its full binary character response, not merely recomputing the known 148 unsigned configurations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
