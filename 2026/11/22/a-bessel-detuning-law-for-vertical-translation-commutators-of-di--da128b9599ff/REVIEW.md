@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof begins with the exact Dirichlet coefficient expansion of \(C_{s+c+a2^{-s}}\), sums orthogonal coefficients within each input column, and obtains a nonnegative Bessel moment formula. The sharp threshold follows by comparing distinct Bessel exponential rates for every nonresonant phase, including the divergent equality case. The detuning limit uses a squared-Bessel probability distribution whose second moment is exactly the square of its scale, plus an integrable Abelian scaling measure. The compactness factorization is valid for every \(c>a\). The packaged numerical checker passed 67 supplementary checks; finite computations are not used as proofs of infinite statements.
+
+**Originality — PASS, qualified.** The full relevant portions of Bayart–Wang–Yao (arXiv:2109.09581) address compact differences rather than Schatten-two norms; Bayart–Kouroupis (arXiv:2306.05733) primarily consider characteristic-zero symbols; Bayart–Yao (arXiv:2406.19737) treat structural commutants, including the same form of characteristic-one symbol but not the quantitative near-resonant Hilbert–Schmidt crossover. published-finding corpus searches exposed a detuning theorem for monomial composition–differentiation on analytic coefficient Dirichlet spaces, an inapplicable operator/Hilbert-space model. No exact or dominating implication was found. The related 2021 Journal of Operator Theory article was available as metadata and abstract, not fully inspected, and unindexed prior results remain a priority risk.
+
+**Mathematical value — PASS.** This gives a sharp ideal-theoretic boundary inside a class of already compact differences, distinguishes an exact discrete translation-symmetry subgroup, and resolves the nontrivial scaling window where the Hilbert–Schmidt divergence switches from cancellation to a universal coefficient. It makes the topology-versus-ideal distinction quantitatively testable for a natural characteristic-one Dirichlet composition family, not an arbitrary finite calculation.
+
+Independent validation, wider multi-prime symbols, other Schatten exponents, and uniform double limits with unbounded detuning are outside the result.
+
+Self-review: passed. Independent audit: not yet performed.
