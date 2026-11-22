@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The mathematical claim has two parts. First, for every integer \(n\ge5\), the first/second-harmonic vertices have precisely \(n(n-3)/2\) facets from disjoint pairs of adjacent cyclic edges; their average is the origin and the origin-cone volumes sum exactly. The displayed determinant factorization has all factors positive in the claimed separation range. Trigonometric root sums therefore give the all-\(n\) formula with the correct \(1/48\) ordered-pair normalization. The monotonicity and \(n^{-2}\) deficit follow from a direct Taylor expansion. Second, the seven-angle volume is smooth near equal spacing, cyclic symmetry and rotational invariance force stationarity, and the exact real circulant Hessian Fourier eigenvalues are computed in the degree-three cyclotomic real field. Their rational sign bounds show six strictly negative transverse eigenvalues and the one rotational zero mode. The accompanying independent determinant sweeps and exact integer-algebra Hessian checker were executed successfully; finite tests are supplementary, not proofs of the universal claims.
+PASS
 
-## Originality — PASS, provisional historical priority
+For all integer n>=5, double-harmonic unit-sphere vertices have exactly n(n-3)/2 tetrahedral facets made of two disjoint adjacent cyclic pairs; the origin is interior. The oriented cone determinant is D(k)=2 sin^2(h/2)(1-x)(cos h-x)(1+cos h+x), so one-half of the ordered edge pairs divided by 24 yields V=n^2 cos h sin^2 h/48; root-of-unity sums apply for n>=5. With h=2pi/n the limit pi^2/12 and deficit 5pi^4/(18 n^2) follow by Taylor. The seven-angle real circulant Hessian has one rotational zero and three double negative eigenvalues, explicit polynomials in u=cos(2pi/7), hence a strict *local* maximum only modulo rotation. A separate real 4x4 determinant check across n=5,6,7,8,9,12 and finite-difference Hessian spectral check corroborated source algebra; finite samples are not the proof.
 
-The complete text of the recent motivating paper by Medgyes, especially Theorem 4.1 and Remark 4.4, proves an upper volume bound of \(2/5\) for arbitrary inscribed seven-vertex cyclic four-polytopes and reports a numerical volume near \(0.3891\), but does not give the exact regular trigonometric formula or the transverse angular Hessian. The open-access article by Olarte and Santos defines the equally spaced trigonometric model and its combinatorics, without these metric volume or angle-Hessian results. The Carathéodory-orbitope treatment of Sanyal, Sottile and Sturmfels concerns the continuous orbit body and its face structure, not the finite sample volume or its heptagonal local maximum. Related indexed results on a seven-vertex *noncyclic* maximizer concern a different body and a different variation space, and cannot imply the present result without further new arguments. Queries for cyclic moment curves, finite orbitopes, exact seven-vertex volumes, algebraic volume formulas and heptagonal Hessians did not identify an equivalent theorem. Negative search is not proof of historical novelty; unindexed calculations of trigonometric orbitopes remain a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The recent seven-vertex cyclic upper bound is nonsharp and its paper explicitly singles out a numerical candidate near the exact value computed here. The present exact all-\(n\) formula, strict monotonicity and leading error characterize the complete natural regular finite sampling family. The exact angular Hessian adds a rigorous local variational characterization of the seven-vertex benchmark, which a closed volume formula alone would not establish. These statements give a structurally motivated invariant and a mathematical explanation for a numerical phenomenon relevant to the sharp cyclic upper-bound gap, without falsely claiming to close that gap.
+Best-of-knowledge PASS for the exact all-n regular family volume and the seven-angle local Hessian, not for global seven-vertex optimality. The primary global seven-vertex result gives only upper bound 2/5 and a numerical candidate near .3891; none of the inspected prior statements implies the exact regular formula or angular Hessian.
 
-## Closest literature and limitations
+## value
 
-The closest primary publication is C. Medgyes, *Inscribed 4-polytopes of maximal volume with seven and eight vertices*, arXiv:2610.26886 (2026-10-12), Sections 2.3–4. Relevant geometric descriptions are J. A. Olarte and F. Santos, *Hypersimplicial subdivisions*, Section 2.3 (first online 2021-11-03), and R. Sanyal, F. Sottile, B. Sturmfels, *Orbitopes*, Section 5 (2011). Their quoted claims and how they differ are explained in RESULT.md. Historical priority is provisional, especially for alternate terminology in older discrete-orbitope work. No claim of global optimality among arbitrary inscribed cyclic seven-polytopes is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural regular inscribed trigonometric cyclic family has its complete Euclidean volume sequence, exact convergence rate and genuine seven-angle variational stability; that refines a numerical candidate arising in a rigorous nonsharp upper-bound problem. The result does not assert the unrestricted maximum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
