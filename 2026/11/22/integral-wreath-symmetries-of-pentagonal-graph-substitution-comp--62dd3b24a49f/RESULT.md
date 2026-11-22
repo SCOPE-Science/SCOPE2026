@@ -1,0 +1,61 @@
+# Integral wreath symmetries of pentagonal graph-substitution complexes
+
+## Finding
+
+Let \(H\) be a finite nonempty simple graph whose ordinary independence complex \(Q=|\operatorname{Ind}(H)|\) is homotopy equivalent to \(S^1\). Set \(X=|\operatorname{Ind}(C_5\circ H)|\), where \(\circ\) is the lexicographic graph product, not the categorical product. Index the five fibers by \(i\in\mathbb Z/5\) **in complementary-cycle order**: successive indices correspond to nonadjacent vertices of the original base five-cycle, hence form eligible independent pairs. Write \(A=\operatorname{Aut}(H)\), let \(\chi:A\to\{+1,-1\}\) be the character of its action on \(\widetilde H_1(Q;\mathbb Z)\cong\mathbb Z\), and let \(W=A^5\rtimes D_5\) act by fiber automorphisms and pentagon symmetries. For \(\sigma\in D_5\), set \(\epsilon(\sigma)=+1\) for rotations and \(-1\) for reflections.
+
+**Integral equivariant classification.** The only nonzero reduced integral homology groups of \(X\) are \(\widetilde H_1(X;\mathbb Z)\cong\mathbb Z\), \(\widetilde H_2(X;\mathbb Z)\cong\mathbb Z^5\), and \(\widetilde H_3(X;\mathbb Z)\cong\mathbb Z^5\). There are respective oriented integral bases \(z\), \(u_i\) indexed by vertices, and \(v_{\{i,i+1\}}\) indexed by edges of the pentagon, on which \(g=(a_0,\ldots,a_4;\sigma)\) acts exactly by
+
+\[
+ gz=\epsilon(\sigma)z,\qquad
+ gu_i=\epsilon(\sigma)\chi(a_i)u_{\sigma(i)},\qquad
+ gv_{\{i,i+1\}}=\chi(a_i)\chi(a_{i+1})v_{\{\sigma(i),\sigma(i+1)\}}.
+\]
+
+Consequently, for \(H=C_5\), the orbit space by the **outer** pentagon group has reduced rational homology \(\widetilde H_3(X/D_5;\mathbb Q)\cong\mathbb Q\) and no others, whereas the orbit space by the **full indicated wreath subgroup** \((D_5)^5\rtimes D_5\) is rationally acyclic. If the full graph automorphism group of \(C_5\circ C_5\) is larger, its orbit space is rationally acyclic as well because it contains this subgroup. More generally, if some automorphism of \(H\) has \(\chi=-1\), then \(X/W\) is rationally acyclic.
+
+The nonequivariant homotopy equivalence \(X\simeq S^1\vee\bigvee^5 S^2\vee\bigvee^5 S^3\) is **not new**: it follows from the previously published cycle-substitution theorem of Carnero Bravo. The new finding concerns the natural integral symmetry modules and their quotient consequences.
+
+## Assumptions and scope
+
+Here \(C_5\circ H\) replaces each vertex of the five-cycle by one copy of \(H\), includes all edges within each copy prescribed by \(H\), and joins every vertex of two copies whenever their pentagon positions are adjacent. All homology has integral coefficients unless a rational coefficient field is indicated; all geometric realizations are of finite simplicial complexes. \(A^5\rtimes D_5\) acts by \((i,x)\mapsto(\sigma(i),a_i(x))\). Orientations for \(u_i\), \(v_{\{i,i+1\}}\) and \(z\) depend on one chosen cyclic orientation and one generator of each fiber's \(\widetilde H_1\). The classification holds for every finite \(H\) satisfying the stated circle-homotopy hypothesis, without requiring \(H\cong C_5\), and is not a description of equivariant unstable homotopy.
+
+## Proof
+
+**1. A cyclic cover.** The independent sets of \(C_5\) are the empty set, five singletons, and five adjacent positions in the *complementary* pentagon. Relabel the five two-element independent sets as \(\{i,i+1\}\) in their own cyclic order; this is a graph isomorphism between the complement of the five-cycle and the five-cycle. Each corresponding maximal subcomplex is a join \(Y_i=Q_i*Q_{i+1}\). Consequently \(X=\bigcup_{i\in\mathbb Z/5}Y_i\), with \(Y_{i-1}\cap Y_i=Q_i\), every other pair intersection empty, and all triple intersections empty. This is the complementary-cycle indexing fixed in the statement; the original base five-cycle and its complement are isomorphic, with the same dihedral subgroup acting as affine transformations of these indices. The dihedral reflection sign is unchanged.
+
+**2. An equivariant exact chain sequence.** Fix a cyclic orientation of this cover's incidence pentagon. As the cover has no triple intersections, its augmented simplicial chain complexes yield a natural short exact sequence
+\[
+0\longrightarrow\bigoplus_i C_*(Q_i;\mathbb Z)
+\xrightarrow{\delta}\bigoplus_i C_*(Y_i;\mathbb Z)
+\longrightarrow C_*(X;\mathbb Z)\longrightarrow0.
+\]
+The two components of \(\delta\) on each intersection carry opposite signs. This sequence is compatible with all indicated automorphisms provided a reversal of the incidence orientation acts with a minus sign on the intersection summands. The joins \(Y_i\simeq S^3\) are simply connected, and each intersection \(Q_i\simeq S^1\) is connected. The long exact sequence gives, with no extension ambiguity,
+\[
+\widetilde H_3(X)\cong\bigoplus_i\widetilde H_3(Y_i),\quad
+\widetilde H_2(X)\cong\bigoplus_i\widetilde H_1(Q_i),\quad
+\widetilde H_1(X)\cong\ker(\mathbb Z^5\xrightarrow{\partial_{C_5}}\mathbb Z^5).
+\]
+The final kernel is the integral cycle lattice of a single five-cycle and has generator \(z\). Hence the ranks and integral torsion-freeness follow directly.
+
+**3. Actions on these exact groups.** The incidence-cycle generator reverses under a pentagon reflection, and fiber automorphisms act trivially on \(H_0(Q_i)\), yielding \(gz=\epsilon(\sigma)z\). The connecting isomorphism for \(H_2\) identifies \(u_i\) with the fundamental \(H_1\)-class on the intersection \(Q_i\); its edge orientation changes under reflections, giving \(gu_i=\epsilon(\sigma)\chi(a_i)u_{\sigma(i)}\). Finally the standard integral join isomorphism identifies \(H_3(Q_i*Q_{i+1})\) with \(H_1(Q_i)\otimes H_1(Q_{i+1})\). Interchanging the two circle factors has orientation sign \((-1)^{(1+1)(1+1)}=+1\); therefore a dihedral reflection permutes these top generators without an extra minus sign, proving the displayed formula for \(v\). All identifications are natural, not merely statements about abstract ranks.
+
+**4. Rational quotients.** Finite-group rational transfer identifies the rational homology of a finite simplicial orbit space with invariant rational homology of the original complex. For the outer \(D_5\), the sign line \(H_1\) and sign-twisted vertex-permutation module \(H_2\) have zero invariants, while the edge-permutation module \(H_3\) has exactly one invariant line. If \(\chi(a)=-1\), an automorphism placed in only one fiber changes signs of the two neighboring top join generators, so no nonzero \(H_3\) vector invariant under all five independent copies of \(a\) exists; similarly \(H_2\) has no such invariants. The outer reflections kill \(H_1\). For \(H=C_5\), a pentagon reflection has \(\chi=-1\), as required.
+
+## Verification
+
+The accompanying executable `VERIFY.py` uses only Python's standard library. It generates all 551 faces (including the empty face) of \(\operatorname{Ind}(C_5\circ C_5)\), verifies signed reduced Lefschetz traces for each of 320 combinations of outer dihedral symmetries and independent inner reflections, and separately computes six full signed homology characters using explicit simplicial boundaries over \(\mathbb F_{101}\). It finds the face counts \((25,150,250,125)\), boundary ranks \((24,125,120)\), and reduced Betti ranks \((1,5,5)\) in dimensions one through three. The finite check validates the special case but is not a proof of the theorem for arbitrary \(H\); the exact-sequence proof above establishes the generality and integral assertion.
+
+## Relationship to prior work
+
+Carnero Bravo's *Polyhedral joins and graph complexes*, arXiv:2307.14321, Theorem 28 (p. 26 in the inspected version), already supplies a nonequivariant homotopy decomposition for arbitrary cycle substitutions \(C_n\circ H\). The nonequivariant wedge count in this document is therefore an explicitly **previously known** consequence, not a novel theorem. Okura's lexicographic-product independence work, arXiv:2303.11984, treats tree/forest bases and does not directly compute the integral five-cycle wreath action. Fu and Grbić's *Simplicial G-complexes and representation stability of polyhedral products*, arXiv:1803.11047, develops general equivariant polyhedral-product theory; it neither identifies the above substituted five-cycle's integral homology modules nor supplies the displayed quotient distinction in the checked material. Direct full-text inspection of the first two papers and the abstract/introduction/definitions of the third, together with searches for alternative formulations, found no explicit stronger claim covering this exact natural wreath action. This does not establish absolute historical priority.
+
+## Limitations
+
+This is an integral homology-representation theorem, not a \(W\)-equivariant homotopy-equivalence theorem. It does not calculate integral torsion in symmetry quotients or describe the full automorphism group for every \(H\). The character \(\chi\) can be trivial for some fibers, so the rationally acyclic full-wreath-quotient conclusion requires the stated orientation-reversing automorphism; the outer-only conclusion is stated for \(H=C_5\). Broad unindexed equivariant polyhedral-join work may supply an equivalent route; independent literature audit remains appropriate. Modular finite checks cannot establish integral statements without the exact-chain proof.
+
+## References
+
+1. A. Carnero Bravo, *Polyhedral joins and graph complexes*, arXiv:2307.14321, https://arxiv.org/abs/2307.14321 (initial public preprint 2023-07-26; inspected Theorems 28–29 in current PDF).
+2. S. Okura, *The homotopy type of the independence complex of the lexicographic product of graphs*, arXiv:2303.11984, https://arxiv.org/abs/2303.11984 (forest-base results; introduction and main statements inspected).
+3. X. Fu and J. Grbić, *Simplicial G-complexes and representation stability of polyhedral products*, arXiv:1803.11047, https://arxiv.org/abs/1803.11047 (equivariant context, abstract and introduction inspected).
