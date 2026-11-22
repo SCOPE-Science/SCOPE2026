@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For any cyclic host choose distinct abba target starts, classify all overlaps: only swapped off-diagonal target pairs permit a two-position gap; three-position gaps preserve the first letter. This proves length >=3q^2-r+z and r<=binom(q,2); for even q indegree/outdegree parity forces omitted pairs plus long gaps >=q/2. Euler tours of K_q for odd q and K_q minus a perfect matching for even q>=4 attain bounds; q=2 explicit cyclic witness. Exact program covers constructions q=2..10, exact independent subset-DP tours q=2..4. Universal theorem is logically separate from finite experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Orenstein–Shamir (2013), PMC3694677, studies all length-k words modulo reverse-complement; its objective covers a much larger, different set.",
+        "Published 2026 tandem-square record concerns abab; reverse-complement record concerns ab complement(b) complement(a)."
+      ],
+      "reasoning": "A theorem for all k-mers of length four or for complementary motif orbits does not directly give the optimum for only q^2 ordinary reversal palindromes. The known binary q=2 subcase is not novel; the all-q target-specific parity classification is not a direct corollary of the materially inspected general formulation.",
+      "searches": [
+        "shortest circular superstring of all palindromes abba over alphabet size q exact formula",
+        "cyclic words covering every length four ordinary palindrome arbitrary alphabet shortest",
+        "minimum length circular universal cover all four-letter palindromes q symbols tournament Euler"
+      ]
+    },
+    "checked_sources": [
+      "Orenstein–Shamir 2013, https://pmc.ncbi.nlm.nih.gov/articles/PMC3694677/",
+      "OEIS A330022, https://oeis.org/A330022",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-shortest-cyclic-covers-of-all-four-letter-tandem-squares--35e46779014c",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-cyclic-and-linear-covers-of-reverse-complement-four-palind--1c5013f138d2",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-ternary-length-five-palindromic-covers-66-cyclic-and-68-li--11abece62ea8"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Orenstein–Shamir full text Sections 1–3 gives RC-complete (at least one member of each reverse-complement pair), not every ordinary abba motif.",
+        "OEIS A330022 for alphabet=2 has a(4)=12; not a q-variable theorem.",
+        "Tandem-square ab ab target and complement-involutive a b complement(b) complement(a) target are inequivalent to all ordinary a b b a for q>=2."
+      ],
+      "reasoning": "The new claim gives the exact q-parity formula and a tight matching obstruction in K_q. The closest verified statements either cover one special value or different families; they do not state or imply the new all-q exact optimum as inspected. The full texts of public 2026 records are an explicit residual risk.",
+      "searches": [
+        "all words abba minimum cyclic superstring even odd alphabet size complete graph Eulerian matching",
+        "shortest cyclic covering word every q ary palindromic 4 word including aaaa abba q=3 24 q=4 44",
+        "shortest circular superstring of all palindromes abba over alphabet size q exact formula",
+        "cyclic words covering every length four ordinary palindrome arbitrary alphabet shortest"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A330022 gives the known binary linear length-four palindrome minimum 12; q>=3 and parity law not covered there.",
+        "In a circular ordering of all abba targets, a nontrivial length-two overlap is exactly abba -> baab; directed K_q parity determines the minimum."
+      ],
+      "reasoning": "The same theorem could be worded as minimum-weight cyclic tour of q^2 palindromes, maximum selected pair overlaps, or Eulerization of K_q. Targeted descriptions and standard exact overlap formulation were compared; no indexed all-q statement was found. The binary special case is known and acknowledged.",
+      "searches": [
+        "all words abba minimum cyclic superstring even odd alphabet size complete graph Eulerian matching",
+        "shortest cyclic covering word every q ary palindromic 4 word including aaaa abba q=3 24 q=4 44",
+        "shortest circular superstring of all palindromes abba over alphabet size q exact formula",
+        "minimum circular word containing all q^2 length-four standard palindromes abba theorem even odd q"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A330022 lists linear binary n=4 optimum 12 and a Hamiltonian-path interpretation; it does not give arbitrary-alphabet cyclic optimum.",
+        "published-finding corpus 2026 indexed summaries for abba-adjacent motifs have q=4 values 38 (complement-palindromes) and 40 (tandem squares), versus this 44."
+      ],
+      "reasoning": "No exact q>=3 ordinary length-four palindrome cover table or stronger all-q theorem was returned. Search absence is not proof of uniqueness; OEIS q=2 case is credited.",
+      "searches": [
+        "shortest cyclic covering word every q ary palindromic 4 word including aaaa abba q=3 24 q=4 44",
+        "minimum circular word containing all q^2 length-four standard palindromes abba theorem even odd q",
+        "site:oeis.org \"24, 44, 65\" palindromes"
+      ]
+    },
+    "rationale": "Qualified: actual targeted database and literature comparisons revealed known binary q=2 length 12 and adjacent but distinct motif-covering results, not the stated all-alphabet ordinary-abba parity formula. Relevant 2013 full text and OEIS entry materially read; three high-relevance 2026 indexed summaries read but not their complete linked manuscripts. No claim of complete priority established.",
+    "residual_risks": [
+      "Possible earlier equivalent phrased as Eulerian minimum superstring for abba motifs or incomplete public indexing.",
+      "Published related 2026 records were inspected from their indexed full result summaries only; direct complete manuscript access was unavailable.",
+      "The binary q=2 special case was already known and is expressly excluded from any independent priority claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different objective: one of each reverse-complement pair of all k-mers, not every ordinary abba palindrome",
+        "evidence": "Published online 2013-06-19; manuscript defines reverse complement and complete sequence, and proves minima for all-complement-pair coverage.",
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3694677/",
+        "material_read": "Full publicly accessible HTML including title/date, abstract, Sections 1 and 2, overlap and de Bruijn preliminaries, 3.1–3.3 and discussion of the full RC-complete problem",
+        "method": "Read open-access HTML text and compare definitions and target families",
+        "title": "Design of shortest double-stranded DNA sequences covering all k-mers with applications to protein-binding microarrays and synthetic enhancers",
+        "trigger": "Natural closely related exact sequence-covering problem; anchor public 2013 source"
+      },
+      {
+        "assessment": "Binary n=4 linear length 12 already known; the new all-alphabet cyclic even/odd formula not stated",
+        "evidence": "Entry gives 12 at n=4 and 000011001111 as an example, authored 2019-11-27.",
+        "identifier_or_url": "https://oeis.org/A330022",
+        "material_read": "Main sequence, comments, examples, authorship and edit dates, cross-references",
+        "method": "Read public entry and compare n=4 with q=2",
+        "title": "OEIS A330022: Length of shortest binary string containing all palindromes of length n as substrings",
+        "trigger": "Exact binary q=2 special case and possible preexisting overlap-tour formulation"
+      },
+      {
+        "assessment": "Not same target; q4 minimum 40 for abab versus 44 for abba",
+        "evidence": "Indexed statement 2q(q+1), all q>=2.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-shortest-cyclic-covers-of-all-four-letter-tandem-squares--35e46779014c",
+        "material_read": "Published indexed title and substantial scientific result summary; full manuscript not accessible",
+        "method": "Semantic search and direct implication comparison",
+        "title": "Exact shortest cyclic covers of all four-letter tandem squares",
+        "trigger": "Same cyclic-cover problem but four-letter repeated pattern abab"
+      },
+      {
+        "assessment": "Complement involution fixed-point-free target, not ordinary reversal palindrome; q4 minimum 38 not 44",
+        "evidence": "Indexed statement (5q^2-q)/2 for even q.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-cyclic-and-linear-covers-of-reverse-complement-four-palind--1c5013f138d2",
+        "material_read": "Published indexed title and substantial scientific result summary; full manuscript not accessible",
+        "method": "Semantic search and target-pattern comparison",
+        "title": "Sharp cyclic and linear covers of reverse-complement four-palindromes",
+        "trigger": "Most similar name and a four-letter palindrome target family"
+      },
+      {
+        "assessment": "Different length-5 ternary target family; not this all-q length-4 theorem",
+        "evidence": "Indexed statement 66 cyclic and 68 linear for all ternary length-five palindromes.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-ternary-length-five-palindromic-covers-66-cyclic-and-68-li--11abece62ea8",
+        "material_read": "Published indexed title and substantial scientific result summary; full manuscript not accessible",
+        "method": "Semantic search and length and alphabet comparison",
+        "title": "Exact ternary length-five palindromic covers: 66 cyclic and 68 linear",
+        "trigger": "Exact ordinary palindrome covering, different length and fixed q"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "339ce420-148c-4e5f-a4fb-ca57024d9264",
+  "value": {
+    "rationale": "Exact minimum covering length of all q^2 ordinary four-letter palindromic motifs for every alphabet q>=2, with explicit optimal constructions and a parity-controlled obstruction. Natural extremal invariant for universal word / motif-coverage and compact synthetic test strings, resolving the whole infinite alphabet family, not a table increment. Limits to length-four ordinary reversal palindromes are explicit.",
+    "status": "PASS"
+  }
+}
