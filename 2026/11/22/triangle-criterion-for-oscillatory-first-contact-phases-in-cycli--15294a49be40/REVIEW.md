@@ -1,0 +1,13 @@
+# Self-review
+
+**C — PASS.** The mark-at-first-hit process, boundary data, a.s. finiteness, bounded solution and nonzero spectral branch are defined. The characteristic polynomial was independently expanded in exact symbolic algebra; the triangle discriminant identity and global zero classification follow analytically. The limits at degenerate triangles and the one-defect optimum are explicit. The standalone program confirmed the matrix semigroup against an independent finite-difference boundary-value problem, including exact zero spacing at selected parameters.
+
+**O — PASS, qualified.** Breuer (2012), *Occupation times for Markov-modulated Brownian motion*, already supplies the **general state-resolved hitting matrix**. This is not claimed novel. Grebenkov (2018), *A unifying approach to first-passage time distributions in diffusing diffusivity and switching diffusion models*, provides the underlying physics and unmarked first-passage formula. After statement-level comparison and specific searches, no published source was found stating the complete cyclic triple's infinite-versus-at-most-one sign-reversal partition, its inverse-square-root-diffusivity triangle criterion, and unique one-defect frequency maximum. Because a classic general formula mathematically determines the same hitting probabilities, deducibility and possible unindexed equivalences are substantive originality risks. No independent publication-priority determination is claimed.
+
+**V — PASS.** This is a complete natural classification of a physically accessible contact-phase observable across all positive three-state diffusivities: rate-independent triangle geometry, infinite versus finite sign-crossing counts for **all nine** initial/terminal marks, an exact wave-spacing law, and a sharp one-defect transition. It shows that hidden contact-state correlations can oscillate over distance even when the unmarked particle is a Gaussian Brownian diffusion. The one-defect frequency optimum and critical wavelength divergence quantify observability. This goes beyond calculating one or a few examples.
+
+**Limits.** Three stages, equal one-way switching rates, no spatial drift, no zero diffusivity, no finite interval. General matrix hitting transforms predate this result; only the qualitative sign theorem is assessed. Numerical tests are finite and not substitutes for the analytic proof.
+
+**Closest checked works.** Breuer (2012), doi:10.1239/jap/1339878804; Grebenkov (2018), arXiv:1812.07249; Guéneau–Touzo (2024), arXiv:2404.10537. More recent general ladder-process treatments exist and may contain equivalent unindexed special cases.
+
+Self-review: passed. Independent audit: not yet performed.
