@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T02:47:59Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-signed-and-logarithmic-relaxation-at-the-first-h-non-flip--d83bf246b19f/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-signed-and-logarithmic-relaxation-at-the-first-h-non-flip--d83bf246b19f/verify.py",
+        "Independent SymPy polynomial-conjugacy and coefficient checks: /mnt/data/scope06_20261118T0234Z_work/extra_checks.py (private replay)"
+      ],
+      "rationale": "At a=3(1-b)^2/4, x*=2/[3(1-b)], the linearization has eigenvalues -1 and b, 0<b<1. Exact center/stable coordinates give z'=-z-c(z+bw)^2, w'=bw-c(z+bw)^2, c=3(1-b)^2/[4(1+b)]; center graph coefficients through degree 4 produce a flip normal form s'=-s+p s^3+q s^5+O(s^6), p=c^2(1+b)/(1-b)>0 and q=c^4(1+b)(17b²-2b+5)/[4(1-b)^3]. Then S_n=s_{2n}^{-2} has increment 4p+(6p²+4q)/S_n+O(S_n^{-3/2}), implying 4pn+(3p/2+q/p)log n+C_s+o(1) by summable errors. In original x-coordinate, quadratic correction A=-c(1+b)/[2(1-b)] introduces signed sqrt and gives exactly the claimed K_b,H_b,L_b; exponential stable tracking perturbs residual by o(1). I independently recomputed rational normal-form conjugacies and all three amplitudes at b=1/4,1/2,3/4, including  K(1/2)=3/16 and L(1/2)=51/256. Stable-leaf exclusion and local-only quantifier are essential.",
+      "residual_risks": [
+        "Local center manifold smoothness and stable tracking use standard invariant manifold theory; no global basin or b-uniform endpoint claim.",
+        "Numerical trajectory examples are not proof of infinite-time correction or of the finite residual."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General center-manifold normal-form results explain how to calculate coefficients but do not state the exact originals for arbitrary 0<b<1. Higher-dimensional generalized Hénon fold is eigenvalue +1 at a negative parameter, not planar -1 flip."
+        ],
+        "reasoning": "No verified broader model statement with explicit Hénon K_b,H_b,L_b and stable-foliation domain implies this theorem.",
+        "searches": [
+          "Henon map period doubling flip threshold explicit square root log inverse square relaxation coefficients physical coordinates",
+          "Resultary generalized Hénon fold higher dimension",
+          "arxiv:2602.04091v1"
+        ]
+      },
+      "checked_sources": [
+        "Henon map period doubling flip threshold explicit square root log inverse square relaxation coefficients physical coordinates",
+        "https://arxiv.org/html/2602.04091v1",
+        "https://arxiv.org/abs/1502.06437",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-global-signed-and-logarithmic-critical-relaxation-in-a-positive--741941f8eb7b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Critical distance exponent -1/2 does not imply sign-specific sqrt and log terms with a convergent residual; recurrence in a different map does not imply the Hénon coefficients."
+        ],
+        "reasoning": "The audited statement is a strictly finer physical-coordinate expansion, with no checked direct or corollary coverage.",
+        "searches": [
+          "arxiv:2602.04091v1",
+          "arxiv:1502.06437v1",
+          "Henon map period doubling flip threshold explicit square root log inverse square relaxation coefficients physical coordinates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both the scalar rational flip and the Hénon flip share a linear+signed sqrt+log inverse-square structure; the scalar rational map has different equations and no reduction identifying Hénon coefficients."
+        ],
+        "reasoning": "Shared asymptotic type is prior art, not an equivalent model-specific theorem.",
+        "searches": [
+          "Henon map period doubling flip threshold explicit square root log inverse square relaxation coefficients physical coordinates",
+          "arxiv:2602.04091v1",
+          "Resultary Global signed and logarithmic critical relaxation in a positive rational flip map"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Leonel et al numerically determine scaling at b=0.3 and a≈0.367495, not all-parameter coefficient table; the rational flip exact constants concern a different scalar recurrence."
+        ],
+        "reasoning": "No database or exact-parameter source providing the same universal Hénon three-coefficient table was found.",
+        "searches": [
+          "Henon map period doubling flip threshold explicit square root log inverse square relaxation coefficients physical coordinates",
+          "arxiv:2602.04091v1 Section 3.1",
+          "Resultary scalar rational flip 2026-10-11"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for complete parameter-dependent physical-coordinate K_b, signed H_b and L_b including finite residual, not for generic parabolic flip expansions nor the known n^{-1/2} critical exponent. The same-model 2026 preprint is specific but reports critical scaling numerically, not the three exact coefficients.",
+      "residual_risks": [
+        "Classical parabolic germ normal-form literature could contain equivalent Hénon constants; no universal historical uniqueness claim.",
+        "The scalar comparison and Teixeira full texts were not exhaustively read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant but not covering explicit arbitrary-b signed sqrt/log physical-coordinate coefficients",
+          "evidence": [
+            "Section 3.1: numerical Hénon critical exponent and nearby parameter examples"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.04091v1",
+          "material_read": "Full HTML article including Section 3.1 Hénon map, critical fixed point and numerical scaling, Section 4 conclusions",
+          "method": "Read HTML primary full paper and equations",
+          "title": "A phenomenological description of critical slowing down at period-doubling bifurcations",
+          "trigger": "Exact same planar Hénon map at critical first flip"
+        },
+        {
+          "assessment": "Background exponent only; retain source-access risk",
+          "evidence": [
+            "Scalar logistic-like maps, not claimed planar original-coordinate correction"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1502.06437",
+          "material_read": "Abstract and citation metadata; original full text not inspected",
+          "method": "Abstract only",
+          "title": "Convergence towards asymptotic state in 1-D mappings: a scaling investigation",
+          "trigger": "Critical slowing exponent comparison in scalar maps"
+        },
+        {
+          "assessment": "Generic signed-sqrt/log type is covered, Hénon b-dependent coefficients are not shown",
+          "evidence": [
+            "Positive rational flip, coefficient 15/121 for log, not Hénon"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-global-signed-and-logarithmic-critical-relaxation-in-a-positive--741941f8eb7b",
+          "material_read": "Published full mathematical abstract and specific scalar recurrence assertion",
+          "method": "Semantic Resultary result; full Git proof not read",
+          "title": "Global signed and logarithmic critical relaxation in a positive rational flip map",
+          "trigger": "Same asymptotic form in another map"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-signed-and-logarithmic-relaxation-at-the-first-h-non-flip--d83bf246b19f/RESULT.md",
+        "https://arxiv.org/html/2602.04091v1"
+      ],
+      "rationale": "The physical relaxation clock for a standard two-dimensional dissipative Hénon flip is quantitatively meaningful: its signed square-root and positive logarithmic terms are not fixed by the known critical exponent, and excluding the strong stable leaf delineates the mechanism. Uniform formulas for all 0<b<1 and the finite residual support precision comparisons in bifurcation analysis.",
+      "residual_risks": [
+        "Only a local one-parameter critical family; no general Hénon global dynamics or endpoint-uniform convergence claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Local center manifold smoothness and stable tracking use standard invariant manifold theory; no global basin or b-uniform endpoint claim.",
+    "Numerical trajectory examples are not proof of infinite-time correction or of the finite residual.",
+    "Classical parabolic germ normal-form literature could contain equivalent Hénon constants; no universal historical uniqueness claim.",
+    "The scalar comparison and Teixeira full texts were not exhaustively read.",
+    "Only a local one-parameter critical family; no general Hénon global dynamics or endpoint-uniform convergence claimed."
+  ],
+  "schema_version": 1
+}

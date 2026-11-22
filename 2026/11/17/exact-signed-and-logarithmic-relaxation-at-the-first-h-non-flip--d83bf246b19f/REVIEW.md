@@ -1,15 +1,21 @@
-# Review of the exact Hénon flip relaxation law
+# Independent mathematical audit
 
-## Correctness (C) — PASS
-The algebraic first-flip parameter, exact eigensplitting, and coordinate change are reconstructed in the proof. Polynomial center invariance uniquely determines the displayed jets because the transverse multiplier \(0<b<1\) is not resonant with powers of \(-1\). The critical cubic coefficient is strictly positive, giving local attraction and an exponentially tracked stable foliation. The inverse-square increment has a strictly positive constant, a reciprocal correction, and a summable remainder; the square-root term comes specifically from expressing the center dynamics back in the original measured coordinate. The exact symbolic checker evaluates the identities; finite trajectories are supplementary rather than a substitute for the proof. Boundary restrictions and the exceptional strong-stable curve are explicit.
+## correctness
 
-## Originality (O) — PASS within inspected evidence
-The primary 2026 Hénon scaling paper (arXiv:2602.04091v1) treats the same map and its first flip, but reports critical exponents and simulation, not the all-\(b\) signed square-root and logarithmic physical-coordinate expansion. Earlier logistic-like scaling (arXiv:1502.06437v1) is scalar and establishes exponents. Full published published-finding corpus findings on canonical quadratic flip susceptibility, rational-map signed/log corrections, and higher-dimensional Hénon fold were inspected: all are relevant precedents, but none contains this two-dimensional Hénon flip coefficient triple or implies it without a new model-specific fifth-order center-jet calculation. General parabolic normal-form mechanisms are not claimed to be new. Residual risk remains from unindexed historical Hénon expansions and broader parabolic theory.
+PASS
 
-## Mathematical value (V) — PASS
-The critical decay exponent alone, investigated directly for Hénon in the motivating work, does not distinguish the relative effects of damping parameter \(b\) on finite-time relaxation or the asymmetry of the two sides of the attracting flip. Exact \(K_b,H_b,L_b\) answer that natural quantitative question in the original observed coordinate, across the entire nondegenerate dissipative positive-\(b\) regime; \(L_b\) is strictly positive throughout. The surviving signed correction and a finite renormalized limit are more informative than an arbitrary numerical constant, without claiming a general theorem or global stability.
+At a=3(1-b)^2/4, x*=2/[3(1-b)], the linearization has eigenvalues -1 and b, 0<b<1. Exact center/stable coordinates give z'=-z-c(z+bw)^2, w'=bw-c(z+bw)^2, c=3(1-b)^2/[4(1+b)]; center graph coefficients through degree 4 produce a flip normal form s'=-s+p s^3+q s^5+O(s^6), p=c^2(1+b)/(1-b)>0 and q=c^4(1+b)(17b²-2b+5)/[4(1-b)^3]. Then S_n=s_{2n}^{-2} has increment 4p+(6p²+4q)/S_n+O(S_n^{-3/2}), implying 4pn+(3p/2+q/p)log n+C_s+o(1) by summable errors. In original x-coordinate, quadratic correction A=-c(1+b)/[2(1-b)] introduces signed sqrt and gives exactly the claimed K_b,H_b,L_b; exponential stable tracking perturbs residual by o(1). I independently recomputed rational normal-form conjugacies and all three amplitudes at b=1/4,1/2,3/4, including  K(1/2)=3/16 and L(1/2)=51/256. Stable-leaf exclusion and local-only quantifier are essential.
 
-## Scientific limits
-This is local critical dynamics; no nearby off-critical uniformity, endpoint statement, global basin, or independent verification is established. The known normal-form technique is prior art; the claim is only the explicit parameter-dependent Hénon physical-coordinate law.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for complete parameter-dependent physical-coordinate K_b, signed H_b and L_b including finite residual, not for generic parabolic flip expansions nor the known n^{-1/2} critical exponent. The same-model 2026 preprint is specific but reports critical scaling numerically, not the three exact coefficients.
+
+## value
+
+PASS
+
+The physical relaxation clock for a standard two-dimensional dissipative Hénon flip is quantitatively meaningful: its signed square-root and positive logarithmic terms are not fixed by the known critical exponent, and excluding the strong stable leaf delineates the mechanism. Uniform formulas for all 0<b<1 and the finite residual support precision comparisons in bifurcation analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
