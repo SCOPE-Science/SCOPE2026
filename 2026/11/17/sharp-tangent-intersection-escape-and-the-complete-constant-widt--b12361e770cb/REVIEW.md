@@ -1,15 +1,21 @@
-# Scientific review — Sharp tangent-intersection escape and the complete constant-width stability law
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete proof is in RESULT.md. The support-line intersection formula has a uniformly removable singularity for coincident normals, and an antipodal pole with coefficient equal to geometric width. The probability is integrated against the correct arclength-induced angular densities, leading to the exact \(R^{-1}\) coefficient. A monotone inverse map provides the marked total-variation law without confusing it with the weak directional limit. Under constant width, the nonnegative square identity is exact, the disk is the unique equality case, and threefold smooth curvature-radius families establish all attainable values. Numeric checker tests corroborate the circle formula and harmonic examples, but do not replace the proof.
+## correctness
 
-## Originality — PASS, provisional
-The full Fodor–Hug–Ziebarth 2014 paper treats increasing numbers of containing halfspaces and truncated geometric functionals. The nearest published tangent-polygon result treats a *bounded polygon area* for \(n\ge3\) and therefore has a width-squared coefficient and semicircle-occupancy factor, rather than the present distance law for exactly two tangents. Another published tangent-polygon paper concerns Poisson high-intensity covariance. The closest two-line comparison concerns *normal* intersections, whose constant-width behavior is opposite. The exact complete curvature-defect/range statement was not identified in the inspected sources. Xu's 2015 full paper was inaccessible and definitive historical priority is not claimed.
+PASS
 
-## Value — PASS
-The two-tangent intersection is a natural observable of convex-boundary geometry. Its tail detects curvature-radius asymmetry among all curves sharing constant width and perimeter, the exact defect quantitatively characterizes disk rigidity, and the complete sharp attainable range is supplied. The conditional marked law accounts for the mechanism of very distant intersections.
+Solving the two supporting-line equations in the (u_theta,v_theta) frame yields Z=h(theta)u_theta+[h(theta+alpha)-h(theta)cos(alpha)]/sin(alpha) v_theta. As alpha→0 the apparent pole cancels with limit h_prime(theta); only alpha=pi+delta creates norm ||Z||=w(theta)/|delta|+O_K(1), with derivative controlling exactly two tail intervals of half-width w/R+O(R^-2). Since iid arclength normal-angle density is rho/P, their flux is 2P^-2 int rho(theta)rho(theta+pi)w(theta), giving the sharp 1/R tail and q<1 moment criterion. The change of variables U=R/||Z|| has uniform leading derivative w/R, producing TV convergence of theta, fair side sign and uniform U; direction convergence is merely in probability, as stated. For constant width, rho+rho_antipodal=w and P=pi w, so algebra gives the square-defect identity and disk uniqueness. The smooth threefold-symmetric family rho=w/2[1+a tanh(k cos3theta)] has no first harmonic, strictly positive curvature and widths w; as a→1,k→∞ its coefficient tends to zero and continuity realizes every intermediate positive coefficient. Independent harmonic check h=1+epsilon cos3theta yields rho=1-8epsilon cos3theta and C=2/pi(1-32epsilon^2). Source quadrature is corroborative, not infinity-tail proof.
 
-## Verification and residual limitations
-`python verify_tangent_intersections.py` tests the formulas for circle radius one and smooth constant-width harmonic perturbations and constructs increasingly small positive coefficients. The proof requires strictly positive smooth curvature, and no uniform family-wise remainder or finite-radius formula for general ovals is claimed. Historical priority and mathematical validity are not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS. Prior curvature-width Pareto law studies area tails of bounded polygons formed by at least three random supporting halfplanes, not the intersection distance of two complete tangent lines. The closest two-line theorem is for normal lines, whose polar coefficient uses |w_prime| and is bounded for every constant-width body; that is the opposite geometric behavior. General circumscribed random halfspace approximation concerns n→infty and offsets. Neither implies the two-tangent marked law or entire constant-width attainable interval.
+
+## value
+
+PASS
+
+The intersection of two random supporting tangents is a natural integral-geometric statistic with heavy tails; the leading coefficient reveals antipodal curvature coupling, unlike width alone. The exact constant-width rigidity and full range answer a meaningful inverse-geometric stability question and show a sharp dependence on boundary sampling, beyond a routine circle calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
