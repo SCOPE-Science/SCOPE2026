@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification guide
+# Independent mathematical audit
 
-The mathematical proof is in `RESULT.md`. The central equalities are the connected-cut facet area \(A(F)=\sqrt{st}\tau(G[S])\tau(G[T])\), the centered support distance \(h(F)=k\sqrt{N/(st)}/2\), and the cactus spanning-tree product \(\tau(G)=\prod_C |C|\). Combining these with pyramid volume \(A(F)h(F)/d\) gives the exact claimed masses and full classification.
+## correctness
 
-Run `python checks/cactus_cone_volume_check.py` under Python 3 with `networkx`, `sympy`, `numpy` and `scipy` available. It checks exact rational masses and edge-bond classification for eight explicit cactus graphs, plus five separate Euclidean convex-hull facet reconstructions. The expected last output line is `CACTUS_CONE_VOLUME_PASS`.
+PASS
 
-These finite checks cannot certify all cacti or historical originality. The unbounded claim rests on the written cut and determinant arguments. All Euclidean volumes use the unscaled standard graph-incidence segments and the centered hyperplane; translating the apex or rescaling edge weights changes the interpretation.
+The centered unit-incidence zonotope in H has d=N-1. For each oriented bond S|T, the induced Euclidean facet area is sqrt(st) tau(G[S])tau(G[T]), its support distance k sqrt(N/st)/2, and total volume sqrt(N)tau(G); these independently yield cone mass k tau(G[S])tau(G[T])/(2d tau(G)). Cactus minimal cuts are exactly one bridge or two edges of the same cycle. Their spanning-tree ratios are respectively 1 and 1/ell, giving claimed masses, full facet counts, sum-one, and equal-mass iff. Independently enumerated a two-triangle bridge cactus: tau=9, 2 masses 1/10 and 12 masses 1/15, totaling one. Finite check corroborates; algebra and cut classification supply the universal proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge noncoverage after implication comparison; The general area/height calculation plus cactus-only minimal-cut analysis yields the result, while inspected published findings do not explicitly dominate the combined all-cactus mass and equality theorem.
+
+## value
+
+PASS
+
+This is a natural complete facet-pyramid spectrum for an entire block-structured class and a nontrivial equal-cone-volume classification, including examples outside parallelotopes. The block bond decomposition converts standard spanning-tree ingredients into a useful explicit invariant; this is more than an arbitrary finite calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
