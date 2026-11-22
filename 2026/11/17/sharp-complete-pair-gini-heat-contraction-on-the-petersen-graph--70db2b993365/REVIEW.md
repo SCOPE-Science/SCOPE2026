@@ -1,19 +1,21 @@
-# Scientific review of the Petersen heat Gini contraction theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The coarea identity reduces the quotient seminorm to binary cuts. The Petersen adjacency identity \(A^2=2I-A+J\) gives precisely the two nonconstant heat exponents, and the pair-difference formula follows. An exhaustive, exact-integer certificate checks all 1022 nontrivial cuts (including the entire 32-orbit partition), not a restricted sample. Convex interpolation upgrades this finite endpoint lemma to all real \(t\ge0\). The singleton-level computation gives equality, and strict endpoint gaps establish the binary extremizer restriction. The Dobrushin calculation follows from all three heat-kernel orbit values.
+PASS
 
-## Originality
+The Petersen graph on ten 2-subsets of five points with disjointness edges satisfies A^2=2I-A+J, giving eigenvalues 3,1,-2 and nonconstant heat rates 2 and 5. The exact spectral identity 3(H_t x)_i-3(H_t x)_j = e^-2t[(A+2I)x]_ij + e^-5t[(I-A)x]_ij reduces G(H_t 1_S) to G(y+r z), r=e^-3t. Independent enumeration of all 1022 nontrivial ten-bit subsets found max G(y)/(|S|(10-|S|)) by size 11/3,7/2,67/21,37/12,3,... symmetric, strictly below 11/3 except singleton/complement. Convexity G((1-r)y+3r x)<= (1-r)G(y)+3rG(x) proves the all-t bound; singleton coordinates have stable ordering 2+r,1-r,0 and attain equality. Dobrushin half-L1 row distances give delta=(4e^-2t-e^-5t)/3, with the stated positive gap. This proves a continuous-time formula from exhaustive finite graph lemma plus analytic interpolation, not time sampling.
 
-PASS, qualified. The closest inspected primary source is Gaubert–Qu, arXiv:1307.4649, whose Theorem 1.1 controls Hopf oscillation and dual total variation, not Gini pair dispersion. Its sharp coefficient exceeds the new Gini coefficient by an explicit positive amount for every \(t>0\); hence applying that theorem supplies a bound but not equality here. Searches of mathematical research records and accessible historical claims found related continuous graph heat and Petersen studies with different graphs, norms or operators, not an exact all-time Petersen Gini identity. Complete texts of some related published records were inaccessible, and unindexed historical equivalents remain a residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The Petersen graph is the canonical nontrivial ten-vertex strongly regular, cubic, triangle-free graph. The result is an exact all-time benchmark for global pairwise dispersion under symmetric Markov diffusion, not a single computed coefficient; it includes a rigid binary extremizer family and an explicit quantitative separation from the classical oscillation bound. The early-time and spectral-gap-regime contraction constants differ, illustrating a norm-sensitive dynamical feature with a natural use in consensus and graph smoothing estimates.
+The relevant Gaubert–Qu theorem is for Hopf oscillation and dual total-variation contraction, a different Banach seminorm. For the same Petersen kernel the computed oscillation coefficient delta(t) exceeds the exact complete-pair Gini coefficient gamma(t) for all t>0, proving non-equivalence of the two numerical claims. Published Petersen heat-positivity and maximal-operator findings concern different operators/metrics; no inspected source gives the target full t-dependent Gini norm or strict singleton-cut finite lemma. This is bounded priority, not a claim of absolute exhaustiveness.
 
-## Limits
+## value
 
-The result is specific to this finite graph, unit rates and complete-pair Gini variation. The finite combinatorial lemma is proved by a complete reproducible enumeration rather than a separate symbolic orbit-by-orbit handwritten argument. Priority remains conditional on unindexed source comparisons. This is not an independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: An exact all-time Gini norm on the Petersen heat semigroup is a natural finite graph diffusion benchmark that distinguishes complete-pair dispersion from Hopf/Dobrushin oscillation. The full continuous parameter dependence, strict optimal cut classes and explicit quantitative gap are not a mere textbook restatement of the graph's known spectrum; the exhaustive finite combinatorial lemma has a motivated role and the result does not claim a general graph theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
