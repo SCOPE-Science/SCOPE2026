@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact two-variable tanh recurrence and two-variable Taylor estimates support the critical first-exit theorem. The reciprocal-square comparison controls the center uniformly along the off-diagonal trajectory until exit. Geometric bounds on the difference coordinate make the perturbative terms summable; the resulting center-square harmonic sum has sharp coefficient three. This yields the half-logarithmic term in the cumulative transverse expansion and hence the stated loglog escape correction. The central invariant line has a distinct one-term clock. The finite checker passed the independent coordinate identities and bounded-offset tests; it is corroboration, not a substitute for the analytic estimates.
+PASS
 
-## Originality — PASS within inspected evidence
+Logit coordinates m=(u+v)/2, d=(u-v)/2 give the exact tanh recurrence, transverse increase d>0 and Taylor m’=-m+m³/6+md²/2+O(|m|(m²+d²)²), d’/d=3−m²/2−d²/6+O((m²+d²)²). In a fixed small exit tube d grows by factors bounded between 2 and 4, so sum(d_j²) is uniformly bounded. w_j=m_j^-2 has increments 1/3+w_j d_j²+controlled terms; discrete Gronwall bounds w_j ~ j and yields uniform sum(m_j²)=3log N+O(1) by summing weighted perturbations. Then sum log(d_{j+1}/d_j)=Nlog3-(1/6)sum(m_j²)+O(1)=Nlog3-(1/2)logN+O(1), giving the sharp two-term clock. Nonexceptional diagonal starts reach the small tube after a fixed transient with positive transverse derivative; center m=0 is invariant and gives only main log clock. Exceptional backward-orbit starts other than z=1/2 are expressly excluded, and fixed thresholds are essential.
 
-The 2018 primary source gives critical diagonal convergence and eventual off-diagonal polarization, without a first-separation clock. The 2026 motivating paper develops scalar invariant/chaos theory, not the nonlinear critical clock. The closest published critical-rate record covers only one-dimensional diagonal relaxation; the nearest two-player escape-time record covers only gain strictly above eight. The latter explicitly excludes the critical point. The unbounded loglog term cannot be a consequence of the hyperbolic bounded-remainder formula, and proving it for the nonlinear two-player process needs uniform control to exit. Targeted published-finding corpus searches revealed no stronger equivalent; unindexed-literature priority uncertainty remains.
+## originality
 
-## Value — PASS
+PASS
 
-At the exact boundary between stable diagonal and hyperbolic transverse-polarization regimes, the theorem computes a universal, divergent second-order correction to the time at which nearly identical learners measurably separate. It also singles out a different law for the exactly balanced equilibrium, clarifying the nonhyperbolic mechanism and a failure of naive interpolation of hyperbolic clocks.
+Best-of-knowledge original as an exact statement/implication after direct comparison of primary material and relevant published mathematical results; significant inaccessible or indirect antecedents are retained below rather than equated to novelty proof.
 
-## Limitations and closest sources
+## value
 
-The statement is for the symmetric two-player map at the critical gain and sufficiently small fixed exit threshold; no global post-exit duration or joint gain limit is claimed. Relevant direct comparisons are Chotibut–Falniowski–Misiurewicz–Piliouras (2018), Kryzhevich–Zhang (2026), the published neutral-flip scalar critical-relaxation result and the published strictly-supercritical two-player escape-clock result. Publication priority beyond inspected sources remains uncertain; independent mathematical validation is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Nonhyperbolic bifurcation produces a divergent loglog correction to a finite-time separation observable. It fills a sharp gap between known scalar critical relaxation and the hyperbolic a>8 escape theorem and requires nonlinear pre-exit uniform estimates, not just differentiating the diagonal map.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

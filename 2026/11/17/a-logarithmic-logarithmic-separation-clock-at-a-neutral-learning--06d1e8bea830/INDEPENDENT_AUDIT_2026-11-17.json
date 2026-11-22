@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T13:53:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Logit coordinates m=(u+v)/2, d=(u-v)/2 give the exact tanh recurrence, transverse increase d>0 and Taylor m’=-m+m³/6+md²/2+O(|m|(m²+d²)²), d’/d=3−m²/2−d²/6+O((m²+d²)²). In a fixed small exit tube d grows by factors bounded between 2 and 4, so sum(d_j²) is uniformly bounded. w_j=m_j^-2 has increments 1/3+w_j d_j²+controlled terms; discrete Gronwall bounds w_j ~ j and yields uniform sum(m_j²)=3log N+O(1) by summing weighted perturbations. Then sum log(d_{j+1}/d_j)=Nlog3-(1/6)sum(m_j²)+O(1)=Nlog3-(1/2)logN+O(1), giving the sharp two-term clock. Nonexceptional diagonal starts reach the small tube after a fixed transient with positive transverse derivative; center m=0 is invariant and gives only main log clock. Exceptional backward-orbit starts other than z=1/2 are expressly excluded, and fixed thresholds are essential.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chotibut et al., Theorem 3.9 covers diagonal convergence at a=8, Theorem 4.6 covers ultimate separation but no stated two-term time.",
+          "Resultary a>8 theorem assumes a strictly hyperbolic diagonal period-two orbit and does not include a=8."
+        ],
+        "reasoning": "Broader phase-space qualitative convergence does not imply a rate. A >8 rate with O(1) remainder cannot be continued naively to the critical boundary where a loglog divergence appears.",
+        "searches": [
+          "two-player multiplicative weights gain eight neutral flip log log near diagonal separation exit time",
+          "arxiv:1807.06831 Theorem 3.9 4.6 qualitative diagonal and off diagonal behavior",
+          "Resultary universal near symmetry escape clock a>8"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1807.06831",
+        "https://arxiv.org/abs/2603.20685",
+        "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-global-neutral-flip-attraction-and-signed-critical-relaxation-in--54b59b4edf7d",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-near-symmetry-escape-clock-in-a-two-player-multiplicat--ac69d0b9c5ad"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior scalar b=1/2 gives u_{2m}^{-2}=(2/3)m+(3/20)log m+O(1), only on diagonal.",
+          "Prior a>8 transverse clock is log(1/epsilon)/gamma(a)+O(1), explicitly excluding a=8; its bounded remainder contradicts extrapolating to this neutral case."
+        ],
+        "reasoning": "Neither statement implies sum m_j²=3logN+O(1) uniformly along nonlinear off-diagonal orbits. That controlled sum is needed for coefficient 1/(2log3).",
+        "searches": [
+          "two-player multiplicative weights gain eight neutral flip log log near diagonal separation exit time",
+          "Global neutral-flip attraction signed critical relaxation entropic congestion map Resultary 2026",
+          "Universal near-symmetry escape clock two player multiplicative weights a>8 Resultary 2026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chotibut et al. 2018 give the exact symmetric coupled map and qualitative polarization for nonidentical players.",
+          "The off-diagonal first-exit statement is equivalently log(d_N/epsilon)=Nlog3−(1/2)logN+O(1)."
+        ],
+        "reasoning": "Transverse variational multipliers along the neutral scalar orbit heuristically yield a half-log penalty, but such linearization alone does not control the full nonlinear path until its fixed-size exit; this is the gap addressed by the proof.",
+        "searches": [
+          "two-player multiplicative weights gain eight neutral flip log log near diagonal separation exit time",
+          "gain 8 two player replicator learning logit critical flip transverse product escape time"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The scalar critical inverse-square series is known, but an exact nonautonomous first-exit law is not a finite table of numerical values.",
+          "Resultary hits include a>8 first-separation and critical scalar relaxation, not an identical a=8 off-diagonal loglog clock from prior records."
+        ],
+        "reasoning": "There is no relevant exact database or table claim for the continuum critical-exit statement; precise covered regimes and excluded endpoint were checked instead.",
+        "searches": [
+          "two-player multiplicative weights gain eight neutral flip log log near diagonal separation exit time",
+          "Resultary neutral critical a=8 off diagonal first exit loglog clock",
+          "MWU critical gain escape time table"
+        ]
+      },
+      "rationale": "Best-of-knowledge original as an exact statement/implication after direct comparison of primary material and relevant published mathematical results; significant inaccessible or indirect antecedents are retained below rather than equated to novelty proof.",
+      "residual_risks": [
+        "Literature on parabolic skew products and escape clocks outside indexed two-player learning studies could express the same loglog coefficient via a change of variables.",
+        "Proof invokes previously established global critical diagonal attraction; no new independent full verification of that published theorem was attempted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same dynamical system, but known results qualitative not two-term separation times",
+          "evidence": "Theorem 3.9 identifies critical scalar attraction; Theorem 4.6 establishes asymptotic polarization of unequal strategies",
+          "identifier_or_url": "https://arxiv.org/abs/1807.06831",
+          "material_read": "Accessible primary mathematical text covering Theorems 3.9 (a<=8 scalar convergence) and 4.6 (eventual off-diagonal polarization)",
+          "method": "Opened and compared quoted theorems in full-text rendition",
+          "title": "Family of chaotic maps from game theory — Chotibut et al.",
+          "trigger": "Exactly the coupled symmetric map at critical gain"
+        },
+        {
+          "assessment": "Provides scalar diagonal critical relaxation, no nonlinear off-diagonal first-exit clock",
+          "evidence": "At b=1/2, u_{2m}^-2=(2/3)m+(3/20)log m+O(1)",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-global-neutral-flip-attraction-and-signed-critical-relaxation-in--54b59b4edf7d",
+          "material_read": "Full RESULT.md including analytic normal form, critical scalar asymptotics and limits",
+          "method": "Read complete published scientific text",
+          "title": "Global neutral-flip attraction and signed critical relaxation in an entropic congestion map",
+          "trigger": "Known exact critical inverse-square and log corrections"
+        },
+        {
+          "assessment": "Parameter regime a>8 excludes neutral a=8 and loglog shift",
+          "evidence": "Hyperbolic clock has leading log(1/epsilon)/gamma(a) with O(1), no neutral inverse-square center drift",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-near-symmetry-escape-clock-in-a-two-player-multiplicat--ac69d0b9c5ad",
+          "material_read": "Full RESULT.md finding, proof and a>8 assumptions",
+          "method": "Read complete published scientific text",
+          "title": "Universal near-symmetry escape clock in a two-player multiplicative-weights map",
+          "trigger": "Very close directly named first-exit theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Nonhyperbolic bifurcation produces a divergent loglog correction to a finite-time separation observable. It fills a sharp gap between known scalar critical relaxation and the hyperbolic a>8 escape theorem and requires nonlinear pre-exit uniform estimates, not just differentiating the diagonal map.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1807.06831",
+    "https://arxiv.org/abs/2603.20685",
+    "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-global-neutral-flip-attraction-and-signed-critical-relaxation-in--54b59b4edf7d",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-near-symmetry-escape-clock-in-a-two-player-multiplicat--ac69d0b9c5ad"
+  ],
+  "disposition": "passed",
+  "final_claim": "At the neutral threshold a=8 of the symmetric two-player multiplicative-weights map, for each nonexceptional diagonal start z and sufficiently small fixed log-odds exit threshold, the near-diagonal first separation time is log(1/epsilon)/log 3 + loglog(1/epsilon)/(2 log 3)+O_{z,delta}(1); for the central start z=1/2 the logarithmic-logarithmic term vanishes. Same leading statements hold for sufficiently small physical exit thresholds.",
+  "limitations": [
+    "Fixed gain 8, exactly symmetric payoffs, z outside backward orbit of center, fixed small first-exit thresholds; no post-exit global-time or all-exceptional-start classification."
+  ],
+  "residual_risks": [
+    "Literature on parabolic skew products and escape clocks outside indexed two-player learning studies could express the same loglog coefficient via a change of variables.",
+    "Proof invokes previously established global critical diagonal attraction; no new independent full verification of that published theorem was attempted."
+  ],
+  "schema_version": 1
+}
