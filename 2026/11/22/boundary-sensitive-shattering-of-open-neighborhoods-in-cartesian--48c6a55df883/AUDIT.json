@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "For each finite path-box, Manhattan intersection geometry bounds any two distinct centers to at most two common open neighbors, ruling out shattered sets of size four. Pair shattering follows a necessary-and-sufficient private-neighbor test, counted by axis and diagonal displacements. Triple shattering forces three distinct coordinate axes, and its only remaining obstacles are three isolated singleton traces; all possible spare directions are counted by the number of interior coordinates, producing the exact cubic formula. An independently constructed direct trace checker exhaustively agrees for 21 boxes (support sizes 0-4), including all dimension-three boundary cases. Finite verification is not substituted for the complete proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adler et al. prove VC dimension at most 3 even after passing to induced Hamming subgraphs; this covers the degree bound but not the face counts.",
+        "The full RESULT.md of 2026/11/8/SCOPE-coefficientwise-vc-shattering-census-of-open-neighborhoods-in-ha--c2c444ddd1a2 explicitly limits its coefficient formula to complete Hamming graphs H(d,q) and excludes induced subgraphs.",
+        "The full rank-three FO path-box source 2026/11/2/SCOPE-three-round-collapse-for-higher-dimensional-cartesian-path-grids--604794e515d5 computes quantifier-rank equivalence classes, not VC trace counts."
+      ],
+      "reasoning": "Cartesian path boxes can embed as induced subgraphs of a binary Hamming cube, so the old dimension cap is a valid prior implication. The path-dependent cubic coefficient and 3D boundary exception cannot be inferred from the full-Hamming polynomial: the induced subgraph removes centers as well as queried vertices, changing traces. First-order theory equivalence is a different invariant and does not force equal shattered-support counts.",
+      "searches": [
+        "Open neighborhood VC-shattering in square lattice grids P_m box P_n compared with Hamming and Johnson graphs",
+        "Complete VC shattering polynomial of open neighborhoods in Cartesian products of paths high dimensional rectangular lattice boxes, three-axis triple supports, Hamming cube and boundary effects",
+        "Graph neighborhood set system for hypercubic grid with three-point shattering and no four-point support",
+        "arxiv:2007.16042 Section 4, Theorems 4.6 and 4.7",
+        "2026/11/8/SCOPE-coefficientwise-vc-shattering-census-of-open-neighborhoods-in-ha--c2c444ddd1a2",
+        "2026/11/2/SCOPE-three-round-collapse-for-higher-dimensional-cartesian-path-grids--604794e515d5"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2007.16042 (full scientific HTML, especially Section 4)",
+      "2026/11/8/SCOPE-coefficientwise-vc-shattering-census-of-open-neighborhoods-in-ha--c2c444ddd1a2 (full RESULT.md)",
+      "2026/11/2/SCOPE-exact-vc-shattering-polynomial-of-rectangular-path-grids--dd0fe3219184 (scientifically relevant RESULT.md sections)",
+      "2026/11/2/SCOPE-three-round-collapse-for-higher-dimensional-cartesian-path-grids--604794e515d5 (scientifically relevant RESULT.md sections)",
+      "doi:10.4230/LIPIcs.SEA.2024.8 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2020 source implies no support above three throughout induced Hamming subgraphs, a true subclaim of the result.",
+        "2026 full-Hamming census implies all-binary coefficients, another subclaim.",
+        "Neither supplies a formula for P_3 box P_3 box P_3 (40 shattered triples) or the P_2 box P_2 box P_3 zero-triple obstruction."
+      ],
+      "reasoning": "The new claimed domain is all finite products of paths with arbitrary side lengths. Its strictly stronger part is the entire degree-two and degree-three support census under path-boundary restriction. The earlier Hamming results control only a universal cap or the regular complete-graph factors, and the rectangular convexity result concerns a different family. No decisive broader prior implication was found in actually inspected material.",
+      "searches": [
+        "Complete shattered-support polynomial for open neighborhoods of finite rectangular grid graphs P_m Cartesian product P_n, VC dimension two and number of shattered vertex pairs",
+        "Complete VC shattering polynomial of open neighborhoods in Cartesian products of paths high dimensional rectangular lattice boxes, three-axis triple supports, Hamming cube and boundary effects",
+        "Open-neighborhood trace shattering on Cartesian products of nontrivial paths P_n, exact coefficient for shattered vertex triples in three dimensional boxes boundary effect, 8 times polynomial",
+        "2026/11/8/SCOPE-coefficientwise-vc-shattering-census-of-open-neighborhoods-in-ha--c2c444ddd1a2",
+        "2026/11/2/SCOPE-exact-vc-shattering-polynomial-of-rectangular-path-grids--dd0fe3219184",
+        "2026/11/2/SCOPE-three-round-collapse-for-higher-dimensional-cartesian-path-grids--604794e515d5",
+        "arxiv:2007.16042 open-neighborhood proof, Section 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Local grid Cartesian adjacency is coordinate-Manhattan distance one; a direct equivalent formulation is an open-radius-one ball with its center restricted to the finite Cartesian box.",
+        "The 2020 Hamming article Section 4 derives only global VC upper bounds; its full-Hamming treatment has no path-boundary coefficient formulas.",
+        "The full scientific statement and proof of 2026/11/2/SCOPE-exact-vc-shattering-polynomial-of-rectangular-path-grids--dd0fe3219184 concern geodesically convex rectangles, with concept family distinct from open neighborhoods."
+      ],
+      "reasoning": "The theorem counts vertex-query supports shattered by an open-radius-one graph ball centered at another vertex of the same product of paths. Grid convexity uses arbitrary rectangles, full Hamming neighborhoods have different adjacency and centers, with no equivalent Cartesian-path open-neighborhood statement in inspected published sources. No matching-title heuristic is used.",
+      "searches": [
+        "Complete shattered-support polynomial for open neighborhoods of finite rectangular grid graphs P_m Cartesian product P_n, VC dimension two and number of shattered vertex pairs",
+        "Complete VC shattering polynomial of open neighborhoods in Cartesian products of paths high dimensional rectangular lattice boxes, three-axis triple supports, Hamming cube and boundary effects",
+        "Open-neighborhood trace shattering on Cartesian products of nontrivial paths P_n, exact coefficient for shattered vertex triples in three dimensional boxes boundary effect, 8 times polynomial",
+        "\"VC dimension\" \"open neighborhoods\" \"grid graphs\" \"Cartesian product\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The public full-Hamming coefficient table includes Q4 with 64 shattered triples, matching the all-binary instance, which is acknowledged prior art.",
+        "An independently computed path box (2,2,4) has only 8 shattered triples and (2,2,3) has none, whereas complete Hamming profiles do not determine these boundary cases.",
+        "The checked geodesically convex grid source tabulates very different coefficients (3x3: 1,9,36,16,1 versus the present open-neighborhood count 1,9,10,0,0)."
+      ],
+      "reasoning": "The exact all-binary specialization is covered, but the complete all-length path-box table and dimension-three edge effects were not found in the searched database records or inspected scientific texts. Failed searches do not prove novelty, and unindexed alternate tables remain a residual risk.",
+      "searches": [
+        "Shattered set families and complete shattering polynomial of radius-one closed Hamming balls binary cube, VC dimension three and exact pair triple support counts",
+        "Complete VC shattering polynomial of open neighborhoods in Cartesian products of paths high dimensional rectangular lattice boxes, three-axis triple supports, Hamming cube and boundary effects",
+        "Open-neighborhood trace shattering on Cartesian products of nontrivial paths P_n, exact coefficient for shattered vertex triples in three dimensional boxes boundary effect, 8 times polynomial",
+        "Exact independence complex and all pair/triple VC shattering counts of graph adjacency on 2D and 3D lattice boxes",
+        "\"grid graphs\" \"open neighborhood\" \"shattering polynomial\"",
+        "2026/11/8/SCOPE-coefficientwise-vc-shattering-census-of-open-neighborhoods-in-ha--c2c444ddd1a2",
+        "2026/11/2/SCOPE-exact-vc-shattering-polynomial-of-rectangular-path-grids--dd0fe3219184"
+      ]
+    },
+    "rationale": "The all-binary Hamming profile and VC upper bound are known and credited. The new all-side-length Cartesian-path coefficient formulas and the exact three-dimensional boundary threshold were not found in the inspected primary scientific full text, published relevant records, and actual semantic searches. Difference is confirmed by set-system inclusions and implication comparison, not title matching. Unindexed equivalent literature remains a priority risk.",
+    "residual_risks": [
+      "The closed-neighborhood graph VC algorithm was only checked from its published abstract, not every page; equivalent historical priority remains possible",
+      "Full historical catalog cannot exclude unindexed unpublished or separately titled grid-trace enumerations"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers uniform VC upper bound and complete-Hamming dimension thresholds, not finite path-box face counts",
+        "evidence": [
+          "Theorem 4.6: VC dimension at most 3 for full Hamming open neighborhoods; by induced-subgraph monotonicity this holds for path boxes",
+          "Theorem 4.7 treats H(d,q) dimensional thresholds; no formula for C_2 or C_3 in a Cartesian path product"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.16042",
+        "material_read": "Full accessible arXiv HTML scientific text, especially Introduction and Section 4, Lemmas 4.1-4.3 and Theorems 4.6-4.7",
+        "method": "Direct full-text inspection of published arXiv source and line-level comparison of graph families and quantified conclusions",
+        "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+        "trigger": "2020 first-public source defining graph open-neighborhood VC dimension; possible stronger inherited theorem"
+      },
+      {
+        "assessment": "Covers all-binary boxes as special cases but explicitly excludes induced subgraphs and arbitrary products of paths; no domination of the new full domain",
+        "evidence": [
+          "Full-Hamming result gives Q4 coefficient 64 and states no claim for induced subgraphs",
+          "Rectangular path restrictions can suppress triple witnesses, as witnessed by dimension-three side lengths (2,2,3)"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-coefficientwise-vc-shattering-census-of-open-neighborhoods-in-ha--c2c444ddd1a2/RESULT.md",
+        "material_read": "Entire scientific RESULT.md including finding, proof, verification, prior-work relationship and limitations",
+        "method": "Direct read of complete public result document and implication comparison with induced Cartesian path subgraphs",
+        "title": "Coefficientwise VC-shattering census of open neighborhoods in Hamming graphs",
+        "trigger": "Exact same open-neighborhood trace problem on complete Hamming graphs, a strong plausible dominating source"
+      },
+      {
+        "assessment": "Different concept family (geodesically convex subsets = grid rectangles), not the vertex open-neighborhood family",
+        "evidence": [
+          "The source 3x3 polynomial is 1+9z+36z^2+16z^3+z^4; the open-neighborhood polynomial is 1+9z+10z^2"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-vc-shattering-polynomial-of-rectangular-path-grids--dd0fe3219184/RESULT.md",
+        "material_read": "Finding, scope, geometric characterization and proof of cubic/quartic coefficients; relevant scientific sections",
+        "method": "Read primary scientific statement and proof; compare concept families and quantitative example 3x3",
+        "title": "Exact VC-shattering polynomial of rectangular path grids",
+        "trigger": "Exact shattering polynomial with matching Cartesian path graph family"
+      },
+      {
+        "assessment": "Quantifier-rank-3 graph theories, not VC-shattering support counts; hence neither theorem implies the other",
+        "evidence": [
+          "Its theorem identifies two rank-three elementary theories and a C7 representative; contains no shattering coefficients"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-three-round-collapse-for-higher-dimensional-cartesian-path-grids--604794e515d5/RESULT.md",
+        "material_read": "Finding, assumptions and first four scientific proof stages",
+        "method": "Read scientific text and compare first-order equivalence versus support count invariant",
+        "title": "Three-round collapse for higher-dimensional Cartesian path grids",
+        "trigger": "Exactly matching graph family and three-query logical theme"
+      },
+      {
+        "assessment": "The stated principal set system uses CLOSED neighborhoods and the main result is an algorithm, so no direct implication identified from inspected material; full-text priority risk remains",
+        "evidence": [
+          "SEA 2024 abstract explicitly defines its graph VC via closed neighborhoods and describes an algorithm for computing dimension"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.SEA.2024.8",
+        "material_read": "Publication metadata, abstract and definitions only",
+        "method": "Official abstract review; not whole-document noncoverage certification",
+        "title": "Practical Computation of Graph VC-Dimension",
+        "trigger": "Algorithmic graph VC paper potentially subsuming explicit counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "48c6a55d-f883-4c3b-90e6-7503f4a6ecda",
+  "value": {
+    "rationale": "The all-parameter path-box formulas quantify the entire shattered support complex, not merely the known universal dimension ceiling. Boundary effects cause an exact two-exception VC transition in dimension three and change the number of shattered triples even when the VC dimension is fixed. The derived low-degree support polynomials are natural structural invariants for local vertex-neighborhood learning and finite grid products, with immediate use in comparing different side lengths.",
+    "status": "PASS"
+  }
+}
