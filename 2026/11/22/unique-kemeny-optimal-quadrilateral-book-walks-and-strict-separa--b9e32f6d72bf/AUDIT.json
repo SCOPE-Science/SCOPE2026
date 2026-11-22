@@ -1,0 +1,162 @@
+{
+  "correctness": {
+    "rationale": "All hypotheses and zero-target normalization are explicit. Injective edge-weight-to-Laplacian map and strict trace-inverse convexity prove unrestricted uniqueness under graph automorphism averaging. The symmetric/antisymmetric spectra yield the exact rational objective. For m>=3, three strictly positive directional derivatives, verified by coefficientwise positivity in h=m-3, establish the zero-central-edge optimal point. For m=2 the exact Kemeny objective on the zero-holding curve has a unique cubic critical point, and the other two KKT derivatives are strictly positive. Full matrix and symbolic verifier replay passed 28 direct exact test cases. Finite tests are corroboration, not proof of infinite result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd–Diaconis–Xiao, SIAM Rev. 46 (2004), pp. 667-689, https://stanford.edu/~boyd/papers/pdf/fmmc.pdf: objective is SLEM not trace inverse.",
+        "Patel–Agharkar–Bullo, https://motion.me.ucsb.edu/pdf/2014b-pab.pdf: convex SDP framework for Kemeny and weighted Kemeny, but no closed book-graph theorem.",
+        "Mathematical record 2026/11/2/SCOPE-unrestricted-fastest-mixing-and-holding-transitions-on-heterogen--3f462d76a1a1: heterogeneous clique products and SLEM; the star factor is not a clique and the objective is different.",
+        "October 2026 prior exact-graph recorded theorem ca9ef0ce-4718-416f-8bab-e6d27f6de957: SLEM minimax value 2-sqrt(2) at m=2 and 1-1/m for m>=3, central-edge deletion for m>=3, invariant SLEM-optimal z interval [1/(2(m-1)), (m-1)/m-1/(2(m-1))]."
+      ],
+      "reasoning": "The general convex-programming representation contains this problem as an instance but gives neither its minimizer nor the sharp page-count deletion boundary; a general computational formulation does not imply the explicit theorem without solving it. Related strongest mixing results optimize eigenvalue modulus, not all inverse nonzero eigenvalues. The same-graph SLEM result covers precisely the qualitative central-edge deletion boundary, but does not dominate the new unique Kemeny allocation or zero-mixing-vs-fastest-mixing separation.",
+      "searches": [
+        "Kemeny constant minimizing symmetric stochastic transitions quadrilateral book graph",
+        "Kemeny optimum Cartesian product star graph K1m square K2 symmetric stochastic central rung peripheral rungs",
+        "Optimal Kemeny stochastic walks complete bipartite with matching rungs prism star product general theorem",
+        "exact fastest mixing Markov chain quadrilateral book K1,m square K2 symmetric stochastic transitions",
+        "Sharp compulsory central-rung deletion in quadrilateral-book fastest mixing symmetric stochastic book K1,m square K2 optimal mixing"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1208.4716v1",
+      "doi:10.1137/S0036144503423264",
+      "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+      "2026/11/8/SCOPE-a-three-stage-two-leader-transition-on-quadrilateral-book-graphs--3b37aec41c1b",
+      "2026/10/18/SCOPE-a-sharp-backup-edge-price-for-fault-tolerant-diffusion-on-book-g--623a2d5d5f81",
+      "doi:10.28919/jmcs/5253",
+      "historical:ca9ef0ce-4718-416f-8bab-e6d27f6de957"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The recorded two-leader book theorem concerns S subset V and tr((L_FF(S))^-1), whereas the new theorem varies all entries of P and uses tr((I-P+J)^-1)-1.",
+        "The backup-edge-priced diffusion result optimizes worst-case diffusion under edge prices, not unpriced discrete-time Kemeny mean hitting time.",
+        "Hunter supplies identity for Kemeny; Boyd and Patel give foundations, not the three-page switch.",
+        "October 2026 prior exact-graph recorded theorem ca9ef0ce-4718-416f-8bab-e6d27f6de957: SLEM minimax value 2-sqrt(2) at m=2 and 1-1/m for m>=3, central-edge deletion for m>=3, invariant SLEM-optimal z interval [1/(2(m-1)), (m-1)/m-1/(2(m-1))]."
+      ],
+      "reasoning": "The prior same-graph SLEM theorem implies the three-page central-edge deletion property in the SLEM objective, so any claim that hub deletion itself is first discovered would be covered. It does not imply the Kemeny optimum: for m>=3 its recorded invariant SLEM optimizers have z <= (m-1)/m-1/[2(m-1)], whereas the new Kemeny optimum uniquely has z=(m-1)/m; the latter is bipartite periodic with SLEM=1 whereas the prior optimum is <1. Thus the novel direct theorem is Kemeny allocation, strict global optimizer separation and Kemeny benchmark gap; not merely a different-name restatement of the known deletion threshold.",
+      "searches": [
+        "2026/11/8/SCOPE-a-three-stage-two-leader-transition-on-quadrilateral-book-graphs--3b37aec41c1b",
+        "2026/10/18/SCOPE-a-sharp-backup-edge-price-for-fault-tolerant-diffusion-on-book-g--623a2d5d5f81",
+        "Kemeny optimal symmetric stochastic walks on square-book graphs; exact bridge deletion for K1m square K2",
+        "Kemeny constant fastest mixing symmetric Markov chain optimal edge weights sunlet graph cycle pendant leaves paper",
+        "Sharp compulsory central-rung deletion in quadrilateral-book fastest mixing symmetric stochastic book K1,m square K2 optimal mixing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hunter, arxiv:1208.4716v1, pp. 1-4: zero-target constant differs by one from return-inclusive value.",
+        "Patel–Agharkar–Bullo, full-text pp. 1-4: Kemeny optimization in a reversible Markov chain, without this book-specific edge-class optimum.",
+        "October 2026 prior exact-graph recorded theorem ca9ef0ce-4718-416f-8bab-e6d27f6de957: SLEM minimax value 2-sqrt(2) at m=2 and 1-1/m for m>=3, central-edge deletion for m>=3, invariant SLEM-optimal z interval [1/(2(m-1)), (m-1)/m-1/(2(m-1))]."
+      ],
+      "reasoning": "Searched both modified/nonreturn Kemeny sum and stationary-target hitting-time formulations, plus the isomorphic graph names K_{1,m} Cartesian K2, star prism, and quadrilateral book. No recovered equivalent exact bridge transition; the additive-one Kemeny normalization does not change the minimizer. Crucially, the same page-count hub deletion theorem exists already for the SLEM objective; that aspect cannot be novelty by itself. Its inverse-gap-Kemeny normalization remains an analytically distinct optimization.",
+      "searches": [
+        "\"quadrilateral book\" \"Kemeny\" random walk",
+        "\"K_{1,n}\" \"square\" \"Kemeny\" optimal transition",
+        "Kemeny mean first passage time on generalized book graphs Cartesian product stars and K2",
+        "Kemeny Markov walk optimal edge probabilities quadrilateral book graph ladder of m squares sharing edge",
+        "Sharp compulsory central-rung deletion in quadrilateral-book fastest mixing symmetric stochastic book K1,m square K2 optimal mixing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest recoverable exact-graph record 2026/11/8/SCOPE-a-three-stage-two-leader-transition-on-quadrilateral-book-graphs--3b37aec41c1b classifies pinned leaders with inverse grounded Laplacian trace, not edge-transition weights.",
+        "Qi Ma–Huaping Wang, doi:10.28919/jmcs/5253, abstract: generalized quadrilateral graphs built by edge replacement with complete bipartite blocks, and fixed-walk normalized spectral invariants.",
+        "October 2026 prior exact-graph recorded theorem ca9ef0ce-4718-416f-8bab-e6d27f6de957: SLEM minimax value 2-sqrt(2) at m=2 and 1-1/m for m>=3, central-edge deletion for m>=3, invariant SLEM-optimal z interval [1/(2(m-1)), (m-1)/m-1/(2(m-1))]."
+      ],
+      "reasoning": "No table or exact book-graph stochastic-edge-allocation optimum was recovered from targeted record and literature queries. The similarly named generalized quadrilateral construction is not the two-hub m-square book. Absence of a search hit is not claimed as proof of novelty. The October exact-graph SLEM result is a decisive known table of optimal SLEM weights, so the new contribution is framed narrowly as optimizing Kemeny and its strict separation, not the previously reported common-edge deletion.",
+      "searches": [
+        "\"quadrilateral book\" \"Kemeny\" random walk",
+        "\"book graph\" \"Kemeny's constant\" transition probabilities",
+        "K1m square K2 book graph random walks Kemeny constant Laplacian",
+        "Kemeny optimal symmetric stochastic on ladder book graph K_{1,m} Cartesian K_2",
+        "Sharp compulsory central-rung deletion in quadrilateral-book fastest mixing symmetric stochastic book K1,m square K2 optimal mixing"
+      ]
+    },
+    "rationale": "The earlier October 2026 same-graph SLEM theorem already establishes the bridge-deletion boundary at three pages: it is expressly excluded from the novelty claim in isolation. The new, strictly convex Kemeny inverse-gap objective yields a unique all-size optimizer and minimum, and every such optimizer has SLEM one, while the earlier fastest-mixing optimum has SLEM strictly smaller than one. For m>=3 the exact peripheral-rung allocation lies outside the recorded SLEM-optimal interval. The inspected full primary general frameworks and recoverable closest historical claim do not imply the exact new optimizer or strict cross-objective performance gap. Inaccessible or unindexed Kemeny-specific work remains a residual priority risk.",
+    "residual_risks": [
+      "A highly relevant same-graph published manuscript could not be read beyond recoverable recorded claim; differing objective makes implication unlikely but does not imply comprehensive inspection.",
+      "Unindexed, differently titled or inaccessible results on optimal Kemeny edge weights could contain an equivalent theorem.",
+      "A generalized graph optimization algorithm can specialize to this problem; no search establishes absolute priority.",
+      "Same-graph SLEM page-count deletion is prior and excluded from the originality claim; full prior proof was not reopened, only its complete recorded claim used for objective comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes definition; does not optimize stochastic edge weights on quadrilateral books",
+        "evidence": "arxiv:1208.4716v1, first public 2012-08-23; pp. 1-4, tr(Z) and K-1.",
+        "identifier_or_url": "https://arxiv.org/pdf/1208.4716",
+        "material_read": "Full opening discussion and fundamental-matrix/Kemeny definitions on pp. 1-4, including explicit modified constant one-less convention",
+        "method": "Open-access PDF text and rendered first page",
+        "title": "The Role of Kemeny’s Constant in Properties of Markov Chains",
+        "trigger": "Earliest dated focal Kemeny interpretation and modified normalization"
+      },
+      {
+        "assessment": "Optimizes second-largest eigenvalue modulus, not Kemeny inverse trace; generic feasible-set framework is applicable but no square-book closed solution",
+        "evidence": "Boyd–Diaconis–Xiao 2004, introduction equations (1)-(3), optimality section 4.2.",
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Full opening setup (pp. 667-669), graph-SDP formulation and optimality discussion near pp. 678-680",
+        "method": "Lawful publicly available manuscript PDF text and rendered first page; targeted find for star/book",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Most plausible general graph-constrained symmetric kernel optimization dominance"
+      },
+      {
+        "assessment": "Establishes convex Kemeny optimization but no result for K_{1,m} Cartesian K2; not a covering closed-form theorem",
+        "evidence": "Patel–Agharkar–Bullo, §§II-III and Theorem 4; general SDP.",
+        "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+        "material_read": "Introduction/literature and contributions; problem formulations and Theorem 4 convexity; searched the document for book-specific results",
+        "method": "Lawful full-text PDF, rendered page one and text searches",
+        "title": "Robotic Surveillance and Markov Chains with Minimal Weighted Kemeny Constant",
+        "trigger": "Most relevant general Kemeny optimizer framework"
+      },
+      {
+        "assessment": "Recoverable theorem concerns selecting perfectly pinned leader vertices for inverse grounded Laplacian trace, not optimizing Markov edge weights; full-text coverage could not be excluded absolutely",
+        "evidence": "Published record 2026/11/8/SCOPE-a-three-stage-two-leader-transition-on-quadrilateral-book-graphs--3b37aec41c1b; full manuscript inaccessible.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-three-stage-two-leader-transition-on-quadrilateral-book-graphs--3b37aec41c1b",
+        "material_read": "Available published title, claim summary and identifier only; full manuscript not accessible",
+        "method": "Semantic mathematical-record lookup and attempted published page access",
+        "title": "A three-stage two-leader transition on quadrilateral book graphs",
+        "trigger": "Identical graph object and symmetry classes"
+      },
+      {
+        "assessment": "Not the square-book Cartesian product and not stochastic-edge optimization; abstract only, no strong NOT_COVERING whole-paper claim",
+        "evidence": "Qi Ma, Huaping Wang (2021), publisher abstract.",
+        "identifier_or_url": "https://doi.org/10.28919/jmcs/5253",
+        "material_read": "Public abstract explaining edge-to-K_{n,n} substitution and normalized eigenvalue invariants",
+        "method": "Publisher landing-page abstract",
+        "title": "The (normalized) Laplacian spectrum and related indexes of generalized quadrilateral graphs",
+        "trigger": "Similar quadrilateral terminology and Kemeny spectral invariants"
+      },
+      {
+        "assessment": "The recorded objective is worst-case fault-tolerant diffusion with edge prices, not Kemeny hitting-time optimization; no inference of full-text noncoverage is made",
+        "evidence": "Published record 2026/10/18/SCOPE-a-sharp-backup-edge-price-for-fault-tolerant-diffusion-on-book-g--623a2d5d5f81; no accessible full text in this inspection.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-a-sharp-backup-edge-price-for-fault-tolerant-diffusion-on-book-g--623a2d5d5f81",
+        "material_read": "Published abstract/summary and record identifier, not a full manuscript",
+        "method": "Mathematical record lookup",
+        "title": "A sharp backup-edge price for fault-tolerant diffusion on book graphs",
+        "trigger": "Same class of book networks and deletion of common edge"
+      },
+      {
+        "assessment": "Covers common-edge deletion boundary for SLEM, not the exact new Kemeny minimizer; recorded m>=3 optimal z interval excludes the new Kemeny z and recorded optimal SLEM is strictly below the new SLEM=1",
+        "evidence": "Historical mathematical record item ca9ef0ce-4718-416f-8bab-e6d27f6de957, first public source date recorded as 2007-09-06, SLEM 2-sqrt(2) at m=2 and 1-1/m thereafter, x=1/m, y=0 and z in the interval for m>=3. Complete older proof not read; no whole-paper noncoverage claim.",
+        "identifier_or_url": "historical:ca9ef0ce-4718-416f-8bab-e6d27f6de957",
+        "material_read": "Complete recoverable recorded scientific theorem and exact graph/optimizer parameters from archived mathematical ledger; not the earlier full manuscript",
+        "method": "Targeted historical own-ledger semantic search and exact claim comparison; original evidence preserved without historical re-audit",
+        "title": "Sharp compulsory central-rung deletion in quadrilateral-book fastest mixing",
+        "trigger": "Exact graph, same symmetric stochastic feasible set, known central-rung deletion at three pages"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b9e32f6d-72bf-405d-a122-d8ca5717a1ac",
+  "value": {
+    "rationale": "An infinite natural graph family exhibits a precise edge-suppression boundary when the page count reaches three; unlike a routine graph invariant computation, this classifies the unrestricted edge probability design uniquely. The optimum remains irreducible but becomes periodic, separating minimization of stationary-target hitting time from actual mixing. A natural maximum-degree Markov walk suffers an exact asymptotic factor of 4/3, establishing a quantified design consequence.",
+    "status": "PASS"
+  }
+}
