@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The executable `rhombic_erasure_certificate.py` is self-contained and standard-library-only; run `python3 rhombic_erasure_certificate.py`. It verifies the 48 signed-permutation actions and four disjoint defect orbits of sizes 6, 24, 12 and 3; directly substitutes four harmonic-coordinate null vectors into every retained vertex row using rational-pair arithmetic in \(\mathbb Q(\sqrt3)\); and independently enumerates all 1001 ten-vertex and 364 eleven-vertex subsets under the two valid reductions \(\sqrt3\mapsto10\pmod{97}\) and \(\sqrt3\mapsto49\pmod{109}\). A nonzero modular minor proves the same characteristic-zero minor is nonzero because the matrix entries lie in \(\mathbb Z[1/3,\sqrt3]\). The exact null vectors certify matching upper rank bounds for the defective orbits. The expected last output line is `QUADRATIC_RHOMBIC_ERASURE_CERTIFICATE_OK; four orbit sizes 6,24,12,3`.
+# Independent mathematical audit
 
-The finite exhaustive enumeration is the entirety of the stated fixed-grid problem. It proves neither stability in noise nor broader geometric generalization, and no independent external validation has been conducted.
+## correctness
+
+PASS
+
+The nine displayed degree<=2 spherical harmonic basis polynomials span the correct 9-dimensional space and are evaluated with radially normalized corners (±1,±1,±1)/sqrt(3). For each of all 1001 ten-node and 364 eleven-node subsets, a nonzero mod-97 rank-9 minor certifies rank nine in characteristic zero; independent modular Gaussian elimination reproduced 956 rank-nine/45 rank-eight ten-sets and 364 rank-nine eleven-sets. Exact Q(sqrt3) null vectors for the four representative ten-node masks, all directly substituted and checked, and the verified signed-permutation orbits (6,24,12,3) provide characteristic-zero upper rank eight for precisely all 45 deficient cases. Independent sign-coordinate substitutions verify the witnesses; no random sample was used.
+
+## originality
+
+PASS
+
+Best-of-knowledge novel fixed-grid cumulative-degree erasure threshold and complete 10-subset defect orbit census. Earlier same-configuration paper has only exact-degree full-grid ranks/conditioning; dual cuboctahedron paper evaluates a different node set/matroid; general random sampling bounds do not imply adversarial deletion census.
+
+## value
+
+PASS
+
+A natural high-symmetry 14-node grid exhibits a precisely bounded worst-case recovery threshold and a complete four-type obstruction classification. Exact erasure matroids are useful for deterministic spherical interpolation and are neither a decorative finite slice nor implied by full-grid harmonic dimensions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
