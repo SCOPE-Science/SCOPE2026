@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification notes
 
-The mathematical identity and rigidity are proved in RESULT.md by explicit second-order expansions and a compactness/minimax argument. Neither a numerical grid nor a negative database search is used as an infinite proof or as a certificate of novelty.
+# Independent mathematical audit
 
-To repeat the finite diagnostic examples from a clean directory containing this package, execute `python3 check_examples.py`. Only Python's standard library is needed. The script checks five separations at two radii (ten examples), verifying exact positive coordinates, exact \(\ell_1\) separation, the nonnegative transverse norm difference, and a controlled comparison with the analytical leading coefficient. Its conclusions are finite corroboration only.
+## correctness
 
-At fixed \(0<d<2\), expansion validity follows from both positive coordinates remaining bounded below as the perturbation radius tends to zero. The lower bound does not rely on an unproved uniform expansion at a vanishing coordinate: the proof first excludes this case with the exact symmetric-increment identity. Equality and limiting rigidity are at the strictly balanced minimax of the two reciprocal products.
+PASS
 
-Scientific limitations: no generalization to more than two atoms, no finite-radius exact modulus, and no endpoint \(d=2\). Independent audit has not been performed.
+For fixed 0<d<2 the swapped positive unit pair x=((2+d)/4,(2−d)/4), y with coordinates reversed has distance d and identical first derivatives of norm under every complex z, yielding upper coefficient d/(1−d²/4) by imaginary-direction quadratic curvature. For arbitrary near-minimizing pairs with B(x,y;a)=O(a²), compactness in real dimension four rules out a vanishing limit coordinate (symmetric increments H(u,w) would diverge on a² scale, or distinct phases on the other coordinate cost O(a)). The first-order perturbation forces coordinatewise phase agreement; symmetric transverse variations force each curvature gap |1/r_j−1/s_j|/2. The monotone two-denominator minimax over radii with total separation ≥d uniquely balances swapped coordinates and attains d/(1−d²/4). Thus the limit and asymptotic rigidity follow without finite extrapolation. Independent direct transverse evaluations at d=.2,1,1.7 and a=.01,.001 converge to exact coefficient.
+
+## originality
+
+PASS
+
+Johnson–Kania define the same uniform Steinhaus modulus and derive a linear atomless real L1 profile, not the curvature-controlled complex two-atom quadratic coefficient. A previously published real scalar plus real Hilbert one-sum has a quadratic d/(4−2d) but different scalar/Hilbert geometry; the qualitative ℓ1-sum criterion establishes (S) for complex blocks but not quantitative sharp asymptotic or uniqueness. Full texts inspected show neither known result mechanically implies the exact 2-complex-coordinate coefficient. Best-of-knowledge PASS.
+
+## value
+
+PASS
+
+Determines an exact local quantitative invariant of the smallest complex atomic ℓ1 sum in a setting where both qualitative norm-germ separation and real atomless linear behavior are known. It gives a distinct curvature regime and rigid extremizers; the exact coefficient is a motivated small-model benchmark rather than a trivial scalar substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
