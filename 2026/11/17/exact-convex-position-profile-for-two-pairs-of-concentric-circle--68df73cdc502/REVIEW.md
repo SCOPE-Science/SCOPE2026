@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The statement's probabilities use two independently arclength-uniform points on each of two concentric circles with fixed \(0<r<1\). The outer points are always extreme, so failure is exactly two mutually exclusive inner-point trapping possibilities. An explicit bearing-coordinate Jacobian and a non-identically distributed semicircle-anchor partition give the full one-dimensional formula. The derivative formulas establish strict monotonicity and strict convexity, and a singular-integral estimate establishes the precise near-contact coefficient. Independent direct geometry and adaptive-quadrature numerical checks pass; simulations are not treated as proofs.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Full text of Marckert's 2014 disk-uniform and 2015 convex-domain studies was inspected: neither treats the fixed two-per-radius boundary sampling nor the resulting exact radius profile. An earlier mixed-radius record establishes only the \(r\downarrow0\) conditional \(2+2\) value \(1/2\), which is explicitly credited rather than reasserted as new. The fully inspected published nested-circle chord-intersection theorem determines the first integral, and the new event is linked by an additional explicit dilogarithmic correction; that source does not assert the four-vertex probability or the transfer identity. The inspected continuous thin-shell theorem also uses a different atom-free sampling law. Searches found no stronger statement of the present integral law; older unindexed works remain a risk, and novelty is not claimed as externally certified.
+PASS
 
-**Value — PASS.** Sylvester's four-point convexity question motivates studying deliberately stratified boundary laws instead of area-uniform iid laws. The exact all-radius formula, strict curvature in the radius ratio and sharp logarithmic loss near equal circles explain a nontrivial interpolation between the previously known half-convex small-core regime and certain convexity at equal radius. This determines an entire natural geometric-probability invariant, not an isolated special value or routine restatement of the limiting endpoint.
+For two independent outer and two independent inner circle points, outer points are always extreme. Mutual exclusivity of the two possible inner-point containment failures reduces Q=1-2H. The bearing map t=theta-arcsin(r sin theta) has the stated positive Jacobian; inner-to-inner bearing is uniform on inward semicircle. Unique-semicircle-anchor integration gives exactly Q=1/2+8/pi^3 int x arcsin(r sin x)+4/pi^3 int arcsin^2(r sin x). Direct differentiation makes Q strictly increasing and convex on [0,1), and the singular near-tangency integral produces the 4/pi² cusp. At r=.4, independent direct point sampling (250000 trials) gave Q=.622992 versus quadrature .622399596, within one sampling standard error. The exact event partition, not simulation, proves the continuum theorem.
 
-**Limitations.** This is the fixed, concentric, independently uniform two-and-two model. No general nonconcentric, multi-shell or nonuniform-density extension is claimed, and no finite-sample noise guarantee is supplied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge noncoverage after implication comparison; None of these results logically yields full Q(r); the new angular bearing and dilogarithmic identity close the gap.
+
+## value
+
+PASS
+
+A natural four-point Sylvester probability for a singular radially stratified model is solved at all radii, including curvature and a logarithmic contact cusp. The exact transfer to a different chord-crossing experiment isolates a dilogarithmic correction, a reusable structural relation rather than another limit value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
