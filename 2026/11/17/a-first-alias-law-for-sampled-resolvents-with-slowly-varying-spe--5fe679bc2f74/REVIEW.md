@@ -1,11 +1,21 @@
-# Review of the first-alias theorem
+# Independent mathematical audit
 
-**Correctness: PASS.** The multiplier identity is exact. The removable zero, off-resonance uniform bound, geometric denominator estimate and evaluation at the first alias give a proof for every continuous nondecreasing damping profile. Regular variation with index less than one supplies both the small-alias parameter and the ratio limit, leaving an exact leading coefficient of one. The supplied numerical checker is supplemental; it is not used for infinite quantifiers. A risk is that the theorem does not address arbitrary normal spectral supports, and this scope is explicit.
+## correctness
 
-**Originality: PASS (subject to bibliographic priority).** The full July 2026 dyadic-resolvent article establishes strong convergence in the unitary setting and no damping-dependent norm theorem. The relevant November 2026 sampled-resolvent article, published later, gives positive-power general upper rates and discrete sharpness examples but not the zero-power logarithmic boundary or this exact first-alias constant for continuous spectra. Searches for aliases involving Riemann-sum resolvents, impulse invariance, logarithmic damping and regular variation found no covering exact result. Unindexed equivalent treatments remain a risk.
+PASS
 
-**Mathematical value: PASS.** The resolved question is whether a high-frequency damping profile with no positive polynomial smoothing can still make uniform sampled-resolvent recovery possible, and how accurately. The theorem answers the precise convergence question if and only if damping diverges, and provides a sharp quantitative law across the entire regular-variation regime, including logarithmic decay and a first-alias scale that changes numerical step-size requirements.
+The actual RESULT.md scalar multiplier is T h(T[lambda+a(|xi|)]-iTxi), where h(z)=(1-e^{-z})^{-1}-1/2-z^{-1}; h is removable at zero and its first other poles are at +/-2pi i. For fixed eta>0, h is bounded on 0<=u, |x|<=2pi-eta; outside, monotonicity yields ||E_T|| <= 1/w((2pi-eta)/T)+O_eta(T). Evaluation at xi=2pi/T produces the matching lower limit when a_infty finite and tends to zero with divergent a. For w regularly varying of index rho<1, T w(2pi/T)->0 and the fixed-eta ratio tends to (2pi/(2pi-eta))^rho; then eta->0 establishes sharp coefficient exactly one. B is defined on its maximal L2 multiplier domain; lambda>0; T>0; only norm of corrected error and continuous nondecreasing even damping are covered. The optional verify.py grid cannot establish an infinite quantifier.
 
-**Closest literature and limits.** N. Castillo, arXiv:2607.21278 (2026-07-23), and N. Castillo, arXiv:2611.15563 (2026-11-11), are the most relevant fully inspected sources; the latter predates this analysis but postdates the specified anchor and is used for comparison, not eligibility. Scope is normal continuous-frequency multipliers with monotone damping, plus a regular-variation restriction for the sharp equivalent. Historical claims and indexed related literature were compared at the statement/implication level, not used as proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The alias-scale mechanism is familiar from sampled semigroup resolvents, but the final simultaneous iff norm-convergence criterion for arbitrary monotone high-frequency damping and the sharp reciprocal-first-alias equivalent including zero-index logarithmic decay were not established by the two materially compared Castillo statements. The November 11 theorem gives Crandall-Pazy positive-power upper rates and a discrete model; those are partial topic overlap, not implication of the all-profile or zero-power exact coefficient. Originality is best-of-knowledge with possible other Fourier-symbol quadrature formulations.
+
+## value
+
+PASS
+
+The proved iff criterion detects whether corrected temporal sampling converges uniformly even with logarithmic, zero-positive-power damping; its exact first-alias constant is numerically meaningful for mesh selection. This solves a natural infinite-spectrum stability question rather than renaming a standard estimate; the indexed-positive-power semigroup results do not trivialize the zero-index boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
