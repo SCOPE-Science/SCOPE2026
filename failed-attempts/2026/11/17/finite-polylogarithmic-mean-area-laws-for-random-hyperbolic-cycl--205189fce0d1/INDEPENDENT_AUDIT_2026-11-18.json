@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T04:12:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Poincaré disk angle identity gives A=(n-2)π-2Σ f_z(g_i), f_z(g)=atan((1-z)/(1+z) cot(g/2)), with cyclic spacings Dirichlet(1,…,1). The Fourier decomposition f_z(g)=(π-g)/2-Σ_{m≥1}z^m sin(mg)/m is absolutely convergent for z<1; the linear contribution cancels Gauss–Bonnet. A gap/2π~Beta(1,n-1), and exact two-by-parts recurrence for I_p(2πm) gives the finite sums of Li_{2j+2}(z). Klein model s=tanh R homothety and increasing area density prove strict radius monotonicity; near z=1 only Li2 has a δ log δ term, yielding fixed-n 4n(n-1)Re^-R/π. Independently numerically integrated Beta-angle expectation and evaluated finite polylog sum at z=.6 for n=3..9, agreeing to 2e-10. The analytic gap and Fourier proof, not this small finite test, establish all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The previous exact finite n,R mean integral holds for all n and all z∈(0,1) without asymptotic restriction; the target finite-Li evaluation is an explicit transform of its full parameter family."
+        ],
+        "reasoning": "The stronger parameter coverage and exact function mean that different symbolic notation does not establish a new expectation invariant. The separately proved critical n→∞ behavior is additional to target, not the reverse.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-critical-logarithmic-radius-crossover-for-random-hyperbolic-cy--a2dad3e05c2a/RESULT.md",
+          "Resultary: random hyperbolic cyclic polygon uniformly sampled fixed geodesic circle mean area polylogarithm dilogarithm"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob df398d34c6803aca8e010d0d1db2c35ca82acd6a",
+        "Source check_area.py blob 0d479ac8bb519c35f9562b3d301f6105d9d52e85",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-critical-logarithmic-radius-crossover-for-random-hyperbolic-cy--a2dad3e05c2a/RESULT.md",
+        "https://doi.org/10.1155/2014/838497"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Insert F_z=2Σ_{m≥1}z^m sin(mg)/m into existing exact mean Eq.(2), evaluate ∫_0^1(1-u)^{n-2}sin(2πmu)du by recurrence I_p=1/(2πm)-p(p-1)I_{p-2}/(2πm)^2, and identify Li_{2j+2}(z). Near z=1 Li2 gives the claimed e^-R R coefficient."
+        ],
+        "reasoning": "All target main formulas logically follow from the pre-existing exact finite expectation identity via standard exact integration and asymptotics. Historical same-day commit does not prove which was authored first; coverage, not authorship chronology, governs this originality rejection.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-critical-logarithmic-radius-crossover-for-random-hyperbolic-cy--a2dad3e05c2a/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-finite-polylogarithmic-mean-area-laws-for-random-hyperbolic-cycl--205189fce0d1/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published result Eq. (1): A_n=Σ F_q(g_i), F_q(t)=2 Arg(1-qe^{-it}); Eq. (2): E[A_n/n]=(n-1)∫_0^1F_q(2πu)(1-u)^{n-2}du; same n≥3, circle-arclength law and curvature -1."
+        ],
+        "reasoning": "This is EXACTLY the same mean as target, not just a similar asymptotic. Fourier series of Arg reduces Eq.(2) to target Li sums by elementary integration.",
+        "searches": [
+          "Resultary: random hyperbolic cyclic polygon uniformly sampled fixed geodesic circle mean area polylogarithm dilogarithm",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-critical-logarithmic-radius-crossover-for-random-hyperbolic-cy--a2dad3e05c2a/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing paper exact Beta-gap mean expression (2) is a complete database/formula for same model, any fixed n and R, despite lacking a printed finite Li_{2j+2} table."
+        ],
+        "reasoning": "The exact_database_or_table test is satisfied by a stronger explicit integral/formula, not only by matching a table row or a title.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-critical-logarithmic-radius-crossover-for-random-hyperbolic-cy--a2dad3e05c2a/RESULT.md",
+          "Resultary: random hyperbolic cyclic polygon uniformly sampled fixed geodesic circle mean area polylogarithm dilogarithm"
+        ]
+      },
+      "rationale": "A separate published result on the SAME hyperbolic iid circle model already gives the exact per-gap oriented area function F_z(g)=2 Arg(1-z exp(-ig)) and the exact ALL FINITE n,R expected area E[A_n/n]=(n-1)∫_0^1 F_z(2πu)(1-u)^{n-2}du. Its F_z is precisely 2Σ z^m sin(mg)/m; swapping the absolutely convergent sum with beta integral and repeating elementary integration by parts mechanically yields the submitted finite Li expression and its fixed-n expansion. Thus this mathematical invariant is already exactly determined (though not displayed in the same special-function notation). Both records are dated Nov17 in a common public Git commit; publication ordering is not proved and is not used to invent precedence. A fully distinct un-covered final claim was not provided. O FAIL for strong same-model exact-mean implication; the mathematical proof remains correct.",
+      "residual_risks": [
+        "The covering exact-mean result and the target were both published in common Nov17 Git commit: their relative creation order is NOT established; rejection is logical scientific coverage, not a fabricated historical-priority assertion.",
+        "Evaluation of a known complete integral in finite polylog functions can still be computationally useful; independent originality criterion nevertheless fails for unchanged same-model final claim.",
+        "No assertion about general n,R double limits or full area distribution follows from the target."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT SAME-MODEL COVERAGE of finite-n expectation; no matching polylog notation needed to infer target as exact elementary transform",
+          "evidence": "Eq.(1) F_q(g)=2 Arg(1-qe^{-ig}); Eq.(2) expectation is Beta average of F_q over all n,R",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-critical-logarithmic-radius-crossover-for-random-hyperbolic-cy--a2dad3e05c2a/RESULT.md",
+          "material_read": "Entire published RESULT.md, including equations (1)–(3), finite-n expectation Eq.(2), critical asymptotics, assumptions and references",
+          "method": "Full connected GitHub primary-source read",
+          "title": "A critical logarithmic-radius crossover for random hyperbolic cyclic-polygon area",
+          "trigger": "Same random geometric model, potential dominating formula found by Resultary semantic search"
+        },
+        {
+          "assessment": "Independent deterministic hyperbolic triangle formula is a classical background input, not the direct covering source",
+          "evidence": "Bao–Chen (2014) deterministic hyperbolic area, distinct from random circle area mean",
+          "identifier_or_url": "https://doi.org/10.1155/2014/838497",
+          "material_read": "Full available HTML primary theorem/triangle-area sections relevant to deterministic area; not every application read",
+          "method": "Web full-text HTML reading",
+          "title": "A New Hyperbolic Area Formula of a Hyperbolic Triangle and Its Applications",
+          "trigger": "Primary geometric angle/area reference quoted in target"
+        },
+        {
+          "assessment": "Correct as derivation, not an original independent determination relative to existing exact same-model finite mean",
+          "evidence": "Full claim is same expectation as published Beta integral, evaluated in special functions",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/finite-polylogarithmic-mean-area-laws-for-random-hyperbolic-cycl--205189fce0d1/RESULT.md",
+          "material_read": "Full RESULT.md including Fourier expansion, integral recurrence and fixed-n asymptotics",
+          "method": "Frozen Git blob content, source checker code and independent quadrature",
+          "title": "Finite polylogarithmic mean-area laws for random hyperbolic cyclic polygons",
+          "trigger": "Final mathematical claim and proof under assessment"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The finite special-function evaluation and fixed-n asymptotic are practical exact computations of a natural mean-area invariant, not an arbitrary parameter slice. As a mathematical formula it is useful, but its value alone cannot overcome the independently decisive originality failure: an existing general exact expectation integral algebraically supplies it.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The covering exact-mean result and the target were both published in common Nov17 Git commit: their relative creation order is NOT established; rejection is logical scientific coverage, not a fabricated historical-priority assertion.",
+    "Evaluation of a known complete integral in finite polylog functions can still be computationally useful; independent originality criterion nevertheless fails for unchanged same-model final claim.",
+    "No assertion about general n,R double limits or full area distribution follows from the target."
+  ],
+  "schema_version": 1
+}
