@@ -1,0 +1,19 @@
+# Scientific assessment: exact cube coplanarity singular spectrum
+
+## Correctness
+
+**PASS.** The domain is the antipodally even real label space of the full Boolean cube, with unnormalized counting-measure vertex norm; the target contains one coordinate for every unordered \((n+1)\)-tuple in each positive coordinate facet, with no averaging. The crucial linearized determinant reduction follows because the constant homogeneous column duplicates the \(i\)-th spatial column on the \(i\)-th facet. Full Cauchy–Binet converts the sum of squared minors into \(N^n\) times the squared affine-fit residual, with \(N=2^{n-1}\); no determinant or binomial factor is omitted. On each facet, even Walsh characters remain pairwise orthogonal because their symmetric differences have even cardinality. A degree-two mode survives on exactly \(n-2\) facets, and every mode of even degree at least four on exactly \(n\), giving the exact coefficients \((n-2)2^{n^2-1}\) and \(n2^{n^2-1}\) before division by the domain norm \(2^n\). The dimension-three high-band multiplicity is zero and handled separately. Fully enumerated exact integer minors in dimensions three through five give 15 additional checks, including cross terms. The finite checks are corroboration only; the Cauchy–Binet argument proves the all-dimensional statement.
+
+## Originality
+
+**PASS under the checked literature, with historical-priority risk.** The closest primary source is Jiménez Cuevas (arXiv:2606.14709v4), Section 4, particularly Theorem 4.6. It explicitly defines the same matrix and gives only positivity, Walsh-level diagonalization, and the dimension-three value \(\lambda_{3,2}=256\); it states that a general closed form and all values at \(n\ge4\) are not asserted. The current exact two-band coefficient formulas, sharp Euclidean singular values and multiplicities do not follow numerically from that qualitative assertion without the new complete-minor summation. Himmelmann–Schulze–Winter (arXiv:2505.00874v3) imposes additional fixed-edge-length constraints on substantially more general motions, and does not calculate this radial minor operator. Published Fourier sampling and matrix-minor studies using superficially similar square-root condition ratios have different domains and measurement operators; their statements do not imply the present full facet-coplanarity spectrum. Unindexed older treatments or an overlooked normalization-equivalent result remain possible and require external literature review.
+
+## Mathematical value
+
+**PASS.** The explicit coefficients answer the concrete all-dimensional spectral constants left open in the motivating source, not an arbitrary rescaling or a numerical example. They identify the unique least-detectable nontrivial deformation sector, provide a sharp quantitative rigidity constant under an intrinsic complete-minor normalization, and show that the positive singular spectrum becomes asymptotically tight even as the number of vertices and constraints grows exponentially. This makes the linearized coplanarity measurement's stability and conditioning exactly computable. Its applicability is limited to the specified Jacobian and Euclidean measurement norm; no nonlinear Mahler-product estimate is added.
+
+## Evidence and limitations
+
+The main independent proof is the affine-residual/Cauchy–Binet identity plus facetwise Walsh degree counting. `verify.py` and `verification_output.txt` document exact finite tests. Primary materials inspected were the relevant full sections of the 2026 cube-coplanarity manuscript and the open-access HTML of the 2025 polytope-rigidity paper. Residual risks include unnoticed older equivalent formulations and any difference in normalization if this formula is transferred to other operators. Independent specialist validation has not been conducted.
+
+Self-review: passed. Independent audit: not yet performed.
