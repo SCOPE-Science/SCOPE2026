@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The cap restriction Gram operator is reconstructed on the complete \(d^2-1\)-dimensional trace-zero bidegree-\((1,1)\) harmonic space. Haar phase invariance gives an orthogonal three-sector splitting. The \(\mathrm{Beta}(1,d-1)\) moment identity integrates the three Rayleigh quotients exactly; explicit nonnegative differences establish the unique threshold and the global minimum. Fixed-volume asymptotics follow by substitution. The included exact-rational checker independently assembles full Gram matrices and passes 42 cases. The proof, rather than those finite tests, supports the universal quantifiers.
+## correctness
 
-**Originality — PASS (provisional priority).** The principal 2020 paper by Jaming and Speckbacher was inspected at its introduction, projective-space setup, addition formula, and large-sieve theorem. It establishes upper concentration bounds for two-point homogeneous manifolds, not the complete first-band projective cap eigenvalues or crossover. The 2017 projective Toeplitz paper's full accessible introduction and function-space setup concern holomorphic sections and commuting radial symbol algebras, not the specified Laplace eigenfunctions. Searches for projective, Hopf-quotient, trace-zero quadratic, and cap restriction equivalents found only different operators or domains. In particular, holomorphic sphere cap spectra and real spherical cap spectra do not imply the stated complex-projective first-band spectrum. Residual risk: an equivalent result may occur in older special-function, covariance, or projective-space literature under different names.
+PASS
 
-**Value — PASS.** The problem is a natural spectral restriction question on a compact rank-one symmetric space. The result provides every eigenvalue and multiplicity, exact best/worst observing modes and inverse stability, and a unique finite-dimensional mode exchange. Its dimension-independent fixed-volume limit has a sharp universal \(e^{-1}\) change of dominant mechanism. These are structural, testable statements beyond a single example or a routine threshold improvement, although the underlying moment identities are classical.
+For d>=3, trace-zero bidegree-(1,1) harmonics identify H_1 with trace-zero matrices of dimension d^2-1 and global L2 inner product tr(AB*)/[d(d+1)]. U(d-1) splits into axial, off-diagonal cross and tangential sectors of dimensions 1,2(d-1),d(d-2). With Y=1-|u_1|^2~Beta(d-1,1) and E[Y^k 1_{Y<=s}]=(d-1)s^(d-1+k)/(d-1+k), the scalar restriction ratios give exactly s^(d-1)(1-2t+d^2 t^2), s^d(1+dt), s^(d+1). Direct algebra yields axial-cross=(d+1)t(dt-1)s^(d-1), the other two gaps >0, so the sole top switch is t=1/d and the tangential mode is always the bottom. Fixed-volume s=v^(1/(d-1)) gives dt->-ln(v), yielding stated limits. Independent symbolic sector-moment recomputation confirmed the identities; the original rational verifier tests 42 parameter cases, not all dimensions.
 
-The theorem is restricted to \(d\ge3\) and the first positive projective harmonic eigenspace, and does not address arbitrary bands, projective regions, or independent historical certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Resultary similarity search located this record itself and projective-space analogues on distinct projective fields or second harmonic bands; Jaming–Speckbacher derives general homogeneous-space concentration inequalities but not exact first complex-projective eigenspace eigenvalue ordering. Holomorphic Toeplitz/Bergman symbol operators act on another space. No identified prior statement directly implies all three explicit first-band concentration branches and unique t=1/d exchange.
+
+## value
+
+PASS
+
+The exact spectrum and extremal transition of projective cap observation are intrinsic to the first Laplace band, with sharp observability/conditioning and an e^-1 high-dimensional volume transition. It answers a natural continuous spectral concentration question with nontrivial representation decomposition and sharp parameter boundary, not a reparametrization of a known numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
