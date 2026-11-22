@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The support-function unitary reduction, bipartite sign conjugacy, even-convex maximum principle, strict Rayleigh equality case, and the nondegenerate three-eigenvector perturbation calculation independently establish the exact all-coupling width formula and the sharp second-order Hessian. The convex-body support-function norm and four-angle alternation prove the optimal disk-distance coefficient. The reflection symmetry of the designated direction gives an exact ellipse and exact disk approximation at all couplings. The standalone checker passed 850 finite assertions and is not a substitute for the proof. Main restrictions: real diagonal perturbations and three dimensions.
+
+## Originality — PASS, literature-qualified
+Jiang's full six-page source proves constant-width implies disk but supplies no quantitative near-disk Hessian, sharp transverse constants, or least-detectable mode. Adams–Gorkin develop angular eigenvector expansions and local curve behavior, not the stated parameter-dependent optimal width/disk stability law. Chien–Nakazato–Meng studied numerical-range width and special nilpotent Toeplitz examples; its full text was not inspected here, so priority uncertainty remains. Mathematical-record searches on `quadratic stability constant width numerical range under diagonal perturbations nilpotent Jordan block sharp Hausdorff disk`, `tridiagonal 3x3 Jordan numerical range width defect Hessian best disk perturbation`, and `sharp local rigidity of disk numerical ranges Hessian three coordinate diagonal real` did not return an implication covering the full claim. Standard simple-eigenvalue perturbation theory is acknowledged as a premise, not claimed new. Search absence is not a uniqueness guarantee.
+
+## Mathematical value — PASS
+The recent global rigidity theorem raises a natural quantitative stability question: how rapidly does constant width fail near a circular numerical range? The result identifies a positive definite, sharp two-band transverse Hessian and the unique least-detectable diagonal deformation, plus an exact all-scale ellipse benchmark and a matching sharp Hausdorff disk-distance coefficient. These are natural geometric operator invariants, not arbitrary parameter slices. It does not solve arbitrary-matrix stability, and the three-dimensional setting limits reach.
+
+Self-review: passed. Independent audit: not yet performed.
