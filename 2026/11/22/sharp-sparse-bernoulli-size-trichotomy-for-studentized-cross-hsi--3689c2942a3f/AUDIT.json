@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Exact ordered-pair-to-four-cell identities yield the sample-split estimator and normalizer. When overlaps vanish, both signed estimates are negative and Q_n≈np_n³/2 so T_n≈sqrt(np_n/2); in the critical window overlap counts tend to iid Poisson, Q_n→k/4 for k≥1 and collapses for k=0, giving two infinite atoms and the exact 0.3685686509430986 rejection constant. The high-intensity Gaussian limit uses the original theorem under the moment condition. Exhaustive rational and deterministic tests pass 6,638 assertions; proof rather than simulation supports infinity limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The cited primary Gaussian null theorem imposes a fourth-moment ratio vanishing; with Bernoulli p_n this scales as 1/(n p_n²), and it excludes the subcritical/critical sequences.",
+        "Kim–Ramdas supply cross-U-statistic methodology but do not identify this Bernoulli null-size law."
+      ],
+      "reasoning": "Gaussian theorems for cross statistics dominate only the high-intensity regime, explicitly credited. They cannot cover an extended-real non-Gaussian law or the subcritical divergence without violating their moment hypotheses. The finite-sample Gaussian linear cross-HSIC tail result treats a different Gaussian distribution and is not a stronger universal theorem.",
+      "searches": [
+        "Shekhar Kim Ramdas cross HSIC Bernoulli exact poisson limit studentized testing rejection probability",
+        "cross U statistic kernel independence degenerate Bernoulli variables product pair splitting exact finite sample distribution",
+        "arxiv:2011.05068 dimension agnostic inference cross U statistics"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2212.09108",
+      "https://jmlr.org/papers/volume24/23-0248/23-0248.pdf",
+      "https://arxiv.org/abs/2011.05068",
+      "https://doi.org/10.1002/sta4.364",
+      "A finite-sample tail obstruction for Gaussian linear cross-HSIC (public scientific result summary; scope limited to Gaussian fixed-n model)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original Example 1 obtains Pr(T_n≤0) from Poisson signs, a statement consistent with but strictly weaker than the magnitude result.",
+        "The source fixed/conditional central limit requires a uniform moment hypothesis, violated when n p_n² remains bounded.",
+        "A previously published Gaussian linear cross-HSIC finite-n studentizer tail result does not entail Bernoulli triangular-array rejection sizes."
+      ],
+      "reasoning": "Matching parameters alone is insufficient: the source sign law does not control rejection beyond z=1.64485, and no prior available theorem entails Q_n≈np_n³/2 conditional on no overlap, so it does not imply T_n≈sqrt(np_n/2). The critical 36.856865% size needs both magnitude and sign conditional on two Poisson counts.",
+      "searches": [
+        "arxiv:2212.09108 permutation free kernel independence test Example 1 Appendix B.3",
+        "cross HSIC binary rare event self normalized Poisson Gaussian threshold n p^2",
+        "arxiv:2011.05068 cross U-statistics Bernoulli null normality"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source Example 1 analyzes the sign of the statistic via two centered Poisson counts and uses the same critical sparse Bernoulli model.",
+        "The present result additionally identifies the jackknife-scaled magnitude, positive and negative infinite atoms, and a parameter-dependent rejection probability."
+      ],
+      "reasoning": "Critical overlap-count Poisson convergence and the product-sign limit are prior results, not equivalent to the extended-real magnitude: that magnitude requires first-half Q_n asymptotics conditional on C_1=0 and C_1>0. Neither the source sign expression nor generic kernel-test formulations imply the 5% rejection constant.",
+      "searches": [
+        "cross HSIC permutation-free independence test rare binary Bernoulli sparse counts Gaussian calibration Poisson degeneracy",
+        "studentized cross HSIC Bernoulli n p squared theta extended real limit infinite atom Poisson K1 K2",
+        "arxiv:2212.09108 Example 1 cross HSIC sparse Bernoulli Poisson limit"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The checked semantic mathematics records include a related fixed-n Gaussian linear cross-HSIC heavy-tail result, but no reported sparse-Bernoulli asymptotic magnitude, two infinite atoms, or exact 0.368568650943 critical calibration.",
+        "The checked source tables and Example 1 do not state this quantified rejection probability."
+      ],
+      "reasoning": "A finite-n Gaussian tail bound cannot equal the present Bernoulli rare-cell limit. Search and inspected tables show no exact matching entry, without proving the nonexistence of all historical formulations.",
+      "searches": [
+        "permutation free cross HSIC Bernoulli sparse null probability positive infinity studentized n p squared zero size one",
+        "exact 5 percent null rejection 0.368568650943 sparse Bernoulli cross HSIC Poisson half-splitting",
+        "sharp sparse Bernoulli cross-HSIC Gaussian calibrated one sided false rejection probability tends to one np^2 to 0 np to infinity"
+      ]
+    },
+    "rationale": "The exact published statistic and source critical Bernoulli-Poisson sign effect are credited. A complete extended-real studentization, exact 5%-level size and a separate subcritical 100%-size law are neither stated nor implied by the inspected fixed/critical-sign results; a generic Poisson count limit alone does not establish the vanishing jackknife factor.",
+    "residual_risks": [
+      "The critical two-Poisson sign example is already published; only the magnitude/false-rejection refinement is novel under the comparison.",
+      "The nearby Gaussian linear cross-HSIC finding was compared using its publicly available abstract/summary rather than a complete technical manuscript.",
+      "Undiscovered prior formulations or recent follow-up papers may independently contain the same quantification; searches do not establish uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers sign-only Poisson expression and high-intensity Gaussian case, not the zero-overlap studentizer magnitude or critical calibrated rejection rate",
+        "evidence": [
+          "Example 1 describes the product of centered Poisson terms for the sign; exact source studentizer formula used to reconstruct Q_n."
+        ],
+        "identifier_or_url": "https://jmlr.org/papers/volume24/23-0248/23-0248.pdf",
+        "material_read": "Full open-access PDF portions defining the estimator and jackknife normalizer, Example 1 and its sparse Bernoulli counterexample, Theorem 4(b)/Corollary 5 and Appendix B.3; pages including 3, 8, 12 and 36 inspected as page images",
+        "method": "Source PDF text with targeted page images and proof-appendix comparison",
+        "title": "A Permutation-Free Kernel Independence Test",
+        "trigger": "Exactly the published studentized cross-HSIC statistic, Gaussian theorem and sparse Bernoulli Example 1"
+      },
+      {
+        "assessment": "First public record dated 18 December 2022; same paper as inspected journal version",
+        "evidence": [
+          "Preprint identifier 2212.09108 and December 2022 timestamp"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2212.09108",
+        "material_read": "Abstract and public version/date record, compared with lawful open-access journal full text",
+        "method": "Open preprint record",
+        "title": "A Permutation-Free Kernel Independence Test (first public preprint)",
+        "trigger": "Source priority and first online date"
+      },
+      {
+        "assessment": "General normal theory, not this model-specific sparse Bernoulli rejection-size distribution",
+        "evidence": [
+          "Cross-U methodology is Gaussian-oriented and does not supply the finite count conditional normalizer used here"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2011.05068",
+        "material_read": "Open abstract, theorem descriptions and searchable source excerpts",
+        "method": "Preprint/open record targeted comparison",
+        "title": "Dimension-agnostic inference using cross U-statistics",
+        "trigger": "Possible stronger general cross-U-statistic result"
+      },
+      {
+        "assessment": "Discusses permutation testing, not the unpermuted Gaussian-calibrated studentizer",
+        "evidence": [
+          "Different calibration procedure, so it does not cover this null-size calculation"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/sta4.364",
+        "material_read": "Publication summary and methods description",
+        "method": "Source metadata and abstract comparison",
+        "title": "Consistency of permutation tests of independence using distance covariance, HSIC and dHSIC",
+        "trigger": "Potential HSIC permutation-calibration coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3689c294-2a3f-440f-b73c-b5ed81fe74c7",
+  "value": {
+    "rationale": "It quantifies an inferentially substantial gap in Gaussian calibration under an exact independence null: 100% false rejection in an explicit sparse regime and 36.856865% at a nominal 5% threshold in a critical regime, with an explained jackknife-collapse mechanism and precise parameter boundaries. This exceeds routine substitution or mere reiteration of the source known sign example.",
+    "status": "PASS"
+  }
+}
