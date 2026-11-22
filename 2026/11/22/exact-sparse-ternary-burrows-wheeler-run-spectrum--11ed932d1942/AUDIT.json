@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "An explicit rotation-order lemma establishes the complete BWT for every canonical gap triple. The nested active-mask partition is bijective and exhaustive; its 26 chains and 111 one/multiple visits yield exact rational terms. Symbolic exact-arithmetic checks all numerator identities and the total z^3/(1-z)^3. Independent direct BWT sorting over all gap triples at lengths 3..54 agrees. The proof of all lengths is symbolic, not an inference from finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Burrows--Wheeler (1994) defines the transform, not sparse ternary run multiplicities.",
+        "Simpson--Puglisi (2008) states an inverse characterization of Type I three-block transforms; it does not address arbitrary ordering or more than three blocks."
+      ],
+      "reasoning": "General BWT algorithms and Type I classification neither give an exact sparse mixed-marker spectrum nor dominate all five values and their multiplicities. The possible earlier equivalence risk is explicitly retained.",
+      "searches": [
+        "Simpson Puglisi Words with Simple Burrows-Wheeler Transforms ternary 2008",
+        "https://arxiv.org/abs/cs/0502073",
+        "https://www.cl.cam.ac.uk/teaching/2002/DSAlgs/SRC-124.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://www.cl.cam.ac.uk/teaching/2002/DSAlgs/SRC-124.pdf",
+      "https://www.kurims.kyoto-u.ac.jp/EMIS/journals/EJC/Volume_15/PDF/v15i1r83.pdf",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-exact-burrows-wheeler-run-spectrum-of-cyclic-binary-words-with-t--17765181f4c4",
+      "https://arxiv.org/abs/cs/0502073",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v15i1r83"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The full binary three-marker RESULT.md provides 2,4,6 runs under cyclic identification of three identical ones, a materially different orbit action from one distinct 1 and two 2s.",
+        "The ternary result has positive odd-run counts C_3(n),C_5(n) for all n>=6 and different run/census formulas."
+      ],
+      "reasoning": "Binary marker identification collapses the distinct-anchor ordering used in the ternary proof, so its formulas cannot imply this result by substitution. Simpson--Puglisi covers only a specialized transform shape, not full-frequency distribution.",
+      "searches": [
+        "ternary Burrows Wheeler transform run spectrum word exactly one symbol 1 two symbol 2 sparse necklaces three markers",
+        "Burrows Wheeler transform sparse strings with three nonzero markers two equal one distinct run lengths",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-exact-burrows-wheeler-run-spectrum-of-cyclic-binary-words-with-t--17765181f4c4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Simpson--Puglisi (2008), Theorems 3.11 and 3.12, characterize special decreasing-block ternary BWT images, rather than a full linear-run census at content (n-3,1,2).",
+        "The present mask-chain identity counts all 111 possible gap-order branches and all run classes."
+      ],
+      "reasoning": "Rewriting the special descending-three-block image as three runs cannot establish the four-, five-, or six-run class multiplicities. No equivalent all-length ternary mixed-marker spectrum was retrieved.",
+      "searches": [
+        "ternary Burrows Wheeler transform run spectrum word exactly one symbol 1 two symbol 2 sparse necklaces three markers",
+        "Burrows Wheeler transform sparse strings with three nonzero markers two equal one distinct run lengths",
+        "circular Burrows Wheeler ternary sparse three markers exact run distribution",
+        "https://www.kurims.kyoto-u.ac.jp/EMIS/journals/EJC/Volume_15/PDF/v15i1r83.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact ternary content (n-3,1,2) run table appeared among the retrieved ranked published-finding corpus matches or external sparse ternary BWT searches.",
+        "A published binary three-marker table has only 2,4,6 runs; it does not contain odd-run ternary cases."
+      ],
+      "reasoning": "The search did not reveal an exact already-tabulated all-length mixed ternary spectrum. Absence of a hit is not a proof of novelty; historical unindexed tables remain possible.",
+      "searches": [
+        "ternary Burrows Wheeler transform run spectrum word exactly one symbol 1 two symbol 2 sparse necklaces three markers",
+        "Burrows Wheeler transform sparse strings with three nonzero markers two equal one distinct run lengths",
+        "circular Burrows Wheeler ternary sparse three markers exact run distribution"
+      ]
+    },
+    "rationale": "The strongest identified adjacent source is the published binary 3-one run spectrum, whose 2,4,6 distribution is not equivalent to ternary one-1/two-2 content. Primary Simpson--Puglisi 2008 gives a constrained three-block output characterization rather than complete all-run counting. Historical unindexed equivalence is a residual risk.",
+    "residual_risks": [
+      "Historical sparse multicolor Burrows--Wheeler tables may use gap-encoded or standard-word terminology and be unindexed.",
+      "The arXiv 2005 transformation note was inspected via abstract rather than complete text; no decisive conflicting statement identified.",
+      "Primary Simpson--Puglisi PDF full text was readable as text but image screenshot access returned 403; this does not establish uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines cyclic sorting and predecessor-column operation, not sparse ternary BWT run spectrum",
+        "evidence": [
+          "1994 technical report 124 cover dated 10 May 1994; algorithm section describes sorting cyclic rotations."
+        ],
+        "identifier_or_url": "https://www.cl.cam.ac.uk/teaching/2002/DSAlgs/SRC-124.pdf",
+        "material_read": "Original 1994 report cover and BWT block sorting algorithm description, including rotation table",
+        "method": "Public original PDF text and page image",
+        "title": "A Block-sorting Lossless Data Compression Algorithm",
+        "trigger": "Original definition and earliest verified public source"
+      },
+      {
+        "assessment": "Characterizes last columns of descending contiguous symbol blocks, not multiplicity distribution of all 2-to-6 runs at sparse ternary content",
+        "evidence": [
+          "Theorem 3.11 characterizes Type I words; Theorem 3.12 gives possible Parikh vectors for Type I images; Section 4 discusses Type II and Type III separately."
+        ],
+        "identifier_or_url": "https://www.kurims.kyoto-u.ac.jp/EMIS/journals/EJC/Volume_15/PDF/v15i1r83.pdf",
+        "material_read": "Full text searched; substantive Sections 1, 2, 3 and 4, especially Theorems 3.11 and 3.12 and the discussion of Type I patterns",
+        "method": "Lawfully accessible full PDF text through open/search; PDF screenshot endpoint returned access error",
+        "title": "Words with Simple Burrows-Wheeler Transforms",
+        "trigger": "Highly relevant three-letter BWT run-clustering theorem"
+      },
+      {
+        "assessment": "Exactly three indistinguishable binary ones modulo cyclic rotation, with run counts 2,4,6, is not the ternary one-distinguished/two-equal-marker spectrum",
+        "evidence": [
+          "Binary source formula C_2=1, C_4=n-4+1_{3|n}; no odd counts."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-exact-burrows-wheeler-run-spectrum-of-cyclic-binary-words-with-t--17765181f4c4",
+        "material_read": "Complete published RESULT.md, including proof, formulas, references and limitations",
+        "method": "Direct read-only original repository file",
+        "title": "Exact Burrows–Wheeler run spectrum of cyclic binary words with three markers",
+        "trigger": "Closest published exact 3-marker BWT spectrum"
+      },
+      {
+        "assessment": "Foundational general transform relation; no inspected same-composition enumeration",
+        "evidence": [
+          "ArXiv 2005 abstract describes relating BWT and Gessel--Reutenauer transformation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/cs/0502073",
+        "material_read": "ArXiv abstract and summary describing Gessel--Reutenauer relation; full text not inspected",
+        "method": "Primary bibliographic abstract inspection",
+        "title": "A note on the Burrows-Wheeler transformation",
+        "trigger": "Classical general transformation and permutation framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "11ed932d-1942-4b9c-93db-ecb54409e2f3",
+  "value": {
+    "rationale": "Run-count statistics govern BWT run-length compressibility; the smallest mixed-color 3-marker ternary family is a canonical nonbinary sparse test class. Its odd-run population is a genuine qualitative break from the binary three-identical-marker spectrum, and the all-length rational joint data provides complete extrema, exact multiplicities and a high-run density law, not a chosen finite cutoff.",
+    "status": "PASS"
+  }
+}
