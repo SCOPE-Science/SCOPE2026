@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The claim is restricted to an idealized constant-drift, photon-noise-limited model with integrable, nonnegative strictly decreasing line autocorrelation. Exact integration gives the squared matched-filter information rate. Strict concavity gives a single stationarity zero, and dominated-integral asymptotics establish both overhead laws. In the Gaussian case the erf expression and limiting constants were checked from the integral and by 225 standalone auxiliary numerical assertions. No inference from finite tests to an infinite theorem is used.
+
+**Originality — PASS on inspected evidence.** The closest first-public 2023 motivation, Boldt-Christmas et al., models high-resolution transit spectra numerically and documents a cadence/smearing trade-off; its idealized simulations do not formulate the line-autocorrelation uniqueness theorem or the cube-root versus square-root overhead exponents. Hernandez Camero et al. address TESS transit light-curve parameter precision, not a drifting spectral matched-filter information rate. Loomis et al. develop interferometric spectral matched filtering without overhead-duration optimization. The underlying calculus is standard; the contribution is its exact astrophysically motivated all-overhead classification. The published mathematical sampling records reviewed describe different measurement models. The residual risk is unexamined mathematical imaging/exposure literature, so priority beyond inspected sources is provisional.
+
+**Value — PASS.** The work supplies a precise idealized benchmark in a directly motivated observing trade-off: the optimizer is unique, increases monotonically with readout overhead, and crosses two different scaling regimes set by instrumental drift and intrinsic linewidth. It distinguishes a provable analytic design rule from numerical case-specific optima. This is useful as a diagnostic and baseline for more complicated simulations, not an unqualified operational telescope recommendation.
+
+Limitations: exact matched filter, stationary repeated exposures and no read noise, finite transit, acceleration, tellurics or detrending; oscillatory spectral autocorrelations are outside scope. Broader literature priority and actual observing performance remain unverified.
+
+Self-review: passed. Independent audit: not yet performed.

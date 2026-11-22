@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The Bochner integral of shifted L² profiles has the exact lag-autocorrelation norm formula; differentiation proves F′>0 and F′′<0 under strict K decay. The Q derivative numerator decreases from h to -2M0 and has one root. The implicit overhead comparison is strictly positive; small-lag and finite-moment expansions give the two asymptotic constants. Gaussian F and F′ agree with independent integral and 225 auxiliary numerical checks; the computation is not the global proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Agrawal and Raskar (CVPR 2009), Sections 1 and 2, optimize single-image deconvolution SNR and explicitly conclude traditional camera deconvolution SNR decreases with exposure; their objective differs from the matched spectral-line detection information rate.",
+        "Boldt-Christmas et al. study simulated real transit cases in Section 4 and contrast varied astronomical conditions in Section 5, not a general monotone-autocorrelation theorem."
+      ],
+      "reasoning": "A generic blur/SNR exposure optimization is broader in application domain, but no inspected prior proof dominates the stationary repeated-exposure matched-filter statement. Agrawal-Raskar use inverse-image deblurring and no periodic readout-overhead benefit; even the qualitative exposure response can differ. Their general motivating trade-off is acknowledged.",
+      "searches": [
+        "optimal exposure time readout overhead Doppler smearing Gaussian line matched filter analytical formula optimal cadence spectrograph",
+        "motion blur optimal exposure time readout overhead matched filter autocorrelation unique SNR asymptotic",
+        "optimal exposure time motion blur gaussian point spread function fixed overhead signal to noise square root",
+        "https://www.merl.com/publications/docs/TR2009-040.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2312.08320v1",
+      "https://arxiv.org/html/2302.02897v1",
+      "https://arxiv.org/abs/1803.04987",
+      "https://www.merl.com/publications/docs/TR2009-040.pdf",
+      "Published mathematical work: D-optimal sampling of arithmetic-spectrum flows (2026)",
+      "Published mathematical work: conditioning two Gaussian spectral-bin intensity measurements (2026)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The high-resolution spectroscopy full text (arXiv:2312.08320v1) derives case-by-case optimum observational time resolution from simulated spectra and SYSREM; it does not prove strict concavity in an autocorrelation kernel.",
+        "The imaging paper TR2009-040, Section 1.1, reports decreasing traditional deconvolution SNR with longer exposures, not this model with an overhead-induced interior optimum.",
+        "A related published record on D-optimal spacing of arithmetic-spectrum flows concerns confluent-Vandermonde mode observability rather than spectral-line Doppler averaging."
+      ],
+      "reasoning": "No one of the inspected stronger-looking statements gives Q_h(T), identifies F′′<0, or implies its overhead-dependent optimizer and asymptotics by specialization. The proof is independently constructed from the specified physics and its exact autocorrelation identity.",
+      "searches": [
+        "Gaussian Doppler-smearing matched filter exposure cadence total squared SNR per wall time unique optimal interval, overhead short limit cube root large limit square root",
+        "exponential Gaussian autocorrelation smearing optimal observation time photon noise overhead single globally optimal, profile small exponent power-law",
+        "photometry spectroscopy integration window autocorrelation convexity monotone kernel finite overhead exact optimization",
+        "https://arxiv.org/html/2312.08320v1",
+        "https://arxiv.org/html/2302.02897v1",
+        "https://www.merl.com/publications/docs/TR2009-040.pdf",
+        "https://arxiv.org/abs/1803.04987"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boldt-Christmas et al., Section 4.1 and Section 5.6, report simulation-dependent detection-significance peaks and overhead sensitivity, not a closed autocorrelation optimization.",
+        "Loomis et al. treat a matched-filter line-detection statistic in a radio-visibility domain without sequential acquisition overhead and translational drift."
+      ],
+      "reasoning": "Cross-correlation, SNR and cadence are shared terminology, but the mathematical objective Q_h(T)=||∫_0^Tg(.-au)du||²/[T(T+h)] and its exact uniqueness and two limits are not equivalent to simulated SYSREM detrending, parameter-fitting Fisher precision, or interferometric matched filtering alone.",
+      "searches": [
+        "\"spectral smearing\" \"unique optimal\" exposure signal to noise",
+        "\"optimal exposure time\" \"velocity smearing\" \"Gaussian\" \"readout\"",
+        "exoplanet spectroscopic exposure duration optimal smearing readout overhead Gaussian analytical optimum signal to noise",
+        "https://arxiv.org/html/2312.08320v1",
+        "https://arxiv.org/html/2302.02897v1",
+        "https://arxiv.org/abs/1803.04987"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Boldt-Christmas et al., Table 1 specifies CRIRES+ readout time and Section 4 reports detection-significance grids; these are simulated scenarios rather than an analytic Gaussian autocorrelation exact-root table.",
+        "Camero et al. publish numerical cadence precision predictions for transit light curves, not an erf-root exposure law."
+      ],
+      "reasoning": "The numerical Gaussian benchmark T*(c=h=1)=1.378327080411 is a consequence, not a claimed previously unknown fundamental constant; neither inspected table represents this equation or its optimizer across arbitrary overheads.",
+      "searches": [
+        "integration time optimization smearing image camera photon noise overhead matched filter one optimum",
+        "exoplanet high resolution gaussian spectral line smear photon white noise total per wall time optimal t star equation erf unique",
+        "https://arxiv.org/abs/2312.08320",
+        "https://arxiv.org/abs/2302.02897"
+      ]
+    },
+    "rationale": "On examined full texts and actual mathematical searches, the new object is the infinite-cycle white-noise matched-filter information rate for a translating spectral line. The exact strictly decreasing-autocorrelation uniqueness theorem and the dual short/long overhead powers were not asserted or implied by inspected numerical high-resolution exoplanet cadence, light-curve Fisher information, radio spectral matching, or deconvolved-image capture models. Elementary concavity identities themselves are not claimed to be new; historical priority is provisional.",
+    "residual_risks": [
+      "Exhaustive priority against older time-integration, optical signal-processing and motion-blur theory is not established; general quotient/concavity calculus is classical.",
+      "The physical objective excludes camera read noise, a finite number of transit exposures and postprocessing; field-specific detection maxima need not match."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest physical motivation; simulations and empirical target-specific optima, no autocorrelation theorem or two asymptotic powers",
+        "evidence": "Submitted 2023-12-13; Section 2.1 develops the competing exposure effects; Section 5.6 discusses overhead but not an exact universal stationary model.",
+        "identifier_or_url": "https://arxiv.org/html/2312.08320v1",
+        "material_read": "Full HTML original v1, Sections 1, 2.1, 3, 4.1-4.3, 5.6, 5.9 and conclusions",
+        "method": "Primary lawful arXiv HTML, including mathematical statements, simulation tables and conclusions",
+        "title": "Optimising spectroscopic observations of transiting exoplanets",
+        "trigger": "Exact same astronomical cadence / radial-velocity smearing / readout-overhead problem"
+      },
+      {
+        "assessment": "Light-curve radius-ratio fitting objective and numerical precision table; no Doppler-drifting spectral matched filter or overhead law",
+        "evidence": "Submitted 2023-02-06; TESS photometric radius precision is studied through model derivatives.",
+        "identifier_or_url": "https://arxiv.org/html/2302.02897v1",
+        "material_read": "Original v1 HTML, abstract, Sections 1 and 2.3 with model and Fisher-information objective, and described results",
+        "method": "Lawful arXiv HTML",
+        "title": "Understanding and predicting cadence effects in the characterization of exoplanet transits",
+        "trigger": "Cadence effect in exoplanet observations, possible Fisher-information implication"
+      },
+      {
+        "assessment": "Confirms standard matched-filter practice; no time-integrated Doppler-shifting Gaussian line exposed to cycle overhead",
+        "evidence": "Submitted 2018-03-13; radio-interferometric visibility filtering not sequential stellar-planet transit exposures.",
+        "identifier_or_url": "https://arxiv.org/abs/1803.04987",
+        "material_read": "ArXiv accessible full text, abstract, introduction and matched-filter construction setting",
+        "method": "ArXiv text view",
+        "title": "Detecting Weak Spectral Lines in Interferometric Data through Matched Filtering",
+        "trigger": "Potential stronger matched-filter coverage"
+      },
+      {
+        "assessment": "Studies reconstruction SNR after deconvolution and coded exposure; traditional-camera result goes in opposite direction absent same overhead objective, so does not entail claimed theorem",
+        "evidence": "Agrawal and Raskar, CVPR 2009, Section 1.1 explicitly says deconvolved-image SNR decreases with exposure for a traditional camera.",
+        "identifier_or_url": "https://www.merl.com/publications/docs/TR2009-040.pdf",
+        "material_read": "Lawful 10-page PDF, abstract, introduction, Sections 1.1, 2 and 2.1 with image-noise model and capture SNR objective; inspected page 4 rendering",
+        "method": "Full-text PDF read with rendered page inspection",
+        "title": "Optimal Single Image Capture for Motion Deblurring",
+        "trigger": "Broader motion-blur imaging optimization might dominate spectral-smear claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "baa64c15-b418-4e85-b4db-68de5a239502",
+  "value": {
+    "rationale": "The exposure-smearing trade-off is an explicitly motivated unresolved analytic design subproblem of numerical high-resolution exoplanet spectroscopy. The theorem gives an exact global optimum for every positive overhead, an unambiguous Gaussian root and two physically different scaling regimes (cube root and square root). This benchmark clarifies how reducing detector downtime competes with resolving a drifting line and provides a precise baseline for future read-noise and finite-transit analyses. It is not presented as empirical observational guidance.",
+    "status": "PASS"
+  }
+}
