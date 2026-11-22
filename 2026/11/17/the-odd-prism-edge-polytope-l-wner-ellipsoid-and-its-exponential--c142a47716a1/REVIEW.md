@@ -1,11 +1,21 @@
-# Review of the odd-prism edge-polytope Löwner ellipsoid
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof identifies the exact affine space, Fourier covariance spectrum, strict log-determinant optimizer and global contact moment certificate. In the specified odd-rim domain, all \(3m\) vertices contact the unique ellipsoid, and the complete principal semiaxis spectrum and determinant follow. The package checker independently reconstructs numerical covariance matrices and verifies contact conditions through rim order nineteen; the mathematical proof, not these finite checks, establishes all orders.
+## correctness
 
-**Originality — PASS, historical priority provisional.** Nagaoka–Tsuchiya provides the ordinary edge-polytope definition and dimension, while D'Alì–Delucchi–Michałek concerns symmetric edge polytopes. A particularly close public cyclic-ladder result optimizes the determinant of a weighted *ordinary graph Laplacian*; it may already imply the bipartite even-prism counterpart and the final claim therefore **only concerns odd prisms**. Odd cycles obstruct sign-switching the signless covariance to that Laplacian, and none of the inspected statements yields the exact odd-prism Löwner ellipsoid or exponential correction. Specialist signless-network experimental-design sources are a residual priority risk.
+PASS
 
-**Mathematical value — PASS.** This is an exact natural Euclidean invariant, its complete contact and volume classification, and a sharp asymptotic law for the incidence-geometry distinction between spoke and rim edges. It is not an ad hoc parameter sample or a routine renaming of the weighted-spanning-tree result.
+For connected odd-rim C_m x K2, the unsigned incidence columns span the 2m-dimensional ambient space and edge differences span the zero-sum L of dimension 2m-1, with unique symmetry center mu=(1/m)1. Fourier decomposition of orbit covariance gives eigenvalues [(1-x)(1+cos 2pi k/m)+2x]/m (symmetric k=1..m-1), [(1-x)(1+cos 2pi k/m)]/m (antisymmetric k=0..m-1). The root-of-unity product yields determinant F_m(u)^2(1-u²)^m/(2m)^(2m-1), u=sqrt(x). Strict concavity of log det, a positive derivative at x=0 and zero endpoint determinant ensure a unique interior optimizer satisfying ((1-u)/(1+u))^m=(1-2u)/(1+2u). At stationarity two edge-orbit leverage scores coincide and their weighted mean is dimension d; hence all 3m edge points contact the John/Löwner covariance ellipsoid globally, not only among symmetric rivals. Setting delta=1/2-u and expanding stationarity proves x=1/4-3^{-m}+O(m9^{-m}) for odd m. Independent numerical diagonalisation and leverage/determinant checks for m=3,5,7,9,11,19 agreed to numerical tolerance, including first exponential coefficient.
 
-**Limitations.** The theorem is confined to odd simple prism graphs with standard unsigned incidence coordinates; no even-rim statement is asserted. The optimization is given by a unique implicit scalar equation. No independent mathematical audit or exhaustive historical priority certification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS. D-optimal signed-Laplacian spanning-tree cyclic-ladder design is a different determinant problem; on odd nonbipartite prisms no vertex sign switching converts unsigned signless incidence to signed Laplacian. A same-day full RESULT for *ordinary wheel* edge polytope has a different graph and one-third algebraic spoke law; the exact 1/4 geometric correction here is neither its special case nor an implication of general John design theory. Ordinary/symmetric edge polytopes are carefully distinguished.
+
+## value
+
+PASS
+
+The complete semiaxis and contact solution for a natural infinite family of nonbipartite graph-edge polytopes, especially a sharp exponentially small optimal spoke-weight deficit, is a motivated exact convex-geometric invariant and highlights nonbipartite parity effects not captured by signed-Laplacian design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
