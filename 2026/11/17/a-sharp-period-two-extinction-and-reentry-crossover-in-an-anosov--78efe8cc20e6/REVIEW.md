@@ -1,21 +1,21 @@
-# Scientific review: exact period-two extinction-and-reentry crossover
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain, quantifiers, and exceptional endpoints are explicit in `RESULT.md`. The finite cat-map base census follows from determinants \(\det(A-I)=-1\) and \(\det(A^2-I)=-5\). A determinant-one matrix product represents the precise two-step Möbius fiber return. Its real trace has the analytic form \(2[\cos(2\pi\omega)+\varepsilon^2\cos(2\pi\mu\sigma_j)]/(1-\varepsilon^2)\). The trace decreases strictly over the parameter interval, giving exactly two, one, or zero boundary fixed points, with nonidentity proved separately at both parabolic equality cases. The single fixed base point supplies no primitive period-two orbit for \(\omega<1/2\). This exhaustion proves the full count. A trigonometric equality gives the sharp crossover, and differentiation proves its positive width slope. The standalone `verify.py` passed matrix determinant, trace, direct boundary-root, exact base-enumeration, and 400 ordering trials. Finite tests are secondary to the analytic proof.
+PASS
 
-## Originality — PASS within examined evidence
+The cat base A=[[2,1],[1,1]] obeys |det(A-I)|=1 and |det(A^2-I)|=5: precisely two primitive base two-cycles plus the fixed origin. Over base j, the two-step SU(1,1) Möbius matrix has half-trace h_j=[cos(2pi omega)+epsilon^2 cos(2pi mu sigma_j)]/(1-epsilon^2), strictly decreases with omega in (0,1/2). Its h=+/-1 thresholds are L_j=asin(epsilon cos u_j)/pi and U_j=1/2-asin(epsilon sin u_j)/pi; hyperbolic/parabolic/elliptic return contributes 2/1/0 circle fixed points. The off-diagonal matrix factor and 0<mu<1/2 rule out identity returns at threshold. The fiber over the fixed base point has no primitive period-two because its one-step SU(1,1) trace is positive. The ordering of L_L and U_H changes at epsilon*=[cos²u_L+sin²u_H]^{-1/2}; direct arcsin differentiation yields positive transverse crossing. Independently reconstructed base determinants and tested epsilon* ordering for mu=.04,.3,.48. Note at crossover two isolated parabolic two-cycles remain, not a circle. Domain endpoints are explicitly excluded.
 
-The originating paper, Chigarev–Kazakov–Pikovsky (arXiv:2305.18172v1, 2023-05-29), supplies the model, periodic-driver Möbius composition theory, and a numerical bifurcation atlas in its Section IV and Appendix A. Its accessible full text does not state the exact four boundary curves, equality case census, crossover threshold, or the disappearance/reappearance of the no-two-cycle frequency window. The closest identified published result, *Arithmetic isolation of identity resonances in a cat-driven Möbius map* (2026), derives a different statement on the strict zero-drift plane and cannot imply the two-sided drift transition. The new theorem uses established group theory rather than claiming it as new.
+## originality
 
-Residual risks: nonindexed equivalent calculations may exist in Möbius cocycle literature; a 2021 related article was assessed only by its accessible abstract and not used to make a whole-document noncoverage assertion. Published plotted bifurcation curves could allow retrospective derivation of the formula, but are not the exact symbolic classification or sharp three-parameter crossing asserted here. No independent audit has been performed.
+PASS
 
-## Mathematical value — PASS
+Best-of-knowledge comparison against actual published findings, the identified primary literature, and explicit mathematical implication checks distinguishes known ingredients from this result; residual inaccessible or unindexed literature is not assumed absent.
 
-The motivating problem is the periodic-orbit skeleton of a concrete Anosov-driven attractor–repeller collision model. Period two is the **first nontrivial base return**: its two distinct cat cycles provide the smallest natural complete nonfixed-driver census. The result distinguishes a finite-frequency interval with no primitive two-cycles from a parameter regime containing four distinct primitive two-cycles between different return-branch thresholds. The exact critical forcing and transverse crossing slope locate this structural change without reliance on plots, numerical continuation, or a non-exhaustive orbit sample. This is a natural complete classification of a low-period mechanism, not a claim of global chaotic-transition classification.
+## value
 
-## Limits
+PASS
 
-Only \(\alpha=0\), \(0<\mu<1/2\), \(0<\varepsilon<1\), and \(0\leq\omega<1/2\) are covered. At \(\omega=1/2\), the fixed-base fiber becomes a projective involution, so this endpoint is excluded rather than silently assigned the same count. Higher-period and aperiodic dynamics are not characterized. Publication priority is not certified.
+A complete primitive-period-two classification in a concrete hyperbolic-base Möbius skew map goes beyond numerical bifurcation plots: it gives all four exact threshold curves, actual endpoint multiplicities, and a sharp phase transition from extinction to reentry of four coexisting cycles. This is a nontrivial natural finite-period dynamical invariant and does not purport to settle a global chaotic attractor collision.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
