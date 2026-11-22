@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The definition agrees with the even-power degree-one generalized Floater–Hormann blend. Each monotone sample vector is a positive combination of step vectors and a constant. For steps, the only potentially negative local term is isolated and dominated by two positive blending weights. A derivative test shows this two-weight bound decreases when the step moves farther from the evaluation interval; reflection handles upper overshoot. The three-node example attains the bound; strict extra denominator weights preclude attainment for longer grids. Symbolic and finite-grid exact-arithmetic checks from `verify.py` supplement, but do not replace, the all-grid analytic proof.
+
+**Originality — PASS, provisional historical priority.** The 2023 and 2024 Themistoclakis–Van Barel papers establish generalized interpolation, uniform norm bounds, and approximation estimates, but not the sharp all-grid monotone range envelope. A previously recorded three-node result (opaque identifier `885bf8a5-c599-4303-a98b-79ba8a3536a4`) already establishes the same extremal constant and its three-node formula: the formula alone would be covered. The new result proves it controls *every* finite uniform grid and is unattainable by any larger fixed grid. Other relevant interpolation results concern the original exponent-one or Berrut operators. Closely related published results can still exist under shape-preservation or positive-data stability terminology; historical priority is not independent.
+
+**Value — PASS.** The result converts a local three-node shape defect into a sharp, grid-size-independent guarantee for a widely motivated stable rational interpolation family. It distinguishes uniform boundedness of a Lebesgue norm from exact monotone range control, gives a constructive worst case, and supplies a direct positivity criterion for positive monotone data. The all-grid reduction is structural, not a routine re-evaluation of the three-point constant.
+
+Scientific limitations: Uniform grids, nondecreasing inputs, even powers, blending degree one. Strict monotonicity of the resulting function is not asserted. The exact maximal defect on each individual larger grid is not calculated.
+
+Self-review: passed. Independent audit: not yet performed.
