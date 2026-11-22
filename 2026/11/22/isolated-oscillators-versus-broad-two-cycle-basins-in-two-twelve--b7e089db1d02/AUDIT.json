@@ -1,0 +1,170 @@
+{
+  "correctness": {
+    "rationale": "Precisely two labelled twelve-vertex graphs and a strict-neighbor binary majority update, including incumbent tie on the quartic graph, are specified. Every one of the 4096 states per graph was checked by two separately constructed successor arrays and independent classification algorithms: forward first-repetition propagation (Python) and indegree-zero peeling plus reverse distance propagation (C++). They agree on all first-entry period table cells: truncated tetrahedron period-one (16,238,468,720,216,72), period-two (478,1264,528,96), and cuboctahedron period-one (146,1606,1200,1008,96), period-two (40). These cover exactly 4096 states per graph. The cuboctahedral period-two basin contains no entries after zero; hence all 20 cycles have only their two configurations as preimages. Automorphism groups of sizes 24 and 48 are reconstructed and checked, and both orbit enumeration and Burnside confirm geometric classes (5,26) and (14,3). Exact witness states 310 and 348 attain entry times five and four. Full deterministic executable programs and fixed reference census replayed successfully; no infinite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published 2026/11/1/SCOPE-incidence-conservation-and-half-factor-classification-of-two-cyc--61b3de3ad47a full RESULT.md inspected: for line graphs with equal-parity endpoint degrees, an exact recurrent-state half-factor formula. Applies to C, so its numbers of recurrent fixed states and primitive two-cycles are already derivable by specialization; the theorem does not describe basin sizes or transient entry times.",
+        "Goles–Olivos, Discrete Mathematics 30 (1980), 187–189, DOI 10.1016/0012-365X(80)90121-1, institutional abstract accessible: eventual period at most two for finite symmetric threshold maps.",
+        "Fountoulakis–Kang–Makai (2020), https://doi.org/10.1002/rsa.20970: full open-access article Introduction, Main Theorem and proof outline read; random-graph unanimity result, not deterministic twelve-site attraction census."
+      ],
+      "reasoning": "The closest broader theorem subsumes part of the contextual recurrent-state count for the cuboctahedron, so those subclaims are excluded from the originality claim. Neither it nor the classical period-two theorem determines any preperiodic basin sizes or the isolation law. The 2020 random-graph theorem has different quantified graphs, distributions and conclusions and cannot imply the concrete 4096-state pair census. The claim being audited remains the basin contrast and sharp finite settling structure.",
+      "searches": [
+        "published-finding corpus: binary majority on line graph of tetrahedron or truncated octahedron majority recurrent classes",
+        "published-finding corpus: Line graph Q3 inertial binary majority all period-two cycles are isolated with no incoming transient states; compare truncated K4 cuboctahedron",
+        "web: Goles Olivos 1981 periodic behaviour threshold functions symmetric graphs majority synchronous periods two",
+        "source: turn899575search1 / turn948228view3"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1405.2486",
+      "https://doi.org/10.1002/rsa.20970",
+      "https://doi.org/10.1016/0012-365X(80)90121-1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-incidence-conservation-and-half-factor-classification-of-two-cyc--61b3de3ad47a",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-excitation-clocks-and-tetrahedral-symmetry-on-the-truncate--6c938bef9545",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-homotopy-types-of-the-two-twelve-vertex-archimedean-2-independen--e9e32ef4ad60",
+      "https://mathworld.wolfram.com/TruncatedTetrahedralGraph.html",
+      "https://mathworld.wolfram.com/CuboctahedralGraph.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior half-factor theorem describes only solutions of F^2(x)=x, not preimages with F^t(x) periodic for positive t; arbitrary finite functional graphs sharing the same recurrent points can have different inbound trees.",
+        "The published truncated tetrahedral excitation work studies three states and has five least periods; its state-update map is not equivalent to the binary majority map.",
+        "The published two-independence-complex result computes homotopy types of simplicial complexes; no dynamical map or basin count appears in its full RESULT.md."
+      ],
+      "reasoning": "Neither the set/count of recurrent states, nor an eventual-period-two existence theorem, logically constrains the number of nonperiodic states feeding those recurrent cycles. The exact 1888 versus 0 transient-to-two-cycle difference therefore supplies strictly stronger data than these prior conclusions. It remains a finite graph-specific assertion without a generalized novelty claim.",
+      "searches": [
+        "published-finding corpus: Line graph Q3 inertial binary majority all period-two cycles are isolated with no incoming transient states; compare truncated K4 cuboctahedron",
+        "published-finding corpus: Among twelve-vertex Archimedean graphs, cuboctahedron line graph cube has only 20 primitive majority two-cycles and no transient preimages, versus 239 two-cycles and 2366 oscillatory-basin states on truncated tetrahedron",
+        "web: majority dynamics truncated tetrahedral graph binary synchronous voting attractors fixed point period two"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus closest excitation on truncated tetrahedron: 2026/11/8/SCOPE-exact-excitation-clocks-and-tetrahedral-symmetry-on-the-truncate--6c938bef9545; full RESULT.md inspected: a three-state excitable map with periods 1,3,4,6,8, not binary majority.",
+        "published-finding corpus closest paired graph study: 2026/10/25/SCOPE-homotopy-types-of-the-two-twelve-vertex-archimedean-2-independen--e9e32ef4ad60; full RESULT.md inspected: two-independence complex homotopy groups, not discrete-time attractor basins.",
+        "MathWorld graph entries establish graph identities T and C=L(Q3) and group orders, without reported majority basin tables."
+      ],
+      "reasoning": "Searches explicitly covered Archimedean, truncated tetrahedral and cuboctahedral graph labels; line-graph-of-cube alias, equivalent synchronous threshold/majority-voting language, and exact 20, 146, 239, 2366 counts. Closest same-object results use mathematically inequivalent state spaces, updates, or invariants. None read provides the period-specific basin histogram. Missing indexed matches alone are not treated as proof of uniqueness.",
+      "searches": [
+        "published-finding corpus: truncated tetrahedron synchronous binary majority exact attractor fixed points two cycle classes vertex voting",
+        "published-finding corpus: truncated tetrahedral graph 12 vertices threshold majority fixed states oscillatory orbits period two",
+        "published-finding corpus: synchronous binary majority dynamics cuboctahedral graph line graph cube exact periodic orbits fixed points transient comparison truncated tetrahedron 12 vertex Archimedean",
+        "web: truncated tetrahedron cuboctahedron majority dynamics synchronous binary voting fixed states cycle computational enumeration",
+        "web: \"cuboctahedron\" synchronous majority 20 146"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-finding corpus ranking produced matching graph-type homotopy studies and exact excitation studies but no exact binary-majority basin census for the pair.",
+        "MathWorld named graph pages (https://mathworld.wolfram.com/TruncatedTetrahedralGraph.html and https://mathworld.wolfram.com/CuboctahedralGraph.html) contain graph order, degree, symmetry and spectrum facts, not binary-majority two-cycle attraction populations."
+      ],
+      "reasoning": "No inspected numeric table supplies the 2366 versus 40 eventual two-cycle-basin populations or zero versus positive transient preimages. The recurrent counts on C nonetheless are subsumed by a published general formula in principle; numerical nonappearance in a table is not used to reassert their independent novelty.",
+      "searches": [
+        "web: \"truncated tetrahedron\" \"239\" \"majority\" cycles",
+        "web: \"cuboctahedron\" \"146\" \"majority\" fixed",
+        "web: \"cuboctahedral\" \"20\" \"two-cycles\" majority",
+        "published-finding corpus: Truncated tetrahedron majority 16 fixed states 239 temporal two cycles 26 symmetry orbit classes cuboctahedron 146 fixed 20 two cycles",
+        "published-finding corpus: Among twelve-vertex Archimedean graphs, cuboctahedron line graph cube has only 20 primitive majority two-cycles and no transient preimages, versus 239 two-cycles and 2366 oscillatory-basin states on truncated tetrahedron"
+      ]
+    },
+    "rationale": "The accepted claim is the paired exact first-entry/attraction-basin contrast and particularly the isolated cuboctahedral two-cycles versus 1888 nonperiodic two-cycle-basin states on the truncated tetrahedron. The classical eventual-period-two theorem does not provide any of these basin populations. A prior general half-factor theorem implies recurrent counts for the cuboctahedron as a special case; those numbers are acknowledged as context and not independently claimed novel. Its premises and conclusion concern recurrent states and give neither the size nor the absence of transient preimages. The truncated tetrahedron has a line-graph representation with degree-parity-mixed base edges, outside the prior theorem hypothesis. Published full results on the same Archimedean pair concern higher-independence homotopy and three-state excitation, not binary majority. Exact-number, graph-name, alias and transient-isolation searches found no equivalently covering claim. An unindexed older full finite graph census remains the specific uncertainty.",
+    "residual_risks": [
+      "The 1980 generalized threshold paper was not available in full; its period-two theorem is already treated as prior and not claimed as novel.",
+      "An unindexed exact majority-transition table for these particular twelve-vertex graphs may predate this computation.",
+      "Cuboctahedral recurrent counts are consequences of a broader line-graph half-factor theorem; only comparative basin and preperiodic statements are novel in the present audited claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Recurrent-state half-factor formula applies to cuboctahedral line graph, but no first-entry, basin or transient-preimage theorem; recurrent counts are acknowledged as covered context.",
+        "evidence": [
+          "Formula for recurrent states F^2(x)=x and half-factor H(Z); absence of basin claims in Finding and Limitations."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-incidence-conservation-and-half-factor-classification-of-two-cyc--61b3de3ad47a",
+        "material_read": "Full RESULT.md Finding, assumptions, proof, verification, limitations and references",
+        "method": "GitHub read of complete RESULT.md",
+        "title": "Incidence conservation and half-factor classification of two-cycles in line-graph majority dynamics",
+        "trigger": "Closest same dynamical rule on line graphs; potential broader-coverage hazard"
+      },
+      {
+        "assessment": "Defines same graph but three-state Greenberg–Hastings dynamics and hence does not cover binary-majority basin statements.",
+        "evidence": [
+          "States 0/1/2 and primitive periods 1,3,4,6,8 in Finding; majority instead has binary states and periods 1 or 2."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-excitation-clocks-and-tetrahedral-symmetry-on-the-truncate--6c938bef9545",
+        "material_read": "Complete RESULT.md including graph definition, main theorem, proof, limitations",
+        "method": "GitHub read of complete RESULT.md",
+        "title": "Exact excitation clocks and tetrahedral symmetry on the truncated tetrahedral graph",
+        "trigger": "Exact same 12-vertex graph and finite-state classification"
+      },
+      {
+        "assessment": "Studies two-independence simplicial complex topology, not majority dynamics; its object pair is related but its conclusions imply no transition-map basin census.",
+        "evidence": [
+          "Explicit homotopy types and 2-independence functor in Finding and Proof."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-homotopy-types-of-the-two-twelve-vertex-archimedean-2-independen--e9e32ef4ad60",
+        "material_read": "Complete RESULT.md including full graph descriptions, main proof and limitations",
+        "method": "GitHub read of complete RESULT.md",
+        "title": "Homotopy types of the two twelve-vertex Archimedean 2-independence complexes",
+        "trigger": "Same exact pair of graphs"
+      },
+      {
+        "assessment": "Analyzes high-probability unanimity for dense binomial random graphs, not exact labelled finite Archimedean dynamic counts.",
+        "evidence": [
+          "2020 published Theorem 1.1 quantifies G(n,p) and high-probability unanimity; Introduction states classical finite eventually-period-two theorem."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.20970",
+        "material_read": "Publicly accessible Introduction, main Theorem 1.1, Section 2 proof outline and relevant background; remaining technical sections not reviewed in detail",
+        "method": "Wiley online open-access HTML full text",
+        "title": "Resolution of a conjecture on majority dynamics: Rapid stabilization in dense random graphs",
+        "trigger": "Directly relevant published rule and transient stabilization"
+      },
+      {
+        "assessment": "Contains qualitative and probabilistic majority results; abstract alone cannot rule out all content, but the separate close published line-graph theorem was read in full.",
+        "evidence": [
+          "ArXiv v1 public 2014-05-11; focuses infinite unimodular and random graphs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+        "material_read": "ArXiv bibliographic abstract and publication metadata; complete article not accessed",
+        "method": "arXiv abstract/metadata search result",
+        "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "trigger": "Earliest verified date-only archival literature anchor and general dynamics context"
+      },
+      {
+        "assessment": "Provides eventual period at most two; not enough to exclude a hidden specialized computation, so residual risk noted.",
+        "evidence": [
+          "Institutional abstract states fixed or length-two cycles for symmetric binary thresholds."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+        "material_read": "University publication record abstract only; full article not accessible in this check",
+        "method": "Read institutional bibliographic record and abstract",
+        "title": "Periodic behaviour of generalized threshold functions",
+        "trigger": "Foundational stronger theorem that could subsume period restriction"
+      },
+      {
+        "assessment": "Confirms graphs are standard and their group orders 24,48; no majority dynamical basin results",
+        "evidence": [
+          "T degree 3, 12 vertices, group order 24; C degree 4, 12 vertices, L(Q3), group order 48."
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/TruncatedTetrahedralGraph.html; https://mathworld.wolfram.com/CuboctahedralGraph.html",
+        "material_read": "Full short encyclopedia entries including graph order, degree, symmetry order and line-graph identity",
+        "method": "Read two MathWorld web entries",
+        "title": "Truncated Tetrahedral Graph; Cuboctahedral Graph",
+        "trigger": "Canonical identities and group-size verification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b7e089db-1d02-4fd0-90a9-87f5943118a1",
+  "value": {
+    "rationale": "The two twelve-vertex Archimedean solids are canonical vertex-transitive graphs. A mathematically natural comparison of the same binary majority update on these two compact, symmetric graph geometries yields a strong qualitative separation not reflected in general period-one-or-two theorems: cuboctahedral two-cycles are completely isolated with only 40 eventually oscillatory states, while 2366 truncated-tetrahedron states oscillate eventually, including 1888 initially transient ones. Exact first-entry histograms, sharp times five versus four, and complete temporal/geometric orbit populations provide reusable benchmark cases for the distinction between periodic-state classification and attraction basins. This precise finite comparison is substantive even without an infinite-family consequence; no claim of a universal edge-addition principle is made.",
+    "status": "PASS"
+  }
+}
