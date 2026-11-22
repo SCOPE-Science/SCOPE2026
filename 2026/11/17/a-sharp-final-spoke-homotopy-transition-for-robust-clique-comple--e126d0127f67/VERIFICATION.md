@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification summary
 
-The standalone `verify.py` independently constructs the graph edge set for each parameter configuration, enumerates each subset of vertices and every candidate independent \(k\)-subset, and constructs the complete chain complex. It reduces signed boundary matrices over two distinct finite fields, comparing all reduced Betti numbers to the theorem's formulas. The recorded output is `verification.json` and reports `PASS` for 41 parameter configurations in both characteristics \(2\) and \(3\).
+# Independent mathematical audit
 
-These checks are exact for the listed finite instances but are not exhaustive over all integers and do not certify integral Smith invariants. The integral and infinite-family conclusions require the fully stated proof via the matroid independence-complex shelling and the nullhomotopic link attachment. The partial rank checks do not imply that arbitrary higher edge-deletion patterns behave similarly.
+## correctness
+
+PASS
+
+Direct face classification yields deletion D=U_{k-1,A\{u}}*U_{k-1,B} and link L=U_{k-2,A\{u}}*Q_t. Matroid-shellable Q_t has top Euler rank binom(b-1,k-1)-binom(t,k-1) for t<b; terminal Q_b=U_{k-2,B}. D is (2k-4)-connected and L has dimension <=2k-4, so the cone map is null and the claimed two wedge formulas follow integrally. Top-chain intersection gives primitive split injections. Independent full simplicial GF(2) boundary reduction at a=b=5,k=4 gives ranks 16,16,16,13,4,4 and final degree-4 rank 18: original explicit example is false, but full replacement corrects it without weakening the general theorem.
+
+## originality
+
+PASS
+
+Filakovský Theorems 1–3 concern grids/square sequences (all k only under edge-gluing), unlike dense star-deficient bicliques; the published all-bipartite robust theorem covers k=3 only. A closely related published edge-rectangle fault theorem deletes A0×T but retains one intact hub, rather than deleting the spokes of one hub; its strong collapse does not imply this link filtration. Standard matroid skeleton and shellability ingredients are acknowledged. Priority under an unindexed special-family result remains uncertain.
+
+## value
+
+PASS
+
+A full integral homotopy and primitive-map classification across every edge-deletion stage identifies the exact final-spoke dimension change, a natural graph-complex persistence boundary. It is an exact structural result not just a small Betti table; the numerical example correction is necessary for trustworthiness but not the source of value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
