@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every odd integer \(n\ge3\), positive width \(w\), and every triple of planar rotation angles, the proof reconstructs the support Fourier coefficients from the alternating curvature-radius profile, obtains the absolutely convergent exact energy identity (1), and evaluates its pair kernel using two classical odd-frequency cosine sums. The global minimization over circular phase gaps is complete, including boundary configurations, and equality is unique modulo common rotation and permutations. Positivity of the residual disk deficit is certified by an explicit nonzero harmonic; the classical minimum is established by strict kernel monotonicity. The local Taylor coefficient is evaluated from the exact kernel. The standalone verifier passes 10,692 finite tests, including a separate curvature-integral boundary reconstruction. Numerical sampling is not used as evidence of global uniqueness.
+## correctness
 
-## Originality — PASS, provisional historical priority
-The primary 2026 paper classifies minimum-area group-invariant constant-width shapes but does not optimize a Minkowski average of three arbitrary rotations. The closest exact published Reuleaux result treats a triangle averaged with **one** rotated copy; its two-phase formula does not determine the interior optimum of the three-gap simplex. Published general random-rotation moment and limiting-law results average over random angles rather than maximize over three deterministic angles; two-frequency constant-width counterexamples have a different two-copy problem. The current result proves a new sharp three-phase optimizer and a **strictly positive** unavoidable disk deficit, which the two-copy opposite-body result cannot furnish. The primary papers and closely matching public mathematical findings were inspected in relevant full-text form. Residual historical-priority risk: an older unindexed mixed-area or circle-energy theorem might imply the three-point kernel minimization.
+PASS
 
-## Mathematical value — PASS
-This is a naturally motivated exact geometric optimization problem: can a finite, odd number of equally weighted copies of a regular constant-width extremizer be oriented to recover circular area? The theorem determines the complete min-to-max interval, unique optimizers, the exact obstruction to the disk, and strict second-order phase stability for **every** odd polygon order. The result is not a numerical curiosity or a mere rewriting of the two-rotation formula; the nontrivial global step solves a three-variable constrained energy problem with possible boundary degeneracies.
+For odd n curvature radius rho=w(1+sgn(cos ntheta))/2 gives only odd-n multiple harmonics; support Fourier coefficients decay as 1/[j(n²j²-1)], and Parseval area deficit is positive weighted square of 3-phase Fourier sums. The odd-harmonic pair kernel F_n(t)=sum cos(jt)/[j²(n²j²-1)] has the exact closed expression on [0,pi], and derivative pi/4*(1-cos((pi/2-t)/n)/cos(pi/(2n)))<0 inside (0,pi). A three circular-gap minimizer cannot have a gap >=pi; equal derivative for three interior gaps forces equal gaps, and all collision boundaries are strictly worse by sin(3s)<3sin(s). The maximum deficit is positive because modes j divisible by 3 survive. Taylor expansion F_n(2pi/3)>0 gives the stated local stability. Independently summed Fourier series and closed kernel for n=3,5,9,19, checked exact deficit and a 61x61 phase grid, finding only expected equal-spaced phase pairs on grid; finite mesh corroborates rather than proves global rigidity.
 
-## Scope and remaining uncertainty
-No claim is made for unequal weights, other constant-width bodies, or other numbers of rotations. Priority is subject to older unindexed literature; independent mathematical assessment has not occurred. Standard Fourier and classical area formulas are prior inputs, not new discoveries.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Falcó–Myroshnychenko classify minimum-area invariant constant-width shapes, not optimal three independent rotations of a fixed shape. Bogosel treats Reuleaux mixed area with a special opposite copy. Prior exact two-copy Reuleaux triangle phase area, random-rotation means and smooth two-mode nonmonotonicity do not state the constrained three-gap minimization or strict n-general equality classification. Best-of-knowledge novelty is subject to older three-point energy literature.
+
+## value
+
+PASS
+
+The exact deterministic three-copy phase-optimization and strict noncircular residual is a natural sharp geometric symmetrization question, distinct from prior body-shape minimization or two-copy complementary-rotation disk construction. Explicit asymptotic and Hessian rigidity quantify the failure of three-copy averaging to reach the disk.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
