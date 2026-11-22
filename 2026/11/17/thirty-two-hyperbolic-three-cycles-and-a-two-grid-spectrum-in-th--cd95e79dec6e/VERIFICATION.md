@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction of the finite classification
 
-Run `python3 checker.py` alongside `cycles.csv` under Python 3. No nonstandard packages are needed. All computed values are integers or exact rational fractions. Each of 4096 three-step branches is solved by exact inversion of its affine fixed equation after checking that its trace is not two. The checker then imposes every time-ordered branch and modular-carry inequality, including fold equalities. The resulting admissible incidence distribution is 97 single occurrences, two eightfold occurrences and one 64-fold occurrence, giving 100 distinct periodic points. Exactly 96 of these are primitive three-periodic; their canonical 32 representative coordinates and return traces are independently listed in `cycles.csv` and compared against the recomputation.
+# Independent mathematical audit
 
-The checker verifies that all primitive cycles avoid switching coordinates, so the traces belong to classical differentiable monodromy matrices. The complete return-trace census is 16 cycles of trace \(102\), eight of trace \(-34\) and eight of trace \(-98\), with determinant one. All are hyperbolic. It additionally checks 28 points on the mesh-\(1/18\) grid, 76 on the mesh-\(1/50\) grid and the exact overlap of four fixed points. Direct pointwise re-evaluation of the original nonlinear fractional-part map is performed.
+## correctness
 
-No infinite-time or global dynamical assertion follows from this finite branch census. Full-period-four and period-two structures in the literature are not recomputed or independently reviewed here. Independent mathematical audit has not been performed.
+PASS
+
+The composition of two slope ±2 tent shears has exactly 16 canonical affine/wrap branches per step, hence all third-return fixed points are covered by 4096 length-three itinerary words including fold equalities. Each return linear part is determinant one, trace in {-98,-82,-34,-2,22,38,102,198} and never trace 2; thus I−M is nonsingular and there is at most one rational fixed point per word, excluding fixed arcs. Independent rational enumeration of all words and all ordered branch inequalities yields 177 admissible incidences, 100 distinct H³ points, four H fixed points, 96 primitive points in 32 3-cycles. Independently recomputed 16 cycles of derivative trace 102, eight -34 and eight -98, each regular with |tr|>2. The parity of M−I yields denominators dividing |2−tr|/2, so primitive points lie on 1/18 or 1/50 grids; inspected exact checker proves grid counts 28 and 76 intersecting at the four fixed points. The census is exhaustive for one map, not empirical time sampling.
+
+## originality
+
+PASS
+
+The same-map Myers Hill–Sturman–Wilson 2021/2023 papers define and analyze symmetric two non-monotonic tent shears and their mixing and period-two line segments, without a third-period exact count/trace grid in inspected sections. Published 80 primitive fourth-period cycles concerns distinct divisibility; the cited period-three arc theorem uses a one-tent, one-linear shear and is not the same map. No matched stronger all-period formula or period-3 exact table was identified. Originality is best-of-knowledge with full-text priority risk.
+
+## value
+
+PASS
+
+Period three is the first odd prime period beyond the documented neutral 2-cycle lines for a canonical nonuniformly hyperbolic torus cusp. The exact finite symbolic classification sharply separates all regular hyperbolic 3-cycles from singular 2-/4-period structures; the two rational denominator grids and three return-trace classes are reusable dynamical invariants, a natural complete period cutoff not an arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

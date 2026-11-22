@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two tent shear operations have exactly 16 affine branch/wrap formulas per step. Their 4096 three-step symbolic cells cover the complete torus, including canonical edges and switching lines. Every third-return linear part has trace different from two and determinant one, so every branch fixed equation has a unique rational solution. Exact inequalities retain 177 incidences, comprising 100 distinct torus points. Removing four fixed points yields 96 points in 32 primitive cycles. The 32 cycle matrix products have exact return-trace counts 16 at \(102\), eight at \(-34\), eight at \(-98\), all outside the elliptic/parabolic interval. The checker reproduces all values and all 32 cycle representatives from the embedded files using only exact arithmetic.
+## correctness
 
-## Originality — PASS within inspected evidence
-The 2021 and 2023 papers of Myers Hill, Sturman and Wilson establish the family, the cusp, hyperbolicity and mixing, and four two-periodic segments. The inspected complete same-map published-finding corpus publication classifies 80 primitive four-cycles, not period-three cycles. A different single-tent-shear model has eight arcs of third-periodic points at a resonance, but is not conjugate by the stated source definitions to the two-tent shear here. Searches for aliases, return-trace classes, fixed-third-iterate counts, stronger theorems and exact tables did not find a covering result. The scientific limitation is priority risk from unindexed work, not a proof of uniqueness.
+PASS
 
-## Mathematical value — PASS
-The result closes the first odd-prime-period census of the natural symmetric orthogonal-tents cusp, with a full hyperbolic three-class trace spectrum and a two-grid arithmetic description. This separates all smooth three-cycles from the known two-periodic neutral segments and from the switching period-four cycles. The claims are finite but mathematically motivated by the orbit structure of an established nonuniformly hyperbolic reference model.
+The composition of two slope ±2 tent shears has exactly 16 canonical affine/wrap branches per step, hence all third-return fixed points are covered by 4096 length-three itinerary words including fold equalities. Each return linear part is determinant one, trace in {-98,-82,-34,-2,22,38,102,198} and never trace 2; thus I−M is nonsingular and there is at most one rational fixed point per word, excluding fixed arcs. Independent rational enumeration of all words and all ordered branch inequalities yields 177 admissible incidences, 100 distinct H³ points, four H fixed points, 96 primitive points in 32 3-cycles. Independently recomputed 16 cycles of derivative trace 102, eight -34 and eight -98, each regular with |tr|>2. The parity of M−I yields denominators dividing |2−tr|/2, so primitive points lie on 1/18 or 1/50 grids; inspected exact checker proves grid counts 28 and 76 intersecting at the four fixed points. The census is exhaustive for one map, not empirical time sampling.
 
-## Limits and evidence
-Only exact period three is resolved; no claims are made about other periods, chaotic basin dimensions, perturbations or global transport. The included `checker.py` and `cycles.csv` provide complete rational enumeration evidence. Sources: https://arxiv.org/abs/2112.05463; https://arxiv.org/abs/2303.08515; https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-eighty-primitive-four-cycles-in-the-orthogonal-tents-map--a8aec9ff96f0/RESULT.md; https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-eight-exact-arcs-of-primitive-three-periodic-points-at-a-toral-s--89b5051ec434/RESULT.md.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same-map Myers Hill–Sturman–Wilson 2021/2023 papers define and analyze symmetric two non-monotonic tent shears and their mixing and period-two line segments, without a third-period exact count/trace grid in inspected sections. Published 80 primitive fourth-period cycles concerns distinct divisibility; the cited period-three arc theorem uses a one-tent, one-linear shear and is not the same map. No matched stronger all-period formula or period-3 exact table was identified. Originality is best-of-knowledge with full-text priority risk.
+
+## value
+
+PASS
+
+Period three is the first odd prime period beyond the documented neutral 2-cycle lines for a canonical nonuniformly hyperbolic torus cusp. The exact finite symbolic classification sharply separates all regular hyperbolic 3-cycles from singular 2-/4-period structures; the two rational denominator grids and three return-trace classes are reusable dynamical invariants, a natural complete period cutoff not an arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
