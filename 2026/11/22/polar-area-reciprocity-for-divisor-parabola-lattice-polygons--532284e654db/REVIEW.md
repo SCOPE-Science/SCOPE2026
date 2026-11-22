@@ -1,0 +1,15 @@
+# Mathematical review of polar-area reciprocity
+
+## Correctness — PASS
+The claim is for the original centered-in-polarity divisor-parabola polygon, for every integer height at least two. The proof identifies all of its polar vertices from facet inequalities and checks their cyclic order. For a decreasing reciprocal sequence, adding one intermediate element removes two mirror triangles of combined area exactly the product of the three gaps. This yields a cubic-gap formula independently of the primal area formula. The involution exchanging each divisor with its complementary divisor converts primal normalized gaps to polar reciprocal gaps and cancels them exactly. The parity gap is proved using cubic-gap refinement monotonicity and the Basel sum, and endpoint sequences are constructed. The extracted standard-library checker compares independent rational shoelace areas on 507 heights and verifies three insertion determinants. Finite calculations are supporting evidence only.
+
+## Originality — PASS (historical priority provisional)
+The November 2026 Hofscheier–Nill construction already gives the vertices and facet-distance data for these polygons. An earlier unpublished mathematical calculation also has their primal area, boundary counts and supernatural-number accumulation spectrum. None of those statements alone determines the polar polygon's area. The new step is the explicit polar facet-normal vertex list and local two-triangle insertion law, which yield the finite-height polar-area reciprocity. The polar gap follows from that newly proved identity and previously available arithmetic spectral principles. Searches for direct polar reciprocal identities and the same divisor-parabola family did not locate an equivalent result. Lack of exhaustive historical indexing leaves residual priority risk, not a proof of uniqueness.
+
+## Mathematical value — PASS
+The polygons are the arithmetic planar building blocks of an important new reflexive-polytope construction. The result ties their natural primal and dual areas through a height-normalized conservation law that would not hold for arbitrary parabolic samples; it also produces an exact disconnected polar accumulation spectrum with sharp realizable endpoints. This is a meaningful polar-geometric structural fact with a precise arithmetic boundary, rather than an isolated numerical measurement or renaming of the existing primal theorem.
+
+## Closest coverage and boundaries
+Hofscheier–Nill, arXiv:2611.08819v1, Section 4, describes the primal polygons and their facet data, not their polar area. An earlier calculation of the primal area spectrum is logically related but does not provide the dual insertion lemma or the reciprocal area identity. General results about polar-area sums for unrelated bodies, and ordinary Pick/Ehrhart formulae, do not entail this exact arithmetic duality. The result does not assert an analogous identity for arbitrary polygons, nor settle higher-dimensional polar volumes. No independent human audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
