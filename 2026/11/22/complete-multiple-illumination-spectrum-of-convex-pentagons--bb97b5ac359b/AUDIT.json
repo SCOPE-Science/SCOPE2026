@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary five positive exterior turns summing 2pi, semicircle compatibility gives exact adjacency and diagonal pair tests; no two failed adjacency tests can be at cyclic distance two. No failures yields a graph C5, sharp vertex incidence lower bound ceil(5m/2) and explicit cyclic covers. One or two neighboring failures yield a three-vertex incompatibility clique, sharp lower bound 3m and explicit three-direction covers. Strict inequalities handle equality without perturbation. Every illuminated vertex direction illuminates incident edges, so the whole boundary is covered. Exact-integer checker passed 26277 configurations and all 31 incidence profiles m=1..4; these finite tests are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Antipodal-normal-fan theorem assumes an even number of sides; four-vertex rigidity assumes a quadrilateral; product pentagon theorem assumes a four-dimensional Cartesian product. Full published RESULT.md statements and proofs were inspected."
+      ],
+      "reasoning": "The identified broader multiple-illumination formula is not applicable to genuine five-sided polygons; the all-quadrilateral result is a lower-side-count problem, and a product of two special pentagons in dimension four cannot imply the arbitrary planar pentagon spectrum.",
+      "searches": [
+        "multiple illumination number m-fold arbitrary convex polygon efficient algorithm using vertex cones circular arcs set multicover",
+        "2026/10/11/SCOPE-exact-multiple-illumination-and-parity-rigidity-for-polygons-wit--f4e6962728dc",
+        "2026/10/25/SCOPE-four-vertex-rigidity-of-multiple-and-fractional-polygon-illumina--3c22813e8f15",
+        "2026/10/25/SCOPE-eight-directions-for-cartesian-products-of-equiangular-pentagons--7596e2fa9478"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2306.13517v1",
+      "2026/10/11/SCOPE-exact-multiple-illumination-and-parity-rigidity-for-polygons-wit--f4e6962728dc",
+      "2026/10/25/SCOPE-four-vertex-rigidity-of-multiple-and-fractional-polygon-illumina--3c22813e8f15",
+      "2026/10/25/SCOPE-eight-directions-for-cartesian-products-of-equiangular-pentagons--7596e2fa9478"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source gives a multiple-illumination formula for regular polygons, a special 2-fold pentagon test, and an algorithmic open question for arbitrary polygons. The other three published statements do not imply an all-m pentagon result."
+      ],
+      "reasoning": "Special 2-fold and regular pentagon results are correctly acknowledged as already covered. The arbitrary-pentagon theorem supplies an independent exact obstruction via incompatible triples when a turn sum reaches pi, including all multiplicities and fractional limits.",
+      "searches": [
+        "convex pentagons exact m-fold illumination number dichotomy ceil(5m/2) versus 3m exterior angles",
+        "pentagon multiple illumination arbitrary exterior angle sharp 5/2 or 3",
+        "arxiv:2306.13517v1 Problem 2",
+        "2026/10/11/SCOPE-exact-multiple-illumination-and-parity-rigidity-for-polygons-wit--f4e6962728dc",
+        "2026/10/25/SCOPE-four-vertex-rigidity-of-multiple-and-fractional-polygon-illumina--3c22813e8f15",
+        "2026/10/25/SCOPE-eight-directions-for-cartesian-products-of-equiangular-pentagons--7596e2fa9478"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sriamorn 2023, §3.3 Lemma 3.1: sufficient condition for two-fold pentagon illumination and §3.3 regular n-gon multiple spectrum; no general all-m pentagon split in inspected section."
+      ],
+      "reasoning": "Equivalent formulations include minimizing integer covers of vertex illumination masks, the dual nonillumination conflict graph, and the fractional cover optimum. The no-failed-test branch includes previously known regular and m=2 cases. The new exact two-branch full five-vertex classification and the incompatible-triple obstruction do not follow from those statements.",
+      "searches": [
+        "convex pentagons exact m-fold illumination number dichotomy ceil(5m/2) versus 3m exterior angles",
+        "multiple illumination of pentagon consecutive exterior angle pair sum pi criterion all multiplicities",
+        "pentagon multiple illumination arbitrary exterior angle sharp 5/2 or 3",
+        "arxiv:2306.13517v1 §3.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published regular-polygon table/formula gives the 5-gon favorable specialization, while the new three-times-m branch occurs for irregular pentagons with a large consecutive exterior-angle sum. No indexed complete irregular-pentagon table was identified."
+      ],
+      "reasoning": "A regular-polygon computation is covered and explicitly excluded from novelty. The new sharp inequality and equality-boundary branch are not an exact database lookup or a relabeling of the regular case.",
+      "searches": [
+        "pentagon fractional illumination exact 5/2 or 3 and multicover",
+        "fractional illumination of equiangular polygons convex pentagon 5/2",
+        "arxiv:2306.13517v1 Lemma 3.1 Lemma 3.5"
+      ]
+    },
+    "rationale": "The 2023 source gives special two-fold pentagon and all-m regular-polygon cases and asks a general polygon problem, but the full irregular pentagon dichotomy and its failure branch were not implied by inspected primary sources. Relevant indexed results on even antipodal normal fans, quadrilaterals and four-dimensional products were inspected in complete statement-and-proof form and have inapplicable hypotheses. Novelty is provisional under unindexed equivalent work.",
+    "residual_risks": [
+      "A later uninspected revision of the original preprint or unindexed general pentagon article might cover the sharp dichotomy.",
+      "Equivalent formulations in graph covering terminology may conceal an earlier exact theorem.",
+      "Fractional minimum and regular-polygon favorable specialization were already known and are not claimed independently novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIALLY_COVERING: includes regular pentagons and the favorable 2-fold case; no complete unrestricted-pentagon spectrum in inspected text",
+        "evidence": "Lemma 3.1 uses an angular inequality for double illumination; Lemma 3.5 treats regular n-gons at arbitrary m; Problem 2 asks for general polygons.",
+        "identifier_or_url": "https://arxiv.org/abs/2306.13517",
+        "material_read": "First version sections 3.3 and concluding Problem 2, including Lemmas 3.1 and 3.5",
+        "method": "arXiv full-text sections read, compared exact assumptions and implication ranges",
+        "title": "On the multiple illumination numbers of convex bodies",
+        "trigger": "Foundational 2023 source on multiple illumination of polygons and the five-sided case"
+      },
+      {
+        "assessment": "NOT_COVERING arbitrary pentagons: requires 2r genuine edges with antipodal paired normals",
+        "evidence": "Main theorem starts with a 2r-gon satisfying nu_(j+r)=-nu_j.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-exact-multiple-illumination-and-parity-rigidity-for-polygons-wit--f4e6962728dc/RESULT.md",
+        "material_read": "Entire RESULT.md scientific statement, assumptions, proof, limitations and references",
+        "method": "Read published primary result and compared its exact normal-fan hypothesis",
+        "title": "Exact multiple illumination and parity rigidity for polygons with antipodal edge-normal fans",
+        "trigger": "Closest indexed general multiple-illumination formula"
+      },
+      {
+        "assessment": "NOT_COVERING: every genuine quadrilateral only, cannot infer five-vertex cycle/triple dichotomy",
+        "evidence": "Exact theorem yields 3m or 4m for four-vertex polygons and explicitly restricts n=4.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-four-vertex-rigidity-of-multiple-and-fractional-polygon-illumina--3c22813e8f15/RESULT.md",
+        "material_read": "Entire RESULT.md scientific statement, proof, limitations and related work",
+        "method": "Read primary published result and compared n=4 versus n=5 combinatorics",
+        "title": "Four-vertex rigidity of multiple and fractional polygon illumination",
+        "trigger": "Nearest nonsymmetric planar polygon multiplicity classification"
+      },
+      {
+        "assessment": "NOT_COVERING: product in R^4 of two equiangular 5-gons; no arbitrary planar pentagon multiple spectrum",
+        "evidence": "Theorem I(P x Q)=8 and fractional 25/4, while its planar factors are equiangular only.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-eight-directions-for-cartesian-products-of-equiangular-pentagons--7596e2fa9478/RESULT.md",
+        "material_read": "Entire RESULT.md statement, assumptions, proof and limitations",
+        "method": "Read original published statement and compared four-dimensional product to planar classification",
+        "title": "Eight directions for Cartesian products of equiangular pentagons",
+        "trigger": "Special-pentagon illumination source with same pentagon factor"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bb97b5ac-359b-4768-aa7f-d953587e6b27",
+  "value": {
+    "rationale": "A sharp natural complete classification of every integer multiplicity and the fractional threshold for the smallest unconstrained odd polygon beyond a triangle addresses the source's arbitrary-polygon problem. A precise consecutive exterior-angle threshold and tight three-vertex obstruction distinguish two real geometric regimes; the equality boundary and all-m exactness are essential rather than routine increments. No generalization to higher vertex counts or full optimizer classification is claimed.",
+    "status": "PASS"
+  }
+}
