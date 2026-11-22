@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The result fixes the domain (normalized uniform volume on the solid unit ball), the exact polynomial degree bound, all integer dimensions \(d\ge4\), and every multiplicity. The Dirichlet/gamma monomial formula is derived by polar integration. The permutation action splits the polynomial space into four trivial, three standard and one irreducible edge-difference summand, with dimensions summing to \(\binom{d+2}{2}\). The edge summand is irreducible by a three-orbit commutant calculation. The two invariant Gram pencils therefore recover every concentration eigenvalue. Expansion of the representative edge polynomial proves the exact scalar \(2^{-d}(1-2/\pi)^2\). The trace follows from rotational invariance. A full monomial-basis calculation independently matches all block eigenvalues in dimensions four through eight; the finite checks supplement, rather than replace, the universal proof.
+## correctness
 
-## Originality — PASS, with limits
-The August 7, 2023 Gerhards–Huang paper develops concentration by total polynomial degree on a ball and analyzes high-bandlimit eigenvalue distributions, not the exact all-dimensional quadratic orthant spectrum. The 2014 Khalid–Kennedy–McEwen paper uses different radial–angular bandwidth systems. Related published spherical-orthant results concern surface harmonics, including a similar repeated edge eigenvalue; **that shared sector is not separately claimed to be novel**. The solid-volume spectrum has an additional independent radial quadratic direction and a distinct four-dimensional multiplicity pencil. Available semantic indexing and full-text comparisons did not identify the complete claim. Full texts of some indexed specialist results were inaccessible, and a priority risk remains.
+PASS
 
-## Mathematical value — PASS
-The positive orthant is a canonical observation region and total-degree-two polynomials are the first band containing both radial and mixed quadratic variation. An exact spectrum would normally require diagonalizing \(\binom{d+2}{2}\) modes, while the theorem gives constant-size four-, three- and one-dimensional problems in every dimension. It determines the sharp concentration and inverse-stability constants without large-dimensional diagonalization. In dimension four, a region of volume fraction \(1/16\) supports a sharp maximum energy fraction near \(0.483477\), illustrating meaningful localization; the small least eigenvalue is an exact observability bottleneck. This is a substantive full-spectrum classification, not merely a numerical table or the already-known spherical edge scalar.
+Normalized ball monomial moments follow the gamma/Dirichlet formula and each orthant moment is exactly 2^-d times the corresponding absolute-monomial ball moment. The S_d permutation action on constants, linear terms, diagonal quadratics and unordered-edge monomials decomposes into four trivial modules, three standard modules and one irreducible edge row-sum-zero W. W irreducibility follows from the three-orbit commutant count; dimensions sum 4+3(d-1)+d(d-3)/2=binom(d+2,2), so the two invariant forms reduce to 4×4, 3×3 and one scalar. The explicit edge test (x1-x4)(x2-x3) yields scalar 2^-d(1-2/pi)^2, while O(d)-invariance of the full ball reproducing kernel yields trace binom(d+2,2)2^-d. No nonzero polynomial vanishes on an open orthant or its open complement, proving 0<lambda<1. In independent calculations using the full monomial moment Gram (not the package code), sorted eigenvalues matched the 4/3/1 pencil multiplicities for d=4,5,6, with d4 extremes 0.00007939865604 and 0.4834771886728. Finite checks support but do not replace all-d Schur representation proof.
 
-## Scientific limitations
-The proof does not establish a dimension-uniform order among the block eigenvalues, simplification of the quartic/cubic roots into radicals, or asymptotic constants as \(d\to\infty\). Numerical tests through dimension eight cannot validate all dimensions independently. An independent audit has not been conducted. Existing literature may contain a specialist equivalent not indexed in the accessible comparisons.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Gerhards–Huang (arxiv:2308.03543) explicitly introduce exactly the total-degree polynomial bandlimit on a ball but their Theorem 2.1 is an n→∞ spectral-clustering/Shannon-number theorem and Appendix B gives Remez-type bounds, not the fixed n=2 exact orthant spectrum. The Khalid–Kennedy–McEwen 2014 ball model uses Fourier–Laguerre/Fourier–Bessel bands, unlike the present polynomial space. Published quadratic *spherical surface* orthant concentration gives a related edge-sector scalar but lacks the solid-ball radial quadratic and four-dimensional trivial multiplicity block. No source read implies the whole exact spectrum or sharp full-volume constants; unindexed specialist exact matrix reductions remain a residual risk.
+
+## value
+
+PASS
+
+The positive orthant is a canonical geometrical observation region and degree two the first full polynomial band containing radial as well as angular quadratic variation. Replacing an unbounded-size dim binom(d+2,2) matrix by fixed 4+3+1 Gram pencils is a useful uniform spectral classification yielding exact best/worst observation energies. A tiny 1/16-volume orthant can concentrate about 0.48348 of a quadratic ball polynomial for d=4, a substantive localization phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
