@@ -1,0 +1,40 @@
+# Frobenius-fixed sandpile groups of the fifty-six curves on the Fermat double plane
+
+## Finding
+Let \(q\) be any odd prime power, and let \(S_q\) be the smooth degree-two del Pezzo surface \(w^2=x^4+y^4+z^4\) over \(\mathbb F_q\). Let \(\Gamma\) have as vertices its fifty-six geometric exceptional curves, with an edge precisely when the intersection number of distinct curves is one. Write \(K(\Gamma)\) for the graph critical (sandpile) group and \(F_q\) for geometric Frobenius acting on its vertices. The abstract abelian group \(K(\Gamma)^{F_q}\) depends only on \(q\bmod8\), as follows. The notation \(p^e:m\) means \(m\) copies of \(\mathbb Z/p^e\mathbb Z\); an exponent of zero denotes trivial factors and is omitted in the displayed table.
+
+| \(q\bmod8\) | 2-primary invariant factors | 3-primary invariant factors | 7-primary invariant factors | Group order |
+|---|---|---|---|---|
+| \(1\) | \(2:14,4:12,16:15,32:6\) | \(3:14,27:7\) | \(7:26\) | \(2^{128}3^{35}7^{26}\) |
+| \(3\) | \(2:7,4:8,16:6,32:3\) | \(3:6,27:3\) | \(7:14\) | \(2^{62}3^{15}7^{14}\) |
+| \(5\) | \(2:5,4:16,16:4,32:1\) | \(3:4,27:1\) | \(7:20\) | \(2^{58}3^{7}7^{20}\) |
+| \(7\) | \(2:10,4:4,16:11,32:2\) | \(3:10,27:3\) | \(7:14\) | \(2^{72}3^{19}7^{14}\) |
+
+In particular the two residue classes \(q\equiv3,5\pmod8\) both have 28 two-cycles on the fifty-six curves, yet their Frobenius-fixed critical groups are nonisomorphic (including different 7-primary ranks).
+
+## Assumptions and scope
+All fields have odd characteristic, so the branch Fermat quartic is smooth and the geometric exceptional curves form the familiar degree-two del Pezzo configuration. The graph is the intersection-one graph (not the disjointness graph), and the critical group is \(K(\Gamma)=\ker(\sum:\mathbb Z^{56}\to\mathbb Z)/L\mathbb Z^{56}\), equivalently the reduced-Laplacian cokernel, with its natural Frobenius action. The classification is an abstract finite-group classification, not a claim of canonical isomorphisms or of geometric Picard-group torsion.
+
+## Proof
+**(1) Curve labels and exact intersections.** Work in \(R=\mathbb Z[t]/(t^4+1)\) with \(\zeta=t\) and \(\delta=\zeta-\zeta^3\), so \(\delta^2=2\). The 24 exceptional curves over the twelve coordinate-type bitangents have lines \(X_u-\zeta^j X_v=0\), where \((u,v)\) is one of the three unordered coordinate pairs and \(j\in\{1,3,5,7\}\); choose either sign of the quadratic square root of the branch quartic on that line. The other thirty-two curves lie over the sixteen lines \(-\zeta^{2a}X-\zeta^{2b}Y+Z=0\), for \(a,b\in\{0,1,2,3\}\), with branch-square roots \(\pm\delta(X^2+\zeta^{2(b-a)}XY+\zeta^{4(b-a)}Y^2)\). These are fifty-six distinct curves, covering all exceptional curves. If two different bitangent lines meet at \(P\), their lifted curves intersect once precisely when the two chosen quadratic roots agree at \(P\), and do not intersect otherwise; two lifts over the same bitangent meet with intersection number two. This gives a symmetric intersection matrix with diagonal \(-1\); in each row there are 27 zeros, 27 ones and one two. The attached exact \(R\)-arithmetic program constructs the full matrix, checks every coefficient equality, and checks the row counts.
+
+**(2) Frobenius.** For every odd \(q\), arithmetic Frobenius sends \(\zeta\mapsto\zeta^q\). In the coordinate-type labels it sends \(j\mapsto qj\bmod8\) and preserves the root sign. In the other labels it sends \((a,b,\epsilon)\mapsto(qa,qb,\chi_q\epsilon)\), with \(\chi_q=+1\) when \(q\equiv1,7\pmod8\) and \(-1\) when \(q\equiv3,5\pmod8\). The verifier checks that these permutations preserve all 3,136 pairwise intersection numbers and are involutions. The vertex cycle types are respectively \(1^{56}\), \(2^{28}\), \(2^{28}\), and \(1^8 2^{24}\).
+
+**(3) A small integral presentation of the coinvariants.** Let \(L=27I-A\) be the integral Laplacian. Choose a base vertex \(b\). The critical group is presented by generators \(e_i-e_b\) with \(i\ne b\), subject to the columns of the reduced Laplacian. Coinvariants additionally impose \((F_q-1)(e_i-e_b)=0\). If Frobenius fixes a vertex, take it as \(b\); each Frobenius orbit other than the base orbit supplies one generator, and the 56 Laplacian relations are pushed down by identifying paired vertices. If Frobenius acts without fixed vertices, choose a paired base orbit \(\{b,F_qb\}\), write \(u=e_{F_qb}-e_b\), take one generator for every other paired orbit, and impose \(2u=0\) and \(e_{F_qi}-e_b=(e_i-e_b)+u\). Thus the coinvariant group has a presentation of respectively 55, 28, 28 or 31 generators and at most 57 relations.
+
+**(4) Exact local diagonalization.** For each prime \(p\in\{2,3,7\}\), diagonalize the rectangular integral presentation using elementary row and column operations over \(\mathbb Z/p^k\mathbb Z\), choosing a pivot of smallest \(p\)-adic valuation. The computation uses \(k=7,5,3\) for \(p=2,3,7\), respectively; every resulting valuation is strictly smaller than \(k\). The multiplicities, including valuation-zero entries, are encoded and checked independently in the attached verifier, with their nonzero parts displayed in the table. The identity case reproduces the known non-equivariant critical-group order and invariant factors \(2^{128}3^{35}7^{26}\). The other primes contribute no torsion because the coinvariant group is a quotient of the original critical group, whose prime support is exactly \(\{2,3,7\}\).
+
+**(5) From coinvariants to fixed points.** The critical group of a connected finite graph has a canonical perfect \(\mathbb Q/\mathbb Z\)-valued monodromy pairing. Graph automorphisms preserve it, giving an equivariant identification of \(K(\Gamma)\) with its Pontryagin dual. Hence \(K(\Gamma)^{F_q}\) is Pontryagin dual to the coinvariant group \(K(\Gamma)_{F_q}\); the two have the same abstract invariant factors. This transfers the computed coinvariant table to the fixed group and completes the proof.
+
+## Verification
+Run `python3 verify_arithmetic_critical_group.py` with `curve_geometry.py` in the same directory (SymPy required). The program constructs the fifty-six curves using integer polynomial arithmetic, checks their pairwise incidence, checks Frobenius graph automorphisms, constructs each quotient presentation, and calculates all prime-local diagonal valuations. It asserts the four complete primary-component spectra and prints `ARITHMETIC_FERMAT_CRITICAL_GROUP_SPECTRA_OK` on success. The identity case also matches an independently specified reduced-Laplacian determinant.
+
+## Relationship to prior work
+Kresch and Tschinkel, *On the arithmetic of del Pezzo surfaces of degree 2*, explicitly describe the fifty-six exceptional curves, intersection pairing, and Galois action on the Picard lattice; this work is used as geometric input and its stronger geometric description is not claimed as new. Lee, *Gosset Polytopes in Picard groups of del Pezzo Surfaces*, explains the geometric line configuration. Earlier exact computations of the underlying, non-equivariant critical group determine the full sandpile group but not its Frobenius-fixed subgroup. The new arithmetic refinement is the four-case integral fixed-group classification, particularly the distinction between two identical geometric curve cycle types.
+
+## Limitations
+The fixed-group isomorphisms are abstract, not canonical presentations. Results concern the intersection-one graph rather than an algebraic Brauer group or the surface Picard lattice. They do not classify arbitrary Weyl-group twists or characteristic two. Published coverage of other finite graph actions does not establish historical priority for every possible rephrasing of this particular incidence graph.
+
+## References
+- A. Kresch and Y. Tschinkel, *On the arithmetic of del Pezzo surfaces of degree 2*, arXiv:math/0402373, first posted 2004-02-23, https://arxiv.org/abs/math/0402373 .
+- J.-H. Lee, *Gosset Polytopes in Picard groups of del Pezzo Surfaces*, arXiv:0905.3025, first posted 2009-05-19, https://arxiv.org/abs/0905.3025 .
