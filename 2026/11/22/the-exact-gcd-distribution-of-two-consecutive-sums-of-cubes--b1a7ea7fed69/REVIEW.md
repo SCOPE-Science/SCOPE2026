@@ -1,0 +1,15 @@
+# Review of the exact consecutive-cubic GCD law
+
+## Correctness — PASS
+The invertible coordinate substitution \(s=x+y\) factors the simultaneous equations into three nonoverlapping quadratic branches at primes at least five, each having discriminant square class \(-3\). An explicit two-by-two Jacobian check makes all six split-prime roots simple and gives exactly one lift at every higher prime power; primes congruent to \(2\pmod3\) have none. Modulo three the two target equations differ by two. The binary obstruction at modulus sixteen is proved by parity and exact valuations, with the lower depths enumerated by simple residue calculations. A uniform large-prime union bound, finite Chinese-remainder independence and positivity of the remaining Euler product complete the proof of limiting distribution and exact-value support. The moment boundary follows from the split-prime Euler factors \(1+6/p\) at the mean endpoint. All prime-power and integer tests passed; finite tests do not replace proof.
+
+## Originality — PASS on inspected evidence
+The full relevant general GCD convergence theorem in Kabluchko–Marynych (arXiv:2311.05369v1) was examined: it does not compute the local counts for the pair of translated diagonal cubics. Bodin–Dèbes (arXiv:2105.13883) supplies the general coprimality density framework without these specialized factors. Brüdern–Vaughan treats one cubic-sum representation statistic, not this two-polynomial GCD. The closest full publicly available cubic-sum collision work counts single-map fibres rather than translated common zeros; the homogeneous binary resultant result has hypotheses inapplicable to the shifted map. published-finding corpus statement-level searches and accessible prior GCD claims revealed no dominating theorem. Nonetheless unindexed local-zeta and p-adic intersection literature might express this exact computation differently, so absolute priority remains open to external checking.
+
+## Mathematical value — PASS
+The support of *attainable positive-integer GCD values* is completely classified, with a positive-density realization for every permitted integer, rather than a numerical table or a generic existence statement. The six-root splitting law and sharp three-power dyadic cutoff expose a natural local-global distinction; the infinite limiting mean despite almost-sure finiteness is a significant exact invariant useful for investigating shifted polynomial GCDs and the limitations of expectation-based approximations. The result is one integrated theorem, with its local counts, support, distribution, and moment cutoff mutually linked.
+
+## Limits and evidence
+All local root calculations and square-grid checks are finite corroboration, not infinite certificates. General a priori GCD convergence, generic local density, collision-energy statements and full related published results were compared by hypotheses and implication, not by wording. Other shifts, finite-\(X\) moment asymptotics, and exhaustive novelty against all unpublished literature are not asserted. The mathematical analysis has not been independently audited.
+
+Self-review: passed. Independent audit: not yet performed.
