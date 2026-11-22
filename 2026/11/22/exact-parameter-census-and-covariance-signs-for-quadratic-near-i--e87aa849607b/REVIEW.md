@@ -1,0 +1,11 @@
+# Mathematical review: quadratic near-identity parameter cycle ensembles
+
+**Correctness — PASS.** The period-growth lemma is proved directly for integer polynomials congruent to the identity modulo an odd prime. The fixed-by-power counts are converted into primitive cycle counts without missing divisors. Hensel classification covers singular and zero parameters. A root-lift martingale and an exact pair count supply all covariance entries. The Haar limit separately establishes every atom and the infinite second moment. The standalone finite checker returned 2,606 direct cycle comparisons and 14 complete exact moment/type ensemble checks; none is used as an infinite proof.
+
+**Originality — PASS, qualified.** The Chebyshev prime-power literature uses different polynomial families, while the newer general time-one theorem already supplies every individual period for this near-identity family. Related published quadratic-root and random-polynomial records cover root-moment ingredients and selected levels. The evaluated new claim is specifically the full parameter-cycle histogram, the across-parameter covariance matrix with its strict sign separation, and the common heavy-tail limit. Published-record full texts on random monic congruences were not accessible; an implicit prior derivation remains a material priority risk.
+
+**Mathematical value — PASS.** A complete classification in the simplest nonlinear near-identity shift ensemble connects quadratic local congruences to the collective distribution of polynomial cycles. The sharp covariance sign change and simultaneous heavy-tailed limit identify a nontrivial arithmetic dependence structure that ordinary pointwise cycle formulas cannot display. The result is limited to odd primes, uniform parameters and quadratic displacement.
+
+**Closest literature and limitations.** Panraksa–Tangboonduangjit (arXiv:2605.04417) supply the motivating exact-cycle context; Shen (arXiv:2608.06576) and Caruso (arXiv:2110.03942) address root statistics in different random-coefficient models. Terskii (arXiv:2611.24982) subsumes the local period theorem, not the displayed full parameter ensemble. Independent mathematical replication and broader priority evaluation have not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
