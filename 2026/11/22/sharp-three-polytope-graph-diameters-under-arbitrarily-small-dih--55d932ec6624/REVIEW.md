@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The geometry is a carefully cited and inspected construction from Li–Wang–Yu, not an unsupported new realizability assertion. Its exact inductive vertex truncations give the displayed complete vertex triples. For a simple three-polytope, edges are exactly pairs of vertex triples sharing two facets. The integer potential changes by at most three on each new or retained edge, as checked by the vertex-truncation induction, so the base-to-tip graph distance is at least \(\lceil(2k-1)/3\rceil\). The matching universal upper bound follows from three-connectivity and \(V\le2f-4\), with no asymptotic or computational step. The extracted standalone checker tests the same combinatorics in exact integer arithmetic for \(2\le k\le100\); this tests implementation but is not used as a proof of the infinite claim.
+
+## Originality — PASS (provisional historical priority)
+The full six-page Li–Wang–Yu primary paper (arXiv:2611.09021v1, especially Section 2 and Theorems 1.2–1.3) proves near-right-angle existence and records facet adjacency, but neither its introduction nor its construction determines vertex-graph diameters or claims saturation of the classical bound. Victor Klee's original 1966 text and Santos's explicit diameter problem verify the separate unrestricted upper bound, without dihedral restrictions. published-finding corpus semantic searches using multiple diameter, truncation, and near-right-angle formulations returned only unrelated geometric or graph results. The resulting joint theorem is stronger than either source statement alone, although its inputs are explicitly acknowledged and implicit earlier combinatorial identifications remain possible.
+
+## Mathematical value — PASS
+The number \(\lfloor2f/3\rfloor-1\) is the natural, sharp, facet-count-dependent maximum graph diameter; not an arbitrary statistic. The theorem shows quantitatively that arbitrarily small positive dihedral-angle excess imposes no deficit whatsoever on that extremal diameter, for **each** facet count rather than just along a sparse subsequence. The integer potential also gives a transparent extremality certificate that can be reused in combinatorial polytope analysis. It connects the near-right-angle finiteness threshold with a sharp combinatorial obstruction and does not merely increment a numerical example.
+
+## Literature and limitations
+Primary sources: Z. Li, J. Wang and J. Yu, arXiv:2611.09021v1 (November 6, 2026), https://arxiv.org/abs/2611.09021; V. Klee, *Paths on polyhedra. II*, 1966, https://msp.org/pjm/1966/17-2/pjm-v17-n2-p08-p.pdf; F. Santos, *Diameter of polytopes and the Hirsch Conjecture*, Exercise 1, https://www3.math.tu-berlin.de/combi/MDS/summerschool12-material/santos_problems.pdf. The source construction itself is not new. This does not assert uniqueness, stability, or any higher-dimensional statement. The priority check is bibliographic and provisional; it is not a proof of historical uniqueness.
+
+Self-review: passed. Independent audit: not yet performed.
