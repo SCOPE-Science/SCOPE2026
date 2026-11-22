@@ -1,0 +1,209 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T03:52:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 887d31ddbdc1339644fbd33ca114af59ee3f293c (entire theorem and steps 1--4)",
+        "Frozen verify.py Git blob f566809688416ca828ac48072eda14777deb74eb (inspected; not used as proof)",
+        "Işlak arXiv:1303.2387 Lemma 2.2 and Corollary 2.3 (original coupling)",
+        "Independent exact rational diagnostic, 564 checks for 54 (p,n) combinations and 24 forward-shuffle distribution tests; n<=10",
+        "Independent symbolic determinant and correlation derivative identities"
+      ],
+      "rationale": "For iid digits Z_i with Pr(Z_i=1)=r=1-p, the simultaneous inversion indicator is Z_j(1-Z_k) for j<k by the established inverse-shuffle bijection. The five shared-index overlap classes yield q(1-q)+(i-1)q(r^2-q)+(n-i-1)q(p^2-q)=q[1-q+(r-p)(i-1-p(n-2))]. The profile slope is q(r-p), and its worst boundary is negative iff n>2+(1-q)/(min(p,r)|r-p|), with the other endpoint always positive. Exact first/second moments are E D=(n-1)q, E I=binom(n,2)q, Var D=(n-1)q(1-q)-2(n-2)q^2, Var I=binom(n,2)q(1-q)+2binom(n,3)q(1-3q), Cov(D,I)=(n-1)q(1-q)+binom(n-1,2)q(r-p)^2. The exact centered-Bernoulli decomposition gives I-EI=sum_k(np-k+r)U_k -sum_{j<k}U_jU_k. The second term has L2 size O(n), negligible on n^(3/2). Combining the weighted U term with bounded one-dependent descent summands, remove separated blocks of length n^(1/3), apply Lindeberg--Feller and Cramer--Wold; exact moments identify Sigma=q[[1-3q,(r-p)^2/2],[(r-p)^2/2,(1-3q)/3]]. Its determinant q^2(1-12q^2)/12>0 for 0<q<=1/4, with covariance zero iff p=1/2, and limiting correlation increasing to sqrt(3)/2 only at excluded endpoints. All hypotheses require one forward shuffle, 0<p<1, fixed p for n->infinity; equality at threshold produces no strict both-sign outcome. Independent exact word enumeration and direct forward-cut distribution checks corroborate algebra, not the all-n proof.",
+      "residual_risks": [
+        "The finite tests do not prove the infinite-n multivariate CLT; the one-dependent blocking proof provides that result.",
+        "The theorem excludes bias endpoints p=0,1 and does not control p varying with n.",
+        "No multivariate rate or Berry--Esseen estimate is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Féray arXiv:1811.03923 Theorem 1.4 (PDF p.4) gives separate CLTs for classical non-consecutive pattern occurrences under an ell-regular multiset sequence; descents require adjacency and binary two-letter support does not satisfy the ell=2 regularity hypothesis because both largest multiplicities sum to all n.",
+          "Conger--Viswanath arXiv:math/0508242 (PDF pp.1--3) prove one-dimensional normal approximations for descents and inversions in fixed-multiplicity rearrangements, not their joint law under iid Bernoulli packet assignment.",
+          "Dörr--Heiny arXiv:2309.17314 (PDF pp.1,8) study uniform Sn, where the leading cross-covariance vanishes; the 2-packet law is strongly nonuniform."
+        ],
+        "reasoning": "General results for classical patterns and fixed-composition words do not automatically encompass the adjacent pattern and binomial-random cut. In particular Féray’s sufficient condition on the largest ell multiplicities fails for a two-letter alphabet at ell=2, and the actual theorem concerns marginal classical pattern counts. Uniform Sn has different covariance scaling. No inspected stronger theorem supplies the exact fixed-bias bivariate law.",
+        "searches": [
+          "arXiv:1811.03923 Féray Theorem 1.4 pattern CLT multiset permutations",
+          "arXiv:math/0508242 Conger--Viswanath normal approximations multiset inversions descents",
+          "arXiv:2309.17314 Dörr--Heiny joint inversion descent permutations",
+          "web: random words counts vincular patterns joint central limit theorem inversions descents bivariate random iid binary"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1303.2387",
+        "https://arxiv.org/pdf/math/0508242",
+        "https://arxiv.org/pdf/math/9712240",
+        "https://arxiv.org/pdf/1811.03923",
+        "https://arxiv.org/pdf/2309.17314",
+        "https://arxiv.org/abs/1302.6708",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-affine-descent-inversion-covariance-and-a-sharp-six-letter-sign--6494e7de5cea/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Işlak supplies separate normal limits and a simultaneous digit representation; separate convergence does not imply joint Gaussianity or its covariance.",
+          "The direct digit expansion I_n-EI_n=sum(np-k+r)U_k -sum_{j<k}U_jU_k and the variance O(n^2) of the second term, together with one-dependent CLT for descents, supply a specific bivariate proof not stated in these predecessors.",
+          "The conditional fixed-multiset formula potentially implies the finite spatial profile after mixing K~Bin(n,p), so that portion alone is not a decisive standalone originality claim.",
+          "Thiel arXiv:1302.6708 abstract establishes inversion and major-index joint normality on words; major index sum i B_i differs from unweighted descents sum B_i, and no implication to the claimed bivariate scaling was verified."
+        ],
+        "reasoning": "The full final conjunction is not an automatic substitution into a proved stronger result: marginal CLTs lack Cramér--Wold joint control, a fixed-multiset second-moment identity has no joint limit, and the major index is weighted and different from descents. However these inputs greatly reduce algebraic originality and retain a material risk of implicit generating-function coverage. On the accessible evidence, the surviving joint Gaussian dependence statement is original and the combined natural finite-to-asymptotic classification passes O.",
+        "searches": [
+          "arXiv:1303.2387 pp.2--9, Lemma 2.2 and Theorems 3.2/3.6",
+          "arXiv:math/0508242 pp.1--5, pair-indicator formulas and marginal CLTs",
+          "arXiv:math/9712240 pp.8--9 Theorems 5/6",
+          "Resultary 6494e7de5cea full RESULT.md",
+          "Thiel arXiv:1302.6708 abstract and Combinatorics Probability and Computing 2016 publication metadata"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Işlak arXiv:1303.2387 Lemma 2.2 (PDF p.3) exactly couples forward shuffle comparisons and inverse iid words; this equivalence is previously known.",
+          "Işlak arXiv:1303.2387 Theorem 3.2 and Theorem 3.6 (pp.7--9) are one-dimensional CLTs, not the displayed covariance matrix or spatial sign law.",
+          "Resultary 2026/11/08 6494e7de5cea concerns fixed-composition multiset words and no joint CLT."
+        ],
+        "reasoning": "Forward 2-packet shuffles, inverses of iid two-letter stable sorts, and random binary words are the same joint comparison process by the established coupling. Its translation is not novel. Prior marginal CLTs for two statistics cannot imply a joint CLT or whether limiting correlation is nonzero. The fixed-multiset affine covariance theorem is near the finite part, but its sample space is a conditioned law and it does not establish the iid-binomial joint fluctuation limit.",
+        "searches": [
+          "Resultary semantic: joint central limit theorem descent number and inversion number in a single biased two packet riffle shuffle binary words spatial mixed covariance sign",
+          "Resultary semantic: descent inversion covariance position in random binary words and biased riffle shuffle exact sign transition",
+          "web: Işlak 2013 Descent-Inversion Statistics in Riffle Shuffles joint bivariate normal distribution covariance ascents inversions biased",
+          "arXiv:1303.2387 Lemma 2.2, Corollary 2.3, Theorems 3.2 and 3.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same b654a1e0b626 Resultary entry is a cross-post of this audit target, not independent prior coverage.",
+          "The same-day 6494e7de5cea Resultary theorem provides the entire affine site profile for a fixed-composition word, potentially yielding finite mixed covariance after binomial mixing, but explicitly does not establish a joint distributional limit.",
+          "Fulman Theorem 5 (arXiv:math/9712240 PDF p.8) is a q-exponential generating function for unweighted inversion counts in biased riffle shuffles, not an exact joint descent--inversion table."
+        ],
+        "reasoning": "Exact tables searched include shuffle generating-function coefficients, the fixed-multiplicity positional covariance table, and the same-paper Resultary cross-post. The finite site formula has close independently published algebraic coverage and should not be promoted as wholly unprecedented; the all-p joint covariance matrix and limiting independence criterion are not present in the inspected tables. Negative search alone does not prove novelty.",
+        "searches": [
+          "Resultary semantic: joint central limit theorem descent number and inversion number in a single biased two packet riffle shuffle binary words spatial mixed covariance sign",
+          "Resultary semantic: descent inversion covariance position in random binary words and biased riffle shuffle exact sign transition",
+          "Resultary 2026/11/8 SCOPE-affine-descent-inversion-covariance-and-a-sharp-six-letter-sign--6494e7de5cea/RESULT.md",
+          "Fulman arXiv:math/9712240 Section 5 Theorem 5"
+        ]
+      },
+      "rationale": "The iid binary-word representation and separate marginal normality are prior Işlak results, not credited as new. A published fixed-composition Resultary finding on the same research date already gives an affine local descent--inversion covariance for uniformly rearranged multisets; conditioning and mixing may reproduce the finite-site identity, so its individual algebraic slope is not claimed as an isolated foundational novelty. The surviving final result combines a sharp binomial-bias finite-position sign criterion with a full fixed-p biased two-packet joint Gaussian limit and its explicitly positive limiting correlation away from balance. The inspected Işlak, Conger--Viswanath, Fulman, Féray and Dörr--Heiny statements do not establish this full combined theorem, and Thiel treats the major index rather than the unweighted descent count. This is a qualified best-of-knowledge judgment, not a historical priority or independence certificate.",
+      "residual_risks": [
+        "Full original Thiel (2013/2016) proof of joint inversion--major-index theorem remained inaccessible due to protected institution VPN; possible implicit consequences could reduce priority.",
+        "The affine fixed-composition covariance formula published same day may imply much of the finite site formula by binomial mixture; exact within-day chronological priority was not established.",
+        "Uninspected multivariate word generating-function derivatives or vincular-pattern CLT results might imply a joint limit; no global priority guarantee.",
+        "The 2013 Işlak text says methods extend to biased shuffles straightforwardly; that covers marginal laws, not a separately verified joint theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers coupling and separate marginal theorems; does not explicitly provide the combined bivariate Gaussian matrix or local sign transition.",
+          "evidence": [
+            "Lemma 2.2 and Corollary 2.3 pp.3",
+            "Theorem 3.2 and Remark 3.3 p.8",
+            "Theorem 3.6 p.9"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1303.2387",
+          "material_read": "Full relevant PDF model construction on pp.1--3; Lemma 2.2, Corollary 2.3; the inversion CLT and biased remark pp.6--8 and descent CLT on pp.8--9; original PDF pages 2 and 8 visually checked.",
+          "method": "Primary arXiv full-text sections, theorem search, rendered PDF screenshots of pages 3 and 8",
+          "title": "Descent-Inversion Statistics in Riffle Shuffles",
+          "trigger": "Exactly same stochastic shuffle model and two statistics"
+        },
+        {
+          "assessment": "Marginal approximations for each statistic under fixed multiplicities, with building blocks for covariance; no direct fixed-bias two-packet bivariate limit.",
+          "evidence": [
+            "Introduction and problem definition pp.1--3",
+            "X_ij overlap setup pp.4--5"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0508242",
+          "material_read": "Primary PDF introduction pp.1--3, overlap-indicator definitions and probability calculus on pp.4--5; visible page 3 screenshot",
+          "method": "Open arXiv PDF full text and visual screenshot",
+          "title": "Normal Approximations for Descents and Inversions of Permutations of Multisets",
+          "trigger": "Same pair statistics and fixed composition as conditional binary-word model"
+        },
+        {
+          "assessment": "Gives univariate inversion q-exponential generating functions and mean formulas; does not state the site covariance or joint CLT.",
+          "evidence": [
+            "Section 5 Theorem 5 p.8",
+            "Theorem 6 p.9"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/9712240",
+          "material_read": "Complete relevant Section 5, notably Theorems 5 and 6 and inversion and descent structure pp.8--9; rendered p.8 inspected",
+          "method": "Open primary arXiv PDF full-text reading and screenshot",
+          "title": "The Combinatorics of Biased Riffle Shuffles",
+          "trigger": "Exact general biased-shuffle generating functions might dominate claimed moments"
+        },
+        {
+          "assessment": "The theorem covers marginal classical non-consecutive patterns under ell-regularity; the binary two-letter sequence violates ell=2 regularity and the descent adjacency count is not its classical pattern count.",
+          "evidence": [
+            "Definition 1.3 and Theorem 1.4, p.4",
+            "Remark 1.5, p.4"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1811.03923",
+          "material_read": "Introduction and main multiset theorem / definition on PDF pp.1--4, including the precise ell-regularity assumption; rendered theorem page inspected",
+          "method": "Open arXiv PDF full-text and PDF page screenshot",
+          "title": "Central limit theorems for patterns in multiset permutations and set partitions",
+          "trigger": "Potentially dominating general pattern CLT for the same random-word objects"
+        },
+        {
+          "assessment": "Uniform random Sn joint fluctuations and extremes; not a binomial two-packet biased shuffle law.",
+          "evidence": [
+            "Introduction p.1",
+            "Theorem 3.4 p.8"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2309.17314",
+          "material_read": "Primary PDF abstract, model and main theorem on pp.1 and 8, rendered main theorem page inspected",
+          "method": "Open arXiv PDF and screenshot p.8",
+          "title": "Joint Extremes of Inversions and Descents of Random Permutations",
+          "trigger": "Potential general joint Gaussian theorem for both named statistics"
+        },
+        {
+          "assessment": "Close finite covariance coverage; after binomial randomization can likely recover site formula, but its theorem explicitly does not give any joint Gaussian law for biased shuffles.",
+          "evidence": [
+            "Boxed affine c_i formula with T,S",
+            "Limitations explicitly exclude joint limit law"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-affine-descent-inversion-covariance-and-a-sharp-six-letter-sign--6494e7de5cea/RESULT.md",
+          "material_read": "Full RESULT.md: claim, fixed-composition affine formula, complete proof and limitations",
+          "method": "Published Resultary semantic search followed by original GitHub full-text fetch",
+          "title": "Affine descent–inversion covariance and a sharp six-letter sign boundary",
+          "trigger": "Exact same site-versus-inversion covariance in fixed-multiplicity random words"
+        },
+        {
+          "assessment": "Joint inversion and major-index theorem is relevant but is not directly the unweighted descent count; inability to inspect proof in full is a material priority risk.",
+          "evidence": [
+            "arXiv:1302.6708 abstract",
+            "Cambridge 2016 publication record",
+            "Oxford authentication blocked, not falsely represented as read"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1302.6708",
+          "material_read": "ArXiv abstract, journal publication record and citation context only. Primary PDF and lawful OA mirrors were inaccessible; authorized Oxford retrieval returned vpn_disconnected.",
+          "method": "Public abstract and metadata; full-text institutional access attempted but blocked",
+          "title": "The Inversion Number and the Major Index Are Asymptotically Jointly Normally Distributed on Words",
+          "trigger": "Same random words and joint asymptotics of a closely related descent-weighted statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md theorem and boundary analysis",
+        "Işlak arXiv:1303.2387 prior separate marginal CLTs",
+        "Resultary 6494e7de5cea fixed-multiset position covariance (comparison and motivation)",
+        "Dörr--Heiny arXiv:2309.17314 uniform-permutation joint law"
+      ],
+      "rationale": "For a canonical Gilbert--Shannon--Reeds two-packet shuffle, dependence between local disorder (a particular descent), total disorder (inversions), and macroscopic fluctuations is a natural structural probabilistic question. The sharp site-dependent sign reversal across the deck at a computable finite threshold, and the nonzero bias-dependent limiting bivariate Gaussian correlation, reveal behavior absent from separate marginal CLTs; balanced cuts are exactly the asymptotically independent case. This is a motivated full-parameter classification for a natural model, not an arbitrary slice or an unverifiable numerical improvement. The site formula itself is elementary once the coupling is given and closely related to the same-day fixed-composition affine formula, which limits the scale of novelty but does not eliminate the independent utility of the combined joint law and sharp classification.",
+      "residual_risks": [
+        "The proof uses standard covariance overlap counting and classical one-dependent CLT tools, so method novelty is modest.",
+        "If a broader prior joint random-word theorem is later shown to imply the entire stated law, the novelty and value judgment would need revisiting."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full Thiel preprint not retrieved; Oxford authorization had disconnected VPN and was not bypassed.",
+    "Same-day published fixed-composition formula limits originality of finite site covariance alone.",
+    "All current public status changes withheld; plan not_ready is transport/privacy, not scientific failure.",
+    "No formal Lean proof or expert attestation claimed, and historical review rows are unchanged."
+  ],
+  "schema_version": 1
+}
