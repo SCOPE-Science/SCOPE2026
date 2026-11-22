@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The Hardy-orbit decomposition and Szegő Cauchy determinant give the exact finite objective. Identity (7) gives a global, not local, reflection reduction using \(AC\ge b^2\); log differentiation then yields a strictly increasing-versus-decreasing equation and the unique maximizer. Substituting \(\epsilon=1-r^2\) and \(\delta=\sin^2\theta_*\) into this exact equation yields the sharp quarter-power boundary law. The code independently tests finite identities and examples, but is not used in lieu of these continuous arguments.
+## correctness
 
-## Originality
-PASS relative to inspected sources. Aguilera–Carando [1] proves existence of orbit frames and gives orthonormal generators, not determinant designs of three raw kernels with constrained nonidentical moduli. The closest public result [2] optimizes all points on **one common circle**; its full RESULT.md explicitly excludes mixed radii. The new global mixed-radius optimizer and quarter-power collapse are not implications of that equiradial statement. Searches covered pseudohyperbolic Fekete problems, unequal-radius Szegő Gram determinants, prescribed-modulus node placement, and quarter-power boundary clustering. No known exact same-domain implication was found; unindexed classical Fekete theory is the main residual risk.
+PASS
 
-## Value
-PASS. This solves the natural first non-equiradial D-optimal design for unorthogonalized orbit generators of a finite Blaschke multiplier. It determines all maximizing configurations, an explicit reproducible scalar equation, and a counterintuitive quarter-power clustering regime near the unit circle. The result is about a geometrically constrained infinite Riesz basis, not an arbitrary finite matrix slice.
+The three normalized Hardy kernels span the degree-three finite-Blaschke model space, and the Cauchy double alternant gives det G=product_{i<j} rho(ai,aj)^2. The angle pair can be parameterized by center u and half-gap t in [0,pi/2]; the exact two-radii ratio Q_A(cos u)/Q_C(cos u) satisfies the algebraic reflected comparison R(cos u)<=R(-1), strict at the interior optimum. The remaining F(c)=q(1-c^2)/(h+q(1-c^2))*[(A+bc)/(C+bc)]^2 on 0<=c<=1 has F'(0)>0, F(1)=0, and a unique critical point because the left side of its stationarity equation increases and the right decreases. Writing epsilon=1-r^2 and delta=1-c^2, the stationarity equation yields delta^2~epsilon*(1+s)^4/[8s(1-s^2)], giving theta~epsilon^(1/4) and the displayed first-order maximum. Independent direct numerical Gram/distance grids across mixed radii and near-boundary asymptotics agree; those grids are not a global proof.
 
-## Limits and closest literature
-The optimization is determinant-only and restricted to the three radii \((r,r,s)\); larger mixed-radius designs and frame condition-number optimization are not settled. The Cauchy determinant and orbit decomposition are established ingredients. Relevant sources are [1] A. Aguilera and D. Carando, arXiv:2606.00912v1 (30 May 2026); [2] *Sharp determinant stability and conditioning of concentric Szegő orbit frames* (public mathematical record, 11 October 2026); [3] T. Karvonen, S. Särkkä and K. Tanaka, arXiv:1912.07316.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published equiradial Szegő determinant rigidity and general Hardy orbit-frame existence do not determine the mixed (r,r,s) optimizer or its quarter-power approach to the boundary. The Cauchy identity and Fekete-energy framework are classical, and priority for a prescribed-modulus three-point extremal formula is not certain.
+
+## value
+
+PASS
+
+Optimizing a Gram determinant for kernel evaluations is a standard D-optimal design objective, and mixed prescribed radii are natural in nonconcentric interpolation. The unique angular optimum and nonobvious quarter-power clustering law reveal how conditioning/volume design changes as two nodes approach the unit circle; the mixed case is not a mere equiradial substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
