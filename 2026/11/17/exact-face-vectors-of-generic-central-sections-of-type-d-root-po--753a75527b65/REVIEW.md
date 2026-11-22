@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The theorem is stated for every integer \(n\ge5\) and every central cutting normal with pairwise distinct absolute coordinate values. The support-function formula \(h(w)=|w|_{(1)}+|w|_{(2)}\) yields a complete classification of the positive-dimensional exposed faces into coordinate crosspolytopes, fixed-coordinate simplices, and signed second hypersimplices. The normal arrangement reduces every generic cut to one chamber. Exact sign counting gives \(d2^{d+2}\binom n{d+2}\) crossing \(d\)-simplices and \((2^{d+1}-4)\binom n{d+1}\) crossing signed second hypersimplices, with exactly \(2(n-1)\) crossing coordinate facets. This reconstructs both asserted face-count formulas with no interpolation or conjectural generalization. An independent, facet-intersection face-lattice checker with exact rational ranks agrees for \(n=4,5,6\), six generic normals each; the finite experiments are corroborative only.
+## correctness
 
-**Originality: PASS, best-knowledge and provisional.** The \(D_4\) 24-cell generic section is explicitly excluded: an accessible published result classifies it and six other singular types. A full published type-\(A\) generic central root-section theorem has the same methodological flavor but is a genuinely different ambient root configuration, with another section dimension and different combinatorial face numbers; its result does not cover the \(D_n\) theorem for \(n\ge5\). The recent Corradetti full text introduces the motivating \(D_8\) shell and root-polytope identification without a central-section enumeration. The 2026 general combinatorial slicing preprint's abstract does not give this exact family, but its complete text was inaccessible and remains a specific priority risk. Relevant records and searches were compared for rectified crosspolytopes, type-\(D\) roots, exact face vectors, and equivalent section types. Search failure alone is not treated as proof of priority.
+PASS
 
-**Mathematical value: PASS.** The full face vector, rather than a one-off scalar count, is a natural combinatorial tomography invariant for the centrally symmetric type-\(D\) root family. The result covers all face dimensions and a continuum of generic normal directions uniformly in every rank \(n\ge5\). It exhibits a concrete contrast between the cubic number \(8\binom n3\) of section vertices and the exponential number \(2^n+2n-6\) of section facets and provides a complete explicit metric-independent benchmark for the \(D_8\) shell arising in the recent integral-shell literature. These are mathematical structural statements rather than computationally fitted data.
+Reconstructed parent support function sum of two largest coordinate moduli and three proper-face types: coordinate cross-polytope facets, fixed-leading-index simplices and signed hypersimplex faces. In a signed/permutation chamber normal with |u_1|>...>|u_n|, each root ±e_i±e_j has sign governed by earlier index. Every crossing parent face contributes one section face of dimension one less. Explicit counts of crossing dimension-d simplices d*2^(d+2)C(n,d+2) and hypersimplices (2^(d+1)-4)C(n,d+1), plus 2(n-1) coordinate facets, yield complete stated formula. Independent Euler and endpoint checks n5..12 agree. Already established chamber rigidity and endpoint face counts are credited, not discoveries.
 
-The result makes no claim about noncentral, nongeneric, or metric sections. Historical priority is not independently certified, and no independent mathematical review has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original surviving contribution: the complete middle-dimensional f-vector, not chamber invariance or the two extreme face counts. Priority assessed by comparing precise mathematical implications and acknowledging stronger partial coverage; historical first priority is not certified.
+
+## value
+
+PASS
+
+The previously unenumerated complete middle-dimensional face vector of a natural all-rank root-polytope section is a reproducible structural invariant beyond only knowing that combinatorial type is universal. The new binomial closed form supports face incidence, Euler and asymptotic calculations; it is a motivated exact classification despite the prior rigidity theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

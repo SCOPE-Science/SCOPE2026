@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The unrestricted proof uses the support-function description of \(D_n\), a complete three-type face classification, chamber sign invariance, and explicit binomial counts. None of these arguments assumes that finitely many dimensions establish the general theorem.
+## correctness
 
-Run the embedded `verify_droot_sections.py` using standard Python 3, without downloads or nonstandard packages. Its checks independently generate all vertices \(\pm e_i\pm e_j\), obtain the complete face lattice from intersections of defining facet vertex sets, and find each face's dimension by exact rational elimination. For \(n=4,5,6\) it compares formula and face-crossing counts for six generic normals per dimension; it also checks the Euler relation. The command completed successfully with terminal marker `VERIFY_OK`, giving, respectively, section face vectors \((32,48,18)\), \((80,200,156,36)\), and \((160,560,756,424,70)\).
+PASS
 
-The \(n=4\) case is an already-known control and is not claimed new. Higher ranks, nongeneric normals, section volumes, and metric congruence are not covered by the finite verifier, nor asserted by the theorem where outside the hypotheses. This is same-model reproducibility evidence only; independent audit has not been performed.
+Reconstructed parent support function sum of two largest coordinate moduli and three proper-face types: coordinate cross-polytope facets, fixed-leading-index simplices and signed hypersimplex faces. In a signed/permutation chamber normal with |u_1|>...>|u_n|, each root ±e_i±e_j has sign governed by earlier index. Every crossing parent face contributes one section face of dimension one less. Explicit counts of crossing dimension-d simplices d*2^(d+2)C(n,d+2) and hypersimplices (2^(d+1)-4)C(n,d+1), plus 2(n-1) coordinate facets, yield complete stated formula. Independent Euler and endpoint checks n5..12 agree. Already established chamber rigidity and endpoint face counts are credited, not discoveries.
+
+## originality
+
+PASS
+
+Best-of-knowledge original surviving contribution: the complete middle-dimensional f-vector, not chamber invariance or the two extreme face counts. Priority assessed by comparing precise mathematical implications and acknowledging stronger partial coverage; historical first priority is not certified.
+
+## value
+
+PASS
+
+The previously unenumerated complete middle-dimensional face vector of a natural all-rank root-polytope section is a reproducible structural invariant beyond only knowing that combinatorial type is universal. The new binomial closed form supports face incidence, Euler and asymptotic calculations; it is a motivated exact classification despite the prior rigidity theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
