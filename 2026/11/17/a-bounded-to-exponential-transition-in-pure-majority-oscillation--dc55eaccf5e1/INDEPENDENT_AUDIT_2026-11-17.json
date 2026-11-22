@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T11:55:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For strict open-neighbor majority with incumbent tie retention, F(x)=complement(x) iff each site has at most one (r=3) or two (r=4) neighbors of its current colour. Width 3 excludes monochromatic columns, forces adjacent columns to be complements and yields exactly six starting configurations for even n. Width 4 splits into alternating three-to-one columns (eight states for even n) and balanced weight-two columns. For the latter each row must avoid monochromatic triples, giving a bijection with closed walks of the explicit 36-state ordered-pair transfer matrix. Independently built this matrix from six four-bit weight-two tuples without using the repository checker, obtained precisely 90 nonzero entries, recomputed the complete 36th-degree characteristic polynomial over the integers and matched all six factors/multiplicities. Direct trace power counts n=3,4,5,6,7 are 90,98,270,1388,2940 including alternating states. The cubic has one simple root in (3,16/5), and exact Schur reductions in the package place both quartic root sets strictly within |z|<2; remaining roots are <=1, so the unique Perron contribution grows as lambda^n with error O(2^n). Finite transfer factorization plus the all-n local bijection, not finite simulation alone, establishes the law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goles–Olivos prove eventual periods no greater than two for symmetric threshold systems.",
+          "Turau trees have acyclic graph structure and do not cover C_n x K3 or K4."
+        ],
+        "reasoning": "General asymptotic periodicity or generic transfer-matrix theory does not calculate labelled pure states nor the exact width-four transfer spectrum, and the tree theorem does not apply to these cyclic clique strip graphs.",
+        "searches": [
+          "Goles Olivos 1980 periodic behaviour generalized threshold functions",
+          "Turau 2022 Fixed Points and 2-Cycles of Synchronous Dynamic Coloring Processes on Trees arxiv:2202.01580",
+          "Resultary exact two cycle entropy on open triangular strips"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2202.01580",
+        "https://arxiv.org/abs/1405.2486",
+        "https://doi.org/10.1016/0012-365X(80)90121-1",
+        "Resultary queries for C_n x K3/K4 pure oscillations and open strips"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general statement that F eventually reaches a fixed point or period-two orbit does not bound or enumerate immediate complement-flipping states.",
+          "A fixed-point count is a different event than F(x)=complement x."
+        ],
+        "reasoning": "The new implication needs local rowwise no-equal-triples bijection and exact transfer determinant; none is supplied by the antecedent period bound or fixed-point tables.",
+        "searches": [
+          "https://arxiv.org/abs/2202.01580",
+          "https://arxiv.org/abs/1405.2486",
+          "Resultary pure majority oscillation width three four clique strip"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact counted object is F(x)=bitwise complement(x), a proper subclass of all primitive temporal two-cycles.",
+          "Related indexed open triangular strip P_n x K3 results count all fixed/two-step periodic configurations with open spatial boundaries."
+        ],
+        "reasoning": "The complement condition and graph boundary conditions are explicit; neither a fixed-point census nor an all-cycle period theorem is an equivalent formulation of the exact census.",
+        "searches": [
+          "Resultary pure two cycles majority dynamics C_n Cartesian product clique K3 K4 phase transition transfer matrix entropy",
+          "strict majority F(x)=complement x balanced columns C_n square K4",
+          "majority dynamical period two with every vertex flipping clique strip"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest fixed-state cylinder result enumerates F(x)=x, disjoint from pure states with F(x)=complement(x).",
+          "The original checker gives exact 36x36 polynomial and counts for all lengths, and independent reconstruction confirmed it."
+        ],
+        "reasoning": "Checked exact rank/count census records, not merely topic titles; prior fixed states and open-strip tables do not imply the two-width pure-oscillator enumeration.",
+        "searches": [
+          "Resultary fully oscillating synchronous majority C_n Cartesian K4 exact count",
+          "Resultary exact majority fixed census entropy triangular cylindrical strips 874a8ff5f9e5"
+        ]
+      },
+      "rationale": "Foundational Goles–Olivos threshold-dynamics periodicity gives a universal period-at-most-two constraint but not the fully flipping population of this family. Turau treats trees, whereas C_n box K_r contains triangles. The closest previously indexed result counts fixed points on width-three triangular cylinders and does not enumerate pure complement two-cycles, especially for K4 columns. Same-year exact oscillation work on open triangular strips, other graph types and whiskered cycles uses non-identical graphs and often all two-cycles rather than fully flipping states. No inspected exact theorem was found to imply both stated P3/P4 counts.",
+      "residual_risks": [
+        "Some unindexed general graph majorities transfer census may encode the same two exact strip widths.",
+        "No statement is made for other clique widths or non-pure two-cycles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NONCOVERING BY IMPLICATION: period <=2 does not give exact multiplicities",
+          "evidence": [
+            "Goles–Olivos (1980) eventual periodicity of symmetric threshold dynamics"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+          "material_read": "Bibliographic abstract/general theorem statement, not original full text",
+          "method": "Compared cited general theorem with exact counted event",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "Foundational temporal-period theorem for symmetric majority"
+        },
+        {
+          "assessment": "INAPPLICABLE on graph class: triangular clique strips contain cycles",
+          "evidence": [
+            "Theorem domain is trees, not cyclic clique strips"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.01580",
+          "material_read": "Open abstract and object restriction to trees, not a fresh full-text inspection",
+          "method": "Read primary abstract and check hypothesis class",
+          "title": "Fixed Points and 2-Cycles of Synchronous Dynamic Coloring Processes on Trees",
+          "trigger": "Closest 2-cycle structural theorem"
+        },
+        {
+          "assessment": "Different graph P_n x K3, open rather than cyclic and includes general period-two states",
+          "evidence": [
+            "Summary states P_n x K3 and both fixed/two-step periodic count, not C_n x K4 pure states"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-two-cycle-entropy-for-majority-dynamics-on-open-triangular--e8578505075d",
+          "material_read": "Resultary indexed full descriptive summary, not full RESULT.md",
+          "method": "Semantic comparison of graph/period type and scope",
+          "title": "Exact two-cycle entropy for majority dynamics on open triangular strips",
+          "trigger": "Neighboring exact transfer-census result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same local majority rule on the consecutive natural graph widths C_n x K3 and C_n x K4 passes from at most six fully oscillating states to exponentially many with an exact algebraic entropy. This concrete structural change, alongside a reproducible full transfer factorization and analytic root separation, is a motivated population invariant, not an arbitrary finite slice of a classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "n>=3 simple cycles and widths r=3,4 only; no general period-two basin or mixed-flipping count.",
+    "Root separation in the all-n proof uses exact algebraic certificates, not floating roots."
+  ],
+  "schema_version": 1
+}

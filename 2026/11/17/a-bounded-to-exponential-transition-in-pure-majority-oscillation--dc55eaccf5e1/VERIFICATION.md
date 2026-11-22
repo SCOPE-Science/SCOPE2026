@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The direct simulator `verify_direct.cpp` enumerates every binary configuration on the labelled graphs for clique width 3 and circumferences 3–7, and clique width 4 and circumferences 3–6. Its output is recorded in `direct_output.txt`. This checks 20,292,096 states and uses the graph's actual neighbor list, not the transfer definition.
+# Independent mathematical audit
 
-The separate `check_transfer.py` builds the 36 by 36 matrix from balanced four-bit columns and forbidden equal triples, verifies exactly 90 transitions, performs exact integer characteristic-polynomial verification with SymPy and verifies trace counts for circumferences 3–12. Its output is in `transfer_output.txt`. It verifies exact rational sign intervals for all three cubic roots and an exact integer Schur-Cohn certificate placing both quartic root sets strictly inside the radius-two disk. It also approximates eigenvalues as an independent numerical diagnostic. The exact determinant identity and the local transfer bijection prove the all-length counting formula.
+## correctness
 
-Limitations: finite simulation does not itself prove the infinite-family statement; the additional root-bound certificate uses an exact polynomial reduction and not merely floating-point estimation. The precise factorization can be reconstructed from the explicit integer matrix; the main exact count requires no numerical roots. Independent external validation is not performed.
+PASS
+
+For strict open-neighbor majority with incumbent tie retention, F(x)=complement(x) iff each site has at most one (r=3) or two (r=4) neighbors of its current colour. Width 3 excludes monochromatic columns, forces adjacent columns to be complements and yields exactly six starting configurations for even n. Width 4 splits into alternating three-to-one columns (eight states for even n) and balanced weight-two columns. For the latter each row must avoid monochromatic triples, giving a bijection with closed walks of the explicit 36-state ordered-pair transfer matrix. Independently built this matrix from six four-bit weight-two tuples without using the repository checker, obtained precisely 90 nonzero entries, recomputed the complete 36th-degree characteristic polynomial over the integers and matched all six factors/multiplicities. Direct trace power counts n=3,4,5,6,7 are 90,98,270,1388,2940 including alternating states. The cubic has one simple root in (3,16/5), and exact Schur reductions in the package place both quartic root sets strictly within |z|<2; remaining roots are <=1, so the unique Perron contribution grows as lambda^n with error O(2^n). Finite transfer factorization plus the all-n local bijection, not finite simulation alone, establishes the law.
+
+## originality
+
+PASS
+
+Foundational Goles–Olivos threshold-dynamics periodicity gives a universal period-at-most-two constraint but not the fully flipping population of this family. Turau treats trees, whereas C_n box K_r contains triangles. The closest previously indexed result counts fixed points on width-three triangular cylinders and does not enumerate pure complement two-cycles, especially for K4 columns. Same-year exact oscillation work on open triangular strips, other graph types and whiskered cycles uses non-identical graphs and often all two-cycles rather than fully flipping states. No inspected exact theorem was found to imply both stated P3/P4 counts.
+
+## value
+
+PASS
+
+The same local majority rule on the consecutive natural graph widths C_n x K3 and C_n x K4 passes from at most six fully oscillating states to exponentially many with an exact algebraic entropy. This concrete structural change, alongside a reproducible full transfer factorization and analytic root separation, is a motivated population invariant, not an arbitrary finite slice of a classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
