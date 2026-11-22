@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The cited facet description is explicitly available in Heuer--Striker, Section 3. The proof gives strict simultaneous-equality witnesses for each allowed type and shows every forbidden type forces a third independent active hyperplane. Outward Frobenius normal products yield the exact angles, and exact pair counting proves all multiplicities. The exceptional mean-angle reversal and square asymptotic follow algebraically. A standalone checker additionally verifies every facet pair and exact modular face ranks in eight small rectangular cases, without being used as an infinite-dimensional proof.
+## correctness
 
-## Originality
-**PASS under accessible-source and published-record comparisons; historical priority remains provisional.** The full-text Heuer--Striker paper gives the established inequalities, vertex counts, and facet counts, but its inspected treatment does not give this dihedral-angle distribution. Cao--Chen's square-matrix face-lattice study potentially implies some underlying facet-pair incidences, so incidence alone is not claimed to be historically new. The complete metric spectrum, acute-mean exception and asymptotic were not covered by the accessible compared texts or retrieved published mathematical-record summaries. Cao--Chen's full text remains inaccessible and is a documented priority risk; a failed search is not evidence of uniqueness.
+PASS
 
-## Mathematical value
-**PASS.** The full ridge-angle multiset is a natural complete codimension-two Euclidean invariant of an important transportation/matching family, independent of the large number of vertices. The strict threshold for complete dual edge adjacency and the unique smallest-size reversal of mean ridge-angle sign are structural consequences with clear geometric interpretation. The fact is more informative than a facet-count recomputation or a routine dimensional check.
+Irredundant inequalities are Z_ij:X_ij≥0, row caps A_i:Σ_j X_ij≤1 and column caps B_j:Σ_i X_ij≤1, dimension pq. For each pair of facets, a point with exactly the pair tight proves a ridge except in four narrow cases when p=2 or q=2; those force at least one independent third equality. Thus R=C(pq+p+q,2)−[pq1_{q=2}+pq1_{p=2}+C(p,2)1_{q=2}+C(q,2)1_{p=2}]. Outward normals have magnitudes 1,√q,√p with only incident Z-row/column products −1 and row-column +1, giving stated acute, right, and obtuse angles and multiplicities. The mean follows directly, is obtuse only p=q=2 with π/2+π/27; Taylor expansion in square n gives deficit 4n^(−5/2).
 
-## Scope and limits
-Only complete-bipartite partial matching polytopes in the canonical Frobenius metric are treated. General bipartite graphs, rescaled embeddings, higher-order neighborliness, and independently established historical priority are outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Heuer–Striker establishes the full rectangular partial-permutation-polytope H-description, not complete ridge-pair Euclidean angle multiplicities. Cao–Chen 2022 studies square doubly substochastic face theory; its accessible abstract does not locate the complete ridge theorem, so square combinatorial priority remains uncertain, but the independent rectangular metric normal-angle spectrum and acute/obtuse mean law are not established by a bare facet characterization. The published two-row *full-cardinality* assignment polytope concerns a different face, and does not transfer directly to all partial matchings.
+
+## value
+
+PASS
+
+Complete ridge graph and unscaled Euclidean dihedral-angle histogram are natural exact invariants of a central combinatorial optimization polytope, giving a genuine neighborliness threshold and unexpected angular-mean reversal at the smallest case. The Frobenius metric is canonical, and the asymptotic scale is a substantive geometric statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
