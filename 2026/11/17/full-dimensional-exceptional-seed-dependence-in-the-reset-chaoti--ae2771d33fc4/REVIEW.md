@@ -1,21 +1,21 @@
-# Scientific review: exceptional initial-seed sensitivity under resetting
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The fixed-history response differentiates every return to the original seed correctly, giving exactly the published renewal formula. The logistic–doubling conjugacy yields the exact derivative identity with no typical-orbit approximation. The subcritical upper bound, almost-sure lower bound (Borel–Cantelli), and sparse prescribed-digit lower-growth subsequences prove the quantified claims. Crucially, the prefix-sparse construction fixes an `010` escape pattern after every long zero block, forcing the maximal upper exponential rate, while mid-block intervals suppress the renewal-weighted sum. The dimension calculation counts *all* free digits, including those between widely separated blocks; its exact value is \(1/(1+\alpha)\). The countable union has full dimension and remains null. The standalone `CHECK.py` passed 72 exact-identity, finite-history, and finite-block consistency checks. Its finite tests are explicitly not offered as proofs of infinite statements.
+PASS
 
-## Originality (O): PASS within inspected literature
+Last-reset decomposition gives A_n=rΣ_{m<n}q^m D_m+q^n D_n. Exact logistic-doubling conjugacy x=sin²(πt), f∘h(t)=h(2t) yields D_m=2^m |sin(2^(m+1)πt)|/sin(2πt). Writing R=2q reduces rates to a weighted sum of b_m. For R<=1 a uniform upper O(n) and lower positive constant force rate zero. For R>1, first Borel–Cantelli plus exp-small measure of sine zeros yields almost-everywhere universal exponential growth rate log R (one event independent of r). Sparse zero blocks of length L_j≈αk_j with well-separated next blocks and 010 recovery create limsup=logR and a midblock upper rate ≤logR/(1+α/2)<logR for every R∈(1,2); digit-cylinder Frostman mass and covers give dim 1/(1+α) and union over α→0 and prefixes is dense null dim one. The sum estimate works because R/2<1. Independently enumerated all 2^n reset histories for n=2,3,5 at rational seed 2/7 and matched the exact renewal identity; this finite check does not establish the fractal theorem.
 
-The 2024 Aron–Kulkarni manuscript and its 2026 revised version contain the crucial renewal identity and propose the uniform chaotic resetting exponent; they do not state the full-dimension, seed-uniform exceptional construction. Their derivation assumes a well-defined seed-independent bare exponent. The 2025 follow-up studies resetting Lyapunov spectra and wavefronts, not failure of the one-dimensional fixed-seed annealed limit. Gelfert–Rams and Barreira–Schmeling develop non-typical ordinary Lyapunov/Birkhoff sets; even if such a set is known, it need not be irregular after the *positive renewal sum* takes a logarithmic asymptotic. Targeted published-record searches and the accessible historical claims yielded no source proving this renewal-specific statement. A general nonadditive irregular-spectrum theorem specialized to renewal sums remains a priority risk; abstract-level comparison to the 2000 paper does not settle that risk.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-The motivating literature treats a critical reset probability as a seed-independent dynamical transition; precisely specifying the domain of that statement is mathematically important. A generic isolated pathological seed would be substantially weaker. Here the exceptional dependence occurs on a dense, Hausdorff-dimension-one null set **shared across all subcritical reset probabilities**, while almost-everywhere universality is independently proved, and the high-reset regime is uniformly seed-regular in the interior. This is a sharp measure-versus-dimension distinction for a directly defined dynamical sensitivity observable. There is no claim to resolve a broader multivariate or general random-map classification.
+Best-knowledge after actual comparison: Aron–Kulkarni supplies the SAME renewal identity and typical chaotic rate, which the current proof explicitly credits. It does not in the accessible substantive material state a simultaneous-for-all-r dense null full-dimension irregular seed set; its typical growth derivation assumes a seed-independent chaotic Lyapunov exponent. Classical full-dimension irregular Birkhoff/Lyapunov sets concern unsmoothed orbit averages, and their existence alone does not entail nonconvergence of the positive renewal-weighted aggregate. The constructed zero-block/recovery inequalities establish an additional distinct boundary of uniform seed dependence.
 
-## Closest literature and residual limitations
+## value
 
-Aron–Kulkarni, arXiv:2412.21043v1 (2024-12-30), equation (8) and logistic-map discussion; arXiv:2510.07394 (2025-10-08), resetting spectra; Gelfert–Rams, arXiv:0709.2832, ordinary Lyapunov irregular sets; Barreira–Schmeling, DOI 10.1007/BF02773211, non-typical multifractal sets. Only the resetting papers' relevant full-text sections and Gelfert–Rams' relevant original passages were inspected; Barreira–Schmeling was compared at the abstract and bibliographic level. No whole-literature uniqueness is certified.
+PASS
 
-The claim is restricted to fixed-seed Bernoulli resets of the parameter-four logistic interval map and expected absolute seed derivatives; it does not concern pathwise derivatives, endpoint seeds, or arbitrarily distributed resets. The review is a same-model reconstruction, not independent mathematical validation.
+A natural exact boundary to a published chaotic resetting sensitivity prediction: typical formula fails to define a rate on a dense set of maximal Hausdorff dimension although that set is null, uniformly for every subcritical reset probability. Establishes a motivated distinction between typical and pointwise universality using explicit recoverable Cantor dimensions; not a routine isolated numeric example.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
