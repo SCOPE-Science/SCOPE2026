@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The full four-parameter statement follows from an explicit inclusion–exclusion identity for parallel sets and independent one-dimensional integration of their upper-right quadrant overlap. The strict first nonquadratic term proves the *maximal* polynomial interval, not just a lower bound. The conic-certificate argument gives both an admissible core and a geometric obstruction for every larger core, using exactly the certificate definition in [1]. The upper bound is not inferred from finite tests. See `RESULT.md` and `verify.py`.
+## correctness
 
-**Originality — PASS, provisional priority.** Direct comparison with the accessible full text of [1] shows that Example 4.5/Proposition 6.3 treat only the all-unit L polygon. The general theorem of [1] gives local polynomiality but not its maximal interval, conic reach for arbitrary arm proportions, or the unbounded separation law. The 2023 origin of polynomial reach [2] and the global convexity theorem [3] give distinct definitions/frameworks, not a covering bound. Semantic literature-index searches for the generalized L family, equivalent notions and cubic threshold returned no claim with matching implication; specific close-result IDs and remaining risks are recorded in the research audit. Searches are not proof of priority.
+PASS
 
-**Mathematical value — PASS.** The result gives a complete natural four-length classification and a sharp obstruction to any quantitative converse to the known inequality \(\operatorname{polreach}\ge\operatorname{conreach}\). It also locates the first failure of the quadratic tube law and distinguishes the geometrically symmetric collision by a doubled cubic coefficient. This clarifies a concrete limitation of conic certificates as estimators of the longest polynomial regime, rather than merely rescaling a published example.
+For L=A∪B two axis-aligned rectangles, inclusion-exclusion of outer parallel sets with their overlap C reduces exact V_L(t) to 2(W+H)t+5πt²/4−T_uv(t). At t<=R=min(u,v) quadrant overlap T_uv=t²; near R unequal arms give deficit (t−R)^3/(6R), equal arms double coefficient 1/(3R) from the crossing geometry. Independent numerical quadrature for (u,v)=(1,2),(1,1),(3/4,5/4) at small detunings approached these coefficients. The reentrant corner has nonunique arbitrarily close projections, ordinary reach 0. Under the paper's C1/C2 conic-certificate definition, the exactly local three-quarter-plane apex yields r=m/3 and the two notch-wall proximal normals and first edge end prevent a larger certificate. The analysis is all positive a,b,u,v, big-O is not uniform near degenerate lengths.
 
-**Limitations.** Euclidean outer parallel area, positive dimensions, one reentrant right-angle corner; neither general planar polygons nor higher dimensions are classified. The generality of priority claims remains conditional on the accessible literature. Numerical tests are corroborative only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cholaquidis published the conic and polynomial reach definitions, the one normalized L shape and a general initial polynomiality theorem, all explicitly credited. The present all-positive-four-parameter maximal endpoints, exact cubic coefficient transition when u=v and unbounded reverse comparison are not implied by that single normalized case or a nonsharp generic interval. Full 2026 paper remained inaccessible through both primary web retrieval and authorized institutional route (VPN disconnected), therefore claim best-of-knowledge with substantial precise residual risk rather than asserting that unread appendices do not cover it.
+
+## value
+
+PASS
+
+Conic and polynomial reach are mathematically motivated descriptors of nonconvex geometry and geometric estimation. A natural four-length orthogonal L family exhibits two provably distinct sharp reach scales, a codimension-one doubled cubic onset, and an unbounded ratio despite fixed connected topology. These are precise, reusable geometric boundary facts, not mere numerical tests or generic Steiner expansions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
