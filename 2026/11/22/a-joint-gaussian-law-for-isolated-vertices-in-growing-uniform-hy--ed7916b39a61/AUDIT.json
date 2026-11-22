@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Exact conditional new-hyperedge hypergeometric kernel is a closed function of vertex, isolate and edge counts. The isolation contrast has stable negative drift with O(t^-2) duplicate-exclusion correction for k>=3. Bounded fourth moments and a weighted martingale CLT yield the full stated covariance; an invertible affine transformation transfers the limit to isolated count. The pure-stdlib checker passed 1412 exact assertions and the seeded no-repeat simulation matched three predicted covariances to under 1.6% relative error. Simulations are not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Betken, arXiv:1910.02668, full text Section 1.2: every new vertex independently connects to older vertices with attachment probability depending on indegree",
+        "Penrose, doi:10.1017/jpr.2018.9, abstract: inhomogeneous random graph on a fixed random point population",
+        "Puhalskii, doi:10.1216/RMJ-2013-43-6-1941, abstract: vertices arrive and link independently to older vertices"
+      ],
+      "reasoning": "General martingale central limit and stochastic approximation methods are applicable as techniques but do not by themselves state this explicit all-k coefficient for this birth-or-hyperedge process. Betken, Penrose, and Puhalskii use distinct models with independent newly born vertex attachments or fixed random point populations; neither their stated theorems nor exposed mechanisms imply the explicit formula. A stronger unpublished general growth-model theorem remains a priority risk.",
+      "searches": [
+        "randomly growing uniform hypergraphs stochastic isolated vertex count variance fluctuations covariance",
+        "growing random hypergraphs vertex birth and uniformly sampled k hyperedges isolated vertex CLT",
+        "\"growing random graph\" \"isolated vertices\" \"central limit theorem\" vertex arrival uniform edge",
+        "arXiv:1910.02668 isolated vertices preferential attachment CLT"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2611.14824v1 full text",
+      "arXiv:1910.02668 article text",
+      "doi:10.1017/jpr.2018.9 abstract",
+      "doi:10.1216/RMJ-2013-43-6-1941 abstract",
+      "Prior scientific analysis b741cb34-ac32-42da-ad9e-7d19ad0b539d",
+      "published-finding corpus 2026/11/2/SCOPE-joint-gaussian-arrivals-and-discoveries-in-poisson-grown-complet--384f2fa35d0c",
+      "published-finding corpus 2026/11/8/SCOPE-an-exact-nt-r-2-boundary-for-isolation-overlap-dependence-in-ran--6fe3ab2f523b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Krapivsky arXiv:2611.14824v1 Section II directly calls variances of the number of isolated vertices little known, and Sec. V.1 gives mean singleton density",
+        "Betken arXiv:1910.02668 Section 1.2 independent attachments by newly born vertices, unlike the independent hyperedge-choice steps",
+        "published-finding corpus 2026/11/2/SCOPE-joint-gaussian-arrivals-and-discoveries-in-poisson-grown-complet--384f2fa35d0c: joint Gaussian law in an unrelated exploration process"
+      ],
+      "reasoning": "The present theorem includes stochastic covariance between the vertex-birth count and the isolation count, plus the exact asymptotic variance; the prior mean-density equation is insufficient to compute it. Other isolated-count CLTs apply to different stochastic kernels. General CLT machinery is acknowledged but does not constitute a located statement of the same parameter-specific formula.",
+      "searches": [
+        "\"Randomly growing uniform hypergraphs\" isolated vertices covariance joint Gaussian asymptotic variance CLT",
+        "randomly growing uniform hypergraphs stochastic isolated vertex count variance fluctuations covariance",
+        "\"growing random graph\" \"isolated vertices\" \"central limit theorem\" vertex arrival uniform edge",
+        "\"random hypergraph process\" \"vertex addition\" \"hyperedge addition\" \"isolated\" \"central limit\"",
+        "\"growing hypergraph\" \"isolated vertices\" \"normal\" variance",
+        "arXiv:2611.14824v1 full-text inspection"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2611.14824v1, Sections II and V: n_1=p/(p+k(1-p)), no isolation covariance formula",
+        "published-finding corpus 2026/11/2/SCOPE-joint-gaussian-arrivals-and-discoveries-in-poisson-grown-complet--384f2fa35d0c: distinct Poisson-walk discovery model"
+      ],
+      "reasoning": "The mean density from the primary source matches r but its deterministic equations do not determine the second-order covariance or martingale CLT. The published joint-arrival/discovery law uses Poisson growth and walk discovery, not incidence to randomly sampled hyperedges; no deterministic relabelling or parameter substitution identifies its kernel with this one.",
+      "searches": [
+        "\"Randomly growing uniform hypergraphs\" isolated vertices covariance joint Gaussian asymptotic variance CLT",
+        "GRH(k) isolated cluster fluctuations exact variance p and k Krapivsky",
+        "published-finding corpus search: birth hyperedge growth isolated vertices central limit vertex count ratio r = p / (p + k(1-p))"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Earlier mathematical analysis of repeated-edge selections (opaque claim ID b741cb34-ac32-42da-ad9e-7d19ad0b539d): counting duplicate-edge attempts in the same GRH(k) process, not isolate fluctuations",
+        "published-finding corpus 2026/11/8/SCOPE-an-exact-nt-r-2-boundary-for-isolation-overlap-dependence-in-ran--6fe3ab2f523b: fixed-edge random hypergraph overlap covariance with isolates"
+      ],
+      "reasoning": "The accessible same-model prior result concerns the count of repeated hyperedge attempts, which can be finite a.s. for k>=3; it does not imply an explicit sqrt(t) isolated-vertex CLT. The fixed-edge table concerns covariance between isolation and overlap motifs in a fixed vertex population, not isolated-vertex variance under sequential births. Search ranking gives no proof of unique priority; exact identity not found in actual checked records.",
+      "searches": [
+        "\"Randomly growing uniform hypergraphs\" isolated vertices covariance joint Gaussian asymptotic variance CLT",
+        "GRH(k) isolated cluster fluctuations exact variance p and k Krapivsky",
+        "birth hyperedge growth isolated vertices central limit vertex count ratio r = p / (p + k(1-p))",
+        "published-finding corpus search: randomly growing uniform hypergraphs stochastic isolated vertex count variance fluctuations covariance",
+        "published-finding corpus search: growing random hypergraphs vertex birth and uniformly sampled k hyperedges isolated vertex CLT"
+      ]
+    },
+    "rationale": "The primary full-text paper gives first-order singleton density and explicitly says isolation variances are not known in its analysis (Sec. II, near equation (7)); Sections V.1 and V.3 treat deterministic cluster densities and topological invariants, not a Gaussian fluctuation covariance. Comparable isolation CLTs concern preferential-attachment and fixed-vertex random graph ensembles with different transitions. Previous own claims on this very hypergraph model concern repeat-edge counts, not the isolated-vertex covariance. This is best-knowledge originality, not a claim of proven worldwide priority.",
+    "residual_risks": [
+      "No global uniqueness guarantee from semantic database searches; a more general stochastic-approximation theorem with model-specific corollary may exist",
+      "2013 Puhalskii growing-random-graph paper was compared at abstract level only; full content not inspected, although stated model differs",
+      "No independent external correctness assessment"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same object and same mean singleton fraction; no isolated-vertex joint CLT or explicit second-moment coefficient stated in inspected text",
+        "evidence": [
+          "The abstract concerns percolation, cluster-size tails, Euler characteristic and Betti numbers",
+          "Sec II says variances of isolated-vertex counts are not known in its analysis; mean cluster density n_1 provided",
+          "Sec V extends to fixed hyperedge size k without the claimed Gaussian covariance"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.14824v1",
+        "material_read": "HTML full article: introduction and exact rules around lines 43-110, Sec II eqns (4)-(8) and (14)-(15), Sec V.1 eqns (63)-(72), Sec V.3 and concluding discussion; term searches for isolated and variance",
+        "method": "Read full-text HTML sections and compared exact one-step law, first-order singleton density, and asserted fluctuations",
+        "title": "Randomly growing uniform hypergraphs",
+        "trigger": "Identical sequential vertex-birth or uniform-hyperedge model and explicit gap about isolated-vertex variances"
+      },
+      {
+        "assessment": "Graph vertices are added at each time with independently drawn attachments to older vertices; no random uniform hyperedge-creation steps, so result does not imply model-specific covariance",
+        "evidence": [
+          "Section 1.2: each new vertex independently connects to each earlier vertex with probability determined by attachment function",
+          "Abstract: Stein-method CLT for that preferential-attachment model"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1910.02668",
+        "material_read": "Accessible article full text introduction, model description Sec 1.2, and main CLT overview; inspected mechanism and parameters",
+        "method": "Read displayed HTML text and compare edge birth mechanism",
+        "title": "A central limit theorem for the number of isolated vertices in a preferential attachment random graph",
+        "trigger": "Potential generic isolated-vertex CLT dominating present result"
+      },
+      {
+        "assessment": "Fixed random-vertex spatial graph and rare isolated-point Poisson limits do not directly cover an extensive sequential uniform-hyperedge process",
+        "evidence": [
+          "Abstract: random graph on randomly scattered spatial points; fixed mean isolated count O(1)"
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/jpr.2018.9",
+        "material_read": "Public abstract and publication metadata, not full paper",
+        "method": "Compared model and stated Poisson regime in abstract",
+        "title": "Inhomogeneous random graphs, isolated vertices, and Poisson approximation",
+        "trigger": "Broader isolated-vertex limit literature"
+      },
+      {
+        "assessment": "Different edge mechanism: new vertices independently connect to older ones with shared edge probability; priority risk remains from inaccessible full treatment",
+        "evidence": [
+          "Abstract says one-by-one arrivals with independent edges to previous vertices and deviation asymptotics"
+        ],
+        "identifier_or_url": "https://doi.org/10.1216/RMJ-2013-43-6-1941",
+        "material_read": "Bibliographic abstract only; article full text was not accessible in current source results",
+        "method": "Compared abstract model and limit scaling",
+        "title": "On the number of isolated vertices in a growing random graph",
+        "trigger": "Potential growth-model coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ed7916b3-9a61-4563-9934-913491553414",
+  "value": {
+    "rationale": "The motivating article explicitly identifies isolation-variance fluctuations as unknown there; the new theorem determines the sharp sqrt(t) fluctuation scale, a complete explicitly positive two-dimensional covariance, and a closed asymptotic variance coefficient for every fixed k>=3 and every p in (0,1), independent of the giant-component regime. The random vertex count correlation is needed for interpreting count fluctuations beyond deterministic-denominator approximations.",
+    "status": "PASS"
+  }
+}
