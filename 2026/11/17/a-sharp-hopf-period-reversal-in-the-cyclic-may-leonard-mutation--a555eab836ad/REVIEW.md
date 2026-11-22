@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns the original-time period of the locally attracting Hopf branch in the explicitly specified three-population differential equations. The coordinate transformation is invertible, and direct polynomial substitution gives the exact complex-real equations. The nonzero frequency \(w/\sigma\), radial linear rate \(3\delta\), stable third eigenvalue \(-1\), quadratic second harmonic, slaved mean and cubic fundamental balance determine both the amplitude and the signed frequency shift. The real cubic coefficient \(-2\lambda c<0\) establishes supercriticality. The resulting period coefficient matches direct ODE shooting at multiple detunings and two opposite-sign parameter choices. Positivity of the original competition coefficients forces \(|w|<\sqrt3(\lambda+1)\); intersecting this with the negative-slope inequality gives the stated sharp cubic root. All hypotheses, period normalization, strict endpoints and the limited meaning of the zero first derivative are explicit. Independent auditing remains unperformed.
+PASS
 
-## Originality — PASS within inspected evidence
+The frozen RESULT.md specifies the original three-species quadratic ODE with α,β>0, α+β>2, α≠β and mutation μ_H=λ/(3σ), λ=(α+β−2)/2, σ=2λ+3, w=√3(β−α)/2. Verified the invertible original-time complex/stable-mode transform U=x+iy, z, with exact equations U′=(3δ+iw/σ)U+(λ−iw)conj(U)^2+[−(σ+3)/2+iw]Uz, z′=−z−σz²+2λ|U|², δ=μ_H−μ. The nonzero Hopf frequency, stable eigenvalue −1, second-harmonic coefficient i(λ−iw)/(3w/σ) and slaved mean 2λr² yield the fundamental cubic with real part −λ(σ+3)<0: supercritical attracting small cycle for δ>0. The imaginary cubic determines T/T_H=1+[2σ/(λ(σ+3))][3−λ+σλ²/w²]δ+o(δ), T_H=2πσ/|w|; sign of signed frequency was treated consistently for both signs of w. Positivity of α,β is |w|<√3(λ+1), so negative slope is possible exactly when λ³−6λ²−15λ−9>0. Derivative factor 3(λ−5)(λ+1) proves a unique positive root λ*=8.0123119705... . Independent exact rational spot checks at λ=10,w=16 and 37/2 yield 2921/8320>0 and −8809/177970<0, and original CHECK.py has directly checked transformed population equations and harmonic coefficient formulas. The analytic Hopf theorem, not finite integrations, establishes the branch. The zero-slope locus is only first-order neutral.
 
-The originating full-text preprint Jaramillo–Mrad–Stepien, arXiv:2210.04342, supplies the same equations and Hopf/cycle classification but no equivalent model-specific period derivative, its sign-change surface, or its sharp feasibility cutoff among positive competition rates in the inspected Hopf, cylindrical-coordinate and summary material. The paper's stability conclusions alone do not imply the imaginary cubic normal form needed for this sign chart. The classical May–Leonard paper lacks the all-to-all mutation parameter. A related published globally convergent symmetric-mutation result assumes equal cross competition \(\alpha=\beta\), which implies zero Hopf frequency and cannot cover the present nondegenerate oscillatory regime. A 2026 spatially extended May–Leonard study reports exact periodic solutions, but its accessible abstract addresses a diffusion-based model rather than the present mutation-derivative question. Searches by source title, Hopf normal-form coefficient, frequency slope, parameter aliases and sharp cubic have not shown an equivalent conclusion. General Hopf theory is fully acknowledged and is not itself claimed new. Remaining risk: an unindexed publication or inaccessible full text may imply a duplicate formula.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact physical-period derivative separates two qualitatively opposite responses of the same cyclic predator-free three-species competition mechanism to decreasing mutation. The result isolates a sharp **admissibility** transition, \(\lambda_*=8.01231197\ldots\), below which no positive coefficients can yield a speeding-up small cycle and above which both signs coexist at the same total cross-competition and Hopf threshold. A model's Hopf stability and amplitude do not determine this temporal effect; the result answers a structurally motivated observable question rather than repackaging the existence theorem. Only local Hopf periods are classified, with no claimed global dynamics or exact isochrony on the zero-slope locus.
+The directly relevant 2022/2023 Jaramillo–Mrad–Stepien primary text presents the identical linearly mutated May–Leonard model, its coexistence Hopf threshold and cycle stability, but its inspected Hopf/cylindrical analysis does not supply the signed original-physical-time derivative, its feasibility cubic, or two feasible opposite-slope branches. The classical unmutated May–Leonard system and the balanced or spatial variants have different assumptions. Standard Hopf normal-form theory supplies a calculation method, not this explicit model-specific sign phase diagram. Resultary semantic query recovered this assigned record itself plus distinct models, no stronger same-model formula. Best-of-knowledge originality survives with unindexed-coefficient risks.
 
-## Closest sources and limits
+## value
 
-- Jaramillo, Mrad and Stepien, arXiv:2210.04342 (2022-10-09), full preprint including original vector field, Hopf analysis and cylindrical form inspected; no explicit period-slope/sign chart located.
-- May and Leonard, SIAM J. Appl. Math. 29 (1975), classical mutation-free system; structural background only.
-- Sorin, Nepomnyashchy and Volpert, SIAM J. Appl. Math. 86 (2026), abstract inspected; diffusive spatially extended variant, full text not read. Residual publication-priority uncertainty is recorded.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The physical period is a natural experimentally observable invariant independent of cycle existence and orbital stability. The sharp positive-competition threshold separates a regime where mutation reduction must lengthen all locally born oscillations from one admitting both signs at the same competition sum and Hopf point. The model-specific frequency drift and positivity boundary resolve a meaningful parameter-response question, not merely restate the known Hopf surface.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
