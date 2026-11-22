@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "The exact cumulative-pressure transformation is differentiated from the defined SIR ODE: S_j(x)=S_j(0)e^{-lambda_j x}, I(x)=I0+sum S_j(0)(1-e^{-lambda_j x})-cx, J=beta I A, and J_x=beta(A(A-c)-IB). At r=1,9/8,5/4,3/2 the standalone checker proves strict derivative signs +,-,+,- using exact rational bounds on log(r), not floating samples. At r=3/2 the low-risk group alone implies A>c, so all landmarks are reached while I strictly increases. Analyticity forces two strict incidence maxima and a strict minimum. For one risk class the incidence sign factor lambda(S-I)-c strictly decreases until the unique prevalence peak and is negative thereafter, proving impossibility of two strict maxima. Positive parameters, total mass normalization and boundary reachability were checked; no extra maxima or empirical data are claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bootsma et al., arXiv:2308.06593, Section 10.1 explicitly produce total-incidence double peaks by distinct latent periods and by weak contact coupling, while the new model has no latent stage and a single perfectly mixed infectious pool.",
+        "Zheng et al., arXiv:1706.05780 investigate multilayer network peaks from inter-layer delays and weak coupling, again hypotheses absent from the witness.",
+        "The source literature recognizes multipeak dynamics in heterogeneous SIR networks, but reviewed instances do not entail two incidence crests with rank-one shared infectives and only static two-point susceptibility."
+      ],
+      "reasoning": "Broader multitype epidemic systems could specialize to the witness but broad model inclusion is not the same as prior derivation or demonstration of the asserted incidence pattern. A general theorem allowing arbitrary multipeak incidence under rank-one mixing would cover it; none was located or read. The more specific known examples require distinct delay/coupling mechanisms.",
+      "searches": [
+        "static susceptibility multiple peaks epidemic model",
+        "bimodal incidence susceptibility SIR peaks",
+        "two peaked epidemic incidence static susceptibility heterogeneity SIR model time invariant susceptibility only",
+        "https://arxiv.org/abs/2308.06593 (Section 10.1 Peaks)",
+        "https://arxiv.org/abs/1706.05780 (abstract)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.22122 (public full-text sections 3, 4, 5)",
+      "arXiv:2308.06593 (public full-text Section 10.1 and context)",
+      "arXiv:2309.14583 (public full-text Theorem 3.8 and Section 4)",
+      "arXiv:1706.05780 (public abstract only)",
+      "Published findings indexed by semantic searches concerning fixed susceptibility, multimodal incidence, and rank-one SIR (nearest claims compared by observable and hypotheses)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 selection identity states that mean susceptibility among remaining susceptible hosts decreases. That does not fix the sign of the product derivative J=beta I A; F=A(A-c)-IB may change sign three times while A decreases.",
+        "Alutto et al. prove a weighted infectious PREVALENCE aggregate is unimodal in rank-one networks; this is already true in the witness and is not logically incompatible with two total INCIDENCE crests.",
+        "Bootsma et al. discuss incidence double peaks with latent physiology or weak mixing, without providing a no-latency fully-mixed two-fixed-risk example."
+      ],
+      "reasoning": "We checked statements and the logical directions explicitly. Decreasing effective susceptibility and unique prevalence maximum do not imply unique incidence maximum. The two-class witness violates no cited theorem, and the known double-peak constructions use different hypotheses, so their claims do not imply the minimal-susceptibility construction. Broader unsuspected theorems remain a residual priority risk.",
+      "searches": [
+        "https://arxiv.org/abs/2608.22122 (selection identity, Section 4.4)",
+        "https://arxiv.org/abs/2308.06593 (Section 10.1)",
+        "https://arxiv.org/abs/2309.14583 (Theorem 3.8, Lemma 4.17)",
+        "https://arxiv.org/abs/1706.05780 (abstract)",
+        "one peak susceptibility incidence SIR"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The two-risk closure is equivalent to the two-atomic Laplace-transform construction in Izyumtseva et al., arXiv:2608.22122, Section 4.4.",
+        "Alutto et al., arXiv:2309.14583, Theorem 3.8 proves rank-one weighted aggregate infectious PREVALENCE unimodality; it does not assert unimodality or multimodality of total new infection INCIDENCE.",
+        "The criterion F=A(A-c)-IB for stationary total incidence is not the class-infection prevalence w_i criterion in Alutto et al., Section 4."
+      ],
+      "reasoning": "We considered the equivalent two-class SIR ODE, rank-one network representation, and total-case incidence as the derivative of cumulative infection. Under the rank-one formulation the aggregate prevalence is unimodal, which is consistent with (rather than contradictory to) the new double total-incidence witness. None of the inspected formulae or theorems provides four alternating signs of the total-incidence derivative under only fixed susceptibility.",
+      "searches": [
+        "heterogeneous SIR persistent two susceptibility classes infection incidence two separated peaks without time variation one peak infectious prevalence",
+        "multi peak epidemic incidence in well mixed SIR with fixed susceptibility distribution no time-varying parameters",
+        "two susceptibility classes two peaks incidence SIR",
+        "https://arxiv.org/abs/2608.22122 (Sections 3, 4.4)",
+        "https://arxiv.org/abs/2309.14583 (Theorem 3.8, Section 4)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Izyumtseva et al. illustrate discrete susceptibility examples, including masses at 0, 1 and 3 in their Figure 1; they do not list or certify the two-class 1/20 risk-ratio witness with two incidence crests.",
+        "The local historical claims available for comparison concerned final size, epidemic peak time, network mixing and other incidence mechanisms rather than this exact two-atom sign certificate.",
+        "No exact precomputed table of four derivative signs at log(1), log(9/8), log(5/4), log(3/2) was located."
+      ],
+      "reasoning": "The result is not primarily the computed decimal values, which serve only as signs: it is a constructive open parameter region of double total-incidence crests before the unique prevalence peak and a sharp one-class impossibility. An identical or stronger classification, even without matching numerical parameters, would count as coverage; no such claim was identified in the consulted works.",
+      "searches": [
+        "arxiv:2608.22122 mixed Sellke static two-point susceptibility bimodal new infection incidence two distinct strict maxima with a single infectious prevalence maximum",
+        "Bootsma Chan Diekmann Inaba 2024 double epidemic incidence peaks latent-period versus susceptibility heterogeneity well mixed",
+        "exact rational sign witnesses incidence curvature two classes risk 1 20 recovery rate one transmission two SIR",
+        "https://arxiv.org/abs/2608.22122 (finite discrete example and figure)"
+      ]
+    },
+    "rationale": "The exact two-susceptibility-class coexistence of at least two total-incidence maxima with strictly increasing total infectious prevalence, plus the one-class minimality statement, is not implied by the inspected cited works. The originating 2026 work proves the general mixed-Sellke limit and finite discrete closure but not this incidence shape. Bootsma et al. (2023/2024) exhibit two incidences peaks with latency heterogeneity or weak coupling; Alutto et al. (2023) address rank-one weighted prevalence unimodality and individual-class prevalence, not total incidence. This is a literature-bounded assessment, not a proof of universal novelty.",
+    "residual_risks": [
+      "Historical literature on multigroup incidence geometry may contain a broad theorem or example implying the stated two-class construction even when not indexed by matching words.",
+      "Only an abstract, not the full 2017 multilayer paper, was inspected; the explicitly claimed mechanisms differ but uninspected appendices cannot be ruled out.",
+      "No independent historical-priority review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MODEL COVERED; NEW CLAIM NOT COVERED. It defines the family and gives the monotone selection result, without asserting multi-peak total incidence with one prevalence peak.",
+        "evidence": [
+          "Section 4.4 gives finite-risk SIR closure and arbitrary discrete susceptibility.",
+          "Sections 3.1–3.2 address incidence coefficient and susceptibility selection; Figure 1 compares infectious trajectories, not two total-incidence crests."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.22122",
+        "material_read": "Abstract, introduction, Section 3 (ODE representation, selection identity, final-size analysis), Section 4.4 (finite discrete closure), Section 4.5 (Figure 1 interpretation), Section 4.6 and discussion.",
+        "method": "Read public full-text HTML representation and relevant theorem and figure-text sections.",
+        "title": "From Individual-Based Stochastic Epidemics to Heterogeneous SIR Equations",
+        "trigger": "Originating 2026 fixed-susceptibility Sellke-to-SIR model; exact two-atom closure is the test domain."
+      },
+      {
+        "assessment": "PHENOMENON KNOWN, MECHANISM DIFFERENT. Double incidence peaks arise there through heterogeneous latent periods or weakly coupled contact groups, neither present in the new example.",
+        "evidence": [
+          "Section 10.1 Figure 1 describes two groups differing strongly in latent-period distributions.",
+          "Section 10.1 Figure 2 describes weak contact coupling between groups; both contrast with shared instantaneous homogeneous mixing."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.06593",
+        "material_read": "Introduction and general model, herd immunity discussion, Section 10.1 Peaks (including the two explicit Figure 1 and Figure 2 examples), and Section 10.2 context.",
+        "method": "Read public full-text HTML representation and the original section describing the mechanisms.",
+        "title": "The effect of host population heterogeneity on epidemic outbreaks",
+        "trigger": "Highly relevant prior exposition of multiple incidence peaks in heterogeneous epidemiology."
+      },
+      {
+        "assessment": "NOT COVERING. Theorem 3.8 concerns weighted infectious prevalence, and Section 4 concerns class-specific infection trajectories and class-specific incidence, not the total new-infection incidence with two strict maxima while total prevalence grows.",
+        "evidence": [
+          "Theorem 3.8 proves a weighted prevalence aggregate has one peak.",
+          "Section 4 defines class-specific infection-rate logarithmic derivative and studies individual curves; no corresponding total-incidence shape theorem was found in inspected material."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2309.14583",
+        "material_read": "Abstract and introduction, Section 3.1 including Theorem 3.8, Section 4 including the incidence logarithmic-derivative expression and Section 4.2, Section 5 simulation discussion.",
+        "method": "Read public full-text HTML representation including theorem statements, proof steps and the observables defined.",
+        "title": "On the dynamic behavior of the network SIR epidemic model",
+        "trigger": "Closest analytic rank-one network theorem on unimodality and multimodality with heterogeneous susceptibilities."
+      },
+      {
+        "assessment": "No direct coverage supported by accessible abstract: requires multilayer topology, delayed inter-layer spread and weak coupling. Full-text inspection not completed; residual historical risk noted.",
+        "evidence": [
+          "Abstract ascribes multiple peaks to interlayer time delays and weak coupling; these mechanisms are absent from the single common infectious pool."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1706.05780",
+        "material_read": "Bibliographic information and full abstract only.",
+        "method": "Read publicly indexed abstract and summary, not original full text.",
+        "title": "Multiple peaks patterns of epidemic spreading in multi-layer networks",
+        "trigger": "Earlier paper with apparent claim of multiple peaks even without explicit behavioral forcing."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "404117c6-122e-4622-9b7b-0452d8f8af5d",
+  "value": {
+    "rationale": "The construction resolves a precise structural question prompted by the recent mixed-Sellke model: can persistent susceptibility heterogeneity alone, with homogeneous infectiousness and mixing and no exposed compartment or time forcing, produce two new-case incidence crests while total infectious prevalence still rises? The answer is affirmative for two risk types and negative for one, so it is a minimality boundary rather than an arbitrary numerical variant. It directly distinguishes incidence from prevalence and gives an open parameter family, with value for interpreting epidemic curve shapes. No predictive or empirical significance is asserted.",
+    "status": "PASS"
+  }
+}
