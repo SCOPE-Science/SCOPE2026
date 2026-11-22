@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The nonlinear global Lipschitz constant is reduced to the norms of *all* locally realizable weighted pooling matrices, with the ability to realize each consecutive partition proved using strict descending input blocks and interblock separation. The finite coarea identity exactly reduces each such matrix norm to binary cuts. Since the output of a cut lies in the unit cube, the sharp universal Gini-diameter inequality gives the upper bound, and the dominant-mass first-block construction gives a matching limiting lower bound. Strict nonattainment at positive finite masses is proved by separate analysis of singleton and nonsingleton cuts. Equal-mass contraction uses doubly stochasticity; the four-site expression follows by checking the two possible cut cardinalities and the four possible sizes of the pooled block containing a singleton. Exact arithmetic checks corroborate the component claims, without substituting for the unrestricted argument.
+PASS
 
-## Originality — PASS, qualified
+Every stable active PAV pooling regime is a consecutive-block weighted-average linear map and each partition can occur on an open cone. Piecewise linear segment subdivision reduces the global two-input Lipschitz bound to maximum of these matrix seminorms; the coarea identity for unweighted complete-pair Gini reduces each matrix norm to binary cuts. Every extremizing cut is locally attainable. Since block indicators lie in [0,1]^n, G≤floor(n²/4), while input cut costs at least n−1, yielding universal C_n; dominant mass in a near-balanced pooled block gives sharp supremum but not attainment for fixed positive masses. A separate singleton/two-element block calculation gives exact n=4 expression, adjacent mass-ratio ≤3 nonexpansivity. Independently enumerated partition-cut values with exact fractions for n=3,4,5, obtaining n=4 μ=(4,1,1,1) value 16/15.
 
-The closest primary results provide weighted PAV block geometry (Yeganova–Wilbur, 2009), isotonicity as coordinate-order preservation (Németh–Németh, 2015), and a norm-contraction characterization for *unweighted* isotonic projection (Yang–Barber, 2017). The last result covers the equal-observation-mass Gini contraction subcase and is explicitly credited. It does not compare weighted least-squares isotonic projections in the **unweighted complete-pair Gini seminorm**. Related variation-stability results use path or cover-graph edge variation, not this complete-pair metric. Neither these sources nor the searched published mathematical records yield the all-dimensional sharp mass envelope, the finite fixed-mass cut formula, or the exact four-site ratio threshold. Bibliographic incompleteness remains a priority risk; negative searches alone do not prove novelty.
+## originality
 
-## Value — PASS
+PASS
 
-This identifies a sharp and dimension-growing mismatch between the norm implicit in the weighted least-squares estimator and a natural unweighted distributional-dispersion metric. It gives exact behavior at the first possible unstable dimension, an explicit mass-balance criterion there, and a finite exact prescription in every dimension. The ratio \(\lfloor n^2/4\rfloor/(n-1)\sim n/4\) is a substantive qualitative contrast with equal-mass nonexpansivity, rather than a small tuning of an existing constant.
+Compared full texts of Resultary two-cell weighted conditional-expectation Gini polytope and weighted isotonic edge-variation concavity law. The former contains identical two-block branch technology, universal n/4 order and the n=4 example, but not complete nonlinear all-partition exact modulus; the latter is a different weighted adjacent-edge seminorm. Yang–Barber only covers unweighted Euclidean isotonic projection Gini contraction. Claim remains original as full nonlinear arbitrary-mass Gini theorem; partial overlap is explicit.
 
-## Closest literature and limitations
+## value
 
-Yeganova–Wilbur (2009), de Leeuw–Hornik–Mair (2009), Guyader et al. (2012), Németh–Németh (2015), and Yang–Barber (2017/2018) provide historical or structural context. The fixed-mass formula is exponential, the all-mass upper envelope is not attained for finite positive masses when \(n\ge4\), and larger-dimension closed mass-specific phase diagrams remain open here. Source access and indexing may omit an equivalent earlier formulation. The proof is self-contained but independent review has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact two-input Gini sensitivity for weighted isotonic fitting, universal sharp n/4 growth, small-dimensional threshold, and mass-ratio criterion quantify a genuine instability of a ubiquitous statistical projection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

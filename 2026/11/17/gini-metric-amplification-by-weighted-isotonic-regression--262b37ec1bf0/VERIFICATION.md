@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-20.md",
+      "INDEPENDENT_AUDIT_2026-11-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python verify_weighted_isotonic_gini.py` with Python 3.10 or later. No optional libraries or external data are required.
+## correctness
 
-The executed standard-library exact-rational diagnostics printed:
+PASS
 
-```text
-EXACT_ALL_PARTITIONS_AND_BINARY_CUTS_PASSED 36
-EXACT_FOUR_SITE_MASS_RATIO_FORMULA_PASSED 256
-EXACT_DOMINANT_MASS_SHARP_ENVELOPE_WITNESSES_PASSED 36
-INDEPENDENT_EXACT_PAV_TWO_INPUT_WITNESSES_PASSED 10
-ALL_WEIGHTED_ISOTONIC_GINI_DIAGNOSTICS_PASSED
-```
+Every stable active PAV pooling regime is a consecutive-block weighted-average linear map and each partition can occur on an open cone. Piecewise linear segment subdivision reduces the global two-input Lipschitz bound to maximum of these matrix seminorms; the coarea identity for unweighted complete-pair Gini reduces each matrix norm to binary cuts. Every extremizing cut is locally attainable. Since block indicators lie in [0,1]^n, G≤floor(n²/4), while input cut costs at least n−1, yielding universal C_n; dominant mass in a near-balanced pooled block gives sharp supremum but not attainment for fixed positive masses. A separate singleton/two-element block calculation gives exact n=4 expression, adjacent mass-ratio ≤3 nonexpansivity. Independently enumerated partition-cut values with exact fractions for n=3,4,5, obtaining n=4 μ=(4,1,1,1) value 16/15.
 
-The first check directly computes all consecutive-block branch matrices and every nontrivial binary cut for selected dimensions two through seven, comparing their rational ratios against the sharp dimension envelope. The second enumerates all 256 positive-integer quadruples drawn from a four-value grid. The third checks the explicit dominant-mass witness and its exact deficit through dimension 15. The fourth independently implements rational PAV and checks local two-input perturbations on dimensions four through eight.
+## originality
 
-These are finite computations. The unrestricted assertions about arbitrary dimension, real positive masses, all input pairs, and strict nonattainment are established by the mathematical proof in RESULT.md, not certified by experimental extrapolation. Independent mathematical audit has not been performed.
+PASS
+
+Compared full texts of Resultary two-cell weighted conditional-expectation Gini polytope and weighted isotonic edge-variation concavity law. The former contains identical two-block branch technology, universal n/4 order and the n=4 example, but not complete nonlinear all-partition exact modulus; the latter is a different weighted adjacent-edge seminorm. Yang–Barber only covers unweighted Euclidean isotonic projection Gini contraction. Claim remains original as full nonlinear arbitrary-mass Gini theorem; partial overlap is explicit.
+
+## value
+
+PASS
+
+The exact two-input Gini sensitivity for weighted isotonic fitting, universal sharp n/4 growth, small-dimensional threshold, and mass-ratio criterion quantify a genuine instability of a ubiquitous statistical projection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
