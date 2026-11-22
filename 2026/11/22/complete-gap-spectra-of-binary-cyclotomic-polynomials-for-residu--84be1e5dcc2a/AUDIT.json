@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "The exact rectangle polynomial identity is reconstructed by multiplying the proposed U-V expression by (1-X^a)(1-X^b) and using a alpha+b beta=ab+1. Degree uniqueness and disjoint residue classes eliminate cancellation. Both residue families are partitioned into explicit integer rows, and inter-/intra-row gap counts recover every multiplicity including gap one. A separate coefficient recurrence checked 810 admissible cases and 8,050,320 coefficient positions; it is supplementary rather than an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2021 Theorem 2.1 gives a general coefficient-word construction with per-instance output, not closed gap multiplicities.",
+        "2025 Theorem 1.1 gives only the second-largest gap and a lower bound for its count in arbitrary residue classes.",
+        "A published exact two-generator family has parameter a=dt+1,b=a+d, which at d=2 entails b=a+2 and only quotient s=1."
+      ],
+      "reasoning": "General coefficient reconstruction provides enough information to algorithmically count gaps but does not state or prove the new explicit two-variable formulas. The closely related narrow b=a+2 result is subsumed at s=1; its hypotheses rule out b=as+2 for every s>=2, and do not provide the general minus-two family.",
+      "searches": [
+        "binary cyclotomic polynomial Phi_{pq} all gap multiplicities for q congruent plus or minus 2 modulo p; gaps even only, each 2floor(q/p)",
+        "semigroup polynomial (1-x)(1-x^{ab})/((1-x^a)(1-x^b)) complete gap length frequencies b congruent ±2 mod a",
+        "full gap spectrum binary cyclotomic q mod p plus minus two even gaps adjacent nonzero exponents",
+        "arXiv:2109.07544 Theorem 2.1",
+        "arXiv:2507.19381 Theorem 1.1",
+        "584c998005ae"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1507.07098",
+      "https://arxiv.org/abs/2109.07544",
+      "https://arxiv.org/abs/2307.07229",
+      "https://arxiv.org/abs/2507.19381",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-run-length-frequencies-for-binary-semigroups-with-a-dt-1-a--584c998005ae"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2015 proves H_{a-1}=2 floor(b/a), which is only one entry of this array.",
+        "2025 proves the second-largest gap max(r-1,a-r-1), which is a corollary about support, not exact multiplicities.",
+        "2025 provides complete frequencies for r=1 and r=a-1, excluding r=2 and r=a-2 when a>=5.",
+        "2021 supplies word decomposition but no universal histogram for these residues."
+      ],
+      "reasoning": "Existing maximum- and second-gap theorems do not imply counts at each smaller length. The full coefficient algorithm can be specialized but requires a separate row-geometry enumeration; the new theorem supplies that uniform derivation. The known b=a+2 case at s=1 is explicitly credited.",
+      "searches": [
+        "arXiv:1507.07098 Theorem 3.2",
+        "arXiv:2109.07544 Theorem 2.1",
+        "arXiv:2507.19381 Theorems 1.1,1.2",
+        "binary cyclotomic polynomial Phi_{pq} all gap multiplicities for q congruent plus or minus 2 modulo p; gaps even only, each 2floor(q/p)",
+        "semigroup polynomial (1-x)(1-x^{ab})/((1-x^a)(1-x^b)) complete gap length frequencies b congruent ±2 mod a"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semigroup polynomial P_{a,b} equals Phi_{ab} for prime a,b (2015 Section 3.1).",
+        "2015 Theorem 3.2: maximum gap and qualitative ±1 characterization only.",
+        "2025 Theorem 1.2: full frequency results only for ±1 residues."
+      ],
+      "reasoning": "The equivalent language of alternating element-block/gap-block lengths was compared. Neither prior theorem specifies all multiplicities for b congruent ±2 mod a, except the previously tabulated b=a+2 boundary relation.",
+      "searches": [
+        "binary cyclotomic polynomial Phi_{pq} all gap multiplicities for q congruent plus or minus 2 modulo p; gaps even only, each 2floor(q/p)",
+        "semigroup polynomial (1-x)(1-x^{ab})/((1-x^a)(1-x^b)) complete gap length frequencies b congruent ±2 mod a",
+        "arXiv:1507.07098 Section 3.2",
+        "arXiv:2507.19381 Theorem 1.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2023 Shparlinski–Wijaya establishes an asymptotic count over prime pairs, not a table of individual gap multiplicities.",
+        "published-finding corpus semantic search surfaced the related b=a+d family but no complete ±2 histogram.",
+        "810 independently enumerated parameter cases agreed with formulas; these calculations are not evidence of absence from all tables."
+      ],
+      "reasoning": "Neither a source table nor a published general formula giving this exact ±2 count array was identified. Search noncoverage is treated as weak evidence, not as a proof of global uniqueness.",
+      "searches": [
+        "binary cyclotomic polynomial Phi_{pq} all gap multiplicities for q congruent plus or minus 2 modulo p; gaps even only, each 2floor(q/p)",
+        "full gap spectrum binary cyclotomic q mod p plus minus two even gaps adjacent nonzero exponents",
+        "Binary cyclotomic polynomials complete gap spectrum consecutive nonzero coefficients fixed prime p",
+        "arXiv:2307.07229 nonzero coefficients",
+        "584c998005ae"
+      ]
+    },
+    "rationale": "The 2015 general result supplies only the maximum gap multiplicity and a qualitative all-length characterization; the 2021 word formula computes coefficients, not these closed two-parameter histogram formulas; the 2025 full-spectrum count is restricted to residues plus/minus one while its arbitrary-residue result gives the second gap only. A separately published b=a+d with a=dt+1 result covers b=a+2 when d=2 and s=1, but not the new s>=2 layers or generic minus-two family. No equivalent or dominating complete plus/minus-two spectrum was found in inspected sources and actual searches; unindexed coverage is a residual risk.",
+    "residual_risks": [
+      "The full text of a closely related published b=a+d result was not accessible, though its explicit parameter condition covers only s=1 for d=2.",
+      "Unindexed prior work may contain equivalent ±2 formulas even if direct title and semantic searches did not identify them.",
+      "A reader may treat the new law as a specialized consequence of the existing coefficient-word representation; the value here is the parameter-uniform closed spectrum and row-geometry proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MAXIMUM_ONLY_PLUS_QUALITATIVE_RESIDUE",
+        "evidence": "Theorem 3.2 gives H_{a-1}=2 floor(b/a) and the all-length criterion iff b≡±1; Theorem 3.6 extends those claims to coprime semigroup generators.",
+        "identifier_or_url": "https://arxiv.org/html/1507.07098v1",
+        "material_read": "Sections 2.1, 3.1, 3.2 and 3.3 including Theorems 3.2 and 3.6 and the full relevant proofs",
+        "method": "arXiv HTML full-text section inspection",
+        "title": "Cyclotomic coefficients: gaps and jumps",
+        "trigger": "Earlier maximum-gap and semigroup-block theorem likely to cover the statement"
+      },
+      {
+        "assessment": "ALGORITHM_WITHOUT_UNIFORM_SPECTRUM",
+        "evidence": "Theorem 2.1 concatenates p-1 basic words to produce complete coefficients; no explicit ±2 parameter-uniform gap count is stated.",
+        "identifier_or_url": "https://arxiv.org/html/2109.07544v2",
+        "material_read": "Full abstract, introduction, Theorem 2.1, algorithm description and proof setup Section 3",
+        "method": "arXiv HTML text inspection; initial public date verified on arXiv abstract history",
+        "title": "Binary Cyclotomic Polynomials: Representation via Words and Algorithms",
+        "trigger": "Direct complete coefficient representation may already imply full histogram"
+      },
+      {
+        "assessment": "AGGREGATE_PRIME_PAIR_SPARSITY_NOT_GAP_HISTOGRAM",
+        "evidence": "The stated result asymptotically counts prime products with small number of nonzero coefficients; does not classify consecutive support gaps for fixed parameters.",
+        "identifier_or_url": "https://arxiv.org/abs/2307.07229",
+        "material_read": "HTML full-text introduction, definition of theta(m), main result and proof outline",
+        "method": "arXiv parsed full-text inspection",
+        "title": "On Nonzero Coefficients of Binary Cyclotomic Polynomials",
+        "trigger": "Could provide a stronger count that implies gaps"
+      },
+      {
+        "assessment": "NOT_COVERING_FULL_PM2_HISTOGRAM",
+        "evidence": "Theorem 1.2 gives all counts only for r=±1, while Theorem 1.1 gives second-largest gap for all r and Theorem 3.1 locates only first and second gaps in nonextremal classes.",
+        "identifier_or_url": "https://arxiv.org/abs/2507.19381",
+        "material_read": "Full-text Sections 1-4 with Theorems 1.1,1.2,3.1; relevant derivation and comparisons of exceptional residues",
+        "method": "arXiv web-rendered source full text",
+        "title": "Gaps in binary cyclotomic polynomials",
+        "trigger": "Closest source directly about full gap spectra"
+      },
+      {
+        "assessment": "COVERS_NARROW_BOUNDARY_CASE; FULL_TEXT_ACCESS_RISK",
+        "evidence": "Summary states a=dt+1,b=a+d, d,t>=2, with explicit run counts. For d=2 this includes b=a+2, s=1; the condition b=a+d does not cover b=as+2 for s>=2.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-run-length-frequencies-for-binary-semigroups-with-a-dt-1-a--584c998005ae",
+        "material_read": "Indexed public title and scientific summary, not the primary full text (page retrieval unavailable)",
+        "method": "published-finding corpus semantic record and attempted public page retrieval",
+        "title": "Exact run-length frequencies for binary semigroups with a=dt+1 and b=a+d",
+        "trigger": "A closely related published semigroup gap-frequency result surfaced in semantic search"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "84be1e5d-cc2a-4c4e-a183-83fda2d63319",
+  "value": {
+    "rationale": "The 2015–2025 literature identifies the ±1 cases as exceptional for complete gap support and leaves the first adjacent ±2 residue families without full frequency formulas. This theorem simultaneously handles all odd a, unbounded quotients, and both signs, making exact every nonunit gap multiplicity and ruling out all odd nonunit lengths. The asymmetry (equal 2s counts on +2, extra two copies at all nonmaximal even lengths on -2) is a structural distinction not implied by knowing only the two largest gaps. It also applies to composite-generator semigroup polynomials.",
+    "status": "PASS"
+  }
+}
