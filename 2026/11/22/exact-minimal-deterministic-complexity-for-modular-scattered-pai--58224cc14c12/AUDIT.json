@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "A complete recognizing DFA stores (a,c,j) with a,c mod m and j trailing zeros capped at r. Every active (a,c,j) is reached by 0 1^(t+1)(01)^(k-1)0^j, with k>0 and t>=0 chosen by congruences. For j<r, continuations 1^b 0 1^d yield affine residue c+ab+(a+1)d; equality of nonempty zero fibres for surjective maps on (Z/m)^2 forces unit scaling, and the coefficient difference 1 forces equality of a,c. The suffix 0^(r-j_high)1^b 0 1^d accepts from a shorter run and rejects from the longer after selecting b,d mod m. Terminal j=r,c=0 gives right language 0*, while j=r,c!=0 equals sink; these differ from every active state. Independent Moore minimization passed all 117 parameter pairs r=1..9,m=2..14; 51,175 direct word checks passed. The bound r>=2 is essential; r=1 has 3 states.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Renard–Rigo–Whiteland 2024 supplies a broad p-group language recognizability framework, not an all-parameter minimal-DFA size for this forbidden-factor intersection in the inspected abstract.",
+        "Lejeune–Rigo–Rosenfeld 2020 concerns k-binomial equivalence rather than minimization under factor avoidance.",
+        "The existing all-parameter modular scattered 0^d1 state result has no simultaneous contiguous-pattern restriction and no equality of these languages."
+      ],
+      "reasoning": "Broad recognizability is not a dominating state-count theorem; the counted scattered pattern and forbidden contiguous pattern have different functions here. The exact quotient identifications require a separate accepting-suffix argument. The inaccessible full 2024 preprint comparison remains a residual risk and is not asserted exhaustively inspected.",
+      "searches": [
+        "run threshold forbidden 0^r1 modular number 01 subsequences quotient complexity",
+        "Exact minimal complete DFA for binary words avoiding contiguous 0^r1 and scattered 01 count divisible by m has rm^2+2 states",
+        "modular scattered subsequence automaton avoid substring DFA state minimization",
+        "https://arxiv.org/abs/2402.05838",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-state-complexity-of-modular-scattered-zero-power-one-count--9df1828ce330/RESULT.md"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2001.11732",
+      "https://arxiv.org/abs/2402.05838",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-exact-prefix-sorting-state-cost-for-avoiding-a-binary-zero-run-f--294ac7d4ffb0/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-state-complexity-of-modular-scattered-zero-power-one-count--9df1828ce330/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/26/SCOPE-prime-power-staircases-in-modular-scattered-subsequence-automata--b8dbc861b2e5/RESULT.md",
+      "published-finding corpus semantic search records for exact constrained modular DFA and alternative formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pure avoidance: prefix-sorting result r+1 partial states; independent of modulo m.",
+        "Unrestricted modular count 0^d1: m times an arithmetic period; different counted pattern and no local constraint.",
+        "Exact specified number k of scattered 01: one fixed finite count, versus a modulo union, and no 0^r1 avoidance."
+      ],
+      "reasoning": "Neither existing result implies the present sharp upper and lower Myhill–Nerode quotient classification. Intersecting two regular languages supplies a product upper bound only; it cannot establish that precisely m^2-1 terminal classes collapse and all active states remain inequivalent.",
+      "searches": [
+        "forbidden 0^r1 factor and modular scattered 01 subsequence number exact minimal DFA r*m^2+2",
+        "binary words avoiding 0^r1 with scattered 01 count divisible m state complexity",
+        "Exact minimal complete DFA for binary words avoiding contiguous 0^r1 and scattered 01 count divisible by m has rm^2+2 states",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-exact-prefix-sorting-state-cost-for-avoiding-a-binary-zero-run-f--294ac7d4ffb0/RESULT.md",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-state-complexity-of-modular-scattered-zero-power-one-count--9df1828ce330/RESULT.md",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/10/26/SCOPE-prime-power-staircases-in-modular-scattered-subsequence-automata--b8dbc861b2e5/RESULT.md",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/10/26/SCOPE-sharp-quotient-complexity-for-a-prescribed-number-of-scattered-0--983ea3737952"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full published avoidance result identifies r+1 trim partial DFA states for words with no contiguous 0^r1, without counting scattered 01.",
+        "The full modular-scattered-zero-power–one theorem counts occurrences of scattered 0^d1 without forbidden-factor avoidance, an inequivalent condition."
+      ],
+      "reasoning": "Contiguous avoidance and scattered-count congruence are independent predicates. Swapping letters or reversing words preserves the forbidden factor length; neither transforms forbidden 11 into forbidden 0^r1 (length >=3). The exact-integer-count variant does not imply the modular union of infinitely many counts. No inspected equivalent formulation yields the rm^2+2 quotient count.",
+      "searches": [
+        "forbidden 0^r1 factor and modular scattered 01 subsequence number exact minimal DFA r*m^2+2",
+        "binary words avoiding 0^r1 with scattered 01 count divisible m state complexity",
+        "modular scattered 01 and zero-run followed by one DFA states for all r,m",
+        "minimal DFA language no substring 001 and scattered subsequence 01 count divisible by m exact 2m^2+2",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-exact-prefix-sorting-state-cost-for-avoiding-a-binary-zero-run-f--294ac7d4ffb0/RESULT.md",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-state-complexity-of-modular-scattered-zero-power-one-count--9df1828ce330/RESULT.md"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus searches produced closest IDs 2026/10/25/SCOPE-exact-prefix-sorting-state-cost-for-avoiding-a-binary-zero-run-f--294ac7d4ffb0, 2026/11/8/SCOPE-exact-state-complexity-of-modular-scattered-zero-power-one-count--9df1828ce330, 2026/10/26/SCOPE-prime-power-staircases-in-modular-scattered-subsequence-automata--b8dbc861b2e5 but no exact joint predicate and rm^2+2 numerical table.",
+        "A full read of the first three published RESULT.md files shows distinct mathematical hypotheses and outcomes."
+      ],
+      "reasoning": "Published counts of r+1 partial avoidance states, unrestricted modular longer-scattered-pattern states, and unrestricted prime-modular longer-scattered-pattern states do not form a table for the joint language. Search absence alone cannot establish historical novelty.",
+      "searches": [
+        "Exact minimal complete DFA for binary words avoiding contiguous 0^r1 and scattered 01 count divisible by m has rm^2+2 states",
+        "modular 01 pair statistic forbidden 001 factor syntactic right quotients trailing zeros",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-exact-prefix-sorting-state-cost-for-avoiding-a-binary-zero-run-f--294ac7d4ffb0/RESULT.md",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-state-complexity-of-modular-scattered-zero-power-one-count--9df1828ce330/RESULT.md",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/10/26/SCOPE-prime-power-staircases-in-modular-scattered-subsequence-automata--b8dbc861b2e5/RESULT.md",
+        "modular 01 pair statistic forbidden 001 factor syntactic right quotients trailing zeros"
+      ]
+    },
+    "rationale": "Targeted published-finding corpus and literature comparisons found no equivalent all-(r,m) joint-language state formula. The two highly relevant published exact-state results and the prime-power scattered-pattern theorem were read in full: their statements concern pure 0^r1 avoidance or unrestricted counts of the different scattered pattern 0^d1. The 2020 primary source provides the base scattered-count structure without this right-language classification. No source/table supplies a stronger statement implying the result. Unindexed prior work and an uninspected related full article remain residual historical-priority risks.",
+    "residual_risks": [
+      "Potential unindexed equivalent state-count example in combinatorics-on-words and automata literature.",
+      "Complete 2024 q-deformed binomial full text was not materially read; only abstract-level statements were compared.",
+      "Similarity search cannot certify uniqueness or negate every consequence of a broad general theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING in inspected relevant sections; no statement of a minimal complete DFA for modulo-01 intersected with 0^r1 avoidance",
+        "evidence": "The paper constructs/generates 2-binomial classes and relates them to a nil-2 group; no residue m or run-cap automaton state formula observed in the material read.",
+        "identifier_or_url": "https://arxiv.org/abs/2001.11732",
+        "material_read": "Introduction, definitions of k-binomial equivalence, equivalence-class and group-theoretic parts of the 2020 PDF",
+        "method": "Accessible open preprint, text and page inspection",
+        "title": "On the binomial equivalence classes of finite words",
+        "trigger": "Guiding primary 2-binomial-equivalence and nilpotent-group framework"
+      },
+      {
+        "assessment": "RELATED_UNRESOLVED_FULL_TEXT; broad recognition theorem visible, but not enough text to exclude a hidden special-case quotient formula",
+        "evidence": "Abstract describes q-binomial coefficients and Boolean combinations of p-group languages, without the joint forbidden contiguous 0^r1/modular 01 exact-DFA statement.",
+        "identifier_or_url": "https://arxiv.org/abs/2402.05838",
+        "material_read": "ArXiv abstract and public bibliographic description; full article not inspected in this run",
+        "method": "Bibliographic/abstract comparison only",
+        "title": "Introducing q-deformed binomial coefficients of words",
+        "trigger": "General algebraic finite-group recognition framework for modular scattered counts"
+      },
+      {
+        "assessment": "NOT_COVERING; recognizes avoidance alone with r+1 trim partial or 2r+1 Wheeler states, not the combined modular-count complete DFA",
+        "evidence": "Its theorem and lower-bound proof rely on trailing-zero right languages, with no modular scattered-01 counting coordinate.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-exact-prefix-sorting-state-cost-for-avoiding-a-binary-zero-run-f--294ac7d4ffb0/RESULT.md",
+        "material_read": "Entire RESULT.md, including theorem, definitions, proof, limits and references",
+        "method": "Public repository full-text file retrieval",
+        "title": "Exact prefix-sorting state cost for avoiding a binary zero-run factor",
+        "trigger": "Exact same forbidden factor with a state-complexity theorem"
+      },
+      {
+        "assessment": "NOT_COVERING; its counted scattered 0^d1 without contiguous avoidance is different from a forbidden contiguous 0^r1 and counted scattered 01",
+        "evidence": "The published count is m times a binomial-period product; no terminal rejection state or forbidden-contiguous-pattern intersection.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-state-complexity-of-modular-scattered-zero-power-one-count--9df1828ce330/RESULT.md",
+        "material_read": "Entire RESULT.md, including primary theorem, period, reachability, quotient proof and references",
+        "method": "Public repository full-text file retrieval",
+        "title": "Exact state complexity of modular scattered zero-power–one counts",
+        "trigger": "Closest all-modulus exact DFA state-count theorem on scattered patterns"
+      },
+      {
+        "assessment": "NOT_COVERING; modular longer-scattered-pattern count only, no contiguous avoidance and no composite-modulus intersection",
+        "evidence": "Its state count p^{2+floor(log_p r)} follows Lucas periodicity for a different counting statistic.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/26/SCOPE-prime-power-staircases-in-modular-scattered-subsequence-automata--b8dbc861b2e5/RESULT.md",
+        "material_read": "Entire RESULT.md including theorem and proof",
+        "method": "Public repository full-text file retrieval",
+        "title": "Prime-power staircases in modular scattered-subsequence automata",
+        "trigger": "Related prime-modular exact DFA theorem for scattered 0^r1 occurrences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "58224cc1-4c12-4bc9-a7e5-29826e244406",
+  "value": {
+    "rationale": "A local forbidden zero-run/one transition is a natural constrained-source requirement, while modular counting of scattered 01 pairs is a basic global streaming statistic. Exact joint recognition is not a mere one-parameter routine table, since the naive product has (r+1)m^2+1 states and the theorem identifies the precise m^2-1 redundant terminal signatures, with all rm^2 active classes provably indispensable. This establishes the minimal memory cost for an infinite two-parameter family.",
+    "status": "PASS"
+  }
+}
