@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness — PASS
+The source semiring has absorbing top \(0\), and each singleton squares to \(0\). Every homomorphism therefore fixes \(0\), and source singleton addition equals their product for distinct letters. In the target the two operations agree on nonzero elements exactly when their supports are disjoint, forcing the unique block normal form. The converse is verified separately for products with intersecting and disjoint supports, including annihilated letters. A target-letter-to-box bijection proves \((k+1)^m\); inclusion-exclusion counts the occupied source blocks and proves exact image sizes. A retraction's nonzero generator images must live entirely on active letters, giving a permutation of the active set, which idempotence forces to be identity. The full-function checker evaluates every possible function for four small rank pairs, independently of the proposed form; a second check covers all compatible tuples through rank five. These computations confirm boundaries but are not substituted for the universal proof.
+
+## Originality — PASS, with historical-priority risk
+Gao, arXiv:2603.00893v1 (Section 4), supplies the divisibility-order construction and structural variety results; Shao–Gao, arXiv:2609.26396v1, investigate finite bases and joins. The new claim is an explicit all-pairs normal form for binary-signature homomorphisms, the \((k+1)^m\) count, exact image ranks and kernels, and the full retraction structure. Its relationship to standard inclusion-exclusion and to prior structural results is explicit. Indexed related findings cover Gödel products, diamond interval semirings and generalized dimonoids, which have different multiplication/addition and do not dominate the claim. A historical classification of *flat-addition interval-word* semiring retractions shares a Boolean deletion motif but has different operations, so that motif alone is not relied on as novelty. This is a qualified priority assessment rather than a claim that no equivalent theorem can exist.
+
+## Mathematical value — PASS
+These semirings are a published infinite family relevant to finite-basis and subvariety problems. The theorem classifies all morphisms between **different** family members, reveals exactly which semiring ranks occur as homomorphic images, counts all such maps, and shows the categorical retract structure is a Boolean lattice. The all-pairs classification is substantially more informative than a small-object count or a restated known basic identity, and distinguishes divisibility-order addition from the flat-addition linear-word setting.
+
+## Limits and closest literature
+The result concerns finite commutative squarefree linear words only, without named constants, and does not classify all congruences or the full subvariety lattice. Historic priority is not independently certified. The most relevant primary papers are Gao (2026) and Shao–Gao (2026). The same-model finite computation is supportive but nonexhaustive in unbounded ranks.
+
+Self-review: passed. Independent audit: not yet performed.
