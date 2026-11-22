@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem states the exact (unnormalized) Fourier characters of complementary triple incidence sets. For every Steiner triple system the complement has the explicitly verified parameters \(N=v(v-1)(v-3)/6\), degree \((v-1)(v-3)/2\), and pair-codegree \(v-3\). Expanding a product of three Boolean character factors establishes the identity with coefficients \(-2,4,-8\); residue arithmetic proves the two branches. For \(v\equiv5,7\pmod8\), all eigenvalues have valuation exactly two, and diagonalization proves invertibility, the inverse bound, and the exact determinant valuation. The checker independently confirms the formula at all frequencies for five designs, but finite samples are not relied upon to prove the universal claim.
+PASS
 
-## Originality — PASS under bounded comparison
+For a labelled nontrivial Steiner triple system v>=7, the complementary 3-subset matroid bases have N=v(v-1)(v-3)/6, uniform point degree d=(v-1)(v-3)/2, pair codegree c=v-3. Exact expansion of each sign ∏_{i in B}(1-2 1_S(i)) gives W(S)=N-2|S|d+4 binom(|S|,2)c-8 #bases wholly contained S. The v mod8 residue class gives W≡4 (mod8) for v≡5,7, and W≡0 for v≡1,3, using all odd admissible orders. Thus all Fourier characters have nonzero integer eigenvalues of absolute value >=4 in first branch; unnormalized convolution has rank 2^v, inverse ℓ² norm<=1/4 and determinant v2=2^(v+1). A two-point frequency at v=9 is zero. Independent integer incidence arithmetic checked v7,9,13,15; source checker builds five designs and full Walsh spectra. No universal singularity is inferred in the divisible-by-eight branch.
 
-The earliest relevant Steiner-system existence and incidence sources give the combinatorial design parameters, not the uniform Walsh nonvanishing conclusion. The close paper on simple signed Steiner systems assigns signs to entire triples under prescribed pair-incidence conditions; it is not a calculation of vertex-induced Walsh characters of *complementary* triples. Related indexed work on Steiner matroid base polytopes addresses convex geometry, while work on Fourier-labeled Steiner frames uses character-labelled frames over other groups. Published indexed findings and available prior claims for the same harmonic-analysis domain were compared for aliases, stronger implications, and identical tables. No equivalent or dominating transform statement was identified. Some plausible full texts were inaccessible, so historical priority is not asserted unconditionally.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This provides an all-design, infinite-family exact invertibility theorem for a natural rank-three matroid base convolution, including arbitrary nonisomorphic designs, and the exact integral determinant's two-adic valuation. The sharp congruence has genuine operator-theoretic content: the base counts are even and the unnormalized coefficient could otherwise vanish. Different spectra of two fifteen-point systems demonstrate that the conclusion is robust without a universal multiplier distribution. The nine-point system supplies a motivated adjacent-order singular boundary. Exact full rank is a natural invariant and useful as the baseline for further singularity/stability investigations.
+Best-of-knowledge statement-level comparison of aliases, stronger coverage and tables does not show domination of precise claim. Signed Steiner triple systems assign ± to selected blocks with prescribed signed pair incidence. Here sign weights are independent point-character choices over all nonblock triples, a different family. Binary projective matroid basis Fourier corresponds r-vector independent sets, generally r≠3, not this all-design complementary rank-three matroid. The formula is elementary once correctly expanded, but the unnormalized all-frequency nonvanishing and its invertible convolution/determinant consequences concern a concrete natural matroid and every STS of eligible orders, not just known STS incidence totals. No inspected broader theorem explicitly states those uniform Fourier consequences; no novelty claimed for inclusion-exclusion itself.
 
-## Closest literature and limits
+## value
 
-Cameron (design parameters and existence); Ghorbani–Khosrovshahi (signed block designs and inclusion matrices); Colbourn–Dinitz–Rosa (bicoloring); indexed work on Steiner-design base polytopes and Fourier-labelled Steiner frames (different invariants). The broader universal Boolean-character expansion is acknowledged as prior algebra. No general exact spectrum, sharp universal inverse norm, or uniqueness/historical-priority certificate is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A uniform spectral invertibility theorem for all complementary-base families of arbitrary Steiner triple systems with eligible orders, including distinct nonisomorphic designs whose exact histograms differ, is a motivated structural and arithmetic fact. The lower spectral bound and determinant valuation are usable in exact deconvolution, and v=9 supplies a natural boundary witness; inexpensive character expansion is the method rather than the whole motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
