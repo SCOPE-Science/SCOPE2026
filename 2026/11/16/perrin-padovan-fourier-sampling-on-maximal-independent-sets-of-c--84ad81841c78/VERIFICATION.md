@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification evidence and boundaries
+# Independent mathematical audit
 
-The complete standalone `verify.py` is included in this package. It runs with Python 3 standard library only and requires no external files. Executing `python3 verify.py` in the extracted package passed 553 exact-rational and numerical checks, including direct enumeration of all inclusion-maximal independent sets of cycles of orders \(3\) through \(15\), exact rational comparison of every sampled two-point moment, exact rational covariance rank, and comparison of the Fourier eigenvalues to the limiting density at additional cycle orders.
+## correctness
 
-The all-order finite covariance formulas follow from the three-state transfer-matrix trace identity. The all-order rank statement follows from the gap-interchange and cardinality arguments. The uniform asymptotic statement follows from the characteristic-root error estimate, an absolutely convergent centered renewal series, and optimization of a strictly positive quadratic. No finite test substitutes for these proofs. The spectral ratio is a **squared-energy**, not an unsquared singular-value condition ratio.
+PASS
 
-Existing mathematical literature provides cyclic maximal-set enumeration and stationary renewal diffraction principles. Historical priority for the precise finite Fourier sampling classification remains subject to independent review. Independent audit has not been performed.
+For all labelled C_n, n>=3, the circular 3-state 00/01/10 transfer has characteristic polynomial t^3-t-1 and trace P_n, the Perrin count. A return to state 01 over d steps is a_d, giving exact two-point counts a_d*a_(n-d); centering and diagonalizing the circulant covariance yields the stated complete Fourier eigenvalues. A 2,3 cyclic gap interchange forces every constant-on-sample linear statistic to have all equal coefficients for n=5 and n>=7; different maximal set cardinalities remove that last kernel for n>=8. The five small exceptional ranks and n=6 nonconstant k=1,5 nulls follow from exact small configurations. The renewal root expansion has rate rho=alpha^(-3/2), giving O(n*rho^n) error uniformly in grid frequency; its density simplifies to p*A*B/Q(cos(theta)), and the strictly convex Q puts maximum at the unique interior negative cosine and minimum at theta=0, yielding the sharp ratio 43.42455574592406... Independent exact rational moment/covariance ranks for n=3..12 match the recurrence and stated classification; these finite computations are not the proof for all n.
+
+## originality
+
+PASS
+
+Best-of-knowledge: actual proof and cited primary/read indexed comparisons distinguish the specific result from older general tools and different objects; this is not a guarantee of priority.
+
+## value
+
+PASS
+
+Uniform labelled maximal-independent-set sampling on cycles is a natural Perrin-combinatorial ensemble. Its full coordinate-Walsh identifiability threshold, exceptional null modes, and sharp nonalternating asymptotic conditioning quantify which harmonic statistics are recoverable, providing independently useful exact finite and asymptotic facts rather than only a rephrased Perrin count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

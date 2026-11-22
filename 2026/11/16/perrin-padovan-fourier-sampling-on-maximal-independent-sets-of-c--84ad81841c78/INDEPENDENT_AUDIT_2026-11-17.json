@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T07:12:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/16/perrin-padovan-fourier-sampling-on-maximal-independent-sets-of-c--84ad81841c78/RESULT.md",
+        "2026/11/16/perrin-padovan-fourier-sampling-on-maximal-independent-sets-of-c--84ad81841c78/verify.py"
+      ],
+      "rationale": "For all labelled C_n, n>=3, the circular 3-state 00/01/10 transfer has characteristic polynomial t^3-t-1 and trace P_n, the Perrin count. A return to state 01 over d steps is a_d, giving exact two-point counts a_d*a_(n-d); centering and diagonalizing the circulant covariance yields the stated complete Fourier eigenvalues. A 2,3 cyclic gap interchange forces every constant-on-sample linear statistic to have all equal coefficients for n=5 and n>=7; different maximal set cardinalities remove that last kernel for n>=8. The five small exceptional ranks and n=6 nonconstant k=1,5 nulls follow from exact small configurations. The renewal root expansion has rate rho=alpha^(-3/2), giving O(n*rho^n) error uniformly in grid frequency; its density simplifies to p*A*B/Q(cos(theta)), and the strictly convex Q puts maximum at the unique interior negative cosine and minimum at theta=0, yielding the sharp ratio 43.42455574592406... Independent exact rational moment/covariance ranks for n=3..12 match the recurrence and stated classification; these finite computations are not the proof for all n.",
+      "residual_risks": [
+        "The asymptotic condition ratio is for squared sampling bounds of centered coordinate Walsh functions and not an unnormalized operator condition ratio.",
+        "Exact float ratio was corroborated by source and independent recurrence arithmetic, but a formal machine-checked proof was not provided."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baake–Birkner–Moody Theorem 1 and Remark 3 describe infinite stationary renewal diffraction with lattice gaps; this supplies the general rational density mechanism but not finite-cycle conditioning or exceptional ranks.",
+          "All-independent-set cycle spectrum samples Fibonacci all-stable-set ensemble; squared-cycle MIS rank result allows gaps 3,4,5; Boolean implication trace results concern a different invariant."
+        ],
+        "reasoning": "An underlying general renewal theorem covers the limiting-method context but does not give this finite labelled-cycle rank classification or the sharp specialisation without substantial new application.",
+        "searches": [
+          "maximal independent sets cycles Perrin Padovan covariance full Fourier spectrum rank",
+          "https://arxiv.org/pdf/0803.1266",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-complete-vertex-covariance-spectrum-of-cycle-stable-set-poly--f7c01b21256b",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-an-isolated-eleven-cycle-rank-defect-in-harmonic-sampling-of-max--bf72f0fb6322",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-minimal-one-pass-implications-and-exact-boolean-trace-rank-for-c--5aa3700acbcd"
+        ]
+      },
+      "checked_sources": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL11/Marichal/marichal.pdf",
+        "https://arxiv.org/pdf/0803.1266",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-complete-vertex-covariance-spectrum-of-cycle-stable-set-poly--f7c01b21256b",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-an-isolated-eleven-cycle-rank-defect-in-harmonic-sampling-of-max--bf72f0fb6322",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-minimal-one-pass-implications-and-exact-boolean-trace-rank-for-c--5aa3700acbcd",
+        "maximal independent sets cycles Perrin Padovan covariance full Fourier spectrum rank"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The renewal diffraction formula includes a generic infinite-volume rational spectral density but not the finite cyclic correction a_d*a_(n-d)/P_n or finite rank threshold.",
+          "Perrin counts identify sample cardinality only, and all-independent-set spectra concern a strictly larger ensemble."
+        ],
+        "reasoning": "No inspected earlier result logically yields all parts of the new statement (uniform O(n*rho^n) convergence, finite rank and exceptional modes, exact condition-ratio constant); the asymptotic mechanism is acknowledged as prior, not claimed novel.",
+        "searches": [
+          "https://arxiv.org/pdf/0803.1266",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL11/Marichal/marichal.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-complete-vertex-covariance-spectrum-of-cycle-stable-set-poly--f7c01b21256b",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-an-isolated-eleven-cycle-rank-defect-in-harmonic-sampling-of-max--bf72f0fb6322",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-minimal-one-pass-implications-and-exact-boolean-trace-rank-for-c--5aa3700acbcd",
+          "maximal independent sets cycles Perrin Padovan covariance full Fourier spectrum rank"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Inclusion-maximal independent sets of a cycle correspond to cyclic tilings of gaps of length two and three (renewal words); counts are Perrin numbers.",
+          "Centered coordinate Walsh Gram equals four times occupation covariance; finite covariance diagonalization is a discrete Fourier transform of two-point correlations."
+        ],
+        "reasoning": "The cyclic-gap enumeration itself is known, as is the abstract infinite-volume renewal structure factor; the exact labelled finite-cycle first-Walsh rank/spectrum and extremizing mode are additional statements.",
+        "searches": [
+          "maximal independent sets cycles Perrin Padovan covariance full Fourier spectrum rank",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL11/Marichal/marichal.pdf",
+          "https://arxiv.org/pdf/0803.1266"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bisdorff–Marichal gives Perrin counts and orbit-count tables of cyclic MIS, not pair-covariance eigenvalue tables.",
+          "The exact finite exceptions (ranks 2,1,4,4,6, then n) and n=6 nonconstant mode zeros were independently checked from configurations and not found as published prior spectral tables."
+        ],
+        "reasoning": "The claim is an exact natural invariant of the first-coordinate sampling problem, distinct from existing enumeration and non-isomorphic orbit tables.",
+        "searches": [
+          "maximal independent sets cycles Perrin Padovan covariance full Fourier spectrum rank",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL11/Marichal/marichal.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-an-isolated-eleven-cycle-rank-defect-in-harmonic-sampling-of-max--bf72f0fb6322"
+        ]
+      },
+      "rationale": "Best-of-knowledge: actual proof and cited primary/read indexed comparisons distinguish the specific result from older general tools and different objects; this is not a guarantee of priority.",
+      "residual_risks": [
+        "A prior specialisation of stationary renewal diffraction to uniform cyclic maximal-independent-set sampling might contain the same limiting ratio.",
+        "Bibliographic and indexed checks cannot exclude all unindexed finite covariance formulae; the general renewal density itself is acknowledged as prior."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly proves object enumeration, not finite labelled occupation covariance or Fourier Gram condition number",
+          "evidence": [
+            "Sections 2–3 count cyclic maximal independent sets via 2/3-compositions and Perrin numbers"
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL11/Marichal/marichal.pdf",
+          "material_read": "Full accessible PDF: sections on cyclic gap 2/3 configurations, Perrin recurrence and isomorphism/orbit-count formulas; pertinent results read from the primary text",
+          "method": "primary full-text page/section inspection",
+          "title": "Counting non-isomorphic maximal independent sets of the n-cycle graph",
+          "trigger": "Identical C_n inclusion-maximal sets and Perrin counts"
+        },
+        {
+          "assessment": "Infinite stationary renewal diffraction includes factor (1-|rhohat|^2)/|1-rhohat|^2; finite C_n labelled ensemble, rank exceptions and exact sharp Q ratio are not specified in the inspected results",
+          "evidence": [
+            "Theorem 1 p.11 spectral density; Remark 3 treats discrete lattice-like waiting-time laws"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0803.1266",
+          "material_read": "Full accessible 50-page arXiv PDF inspected in §3 pp.7–12: Proposition 1, Theorem 1 and Remark 3 for lattice-like renewal processes",
+          "method": "primary full-text page/section inspection",
+          "title": "Diffraction of stochastic point sets: explicitly computable examples",
+          "trigger": "General renewal Fourier density potentially dominates limiting covariance"
+        },
+        {
+          "assessment": "Samples maximal independent sets of C_n^2, not C_n; reported threshold 12 and isolated n=11 defect differ from present n>=8",
+          "evidence": [
+            "Resultary summary gives exact squared-cycle rank defects"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-an-isolated-eleven-cycle-rank-defect-in-harmonic-sampling-of-max--bf72f0fb6322",
+          "material_read": "Indexed published theorem statement; full text not examined",
+          "method": "indexed result summary, explicitly not whole-document exclusion",
+          "title": "An isolated eleven-cycle rank defect in harmonic sampling of maximal independent sets on square cycles",
+          "trigger": "Highly similar Fourier finite rank problem on graph power"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/16/perrin-padovan-fourier-sampling-on-maximal-independent-sets-of-c--84ad81841c78/RESULT.md",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL11/Marichal/marichal.pdf",
+        "https://arxiv.org/pdf/0803.1266",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-complete-vertex-covariance-spectrum-of-cycle-stable-set-poly--f7c01b21256b",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-an-isolated-eleven-cycle-rank-defect-in-harmonic-sampling-of-max--bf72f0fb6322",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-minimal-one-pass-implications-and-exact-boolean-trace-rank-for-c--5aa3700acbcd",
+        "maximal independent sets cycles Perrin Padovan covariance full Fourier spectrum rank"
+      ],
+      "rationale": "Uniform labelled maximal-independent-set sampling on cycles is a natural Perrin-combinatorial ensemble. Its full coordinate-Walsh identifiability threshold, exceptional null modes, and sharp nonalternating asymptotic conditioning quantify which harmonic statistics are recoverable, providing independently useful exact finite and asymptotic facts rather than only a rephrased Perrin count.",
+      "residual_risks": [
+        "The exact result is for uniform inclusion-maximal sets, not greedy or all-independent-set measures; transfer to other ensembles requires new work."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The asymptotic condition ratio is for squared sampling bounds of centered coordinate Walsh functions and not an unnormalized operator condition ratio.",
+    "Exact float ratio was corroborated by source and independent recurrence arithmetic, but a formal machine-checked proof was not provided.",
+    "A prior specialisation of stationary renewal diffraction to uniform cyclic maximal-independent-set sampling might contain the same limiting ratio.",
+    "Bibliographic and indexed checks cannot exclude all unindexed finite covariance formulae; the general renewal density itself is acknowledged as prior.",
+    "The exact result is for uniform inclusion-maximal sets, not greedy or all-independent-set measures; transfer to other ensembles requires new work."
+  ],
+  "schema_version": 1
+}
