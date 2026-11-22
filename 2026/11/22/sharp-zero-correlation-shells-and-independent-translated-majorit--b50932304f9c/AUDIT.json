@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Every pair is unbiased. An exact sum of binomial overlap counts is derived. Adding a flipped coordinate gives the exact indicator 1{T=S=m}, yielding positive steps at even mask distances and zero steps at odd distances. Complementation relates K_a and K_{d-a}, determining precisely when their value is 2^{d-2}. Explicit four-mask set partitions give central pair distances, and global sign reversal kills all odd triple Fourier coefficients. A standalone checker passed 2115 exact assertions through dimension 61 and all 8 triple patterns for explicit constructions through dimension 15; the infinite quantifier is proved analytically, not inferred from tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mossel–O’Donnell–Oleszkiewicz define T_rho using coordinatewise independent resampling and prove noise stability extremality; their theorem does not determine a prescribed Hamming-weight mask autocorrelation at finite d.",
+        "Filmus–Kindler–Mossel–Wimmer prove a low-degree low-influence distribution comparison on a uniform slice, not the exact majority-overlap zero set or explicit four readouts."
+      ],
+      "reasoning": "Neither theorem statement dominates an all-odd-dimension exact finite mask-shift classification. The source on balanced Boolean autocorrelation distributions was examined at abstract level only; it appears to address global avalanche bounds but full comparison remains a priority risk.",
+      "searches": [
+        "fixed-weight noise majority Boolean voting exact autocorrelation zeros mod four Hamming sphere",
+        "Invariance principle on the slice arxiv 1504.01689",
+        "Noise stability low influences arxiv math/0503503"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/0503503",
+      "https://arxiv.org/pdf/math/0503503",
+      "https://arxiv.org/pdf/1504.01689",
+      "https://doi.org/10.1007/s11704-013-2013-x",
+      "https://booleanfunction.github.io/basics.html",
+      "published-finding corpus semantic searches on fixed-mask majority and Hamming autocorrelation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "MOO 2005 studies the average under independent coordinate noise, while the candidate fixes the complete mask and counts exact intersections.",
+        "The 2013 Zhou et al abstract discusses extremal global sum-of-squares autocorrelation criteria and low-dimensional classification, not a stated all-odd-dimension majority table.",
+        "published-finding corpus 2026/11/2/SCOPE-exact-three-substitution-majority-error-distribution-at-the-reco--d0468929e590 studies reconstruction from exact-three-substitution views, not the common-input translated mask readout pair/three-wise independence law."
+      ],
+      "reasoning": "Averaging radial autocorrelations over a binomial mask distribution is not invertible from MOO stochastic bounds alone. The reconstructed finite overlap recurrence is needed to identify its two zero shells and construct the three-wise design; no inspected stronger statement supplies it.",
+      "searches": [
+        "autocorrelation of odd majority Boolean function under fixed-coordinate flips, zeros precisely two middle Hamming shells in dimensions congruent to three mod four; three-wise independent majority translations",
+        "three-wise independent majority evaluations common random Boolean cube distinct masks Hadamard construction",
+        "The autocorrelation distribution of balanced Boolean function 2013",
+        "exact three-substitution majority-error distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For fair indicators, independence iff the signed majority autocorrelation at mask difference is zero; the three-bit autocorrelation table in https://booleanfunction.github.io/basics.html records only d=3.",
+        "The full result is equivalent to a complete zero/support sign classification of the radial autocorrelation of the majority halfcube."
+      ],
+      "reasoning": "The general autocorrelation transform is classical and cannot itself be claimed new; the exact radial zeros in all odd dimensions, sign staircase and four-mask three-wise independence are the specific findings. General Walsh-transform identities permit calculation in principle but do not themselves state these conclusions.",
+      "searches": [
+        "autocorrelation of odd majority Boolean function under fixed-coordinate flips, zeros precisely two middle Hamming shells in dimensions congruent to three mod four; three-wise independent majority translations",
+        "majority function Krawtchouk autocorrelation fixed Hamming distance theorem",
+        "majority Boolean function autocorrelation Hamming weight exact zeros equation binomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://booleanfunction.github.io/basics.html displays n=3 table with zero autocorrelations at the six shifts of weights one and two.",
+        "Own accessible ledger was searched for majority, autocorrelation, Hamming and translated/fixed-mask aliases; no same claim was recovered."
+      ],
+      "reasoning": "The d=3 table is a genuine special case, but does not contain the general d congruence classification or the d=4k+3 construction. No full general table was verified; this is not a uniqueness claim.",
+      "searches": [
+        "autocorrelation of odd majority Boolean function under fixed-coordinate flips, zeros precisely two middle Hamming shells in dimensions congruent to three mod four; three-wise independent majority translations",
+        "site:booleanfunction.github.io majority autocorrelation table",
+        "majority function autocorrelation Hamming weight exact zeros"
+      ]
+    },
+    "rationale": "The earlier inspected statements control independent-coordinate noise stability, slice invariance, general balanced-Boolean autocorrelation bounds, or the special three-bit majority table. None of the inspected claims states or directly implies the finite all-odd-dimension two-shell independence classification together with the explicit three-wise independent majority-mask construction. Exact overlaps and the combinatorial plateau calculation are independent of these prior limit and optimization claims. Historical priority remains qualified because a more specialized older exact autocorrelation formula may exist.",
+    "residual_risks": [
+      "A specialized exact autocorrelation or translated-ball intersection formula predating this note may directly imply the two-shell classification; indirect inference from classical Walsh/Krawtchouk identities is also possible.",
+      "The 2013 balanced-Boolean autocorrelation article was only available at abstract level, so no full-text NOT_COVERING conclusion is made.",
+      "No independent specialist priority review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Independent-coordinate noise operator not fixed-mask exact overlap",
+        "evidence": "PDF pages 3, 6–8: S_rho via independent per-coordinate pairs, independent coordinate resampling Definition 2.4.",
+        "identifier_or_url": "https://arxiv.org/pdf/math/0503503",
+        "material_read": "PDF main theorem, noise-stability definitions, Majority Is Stablest discussion and related-work passages; PDF title/date checked against arXiv abstract, not claimed a page-by-page full review",
+        "method": "Arxiv open PDF text and screenshot of theorem page",
+        "title": "Noise stability of functions with low influences: invariance and optimality",
+        "trigger": "Oldest source on majority noise stability and low influences"
+      },
+      {
+        "assessment": "Low-influence slice-to-product approximate invariance, not exact translated-majority pair independence",
+        "evidence": "PDF abstract and Theorem 1.1 concern distributions of a low-influence function on one uniform slice versus product measure.",
+        "identifier_or_url": "https://arxiv.org/pdf/1504.01689",
+        "material_read": "PDF abstract, introduction, Theorem 1.1, scope and main theorem roadmap",
+        "method": "Arxiv open full PDF and inspect relevant theorem section",
+        "title": "Invariance principle on the slice",
+        "trigger": "Closest theory concerning fixed Hamming-weight slices"
+      },
+      {
+        "assessment": "Unresolved scope: abstract studies global avalanche bounds; cannot claim full text not covering",
+        "evidence": "Abstract reports necessary and sufficient conditions for extremal sum-of-squares under propagation criteria and low-dimensional census; fuller claims not inspected.",
+        "identifier_or_url": "https://doi.org/10.1007/s11704-013-2013-x",
+        "material_read": "Public publisher abstract and article metadata only; full text not obtained",
+        "method": "Publisher open article page and attempt PDF icon",
+        "title": "The autocorrelation distribution of balanced Boolean function",
+        "trigger": "Potential general autocorrelation coverage and priority"
+      },
+      {
+        "assessment": "Explicitly covers d=3 special case; not a dimension-uniform or three-wise result",
+        "evidence": "Section 5 lists zero autocorrelations at six mask shifts and -8 at the all-one shift in n=3.",
+        "identifier_or_url": "https://booleanfunction.github.io/basics.html",
+        "material_read": "Sections on Walsh transform and all eight 3-bit autocorrelation shifts",
+        "method": "Open HTML and compare exact table to the d=3 case",
+        "title": "Boolean Functions: The Basics",
+        "trigger": "Known exact small-dimension majority autocorrelation table"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b5093230-4f9c-4867-a080-f902c998da87",
+  "value": {
+    "rationale": "Two fair majority decisions produced from a common random vote are strongly coupled except at a surprisingly sharp parity- and distance-dependent pair of deterministic perturbations. The all-odd-dimensional classification and strict covariance signs provide exact reliability calibration under fixed-coordinate faults, and the construction upgrades pairwise zero correlation to a nontrivial three-wise-independent four-readout design for every allowed dimension. The same-model review does not claim the standard autocorrelation formalism or known d=3 case is new.",
+    "status": "PASS"
+  }
+}
