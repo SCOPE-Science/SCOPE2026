@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The Robin backward equation and explicit joint capture transform imply the exact conditional factorization. The boundary delay is realized by a positive subordinator at an independent exponential time, and the Robin–Dirichlet canonical product gives a convergent independent Bernoulli–exponential expansion. The coupling is strictly increasing in elapsed subordinator time because its Lévy measure has infinite mass. The explicit \(W_1\) tail bound follows from root interlacing and an integral bound for \(\sum n^{-3}\). Numerical tests support the formulas but do not certify the infinite statements.
+
+**Originality — PASS, qualified.** Wu (2026) gives the same Robin/escape boundary-value equation and conditional mean; thus the boundary problem and its transform are pre-existing starting points, not the new claim. The assessed claim is the complete universal delay distribution, independent random-sum sampler with rate-uniform tail, and a strict simultaneous coupling across reactivities. Bressloff (2022) supplies broader encounter-based spectral machinery but considers primarily propagators and absorption in partially absorbing interiors, without the assessed conditional competing-escape distributional ordering. Targeted published-record and literature comparisons identified no exact covering statement. A general framework could contain an unrecognized implicit equivalent; publication priority is not independently guaranteed.
+
+**Value — PASS.** Conditioning on successful capture can obscure the influence of surface reactivity: the theorem shows a strict distributional speedup but finite completion-time limits even as success becomes rare. It provides a controlled, distribution-level simulation benchmark not captured by splitting probabilities or the mean alone, directly motivated by near-membrane capture experiments.
+
+**Closest literature and limits.** Wu, arXiv:2611.01321, §§ first-passage quantities and Appendix C; Bressloff, arXiv:2205.08929, §§ 1, 4–6 and 1D example; Whitehouse–Evans–Majumdar, arXiv:1301.2489, resetting model (abstract-level comparison only). No heterogeneous-potential or higher-dimensional extension is claimed. Independent literature-priority and proof review remain open.
+
+Self-review: passed. Independent audit: not yet performed.

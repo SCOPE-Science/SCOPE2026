@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For every D,L,kappa>0, 0<x<L, the solved backward joint Laplace BVP gives the normalized transform as a product of the conditional two-absorbing-endpoint hitting transform and (kappa+D/L)/(kappa+sqrt(Ds)coth(L sqrt(s/D))). The coth partial fraction is a Bernstein exponent with an explicit infinite-activity finite-mean Levy measure, yielding an independent subordinator-at-exponential delay and a strictly ordered pathwise coupling. A Sturm-Liouville Robin/Dirichlet canonical product yields independent Bernoulli-exponential summands, whose positive expectation sum converges. Root interlacing and the n^-3 sum yield uniform W1 error <=2L^2/(D pi^2 N^2). Differentiation yields stated mean/variance and weak-kappa limit. The included check.py completed 30 positive-parameter transform, truncated-product and moment consistency tests. No sample-only inference of infinite statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The general Dirichlet-to-Neumann framework resolves Robin boundary propagators; Bressloff 2022 1D example uses a partially absorbing substrate with reflecting outer wall.",
+        "Wu 2026 BVP for G_s is general, but subsequent analysis stops at its s=0 derivative and Doob conditional mean."
+      ],
+      "reasoning": "A general Robin BVP determines the Laplace transform in principle, so the transform itself is not counted novel. Its solution does not explicitly furnish the additional positivity, independent Bernoulli-exponential structure, controlled truncation and pathwise all-reactivities coupling; those are proved as the assessed theorem. Implicit coverage by a stronger unseen specialized theorem remains a residual risk.",
+      "searches": [
+        "conditional successful capture time Robin partially absorbing boundary outer escape increasing reactivity full stochastic order convolution inverse local time subordinator spectral mixture",
+        "boundary reaction conditioned before escape stochastic dominance increasing reactivity inverse local time subordinator factorization",
+        "arxiv:2205.08929v1 §§4-6",
+        "arxiv:2611.01321v1 §§First-passage quantities,Appendix C"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.01321v1, dated 2026-10-31, full-text first-passage and Appendix C sections",
+      "arxiv:2205.08929v1, full-text introduction, one-dimensional example and conclusion",
+      "arxiv:1301.2489, abstract only",
+      "published-finding corpus: A sharp exposure criterion for periodically pulsed Robin absorption",
+      "published-finding corpus: Power-law survival versus exponential rescue for retained and refreshed surface-reaction thresholds",
+      "published-finding corpus: Optimal allocation of two reactive Brownian boundaries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wu 2026 equations (61)-(72): Laplace BVP, conditional mean and Doob transform.",
+        "Bressloff 2022 §5: 1D spectral calculation for absorbing interiors, with no escape-conditioned law.",
+        "published-finding corpus f7a7f8b3a2be: heavy-tail surface threshold under resetting, not Robin-escape conditioning.",
+        "published-finding corpus 74e25b7b3246: pulsed Robin exposure survival, not distributional conditional speed."
+      ],
+      "reasoning": "The claimed exact BVP and first conditional moment are algebraic special cases of Wu and fully excluded from novelty. The asserted new conclusion is existence of a universally independent conditional reaction-delay law with explicit Bernoulli-exponential eigenvalue factors, a rate-uniform approximation error and a strict common probability-space ordering; these do not follow as *stated* results from the inspected material and require separate spectral/Levy proofs. Comparing closest claims at the implication level did not reveal a dominating claim.",
+      "searches": [
+        "conditional successful capture time Robin partially absorbing boundary outer escape increasing reactivity full stochastic order convolution inverse local time subordinator spectral mixture",
+        "partial absorption reactivity conditioned first passage distribution additive delay independent hitting time Dirichlet-to-Neumann",
+        "Robin Dirichlet interval conditional reaction time given capture before escape rate monotonicity independent boundary delay Bernoulli exponential spectral zeros",
+        "boundary reaction conditioned before escape stochastic dominance increasing reactivity inverse local time subordinator factorization",
+        "Sturm Liouville Robin Dirichlet eigenvalue Bernoulli exponential sum distribution first passage"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Robin local-time exponential threshold is an established equivalent representation of radiation absorption; Bressloff 2022 §1 has local-time stopping rule.",
+        "Wu 2026 § first-passage quantities gives the Laplace BVP and success probability."
+      ],
+      "reasoning": "Equivalence between Robin killing and exponentially stopped boundary local time is credited, not claimed. The new comparison is of the *conditional* distribution of reaction times before outer escape, the universal independent delay, independent spectral Bernoulli sum and simultaneous strict coupling across reactivities; neither inspected source states that combined equivalence.",
+      "searches": [
+        "conditional successful capture time Robin partially absorbing boundary outer escape increasing reactivity full stochastic order convolution inverse local time subordinator spectral mixture",
+        "partial absorption reactivity conditioned first passage distribution additive delay independent hitting time Dirichlet-to-Neumann",
+        "boundary reaction conditioned before escape stochastic dominance increasing reactivity inverse local time subordinator factorization",
+        "arxiv:2205.08929v1 §1,§5-6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Figure 4 and Table II of Wu 2026 display reaction probabilities and conditional means, not the spectral distribution or stochastic order.",
+        "Relevant published-finding corpus hits f7a7f8b3a2be, 74e25b7b3246, 562e72eb5093 treat other partial-absorption questions."
+      ],
+      "reasoning": "No exact tabulated conditional law or sampler for this Robin-escape configuration was identified in the inspected sources or published-finding corpus results; an unsuccessful search alone is not used as a novelty proof.",
+      "searches": [
+        "conditional successful capture time Robin partially absorbing boundary outer escape increasing reactivity full stochastic order convolution inverse local time subordinator spectral mixture",
+        "Robin Dirichlet interval conditional reaction time given capture before escape rate monotonicity independent boundary delay Bernoulli exponential spectral zeros",
+        "Sturm Liouville Robin Dirichlet eigenvalue Bernoulli exponential sum distribution first passage",
+        "arxiv:2611.01321v1 Figure 4, Table II"
+      ]
+    },
+    "rationale": "Wu (arxiv:2611.01321v1) derives the original Robin/escape BVP and the conditional mean, fully credited; the new single result is a normalized full-law independent spectral delay representation, a cross-reactivity a.s. strict coupling and explicit uniform approximation. Bressloff (arxiv:2205.08929v1) provides earlier encounter-based/local-time spectral machinery, which is likewise credited; its 1D example is a partly reactive substrate with reflecting outer boundary, not competing exit conditional capture. Targeted published-finding corpus, accessible ledger and primary-source statement comparisons found no matching stochastic-order and Bernoulli-sampling claim; known mathematical methods can imply pieces only after additional argument, so priority remains qualified, not certified.",
+    "residual_risks": [
+      "Broader encounter-based local-time theory might implicitly encode the spectral product and stochastic ordering without explicit formulation; the novelty comparison is best-knowledge rather than priority certification.",
+      "Resetting-focused 2013 paper was only abstract-inspected; no whole-document noncoverage claim is made.",
+      "The theorem applies only to a flat-potential one-dimensional reference model, not the heterogeneous endocytosis model itself."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Already gives reaction probability, general joint Laplace backward BVP and conditional mean; no universal delay distribution, Bernoulli spectral product, truncation, or all-reactivity coupling stated",
+        "evidence": [
+          "arxiv:2611.01321v1 Eqs. (59)-(72), Fig.4, Appendix C",
+          "https://arxiv.cnoctave.top/pdf/2611.01321"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.01321 (v1: 2026-10-31); full PDF https://arxiv.cnoctave.top/pdf/2611.01321",
+        "material_read": "Main first-passage section pp.7-9, Fig.4 and Table II, conclusion p.12, Appendix C pp.13-16 including conditional-time derivation",
+        "method": "Read full-text PDF and selected page images, searched full PDF for Laplace, conditional and spectral, compared assumptions and claimed implications",
+        "title": "Before the First Bond: Depletion-Assisted Stochastic Capture at the Onset of Endocytosis",
+        "trigger": "Identical Robin reaction and outer escape model and conditional capture observable"
+      },
+      {
+        "assessment": "General local-time/partially reactive theory and 1D absorbing substrate with reflecting endpoint, but not escape-conditioned Robin capture nor its independent spectral reaction delay and strict reactivity ordering",
+        "evidence": [
+          "arxiv:2205.08929v1 §§1,5,6",
+          "https://arxiv.org/pdf/2205.08929"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2205.08929 (v1: 2022-05-18)",
+        "material_read": "Full-text introduction and statement of Dirichlet-to-Neumann framework (pp.1-4), 1D worked construction (pp.17-20), conclusions (p.24); searched all 25 pages for conditional, Bernoulli and escape",
+        "method": "Read arXiv full-text PDF and sampled page image; searched named terms; compared 1D boundary roles and conclusions",
+        "title": "Spectral theory of diffusion in partially absorbing media",
+        "trigger": "Plausible dominating general spectral and boundary local-time framework"
+      },
+      {
+        "assessment": "Resetting changes the process; cannot assert whole text does not cover a related conditional construct",
+        "evidence": [
+          "arxiv:1301.2489 abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1301.2489",
+        "material_read": "Abstract and bibliographic summary only",
+        "method": "Search result abstract comparison, not complete full-text evaluation",
+        "title": "Effect of Partial Absorption on Diffusion with Resetting",
+        "trigger": "Older partial reaction first-passage literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1541ba94-3a11-4c83-88b4-c230d6f6389e",
+  "value": {
+    "rationale": "The source explicitly distinguishes capture probability from conditional completion time in endocytosis-motivated diffusion. This result upgrades the expectation to an exact distribution, proves an unambiguous all-quantile stochastic monotonicity despite success-conditioning, quantifies the finite weak-reactivity conditional time when success itself becomes rare, and provides a practical finite-sum sampler with rate-uniform Wasserstein error. These structural properties are not mean-only calculations or arbitrary model slices; the flat interval is a natural controlled limiting benchmark for a known heterogeneous model.",
+    "status": "PASS"
+  }
+}
