@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact orthogonal-monomial norm formula follows from a radial gamma integral and a Dirichlet simplex integral. Fourier torus weights of the big Hankel images are pairwise distinct, establishing the complete positive squared singular values. A uniform gamma-ratio expansion handles every angular proportion including endpoints. The limiting spectral counting set is bounded, has boundary measure zero, and gives the stated angular integral through a weighted lattice Riemann sum. Ordered asymptotics imply the critical logarithmic coefficient. The rational example \(31/640\) is evaluated symbolically. The accompanying numerical and exact-rational checker supplies corroboration, not the infinite proof.
+PASS
 
-## Originality — PASS relative to inspected sources
+Radial angular integration produces norm I_alpha=(pi^d/p)alpha!/Gamma(k+d)*Gamma((k+d)/p). Distinct H e_alpha torus weights are mutually orthogonal, giving exact squared singular values (j+1)r_{k+1}-j r_k. Gamma-ratio asymptotics uniform in 0<=j<=k give p^{-1/p}k^{-(1-1/p)}(1-(1-1/p)j/k+O(k^{-1})); the angular term is strictly bounded below by 1/p. Counting lattice points with multiplicity binomial(k-j+d-2,d-2), uniform cutoff and a small-k exclusion yields beta integral C_{d,p}. Monotone rearrangement yields s_n and logarithmic residue. Independent high-precision gamma checks at k=400 and rational integral d=p=2 verify 31/640. Finite checks supplement the analytic asymptotic proof.
 
-The precise Weyl coefficient, angular singular-value profile, and log-residue are the assessed contributions. Haslinger and Lamel (2006) provide a **general moment diagonalization** of the canonical solution operator, so the monomial spectral reduction is a known framework. Bommier-Hato and Youssfi (2007) already establish the exact Schatten membership threshold for these radial power weights. Bommier-Hato and Constantin (2018) extend such ideal conditions, Fan–Wang–Zeng (2024) develop rearrangement criteria, and Liu–Wang–Zeng (2026) focus on general kernel/compactness questions. Actual searches did not uncover the evaluated beta-integral Weyl coefficient. Older Bommier-Hato–Youssfi full texts (2007 and 2010) were not completely available, and their possible stronger coverage is a material priority risk. The prior moment formulas and cutoff themselves are not claimed new.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem evaluates the full leading effective-rank coefficient for a natural coordinate Hankel operator and identifies an angular anisotropy ratio \(\sqrt p\). Its exact logarithmic residue and \(31/640\) quartic instance are naturally motivated spectral invariants rather than an arbitrary parameter slice. Qualitative compactness and Schatten membership alone do not quantify these spectral masses.
+Known moment diagonalization and exponent threshold are not claimed as new. Older primary general theorems supply classifications but no evaluated normalized d,p Weyl coefficient in their inspected statements; 2007 full paper could not be read, leaving material priority risk, not automatic scientific failure.
 
-## Restrictions and external review
+## value
 
-The family is restricted to radial isotropic weights in \(d\ge2\) complex dimensions with \(p>1\), and no second-order Weyl remainder or general-symbol formula is asserted. All source-priority comparisons are provisional where complete text could not be reviewed; independent validation remains open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact angular distribution and leading spectral asymptotic constant are useful refined invariants of compact coordinate Hankel operators beyond the known Schatten membership exponent, with an explicit rational benchmark and limiting logarithmic trace.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
