@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** Complementation gives an exact equivalence with maximal open-irredundant sets. The radius-four local predicate checks private witnesses and the failure of all one-vertex additions. The fully generated 233-state, 403-edge automaton represents all admissible path words; its exact Bellman–Ford potentials show \(7|T|-2n\ge0\) for every path length. Seven explicit tails attached to an optimal seven-block produce matching configurations in every residue class, with infinite validity justified by the finite-factor periodicity argument. An independent direct graph-definition census corroborates every subset through 13 vertices. The single-vertex exception is stated.
+
+**Originality — PASS (priority provisional).** Avella-Alaminos–Lemańska–Zuazua (arXiv:2611.23464v1, Theorem 2.8) give two candidate values, not the exact all-order answer. The earlier public cycle classification concerns a different graph; the motivating paper gives only a cycle-to-path inequality. Cockayne–Favaron–Finbow–Mynhardt (2008) give general maximal open-irredundance criteria, without an exact path formula identified in the material read. Keyword/alias/equivalent-formulation comparisons found no stronger identified covering result. Unindexed earlier results under alternate terminology remain a publication-priority risk, not proof of novelty.
+
+**Value — PASS.** The theorem resolves a concrete open numerical ambiguity in a newly introduced graph invariant for every path length. The sharp seven-periodic boundary is not merely a single small calculation: it gives exact infinite-family extremality and a transferable local-state proof framework. This is a motivated complete classification of a natural graph invariant, although it does not supply extremal-set counts.
+
+Self-review: passed. Independent audit: not yet performed.
