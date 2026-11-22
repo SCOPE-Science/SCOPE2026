@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T05:13:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/exact-ternary-fourier-nullity-and-sharp-deconvolution-gap-for-or--600132c8f187/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/exact-ternary-fourier-nullity-and-sharp-deconvolution-gap-for-or--600132c8f187/SPECTRUM.json"
+      ],
+      "rationale": "An order-four ASM is uniquely enumerated by legal alternating 1/3-nonzero rows with column partial sums 0 or 1 and final sums 1. This exhausts 42 labelled matrices, and their mod-3 affine row/column sum constraints give 9 independent coordinates and frequency restriction kernel size 3^7. Integer phase counts c0,c1,c2 over all 3^9=19683 reduced frequencies exactly determine |W|^2=c0^2+c1^2+c2^2-c0c1-c0c2-c1c2. Independent exhaustive recomputation found exactly 734 reduced zeros, 53 distinct squared magnitude levels, least positive squared value 3, maximum 1764, Parseval 42*19683=826686. Multiplication by 3^7 yields full nullity 1,605,258 and rank 41,441,463 in F3^16. Direct enumeration of every single/two-coordinate frequency gives zero at exactly the 16 opposite-sign central horizontal/vertical coordinate pairs, no weight-one zeros. Fourier diagonalization of UNNORMALIZED convolution gives T pseudoinverse norm 1/sqrt(3), condition number 14sqrt(3).",
+      "residual_risks": [
+        "Complete finite theorem relies on correct implementation of the 42-point exact census; independent enumeration and separate monotone-triangle script reduce but do not formally eliminate implementation risk."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ayyer–Romik and Behrend derive refined enumerations/boundary statistics, not arbitrary 16-coordinate ternary character values. Published binary Walsh rank 50176 on F2^16 is not 41441463 on F3^16."
+        ],
+        "reasoning": "These enumeration identities and the mod-2 support transform do not dominate the full signed mod-3 distribution or sharp positive singular gap. General ASM enumerability does not itself give the evaluated numerical invariant without exhaustive evaluation.",
+        "searches": [
+          "Ayyer Romik refined alternating sign matrix enumeration 2012",
+          "Behrend 2012 multiply refined enumeration",
+          "Resultary exact Walsh nullity 4x4 alternating sign matrices F2"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/math/0208125",
+        "https://arxiv.org/abs/1202.3651",
+        "https://arxiv.org/abs/1203.3187",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-walsh-nullity-and-sharp-endpoint-projection-norm-for-4-by--bb35a5ff64ab",
+        "https://www.findstat.org/CollectionsDatabase/AlternatingSignMatrices/"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The F2 transform applies to binary nonzero-entry indicators, which loses sign of -1; the F3 transform retains values -1=2 and uses different additive characters."
+        ],
+        "reasoning": "The binary Walsh result cannot algebraically imply the ternary zero set or smallest nonzero |W|=sqrt3; classical row recursion only supplies enumerability, not a theorem stating these Fourier invariants.",
+        "searches": [
+          "Resultary exact Walsh nullity endpoint projection for 4x4 ASMs",
+          "Propp ASM bijection and enumerations",
+          "Ayyer Romik refined ASM enumeration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Propp arXiv:math/0208125 discusses ASM/square-ice/monotone-triangle bijections and known ASM enumeration. Binary Resultary result uses support indicator in F2, not signed entry in F3."
+        ],
+        "reasoning": "Equivalent formulations are the signed-entry mod-3 characteristic polynomial of the 42 ASM points and the convolution multiplier multiset. The source publications counted ASM configurations, but do not report these 3-adic character sums; the binary support Walsh spectrum is not an equivalent transform.",
+        "searches": [
+          "Resultary: alternating sign matrices order four ternary Fourier Walsh spectrum cancellation deconvolution rank nullity",
+          "Propp alternating sign matrices signed entries Fourier transform mod3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The classical object table has 42 ASMs; SPECTRUM.json reports 53 squared multiplier levels in the reduced F3^9 quotient, including 734 zeros and 3504 with squared modulus 3. No inspected external database has that evaluated histogram."
+        ],
+        "reasoning": "Known exact list/enum of ASMs is input, not the independently evaluated signed ternary Fourier table or exact cancellation classification. Residual risk of older unindexed numeric tables remains.",
+        "searches": [
+          "FindStat alternating sign matrices collection numerical tables",
+          "Ayyer Romik 42 four-by-four matrices",
+          "Resultary ASM Walsh spectra 4 by 4"
+        ]
+      },
+      "rationale": "The final operator/character claim, not solely its background classification, was compared against the actual published statements and selected primary sources. Bounded checked literature yields no identified covering prior theorem or table for the final new invariant, with explicit remaining priority risks. Exact ternary Fourier nullity and sharp deconvolution gap for order-four alternating-sign matrices.",
+      "residual_risks": [
+        "Complete finite theorem relies on correct implementation of the 42-point exact census; independent enumeration and separate monotone-triangle script reduce but do not formally eliminate implementation risk.",
+        "This is an order-four, mod-3 exact invariant, not an all-orders theorem.",
+        "A previously unpublished or unindexed table of the signed F3^16 ASM spectrum may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLASSICAL_OBJECT_ONLY",
+          "evidence": "Known ASM definition, order-four count and bijections are older; no ternary signed-entry multiplier spectrum found in inspected text.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0208125",
+          "material_read": "Accessible PDF introductory sections, monotone triangle and square ice combinatorial formulations",
+          "method": "Read mathematical model and enumeration examples",
+          "title": "The many faces of alternating-sign matrices",
+          "trigger": "Natural ASM object and 42-order-four census"
+        },
+        {
+          "assessment": "NOT_COVERING_SIGNED_F3",
+          "evidence": "Boundary-refined enumerations and partition functions do not state the 53-level independent-entry ternary multiplier spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/1202.3651",
+          "material_read": "Accessible primary preprint abstract, theorem statements and refined enumeration sections",
+          "method": "Read and compared refined-count parameters to independent ternary characters",
+          "title": "New enumeration formulas for alternating sign matrices and square ice partition functions",
+          "trigger": "Potential stronger ASM counting and spatial statistics"
+        },
+        {
+          "assessment": "NOT_COVERING_FULL_CHARACTER_SPECTRUM",
+          "evidence": "Refined counts concern fixed boundary/correlation statistics rather than all additive frequency vectors F3^16.",
+          "identifier_or_url": "https://arxiv.org/abs/1203.3187",
+          "material_read": "Accessible primary abstract, contents and refined enumerative statements",
+          "method": "Read table/theorem scope and compared dependence on 16 independent character coefficients",
+          "title": "Multiply-refined enumeration of alternating sign matrices",
+          "trigger": "Potential complete multi-entry enumeration covering Fourier statistics"
+        },
+        {
+          "assessment": "DIFFERENT_FOURIER_ENCODING",
+          "evidence": "Binary support vector in F2 discards +/-1 information, and produces different numerical rank, not a prior result entailing ternary signed spectrum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-walsh-nullity-and-sharp-endpoint-projection-norm-for-4-by--bb35a5ff64ab",
+          "material_read": "Published final RESULT.md complete Finding and its F2 support embedding and Walsh multiplier distribution",
+          "method": "Read and compared group/character field, signs and rank",
+          "title": "Exact Walsh nullity and sharp endpoint projection norm for 4-by-4 alternating-sign matrices",
+          "trigger": "Closest published transform on identical 42 ASMs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/math/0208125",
+        "https://arxiv.org/abs/1202.3651",
+        "https://arxiv.org/abs/1203.3187",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-walsh-nullity-and-sharp-endpoint-projection-norm-for-4-by--bb35a5ff64ab",
+        "https://www.findstat.org/CollectionsDatabase/AlternatingSignMatrices/"
+      ],
+      "rationale": "Order-four alternating-sign matrices are a canonical finite combinatorial family. Character spectra of their signed entries over F3, first cancellation positions, exact deconvolution rank and sharp inverse condition are natural invariants of a finite convolution operator. The nontrivial exact signed-entry Fourier histogram and 16 minimum-support obstructions are not merely the already known ASM count 42 or a copied table.",
+      "residual_risks": [
+        "A previously unpublished or unindexed table of the signed F3^16 ASM spectrum may exist."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Complete finite theorem relies on correct implementation of the 42-point exact census; independent enumeration and separate monotone-triangle script reduce but do not formally eliminate implementation risk.",
+    "This is an order-four, mod-3 exact invariant, not an all-orders theorem.",
+    "A previously unpublished or unindexed table of the signed F3^16 ASM spectrum may exist."
+  ],
+  "schema_version": 1
+}
