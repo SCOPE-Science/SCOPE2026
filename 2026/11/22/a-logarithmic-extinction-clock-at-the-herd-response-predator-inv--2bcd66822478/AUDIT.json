@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Analytic forward-invariant wedge for every a,d>0 and K>a. A monotonicity contradiction forces y→0. Exact quadratic invariance defect B=a²(d+1)/2 and transverse O(y) derivatives give e_n=O(y_n³); cubic scalar coefficient -a²d(d+3)/8. Inverting yields a positive linear clock and a universal log coefficient 3a(d+1)/4, with O(log n/n²) summable increments. The standalone check.py passed exact SymPy coefficients and two finite trajectory diagnostics, which were not treated as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li–Li [1] Theorem 3.1 is a qualitative bifurcation at b=d, not a global-in-time quantitative decay theorem.",
+        "published-finding corpus 2026/11/17/SCOPE-universal-two-term-critical-extinction-and-a-saturation-independ--2ba15cb5a76c treats a different Holling-II plankton map with leading predator n^(-1/2), unlike the present n^(-1) law.",
+        "published-finding corpus 2026/11/17/SCOPE-global-extinction-and-sharp-critical-decay-in-a-harvested-hollin--e4ff3aea58eb treats a harvested Holling-II Ricker map and asserts a leading n^(-1) amplitude, not the explicit log coefficient for these equations."
+      ],
+      "reasoning": "The identified general parabolic normal-form and other-model results do not include the same nonlinear map and cubic coefficient. A general higher-order normal-form theorem could help derive the calculation but is not an asserted stronger covering statement in the inspected material.",
+      "searches": [
+        "predator prey square root response x(n+1)=x(n)exp(1-x(n)-a y(n)/sqrt(x(n))) y(n+1)=y(n)exp(-d+d sqrt(x(n))) critical 1/y(n) n log n",
+        "transcritical boundary predator invasion threshold discrete herd behavior predator extinction n^-1 logarithmic correction 3 a (d+1)/4",
+        "neutral predator extinction Ricker semi-discretized square root herd functional response exact reciprocal logarithmic relaxation",
+        "\"Transcritical bifurcation and Neimark-Sacker bifurcation\" \"convergence rate\" \"b=d\""
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1080/13873954.2024.2304798",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-global-critical-extinction-with-a-cancellable-logarithmic-clock--5fcebfadc8fa",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-universal-two-term-critical-extinction-and-a-saturation-independ--2ba15cb5a76c",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-global-extinction-and-sharp-critical-decay-in-a-harvested-hollin--e4ff3aea58eb"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary Li–Li explicitly supplies a20 = -a²(d+1)/2 and a quadratic neutral map y_next = y - (ad/2)y² + lower-order terms (sec 3.1); these yield only a leading 1/n clock.",
+        "The new proof uses the additional cubic coefficient -a²d(d+3)/8, a uniform O(v³) slaving error, and summable reciprocal increments to obtain a finite limit."
+      ],
+      "reasoning": "The published quadratic normal form entails the leading n^-1 extinction rate at best; it does not fix the log coefficient, which changes under cubic perturbations leaving the quadratic coefficient unchanged. The present claim is strictly more precise and is restricted to a demonstrably invariant wedge.",
+      "searches": [
+        "Li Xianyi Danyang 2024 herd behaviour sqrt predator prey discrete exponential semidiscretization b=d critical prey fixed point one neutral multiplier logarithmic extinction clock",
+        "predator prey square root response x(n+1)=x(n)exp(1-x(n)-a y(n)/sqrt(x(n))) y(n+1)=y(n)exp(-d+d sqrt(x(n))) critical 1/y(n) n log n",
+        "transcritical boundary predator invasion threshold discrete herd behavior predator extinction n^-1 logarithmic correction 3 a (d+1)/4",
+        "neutral predator extinction Ricker semi-discretized square root herd functional response exact reciprocal logarithmic relaxation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li–Li full text sec. 3.1 contains second-order center-manifold expansion and transcritical normal form but no reciprocal 1/y_n = cn + gamma log n + C + o(1).",
+        "published-finding corpus closest 2026/11/8/SCOPE-global-critical-extinction-with-a-cancellable-logarithmic-clock--5fcebfadc8fa states a reciprocal logarithmic extinction clock for an exponential Beverton–Holt map, not for a square-root herd-response map."
+      ],
+      "reasoning": "Searched equivalent reciprocal clocks, parabolic corrections and model aliases. The cubic multiplier on a neutral center direction is a generic mechanism, but its coefficient for these specific nonlinear square-root equations is not implied by the compared different-map statements.",
+      "searches": [
+        "Li Xianyi Danyang 2024 herd behaviour sqrt predator prey discrete exponential semidiscretization b=d critical prey fixed point one neutral multiplier logarithmic extinction clock",
+        "predator prey square root response x(n+1)=x(n)exp(1-x(n)-a y(n)/sqrt(x(n))) y(n+1)=y(n)exp(-d+d sqrt(x(n))) critical 1/y(n) n log n",
+        "neutral predator extinction Ricker semi-discretized square root herd functional response exact reciprocal logarithmic relaxation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The quantity is a continuous-parameter asymptotic coefficient, not a finite combinatorial census.",
+        "Li–Li paper sections 2–5 have equilibrium stability, local bifurcation and numerical diagrams; no exact table for the new log coefficient."
+      ],
+      "reasoning": "No database/table entry with these equations and the claimed two-term asymptotic was found. This is nonproof of database completeness.",
+      "searches": [
+        "Li Xianyi Danyang 2024 herd behaviour sqrt predator prey discrete exponential semidiscretization b=d critical prey fixed point one neutral multiplier logarithmic extinction clock",
+        "transcritical boundary predator invasion threshold discrete herd behavior predator extinction n^-1 logarithmic correction 3 a (d+1)/4",
+        "\"herd behaviour\" \"square root functional response\" \"logarithmic\" predator 2024"
+      ]
+    },
+    "rationale": "The primary 2024 article (equations (1.7), (3.4)–(3.5), Theorem 3.1, pp.33–39) proves the neutral transcritical bifurcation and computes the quadratic slaving and center-manifold terms, which are expressly credited. The new claim is the cubic scalar coefficient, summable remainder and finite reciprocal clock with precise positive log coefficient over an invariant positive-data wedge. Targeted published-finding corpus and web searches did not retrieve a stronger same-map result. This is best-knowledge rather than a proof of bibliographic uniqueness.",
+    "residual_risks": [
+      "published-finding corpus results for related work were summaries, not full-text audits.",
+      "A future/unindexed generic theorem could cover this specialisation without matching keywords.",
+      "The primary PDF page-screenshot endpoint returned HTTP 403 though indexed PDF text was available and read; exact mathematical model independently matched multiple equations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers transcritical collision and quadratic slaving; does not state cubic coefficient or finite renormalized extinction clock",
+        "evidence": [
+          "DOI 10.1080/13873954.2024.2304798; online date Jan 22 2024; eq (1.7) pp.33–34; Thm 3.1 and a20 pp.36–39; conclusion pp.45–46"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/13873954.2024.2304798",
+        "material_read": "Full openly accessible indexed PDF text, particularly pp.31–39 (model, Theorems 2.1, 3.1 and center manifold), pp.43–46 (Theorem 3.2, simulations and conclusion); checked 1444-line parsed PDF. Screenshot attempt returned 403 and visual verification was unavailable.",
+        "method": "Full-text reading and mathematical comparison of model equations, center manifold coefficients and theorem implications",
+        "title": "Transcritical bifurcation and Neimark-Sacker bifurcation of a discrete predator-prey model with herd behaviour and square root functional response",
+        "trigger": "Identical map and critical b=d parameter; decisive possible coverage"
+      },
+      {
+        "assessment": "Different exponential Beverton–Holt system; not used to infer whole document noncoverage",
+        "evidence": [
+          "Indexed abstract describes critical prey reproduction and a cancellable reciprocal prey clock, distinct from neutral predator invasion in this square-root herd map"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-global-critical-extinction-with-a-cancellable-logarithmic-clock--5fcebfadc8fa",
+        "material_read": "published-finding corpus indexed title and abstract summary only; full text not inspected",
+        "method": "Semantic result search, compared disclosed dynamical system and scope",
+        "title": "Global critical extinction with a cancellable logarithmic clock in an exponential predator-prey map",
+        "trigger": "Similar logarithmic extinction-clock language"
+      },
+      {
+        "assessment": "Different Holling-II plankton model and n^(-1/2) zooplankton; no implication of present n^(-1) clock from available summary",
+        "evidence": [
+          "Indexed abstract states zooplankton n^-1/2 and its second-order prey correction"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-universal-two-term-critical-extinction-and-a-saturation-independ--2ba15cb5a76c",
+        "material_read": "published-finding corpus indexed title and abstract summary only; full text not inspected",
+        "method": "Semantic search, comparison of displayed asymptotic exponents and model class",
+        "title": "Universal two-term critical extinction and a saturation-independent prey correction in a discrete plankton map",
+        "trigger": "Analogous second-order predator persistence threshold"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2bcd6682-2478-48c8-b52c-71932026ecba",
+  "value": {
+    "rationale": "The predator invasion threshold b=d is a natural nonhyperbolic boundary of a published biological recurrence. Exact extinction timing over growing generations requires the first model-specific correction beyond the known quadratic transcritical normal form; it distinguishes a finite time-shift invariant from a mere n^-1 bound, with a universally positive logarithmic delay and a proved nonempty open basin wedge. It is a substantive quantitative boundary result, not an arbitrary parameter slice or finite diagnostic.",
+    "status": "PASS"
+  }
+}
