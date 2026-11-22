@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For h(x,y)=max(x,y)-x-y+(x^2+y^2)/2, exact expansion gives Delta=d/15-c^2/30-d^2/210 on the two-parameter polynomial density. The parametrization c=14r/(7+r^2), d=rc yields a positive increasing density and exactly zero target for 0<r<1/3; F(x)<x. Direct polynomial Hoeffding-projection integration yields V(r)=(56595+80311r^4-6282r^6)/(7425(7+r^2)^3), with V(0)=1/45 and V strictly decreasing on the declared interval. Standard nondegenerate bounded-kernel U-statistic CLT proves fixed-alternative power below nominal; uniform remainder bounds and a triangular-array Lindeberg theorem prove n^(-1/4) critical detection for linear tilts. The checker performed 18 exact-arithmetic assertions including an independent direct double-integral expectation verification. No finite test is substituted for the CLTs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ebner and Liebenberg, Stat 10 e341 (2021), Secs. 1 and 3, use an L2 threshold-function statistic rather than the scalar U kernel.",
+        "Kattumannil and Sreedevi (2021, Sec. 2) derive asymptotic normality under the null and at fixed alternatives; the scalar target is presented without a complete nonzero characterization."
+      ],
+      "reasoning": "Standard omnibus L2 characterization can distinguish distributions that a scalar integral cancels; that broader detection principle neither implies the particular zero-target monotone polynomial family nor its finite-variance power calibration. General Hoeffding CLT applies after, but does not compute, the specific cancellation and drift.",
+      "searches": [
+        "\"On a new test of fit to the beta distribution\" Ebner Liebenberg 2021 statistic pdf",
+        "integrated Stein uniformity characterization test lack of consistency monotone density alternatives 2021 Sreedevi Kattumannil"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2106.06368",
+      "doi:10.1007/s42952-023-00205-8",
+      "doi:10.1002/sta4.341",
+      "Published mathematical-record semantic searches about scalar characterization and blind alternatives"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2021 arXiv Sec. 2, Theorem 2 and Corollary 2 establish the null Gaussian variance 1/45 and general U-statistic asymptotic variance, used but not claimed as new.",
+        "2023 journal Sec. 2 defines the same scalar U-statistic and reports null variance 1/45, while Sec. 4 compares finite-sample power empirically.",
+        "The generic 2020/2021 beta-characterization L2 test establishes positivity of an integrated squared discrepancy, not of the scalar expectation."
+      ],
+      "reasoning": "A general nondegenerate U-statistic CLT implies Gaussian fluctuations once a fixed zero target and variance have independently been supplied, but does not imply the zero target, stochastic monotonicity, exact variance formula or sharp local sensitivity. The sources cannot logically imply a claim of consistency for this scalar statistic in the presence of these explicit zero-signal alternatives.",
+      "searches": [
+        "Sreedevi Kattumannil 2021 uniformity goodness of fit U-statistic characterization scalar max(X,Y) negative consistency monotone alternative detection scale quarter power",
+        "U statistic kernel max(X,Y)-X-Y + (X²+Y²)/2 smooth blind alternatives local detection rate n^(-1/4)",
+        "integrated Stein uniformity characterization test lack of consistency monotone density alternatives 2021 Sreedevi Kattumannil",
+        "\"Goodness of fit test for uniform distribution with censored observation\" \"consistency\" \"alternatives\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source statistic is exactly the unbiased U-statistic of max(X1,X2)-X1-X2+(X1^2+X2^2)/2 (arxiv:2106.06368, Sec. 2).",
+        "The same kernel is presented by Sreedevi and Kattumannil (2023), Sec. 2.",
+        "Research-record search returned a blind-extropy result, not an equivalent max-kernel U-statistic theorem."
+      ],
+      "reasoning": "The equivalent Gini/moment representation Delta=0.5 E|X1-X2|-E[X(1-X)] is explicitly recognized. Search comparison was made at the level of the scalar kernel, exactly-zero polynomial density, monotone stochastic order and quarter-power rate; no matching result was identified. This is evidence of noncoverage, not a uniqueness proof.",
+      "searches": [
+        "Sreedevi Kattumannil 2021 uniformity goodness of fit U-statistic characterization scalar max(X,Y) negative consistency monotone alternative detection scale quarter power",
+        "U statistic kernel max(X,Y)-X-Y + (X²+Y²)/2 smooth blind alternatives local detection rate n^(-1/4)",
+        "\"max(X_1,X_2)\" \"2E(X)\" \"E(X^2)\" uniformity U-statistic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published 2021 and 2023 paper tables report simulation power for selected alternatives, without an algebraic catalogue of zero-target densities.",
+        "Semantic published-record searches returned no exact rational density (84x^2+28x+71)/113 or rational curve with the stated power result."
+      ],
+      "reasoning": "The proposed result is a continuous family of exact identities and an asymptotic power theorem, not a lookup of a finite table; selected numerical power tables neither entail nor tabulate it.",
+      "searches": [
+        "monotone increasing nonuniform density 84 x squared 28 x 71 over 113 uniformly blind to Gini characterization U statistic",
+        "uniformity integral characterization maximum Gini mean difference moment test zero under nonuniform smooth Legendre density",
+        "2023 Sreedevi Kattumannil uniform goodness-of-fit U-statistic Delta F E max(X,Y) minus 2 mean plus second moment nonuniform blind alternatives consistency counterexample"
+      ]
+    },
+    "rationale": "The 2021 arXiv version and 2023 journal article define and calibrate this scalar U-statistic but neither supplies a strictly stochastically ordered smooth zero-signal family, its exact fixed-alternative limiting power, or the quarter-power local detection transition. The earlier beta-characterization paper uses a squared L2 threshold discrepancy, and analogous blind-contrast research records concern different statistics. Generic U-statistic asymptotic theory is acknowledged as a tool, not the new claim.",
+    "residual_risks": [
+      "Earlier specialized work may have independently analyzed the same scalar functional or its smooth zero set; negative semantic search cannot establish absolute priority.",
+      "Full scholarly coverage of all historical characterizations and every 2023 journal appendix was not established.",
+      "The conclusion is limited to the uncensored scalar statistic; it cannot be transferred to the censored version without new analysis."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the statistic and null asymptotics but does not state the explicit smooth monotone blind curve or quarter-power local power law",
+        "evidence": [
+          "arxiv:2106.06368, initial version 2021-06-11, Sections 2-4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2106.06368",
+        "material_read": "Original arXiv HTML, abstract, Sections 1-4 including the kernel in Sec. 2, Theorem 2, null Corollary 2, censoring scope in Sec. 3, and displayed empirical-power tables",
+        "method": "Read source HTML mathematical statements and aligned the displayed U kernel and normalization to the new proof",
+        "title": "A new goodness of fit test for uniform distribution with censored observations",
+        "trigger": "Same original scalar U-statistic and first publicly verified source date"
+      },
+      {
+        "assessment": "The proposed scalar kernel is the same; no monotone zero-target density or sharp n^(-1/4) sensitivity theorem appears in inspected relevant material",
+        "evidence": [
+          "Journal of the Korean Statistical Society 52 (2023), 382-394, Secs. 2-4"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s42952-023-00205-8",
+        "material_read": "Relevant mathematical sections of accessible PDF text: the complete-data statistic and null variance in Sec. 2, the distinction from the censored extension in Sec. 3, and the simulation-power discussion in Sec. 4; publisher abstract and references were also consulted",
+        "method": "Compare displayed kernel, order-statistic expression, CLT and power discussion against final claim",
+        "title": "Goodness of fit test for uniform distribution with censored observation",
+        "trigger": "Published successor and alternative possible statement of same statistic"
+      },
+      {
+        "assessment": "Distinct integrated squared L2 statistic; its consistency does not rule out or imply zero-signal alternatives for the scalar U-statistic",
+        "evidence": [
+          "Stat 10 (2021) e341, first published 2020-12-02, Sections 1-3"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/sta4.341",
+        "material_read": "Full-text publisher HTML, introductory characterization and test-statistic construction, null asymptotics and Sec. 3 consistency theorem",
+        "method": "Compare whether its functional is the same scalar projection or a distinct integrated squared threshold function",
+        "title": "On a new test of fit to the beta distribution",
+        "trigger": "Characterization-based predecessor whose stronger identification theorem could cover the result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "19b32d8e-dddb-43cc-aced-db429fdb090f",
+  "value": {
+    "rationale": "An explicit positive, strictly increasing polynomial density with first-order stochastic dominance is completely invisible in population mean to a published uniformity goodness-of-fit statistic. More importantly, a continuum of such alternatives has asymptotic rejection probability below nominal, and the same statistic has a sharp n^(-1/4), rather than n^(-1/2), local detection boundary for the natural first-order tilt. These demonstrate material lack of omnibus power and give precise sensitivity limits for practical calibration; neither is an arbitrary tiny finite numerical improvement.",
+    "status": "PASS"
+  }
+}

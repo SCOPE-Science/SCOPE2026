@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The statement is confined to the uncensored scalar \(U\)-statistic with exactly specified kernel, and to two explicit positive polynomial families. Polynomial integration proves the expectation formula, the blind curve, the first-projection variance, and its monotonicity. Uniform boundedness of the kernel controls the remainder of Hoeffding's decomposition, and the triangular-array central limit theorem proves the local power phases. The accompanying reproducibility checker passed 18 exact-arithmetic assertions. The tail and censoring behavior of other statistics is not inferred.
+
+**Originality — PASS, with residual priority risk.** The June 2021 source and 2023 journal version give this scalar test, its null-normal variance and simulated power, but not the exact strictly increasing blind family or the sharp quarter-power local-sensitivity phase. The earlier beta-characterization test integrates squared threshold discrepancies and is not the same statistic. Semantic research-record searches identified a blind family for a different extropy contrast, without a mathematical implication covering this kernel. Generic \(U\)-statistic theory establishes the limit after the projection and drift have been calculated, but does not directly supply the explicit cancellation or the particular sensitivity threshold. An unlocated earlier equivalent analysis remains possible.
+
+**Value — PASS.** Testing uniformity is the stated purpose of the source procedure. A full family of smooth and strictly monotone nonuniform densities that the statistic cannot consistently distinguish is a material calibration and power boundary, not a merely arbitrary discrete counterexample. The precise \(n^{-1/4}\) scale establishes which local perturbations are invisible at the common \(n^{-1/2}\) rate; the exact limiting variance quantifies how far fixed blind alternatives remain from guaranteed rejection.
+
+The full threshold-characterization method and its \(L^2\)-based tests are not challenged by this scalar-specific finding. The research does not cover censored data, estimated support endpoints, finite-sample quantiles, or independent replication of the proof.
+
+Self-review: passed. Independent audit: not yet performed.
