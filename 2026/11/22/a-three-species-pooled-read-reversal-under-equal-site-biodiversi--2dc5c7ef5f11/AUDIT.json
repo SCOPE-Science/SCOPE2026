@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "For E, the two site-one draws must be BC or CB, giving 2bc; site two guarantees A. For pool q=((1+a)/2,b/2,c/2), the sole four-read coverage patterns are (2,1,1) and probability 12q_A q_B q_C=3(1+a)bc/2. Exact difference bc(3a-1)/2; each individual detection marginal is strictly better for E by (1-u/2)^4>(1-u)^2 for u=b,c and guaranteed A. Inclusion-exclusion forbids a two-taxon inversion. Binomial mixing proves domination by the best deterministic allocation; the larger-depth estimate proves eventual recovery by E. Standalone exact checker passed for 1771 positive rational composition triples; infinite parameter range proved analytically, not inferred from checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Courtaillac et al., DOI 10.1002/edn3.70023, directly investigates individual versus pooled environmental DNA with empirical OTU counts.",
+        "Sato et al., DOI 10.1038/s41598-017-14978-6, studies pooling and its rare-lineage detection limitations.",
+        "The inspected two-site mathematical result treats expected hypergeometric richness rather than multinomial full-inventory probability."
+      ],
+      "reasoning": "These broader studies cover empirical pooling effects or related richness objective functions; none of the inspected statements has hypotheses that entail the simultaneous coordinatewise detection advantage for the separate design and opposite exact all-taxon event advantage for the pool. Experimental total richness differences do not prove or refute this idealized probability statement.",
+      "searches": [
+        "Two habitat 3 taxa pooled metabarcoding sequencing compared to separate biological replicates probability all species detected with same read budget",
+        "Environmental DNA multispecies detection sample volume versus biological replicates independent spatial sampling exact probability threshold detection optimization",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-a-sharp-failure-of-budget-nesting-in-two-habitat-biodiversity-sa--f677ebc252b9/RESULT.md",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-a-rare-species-threshold-for-the-variance-response-to-balancing--331735f4131f/RESULT.md",
+        "stratified versus pooled eDNA full species inventory sequencing replicates mathematical multinomial"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1002/edn3.70023",
+      "https://doi.org/10.1038/s41598-017-14978-6",
+      "https://doi.org/10.1002/edn3.430",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-a-sharp-failure-of-budget-nesting-in-two-habitat-biodiversity-sa--f677ebc252b9/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-a-rare-species-threshold-for-the-variance-response-to-balancing--331735f4131f/RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024 empirical article reports 76 OTUs in individually sequenced replicates against 65 in pools, whereas this finding concerns a parameter family in which a fixed four-read pool has greater all-three probability despite lower each-taxon marginal sensitivity.",
+        "The 2017 empirical pooling article reports underdetection of low-abundance lineages; it does not prove a three-taxon four-read threshold.",
+        "The mathematical first comparison addresses F(x,y)=expected richness under hypergeometric sampling; the second addresses variance of the number of draws required to collect all species."
+      ],
+      "reasoning": "Expected richness is a sum of marginal detection probabilities, so marginal superiority guarantees E wins that additive objective. Joint complete-inventory probability is not additive; hence neither an expected-richness optimization theorem nor an unconditional empirical pooling comparison implies or rules out the counterexample. Coupon-collector completion-time variance does not order finite-horizon distributions. No inspected primary source directly settles this mathematical contrast.",
+      "searches": [
+        "Two-site biodiversity stratified sequencing versus pooled reads can improve individual species detection probabilities yet reduce probability of detecting all three species; exact four-read threshold",
+        "Multinomial pooled versus stratified species sampling probability complete species coverage, each marginal dominance but joint coverage reversal",
+        "Two habitat 3 taxa pooled metabarcoding sequencing compared to separate biological replicates probability all species detected with same read budget",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-a-sharp-failure-of-budget-nesting-in-two-habitat-biodiversity-sa--f677ebc252b9/RESULT.md",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-a-rare-species-threshold-for-the-variance-response-to-balancing--331735f4131f/RESULT.md",
+        "https://doi.org/10.1002/edn3.70023",
+        "https://doi.org/10.1002/edn3.430"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For separate equal allocation, the three individual detection probabilities all strictly exceed those from 50:50 pooling, yet joint all-taxon detection comparison is bc(3a-1)/2.",
+        "The full-text two-habitat richness study uses finite-population sampling without replacement and expected number of taxa, not the joint occurrence event.",
+        "The full-text coupon-collector study optimizes completion-time variance and has neither a two-site design nor four-read pooling."
+      ],
+      "reasoning": "The mathematically relevant equivalent formulations—stratified versus mixed multinomial sampling, joint complete coverage versus coordinatewise detection dominance, and a fixed four-read coupon collector—were explicitly compared. Neither inspected full mathematical statement directly gives the sign-reversal threshold or the exact two-versus-three-taxon distinction. General inclusion–exclusion can derive the result, but the existence of such a derivation is not an asserted novelty.",
+      "searches": [
+        "Two-site biodiversity stratified sequencing versus pooled reads can improve individual species detection probabilities yet reduce probability of detecting all three species; exact four-read threshold",
+        "Multinomial pooled versus stratified species sampling probability complete species coverage, each marginal dominance but joint coverage reversal",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-a-sharp-failure-of-budget-nesting-in-two-habitat-biodiversity-sa--f677ebc252b9/RESULT.md",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-a-rare-species-threshold-for-the-variance-response-to-balancing--331735f4131f/RESULT.md"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The mathematical four-read probabilities are obtained by direct enumeration of four categorical labels; no prior table was located assigning the exact polynomial pair 2bc and 3(1+a)bc/2 to equal split and equal physical mixture.",
+        "The inspected two-habitat result publishes an exact finite census of hypergeometric allocation optima, not the current multinomial comparison."
+      ],
+      "reasoning": "A known probability table could subsume the new claim even with different phrasing; the identified exact finite tables have different sample spaces and objectives. Failure to retrieve a matching table is not a proof of absence.",
+      "searches": [
+        "Two-site biodiversity stratified sequencing versus pooled reads can improve individual species detection probabilities yet reduce probability of detecting all three species; exact four-read threshold",
+        "Two habitat 3 taxa pooled metabarcoding sequencing compared to separate biological replicates probability all species detected with same read budget",
+        "multinomial pooled separate complete species set four reads three categories table empirical eDNA",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-a-sharp-failure-of-budget-nesting-in-two-habitat-biodiversity-sa--f677ebc252b9/RESULT.md"
+      ]
+    },
+    "rationale": "No inspected empirical eDNA study or directly relevant published mathematical result implied the exact equal-four-read strict marginal dominance versus complete-inventory reversal, the sharp fraction a=1/3, or the three-taxon minimality; standard multinomial identities and sampling-mixture convexity are acknowledged rather than presented as discoveries. This is a bounded best-evidence originality assessment, not a certified exhaustive historical priority result.",
+    "residual_risks": [
+      "General multinomial/stratified-sampling theory or an unlocated paper may give this counterexample as a corollary despite different wording.",
+      "The Sato et al. 2017 full text could not be verified through the available publisher HTML and is not claimed to have been read.",
+      "The independent-read and 50:50 effective-composition assumptions may not match real laboratory pooling; empirical interpretation should not be extended beyond those hypotheses."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the precise mathematical theorem; empirical OTU detection is distinct from idealized multinomial exact full-inventory probabilities",
+        "evidence": [
+          "113 total OTUs across sampling design; individual replicates found 76 OTUs versus 65 in pools; spatial and temporal heterogeneity observed",
+          "No calibrated four-read two-patch parameter theorem or sharp one-third boundary in inspected results"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/edn3.70023",
+        "material_read": "Publisher open-access HTML abstract, study design, results and discussion of pooling and replication",
+        "method": "Direct publisher HTML reading",
+        "title": "The Effect of Spatio-Temporal Sampling and Biological Replication on the Detection of Kelp Forest Fish Communities Using eDNA Metabarcoding",
+        "trigger": "Closest empirical source comparing pooled with individual eDNA sampling; motivating first public date 2024-10-14"
+      },
+      {
+        "assessment": "UNCERTAIN_FULL_TEXT; abstract concerns empirical missed rare lineages and richness, not a demonstrably exact four-read multinomial classification",
+        "evidence": [
+          "Pooled reads missed lineages found in individually analyzed freshwater samples",
+          "Full study may have methodological model details not inspected; preserved as historical originality risk"
+        ],
+        "identifier_or_url": "https://doi.org/10.1038/s41598-017-14978-6",
+        "material_read": "Published abstract and indexed results; attempted publisher full HTML access blocked by publisher access-control redirect",
+        "method": "Public indexed publisher landing/abstract and secondary bibliographic abstract; not full-text reading",
+        "title": "Usefulness and limitations of sample pooling for environmental DNA metabarcoding of freshwater fish communities",
+        "trigger": "Potentially close empirical pool-vs-individual study (2017)"
+      },
+      {
+        "assessment": "NOT_COVERING the exact two-site independent categorical read comparison",
+        "evidence": [
+          "Discussion of sample replication and library sequencing sensitivity and biodiversity inference; no identified all-species multinomial inversion at four reads"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/edn3.430",
+        "material_read": "Accessible published full article sections on sampling effort, replicates and detection",
+        "method": "Open publisher article reading",
+        "title": "Quantifying biodiversity using eDNA from water bodies: General principles and recommendations for sampling designs",
+        "trigger": "Broad eDNA replication, read depth and sampling-design source"
+      },
+      {
+        "assessment": "NOT_COVERING; expected union richness without replacement and across budgets cannot imply full-inventory reversal for four independent pooled reads",
+        "evidence": [
+          "Exact objective F(x,y) is sum of hypergeometric taxon detection probabilities",
+          "Its sharp six-individual nonnested budget phenomenon is not a joint all-three event for two with-replacement read libraries"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-a-sharp-failure-of-budget-nesting-in-two-habitat-biodiversity-sa--f677ebc252b9/RESULT.md",
+        "material_read": "Complete public RESULT.md, including assumptions, theorem, proof and relationships",
+        "method": "Read public GitHub full mathematical text",
+        "title": "A sharp failure of budget nesting in two-habitat biodiversity sampling",
+        "trigger": "Closest published mathematical two-habitat sampling budget result by semantic claim search"
+      },
+      {
+        "assessment": "NOT_COVERING; fixed rare frequency and completion-time variance sensitivity, rather than parallel site allocation and complete detection at four reads",
+        "evidence": [
+          "Its main object is variance of full-completion stopping time T for one iid categorical distribution",
+          "It does not order individual taxon marginal events and their joint intersection across separate-versus-pooled sampling"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-a-rare-species-threshold-for-the-variance-response-to-balancing--331735f4131f/RESULT.md",
+        "material_read": "Complete public RESULT.md, including theorem, exact moments, proof and literature",
+        "method": "Read public GitHub full mathematical text",
+        "title": "A rare-species threshold for the variance response to balancing common species",
+        "trigger": "Closest published three-species coupon-collector claim in mathematical record search"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2dc5c7ef-5f11-4c35-a39e-af209f859b23",
+  "value": {
+    "rationale": "A motivated full-inventory eDNA sampling question distinguishes additive sensitivity of each taxon from the joint event of seeing every taxon; neither coordinatewise dominance nor average richness determines the joint outcome. The exact minimal three-taxon obstruction and simple fraction frontier give interpretable structural boundaries. The separate large-depth and unconstrained-allocation controls prevent the result from being an unsupported pooling recommendation; it is a self-contained precise counterexample useful as a sampling design benchmark.",
+    "status": "PASS"
+  }
+}
