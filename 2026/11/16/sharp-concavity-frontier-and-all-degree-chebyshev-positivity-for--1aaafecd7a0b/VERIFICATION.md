@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The analytic proof covers every real parameter in \([0,3]\), every nonnegative degree, and all nonconstant integer Fourier modes. It uses the locally convergent Mittag–Leffler expansion of \(\csc^2u\), strict concavity of the endpoint functions, convexity in the exponent after division by the strictly positive density, and elementary Schur recursion. The only reverse implication is that \(t>3\) forces positive second derivative near the transformed endpoint; it does **not** disprove positivity of the orthogonal-polynomial coefficients.
+# Independent mathematical audit
 
-`CHECK.py` passes 224 finite symbolic and numerical consistency assertions; these checks are not substituted for the analytical proof. Normalization of the circle pushforward and the endpoint integration-by-parts term were reconstructed directly. No external independent audit has been performed.
+## correctness
+
+PASS
+
+For |u|<pi, the locally convergent Mittag–Leffler series csc²u=u^(−2)+sum_{j≥0} b_j u^(2j) has b_j>0. Identity h3=−u³/2 d(csc²u)/du=1−sum_{j≥1} j b_j u^(2j+2) implies h3″<0; h0=cos u has h0″<0. At fixed u the logarithmic curvature h_t″/h_t=B″+t A″+(B′+t A′)² is a convex quadratic in t, hence lies below its endpoint maximum and remains strictly negative for every 0≤t≤3. Expansion h_t=1+(t−3)u²/6+O(u⁴) shows t>3 fails concavity near 0. The exact circle lift rho_t(theta) is proportional to h_t((pi−theta)/2) and has rho_t′(pi)=0; integration by parts twice gives negative moments −m^(−2) integral(−rho_t″)(1−cos m theta). Then the Schur algorithm preserves strictly negative Taylor coefficients and gives every Verblunsky parameter in (−1,0); the real-line paraorthogonal identity has all-positive coefficients and normalization sum 1. Endpoint t=3 is the concavity frontier only, not asserted to be positivity frontier. Finite symbolic checker is corroborative.
+
+## originality
+
+PASS
+
+Xu 2026 proves the distinguished t=1 deformation and first variation at t=0, and standard Schur/Szegő conversion is prior theory. The continuous interval up to the sharp *concavity* boundary t=3 extends those inspected statements. The Xu primary full text was unavailable via open routes and institutional VPN, so a stronger interval result hidden therein remains a concrete risk. Compared trigonometric-inequality refinements do not by themselves establish second derivative sign or all-degree Fourier/Schur conclusion.
+
+## value
+
+PASS
+
+A natural Chenevier-associated orthogonal-polynomial deformation gains an all-degree strict coefficient positivity parameter interval, with a sharp geometric concavity boundary and an explicit harmonic-to-OPUC mechanism; this is a motivated structural theorem rather than an arbitrary finite coefficient census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
