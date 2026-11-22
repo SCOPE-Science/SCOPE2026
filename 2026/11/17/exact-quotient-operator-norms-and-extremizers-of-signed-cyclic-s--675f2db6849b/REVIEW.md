@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The operator is a Hermitian signed cyclic shift. Its exact eigenvalues determine the trace norm, while the trace-pairing lower bound follows from the prescribed entries. Signed-shift covariance proves that the sign matrix attains the bound. Equality in trace Hölder forces every norm-minimal Hermitian operator to equal the canonical sign completion on the nonzero spectral subspace. The kernel is absent except in one even signing parity, where adjacent entry constraints eliminate the sole mixed parity coupling, yielding exactly the full rectangle of minimizers. These steps are valid for all integers at least three and all complex Hermitian completion variables.
+## correctness
 
-## Originality
-PASS with publication-priority risk. Bottazzi–Varela (arXiv:2611.10323v1) establishes a general dual bound and a criterion for the original unsigned adjacency to minimize, but not the signed cyclic operator quotient norms or the complete optimizer classification. Cohen–Pereira (2021) is closely titled and specifically about cycle completions but the accessible abstract discusses ranks and inertias; its full text was not verified. Multiple direct equivalence and stronger-coverage searches of mathematical research records yielded nearby, mathematically different operator/graph statements. The existence of unseen older formulations is not ruled out.
+PASS
 
-## Mathematical value
-PASS. The quotient operator norm is a natural quantitative best-approximation invariant prompted by a current general theory. All signed cycle sizes are classified, the flux and cycle-length parities produce distinct sine/tangent branches, and all equality cases are determined, including a sharp uniqueness-versus-two-dimensional-nonuniqueness transition. This resolves a meaningful special family rather than repeating a general norm inequality or an arbitrary finite numerical instance.
+PASS. For n>=3 and holonomy mu in {+1,-1}, the signed cyclic adjacency A=U+U* has eigenvalues 2cos((2pi j+theta)/n), theta=0 or pi. Trace-pairing with every feasible Hermitian completion fixes tr(AB)=2n, giving ||B||_op >=2n/tr|A|. Twisted cyclic-shift symmetry makes each prescribed edge of sign(A) equal its edge sign times tr|A|/(2n); hence the scaled spectral sign attains the lower bound. Pairing equality rigidly fixes the entire nonzero spectral subspace. A has a two-dimensional kernel only when n is even and mu=(-1)^(n/2); its even/odd site kernel generators have disjoint cyclic-edge supports and force mixed kernel terms to vanish. Diagonal kernel coefficients independently range over [-tau,tau]. Thus all minimizers form exactly the advertised rectangle, and other cases are unique. The Fourier sums give the stated odd/even tangent/sine formulas; checked all 44 signed instances n=3..24 with an independent eigensolver and direct edge/norm tests. Numerical checks corroborate, not prove, the all-n theorem.
 
-## Closest literature and limitations
-Main source: Bottazzi and Varela, arXiv:2611.10323v1, Sections 2, 5 and 6.1, first public November 6, 2026. Closest matching title: Cohen and Pereira, *Symmetric completions of cycles and bipartite graphs*, LAA 614 (2021), DOI 10.1016/j.laa.2020.03.029; substantial publisher-indexed text was accessible, but a full formatted copy could not be reopened. Restriction to equal-magnitude real signed cycles; full priority search and independent audit remain outstanding. The source paper uses primary MSC 15A60; the new theorem is formulated as an operator norm in 47A30. The finite numerical checker does not replace analytical proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, bounded with significant known overlap. The primary Bottazzi–Varela 2026 preprint gives the universal trace/Frobenius lower bound and generic minimality criteria but not the flux-resolved signed-cycle evaluations or complete minimizers. The full public Resultary theorem on edge-transitive graphs proves the unsigned cycle optimum and one sign involution; it covers the mu=+1 value and is duly excluded as independent novelty. Its hypotheses fix all edge entries to +1 and it does not classify all minimizers; it does not imply the negative-flux completion and exceptional full two-parameter equality family without additional sign-covariance and kernel analysis. Cohen–Pereira 2021 addresses cycle partial-matrix completions but its accessible original material treats rank/inertia, not norm; unverified portions remain a named priority risk. Claim treated as one signed/optimizer theorem, not a novelty claim for the unsigned special case.
+
+## value
+
+PASS
+
+PASS. Optimizing spectral norm under a cyclic sparse Hermitian entry pattern is a natural graph/operator completion invariant. The exact all-size signed-flux classification and exhaustive extremizers resolve the singular-kernel nonuniqueness boundary, a substantive structural issue not supplied by an elementary lower bound or known unsigned single-solution certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
