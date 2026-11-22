@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Every state in the mk residue DFA is reachable by a fixed-length CRT plus finite-group generator construction. Long right languages distinguish exactly (r mod u,p); short suffixes of lengths 0..t-1 each split exactly one equivalence class, using explicit pair witnesses separated by m/2^{j+1}. Therefore the minimal complete DFA has uk+t states for every a,b. The doubly stochastic primitive odd-residue chain and independent last t bits prove exponentially fast limiting density 1/(mk). Three separately run finite validators corroborate the exact formula, quotient congruence, and densities. Boundary cases m=1,k=1,t=0 are included.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Geffert–Hlaváč–Královič (2026), arXiv:2608.24238, studies two-way automata for binary coding of unary languages.",
+        "Charlier–Rampersad–Rigo–Waxweiler (2010), arXiv:1008.1668, studies divisibility without a simultaneous independent digit-weight residue target.",
+        "Charlier–Cisternino–Massuir (2019), arXiv:1909.07676, proves 2u+t for mT, not the target family L_{m,k;a,b}."
+      ],
+      "reasoning": "General closure under intersection supplies at most mk residue-product states, not the sharp ku+t quotient. Neither the cited two-way results nor the known multiplication-image theorem imply the full arbitrary k and target a,b assertion.",
+      "searches": [
+        "\"state complexity\" \"digit sum\" \"arithmetic progression\" DFA",
+        "\"joint\" \"digit sum\" \"divisibility\" minimal automaton",
+        "https://arxiv.org/abs/2608.24238",
+        "https://arxiv.org/abs/1008.1668"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2608.24238",
+      "https://arxiv.org/pdf/1909.07676",
+      "https://arxiv.org/pdf/1910.08543",
+      "https://arxiv.org/abs/1008.1668",
+      "https://borisalexeev.com/papers/dfa.html",
+      "https://www.mathematica-journal.com/2010/02/05/divisibility-and-state-complexity/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Charlier–Cisternino–Massuir (2019), Theorem 3, proves 2u+t for mT where m=2^t u; it is not the intersection mZ with the digit-weight class.",
+        "The extended 2019 text proves the same formula for mT+r, not for arbitrary independent residues of input value and digit-weight.",
+        "The classical divisibility problem treats only the value coordinate.",
+        "When m=2^t, k=2, and a=b=0, mT coincides with the present target language; that subcase is already covered."
+      ],
+      "reasoning": "The full theorem is not obtained by instantiating mT+r or an ordinary divisibility result: e.g. m=3 and k=3 uses a three-valued digit count, and m=3,k=2 uses a different numeric set. The all-residue quotient must be independently proved.",
+      "searches": [
+        "https://arxiv.org/pdf/1909.07676",
+        "https://arxiv.org/pdf/1910.08543",
+        "https://borisalexeev.com/papers/dfa.html",
+        "\"minimal DFA\" \"intersection\" \"Thue-Morse\" divisibility"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/pdf/1909.07676 : Theorem 3 addresses numeric multiplication mT, not mZ intersect T.",
+        "https://arxiv.org/pdf/1910.08543 : Section 3/6 concerns mT+r, with projection of the dividend digit sum.",
+        "For m=3 the integer 6 belongs to 3Z intersect T but not to 3T, so the objects are inequivalent."
+      ],
+      "reasoning": "An equal-looking state formula for different numerical sets is not an implication. Only m a power of two and parity at zero targets give identical languages; this covered subfamily is acknowledged.",
+      "searches": [
+        "\"Hamming weight\" \"divisible\" \"minimal DFA\" binary representations automata",
+        "\"digit sum\" \"divisibility\" \"state complexity\" DFA binary",
+        "\"Thue Morse\" \"multiples of\" \"intersection\" \"state complexity\"",
+        "\"minimal DFA\" \"intersection\" \"Thue-Morse\" divisibility"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No located indexed OEIS entry or published table specifies the full four-parameter language quotient.",
+        "The saved independent test outputs enumerate several parameter grids and are corroborative, not evidence of novelty."
+      ],
+      "reasoning": "The claim applies to all m,k and all target residues, rather than a fixed list of counts. An unsuccessful database search does not certify absence; table coverage remains a priority risk.",
+      "searches": [
+        "site:oeis.org \"Thue-Morse\" \"DFA\" \"divisible\"",
+        "site:oeis.org \"state complexity\" \"digit sum\" \"divisible\"",
+        "\"binary representation divisibility by integer modulo m intersection Hamming weight modulo k exact quotient complexity\""
+      ]
+    },
+    "rationale": "The complete all-moduli, all-target intersection language classification and precise quotient are mathematically distinct from the 2019 multiplication images mT+r and from general one-way/two-way state-complexity bounds. Searches of relevant aliases, semantic research records, indexed literature and likely datasets found no decisive equivalent; the 2019 overlapping power-of-two parity subcase is fully credited. This is a best-knowledge priority judgment, not a uniqueness claim.",
+    "residual_risks": [
+      "A specialized exact intersection theorem could be unindexed or omitted by searches; negative search results cannot certify novelty.",
+      "The full text of the 2026 two-way-automata stimulus was not accessible for line-by-line comparison, although its abstract describes a different model.",
+      "The 2019 multiplication-image theorem already covers the zero-target parity case at power-of-two value moduli; that subcase is not new.",
+      "A more general earlier state-complexity theorem could imply the formula without using the queried keywords."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES RELATED BUT DIFFERENT NUMERIC LANGUAGE; covers power-of-two zero-target parity subcase, does not state full all-residue digit-weight intersection",
+        "evidence": "Theorem 3 formula applies specifically to mT; definitions at pages 3–4 distinguish numeric multiplication from value/digit-weight intersection.",
+        "identifier_or_url": "https://arxiv.org/pdf/1909.07676",
+        "material_read": "Abstract, pages 2–5 including Section 3/Theorem 3 and the numeric-image automaton construction, with targeted searches for intersection language",
+        "method": "Retrieved and visually checked first PDF page, read parsed relevant full-text sections and searched terminology",
+        "title": "State Complexity of the Multiples of the Thue-Morse Set",
+        "trigger": "Identical 2u+t numerical formula in the parity case; plausible stronger coverage"
+      },
+      {
+        "assessment": "NOT AN EQUIVALENT LANGUAGE: proves minimal DFA for mT+r and complement, not simultaneous digit-weight modulo independent k",
+        "evidence": "Page 2 explicitly defines family mX+r and target mT+r; Section 6 classes project digit-sum of quotient; Corollary 52 repeats 2u+t.",
+        "identifier_or_url": "https://arxiv.org/pdf/1910.08543",
+        "material_read": "Abstract, Introduction, Sections 3 and 6 on class construction and proof; Corollary 52, with targeted searches for intersection/digit sum",
+        "method": "Retrieved and visually checked first PDF page, read the relevant theorem, quotient-class definitions, and generalization section",
+        "title": "Minimal automaton for multiplying and translating the Thue-Morse set",
+        "trigger": "Translation r could potentially dominate arbitrary numerical target congruences"
+      },
+      {
+        "assessment": "BACKGROUND ONLY; abstract studies one-way/two-way unary-language binary coding, not an explicit joint digit-weight congruence theorem; inaccessible full text is a priority limitation",
+        "evidence": "arXiv:2608.24238, 2026-08-25; EPTCS 451 (2026), 1–16.",
+        "identifier_or_url": "https://arxiv.org/abs/2608.24238",
+        "material_read": "Verifiable original submission date 2026-08-25 and bibliographic abstract; full manuscript not retrieved",
+        "method": "ArXiv bibliographic record and external conference listing; attempted original full-text URL",
+        "title": "Unary Versus Binary Two-Way Automata",
+        "trigger": "Recent binary-coded regular-language state-complexity motivation and source date"
+      },
+      {
+        "assessment": "VALUE-ONLY MODULAR LANGUAGE; no simultaneous digit-count coordinate in inspected abstract",
+        "evidence": "Alexeev (2004), JCSS 69, 235–243, exact divisibility DFA.",
+        "identifier_or_url": "https://borisalexeev.com/papers/dfa.html",
+        "material_read": "Original article page and abstract, not the publisher full paper",
+        "method": "Primary author article index/abstract",
+        "title": "Minimal DFA for testing divisibility",
+        "trigger": "Classical exact state count for binary numeric divisibility"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "96c15e3c-9e04-49f4-a1a8-d3e2c7413363",
+  "value": {
+    "rationale": "An exact infinite classification of the natural joint monitor for numeric residue and input digit-weight residue, determining all target pairs and the precise two-adic collapse of the mk-state product. The structural quotient and equidistribution are mathematically motivated in automatic numeration and give a sharp resource bound; not an arbitrary slice, isolated computation, or renamed known mT result.",
+    "status": "PASS"
+  }
+}
