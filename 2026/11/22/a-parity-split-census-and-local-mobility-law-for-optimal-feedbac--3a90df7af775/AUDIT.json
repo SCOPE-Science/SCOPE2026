@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For cubic G=C_n square K_2, the edge-component identity 2|S|-n=c(G-S)+e_G(S) provides the lower bound floor(n/2)+1. No adjacent empty columns are possible. Isolated empty columns reduce foresthood to at least one disrupted rail chain, while a double column breaks the chain. Classifying possible empty/single/double column runs at equality yields three disjoint even cases and one odd case. Their exact rail assignments prove n 2^m and n(3m+2)2^(m-2). For odd n>=7, m-1 rung flips plus two independent conditional horizontal slides yield the 1:2:1 degree law; n=3,5 are separately proved. A DSU edge-checking enumerator reproduced every optimum n=3..12, and independent sliding checker reproduced all degrees n=3,5,7,9,11. These tests are finite corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bousquet et al. (2023) prove every pair of fixed-size feedback vertex sets in a K3,3-minor-free subcubic graph is connected by unrestricted one-vertex replacements, with paths of at most 7k steps.",
+        "Their move is any replacement, unlike the slide along one original graph edge in this finding."
+      ],
+      "reasoning": "The general connectivity theorem implies one fact not claimed new (unrestricted exchange connectivity), but no formula for optimal-state count or edge-local degree distribution. Hence it does not imply the present enumerator.",
+      "searches": [
+        "minimum feedback vertex sets of prism graphs C_n square K_2 reconfiguration number diameter",
+        "minimum feedback vertex set reconfiguration token sliding graph cactus exact connectivity distance",
+        "https://doi.org/10.1016/j.tcs.2023.114188"
+      ]
+    },
+    "checked_sources": [
+      "https://advancedengineeringscience.com/article/pdf/2023/551.pdf",
+      "https://doi.org/10.1016/j.tcs.2023.114188",
+      "https://geodesic.mathdoc.fr/item/DMGT_2019_39_1_a10/",
+      "2026/11/2/SCOPE-adjacent-token-connectivity-and-sharp-distance-in-dodecahedral-m--af58442749cc",
+      "2026/11/8/SCOPE-a-mixed-token-slide-phase-and-a-connected-jump-metric-for-minimu--b91350f1784b",
+      "2026/11/8/SCOPE-token-slide-rigidity-and-token-jump-connectivity-for-minimum-zer--fb7f3ca1d29e",
+      "2026/10/18/SCOPE-a-sharp-two-vertex-feedback-set-buffer-in-the-four-dimensional-c--593577b7fb16"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Minimum FVS cardinality alone yields no count of minimizers and no transition degree.",
+        "The established general fixed-cardinality unrestricted exchange connectivity is weaker than, and uses a different move predicate from, this odd-prism degree law.",
+        "GP(7,2) is a different graph from GP(n,1)."
+      ],
+      "reasoning": "The all-n enumeration plus odd n sliding-degree polynomial are not direct consequences of the inspected prior statements; the proof resolves the column-run conditions and local rail choices explicitly.",
+      "searches": [
+        "prism graph C_n square K_2 all minimum feedback vertex sets enumeration n 2^m even odd exact counting",
+        "https://doi.org/10.1016/j.tcs.2023.114188",
+        "2026/11/8/SCOPE-a-mixed-token-slide-phase-and-a-connected-jump-metric-for-minimu--b91350f1784b"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Prism feedback-vertex sets are also called decycling sets, and their complements are maximum induced forests. An equivalent graph name is GP(n,1).",
+        "Verma and Binwal 2023 prove the minimum deletion number and show example minimum solutions, but accessible complete prose does not enumerate all solutions."
+      ],
+      "reasoning": "The count and local-slide degrees are invariant under these changes of terminology. Related minimum-size formulas do not determine the full set of minimizers; counting and a local move predicate require additional structural classification.",
+      "searches": [
+        "prism graph C_n square K_2 all minimum feedback vertex sets enumeration n 2^m even odd exact counting",
+        "circular ladder feedback vertex set minimum decycling sets count (3m+2) 2^{m-2} reconfiguration",
+        "computing number of minimum feedback vertex sets of cubic prism graph explicit formula"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus searches returned finite generalized-Petersen GP(7,2) feedback-vertex-set mobility and circular-prism results for unrelated optimization predicates, but no matching cyclic-prism FVS count or odd slide degree polynomial.",
+        "The 2023 six-page prism paper contains examples and decycling number, not a table of full optimum multiplicities."
+      ],
+      "reasoning": "The retrieved tables address distinct state sets, graph families, or quantities; source-title similarity is not accepted as exclusion. Exact value overlap was checked where available, but search absence does not establish priority.",
+      "searches": [
+        "circular ladder feedback vertex set minimum decycling sets count (3m+2) 2^{m-2} reconfiguration",
+        "odd prism minimum feedback vertex set sliding degree distribution parity local token",
+        "2026/11/8/SCOPE-a-mixed-token-slide-phase-and-a-connected-jump-metric-for-minimu--b91350f1784b",
+        "https://advancedengineeringscience.com/article/pdf/2023/551.pdf"
+      ]
+    },
+    "rationale": "The directly relevant 2023 prism source establishes minimum-size decycling numbers but not complete minimum-solution counts in readable content. The 2023 general FVS-reconfiguration theorem supplies unrestricted replacement connectivity, not the number of minima or degrees under adjacent edge slides. published-finding corpus searches for aliases, exact parameters and dominating results found related graph families/other predicates but no implicated formula. Historical priority remains qualified by inaccessible figures, unindexed results and an unavailable full publisher PDF.",
+    "residual_risks": [
+      "Some old or unindexed studies could have equivalent all-length enumeration or degree formula.",
+      "An image in the 2023 prism paper was not visually inspected; its text was read.",
+      "The complete publisher PDF of Bousquet et al. was not directly accessible, although substantial publisher HTML including theorem statements and definitions was read.",
+      "An earlier first-public preprint date for the 2023 guiding article cannot be excluded from the precise public record date."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Determines minimum FVS size, not enumerated all minima or odd-slide degrees in readable text",
+        "evidence": [
+          "Section presenting decycling number for the Cartesian product C_n square P_2",
+          "No exhaustive enumerator or slide metric in extracted textual assertions"
+        ],
+        "identifier_or_url": "https://advancedengineeringscience.com/article/pdf/2023/551.pdf",
+        "material_read": "Extracted text of all six pages, including introductory definition, decycling-number claim and example sets; figure image inaccessible.",
+        "method": "Full textual PDF extraction and theorem/statement comparison; attempted page images unavailable",
+        "title": "Study of Decycling Number Problem in Prism Graph",
+        "trigger": "Exact same graph family and deletion predicate"
+      },
+      {
+        "assessment": "Theorem 2 implies unrestricted exchange connectivity for prisms but no count or local-slide degree histogram",
+        "evidence": [
+          "Theorem 2: any fixed-size FVS pair reconfigurable in K3,3-minor-free subcubic graph",
+          "Reconfiguration definition: any single vertex replaced, not necessarily adjacent in original graph"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2023.114188",
+        "material_read": "Accessible extended publisher HTML abstract, definitions, main Theorems 1–5, section summaries and related-work summary; full article PDF not inspected.",
+        "method": "Compared exact reconfiguration move, quantifiers, graph hypotheses and conclusions to claimed state-count and local degrees",
+        "title": "Feedback vertex set reconfiguration in planar graphs",
+        "trigger": "Potential broad domination of optimal feedback-set reconfiguration"
+      },
+      {
+        "assessment": "No specific count or local slide theorem verified; limited inspection, remaining risk",
+        "evidence": [
+          "Older general decycling number formula topic"
+        ],
+        "identifier_or_url": "https://geodesic.mathdoc.fr/item/DMGT_2019_39_1_a10/",
+        "material_read": "Bibliographic abstract/accessible index description, not full article",
+        "method": "Source metadata and topical comparison",
+        "title": "New Formulae for the Decycling Number of Graphs",
+        "trigger": "Potential older broader decycling identities"
+      },
+      {
+        "assessment": "Returned GP(7,2) minimum-decycling reconfiguration, not GP(n,1); and prism studies of zero forcing, independent domination and other predicates",
+        "evidence": [
+          "2026/11/2/SCOPE-adjacent-token-connectivity-and-sharp-distance-in-dodecahedral-m--af58442749cc",
+          "2026/11/8/SCOPE-a-mixed-token-slide-phase-and-a-connected-jump-metric-for-minimu--b91350f1784b",
+          "2026/11/8/SCOPE-token-slide-rigidity-and-token-jump-connectivity-for-minimum-zer--fb7f3ca1d29e",
+          "2026/10/18/SCOPE-a-sharp-two-vertex-feedback-set-buffer-in-the-four-dimensional-c--593577b7fb16"
+        ],
+        "identifier_or_url": "2026/11/8/SCOPE-a-mixed-token-slide-phase-and-a-connected-jump-metric-for-minimu--b91350f1784b",
+        "material_read": "Actual published-finding corpus returned titles and short summaries for closest records, not their full manuscripts",
+        "method": "Semantic searches with explicit prism, feedback-set, degree-polynomial, GP(n,1) alias concepts",
+        "title": "Published feedback-set and prism reconfiguration records",
+        "trigger": "Alias/special-case searches of indexed prior results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3a90df7a-f775-448c-8f74-e3cbdc19805c",
+  "value": {
+    "rationale": "This is a natural all-length finite-graph family with an already studied minimum decycling number and algorithmic interest in optimum-set reconfiguration. Counting ALL optimum feedback sets, unlike demonstrating the minimum deletion size, exposes parity-dependent exponential solution multiplicity, with a different structural mechanism at even and odd sizes. The exact odd-slide degree distribution quantifies the availability of local repairs at each optimum, a finer invariant not implied by unrestricted exchange connectivity. It provides reproducible test instances for exact enumeration and constrained reconfiguration algorithms, not an arbitrary slice of instances.",
+    "status": "PASS"
+  }
+}
