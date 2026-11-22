@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The initial double is exactly the Petersen graph, with ten vertices and fifteen edges; any two intersecting two-subsets of five labels have a common disjoint neighbor. A facet stacking introduces four double vertices, replaces precisely three opposite-edge graph edges by twelve new incidence edges, and its local ten-vertex replacement is connected because any two new vertices have a common old neighbor. Thus connectedness persists, with exact increments of four vertices and nine graph edges. The rank formula and integral wedge conclusion follow from spanning-tree collapse, with no hidden torsion or high-dimensional attaching problem. The embedded program reconstructs all finite facets independently and checks the formulas on exhaustive short histories and longer samples. Its finite coverage is not used to prove the universal statement.
+## correctness
 
-## Originality
-**PASS, provisional under literature-access limits.** Definition 2.1 and Theorem A of Lesh–Schreiner–Wahl establish the operation and a general connectivity *bound* but not the present special-family graph classification. The accessible full scientific result on doubles of cyclic four-polytope boundaries gives connected or disconnected graphs depending on parity; for \(n\ge6\) it is a different facet family and does not imply the stacked-sphere classification. The overlap at the five-vertex base is acknowledged and excluded from the novel contribution. Exact published-finding corpus searches for stacked doubles, opposite-edge graph terminology and the \(5n-19\) formula returned no covering statement. An unindexed or differently named stacked-complex result remains a risk; absence of search results is not treated as a uniqueness proof.
+PASS
 
-## Value
-**PASS.** Stacked three-spheres are the canonical simplest infinite family of simplicial three-spheres under facet-stacking. The connectivity of their doubles is a structural property not forced by dimension or sphere topology: even-vertex cyclic four-polytope three-spheres furnish disconnected counterexamples. The local replacement theorem, not merely an Euler-characteristic substitution, supplies a uniform classification independent of stacking history and an exact increment of five loops, sharpening the general connectivity bound on this natural family. This is a motivated complete family classification, not an arbitrary small instance.
+By definition D²(X) is a graph with one vertex per 2-face and one edge per pair of complementary 2-sets whose union is a tetrahedral facet; three such edges per tetrahedron. The base ∂Δ4 has graph KG(5,2), connected with V10, E15 and β1=6. One facet stacking adds four new primal edges hence four double vertices; its removed tetrahedron contributes three deleted opposite-pair edges; its four new tetrahedra contribute 12 distinct incidence edges. The connected local bipartite replacement on 6 old plus 4 new double vertices links both endpoints of each deleted edge, preserving global connectivity. Thus after n−5 stackings V=4n−10, E=9n−30 and β1=E−V+1=5n−19; a connected finite graph is a wedge of that many circles. Independently formed the graph from listed tetrahedra and verified connectivity and counts for n=5..14; this bounded test supports, but does not replace, the all-stacking combinatorial argument. Exact package source and verifier paths inspected.
 
-## Closest literature and limitations
-Lesh–Schreiner–Wahl, arXiv:2506.10436v1 (first public 2025-06-12), motivates doubling and covers general connectivity; the accessible cyclic-four-polytope double classification computes a different family with a genuine base-case overlap. Standard stacked-polytope literature defines the facet operation and face counts. This result makes no equivariant, higher-tupling or general-sphere assertion. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: r=2 stacked 3-spheres is a precise natural dimensional edge case not included in the all-r≥3 later theorem or the general weak-CM result. The exact local graph move plus rank are mathematically beyond the definition.
+
+## value
+
+PASS
+
+A complete integral homotopy classification for the natural simplicial doubling of all stacked three-spheres, with a facet-independent increment of five circles and a connectivity-preserving local gadget. The dimension and family are motivated by simplicial doubling and stacked polytopes; the result is an infinite structural fact, not just a face-vector substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

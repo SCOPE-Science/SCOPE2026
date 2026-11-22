@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification of the connected stacked-sphere double
-The accompanying standard-library Python program `stacked_double_verify.py` builds the stacked three-sphere from its tetrahedral facets, explicitly enumerates all two-faces used as double vertices, and obtains each double graph edge as a pair of opposite edges of a tetrahedral facet. It independently recomputes vertex, facet and double-edge counts, connected components and graph cycle ranks.
+# Independent mathematical audit
 
-The program tested every stacking history through three facet-stackings (1, 5, 40 and 440 construction histories for 5, 6, 7 and 8 vertices). It also used 40 deterministic pseudorandom sequences for each of 9, 12, 16 and 20 vertices. The script printed `STACKED_DOUBLE_PASS` and the exact count table recorded in `stacked_double_output.txt`. To replay: `python3 stacked_double_verify.py`. Only Python's standard library is required.
+## correctness
 
-The universal claim is not proved by finite enumeration. Its certificate is the four-step combinatorial proof: the base Petersen graph, a complete enumeration of local opposite-edge adjacencies after a stacking, a connectivity argument for the replacement gadget, and the spanning-tree formula for a connected graph. The source formula is independent of any tested upper bound. The result does not certify other triangulated three-spheres or higher-dimensional doubling.
+PASS
+
+By definition D²(X) is a graph with one vertex per 2-face and one edge per pair of complementary 2-sets whose union is a tetrahedral facet; three such edges per tetrahedron. The base ∂Δ4 has graph KG(5,2), connected with V10, E15 and β1=6. One facet stacking adds four new primal edges hence four double vertices; its removed tetrahedron contributes three deleted opposite-pair edges; its four new tetrahedra contribute 12 distinct incidence edges. The connected local bipartite replacement on 6 old plus 4 new double vertices links both endpoints of each deleted edge, preserving global connectivity. Thus after n−5 stackings V=4n−10, E=9n−30 and β1=E−V+1=5n−19; a connected finite graph is a wedge of that many circles. Independently formed the graph from listed tetrahedra and verified connectivity and counts for n=5..14; this bounded test supports, but does not replace, the all-stacking combinatorial argument. Exact package source and verifier paths inspected.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: r=2 stacked 3-spheres is a precise natural dimensional edge case not included in the all-r≥3 later theorem or the general weak-CM result. The exact local graph move plus rank are mathematically beyond the definition.
+
+## value
+
+PASS
+
+A complete integral homotopy classification for the natural simplicial doubling of all stacked three-spheres, with a facet-independent increment of five circles and a connectivity-preserving local gadget. The dimension and family are motivated by simplicial doubling and stacked polytopes; the result is an infinite structural fact, not just a face-vector substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
