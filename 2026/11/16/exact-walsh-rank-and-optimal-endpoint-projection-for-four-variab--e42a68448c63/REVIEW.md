@@ -1,19 +1,21 @@
-# Scientific review: antichain Fourier support and projection constant
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The object and normalization are explicit: unnormalized Walsh transform of the 168 incidence vectors of antichains of the sixteen-element Boolean lattice. Two independent exhaustive methods compute all 65,536 Fourier coefficients; the second uses direct character summation without a butterfly algorithm. Their complete 79-level signed histograms agree. The projected-kernel histogram is independently recovered both by a second butterfly transform and by direct summation over the 6,611 exact Fourier zeros. The 48-automorphism symmetry test independently verifies the orbit structure. Parseval identities and exact integer sums are checked. Translation averaging analytically proves sharpness among arbitrary real or complex endpoint projections. No probabilistic or floating-point inference is used.
+PASS
 
-## Originality
+At frozen tree 51d0d573 reconstructed the antichain incidence embedding of all subsets of the sixteen-element Boolean lattice B4 (the ambient group is 2^16, not the four-bit truth-table input cube). There are exactly 65 distinct unordered comparable-element pairs; a 16-bit family is an antichain iff no comparable pair is jointly selected, giving 168 families. A separate exact enumeration over all 65,536 incidence vectors and 16-bit Walsh transform verified 6,611 zero multipliers, rank 58,925 and complete signed frequencies, with absolute minimum 2, maximum 168; inverse Walsh of support has total abs numerator 3,052,046, so the sharp projection constant is 1,526,023/32,768. Source checkers verify_antichain.py, verify_direct.cpp and verify_orbits.py and their certificates (signed_walsh.csv, projection_kernel.csv and orbit_census.csv) were inspected at the assigned Git tree; independent direct character sums and 48-action S4 x order reversal establish 2,104 frequency orbits, 199 zero ones. For any real/complex projection, translation averaging preserves the range, reduces norm and forces the unique Fourier support projection. This is a finite exact census, not an infinite claim.
 
-The known Dedekind number 168 is explicitly separated from the evaluated spectrum. Stephen--Yusun (2012) counts functions by equivalence and profiles, and De Causmaecker--De Wannemacker--Yellen (2016) treats antichain interval partitions. Bshouty--Tamon (1995) treats harmonic analysis of *individual* monotone functions on an input Boolean cube; that is a different Fourier transform from this ensemble-indicator transform. The exact nullity, symmetry-orbit distribution, signed multiplier histogram and evaluated projection constant are not implied by these inspected statements. Related indexed results on spectra of six- and eight-point binary sets and on all four-variable Boolean functions concern different objects and do not contain the 168-point ensemble. Searches do not prove priority; residual historical risk remains.
+## originality
 
-## Value
+PASS
 
-The sixteen-element Boolean lattice is the smallest order with 168 antichains and a nontrivial 65,536-frequency ensemble Fourier calculation. The exact 6,611-dimensional convolution kernel quantifies which signals cannot be recovered from antichain convolution; its sharp endpoint projection norm gives the optimal amplification when extracting recoverable components. The full two-sided symmetric orbit census reduces the zero-frequency set to 199 orbits and allows systematic comparison of the spectral phenomenon with Dedekind enumeration at other orders. These are natural intrinsic harmonic invariants of a canonical finite combinatorial family, not a selected arbitrary frequency slice. This finding does not claim a general theorem for larger lattices.
+The Dedekind number 168 and antichain/monotone-function theory are old, but the transform of the complete 168-point ensemble as a subset of the sixteen-coordinate Boolean group is distinct from the Fourier spectrum of each individual monotone Boolean function on four input bits. Earlier sources do not state the full ensemble zeros or 1,526,023/32,768 range projection constant.
 
-## Limitations
+## value
 
-All evaluated constants are specific to four input variables. Symmetry orbits are a finite exhaustive certificate, not a structural formula for higher dimensions. The historical literature comparison is bounded, and independent mathematical audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete antichain family of B4 is the canonical Dedekind ensemble at the first nontrivial manageable order for a high-dimensional incidence Walsh transform. Its signed-frequency histogram, 199 zero-orbit types, exact rank defect 6,611 and sharp endpoint projection norm furnish precise basis-invariant recovery information not provided by the ordinary antichain count. Those exact natural invariants can serve as a finite benchmark for incidence-code, order-ideal and monotone-function ensemble harmonic studies. The result is narrower than an all-n theorem but materially richer than a routine small count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

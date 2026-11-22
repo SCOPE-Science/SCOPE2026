@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T06:01:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At frozen tree 51d0d573 reconstructed the antichain incidence embedding of all subsets of the sixteen-element Boolean lattice B4 (the ambient group is 2^16, not the four-bit truth-table input cube). There are exactly 65 distinct unordered comparable-element pairs; a 16-bit family is an antichain iff no comparable pair is jointly selected, giving 168 families. A separate exact enumeration over all 65,536 incidence vectors and 16-bit Walsh transform verified 6,611 zero multipliers, rank 58,925 and complete signed frequencies, with absolute minimum 2, maximum 168; inverse Walsh of support has total abs numerator 3,052,046, so the sharp projection constant is 1,526,023/32,768. Source checkers verify_antichain.py, verify_direct.cpp and verify_orbits.py and their certificates (signed_walsh.csv, projection_kernel.csv and orbit_census.csv) were inspected at the assigned Git tree; independent direct character sums and 48-action S4 x order reversal establish 2,104 frequency orbits, 199 zero ones. For any real/complex projection, translation averaging preserves the range, reduces norm and forces the unique Fourier support projection. This is a finite exact census, not an infinite claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stephen–Yusun counts monotone functions modulo variable renaming; De Causmaecker et al describe intervals/lattice decompositions"
+        ],
+        "reasoning": "These count/classify antichains but do not give this ensemble indicator all-character Walsh transform or convolution-range rank and optimal projection norm. The known Dedekind number 168 is not asserted novel.",
+        "searches": [
+          "four-variable Dedekind antichain ensemble Fourier Walsh 6611",
+          "Stephen–Yusun arXiv:1209.4623",
+          "De Causmaecker et al arXiv:1602.04675"
+        ]
+      },
+      "checked_sources": [
+        "https://eccc.weizmann.ac.il/report/1995/032/",
+        "https://arxiv.org/pdf/1209.4623",
+        "https://arxiv.org/pdf/1602.04675",
+        "Resultary search: four variable antichain ensemble Boolean lattice B4 Walsh spectrum nullity 6611 projection norm; four-variable Dedekind antichain ensemble Fourier Walsh 6611"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Counting the 168 antichains is a strict input to computing the indicator Fourier spectrum; complete nonlinear 65536-frequency transform and kernel absolute moment are separate outputs"
+        ],
+        "reasoning": "Dedekind numbers and lattice decompositions do not logically give this Walsh zero count or 1,526,023/32,768 without new exact calculation. Translation averaging itself is prior generic harmonic analysis, with novelty only in evaluating the natural finite object.",
+        "searches": [
+          "four variable antichain ensemble Boolean lattice B4 Walsh spectrum nullity 6611 projection norm",
+          "Bshouty–Tamon ECCC TR95-032",
+          "Stephen–Yusun and De Causmaecker antichain enumerations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bshouty–Tamon studies Fourier degree spectrum of a single monotone Boolean function f:{0,1}^n->{0,1}; current transform is 1_A where A consists of all 168 antichain incidence families in F2^16"
+        ],
+        "reasoning": "The domains, variables and Fourier transforms differ: input cube dimension four for individual functions versus 16 coordinates indexed by Boolean-lattice subsets for the ensemble. No equivalence via truth table swaps was established.",
+        "searches": [
+          "four variable antichain ensemble Boolean lattice B4 Walsh spectrum nullity 6611 projection norm",
+          "four-variable Dedekind antichain ensemble Fourier Walsh 6611",
+          "Bshouty–Tamon ECCC TR95-032 Fourier spectrum of monotone functions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Coxeter positive-root poset antichain ensembles in types A,D have different ranked posets and Fourier ranks 811/810 and 3294/3272"
+        ],
+        "reasoning": "Different poset objects/coordinate counts; no source tabulates the 79-level signed spectrum, 199 zero-frequency orbits or exact B4 projection kernel in the 16-coordinate embedding.",
+        "searches": [
+          "four variable antichain ensemble Boolean lattice B4 Walsh spectrum nullity 6611 projection norm",
+          "four-variable Dedekind antichain ensemble Fourier Walsh 6611",
+          "Resultary Coxeter-root-poset antichain Fourier record 11acb45d3299"
+        ]
+      },
+      "rationale": "The Dedekind number 168 and antichain/monotone-function theory are old, but the transform of the complete 168-point ensemble as a subset of the sixteen-coordinate Boolean group is distinct from the Fourier spectrum of each individual monotone Boolean function on four input bits. Earlier sources do not state the full ensemble zeros or 1,526,023/32,768 range projection constant.",
+      "residual_risks": [
+        "The ECCC paper was only inspected through its public abstract; an inaccessible or differently framed full source might contain related ensemble identities.",
+        "The exact 168 antichain count and general Walsh/translation-averaging machinery are known and are not claimed original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_TRANSFORM_OBJECT",
+          "evidence": "Its transform is of individual monotone Boolean functions, not the indicator of the ensemble of all antichains; this comparison is confined to the material read, not an assertion of full-document noncoverage.",
+          "identifier_or_url": "https://eccc.weizmann.ac.il/report/1995/032/",
+          "material_read": "Published ECCC abstract and description of Fourier degree on individual input functions; no full text inspected",
+          "method": "Primary public abstract only",
+          "title": "On the Fourier Spectrum of Monotone Functions (Bshouty and Tamon)",
+          "trigger": "Potential direct overlap of Fourier spectra and monotone functions"
+        },
+        {
+          "assessment": "KNOWN_COUNT_NOT_ENSEMBLE_SPECTRUM",
+          "evidence": "Classic 168 count and inequivalence classes not the complete 16-bit incidence ensemble Fourier spectrum.",
+          "identifier_or_url": "https://arxiv.org/pdf/1209.4623",
+          "material_read": "Primary PDF abstract/introduction and counting discussion around page 3",
+          "method": "arXiv PDF pages and enumeration statements inspected",
+          "title": "Counting Inequivalent Monotone Boolean Functions (Stephen and Yusun)",
+          "trigger": "Known Dedekind counts and 4-variable renaming orbits"
+        },
+        {
+          "assessment": "INTERVAL_COUNTS_NOT_WALSH_CENSUS",
+          "evidence": "Antichain intervals and counting decomposition give the family structure but not 16-coordinate Walsh support or projection norm.",
+          "identifier_or_url": "https://arxiv.org/pdf/1602.04675",
+          "material_read": "Primary PDF introduction, interval decomposition statements and example/theorem around page 8",
+          "method": "arXiv PDF relevant pages inspected",
+          "title": "Intervals of Antichains and Their Decompositions (De Causmaecker, De Wannemacker and Yellen)",
+          "trigger": "Possible broader theorem for lattice ensemble Fourier characteristics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete antichain family of B4 is the canonical Dedekind ensemble at the first nontrivial manageable order for a high-dimensional incidence Walsh transform. Its signed-frequency histogram, 199 zero-orbit types, exact rank defect 6,611 and sharp endpoint projection norm furnish precise basis-invariant recovery information not provided by the ordinary antichain count. Those exact natural invariants can serve as a finite benchmark for incidence-code, order-ideal and monotone-function ensemble harmonic studies. The result is narrower than an all-n theorem but materially richer than a routine small count.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://eccc.weizmann.ac.il/report/1995/032/",
+    "https://arxiv.org/pdf/1209.4623",
+    "https://arxiv.org/pdf/1602.04675",
+    "Resultary search: four variable antichain ensemble Boolean lattice B4 Walsh spectrum nullity 6611 projection norm; four-variable Dedekind antichain ensemble Fourier Walsh 6611",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/exact-walsh-rank-and-optimal-endpoint-projection-for-four-variab--e42a68448c63"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The ensemble indicator lives on F2^16; do not conflate with per-function Fourier spectra on F2^4.",
+    "Only B4; no general n or asymptotic extension.",
+    "Priority checks are best-of-knowledge; not independent external certification."
+  ],
+  "residual_risks": [
+    "The ECCC paper was only inspected through its public abstract; an inaccessible or differently framed full source might contain related ensemble identities.",
+    "The exact 168 antichain count and general Walsh/translation-averaging machinery are known and are not claimed original.",
+    "The ensemble indicator lives on F2^16; do not conflate with per-function Fourier spectra on F2^4.",
+    "Only B4; no general n or asymptotic extension.",
+    "Priority checks are best-of-knowledge; not independent external certification."
+  ],
+  "schema_version": 1
+}
