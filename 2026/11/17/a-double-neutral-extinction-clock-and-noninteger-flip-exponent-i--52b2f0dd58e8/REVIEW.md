@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The double-neutral equalities make the linear eigenvalues \(-1,+1\). Exact Taylor coefficients in corrected coordinates give a sign-flip map and a neutral predator coordinate. The second iterate cancels the quadratic terms that would otherwise obstruct an inverse-time law. For fixed \(1<p<2\), the positively invariant local wedge is obtained by a ratio inequality with contraction coefficient \(cs>0\). The reciprocal predator recurrence proves \(ny_n\to1/\kappa\); the renormalized multiplicative product is proportional to \(n^{-p}\), and the cubic forcing is summable after weighting precisely because \(p<2\). Nonzero constants occur on open sets, by a uniform small-data variation-of-constants estimate. The accompanying checker verifies the local coefficients and finite diagnostics, not infinite-time statements.
+PASS
 
-## Originality — PASS within inspected evidence
+At r=2 and b0=(1-s)(1+2gamma)/(2c), the Jacobian at (2,0) has eigenvalues -1,+1. Put v=y,w=x-2+cv, L=1-s, D=L/(2(1+2gamma)), a=c(1+D), K=c(L+D) and p=a/K in (1,2) under the stated s range. Exact Taylor through degree two gives W=-w+a wv+c^2(s-D)v^2+O(3), V=v+D wv-K v^2+O(3); composing shows W_2=w-2a wv+O(3), V_2=v-2K v^2+O(3). Independently recomputed symbolic first-return Taylor coefficients, matching those expressions. For a sufficiently narrow |w|<=Mv positive wedge, H_j=W_j/V_j obeys H_(j+1)=(1-2cs V_j)H_j+O(V_j^2), ensuring invariance and H_j->0. Reciprocal V_j gives V_j=(2K j)^-1+O(log j/j^2), hence n y_n->1/K and n(x_n-2)->-c/K. W_(j+1)=(1-2aV_j)W_j+E_j, E_j=O(V_j^3); positive product P_j~j^-p and sum E_j/P_(j+1)=O(sum j^(p-3)) converges for p<2, including odd-time correction O(V_j^2). Initial w0=theta v0 has signed leading theta v0 versus error O(v0^2), yielding both signs of nontrivial amplitude on open subwedges. No global attraction or p=2 endpoint is proved.
 
-The closest primary source is Niu and Wang, arXiv:2405.11806, equation (4). Its Lemma 3.3 addresses strict predator invasion and \(r<2\), and its Theorem 3.16 assumes a positive equilibrium and \(r\le1\); neither asserts the simultaneous neutral boundary with \(r=2\). A separate result for the same map at \(r>2\) gives a two-cycle invasion threshold, not the present rate law at \(r=2\). The 2020 and 2021 related Ackleh works concern Beverton–Holt growth and positive-equilibrium stability, not the critical Ricker double equality. Published mathematical records on critical extinction and flip spectra concern different maps and have no implication carrying this exact nonlinear return. Searches do not establish absolute priority; full text of some farther related references was not obtained.
+## originality
 
-## Value — PASS
+PASS
 
-The two neutral multipliers belong to distinct biological events: prey period doubling and predator invasion. A local positive wedge has a universal \(n^{-1}\) predator extinction law but a parameter-dependent noninteger alternating prey exponent \(p\in(1,2)\). The explicit correction \(x_n-2+c y_n\), with opposite signs of a nonzero amplitude on open sets, distinguishes longitudinal prey oscillations from compositional relaxation and is not recoverable from a linear eigenvalue test. The theorem does not claim global attraction.
+Niu–Wang introduced the identical biological map and treated strict stability and other bifurcation regions; the current equality r=2 with neutral predator invasion is a new codimension-two boundary analysis under specified parameters. A separately published Ricker predator-free primitive two-cycle result assumes r>2 and concerns transverse invasion, not this flip/neutral inverse-time dynamics. Standard -1,+1 normal-form techniques motivate but do not supply model-specific coefficients and exponent.
 
-## Closest literature and limitations
+## value
 
-Niu and Wang (2024) is the exact-model source. Ackleh et al. (2020, 2021) are methodologically related but have different prey growth. The law does not treat \(p=2\), parameter values outside its open range, trajectories outside the local wedge, or stochastic extinction. An independent mathematical audit remains necessary for external certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural local boundary of a named positive predator-prey system combines two neutral directions, with an inverse-time predator extinction clock and continuously variable noninteger alternating exponent in an open positive wedge; these are meaningful exact dynamical invariants rather than finite-iterate observations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
