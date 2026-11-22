@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Leaf-edge reversal proves the zero multiplier at singleton leaf frequencies; a 2x2 transfer trace counts cycle sink-signed orientations exactly after subtracting both directed cycles. Rank-one block factorization and q_k recurrence show every cycle multiplier is a nonzero even integer with absolute value at least two, attained at adjacent selected vertices; tensor products give exact extremes and condition number. A separate integer enumerator validates all masks through cycle size 14 and additional boundary cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hwang et al. arXiv:1910.10920v2 Theorems 2.3,3.2,3.5,3.10 and Appendix A give general graph-polynomial constructions (broad input class), not a cycle-specific sharp Walsh nonvanishing analysis.",
+        "An indexed published result concerns edge-orientation constraints on complete bipartite graphs, not the sink-profile pushforward of cycle orientations.",
+        "Radchenko 2021 Proposition 5.1 gives a general transfer trace for cycle independence polynomials, but no sink-profile Fourier recovery or lower bound after the orientation correction -2."
+      ],
+      "reasoning": "The general sink polynomial strictly subsumes the underlying enumeration, which is credited. A general exact formula for polynomial coefficients does not directly supply the sign-sensitive, all-frequency arithmetic separation proved here. Published Fourier results on different graph models/coordinates cannot imply this claim by restriction or relabeling.",
+      "searches": [
+        "acyclic orientation polynomial cycle graph evaluations -1 all subsets",
+        "sink sets Fourier spectrum acyclic graph orientations signed enumeration",
+        "degree at most two graph acyclic orientation sink incidence Walsh convolution invertible iff union of cycles and isolated vertices exact gap"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/9907078v1",
+      "arxiv:1910.10920v2",
+      "doi:10.1112/blms.12545"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gebhard–Sagan arXiv:math/9907078v1 Theorem 1.2 supplies a unique-sink count through the chromatic polynomial, not a statement about every Fourier character.",
+        "Hwang et al. arXiv:1910.10920v2 Theorem 3.2 supplies a sum over all edge subsets whose ±1 specialization can be evaluated but includes alternating terms; the all-length noncancellation and minimal magnitude do not follow without further proof.",
+        "An indexed published result treats edge-orientation-coordinate Walsh sampling rather than sink set indicators."
+      ],
+      "reasoning": "None of these inspected statements logically asserts or immediately yields the exact nonzero lower bound uniformly over every character for every cycle, or the iff classification for maximum degree two. The submitted proof supplies a specialized cyclic transfer product and an arithmetic lower bound; the general enumerator is explicitly acknowledged as antecedent input.",
+      "searches": [
+        "multivariate sink enumerator cycle graph signed evaluation at +/-1 Fourier transform trace transfer",
+        "cycle acyclic orientation sink incidence vector counting convolution Walsh transform all multipliers nonzero min magnitude two",
+        "acyclic orientations cycle sink sets generating function exact sink set enumerator Stanley Greene Zaslavsky 1983"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gebhard–Sagan arXiv:math/9907078v1, §§1–4: sink and fixed-unique-sink orientation counting, chromatic coefficient; no character-transform classification in examined material.",
+        "Hwang et al. arXiv:1910.10920v2, Definition 2.1 and Theorem 3.2: multivariate sink polynomial A_G(V) encodes the same counting measure before Fourier evaluation.",
+        "Radchenko 2021, §5 Proposition 5.1 supplies the cycle independence-polynomial transfer trace; directly counting prescribed sinks gives the additional identity lambda(S)=2^n I(C_n[S];-1/2)-2."
+      ],
+      "reasoning": "The Walsh transform is A_G evaluated at ±1 vertex variables, so any exact multivariate sink polynomial implies each coefficient upon computation. The inspected general polynomial formulas do not state uniform nonvanishing, exact least magnitude two for cycles, or their degree-two graph classification. General computability must not be conflated with an already established signed-inequality theorem. This hard-core evaluation is an exact equivalent formula for the present cycle character values, and is credited explicitly. The key new step is bounding all its signed values a distance at least 2/2^n from the exceptional evaluation 2/2^n.",
+      "searches": [
+        "cycle acyclic orientation sink incidence vector counting convolution Walsh transform all multipliers nonzero min magnitude two",
+        "acyclic orientations C_n prescribed sink set counting multiplicity Boolean characteristic function Fourier spectrum",
+        "acyclic orientations Walsh Fourier sink sets cycle graph convolution",
+        "independence polynomial cycle induced path evaluated at minus one half, zero-free Walsh sink orientation signed measure"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "An indexed published result (unweighted independent vertex-set indicator, different from weighted sink-set measure).",
+        "Hwang et al. Example 2.2 lists the triangle sink polynomial 2(v1+v2+v3), providing a single small instance, not a complete Fourier table for all cycle orders."
+      ],
+      "reasoning": "A degree-three triangle evaluation or a general coefficient formula is not a precomputed table of the full character spectrum at arbitrary cycle length. No directly matching sharp signed table emerged in the actual searches; absence is not a proof of novelty.",
+      "searches": [
+        "sink enumerators graph cycle rooted forest Fourier Walsh minimum multiplier 2 and condition 2^(n-1)-1",
+        "acyclic orientations sink-set Boolean Fourier transform leaf graph singular cyclic graph nonsingular",
+        "cycle graph acyclic orientations prescribed sink-set generating polynomial multivariate"
+      ]
+    },
+    "rationale": "The multivariate acyclic orientation polynomial is known in full generality (Hwang et al. 2019), but the exact all-size Fourier nonvanishing and sharp gap for cyclic sink profiles, and the degree-two invertibility criterion, are not in the relevant examined claims. This is bounded priority assessment; a signed special case may exist unindexed.",
+    "residual_risks": [
+      "The general multivariate sink polynomial determines every signed value in principle; priority of this specialized sharp arithmetic conclusion requires independent literature assessment.",
+      "Unindexed cyclic orientation sign-enumerator specializations may preexist.",
+      "Prior hard-core specializations at fugacity minus one half, possibly unpublished as Fourier statements, may encode the same cycle gap."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides established sink-count and unique-sink machinery; no matching Fourier nonvanishing theorem in inspected relevant sections",
+        "evidence": [
+          "arXiv v1 first line 12 Jul 1999; Theorem 1.2 on PDF page 4 identifies fixed-unique-sink count with linear chromatic coefficient",
+          "arXiv PDF §1 explicitly distinguishes number of sinks from given sink vertices"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/9907078",
+        "material_read": "1999 v1, 17 pages; abstract, §1 definitions and Theorems 1.1–1.3, §2 deletion–contraction, §3 noncommutative symmetric-functions discussion, §4 fixed-unique-sink bijection and relevant proof locations",
+        "method": "Opened OA arXiv PDF, inspected page 4 image and extracted principal text sections; located cycle and sink terms",
+        "title": "Sinks in Acyclic Orientations of Graphs",
+        "trigger": "Earliest archival sink-enumeration source and possible predecessor for fixed sink sets"
+      },
+      {
+        "assessment": "Contains the same coefficient generating polynomial and broad graph-family expansions. Does not explicitly supply an all-cycle character-wise zero-free bound or exact Fourier gap, although it makes such computations formally possible.",
+        "evidence": [
+          "Definition 2.1 and Example 2.2 on PDF page 4 define polynomial and triangle case",
+          "Theorem 3.2 on PDF page 7 gives a spanning-subgraph expression",
+          "§4 studies univariate sink counts; Appendix A relates the polynomial to the V-polynomial"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1910.10920",
+        "material_read": "v2, 21 pages; abstract, §§1–3 definitions, examples and Theorems 2.3, 3.2, 3.5, 3.10, 3.14; §4 chromatic symmetric functions, §5 distinguishing graphs, Appendix A V-polynomial",
+        "method": "Opened OA arXiv PDF, inspected page-one screenshot; read extracted sections across pages 1–20 and searched cycle and signed evaluation contexts",
+        "title": "Acyclic orientation polynomials and the sink theorem for chromatic symmetric functions",
+        "trigger": "Same multivariate sink-profile object; strongest general polynomial source"
+      },
+      {
+        "assessment": "Provides a general transfer trace for cycle independence polynomials, a powerful antecedent to the cycle product. The Fourier/acyclic-sink identity, exact 2-gap after subtracting two, and degree-two graph recoverability classification are not stated in the inspected relevant results.",
+        "evidence": [
+          "§5 Proposition 5.1(i) expresses the multivariate cycle independence polynomial as a 2-by-2 transfer trace",
+          "§4 notes that induced-subgraph polynomials arise from variable specialization to zero"
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/blms.12545",
+        "material_read": "Open-access HTML article, relevant sections 2 and 4–6 including induced subgraphs and §5 Proposition 5.1 on cycle independence-polynomial transfer products",
+        "method": "Read scholarly open-access article text and exact Proposition 5.1 matrix trace, and compared its evaluation with the sink-profile Fourier statement",
+        "title": "Independence polynomials and hypergeometric series",
+        "trigger": "Equivalent independence-polynomial formulation at fugacity minus one half; stronger transfer-trace methods"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8cfe564c-b969-4387-856d-2378705ec5ec",
+  "value": {
+    "rationale": "This is a complete natural graph-family Fourier recovery theorem: it determines precisely which degree-two geometries erase information and provides the exact least singular value and sharp Hilbert condition number for all invertible members. A path/cycle topology contrast is meaningful beyond unsigned enumeration or a small finite table.",
+    "status": "PASS"
+  }
+}
