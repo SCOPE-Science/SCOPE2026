@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T06:56:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT.md 2f724f8f25c55c3e0551175ac9065a68c3a68b6d",
+        "Git check_spectrum.py 1ef7b9ec1732d7cd2970ff47ba6d990dbfd453fb",
+        "Independent direct sink-free orientation FWHT n=1..5"
+      ],
+      "rationale": "Each orientation is a three-letter column word containing both singleton letter types. Inclusion–exclusion produces the explicit multiplier (-1)^(n-a)3^a+(-1)^(|u|+|v|)-2^n(1_{u=0}(-1)^|v|+1_{v=0}(-1)^|u|). Nonaxial zeros occur exactly at a=0 with odd count of (1,1) frequency positions; axial vanish impossible for n≥3 by 3^a modulo8 versus 2^n−1. There are (3^n−1)/2 zeros. Evenness of |S| and an explicit nonaxial character attain gap2. n=2 separately gives two support words and eight zeros; n=1 empty support. Direct FWHT n=1..5 gives zeros 4,8,13,40,121, confirming boundary and formula.",
+      "residual_risks": [
+        "All-n argument uses modular nonvanishing, not merely finite enumerations.",
+        "No signed multiplicity classification for all nonzero multipliers claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cohn–Pemantle–Propp supply sink-free sampling/probabilistic analysis; Anand et al. address local sampling/counting in broader graph families.",
+          "The spanning-tree spectrum of K2,n is for a different graph subset; acyclic-orientation spectra are for a different support, as any DAG has a sink."
+        ],
+        "reasoning": "Broader graph sampling/counting results do not dominate the exact Walsh zero-set and least nonzero multiplier.",
+        "searches": [
+          "Resultary: Fourier Walsh nullity spectral gap sink-free orientations K_{2,n} complete bipartite graphs",
+          "arxiv:2502.05877"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/math/0103189",
+        "https://arxiv.org/abs/2502.05877",
+        "Resultary: Fourier Walsh nullity spectral gap sink-free orientations K_{2,n} complete bipartite graphs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sink-popping analysis gives expected run time and orientation distribution, not the character-sum formula (1).",
+          "The exact nonaxial cancellation condition a=0 and odd d follows inclusion-exclusion and is not merely the total orientation count."
+        ],
+        "reasoning": "Classical sampling facts cannot directly imply the sharp Fourier nullity and gap.",
+        "searches": [
+          "Resultary: Fourier Walsh nullity spectral gap sink-free orientations K_{2,n} complete bipartite graphs",
+          "https://arxiv.org/abs/math/0103189"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sink-free orientations equal words over three edge-orientation columns with both singleton types present.",
+          "Published sink-popping work studies the same sink-free orientation support, but its result is a sampling algorithm, not a Walsh support theorem."
+        ],
+        "reasoning": "Reformulating as a forbidden-column surjective-word sum does not itself supply a previously published full frequency-zero classification.",
+        "searches": [
+          "Resultary: Fourier Walsh nullity spectral gap sink-free orientations K_{2,n} complete bipartite graphs",
+          "https://arxiv.org/abs/math/0103189"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary found the matching subject record but no separate prior exact integer Walsh table for the same support.",
+          "Independent full Walsh transform at n=1..5 confirms zeros 4,8,13,40,121, respectively, where 4 refers to empty support boundary n=1."
+        ],
+        "reasoning": "A finite check does not establish literature priority; no covering table identified.",
+        "searches": [
+          "Resultary: Fourier Walsh nullity spectral gap sink-free orientations K_{2,n} complete bipartite graphs",
+          "Resultary: Fourier Walsh nullity spectral gap sink-free orientations K_{2,n} complete bipartite graphs"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of mathematical statements, not title matches; bounded queries and directly inspected relevant sources found no dominating prior result for this precise support/invariant. Remaining risks explicitly retained.",
+      "residual_risks": [
+        "Potential older weighted-orientation Tutte/partition-function specialization not independently exhaustively searched."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant primary, not the same Fourier theorem",
+          "evidence": "Algorithmic sink-free generation has no claimed Walsh multiplier classification.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0103189",
+          "material_read": "Definitions, sink-popping algorithm, run-time results and proof discussions",
+          "method": "Inspected accessible original source material and the specific sections named in material_read; passages or sections not read are not claimed reviewed",
+          "title": "Generating a random sink-free orientation in quadratic time",
+          "trigger": "Exact same sink-free orientation objects"
+        },
+        {
+          "assessment": "General sampling does not imply all-frequency spectrum",
+          "evidence": "Approximate counts and local sampler do not calculate exact K2,n Walsh zeros.",
+          "identifier_or_url": "https://arxiv.org/abs/2502.05877",
+          "material_read": "Abstract, problem setting and local-sampling results in accessible paper",
+          "method": "Inspected accessible original source material and the specific sections named in material_read; passages or sections not read are not claimed reviewed",
+          "title": "Sink-free orientations: a local sampler with applications",
+          "trigger": "Stronger modern sampling and counting literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/16/fourier-nullity-and-sharp-convolution-gaps-for-sink-free-bicliqu--0c71b6055010/RESULT.md",
+        "https://arxiv.org/abs/math/0103189",
+        "https://arxiv.org/abs/2502.05877"
+      ],
+      "rationale": "Sink-free orientations are natural in graph sampling and dynamics. Determining an exact growing Fourier nullity with fixed nonzero gap gives a genuine spectral description of a combinatorial operator not implied by mere orientation count.",
+      "residual_risks": [
+        "Value is limited to K2,n; no general graph theorem asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All-n argument uses modular nonvanishing, not merely finite enumerations.",
+    "No signed multiplicity classification for all nonzero multipliers claimed.",
+    "Potential older weighted-orientation Tutte/partition-function specialization not independently exhaustively searched.",
+    "Value is limited to K2,n; no general graph theorem asserted.",
+    "Scientific results remain logically separate from publication transport and public-file sanitization."
+  ],
+  "schema_version": 1
+}
