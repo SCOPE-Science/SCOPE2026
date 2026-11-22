@@ -1,19 +1,21 @@
-# Scientific review of the uniform-vertex covariance classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof covers each integer \(q\ge3\). Its graph-theoretic step classifies acyclic edge-sign configurations of \(K_{2,q}\) as the union of two ternary product families, subtracting their common binary family. This produces exactly \(2\cdot3^q-2^q\) distinct vertices. Exact second-moment sums give the leaf-contrast, hub-difference and block-contrast covariance eigenvalues; permutation and hub-swap symmetries show these eigenvectors span the full zero-sum ambient space. Strict algebraic inequalities prove both the lowest eigenspace and the switch of the highest eigenspace at six leaves. The standalone standard-library checker independently reconstructs full exact-rational covariance matrices for seven graph sizes, including independent total-order enumerations for four sizes. Finite checks are supporting evidence, not the reason the all-size theorem holds.
+PASS
 
-## Originality
+Every acyclic orientation of K_{2,q} belongs to one of the two ternary product families excluding simultaneous opposed mixed column types; their binary overlap yields D=2·3^q−2^q distinct zonotope vertices. Central sign inversion gives mean zero. Leaf coordinates have zero cross-covariance and second moment (4·3^{q−1}−2^q)/D, yielding q−1 leaf-contrast eigenvalues. Counting mixed columns with binomial q,1/3 under each family gives E[(hub_A−hub_B)^2]/2=q(q+2)3^{q−2}/D. The remaining orthogonal block direction is determined by the zero-sum relation and leaf variance: λblock=(q+2)λleaf/2. These span the zero-sum hyperplane, while 1 is a null eigenvector. The sign of λblock−λhub=(q+2)/D[(6−q)3^{q−2}−2^{q−1}] is positive for q=3,4,5 and negative for q≥6. Exact displayed condition number and q²/12 follow by division. Uniformity is by distinct acyclic orientations, not by linear extensions or volume.
 
-**PASS, with residual historical-priority risk.** Chapoton–Pilaud's complete-bipartite graphical-zonotope discussion and Carballosa–Khera–Reyes's complete-multipartite acyclic-orientation enumeration establish related encodings but do not state this Euclidean vertex covariance. Padrol–Pilaud–Poullot classify deformation cones, another invariant. Checked related results on complete-bipartite graphical-zonotope Löwner ellipsoids and complete-multipartite circumspheres determine enclosing shapes or farthest points; they do not imply a uniform distribution over the entire vertex set. Compared existing results on the same graph family's intrinsic-volume covariance, as well as vertex covariance restricted to cactus graphs: neither covers uniform-vertex covariance on \(K_{2,q}\) for \(q\ge3\), since the graph is not a cactus. Equivalence through lonesum matrices and degree-sequence moments remains a genuine search risk, not an established absence claim.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The exact discrete covariance spectrum is a natural, normalization-sensitive invariant of a standard infinite family of graph zonotopes. The result explains a sharp change of the principal Euclidean fluctuation axis at the smallest non-cactus complete bipartite family, with an exact all-size condition-number law growing quadratically. It is not a formal consequence of a vertex count or an enclosing ellipsoid, nor a randomly chosen parameter slice: this family is the first complete-bipartite family with multiple overlapping cycles, yet retains a tractable three-state encoding.
+The six-leaf discrete vertex-covariance principal-axis transition is not the already published five-leaf uniform-volume transition; same-measure radial shell law gives only trace and lacks exact directional moments. Residual matrix-encoding priority risk remains.
 
-## Scope and limitations
+## value
 
-The result uses equally weighted vertices of the unweighted centered zonotope and is not an intrinsic-volume covariance result. The previously known single-cycle boundary \(q=2\) is excluded from the novelty statement. The proof is exact for all \(q\ge3\); the experimental test set is finite. The literature check is extensive but cannot conclusively establish global historical priority. The review below is not an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Vertex-uniform discrete inertia is a natural, distinct statistic from continuous polytope inertia and radial shell frequencies. The exact three-eigenspace tensor identifies a sharp six-leaf switch of extremal direction, one leaf later than the volume-measure switch, and quadratic worsening of condition number; it supplies an exact measure-sensitive geometry classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

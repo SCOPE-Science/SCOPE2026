@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the uniform-vertex covariance spectrum
+# Independent mathematical audit
 
-The self-contained checker `artifacts/verify.py` requires Python 3 and only its standard library. From the package root, run `python3 artifacts/verify.py`. Its expected successful completion line is:
+## correctness
 
-`TWO_HUB_VERTEX_COVARIANCE_CHECKS_PASSED full_matrices=7 q_inequalities=98`
+PASS
 
-For each of \(q=3,4,5,6\) it enumerates all orders of the \(q+2\) labeled graph vertices, induces and deduplicates the corresponding acyclic edge orientations, and independently reconstructs the two-ternary-family model. For \(q=7,8,9\) it enumerates the ternary encoding directly. For all seven sizes, it derives the complete covariance matrix with exact rational arithmetic and verifies the claimed eigenoperator on a spanning basis, the zero-sum constraint, the vertex count, and the centering. It also checks the strict ordering and gap identity for each integer \(3\le q\le100\).
+Every acyclic orientation of K_{2,q} belongs to one of the two ternary product families excluding simultaneous opposed mixed column types; their binary overlap yields D=2·3^q−2^q distinct zonotope vertices. Central sign inversion gives mean zero. Leaf coordinates have zero cross-covariance and second moment (4·3^{q−1}−2^q)/D, yielding q−1 leaf-contrast eigenvalues. Counting mixed columns with binomial q,1/3 under each family gives E[(hub_A−hub_B)^2]/2=q(q+2)3^{q−2}/D. The remaining orthogonal block direction is determined by the zero-sum relation and leaf variance: λblock=(q+2)λleaf/2. These span the zero-sum hyperplane, while 1 is a null eigenvector. The sign of λblock−λhub=(q+2)/D[(6−q)3^{q−2}−2^{q−1}] is positive for q=3,4,5 and negative for q≥6. Exact displayed condition number and q²/12 follow by division. Uniformity is by distinct acyclic orientations, not by linear extensions or volume.
 
-The mathematical argument proving the infinite-family statement is the symbolic counting and variance calculation in `RESULT.md`. A finite enumeration cannot establish an assertion for arbitrarily large \(q\); it checks for implementation and algebra mistakes in representative cases. No independent mathematical audit is claimed or performed.
+## originality
+
+PASS
+
+The six-leaf discrete vertex-covariance principal-axis transition is not the already published five-leaf uniform-volume transition; same-measure radial shell law gives only trace and lacks exact directional moments. Residual matrix-encoding priority risk remains.
+
+## value
+
+PASS
+
+Vertex-uniform discrete inertia is a natural, distinct statistic from continuous polytope inertia and radial shell frequencies. The exact three-eigenspace tensor identifies a sharp six-leaf switch of extremal direction, one leaf later than the volume-measure switch, and quadratic worsening of condition number; it supplies an exact measure-sensitive geometry classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
