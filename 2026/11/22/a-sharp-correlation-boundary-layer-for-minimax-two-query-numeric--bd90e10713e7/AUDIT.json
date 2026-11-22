@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Polynomial exactness is necessary because the function class contains arbitrary degree-2 polynomials; with two points this forces ±h central differencing. Integral Taylor remainder is bounded by \\(Mh^2/6\\) and cubic f(u)=Mu³/6 attains equality. The prescribed Gaussian covariance gives the exact risk. Derivative signs reduce to \\(x^6=\\kappa q_\\rho(x)\\); \\(6q_\\rho-xq_\\rho' > 0\\), proved from \\(6e^{2x}>6+7x+2x^2\\), forces a unique global minimum. Uniform \\(q_\\rho(x)=(1-\\rho)+\\rho x+O(x^3)\\) establishes two limiting exponents and the unique crossover \\(z^6=z+\\alpha,\\ z\\ge1\\). verify.py is supplemental; finite mesh is not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2007.04443 §2.1: independent Y_j at selected points and bounded marginal variances; the theorem is broader in number of evaluations but not in cross-query covariance.",
+        "arXiv:2405.05638 §4: correlated sample construction, bootstrap and asymptotic statistics rather than stationary OU covariance between two evaluations.",
+        "arXiv:2110.06380: balances bounded deterministic evaluation error and truncation with an adaptive interval search."
+      ],
+      "reasoning": "Broader algorithmic scope in earlier results does not dominate the new covariance-specific minimax claim: their hypotheses exclude or leave unspecified the spatially colored two-query errors whose covariance determines the sharp singular transition. The independent-noise endpoint is treated explicitly as known, not as a new result.",
+      "searches": [
+        "arXiv:2007.04443 Theorem 1; arXiv:2405.05638 §§2–4; arXiv:2110.06380 §§1–3",
+        "exponential spatially correlated oracle noise central finite differences two-query minimax risk unique spacing one fifth one sixth noise nugget",
+        "finite differences stationary Ornstein Uhlenbeck error field minimax C3 cubic function exact optimal separation"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1905.01332",
+      "https://arxiv.org/abs/2007.04443",
+      "https://arxiv.org/abs/2110.06380",
+      "https://arxiv.org/abs/2405.05638",
+      "published-finding corpus semantic search: correlated measurement noise central finite differences optimal separation exponential covariance numerical differentiation bias variance",
+      "published-finding corpus semantic search: exponential spatially correlated oracle noise central finite differences two-query minimax risk unique spacing one fifth one sixth noise nugget"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2020 Lam result implies the rho=0 independent-noise formula, which is explicitly not novel.",
+        "The 2024 Cor-FD text concerns pilot-sample transformed estimator correlations, and does not assert the exact OU-covariance risk law or unique root.",
+        "The 2021 Shi approach assumes bounded noisy function error and produces near-optimal intervals; no exact stationary covariance minimax root.",
+        "The 2019 Berahas paper assumes bounded evaluation errors and studies gradient method conditions, not exponentially covarying Gaussian observation errors."
+      ],
+      "reasoning": "Only the known independent-noise corner is subsumed. The full claim needs cross-query covariance rho exp(-distance/ell), its precise derivative qrho, and uniform alpha crossover; these premises and conclusions are not present together in the relevant inspected source theorems.",
+      "searches": [
+        "Lam–Li–Zhang arXiv:2007.04443 §2 Theorem 1",
+        "Liang–Liu–Zhang arXiv:2405.05638 §§2–4",
+        "Shi–Xie–Xuan–Nocedal arXiv:2110.06380 §§1–3",
+        "Berahas–Cao–Choromanski–Scheinberg arXiv:1905.01332 §§1–3",
+        "correlated measurement noise central finite differences optimal separation exponential covariance numerical differentiation bias variance",
+        "noisy finite difference step size Gaussian process correlated oracle output optimal cubic derivative minimax"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lam–Li–Zhang arXiv:2007.04443 §2.1 uses independent sampled evaluations and unbounded lower polynomial coefficients; its noiseless matching polynomial constraints are acknowledged.",
+        "Liang–Liu–Zhang arXiv:2405.05638 §§2–4 forms correlations by reusing transformed pilot samples; its estimand and correlation mechanism differ.",
+        "Related result with opaque scientific ID 05359e23 concerns odd numbers of independent samples with noise variance upper bound."
+      ],
+      "reasoning": "Central-difference versus linear-minimax naming is equivalent for two queries once polynomial exactness is required. Existing independent-noise formulas imply our rho=0 specialization; they do not specify an exponential spatial cross-covariance or its rho-to-one boundary layer. Differentiating a Gaussian process and quadrature are different targets, not duplicate aliases.",
+      "searches": [
+        "correlated measurement noise central finite differences optimal separation exponential covariance numerical differentiation bias variance",
+        "noisy finite difference step size Gaussian process correlated oracle output optimal cubic derivative minimax",
+        "stationary Ornstein Uhlenbeck observation noise finite differences gradient estimator exact optimal step",
+        "published-finding corpus IDs 2026/11/8/SCOPE-exact-cubic-jet-risk-and-finite-radius-optimum-for-orthogonal-fi--34ddbe84f4e1; 2026/10/12/SCOPE-the-weighted-cut-law-of-noisy-finite-difference-baseline-reuse--e1fdd4dd5827"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest roughness-threshold hit 2026/11/2/SCOPE-a-roughness-threshold-and-exact-noise-tails-for-colliding-node-k--841cfe0433d1 studies colliding-node kernel quadrature; not numerical differentiation.",
+        "published-finding corpus nearest Ornstein–Uhlenbeck hit 2026/11/8/SCOPE-exact-optimal-nodes-and-stratification-penalty-for-ornstein-uhle--971795799fba studies optimal GP-integral samples rather than two-query deterministic function differentiation.",
+        "Accessible previously reported mathematical claims include 05359e23 for independent-noise odd-budget differentiation; no distance-dependent covariance exact table identified."
+      ],
+      "reasoning": "Checked mathematical statement targets (derivative vs integral), covariance assumptions (independent vs colored), and minimax class (linear two-query) rather than title/keyword coincidence. No database table listing the finite-rho optimum or double-scaling constants was found; this is not a proof of absence.",
+      "searches": [
+        "exponential spatially correlated oracle noise central finite differences two-query minimax risk unique spacing one fifth one sixth noise nugget",
+        "finite differences stationary Ornstein Uhlenbeck error field minimax C3 cubic function exact optimal separation",
+        "common random numbers spatial exponential covariance finite difference singular boundary layer correlation 1-nugget small noise",
+        "published-finding corpus IDs 2026/11/2/SCOPE-a-roughness-threshold-and-exact-noise-tails-for-colliding-node-k--841cfe0433d1; 2026/11/8/SCOPE-exact-optimal-nodes-and-stratification-penalty-for-ornstein-uhle--971795799fba"
+      ]
+    },
+    "rationale": "The strongest matching independent-noise result (Lam, Li, Zhang, arXiv:2007.04443, Theorem 1) covers ρ=0, not distance-dependent joint error covariance. Liang, Liu, Zhang (arXiv:2405.05638) treat correlation induced by reuse of pilot estimators rather than an exponential-covariance measurement field. Shi et al. (arXiv:2110.06380) treat bounded-noise adaptive finite-difference interval selection. Searches of published-finding corpus and accessible previously reported mathematical claims found no theorem implying the correlated-case unique solution and singular fifth/sixth-root transition; residual historical-coverage risk remains.",
+    "residual_risks": [
+      "Earlier common-random-number or spatially colored-noise numerical-differentiation literature may contain the exact exponential-covariance case under different terminology; global bibliographic priority is not independently certified.",
+      "The source-inspection comparisons are restricted to the material inspected and cannot establish nonexistence of an unpublished or separately named equivalent."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS rho=0 special case; DOES NOT COVER exponential cross-query covariance and rho-to-one crossover",
+        "evidence": [
+          "arXiv:2007.04443 §2.1 equations (1)–(6) and Theorem 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.04443",
+        "material_read": "Available full-text rendering: introduction, Section 2.1, Theorem 1, proof of polynomial moment constraints; statements about independent samples and variance assumptions",
+        "method": "arXiv full-text HTML reading",
+        "title": "Minimax Efficient Finite-Difference Stochastic Gradient Estimators Using Black-Box Function Evaluations",
+        "trigger": "Strong candidate theorem covering all linear estimators and two-query independent-noise case"
+      },
+      {
+        "assessment": "Different correlation mechanism; no exponential spatial covariance minimax or double-scaling theorem found",
+        "evidence": [
+          "arXiv:2405.05638 §§1,3.3,4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2405.05638",
+        "material_read": "Available full-text rendering: Introduction, Background, Sections 3–4 and remarks on correlated pilot-sample reuse, including the variance expressions and assumptions",
+        "method": "arXiv full-text HTML reading and term searches",
+        "title": "A Correlation-induced Finite Difference Estimator",
+        "trigger": "Plausibly same phrase correlated finite difference and optimal perturbation"
+      },
+      {
+        "assessment": "Different bounded-error/adaptive interval model; no matching correlated Gaussian oracle law",
+        "evidence": [
+          "arXiv:2110.06380 §§1–2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2110.06380",
+        "material_read": "Available full-text rendering: Introduction, Section 2 derivation of bounded-error balance, and procedure outline for generalization",
+        "method": "arXiv full-text HTML reading",
+        "title": "Adaptive Finite-Difference Interval Estimation for Noisy Derivative-Free Optimization",
+        "trigger": "Known adaptive optimal finite-difference interval work"
+      },
+      {
+        "assessment": "Uniformly bounded evaluation error and algorithmic convergence; not the specified stochastic cross-covariance optimization",
+        "evidence": [
+          "arXiv:1905.01332 §1 equations (1.1),(1.2)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1905.01332",
+        "material_read": "Available full-text rendering: Introduction, noise assumption and central difference definition, sections framing method comparisons",
+        "method": "arXiv full-text HTML reading",
+        "title": "A Theoretical and Empirical Comparison of Gradient Approximations in Derivative-Free Optimization",
+        "trigger": "2019 direct comparison of finite-difference noise methods"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bd90e107-13e7-491b-a47a-b0cbb4b1281e",
+  "value": {
+    "rationale": "A fixed two-query numerical differentiation experiment with spatially correlated errors is a natural setting in computer simulation and sensor calibration. The result classifies every finite-risk linear estimator, derives a unique exact global design for all covariance parameters, and locates the singular nugget boundary layer that changes the optimal small-noise exponent from 1/6 to 1/5. These structural and uniform asymptotic assertions are not the routine independent-noise bias–variance balancing formula; they give practical precision-selection guidance when errors share a mean-reverting component. Limit: two fixed linear queries with known parameters.",
+    "status": "PASS"
+  }
+}
