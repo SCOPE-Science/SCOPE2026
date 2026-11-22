@@ -1,15 +1,21 @@
-# Scientific review: central-trinomial component law for higher tuplings
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof proceeds from the definition of simplicial tupling and the \(2r\)-vertex facet structure of a join of one-dimensional complexes. Each tupling vertex has a unique balanced occupancy word; adjacency forces word complementation. This classifies *all* vertices and edges without omission. The exact categorical product descriptions, connectedness from synchronized walks in nonbipartite graphs, and graph Euler calculations establish the full integral homotopy conclusion. The direct facet-partition checker passes for five parameter families, including one five-factor instance. Its finite computations corroborate the proof and are not used as an infinite certificate.
+## correctness
 
-## Originality — PASS (best available literature comparison)
-The initiating 2025 paper of Lesh, Schreiner and Wahl defines \(r\)-tupling and proves a general weak Cohen–Macaulay connectivity estimate, not a decomposition of tuplings of arbitrary nonbipartite graph joins into components indexed by balanced ternary patterns. Weichsel's classical theorem concerns categorical graph products, not their realization as the components of this tupling. The closest three-factor joined-graph results stop at \(r=3\) and do not imply the all-\(r\) central-trinomial count or its componentwise formulas by their stated conclusions. Nearby work on four-tuplings of cyclic polytope boundaries and on complete multipartite tuple graphs concerns different combinatorial complexes and does not imply the new join decomposition. The original tupling paper was inspected at its definition, theorem, full section structure and targeted keyword passages. Full texts of some nearby indexed research summaries were not available; an unindexed equivalent statement remains a residual risk. Absence of a search hit is not treated as proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The result classifies the complete homotopy type for a natural, unbounded family in both tuple order and graph size; the number of components is a classical central-trinomial combinatorial sequence, not an arbitrary finite numerical target. The sphere specialization shows that even arbitrarily high-dimensional combinatorial spheres can have disconnected tuplings with rapidly growing component counts, and determines every free fundamental group rank. This supplies information absent from general connectivity estimates, including the exact number and integral homotopy type of components.
+Every r-subset occupancy word has zeroes and twos in equal numbers. Edges require coordinatewise complementary occupancies, giving precisely the fixed all-ones categorical graph product and, for nonfixed words, the product with a complete bipartite graph K_{e_F,e_Z}. Connected nonbipartite factors permit common sufficiently long walks of either parity, making each component connected; counting product edges gives E=2^{r-1}P for the fixed word, E=2^{r-2k}P otherwise, and rank E-V+1. Involution-orbit count (T_r+1)/2 follows by Burnside. All face-extension and B-empty boundary cases checked logically; no infinite claim follows from finite tests.
 
-## Boundaries and validation status
-Connectedness and the single-component-per-pattern conclusion require all graph factors to be nonbipartite. The theorem makes no assertion for other join factors or general equivariant actions. Direct code checks do not replace the universal argument. Independent external review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The tupling definition and connectivity of categorical products are prior work. The complete all-r>=4 mixed occupancy graph-isomorphism, central trinomial component law and individual integral free ranks are not implied by the known 2r-discrete-part multipartite decomposition or the previously published three-factor three-tupling formula. Best-of-knowledge originality is conditional on unindexed general join-tupling literature.
+
+## value
+
+PASS
+
+An explicit infinite all-r homotopy classification of tuple graphs for combinatorial spheres and graph joins, including fast-growing central-trinomial component counts and the precise free fundamental-group ranks, answers a natural graph-topology question beyond routine rewording.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

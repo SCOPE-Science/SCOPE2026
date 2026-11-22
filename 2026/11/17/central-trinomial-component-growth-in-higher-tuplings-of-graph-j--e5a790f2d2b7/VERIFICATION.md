@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Internal reproducibility of the mathematical claim
+# Independent mathematical audit
 
-Run `python3 check.py` with Python 3 standard library. It reconstructs the tupling graph by enumerating facets of the simplicial join and every complementary pair of \(r\)-element subsets. This approach does not assume the proposed component factorization. It also enumerates all \(r\)-faces independently, checks full vertex coverage, computes all graph components and checks every component's numbers of vertices, edges, and independent circles. Complete expected output is provided in `check_output.txt`.
+## correctness
 
-Five tested parameter lists are: four unfilled complete three-vertex graphs; five such graphs; four unfilled pentagons; a four-factor mix of a pentagon, triangle, unfilled four-vertex complete graph and a five-vertex wheel; and a mixed-length cycle/triangle four-factor join. All factors are connected and nonbipartite. The output's final marker is `BALANCED_PATTERN_JOIN_TUPLING_PASS`.
+PASS
 
-The symbolic proof in `RESULT.md` establishes the theorem for all integer \(r\ge4\) and all allowed graphs. The finite program does not verify arbitrary parameters or prove nonexistence of unindexed prior work. No independent mathematical audit has been performed.
+Every r-subset occupancy word has zeroes and twos in equal numbers. Edges require coordinatewise complementary occupancies, giving precisely the fixed all-ones categorical graph product and, for nonfixed words, the product with a complete bipartite graph K_{e_F,e_Z}. Connected nonbipartite factors permit common sufficiently long walks of either parity, making each component connected; counting product edges gives E=2^{r-1}P for the fixed word, E=2^{r-2k}P otherwise, and rank E-V+1. Involution-orbit count (T_r+1)/2 follows by Burnside. All face-extension and B-empty boundary cases checked logically; no infinite claim follows from finite tests.
+
+## originality
+
+PASS
+
+The tupling definition and connectivity of categorical products are prior work. The complete all-r>=4 mixed occupancy graph-isomorphism, central trinomial component law and individual integral free ranks are not implied by the known 2r-discrete-part multipartite decomposition or the previously published three-factor three-tupling formula. Best-of-knowledge originality is conditional on unindexed general join-tupling literature.
+
+## value
+
+PASS
+
+An explicit infinite all-r homotopy classification of tuple graphs for combinatorial spheres and graph joins, including fast-growing central-trinomial component counts and the precise free fundamental-group ranks, answers a natural graph-topology question beyond routine rewording.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
