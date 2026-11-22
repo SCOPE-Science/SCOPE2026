@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The counter update is exactly the number of preceding zero pairs on each appended one. Its coefficient sequence has least period m for odd m and 2m for even m, by the binomial-difference identity. Every product state is reached by charge-one cycles at zero residue two. Unequal trailing-one runs have a kill-and-calibrate suffix; other pairs have a two-level calibrated suffix, with a nonzero separation guaranteed by second finite differences. All states and the sink are thus Myhill–Nerode inequivalent, proving r*m*P+1. The actual checker passed 44 automata (14,226 states), 25,680 constructed pairwise witnesses and 98,292 direct word checks; these corroborate, not replace, the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The indexed unconstrained all-modulus result 2026/11/8/SCOPE-exact-state-complexity-of-modular-scattered-zero-power-one-count--9df1828ce330 gives a related r-independent benchmark, not the constrained lower bound.",
+        "The prime-power unrestricted result 2026/10/26/SCOPE-prime-power-staircases-in-modular-scattered-subsequence-automata--b8dbc861b2e5 likewise omits the forbidden run.",
+        "The 2023 Salomaa–Salomaa–Smith survey discusses operational state complexity and general intersection without this fixed family."
+      ],
+      "reasoning": "The universal product construction bounds the run-capped language by r*m*P+1, but generic upper bounds do not prove minimality. The only identified stronger-looking class concerns all 0^d1 patterns *without* local constraints, so it cannot subsume the new conjunction via a corollary without an additional state-separation theorem. The latter is supplied explicitly.",
+      "searches": [
+        "published-finding corpus: sharp intersection quotient complexity of modular binomial 001 counter with forbidden homopolymer ones",
+        "published-finding corpus: sharp quotient complexity for a prescribed number of scattered 01 occurrences",
+        "published-finding corpus: modular 001 count plus forbidden 111 automata state complexity congruence",
+        "web: \"binomial\" \"001\" \"run length\" \"state complexity\"",
+        "arxiv:2301.03708v1 §4",
+        "published-finding corpus: sharp state complexity intersection of modular scattered-subword language and run-length-limited regular language"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1705.08270 (2017-05-23; primary inspected)",
+      "https://arxiv.org/abs/2001.11732 (2020-01-31; primary inspected)",
+      "https://arxiv.org/abs/2301.03708 (2023-01-09; primary inspected)",
+      "published-finding corpus indexed 2026/11/8/SCOPE-exact-state-complexity-of-modular-scattered-zero-power-one-count--9df1828ce330 (complete RESULT.md inspected)",
+      "published-finding corpus indexed 2026/10/26/SCOPE-prime-power-staircases-in-modular-scattered-subsequence-automata--b8dbc861b2e5 (summary only)",
+      "published-finding corpus indexed 2026/11/8/SCOPE-exact-moore-state-complexity-of-modular-scattered-0011-counts--f0fa64081c4c (summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Leroy–Rigo–Stipulanti introduce word-binomial coefficients modulo a prime and discuss p-group languages, but not this constrained all-modulus minimal DFA.",
+        "Lejeune–Rigo–Rosenfeld treat k-binomial equivalence and nilpotent groups; their theorem on 2-binomial equivalence does not determine triple-frequency modular state complexity.",
+        "Salomaa–Salomaa–Smith give general operational state-complexity context, not this family.",
+        "The indexed general unrestricted 0^d1 counter result supplies m*P for d=2; only the trivial r*m*P+1 upper bound follows on intersecting with avoidance of 1^r. The lower bound requires the new two-level calibration lemma.",
+        "The complete prior RESULT.md constructs a modular mP-state DFA and distinguishes its states with suffixes 1^{k_0}0 1^{k_1}0 ... of arbitrary run lengths. Such witnesses need not avoid 1^r, so the published proof does not establish pairwise distinguishability after intersection with the run-capped language.",
+        "Current accessible same-slot ledger has a theorem on the syntactic monoid of modular scattered 01 counts with forbidden 11, but its pattern length two and two-sided recognition invariant differ; no implication of the modular 001 run-capped minimal DFA follows."
+      ],
+      "reasoning": "The entire constrained language is the intersection of a modular 001 language and a finite-type run constraint. Available prior claims and their standard corollaries yield a recognition construction, not its minimality. In particular, no inspected theorem states that each modular signature remains distinguishable after arbitrary run-state conditioning. That last premise is proved for all m and r here. Its full text was inspected; the statement and proof are unrestricted. Its long-run witnesses fail the constrained hypothesis, whereas the new proof calibrates separated single markers. Remaining risk is equivalent unindexed work.",
+      "searches": [
+        "arxiv:1705.08270v1 PDF introduction and §2; mod-p language discussion",
+        "arxiv:2001.11732v1 HTML introduction and §§2–3",
+        "arxiv:2301.03708v1 PDF §4 on operation complexity",
+        "published-finding corpus: minimal state complexity of binary run-length-limited words with number of scattered 001 patterns divisible by arbitrary modulus; avoiding 1^r",
+        "GitHub full RESULT.md: 2026/11/8/SCOPE-exact-state-complexity-of-modular-scattered-zero-power-one-count--9df1828ce330"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Closest indexed unrestricted result 2026/11/8/SCOPE-exact-state-complexity-of-modular-scattered-zero-power-one-count--9df1828ce330 counts modular scattered 0^d1 without forbidden factor.",
+        "A related constrained modular 01 syntactic monoid concerns a two-letter scattered pattern and a different algebraic invariant; it does not yield the three-letter run-capped DFA claim."
+      ],
+      "reasoning": "Equivalent formulations through binomial words, reversed 100 counts, quotient complexity and run-length-limited automata were sought. Reversal of the entire language changes forbidden runs appropriately but does not remove the cap. An unrestricted modular counter and a constrained 01 counter are neither statement-equivalent to the exact r-parameter run-capped scattered 001 theorem nor stronger results that directly imply its lower bound.",
+      "searches": [
+        "published-finding corpus: exact minimal DFA of language avoiding adjacent ones and modular scattered 001 subsequence count congruent zero, or 0^2 1",
+        "published-finding corpus: run constrained modular 0^2 1 binomial subsequence counting automaton syntactic monoid",
+        "published-finding corpus: minimal state complexity of binary run-length-limited words with number of scattered 001 patterns divisible by arbitrary modulus; avoiding 1^r",
+        "web: \"scattered\" \"001\" \"forbidden\" \"111\" DFA",
+        "published-finding corpus: quotient complexity modulo counts of scattered 001 subsequences with a forbidden contiguous run of ones no 111",
+        "published-finding corpus: modular three-letter subsequence counts over golden mean shift or Fibonacci words minimal DFA"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching all-(m,r) tabulation returned in the actual searches.",
+        "The checker independently enumerates 44 finite automata but no such finite sample establishes a new infinite theorem or absence from a database."
+      ],
+      "reasoning": "No precise database/table entry with the same two parameters and same constrained state invariant was identified; negative search results are treated as limited evidence, not a uniqueness proof. Numerical overlap with unrestricted formulas is not coverage of the constrained exact minimum.",
+      "searches": [
+        "published-finding corpus: exact minimal DFA of language avoiding adjacent ones and modular scattered 001 subsequence count congruent zero, or 0^2 1",
+        "published-finding corpus: minimal state complexity of binary run-length-limited words with number of scattered 001 patterns divisible by arbitrary modulus; avoiding 1^r",
+        "web: \"001\" \"run length\" \"modulo\" automaton states",
+        "web: \"subsequence count\" \"no consecutive ones\" \"modulo\" automaton",
+        "published-finding corpus: quotient complexity modulo counts of scattered 001 subsequences with a forbidden contiguous run of ones no 111"
+      ]
+    },
+    "rationale": "The indexed closest theorem treats unrestricted modular scattered zero-power-one counters, whereas the present claim proves exact state complexity after intersecting with the contiguous one-run cap, including the lower bound. The accessible primary papers on word-binomial equivalence and modular word-binomial coefficients do not give constrained DFA state counts. Generic intersection/product principles imply a size upper bound but not all-state reachability and Myhill–Nerode separation for this specific family. The closest unrestricted modular result was inspected in full: its distinguishing suffix construction uses arbitrary consecutive ones and is not valid under the forbidden one-run constraint. Unindexed equivalent literature remains the main priority risk.",
+    "residual_risks": [
+      "Other papers, proofs or tables not indexed by the searches could have an equivalent all-parameter result.",
+      "This same-model mathematical review has no independent validation.",
+      "No claim of independent historical priority: equivalent run-constrained modular formulas could exist outside indexed sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant definitions and congruence background, no exact run-capped minimal-state result in material examined",
+        "evidence": "First public 2017-05-23; §1 describes L(v,r,p), §2 gives binomial-word recurrences.",
+        "identifier_or_url": "https://arxiv.org/abs/1705.08270",
+        "material_read": "PDF pages 1 and 3, HTML introduction and §2, including definition of L(v,r,p) and word-binomial recurrence",
+        "method": "Open-access arXiv PDF, inspected page screenshots and HTML mathematical text",
+        "title": "Generalized Pascal triangle for binomial coefficients of words",
+        "trigger": "Modular scattered-word counts and p-group language background"
+      },
+      {
+        "assessment": "Concerns equivalence classes and Parikh matrices; the inspected theorems do not establish minimal DFAs for modular 001 with a forbidden one-run",
+        "evidence": "First public 2020-01-31; Theorem 3 compares binary 2-binomial and Parikh equivalences.",
+        "identifier_or_url": "https://arxiv.org/abs/2001.11732",
+        "material_read": "HTML introduction and §§2–3 passages, PDF pages 1 and 3; mathematical statements including Theorem 3 and the nil-2 group overview",
+        "method": "Open-access arXiv HTML plus PDF screenshots",
+        "title": "On the binomial equivalence classes of finite words",
+        "trigger": "Binomial-equivalence and modular statistic aliases"
+      },
+      {
+        "assessment": "Provides general framework for state complexity of operations, not a sharp minimality theorem for the concrete modular-run intersection",
+        "evidence": "First public 2023-01-09; §4 discusses state complexity of language operations.",
+        "identifier_or_url": "https://arxiv.org/abs/2301.03708",
+        "material_read": "PDF pages 1 and 5, HTML introduction and discussion of operational state complexity",
+        "method": "Open-access arXiv HTML and PDF screenshots",
+        "title": "Descriptional Complexity of Finite Automata — Selected Highlights",
+        "trigger": "Generic intersection state-complexity results that could imply sharpness"
+      },
+      {
+        "assessment": "For d=2 proves unrestricted mP-state minimum using unrestricted runs 1^{k_t}; neither statement nor proof covers a forbidden contiguous 1^r or proves the product lower bound for its intersection.",
+        "evidence": "The full proof separates states with suffixes of the form 1^{k_0}0 ... 1^{k_{P-1}}, allowing unbounded one-runs; its theorem explicitly limits the language to modular scattered 0^d1 without run cap.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-state-complexity-of-modular-scattered-zero-power-one-count--9df1828ce330",
+        "material_read": "Complete public RESULT.md, including theorem, binomial-period proof, Myhill–Nerode subgroup argument, scope, references and limitations",
+        "method": "GitHub repository fetch_file of full primary RESULT.md, after published-finding corpus semantic discovery",
+        "title": "Exact state complexity of modular scattered zero-power–one counts",
+        "trigger": "Same modular subsequence count for d=2, possible dominating theorem"
+      },
+      {
+        "assessment": "Outputs modular 0011 in a Moore machine, different pattern and invariant; not directly covering the new constrained 001 acceptance theorem.",
+        "evidence": "Record 2026/11/8/SCOPE-exact-moore-state-complexity-of-modular-scattered-0011-counts--f0fa64081c4c summarizes a different output-state theorem.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-moore-state-complexity-of-modular-scattered-0011-counts--f0fa64081c4c",
+        "material_read": "Indexed title and summary only",
+        "method": "Semantic record search",
+        "title": "Exact Moore-state complexity of modular scattered 0011 counts",
+        "trigger": "Similar modular scattered-pattern arithmetic"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b7d2cb9e-9777-477e-877c-4580bb64cd65",
+  "value": {
+    "rationale": "A binary homopolymer cap is a natural constrained-source condition; modular scattered 001 counting is a concrete streaming statistic. The exact all-modulus, all-run-cap theorem determines required deterministic memory, establishes sharp saturation of a nontrivial product automaton, and identifies the even-modulus factor-two jump through an exact binomial-coefficient period. Its calibrated suffix lemma gives a structural and reusable reachability/observability argument; no extrapolation from finite enumeration or unmotivated arbitrary parameter slice is involved.",
+    "status": "PASS"
+  }
+}
