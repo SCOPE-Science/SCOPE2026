@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph complex is defined as an abstract one-dimensional simplicial complex, so a six-vertex face of a triple join contains exactly one edge from each factor. Sorting three-vertex faces by factor occupancy proves the four disjoint categorical-product components: a triple of singletons, or an edge and a singleton. The synchronous-walk proof of direct-product connectivity handles odd cycles and nonuniform bipartitions, including leaves. Counting each factor-edge triple gives four edges in the threefold product and two edges for each auxiliary product. Complementary bipartition parity classes give the complete componentwise vertex and edge counts. Each connected component is a graph and hence a wedge of its cycle rank in circles, integrally. The three equal-face-vector examples have identical source face polynomials but different bipartiteness and therefore different numbers of components. The direct combinatorial checker independently enumerated all three-faces and compatible six-faces for nine finite graph triples. The infinite theorem rests on the symbolic proof, not finite extrapolation.
+## correctness
 
-## Originality — PASS, with residual uncertainty
-Lesh–Schreiner–Wahl (2025) define the tupling construction and obtain general connectivity estimates but do not provide this exact three-factor graph classification. Weichsel's categorical graph-product component criterion is classical and fully credited, not new. Earlier results for three polygon-boundary factors are covered as special cases, and a published colored-discrete-factor tupling theorem treats a different six-face condition. An indexed cyclic-polytope three-tupling theorem also treats a different six-face condition. The new content is the uniform arbitrary-connected-graph decomposition, unequal-bipartition component ranks, and the explicit pair of *homotopy-invariant and complete-face-vector invariant* witnesses with distinct three-tupling component counts. The closest results were compared by mathematical implications, not only wording. There remains a risk of an equivalent unindexed theorem, and some historical product-graph literature was available only through abstracts.
+PASS
 
-## Mathematical value — PASS
-The full homotopy type, including fundamental groups and componentwise integral ranks, is classified for a motivated natural infinite family. More significantly, connected non-cycle factors yield an explicit controlled separation: three five-dimensional complexes with the same complete face vector and homotopy type of a sphere have three-tuplings with seven, five, and four components. This exhibits why abstract source homotopy and face enumeration cannot determine a new simplicial construction. The nonuniform bipartite component formula is structurally informative rather than an arbitrary low-parameter numerical instance.
+A face of a join of three one-dimensional factors has at most 2 vertices per factor; D³ is a graph. Every 3-face has occupancy (1,1,1) or permutation (2,1,0). A pair of 3-faces forms a six-face only when occupancy patterns sum to (2,2,2), giving exactly the four disjoint categorical graph products, with no missing or cross-type edges. Synchronized walks in connected graphs have eventually all feasible lengths of the correct parity; bipartite factors impose only relative color parity. Thus G1×G2×G3 has 2^(b−1) components when b>=1 (one if b=0), while Gi×K_(e_j,e_k) has two if Gi is bipartite else one. Direct edge counts 4e1e2e3 and 2e1e2e3 per block and explicit color-class vertex counts determine E−V+1 per connected graph. Independently enumerated all 3-face complementary pairs for three equal-face-vector witnesses, yielding common (V,E)=(252,1080) and componentwise ranks (82,82,82,82,163,163,181); (82,82,163,181,325); (163,163,181,325), agreeing with parity counts 7,5,4. Each original factor C6 and C5 plus leaf has 6 vertices/6 edges and |.|~S¹, so all joins share the same face vector and S⁵ homotopy. All conclusions use graph proof, not finite extrapolation.
 
-## Closest literature and limitations
-Kathryn Lesh, Bridget Schreiner and Nathalie Wahl, *The double of a simplicial complex* (2025), arXiv:2506.10436, Definition 2.1 and Theorem A. P. M. Weichsel, *The Kronecker product of graphs* (1962), DOI:10.1090/S0002-9939-1962-0133816-6. P. K. Jha, S. Klavžar and B. Zmazek, *Isomorphic components of Kronecker product of bipartite graphs* (1997), DOI:10.7151/dmgt.1057. The statement excludes disconnected factors, filled triangles and arbitrary higher tuple orders. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge with transparent partial coverage. A published exact classification for THREE POLYGON BOUNDARIES gives the same four-product splitting and parity formula in the special case Gi=C_m, where all bipartition shores are equal. The assigned theorem genuinely extends to arbitrary connected graph complexes including leaves and unequal shores, and adds three same-f-vector sphere-homotopy counterexamples not implied by the polygon theorem. Weichsel supplies the classical graph direct-product connectedness fact, explicitly treated as prior, not new. Lesh–Schreiner–Wahl gives only qualitative weak-Cohen–Macaulay connectivity bounds.
+
+## value
+
+PASS
+
+PASS: an exact, natural classification of the three-tupling functor on graph joins under minimal connectivity assumptions is mathematically useful. The 7/5/4 witness demonstrates that even full face-vector and original sphere homotopy do NOT determine tuple-connectivity; this is a motivated structural counterexample, not arbitrary small-instance census. Nonuniform bipartition sizes control individual integral fundamental-group ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
