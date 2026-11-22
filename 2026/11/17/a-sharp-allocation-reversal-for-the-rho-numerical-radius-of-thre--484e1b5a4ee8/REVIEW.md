@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The operator-valued Herglotz criterion reduces the unitary-dilation radius to a three-by-three Hermitian positivity problem. An exact determinant calculation, principal-minor inequalities, and monotonicity under radial scaling yield the spectral formula. A one-variable strict monotonicity argument proves every optimizing allocation. Boundary weights, the critical parameter, and arbitrary complex phases are included. The supplementary diagnostics check but do not prove the infinite family.
+## correctness
 
-**Originality — PASS (best-known literature comparison).** Stanković (arXiv:2609.00037v1, 2026) proves a rank-one formula, not the rank-two three-site classification. Carrot (2004, Section 5) derives three-nilpotent bounds and normalized large-parameter asymptotics, but not this two-weight exact allocation theorem. Database searches for equivalent weighted-shift, Jordan, unitary-dilation, fixed-Hilbert–Schmidt and phase-reversal formulations returned related results about ordinary numerical, constrained, or Schatten numerical radii rather than the unitary-dilation \(\rho\)-radius. Priority risk: the closely relevant Carrot (2003) paper on unweighted truncated shifts was not fully accessible, and other older equivalent formulas may exist.
+PASS
 
-**Value — PASS.** Among rank-two nilpotents, a complete two-weight classification is the first nontrivial finite weighted-shift model beyond the rank-one radius. The sharp fixed-Hilbert–Schmidt optimization reverses at \(\rho=2\): balanced weights minimize below it and maximize above it. This identifies an exact geometric phase transition within the operator-radius interpolation, with both boundary and nonattainment cases resolved.
+For T=W_{a,b} with T³=0, the standard positive-real Herglotz criterion reduces unitary ρ-dilation of T/t to positivity of the Hermitian Laurent polynomial ρI+zT/t+conj(z)T*/t+z²T²/t²+conj(z)²(T*)²/t², phase-conjugate to a single real symmetric 3×3 H with entries ρ,a/t,b/t,ab/t². Direct determinant expansion gives detH=ρ³−ρ(a²+b²)u+(2−ρ)a²b²u², u=t^{-2}. At first positive determinant/2×2 boundary its exact scale is 1/ρ times sqrt of top eigenvalue L of [[a²,(ρ−1)ab],[(ρ−1)ab,b²]]. Its principal minors remain nonnegative because L≥max(a²,b²) and L≥ρab; immediately smaller t fails PSD. Writing s=a²+b² and p=ab gives L=(s+sqrt(s²−4ρ(2−ρ)p²))/2, strictly decreasing in p for 0<ρ<2 and increasing for ρ>2, constant for ρ=2. Hence balanced and one-zero-edge optimizers exchange exactly at ρ=2, including complex phases via diagonal unitary. Independent symbolic determinant and 30 independent PSD boundary trials corroborate the analytic proof; rank-one and ρ=1 and ρ=2 benchmark cases checked.
 
-The proof is analytical; the checker is supplementary. The result makes no claim for arbitrary nilpotents of index three, infinite shifts, or optimal publication priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for a two-independent-weight three-site exact rho-radius formula and its fixed-Hilbert–Schmidt allocation reversal; rank-one rho-radius, constant-weight truncated-shift and ordinary rho=2 results are credited. Inaccessible Carrot 2003 full text is a nontrivial explicit priority risk, not fabricated evidence of noncoverage.
+
+## value
+
+PASS
+
+For the smallest nilpotent shift with a genuinely nonzero second power, an exact all-ρ operator radius and full fixed-energy allocation transition resolve a natural operator-theoretic extremal problem. The nontrivial optimizer exchange at ρ=2 is a sharp structural phenomenon, not just evaluating a routine single matrix.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
