@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Block-arrowhead Krylov reduction is unit triangular and the local grounded-path Krylov bases have determinant one. The block determinant is the product of pairwise monic characteristic-polynomial resultants. Explicit cosine roots show each resultant is zero when two odd arm labels share a factor, and has absolute one otherwise. Binomial transformation preserves unimodularity for I-L; finite-time Gramian equality follows by spectral/Vandermonde factorization. An independently instantiated exact SymPy checker passed 218 assertions; infinite statements rest on the written proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "limitations": [
+    "Single hub, unit-edge spiders only",
+    "Discrete integer-step dynamics not necessarily stochastic/stable",
+    "No bound on required integer control magnitudes",
+    "Scientific originality remains best-knowledge rather than independent certification"
+  ],
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Parlangeli 2025 describes its work as complete theoretical node-selection characterization for starlike tree graphs, including the center: qualitative real reachability is therefore already covered.",
+        "Parlangeli–Notarstefano 2011 covers path/cycle graphs but no arbitrary-branch spider."
+      ],
+      "reasoning": "The theorem does not claim to discover the starlike real-controllability classification; it asserts an exact integer lattice determinant and target reachability. No inspected stronger theorem asserting saturated Kalman lattices across all spiders was found.",
+      "searches": [
+        "web: Laplacian controllability spider graph hub odd lengths pairwise coprime 2l+1",
+        "web: \"starlike tree\" \"controllability matrix\" \"determinant\"",
+        "published-finding corpus: star-like tree Kalman controllability determinant resultant arms Chebyshev"
+      ]
+    },
+    "checked_sources": [
+      "2011 Parlangeli–Notarstefano arXiv:1109.3556; HTML Lemmas III.5 and IV.1",
+      "2025 Parlangeli DOI:10.3390/a18050239; sections 2–5 and Appendix A.2",
+      "2013 Louboutin DOI:10.4153/CMB-2012-002-1; full four-page PDF",
+      "2026/11_week3 prior path claim 5f5dcc0b-a067-43ed-a4e9-d55ab0945df0",
+      "2026/10/12 weighted cycle Kalman determinant published published-finding corpus ID 1ddd581661b4",
+      "2026/11/2 adjacency quantum-spider published published-finding corpus ID ca2f48c64cc3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2011 source proves endpoint/path eigenvalue and reachability criteria, a k=2 topology.",
+        "2025 source locates unreachable eigenvalues and supplies algorithms for starlike node selection; it does not give Kalman determinant magnitudes or integral actuator-input surjectivity.",
+        "2013 source proves classical Chebyshev resultant identities and does not address integer hub-control reachability.",
+        "Earlier path determinant record gives |det K| in unbranched paths only."
+      ],
+      "reasoning": "The qualitative hub-PBH criterion is deducible from published starlike spectral criteria; it is not a novelty basis. The unit determinant and integer-control equivalence have additional content and require the all-block resultant computation; none of the compared results logically supplies it without an additional nontrivial derivation.",
+      "searches": [
+        "arxiv:1109.3556 section IV-A and Lemma III.5",
+        "doi:10.3390/a18050239 sections 3–5",
+        "doi:10.4153/CMB-2012-002-1 full-text Resultants of Chebyshev Polynomials",
+        "own ledger: claim 5f5dcc0b-a067-43ed-a4e9-d55ab0945df0"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2025 Parlangeli paper provides eigenvector zero/nonzero tests and an algorithm for controllability from starlike nodes, not the integer determinant of the Kalman matrix (sections 3–5).",
+        "Louboutin 2013 computes first/second-kind Chebyshev resultants; our grounded mixed-end path factors are handled directly, and the resultant lemma is not itself claimed as new.",
+        "published-finding corpus cycle determinant record 1ddd581661b4 concerns a single defective weighted cycle, not an unweighted branched tree."
+      ],
+      "reasoning": "Unimodular integral reachability is strictly stronger than full rank: an integer full-rank matrix can have any nonunit determinant. The path and cycle results do not imply a determinant-one law for k>=3 blocks. The adjacency-based quantum spider uses a different operator and endpoint observable.",
+      "searches": [
+        "unweighted spider center hub Kalman determinant always zero or plus minus one if pairwise coprime 2 arm lengths plus 1 integral controllability",
+        "starlike tree single input at hub reachable integer states with integer controls unimodular Kalman",
+        "resultant of grounded path Laplacian characteristic polynomials equals unit iff coprime odd orders",
+        "graph Laplacian spider rooted tree controllability determinant 1 when gcd 2 length plus one",
+        "web: \"starlike\" \"walk matrix\" \"determinant\" Laplacian",
+        "web: \"spider\" \"Kalman\" \"determinant\" \"Laplacian\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Own accessible ledger contained an earlier equal-arm spider Kemeny mixing record (different stochastic objective) and a single-input path unimodularity record (k=2 path, not k>=3 spider).",
+        "The closest published-finding corpus spider records concern quantum adjacency survival and a distinct arithmetic gcd with arm length plus one, not this Laplacian determinant."
+      ],
+      "reasoning": "An exact path special case and a spectral adjacency spider result do not logically imply the assertion on general branching degree, where block resultant compatibility must be proved. No exact table match was identified in the searched recoverable records.",
+      "searches": [
+        "unweighted spider center hub Kalman determinant always zero or plus minus one if pairwise coprime 2 arm lengths plus 1 integral controllability",
+        "starlike tree single input at hub reachable integer states with integer controls unimodular Kalman",
+        "resultant of grounded path Laplacian characteristic polynomials equals unit iff coprime odd orders",
+        "graph Laplacian spider rooted tree controllability determinant 1 when gcd 2 length plus one",
+        "own ledger: case-insensitive claims for spider, starlike, unimodular, Kalman, coprime, integer control"
+      ]
+    },
+    "rationale": "The complete 2025 starlike-node spectral classification and the 2011 grounded-path criterion already cover real controllability and are expressly credited. The new assertion is the far stronger determinant magnitude 0 or 1 for arbitrarily many branched arms, yielding an integral full-reachability lattice when nonsingular. Exact resultant technology is known, but the inspected sources and closest published-finding corpus claims do not state a corresponding Kalman lattice-index theorem for hub-driven Laplacian spiders. This is a best-knowledge comparison, not an exhaustive priority certificate.",
+    "residual_risks": [
+      "Equivalent unindexed publications on integer controllability, unimodular cyclic vectors, spider Laplacians, or modified Chebyshev resultants may exist.",
+      "The 2025 full starlike classification strongly dominates the qualitative real-controllability condition; only the additional integer lattice-index assertion is advanced as novel.",
+      "No independent publication-priority or mathematical audit was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides path/cycle real controllability, not higher-degree hub determinant or integral reachability",
+        "evidence": [
+          "arXiv original version 2011-09-16; Lemma IV.1 states path reachability via common grounded-arm eigenvalues."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1109.3556v1",
+        "material_read": "HTML sections III and IV, particularly Lemma III.5, Proposition III.6, Lemma IV.1 and proof",
+        "method": "Read original accessible full-text HTML and compared precise graph class, object and conclusion",
+        "title": "On the reachability and observability of path and cycle graphs",
+        "trigger": "Earliest focal source; grounded-path spectra and arithmetic control tests"
+      },
+      {
+        "assessment": "Strong coverage of real controllability; no explicit integer Kalman index or integer-step input reachability assertion in inspected material",
+        "evidence": [
+          "Section 3 calls its starlike node-selection characterization complete; Appendix A.2 gives grounded-path eigenvalues. Qualitative reachability is credited."
+        ],
+        "identifier_or_url": "https://www.mdpi.com/1999-4893/18/5/239",
+        "material_read": "Full open HTML sections 2–5, especially sections 3.1, 3.2, 4, 5, and Appendix A.2",
+        "method": "Read original primary article full-text HTML, searched determinant/unimodular/gcd, examined theorem statements",
+        "title": "Laplacian Controllability and Observability of Multi-Agent Systems: Recent Advances in Tree Graphs",
+        "trigger": "Highly relevant same-graph full classification"
+      },
+      {
+        "assessment": "Chebyshev resultant formulas are prior art; source contains no hub-control/Kalman lattice theorem. No novelty claimed for resultant theory.",
+        "evidence": [
+          "Published electronically 2012-03-05; Theorems 3–4 treat first- and second-kind Chebyshev resultants."
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/307773230FE1D9B72A312B7B4EEB6BB0/S0008439500003593a.pdf/resultants-of-chebyshev-polynomials-a-short-proof.pdf",
+        "material_read": "Four-page primary PDF text and first-page screenshot, propositions 1 and theorems 3–4, reference/context",
+        "method": "Read extracted full text and visually inspected PDF page 1",
+        "title": "Resultants of Chebyshev Polynomials: A Short Proof",
+        "trigger": "Same algebraic method could dominate polynomial lemma"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2d743d9e-4843-413b-a76e-eec4ee877b38",
+  "value": {
+    "rationale": "The result addresses a canonical branched-network single-actuator model and distinguishes real controllability from exact saturation of the integer reachability lattice, which is not implied by rank alone. The all-size pairwise odd-gcd test yields an exact constructive arithmetic criterion for quantized integer controls, while avoiding an unsupported claim about bounded effort or numerical conditioning.",
+    "status": "PASS"
+  }
+}
