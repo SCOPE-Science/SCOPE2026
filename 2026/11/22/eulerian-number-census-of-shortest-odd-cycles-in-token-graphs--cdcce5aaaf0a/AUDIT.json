@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Mod-2 support of odd closed token walk is nonempty odd Eulerian graph. At length g the projected support is one base g-cycle, each edge exactly once; flow forces one cyclic direction. Each permutation of edge move times uniquely yields the occupied set by cyclic descents, and counted cycles are simple. Cyclic Eulerian identity and start-point quotient prove formula. Independent tests: 39 base instances, 126 token cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2024 Theorem 6.1: directed oriented girth equalities, no shortest-cycle multiplicities. 2026 equation (10): lifted triangles count only."
+      ],
+      "reasoning": "Published girth and triangle theorems cover structural/shortest special cases but neither all odd girths nor Eulerian multiplicities. 2026 maximum-cut bounds do not imply a cycle census.",
+      "searches": [
+        "arxiv:2509.01773v1 Section 2 full text",
+        "arxiv:2410.20189v1 Section 6 full text",
+        "arxiv:2611.25153v1 Section 3.2 full text",
+        "Web query: token graphs girth odd girth number of shortest odd cycles girth formulas"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.25153v1, full HTML Section 3.2 equation (10), November 18, 2026",
+      "arxiv:2410.20189v1, full HTML Section 6, Theorem 6.1",
+      "arxiv:0910.4774v1, full HTML sections 2-8 and statement of constructions",
+      "2026/10/25/SCOPE-odd-cycle-source-hom-complexes-of-high-girth-graphs-recover-two--35bcc62ae4df (semantic record, object differs)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At g=3, formula reduces to c_3(G) binom(n-2,k-1), explicitly previously known (2026 source, citing FMFPH+12). At g=5 on C_5 with two tokens the result gives 11 shortest odd cycles, not implied by either prior theorem's statement."
+      ],
+      "reasoning": "Do not claim the triangle identity or bare odd-girth invariance. Strongest examined prior statements do not derive the exact g>=5 Eulerian multiplicities or unique chronological classification by direct specialization.",
+      "searches": [
+        "arxiv:2509.01773v1 Section 2 Proposition 2.13",
+        "arxiv:2611.25153v1 Section 3.2 equation (10)",
+        "arxiv:2410.20189v1 Section 6 Theorem 6.1",
+        "published-finding corpus query: odd girth of token graph preserved and exact minimum odd cycle counts"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2009 foundational full text gives token-graph definition and basic edge count; 2026 primary paper explicitly gives the triangle-only coefficient; 2024 digraph paper proves an oriented girth equality, not counts."
+      ],
+      "reasoning": "The theorem is not just odd-girth preservation: for odd base cycles, it enumerates Eulerian-number-many lifted shortest odd cycles at each token count. The g=3 special case is already known, whereas g>=5 is not implied by its proof without a new cyclic-permutation argument.",
+      "searches": [
+        "arxiv:2509.01773v1, full Section 2 (2025)",
+        "published-finding corpus query: shortest odd cycles in token graph Eulerian number permutation descents formula",
+        "published-finding corpus query: triangles five cycles in token graphs Johnson graphs cycle counting Eulerian numbers",
+        "published-finding corpus query: odd girth of token graph preserved and exact minimum odd cycle counts"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus ranked returns an odd-girth Hom-complex census concerning graph homomorphism complexes, not F_k(G); other top hits concern unrelated cycle and digraph statistics."
+      ],
+      "reasoning": "No indexed covering enumeration was identified. A negative indexed search cannot certify absolute novelty, so the remaining unindexed literature risk is recorded.",
+      "searches": [
+        "published-finding corpus query: shortest odd cycles in token graph Eulerian number permutation descents formula",
+        "published-finding corpus query: triangles five cycles in token graphs Johnson graphs cycle counting Eulerian numbers",
+        "published-finding corpus query: odd girth of token graph preserved and exact minimum odd cycle counts"
+      ]
+    },
+    "rationale": "Exact shortest-odd-cycle multiplicities across arbitrary finite base graphs and all token numbers extend a known triangle count and differ from published directed girth equality. No covering statement found after actual semantic and primary-full-text comparisons; historical priority provisional.",
+    "residual_risks": [
+      "Unindexed historical exclusion-process literature might contain equivalent cyclic-Eulerian enumerations; independent priority review remains necessary.",
+      "Only accessible named full texts and semantic records were searched; negative search evidence is not conclusive uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Studies generalized two-token simultaneous moves, not shortest odd cycle counts of the ordinary graph",
+        "evidence": "Proposition 2.13 describes non-bipartiteness of F_2^2(C_n) for even n; distinguishes ordinary from simultaneous token graph",
+        "identifier_or_url": "https://arxiv.org/html/2509.01773v1",
+        "material_read": "Full HTML, Introduction, main Section 2 statements on odd-cycle bipartiteness and configurations including Proposition 2.13",
+        "method": "Read primary text and compare domain m=1 versus m=2",
+        "title": "Generalized Token Graphs",
+        "trigger": "Recent eligible primary motivating work on ordinary and simultaneous token graphs, cycles and bipartiteness"
+      },
+      {
+        "assessment": "Triangle multiplicity previously established; higher odd-length cycles not enumerated there",
+        "evidence": "Section 3.2 eq. (10) gives c_3(F_k(G))=c_3(G) binom(n-2,k-1)",
+        "identifier_or_url": "https://arxiv.org/html/2611.25153v1",
+        "material_read": "Full HTML, abstract, Sections 2–4, in particular Section 3.2 equations (9)–(10) and references",
+        "method": "Read relevant original full text and compared exact assertions",
+        "title": "Max-Cut on Token Graphs",
+        "trigger": "Contemporary all-token graph work; triangle parent enumeration; overlap with shortest odd cycles"
+      },
+      {
+        "assessment": "Oriented girth equality, no shortest odd cycle count or Eulerian multiplicity",
+        "evidence": "Theorem 6.1 states g(D)=g(F_k(D)) for oriented digraph girth",
+        "identifier_or_url": "https://arxiv.org/html/2410.20189v1",
+        "material_read": "Full HTML Sections 2–10 with close inspection of Section 6 Theorem 6.1 proof",
+        "method": "Read primary full text and compared statement/domain",
+        "title": "A study on token digraphs",
+        "trigger": "Possible broader girth theorem for related token constructions"
+      },
+      {
+        "assessment": "Definitions, edges, chromatic and other structural properties, not the new odd-girth census",
+        "evidence": "Section 2 gives |E(F_k(G))|=binom(n-2,k-1)|E(G)| and complement symmetry",
+        "identifier_or_url": "https://arxiv.org/html/0910.4774v1",
+        "material_read": "Full HTML table of contents, Sections 2–8, in particular edges, subgraphs and triangle discussion",
+        "method": "Read primary full text on token counts and constructions",
+        "title": "Token Graphs",
+        "trigger": "Original definitions and general prior counting assertions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cdcce5aa-af0a-4bf3-83cc-b61ae91a276c",
+  "value": {
+    "rationale": "Shortest odd cycles govern primary bipartiteness obstructions and furnish the smallest odd-cycle cut constraints. The exact token-lift multiplicity for arbitrary base graphs and all k, including an Eulerian distribution for C_g, extends known triangular lifting to odd girth >=5 with genuinely varying counts.",
+    "status": "PASS"
+  }
+}
