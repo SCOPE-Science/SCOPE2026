@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The source's known exact hypergeometric characteristic function yields the same distribution as an independently stated two-Beta product by compact-support moment determinacy. Differentiating its positive Euler integral proves all local sign claims. A scalar Gauss equation gives a constant-sign second derivative at any stationary critical point, forcing at most one nondegenerate critical point per half-support. Endpoint and center sign tests establish existence in the two regimes, and the remaining regimes are handled by monotone integral factors or monotone mixtures. Rescaled Euler-integral derivatives give the sharp peak-location prefactor and exponent. The packaged `check_modes.py` passed 410 checks; finite checks are diagnostic, not an infinite proof. No thermal noise, biased runs or finite-time claims are included.
+
+## Originality — PASS, qualified
+Sun, Ye and Podgornik (arXiv:2409.00578v1, 2024-09-01; inspected full text of revised HTML Section III and conclusion) already supplied the entire stationary one-dimensional density and noted center/boundary features. Basu et al. (arXiv:1910.10083v1, inspected full text) classify only the equal-rate line. Related published mathematical results on analyticity resonances, conditional motor-state reconstruction, and stationary moment inverse ambiguity for the same Markov process were read and compared: they cover the beta-product representation and the exact special line \(T=R+1\), but not the complete off-line mode diagram or sharp peak opening. Published two-state saturating-speed and complete-graph ternary-switching mode diagrams concern distinct generators. This contribution is limited to the complete two-rate global critical-point classification and asymptotic splitting; no novelty is claimed for the prior densities or beta line. There remains a residual priority risk from unindexed special-function or active-matter work.
+
+## Mathematical value — PASS
+The stationary number and location of concentration peaks are physically motivated diagnostics of rest-induced central accumulation versus persistent-run support-edge localization. The theorem proves that finite rests can induce exactly three peaks or two interior peaks in distinct parameter regions, proves that no additional oscillatory modes occur for any positive rates, and identifies a continuously variable non-square-root peak-opening exponent. These are global quantitative properties not determined by the already-known singularity exponents or moment formulas, and the exact phase boundary supplies a natural observable transition.
+
+## Limits
+All statements are for one-dimensional, Markovian finite-rest propulsion with symmetric independent restart directions in a harmonic trap. Boundary maxima can be integrable divergences. The opening asymptotic is at fixed \(R\in(0,2)\setminus\{1\}\), not uniform at the exceptional run rates. Independent validation is not claimed. Publication priority remains subject to specialist verification.
+
+Self-review: passed. Independent audit: not yet performed.
