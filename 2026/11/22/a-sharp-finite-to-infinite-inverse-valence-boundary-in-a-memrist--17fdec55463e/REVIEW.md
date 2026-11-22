@@ -1,0 +1,15 @@
+# Scientific review: finite-to-infinite inverse valence
+
+## Correctness — PASS
+The mathematical claim uses the exact full-real-state map and a fixed target. Coordinate elimination gives two scalar equations, and their high-memory sine phases supply an exhaustive count: no remote zeros subcritically, exactly two simple zeros per phase period on each of two sheets supercritically, and zero/one/two per sheet at equality. A uniform predecessor bound for compact target sets proves properness below threshold. The determinant agrees symbolically with the derivative of each scalar inverse equation. The inverse-root diagnostics and the fold-splitting asymptotics passed. Finite diagnostics are not substitutes for the phase-cell proof. The result does not assert global invertibility or analyze forward attractors.
+
+## Originality — PASS within inspected evidence
+Wang et al. (2022, DOI 10.3390/math10193426) develop the precise map, fixed-point-free property, derivative matrix, bifurcation scans, and coexisting attractors; their Sections 2–5 and conclusions do not contain a preimage trichotomy or global properness theorem. Lozi's 2023 survey (DOI 10.3390/a16100491, Section 3.3.1) reproduces the map and summarizes forward dynamics without studying predecessor counts. The closest indexed infinite-inverse-valence example concerns a different planar cosine-flux Chialvo map, with a zero-coupling threshold rather than the present positive threshold and target-selective critical singular sheets. No inspected result implies the claimed formulas. A relevant remaining risk is an unindexed analysis of the same three-dimensional Lozi-memristor inverse problem, so independent priority verification remains appropriate.
+
+## Mathematical value — PASS
+A sharp boundary between proper finite-sheet behavior and nonproper infinite-sheet behavior determines whether all immediate state predecessors can be enumerated finitely. The high-memory ancestral density, all-target surjectivity above threshold, and target-dependent equality cases reveal a structural change missed by forward-only numerical bifurcation diagrams. The square-root coalescence distinguishes regular and singular inverse ancestors and is useful for understanding backward reconstruction and noninvertible dynamics of the published map. Infinite fibers arise at unbounded state amplitudes; claims about physically bounded trajectories are expressly excluded.
+
+## Closest literature and limitations
+Sources: J. Wang et al., *Memristor-Based Lozi Map with Hidden Hyperchaos*, Mathematics 10 (2022), 3426; R. Lozi, *Survey of Recent Applications of the Chaotic Lozi Map*, Algorithms 16 (2023), 491; H. Li et al., *Coexisting Infinite Orbits in an Area-Preserving Lozi Map*, Entropy 22 (2020), 1119 (forward-orbit phenomenon in a distinct planar model). Prior indexed inverse-valence studies concern other map equations and do not imply the critical trichotomy. The present theorem excludes claims concerning forward chaos, finite operating domains, and the exact subcritical finite count.
+
+Self-review: passed. Independent audit: not yet performed.
