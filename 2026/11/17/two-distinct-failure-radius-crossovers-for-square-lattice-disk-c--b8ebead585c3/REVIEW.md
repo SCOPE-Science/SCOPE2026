@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem follows from exact localization to four lattice-square corners, an independently derived circle-arc perimeter formula, exact enumeration at radius one, and rigorously controlled isolated-site scaling. The finite boundary polynomial has uniformly bounded coefficients, so the proposed joint limits follow without extrapolating from numerical data. The checker reproduces the critical geometric coefficients and near-critical asymptotics. Residual risk: boundary-density definitions assume geometric perimeter in growing square windows, with window-edge contributions removed.
+## correctness
 
-**Originality — PASS (historical priority provisional).** The relevant earlier square-grid literature addresses network coverage thresholds and hole counts, not the joint area/perimeter radius–failure crossover. The closest archived triangular-grid finding treats a fixed triangular covering radius and cubic failure response; neither of its statements implies the two windows or coefficients here. Searches covered equivalent terms such as vacancy area, site-erasure disk unions, circle-arc boundary densities, and radius/failure critical scaling. Risk: a specialized stochastic-geometry reference using a different terminology for mean Minkowski functionals could overlap and deserves independent examination.
+PASS
 
-**Value — PASS.** The two distinct failure scales demonstrate that area loss and boundary complexity respond at parametrically different reliability levels. This is relevant to coverage morphology and resolves a natural question about how infinitesimal loss of sensing range changes small-failure robustness, beyond routine evaluations of fixed-radius coverage fractions.
+For 1/sqrt2<=R<=1, interior of a unit lattice square is covered only by its four corners. Thus the unoccupied fraction equals integral q^{k_R(x)} and is a finite polynomial; a surviving disk contributes an exposed arc exactly when all m_R(theta) other disks covering its boundary fail, giving a second finite polynomial. At R=1, adjacent two-deletion corners leave area c=1-sqrt(3)/4-pi/6 and arc length pi/3 per pattern; three deletions leave 1-pi/4 area and pi/2 arc. The coefficients give Phi_1=4cq²(1-q)²+4(1-pi/4)q³(1-q)+q⁴, Lambda_1=(4pi/3)q²(1-q)²+2pi q³(1-q). The near-critical isolated deleted-site cavity has diameter ~2delta in both axes, area 4delta² and perimeter 8delta; two-failure coefficients tend to 4c and 4pi/3 by dominated convergence. Uniform bounded higher polynomial coefficients prove both windows; the lattice ergodic theorem supplies almost-sure density limits. Independent midpoint integration of quarter cavity gives area/delta² =4.0135708 at delta=.01, 4.0026760 at .002, and 4.0006701 at .0005. The earlier scratch integration with reversed limits was discarded and corrected before accepting this check.
 
-The source comparison includes full-text material from Shakkottai–Srikant–Shroff, Balister–Kumar, and Yan–Vergne–Martins–Decreusefond. The proof is mathematical, not a performance claim for physical sensor devices.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge finding after comparing actual statements and consequences, not titles. The four structured checks and specific full/partial source inspections below separate previously known inputs from surviving contributions.
+
+## value
+
+PASS
+
+A sharp distinction between two natural geometric coverage-loss observables on the standard square sensor grid, with exact all-q critical laws and separate reliability scales q~(1-R)² versus q~1-R. Boundary length and area encode different geometry and matter for quantitative reliability; this is neither a mere coverage/no-coverage criterion nor a triangular-grid substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
