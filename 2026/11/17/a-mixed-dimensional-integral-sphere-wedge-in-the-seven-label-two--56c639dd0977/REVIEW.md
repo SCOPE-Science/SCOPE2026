@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact object is the loopless degree-at-most-two edge-subset complex of the seven-vertex complete graph. The fully replayed verifier enumerates its 15,795 nonempty faces, certifies an acyclic Morse matching on all 77,007 Hasse covers, and constructs the exact signed 132-by-312 attaching matrix. Its Smith form has 131 unit factors and no nonunit factors. With only one zero-cell and cells of dimensions four and five, the integral classification of all attaching maps by \(\pi_4\) gives exactly one four-sphere and 181 five-spheres. Direct mod-two simplicial chain ranks independently reproduce the resulting Betti numbers. The finiteness is intrinsic to the specified object.
+## correctness
 
-## Originality — PASS, residual uncertainty
-Prior sources were compared at the level of mathematical implication, not title matching. Jonsson's Chapter 12 is known to tabulate complete-graph bounded-degree homology; we do **not** claim those Betti numbers as new. The six-label degree-two complex already has an integral wedge classification, but this neither fixes the seven-label attaching maps nor forces the mixed-dimensional decomposition. The earlier seven-label triangle-free two-matching subcomplex has 146 rather than 181 five-sphere summands; its classification does not establish the unrestricted complex's homotopy type. Vega's work on special graph families, Singh's high-degree complete-graph bound, and Limonchenko–Yu's bipartite capacities do not imply the present homotopy splitting. The relevant Jonsson primary full text was inaccessible: an implicit stronger result remains an explicit risk.
+PASS
 
-## Value — PASS
-This determines an exact natural seven-label integral homotopy type at the first visible mixed-dimensional stage of the loopless uniform degree-two complete-graph sequence. It distinguishes unrestricted two-matchings from the strictly smaller triangle-free variant and proves the complete attaching-map structure rather than just Betti ranks, purity, or coefficient-field tests. The nontrivial 131-unit integral Morse differential explains why the final space splits into spheres without Moore summands.
+Faces are ALL edge sets of K7 of maximum graph degree <=2; triangles are allowed. Independent incremental degree-mask enumeration obtained 15,795 nonempty faces, f-vector (21,210,1190,3780,6132,3997,465). Complete lexicographic toggle matching yields 7,675 disjoint pairs and one 0-cell, 132 4-cells, 312 5-cells, with all 77,007 nonempty Hasse covers acyclic by independent topological sorting. Independently computed the complete oriented 132x312 Morse boundary via unit-incidence gradient recursion and exact Smith normal form (sympy/ZZ); there are precisely 131 nonzero invariant factors, each 1. This leaves rank 1 H4 and rank 181 H5 and no integral torsion. Since the 4-skeleton is wedge 132 S4 and pi4 equals its integral H4, unimodular basis changes implement 131 degree-one attachments/cancellations, leaving S4 wedge 181 S5. This proves integral homotopy for the finite complex, not just modular Betti numbers.
 
-## Scientific limitations
-No general extrapolation beyond seven graph vertices, no equivariant decomposition, no independently performed proof audit, and no claim that the separately known integral homology table is original.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The bounded-degree two-matching complex is not the triangle-free subcomplex of the line graph nor the generalized chessboard complex of a complete bipartite graph. Vega studies smaller graph families, while Limonchenko-Yu treat bipartite capacity complexes. Jonsson has highly relevant numerical bounded-degree homology tables, potentially including this entry; even previously tabulated Betti ranks alone do not imply the exact integral wedge homotopy type. Exact identity coverage remains a qualified priority risk. The same-day Resultary self-mirror was not treated as prior independent work.
+
+## value
+
+PASS
+
+The complete 7-label degree-two matching complex is a natural first mixed-dimensional finite case, and knowing its integral homotopy rather than rational homology determines the absence of attaching obstructions and torsion. Its difference from the triangle-forbidden subcomplex (181 versus 146 five-spheres) is a substantive structural boundary useful for understanding how triangle components affect two-matching topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
