@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness: PASS.** The normalized kernel and an explicit two-Weyl-unitary factorization establish the precise operator-norm coefficient; a simple derivative identity for the stationary function proves exactly one extremum per angular half-period. A backward-phase comparison proves the first maximum is globally unique. Simple-zero asymptotics yield both the large-index geometric alternation and the exponentially small first-peak amplitude. The packaged finite checker passed 18,295 tests, but is supplementary to the proof.
+
+**Originality: PASS (qualified).** Chalendar–Partington (2021, Theorem 2.3) gives the affine semigroup classification and limit; the 2022 survey repeats those facts, and Dai (2019) gives a more general exact pointwise norm theory. These results mathematically provide the raw norm profile, so the present result is not a new norm formula. None of the inspected full-text semigroup theorems states a unique global time maximizer, infinitely many alternating extrema, or the beyond-all-orders singular angular law. Comparing full statements, those conclusions require a new global sign-variation and small-parameter analysis. Closest indexed records concern Fock composition iterate approximation spectra rather than this time-envelope problem. This is a refinement with priority risk because Dai (2019) full text was unavailable.
+
+**Mathematical value: PASS.** Nonnormal evolution can converge in operator norm to a nonorthogonal projection while transient norms rise above their final value. The result gives the complete global peak classification, the exact oscillation count structure and its singular weak-angular threshold. The exponentially small scale is useful for interpreting apparent numerical monotonicity in slowly rotating semigroups and cannot be recovered from finite Taylor expansion in angular speed.
+
+**Limitations and risks.** Only the scalar affine unweighted Bargmann–Fock class is addressed; the 2019 norm paper was checked in abstract only, and no independent validation has been performed. The new contribution is downstream of classical exact norm formulas and should not be presented as an independently originating operator norm characterization.
+
+Self-review: passed. Independent audit: not yet performed.
