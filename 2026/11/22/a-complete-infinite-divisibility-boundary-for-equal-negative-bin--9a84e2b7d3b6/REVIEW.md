@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness: PASS (self-review).** The equal-row fiber is derived from independent negative-binomial probabilities. Its first two unnormalized coefficients are explicitly evaluated. The general additive-root argument demonstrates why a negative coefficient of the logarithm of the generating function excludes arbitrary infinite divisibility, not merely a particular compound-Poisson representation. The boundary region is exhausted by two strict rational inequalities. Every surviving case is realized by a positive compound-Poisson Lévy series. The embedded checker verifies exact polynomial coefficients, normalizations and parameter grids; it is supporting evidence, not an infinite proof.
+
+**Originality: PASS against inspected sources.** DeSalvo's October 2026 Theorem 3.2 supplies the HNB conditional pmf but does not classify infinite divisibility. Existing ordinary negative-binomial infinite divisibility results settle the single-row cases only; the earlier sharp cutoff for geometric maxima is about a different distribution and its proof does not imply the present matrix-shaped parameter classification. DeSalvo's full primary text was examined in its §3, introduction and theorem statements. The general literature on power-series laws and zero-inflated negative-binomial models offers methods but no located statement of this same classification. Residual risk: an unlocated theorem about coefficient-wise powers of negative-binomial series might subsume the classification.
+
+**Value: PASS.** Infinite divisibility determines whether a count admits a Poisson cluster or independent-increment interpretation. Conditioning independent infinitely divisible row totals to equality need not preserve that interpretation. The complete sharp integer two-parameter classification isolates its sole nontrivial survivor and supplies all of that survivor's Lévy rates, resolving the full natural equal-row zero-difference family—not an arbitrary numerical slice.
+
+**Limitations.** No classification for nonzero row differences, unequal/noninteger shapes, or claims of independent validation. The negative region is decided by a necessary coefficient condition; only the positive exceptional cases require and receive a constructive representation.
+
+Self-review: passed. Independent audit: not yet performed.

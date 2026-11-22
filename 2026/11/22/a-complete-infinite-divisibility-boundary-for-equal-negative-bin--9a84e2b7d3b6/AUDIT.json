@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For all integers c,r>=1 and w in (0,1), direct fiber probabilities give G(z)=B(wz)/B(w), a1=c^r w, a2=binom(c+1,2)^r w^2. If a2-a1^2/2<0, the z^2 coefficient of the m-th convolution root G^(1/m) becomes negative for large m. The strict bounds ((c+1)/(2c))^r <=4/9 when c>=3,r>=2 and <=27/64 when c>=2,r>=3 cover all negative cases. Positive cases are geometric, negative-binomial, or c=r=2 with PGF ((1-w)^3/(1+w))(1+wz)/(1-wz)^3 and strictly positive rates (3+(-1)^(k-1))w^k/k. Exact checker run from packaged path verifies identities and grid; infinite proof does not depend on finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Steutel-van Harn 2004: general discrete compound Poisson criterion, not the HNB parameter classification.",
+        "published-finding corpus SCOPE-a-sharp-infinite-divisibility-cutoff-for-maxima-of-geometric-sam--f4ffc4d1aca7: maximum of geometric samples, not equality-conditioned NB row totals."
+      ],
+      "reasoning": "Generic compound-Poisson criteria and NB divisibility cover ingredients, but the two-parameter sharp boundary and exceptional Levy measure require applying them to a new conditioned family. Geometric maximum PGFs are different and do not dominate the claim.",
+      "searches": [
+        "published-finding corpus: COM negative binomial distribution infinitely divisible power binomial coefficient symmetric power series (n+c-1 choose n)^r underdispersed factorial cumulant",
+        "web: negative binomial Hadamard product power distribution infinite divisibility",
+        "web: discrete power distribution negative binomial power row counts infinitely divisible"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.00275, full relevant §3 and introduction",
+      "Steutel and van Harn 2004, retrieved theorem extract",
+      "arxiv:1602.01371 abstract",
+      "published-finding corpus geometric maximum cutoff 2026/10/18/...f4ffc4d1aca7",
+      "published-finding corpus zero-inflated negative-binomial cutoff 2026/10/18/...e4339a2d413f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "DeSalvo Theorem 3.2 conditions NB rows and derives HNB pmf; §3 is devoted to Stein operators, bounds and limit approximations.",
+        "Chhaiba-Demni-Mouayn 2016 generalized negative binomial law is attached to hyperbolic Landau levels, a different distribution with quasi-infinitely-divisible conclusions."
+      ],
+      "reasoning": "The prior HNB pmf plus a classical necessary condition gives an approach but does not explicitly assert or compare the full integer c,r phase diagram. A prior exact classification of all Hadamard NB powers, if located, would supersede this claim; no such statement was found in the searches.",
+      "searches": [
+        "web: hyper negative binomial distribution infinitely divisible product of negative binomial counts given equality Eulerian polynomial",
+        "web: negative binomial conditioned equality infinite divisibility two geometric sums Eulerian distribution",
+        "full primary inspection: https://arxiv.org/html/2611.00275v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DeSalvo arxiv:2611.00275 Theorem 3.2: pmf proportional to product of NB coefficients times w^n; zero offsets give binomial(n+c-1,n)^r w^n.",
+        "No retrieved primary/result title states exact zero-offset c,r classification."
+      ],
+      "reasoning": "The equal-fiber law is a normalized Hadamard power of negative-binomial coefficients; this is distinct from a single NB and from finite additive convolution. Checked for the same pmf, not just nomenclature.",
+      "searches": [
+        "published-finding corpus: Hyper-negative-binomial HNB zero offsets equal independent negative binomial row counts conditioned on equality distribution infinite divisibility compound Poisson classification shape c rows r exceptional 2x2",
+        "web: power of negative binomial mass function normalized power series distribution infinitely divisible coefficient necessary condition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest fetched published-finding corpus ID 2026/10/18/SCOPE-a-sharp-infinite-divisibility-cutoff-for-maxima-of-geometric-sam--f4ffc4d1aca7 and 2026/10/18/SCOPE-sharp-infinite-divisibility-threshold-for-zero-inflated-negative--e4339a2d413f are different laws."
+      ],
+      "reasoning": "Neither listed statement uses the zero-difference hyper-negative-binomial fiber or its shape/row parameter pair. No table with this exact classification was returned; absence of retrieval is not a uniqueness certificate.",
+      "searches": [
+        "published-finding corpus: Hyper-negative-binomial HNB zero offsets equal independent negative binomial row counts conditioned on equality distribution infinite divisibility compound Poisson classification shape c rows r exceptional 2x2",
+        "published-finding corpus: positive integer powers negative binomial probabilities normalized infinitely divisible Hadamard product distribution"
+      ]
+    },
+    "rationale": "DeSalvo 2026 supplies the conditional HNB law but not the exact ordinary infinite-divisibility region. The published-finding corpus geometric-maximum cutoff and zero-inflated-NB classification concern distinct pgfs, hence do not imply equality-conditioned HNB classification. No exact match found in queried primary/general literature, with residual historical-priority risk explicitly retained.",
+    "residual_risks": [
+      "Unlocated older results for polynomially weighted geometric or Hadamard powers of negative-binomial pgfs might imply this claim.",
+      "Steutel-van Harn monograph and Landau-level paper not inspected in full; source-coverage claims are limited to material actually read."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides pmf and Stein bounds, not claimed infinite-divisibility phase diagram",
+        "evidence": "Theorem E and Theorem 3.2, law pmf proportional to product NB binomials; 2026-10-30 submission",
+        "identifier_or_url": "https://arxiv.org/html/2611.00275v1",
+        "material_read": "Introduction and §3 conditional-law theorem, related-statements search for infinite divisibility and compound Poisson",
+        "method": "Full HTML inspected at formula/theorem sections, text find",
+        "title": "Stein's method for negative binomial and hyper-negative-binomial laws, with applications",
+        "trigger": "Direct source of HNB zero-fiber law"
+      },
+      {
+        "assessment": "Known criterion and NB results; unknown if other sections cover Hadamard powers",
+        "evidence": "Theorem 7.4 asserts mixtures of NB(2) are infinitely divisible",
+        "identifier_or_url": "Steutel and van Harn (2004), https://www.nzdr.ru/data/media/biblio/kolxoz/M/MV/Steutel%20F.%2C%20van%20Harn%20K.%20Infinite%20divisibility%20of%20probability%20distributions%20on%20real%20line%20%28Dekker%2C%202004%29%28ISBN%200824707249%29%28546s%29_MV_.pdf",
+        "material_read": "Retrieved extract of the discrete NB-mixture Theorems 7.4 and 7.5, not entire monograph",
+        "method": "Web search excerpt, no claim of full-document exclusion",
+        "title": "Infinite Divisibility of Probability Distributions on the Real Line",
+        "trigger": "Potentially dominating general infinite-divisibility theory"
+      },
+      {
+        "assessment": "Different Landau-level distribution; not decisive coverage",
+        "evidence": "Abstract describes quasi-infinite divisibility of coherent-state law",
+        "identifier_or_url": "https://arxiv.org/abs/1602.01371",
+        "material_read": "Abstract only",
+        "method": "arXiv abstract search",
+        "title": "Analysis of generalized negative binomial distributions attached to hyperbolic Landau levels",
+        "trigger": "Similar generalized NB title and infinite-divisibility content"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9a84e2b7-d3b6-4202-aea3-77aa31a54b62",
+  "value": {
+    "rationale": "A natural complete two-dimensional classification of whether equal-conditioned negative-binomial row totals retain an independent-increment/Poisson-cluster representation; exact exceptional c=r=2 Levy intensities and all-parameter obstructions quantify the conditioning-induced loss, beyond an isolated coefficient check.",
+    "status": "PASS"
+  }
+}
