@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "All variables and laws are explicitly defined for n>=2 and p in [0,1]. Exact same-site and adjacent-site covariance yields the finite formulas. A single interior refresh has four exact marks of masses 1/2,1/6,1/6,1/6, confirmed by all 24 score orders. Bad refresh configurations have probability <=2p+2np^2, while the ideal multinomial mark counts admit independent-Poisson coupling with error <=np^2/2 and mean adjustment <=|np-lambda|/2, proving the displayed total-variation bound. The large-refresh Gaussian law follows from connected cumulant bounds O_r(np) for one-dependent bounded differences and variance between np/6 and np/3. CHECK.py passed 49 assertions over 12 exhaustive finite parameter cases. Finite tests corroborate, do not replace, the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Borodin, Diaconis and Fulman, arXiv:0904.3740, Section 2 Theorem 2.1, general one-dependence and marginal CLT",
+        "Chatterjee and Diaconis, arXiv:1608.01666, Theorem 1.2, Gaussian approximation for fixed local degree"
+      ],
+      "reasoning": "The one-dependent and local-functional limit machinery is broader methodologically and yields Gaussian conclusions after verifying its hypotheses, but those theorems do not state the rare marked joint law or its exact parameters. Their general implications are acknowledged rather than relabelled novel. The finite cross-covariance depends on a specific coupling not supplied by a one-sample result.",
+      "searches": [
+        "Exact covariance of descent counts of coupled random rankings when each coordinate is retained with probability 1-p",
+        "\"joint distribution descent number of permutations with independent coordinate resampling correlated ranks\"",
+        "\"compound Poisson limit descent comparison of two random permutations perturbing scores\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/0904.3740 (full rendered text inspected; initial posting 2009-04-23)",
+      "https://arxiv.org/abs/1608.01666 (full rendered text inspected; initial posting 2016-08-04)",
+      "https://doi.org/10.1006/jcta.2001.3233 (abstract only)",
+      "Published mathematical research record queries for independent score refreshing, paired descent covariance, and marked Skellam errors"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:0904.3740: stationary one-dependence and marginal descent CLT",
+        "arXiv:1608.01666: local permutation statistic CLT and descent plus inverse-descent limit"
+      ],
+      "reasoning": "At refresh probability one the two rankings are independent, but their ordinary marginal theorems do not determine intermediate cross-noise covariance. At refresh probability of order inverse sample size, normal marginal descents coexist with a nonnormal, marked Poisson change and a positive silent-error probability. Neither prior theorem implies that conclusion as a direct corollary with no new coupling or mark calculation.",
+      "searches": [
+        "Exact covariance of descent counts of coupled random rankings when each coordinate is retained with probability 1-p",
+        "Compound Poisson law for Hamming disagreement of local descents between coupled permutations with sparse coordinate replacement",
+        "\"noise stability descent statistic uniform permutations resample ranks coordinate\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Borodin, Diaconis and Fulman, arXiv:0904.3740, Section 5, descents in one permutation and different independent Mallows combinations",
+        "Chatterjee and Diaconis, arXiv:1608.01666, Theorem 1.2, local statistics of a single uniform permutation"
+      ],
+      "reasoning": "The paired comparison process is representable by two rankings with dependent score coordinates; neither a one-ranking Eulerian law, a paired permutation/inverse law, a random-to-top shuffle, nor a Mallows deformation determines its local edit marks. Searching for a Skellam law, Hamming rank-comparison disagreement, and sparse independent score refresh returned no directly equivalent statement; absence from searches alone is not proof.",
+      "searches": [
+        "Skellam law for changes of the number of descents when each iid rank score is refreshed at rate lambda/n; cancellation of two adjacent flips",
+        "Compound Poisson law for Hamming disagreement of local descents between coupled permutations with sparse coordinate replacement",
+        "\"random permutation descent noise sensitivity resampling entries independently asymptotic Poisson Skellam\"",
+        "\"silent descent errors\" \"random rankings\" rare refresh Poisson Skellam total variation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published research title: A local shielding law for records and descents in uniform permutations (local records, not coordinate refresh)",
+        "Closest published research title: Two Poisson obstruction fields at the sparse-Mallows adjacent-matching threshold (Mallows obstructions, not refreshed ranks)",
+        "Closest published research title: Three-scale inversion laws for correlated-label inverse riffle shuffles (inverse riffle inversions, not adjacent descent disagreements)"
+      ],
+      "reasoning": "No exact finite rational covariance identity or complete Poisson mark table for independently refreshed uniform ranking scores was located in the checked records. Exact rational checks were independently reproduced for sizes 2 through 4; they verify normalization but cannot establish historical novelty.",
+      "searches": [
+        "Poisson resampling of entries of a random permutation descents stability Hamming distance Skellam distribution sparse perturbation",
+        "Skellam law for changes of the number of descents when each iid rank score is refreshed at rate lambda/n; cancellation of two adjacent flips",
+        "Compound Poisson law for Hamming disagreement of local descents between coupled permutations with sparse coordinate replacement",
+        "\"score replacement\" \"descent\" \"Skellam\" uniform permutation"
+      ]
+    },
+    "rationale": "Two primary full texts establish the marginal descent dependence and local-statistic Gaussian comparison but neither treats the independently refreshed paired ranking, its exact cross-noise covariance, or the marked critical-window joint signed/Hamming limit. Published research searches closest to these statements found adjacent random-permutation and Mallows problems without implication of the independent-coordinate-refresh result. The claimed finding is the explicit coupled law and quantitative silent-error theorem, not a new general Poisson, Skellam, or one-dependent CLT mechanism.",
+    "residual_risks": [
+      "A general published noise-sensitivity or local statistic Poisson theorem might contain this model as an unindexed special case.",
+      "The 2002 descent-density article was not read in full; only its abstract was available in the inspected material.",
+      "The basic Poisson approximation mechanisms are classical; the originality claim is deliberately confined to the explicit coupled score-refresh law and quantitative constants."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MARGINAL_BACKGROUND_NOT_COVERING",
+        "evidence": [
+          "Theorem 2.1 establishes normality of a single descents/carries count",
+          "Section 5 investigates permutation descent processes, not pairwise retention/replacement of underlying ranking scores"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0904.3740",
+        "material_read": "Full accessible rendered arXiv article: introduction, Sections 2 and 5, descent and carries theorems and examples",
+        "method": "Read full article text and compared the defined random objects, hypotheses, and scope of its one-dependence and permutation examples to the two-score-refresh model",
+        "title": "On adding a list of numbers (and other one-dependent determinantal processes)",
+        "trigger": "The most directly pertinent classical full-text source for uniform permutation descent one-dependence and local central limit theory"
+      },
+      {
+        "assessment": "GAUSSIAN_METHOD_RELATED_NOT_RARE_MARKED_COUPLING",
+        "evidence": [
+          "Theorem 1.1 concerns descents of a permutation and its inverse",
+          "Theorem 1.2 bounds normal approximation for single-permutation local statistics rather than the marked rare-refresh error vector"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1608.01666",
+        "material_read": "Full accessible rendered arXiv article including Introduction, Theorems 1.1 and 1.2, and Sections 3, 5 and 6",
+        "method": "Compared the local degree-k hypotheses and permutation/inverse coupling with independent replacement of coordinates before ranking",
+        "title": "A central limit theorem for a new statistic on permutations",
+        "trigger": "Potential stronger broad coverage through local permutation statistics and a two-statistic joint Gaussian theorem"
+      },
+      {
+        "assessment": "ABSTRACT_ONLY_RESIDUAL_RISK",
+        "evidence": [
+          "Published abstract describes a one-permutation two-variable density, log-concavity and Eulerian-number inequalities",
+          "Full paper not inspected and its noncoverage is not certified"
+        ],
+        "identifier_or_url": "https://doi.org/10.1006/jcta.2001.3233",
+        "material_read": "Bibliographic abstract and scientific summary, not full paper",
+        "method": "Checked abstract model and stated scope; did not infer full-text noncoverage",
+        "title": "A probabilistic approach to the descent statistic",
+        "trigger": "Classical possible predecessor dealing with a probabilistic representation of Eulerian descent statistics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5f1e6c70-b9c8-4f2c-bef9-3e0d70867d3a",
+  "value": {
+    "rationale": "The precise statistical object is natural: independent repairs to the underlying item scores of a uniform random ranking, with both local comparison disagreements and coarse descent-count change observed. The critical np scale and its explicit three-mark Poisson law quantify how often the coarse total hides genuine ranking perturbations. This is a nontrivial rank-robustness calibration with finite covariance and total-variation bounds, not a single renamed Poisson marginal or an arbitrary finite parameter slice.",
+    "status": "PASS"
+  }
+}
