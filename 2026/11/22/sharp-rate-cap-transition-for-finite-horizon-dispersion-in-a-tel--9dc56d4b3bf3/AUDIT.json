@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For every integrable rate in [0,R], the Poisson parity identity produces an exact exponential-kernel energy for its cumulative-hazard pushforward. Lipschitz rate cap implies mu>=dx/(RT) on [0,B]. At c>1/(1+B) the stated candidate has a potential minimized exactly at the two endpoints; positive signed-measure kernel energy makes the variational inequality strict away from the candidate. At smaller c the classical constant-potential equilibrium is feasible. The pulse realizes either minimizer and the endpoint cost is computed by exact integration; a Fourier-transform proof supplies strict positive definiteness for any finite signed measure. Independent ODE matrix-exponential checks passed 90 parameter instances and 250 admissible randomly sampled protocols. Numerical checks supplement, but do not substitute for, the analytic global proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Baldovin and Manacorda (2026), https://arxiv.org/abs/2602.04560 Sections IV-V: driven harmonic trap and state-to-state minimum mechanical work, with slow-protocol approximations.",
+        "Published periodic reversal-budget law, https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-periodic-reversal-budget-bounds-for-active-particle-diffus--6ae3dffd67fb, optimizes periodic long-time diffusivity and uniquely favors homogeneous rate for its lower bound."
+      ],
+      "reasoning": "Neither different finite-horizon objective nor long-time periodic diffusion implies the specific capped terminal-variance minimizer. The periodic homogeneous optimum and this nonperiodic centered pulse emphasize the distinction.",
+      "searches": [
+        "finite-time run-and-tumble particle total expected flips bounded instantaneous tumbling rate minimize displacement variance exact single centered block rate",
+        "finite horizon telegraph process flipping rate L infinity bound fixed integrated rate minimize mean square displacement",
+        "periodic velocity-flipping time-dependent Poisson rate fixed reversal budget long time diffusivity",
+        "arxiv:2602.04560 full text Sections IV-V"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2602.04560",
+      "https://arxiv.org/abs/1201.2756",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-periodic-reversal-budget-bounds-for-active-particle-diffus--6ae3dffd67fb",
+      "https://arxiv.org/abs/2405.13521"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2012 prior result yields the 1/(1+B) unrestricted capacity and atoms; it does not impose mu>=dx/(RT) or state the positive quadratic cap penalty.",
+        "2026 active control work constrains endpoints and mechanical work, not expected flip budget and terminal dispersion.",
+        "Published periodic-result proof takes t->infty and uses Jensen phase averages, not finite-time hazard energy minimization."
+      ],
+      "reasoning": "The final claim deliberately consists of the capped finite-time allocation theorem and its strict quadratic price. It neither claims the classical unrestricted equilibrium measure as new nor reduces to a special case of the periodic long-time theorem. A historical general obstacle theorem could still imply the constrained energy step and is explicitly recorded as residual risk.",
+      "searches": [
+        "Alfonsi Schied 2012 exponential kernel endpoint capacitary measure equation 2",
+        "exponential decay transient price impact bounded trading rate optimal execution endpoint blocks constant interior rate capacity constraint",
+        "Baldovin Manacorda 2026 run-and-tumble optimal controls mechanical work full text",
+        "finite-time run-and-tumble particle total expected flips bounded instantaneous tumbling rate minimize displacement variance exact single centered block rate"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Alfonsi and Schied (2012), https://arxiv.org/abs/1201.2756 explicitly solve unrestricted exponential-kernel capacity, with endpoint atoms and uniform Lebesgue density.",
+        "The physical cap R becomes a LOWER measure-density floor 1/(RT), not the unrestricted capacitary class; new proof handles that obstacle."
+      ],
+      "reasoning": "The unrestricted capacitary formula is identical after a hazard change of variables, so it is not a novel component. The capped rate constraint is a genuine extra feasible-set restriction, and below R=(1+B)/T it produces a positive exact gap and a different optimizer.",
+      "searches": [
+        "capacitary exponential kernel bounded density below optimal measure endpoint atoms uniform bulk saturated rate",
+        "exponential decay transient price impact bounded trading rate optimal execution endpoint blocks constant interior rate capacity constraint",
+        "arxiv:1201.2756 full text sections 1.1-1.2, equation (2)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant indexed results include periodic reversal-budget sharp bounds and stationary-renewal active-particle variance envelopes; no indexed exact rate-capped endpoint dispersion formula found.",
+        "Full published periodic reversal result inspected at https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-periodic-reversal-budget-bounds-for-active-particle-diffus--6ae3dffd67fb (RESULT.md)."
+      ],
+      "reasoning": "No matching finite-horizon capped allocation table or exact formula was identified in actual targeted searches. Absence in search results cannot establish absolute novelty.",
+      "searches": [
+        "finite-time run-and-tumble particle total expected flips bounded instantaneous tumbling rate minimize displacement variance exact single centered block rate",
+        "capacitary exponential kernel bounded density below optimal measure endpoint atoms uniform bulk saturated rate",
+        "finite horizon telegraph process flipping rate L infinity bound fixed integrated rate minimize mean square displacement",
+        "finite horizon telegraph process flipping rate L infinity bound fixed integrated rate minimize mean square displacement"
+      ]
+    },
+    "rationale": "The 2012 Alfonsi–Schied exponential-kernel equilibrium measure exactly covers the UNCONSTRAINED subproblem, and this is credited. The new question adds the physically imposed pointwise switching-rate cap, which induces a lower density obstacle in hazard space. The explicit constrained equilibrium and sharp saturated-to-unsaturated phase boundary are proved with a separate variational inequality, not asserted to follow verbatim from the 2012 unconstrained theorem. The 2026 primary model studies distinct endpoint steering/minimum work, and the closest published periodic-reversal allocation theorem optimizes a different long-time quantity. A potentially equivalent unindexed bounded-impact execution theorem remains a priority risk.",
+    "residual_risks": [
+      "The old unbounded-cap equilibrium measure is known, not new; any originality rests specifically on the rate cap and its exact penalty.",
+      "Older constrained exponential-kernel execution or optimal-control literature might contain an equivalent density-floor variational inequality not returned in targeted searches.",
+      "The theorem does not extend to harmonic confinement; adding a nonconstant response weight changes the feasible measure obstacle."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering exact fixed-integrated-flip, capped-rate terminal variance theorem",
+        "evidence": "First submitted 2026-02-04; manuscript Sec. V minimizes work while steering between stationary endpoint distributions; no reversal-budget constraint.",
+        "identifier_or_url": "https://arxiv.org/abs/2602.04560",
+        "material_read": "arXiv full HTML, introduction, model, sections IV-V including optimal protocols and scope of work",
+        "method": "Full-text HTML opened; sections IV-V read and searched for budget and endpoint objectives",
+        "title": "Control protocols for harmonically confined run-and-tumble particles",
+        "trigger": "Same physical model with tunable time-dependent reversal rate"
+      },
+      {
+        "assessment": "COVERS unrestricted equilibrium completely; not identified as establishing the additional lower-density obstacle and exact rate-cap transition",
+        "evidence": "Equation (2) gives atom+uniform density for G(t)=exp(-rho t); direct use credited in proof.",
+        "identifier_or_url": "https://arxiv.org/abs/1201.2756",
+        "material_read": "Full public HTML intro and statements, specifically equation (2) and discussion of unconstrained capacitary measures",
+        "method": "Full-text HTML opened; searched exponential; read equation (2) and hypotheses",
+        "title": "Capacitary measures for completely monotone kernels via singular control",
+        "trigger": "Exactly matching unconstrained exponential covariance energy kernel"
+      },
+      {
+        "assessment": "Not covering: periodic infinite-time diffusion with no finite-time cap, homogeneous unique minimum; terminal-time pulse is distinct",
+        "evidence": "Published result has D >= v^2 T/(2B) with homogeneous rate equality; specifically excludes finite-horizon transport-optimal protocols.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-periodic-reversal-budget-bounds-for-active-particle-diffus--6ae3dffd67fb",
+        "material_read": "Complete published RESULT.md, assumptions, proof and relationship to prior work",
+        "method": "Public repository file fetched directly and inspected in full",
+        "title": "Sharp periodic reversal-budget bounds for active-particle diffusivity",
+        "trigger": "Same inhomogeneous Poisson telegraph and fixed integrated reversal budget"
+      },
+      {
+        "assessment": "Abstract addresses spatially varying bounded rates and stationary relaxation, not finite-horizon deterministic time allocation",
+        "evidence": "Jain and Chatterjee (2024) abstract explicitly frames space-dependent rates and stationary state.",
+        "identifier_or_url": "https://arxiv.org/abs/2405.13521",
+        "material_read": "Public abstract describing space-dependent saturating rates and stationary MSD",
+        "method": "arXiv abstract accessed via search results; not treated as full-text negative coverage",
+        "title": "Run-and-tumble particle with saturating rates",
+        "trigger": "Potentially related bounded tumbling rates"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9dc56d4b-3bf3-4e47-b872-aab4ac707803",
+  "value": {
+    "rationale": "A sharp cap is operationally natural for molecular-motor reversal controls: a prescribed expected number of flips must be allocated within a finite observation period. The unique centered pulse, sharp threshold R=(1+B)/T, and exact positive quadratic performance loss in the hardware-limited regime give structural design information not available from ordinary constant-tumbling rates or the known unrestricted capacitary formula. The result solves all parameters B,T,R,v in its natural finite-horizon model, not an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
