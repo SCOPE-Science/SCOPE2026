@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Direct 3x3 Gaussian design matrix yields det(I)=nu^{-6}(a-b)^2(a+b-2c)^2. The strict inequality log(cosh u)<u^2/2 establishes the no-null region d<=1. Strict decrease of tanh(u)/u establishes exactly one nonzero null design when d>1, and the analytic expansion gives square-root onset. Both nonzero sign lobes attain positive local maxima. Continuity of their maxima, the positive outer limit at d down to 1 and the vanishing outer-bound as d goes to infinity prove existence of at least one two-global-optimum tie. The checker independently matched the matrix determinant on representative parameters and passed 323 finite diagnostics; it is explicitly not substituted for the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Primini–Kashyap (2014), Sec. II.2, already derives general source/background linear mixing, a broad setup; Secs. IV–V address posterior uncertainties and aperture-overlap assignments, not optimal three-position Gaussian sampling.",
+        "Méndez–Silva–Lobos (2013) studies Fisher bounds for one unknown source location, not simultaneously the two fluxes and sky level."
+      ],
+      "reasoning": "General optimal-design or matrix-rank principles do not by themselves establish the nonzero singular-radius classification and the two distinct globally maximizing radii at one source spacing. The result is limited to the symmetric three-point class and does not claim to solve the unrestricted approximate-design problem.",
+      "searches": [
+        "Web: optimal pixel locations two close point sources estimating fluxes background Gaussian point spread Fisher information",
+        "Web: two point sources source intensities unknown background optimal measurement positions Gaussian determinant experiment",
+        "Web: D optimal design Gaussian mixture regression two kernels unknown coefficients intercept 3 support points",
+        "https://arxiv.org/abs/1410.2564 full text, Sections II–V and appendices"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1304.6361",
+      "https://arxiv.org/abs/1309.4487",
+      "https://arxiv.org/abs/1403.4919",
+      "https://arxiv.org/abs/1410.2564",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-strict-separation-between-joint-parameter-and-location-only-op--79a14601ec93"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The present exact determinant is (a-b)(a+b-2c), with a+b-2c changing sign at exactly one nonzero x if and only if d>1; this yields two information lobes and an intermediate-value tie.",
+        "Prasad (2014) compares pair and single-source hypotheses; Primini–Kashyap (2014) estimate multi-source counts from selected apertures; the closest published-finding corpus plume theorem concerns estimating position of one Gaussian signal."
+      ],
+      "reasoning": "Existing full-text methods motivate the regression formulation and general Fisher criteria, but they do not assert a theorem whose hypotheses entail the sharp nonzero-rank-loss threshold or two-global-radii existence. In particular, a general linear inverse formulation says only that inversion requires nonzero determinant; computing its exact zero curve and tied optimal designs is an additional statement. Historical priority is provisional because not all older optimal-design literature and one plausible observational full text were accessible.",
+      "searches": [
+        "https://arxiv.org/abs/1304.6361 Secs. II–V",
+        "https://arxiv.org/abs/1403.4919 Secs. 1–4",
+        "https://arxiv.org/abs/1410.2564 Secs. II–V, appendices",
+        "published-finding corpus: three symmetric pixels two close Gaussian point sources unknown uniform background D optimal location image sampling bifurcation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest semantic search finding is the Gaussian-plume transect result at https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-strict-separation-between-joint-parameter-and-location-only-op--79a14601ec93.",
+        "The relevant older primary source Primini–Kashyap (2014) treats multiple-source photometric inference but not this symmetric equal-variance three-point design threshold."
+      ],
+      "reasoning": "The design is a linear three-regressor model with two distinct Gaussian kernels and a constant column. A single-Gaussian unknown-center plume has a derivative column rather than a second shifted Gaussian source; its unique optimal width therefore neither implies nor rules out the two-lobe information structure. Generic three-parameter regression equivalence alone does not provide the sharp δ/σ=1 rank curve or the equal-global-peak existence proof.",
+      "searches": [
+        "published-finding corpus: three symmetric pixels two close Gaussian point sources unknown uniform background D optimal location image sampling bifurcation",
+        "published-finding corpus: three observation symmetric positions around two known Gaussian point sources unknown two fluxes and background homoscedastic noise D optimal Fisher determinant bimodal switch coalescing designs",
+        "Web: \"three-point\" \"two Gaussian\" \"background\" \"D-optimal\" imaging",
+        "Web: \"identifiability\" \"Gaussian\" \"two point sources\" \"background\" three samples"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned published-finding corpus hit stated the same two-source plus background determinant identity or the nonzero singular design curve.",
+        "Closest published finding https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-strict-separation-between-joint-parameter-and-location-only-op--79a14601ec93 addresses three Poisson sensors and one Gaussian plume.",
+        "A prior single-source two-region partition result, when considered for overlap, concerns aggregated Poisson counts and a two-parameter model, not three Gaussian point samples of two sources."
+      ],
+      "reasoning": "Search silence is not novelty proof, and the repository search is incomplete historical coverage. Explicit comparison against closest mathematical statements finds different objects, parameters, likelihoods and design classes, so the known returned claims do not logically imply the stated bifurcation and tie. No established numerical table was used as an exact novelty claim.",
+      "searches": [
+        "published-finding corpus: three observation symmetric positions around two known Gaussian point sources unknown two fluxes and background homoscedastic noise D optimal Fisher determinant bimodal switch coalescing designs",
+        "published-finding corpus: optimal aperture radius Gaussian point spread function background sky shot noise read noise",
+        "Web: \"three points\" Gaussian \"two sources\" \"Fisher information\" design"
+      ]
+    },
+    "rationale": "Four genuinely distinct overlap comparisons were made against published-finding corpus semantic results, recoverable existing scientific findings, primary literature and broader designs. Exact same-object/same-parameter coverage was not found. Three primary arXiv full texts were accessed and their scientifically relevant portions materially read; the plausible 2013 crowded-field report had only abstract/journal extracts and is retained as a residual risk rather than claimed noncoverage. The scientific statement and its implications, not merely titles, were compared.",
+    "residual_risks": [
+      "Older saturated experimental-design treatments of shifted Gaussian basis functions with an intercept could include an equivalent rank-defect curve or tie without the same astrophysical wording.",
+      "The King et al. 2013 crowded-field study was accessible only as abstract and journal excerpts, not full primary text; no whole-document noncoverage inference is made.",
+      "No independent human historical-priority review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Treats unknown single-source position and Cramér–Rao error, not the determinant for two unknown fluxes plus background at three adjustable symmetric point samples.",
+        "evidence": "2013 full text explains its target parameter is one source location (Sec. II.2) and identifies simultaneous flux/background/position estimation as prospective work (Sec. V).",
+        "identifier_or_url": "https://arxiv.org/abs/1304.6361",
+        "material_read": "Materially read accessible arXiv HTML introduction, modeling and one-source Fisher sections, pixel-sampling discussion, concluding limitations, and relevant Appendix A; full HTML was available.",
+        "method": "Primary open-access full text in arXiv HTML.",
+        "title": "Analysis and interpretation of the Cramér–Rao lower-bound in astrometry: One dimensional case",
+        "trigger": "Known Gaussian point-spread imaging with unknown source properties and background: plausible broader Fisher-information treatment."
+      },
+      {
+        "assessment": "Describes empirical optimal extraction adjustments in crowded images; full text was not obtained, so possible deeper overlap remains a residual historical risk.",
+        "evidence": "Abstract specifies JHK survey reductions and mitigation of crowding; accessible journal conclusion reports extraction improvements, not a three-sample symmetric Gaussian D-optimal classification.",
+        "identifier_or_url": "https://arxiv.org/abs/1309.4487",
+        "material_read": "Accessible arXiv summary and 2013 observational journal excerpts; full primary source text not available through this search.",
+        "method": "ArXiv abstract and publisher-provided result extracts, without full-text noncoverage inference.",
+        "title": "The Wide-Field Near Infrared Data: Optimal Photometry in Crowded Fields",
+        "trigger": "Crowded-field photometry may conceal an overlapping two-star optimal sampling design."
+      },
+      {
+        "assessment": "Analyzes detection of a pair versus one source via Bayes hypothesis tests, not the three-regressor Fisher determinant with two unknown intensities and background or rank-defect curve.",
+        "evidence": "Sec. 1 defines its objective as minimum signal for single-versus-pair discrimination; Sec. 3 develops Bayesian MPE and signal-count asymptotics.",
+        "identifier_or_url": "https://arxiv.org/abs/1403.4919",
+        "material_read": "Materially read accessible arXiv HTML introduction, pair-versus-single hypothesis setup, and relevant limiting Gaussian regimes; full HTML was available.",
+        "method": "Primary arXiv HTML source.",
+        "title": "Asymptotics of Bayesian Error Probability and 2D Pair Superresolution",
+        "trigger": "Two point sources with Gaussian PSF, background and imaging noise; potential same-geometry result."
+      },
+      {
+        "assessment": "It uses Poisson aperture counts with Bayesian posterior inference and overlap-handling rules; its general linear mixing formalism contains the same underlying identifiability idea but does not establish the exact Gaussian rank-defect threshold, the pair of determinant peaks, or a symmetric D-optimal tie.",
+        "evidence": "Sec. II.2 derives a general source/background mixing matrix; Secs. IV and V discuss fixed aperture assignment and resulting photometric errors, not global symmetric spatial-sampling determinant optimization.",
+        "identifier_or_url": "https://arxiv.org/abs/1410.2564",
+        "material_read": "Materially read accessible arXiv HTML sections on linear multiple-source equations (Sec. II), posterior inference (Sec. III), simulations and comparisons (Sec. IV), summary and relevant appendices; full HTML was available.",
+        "method": "Primary arXiv HTML full text; compared the modeled unknowns and all analyzed design-choice sections.",
+        "title": "Determining X-Ray Source Intensity and Confidence Bounds in Crowded Fields",
+        "trigger": "Highest-impact claim-overlap risk: multiple source coefficients plus a common background in overlapping PSFs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f0ea65f7-5ed4-416e-a0e7-29f57d298009",
+  "value": {
+    "rationale": "Three equal-cost samples provide exactly the number of observations needed to estimate two overlapping source fluxes and an unknown sky level. The theorem identifies an unexpected singular sample radius despite distinct positions, a sharp source-separation threshold, and an unavoidable tie between inner and outer globally optimal symmetric readout layouts. These nontrivial identifiability/optimization features are instrument-design cautions and exact benchmarks, not generic positivity checks or arbitrary parameter slices. Model and historical-priority limitations are prominently stated.",
+    "status": "PASS"
+  }
+}
