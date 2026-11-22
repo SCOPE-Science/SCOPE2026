@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The face bijection for occupied planar three-row strips, Euler characteristic, elementary Bernoulli probabilities, geometric series, a monotonicity proof for the exact polynomial derivative, and the Efron–Stein variance bound prove the finite and limiting assertions. A standalone exact checker passed all 37,631 assertions, including exhaustive independent connectivity and face checks of 37,448 configurations through five columns; these finite tests are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chang and Shrock (2004), Physical Review E 70 056130, explicitly solve bond-percolation cluster numbers, not site-percolation cluster numbers.",
+        "Monetti and Albano (1993), Z. Phys. B 90, study critically occupied rectangular site lattices and count width-spanning clusters numerically, not all induced occupied components at arbitrary p."
+      ],
+      "reasoning": "General transfer matrices can solve fixed-width percolation questions in principle, but a general algorithm is not an explicit site-strip formula or necessarily an immediate analytic derivation of the finite face spectrum and unique maximizer. The important distinction is independent edge occupancy versus dependent edges induced by independent vertex occupancy.",
+      "searches": [
+        "cluster number occupancy covariance maximum 3 row site percolation critical density 0.328618",
+        "site percolation three by n square ladder connected components bounded holes spanning missing middle row exact expected number clusters"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:cond-mat/0005264 (Newman–Ziff, 2000)",
+      "Monetti–Albano, Z. Phys. B 90, 351–355 (1993)",
+      "arXiv:cond-mat/0407070 (Chang–Shrock, 2004)",
+      "Chang–Shrock, Phys. Rev. E 104, 044107 (2021), bond-percolation extension"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Newman and Ziff (2000) provide exact ensemble convolution from microcanonical measurements but no analytic three-row cluster formula.",
+        "Monetti and Albano (1993) study transverse-spanning cluster count at critical occupation, not all clusters.",
+        "Chang and Shrock (2004) derive the same *kind* of observable for a different independent-bond model."
+      ],
+      "reasoning": "The present exact face decomposition implies a count of all occupied site clusters at each n and p and the limiting uniquely optimized rational density. The numerical and bond-based prior results do not directly imply these assertions; however a sufficiently broad site-graph Tutte/transfer-matrix result not inspected could potentially cover them.",
+      "searches": [
+        "exact expected number of connected occupied clusters for Bernoulli site percolation on 3 by n ladder strip all sizes vacancy corridors face Euler",
+        "site percolation three by n square ladder connected components bounded holes spanning missing middle row exact expected number clusters",
+        "site percolation width three square lattice strip rational mean cluster number c(p)=3p-5p²+2p⁴+p⁸(1-p)/(1-p²+p³) optimization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full three-row site-strip face count is not among the stated theorems of Newman–Ziff (arXiv:cond-mat/0005264), Monetti–Albano (1993), or Chang–Shrock (arXiv:cond-mat/0407070)."
+      ],
+      "reasoning": "Searched alternate expressions as mean occupied components, density of clusters per site/column, Euler characteristic, and a sum over height-two vacancy corridors. Occupied-cluster count equals vertex minus edge plus bounded-face count, so an exact face/cluster result in those formulations would dominate. None was identified in the inspected sources.",
+      "searches": [
+        "exact expected number of connected occupied clusters for Bernoulli site percolation on 3 by n ladder strip all sizes vacancy corridors face Euler",
+        "site percolation square grid strip three rows expected component density rational p high occupancy order three 11",
+        "3-row ladder site percolation number of bounded faces containing missing middle vertices geometric length law"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published bond-strip cluster-density tables appear in Chang and Shrock (2004), and the later Chang–Shrock (2021) update; their tables specify bond occupancy, so cannot be equated with independent site occupancy."
+      ],
+      "reasoning": "No inspected table is for exactly three-row, open-transverse, independent site occupancy with all-p mean occupied-component density. Absence from search indexes is not itself a proof of priority.",
+      "searches": [
+        "site percolation square grid strip three rows expected component density rational p high occupancy order three 11",
+        "3-row ladder site percolation number of bounded faces containing missing middle vertices geometric length law",
+        "site percolation strip width 3 expected number clusters per site exact rational formula square lattice",
+        "mean number of clusters site percolation three row square strip transfer matrix exact"
+      ]
+    },
+    "rationale": "The specific full-parameter site-percolation vacancy-corridor face spectrum, finite cluster-count expectation and its unique limiting density optimum were not implied by the materially examined primary sources. Related bond-strip transfer-matrix and site-cluster simulation literature have different stochastic models or observables. Broader unlocated coverage remains a genuine risk.",
+    "residual_risks": [
+      "An unlocated exact site-percolation strip cluster-density expression or a general site transfer-matrix theorem may already imply the result.",
+      "A derivation by standard planar Euler theory alone does not establish novelty, but the explicit height-two vacancy-corridor classification and resulting exact algebraic optimum were not located in the inspected primary results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different observable and methodology; no three-row closed-form face or expectation formula",
+        "evidence": [
+          "Article explains how a site can merge clusters and reports high-precision large-square wrapping statistics and threshold estimates, but not the three-row exact formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/cond-mat/0005264v2",
+        "material_read": "Complete accessible article text: algorithm, site update, observable definitions and wrapping probability results",
+        "method": "Accessible lawful full-text HTML, plus arXiv original submission record",
+        "title": "Efficient Monte Carlo algorithm and high-precision results for percolation",
+        "trigger": "Site-percolation clusters and standard square-grid probability model"
+      },
+      {
+        "assessment": "Measures critical width-spanning cluster numbers/lengths, not the total occupied-cluster count at general p",
+        "evidence": [
+          "Abstract and results report Monte Carlo counts of clusters percolating across the short dimension at criticality."
+        ],
+        "identifier_or_url": "https://sedici.unlp.edu.ar/bitstream/handle/10915/146216/Documento_completo.pdf?sequence=1",
+        "material_read": "Full accessible five-page text including abstract, numerical methods, results and conclusion; page-one image inspected",
+        "method": "Lawful full-text PDF extraction and page image inspection",
+        "title": "Percolation on the square lattice in an L x M geometry: Analysis of percolation clusters properties",
+        "trigger": "Historically relevant site-percolation clusters in long rectangles"
+      },
+      {
+        "assessment": "Potential technique overlap but no implication from bond to site occupancy",
+        "evidence": [
+          "Model retains bonds independently; the analyzed cluster statistic is for independent edges, whereas three-row site occupancy creates strongly dependent occupied edges."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/0407070",
+        "material_read": "Primary preprint full-text PDF inspected, including introduction and model definition; published abstract independently checked",
+        "method": "Lawful arXiv preprint PDF with page inspection and publisher abstract",
+        "title": "Exact results for average cluster numbers in bond percolation on lattice strips",
+        "trigger": "Closest explicit exact strip cluster-density theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "39500733-a417-4c98-9994-5b71727ecd90",
+  "value": {
+    "rationale": "This is a complete natural family, not an arbitrary finite instance. Width three is the first grid strip admitting long bounded faces in site percolation; their exact geometric span spectrum supplies a nonlocal correction to cluster counting and yields the complete finite and infinite cluster-density response, a unique density-maximizing occupancy, and a cubic high-retention isolation regime with coefficient eleven. These parameters are directly motivated by spatial fragmentation and provide a useful analytic benchmark for site-percolation algorithms.",
+    "status": "PASS"
+  }
+}
