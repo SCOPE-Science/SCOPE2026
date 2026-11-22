@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T06:54:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The specific matrix and polynomial weights are reconstructed from RESULT.md, not from an old verdict. Sympy exact-polynomial expansion independently gave det(F)-2rho*x(1-x)*(x-eps^2)*(x-1/2)=0 identically. The original primary theorem supplies positive semidefiniteness on K_epsilon and existence of finite-degree certificates. On a fixed I strictly inside [1/2,1], every generator weight has uniform positive lower bound, so each SOS matrix coefficient is bounded by the bounded target. Bernstein–Walsh/Cauchy from I to a disk about 0 gives uniform C_R R^d control on first and second jets with any R>3+2sqrt2. At x=0 positivity of all unweighted blocks forces first column zero and S11 prime=0; the global PSD determinant inequality bounds S12 prime by sqrt(S11 second derivative * S22(0)/2). Differentiate off-diagonal identity: unit-size rho derivative must be at most const*(sqrt(eps*R^d)+eps^2*R^d), a contradiction below degree coefficient 1/log R. Sending R down proves liminf, not degree equality, and finite rational tests do not prove it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem A establishes existence; the counterexample proof shows lack of uniform additive bound, not a quantitative rate.",
+          "Putinar-type upper bounds under a positive margin do not dominate a moving-set boundary-zero lower bound."
+        ],
+        "reasoning": "Existing broader Positivstellensatz results permit, but do not imply, the current uniform liminf constant.",
+        "searches": [
+          "Resultary published-finding semantic search: matrix Fejer Riesz gaps degree lower bound Jindal Zalar collapsing positivity interval 2026 3+2sqrt2",
+          "arxiv:2611.02967v1 Theorem A, Section 6.3",
+          "arxiv:2302.12558"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2611.02967v1",
+        "https://arxiv.org/abs/1503.06034",
+        "https://arxiv.org/abs/2507.01357",
+        "https://arxiv.org/abs/2302.12558"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A source statement d_epsilon -> infinity is logically weaker than liminf d_epsilon/log(1/epsilon)>=0.567296...; arbitrary slow divergence satisfies the former."
+        ],
+        "reasoning": "Consequently the source cannot alone entail the logarithmic lower bound; the new Bernstein–Walsh+PSD jet estimate carries essential quantitative content.",
+        "searches": [
+          "Resultary published-finding semantic search: matrix Fejer Riesz gaps degree lower bound Jindal Zalar collapsing positivity interval 2026 3+2sqrt2",
+          "arxiv:2611.02967v1 proof of Section 6.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original paper defines epsilon^2-shrinking first interval and proves d_epsilon tends to infinity by contradiction at fixed weighted degree; it does not bound the divergence speed.",
+          "General one-dimensional Fejér–Riesz gap theorems address existence/degree bounds for fixed descriptions."
+        ],
+        "reasoning": "An equivalent formulation would be a polynomial boundary jet or weighted SOS degree lower bound of order log(1/epsilon) for the exact same moving matrix example; neither the source nor searched alternative statements yield it.",
+        "searches": [
+          "Resultary published-finding semantic search: matrix Fejer Riesz gaps degree lower bound Jindal Zalar collapsing positivity interval 2026 3+2sqrt2",
+          "arxiv:2611.02967v1 sections 6.2–6.3",
+          "arxiv:1503.06034"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary example provides the same K_epsilon and F_epsilon but no degree-growth sequence or coefficient table."
+        ],
+        "reasoning": "A table of exact d_epsilon would be a stronger source, but the original gives divergence only; no such pre-existing exact table found in checked sources.",
+        "searches": [
+          "Resultary published-finding semantic search: matrix Fejer Riesz gaps degree lower bound Jindal Zalar collapsing positivity interval 2026 3+2sqrt2",
+          "arxiv:2611.02967v1 explicit F_epsilon"
+        ]
+      },
+      "rationale": "Primary Jindal–Zalar Sections 6.2–6.3 already contain the exact parameterized matrix and unbounded-degree fact, but the quantitative logarithmic coefficient is absent from the inspected proof; the new claim has strictly stronger rate information, not a new example. Resultary search found the identical present finding plus unrelated matrix spectral and positivity work, no earlier dominating rate. Best-of-knowledge PASS only.",
+      "residual_risks": [
+        "No matching upper bound or sharpness of 1/log(3+2sqrt2) is established.",
+        "Older equivalent polynomial-approximation obstructions to moving-set SOS degree may be unindexed; primary comparisons are best-of-knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same matrix and unboundedness credited; exact rate not stated or derived by the compactness proof.",
+          "evidence": [
+            "arxiv:2611.02967v1 §§6.2–6.3: no uniform additive natural-matrix preordering degree bound; fixed-degree compactness contradiction."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.02967v1",
+          "material_read": "Complete arXiv HTML relevant Theorem A, §6.2 Example II, §6.3 proof, definitions and references read.",
+          "method": "Direct text and mathematical implication comparison.",
+          "title": "Operator Fejér–Riesz Theorems with Gaps and Degree Bounds",
+          "trigger": "Exact same K_epsilon, F_epsilon and certificate construction; decisive prior coverage candidate."
+        },
+        {
+          "assessment": "Background structural theorem; incomplete full-text coverage leaves some residual risk.",
+          "evidence": [
+            "Zalar 2015, operator/matrix Fejér–Riesz gaps."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.06034",
+          "material_read": "Abstract and metadata; no whole-paper noncoverage conclusion.",
+          "method": "Abstract search plus cited scope comparison.",
+          "title": "Matrix Fejér–Riesz theorem with gaps",
+          "trigger": "Prior matrix certificate existence and gap treatment."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit quantitative logarithmic lower rate for matrix-SOS certificates under degeneration of an interval is a motivated degree-complexity obstruction; original literature establishes only divergence with no rate, and the gap between scalar and matrix preorderings is mathematically substantive. This result is not just a normal-form rewrite and may guide sharpness and complexity lower bounds; neither an optimal constant nor a universal family is asserted.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2611.02967v1",
+    "https://arxiv.org/abs/1503.06034",
+    "https://arxiv.org/abs/2507.01357",
+    "https://arxiv.org/abs/2302.12558"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the exact Jindal–Zalar 2-by-2 matrix family on [0,epsilon^2] union [1/2,1], the minimum weighted degree in the specified eight-term x,(1-x),q_epsilon matrix-SOS preordering obeys liminf d_epsilon/log(1/epsilon) >= 1/log(3+2sqrt(2)); no sharpness or matching upper bound is claimed.",
+  "limitations": [
+    "Completed scientific judgment is best-of-knowledge and not a formal proof certificate or exhaustive publication-priority search.",
+    "Public metadata contains execution/provenance identifiers; import/publication withheld without sanitized complete file guards.",
+    "No GitHub edits, dispatcher closeout, or modifications to protected Lean/expert attestation."
+  ],
+  "residual_risks": [
+    "No matching upper bound or sharpness of 1/log(3+2sqrt2) is established.",
+    "Older equivalent polynomial-approximation obstructions to moving-set SOS degree may be unindexed; primary comparisons are best-of-knowledge."
+  ],
+  "schema_version": 1
+}
