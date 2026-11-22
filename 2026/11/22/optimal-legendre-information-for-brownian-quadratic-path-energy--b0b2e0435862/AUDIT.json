@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Exact Gaussian conditional quadratic projection gives risk 1/3 minus twice the sum of squared selected Gram entries. Independently integrating shifted-Legendre antiderivatives verifies the sparse Gram structure, with a single 0–1 edge and decreasing parity edges. Strict parity-prefix compression and strictly decreasing marginal scores prove global uniqueness for all budgets; an explicit partial-fraction telescoping identity proves the rational all-m error. Spectral min-max for the Volterra covariance proves best unrestricted linear sensing and the sharp ratio. Standalone rational tests verified the small Gram block, all subsets of the first 13 modes through size 7, and the risk identity through m=100. Finite checking is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kuznetsov has a general strong-error calculation for iterated Itô integrals and therefore covers the computational framework for quadratic errors, but no universal mode-subset optimization or polynomial-to-KL information-price statement is present in the inspected relevant theorem and cases.",
+        "The published OU mode-bypass result compares Fourier frequencies for OU endpoints, in contrast to Brownian integrated-square recovery.",
+        "Grebenkov (arXiv:1307.0185) optimizes a quadratic statistic for a finite Gaussian process with fixed mean; its design variable is the statistic matrix, not an observation subspace for a fixed Brownian quadratic path energy."
+      ],
+      "reasoning": "General spectral min-max yields unrestricted KL optimality but does not imply which specific discrete Legendre-coordinate subsets are best, because a projection need not be the spectral optimum. General Fourier MSE identities also do not imply the monotone parity-chain global selection. Stronger analytic frameworks were treated as covering the known error machinery, not the structural optimization claim.",
+      "searches": [
+        "Karhunen Loeve optimal Brownian quadratic energy estimation from m linear Gaussian observations, Legendre efficiency ratio",
+        "integrated Legendre Gaussian path coefficients diagonal Gram banded exact trace norm square tail",
+        "https://arxiv.org/abs/1801.01079",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-sharp-mode-bypass-transition-for-brownian-bridge-approximation--52b8aac2c127",
+        "https://arxiv.org/abs/1307.0185"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1904.06998v3",
+      "https://arxiv.org/abs/1801.01079",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-sharp-mode-bypass-transition-for-brownian-bridge-approximation--52b8aac2c127",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-an-exact-brownian-mesh-error-law-for-a-quadratic-extended-mean-f--0c9066143e21",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-design-loss-and-gaussian-fluctuations-for-stratified-brown--f119d713d36c",
+      "https://arxiv.org/abs/1307.0185"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Foster–Lyons–Oberhauser Theorem 3 implies the \\(m=2\\) risk after expectation and is acknowledged as already covered.",
+        "Kuznetsov Theorem 2 can calculate squared coefficients of an iterated-Itô tensor but does not order all finite Legendre sensing subsets.",
+        "The published Brownian mesh-control error addresses mesh control variance, and stratified Brownian kernel quadrature addresses random node integral observations, not the nonlinear energy functional observed through white-noise Fourier coefficients.",
+        "Grebenkov selects the quadratic-form matrix itself to reduce variance of the statistic; the present objective fixes the path functional and selects a small Gaussian-information subspace, so there is no implication."
+      ],
+      "reasoning": "The prior two-mode estimator is a special case, hence excluded from the novelty claim. Conditional Gaussian formulas and a Fourier expansion cannot logically force all-subset optimality without the parity-chain monotonicity proof. No compared result simultaneously determines the globally best Legendre coordinates and the sharp loss relative to arbitrary Gaussian linear observations.",
+      "searches": [
+        "Brownian quadratic energy Q integral B_t squared dt conditional on arbitrary subset Legendre Wiener coefficients exact rational Bayes risk optimal prefix",
+        "An optimal polynomial approximation Brownian motion Foster Lyons Oberhauser 2019 Legendre quadratic energy Bayes estimator R_m asymptotic 1/(64m^3)",
+        "Karhunen Loeve versus polynomial Gaussian coefficient information Brownian integrated squared energy efficiency 3 pi^4 / 128",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-sharp-mode-bypass-transition-for-brownian-bridge-approximation--52b8aac2c127",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-an-exact-brownian-mesh-error-law-for-a-quadratic-extended-mean-f--0c9066143e21",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-design-loss-and-gaussian-fluctuations-for-stratified-brown--f119d713d36c",
+        "https://arxiv.org/abs/1307.0185"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Foster–Lyons–Oberhauser (arXiv:1904.06998) Theorems 2–3 give the two-coefficient conditional energy formula and do not assert all-budget subset optimality.",
+        "Kuznetsov (arXiv:1801.01079) Theorem 2 gives Fourier coefficients for iterated Itô approximation errors, not optimal selected coordinate sets."
+      ],
+      "reasoning": "An alternative expression via symmetric second-Wiener-chaos tensors leads to the same Gram-square reward and is covered by general Gaussian projection theory; the novel decision result is the global combinatorial optimum of the nontridiagonal-parity Gram reward. Equivalent rephrasings involving polynomial bridge modes were compared with the two cited sources.",
+      "searches": [
+        "Brownian quadratic energy Q integral B_t squared dt conditional on arbitrary subset Legendre Wiener coefficients exact rational Bayes risk optimal prefix",
+        "An optimal polynomial approximation Brownian motion Foster Lyons Oberhauser 2019 Legendre quadratic energy Bayes estimator R_m asymptotic 1/(64m^3)",
+        "https://arxiv.org/html/1904.06998v3",
+        "https://arxiv.org/abs/1801.01079"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible published-result searches returned no table of all-budget Brownian integrated-square Legendre sensing risks, nor the unique prefix subset theorem.",
+        "The \\(m=2\\) conditional variance is explicitly present in arXiv:1904.06998 and is not new."
+      ],
+      "reasoning": "The inspected numerical results and formulas for other Gaussian-process quadratures are not an exact table of the chosen payoff or of the Legendre sensor-bank allocation. The new claim is not merely a recomputed table entry; it is a global index-set theorem and sharp leading information efficiency.",
+      "searches": [
+        "Brownian quadratic energy Q integral B_t squared dt conditional on arbitrary subset Legendre Wiener coefficients exact rational Bayes risk optimal prefix",
+        "An optimal polynomial approximation Brownian motion Foster Lyons Oberhauser 2019 Legendre quadratic energy Bayes estimator R_m asymptotic 1/(64m^3)",
+        "Karhunen Loeve versus polynomial Gaussian coefficient information Brownian integrated squared energy efficiency 3 pi^4 / 128",
+        "Brownian motion polynomial Legendre integrated path approximation quadratic energy sum squares exact conditional mean squared error tail finite n"
+      ]
+    },
+    "rationale": "The asserted distinct theorem is universal optimality of the first m Legendre white-noise coordinates among all m-mode subsets for Brownian quadratic path-energy Bayes risk and its exact all-budget ratio against optimal unrestricted Gaussian linear sensing. Foster–Lyons–Oberhauser already prove the first-two-coordinate conditional formula; it is excluded from the novelty claim. Kuznetsov supplies broad Fourier error formulas, but not this allocation/efficiency theorem. published-finding corpus mathematical statements retrieved concerned different Brownian and mode-selection objectives; no checked statement entails the claim. Older equivalent results are a residual priority risk. Grebenkov’s Gaussian-quadratic-statistic optimization chooses the statistic itself, not an observation subspace for a fixed payoff.",
+    "residual_risks": [
+      "General Gaussian quadratic-functional observation design or classical orthogonal polynomial projection theory may contain an equivalent all-index-set optimization that was not indexed by searched terms.",
+      "Kuznetsov’s broad Fourier MSE formula subsumes parts of the coefficient calculations; the new allocation-and-efficiency theorem must not be credited to those routine calculations.",
+      "Two-coefficient conditional energy results from 2019 are prior art; no novelty is attributed to that case.",
+      "Published-result summaries are not full-text source inspections; this is insufficient to rule out all unindexed equivalents."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers m=2 conditional moments and weighted path reconstruction, not all m unique subset selection or the asymptotic KL information-cost theorem.",
+        "evidence": [
+          "Theorem 3: exact \\(\\operatorname{Var}(Q\\mid W_1,\\int W)\\); Section 3.19: conditional expectation for two basis coefficients; main theorem: weighted \\(L^2\\) polynomial bridge approximation."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1904.06998v3",
+        "material_read": "HTML full text: introduction, main optimal-weighted-path theorem, polynomial basis, Section 3 Theorems 3.19 and 3.24–3.25 and quadratic conditional-variance result.",
+        "method": "Primary arXiv HTML open and targeted full-text navigation and comparison of hypotheses, functional, and information budget",
+        "title": "An Optimal Polynomial Approximation of Brownian Motion",
+        "trigger": "Same Wiener-polynomial basis and exact quadratic-energy conditional estimator for two observations"
+      },
+      {
+        "assessment": "Strong existing general MSE machinery; the all-cardinality subset-selection and best-unrestricted-linear-information comparison are not stated in the inspected scientific material.",
+        "evidence": [
+          "Theorem 2 gives mean-square approximations for iterated Itô integrals; the k=2 case develops fixed truncations, not selection over every size-m subset."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1801.01079",
+        "material_read": "Accessible primary arXiv full article HTML including introduction, Theorem 2, k=2 Fourier products and the mean-square error method.",
+        "method": "Primary arXiv rendered-article navigation and direct implication comparison for the specified payoff and subset optimization",
+        "title": "Exact Calculation of the Mean-Square Error in the Method of Expansion of Iterated Ito Stochastic Integrals Based on Generalized Multiple Fourier Series",
+        "trigger": "Broader arbitrary-multiplicity Fourier–Legendre mean-square approximation theory"
+      },
+      {
+        "assessment": "OU endpoint error comparing frequencies \\(\\{1,3\\}\\) and \\(\\{1,2\\}\\), rather than Brownian quadratic path-energy Bayes risk.",
+        "evidence": [
+          "Result record explicitly addresses an OU endpoint approximation and a frequency-bypass transition."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-sharp-mode-bypass-transition-for-brownian-bridge-approximation--52b8aac2c127",
+        "material_read": "Published result title and scientific summary, not primary full text.",
+        "method": "Published-result comparison using stated object, target, Fourier subset and assertion",
+        "title": "A sharp mode-bypass transition for Brownian-bridge approximations of Ornstein–Uhlenbeck endpoints",
+        "trigger": "Potentially nonprefix optimal Fourier information selection"
+      },
+      {
+        "assessment": "Optimizes the *quadratic statistic matrix* for parameter inference from full finite Gaussian trajectories at fixed expectation, not the conditional MSE of a *fixed* continuous quadratic functional under selection of m Legendre white-noise measurements. Thus does not imply the selected-coordinate theorem.",
+        "evidence": [
+          "Section III minimizes cumulants by choice of statistic matrix M, whereas the present Q is fixed and the choice is the sigma-field generated by selected independent noise coefficients."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1307.0185",
+        "material_read": "Accessible complete arXiv article introduction, sections II and III on cumulants and optimization of freely chosen quadratic forms; hypotheses and objective compared.",
+        "method": "Primary arXiv rendered article, object/objective/decision-variable and implication comparison",
+        "title": "Optimal and sub-optimal quadratic forms for non-centered Gaussian processes",
+        "trigger": "Plausible broader spectral optimization of Gaussian-process quadratic statistics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b0b2e043-5862-43bf-a207-4e4588b9141d",
+  "value": {
+    "rationale": "Choosing m polynomial Wiener coordinates to simulate under a finite Gaussian budget is a natural stochastic numerical approximation problem, and quadratic integrated Brownian energy is a nonlinear positive path observable. The all-m unique mode allocation and exact performance penalty relative to unrestricted Gaussian linear measurements are motivated design-level facts, not a fixed low-order calculation or a mere substitution. The known m=2 identity and basic Fourier error method are explicitly excluded from the distinct contribution.",
+    "status": "PASS"
+  }
+}
