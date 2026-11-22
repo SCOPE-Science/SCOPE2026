@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-The exact-arithmetic program `checker.py` checks all positive integer partitions of totals from three through twelve that have at least two blocks. It constructs the graph's edge vertices and tests the derived squared smallest-ball radius and all contact classifications with rational fractions. It constructs the claimed nearest point for every forbidden edge vertex and checks both its exact squared distance and the nonnegative projection inner-product certificate against every permitted edge vertex. The recorded successful output is:
+# Independent mathematical audit
 
-`MULTIPARTITE_EDGE_METRIC_EXACT_PASS profiles=258 contact_edges=8704 strictly_inner_edges=198 missing_vertex_projections=3150`
+## correctness
 
-Run from this directory with `python checker.py` (standard library). The supplementary `numeric_checker.py` runs ten separately coded constrained numerical optimizations of the Euclidean minimum enclosing ball (NumPy and SciPy are required). Its output lists ten tested class profiles; it also checks rational-coordinate projection certificates by floating-point evaluation.
+PASS
 
-The formal proof in `RESULT.md` establishes the arbitrary finite graph theorem using only: (i) convex projection and a barycentric minimax lower bound; (ii) the rank-two hypersimplex identity for the feasible class sums; (iii) a strict-convexity/KKT calculation; and (iv) Cauchy--Schwarz plus equality conditions for the forbidden-vertex projections. Finite enumeration and numerical optimization are corroborating checks, not infinite certificates.
+PASS. All allowed edge vectors e_u+e_v have squared norm 2, so the minimal enclosing center equals the unique minimum-norm point p in their convex hull: the projection inequality gives upper radius 2-||p||² and barycentric averaging gives universal lower bound with equality only at p. Class mass variables t_j in [0,1], sum=2 form the rank-two hypersimplex, and uniform per-class coordinates minimize squared norm for fixed masses; strict convexity/KKT yields t_j=min(1,λ a_j). For 2A≤N, p=2/N*1 and R²=2-4/N with all vertices contacting. If 2A>N, only unique largest class saturates, p=1/A on it, 1/B outside, R²=2-1/A-1/B, exactly the AB largest-class meeting edges contact; others' squared clearance 2(1/B-1/A), if present. For missing internal edge z=e_u+e_v in class a, t_class≤1 gives squared distance ≥(2-t)²(1/2+1/(N-a)) with equality at t=1 and projection .5(eu+ev)+1/(N-a)*1_complement, explicitly an average of allowed cross-edges. Distance-to-convex-set convexity bounds all Δ2,N points by max vertex distance, and strict triangle equality plus distinct residuals identifies only missing edges within largest classes as farthest; all-singleton case gives distance zero. Independent rational checks tested 58 profiles n≤8; unrestricted proof is convexity/KKT/equality, not enumeration.
 
-Priority has been reviewed against identified literature but not independently audited. No independent mathematical verification has been performed.
+## originality
+
+PASS
+
+PASS under bounded priority. Higashitani–Matsushita treat the *same complete multipartite edge polytope* but their theorems concern edge rings, Gorenstein/levelness; Tran–Ziegler study general edge-polytope combinatorics and face counts. Related published PQ adjacency polytope has ordered tensor/product coordinates and a distinct underlying polytope despite similar nearest-point language. Known minimum inradii of matroid polytopes are different optimization. No checked source implies the exact two-regime enclosing sphere and continuous Hausdorff farthest-set classification.
+
+## value
+
+PASS
+
+PASS. The edge polytope of complete multipartite graphs is a natural rank-two partition-matroid family. Its threshold 2A=N separates all-sphere-contact from strict interior vertices, while the exact Hausdorff gap remains positive even when circumspheres coincide. Exact metric and equality-locus formulas furnish concrete invariants of a central polytope family, not an arbitrary table lookup or recomputation of vertex counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

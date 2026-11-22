@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T12:54:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. All allowed edge vectors e_u+e_v have squared norm 2, so the minimal enclosing center equals the unique minimum-norm point p in their convex hull: the projection inequality gives upper radius 2-||p||² and barycentric averaging gives universal lower bound with equality only at p. Class mass variables t_j in [0,1], sum=2 form the rank-two hypersimplex, and uniform per-class coordinates minimize squared norm for fixed masses; strict convexity/KKT yields t_j=min(1,λ a_j). For 2A≤N, p=2/N*1 and R²=2-4/N with all vertices contacting. If 2A>N, only unique largest class saturates, p=1/A on it, 1/B outside, R²=2-1/A-1/B, exactly the AB largest-class meeting edges contact; others' squared clearance 2(1/B-1/A), if present. For missing internal edge z=e_u+e_v in class a, t_class≤1 gives squared distance ≥(2-t)²(1/2+1/(N-a)) with equality at t=1 and projection .5(eu+ev)+1/(N-a)*1_complement, explicitly an average of allowed cross-edges. Distance-to-convex-set convexity bounds all Δ2,N points by max vertex distance, and strict triangle equality plus distinct residuals identifies only missing edges within largest classes as farthest; all-singleton case gives distance zero. Independent rational checks tested 58 profiles n≤8; unrestricted proof is convexity/KKT/equality, not enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Higashitani–Matsushita give algebraic levelness and Gorenstein criteria for same family.",
+          "Tran–Ziegler give extremal face bounds for graph edge polytopes.",
+          "Matroid *inradius* concerns inscribed, not enclosing ball. PQ ordered adjacency matrices live in different coordinates and have different vertices."
+        ],
+        "reasoning": "A theorem about an edge ring or inradius does not automatically imply the Euclidean minimum enclosing ball or distance to Δ2,N under the specified embedding.",
+        "searches": [
+          "arxiv:2102.02349",
+          "arxiv:1307.6708",
+          "Resultary rank-two matroid base polytope inradius",
+          "Resultary complete multipartite PQ adjacency deep holes"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2102.02349",
+        "https://arxiv.org/abs/1307.6708",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-barycentric-projection-simplices-and-exact-deep-hole-shells-of-m--189d12c21cc0",
+        "Resultary semantic search: multipartite graph edge polytope smallest enclosing ball Hausdorff distance second hypersimplex farthest missing edges",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-sphere-and-hausdorff-laws-for-multipartite-edge-polytopes--9445af5c9fb7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Higashitani–Matsushita prove ring invariants, not the class-mass convex KKT formula.",
+          "Tran–Ziegler face enumeration does not compute Euclidean distances under the standard coordinate norm.",
+          "An ordered pair polytope projection theorem does not determine projections in symmetric unsigned edge coordinates."
+        ],
+        "reasoning": "The projection and Hausdorff extremizers require the exact embedding and Euclidean residual geometry; none of these sources supplies an implication yielding the formulas.",
+        "searches": [
+          "https://arxiv.org/abs/2102.02349",
+          "https://arxiv.org/abs/1307.6708",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-barycentric-projection-simplices-and-exact-deep-hole-shells-of-m--189d12c21cc0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For complete multipartite G, P_G is rank-two partition-matroid base polytope in incidence coordinates.",
+          "The enclosing sphere is dual to the minimum-norm point because every vertex has fixed squared norm two."
+        ],
+        "reasoning": "Aliases graph-edge and partition-matroid base polytopes were checked. Fixed-norm reduction is a standard technique, but the new optimization and farthest-set equations are not just a theorem name substitution.",
+        "searches": [
+          "multipartite graph edge polytope smallest enclosing ball Hausdorff distance second hypersimplex farthest missing edges",
+          "partition matroid rank two base polytope circumradius Hausdorff hypersimplex",
+          "Tran Ziegler graph edge polytope squared euclidean minimum sphere"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary top hit is this claim.",
+          "Another recent exact multipartite PQ result counts distances for ordered product-vertex polytope, not graph edge incidence P_G.",
+          "Matroid independence polytope has vertex cardinalities 0,1,2 rather than all edge vertices of norm sqrt(2)."
+        ],
+        "reasoning": "No checked database/table provides this pair of formulas and all equality sets for the same fixed rank-two object. Closely named metric invariants are mathematically distinct.",
+        "searches": [
+          "multipartite graph edge polytope smallest enclosing ball Hausdorff distance second hypersimplex farthest missing edges",
+          "Resultary barycentric projection simplices and exact deep-hole shells multipartite PQ adjacency",
+          "Resultary minimum sphere bounds for matroid independence polytopes"
+        ]
+      },
+      "rationale": "PASS under bounded priority. Higashitani–Matsushita treat the *same complete multipartite edge polytope* but their theorems concern edge rings, Gorenstein/levelness; Tran–Ziegler study general edge-polytope combinatorics and face counts. Related published PQ adjacency polytope has ordered tensor/product coordinates and a distinct underlying polytope despite similar nearest-point language. Known minimum inradii of matroid polytopes are different optimization. No checked source implies the exact two-regime enclosing sphere and continuous Hausdorff farthest-set classification.",
+      "residual_risks": [
+        "General rank-two matroid base-polytope projection literature under different terminology may contain this exact specialization.",
+        "Tran–Ziegler full article was not read entirely; no whole-document noncoverage inference is justified.",
+        "For A=1, Hausdorff zero and farthest set is all Δ; the theorem handles this as a separate exception."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING inspected theorem family: algebraic edge rings, not Euclidean enclosing-ball/Hausdorff",
+          "evidence": "Defines the same family but the main invariants are ring-theoretic.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.02349",
+          "material_read": "Accessible full arXiv manuscript including introduction, section 3 levelness and section 4 edge-ring properties",
+          "method": "Read published source content and compared explicit mathematical statements with the assigned theorem",
+          "title": "Levelness versus almost Gorensteinness of edge rings of complete multipartite graphs — Higashitani and Matsushita",
+          "trigger": "Same complete multipartite edge polytope"
+        },
+        {
+          "assessment": "NO DECISIVE COVERAGE in inspected parts; uninspected full article remains risk",
+          "evidence": "Extremal graph-polytope face counts do not themselves determine Euclidean circumradius.",
+          "identifier_or_url": "https://arxiv.org/abs/1307.6708",
+          "material_read": "Accessible arXiv abstract/introduction and retrieved relevant combinatorial statements, not entire article",
+          "method": "Read published source content and compared explicit mathematical statements with the assigned theorem",
+          "title": "Extremal Edge Polytopes — Tran and Ziegler",
+          "trigger": "General edge-polytope theory potentially subsumes graph family"
+        },
+        {
+          "assessment": "DISTINCT POLYTOPE, not a covering theorem for unsigned edge incidence vectors",
+          "evidence": "PQ adjacency polytope uses ordered product embedding; P_G uses e_u+e_v in R^N.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-barycentric-projection-simplices-and-exact-deep-hole-shells-of-m--189d12c21cc0",
+          "material_read": "Published semantic record including summary of ordered PQ polytope nearest simplex and farthest shells",
+          "method": "Read published source content and compared explicit mathematical statements with the assigned theorem",
+          "title": "Barycentric projection simplices and exact deep-hole shells of multipartite PQ adjacency polytopes",
+          "trigger": "Very similar multipartite missing-edge projection statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The edge polytope of complete multipartite graphs is a natural rank-two partition-matroid family. Its threshold 2A=N separates all-sphere-contact from strict interior vertices, while the exact Hausdorff gap remains positive even when circumspheres coincide. Exact metric and equality-locus formulas furnish concrete invariants of a central polytope family, not an arbitrary table lookup or recomputation of vertex counts.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2102.02349",
+    "https://arxiv.org/abs/1307.6708",
+    "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-barycentric-projection-simplices-and-exact-deep-hole-shells-of-m--189d12c21cc0",
+    "Resultary semantic search: multipartite graph edge polytope smallest enclosing ball Hausdorff distance second hypersimplex farthest missing edges",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-sphere-and-hausdorff-laws-for-multipartite-edge-polytopes--9445af5c9fb7"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Independent finite diagnostics are corroboration, not a proof of unrestricted quantification.",
+    "Literature priority is bounded best-of-knowledge, not external certification.",
+    "Privacy-safe public replacements and guarded import were not prepared."
+  ],
+  "residual_risks": [
+    "General rank-two matroid base-polytope projection literature under different terminology may contain this exact specialization.",
+    "Tran–Ziegler full article was not read entirely; no whole-document noncoverage inference is justified.",
+    "For A=1, Hausdorff zero and farthest set is all Δ; the theorem handles this as a separate exception."
+  ],
+  "schema_version": 1
+}
