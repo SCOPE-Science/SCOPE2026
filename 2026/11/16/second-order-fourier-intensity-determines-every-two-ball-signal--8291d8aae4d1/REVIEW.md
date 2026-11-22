@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The intensity Hessian is exactly minus twice the squared total mass times the normalized signal's covariance. An isotropic plus rank-one covariance decomposition identifies the transverse eigenvalue and center-axis spectral gap for every dimension at least two. The strictly convex power-sum function proves injectivity of the two radii. Coincident centers, equal radii and overlap are included; no finite enumeration is promoted to an infinite proof.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-A recent interval phase-retrieval paper concerns full Fourier modulus in one dimension, while an existing finite-jet two-interval theorem uses fourth derivatives. The nearest covariance and covariogram results are for other objects/data and do not, based on available material, imply this precise value-plus-Hessian reconstruction for arbitrary two-ball sums. Multiple searches for aliases including Fourier magnitude, covariogram, two spheres, fourth-order moments and low-frequency intensity did not find a covering statement. This is a provisional publication-priority judgment: relevant manuscripts were accessible only through abstracts.
+PASS
 
-## Mathematical value — PASS
-The theorem resolves a natural structured inverse-imaging question at the minimal nontrivial derivative order. It pinpoints why angular covariance distinguishes two higher-dimensional balls, unlike the one-dimensional situation, and supplies explicit reconstruction from observables rather than a mere generic injectivity assertion.
+For additive f=1_{B(c1,r1)}+1_{B(c2,r2)} in d>=2 with radii positive and known unit component density, I(0)=(V1+V2)^2 and -Hess I(0)/(2I(0)) equals the covariance of the normalized mixture. The law of total covariance yields Sigma=aI_d+(V1 V2/S²) vv^T, a=(V1r1²+V2r2²)/[S(d+2)]. A nonzero transverse direction makes min eigenvalue exactly a for d>=2; the separation and unoriented displacement eigenspace follow from the rank-one gap. For q=1+2/d>1, t^q+(S-t)^q strictly monotone on (0,S/2), so the first two scalar observations determine an unordered pair of positive volumes, including equal radii. The spectral gap and leading eigenvector then determine centers up to translation/reflection, including coincident centers. First-order intensity jet vanishes by evenness and order-zero data only fix S, proving minimal order two. Recomputed exact d=2 radii 1,2 and separation 5: covariance eigenvalues 17/20 and 97/20. Open-ball boundary measure zero, and overlaps are additive sums not union indicators. No noisy-data stability claimed.
 
-## Closest literature and limitations
-Xia–Xu (2026) investigates one-dimensional intervals; Grohs–Koppensteiner–Rathmair (2020) surveys phase-retrieval theory; Benassi–Bianchi–D'Ercole (2010) develops general covariogram relations. The published two-interval finite-jet theorem does not address higher-dimensional balls. Noise, arbitrary weights, other shapes and publication priority need further analysis. Relevant full texts were not all obtainable, so a historical equivalent remains a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A covariance decomposition is a standard ingredient, but the precise sharp minimal second-order phaseless identification of both radii and relative vector for all additive two-ball signals in every d>=2 is not established by the inspected 1D union-of-interval study or general phase retrieval survey abstracts. The significant same-topic Xia/Xu source could not be read in full (authorized Oxford VPN disconnected); this source is named as a priority risk rather than automatically failing O. Best-of-knowledge PASS, not a claim of certified historical uniqueness.
+
+## value
+
+PASS
+
+Recovering a geometric two-component signal from only intensity's value and Hessian, rather than all frequencies, is a sharp finite-measurement inverse result on a natural object class. The full positive-radius, overlap, and coincident-center boundary treatment and minimum-jet obstruction make this a useful identifiability theorem, even though its proof uses simple covariance algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
