@@ -1,0 +1,162 @@
+{
+  "correctness": {
+    "rationale": "For all n>=5 every pairwise-intersecting two-subset family is a star subfamily or the full triangle, with unique stars when size>=2. The local inclusion-exclusion factor enumerates the three nonempty labels independently under each selection of missing-color events, proving the entire polynomial. Full-star zero supports uniquely attain the lower bound N-(n-1), and the construction uses two distinct perfect matchings of four vertices to witness both colors for every zero. For fixed root, invalid singleton assignments for each named color are precisely edge subsets contained in a vertex star of K_(n-1); two failure events cannot coincide when n-1>=4, yielding the exact count. The separately implemented direct four-label C++ enumeration at n=5 reproduces every Python IE coefficient; n=5,6,7 direct optimum checks match. These finite computations are sanity checks, not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published ordinary multi-rainbow Kneser theorem assumes k>=3, without outer independence; its claim is a scalar minimum 2k.",
+        "The 2022/2023 paper establishes claw-free equality/product results and has no Kneser family enumerator in its primary text."
+      ],
+      "reasoning": "Neither k>=3 unrestricted rainbow domination nor general vertex-cover inequalities bound the number of valid named-color functions sharply. The Kneser theorem is a different admissibility class and parameter; its result does not imply the proposed all-weight polynomial.",
+      "searches": [
+        "Kneser graph KG(n,2) outer-independent rainbow domination number and counting optimal assignments",
+        "outer independent rainbow domination Kneser graphs triangular complement all weight polynomial",
+        "Kneser KG(n,2) perfect Roman 2 rainbow coloring enumeration",
+        "published-finding corpus 2026/10/13/SCOPE-exact-multi-rainbow-domination-of-two-subset-kneser-graphs--8baf309aa150",
+        "Samadi–Soltankhah arxiv:2208.02340 primary PDF text Kneser query"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2208.02340",
+      "doi:10.7494/OpMath.2020.40.5.599",
+      "doi:10.3390/math10132287",
+      "doi:10.1080/16583655.2019.1655255",
+      "2026/10/26/SCOPE-outer-independent-two-rainbow-weight-enumerator-of-triangular-gr--5892cf5f68ec",
+      "2026/10/13/SCOPE-exact-multi-rainbow-domination-of-two-subset-kneser-graphs--8baf309aa150",
+      "2026/10/26/SCOPE-power-domination-polynomial-and-minimal-set-dichotomy-of-two-sub--6e981f3b14e6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Triangular OI2RD result counts matchings of edges (zero supports), whereas the present claim counts intersecting families of edges as supports and enforces nonincident-pair rainbow coverage.",
+        "The Kang/Mansouri/Cabrera/Samadi parameter inequalities constrain the minimum but not the full polynomial and exact labeled minima."
+      ],
+      "reasoning": "Even if the general lower bound N-alpha is known, equality and the count of all assignments require the explicit two-matching construction and the two-star exclusion. The all-weight star–triangle IE formula is not a scalar corollary. No stronger checked theorem covers the full statement.",
+      "searches": [
+        "outer independent 2 rainbow domination Kneser graph KG(n,2) polynomial optimum EKR intersecting families",
+        "outer independent 2 rainbow Kneser Petersen graph paper",
+        "published-finding corpus 2026/10/26/SCOPE-outer-independent-two-rainbow-weight-enumerator-of-triangular-gr--5892cf5f68ec",
+        "published-finding corpus 2026/10/13/SCOPE-exact-multi-rainbow-domination-of-two-subset-kneser-graphs--8baf309aa150",
+        "arxiv:2208.02340",
+        "doi:10.7494/OpMath.2020.40.5.599"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The complement T_n=L(K_n) has intersecting-edge adjacency; the present KG(n,2) has disjoint-edge adjacency. Their permitted empty sets are respectively matchings and intersecting edge families.",
+        "Published triangular graph complete RESULT.md inspected."
+      ],
+      "reasoning": "Although vertex sets coincide and the graphs are complements, complementing adjacency changes both empty-support independence and which colored vertices count as neighbors. No valid bijection or identity transports the triangular result into the present one.",
+      "searches": [
+        "complete outer-independent two-rainbow weight polynomial Kneser KG(n,2) intersecting-star triangle zero supports optimum counts",
+        "outer independent 2 rainbow domination Kneser graph KG(n,2) polynomial optimum EKR intersecting families",
+        "published-finding corpus 2026/10/26/SCOPE-outer-independent-two-rainbow-weight-enumerator-of-triangular-gr--5892cf5f68ec"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct published-finding corpus searches retrieved triangular OI2RD and KG(n,2) power-domination/multi-rainbow entries, but no KG(n,2) OI2RD exact coefficient table.",
+        "Accessible cumulative own part through generation 000058 has no claim about outer-independent rainbow domination; the closest mentions KG(5,2) for unrelated resolving and visibility invariants."
+      ],
+      "reasoning": "An exact OI2RD coefficient table for the claimed family was not located; a table of a different invariant or complementary graph is not an exact database match. Search failure alone does not prove nonexistence.",
+      "searches": [
+        "complete outer-independent two-rainbow weight polynomial Kneser KG(n,2) intersecting-star triangle zero supports optimum counts",
+        "Kneser graph KG(n,2) outer-independent rainbow domination number and counting optimal assignments",
+        "Erdos Ko Rado star empty vertices complementary triangular graph 2 rainbow colors all coefficients",
+        "outer-independent 2-rainbow Kneser graph optimal count",
+        "published-finding corpus 2026/10/26/SCOPE-power-domination-polynomial-and-minimal-set-dichotomy-of-two-sub--6e981f3b14e6",
+        "own ledger claim searches outer-independent/rainbow/Kneser/triangular"
+      ]
+    },
+    "rationale": "The Kneser two-subset outer-independent two-color weight polynomial is not implied by the checked general OI2RD bounds, the triangular-graph complement result, or the unrestricted k>=3 Kneser scalar theorem. The new assertion classifies star/triangle empty supports, enforces disjointness-based color coverage, and counts all functions and every minimum assignment. Actual published-finding corpus queries, public full RESULT files, accessible published primary texts and the own cumulative ledger did not show equivalent or broader coverage. This supports provisional originality but does not prove priority against unindexed or inaccessible work.",
+    "residual_risks": [
+      "The Kang et al. (2019) full publisher paper was access-restricted; only indexed propositions were inspected.",
+      "The full Cabrera-Martínez (2022) publisher page was rate-limited; accessible exact statements and abstract were compared.",
+      "Unindexed or non-English exact tables and publications could contain a covering KG(n,2) enumeration.",
+      "Repository search ranks by semantic similarity, so negative search does not establish exhaustive coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the invariant and graph-product/claw-free results, not the KG(n,2) full polynomial or optimizer census.",
+        "evidence": [
+          "arxiv:2208.02340, abstract and Sections 2–3",
+          "2022-08-03 initial public posting on arXiv abstract record; the available PDF is revised 2023-01-29"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2208.02340",
+        "material_read": "13-page PDF: definitions and introduction, claw-free characterization and product theorems, Kneser text search, ; verified initial 2022-08-03 posting separately on the arXiv record.",
+        "method": "Opened and examined accessible arXiv PDF text and its first-page image, searched Kneser, and compared its theorem statements.",
+        "title": "Further results on outer independent 2-rainbow dominating functions of graphs",
+        "trigger": "The dated motivating work uses precisely the same four-label invariant."
+      },
+      {
+        "assessment": "General bounds and some other graph-family minima do not imply the star–triangle all-weight formula.",
+        "evidence": [
+          "Mansouri–Mojdeh (2020), pp. 599–615; Observation 2.3 concerns complete and complete multipartite graphs, not Kneser graphs"
+        ],
+        "identifier_or_url": "https://journals.bg.agh.edu.pl/OPUSCULA/2020.40.5/OpMath.2020.40.5.599.pdf",
+        "material_read": "17-page PDF: definitions, Section 2 observations for paths, cycles and complete/multipartite graphs, statements describing complexity, bounds and trees; searched PDF for Kneser.",
+        "method": "Opened primary PDF, inspected selected theorem text and first-page image, searched for Kneser.",
+        "title": "Outer independent rainbow dominating functions in graphs",
+        "trigger": "Foundational 2020 paper for the same invariant."
+      },
+      {
+        "assessment": "Gives general vertex-cover lower bounds and product classes, not exact optimizer multiplicities or an all-weight Kneser polynomial. Full-text access incomplete.",
+        "evidence": [
+          "Cabrera-Martínez (2022), Theorem 2: vertex-cover and domination-number bounds; publisher page access limited"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math10132287",
+        "material_read": "Accessible search-indexed scientific content including the abstract and Theorem 2 on vertex-cover bounds; complete publisher page returned a rate-limit error.",
+        "method": "Compared accessible mathematical statement and scope from indexed article text.",
+        "title": "A Note on Outer-Independent 2-Rainbow Domination in Graphs",
+        "trigger": "General bounds on the same parameter might dominate the scalar minimum."
+      },
+      {
+        "assessment": "The triangular graph has intersecting-pair adjacency and matching zero supports; KG(n,2) has disjoint-pair adjacency and intersecting zero supports. Complementation does not preserve the independent-empty and open-neighborhood color constraints, so no implication of the present formula.",
+        "evidence": [
+          "2026/10/26/SCOPE-outer-independent-two-rainbow-weight-enumerator-of-triangular-gr--5892cf5f68ec",
+          "Triangular RESULT.md matching reduction and color-absence proof"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-outer-independent-two-rainbow-weight-enumerator-of-triangular-gr--5892cf5f68ec",
+        "material_read": "Complete RESULT.md, including exact polynomial, matching-support reduction, proof and prior-work/limitations sections.",
+        "method": "Read complete public RESULT.md through the approved repository reader and compared edge-adjacency conditions.",
+        "title": "Outer-independent two-rainbow weight enumerator of triangular graphs",
+        "trigger": "Closest full published all-weight theorem for the complementary graph."
+      },
+      {
+        "assessment": "Its scalar ordinary k-rainbow minimum for k>=3 permits adjacent zero vertices and does not address outer-independent two-rainbow functions or a weight enumerator.",
+        "evidence": [
+          "2026/10/13/SCOPE-exact-multi-rainbow-domination-of-two-subset-kneser-graphs--8baf309aa150",
+          "Theorem k>=3, n>=k+1, unrestricted empty-set independence"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-exact-multi-rainbow-domination-of-two-subset-kneser-graphs--8baf309aa150",
+        "material_read": "Complete RESULT.md, including theorem with k>=3, assumptions, proof and limitations.",
+        "method": "Read complete public RESULT.md through the approved repository reader and compared exact quantifiers and admissible labelings.",
+        "title": "Exact multi-rainbow domination of two-subset Kneser graphs",
+        "trigger": "Same Kneser vertices and a related rainbow-domination name."
+      },
+      {
+        "assessment": "The accessible bounds do not imply the enumerator. Full-text access remains a priority uncertainty.",
+        "evidence": [
+          "Kang et al. (2019), general upper bound by vertex cover in Proposition 2.2"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/16583655.2019.1655255",
+        "material_read": "Indexed excerpt of Proposition 2.2 and Proposition 2.3; full publisher article returned access denial.",
+        "method": "Examined indexed mathematical propositions and attempted original full-text access.",
+        "title": "Outer-independent k-rainbow domination",
+        "trigger": "Original general definition and inequalities might contain stronger family data."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2263ae4e-ab5a-4428-8da2-16635b618a3a",
+  "value": {
+    "rationale": "Determines a complete natural weight polynomial for every n>=5, including double-label configurations, and classifies/enumerates all minimum functions with a closed formula, not just the minimum scalar. Kneser graphs are canonical and the star–triangle intersection structure differs essentially from complementary triangular-graph matching support, making the computation a meaningful nonroutine color-coverage classification and reusable benchmark. The two-star obstruction gives a structural explanation for the exact optimum count.",
+    "status": "PASS"
+  }
+}
