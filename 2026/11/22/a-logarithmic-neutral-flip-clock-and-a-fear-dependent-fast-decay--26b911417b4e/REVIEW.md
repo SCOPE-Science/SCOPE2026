@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The predator multiplier is strictly less than one and the exact scalar boundary return has cubic coefficient \(-4/3\), quintic \(8/15\), and sextic \(4/9\). Local trapping with summable forcing, exponentially accurate inverse-map shadowing and the strong-stable theorem partition all sufficiently small forward-positive states. The resulting reciprocal-square return has increment \(8/3+64/(15w)+O(w^{-3/2})\), proving the \(8/5\) logarithmic correction and finite renormalized constant. Direct invariance gives the stated quadratic strong-stable curve. The symbolic checker confirms the relevant Taylor identities. The claimed convergence is local, not global.
+
+**Originality — PASS relative to the inspected primary literature and indexed scientific statements.** The originating Du–Han–Lei paper identifies boundary multiplier \(-1\) at critical prey growth, but does not state the sharp renormalized critical clock or quadratic fast-decay curve. The additive fear-map study of Lei–Han–Wang uses a different map. The Baigent–Hou–Elaydi–Balreira–Luís planar Ricker model establishes global convergence for a competing-species system and does not imply this model-specific curvature. A nearby indexed result treats the **distinct** double-neutral predator case; another studies a symmetric Ricker competition map with different clock coefficients. Other equivalent parabolic-normal-form consequences remain a priority risk.
+
+**Mathematical value — PASS.** The result distinguishes a nonhyperbolic boundary where predator loss is exponential from a codimension-one fast-recovery separatrix, computes the first nontrivial fear-dependent curvature of that separatrix, and gives a universal two-term quantitative relaxation clock off it. These are natural dynamical invariants not read off from the linearized multipliers and provide a benchmark for critical ecological-map transients.
+
+**Limitations and uncertainty.** The analysis assumes fixed positive ecological parameters, \(r=2\) and strictly \(\alpha<d\). All basin statements are local and conditional on small initial data. The independent expert review and broad archival priority check are outside the scope of this mathematical assessment.
+
+Self-review: passed. Independent audit: not yet performed.
