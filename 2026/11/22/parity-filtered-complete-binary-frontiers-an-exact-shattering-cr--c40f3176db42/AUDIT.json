@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The proof establishes necessary and sufficient conditions for every support and labeling, independent polynomial recurrences, and exact all-height extremal dimension/count. Standalone Python checks every ancestor antichain and trace through h=4, while C++ checks h=2,3 and recurrence h<=5; the finite checks corroborate, do not substitute for universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published bf95851f8ef7 RESULT.md all sections: unrestricted VC/Littlestone and expressly excludes fixed-cardinality subfamilies.",
+        "Published c25578c2d178 RESULT.md all sections: arbitrary rooted tree, but unrestricted concept class."
+      ],
+      "reasoning": "Arbitrary-tree scope does not dominate the present claim because the hypotheses differ: all frontiers versus parity-filtered frontiers. In particular the unrestricted full pair graph is insufficient to decide exceptional parity-constrained traces.",
+      "searches": [
+        "all complete prefix codes static adaptive shattering level regular trees",
+        "complete prefix codes fixed number of codewords membership-query shattering VC dimension full binary trees",
+        "2026/11/2/SCOPE-exact-static-and-online-shattering-of-complete-hierarchical-fron--bf95851f8ef7",
+        "2026/11/8/SCOPE-flag-shattering-complexes-of-maximal-rooted-tree-antichains-and--c25578c2d178"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1803.09623v3 full HTML",
+      "arXiv:1901.11343v4 full HTML",
+      "2026/11/2/SCOPE-exact-static-and-online-shattering-of-complete-hierarchical-fron--bf95851f8ef7",
+      "2026/11/8/SCOPE-flag-shattering-complexes-of-maximal-rooted-tree-antichains-and--c25578c2d178",
+      "DOI 10.1016/j.tcs.2017.11.022 accessible HTML sections 2.3/4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Unrestricted polynomial A_h=z+A_{h-1}^2 follows from existing c25578c2d178.",
+        "New correction subtracts all bottom-parent-saturating supports B_h, then adds only parity-matched K_{h-2} upper-level complete fronts."
+      ],
+      "reasoning": "Existing unrestricted results yield the starting antichain obstruction but not the two refinements B_h and parity-selected K_{h-2}; direct implication fails because unrestricted shattering supports can have no free bottom parent yet be excluded in the parity class.",
+      "searches": [
+        "2026/11/2/SCOPE-exact-static-and-online-shattering-of-complete-hierarchical-fron--bf95851f8ef7",
+        "2026/11/8/SCOPE-flag-shattering-complexes-of-maximal-rooted-tree-antichains-and--c25578c2d178",
+        "arXiv:1803.09623 Theorem 2.8"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1803.09623 full HTML, Section 2.2 and Theorem 2.8 count antichains, not Boolean query traces.",
+        "Published c25578c2d178 RESULT.md fully read; unrestricted pair obstruction only."
+      ],
+      "reasoning": "A parity constraint on the hypothesis count is not equivalent to cardinality weights in the maximal-antichain counting polynomial: shattering asks for all 2^k prescribed traces and introduces exceptional top-level fronts. No equivalent criterion identified.",
+      "searches": [
+        "parity filtered complete prefix-code frontiers truncated full binary trees: exact shattered-support polynomial and sibling leaves obstruction",
+        "alternating parity maximal antichains of rooted trees VC shattering",
+        "arXiv 1803.09623 maximal antichain parity shattered supports"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Elsholtz–Heuberger–Krenn 2019 full article studies shape/equivalence counts of compact Huffman codes, not exact all-labelings support enumeration.",
+        "Neither closest published shattering article supplies the stated even/odd polynomial coefficients."
+      ],
+      "reasoning": "The numbers and formula are not recomputations of a found published table; they count a different invariant from code profile enumeration.",
+      "searches": [
+        "parity filtered complete prefix-code frontiers truncated full binary trees: exact shattered-support polynomial and sibling leaves obstruction",
+        "balanced prefix-free codes exact shattering and Littlestone dimension",
+        "fixed cardinality prefix code frontier shattering membership exact rank size",
+        "arXiv 1901.11343 compact Huffman codes counting parity"
+      ]
+    },
+    "rationale": "Actual published-finding corpus searches and complete reads of the two nearest published unrestricted-frontier findings plus primary original maximal-antichain literature distinguish the parity-filtered all-trace criterion and its extremal consequences. Neither the full frontier-count polynomial nor unrestricted flag complex implies the new parity-specific shattering set by its statement; the proof supplies a new necessary-and-sufficient parity refinement. Residual unindexed equivalences remain.",
+    "residual_risks": [
+      "Unindexed equivalent theorem about parity-restricted complete prefix codes may exist.",
+      "No independent external audit of all-height proof has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_PARITY_SHATTERING",
+        "evidence": "Counts maximal antichain configurations and leaves, not all-labeling query support shattering.",
+        "identifier_or_url": "https://arxiv.org/html/1803.09623v3",
+        "material_read": "Abstract, Section 2.2 and Theorem 2.8, introductory definitions and conclusions",
+        "method": "Read lawful open arXiv full HTML and compare counted object / quantified membership patterns",
+        "title": "A polynomial associated with rooted trees and specific posets",
+        "trigger": "Exact frontier hypothesis enumeration underlying new constraint"
+      },
+      {
+        "assessment": "NOT_COVERING_PARITY_SUBCLASS",
+        "evidence": "Proves VC=Ldim of all frontiers; explicitly does not assert restricted cardinality families or parity support profile.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-static-and-online-shattering-of-complete-hierarchical-fron--bf95851f8ef7",
+        "material_read": "Entire RESULT.md: finding, proof, limitations, references",
+        "method": "Read published full RESULT.md and compare restrictions and implication",
+        "title": "Exact static and online shattering of complete hierarchical frontiers",
+        "trigger": "Same tree class and query type"
+      },
+      {
+        "assessment": "PARTIAL_STARTING_LEMMA_NOT_COVERING",
+        "evidence": "Shows all-frontier pair-obstruction polynomial A_h only; parity loses saturation cases, adding exceptional upper-level fronts.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-flag-shattering-complexes-of-maximal-rooted-tree-antichains-and--c25578c2d178",
+        "material_read": "Entire RESULT.md: proof of pair graph and complete regular-tree polynomial, limitations and sources",
+        "method": "Read published full RESULT.md and compare to parity-constrained all-labeling criterion",
+        "title": "Flag shattering complexes of maximal rooted-tree antichains and an unbounded online gap",
+        "trigger": "Exact unrestricted support characterization plausible domination"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Enumerates nonequivalent compact Huffman codes by combinatorial shape, not Boolean query traces or parity classes.",
+        "identifier_or_url": "https://arxiv.org/html/1901.11343v4",
+        "material_read": "Abstract and Sections 1–4 and conclusions of full open HTML",
+        "method": "Full text inspection, compare length-profile enumeration with query-shattering object",
+        "title": "Algorithmic counting of nonequivalent compact Huffman codes",
+        "trigger": "Closely allied prefix-free code enumerations"
+      },
+      {
+        "assessment": "NOT_COVERING_IN_MATERIAL_READ",
+        "evidence": "Studies algorithmic empirical disagreement and size-dependent optimization rather than parity shattering support enumeration.",
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2017.11.022",
+        "material_read": "Accessible open archive HTML sections 2.3 and 4",
+        "method": "Read open-archive text and compare fixed-frontier-size optimization to all-labeling trace complexity",
+        "title": "Hierarchical design of fast Minimum Disagreement algorithms",
+        "trigger": "Existing use of maximal antichain cutsets with size restriction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c40f3176-db42-4541-b313-99cfcc4c482a",
+  "value": {
+    "rationale": "Cardinality parity is a natural restriction on complete prefix-code frontiers; it changes the entire shattering complex, requiring a nontrivial free-bottom-parent versus exceptional internal-cut classification. Exact polynomial, degree, top-face count, and nonpurity give structural information for all heights rather than routine parameter substitution.",
+    "status": "PASS"
+  }
+}
