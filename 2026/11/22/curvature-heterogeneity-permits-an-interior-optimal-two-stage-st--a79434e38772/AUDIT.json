@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Exact two-stage affine map and strict uniform contraction of all four matrices produce a unique stationary law. Exact moment recursions give R(u) and its derivative; the unique minimizing radical root is proven using monotonicity of its quadratic sign polynomial. Equal-slope rigidity and perturbation robustness follow from explicit formulas and continuity. Independent code replay checks identities, not substitutes for the contraction proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yoon–Loizou 2026 inspected full §§1–4 on finite-sum SEG sampling and gap/last-iterate convergence",
+        "Emmanouilidis–Vidal–Loizou 2024 full Algorithms 1–3 on reshuffling",
+        "Indexed Gaussian additive-noise normal extragradient coupling 2026/11/2/0660df64fc41"
+      ],
+      "reasoning": "General stochastic extragradient convergence guarantees do not by themselves optimize the constant-step stationary squared error across correlated stage pairs; Gaussian fixed-operator additive-noise coupling is not a superset of sample-dependent affine slopes.",
+      "searches": [
+        "stochastic extragradient optimal oracle sample coupling correlation mean square stationary risk iid pairs",
+        "2026 stochastic extragradient two stage optimal correlated coupling affine components different zeros stationary mean squared error"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2608.06182v1 §§1–4",
+      "https://arxiv.org/html/2403.07148v2 Algorithms 1–3",
+      "2026/11/1/SCOPE-two-distinct-optimal-coupling-transitions-for-stochastic-extragr--002177710edb",
+      "2026/10/12/SCOPE-a-sharp-coupling-reversal-frontier-for-stochastic-extragradient--1eae25261845",
+      "2026/10/25/SCOPE-sharp-antithetic-pairing-and-the-varphi-sqrt-varphi-stability-cu--2b6eab28d021",
+      "2026/11/2/SCOPE-a-parity-obstruction-to-perfect-coupled-noise-cancellation-in-no--0660df64fc41",
+      "2026/10/12/SCOPE-sharp-stationary-risk-envelope-and-order-phase-switches-for-two--0365743eee2e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2608.06182 equations (S-SEG)/(I-SEG) and §§3–4 results",
+        "arXiv:2403.07148 Algorithm 1 same-index within iteration",
+        "published-finding corpus bilinear IDs 002177710edb, 1eae25261845, 2b6eab28d021"
+      ],
+      "reasoning": "S-SEG and I-SEG fix u=1 and u=1/2 respectively, while the proof optimizes every u∈[0,1]; their algorithm definitions cannot imply the displayed unique u≈0.7186. The bilinear zero-noise stationary regimes cannot imply a nonzero stationary risk or bias/variance tradeoff. Temporal reshuffling does not imply the within-iteration optimum.",
+      "searches": [
+        "\"On Same-Sample and Independent-Sample Stochastic Extragradient\" optimal stage coupling stationary mean square error nonshared solutions affine",
+        "correlated samples two-call extragradient strongly monotone affine components distinct roots unique interior optimal coupling"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2608.06182 §§1.1,3–4 distinguishes only full reuse and independent stages",
+        "published-finding corpus 2026/11/1/002177710edb and 2026/10/12/1eae25261845 describe bilinear homogeneous sampling"
+      ],
+      "reasoning": "Rewriting stage-pair sampling as a doubly stochastic 2×2 law yields the one-parameter u family. The new risk concerns affine forcing and biased stationary errors rather than homogeneous bilinear second-moment contraction; neither published summary yields its rational stationary risk or interior minimizer.",
+      "searches": [
+        "same sample independent sample stochastic extragradient scalar affine monotone operators different component roots stationary mean bias variance exact threshold coupling",
+        "two sample scalar affine stochastic extragradient stationary mean squared error sample reuse optimal correlation phase transition",
+        "\"On Same-Sample and Independent-Sample Stochastic Extragradient\" optimal stage coupling stationary mean square error nonshared solutions affine",
+        "F1(x)=x-3 F2(x)=3(x+1) constant-step extragradient mixing identical independent antithetic oracle calls u stationary risk"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus searches produced related bilinear coupling and random-reshuffling summaries, not the displayed affine stationary-risk polynomial",
+        "Full Yoon–Loizou manuscript §3 counterexamples concern homogeneous rotations and gap bounds"
+      ],
+      "reasoning": "No exact tabulation of this affine operator pair, rational R(u), or its radical strict interior minimizer was found among searched records. Negative searches are not proof of comprehensive novelty.",
+      "searches": [
+        "F1(x)=x-3 F2(x)=3(x+1) constant-step extragradient mixing identical independent antithetic oracle calls u stationary risk",
+        "two sample scalar affine stochastic extragradient stationary mean squared error sample reuse optimal correlation phase transition"
+      ]
+    },
+    "rationale": "The precise all-fixed-marginal-coupling stationary squared-risk optimum for two heterogeneous scalar affine strongly monotone components, with an equal-slope rigidity comparison, is not implied by inspected primary theorems or the nearest indexed claims. Priority outside accessible sources remains uncertain.",
+    "residual_risks": [
+      "Historical priority among unindexed treatments of finite-sum affine-stage coupling is not certified.",
+      "Several highly related published-finding corpus records were available as indexed summaries but not full text. No inference of full-text noncoverage is made from those summaries.",
+      "Generality is limited to a two-component scalar exact example and equal-curvature boundary; no global optimized-coupling theorem is claimed for arbitrary curvatures."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related but not covering stated stationary affine fixed-marginal global optimization",
+        "evidence": [
+          "arXiv:2608.06182 §1.1 S-SEG/I-SEG equations, §3 gap function, §4 almost-sure convergence, first posted 2026-08-06"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2608.06182v1",
+        "material_read": "Full HTML §§1–4: SEG update definitions, contributions and gap-convergence/counterexample proofs; end conclusions and references skimmed",
+        "method": "Primary full arXiv HTML, section reading and exact in-document searches for coupling and stationary",
+        "title": "On Same-Sample and Independent-Sample Stochastic Extragradient for Monotone Variational Inequalities",
+        "trigger": "Motivating 2026 work expressly contrasting stage-index choices for monotone VIs"
+      },
+      {
+        "assessment": "Reshuffled iteration orders reuse a single component in both stages; do not optimize all fixed marginal couplings",
+        "evidence": [
+          "arXiv:2403.07148 Algorithms 1–3, 2024 preprint"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2403.07148v2",
+        "material_read": "Full HTML Introduction and Algorithms 1–3, finite-sum sampling and convergence statements",
+        "method": "Primary full arXiv HTML with direct algorithm comparison",
+        "title": "Stochastic Extragradient with Random Reshuffling: Improved Convergence for Variational Inequalities",
+        "trigger": "Directly related within-epoch stochastic extragradient sampling design"
+      },
+      {
+        "assessment": "Not a covering implication at summary level, but residual risk because full proof unavailable",
+        "evidence": [
+          "Indexed claim explicitly concerns homogeneous two-slope bilinear saddle and mean-square/typical-path amplification"
+        ],
+        "identifier_or_url": "2026/11/1/SCOPE-two-distinct-optimal-coupling-transitions-for-stochastic-extragr--002177710edb",
+        "material_read": "published-finding corpus abstract and conclusion summary only; full archived text inaccessible",
+        "method": "Semantic finding search and comparison of objects and invariant moments",
+        "title": "Two distinct optimal coupling transitions for stochastic extragradient on a bilinear game",
+        "trigger": "Closest indexed coupling-optimization statement"
+      },
+      {
+        "assessment": "Fixed normal operator plus additive Gaussian noise does not imply random affine multiplier/offset coupling classification; full text remains uninspected",
+        "evidence": [
+          "Indexed Gaussian fixed-operator coupling formula and perfect cancellation parity statement"
+        ],
+        "identifier_or_url": "2026/11/2/SCOPE-a-parity-obstruction-to-perfect-coupled-noise-cancellation-in-no--0660df64fc41",
+        "material_read": "published-finding corpus abstract and conclusion summary only; full archived text inaccessible",
+        "method": "Semantic claim comparison with random-slope affine system",
+        "title": "A parity obstruction to perfect coupled-noise cancellation in normal extragradient",
+        "trigger": "Stationary mean-square risk with coupled stochastic oracle noise"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a79434e3-8772-4cef-907a-a99f0c6ca764",
+  "value": {
+    "rationale": "The paper motivates a practical design choice between sample reuse and independence. This theorem exhibits a robust third regime in which a mixed pair coupling is strictly better than reuse, independence and maximal anticorrelation even though all components and maps are contractive. The equal-slope rigidity theorem isolates curvature heterogeneity, and the stationary bias at the optimum exposes why variance minimization alone misleads.",
+    "status": "PASS"
+  }
+}
