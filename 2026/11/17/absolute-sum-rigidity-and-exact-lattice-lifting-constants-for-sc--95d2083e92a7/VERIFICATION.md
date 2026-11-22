@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification of the absolute-sum lifting classification
+# Independent mathematical audit
 
-The proof is self-contained apart from the published \(1^+\)-projectivity of countable \(\ell_1\) (de Pagter–Wickstead, Theorem 11.8). Every asserted inequality is analytical:
+## correctness
 
-1. For normalized absolute \(\nu\), the inequalities \(\max\{s,t\}\le\nu(s,t)\le s+t\) and compactness of \(s+t=1\) establish the finite, attained geometric constant.
-2. The norm of the coordinate lattice identity from \(A_\nu\) to \(\ell_1\) is exactly \(K_\nu\), with inverse norm one; the projective lift therefore costs at most \(K_\nu(1+\delta)\).
-3. In the tower \(B=c\oplus c_0\), \(I_m\) changes only the first \(m\) coordinates of the first component. The quotient by \(I\) has norm \(\max\{|\lim u|,\|v\|_\infty\}\), by matching upper and lower estimates.
-4. For every stage \(m\), the coordinate-\(n\) estimate on positive lifts for \(n>m\) and the limit \(u_n\to s\) give \(\|S\|\ge (s+t)/\nu(s,t)\); optimizing gives \(\|S\|\ge K_\nu\).
-5. The explicit positive lattice lift \(S_0(a,x)=((a,a,\ldots),\iota x)\) has \(\|S_0\|=K_\nu\), proving attainment of the same lower bound at every quotient stage.
-6. The threshold \(K_\nu=1\) forces \(\nu=\ell_1^2\); the \(q\)-sum and convex-combination formulas follow by Hölder and a one-variable minimum, including both endpoints.
+PASS
 
-No code execution, finite enumeration, numerical interpolation, or external/infinite certification is required to reproduce the proof. The cited original quotient construction and classical positive projectivity theorem remain external scholarly prerequisites; no independent review has yet been performed.
+The coordinatewise lattice identity U:A_nu→R⊕_1 ell_1 has norm exactly max(s+t)/nu=K_nu, and inverse V has norm one. Projectivity of countable lattice ell_1 gives upper lifting constant K_nu. The explicit separable B=c⊕c_0 with pointwise max-over-n pair sum norm and finite-coordinate ideals has limit quotient isometric to R⊕_infty c_0; the target lattice homomorphism T(a,x)=(a,iota x) has norm one. For every stage m, any positive lattice-homomorphic lift must have coordinate-n first component approaching s for s e_0, while the second component for t e_n equals t for every n>m; positivity implies its image of (s,t e_n) has norm≥s+t in the n-th pair. Thus lifting norm≥(s+t)/nu(s,t) for every pair, giving K_nu, attained by explicit constant-a, iota-x lift. A stage-independent gap K_nu>1 obstructs semiprojectivity; K_nu=1 forces nu=s+t everywhere on positive quadrant. Finite exact specializations of ℓ_q and interpolating nu_theta agree numerically with formulas, but the arbitrary-norm classification is analytic.
+
+## originality
+
+PASS
+
+Bounded best-of-knowledge originality of the exact final claim, not of its credited general framework or existing endpoint computations. Full primary text was read where available; sources inaccessible in full are clearly identified and retained as priority risks.
+
+## value
+
+PASS
+
+Classifies a natural sharp projective invariant and semiprojectivity boundary across the complete family of normalized absolute scalar–ell_1 lattice sums; quantifies the continuous gap from the known ell_1 positive case to the ell_infty negative example, not an arbitrary small finite calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

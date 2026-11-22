@@ -1,19 +1,21 @@
-# Review of absolute-sum lifting rigidity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For any normalized absolute norm \(\nu\) on two real coordinates, lattice monotonicity bounds it between the maximum and sum norms. The upper projective constant comes from the canonical lattice isomorphism with countable \(\ell_1\), with exact norm \(K_\nu\), followed by the classical \(1^+\)-projectivity theorem. The explicit quotient tower on \(c\oplus c_0\) gives the matching lower bound at *every* stage; the quotient norm is proved in both directions, and positivity yields the sharp pairwise inequality. A canonical lift has norm exactly \(K_\nu\), so the witness even attains the stagewise minimum. The semiprojectivity equivalence and the exponent and deformation formulas follow by exact geometric optimization. No numerical extrapolation is used.
+PASS
 
-## Originality — PASS (qualified)
+The coordinatewise lattice identity U:A_nu→R⊕_1 ell_1 has norm exactly max(s+t)/nu=K_nu, and inverse V has norm one. Projectivity of countable lattice ell_1 gives upper lifting constant K_nu. The explicit separable B=c⊕c_0 with pointwise max-over-n pair sum norm and finite-coordinate ideals has limit quotient isometric to R⊕_infty c_0; the target lattice homomorphism T(a,x)=(a,iota x) has norm one. For every stage m, any positive lattice-homomorphic lift must have coordinate-n first component approaching s for s e_0, while the second component for t e_n equals t for every n>m; positivity implies its image of (s,t e_n) has norm≥s+t in the n-th pair. Thus lifting norm≥(s+t)/nu(s,t) for every pair, giving K_nu, attained by explicit constant-a, iota-x lift. A stage-independent gap K_nu>1 obstructs semiprojectivity; K_nu=1 forces nu=s+t everywhere on positive quadrant. Finite exact specializations of ℓ_q and interpolating nu_theta agree numerically with formulas, but the arbitrary-norm classification is analytic.
 
-Kania–Niwiński, *Semiprojective Banach lattices*, arXiv:2604.10624v2, proves the \(\ell_\infty\)-sum obstruction and displays the separable tower. The new theorem **does not claim that tower as new**. It extracts an exact optimal lift modulus for *every* normalized absolute sum, including nonsymmetric norms, and classifies precisely when the norm admits semiprojectivity. De Pagter–Wickstead, arXiv:1204.4282, proves the \(\ell_1\) projectivity used for the upper bound, not the intermediate optimal constants. Relevant primary text, alternate formulations and mathematical research summaries were compared; no covering statement was found. A hidden earlier equivalent formulation is still possible, and independent priority review is absent.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact projectivity constant is a canonical quantity, not a contrived finite statistic. The full classification shows that the \(\ell_1\) norm is isolated, within the family of all normalized absolute scalar–\(\ell_1\) sums, as the only semiprojective norm, despite nearby norms with optimal lifting constant arbitrarily close to one. The same explicit tower attains the sharp obstruction for all these norms. This supplies quantitative boundary information for the direct-sum permanence phenomenon motivating the 2026 work, without claiming to resolve its unrestricted open questions.
+Bounded best-of-knowledge originality of the exact final claim, not of its credited general framework or existing endpoint computations. Full primary text was read where available; sources inaccessible in full are clearly identified and retained as priority risks.
 
-## Closest literature and limitations
+## value
 
-Theorem 6.9 and Corollary 6.11 of arXiv:2604.10624v2 are the closest result and source of the adapted quotient method. Theorem 11.8 of arXiv:1204.4282 is the standard positive lifting theorem. A 2025 paper on lattice-homomorphism norm attainment under renormings concerns a different invariant. An accessible research-record result on hereditary norm attainment after adjoining a coordinate likewise does not imply quotient-lifting rigidity. The classification does not cover general lattice renormings, higher-block sums, or arbitrary semiprojective Banach lattices. The derivation is short and closely related to the 2026 proof; independent novelty and correctness validation have not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Classifies a natural sharp projective invariant and semiprojectivity boundary across the complete family of normalized absolute scalar–ell_1 lattice sums; quantifies the continuous gap from the known ell_1 positive case to the ell_infty negative example, not an arbitrary small finite calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
