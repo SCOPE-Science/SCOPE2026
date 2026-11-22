@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "At maximum combined length minimality is equivalent to disjoint unique embeddings. The coordinatewise min/max lemma verifies the local no-replacement test; modulo-q transition graphs for q=3,4,5 yield, by inductive path counts, exactly 1, 2^(4k-1), and F_(10k-1) for every k>=1. All boundary conditions and quantifiers are addressed. Direct output-minimality enumeration and independent grid DP corroborate finite cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sopp et al., arXiv:2603.22591: generic enumeration algorithm, not stated cyclic-shift closed counts.",
+        "Fraser 1995 thesis, Chapter 6.3.2, Theorem 6.3.2: general dynamic program for possible minimal-supersequence lengths and recovery, not the claimed q-dependent counts."
+      ],
+      "reasoning": "Generic algorithms apply to the inputs but do not imply specific output cardinalities without a family-specific computation or proof; neither inspected source provides it. This distinction is algorithmic coverage versus theorem-level implication.",
+      "searches": [
+        "number of disjoint minimal common supersequences equal length 2n of cyclic shifts of permutation repeated q states",
+        "periodic cyclic shift maximal-length minimal common supersequence shuffle enumerations Fibonacci",
+        "minimal common supersequence enumeration length distribution opposite order blocks"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2603.22591",
+      "https://theses.gla.ac.uk/74575/1/10992195.pdf",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-binomial-law-for-shortest-common-supersequences-of-opposite-pe--980cf845dba3",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-minimal-supersequence-spectra-for-unequal-opposite-binary--d41f14eae316",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-output-languages-of-two-alternating-binary-shuffles--18f373001e8b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Opposite permutation powers paper: exact shortest supersequence count is a binomial law; cyclic shift q>=3 is not reverse order.",
+        "Opposite two-run binary paper: maximum minimal length is less than the combined input length; our nonbinary full-length words are possible.",
+        "Alternating binary-shuffle paper: all shuffles are counted, not the unique-embedding minimal sublanguage."
+      ],
+      "reasoning": "The prior theorems operate in different input structures or quantify a different output property. Neither their formulas nor their generic complexity assertions logically entail this particular full-length count.",
+      "searches": [
+        "minimal common supersequences two cyclic shifts powers of permutation 012 repeated and 120 repeated full length spectrum exact count",
+        "minimal common supersequence two words run length class sequence formula enumeration",
+        "number of disjoint minimal common supersequences equal length 2n of cyclic shifts of permutation repeated q states"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus closest IDs: 2026/11/8/SCOPE-a-binomial-law-for-shortest-common-supersequences-of-opposite-pe--980cf845dba3; 2026/11/8/SCOPE-exact-minimal-supersequence-spectra-for-unequal-opposite-binary--d41f14eae316",
+        "Full published texts of the three closest published-finding corpus results inspected via public repository source."
+      ],
+      "reasoning": "The maximal-length minimal common-supersequence layer equals uniquely embedded shuffles, so we explicitly compared both shuffle language claims and supersequence claims, not only titles. Existing shortest and unfiltered shuffle formulas do not quantify this layer for cyclic shifts.",
+      "searches": [
+        "minimal common supersequences two cyclic shifts powers of permutation 012 repeated and 120 repeated full length spectrum exact count",
+        "unique embedding shuffle lattice path 0123 repeated 1230 repeated 2^(4k-1), 01234 12340 Fibonacci",
+        "number of disjoint minimal common supersequences equal length 2n of cyclic shifts of permutation repeated q states"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returns related Fibonacci graph-cover records and periodic-word results but not the 1, power-of-two, Fibonacci output table.",
+        "Public 2026 paper and 1995 thesis chapters inspected for the same object and small alphabet values; none stated."
+      ],
+      "reasoning": "No matching table or formula emerged in the searched scientific records or inspected sources. A negative index result is not proof of global novelty.",
+      "searches": [
+        "Fibonacci F_{10k-1} minimal common supersequences of cyclic shift 01234 repeated 12340 repeated maximal length 10k",
+        "unique embedding shuffle lattice path 0123 repeated 1230 repeated 2^(4k-1), 01234 12340 Fibonacci",
+        "exact number of full length minimal common supersequence cyclically shifted permutation repeated Fibonacci"
+      ]
+    },
+    "rationale": "Primary generic algorithms and the closest published periodic-input/supersequence spectra and shuffle classifications were inspected and compared by exact statement and implication. None includes or logically yields these full-length unique-shuffle formulas; unindexed equivalents remain a genuine risk.",
+    "residual_risks": [
+      "An unindexed or independently derived equivalent formula could exist in older supersequence literature.",
+      "The 1994 Irving–Fraser publisher version was not separately available in full; the 1995 thesis source discusses the algorithmic results.",
+      "The historical thesis PDF image screenshot attempts timed out, although its parsed theorem sections were readable."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General algorithms for two-input minimal common supersequences; no q=3,4,5 cyclic-shift full-length counts in inspected material.",
+        "evidence": [
+          "arXiv:2603.22591, initial submission 2026-03-23; generic enumeration setting."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.22591",
+        "material_read": "ArXiv HTML and PDF result/theorem sections, including inspected PDF pages.",
+        "method": "Read accessible primary paper content and searched for cyclic, permutation and Fibonacci specializations.",
+        "title": "Computing and Enumerating Minimal Common Supersequences Between Two Strings",
+        "trigger": "Same mathematical objects and current enumeration framework."
+      },
+      {
+        "assessment": "General dynamic programming for minimal-supersequence lengths and recovery; no cyclic-shift closed count or Fibonacci specialization in inspected sections.",
+        "evidence": [
+          "Theorem 6.3.2: recurrence for minimal-supersequence output lengths; chapter 6.4 summary."
+        ],
+        "identifier_or_url": "https://theses.gla.ac.uk/74575/1/10992195.pdf",
+        "material_read": "Chapter 6.3.2 and 6.4 extracted prose/equations, including Theorem 6.3.2 and its discussion of enumeration.",
+        "method": "Read full parsed sections from the primary PDF; attempted page screenshots, which timed out, so no visual assertions depend on these screenshots.",
+        "title": "Subsequences and Supersequences of Strings",
+        "trigger": "Historical full-text priority check for longest minimal common supersequences."
+      },
+      {
+        "assessment": "Reversed base order and shortest length, not one-step rotated base and maximal minimal length.",
+        "evidence": [
+          "Its formula counts SCS length max(qk,qℓ,(q−1)(k+ℓ)+1); its scope explicitly excludes minimal-but-not-shortest outputs."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-binomial-law-for-shortest-common-supersequences-of-opposite-pe--980cf845dba3",
+        "material_read": "Complete RESULT.md including finding, scope, proof, verification and limitations.",
+        "method": "Read raw public published scientific manuscript via authorized repository content retrieval.",
+        "title": "A Binomial Law for Shortest Common Supersequences of Opposite Permutation Powers",
+        "trigger": "Closest periodic permutation supersequence count."
+      },
+      {
+        "assessment": "Distinct positive binary run lengths with opposite run order, not cyclic repeated permutations q>=3.",
+        "evidence": [
+          "The explicit two-central-run forms and sum-of-two-squared-binomials spectrum require a two-letter run structure."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-minimal-supersequence-spectra-for-unequal-opposite-binary--d41f14eae316",
+        "material_read": "Complete RESULT.md including constructive forms, proof, scope and verification.",
+        "method": "Read raw public manuscript.",
+        "title": "Exact Minimal-Supersequence Spectra for Unequal Opposite Binary Runs",
+        "trigger": "Closest full minimal-supersequence spectrum."
+      },
+      {
+        "assessment": "Counts distinct outputs of unconstrained binary shuffles, not inclusion-minimal output words from shifted nonbinary permutations.",
+        "evidence": [
+          "The stated counts 2^(2n−1) and 2^(2n) do not impose unique embeddings of both sources."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-output-languages-of-two-alternating-binary-shuffles--18f373001e8b",
+        "material_read": "Complete RESULT.md including shuffle-output enumeration proof and scope.",
+        "method": "Read raw public manuscript.",
+        "title": "Exact Output Languages of Two Alternating Binary Shuffles",
+        "trigger": "Shuffle-output alternative statement that might imply the count."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "890be64c-626b-48d0-abe7-994ed4be277d",
+  "value": {
+    "rationale": "The maximum-length stratum is a natural, nontrivial extremal invariant of minimal common supersequence enumeration. A canonical family of periodic one-step shifted inputs exhibits a sharp transition from unique output to a binary branching law to Fibonacci growth across the first three nonbinary alphabet sizes, and the exact lattice-path model explains the behavior. These counts can benchmark general enumeration algorithms without requiring a larger downstream theorem.",
+    "status": "PASS"
+  }
+}
