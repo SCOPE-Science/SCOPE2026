@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** Directly factoring the scalar second iterate gives exactly one positive primitive two-cycle per coordinate axis for \(R>2\). The full three-dimensional Jacobian, not merely the scalar restriction, has Floquet spectrum \(\{5-R^2,p_R(\alpha),p_R(\beta)\}\). The critical cubic, phase boundaries, square-root opening, and strict-positive-orbit barrier all follow from exact identities and local dynamics. The checker verifies the algebra and exact rational examples, while the proof supplies the infinite-parameter arguments. Boundaries where a multiplier has modulus one are explicitly not assigned nonlinear stability.
+
+**Originality: PASS within inspected evidence.** The 2024 originating paper studies quasiperiodic and chaotic bifurcations, not an exact three-axis strong-competition stability phase diagram. The 2021 general three-species treatment establishes axis invariance and logistic behavior but its detailed examples have weak interactions and do not supply the reentrant threshold or the positivity-accessibility separation. Published results on a neutral May–Leonard simplex and reentrant transverse stability in a two-site logistic model do not imply the cyclic three-species theorem. The 2010 discrete three-species economic paper and the 2001 general Lotka–Volterra article were available only in abstract for the present comparison. An unknown equivalent formula or an uninspected full text remains the principal originality risk.
+
+**Mathematical value: PASS.** The object is a standard cyclic population update where boundary two-cycles can control invasion and exclusion. The exact parameter diagram determines when three competing extinction oscillations coexist as sinks, detects a sharp square-root reentrant instability pocket, and distinguishes full real-space stability from dynamically attainable nonnegative-population behavior. These are motivated natural stability and accessibility questions, not an arbitrary finite slice or a numerical recomputation.
+
+Limitations: No off-axis period-two census, global basin theorem, unit-circle nonlinear classification, or independent audit is supplied.
+
+Self-review: passed. Independent audit: not yet performed.
