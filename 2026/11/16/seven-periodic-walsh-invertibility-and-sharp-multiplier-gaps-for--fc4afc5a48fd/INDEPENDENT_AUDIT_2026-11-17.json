@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T08:00:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The independent sets of squared path P_n² obey signed recurrence w_m=w_(m-1)+s_m w_(m-3), with empty-prefix boundary w_-2=w_-1=w_0=1. Modulo two the companion transfer has T^7=I, yielding odd unsigned count exactly when n mod7 lies in {0,2,5,6}; then all signed Walsh coefficients are odd and nonzero. For other residues {1,3,4}, complete seed enumeration gives 1,3,6 zero frequencies. Appending signs t1..t7 with t6=-t5,t7=-1 gives exact recurrence identity w_(m+7)=-t3*t5*w_m for all previous prefixes; 32 distinct blocks preserve zero or magnitude, generating at least c_r*32^k distinct zero frequencies. Seed signed sums in each residue have sharp least nonzero magnitude 1 (odd count) or 2 (even count). Therefore convolution character eigenvalues establish inverse/pseudoinverse ℓ² norms exactly 1 or 1/2. Read frozen proof and source check_walsh_path_square.py; independent full Walsh enumeration for n<=16 and all 32 block identities confirmed, but all-n proof rests on the recurrence/block identity, not these tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Scott/Sokal prove independence-polynomial zero-free results for small complex fugacity polydiscs; the published period-seven theorem uses maximal independent sets on a path and zero-free residues {0,1,4,6}."
+        ],
+        "reasoning": "The ±1 sign cube generally lies beyond the small-polydisc nonvanishing hypotheses. Maximal independent sets of P_n are neither all independent sets of P_n² nor a set obtained by a sign relabelling; its distinct residues confirm non-implication.",
+        "searches": [
+          "square of path independent sets Walsh convolution invertible residues mod 7 sharp multiplier gap",
+          "https://arxiv.org/html/cond-mat/0309352v2",
+          "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-period-seven-walsh-invertibility-of-maximal-independent-set-path--294497a01d79/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md SHA 20a07d44c2a3a7c1c013f87d975fcf04accb4dfb",
+        "check_walsh_path_square.py SHA 844720bb8b6834439f1bbe1744cf044c10b908cf",
+        "https://arxiv.org/html/cond-mat/0309352v2",
+        "https://arxiv.org/abs/1210.5561",
+        "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-period-seven-walsh-invertibility-of-maximal-independent-set-path--294497a01d79/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Codara–D’Antona count independent subsets of powers of paths/cycles, Scott–Sokal study general hard-core zeros, and the maximal-path published record analyzes a different membership constraint."
+        ],
+        "reasoning": "Unsigned path-square count parity is only the no-zero half; it does not provide zero witnesses, sharp magnitude-2 gaps, or nullspace growth. The 7-block signed identity is the needed additional nontrivial argument.",
+        "searches": [
+          "https://arxiv.org/abs/1210.5561",
+          "https://arxiv.org/html/cond-mat/0309352v2",
+          "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-period-seven-walsh-invertibility-of-maximal-independent-set-path--294497a01d79/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Walsh coefficients equal multivariate independence polynomial values at arbitrary sign fugacities s_i=±1; hard-core language is equivalent for this comparison."
+        ],
+        "reasoning": "The same objects can be described as binary words without ones at distance one or two. The relevant new claim is a joint all-sign spectral classification, not the ordinary independence number/count.",
+        "searches": [
+          "square of path independent sets Walsh convolution invertible residues mod 7 sharp multiplier gap",
+          "independence polynomial P_n squared path signed fugacities ±1 Fourier zeros"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite Walsh tables at n<=16 corroborate residues and gaps but cannot establish all lengths; independent-set enumerations count only a single coefficient."
+        ],
+        "reasoning": "No database of complete characterwise sharp residue law was identified. Even if small values were catalogued, they would not imply the 32-block all-length theorem.",
+        "searches": [
+          "square of path independent sets Walsh convolution invertible residues mod 7 sharp multiplier gap",
+          "Walsh spectra independent sets path square OEIS table residue seven"
+        ]
+      },
+      "rationale": "The known multivariate independence polynomial permits evaluation at signed fugacities, but its general zero-free **polydisc** theorems and unsigned path-power counts do not yield exact cancellations at every ±1 character, the full mod-seven zero-free residue set, sharp positive gap or 32-block extension. A published period-seven result for MAXIMAL independent sets of ordinary paths is not a claim about ALL independent sets of squared paths, and has different residues. The quantified sharp classification survives these actual comparisons.",
+      "residual_risks": [
+        "Equivalent results using signed hard-core partition functions or transfer-matrix terminology may exist in uncatalogued work.",
+        "Complete primary text of Codara–D’Antona could not be accessed; its abstract is insufficient to exclude every appendix.",
+        "Finite transformations independently check examples only; all-length claims rest on exact recurrence and block identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the full ±1 sign cube in P_n²",
+          "evidence": "The zero-freeness conditions are fugacity polydiscs, not the complete discrete boundary-sign configuration with exact mod-seven nullities.",
+          "identifier_or_url": "https://arxiv.org/html/cond-mat/0309352v2",
+          "material_read": "Full accessible arXiv HTML, introduction and relevant polynomial/zero-free sections, including sections 2.6 and 5",
+          "method": "Read primary arXiv HTML and examined domains of its main zero-free implications",
+          "title": "The repulsive lattice gas, the independent-set polynomial, and the Lovász local lemma",
+          "trigger": "General hard-core polynomial zero-free theorem might dominate all sign assignments"
+        },
+        {
+          "assessment": "NOT_COVERING this distinct independent-set model",
+          "evidence": "Existing kernel counts maximal independent sets of P_n and gives residue set {0,1,4,6}; target counts all independent sets of P_n² with {0,2,5,6}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-period-seven-walsh-invertibility-of-maximal-independent-set-path--294497a01d79/RESULT.md",
+          "material_read": "Complete RESULT.md including boundary conditions, proof and explicit sign blocks",
+          "method": "Read complete published theorem",
+          "title": "Period-seven Walsh invertibility of maximal-independent-set path kernels",
+          "trigger": "Similar seven-periodic Walsh character classification"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_DECISIVE",
+          "evidence": "Count recurrences do not by themselves assert characterwise Walsh gaps; full paper remains unchecked.",
+          "identifier_or_url": "https://arxiv.org/abs/1210.5561",
+          "material_read": "Accessible abstract only; primary full text not accessible",
+          "method": "Read abstract and compared described counting/Hasse-diagram results",
+          "title": "On the independent subsets of powers of paths and cycles",
+          "trigger": "Exact graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Independent-set indicators of path powers are natural hard-core combinatorial objects. Classifying every dimension's full-group convolution invertibility and minimal spectral gap, with explicit exponentially growing null families, is a structural exact spectral law not inferable from their unsigned counts alone, useful for discrete harmonic recovery/conditioning.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md SHA 20a07d44c2a3a7c1c013f87d975fcf04accb4dfb",
+    "check_walsh_path_square.py SHA 844720bb8b6834439f1bbe1744cf044c10b908cf",
+    "https://arxiv.org/html/cond-mat/0309352v2",
+    "https://arxiv.org/abs/1210.5561",
+    "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-period-seven-walsh-invertibility-of-maximal-independent-set-path--294497a01d79/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": "Equivalent results using signed hard-core partition functions or transfer-matrix terminology may exist in uncatalogued work.; Complete primary text of Codara–D’Antona could not be accessed; its abstract is insufficient to exclude every appendix.; Finite transformations independently check examples only; all-length claims rest on exact recurrence and block identity.",
+  "residual_risks": [
+    "Equivalent results using signed hard-core partition functions or transfer-matrix terminology may exist in uncatalogued work.",
+    "Complete primary text of Codara–D’Antona could not be accessed; its abstract is insufficient to exclude every appendix.",
+    "Finite transformations independently check examples only; all-length claims rest on exact recurrence and block identity."
+  ],
+  "schema_version": 1
+}

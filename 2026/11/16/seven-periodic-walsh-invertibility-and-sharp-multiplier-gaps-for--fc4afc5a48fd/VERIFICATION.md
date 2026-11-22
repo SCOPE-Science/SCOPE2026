@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-The script `check_walsh_path_square.py` was executed from this package using Python 3 with no third-party dependencies. Exact integer computations checked the following independently of the all-length proof:
+# Independent mathematical audit
 
-- Full recurrence versus direct signed independent-set enumeration for every sign assignment and every length from zero through ten (2,047 signed inputs).
-- Complete integer fast Walsh transforms of the path-square independent-set indicators for every length from one through sixteen (131,070 Fourier coefficients), including Fourier-zero existence and exact least nonzero magnitudes.
-- The complete list of 32 allowed seven-sign blocks and their first-row transfer identities, with a census over all 128 seven-sign words.
-- All two-block concatenation witnesses for each of the three base zero words, and five deterministic long-witness chains per length through 201.
-- Parity recurrence through length 1000.
+## correctness
 
-Exact program output:
+PASS
 
-```
-PATH_SQUARE_WALSH_EXACT_PASS direct_signs_n_le_10=2047 full_FFT_n_le_16=131070 seven_blocks=32 zero_seeds=1,3,4 min_seeds=0..6 long_witnesses_n_le_201 parity_n_le_1000
-n=1..16 zeros: 1,0,3,6,0,0,0,59,0,188,369,0,0,0,3837,0
-```
+The independent sets of squared path P_n² obey signed recurrence w_m=w_(m-1)+s_m w_(m-3), with empty-prefix boundary w_-2=w_-1=w_0=1. Modulo two the companion transfer has T^7=I, yielding odd unsigned count exactly when n mod7 lies in {0,2,5,6}; then all signed Walsh coefficients are odd and nonzero. For other residues {1,3,4}, complete seed enumeration gives 1,3,6 zero frequencies. Appending signs t1..t7 with t6=-t5,t7=-1 gives exact recurrence identity w_(m+7)=-t3*t5*w_m for all previous prefixes; 32 distinct blocks preserve zero or magnitude, generating at least c_r*32^k distinct zero frequencies. Seed signed sums in each residue have sharp least nonzero magnitude 1 (odd count) or 2 (even count). Therefore convolution character eigenvalues establish inverse/pseudoinverse ℓ² norms exactly 1 or 1/2. Read frozen proof and source check_walsh_path_square.py; independent full Walsh enumeration for n<=16 and all 32 block identities confirmed, but all-n proof rests on the recurrence/block identity, not these tests.
 
-These tests independently corroborate the recurrence, parity criterion, construction and finite examples. The infinite classification is proved symbolically in `RESULT.md`; finite enumeration alone would not prove it. No independent external audit was performed.
+## originality
+
+PASS
+
+The known multivariate independence polynomial permits evaluation at signed fugacities, but its general zero-free **polydisc** theorems and unsigned path-power counts do not yield exact cancellations at every ±1 character, the full mod-seven zero-free residue set, sharp positive gap or 32-block extension. A published period-seven result for MAXIMAL independent sets of ordinary paths is not a claim about ALL independent sets of squared paths, and has different residues. The quantified sharp classification survives these actual comparisons.
+
+## value
+
+PASS
+
+Independent-set indicators of path powers are natural hard-core combinatorial objects. Classifying every dimension's full-group convolution invertibility and minimal spectral gap, with explicit exponentially growing null families, is a structural exact spectral law not inferable from their unsigned counts alone, useful for discrete harmonic recovery/conditioning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

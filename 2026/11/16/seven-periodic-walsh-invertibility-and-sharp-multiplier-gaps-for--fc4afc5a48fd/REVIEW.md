@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Every Fourier multiplier is exactly the signed independent-set polynomial, with the unnormalized transform fixed explicitly. Conditioning on the final vertex proves the order-three recurrence with boundary values for all lengths including one and two. Modulo two the companion matrix has seventh power equal to the identity, so all signs share the same seven-periodic parity. The seven-sign extension identity is proved by four literal recurrence substitutions and is valid for every earlier prefix; its 32 allowed sign blocks preserve absolute values. Explicit base assignments attain each parity lower bound, and three zero bases produce the singular residue classes. The stated lower bound on zero frequencies follows by injective concatenation, and finite-group Fourier diagonalization supplies the exact \(\ell^2\) operator norms. The included checker independently replayed 131,070 complete Walsh coefficients and the stated witnesses. No finite check is substituted for the all-length proof.
+## correctness
 
-## Originality
-**PASS, subject to bounded historical-priority risk.** The closest same-object source, Codara–D'Antona (arXiv:1210.5561v1, sections 1–5), determines the all-positive counts and their recurrence, which explains seven-periodic cardinality parity but does not prove existence of a zero for every even count, the universal seven-sign cancellation block, the sharp positive Fourier gap, or exponentially many zero frequencies. The expanded 2014 paper also tabulates unsigned counts, not the all-sign transform. Scott–Sokal (arXiv:cond-mat/0309352, abstract and sections on independence-polynomial identities and nonvanishing polydiscs) provides the general signed-evaluation language but not a path-square unit-sign classification. Searches of related published finite-Fourier research found a graph-independent-set **restricted sampling matrix** theorem and ordinary-path/cycle results, which concern distinct operators or graph families. Generic recurrence formulas are credited as prior mathematics. Residual risk: an unindexed specialized result on multivariate hard-core polynomials at unit signs or generalized Fibonacci-cube Walsh transforms might give an equivalent conclusion.
+PASS
 
-## Mathematical value
-**PASS.** A generalized Fibonacci cube of path-square independent sets has a canonical indicator on a Boolean group, making the nonvanishing of its Walsh transform equivalent to exact deconvolution. The theorem resolves the natural complete invertibility classification and sharp least visible multiplier at all lengths, not a single arbitrary finite sample. The residue-seven boundary is constructive rather than merely a parity obstruction: a universal 32-fold length-seven extension preserves magnitudes, supplies exponentially many independent frequency witnesses, and yields exact inverse and pseudoinverse stability constants. These are meaningful harmonic invariants and structural cancellation phenomena, independent of whether the complete zero histogram is later determined.
+The independent sets of squared path P_n² obey signed recurrence w_m=w_(m-1)+s_m w_(m-3), with empty-prefix boundary w_-2=w_-1=w_0=1. Modulo two the companion transfer has T^7=I, yielding odd unsigned count exactly when n mod7 lies in {0,2,5,6}; then all signed Walsh coefficients are odd and nonzero. For other residues {1,3,4}, complete seed enumeration gives 1,3,6 zero frequencies. Appending signs t1..t7 with t6=-t5,t7=-1 gives exact recurrence identity w_(m+7)=-t3*t5*w_m for all previous prefixes; 32 distinct blocks preserve zero or magnitude, generating at least c_r*32^k distinct zero frequencies. Seed signed sums in each residue have sharp least nonzero magnitude 1 (odd count) or 2 (even count). Therefore convolution character eigenvalues establish inverse/pseudoinverse ℓ² norms exactly 1 or 1/2. Read frozen proof and source check_walsh_path_square.py; independent full Walsh enumeration for n<=16 and all 32 block identities confirmed, but all-n proof rests on the recurrence/block identity, not these tests.
 
-## Source comparison and limits
-Directly relevant sources: Codara–D'Antona arXiv:1210.5561v1 and arXiv:1410.4080v1; Scott–Sokal arXiv:cond-mat/0309352v1. The 2012 original was inspected in HTML across its definition, path enumeration, Hasse-diagram, cycle and reference sections. The later version's terminology, recurrence and unsigned data tables were inspected. Unit-sign specialty literature was searched but not exhaustively canvassed. No general theorem about higher path powers, cycle squares, exact Fourier-zero multiplicities, or \(\ell^1\) conditioning is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known multivariate independence polynomial permits evaluation at signed fugacities, but its general zero-free **polydisc** theorems and unsigned path-power counts do not yield exact cancellations at every ±1 character, the full mod-seven zero-free residue set, sharp positive gap or 32-block extension. A published period-seven result for MAXIMAL independent sets of ordinary paths is not a claim about ALL independent sets of squared paths, and has different residues. The quantified sharp classification survives these actual comparisons.
+
+## value
+
+PASS
+
+Independent-set indicators of path powers are natural hard-core combinatorial objects. Classifying every dimension's full-group convolution invertibility and minimal spectral gap, with explicit exponentially growing null families, is a structural exact spectral law not inferable from their unsigned counts alone, useful for discrete harmonic recovery/conditioning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
