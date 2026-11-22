@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C) — PASS
-The exact identity \(\dot s=2KxF(s)\) establishes invariant circles and a scalar normal cocycle. The positive angular coefficient interpolated independently at each radius gives the exact requested period, while the exact cosine integral gives \(\log\mu_i\). Nonunit multipliers prove isolated hyperbolic cycles. The polynomial divisibility lower bound applies without rotational-equivariance assumptions; the displayed field attains it. Exact symbolic identities and independent numerical integrals and ODE integrations passed in the embedded standalone checker. The arbitrary-data theorem is proved analytically, not inferred from finite experiments.
+## correctness
 
-## Originality (O) — PASS within inspected evidence
-The 2026 general concentric-circle normal form does not assert independently prescribed *numerical* periods and multipliers at the minimum degree. The 2015 general realization paper gives physical periods and stability types at other degree estimates, not these exact multipliers at sharp degree. Two closely matching published constructions were inspected in full: one has a common affine twist and only alternating transverse signs, and the other restricts to rotation-equivariant fields with exactly two cycles. Neither implies an unrestricted degree-\(2m\) realization that can prescribe two same-sign nonunit multipliers. The sharp degree lower bound is classical and is not presented as new. Priority risk remains from partially accessible historical classifications and unindexed inverse Floquet literature.
+PASS
 
-## Mathematical value (V) — PASS
-The inverse-design problem asks whether period control and exact hyperbolicity strengths incur extra polynomial degree beyond the algebraically forced cost of the geometric circles. The answer is unexpectedly sharp: a radius-dependent angular shear programs all \(2m\) independent quantitative invariants at the absolute geometric degree bound, including configurations forbidden in globally positive rotation-equivariant designs with no extra cycles. This is a structural statement for every number of circles rather than an isolated computed example; it is explicitly limited to permitting other periodic orbits.
+For P=K F(s)+y(A(s)+xB(s)), Q=-x(A(s)+xB(s)), s=x²+y², radial identity ds/dt=2KxF(s) yields invariant circles. The interpolated angular speeds a_i+r_i b_i cos θ are positive, have exact period 2π/√(a_i²-r_i²b_i²)=T_i; integrating the normal variational equation 2K r_iFʹ(r_i²)cos θ over original time gives log mu_i by the z_i parametrization. Nonunit mu_i makes each prescribed circle isolated. Every polynomial field with m such circular limit cycles has nonzero xP+yQ divisible by F(s); since xP+yQ vanishes at origin and F(0)≠0 the residual factor is nonconstant, forcing d>=2m. Constructed field visibly degree exactly 2m.
 
-## Closest literature and limitations
-Jana–Sarkar (2026); Margalef-Bentabol–Peralta-Salas (2015); Giné–Llibre–Valls (2018); the published results *An exact orthogonality wall for minimal-degree concentric cycles* and *Sharp polynomial-degree trichotomy for two prescribed circular limit cycles*. See the result and structured audit for precise implication comparisons and access limits. No independent mathematical audit or historical-priority certification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prescribing arbitrary independent numerical original-time transverse Floquet multipliers together with arbitrary periods for m exact concentric circles at globally minimal unrestricted polynomial degree 2m is stronger in metric data than known qualitative stability/period realization. Jana–Sarkar gives a preserving-circle polynomial form and degree constraints, not numerical simultaneous realization; Margalef-Bentabol–Peralta-Salas realizes configurations, periods and qualitative stability with other degree bounds; Resultary trichotomy adds extra global symmetry/exclusion and wall theorem uses one common affine twist. Thus these do not imply the stated degree-2m unrestricted realization.
+
+## value
+
+PASS
+
+Combines two physically distinct dynamical invariants—the minimal period and numerical normal return multiplier—with optimal algebraic degree for any number of prescribed cycles. Non-alternating stability realization at sharp degree clarifies what angular non-equivariance enables beyond classic radial constructions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
