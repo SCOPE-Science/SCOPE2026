@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For each zero-one mask S, U^T D_S U is the realized derivative on an open nonempty sign chamber, so the global Lipschitz modulus equals the maximum of their induced infinity norms. A singleton active mask uu^T forces ||u||_infinity ||u||_1=1; equality forces a flat support. The complement mask I-uu^T then has supported row norm 2-2/k, so k<=2. Orthogonality partitions rows into singleton axes or complete orthogonal two-coordinate Hadamard pairs. Every mask for these blocks has infinity norm <=1. All boundaries are handled by continuous piecewise linearity, and the identity chamber gives exact norm one. The checker tests finite examples, not the universal theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hasannasab et al., Parseval Proximal Neural Networks, arXiv:1912.10480, introductory nonexpansivity/proximal sections and ReLU discussion: Hilbert-norm guarantee.",
+        "Anil, Lucas and Grosse, Sorting Out Lipschitz Function Approximation, arXiv:1811.05381, norm-constrained approximation and gradient-norm discussion: induced matrix norms and expressive constraints."
+      ],
+      "reasoning": "Euclidean 1-Lipschitzness of all orthogonal ReLU-conjugated maps does not imply 1-Lipschitzness in coordinate maximum norm, and does not classify the exceptional matrices. The stronger-looking Hilbert-stability statement is in a different metric; the cited architectural constraints do not yield the exact zero-one-mask characterization.",
+      "searches": [
+        "Parseval proximal neural networks orthogonal ReLU infinity Lipschitz nonexpansive",
+        "orthogonal ReLU layer coordinatewise infinity-norm Lipschitz one classification signed permutations 45 degree Givens rotations",
+        "arxiv:1912.10480",
+        "arxiv:1811.05381"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1912.10480",
+      "https://arxiv.org/abs/1811.05381",
+      "https://arxiv.org/abs/math/0110171",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-lipschitz-constants-and-nonexpansivity-for-every-planar-el--8dad3ac9984d",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-sharp-coordinatewise-lipschitz-transition-for-euclidean-lorentz--2d1b9aa4230e",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-near-projection-obstructions-to-quasi-norm-attainment-on-uncondi--5e57531450e8",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-diffuse-norming-law-for-affine-projection-on-positive-spherical--56d78809bb74"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new theorem requires all subspace masks to be infinity-contractive; the Euclidean proximal results give 2-norm contractivity for all U, including generic U that fail the theorem.",
+        "A general result about norm-one projections alone is not a theorem about simultaneous norm-one projections for every orthogonal basis mask, without additional specific hypotheses."
+      ],
+      "reasoning": "The implication from prior Hilbert contractivity to coordinate contractivity fails explicitly: a row of equal nonzero magnitude on three coordinates produces 4/3 in a complementary mask. The old general theory motivates the problem but its inspected sections do not imply the exact block classification. Any explicit classical theorem that classifies all 1-suppression orthonormal bases in real ℓ∞ would dominate this result, which remains a residual historical risk.",
+      "searches": [
+        "arxiv:1912.10480 Parseval proximal neural networks orthogonal ReLU Hilbert norm",
+        "arxiv:1811.05381 Sorting Out Lipschitz Function Approximation l infinity induced norm",
+        "Norm One Projections in Banach Spaces arxiv math/0110171 contractive projection unconditional basis"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Every partial coordinate projection in the orthogonal row basis is U^T D_S U; their norms are the 1-suppression-unconditionality constants in the ambient coordinate maximum norm.",
+        "Randrianantoanina, Norm One Projections in Banach Spaces, arXiv:math/0110171, introduction and survey sections on contractive projections; no identical classification found in inspected material."
+      ],
+      "reasoning": "The equivalent basis formulation follows exactly from the chamber derivative identity. This alias was explicitly searched, and the full source equivalence is proved in the present work. The classical basis literature is broad, so non-detection leaves a priority risk; the accessible compared survey does not decisively dominate the claim.",
+      "searches": [
+        "For an orthogonal real matrix U, the map x -> U^T max(Ux,0) is nonexpansive in l_infinity exactly when U is a signed-permuted direct sum of 1x1 blocks and 2x2 normalized Hadamard blocks; suppression unconditional coordinate subspace projections",
+        "orthonormal bases 1-suppression unconditional l infinity two-dimensional Hadamard",
+        "norm one coordinate subspace projections basis l infinity n Hadamard"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published research results concerning the Lorentz-cone projector and general planar cone projectors concern different cones and do not give a classification across arbitrary rotated orthants.",
+        "Published research results concerning unconditional block decompositions do not analyze all orthogonal ReLU chamber masks."
+      ],
+      "reasoning": "Meaning-based record searches found no exact table/classification of matrices U with max_S ||U^T D_S U||_infinity=1. Lack of such a record is only bounded absence of located coverage, not uniqueness proof.",
+      "searches": [
+        "Exact infinity to infinity Lipschitz stability of Euclidean projection onto a rotated orthant, ReLU conjugated by an orthogonal matrix, max entry row sums",
+        "Nonexpansivity rigidity rotated orthant Euclidean metric projector ℓ∞ coordinatewise orthogonal 2 by 2 Hadamard blocks",
+        "Orthogonal ReLU layer coordinatewise infinity-norm Lipschitz one classification signed permutations 45 degree Givens rotations"
+      ]
+    },
+    "rationale": "An explicit equivalence and implication comparison distinguishes general Hilbert proximal nonexpansivity, Euclidean orthogonal architecture constraints and classical Banach-space norm-one projections from this sharp coordinate-max-norm classification of orthogonal ReLU conjugates. No directly equivalent classification was located among accessible primary sources and published research records; possible older suppression-unconditional-basis coverage remains a disclosed priority risk.",
+    "residual_risks": [
+      "A classical theorem about suppression-1-unconditional orthonormal bases in real ℓ∞ might imply this exact rigidity and was not exhaustively excluded.",
+      "The inspected sections of accessible PDFs do not amount to a page-by-page assertion of absence of any equivalent statement.",
+      "Broader rectangular and multilayer analogues are not established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different norm scope: Hilbert nonexpansivity, no explicit simultaneous coordinate-mask infinity contraction classification identified in inspected material.",
+        "evidence": [
+          "arXiv:1912.10480; first public 2019-12-19; retrieved full text and inspected relevant passages."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1912.10480",
+        "material_read": "PDF introduction, foundational proximal/nonexpansivity sections and ReLU-related passages, including PDF pages 1 and 12",
+        "method": "Lawful full-text PDF retrieval, textual section inspection and page-image inspection",
+        "title": "Parseval Proximal Neural Networks",
+        "trigger": "Closest direct source defining orthogonal/proximal neural activation and Euclidean stability"
+      },
+      {
+        "assessment": "Addresses norm-constrained neural architectures; no directly stated if-and-only-if classification of orthogonal ReLU conjugates for coordinate norm identified.",
+        "evidence": [
+          "arXiv:1811.05381; first public 2018-11-13; relevant sections inspected."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1811.05381",
+        "material_read": "PDF introduction, Section 2.2 matrix norm discussion, gradient preservation/expressivity and early geometric examples, including page 2",
+        "method": "Lawful PDF full text, section-level text and page-image inspection",
+        "title": "Sorting Out Lipschitz Function Approximation",
+        "trigger": "Orthogonal activations and induced matrix-norm constraints could imply stronger covering theorem"
+      },
+      {
+        "assessment": "Broad norm-one projection theory rather than a directly stated all-masks orthogonal-basis rigidity theorem in the inspected material; classical coverage risk retained.",
+        "evidence": [
+          "arXiv:math/0110171; first public 2001-10-16; relevant material inspected."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0110171",
+        "material_read": "PDF introduction and located sections discussing norm-one projections, finite-dimensional coordinate spaces and contractivity; cover page also inspected",
+        "method": "Lawful 54-page PDF accessed, targeted in-document searches and page-image inspection",
+        "title": "Norm One Projections in Banach Spaces",
+        "trigger": "Potentially dominating contractive-projection theory or unconditional-basis reformulation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "49ce7f7e-cb02-4bf2-941f-4d7961a31323",
+  "value": {
+    "rationale": "The exact all-dimensional rigidity theorem identifies precisely which Euclidean orthant projections preserve coordinatewise perturbation budgets: signed/permuted axes and disjoint Hadamard pairs, with strictly worse stability for every other rotation. This is a structural and motivated robustness classification for orthogonal proximal activation layers, not merely checking a numerical constant or restating Hilbert contractivity. Explicit singleton/complementary mask certificates identify the failure mechanism, and the result is self-contained with no unproved asymptotic extrapolation.",
+    "status": "PASS"
+  }
+}
