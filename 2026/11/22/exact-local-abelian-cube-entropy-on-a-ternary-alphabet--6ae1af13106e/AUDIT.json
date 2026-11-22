@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The terminal forbidden patterns have lengths three and six, so the five-symbol suffix is sufficient. Letter-renaming orbits are exact weighted bisimulation. A 49-state integer matrix has characteristic polynomial t^41 Q(t), checked with an exact symbolic program. Cayley–Hamilton yields the eighth-order recurrence from n>=49; the explicitly checked range n=11..48 closes the all-n proof and gives P(z). The only cyclic SCC has 30 vertices and a self-loop; Perron–Frobenius gives the asymptotic. A separate literal-letter direct enumeration through n=11 and DP through n=130 corroborate, not replace, the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Samsonov and Shur (2012), section on finite antidictionaries, use automata from truncated forbidden repetitions and publish upper bounds for full Abelian-cube-free languages (ternary bound 2.371237).",
+        "The 2012 general computational method is applicable to this special cutoff, but does not state the exact degree-eight denominator, numerator, or dominant eigenvalue for the two forbidden periods."
+      ],
+      "reasoning": "A general algorithm to construct an automaton is not by itself a published evaluation of this exact natural two-period cutoff, although it creates meaningful historical-priority uncertainty. Their global upper bounds do not imply equality of the local language generating series.",
+      "searches": [
+        "finite type ternary abelian cube avoid length 3 6 transfer graph characteristic polynomial",
+        "finite forbidden abelian cube period two ternary entropy",
+        "https://www.numdam.org/article/ITA_2012__46_1_147_0.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://cs.uwaterloo.ca/journals/JIS/VOL7/Currie/currie18.html",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL7/Currie/currie18.pdf",
+      "https://www.numdam.org/article/ITA_2012__46_1_147_0.pdf",
+      "https://oeis.org/A096168"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2004 result addresses exponential growth of complete Abelian-cube-free ternary words and records specific smaller counts.",
+        "The 2012 automaton approach provides numerical/global bounds and a general way to approximate avoidance languages."
+      ],
+      "reasoning": "Complete avoidance implies avoidance of periods one and two, but no converse: 8232 versus 7998 at n=9. The earlier growth estimates for full avoidance cannot determine the larger local language. A finite-state construction method can regenerate the exact calculation, yet the specific irreducible polynomial and asymptotic are not statements in the inspected literature.",
+      "searches": [
+        "words avoid three consecutive anagram blocks of length one and two ternary enumeration spectral radius",
+        "finite type ternary abelian cube avoid length 3 6 transfer graph characteristic polynomial",
+        "ternary words avoiding abelian cubes of period one and two growth constant transfer matrix finite type",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL7/Currie/currie18.html",
+        "https://www.numdam.org/article/ITA_2012__46_1_147_0.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2004 Currie et al. count words avoiding all Abelian-cube block lengths and list a_9=7998, whereas the two-period cutoff gives 8232."
+      ],
+      "reasoning": "An Abelian cube of period one is an identical triple; period two requires three matching unordered pairs. Equivalent formulation is a length-six finite-antidictionary language on three labeled symbols. This strict language differs from complete Abelian-cube avoidance at length nine; Targeted semantic searches did not surface its exact polynomial or coefficient law. Absence of a hit is not a uniqueness proof.",
+      "searches": [
+        "ternary local abelian cube avoidance period 1 2 exact rational generating function growth root 2.607914749",
+        "words avoid three consecutive anagram blocks of length one and two ternary enumeration spectral radius",
+        "ternary words avoiding abelian cubes of period one and two growth constant transfer matrix finite type",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL7/Currie/currie18.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A096168 is a sequence for unrestricted ternary Abelian-cube-free words, including 7998 at length nine, not the 8232 two-period truncated count.",
+        "The first eleven new coefficients are independently checked by direct enumeration from the forbidden factors."
+      ],
+      "reasoning": "The published table is for the stronger infinite forbidden set. Neither this table nor searched exact literal coefficient and algebraic-root strings provided the present two-period generating rational function.",
+      "searches": [
+        "https://oeis.org/A096168",
+        "ternary local abelian cube avoidance period 1 2 exact rational generating function growth root 2.607914749",
+        "ternary words avoiding Abelian cubes of block length 1 2 exact generating function"
+      ]
+    },
+    "rationale": "Primary full-text comparisons distinguish the strict two-period local avoidance language from complete Abelian-cube-free ternary words. The 2012 general automaton method does not state the exact P/D, recurrence or local spectral constant. Searches of mathematical research records did not return an implication covering these explicit invariants; historical unindexed or algorithmically implicit equivalence is acknowledged.",
+    "residual_risks": [
+      "Finite-antidictionary transfer methods published in 2012 could have led to an earlier unindexed computed period-two specialization.",
+      "Non-indexed tables or other literature may already encode an equivalent degree-eight characteristic factor.",
+      "No independent expert priority assessment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING this local period-one/two enumerator; its language excludes every Abelian-cube period",
+        "evidence": [
+          "Article date published 2004-06-19 from official JIS article record.",
+          "Global a_9=7998 while the local a_9=8232."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL7/Currie/currie18.pdf",
+        "material_read": "Full 2004 article: introduction, counting arguments, numbered results and displayed tabulated counts including the length-nine value",
+        "method": "Read source PDF and inspect page images for statements, tables and scope",
+        "title": "The Number of Ternary Words Avoiding Abelian Cubes Grows Exponentially",
+        "trigger": "Earliest primary source on enumerating ternary Abelian-cube-avoiding words"
+      },
+      {
+        "assessment": "Method potentially subsumes how to calculate local truncations, but does not state exact two-period rational enumerator or asymptotic",
+        "evidence": [
+          "Tabulated bound for full ternary cube avoidance: growth rate at most 2.371237.",
+          "Only one/two-period forbidden local set is not the full avoidance language."
+        ],
+        "identifier_or_url": "https://www.numdam.org/article/ITA_2012__46_1_147_0.pdf",
+        "material_read": "Full 2012 article: statement, finite-antidictionary and transfer-matrix method, numerical table for ternary Abelian-cube-free growth",
+        "method": "Read PDF text and inspect table page images",
+        "title": "On Abelian Repetition Threshold",
+        "trigger": "Closest broad automaton method and ternary full-avoidance growth bound"
+      },
+      {
+        "assessment": "NOT_COVERING: sequence enumerates words excluding all Abelian cubes",
+        "evidence": [
+          "Different count at n=9: 7998 full versus 8232 local."
+        ],
+        "identifier_or_url": "https://oeis.org/A096168",
+        "material_read": "Sequence description and leading coefficients, particularly length nine",
+        "method": "Inspect public sequence entry",
+        "title": "OEIS A096168: ternary Abelian-cubefree words",
+        "trigger": "Exact published sequence to distinguish local cutoff from full avoidance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6ae1af13-106e-4650-a710-7f710d467c03",
+  "value": {
+    "rationale": "The shortest two Abelian-cube block periods are a natural first nontrivial finite-type outer approximation to the full ternary Abelian-cube-free language. An exact rational all-length enumeration and entropy 2.607914749... quantifies the substantial remaining influence of longer forbidden periods, as the full-language published upper growth 2.371237 shows. A simple textbook identity or arbitrary selected slice would not give this motivated cutoff and sharp spectral law.",
+    "status": "PASS"
+  }
+}
