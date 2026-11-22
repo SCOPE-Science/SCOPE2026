@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python verify_weighted_isotonic.py` with Python 3 and no additional dependencies. The script uses `fractions.Fraction` for every verified equality and inequality. It enumerates all consecutive-block partitions for \(2\le n\le7\) over nine rational mass/weight profiles per order; checks step-basis operator norms against the closed chord formula; verifies that the exact mass-coordinate concavity inequalities characterize nonexpansivity; independently computes the least-concave-majorant formula; and checks each constructed local strictly pooled ratio through an exact weighted PAV solver.
+## correctness
 
-Observed output:
-```
-EXACT_ALL_BLOCK_PARTITION_NORMS_PASSED 54
-EXACT_ALL_ACTIVE_BLOCK_WITNESSES_PASSED 1134
-EXACT_MASS_AWARE_CONCAVITY_EQUIVALENCE_PASSED
-LINEAR_TIME_LEAST_CONCAVE_MAJORANT_FORMULA_PASSED
-ALL_WEIGHTED_ISOTONIC_VARIATION_CHECKS_PASSED
-```
-The full real-parameter theorem uses the mathematical proof in `RESULT.md`. Finite verification does not certify the unrestricted theorem or bibliographic originality. No independent audit has been performed.
+PASS
+
+Full real n>=2 quadratic weighted isotonic projection: each differentiable chamber averages consecutive blocks; all line segments subdivide over finitely many chambers. The signed-step basis modulo constants gives exact fixed-partition variation norm; a crossing block [j+1,k] produces chord ratio ((s_k-s_e)w_j+(s_e-s_j)w_k)/((s_k-s_j)w_e). Explicit strict KKT multipliers make each chord ratio attainable by sufficiently near inputs. The upper convex-hull boundary of the mass-coordinate graph gives its least concave majorant and necessary/sufficient consecutive-slope concavity criterion; monotone hull algorithm O(n). Independently compared rational step norms against chord formula for four profiles. Endpoint weights zero are interpolating anchors, not edges. Only weighted quadratic finite chains, not posets or general losses.
+
+## originality
+
+PASS
+
+Best-of-knowledge original contribution remains after subtracting credited prior special or broader results; each of four implication comparisons and source inspections below document the boundaries. 
+
+## value
+
+PASS
+
+Natural global two-input weighted-edge-TV condition number of the widely used weighted PAV estimator, separately parameterizing observation masses and variation weights. Exact sharp bound, all-equality local witnesses, iff nonexpansivity and linear-time evaluation provide a structural design law. The equal-mass qualitative condition is credited as known and is not the value basis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

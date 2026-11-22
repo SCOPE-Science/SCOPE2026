@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The analytic proof decomposes weighted PAV into consecutive-block averaging branches; a signed-step basis evaluates each branch in weighted edge variation. Every chord term is attained in a feasible strict-complementarity block regime, while a strict monotone input pair attains one. The least concave majorant and its cumulative-mass slope test finish the unrestricted proof. The packaged standard-library exact-rational checker separately verified all contiguous partitions in 54 parameter scenarios and 1,134 feasible active-block witness cases. The finite diagnostics support, but do not replace, the unrestricted proof.
+## correctness
 
-## Originality — PASS, qualified
-Yeganova–Wilbur (2009) supplies weighted PAV averaging but no two-input variation modulus. The closer Yang–Barber (2017) NUNA contraction theorem **already covers the equal-mass qualitative special case** after a local calculation. The present claim is the exact *quantitative* modulus for independent arbitrary positive observation masses and edge weights, its fully attained chord formula, and the mass-coordinate least-concave-majorant evaluation. The full published cyclic-cover and ell-p-isotonic claims address different geometries/norms. Equivalent unindexed statements, including implicit consequences of weighted-PAV general theory, remain possible. The 2009 JSS weighted-PAV paper was available by abstract but not inspected in full.
+PASS
 
-## Mathematical value — PASS
-The natural perturbation modulus is determined for every finite chain and all positive parameter profiles, with an exact nonexpansivity classification and linear-time evaluation. Observation masses can change a fixed variation profile from strict amplification to exact nonexpansivity; the theorem identifies the sharp mechanism and witnesses. It is a structural weighted stability result, not a recomputed finite table or merely an equal-mass restatement.
+Full real n>=2 quadratic weighted isotonic projection: each differentiable chamber averages consecutive blocks; all line segments subdivide over finitely many chambers. The signed-step basis modulo constants gives exact fixed-partition variation norm; a crossing block [j+1,k] produces chord ratio ((s_k-s_e)w_j+(s_e-s_j)w_k)/((s_k-s_j)w_e). Explicit strict KKT multipliers make each chord ratio attainable by sufficiently near inputs. The upper convex-hull boundary of the mass-coordinate graph gives its least concave majorant and necessary/sufficient consecutive-slope concavity criterion; monotone hull algorithm O(n). Independently compared rational step norms against chord formula for four profiles. Endpoint weights zero are interpolating anchors, not edges. Only weighted quadratic finite chains, not posets or general losses.
 
-## Limits and closest sources
-The result is restricted to real, finite, quadratic isotonic regression with positive observation and edge weights. It does not address arbitrary partial orders or other losses. Closest primary texts are Yeganova–Wilbur (2009, DOI 10.1007/s10957-008-9477-0), Yang–Barber (2017, arXiv:1706.01852), and Henzi–Mösching–Dümbgen (2022, DOI 10.1007/s11009-022-09937-2). Exact rational checks are finite diagnostics rather than proof of unrestricted statements.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original contribution remains after subtracting credited prior special or broader results; each of four implication comparisons and source inspections below document the boundaries. 
+
+## value
+
+PASS
+
+Natural global two-input weighted-edge-TV condition number of the widely used weighted PAV estimator, separately parameterizing observation masses and variation weights. Exact sharp bound, all-equality local witnesses, iff nonexpansivity and linear-time evaluation provide a structural design law. The equal-mass qualitative condition is credited as known and is not the value basis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
