@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The claim specifies every n>=3, two same-alphabet cyclic Černý automata with b:0->1, and literal shortest-word counts. Inverse preimage growth proves the unique C_n shortest word W of length (n−1)^2. The fully inspected published one-letter-slack family gives all C_n reset words at length L+1, with an explicit interval-boundary explanation in RESULT.md. Direct three-state subset transitions select the permitted modular split positions, yielding exact counts for each residue class; the explicit word V_(n,n−2,n−3) proves the one-letter upper bound. An independent complete product-subset BFS for n=3..16 verifies both lengths and path multiplicities, and replay to n=200 checks all constructed words. Finite evidence is not used as proof for all n; the proof and prior cited lemma are.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fernau–Rystsov, arXiv:2611.09136v1, 6 November 2026: abstract/introduction and product definitions discuss general max/sum bounds, not this all-size mod-three exact result in accessible material.",
+        "The published one-letter-slack theorem 2026/11/2/SCOPE-one-letter-slack-rigidity-in-the-ern-reset-language--61d8f6568fe8 covers ALL single-C_n reset words at length L+1; it is stronger on C_n alone but does not itself characterize C_3 behavior or common shortest-word counts.",
+        "The finite table 2026/10/13/SCOPE-exact-simultaneous-reset-thresholds-for-pairs-of-ern-automata-th--46765b03d598 includes C_3 product cases through eleven states, and a general divisibility zero-overhead baseline, but no nondivisible all-size column."
+      ],
+      "reasoning": "Generic max/sum inequalities leave a multi-letter uncertainty and do not imply a one-letter modular dichotomy. The single-factor word listing is a substantive input to the proof but does not determine the intersection without the new modular residue analysis. The low-length table is a restriction, not an all-size dominating result.",
+      "searches": [
+        "Web: Fernau Rystsov shortest synchronizing words product automata 2611.09136 Cerny specific",
+        "published-finding corpus: reset threshold product automata direct synchronized cyclic automata exact formula",
+        "published-finding corpus: uniqueness shortest reset word Cerny automaton b(a^(n-1)b)^(n-2) product automaton"
+      ]
+    },
+    "checked_sources": [
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-exact-simultaneous-reset-thresholds-for-pairs-of-ern-automata-th--46765b03d598",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-one-letter-slack-rigidity-in-the-ern-reset-language--61d8f6568fe8",
+      "https://arxiv.org/abs/2611.09136",
+      "https://arxiv.org/abs/1203.2822",
+      "https://arxiv.org/abs/1405.3576"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026/11/2/SCOPE-one-letter-slack-rigidity-in-the-ern-reset-language--61d8f6568fe8 theorem lists V_{n,j,t} with t!=j as ALL C_n reset words at length L+1, together with three boundary words; the C_3 modular eligibility t!=0 mod3 (n=1 mod3), respectively t=2 mod3 (n=2 mod3), is not contained in that classification.",
+        "Fernau–Rystsov general product bounds give L<=rt(C_n×C_3)<=L+4, whereas the new statement proves L or L+1 and counts equality words.",
+        "The 2026/10/13/SCOPE-exact-simultaneous-reset-thresholds-for-pairs-of-ern-automata-th--46765b03d598 result notes the m|n zero-overhead case for all n; its stronger content does not handle m=3 and n nondivisible by three for n>11."
+      ],
+      "reasoning": "The closest all-size single-factor theorem is explicitly USED and credited rather than claimed new. Its classifications and the generic product inequality require a nontrivial additional C_3-state filter and exact modular counting to obtain the present all-size pair result; no inspected prior statement directly entails the full equalizer classes and formulas without that new argument.",
+      "searches": [
+        "published-finding corpus: exact number of shortest common reset words of direct product Cerny C_n and C_3 equals 2(n-1)(n-3)/3 if n=1 mod 3 and (n-2)(n-3)/3 if n=2 mod 3",
+        "GitHub published-finding corpus 2026/11/2 one-letter slack rigidity RESULT.md classification of next-length C_n reset words",
+        "Web: Shortest Synchronizing Words on Product Automata theorem product max sum rt"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The direct-product identity Syn(C_n×C_3)=Syn(C_n)∩Syn(C_3), verified directly from letterwise Cartesian actions, makes simultaneous reset and product reset equivalent.",
+        "published-finding corpus nearest same-object record 2026/10/13/SCOPE-exact-simultaneous-reset-thresholds-for-pairs-of-ern-automata-th--46765b03d598 has an exact 45-pair table only for 2<=m<n<=11, not an all-n count.",
+        "published-finding corpus 2026/11/2/SCOPE-one-letter-slack-rigidity-in-the-ern-reset-language--61d8f6568fe8 gives words resetting C_n in length L+1 without imposing the C_3 condition."
+      ],
+      "reasoning": "The new modular filtering/counting of the intersection and its unbounded n quantifier are not stated in the nearest same-object table or in the single-factor next-length language characterization. Searches for equivalent terminology (common reset word, reset-language intersection, product reset threshold, shortest common words) found no equivalent all-n law.",
+      "searches": [
+        "published-finding corpus: direct product of Cerny automata C_n and C_3 common synchronizing word exact reset threshold (n-1)^2 plus one depending on n divisible by three",
+        "published-finding corpus: simultaneous synchronization two Cerny automata common alphabet rotation a zero to one b arbitrary n and three states reset length",
+        "published-finding corpus: all-length simultaneous reset language intersection C_n C_3 shortest word counts modular split insertion b",
+        "Web: Cerny automata simultaneous reset word n 3 modulo 3 exact formula common reset"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Original complete table in https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-exact-simultaneous-reset-thresholds-for-pairs-of-ern-automata-th--46765b03d598 gives C_3-pair thresholds 10,17,25,37,50,64,82,101 for n=4,...,11; these match the restriction of the new formula.",
+        "No number of shortest common reset words appears in that table; it reports the lexicographically first witness and state counts.",
+        "The new independent complete subset-pair BFS tests all n=3,...,16 and shortest-word multiplicities 1,2,2,1,16,10,1,42,24,1,80,44,1,130."
+      ],
+      "reasoning": "The finite exact table is acknowledged as prior coverage at n<=11. The new mathematical claim is all n>=3 plus a complete modular equality classification and multiplicity; merely matching finite values is not presented as original.",
+      "searches": [
+        "published-finding corpus: direct product of Cerny automata C_n and C_3 common synchronizing word exact reset threshold (n-1)^2 plus one depending on n divisible by three",
+        "published-finding corpus: shortest common synchronizing word length C_n C_3 for arbitrary n, known table through 11 states",
+        "GitHub published-finding corpus 2026/10/13 exact simultaneous reset thresholds RESULT.md, table for C_m and C_n through n=11"
+      ]
+    },
+    "rationale": "The nearest published shared-control Cerny pair table is exact only through n=11 and gives no optimal-word counts. The known all-length single-C_n one-letter-slack classification is an expressly credited input, not the product theorem, and the Fernau–Rystsov paper addresses generic products. The new all-length modular intersection sieve and complete quadratic multiplicity formulas are not present in inspected prior statements; inaccessible later primary text and unindexed equivalents remain explicit risks.",
+    "residual_risks": [
+      "Later sections of Fernau–Rystsov arXiv:2611.09136 could not be re-opened; only its introduction/product definitions and independent descriptions were accessible.",
+      "A published or unindexed modular specialization of the general one-letter slack reset-language classification might already contain the same intersection formula; no search proves exclusivity.",
+      "The proof relies on the previously published complete single-C_n one-letter-slack classification, which is credited and supplied with an interval-preimage reconstruction but is not claimed as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers exact m=3 values only for n<=11; explicitly no general nondivisible threshold and no number-of-shortest-words table",
+        "evidence": "Table rows n=4,...,11 and section Finite consequences and an all-size baseline, plus explicit finite-only limitation.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-exact-simultaneous-reset-thresholds-for-pairs-of-ern-automata-th--46765b03d598",
+        "material_read": "Full RESULT.md: finding table, assumptions, complete exhaustive proof, relationship to prior work, limits and references",
+        "method": "Fetched public repository RESULT.md by exact path; compared m=3 entries and all-size divisibility statement",
+        "title": "Exact simultaneous reset thresholds for pairs of Černý automata through eleven states",
+        "trigger": "Exact same shared-input Cerny pair object and potential finite/stronger implication"
+      },
+      {
+        "assessment": "Provides a critical premise and all single-machine near-minimal words. Does not filter against C3 or enumerate common shortest resets",
+        "evidence": "Finding and Proof paragraphs 1–4 describe t!=j and (n−2)^2+3 individual reset words.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-one-letter-slack-rigidity-in-the-ern-reset-language--61d8f6568fe8",
+        "material_read": "Full RESULT.md: exact family aW, Wa, Wb, V_{n,j,t}, reverse-preimage proof, boundary cases and references",
+        "method": "Fetched complete publicly accessible RESULT.md and reproduced family in the proof; separately verified on finite instances",
+        "title": "One-letter slack rigidity in the Černý reset language",
+        "trigger": "Potential stronger prior statement classifying every minimal+1 Cerny reset word"
+      },
+      {
+        "assessment": "Accessible portion gives product definitions and general bounds, not the present exact modular C_n-by-C_3 theorem. Uninspected remainder leaves a real residual priority risk",
+        "evidence": "arXiv:2611.09136v1 first public 6 November 2026; sections 1–2 visible and abstract describe generic bounds and class preservation.",
+        "identifier_or_url": "https://arxiv.org/abs/2611.09136",
+        "material_read": "arXiv HTML abstract, introduction, definitions and initial direct-product setup (lines 28–72); follow-up retrieval of later HTML sections failed, PDF page-image attempt timed out",
+        "method": "Read initially accessible arXiv HTML and checked independent article-level bibliographic and summary searches; bounded attempted reopen",
+        "title": "Shortest Synchronizing Words on Product Automata",
+        "trigger": "November 2026 primary product-automata paper, most recent direct motivation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7df3c014-3ebf-4d2f-ac0e-7bfd8cb444b5",
+  "value": {
+    "rationale": "The first nontrivial simultaneous synchronization pair C_n×C_3 has an unbounded family parameter, and the result sharpens broad product max/sum bounds to exact zero/one overhead. It fully describes equality words and counts a sharp modular quadratic multiplicity law, extending a previously only finite common-control spectrum. This is a natural structural classification for shared-input synchronization, not an arbitrary small parameter slice; other factor sizes are not claimed.",
+    "status": "PASS"
+  }
+}
