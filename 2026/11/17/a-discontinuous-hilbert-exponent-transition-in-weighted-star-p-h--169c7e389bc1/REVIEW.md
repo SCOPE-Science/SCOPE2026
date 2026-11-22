@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For positive weights and \(p>1\), strict convexity gives one central minimizer. The monotonicity and translation-equivariance argument bounds every finite-pair Lipschitz distortion by two and makes equality impossible unless the input difference is constant (then its boundary seminorm vanishes). The two-leaf closed form and Hilbert weighted averaging yield exact smaller constants. For \(p>2\), an equilibrium configuration with a zero residual at the designated leaf makes its derivative mass vanish. For \(1<p<2\), an explicit sequence of nonzero residuals makes the derivative mass of that leaf tend to zero. Both yield infinitesimal distortion approaching two. The attached checker tests the formulas and witnesses. No finite enumeration is treated as an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+For any m>=2 and p>1 the central p-energy minimizer is the unique zero of sum_i w_i |c-f_i|^(p-2)(c-f_i). Its strict coordinate monotonicity and translation covariance place every two-input hub difference strictly between min/max of the leaf difference when that difference is nonconstant, yielding ratio <2. On two leaves, balancing weighted p-forces gives affine center with coefficients w_i^(1/(p-1)), and the exact constant 2 max(alpha_i)/(alpha1+alpha2), attained. At p=2, the weighted arithmetic center has operator norm 2(1-min_i w_i/W), attained by a single high leaf opposite the others. For p>2 and m>=3 a balanced base datum with first residual zero gives derivative weight at leaf1 zero, hence tangent ratio 2. For 1<p<2, balance two nonzero residuals against a vanishing residual on another leaf, making first derivative weight arbitrarily small, hence tangent ratio approaches 2. Every finite pair remains strictly <2. The claimed p=2 jump and continuity for fixed data follow. Independently checked exact p=2 3-leaf value 4/3 and non-Hilbert tangent limits; the checked bundled standard-library program is diagnostic, not the infinite proof.
 
-Closest literature: Kyng–Rao–Sachdeva–Spielman (2015) formulates finite-graph \(p\)-energy interpolation (Theorem 8) and proves a different \(\ell_\infty\) terminal perturbation estimate for the limiting lexicographic extension (Theorem 7). Puls (2008) studies graph \(p\)-harmonic boundaries, not finite-star sharp operator moduli. The closest indexed nonlinear star extension constants concern quasi-Banach target exponent \(0<p\le1\), not real-valued energy exponent \(p>1\) or the two-input graph-Lipschitz norm. An earlier result implicit in weighted \(p\)-mean sensitivity or the inaccessible finite-graph thesis remains possible; no priority guarantee is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The precise invariant quantifies stability under changing boundary observations of the canonical \(p\)-energy interpolator, distinct from its output smoothness. The universal maximal amplification and its nonattainment at every non-Hilbert exponent, contrasted with the strictly smaller Hilbert constant, give a genuine norm-discontinuity even while the extension maps converge uniformly on compact data sets. Positive conductance heterogeneity is covered without any restriction on degree or weight ratios. This sharply distinguishes linear and nonlinear regularization for a natural model graph.
+The weighted-p mean for a star is classical; the distinct result is the global two-input operator-to-graph Lipschitz constant for every finite p and the nonattained jump at p=2. Inspected primary Lipschitz learning literature and an adjacent published Huber-star variation theorem concern distinct operators/norms. Existing pointwise sup-norm stability and p->infinity limit do not imply the finite-p two-input seminorm. No matched dominating all-p theorem found in bounded searches; priority is qualified.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A natural exact stability invariant for the nonlinear Dirichlet extension on the smallest nontrivial tree; the jump at p=2 and nonattainment are genuine and show that pointwise continuity in exponent does not imply continuity of sharp two-input distortion. Weighted and two-leaf boundaries clarify the mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
