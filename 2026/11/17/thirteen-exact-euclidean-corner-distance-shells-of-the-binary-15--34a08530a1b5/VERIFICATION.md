@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-## Exact computation
-`python verify_spectrum.py` traverses all 32768 binary cube corners, computes sixteen affine barycentric integer scores per corner, solves the active-set threshold in Python `Fraction` arithmetic, checks the KKT feasibility assertions, and compares the full thirteen-shell table and nearest-face support sizes. Execution result: `SIMPLEX15_EXACT_PASS inputs=32768 shells=13 max=16 next=240`.
+# Independent mathematical audit
 
-## Independent numerical corroboration
-`python verify_secondary.py` (NumPy and SciPy required) independently forms 15-dimensional codewords and optimizes the constrained squared Euclidean objective over sixteen nonnegative mixing coefficients. Execution result: `SIMPLEX15_QP_PASS samples=37`, each squared-distance discrepancy below `1e-8`.
+## correctness
 
-## Scope and limitations
-The exact finite enumeration, with the analytical Gram/KKT formula, proves the reported finite spectrum. The optional numerical test does not certify all possible code lengths or identify historical priority. No independent mathematical review has been performed.
+PASS
+
+The 16 length-15 linear-function codewords are affinely independent at squared separation 8. The centered Gram identity 4(I-J/16) reduces the nearest-polytope distance to a Euclidean probability-simplex projection of 16 barycentric coordinates b_a/16. KKT threshold t with sum_a(b_a-t)_+=16 determines a unique nearest point and an exact rational squared-distance formula. Independent complete integer enumeration over all 2^15=32768 cube corners reproduces exactly 13 levels, their count/support triples, 16 maximizers 49/15 (precisely complements of codewords) and 240 next-level neighbors 18/7. This is exhaustive for the explicitly finite domain, not an inference about arbitrary code sizes or continuous interior cube points.
+
+## originality
+
+PASS
+
+The assigned punctured linear simplex-code regular simplex and its complete 13-shell corner/nearest-face spectrum were compared at the statement and implication level with the unpunctured affine first-order Reed–Muller cross-polytope projection theorem, dual Hamming-code polytope results and coding LP/facet literature. The Reed–Muller result covers 16 coordinates and 32 affine codewords and gives Walsh projection and bent deep holes; removing the zero coordinate and all affine complements changes the codeword polytope and does not supply the 13 discrete shells, multiplicities and nearest-face supports. No known exact table was found; this is best-of-knowledge, not a priority certificate.
+
+## value
+
+PASS
+
+The [15,4,8] binary simplex is a natural 15-coordinate projective code and the Euclidean convex codeword-polytope distances quantify the discrepancy between binary words and convex decoding relaxation. The complete discrete distance spectrum and nearest-face support distribution, including a sharp outer-shell stability gap, are independently useful structured geometric data and benchmark a canonical coding polytope, beyond the easy regular-simplex formula or one covering-radius number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The sixteen binary codewords form an affinely independent regular simplex of squared side length eight. Its Gram identity and the KKT conditions reduce Euclidean projection of any cube corner to a unique rational probability-simplex projection. The complete integer range is exhausted by the standalone rational checker, which checks exact feasibility and the thirteen value/count/support triples and has no omitted cases. The separate quadratic-programming implementation matched 37 sample corners. This finite result is fully proved; there is no extension asserted to all code lengths.
+## correctness
 
-**Originality — PASS (provisional historical priority).** Actual semantic published-finding corpus queries on binary simplex/Hadamard codeword polytopes, cube-corner Euclidean projections, exact thirteen-shell values and Hamming-dual geometry did not recover this complete statement. The closest owned geometric results concern the Hamming code's convex hull and synchronized parity codes, not the sixteen-vertex dual simplex. The relevant coding-polytope literature in the two cited arXiv abstracts studies facet or optimization frameworks; it does not evidence this complete Euclidean spectrum. The full technical papers could not be accessed, so a differently termed existing table remains a genuine residual risk, not proof of uniqueness.
+PASS
 
-**Mathematical value — PASS.** This is a complete exact corner-to-polytope projection spectrum, including nearest-face support sizes, for the highly structured and canonical 15-coordinate projective binary simplex code. The simultaneous thirteen rational values, multiplicities, and second-shell geometry are more informative than a routine covering-radius or largest-distance calculation and provide a finite test instance for geometric relaxation and decoding. No downstream general theorem is required for this naturally delimited complete classification.
+The 16 length-15 linear-function codewords are affinely independent at squared separation 8. The centered Gram identity 4(I-J/16) reduces the nearest-polytope distance to a Euclidean probability-simplex projection of 16 barycentric coordinates b_a/16. KKT threshold t with sum_a(b_a-t)_+=16 determines a unique nearest point and an exact rational squared-distance formula. Independent complete integer enumeration over all 2^15=32768 cube corners reproduces exactly 13 levels, their count/support triples, 16 maximizers 49/15 (precisely complements of codewords) and 240 next-level neighbors 18/7. This is exhaustive for the explicitly finite domain, not an inference about arbitrary code sizes or continuous interior cube points.
 
-**Closest literature and limitations.** Rosnes–Helmling (2017) concerns nonbinary single parity-check codeword-polytope facets, Coregliano–Jeronimo–Jones (2021) concerns LP bounds for codes; highly related but different invariants. Non-observation of the exact thirteen-shell table is not a global novelty certificate. Historical priority and expert confirmation remain unresolved. Numerical QP tests are corroboration, not infinite proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The assigned punctured linear simplex-code regular simplex and its complete 13-shell corner/nearest-face spectrum were compared at the statement and implication level with the unpunctured affine first-order Reed–Muller cross-polytope projection theorem, dual Hamming-code polytope results and coding LP/facet literature. The Reed–Muller result covers 16 coordinates and 32 affine codewords and gives Walsh projection and bent deep holes; removing the zero coordinate and all affine complements changes the codeword polytope and does not supply the 13 discrete shells, multiplicities and nearest-face supports. No known exact table was found; this is best-of-knowledge, not a priority certificate.
+
+## value
+
+PASS
+
+The [15,4,8] binary simplex is a natural 15-coordinate projective code and the Euclidean convex codeword-polytope distances quantify the discrepancy between binary words and convex decoding relaxation. The complete discrete distance spectrum and nearest-face support distribution, including a sharp outer-shell stability gap, are independently useful structured geometric data and benchmark a canonical coding polytope, beyond the easy regular-simplex formula or one covering-radius number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
