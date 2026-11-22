@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-For every nonempty finite simple graph, the apex-deleted independence complex has the explicit automorphism-equivariant simplicial retraction to the shadow simplex, with the identity and retraction contiguous on *every* face. The shadow simplex has an invariant barycenter. The original graph's independence complex is exactly the apex link; hence the entire complex is its equivariant homotopy cofiber. Equivariant cofibration gluing establishes one unreduced suspension. Induction establishes all iterations. Fixed spaces and orbit quotients follow functorially; the orbit-conflict complex is an exact simplexwise PL model. Boundary conditions include graphs with isolated vertices and subgroups without admissible independent vertex orbits. The finite verifier checks 293 graph/automorphism cases, twelve second-iteration cases and the full dihedral group of the five-cycle through two iterations, but the infinite and integral conclusions rest on the proof.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-Goyal–Shukla–Singh (2019), Theorem 4.1, and Carnero Bravo (2026), Theorem 5 and Corollary 6, establish **ordinary**, not equivariant, suspension equivalences for the standard Mycielskian. Their proofs do not identify equivariant inverse homotopies, subgroup-fixed spaces or quotient types. Barmak (2010) supplies the general nonequivariant star-cluster technology; Csorba (2008) treats Hom complexes, not independence-complex geometric fixed points. The strongest directly relevant published fixed-space records concern the specialized bases \(K_n\) and \(C_6\) under their natural actions; their statements do not imply a global equivalence for arbitrary graphs, all iterations, all subgroups and all quotients. Thus the proposed structural refinement is not covered by these inspected statements. The all-graph equivariant claim still carries a nonzero risk from unindexed older work and a general equivariant version of classical folding that may have gone unstated. Absence of a search result is not treated as mathematical proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The Mycielski operation is a canonical chromatic-number-raising construction, and its independence-complex homotopy change was previously known only nonequivariantly in the cited general sources. The strengthened **equivariant** theorem simultaneously determines every subgroup-fixed homotopy type and every symmetry quotient, including the exact orbit-conflict graph input and preservation of the full integral homology module under iteration. The five-cycle produces a natural unbounded family of ambient spheres \(S^{r+1}\), rotation/full-dihedral fixed spheres \(S^{r-1}\), reflection-fixed spheres \(S^r\), and contractible full-dihedral quotients. This is a structural comparison unavailable from ordinary Betti numbers; the work does not depend on arbitrary numerical cutoffs or a parameter chosen only to make computation feasible.
+For any finite nonempty G, define Y=Ind(mu(G)-w) and S the full shadow simplex. Sending every original v to shadow v_prime, fixing shadows, defines a simplicial retraction p:Y->S; for any independent face F, F union p(F) remains independent because each old-shadow forbidden adjacency corresponds to an original forbidden adjacency. Therefore id_Y and inclusion p are contiguous, giving an Aut(G)-equivariant strong deformation retract, and S contracts equivariantly to its symmetric barycenter. The apex cone piece w*Ind(G) glues to Y along Ind(G); the equivariant homotopy pushout is the unreduced suspension with fixed poles. Iterate under natural lifted automorphisms; equivariant homotopy equivalence commutes with subgroup fixed spaces and quotients. Orbit-barycenter weights give exact PL fixed model. In C5, base pentagon has no rotation/full D5 fixed point, exactly two reflection points and interval dihedral quotient, yielding r-step fixed spheres and contractible orbit quotient. Includes empty fixed base via the double-cone convention.
 
-## Closest literature and limitations
-The nearest full-text sources inspected are Goyal–Shukla–Singh 2019 (Theorem 4.1, pages 6–7) and Carnero Bravo 2026 (Theorem 5, Corollary 6). Related published fixed-space classifications on complete graphs and six-cycles were read in full as mathematical records; they overlap specific input graphs but stop short of a global equivariant theorem. Barmak 2010 is a method ancestor, not an equivariant Mycielski classification. Csorba 2008 was inspected at the official journal abstract only, so no full-text noncoverage inference is claimed for that item. The claim is restricted to the ordinary one-step Mycielski operation and natural lifts of original graph automorphisms. Independent mathematical audit and definitive historical priority determination are not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The ordinary non-equivariant suspension equivalence Ind(mu(G))≃Sigma Ind(G) was already established by Goyal–Shukla–Singh and later generalized/iterated by Carnero Bravo. The surviving result is a natural simultaneous Aut(G)-equivariant homotopy equivalence for all finite nonempty base graphs and all iterations, with every subgroup geometric fixed and orbit quotient determined, and exact dihedral C5 example. Known complete-graph generalized-Mycielski and reflection-specific theorems overlap only in restricted families.
+
+## value
+
+PASS
+
+A uniform all-graph, all-iteration equivariant homotopy reduction simultaneously determines every subgroup fixed space and orbit quotient from the base action; this information is not supplied by ordinary sphere-wedge homotopy alone and is directly reusable for equivariant graph topology. The C5 example exhibits distinct rotation/reflection fixed dimensions under unbounded chromatic growth.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
