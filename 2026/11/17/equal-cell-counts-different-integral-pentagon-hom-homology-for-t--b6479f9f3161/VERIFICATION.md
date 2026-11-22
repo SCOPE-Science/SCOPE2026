@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The packaged `verify.py` constructs both graphs from their explicit coordinate adjacency definitions, confirms the strongly regular parameters, enumerates every legal product-of-simplices Hom cell, and verifies the integral presentation of first homology using only unit pivots and the remaining rank-two Smith determinantal divisors. The actual output is in `verification_output.json`.
+# Independent mathematical audit
 
-`check_fields.py` separately reconstructs signed two-cell boundaries, checks the chain identity in all 45,120 two-cells per graph, and computes exact ranks over three prime fields. Its actual output is in `fields_output.json`.
+## correctness
 
-The checker finds 22,950 unit pivots and remaining determinantal divisors 2 and 4 for the rook graph, and 22,982 unit pivots with no residual nonzero matrix for the Shrikhande graph. Both have 23,042 free fundamental one-cycle coordinates before imposing two-cell relations.
+PASS
 
-The calculations prove integral first homology for these exact two finite complexes. They do not compute higher homology, fundamental groups, all automorphism actions, or a general classification. No independent mathematical audit has been performed.
+The target graphs are explicitly R=K4 square K4 and S=Shrikhande on (Z/4)^2, both (16,6,2,2), and Hom(C5,H) uses five nonempty sets with complete bipartite adjacent-coordinate conditions; the source is the unfilled cycle and no dihedral quotient is taken. I independently constructed both graphs and all Hom cells by growing from every singleton homomorphism; subset heredity proves the enumeration exhaustive. Each produced exactly [7680,30720,45120,36480,20160,6720,960] cells by dimensions 0..6, total 147840; two 3840-vertex components and 23042 independent integral graph cycles. The signed cellular 2-boundary is the alternating product-simplex boundary. An independently implemented sparse integer-column unit-pivot reduction (true unimodular operations) gave for the rook 22950 unit pivots followed by a rank-2 matrix with gcd entries 2 and gcd maximal 2x2 minors 4, hence Smith factors 2,2, free rank 23042-22950-2=90. For Shrikhande it gave 22982 unit pivots, zero residual, free rank 60. Separate independent exact GF2/GF3 cycle-lattice rank computations gave rook first Betti 92/90 and Shrikhande 60/60, agreeing with torsion. This is an exhaustive computation of precisely these finite cells, not an inference about general strongly regular graphs.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge. The square-free-codomain graph-Hom theorems cannot apply: each of R and S contains 4-cycles (nonadjacent pairs share two common neighbors). Earlier spectral clique-complex, open-neighborhood, forest and cut-complex computations on the same cospectral graph pair are mathematically different functors; none of the read material supplies Hom(C5,R/S) integer H1 with two Z/2 classes versus torsion-free H1. The equal full face vector plus different integral H1 is a specific natural graph-Hom invariant, not a recomputation of a known table.
+
+## value
+
+PASS
+
+The Shrikhande and rook graphs are the canonical nonisomorphic strongly regular parameter twins. Equality of every polyhedral Hom cell count yet unequal free ranks and actual integral 2-torsion shows exactly what combinatorial face counts and strongly regular parameters fail to determine. First integral homology of the ordinary Hom complex of an odd cycle is a natural unknown invariant that future graph-topology work could require, and exact finite classification is worthwhile independently of higher-homology completion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

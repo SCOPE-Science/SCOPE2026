@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T23:19:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The target graphs are explicitly R=K4 square K4 and S=Shrikhande on (Z/4)^2, both (16,6,2,2), and Hom(C5,H) uses five nonempty sets with complete bipartite adjacent-coordinate conditions; the source is the unfilled cycle and no dihedral quotient is taken. I independently constructed both graphs and all Hom cells by growing from every singleton homomorphism; subset heredity proves the enumeration exhaustive. Each produced exactly [7680,30720,45120,36480,20160,6720,960] cells by dimensions 0..6, total 147840; two 3840-vertex components and 23042 independent integral graph cycles. The signed cellular 2-boundary is the alternating product-simplex boundary. An independently implemented sparse integer-column unit-pivot reduction (true unimodular operations) gave for the rook 22950 unit pivots followed by a rank-2 matrix with gcd entries 2 and gcd maximal 2x2 minors 4, hence Smith factors 2,2, free rank 23042-22950-2=90. For Shrikhande it gave 22982 unit pivots, zero residual, free rank 60. Separate independent exact GF2/GF3 cycle-lattice rank computations gave rook first Betti 92/90 and Shrikhande 60/60, agreeing with torsion. This is an exhaustive computation of precisely these finite cells, not an inference about general strongly regular graphs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fujii–Kimura–Nozaki Thm1.1 and Matsushita require no 4-cycles in target; Cioaba–Guo–Ji–Mim treats clique Laplacians for the strongly regular pair."
+        ],
+        "reasoning": "No examined theorem computes these Hom(C5, -) first integral homology groups; the target hypotheses or cell functors differ.",
+        "searches": [
+          "Hom(C5) Shrikhande rook graph 2 torsion cell count integral homology",
+          "https://arxiv.org/abs/2412.19039",
+          "https://arxiv.org/abs/2412.19144",
+          "https://arxiv.org/abs/2508.05871"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2412.19039",
+        "https://arxiv.org/abs/2412.19144",
+        "https://arxiv.org/abs/2508.05871",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-integral-four-cut-homology-separates-the-shrikhande-and-rook-gra--de2f98e55b1f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Strongly regular parameters equal for R and S, yet the exact chain groups permit different integer boundary ranks and torsion. Clique Laplacian spectra do not determine Hom(C5) chain boundary SNF."
+        ],
+        "reasoning": "There is no mathematical implication from equal graph parameters or a clique complex result to these exact integral Hom groups; independent exhaustive certificate supplied.",
+        "searches": [
+          "Hom(C5) Shrikhande rook graph 2 torsion cell count integral homology",
+          "https://arxiv.org/abs/2412.19039",
+          "https://arxiv.org/abs/2508.05871"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The standard polyhedral Hom(C5,H) is a product-of-simplices complex, distinct from clique complex, open neighborhood, and any quotient. Both graphs fail the square-free target hypothesis."
+        ],
+        "reasoning": "No topological equivalence with the already published clique/neighborhood/forest invariants was established; exact square-free Hom classification is inapplicable.",
+        "searches": [
+          "Hom(C5) Shrikhande rook graph 2 torsion cell count integral homology",
+          "https://arxiv.org/abs/2412.19039",
+          "https://arxiv.org/abs/2412.19144"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Database returned same graph pair studied under other cut/neighborhood/forest functors but no exact same Hom(C5,H) H1 table aside from this record."
+        ],
+        "reasoning": "A known-table recomputation was not found; absence from search alone is explicitly not a priority certificate.",
+        "searches": [
+          "Hom C5 rook Shrikhande Z2 torsion H1 90 60 7680",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-integral-four-cut-homology-separates-the-shrikhande-and-rook-gra--de2f98e55b1f"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge. The square-free-codomain graph-Hom theorems cannot apply: each of R and S contains 4-cycles (nonadjacent pairs share two common neighbors). Earlier spectral clique-complex, open-neighborhood, forest and cut-complex computations on the same cospectral graph pair are mathematically different functors; none of the read material supplies Hom(C5,R/S) integer H1 with two Z/2 classes versus torsion-free H1. The equal full face vector plus different integral H1 is a specific natural graph-Hom invariant, not a recomputation of a known table.",
+      "residual_risks": [
+        "An unindexed exact Hom(C5,R/S) integral calculation may exist, although surveyed primary square-free Hom theorems are inapplicable.",
+        "Higher integral homology, pi1 and homotopy type are explicitly not computed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT APPLICABLE: square-free codomain assumption violated",
+          "evidence": "Both R,S have a 4-cycle; target square-free condition required by classification theorem",
+          "identifier_or_url": "https://arxiv.org/abs/2412.19039",
+          "material_read": "Accessible 30-page arXiv PDF, first page and Theorem 1.1 scope; did not inspect every appendix",
+          "method": "Rendered first page and searched theorem statement",
+          "title": "Homotopy types of Hom complexes of graph homomorphisms whose codomains are square-free",
+          "trigger": "Potential Hom(C5,H) classification with same source cycle"
+        },
+        {
+          "assessment": "Different mathematical functor; residual literature risk retained",
+          "evidence": "Clique complexes use target cliques not five cyclic multi-homomorphism cells",
+          "identifier_or_url": "https://arxiv.org/abs/2508.05871",
+          "material_read": "Bibliographic abstract and summary in audited RESULT.md; not primary full PDF independently read",
+          "method": "Primary metadata and frozen package comparison",
+          "title": "Clique complexes of strongly regular graphs, their eigenvalues, and cohomology groups",
+          "trigger": "Same pair of strongly regular graphs"
+        },
+        {
+          "assessment": "CORRECT exact stated finite invariant",
+          "evidence": "Face vector, 23042 cycles, 22950/22982 unit cancellations, nonunit Smith 2,2 versus no torsion",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/equal-cell-counts-different-integral-pentagon-hom-homology-for-t--b6479f9f3161/RESULT.md",
+          "material_read": "Entire frozen RESULT.md, actual verify.py and check_fields.py sources, reconstructed all cells and Smith presentation independently",
+          "method": "GitHub source read plus standalone local exact combinatorial and integer elimination implementation",
+          "title": "Equal cell counts, different integral pentagon-Hom homology for the Shrikhande–rook twins",
+          "trigger": "Exact subject of independent calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Shrikhande and rook graphs are the canonical nonisomorphic strongly regular parameter twins. Equality of every polyhedral Hom cell count yet unequal free ranks and actual integral 2-torsion shows exactly what combinatorial face counts and strongly regular parameters fail to determine. First integral homology of the ordinary Hom complex of an odd cycle is a natural unknown invariant that future graph-topology work could require, and exact finite classification is worthwhile independently of higher-homology completion.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2412.19039",
+    "https://arxiv.org/abs/2412.19144",
+    "https://arxiv.org/abs/2508.05871",
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-integral-four-cut-homology-separates-the-shrikhande-and-rook-gra--de2f98e55b1f"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No arbitrary strongly regular graph assertion; no higher homology or homotopy claim.",
+    "Full original integer elimination was independently reconstructed only for the exact two 16-vertex targets."
+  ],
+  "residual_risks": [
+    "An unindexed exact Hom(C5,R/S) integral calculation may exist, although surveyed primary square-free Hom theorems are inapplicable.",
+    "Higher integral homology, pi1 and homotopy type are explicitly not computed."
+  ],
+  "schema_version": 1
+}
