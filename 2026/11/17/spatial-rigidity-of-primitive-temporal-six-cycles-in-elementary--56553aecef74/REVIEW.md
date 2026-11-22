@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is an exact all-circumference consequence of a bijection between \(t\)-step return configurations and closed walks on the \(2^{2t}\)-vertex finite temporal-history graph. The all-edge, all-SCC checker verifies cyclic lengths \([1]\), \([1,4]\), \([1]\), \([1,4,8,8,8]\) at temporal heights \(1,2,3,6\); subtracting proper-period counts yields \(24\mathbf1_{8\mid n}\). The source files and recorded outputs are included and were replayed. Direct original-state enumeration through circumference sixteen independently agrees, including the antipodal translation law. The finite graph certificate is the only computational step used in the infinite-circumference proof.
+PASS
 
-## Originality — PASS, with historical-priority qualification
+PASS: Reconstructed the exact Rule54 temporal-history graph G_t from the actual RESULT.md (9ed106cc776d4447dafb54f8e2d5433f4bbbad39) and C++17 certificate blob ab572147af3b156207542a954914faf3e4c0a64d. Independently generated all ordered triple edges and Kosaraju SCCs for t=1,2,3,6: vertex/edge counts 4/2,16/20,64/56,4096/4160 and recurrent cycles [1],[1,4],[1],[1,4,8,8,8], with exactly one in and one out per recurrent vertex. Trace powers therefore give Fix(F_n^6)=1+4[4|n]+24[8|n], Fix(F_n²)=1+4[4|n], Fix(F_n³)=Fix(F_n)=1; inclusion/exclusion yields primitive six-period states 24[8|n] and four time orbits on every n≥3. Eight-site recurrent words and temporal traces give least spatial period eight and F³ equals translation four on that class. Finite transfer graph enumeration is exhaustive and algebraic trace identity extends to all ring lengths; direct finite ring checks alone would not.
 
-The 2008 Martínez–Adamatzky–McIntosh source already has an eight-site period-six example (attractor table), and the 2014 expanded paper catalogues related finite-ring gliders and cycles; these facts are not claimed as new. Neither full primary text reports that all six-periodic configurations at *all* widths have least spatial period eight and exactly four temporal orbits. The OEIS A204714 small-ring maximum-period sequence and accessible Rule 54 image-predecessor results do not imply the classification. Actual closest literature and record comparisons, including residual archival risk, are documented in `AUDIT.json`.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Period-six behavior is a natural question because the eight-cell example appears in prior foundational glider studies. Unlike period-four glider-rich families, its complete six-step recurrent subshift is finite in spatial complexity; its population is independent of circumference whenever it exists. The complete all-size answer, strict divisibility boundary, and translation halfway through the period constitute a motivated, nontrivial structural rigidity theorem, not an arbitrary sampled count.
+PASS, best of knowledge: 2008 and 2014 Martínez–Adamatzky–McIntosh period-six diagrams and examples on finite rings are acknowledged; the specifically completed recurrent SCC decomposition proving no additional six-period rings and exactly 24 states for every 8|n is not supplied by their selected tables. The 2026 Resultary exact four-period Rule54 theorem concerns a different temporal fixed-point subshift.
 
-## Limitations
+## value
 
-The classification does not address other temporal periods, attraction basins, or independent human validation. A stronger unindexed historical result is a residual priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The unexpected constant number of primitive six-period states for arbitrarily long rings, and the forced eight-site spatial rigidity, are natural exact dynamical classification results, not a mere small-ring sample; the universal divisibility statement contrasts with exponential temporal-four growth.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
