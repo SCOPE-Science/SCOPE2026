@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The defining equation is the cited smooth curve family; the proof is a reversible norm/trace substitution. For nonzero parameter, rationality of the exponentiated discriminant is equivalent to square membership in the quadratic field. After a square root is chosen, the reduced three-variable quadratic form is nondegenerate for precisely the claimed smooth parameter range and therefore has exactly \(q^2\) zeros. The square-root multiplicities are explicitly adjusted at zero, and the unique point at infinity is included. This proves the formula for every odd prime power; finite brute-force checks over three prime fields corroborate it. The orbit conclusion uses the published exact group-orbit classification and rational-field stability, with no hidden exhaustiveness assumption.
+
+**Originality — PASS, qualified.** The complete relevant §§4.8 and 8.1 of Borges--Korchmáros--Speziali (arXiv:2202.05765v1) have been compared against the exact claim, including Lemma 4.23, Proposition 4.26 and Theorem 8.1. Those results establish the pencil, geometric short-orbit lengths and genus/ordinarity, but do not specify the parameter-uniform \(\mathbb F_{q^2}\) point count or which tame geometric short orbit becomes pointwise rational. The second comparison source analyzes a different rational singular BKS curve. Targeted literature and published-record searches did not find a dominating point-count theorem. Similar or unindexed arithmetic computations remain a priority risk; no uniqueness or independence is claimed.
+
+**Mathematical value — PASS.** The two tame geometric short orbits have the same size, so the established complex/geometric orbit decomposition alone does not identify their finite-field rationality. The norm/trace calculation resolves this genuine arithmetic distinction uniformly for every odd finite field, determines all degree-two closed points, and quantifies a jump at the distinguished Hermitian member. The result is neither an arbitrary specialization nor a re-evaluation of a known table, and it does not purport to determine the full zeta function.
+
+Limits: excludes singular parameters; higher Frobenius eigenvalues and full zeta functions remain undetermined; prior priority remains subject to independent checking.
+
+Self-review: passed. Independent audit: not yet performed.
