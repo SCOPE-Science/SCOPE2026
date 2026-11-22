@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Write q=max_j(-Q_jj), so ||Q||_1=2q. Normalize q=1, exits (1,b,c), t=b+c. The nonzero eigenvalues of -Q have sum 1+t and product at most t+bc<=t+t²/4. If t>=1/2, their maximum real part is at least (1+t)/2>=3/4. Otherwise their discriminant is at least 1-2t and the larger real root is >=(1+t+sqrt(1-2t))/2>=3/4. Spectral radius of e^{-Q} then implies the bound. In the irreducible Q0 directed cycle with rates (1,1/4,1/4), the exact projective/Jordan decomposition P+exp(3h/4)(I-P+hN) with N²=0 and ||N||_1=4/3 gives ratio tending to 8/3. All identities verified symbolically and with a reproducible checker; the proof, not finite experiments, handles universal statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "J. Glück, arXiv:2004.05995v1, https://arxiv.org/abs/2004.05995 (first posted 2020-04-13); full text DOI:10.1112/blms.12416",
+        "J. R. Cuthbert, An Inequality with Relevance to the Markov Group Problem, DOI:10.1112/jlms/s2-11.1.104, 1975"
+      ],
+      "reasoning": "Glück gives the broader bounded positive-semigroup framework with finite-dimensional elementary constant 2d=6 for d=3, which does not subsume the sharper 8/3 constant. The older Cuthbert source could hypothetically cover it, but only metadata was available; that historical risk is explicit.",
+      "searches": [
+        "backwards Markov semigroup logarithmic bound on Q norm in 3 dimensions sharp",
+        "quantitative decoupled Markov group bound sharp constant 8/3 three-state"
+      ]
+    },
+    "checked_sources": [
+      "J. Glück, arXiv:2004.05995v1, https://arxiv.org/abs/2004.05995 (first posted 2020-04-13); full text DOI:10.1112/blms.12416",
+      "Exact priced spectral-abscissa design on a one-way three-state cycle, https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-priced-spectral-abscissa-design-on-a-one-way-three-state-c--e5d1f1e388c4/RESULT.md",
+      "2026/10/26/SCOPE-two-state-m-matrix-rigidity-and-exact-three-cycle-sign-resonance--7a87f46879fb",
+      "J. R. Cuthbert, An Inequality with Relevance to the Markov Group Problem, DOI:10.1112/jlms/s2-11.1.104, 1975"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "J. Glück, arXiv:2004.05995v1, https://arxiv.org/abs/2004.05995 (first posted 2020-04-13); full text DOI:10.1112/blms.12416",
+        "Exact priced spectral-abscissa design on a one-way three-state cycle, https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-priced-spectral-abscissa-design-on-a-one-way-three-state-c--e5d1f1e388c4/RESULT.md"
+      ],
+      "reasoning": "The 2020 general 2d estimate supplies only 6 log norm at d=3; its conclusion cannot yield 8/3 without a new sharp eigenvalue argument. The priced-cycle optimization maximizes min Re eigenvalues over restricted directed cycles, whereas the present claim lower bounds max Re eigenvalues for all Markov generators and proves sharpness, so neither proposition dominates the other.",
+      "searches": [
+        "sharp three-state Markov semigroup inverse norm bound generator logarithmic constant eight-thirds",
+        "Markov group conjecture three-state optimal asymptotic constant 8/3 reversible directed cycle Jordan matrix",
+        "quantitative decoupled Markov group bound sharp constant 8/3 three-state"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "J. Glück, arXiv:2004.05995v1, https://arxiv.org/abs/2004.05995 (first posted 2020-04-13); full text DOI:10.1112/blms.12416",
+        "Exact priced spectral-abscissa design on a one-way three-state cycle, https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-priced-spectral-abscissa-design-on-a-one-way-three-state-c--e5d1f1e388c4/RESULT.md"
+      ],
+      "reasoning": "Rewriting the coefficient as max exit-rate <=(4/3) max Re spectrum(-Q), and as a spectral upper abscissa over the Metzler cone, gives the equivalent normalized extremal question. Search returned nearby Markov group bounds and one-way cycle results, not this sharp normalized inequality.",
+      "searches": [
+        "sharp three-state Markov semigroup inverse norm bound generator logarithmic constant eight-thirds",
+        "three-state stochastic generator diagonal exit rate versus most negative eigenvalue 3/4",
+        "Markov group conjecture three-state optimal asymptotic constant 8/3 reversible directed cycle Jordan matrix",
+        "3x3 continuous time Markov generator maximum exit rate spectral spread sharp 4/3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published nearest three-cycle finding: 2026/11/2/SCOPE-exact-priced-spectral-abscissa-design-on-a-one-way-three-state-c--e5d1f1e388c4",
+        "Related inverse-function finding: 2026/10/26/SCOPE-two-state-m-matrix-rigidity-and-exact-three-cycle-sign-resonance--7a87f46879fb"
+      ],
+      "reasoning": "The nearest accessible indexed entries concern rate-cost optimization of the minimum positive decay exponent or sign changes of an inverse phi function, not a universal Markov inverse-exponential norm coefficient. No exact coefficient table covering the current statement appeared in the consulted search results.",
+      "searches": [
+        "three-state stochastic generator diagonal exit rate versus most negative eigenvalue 3/4",
+        "3x3 continuous time Markov generator maximum exit rate spectral spread sharp 4/3",
+        "three-by-three Metzler generator exit rate extremal spectral radius 3/4",
+        "M-matrix three-state maximal diagonal eigenvalue ratio 4/3"
+      ]
+    },
+    "rationale": "The central claim is a sharp dimension-three logarithmic inverse-semigroup constant (8/3), not the known 2d bound or a priced slowest-decay design. The full accessible motivating theorem and closest published three-state result have materially different hypotheses/conclusions that do not imply the coefficient. A closely titled 1975 source is not accessible, so absolute priority is a residual historical risk, not asserted.",
+    "residual_risks": [
+      "The 1975 Cuthbert full text could contain a stronger or equivalent inequality; it was not accessible via the available routes.",
+      "Unindexed older specialist matrix-generator inequalities may predate this result; no universal novelty guarantee is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers qualitative and larger-coefficient bound, not sharp 3-state 8/3 coefficient",
+        "evidence": [
+          "J. Glück, arXiv:2004.05995v1, https://arxiv.org/abs/2004.05995 (first posted 2020-04-13); full text DOI:10.1112/blms.12416"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2004.05995",
+        "material_read": "Accessible full HTML text including main theorem and the finite-dimensional 2d estimate",
+        "method": "Read mathematical statement and comparison of norm/semigroup hypotheses",
+        "title": "On the decoupled Markov group conjecture",
+        "trigger": "Motivating source on inverse-semigroup generator norm bounds"
+      },
+      {
+        "assessment": "Different optimization objective and generator domain; not covering the logarithmic inverse norm bound",
+        "evidence": [
+          "Exact priced spectral-abscissa design on a one-way three-state cycle, https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-priced-spectral-abscissa-design-on-a-one-way-three-state-c--e5d1f1e388c4/RESULT.md"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-priced-spectral-abscissa-design-on-a-one-way-three-state-c--e5d1f1e388c4/RESULT.md",
+        "material_read": "Full RESULT.md theorem, assumptions, proof, and references",
+        "method": "Read complete result and compare whether a slowest-decay optimization implies a largest-eigenvalue norm bound",
+        "title": "Exact priced spectral-abscissa design on a one-way three-state cycle",
+        "trigger": "Nearest published three-state continuous-time Markov spectral design"
+      },
+      {
+        "assessment": "Unresolved historical-priority comparison, not classified as NOT_COVERING",
+        "evidence": [
+          "J. R. Cuthbert, An Inequality with Relevance to the Markov Group Problem, DOI:10.1112/jlms/s2-11.1.104, 1975"
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/jlms/s2-11.1.104",
+        "material_read": "Bibliographic title and abstract/index metadata only; full text unavailable",
+        "method": "Attempted public preprint/open access; authorized institutional route returned disconnected access",
+        "title": "An Inequality with Relevance to the Markov Group Problem",
+        "trigger": "Older specialist inequality paper potentially related to inverse Markov groups"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ab99142a-0a95-48ef-94bc-030ee060225c",
+  "value": {
+    "rationale": "The coefficient is the exact sharp quantitative bound for a natural finite-dimensional logarithmic Markov inverse-semigroup problem, improving the readily available 3-state bound 6 to 8/3. The sharp minimal-dimension separation from the optimal two-state constant 2 and the explicit non-diagonalizable irreducible sharpness family are mathematically structural rather than isolated numerical examples.",
+    "status": "PASS"
+  }
+}
