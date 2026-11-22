@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T11:00:27.432318Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Positive linear boxcar averaging gives the exact all-real norm as a maximum over binary indicators by coarea. The substantive external input is Lev prime cyclic majorization as restated with parity conventions in Madiman–Wang–Woo Lemma 6.3; it implies convolution of a k-set and m-arc is majorized by interval-convolution. Gini is symmetric convex, so intervals suffice. With k<=floor(p/2), m<=floor(p/2), window overlaps form level lengths c_t=m+k-2t+1 for 1<=t<=min(k,m), and the layer-cake identity gives p m k-ab²-a(a²-1)/3. The resulting two piecewise rational Gini ratios strictly increase with k to the balanced cut, giving 1-(m²-1)/(3Q). For m>p/2, complementary windows give the exact factor d/m and same balanced witnesses. This proves all odd primes>=5 and all widths 1<=m<p; nonprime cases are not claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Madiman, Wang and Woo, Entropy Inequalities for Sums in Prime Cyclic Groups, arXiv:1710.00812v4, Lemma 6.3 and Sections 6.2–6.3",
+          "Lev, Linear equations over F_p and moments of exponential sums, Duke Math J 107 (2001), DOI 10.1215/S0012-7094-01-10722-9 (original full text unavailable)",
+          "Gaubert and Qu, Dobrushin ergodicity coefficient for Markov operators on cones, arXiv:1307.4649, introduction and main oscillation/dual-variation formulas"
+        ],
+        "reasoning": "The broader prime-group majorization bounds all symmetric convex functionals of a convolution, but computing its exact norm as a function of both p,m and maximizing input size needs additional overlap sums and rational optimization. Dobrushin metric differs.",
+        "searches": [
+          "uniform boxcar moving average prime cycle Gini exact sharp operator norm interval cut Lev rearrangement"
+        ]
+      },
+      "checked_sources": [
+        "Madiman, Wang and Woo, Entropy Inequalities for Sums in Prime Cyclic Groups, arXiv:1710.00812v4, Lemma 6.3 and Sections 6.2–6.3",
+        "Lev, Linear equations over F_p and moments of exponential sums, Duke Math J 107 (2001), DOI 10.1215/S0012-7094-01-10722-9 (original full text unavailable)",
+        "Gaubert and Qu, Dobrushin ergodicity coefficient for Markov operators on cones, arXiv:1307.4649, introduction and main oscillation/dual-variation formulas",
+        "Resultary:2026/11/17/SCOPE-sharp-gini-contraction-and-level-count-variance-for-cyclic-three--e4cea2805c7a",
+        "Resultary:2026/11/17/SCOPE-sharp-cut-deficit-and-gini-contraction-of-cyclic-two-tap-averagi--100578f5c8f6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Madiman, Wang and Woo, Entropy Inequalities for Sums in Prime Cyclic Groups, arXiv:1710.00812v4, Lemma 6.3 and Sections 6.2–6.3",
+          "Lev, Linear equations over F_p and moments of exponential sums, Duke Math J 107 (2001), DOI 10.1215/S0012-7094-01-10722-9 (original full text unavailable)"
+        ],
+        "reasoning": "From Lev one can infer that an optimal cut shape is contiguous after Schur-convexity, but not that its size is floor(p/2), nor the factor d/m, nor the exact polynomial width correction; these follow from new overlap counting and monotonicity. For prime widths 2,3 older results are covered and expressly credited.",
+        "searches": [
+          "uniform boxcar moving average prime cycle Gini exact sharp operator norm interval cut Lev rearrangement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Madiman, Wang and Woo, Entropy Inequalities for Sums in Prime Cyclic Groups, arXiv:1710.00812v4, Lemma 6.3 and Sections 6.2–6.3",
+          "Resultary:2026/11/17/SCOPE-sharp-gini-contraction-and-level-count-variance-for-cyclic-three--e4cea2805c7a"
+        ],
+        "reasoning": "Convolution of interval indicators and Gini Schur convexity restate the optimization in rearrangement terms. The prime 3-tap n>=5 case is m=3 but the old theorem does not imply all m. Lev controls shape, not normalized norm constant.",
+        "searches": [
+          "uniform boxcar moving average prime cycle Gini exact sharp operator norm interval cut Lev rearrangement",
+          "uniform cyclic three tap Gini contraction formula for arbitrary odd/composite cycle lengths compared prime boxcar"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary:2026/11/17/SCOPE-sharp-gini-contraction-and-level-count-variance-for-cyclic-three--e4cea2805c7a",
+          "Resultary:2026/11/17/SCOPE-sharp-cut-deficit-and-gini-contraction-of-cyclic-two-tap-averagi--100578f5c8f6"
+        ],
+        "reasoning": "The known width-2 and width-3 constants exactly match specializations of the formula, but no checked index or database item has the complete width family. Failure of search is merely a residual risk, not a proof of uniqueness.",
+        "searches": [
+          "uniform boxcar moving average prime cycle Gini exact sharp operator norm interval cut Lev rearrangement",
+          "uniform cyclic three tap Gini contraction formula for arbitrary odd/composite cycle lengths compared prime boxcar"
+        ]
+      },
+      "rationale": "Lev majorization is explicitly credited and provides shape, not the full two-parameter Gini norm or maximizing cut cardinality. Earlier exact 2-/3-tap results are special-width consequences but do not establish all widths. This work supplies the all-width optimization and width-complement duality.",
+      "residual_risks": [
+        "Full original Lev 2001 article not obtained; the crucial lemma was materially verified in the lawful complete later theorem statement",
+        "Unknown unindexed earlier Gini operator norm computations may cover the all-width formula",
+        "Independent finite enumeration covers every cut only for p=5,7, with 699 sampled masks for p=11; the proof uses the actual majorization lemma for all p"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUPPORTS_LEMMA_NOT_EXACT_GINI_OPTIMIZATION",
+          "evidence": [
+            "Lemma 6.3 gives majorization of set-convolution by rearranged intervals in prime cyclic groups",
+            "It does not optimize complete-pair Gini norm across cut sizes and widths"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1710.00812v4",
+          "material_read": "Lemma 6.3 and surrounding Sections 6.2–6.3 with parity-compatible interval rearrangements",
+          "method": "Lawful open-access full-text mathematical sections and PDF lemma page image",
+          "title": "Entropy Inequalities for Sums in Prime Cyclic Groups",
+          "trigger": "Critical nonstandard Lev rearrangement lemma required for every prime boxcar width"
+        },
+        {
+          "assessment": "ORIGINAL_PRIMARY_UNAVAILABLE",
+          "evidence": [
+            "Original theorem attributed to Lev by Madiman–Wang–Woo Lemma 6.3",
+            "Do not infer whole-document absence from accessible abstract"
+          ],
+          "identifier_or_url": "https://doi.org/10.1215/S0012-7094-01-10722-9",
+          "material_read": "Bibliographic abstract only; crucial mathematical statement inspected in full in the later Madiman-Wang-Woo restatement",
+          "method": "Open-access full original not obtained; indirect lemma via later lawful full text",
+          "title": "Linear equations over F_p and moments of exponential sums",
+          "trigger": "Original statement of critical prime-cyclic convolution majorization"
+        },
+        {
+          "assessment": "DISTINCT_SEMINORM_NOT_COVERING",
+          "evidence": [
+            "The Dobrushin/Hopf oscillation norm is max-min, and dual TV acts on probability measures; neither equals unweighted complete-pair Gini on signal coordinates",
+            "Positive stochastic kernels can be oscillation-contracting but amplify Gini"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1307.4649",
+          "material_read": "Introduction and main operator contraction formulas for Hopf oscillation and dual total variation",
+          "method": "Accessible primary author PDF text, relevant theorem passages, page-image inspected",
+          "title": "Dobrushin ergodicity coefficient for Markov operators on cones",
+          "trigger": "Potential stronger sharp contraction theorem for positive averaging operators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp dispersion stability of a canonical finite moving average across every window width and odd-prime cycle, including the exact quadratic deficit and balanced-arc witnesses. The complete natural parameter family is mathematically useful independently of a downstream theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Odd prime p>=5 only and one uniform consecutive-window average step",
+    "No claim for arbitrary signed taps, composite p, repeated steps or uniqueness of real maximizers"
+  ],
+  "schema_version": 1
+}
