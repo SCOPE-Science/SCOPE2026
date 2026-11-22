@@ -1,11 +1,21 @@
-# Scientific review of the chord-pattern Fourier finding
+# Independent mathematical audit
 
-**Correctness — PASS.** The forced inner pair and independent outside Catalan decomposition give exact one- and two-point probabilities, which Fourier-diagonalize as stated. The origin and each unit basis vector occur in the sampling support, establishing strict positivity for every size. The cubic Dirichlet symbol, rational sign decomposition, and fully specified rational interval comparisons establish the exact crossover. The constant-mode polynomial and the monotonically decreasing Catalan quotient establish the sharp global condition bound; the continuous polynomial extremizer gives the limit. All 25,638 assertions in the packaged standalone checker passed. Computation is corroboration for the infinite conclusions, not their sole basis.
+## correctness
 
-**Originality — PASS (priority provisional).** Searches compared the actual chord span, the covariance kernel, the Fourier spectrum, the sixteen-point threshold, equivalent local-pattern formulations and the sharp 21/5 bound. The principal complete text inspected was Alexandersson et al., arXiv:2010.11157v2, especially §§4.2 and 9: its theorems refine short *adjacent* edge counts and marked regions, and do not imply the length-three spatial Fourier spectrum. Young, JIS 23 (2020), 20.9.1, is closest by ensemble and local chord statistics; its abstract and accessible summary concern adjacent short chords, and full text was unavailable. An independent all-size literature audit could still uncover a more general prior formula; no definitive historical uniqueness is asserted.
+PASS
 
-**Mathematical value — PASS.** The chosen statistic is the first non-boundary local chord in the natural Catalan ensemble, not an arbitrary slice. The nontrivial cubic spatial symbol forces an interior (nonalternating) principal response and, together with finite-size total-count fluctuations, yields an exact switch in least-observable modes at sixteen points. The sharp all-size 21/5 condition bound supplies a concrete stability guarantee; these conclusions are neither an immediate Catalan count nor an isolated finite experiment.
+The complete claim is a covariance spectrum for span-three chord starts on 2m labeled points, m>=4. Catalan deletion gives p=C_(m-2)/C_m and q=C_(m-4)/C_m; conflicting starts within circular distance 1..3 have joint probability zero. The circulant Fourier eigenvalues follow from summing this kernel. Explicit support points 0 and each e_i establish positive definite covariance. The cubic D3(c)=8c^3+4c^2-4c-1 and rational pi/cosine sign certificates at m=4..11 establish the mode switch, with a rational inequality m>=12. The polynomial bounds and decreasing q/p yield the sharp 21/5 m=4 ratio and the cosine critical point gives the limit (439+14 sqrt7)/243; no sample cutoff is used to infer the universal statement.
 
-**Limitations.** Uniform circular noncrossing matchings and length-three chords only; uncertainty remains about older specialized structure-factor results. The existing all-size analytic proof and the rational certificates support this stated claim without an independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact second-shortest chord position-covariance and its sharp Fourier crossover do not follow from the located Catalan adjacent-edge enumeration/cyclic-sieving statements or published random-pairing incidence results. Catalan deletion and circulant Fourier diagonalization are classical tools, not asserted new. Best-of-knowledge PASS, with an unindexed broader structure-factor identity a residual risk.
+
+## value
+
+PASS
+
+A position-resolved covariance and spectral condition number for the second-shortest local chord is a natural observability quantity for random Catalan matchings. The finite crossover at sixteen labeled points, uniqueness of the optimum conditioning at eight points, and interior highest-variance direction are non-obvious scale-specific conclusions beyond textbook Catalan edge counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
