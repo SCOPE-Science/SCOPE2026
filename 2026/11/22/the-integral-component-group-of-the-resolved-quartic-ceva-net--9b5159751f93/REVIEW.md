@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The classical three-family Ceva line equations give exactly sixteen triple and three quadruple points, and all 66 line pairs are accounted for. After one blowup at each point, the reduced 31-component stable curve has exactly sixty ordinary nodes and genus thirty. Its explicitly labeled graph Laplacian has complete Smith invariant factors with twenty-one units, three 11s, four 33s and two 528s, as certified by a standalone exact unimodular-reduction program. Four reduced determinants, the characteristic polynomial and the matrix-tree count give independent arithmetic consistency checks.
+
+**Originality — PASS, provisional.** Detailed Ceva/multinet geometry in Falk–Yuzvinsky is prior; the semistable Néron component group machinery in Lorenzini is prior. The checked published comparisons and multiple published-finding corpus searches do not state this 31-vertex graph's integral Smith decomposition. Previously available Hesse and Fermat graph calculations use different edge and vertex sets and do not imply these 11-primary factors. Historical priority remains subject to specialist review, notably if an equivalent graph's Smith form appears under a different label.
+
+**Value — PASS.** This is the first composite-degree Ceva net, a particularly natural and well-studied class of three completely reducible fibers of a Fermat pencil. Its complete resolved boundary is a canonical stable genus-thirty degeneration, not an arbitrary selected induced subgraph. The unusually large 11-primary component group has nine cyclic factors even though the only original line multiplicities are three and four, making the exact integral structure meaningful to degenerations and arithmetic Jacobians. It cannot be inferred from node counts or rational spectra; the full Smith data are essential.
+
+**Scope and risks.** The statement is for the degree-four complex arrangement and thickness-one split regular semistable smoothings; it does not extend to higher degrees or identify any ambient Picard surface group. The prime-to-multiplicity torsion contrast is a motivating observation, not an asserted general impossibility theorem. No independent mathematical verification or historical-priority certification is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
