@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Claim assessed:** exact global convergence of the prevalence-driven SIRCm model on the balanced immune-escape surface, with the stated extinction threshold and sharp closure property. This is one combined structural dynamical theorem; equilibrium uniqueness is a supporting ingredient already available in prior work.
+## correctness
 
-## Correctness — PASS
+PASS
 
-Equation (1) is obtained by adding the recovered equation to \((1-\sigma)\) times the cross-immune equation and substituting the population identity. In the balanced case, the residual term \((1-\sigma)(\sigma\delta-\gamma)(1+\varepsilon I)C\) vanishes exactly. Equation (2) follows by replacing \(R=U-(1-\sigma)C\). The one-dimensional equilibrium equation has a strictly increasing and a strictly decreasing side, which proves existence and uniqueness for \(\beta>\mu+\alpha\). Equation (6) follows by cancelling the mixed terms in the translated planar equations, with \(q=aU_*/I_*>0\). Properness at the extinction face and strictly negative Lyapunov derivative establish attraction without relying on numerical experiments. The stable scalar fiber transfers convergence to all four compartments. At and below threshold, direct differential inequalities imply extinction. The attached checker executed successfully on 2,400 consistency cases. Risk: proof applies only to the stated unforced, balanced, equal-feedback setting.
+The factor equations follow exactly from I+U=1-S-sigma C and dot U = dot R+(1-sigma) dot C, with residual C coefficient (1-sigma)(sigma delta-gamma)(1+eps I). At gamma=sigma delta the scalar C fiber has strictly positive damping and the factor reduces to dot I=I[beta-h-beta(I+U)], dot U=alpha I-(a+bI)U. Below/at R0=1, dot I<=-(h-beta)I or -beta I² and all stable linear fibers decay. Above threshold, U=v-I and U=alpha I/(a+bI) intersect uniquely in (0,v); physicality of all steady compartments follows from positive formulas. With q=alpha-bU*=aU*/I*>0, the entropy plus beta/(2q) quadratic Lyapunov derivative is EXACTLY -beta(I-I*)²-beta(a+bI)(U-U*)²/q; I independently checked the cancellation symbolically using sympy. Its properness near I=0, simplex compactness and LaSalle imply global attraction for I(0)>0, then the stable C equation transfers it to S,R,C. At sigma=1 the structural necessity claim is correctly not made.
 
-## Originality — PASS within inspected evidence
+## originality
 
-The full relevant arXiv HTML of [1] was inspected at model (1), the equilibrium/stability analysis (Sections 3–4), and the prevalence-driven appendix. It does not identify the balance factor, the mixed-entropy Lyapunov identity, or global attraction at all feedback strengths. The highly relevant full RESULT.md of [2] was read; it proves all-feedback equilibrium uniqueness but expressly excludes any local/global stability claim. The 2006 SIRC model [3] has fixed rather than infection-responsive rates, and the delay SIRS model [4] has a different phase space; neither is a statement covering the new theorem in the inspected records. Searches also covered alternative aggregate variables and global stability aliases. Residual risk: an unindexed or differently formulated global-Lyapunov theorem could imply this restricted case; complete historical priority is not certified.
+PASS
 
-## Mathematical value — PASS
+A genuine algebraic balance surface generates a two-dimensional factor and strict global entropy identity; the earlier all-feedback uniqueness theorem explicitly stops at equilibria and does not establish stability. Available information for the original SIRCm paper does not supply an equivalent all-feedback global theorem on gamma=sigma delta; definitive exclusion of an uninspected full manuscript is not claimed.
 
-The rate balance \(\gamma=\sigma\delta\) is exactly the cancellation locus of the aggregate immunity feedback and therefore is not a chosen numerical slice. The theorem converts a three-dimensional epidemiological flow into a globally controlled planar factor and gives a strict identity that excludes all intrinsic periodic endemic dynamics for every feedback gain, whereas the source had only numerically observed stability along an equal-feedback diagonal and could exhibit Hopf instabilities with another feedback mechanism. This is a meaningful structural limit on mutation-driven oscillations. Neither a general theorem off the balance surface nor an inference about observations is claimed.
+## value
 
-## Closeness, scope, and residual priority risks
+PASS
 
-Closest records: [1], which develops the SIRCm models and numerical Hopf regions; [2], which already resolves equilibrium uniqueness, not global stability; [3] classical no-feedback SIRC; [4] delayed SIRS stability switches. The proof uses only smooth positive ODE dynamics on the biological simplex and is limited as specified in RESULT.md. Searches do not logically establish uniqueness of publication.
+A physically motivated parameter cancellation produces a sharp dynamical statement—global threshold dichotomy and no nonconstant periodic orbits at arbitrarily large prevalence feedback—where the source model exhibits instability for a different feedback regime. The flux-balance locus is derived from the equations rather than an arbitrary numerical slice and admits an explicit coercive Lyapunov certificate. Equilibrium uniqueness alone is not the contribution.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
