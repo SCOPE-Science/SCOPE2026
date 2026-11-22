@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The Poisson moment identities yield the exact influence covariance and finite-sample bias. The quadratic empirical-product remainder is \(O_{L^1}(\lambda)\) on the scale of the summed statistic. The rare-count expansion yields one common centered-Poisson coordinate at the critical scale, a common normal coordinate when expected doubletons diverge, and a degenerate limit when they vanish. Necessity uses subsequences. The standalone checker provides independent computational corroboration (164 assertions); the proof does not rely on simulation.
+
+**Originality — PASS, qualified.** The 2021 original (DOI 10.1111/stan.12252) derives fixed-mean single and joint normal asymptotics, not shrinking-mean Poisson/degenerate/Gaussian regimes. The 2022 optimization study (DOI 10.1002/bimj.202200073) includes precisely the exponential-weight family and is the strongest overlap risk; its results optimize power at fixed means, whereas the present claim determines null distributions when the mean vanishes and all separately normalized weights collapse. The 2008 empirical-pgf testing paper provides relevant general background but its complete text was not inspected, so residual historical-priority uncertainty remains. A previous geometric zero-count boundary study has a different distribution, test and no exponential multiweight collapse; it does not imply this claim.
+
+**Value — PASS.** The sharp \(n\lambda_n^2\) threshold identifies when conventional normal calibration fails for an established, sample-mean-fitted count goodness-of-fit test; the explicit 13.93% rejection probability at a nominal 5% level is consequential. Rank-one collapse warns that separate exponential weighting choices do not provide distinct first-order information in sparse counts. This is an exact qualitative calibration boundary, not a routine recomputation of a fixed-mean variance formula.
+
+**Scientific limits and risks.** Independent validation is not performed. Finite-sample exact level corrections, dependent counts, weights tending to endpoints, and covariance-whitened multivariate tests are not established. Generic sparse-array theory provides components of the proof; an unlocated specialist statement may cover the combined conclusion.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The exact Poisson factorial moments imply the displayed influence covariance and O(lambda^2) variance. A product remainder has L1 norm O(lambda), negligible after dividing by sqrt(n)*lambda. Rare-count expansion at 0,1,2 yields tau-2Pois(tau/2); an O(lambda^2) third absolute influence moment gives Lyapunov under n lambda^2->infinity; a no-doubletons argument gives convergence to zero for n lambda^2->0. Subsequence argument proves the iff. The 164-assertion standalone checker cross-verifies explicit formulas and simulations; numerical results are not substituted for proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aleksandrov–Weiß–Jentsch (2021), sections 3.1–3.3, gives fixed-mean CLTs, including joint statistics. Weiß–Puig–Aleksandrov (2022), section 3 and section 5, gives finite-mean normal power and numerical exponential-weight optimization. General rare-event Poisson limits apply to N_{n,2} but do not alone identify the fitted Stein residual and joint rank-one calibration."
+      ],
+      "reasoning": "The broader fixed-mean covariance and delta-method formulas can supply a small-lambda expansion of individual variances but cannot directly imply Gaussian convergence at a changing mean, its necessary and sufficient threshold, or the finite-intensity centered Poisson joint limit; no triangular uniformity is proved by those theorems. This is a quantitative application of classical occupancy tools, not a claim to invent Poisson convergence.",
+      "searches": [
+        "published-finding corpus: sparse Poisson counts goodness-of-fit test Stein Chen exponential weighted empirical generating function normal calibration fails when n mu squared bounded",
+        "web: \"Poisson\" \"generating function\" \"Gaussian\" \"Poisson limit\" goodness of fit sparse",
+        "web: \"Poisson\" \"zero-inflated\" \"Pitman efficiency\" \"generating function\" exponential weight"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1111/stan.12252 (full HTML)",
+      "https://doi.org/10.1002/bimj.202200073 (full HTML)",
+      "https://doi.org/10.1016/j.jspi.2007.12.011 (abstract/excerpt only)",
+      "published-finding corpus semantic searches for sparse Poisson Stein–Chen, mean-square threshold, joint rare-doubleton limit",
+      "Related geometric zero-count calibration result (comparison of mathematical statements only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 optimization paper is particularly close because it already optimizes f(k)=u^k against ZIP alternatives (Example 1, Table 3); that candidate tuning-direction was therefore not accepted. The final theorem makes no claim about optimal tuning; its target is the null distribution under lambda_n->0.",
+        "2021 primary paper, Theorem 1, and 2022 power paper, Theorem 1, assume a fixed underlying count law. Neither gives a triangular-array Poisson or degenerate limit."
+      ],
+      "reasoning": "The final claim cannot be obtained as a mere parameter substitution in a fixed-lambda CLT, because the CLT is nonuniform: fixed positive n lambda_n^2 gives an explicit nonnormal discrete limit. Its covariance kernel is derived independently. A specialist triangular-array result may still have historical precedence, explicitly retained as risk.",
+      "searches": [
+        "web: \"Optimal Stein-type goodness-of-fit tests for count data\" exponential weighting u^x zero inflated optimization",
+        "web: \"Goodness-of-fit tests for Poisson count time series based on the Stein–Chen identity\" fixed mean and joint limit",
+        "published-finding corpus: Poisson count goodness-of-fit efficient local alternative zero inflation score with unknown mean exponential generating function weight optimal parameter"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact difference-form statistic is eq. (10), T3, in https://doi.org/10.1111/stan.12252. The same exponential family f(k)=u^k is eq. (11) in https://doi.org/10.1002/bimj.202200073. Their fixed-null normal limits do not give the centered Poisson critical law."
+      ],
+      "reasoning": "Matched the published difference-form statistic and the exponential pgf formulation algebraically; not a renamed different statistic. The previous papers analyze fixed-parameter normal approximation or fixed-alternative tuning, whereas the present null sequence has lambda_n tending to zero and a non-Gaussian limit for finite n lambda_n^2.",
+      "searches": [
+        "published-finding corpus: sharp Gaussian to Poisson triangular-array phase transition for Poisson goodness of fit Stein Chen residual exp weights as mean lambda goes to zero n lambda squared ; rare twos; rank one covariance",
+        "web: \"Stein-Chen\" \"sparse\" \"goodness-of-fit\" \"doubletons\"",
+        "web: \"Poisson\" \"Stein\" \"triangular array\" \"goodness of fit\" \"lambda\" \"zero\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public research-record searches returned related but nonidentical findings on stretched-exponential urn frequency limits and exact moments for sparse multinomial Pearson statistics. An analogous geometric zero-count rare-boundary limit concerns a different null and test and does not imply the present exponential Stein–Chen joint law."
+      ],
+      "reasoning": "No checked database entry tabulates or proves the triple sparse-limit law for this named Stein–Chen statistic; related urn or multinomial sparse limits concern different objects. Similar rare-doubleton scaling in the prior geometric test neither contains nor implies the covariance identity and multiweight rank-one law here.",
+      "searches": [
+        "published-finding corpus: joint limiting Poisson process exponential Stein Chen test several weights low intensity Poisson null all tests perfectly correlated",
+        "web: \"sparse Poisson\" \"Stein Chen\" goodness of fit asymptotic chi-square rare doubletons"
+      ]
+    },
+    "rationale": "Novelty is the sharp shrinking-Poisson-mean, three-regime joint distributional calibration of the difference-form exponential Stein–Chen statistics, plus one-coordinate collapse and an explicit null-size distortion; neither inspected full-text predecessor states or implies the triangular-law result from a uniform theorem. Fixed-mean CLTs and numerical weight optimization are explicitly credited. Classical Poisson rare-count convergence is acknowledged.",
+    "residual_risks": [
+      "Classical sparse Poisson asymptotic or triangular-array pgf literature not surfaced may contain a related or stronger general theorem; database absence is not novelty proof.",
+      "The 2008 Meintanis–Nikitin empirical-pgf paper was not read in full; no whole-document negative-coverage claim is made.",
+      "The strong 2022 Stein-type power-optimization paper covers the weight family at fixed parameter; its main theorems do not themselves supply the shrinking-null law, but an unexamined follow-up could.",
+      "Independent specialist review of priority and mathematics not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers test definition and fixed-parameter covariance/normal theory, not shrinking-mean three-regime null joint law",
+        "evidence": [
+          "https://onlinelibrary.wiley.com/doi/10.1111/stan.12252#",
+          "First public June 27, 2021; Eq.(10), Theorem 1, Sec. 6"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1111/stan.12252",
+        "material_read": "Open full HTML, introduction and Sections 3.1–3.3, 4.1, 5.1, 6, 7 and displayed equations (1), (10), (11), (13), Theorem 1; relevant source descriptions and null assumptions",
+        "method": "Full HTML opened and sections searched/read; no PDF required",
+        "title": "Goodness-of-fit tests for Poisson count time series based on the Stein–Chen identity",
+        "trigger": "Exact source for difference-form T3 and multivariate tests"
+      },
+      {
+        "assessment": "Explicitly covers numerical optimization of exponential family and fixed-parameter delta-method; not the final triangular sparse-null distribution claim",
+        "evidence": [
+          "https://onlinelibrary.wiley.com/doi/full/10.1002/bimj.202200073",
+          "First public September 27, 2022; exponential weight eq.(11), Examples 1 and Table 3"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/bimj.202200073",
+        "material_read": "Open full HTML, introduction, Sections 2–3, Example 1, Table 3, relevant Sections 5–6, Theorem 1 equations (16)–(20)",
+        "method": "Full HTML opened; searched zero inflation, exponential family, optimal weights, sparse rates",
+        "title": "Optimal Stein-type goodness-of-fit tests for count data",
+        "trigger": "Strong plausible coverage: exact same exponential weights and ZIP optimal tuning"
+      },
+      {
+        "assessment": "A plausible background source, not certified NOT_COVERING from snippets; possible historical overlap retained as risk",
+        "evidence": [
+          "https://doi.org/10.1016/j.jspi.2007.12.011"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jspi.2007.12.011",
+        "material_read": "Search-result abstract and an accessible textual excerpt concerning zero-inflated Poisson alternatives and integrated pgf residual; full text not read",
+        "method": "Public search excerpt only",
+        "title": "A class of count models and a new consistent test for the Poisson distribution",
+        "trigger": "Earlier empirical-pgf Poisson GOF and possible source of broader theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5730903a-b8bc-484e-9f20-62f8b4b0797d",
+  "value": {
+    "rationale": "The finite critical-intensity regime gives 13.9292% rejection for a nominal 5% fixed-parameter normal test. This is a sharp practically motivated calibration boundary for a published Poisson goodness-of-fit test, and the joint rank-one collapse shows that differently weighted marginal normal tests provide the same first-order information when sparse. It is not a gratuitous one-number special case or an unsupported downstream power claim.",
+    "status": "PASS"
+  }
+}
