@@ -1,0 +1,187 @@
+{
+  "correctness": {
+    "rationale": "Exact Steele–Beer depth integration and strict Jensen positivity are independently derived. A three-exponential derivative has at most two real zeros, one fixed at t=0, forcing exactly one positive density-gap maximum; a one-crossing cumulative criterion and equality boundary follow. All roots, inequalities and high-light scales hold for the explicitly stated positive parameter domain. The standalone standard-library checker passed 10,510 assertions, but the analytical proof—not finite sampling—establishes the quantified theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Steele (1962), full PDF p.140 equation (9): triangular diurnal light integrated at a depth, not pairwise two-level cutoff across optical depths.",
+        "Bannister (1974), full PDF p.5 equation (16): depth integral of Steele kernel over an arbitrary time profile; no global sign variation result.",
+        "Walsby (1997), accessible abstract and references describe numerical water-column calculations under measured surface irradiance; full text not obtained.",
+        "Thornley (1974), publisher abstract addresses time-response and nonlinear light-averaging; full text unavailable."
+      ],
+      "reasoning": "Older work provides the same local curve and depth integral, but the new theorem proves a stronger parameter-wide sign and root-count statement for fixed two-level forcing. The lack of full Thornley/Walsby text is treated as risk rather than certified noncoverage.",
+      "searches": [
+        "literature web search: Steele 1962 Environmental control of photosynthesis in the sea pdf",
+        "literature web search: Bannister 1974 production equations chlorophyll quantum yield pdf depth photoinhibition",
+        "literature web search: Thornley 1974 Light Fluctuations and Photosynthesis PDF full text",
+        "literature web search: Walsby 1997 numerical integration phytoplankton time depth pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://aslopubs.onlinelibrary.wiley.com/doi/pdf/10.4319/lo.1962.7.2.0137",
+      "https://aslopubs.onlinelibrary.wiley.com/doi/pdf/10.4319/lo.1974.19.1.0001",
+      "https://repository.si.edu/server/api/core/bitstreams/8e431958-f920-4917-a1de-6d9c1e66ea61/content",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-a-sharp-optical-depth-optimum-for-a-uniformly-mixed-photoinhibit--1f66622b0c1c/RESULT.md",
+      "https://doi.org/10.1093/oxfordjournals.aob.a084820",
+      "https://doi.org/10.1046/j.1469-8137.1997.00736.x",
+      "https://www.nature.com/articles/s41598-017-12923-1",
+      "https://pubmed.ncbi.nlm.nih.gov/28308791/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest mathematical paper proves argmax_h M_s(h) unique with s fixed and high-s asymptotics of that argmax; it says nothing about a three-term weighted difference of M at x,m,y.",
+        "Bannister (1974) provides M as an integrand, and Steele (1962) evaluates triangular-day temporal averaging; substituting a two-point profile produces the algebraic expression but not the global count/threshold claim.",
+        "Graham et al. (2017), full open-access body, shows physiological frequency effects beyond the instantaneous approximation."
+      ],
+      "reasoning": "Our statement does not follow by simply selecting a fixed-light optimizer or taking a parameter value from those theorems. It requires strict unimodality of a separate Laplace Jensen gap and a new quantified root-count deduction. Published general exponential-system variation results might subsume that analytical step, but are not evidence of the exact applied classification.",
+      "searches": [
+        "published-record semantic search: Steele photoinhibition unequal two-level light probability optical-depth critical benefit threshold mean irradiance",
+        "literature web search: photosynthesis fluctuating light Steele model depth integration exponential exact photoinhibition light variation",
+        "literature web search: A penalty on photosynthetic growth in fluctuating light",
+        "public full RESULT.md 2026/10/25/1f66622b0c1c, sections Finding/Proof/Relationship to prior work"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Closest public ID 2026/10/25/SCOPE-a-sharp-optical-depth-optimum-for-a-uniformly-mixed-photoinhibit--1f66622b0c1c (full RESULT.md inspected); it optimizes M_s(h) for one s.",
+        "Litchman (2000), Smithsonian full paper pp.223–235, investigates two-level illumination but fits other photosynthesis curves and reports growth measurements; no Steele–Beer optical-depth threshold."
+      ],
+      "reasoning": "Equivalent statement would require a sign classification of pM_x(h)+(1-p)M_y(h)-M_m(h) over all h. Neither the fixed-surface maximizer theorem nor the experimental two-level study entails that classification.",
+      "searches": [
+        "published-record semantic search: Steele photoinhibition two-level incident irradiance Beer Lambert depth-averaged photosynthesis temporal light fluctuations exact depth cutoff",
+        "published-record semantic search: Two-level unequal duty cycle photosynthesis exponential Beer light attenuation exact single crossover water column enhancement",
+        "literature web search: \"photoinhibition\" \"coth\" \"Steele\" fluctuations",
+        "literature web search: \"Steele\" \"cosh\" \"fluctuating light\" attenuation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest index result is the October 2026 fixed-irradiance optical-depth optimum, not a duty-weighted table of cutoffs.",
+        "Bannister (1974) contains a general production integral rather than a threshold or table of two-level light differences."
+      ],
+      "reasoning": "The result is an all-continuous-parameter theorem, not a lookup in a finite table. No exact published table with this input/output relation was found in the actual searches; absence is not a novelty certificate.",
+      "searches": [
+        "published-record semantic search: phytoplankton Jensen gap exponential attenuation rate two-point irradiation distribution one critical depth",
+        "literature web search: phytoplankton surface light square wave optical depth threshold enhancement photosynthesis model",
+        "literature web search: \"light fluctuations\" \"optical depth\" photoinhibition exact critical"
+      ]
+    },
+    "rationale": "The exact two-level, arbitrarily weighted one-cutoff phase classification and large-light asymptotic were not found in the inspected primary articles or the closest full public mathematical result. The prior Steele–Beer integral is explicitly not claimed new. The fixed-irradiance optical-depth optimum does not imply a global sign-count theorem for its weighted Jensen difference. Inaccessible historical full texts and general exponential-polynomial comparison theory remain explicit priority risks.",
+    "residual_risks": [
+      "Thornley 1974 full text inaccessible because institutional access VPN was disconnected; material relevance of a broader fluctuation theorem remains unresolved, though abstract does not specify Steele–Beer optical-depth crossover.",
+      "Walsby 1997 complete text and Idso–Foster 1975 primary full paper not inspected; no whole-document noncoverage asserted.",
+      "General total-positivity/exponential-polynomial results could make the proof technique known, although no exact applied two-level threshold was found.",
+      "Newer photosynthesis–irradiance laws can have different multi-depth responses; theorem does not generalize across models."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Original Steele curve and triangular temporal average established in inspected relevant sections; no two-state optical-depth one-cutoff law observed in these sections. Non-inspected material remains subject to priority uncertainty.",
+        "evidence": [
+          "Page 138 eq.2 states photoinhibited light curve",
+          "Page 140 eq.9 integrates triangular daylight at one depth and uses Beer depth law"
+        ],
+        "identifier_or_url": "https://aslopubs.onlinelibrary.wiley.com/doi/pdf/10.4319/lo.1962.7.2.0137",
+        "material_read": "Accessible 13-page PDF; relevant pp.137–140 model and diurnal integration, nutrient/adaptation sections and closing discussion inspected; page screenshots of 138 and 140",
+        "method": "PDF page text and visual page inspections",
+        "title": "Environmental Control of Photosynthesis in the Sea",
+        "trigger": "Foundational model and earlier treatment of temporal light integration"
+      },
+      {
+        "assessment": "Underlying depth-integrated Steele kernel is known; inspected relevant formulas do not assert the global two-level cutoff or high-light depth scale.",
+        "evidence": [
+          "Equation (16) integrates the Steele kernel with time-variable incident illumination",
+          "Equation (20) restates the general depth-time expression"
+        ],
+        "identifier_or_url": "https://aslopubs.onlinelibrary.wiley.com/doi/pdf/10.4319/lo.1974.19.1.0001",
+        "material_read": "Accessible 12-page PDF; light-curve formulas, p.5 equations (13)–(16), p.6 equations (20)–(21), and selected closing sections inspected; screenshots p.4–5",
+        "method": "PDF text and equation screenshots",
+        "title": "Production Equations in Terms of Chlorophyll Concentration, Quantum Yield, and Upper Limit to Production",
+        "trigger": "Direct general time-and-depth integral that may dominate the gain formula"
+      },
+      {
+        "assessment": "Uses Monod and quadratic photoinhibition for data rather than Steele–Beer depth phase analysis; warns predictions based on steady-state curves can fail.",
+        "evidence": [
+          "Page 224 distinguishes rapid integration from slow average of instantaneous rates",
+          "Page 226 fits Monod-type response to measured growth"
+        ],
+        "identifier_or_url": "https://repository.si.edu/server/api/core/bitstreams/8e431958-f920-4917-a1de-6d9c1e66ea61/content",
+        "material_read": "Full PDF accessible; abstract, introduction, model fitting/methods and prediction results inspected; screenshot p.224",
+        "method": "Full PDF text and screenshot of methodological explanation",
+        "title": "Growth Rates of Phytoplankton under Fluctuating Light",
+        "trigger": "Most directly comparable two-level equal-duration illumination treatment"
+      },
+      {
+        "assessment": "Proves uniqueness and asymptotic of argmax in attenuation for single fixed light, not the Jensen-gap crossover for weighted two-point light.",
+        "evidence": [
+          "RESULT.md Finding: q-dependent unique optical depth maximizing M_q",
+          "RESULT.md Proof: running-average unimodality for fixed q, not a three-exponential two-state gap"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-a-sharp-optical-depth-optimum-for-a-uniformly-mixed-photoinhibit--1f66622b0c1c/RESULT.md",
+        "material_read": "Complete public RESULT.md, including full proof and relationship to earlier production integrals",
+        "method": "Read repository file content",
+        "title": "A sharp optical-depth optimum for a uniformly mixed photoinhibited water column",
+        "trigger": "Closest published mathematical result using identical depth-mean Steele–Beer kernel"
+      },
+      {
+        "assessment": "Could contain a stronger nonlinear temporal comparison; specific one-cutoff implication not established from accessible material.",
+        "evidence": [
+          "Publisher dated 1974-03-01",
+          "Abstract treats time response and nonlinear light curve"
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/oxfordjournals.aob.a084820",
+        "material_read": "Publisher abstract and bibliographic record only; full PDF unavailable through OA or arXiv search; authorized institutional retrieval indicated VPN disconnected",
+        "method": "Publisher article page and OA/preprint search",
+        "title": "Light Fluctuations and Photosynthesis",
+        "trigger": "Potential exact treatment of nonlinear two-level temporal averaging"
+      },
+      {
+        "assessment": "Quantifies biases from temporal irradiance simplification and vertical structure; cannot exclude an uninspected exact subresult.",
+        "evidence": [
+          "Abstract reports 21–75% modeling discrepancies from simplified irradiance profiles",
+          "The publisher lists 1997 journal issue with later 2008 online revision; not used as first source date"
+        ],
+        "identifier_or_url": "https://doi.org/10.1046/j.1469-8137.1997.00736.x",
+        "material_read": "Publisher abstract, methods synopsis and reference list; full PDF inaccessible",
+        "method": "Publisher full-text landing and attempted full PDF",
+        "title": "Numerical Integration of Phytoplankton Photosynthesis Through Time and Depth in a Water Column",
+        "trigger": "Potentially exact two-level numerical comparisons in an averaged water-column model"
+      },
+      {
+        "assessment": "Empirical dynamic time-response model, not an exact Steele–Beer two-state optical-depth result; cautions against biological generalization.",
+        "evidence": [
+          "Reports frequency-dependent penalty not captured by current quasi-static models",
+          "Describes fast-average and slow-average limits"
+        ],
+        "identifier_or_url": "https://www.nature.com/articles/s41598-017-12923-1",
+        "material_read": "Open-access abstract, introduction and mechanistic explanation of frequency-dependent growth effects",
+        "method": "Publisher HTML text",
+        "title": "A Penalty on Photosynthetic Growth in Fluctuating Light",
+        "trigger": "Biological scope of quasi-static light averaging"
+      },
+      {
+        "assessment": "Potential historical priority risk; absence of full text prevents a whole-document exclusion.",
+        "evidence": [
+          "Abstract says analytical integration of illumination and primary production in three response regimes"
+        ],
+        "identifier_or_url": "https://pubmed.ncbi.nlm.nih.gov/28308791/",
+        "material_read": "Abstract and bibliographic metadata; full article not available in successful bounded attempts",
+        "method": "PubMed abstract and primary literature search",
+        "title": "An Analytical Study of Three Characteristic Forms of Light-Forced Primary Production in Aquatic Ecosystems",
+        "trigger": "Older general analytical production laws for photoinhibition"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8832229e-a40c-444d-8615-cc0d5a62e846",
+  "value": {
+    "rationale": "This is a motivated complete classification of when replacing fixed mean surface illumination by a two-level light regime changes exact modeled depth-mean photosynthesis. The precise invariant (a unique optical-depth cutoff or its absence) addresses sign ambiguity in averaged phytoplankton productivity; the two-point experimental light regimes occur in the primary literature. It gives an exact duty-fraction decision boundary and high-light and near-onset scales rather than a single Jensen approximation. Biological utility is strictly conditional on a frozen instantaneous Steele response, not a field prediction.",
+    "status": "PASS"
+  }
+}
