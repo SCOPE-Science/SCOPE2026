@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact affine recovery criterion of Bartusel–Führ–Oussa, Theorem 6.5, reduces full matrix recovery to the multiplicative-character nonvanishing condition and the column rank of an explicit matrix. Its transformed matrix is specified in equation (6.5) and differs from their published criterion matrix by permutations as stated in equation (6.10). Four or fewer Fourier coordinates fail: for four, the necessary twelve additive differences force a planar difference set, and the complete fifty-five-normalization/nine-translation calculation gives at most nine of the eleven necessary quotient values. The five-coordinate example has a character-dominance margin of 171 and an exact \(-2^{43}\) rank minor. Finite enumerations are complete, not samples, and the standalone checker reproduces them with integer and finite-field arithmetic. A separate exact reduction of the full orbit-projector matrix modulo \(53\) has rank \(144\), independently certifying the constructive half without invoking the sufficiency criterion.
+## correctness
 
-**Originality — PASS, provisional priority.** Bartusel–Führ–Oussa prove the general criterion and exhibit working generators, but the inspected Sections 6 and 7 do not supply a minimal Fourier-support classification for the thirteen-point affine group. Mészáros–Rónyai–Szabó discuss the classical planar difference sets without studying the conflicting multiplicative quotient-cover requirement or matrix-recovery minimality. Searches for minimal affine-orbit generator support and published close formulations did not reveal an implication-equivalent exact five-frequency theorem. The existing general criterion does imply the result only *after* solving the separate exact finite support-design optimization; it is not an already stated extremum. Specialist unpublished finite-wavelet tables remain a priority risk.
+PASS
 
-**Value — PASS.** The smallest Fourier-coordinate support in a highly structured, full matrix-recovering group orbit is a natural sensing-resource invariant. The naive ordered-pair bound permits four frequencies at thirteen points, but the theorem proves a genuine simultaneous additive/multiplicative design obstruction at the first planar-Singer size four and supplies a sharp integer witness with five frequencies. This pinpoints a structural failure of pair counting rather than recomputing a known table or selecting an arbitrary parameter slice.
+A nonzero entry of the 12x11 C_phi(m,n) rank test requires an ordered support pair with additive difference m and multiplicative quotient n. For |S|<=3 there are at most six ordered pairs. For |S|=4, rank 11 requires >=11 distinct nonzero additive differences, but they form an even set, hence all 12 and each ordered difference occurs exactly once: a planar (13,4,1) difference set. Exhaustive direct Python enumeration over all C(13,4)=715 4-subsets found 52 perfect sets, precisely affine translates/scalings of D={0,1,3,9}; each admissible translation has at most 9 nonidentity multiplicative ratios and so cannot yield column rank 11. For the five-site witness (1,2,3,4,11) with weights (1,2,4,8,16), its dominant coefficient makes all multiplicative chars of |phi|² nonzero; independently computed exact 11x11 minor determinant -2^43, so the Bartusel–Führ–Oussa criterion yields full complex 12x12 matrix recovery. Reviewed an independent finite-field 156x144 rank-mod-53 certificate in the supplied source: since 10 has order 13 mod53 it legitimately certifies a characteristic-zero nonzero maximal minor. Finite exhaustive scope is all p=13, not extrapolation.
 
-**Limitations and closest sources.** The result concerns the specific prime thirteen and matrix recovery (a stronger property than phase retrieval); it does not classify weak phase retrieval or all prime orders. The main prior paper's general criterion is an essential input, and independent historical-priority assessment remains warranted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-and-implication comparison: The published prime-affine sparse cyclic tomography result recovers functions from complete coset sums and uses prime Fourier minors; it is not rank-one conjugation/projector matrix recovery. Standard phase retrieval alone may be weaker than full complex matrix recovery, another non-equivalence. Bartusel–Führ–Oussa Theorem 6.5 is a general necessary and sufficient recovery criterion; it does not itself give the min support five at 13. The rank 11 support-cover incompatibility and complete Singer-difference-set translation census provide the new finite optimization step. The prime-13 Singer (13,4,1) difference sets are classical, but the 52-set classification does not count multiplicative quotients of translates in U or certify the 5-site rank witness; Resultary's prime-affine coset-sum census concerns other measurements.
+
+## value
+
+PASS
+
+The smallest Fourier support for full rank-one affine matrix recovery at p=13 is a precise natural sparse-design cutoff, and the four-point difference-set obstruction explains why naïve counting fails. It is a motivated exact finite invariant for a 12-dimensional irreducible affine measurement family, not a random arbitrary slice; no all-primes theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

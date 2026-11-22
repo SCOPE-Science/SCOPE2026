@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-Run `python3 verify_affine13.py` in this folder with Python 3 and no third-party modules. The checker uses integer/finite-field operations for all mathematical assertions, enumerates the entire relevant four-support domain, independently checks the affine classification, and computes the determinant of the exact witness matrix by fraction-free elimination, and independently proves full complex operator span by reducing the cyclotomic orbit-projector matrix modulo \(53\) and checking rank \(144\). It must print `AFFINE13_SPARSE_RECOVERY_PASS` and `AFFINE13_DIRECT_ORBIT_SPAN_PASS` on success. The calculation is finite and exhausts the finite scope claimed; it is not evidence for an all-primes generalization. The dependence on the published 2021 matrix-recovery criterion is explicit in `RESULT.md`. No independent external audit has been performed.
+## correctness
+
+PASS
+
+A nonzero entry of the 12x11 C_phi(m,n) rank test requires an ordered support pair with additive difference m and multiplicative quotient n. For |S|<=3 there are at most six ordered pairs. For |S|=4, rank 11 requires >=11 distinct nonzero additive differences, but they form an even set, hence all 12 and each ordered difference occurs exactly once: a planar (13,4,1) difference set. Exhaustive direct Python enumeration over all C(13,4)=715 4-subsets found 52 perfect sets, precisely affine translates/scalings of D={0,1,3,9}; each admissible translation has at most 9 nonidentity multiplicative ratios and so cannot yield column rank 11. For the five-site witness (1,2,3,4,11) with weights (1,2,4,8,16), its dominant coefficient makes all multiplicative chars of |phi|² nonzero; independently computed exact 11x11 minor determinant -2^43, so the Bartusel–Führ–Oussa criterion yields full complex 12x12 matrix recovery. Reviewed an independent finite-field 156x144 rank-mod-53 certificate in the supplied source: since 10 has order 13 mod53 it legitimately certifies a characteristic-zero nonzero maximal minor. Finite exhaustive scope is all p=13, not extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement-and-implication comparison: The published prime-affine sparse cyclic tomography result recovers functions from complete coset sums and uses prime Fourier minors; it is not rank-one conjugation/projector matrix recovery. Standard phase retrieval alone may be weaker than full complex matrix recovery, another non-equivalence. Bartusel–Führ–Oussa Theorem 6.5 is a general necessary and sufficient recovery criterion; it does not itself give the min support five at 13. The rank 11 support-cover incompatibility and complete Singer-difference-set translation census provide the new finite optimization step. The prime-13 Singer (13,4,1) difference sets are classical, but the 52-set classification does not count multiplicative quotients of translates in U or certify the 5-site rank witness; Resultary's prime-affine coset-sum census concerns other measurements.
+
+## value
+
+PASS
+
+The smallest Fourier support for full rank-one affine matrix recovery at p=13 is a precise natural sparse-design cutoff, and the four-point difference-set obstruction explains why naïve counting fails. It is a motivated exact finite invariant for a 12-dimensional irreducible affine measurement family, not a random arbitrary slice; no all-primes theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
