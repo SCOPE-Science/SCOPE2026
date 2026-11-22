@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+For a \(C^2\) support function with strictly positive curvature radius, the tangent-intersection parametrization and Green's theorem give exactly the known forward formula of Michalska (2003), Eq. (1.1). Product-to-sum gives the cosine recurrence \(c_k=(k-2)q_{k-1}/2-(k+2)q_{k+1}/2\) for \(k\ge2\), with \(c_1=-2R^2-3q_2/2\). The even/odd subsequences telescope in opposite directions, and \(\sum m^4q_m<\infty\) justifies the limit and all reordering. The resulting inverse formulas recover each nontranslation Fourier power and the positive mean radius. The explicit pair has uniformly positive curvature and cannot be congruent since matching the second harmonic fixes rotation/reflection phases while the third-harmonic cosine/sine differ. The included checker passed exact coefficient tests and numerical Green-integral comparisons.
+
+## Originality — PASS, with documented priority risk
+The strongest direct source is M. Michalska (2003), *A sufficient condition for the convexity of the area of an isoptic curve of an oval*, whose displayed Eq. (1.9) already gives the **forward** dependence of the area function on squared support Fourier coefficients. This prior result is credited without claiming novelty. The specific converse assertion, all-coefficient inverse telescoping, positive mean-radius extraction and complete admissible phase ambiguity were not established in the inspected portion of that source. The geometrical inverse-isoptic paper of Á. Kurusa (2012) concerns the **whole isoptic curve**, rather than one enclosed-area scalar at every angle; the 2013 Csima–Szirmai conic paper and 2015 Michalska–Mozgawa paper address distinct object-level isoptic constructions. Targeted searches in mathematical literature and published mathematical-result records found no directly equivalent inverse theorem. Because this is a short nontrivial inversion of a known forward identity, an unindexed prior corollary remains a genuine residual risk.
+
+## Mathematical value — PASS
+The motivating measurement is scalar enclosed area as a function of visual angle, much weaker than the full isoptic curves. This finding gives an exact complete inverse-invariant classification: the full Fourier power spectrum, perimeter and original area can all be reconstructed, and phase shifts are exactly the obstruction to shape uniqueness. Explicit parity-dependent reconstruction formulas and a noncongruent smooth isospectral example provide structural content rather than an arbitrary example or a numerical recomputation.
+
+## Scope and limitations
+Covers strictly convex plane ovals with twice-continuously differentiable support and positive curvature radius, and exact continuous area profiles. The inverse high-frequency coefficients may be unstable to noise; no finite-angle reconstruction or uniqueness up to congruence is claimed. The published forward area formula is prior work. Source availability and search coverage do not certify historical priority. Numerical experiments cannot replace the proof.
+
+Self-review: passed. Independent audit: not yet performed.
