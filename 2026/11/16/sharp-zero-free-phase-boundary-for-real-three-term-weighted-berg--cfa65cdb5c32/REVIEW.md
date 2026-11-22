@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** With \(h=\alpha+2>1\), differentiation of the exact weighted Bergman kernel gives a nine-term Gram expression. Real coefficients cancel odd orders, leaving the quartic \(t^4+(h)_2(2b-a^2)t^2+(h)_4b^2\). For nonzero \(b\), its quadratic in \(t^2\) has both roots positive real exactly above the claimed threshold; below it they are a nonreal conjugate pair, providing exactly two simple upper-half-plane scalar roots. The point-pair difference variable covers the whole upper half-plane. The exceptional \(b=0\) and equality cases were proved directly. Finite checker: 414 successful parameter or derivative-consistency checks; finite tests supplement, rather than prove, the general assertion.
+PASS
 
-## Originality
+With h=α+2>1, the standard power-weighted upper-half-plane Bergman kernel is Kα=c[-i(z−w̄)]^(−h). For real (1,a,b) coefficients of f,a f′,b f′′, mixed derivatives cancel odd total orders and yield exact B/K=[t⁴+(h)_2(2b−a²)t²+(h)_4 b²]/t⁴, t=z−w̄ in upper half plane. Our independent symbolic expansion of all nine derivative-pair contributions reproduced this quartic exactly, including h=2 numerator t⁴+(12b−6a²)t²+120b². For b=0 the nonzero roots are real (t=0 factors are outside domain). For b≠0, set u=t² and C=(h)_2(2b−a²), E=(h)_4 b²>0; C<2sqrt(E) always, so all t roots are real iff C≤−2sqrt(E), equivalent to a²≥2b+2Q_h|b| with Q_h=sqrt((h+2)(h+3)/(h(h+1))). Below threshold u roots form one nonreal conjugate pair, giving precisely two simple upper-half-plane t zeros; all upper-half-plane t are realized by interior (z,w) via z=x/2+iy/2,w=−x/2+iy/2. At equality there are two doubled real t roots, inaccessible. The result covers real a,b all α>−1 only; finite numerical checks corroborate algebra, not all-parameter proof.
 
-**PASS on currently inspected evidence, with residual priority risk.** The original Gehlawat–Jain–Sarkar paper supplies the general Gram-kernel formula and particular zero-free examples, not the sharp \(\{0,1,2\}\) real-coefficient stability region. The published first-jet classification treats support \(\{0,1\}\), while the separated two-jet parity theorem treats exactly two nonadjacent orders \(\{p,q\}\). Neither statement implies the classification for three simultaneous orders; the separated two-jet theorem actually demonstrates zeros in the \(a=0,b\ne0\) subfamily, whereas the present three-term theorem shows the zeros can disappear for sufficiently large \(|a|\). The full relevant theorems/proofs in those records and the source preprint's section on explicit kernels were inspected. Different historical terminology may conceal equivalent stability results; priority has not been independently established.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** A two-dimensional, reflection-symmetric family of canonical differential-evaluation Gram kernels has an exact, natural zero-free region. This produces a genuine stabilization phenomenon: appending the missing first jet makes a value-plus-second-jet kernel zero-free despite its known unavoidable zeros. The sharp boundary, complete zero count, double-root tangency, sign-dependent thresholds and weight dependence are structurally informative for Lu Qi-Keng questions involving differential evaluations, rather than a numerical example or arbitrary coefficient slice. The full complex-coefficient problem remains open here.
+Bounded semantic Resultary search plus primary-literature comparison finds no earlier theorem dominating the precise full stated claim. Explicit equivalences and narrower covered portions are identified. This is best-of-knowledge, not a guarantee of global novelty. The unweighted h=2 specialization is known; only the weight-dependent all-α extension is novel.
 
-## Scope and verification
+## value
 
-The proof uses standard kernel normalization, exact polynomial algebra and exhaustive elementary root geometry. No claim of independent external validation is made; the provided finite checker verifies calculations only. The source date is the original arXiv submission date (August 13, 2026), rather than an updated version or journal date.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The real three-term differential-jet Gram kernel is a natural finite-dimensional family; the sharp weight-dependent zero-free phase diagram reveals a sign-sensitive restoration of zero-freeness. Although the h=2 unweighted specialization is known, extending the exact boundary to every integrable real weight α>−1 and proving precise zero multiplicities is a meaningful complete classification, not just a numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
