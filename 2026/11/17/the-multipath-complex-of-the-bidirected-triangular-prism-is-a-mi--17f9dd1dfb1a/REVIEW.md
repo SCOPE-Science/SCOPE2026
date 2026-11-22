@@ -1,19 +1,21 @@
-# Scientific review: bidirected triangular-prism multipath complex
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph is specified by its nine undirected edges and eighteen directed arcs. `verify.py` enumerates all \(2^{18}\) selected-arc subsets, gives 686 nonempty faces, and verifies every face deletion. The 326 ordinary face pairs are acyclic across all 2,256 directed cover incidences and leave critical cells \(1,5,22,6\) in dimensions \(0,2,3,4\). Exact signed Morse boundary reductions vanish over the integers; mod-two boundary ranks \((17,91,164,54)\) independently agree. The five integral two-cocycles form a full rational cohomology basis, and each of the 25 ordered degree-two cup products is an exact rational coboundary. Because integral fourth cohomology is free, these products vanish integrally. Hurewicz and Hilton–Milnor arguments then rule out every degree-three and degree-four attachment, proving the **homotopy type**, not just Betti numbers. Potential calculation risk is bounded by the fully reproducible exhaustive code; the homotopy-theory deduction has not been independently peer reviewed.
+PASS
 
-## Originality — PASS (best knowledge)
+The 18 bidirected prism arcs (on 6 vertices and 9 undirected edges) were generated from the actual frozen graph; exhaustive independent testing of all 2^18 subsets found 687 faces including empty and f=(18,108,260,240,60). The pivot Morse matching was independently verified acyclic on 686 nonempty cells / 2256 covers, with 326 pairs and critical counts (1 in dimension0, 5 in dimension2, 22 in dimension3, 6 in dimension4). Exact integer Morse boundary elimination gave zero differentials in every degree, consistent with independent GF2 boundary ranks (17,91,164,54). Crucially, independently derived integral two-cocycles and exact rational Gaussian elimination checked all 25 ordered Alexander–Whitney degree-two cup products as coboundaries; six raw cup cochains nonzero, so not vacuous. H4 is torsion free and hence their rational vanishing is integral. Hilton–Milnor pi3 decomposition and vanishing attaching degrees/cup quadratic terms rule out hidden Hopf/Whitehead attachments, proving the full wedge 5 S2 ∨22 S3 ∨6 S4, not just Betti counts.
 
-The closest primary result, Caputi–Collari–Smith (arXiv:2601.05670), studies bidirected paths and simple polygons, not their triangular-prism graph assembly. Caputi–Collari–Di Trani–Smith (arXiv:2208.04656) treat several directed graph families including small linear grids, but the fully bidirected prism does not satisfy the identified grid hypotheses. Deshpande–Sawant (arXiv:2602.14936) define the same complex under a directed-linear-forest alias, but their quoted decomposition theorems require different orientations/underlying graph families. Related indexed homotopy results on bidirected double-stars are for trees. Other indexed prism records concern **different simplicial complexes** (ordinary discrete Morse matching, Rips, Čech and total-cut). The actual alias and implication comparisons are recorded in `AUDIT.json`; absence of a search hit does not prove priority. Unindexed equivalent sources remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The triangular prism is a canonical first multiply cyclic prism graph, materially different from the already studied bidirectional polygons. Its multipath complex exhibits simultaneous nonzero homotopy in dimensions two, three and four. The nontrivial issue is not just computing three ranks: degree-four cells may attach by Hopf or Whitehead elements, and the exact cup-product calculation proves that they do not. The result supplies an exact, standalone, testable case for theories of directed path-forest complexes. It does not purport to classify arbitrary prisms or all orientations.
+Best-of-knowledge PASS. Full primary work on bidirectional paths and polygonal digraphs treats one cycle or path, unlike a triangular prism with two three-cycles joined by rungs. Related bidirected K3,3 and K3,4 calculations have a different 6- or 7-vertex graph and different face incidence. Structural forest orientations and directed grids in foundational work do not supply this exact prism homotopy type. A global bibliography search cannot exclude unindexed calculations.
 
-## Limitations
+## value
 
-Finite six-vertex graph only; no family-wide extension, symmetry representation, or independence from all possible unpublished work is claimed. Only self-review have been made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The smallest fully bidirected two-triangle network gives a motivated first coupled-cycle multipath example. Resolving an integral mixed-dimensional wedge entails nontrivial Hopf attachment obstructions beyond rank counting and is a useful natural boundary example for multipath homotopy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
