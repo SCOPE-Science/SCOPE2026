@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The strict radius-of-curvature condition follows from \(1-a-b>0\), and support-function differentiation yields a legitimate strictly convex oval and the arclength normal-angle density. The full relative law is determined by zero-sum Fourier products. Coprimality forces every phase-sensitive zero-sum tuple to have at least \(p+q\) nonzero factors; a tuple of exactly that length produces a nonzero separating moment. The recovered \(p\)-fold phase is exactly the residual rotation equivalence. Explicit support integrals verify perimeter, area, and directional width. The independently written finite checker corroborates each computational identity, but the proof's infinite quantifiers rest on the exact Diophantine argument, not finite tests.
+PASS
 
-## Originality — PASS, provisional historical priority
+For h=1-a cos(pθ)/(p²-1)-b cos(qθ+phi)/(q²-1), h+h""=1+a cos(pθ)+b cos(qθ+phi)>=1-a-b>0, so a valid strictly curved analytic oval and arclength-normal density rho/2pi exist. Every torus Fourier moment of the entire differences law corresponds to an iid product of Fourier coefficients with zero total exponent. Coprimality forces p r_p+q r_q=0 so nonzero phase balance requires at least p+q nonzero entries. Exactly q frequencies +p and p frequencies -q produce (a/2)^q(b/2)^p exp(i p phi). The m=2 difference law yields a²/4 and b²/4, fixing positive amplitudes; p-fold phase recovers the rotation class. Reflection conjugates it, so p=2 phases 0 and pi/2 are inequivalent. Support integral A=(1/2) integral h rho confirms area, width cancels odd q mode, perimeter 2pi. Independent integer support enumeration for (2,3),(2,5),(3,4) confirms first possible phase imbalance precisely at p+q; full proof is the integer argument, not enumeration.
 
-Kakarala's published bispectral completeness results require nonsingular coefficients or representation-product-closed nonzero Fourier support, neither of which holds for this two-harmonic normal density. Marckert–Renault establishes the Gauss–Minkowski correspondence and a convolution operation, not the complete order-by-order phase ambiguity classification. Abdallah–Mérigot uses absolute normal orientations, whereas the present observations discard a common rotation in each batch. Bianchi–Gardner–Kiderlen concerns spatial covariograms rather than normal-angle configurations. Relevant earlier geometric records on randomized tangent polygons, directional width correlations and circular-number variance have different data and conclusions. The exact resonance is elementary once the observation model is fixed, and unexamined works on sparse higher-order spectra remain a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The result demonstrates a sharp, unbounded sample-order obstruction to rotation-free convex normal tomography using genuinely smooth positive-curvature shapes. It identifies the *first* separating full joint law and an explicit complex witness, so it does more than produce a pair with equal two-point autocorrelation. Equal area, perimeter and pointwise directional width show the failure is not rescued by standard geometric side information. This is a structural boundary on what finite-order shape-blind normal statistics can encode, with a constructive exact proof.
+Best-of-knowledge PASS after inspecting the frozen proof, searching mathematical aliases/general implications, comparing related primary theorems and published results at statement-level. The contribution is the specific final claim, not its openly credited combinatorial, signal-processing or probabilistic prerequisites. Inaccessible or less-indexed literature remains explicitly a residual risk.
 
-## Limits and closest literature
+## value
 
-The result is restricted to sparse analytic curvature spectra, independent Euclidean-arclength boundary sampling, and oriented relative normal directions. It is not a finite-sample reconstruction error bound. The closest primary sources are Marckert–Renault (arXiv:1208.5408), Abdallah–Mérigot (arXiv:1402.5010), and Kakarala's bispectrum completeness theorem (arXiv:0902.0196). Independent mathematical and bibliographic assessment have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp, arbitrarily-high observation-order information obstruction for natural convex geometric measurements with strictly positive curvature, despite matching standard perimeter/area/width observables. Unlike bare sparse-signal phase ambiguity, it constructs genuine noncongruent convex shapes and precisely identifies their first separating geometric observation order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
