@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "In the source model the exactly observed total recovered variable \\(C=R+R_\\infty Q\\) satisfies \\(\\dot C=\\gamma I\\). Division by \\(\\dot P\\) and integration gives the scalar \\(F_k\\) identity. The elasticity \\(\\eta(z)=z/[(1+z^2)\\arctan z]\\) has strictly negative derivative \\(\\big[(1-z^2)\\arctan z-z\\big]/\\big[(1+z^2)^2(\\arctan z)^2\\big]\\). Weighted averages over two disjoint intervals prove the ratio \\(\\Phi\\) strictly increasing. Uniform endpoint limits give strict sharp bounds, and the inversion formula yields unique positive \\(\\alpha,\\rho\\) for the reduced observation relation. The standard-library checker and full-ODE numerical integration corroborate computations but are not relied upon for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2602.23449v1 section 4 states parametrization via numerical fitting and mobility-network mapping as future work",
+        "doi:10.1016/j.arcontrol.2020.12.001 general compartmental observability survey"
+      ],
+      "reasoning": "Broad structural-identifiability methods and general models do not assert the globally strict interval and unique inverse for the smooth saturation profile. No broader covering theorem was found in sources examined; absence of search hits alone is not proof.",
+      "searches": [
+        "spatial SIR smooth saturation rate scale joint identifiability three observations",
+        "\"Aronna\" \"Bergonzi\" \"Kofman\" \"identifiability\" 2026",
+        "spatial epidemic Aronna Bergonzi Kofman 2026 exact reconstruction of rho and alpha with three cumulative recoveries and untouched district counts"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2602.23449v1",
+      "doi:10.1007/s11538-026-01656-w",
+      "arxiv:2506.07825",
+      "doi:10.1016/j.arcontrol.2020.12.001",
+      "arxiv:2505.10517"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2602.23449v1 equation (8) implies the first-integral after cancellation but the source publishes no resulting strict global inversion",
+        "doi:10.1007/s11538-026-01656-w establishes inference using different auxiliary data in under-reporting SIR"
+      ],
+      "reasoning": "Equation-level compatibility is not coverage by a published theorem: proving global injectivity requires a new elasticity monotonicity and weighted-integral comparison. The published \\(\\mathcal R_0=\\beta/\\gamma\\) result does not imply an inverse map from frontier/recovery snapshots.",
+      "searches": [
+        "\"An Aggregated SIR Model\" \"identifiability\" \"arctan\"",
+        "monotone ratio integrals arctangent saturation logarithmic mean identifiability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2602.23449v1 equations (4)-(8), model/results/conclusions/appendices",
+        "doi:10.1007/s11538-026-01656-w sections 2.3 and 3.1"
+      ],
+      "reasoning": "The source has numerical parameter fitting, not an exact snapshot inverse; the other source studies unreported infections and prior immunity, with no arctangent frontier variable. Their observables and implications differ.",
+      "searches": [
+        "\"An Aggregated SIR Model\" \"identifiability\" \"arctan\"",
+        "three ordered unexposed fraction snapshots cumulative removed arctangent saturation epidemic parameter-free strict logarithmic mean bound identify spread rho alpha"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2602.23449v1 section 3 contains fitted numerical curves, not a three-snapshot parameter table",
+        "arxiv:2506.07825, a distinct under-reporting identifiability problem"
+      ],
+      "reasoning": "No exact recorded data table or prior mathematical-result entry inspected contains the two strict bounds or single-scalar inverse; model tables and unrelated inference results do not cover the claim.",
+      "searches": [
+        "aggregated SIR epidemic spatial propagation exact reach final-size conserved quantity and hidden populations",
+        "exact three snapshot identifiability of saturation scale and rate from spatial epidemic frontier vs cumulative recovery; arctangent saturation"
+      ]
+    },
+    "rationale": "The original source contains the exact model and numerical curve fitting but does not derive three-snapshot global injectivity, parameter-free strict interval, or inversion. Related SIR identifiability papers analyze different unknowns and observations. Relevant searchable prior mathematical results concerned different epidemic models or observation operators and do not imply this integral-ratio theorem. The conclusion is bounded to material actually read and verified.",
+    "residual_risks": [
+      "Uninspected specialized nonlinear-rate inference literature could contain an equivalent strict integral-ratio theorem.",
+      "The broad survey and tutorial were only checked at abstract level; no claim of their full-document exclusion.",
+      "The modeled total recovered quantity and the frontier variable must be simultaneously observed without error for exact identification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_MODEL_NOT_COVERING_NEW_INVERSION",
+        "evidence": [
+          "Equation (5) defines smooth arctangent saturation",
+          "Equation (8) includes Pdot, Rdot and Qdot needed for cancellation",
+          "Section 3 fits rho and alpha numerically with scipy.optimize.curve_fit",
+          "Section 4 discusses parameter relation to mobility as future work",
+          "Appendices analyze \\(\\mathcal R_0\\) not snapshot identification"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.23449",
+        "material_read": "Sections 2.1-2.3, numerical examples in section 3, conclusions in section 4, Appendix A and Appendix B",
+        "method": "Lawful full-text HTML page inspection",
+        "title": "An Aggregated SIR Model for Spatial Epidemic Propagation",
+        "trigger": "Exactly the model, smooth arctangent saturation and spatial parameters"
+      },
+      {
+        "assessment": "NOT_COVERING_DIFFERENT_MODEL_AND_PARAMETERS",
+        "evidence": [
+          "Uses SIR with reporting probability, pre-existing immunity and effective infection rate",
+          "Additional survey information resolves identifiability unlike this spatial frontier inverse"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11538-026-01656-w",
+        "material_read": "Abstract, introduction, section 2 including deterministic model, section 3.1 on unidentifiability",
+        "method": "Full-text accessible HTML, inspected sections relevant to theorem comparison",
+        "title": "Identifiability in Epidemic Models with Prior Immunity and Under-Reporting",
+        "trigger": "Closest recent source on restoring epidemic parameter identifiability with auxiliary observations"
+      },
+      {
+        "assessment": "NOT_DECISIVE_ON_SPECIFIC_INVERSE",
+        "evidence": [
+          "Broad structural observability study; full text not inspected so no full-paper exclusion asserted"
+        ],
+        "identifier_or_url": "https://pubmed.ncbi.nlm.nih.gov/33362427/",
+        "material_read": "Abstract and bibliographic information only",
+        "method": "Abstract inspection",
+        "title": "Structural identifiability and observability of compartmental models of the COVID-19 pandemic",
+        "trigger": "Broader identifiability coverage and related terminology"
+      },
+      {
+        "assessment": "NOT_DECISIVE_ON_SPECIFIC_INVERSE",
+        "evidence": [
+          "Describes general structural-identifiability workflows across SEIR-type models, not known exact frontier snapshot formula"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2505.10517",
+        "material_read": "Abstract and source listing only; full text inaccessible",
+        "method": "Abstract inspection",
+        "title": "A Tutorial on Structural Identifiability of Epidemic Models Using StructuralIdentifiability.jl",
+        "trigger": "Broad standard methods for epidemic identifiability"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "88af82d5-1106-4325-81ce-d2d5d86cf489",
+  "value": {
+    "rationale": "Exact finite-data identification and a parameter-free sharp model-falsification interval resolve a natural inference gap created by the original paper's numerical fitting of \\(\\rho\\) and \\(\\alpha\\). The result isolates mobility scale from intensity without observing prevalence or fitting \\(\\beta\\) and \\(\\beta_R\\), and reveals extreme-saturation weak sensitivity. Its motivated object and precise invariant are relevant to spatial outbreak inference and cannot be obtained merely by rerunning a known table.",
+    "status": "PASS"
+  }
+}
