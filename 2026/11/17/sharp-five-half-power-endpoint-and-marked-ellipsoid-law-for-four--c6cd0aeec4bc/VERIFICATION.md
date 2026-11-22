@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification notes
 
-Run `python CHECK.py` with NumPy and SymPy available. The standalone code reconstructs the exact inner-product derivatives rather than merely trusting printed matrix entries. It checks all 25 entries of the Hessian, every leading principal minor's positivity, the exact radical determinant and the closed coefficient. Reproducibly seeded ball samples (150,000 samples shared across two orientation branches at each threshold) gave normalized local-volume ratios about 1.006061 at deficit 0.002 and 1.005298 at deficit 0.0002. These are finite numerical diagnostics, not a proof of the infinitesimal probability or of total-variation convergence.
+# Independent mathematical audit
 
-The analytical proof is in `RESULT.md`. It independently requires the exact rotational sampling density, equality characterization of the global maximum, Hessian positivity, uniform quadratic localization, the five-ball volume and dominated convergence. No formal theorem prover, independent referee, or external validation is claimed. Historical priority is provisional; Beck (1984) full text was not available.
+## correctness
+
+PASS
+
+PASS: The exact energy–Gram representation, spherical-area Jacobian, isolated regular tetrahedra and positive Hessian justify the t^(5/2) law and the conditional total-variation ellipsoid limit. Independently differentiated the six inner products with SymPy and verified determinant 1125 sqrt(6)/16384, all five positive leading minors and K=0.4597795281753. The two branch factors and 5-ball volume are consistent; the asymptotic is for absolute deficit t, not relative deficit.
+
+## originality
+
+PASS
+
+Best-of-knowledge original within the precise stated scope; structurally adjacent work does not imply the complete assigned conclusion, as compared below.
+
+## value
+
+PASS
+
+The sum of six chord lengths has a natural classical optimizer, but its rare near-maximal probability and full orientation-marked local shape law are nontrivial geometric-probability invariants with an exact leading coefficient, rather than another restatement of the optimizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

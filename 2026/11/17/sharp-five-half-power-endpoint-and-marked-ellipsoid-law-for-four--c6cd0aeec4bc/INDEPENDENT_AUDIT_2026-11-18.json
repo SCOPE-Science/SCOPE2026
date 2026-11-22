@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T11:14:31.660522Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md Steps 1–5: Cauchy–Schwarz gives 4 sqrt(6), isolated two chirality classes, exact reduced-coordinate density 1/(32 pi^2), a 5x5 positive Hessian and localized quadratic tube, then L1 convergence of conditional densities.",
+        "Independent symbolic differentiation reproduced the exact 5x5 Hessian and determinant; Gaussian/eigenvalue Monte Carlo in CHECK.py was source-inspected but not used as proof."
+      ],
+      "rationale": "PASS: The exact energy–Gram representation, spherical-area Jacobian, isolated regular tetrahedra and positive Hessian justify the t^(5/2) law and the conditional total-variation ellipsoid limit. Independently differentiated the six inner products with SymPy and verified determinant 1125 sqrt(6)/16384, all five positive leading minors and K=0.4597795281753. The two branch factors and 5-ball volume are consistent; the asymptotic is for absolute deficit t, not relative deficit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hille provides prior deterministic maximal-distance geometry; general quadratic Laplace/tube principles provide a method, not the five-coordinate chord-energy determinant and distribution."
+        ],
+        "reasoning": "The deterministic maximum is known; the present conditional marked rare-event law requires object-specific local Hessian and exact normalization not furnished by that maximum.",
+        "searches": [
+          "web: Hille Some geometric extremal problems 1966; Harman sums distances sphere 1982; Resultary near regular volume"
+        ]
+      },
+      "checked_sources": [
+        "Git tree d91223cbd23414732ea61c3c9fafbc3fa5ce4855, RESULT.md 3452b851aa6c75b8d902ef35ccc8db030fdf8819, CHECK.py ada03ac2b8757866645e15b886080bcfb8425c6c",
+        "Resultary full near-regular volume-tail theorem",
+        "Hille 1966 DOI:10.1017/S1446788700004067; Harman 1982 DOI:10.1155/S0161171282000647"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Volume-tail law evaluates determinant of a different constrained functional; its conditional ellipsoid has different matrix."
+        ],
+        "reasoning": "The matching power alone follows from common optimizer codimension five; neither probability coefficient nor marked orientation-conditioned law is a corollary of the volume result.",
+        "searches": [
+          "Resultary 2026/11/17 volume-tail full RESULT.md; Hille Cambridge article description; Harman 1982 search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Near-regular tetrahedron volume law uses identical 5D orientation gauge, but V and L have different non-proportional Hessians; the volume threshold and coefficient do not determine the chord-energy endpoint."
+        ],
+        "reasoning": "Same geometric maximizers and t^(5/2) power are insufficient for implication: the local quadratic forms must agree up to scale, which they do not. No equivalent chord-sum marked theorem was found in actual searches.",
+        "searches": [
+          "Resultary semantic: four sphere points tetrahedron chord energy upper endpoint Hessian marked limit; Resultary 2026/11/17 near-regular volume tail"
+        ]
+      },
+      "evidence": [
+        [
+          "Near-regular tetrahedron volume law uses identical 5D orientation gauge, but V and L have different non-proportional Hessians; the volume threshold and coefficient do not determine the chord-energy endpoint."
+        ],
+        [
+          "Hille provides prior deterministic maximal-distance geometry; general quadratic Laplace/tube principles provide a method, not the five-coordinate chord-energy determinant and distribution."
+        ],
+        [
+          "No inspected full-text or indexed exact table gives coefficient 256*2^(1/4)*3^(3/4)*sqrt(5)/3375 for four sphere points; Resultary self-match excluded."
+        ],
+        [
+          "Volume-tail law evaluates determinant of a different constrained functional; its conditional ellipsoid has different matrix."
+        ]
+      ],
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected full-text or indexed exact table gives coefficient 256*2^(1/4)*3^(3/4)*sqrt(5)/3375 for four sphere points; Resultary self-match excluded."
+        ],
+        "reasoning": "No finite table is appropriate for a continuous probability law; existing related extremal constants do not constitute this endpoint distribution.",
+        "searches": [
+          "Resultary chord-energy tetrahedron search; web: Hille 1966; Beck 1984 sphere distance sums"
+        ]
+      },
+      "rationale": "Best-of-knowledge original within the precise stated scope; structurally adjacent work does not imply the complete assigned conclusion, as compared below.",
+      "residual_risks": [
+        "Beck (1984) full text inaccessible, so priority is qualified; Hille and Harman primary full texts were not reread in this run.",
+        "Numerical local-volume samples do not establish the asymptotic; analytic localization and nondegenerate Hessian do."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the chord-energy functional",
+          "evidence": "The previously published volume Hessian has different entries and a scalar-volume deficit, not the sum-of-six-chords deficit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-near-regular-volume-tail-and-conditional-shape-law-for-ran--3c35f6bc52a0/RESULT.md",
+          "material_read": "Complete RESULT.md proof, stated Hessian matrix and normalization",
+          "method": "GitHub full-file fetch",
+          "title": "Sharp near-regular volume tail and conditional shape law for random inscribed tetrahedra",
+          "trigger": "identical random geometric objects and local optimizer"
+        },
+        {
+          "assessment": "DETERMINISTIC_MAXIMUM_PRIOR; full-text coverage unresolved",
+          "evidence": "Original 1966 paper pp.122–128; current maximum is explicitly classical.",
+          "identifier_or_url": "doi:10.1017/S1446788700004067",
+          "material_read": "Publisher abstract/extract and bibliographic description; full text not retrieved this run",
+          "method": "web search",
+          "title": "Some geometric extremal problems",
+          "trigger": "prior upper bound"
+        },
+        {
+          "assessment": "PRIOR_CONTEXT_ONLY",
+          "evidence": "No local conditional five-dimensional endpoint statement evidenced in accessed material.",
+          "identifier_or_url": "doi:10.1155/S0161171282000647",
+          "material_read": "Bibliographic/search metadata only; not claimed full text read",
+          "method": "web search",
+          "title": "Sums of distances between points of a sphere",
+          "trigger": "direct same distance functional"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "RESULT.md Steps 1–5: Cauchy–Schwarz gives 4 sqrt(6), isolated two chirality classes, exact reduced-coordinate density 1/(32 pi^2), a 5x5 positive Hessian and localized quadratic tube, then L1 convergence of conditional densities."
+      ],
+      "rationale": "The sum of six chord lengths has a natural classical optimizer, but its rare near-maximal probability and full orientation-marked local shape law are nontrivial geometric-probability invariants with an exact leading coefficient, rather than another restatement of the optimizer.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git tree d91223cbd23414732ea61c3c9fafbc3fa5ce4855, RESULT.md 3452b851aa6c75b8d902ef35ccc8db030fdf8819, CHECK.py ada03ac2b8757866645e15b886080bcfb8425c6c",
+    "Resultary full near-regular volume-tail theorem",
+    "Hille 1966 DOI:10.1017/S1446788700004067; Harman 1982 DOI:10.1155/S0161171282000647"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Four independent surface-uniform S2 points, Euclidean chord energy only; no full CDF or error rate.",
+    "Originality is best of knowledge, not exhaustive world-priority certification."
+  ],
+  "residual_risks": [
+    "Beck (1984) full text inaccessible, so priority is qualified; Hille and Harman primary full texts were not reread in this run.",
+    "Numerical local-volume samples do not establish the asymptotic; analytic localization and nondegenerate Hessian do."
+  ],
+  "schema_version": 1
+}

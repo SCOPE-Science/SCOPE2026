@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The deterministic bound follows exactly from the four-point vector identity and the Cauchy–Schwarz equality case. In the five-dimensional rotation quotient, the probability density is constant \(1/(32\pi^2)\); the only two maximizers are explicitly given. Reconstructed exact Hessians have positive leading minors, and the determinant \(1125\sqrt6/16384\). The local-volume calculation includes both maxima and the five-ball volume, giving \(K=256\,2^{1/4}3^{3/4}\sqrt5/3375\). The conditional marked result follows in total variation from convergence of compactly supported conditional densities, not from finite Monte Carlo data.
+PASS
 
-## Originality — PASS (historical priority provisional)
+PASS: The exact energy–Gram representation, spherical-area Jacobian, isolated regular tetrahedra and positive Hessian justify the t^(5/2) law and the conditional total-variation ellipsoid limit. Independently differentiated the six inner products with SymPy and verified determinant 1125 sqrt(6)/16384, all five positive leading minors and K=0.4597795281753. The two branch factors and 5-ball volume are consistent; the asymptotic is for absolute deficit t, not relative deficit.
 
-Hille (1966) covers the regular-tetrahedron maximizer, and that known result is not claimed. Harman (1982) discusses N-point sphere distance bounds, Beck (1984) discusses the optimization problem, and Akopyan–Edelsbrunner–Nikitenko (2021) computes the *expected* total edge length for random spherical polytopes. Simarova (2021) treats U-max generalized perimeters of polygons with vertices on a **circle**. The inspected material does not establish the exact four-sphere-point energy endpoint or five-dimensional conditional law. Indexed research-record searches of aliases, parameters, the constant and dominating records likewise found no covering claim; database search absence is not uniqueness proof. The complete text of Beck (1984) could not be inspected; some research record comparisons were at the claim level. Independent historical review remains necessary.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem supplies a precise local stability law for the classical regular-tetrahedron optimum and gives the probability of near-optimal tetrahedral edge sums, including the leading constant and full conditional deformation law. It is a motivated geometric rare-event invariant rather than a re-expression of the optimizer. The local ellipsoid can serve as an analytically calibrated importance-sampling proposal. No exact finite-threshold CDF, higher correction, or convergence rate is asserted.
+Best-of-knowledge original within the precise stated scope; structurally adjacent work does not imply the complete assigned conclusion, as compared below.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The sum of six chord lengths has a natural classical optimizer, but its rare near-maximal probability and full orientation-marked local shape law are nontrivial geometric-probability invariants with an exact leading coefficient, rather than another restatement of the optimizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
