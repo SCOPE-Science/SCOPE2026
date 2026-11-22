@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "All sixteen boundary-decorated sets consist of n-1 disjoint central horizontal matching edges and two disjoint endpoint edges. Endpoint coverage forces the remaining middle-row vertices and leaves top/bottom row intervals whose lengths are even iff the two endpoint phase labels agree. Thus eight mismatched-phase sets are nonextendable. Deleting a boundary edge admits substitution of the matching-phase vertical boundary edge; deleting any central spine edge allows oppositely oriented vertical edges at the two newly free middle-row vertices and horizontally even residual intervals. This constructs a perfect matching after every one-edge deletion for every integer n>=2. Distinctness, minimality, and degree n+1 follow. A standalone exhaustive DFS independently tests all sixteen cases and all one-edge deletions for 21 sample widths (2..18,20,25,30,40); computation corroborates, not proves, the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chandrakar–Singh 2024 Lemma 3.1 classifies two-edge minimal nonfaces for 2×n strips; this restricts to two rows.",
+        "Chandrakar et al. 2026 give a 3×2n homotopy theorem with a related middle-row spine, but its global homotopy data are not a bound on minimal nonfaces."
+      ],
+      "reasoning": "The potential dominating statements are a complete width-two obstruction theorem and a complete width-three homotopy theorem; neither proposition asserts or logically yields uniform n+1-sized minimal nonfaces. Checked the shared spine rather than assuming disjoint subjects.",
+      "searches": [
+        "minimal non-extendable matchings 3-row domino tilings exactly eight maximum obstruction",
+        "minimal forbidden sets of dominoes that cannot extend to a tiling width-three rectangles odd perimeter parity phase gadget",
+        "arxiv:2407.05809 Lemma 3.1",
+        "arxiv:2611.18058v1 Lemma 3.4"
+      ]
+    },
+    "checked_sources": [
+      "Chandrakar–Chau–Goyal–Karki–Subhash (2026), arXiv:2611.18058v1, main text portions including spine construction",
+      "Chandrakar–Singh (2024), arXiv:2407.05809, original HTML and Lemma 3.1",
+      "A boundary-sensitive eight-column classification of three-row perfect-matching complexes (published mathematical result summary, finite 3×2m homotopy cases)",
+      "Perfect discrete-Morse matchings for five three-row grid matching complexes (published mathematical result summary, ordinary matching complex)",
+      "Unit signed domino sums and exact Fourier invertibility on three-row strips (published mathematical result summary, Fourier counting)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 paper proves a homotopy classification for the same complex but does not, from the inspected main result and proof sections, determine minimal nonfaces or bound their maximal degree.",
+        "The 2024 result shows an upper bound of two for width-two minimal nonfaces, making the width-three growth a genuinely different boundary behavior."
+      ],
+      "reasoning": "The new eight-family theorem is not a corollary of homotopy-type information, which does not determine the Stanley–Reisner ideal, and it lies outside a width-two theorem. A fully general matching-extension obstruction theorem, if one exists, could nevertheless supersede this claim.",
+      "searches": [
+        "arxiv:2611.18058v1 full pdf Section 3 homotopy and spine",
+        "arxiv:2407.05809 width two minimal nonfaces Lemma 3.1",
+        "minimum nonface degree perfect matching complexes 3 row grids"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Minimal nonfaces of the perfect-matching complex are equivalent to inclusion-minimal nonextendable partial domino matchings and squarefree minimal generators of its Stanley–Reisner ideal.",
+        "arXiv:2611.18058v1 studies homotopy type and discusses three-element obstructions; no all-n n+1 generator family is stated in inspected sections."
+      ],
+      "reasoning": "Translated the claim between obstruction, complex-minimal-nonface, and algebraic minimal-generator language before comparison. No inspected statement implies eight such configurations for every n.",
+      "searches": [
+        "minimal nonfaces bad matchings three by two n grid rectangular perfect matching complex maximum size of nonextendable matchings",
+        "Stanley Reisner ideal minimal squarefree generators of perfect matching complexes for three-row rectangle 3×2n",
+        "arxiv:2611.18058v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-result records describe finite homotopy types for 3×2, 3×4, 3×6 and 3×8 grid complexes, and signed Fourier counts of domino tilings on 3×2n rectangles.",
+        "Neither a finite homotopy table nor tiling-count formula enumerates arbitrary-n minimal forbidden matching supports."
+      ],
+      "reasoning": "Compared finite computations/tables and nearby same-object publications against the all-parameter degree statement. Finite instances are not dominating results for n unbounded.",
+      "searches": [
+        "Chandrakar Chau Goyal Karki 3x2n grid bad matchings minimal nonfaces classification",
+        "For every n the perfect matching complex of 3 by 2n rectangular grid has minimal nonfaces (inclusion-minimal nonextendable partial domino tilings) of cardinality n+1, eight boundary-frustrated patterns using n-1 central horizontal dominoes and two endpoint dominoes. Unbounded forbidden matching size Stanley-Reisner ideal generator degree."
+      ]
+    },
+    "rationale": "The new result constructs eight explicit size-n+1 inclusion-minimal nonextendable matchings for every n>=2 in width-three rectangular grids, proving unbounded forbidden-pattern arity and unbounded minimal Stanley–Reisner generator degree. The 2026 same-complex homotopy paper uses a similar spine and mentions three-edge bad matchings but does not state this boundary-phase family or the unbounded-size result in the inspected material; the 2024 two-row classification excludes width three. Published-result comparisons on finite three-row perfect matching complexes and signed domino tilings do not logically imply the claimed infinite family. Prior art on general minimal unextendable matchings may remain unlocated.",
+    "residual_risks": [
+      "An earlier general theorem on inclusion-minimal nonextendable partial domino matchings could cover this explicit family without mentioning three-row complexes.",
+      "Only the explicitly specified sections of the recent original PDF and earlier HTML were directly checked; searches and inspected literature are not an exhaustive historical-priority proof.",
+      "No independent scientific review has assessed the proof or literature priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Close methodological overlap: middle-row spine and complexes coincide. Main results are homotopy classifications and mention three-edge bad matchings, not the eight boundary-phase size-n+1 minimal nonfaces for all n.",
+        "evidence": [
+          "arXiv:2611.18058v1, first posted 2026-11-13",
+          "Introduction and Section 3 middle-row spine lemma; inspect n+1 family against their stated homotopy results."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2611.18058v1",
+        "material_read": "PDF abstract/introduction, definitions and results, Section 3 portions describing the middle-row matching spine, and final discussion/references; document is nine pages.",
+        "method": "Original arXiv PDF text read with page-image visual cross-check.",
+        "title": "Perfect Matching Complexes of 3 × 2n Grid Graph",
+        "trigger": "Same exact three-row grid perfect-matching extendability complex and qualifying recent first-public source."
+      },
+      {
+        "assessment": "Every width-two minimal nonface has two edges, but the statement does not address width-three grids.",
+        "evidence": [
+          "arXiv:2407.05809, first posted 2024-07-08",
+          "Lemma 3.1 classifies size-two minimal nonfaces on two-row strips."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2407.05809",
+        "material_read": "Original full-text HTML, definitions and Section 3 Lemma 3.1 on 2×n bad matchings.",
+        "method": "Inspected original openly accessible article HTML, not just search snippets.",
+        "title": "Perfect Matching Complexes of Polygonal Line Tilings",
+        "trigger": "Prior apparently stronger classification of minimal forbidden matchings on strips."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fe1038ec-fc64-4fa0-853c-3162448be027",
+  "value": {
+    "rationale": "Minimal nonfaces are an intrinsic obstruction invariant and minimal squarefree generators of the Stanley–Reisner ideal. The result proves unbounded minimal-generator degree within the natural fixed-width 3×2n rectangular grid family, in contrast to the known width-two bound of degree two, exhibiting a sharp qualitative complexity jump. The 8 patterns are motivated by the same middle-row spine central to current homotopy work rather than an arbitrary finite slice; no unsupported complete census is asserted.",
+    "status": "PASS"
+  }
+}
