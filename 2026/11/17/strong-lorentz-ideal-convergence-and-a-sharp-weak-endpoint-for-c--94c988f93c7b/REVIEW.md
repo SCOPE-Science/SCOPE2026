@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof derives a common geometric-mean envelope from Stanković's singular-value log-majorization; proves its boundedness for all positive finite Lorentz indices by a separate dyadic Hardy argument; uses rearranged dominated convergence and the little weak tail condition; and establishes the weak counterexample by exact binomial-weight formulas. Limits and indexing include zero singular values and algebraic eigenvalue multiplicities. Finite computational checks corroborate formulas only. Main external premise: Theorem 1.1 and equation (6) of arXiv:2611.07728v1.
+## correctness
 
-**Originality — PASS (best-knowledge, with residual risk).** Stanković's source gives coordinatewise limits, Ky Fan behavior and a Schatten limit under a strictly smaller input exponent; it does not state Lorentz-scale convergence or the full-weak endpoint failure. The earlier same-index Schatten improvement is acknowledged and not reasserted as novel. Bala's operator-norm theorem does not imply ideal-scale convergence. The closest indexed examples concern specific weighted shifts and singular-value asymptotics rather than an all-operator Lorentz theorem. Classical Lorentz geometric-mean inequalities may already contain the analytic lemma but do not establish this application. Older unindexed equivalent dynamical statements remain possible.
+PASS
 
-**Mathematical value — PASS.** The finding determines a natural and widely used operator-ideal boundary: all finite Lorentz secondary indices enjoy strong singular-value-sequence convergence; the order-continuous weak subideal also does, while full weak ideal convergence fails even for a compact quasinilpotent shift whose operator norms vanish. This identifies exactly why bounded weak singular-value tails alone do not give global ideal convergence and gives a structural bridge from log-majorization to Lorentz regularity beyond the known Schatten endpoint.
+Checked use of Stankovic Theorem 1.1: every fixed singular value converges to eigenvalue modulus and finite-product majorization supplies x_k^(n)<=G_k(s(T)). Taking r=p/2, AM-GM gives G^r<=Hardy(y^r), and dyadic Hardy at exponent 1/2 maps ell_(p,q) into itself for every finite q, with little-weak vanishing tail. Dominated convergence of reordered absolute errors yields ell_(p,q) strong convergence; fixed-prefix/tail handles little weak. For W e_j=(j+1)^(-1/p)e_(j+1), binomial log average gives unchanged far-tail weak norm 1 yet decaying first weight. Independent shift probes at n=0,3,20,80 verified operator-norm decrease and tail tending to weak constant 1; examined CHECK.py. Does not claim operator-level ideal convergence.
 
-**Limits.** These are singular-value sequence statements, not operator-valued convergence assertions. The weak counterexample proves failure of a universal full-weak conclusion, not necessity of the little-weak condition for each individual operator. Bibliographic priority beyond inspected sources is not guaranteed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Stankovic 2026 proves pointwise singular-value and log-product limits and only Schatten p convergence under a stronger S_q input, q<p; other published same-index Carleman result establishes ell^p strong convergence, but neither supplies all Lorentz ell_(p,q), 0<q<infty, or the little-versus-full-weak sharp boundary. 1988 Lorentz geometric mean Hardy inequalities may provide the analytic lemma but do not state the Aluthge dynamical conclusion or the sharp weak-shift counterexample.
+
+## value
+
+PASS
+
+Strengthens known pointwise Aluthge convergence to the natural full finite-q Schatten-Lorentz ideal scale, identifies the exact little-weak universal boundary and gives a sharp constructive obstruction in the full weak ideal; directly closes meaningful operator-ideal endpoint gaps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
