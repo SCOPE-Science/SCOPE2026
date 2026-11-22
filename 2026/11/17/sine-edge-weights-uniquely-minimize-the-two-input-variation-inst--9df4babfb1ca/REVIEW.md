@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The global Lipschitz norm reduces to permutation-chamber norms because sorting is continuous and piecewise linear. Step-direction decomposition makes each such norm an exact maximal weighted cut ratio. A simple change-count bound is attained by central alternating patterns at the sine weights. An explicit irreducible nonnegative cut matrix has that sine vector as a strictly positive eigenvector with the claimed cotangent/cosecant eigenvalue; positive left-eigenvector multiplication gives optimality, while Perron simplicity proves uniqueness. The standalone checker independently enumerated binary patterns and tested the central matrix and actual attaining input pairs. The all-order result rests on the analytic argument, not on tests.
+## correctness
 
-## Originality — PASS (historical priority qualified)
-A prior general-graph two-input sorting cut characterization already implies the supporting fixed-weight path norm formula. No priority is claimed for that lemma. The new question is a distinct minimax across **all positive path edge metrics**, now solved with a unique sine weight ray and exact parity-dependent cotangent/cosecant values. The materially inspected published mathematical records on one-input weighted-path rearrangements, two-input star-graph sorting, and two-input path medians do not state or imply this optimized parameter-free design theorem. The inspected primary rearrangement papers [arXiv:0806.4730, arXiv:1402.3006, arXiv:2209.06765] likewise do not solve the metric-design problem. Perron–Frobenius machinery is classical and is not claimed as new. An older unindexed equivalent remains possible.
+PASS
 
-## Mathematical value — PASS
-A standard monotonicization map is individually variation-diminishing for uniform edges but has growing perturbation amplification. The result answers the structural metric-design question over all positive weights and dimensions, supplies a unique explicit optimizer, and quantifies the improvement from \(n-1\) to approximately \(2n/\pi\). The all-dimensional parity law and uniqueness are stronger than examples or a generic finite optimization recipe; they identify a natural optimal Banach seminorm for a practical nonlinear rearrangement operator.
+Sorting is continuous piecewise linear, with every permutation matrix realized on a full-dimensional strict-order chamber. The global two-input seminorm Lipschitz factor equals the maximum induced variation norm of these permutation matrices; telescoping over single step functions H_k yields max_k B_k(w)/w_k, with exact strict-chamber witnesses. For sine weights, a centered alternating minority block attains the sum of the 2min(k,n-k) largest weights; elementary finite sine sums yield B_k(v)=Lambda_n v_k for every k, including even central case. A nonnegative central-block matrix A whose rows are averages of realizable cut indicators obeys A w <= B(w), has positive center column and a central row of all ones, hence is irreducible. The positive sine vector is its Perron eigenvector with eigenvalue Lambda_n; multiplication by the positive left Perron eigenvector proves the universal lower bound, and equality plus simplicity forces w proportional to v. Independent brute enumeration of all binary cuts for n=2..10 reproduced every target level ratio; exact proof covers all n.
 
-## Scope and risks
-The proof is for real finite path signals and common positive input/output edge weights. General graphs, higher-order variations and nonlinear order-statistic filters are not covered. Priority may be affected by unindexed weighted rearrangement or nonlinear spectral-minimax results; the inspected close sources do not state or imply the theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The previously published arbitrary-weight graph two-input rearrangement theorem gives the fixed-weight maximum-cut/minimum-cut characterization, so the fixed-weight path modulus is already known in an equivalent global-max form. The levelwise denominator I_k need not equal the particular prefix weight w_k; their global maxima agree by the independent chamber/step argument. Prior work does not optimize over strictly positive path weights or supply sine uniqueness/parity constants. Published one-input Pólya–Szegő and weighted median Perron results concern distinct operators/objectives.
+
+## value
+
+PASS
+
+Choosing edge weights to minimize the global two-input sorting instability is a natural stable-metric design problem, distinct from the classical one-input energy rearrangement question. The unique sine profile, exact parity effect and asymptotic 2/pi improvement over uniform edge weights constitute a mathematically motivated sharp optimization and rigidity theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

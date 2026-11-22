@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T14:02:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Sorting is continuous piecewise linear, with every permutation matrix realized on a full-dimensional strict-order chamber. The global two-input seminorm Lipschitz factor equals the maximum induced variation norm of these permutation matrices; telescoping over single step functions H_k yields max_k B_k(w)/w_k, with exact strict-chamber witnesses. For sine weights, a centered alternating minority block attains the sum of the 2min(k,n-k) largest weights; elementary finite sine sums yield B_k(v)=Lambda_n v_k for every k, including even central case. A nonnegative central-block matrix A whose rows are averages of realizable cut indicators obeys A w <= B(w), has positive center column and a central row of all ones, hence is irreducible. The positive sine vector is its Perron eigenvector with eigenvalue Lambda_n; multiplication by the positive left Perron eigenvector proves the universal lower bound, and equality plus simplicity forces w proportional to v. Independent brute enumeration of all binary cuts for n=2..10 reproduced every target level ratio; exact proof covers all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General graph theorem has broader graph class but fixes weights and contains no optimization over weights.",
+          "Steinerberger studies one-input graph rearrangement; no two-input minimax weight design."
+        ],
+        "reasoning": "A fixed-parameter theorem with broader graph domains does not determine optimal positive path weights. The Perron central-cut eigenproblem and uniqueness are additional.",
+        "searches": [
+          "Resultary 2026/11/17 exact graph-variation sensitivity RESULT full",
+          "Bankevich–Nazarov arXiv:1402.3006",
+          "Steinerberger arXiv:2209.06765"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-graph-variation-sensitivity-of-rank-order-rearrangement--8d2a5f108bf9/RESULT.md",
+        "https://arxiv.org/html/2209.06765v2",
+        "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-two-input-variation-sensitivity-of-three-point-median-smoo--5759b99f2a42",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sine-edge-weights-uniquely-minimize-the-two-input-variation-inst--9df4babfb1ca"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full graph theorem has no inequality that chooses weights to minimize max_k B_k(w)/w_k.",
+          "Perron argument constructs an irreducible central-cut A with sine eigenvector, forcing exact equality across k."
+        ],
+        "reasoning": "The fixed-weight theorem leaves a nontrivial nonlinear minimax optimization; the present Perron certificate explicitly solves it. One-input comparisons cannot settle the two-input extremizer.",
+        "searches": [
+          "Resultary full graph sorting cut theorem",
+          "Resultary median sensitivity record",
+          "Steinerberger 2022 full text"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general graph theorem gives the global fixed-weight constant max_k J_k/I_k. On a path the independent chamber/step formula gives max_k B_k(w)/w_k for the same modulus; a per-level I_k=w_k identity is not asserted.",
+          "One-input path energy compares reordered individual signals, not differences of sorted inputs."
+        ],
+        "reasoning": "The fixed-weight expression is known in equivalent cut language; the new result is the global infimum over weights and exact sine uniqueness, not an assertion that the cut formula itself is new.",
+        "searches": [
+          "Resultary semantic search: sine optimal edge weights sorting Lipschitz variation two input path global minimization",
+          "Resultary exact graph-variation sensitivity of rank-order rearrangement",
+          "Resultary one-input convex weighted-path sorting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A related weighted three-point median result also optimizes via a sine-like Perron vector, but for a bounded local median selector, not sorting.",
+          "Independent enumeration of path masks for n=2..10 agrees with n4 1+sqrt(2), n5 1+sqrt(5)."
+        ],
+        "reasoning": "No known-table recomputation: the all-n global minimizer and strict uniqueness are analytically proved. Other numerical eigenvalue tables do not imply this result.",
+        "searches": [
+          "Resultary semantic search: optimal variation sorting path sine weights cot csc parity n Perron Frobenius edge",
+          "Resultary semantic lookup for sine profiles and median smoothing"
+        ]
+      },
+      "rationale": "The previously published arbitrary-weight graph two-input rearrangement theorem gives the fixed-weight maximum-cut/minimum-cut characterization, so the fixed-weight path modulus is already known in an equivalent global-max form. The levelwise denominator I_k need not equal the particular prefix weight w_k; their global maxima agree by the independent chamber/step argument. Prior work does not optimize over strictly positive path weights or supply sine uniqueness/parity constants. Published one-input Pólya–Szegő and weighted median Perron results concern distinct operators/objectives.",
+      "residual_risks": [
+        "Another weighted rearrangement or nonlinear Collatz–Wielandt text might implicitly contain the optimized sine formula under a different operator name.",
+        "All results require the same strictly positive path edge weights for inputs and outputs; different weights or other graphs are outside scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides fixed-weight graph two-input modulus, but not optimal weights or unique sine profile",
+          "evidence": "General graph fixed-weight modulus max_k J_k/I_k; the equal global path modulus can also be written max_k B_k(w)/w_k, although the individual terms are not equal.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-graph-variation-sensitivity-of-rank-order-rearrangement--8d2a5f108bf9/RESULT.md",
+          "material_read": "Full RESULT.md theorem, coarea/strict witness proof, family formulas and limits",
+          "method": "Published GitHub full primary source",
+          "title": "Exact graph-variation sensitivity of rank-order rearrangement",
+          "trigger": "Broader fixed-weight sorting theorem"
+        },
+        {
+          "assessment": "One-input graph-gradient inequality, not two-input weighted minimax",
+          "evidence": "Steinerberger 2022 Theorem 2 rearrangement one signal and graph-energy comparison",
+          "identifier_or_url": "https://arxiv.org/html/2209.06765v2",
+          "material_read": "Open preprint HTML theorem statements and proof portions inspected",
+          "method": "arXiv lawful full HTML",
+          "title": "Discrete Rearrangements and the Pólya–Szegő Inequality on Graphs",
+          "trigger": "Potentially broader rearrangement stability theorem"
+        },
+        {
+          "assessment": "Local median operator and 3-edge selector, distinct from global sorting permutation chamber cut matrix",
+          "evidence": "Resultary reports optimal 1+2cos(pi/(n-1)) and half-step sine shape",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-two-input-variation-sensitivity-of-three-point-median-smoo--5759b99f2a42",
+          "material_read": "Indexed finding summary and formula; not represented as full text",
+          "method": "Resultary semantic record comparison",
+          "title": "Sharp two-input variation sensitivity of three-point median smoothing on finite paths",
+          "trigger": "Closest sine/Perron smoothing analogy"
+        },
+        {
+          "assessment": "Perron optimization and every-k equality rigorously checked",
+          "evidence": "Central A positive eigenvector and chamber operator norm",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sine-edge-weights-uniquely-minimize-the-two-input-variation-inst--9df4babfb1ca",
+          "material_read": "Full RESULT.md, CHECK.py, all proof steps and hypotheses; pinned source tree",
+          "method": "GitHub commit-specific Git blobs",
+          "title": "Sine-edge weights uniquely minimize the two-input variation instability of finite sorting",
+          "trigger": "Assigned final proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Choosing edge weights to minimize the global two-input sorting instability is a natural stable-metric design problem, distinct from the classical one-input energy rearrangement question. The unique sine profile, exact parity effect and asymptotic 2/pi improvement over uniform edge weights constitute a mathematically motivated sharp optimization and rigidity theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For n>=2, increasing sorting of real n-vectors has exact two-input common-positive-path-weight variation modulus max_{1<=k<n} B_k(w)/w_k. The unique optimal positive path-edge weights up to scale are sin(j*pi/n), with minimum cot(pi/(2n)) if n even and csc(pi/(2n)) if n odd. The uniform-weight factor is n-1.",
+  "limitations": [
+    "Another weighted rearrangement or nonlinear Collatz–Wielandt text might implicitly contain the optimized sine formula under a different operator name.",
+    "All results require the same strictly positive path edge weights for inputs and outputs; different weights or other graphs are outside scope."
+  ],
+  "schema_version": 1
+}
