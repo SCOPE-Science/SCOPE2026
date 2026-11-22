@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The statement concerns each integer \(n\ge3\) and each \(1\le k\le n-2\), with explicit endpoint conventions. Kitajima's established Corollary 4.19 supplies homology concentration, while the new argument supplies all traces and hook multiplicities. The fixed-simplex proof uses exact cycle partitions and the simplicial Hopf trace theorem; no inferred orientation signs occur because strict chain ranks are distinct. The hook calculation is checked from both Young-subgroup orbit multiplicities and a finite coefficient identity. The invariant-part assertion follows from an explicitly collapsible quotient. Independent exact computations cover \(240\) rational hook inner products and \(104\) direct fixed-chain comparisons. The general proof, not finite enumeration, establishes the result.
+
+## Originality — PASS with residual priority risk
+An earlier published result covers the full character only at rank span two and the contractible quotient. A separate all-parameter published result covers nonequivariant integral ranks and barcodes, but not the permutation representation. Kitajima's 2026 article proves wedges of spheres and gives small Betti examples, not the full cycle-type character or the sharp two-adjacent-hooks spectrum. Hersh–Sundaram's 2026 representation analysis concerns fixed rank-selected subposets, not the moving-window rank-span filtration. We compared complete relevant statements and their mathematical implications, not just titles. The new material is the full arbitrary-span character and particularly the all-parameter hook spectrum at interior higher spans. The derivation uses classical equivariant Euler-characteristic machinery, and unindexed equivalent results cannot be ruled out.
+
+## Mathematical value — PASS
+The character formula determines the entire rational \(\mathfrak S_n\)-representation for every filtration stage, a considerably finer invariant than Betti numbers or ordinary barcodes. The exact hook-spectrum collapse is structurally sharp: for interior level \(k\), only two adjacent hook leg lengths occur, with nonconstant positive multiplicities, while the sign representation appears only at the terminal sphere. These are natural, non-arbitrary representation-theoretic invariants of a recently studied filtered poset family, and the formula uniformly answers them beyond the previously treated rank-two case. No integral equivariant module splitting is asserted.
+
+## Closest literature and limits
+The principal inputs/comparators are Kitajima, arXiv:2606.15241 (full relevant argument inspected); Hersh and Sundaram, arXiv:2604.06479 (fixed-rank representation results inspected); the public rank-span-two character result (complete proof inspected); and the public all-rank nonequivariant barcode result (complete proof inspected). The claim does not identify preferred homology cycles, nonhook irreducible multiplicities in closed partition form, or integral symmetry lattices. The finite checker has no authority beyond its explicitly tested cases.
+
+Self-review: passed. Independent audit: not yet performed.
