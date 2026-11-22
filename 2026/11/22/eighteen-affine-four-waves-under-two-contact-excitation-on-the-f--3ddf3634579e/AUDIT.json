@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "Complete radix-three enumeration has exactly 43,046,721 states; the transition is the disjoint-mask map (E,R)->(T(E) outside E union R,E). Two independent C++17 implementations compute the same eleven entry-time/period cells and identical 19 recurrent basins: one fixed basin 43,034,937; six length-four basins 676; twelve length-four basins 644. The first uses path exploration with bit-parallel neighbor threshold logic; the second independently counts four neighbors and directly repeats each trajectory. A third independent Python calculation checks all 18 recurrent orbits under all 384 cube automorphisms, confirms phase-set affine two-flats and the 6/12 geometry split. The explicit state 88458 has entry time 7, while all 43,046,721 depths are at most 7 and periods divide 4, giving F^11=F^7 and F^10 different from F^6. Fully finite, no infinite claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/1610.07320v1: equation (1) uses existence of at least one excited neighbor; Theorem 3 and its circulation criterion apply to that one-contact rule.",
+        "https://www.math.ucdavis.edu/~gravner/papers/fgg.pdf: original threshold parameter is general, but its planar-lattice scaling and examples do not state the exact 16-vertex toroidal orbit/basin table.",
+        "The indexed hypercube period-onset result concerns the standard one-contact rule in several dimensions, which cannot determine the changed-threshold map."
+      ],
+      "reasoning": "The closest broad theorems have either different local contact thresholds, or asymptotic lattice conclusions rather than a sixteen-vertex complete labelled state-space census. No inspected theorem has hypotheses and conclusions yielding the specified 18 four-wave orbits, 6/12 symmetry classes, 644/676 per-orbit basins, and sharp seven-step identity.",
+      "searches": [
+        "full HTML source: https://arxiv.org/html/1610.07320v1 (equations (1), theorem 3, finite-graph section)",
+        "full primary paper: https://www.math.ucdavis.edu/~gravner/papers/fgg.pdf (threshold definition, periodic objects, threshold-range discussion)",
+        "published-finding corpus: sharp dimension-five onset of primitive seven and fourteen cycles in cubical excitation",
+        "published-finding corpus: 4 by 4 torus nearest neighbor periodic square lattice C4 Cartesian product C4 three color Greenberg Hastings threshold theta 2 exact four cycles 18 attraction basins 644 676"
+      ]
+    },
+    "checked_sources": [
+      "Fisch, Gravner and Griffeath, Statistics and Computing 1 (1991), pp.23–39, doi:10.1007/BF01890834",
+      "Gravner–Lyu–Sivakoff, arXiv:1610.07320v1, full HTML",
+      "Published published-finding corpus Q4 threshold-one manuscript, full RESULT.md",
+      "Prior exact Clebsch degree-five threshold-two census, scientific claim comparison only",
+      "Epperlein–Siegmund, DCDS-B 18 (2013), available abstract",
+      "Durrett–Griffeath 1993 arXiv threshold-range abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Q4 threshold-one census has 292616 primitive three-cycles, 13190 primitive four-cycles, and 1344 primitive ten-cycles, not the threshold-two result.",
+        "The existing five-regular folded-cube Clebsch classification uses Q4 plus all antipodal matching edges; its 90 cycles describe a different map despite matching per-cycle basin values.",
+        "https://arxiv.org/html/1610.07320v1: its graph-wide winding criterion presupposes a one-neighbor excitation predicate."
+      ],
+      "reasoning": "Neither changing threshold from one to two nor adding antipodal graph edges is a state-conjugacy reduction. The 1991 broad multi-threshold framework does not imply the specific finite exhaustive table. The exact new Q4 result is therefore not a numerical corollary of the closest inspected statements. Similar basin-size values across graphs are comparisons, not asserted equality of basin sets or transferred proofs.",
+      "searches": [
+        "source comparison: same-graph Q4 threshold-one RESULT.md",
+        "source comparison: five-regular Clebsch two-contact geometric four-wave census",
+        "source comparison: https://arxiv.org/html/1610.07320v1 finite graph theorem 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The four-cube has connection differences 1,2,4,8 on F_2^4 and is isomorphic to C4 Cartesian C4, a 4-by-4 periodic nearest-neighbor square lattice.",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-primitive-excitation-periods-on-the-four-cube-an-exact-finite-st--d99b448f2f7e: full published RESULT.md identifies explicitly the one-neighbor threshold, not two.",
+        "https://www.math.ucdavis.edu/~gravner/papers/fgg.pdf: multi-neighbor Greenberg–Hastings rule defined for nearest-neighbor square lattices without these full finite exact numbers.",
+        "The closest known Q4-majority and Clebsch two-contact results have different state dynamics or graph adjacency from the present question."
+      ],
+      "reasoning": "The aliases tesseract, Boolean four-cube and C4-square-C4 torus were all considered. The one-contact rule is not conjugate to this two-contact map: the published one-contact Q4 census includes periods 3 and 10, whereas exhaustive two-contact dynamics has only periods 1 and 4. Same graph size alone does not imply identical dynamics.",
+      "searches": [
+        "published-finding corpus: threshold 2 two neighbor Greenberg Hastings on Q4 four dimensional Boolean cube 4 cycle exact basins extinction transients",
+        "published-finding corpus: two contact refractory excitation on hypercube four dimensional cube all states periodic classification",
+        "published-finding corpus: 4 by 4 torus nearest neighbor periodic square lattice C4 Cartesian product C4 three color Greenberg Hastings threshold theta 2 exact four cycles 18 attraction basins 644 676",
+        "published-finding corpus: square lattice 4x4 periodic boundary 2 contact 3 state refractory excitable 18 periodic orbit basin",
+        "web: \"4x4\" torus Greenberg Hastings threshold 2 four cycle 18"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Full same-graph Q4 threshold-one manuscript supplies different period counts and explicitly sets contact threshold one.",
+        "Closest returned toroidal-grid records concerned Moore-neighborhood cyclic automata, square-ice dynamics, other contact rules or different graph adjacency.",
+        "No retrieved full primary source included an exact Q4 threshold-two count 18, 6+12 spatial split, or the pair of basin sizes 644/676."
+      ],
+      "reasoning": "A census of a 16-vertex graph could have appeared in unindexed computational tables, and failed search cannot prove absence. Among actual retrieved tables, none specifies the same adjacency, two-neighbor Greenberg–Hastings rule, exact orbit/entry/basin values and symmetry classes.",
+      "searches": [
+        "published-finding corpus: threshold 2 two neighbor Greenberg Hastings on Q4 four dimensional Boolean cube 4 cycle exact basins extinction transients",
+        "published-finding corpus: 4 by 4 torus nearest neighbor periodic square lattice C4 Cartesian product C4 three color Greenberg Hastings threshold theta 2 exact four cycles 18 attraction basins 644 676",
+        "published-finding corpus: square lattice 4x4 periodic boundary 2 contact 3 state refractory excitable 18 periodic orbit basin",
+        "web: 3 state Greenberg Hastings 4x4 torus theta 2 644 676 basins",
+        "web: Greenberg Hastings \"4 x 4\" \"threshold\" \"period\" 1993",
+        "published-finding corpus: 4 by 4 torus nearest neighbor periodic square lattice 2 contact exact 18 cycles"
+      ]
+    },
+    "rationale": "Same-graph indexed literature and full public Q4 result use the one-neighbor threshold; same-threshold Clebsch literature changes graph adjacency; original multi-threshold literature treats large-lattice wave behavior rather than this finite labelled census. Exact Q4 two-neighbor affine class counts, basins and seven-step global identity were not implied by the accessible comparisons. Best-knowledge priority only; unindexed finite tables remain a risk.",
+    "residual_risks": [
+      "An unindexed 4-by-4 nearest-neighbor torus threshold-two computational table may predate the present census.",
+      "An inaccessible phase-locked full article or unpublished appendix could contain a relevant stronger statement; its accessed abstract alone does not exclude coverage.",
+      "The exact claim is finite and verification is reproducible, not an external mathematical priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the model and studies macroscopic wave phenomena; no exact Q4=C4 Cartesian C4 full finite orbit/basin classification located.",
+        "evidence": [
+          "The model uses integer contact threshold theta and parallel updating; its first pages explicitly describe square-nearest-neighbor and wrapped finite visualization.",
+          "https://www.math.ucdavis.edu/~gravner/papers/fgg.pdf"
+        ],
+        "identifier_or_url": "https://www.math.ucdavis.edu/~gravner/papers/fgg.pdf",
+        "material_read": "Abstract, formal update and nearest-neighbor definition in pp.23–24; periodic-object and threshold-range sections including pp.27–32 and pp.36–39; pages 23–24 visually inspected.",
+        "method": "Lawful author-hosted full PDF, searchable extracted text plus page images",
+        "title": "Threshold-range scaling of excitable cellular automata",
+        "trigger": "Original multi-contact Greenberg–Hastings threshold model and square lattice"
+      },
+      {
+        "assessment": "Theorem 3 gives a one-contact circulation criterion, whereas this claim needs two excited neighbors; it supplies no exact stated threshold-two Q4 census.",
+        "evidence": [
+          "Equation (1) has an existential contact condition; Theorem 3 relies on that rule.",
+          "https://arxiv.org/html/1610.07320v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1610.07320v1",
+        "material_read": "Full HTML v1 including Sections 1–2, definition of the local rule, Theorem 3, finite-graph discussion, and source references.",
+        "method": "arXiv full HTML text, not abstract-only",
+        "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+        "trigger": "Potentially dominating finite-graph theorem for any graph"
+      },
+      {
+        "assessment": "Uses threshold one, and explicitly excludes the changed contact rule; does not imply threshold-two orbit, basin or symmetry counts.",
+        "evidence": [
+          "Reported Q4 least periods 1,3,4,10 and one-contact update. ",
+          "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-primitive-excitation-periods-on-the-four-cube-an-exact-finite-st--d99b448f2f7e"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-primitive-excitation-periods-on-the-four-cube-an-exact-finite-st--d99b448f2f7e",
+        "material_read": "Complete public RESULT.md including hypotheses, proof, tables, limitations and references",
+        "method": "Public repository raw RESULT.md fetched and read",
+        "title": "Primitive excitation periods on the four-cube: an exact finite-state census",
+        "trigger": "Same graph and state alphabet, potentially direct subsumption"
+      },
+      {
+        "assessment": "Existence of phase-locked solutions on cycles does not state all-period or basin classification on this specific four-cube; cannot certify whole-paper noncoverage from abstract alone.",
+        "evidence": [
+          "Abstract states existence of phase-locked solutions for explicit threshold/refraction networks.",
+          "https://www.aimsciences.org/article/doi/10.3934/dcdsb.2013.18.1827"
+        ],
+        "identifier_or_url": "https://www.aimsciences.org/article/doi/10.3934/dcdsb.2013.18.1827",
+        "material_read": "Available HTML abstract, MSC and source reference list; full paper body not obtained",
+        "method": "Publisher article HTML page, limited to abstract",
+        "title": "Phase-locked trajectories for dynamical systems on graphs",
+        "trigger": "Possible general existence theorem for phase-locked cycles"
+      },
+      {
+        "assessment": "Studies asymptotic lattice threshold-range and stable periodic objects, not an inspected exact finite Q4 table; abstract cannot rule out undisclosed appendices.",
+        "evidence": [
+          "arXiv initial public timestamp 1993-03-22."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/patt-sol/9303002",
+        "material_read": "ArXiv bibliographic entry and abstract; full article not materially read",
+        "method": "Search-indexed arXiv primary abstract",
+        "title": "Asymptotic Behavior of Excitable Cellular Automata",
+        "trigger": "Day-verified 1993 historical threshold/range research with exact archival cohort eligibility"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3ddf3634-579e-4aca-aef1-e05fd07ec323",
+  "value": {
+    "rationale": "Q4 is both the canonical four-dimensional cube and C4 Cartesian C4 nearest-neighbor torus. Raising contact activation from one to two removes all 3/10 waves known for the one-contact map and leaves exactly two affine geometries of 18 primitive four-waves; the exact contrasting basin sizes 644/676, extinction probability 43,034,937/43,046,721 and sharp seven-step transient supply a complete natural dynamical invariant and a reproducible benchmark. This structural phase-collapse census is neither a tiny ad-hoc slice nor a deduction from the previously indexed one-contact Q4 calculation.",
+    "status": "PASS"
+  }
+}
