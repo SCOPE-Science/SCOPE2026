@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The determinant identity follows from the complete Leibniz expansion for a chordless odd cycle: disjoint edge transpositions have order-independent terms and only the two directed complete cycles contribute order-dependent powers. Positive definiteness of the normalized symmetric Jacobi matrix makes det(sD-W) strictly increasing for s above the Perron root. The competing scalar term is strictly decreasing for lambda in (0,1), proving a unique root. The Gauss-Seidel sweep matrix is entrywise nonnegative and strictly contractive in the A-energy norm, so that root equals its spectral radius. Strict ordering by absolute ascent imbalance and the Eulerian optimizer census follow algebraically. Exact SymPy identities and rational brackets and exhaustive five- and seven-cycle supplemental sweeps were replayed from the specified standalone script; finite tests are not used as general proof. The result is restricted to odd simple cycles and asymptotic spectral radius.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Varga 1959, Theorems 2–4 give general bounds and conditions for equality, https://msp.org/pjm/1959/9-3/pjm-v9-n3-p28-s.pdf",
+        "Varga 1959, p-cyclic matrices treats consistently ordered cyclic splittings, https://www.math.kent.edu/~varga/pub/paper_11.pdf"
+      ],
+      "reasoning": "The general Jacobi-squared lower bound is a stronger-domain result but does not imply which of the strictly nonattaining odd-cycle permutations is best. The exact root and strict ordering depend on the ring-only determinant structure and are not a corollary of Varga’s lower bound. Full coverage by an inaccessible older ordering theorem remains a residual concern.",
+      "searches": [
+        "weighted circular tridiagonal finite difference Gauss Seidel iterative eigenvalues permutation cycle ordering exact all orders",
+        "odd graph nonbipartite cyclic coordinate descent permutation order convergence structural eigenvalue characteristic polynomial",
+        "https://doi.org/10.2140/pjm.1959.9.925",
+        "https://doi.org/10.2140/pjm.1959.9.617"
+      ]
+    },
+    "checked_sources": [
+      "Varga 1959, Orderings of the successive overrelaxation scheme, https://doi.org/10.2140/pjm.1959.9.925",
+      "Varga 1959, p-cyclic matrices, https://doi.org/10.2140/pjm.1959.9.617",
+      "Oswald and Zhou 2015, https://arxiv.org/abs/1510.04727",
+      "Heller 1957, bibliographic only, https://doi.org/10.1137/0105016"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3 in Varga 1959 has a sharp lower bound, achieved under consistency conditions, not the exact spread of nonattaining rates.",
+        "Oswald–Zhou 2015 gives random-reordering convergence bounds; its inspected introductory and main sections do not prove a deterministic all-permutation odd-ring classification.",
+        "Varga 1959 introductory discussion describes Heller as addressing same-spectral-radius reorderings; Heller full text unavailable."
+      ],
+      "reasoning": "A lower bound strictly below every odd-cycle rate cannot imply the precise minimizing ascent counts or the Eulerian number of minimizers. General convergence bounds do not force invariance of full characteristic polynomials within ascent classes. Existing descriptions of equal-spectrum reorderings overlap with the characteristic-invariance component, but no inspected statement implies the additional strict optimality ranking for every heterogeneous SPD odd cycle. Historical priority remains qualified.",
+      "searches": [
+        "https://doi.org/10.2140/pjm.1959.9.925",
+        "https://doi.org/10.2140/pjm.1959.9.617",
+        "Random Reordering in SOR-Type Methods arxiv 1510.04727",
+        "Ordering properties of linear successive iteration schemes applied to multi-diagonal type linear systems Heller 1957"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://doi.org/10.2140/pjm.1959.9.925, Theorem 3 and surrounding discussion",
+        "https://arxiv.org/abs/1510.04727, introduction and main general inequalities"
+      ],
+      "reasoning": "Gauss-Seidel sweep and exact cyclic coordinate descent are identical on SPD quadratics. Reversing the direction of cyclic ascents interchanges a and n-a but leaves the determinant invariant. Varga provides a lower-bound/equality characterization rather than rates of nonattaining odd-cycle orders; the literature comparison includes these equivalent formulations rather than treating different terminology as distinct.",
+      "searches": [
+        "Gauss Seidel iteration matrix cyclic tridiagonal symmetric M matrix cycle graph ordering permutations ascent count spectral radius optimal balanced orientation even odd",
+        "cyclic coordinate descent exact spectral radius homogeneous cycle quadratic permutation dependent ascents balanced order optimal",
+        "odd cycle cyclic Gauss Seidel optimal permutation smallest spectral radius ascent cyclic descent weighted symmetric M matrix"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact weighted odd-cycle ascent-indexed all-order rate table or Eulerian optimal-order census was identified in the inspected bibliographic and published mathematical searches.",
+        "https://doi.org/10.1137/0105016 is a historically pertinent but not full-text-inspected ordering source."
+      ],
+      "reasoning": "The claim is a uniform all-dimensional theorem for continuously variable edge weights and diagonals, not a recovery of a finite database table. Finite n=5,7 numerical enumerations only verify limited instances. Absence from indexed results does not establish absence from older tables or unindexed work.",
+      "searches": [
+        "graph cycle Gauss-Seidel order invariant edge orientation triangle odd cycle characteristic polynomial matching",
+        "Gauss Seidel iteration matrix cyclic tridiagonal symmetric M matrix cycle graph ordering permutations ascent count spectral radius optimal balanced orientation even odd"
+      ]
+    },
+    "rationale": "Varga 1959 proves the Jacobi-squared lower bound and consistency conditions, but not the strict ranking and precise rates of orders which fail to attain it on arbitrary weighted odd rings. His p-cyclic result addresses consistently ordered systems. Oswald and Zhou 2015 study randomized reorderings and inequalities, not exact order-by-order odd-cycle spectra. Searches for cyclic ascent imbalance and all-permutation Gauss-Seidel rates did not reveal a dominating exact classification. The Heller 1957 historical paper remains incompletely accessible, an explicit publication-priority risk, not a claim that it is irrelevant.",
+    "residual_risks": [
+      "Original Heller (1957) complete paper was inaccessible; possible overlap with full characteristic-polynomial invariance cannot be excluded.",
+      "Bibliographic and indexed mathematical searches are not exhaustive; a previously published equivalent all-order odd-ring theorem may exist.",
+      "The claim concerns spectral radius and not fixed-horizon A-norms; extrapolating to transient convergence would exceed the proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers Jacobi-squared lower bound and consistent-order equality; does not furnish strict rates for all nonattaining weighted odd-cycle permutations in inspected parts",
+        "evidence": "Varga, Pacific J. Math. 9 (1959), pp. 925–939, especially Theorem 3 and introduction.",
+        "identifier_or_url": "https://msp.org/pjm/1959/9-3/pjm-v9-n3-p28-s.pdf",
+        "material_read": "Introduction, definitions, statements and proofs around Theorems 2–4 and associated corollary, via extracted full-text sections and first PDF page images",
+        "method": "Read primary open-access paper, compare exact hypotheses/equality implications and graph cycle case",
+        "title": "Orderings of the successive overrelaxation scheme",
+        "trigger": "Foundational paper on whether Gauss-Seidel spectral convergence depends on coordinate ordering"
+      },
+      {
+        "assessment": "Treats consistently ordered p-cyclic matrix spectra rather than arbitrary order spectra on weighted nonbipartite odd cycles",
+        "evidence": "Varga, Pacific J. Math. 9 (1959), pp. 617–628.",
+        "identifier_or_url": "https://www.math.kent.edu/~varga/pub/paper_11.pdf",
+        "material_read": "Definitions of cyclic consistency and main theorem statement/proof sections, including Theorem 4; PDF first-page image inspected",
+        "method": "Primary open-access PDF text and page comparison",
+        "title": "p-cyclic matrices: a generalization of the Young–Frankel successive overrelaxation scheme",
+        "trigger": "Potential cyclic-matrix spectral formula stronger than the new result"
+      },
+      {
+        "assessment": "Related random permutation and convergence bounds, but no exact rank ordering of every fixed cyclic permutation for arbitrary SPD odd rings in inspected sections",
+        "evidence": "Oswald and Zhou, arXiv:1510.04727, first posted 2015-10-15.",
+        "identifier_or_url": "https://arxiv.org/abs/1510.04727",
+        "material_read": "ArXiv abstract, introduction and main theorem sections concerning random permutations and convergence bounds",
+        "method": "Read available open preprint and compare object, ordering protocol, metric and quantifiers",
+        "title": "Random Reordering in SOR-Type Methods",
+        "trigger": "Public 2015 source motivating deterministic order optimization"
+      },
+      {
+        "assessment": "Unresolved historical priority risk; not counted as a complete noncoverage inspection",
+        "evidence": "Heller, J. SIAM 5 (1957), 238–243; DOI bibliographic record and Varga 1959 introduction.",
+        "identifier_or_url": "https://doi.org/10.1137/0105016",
+        "material_read": "Bibliographic entry and Varga 1959 introductory characterization; original full text not accessible",
+        "method": "Searched lawful public/preprint copies and requested authorized institutional source, which was unavailable",
+        "title": "Ordering properties of linear successive iteration schemes applied to multi-diagonal type linear systems",
+        "trigger": "Historically plausible predecessor involving exact spectra and graph orderings"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "77222bb7-8c9e-4214-9eda-6231ccd8ed63",
+  "value": {
+    "rationale": "Odd cycles are the minimal topological obstruction to bipartite/consistent red–black ordering. Classifying every rate and every fastest ordering under arbitrary diagonal and conductance heterogeneity gives a structural scheduling rule without requiring parameter knowledge, quantifies the strict penalty above the classical Jacobi-squared benchmark, and determines exactly how many orders attain the optimum. This goes beyond routine Jacobi estimates or a small finite census and can guide robust sequential solver ordering on ring-structured SPD systems.",
+    "status": "PASS"
+  }
+}
