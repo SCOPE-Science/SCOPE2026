@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "Exact minimax induction on the uncoloured vertex count covers every legal turn and colour on all 23 labelled deletions. The base cases and global palette-name symmetries are mathematically justified. Independent Python and C++17 implementations agree; both also separately prove three-, not two-, colourability of every deletion and four-chromaticity of both originals. Full source inspected and replayed, without sampling or timeouts.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alagammai–Vijayalakshmi (2019) Theorem 2.2: χ_g(µ(C_n))=4 for n≥5; no vertex deletion in the inspected game section.",
+        "Krawczyk–Walczak (2015) develops general incomparability-graph game bounds but does not name the two critical graphs."
+      ],
+      "reasoning": "Neither an original-graph result nor a general upper bound on some class forces a lower bound of four on all induced deletions. The nontrivial 3-colour game obstruction for each deleted graph remains independent of the inspected broader results.",
+      "searches": [
+        "game chromatic resilience vertex critical smallest triangle free four chromatic Grötzsch Chvátal",
+        "vertex-deleted Mycielski C5 coloring game 3 colors Bob wins full game",
+        "game chromatic number Mycielski graphs of cycles vertex deletion 2019 Theorem 2.2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1503.04748",
+      "https://www.naturalspublishing.com/files/published/4d0us4el8te290.pdf",
+      "https://arxiv.org/abs/2609.02283",
+      "https://doi.org/10.1016/S0021-9800(70)80057-6",
+      "2026/10/4/SCOPE-exact-game-chromatic-number-of-m-2-c-5--97ad1b64c71a",
+      "2026/11/2/SCOPE-a-signed-rainbow-square-obstruction-for-optimal-recolouring-of-t--4886232debf8",
+      "2026/10/26/SCOPE-two-recolouring-chambers-of-the-gr-tzsch-graph--42ecfc11d759"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published 2019 equality χ_g(µ(C_5))=4 is prior art and not claimed as new.",
+        "The signed-square Chvátal recolouring theorem concerns a graph on completed four-colourings, while the present game is about turn alternation on partial colourings.",
+        "The Grötzsch recolouring theorem concerns 12,480 completed colourings and their component geometry, not game winners on deleted induced subgraphs."
+      ],
+      "reasoning": "Ordinary χ(G-v)=3 is compatible with χ_g(G-v)=3 or larger, so static criticality alone does not settle the claim. Whole-graph game value does not supply Bob strategies on every deletion. The precisely claimed persistence is a distinct finite theorem.",
+      "searches": [
+        "Grötzsch graph vertex deletion game chromatic number is four despite ordinary chromatic three, Alice Bob three color game",
+        "Chvátal graph delete each vertex remains game 4-chromatic despite 3-colorability",
+        "vertex-deleted Mycielski C5 coloring game 3 colors Bob wins full game",
+        "2026/10/4/SCOPE-exact-game-chromatic-number-of-m-2-c-5--97ad1b64c71a",
+        "2026/11/2/SCOPE-a-signed-rainbow-square-obstruction-for-optimal-recolouring-of-t--4886232debf8",
+        "2026/10/26/SCOPE-two-recolouring-chambers-of-the-gr-tzsch-graph--42ecfc11d759"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full 2019 Theorem 2.2 concerns only µ(C_n), not its proper induced vertex-deleted subgraphs.",
+        "Krawczyk–Walczak 2015 defines the game with partial proper colourings and alternation; this matches the exact recurrence.",
+        "The research index closest game entry concerns M_2(C_5), not µ(C_5)-v."
+      ],
+      "reasoning": "Reformulations as three-colour Bob wins/four-colour Alice wins, vertex-critical game-palette persistence and vertex-deleted Mycielski graph were searched. None of the inspected statements identifies all 23 deleted game winners.",
+      "searches": [
+        "Grötzsch graph vertex deletion game chromatic number is four despite ordinary chromatic three, Alice Bob three color game",
+        "Chvátal graph delete each vertex remains game 4-chromatic despite 3-colorability",
+        "vertex-deleted Mycielski C5 coloring game 3 colors Bob wins full game",
+        "Grötzsch graph game chromatic vertex deletion online coloring game Bob wins three colours"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed graph-specific exact records describe completed-colouring recolouring components (two sectors each) and an original 16-vertex generalized Mycielski game, but not the present 23 partial-colouring minimax cases.",
+        "Search results show ordinary graph chromatic criticality background, not a game-chromatic deletion census."
+      ],
+      "reasoning": "Full mathematical implication comparisons distinguish finished-colouring counts from adversarial partial-game outcomes. No inspected exact table or indexed database gives the 23 deletion values; failure to retrieve one does not prove its nonexistence.",
+      "searches": [
+        "Grötzsch graph vertex deletion game chromatic number is four despite ordinary chromatic three, Alice Bob three color game",
+        "Chvátal graph delete each vertex remains game 4-chromatic despite 3-colorability",
+        "game chromatic resilience vertex critical smallest triangle free four chromatic Grötzsch Chvátal",
+        "Chvátal Grötzsch game chromatic number table all vertex deletions"
+      ]
+    },
+    "rationale": "The one-vertex-deletion robustness of game chromatic number on both complete critical-graph deletion families is not implied by known original-graph game chromaticity, ordinary criticality, or completed-colouring reconfiguration. The exact earlier Grötzsch game value is explicitly credited; direct primary text and published graph-specific results were inspected. Remaining publication priority risk is acknowledged.",
+    "residual_risks": [
+      "An unindexed earlier table of game chromatic values on critical graph vertex deletions may exist.",
+      "Finite exhaustive source codes may share an unnoticed model-interpretation error even though recursion, terminal rules, and colour renaming were inspected and independently implemented.",
+      "Some historical publications are available only by citation rather than full original text; a newly found stronger statement could subsume the finite classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives game rules, asymmetric game bounds on incomparability graphs; no deleted Grötzsch or Chvátal game values",
+        "evidence": [
+          "Section 1 explicitly defines Alice/Bob alternating game and χ_g",
+          "Section 2 concerns poset incomparability graphs and general lower bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1503.04748v1",
+        "material_read": "Abstract and full HTML including Sections 1–3, definitions, main statements and examples",
+        "method": "Read primary arXiv HTML version dated 2015-03-16",
+        "title": "Asymmetric coloring games on incomparability graphs",
+        "trigger": "Earliest verified archived game-chromatic framework"
+      },
+      {
+        "assessment": "Theorem 2.2 gives χ_g(µ(C_n))=4 for n≥5. It is prior art for the original Grötzsch graph only; it does not present game results for any vertex-deleted graph",
+        "evidence": [
+          "Theorem 2.2 on page 262 treats the full µ(C_n)",
+          "Theorem 2.1 gives µ(P_n) for n≥5, a different induced edge deletion rather than a one-vertex deletion",
+          "No vertex-deletion classification in inspected text"
+        ],
+        "identifier_or_url": "https://www.naturalspublishing.com/files/published/4d0us4el8te290.pdf",
+        "material_read": "Full five-page PDF text and visual page 262 containing Theorems 2.1 and 2.2",
+        "method": "Read PDF pages and inspect screenshot of page 262 and exact theorem text",
+        "title": "Game Chromatic Number and Game Chromatic Index of the Mycielski Graphs of Some Families of Graphs",
+        "trigger": "Strong direct prior overlap: game chromatic number of the original Grötzsch graph"
+      },
+      {
+        "assessment": "16-vertex two-layer generalized Mycielski cycle is not a deletion of the 11-vertex ordinary one-layer Mycielskian; cannot cover present cases",
+        "evidence": [
+          "Its graph contains 16 vertices and 30 edges",
+          "It credits 2019 exact one-layer µ(C_n) game result"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-game-chromatic-number-of-m-2-c-5--97ad1b64c71a/RESULT.md",
+        "material_read": "Complete RESULT.md, including graph definition, proof and prior-work comparisons",
+        "method": "Read full primary result from public source",
+        "title": "Exact game chromatic number of M_2(C_5)",
+        "trigger": "Indexed game result on similar Mycielski construction"
+      },
+      {
+        "assessment": "Studies adjacency of fully coloured assignments, not game outcome after any vertex deletion",
+        "evidence": [
+          "The defined reconfiguration graph has proper completed four-colourings as vertices",
+          "The study has no Alice/Bob game or deleted-graph minimax"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-a-signed-rainbow-square-obstruction-for-optimal-recolouring-of-t--4886232debf8/RESULT.md",
+        "material_read": "Complete RESULT.md including finding, setup, proof, relationship and limitations",
+        "method": "Read full public result text",
+        "title": "A signed rainbow square obstruction for optimal recolouring of the Chvátal graph",
+        "trigger": "Same named graph and four-colour palette"
+      },
+      {
+        "assessment": "Recolouring of completed graph colourings does not imply game chromatic deletion values",
+        "evidence": [
+          "Its vertices are 12,480 complete named proper colourings",
+          "The claims concern two recolouring components, not turn-based partial positions"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/26/SCOPE-two-recolouring-chambers-of-the-gr-tzsch-graph--42ecfc11d759/RESULT.md",
+        "material_read": "Complete RESULT.md including graph setup, proof, relationship and limitations",
+        "method": "Read full public result text",
+        "title": "Two recolouring chambers of the Grötzsch graph",
+        "trigger": "Same named graph and four-colour palette"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5ba2edaf-c2ff-433b-a591-1434e6782f95",
+  "value": {
+    "rationale": "The complete 23-vertex-deletion families of two classically extremal smallest triangle-free four-chromatic examples form a natural sharp contrast: ordinary palette requirement drops at every vertex but adversarial game palette requirement never drops. This is a structurally motivated exact finite sensitivity classification, not an arbitrary test instance or an unqualified universal theorem.",
+    "status": "PASS"
+  }
+}
