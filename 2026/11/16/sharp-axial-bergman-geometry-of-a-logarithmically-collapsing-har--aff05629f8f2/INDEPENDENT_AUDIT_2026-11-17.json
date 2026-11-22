@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T09:04:37.528017Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rotational orthogonality gives squared monomial norm π² μ(n), μ(n)=∫_0¹ s^n exp[-2(log(e/(1-s)))^α]ds; axis kernel K=π^-2 Σ r^(2n)/μ(n). Setting x=-log(r²), a(t)=-log μ(t), differentiation of log Z(x)=log Σ exp[a(n)-xn] verifies exact β²=Var_x(N)/r² (no lost π or factor two). For the continuous μ(t), q=1-s gives strictly concave H_t(q)=t log(1-q)-2log(e/q)^α; mode q_t solves tq/(1-q)=B_t=2α(log(e/q))^(α-1), q_t~B_t/t, B_t~2α(log t)^(α-1)→∞ since α>1. Gaussian Laplace curvature and controlled tails imply a’(t)~B_t/t and -a’’(t)~B_t/t², not merely pointwise local quadratic fit. Unique discrete saddle a’(t_x)=x gives t_x~2α x^-1(log 1/x)^(α-1), variance asymptotically 1/(-a’’(t_x))~2α x^-2(log 1/x)^(α-1) from discrete local CLT/tangent-tail concentration. Therefore β coefficient sqrt(2α); radial induced metric and dL/dr~2/(1-r²) give axis-distance coefficient sqrt(2α)/(α+1). Independent numerical quadrature of actual moments for α=1.5,2.0 and δ=.05,.02,.01 found finite variance/predicted ratios decreasing from ~1.39 to ~1.36 and ~1.30 to ~1.26 with negligible n-tail masses; slow convergence is not a proof. Direct differentiation of moment series and both saddle curvatures checked. The endpoint α=1 has a different exact Bergman coefficient, as correctly excluded; ambient geodesic distance is not identified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Byun–Cho–Lee 2021 abstract explicitly says metric comparable to Poincare-type metric; a two-sided bound without exact coefficient does not by itself imply claimed sharp limit.",
+          "Jaiswal arXiv:2311.01097 gives asymptotic scaling at smooth exponentially flat boundary points; Ω_α rim has collapsed Hartogs geometry and axis is a weighted disk restriction rather than a directly stated smooth-boundary case."
+        ],
+        "reasoning": "Similar geometric estimates may recover the exponent but the accessible inspected statements do not assert exact constant for this log-Hartogs family. General weighted-kernel asymptotic theorems could specialize to it, leaving priority risk.",
+        "searches": [
+          "exponential Hartogs logarithmic cusp Bergman metric axial asymptotics sharp coefficient 2 alpha",
+          "Bergman metric exponentially weighted Bergman space exact asymptotic limit curvature sqrt Laplacian weight Byun Cho Lee 2021",
+          "arxiv:2311.01097 Bergman metric infinite type smooth"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md/CHECK.py and tree 3f8cd49e671e0f5cc6223a6d6ad753e8beeb5ac3",
+        "https://arxiv.org/abs/2610.34339 Theorem 1.4 and §7 Lemma 7.3",
+        "https://www.kci.go.kr/kciportal/landing/article.kci?arti_id=ART002682204",
+        "https://link.springer.com/article/10.1186/s13660-021-02726-4",
+        "https://arxiv.org/abs/2311.01097"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chen–Xiong §7 equations (7.7)–(7.15) derive an upper metric estimate using local ∂bar constructions, not a matching asymptotic or coefficient.",
+          "The new saddle-point moment analysis gives a matching lower and asymptotic coefficient, and limits only axis paths, not unrestricted ambient distance."
+        ],
+        "reasoning": "A one-sided bound with implicit constant cannot determine the sharp coefficient, nor can an ambient upper distance comparison imply axial geodesic equality. A deeper general weighted kernel theorem not fully inspected may be applicable, hence residual O risk.",
+        "searches": [
+          "exponential Hartogs logarithmic cusp Bergman metric axial asymptotics sharp coefficient 2 alpha",
+          "Quantitative hyperconvexity Bergman distance 2610.34339 Lemma 7.3 exact domain",
+          "Byun Cho Lee 2021 Bergman metric comparability exponential weight"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen–Xiong arXiv:2610.34339v1 Theorem 1.4 defines identical Ω_α and gives ambient distance upper/lower order comparison, while §7 Lemma 7.3 gives β_axis≲(1-r²)^-1 L^((α-1)/2) with unspecified constant.",
+          "The new proof reduces the axial metric to the weighted-disk reciprocal moment variance and evaluates its sharp limit."
+        ],
+        "reasoning": "Their bound is a weaker comparability statement in the same geometry, not the exact metric equivalent with coefficient sqrt(2α). The axis-path equivalent is not equivalent to a sharp ambient geodesic result.",
+        "searches": [
+          "exponential Hartogs logarithmic cusp Bergman metric axial asymptotics sharp coefficient 2 alpha",
+          "Chen Xiong Quantitative hyperconvexity Bergman distance Theorem 1.4 Lemma 7.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary current same finding is a self-hit, and searches instead retrieve unrelated weighted Bergman trace or disk weights with powers of boundary distance.",
+          "Chen–Xiong Theorem 1.4 explicitly says optimal estimates remain an interesting question, while providing only implicit constants."
+        ],
+        "reasoning": "A numerical or table entry of metric for a fixed α would not itself prove all α>1 sharp boundary asymptotics; no exact prior table for this precise family was found in inspected searchable material.",
+        "searches": [
+          "exponential Hartogs logarithmic cusp Bergman metric axial asymptotics sharp coefficient 2 alpha",
+          "logarithmically collapsing Hartogs Ωα Bergman coefficient sqrt(2 alpha) sharp"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the sharp coefficient on exactly the Hartogs family introduced by Chen–Xiong. Their 2026 Theorem 1.4 and §7 Lemma 7.3, directly read in full-text HTML, prove only an ambient distance comparison and an axial metric UPPER bound with implicit constant, explicitly leaving optimal estimates open. Earlier exponentially weighted disk literature was found to prove comparability, not an exact coefficient in accessible abstracts/material; its inaccessible full text remains a concrete priority risk rather than an automatic failure.",
+      "residual_risks": [
+        "Full text of Byun–Cho–Lee 2021 exponentially weighted disk paper not accessed; its exact metric asymptotics or a general weighted-kernel theorem might imply this coefficient.",
+        "Oxford institutional access request for source https://arxiv.org/abs/2610.34339 returned VPN disconnected, but arXiv HTML full primary text was readable and inspected; no source bypass or fabricated institutional access.",
+        "Slow convergence of saddle asymptotics, especially for α just above 1; fixed α>1 only, no uniform endpoint α=1 or unrestricted ambient distance assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same domain but upper metric bound only; does not state sharp sqrt(2α) coefficient or intrinsic-axis asymptotic.",
+          "evidence": "Theorem 1.4 (1.16)-(1.17), §7 Lemma 7.3 (7.7).",
+          "identifier_or_url": "https://arxiv.org/abs/2610.34339",
+          "material_read": "Full accessible arXiv HTML: Theorem 1.4 domain and estimates, §7 Lemma 7.3 proof equations (7.7)–(7.20), comparison of axial and ambient distances",
+          "method": "Primary arXiv full-text HTML",
+          "title": "Quantitative hyperconvexity and the Bergman distance",
+          "trigger": "Identical Ω_α and apparently competing metric/distance theorem"
+        },
+        {
+          "assessment": "No whole-document NOT_COVERING claim; exact specialized coefficient may lie in inaccessible full text.",
+          "evidence": "Abstract: comparable to some Poincare-type metric.",
+          "identifier_or_url": "https://www.kci.go.kr/kciportal/landing/article.kci?arti_id=ART002682204",
+          "material_read": "Metadata and accessible abstract declaring comparability to Poincare-type metric only; full primary text not accessed",
+          "method": "KCI journal metadata/abstract plus separate university repository record",
+          "title": "The Bergman Metric and Related Bloch Spaces on the Exponentially Weighted Bergman Space",
+          "trigger": "Closely related weighted disk Bergman metric from 2021"
+        },
+        {
+          "assessment": "Establishes weighted-kernel/point-evaluation comparability tools, not a directly stated coefficient for the specific log-Hartogs Ω_α.",
+          "evidence": "Definition 2.1 and Lemma A/2.2; no claim of exhaustive reading.",
+          "identifier_or_url": "https://link.springer.com/article/10.1186/s13660-021-02726-4",
+          "material_read": "Open-access HTML definition of classes L*, local kernel estimates and main results excerpts",
+          "method": "Springer OA article HTML",
+          "title": "Bergman spaces with exponential type weights",
+          "trigger": "General exponential weight techniques might contain the metric limit"
+        },
+        {
+          "assessment": "Smooth boundary/infinite-type geometry not shown applicable to collapsing Hartogs rim; source remains potential broad theorem risk.",
+          "evidence": "Different smooth boundary assumption and metric scaling regime.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.01097",
+          "material_read": "Abstract and theorem/hypothesis discussion in inspected preprint and cited package; full 2025 published paper not exhaustively read",
+          "method": "arXiv primary preprint accessible excerpts",
+          "title": "Asymptotic behaviour of the Bergman kernel and metric",
+          "trigger": "Potential stronger universal exact result at exponentially flat boundary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This computes a sharp previously unspecified geometric constant for a canonical logarithmically collapsed Hartogs family and its intrinsic-axis path length, refining a concrete contemporaneous one-sided estimate. The two nested Laplace/variance mechanism is substantive analytic content; it does not pretend to settle unrestricted ambient Bergman distance. Exact boundary growth geometry is a motivated natural invariant, not an arbitrary numeric slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full text of Byun–Cho–Lee 2021 exponentially weighted disk paper not accessed; its exact metric asymptotics or a general weighted-kernel theorem might imply this coefficient.",
+    "Oxford institutional access request for source https://arxiv.org/abs/2610.34339 returned VPN disconnected, but arXiv HTML full primary text was readable and inspected; no source bypass or fabricated institutional access.",
+    "Slow convergence of saddle asymptotics, especially for α just above 1; fixed α>1 only, no uniform endpoint α=1 or unrestricted ambient distance assertion."
+  ],
+  "schema_version": 1
+}
