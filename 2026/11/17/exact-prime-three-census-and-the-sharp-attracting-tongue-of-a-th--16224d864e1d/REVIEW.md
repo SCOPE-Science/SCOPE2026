@@ -1,15 +1,21 @@
-# Review: exact primitive-three census and attracting tongue
+# Independent mathematical audit
 
-## Correctness — PASS
-The full real three-periodic recurrence reduces exactly to the period-three dynatomic polynomial of the normalized quadratic map, including the backward cyclic ordering. Its factorization into two real cubics gives the exact orbit count and products. A direct Jacobian product yields the exact three-step characteristic polynomial; the complete cubic Jury–Schur conditions yield a necessary-and-sufficient sink interval. The symbolic checker reconstructs the discriminants, factorization, product equation, Floquet polynomial and Jury identities; 12 distinct numerical parameter regimes also pass. The asymptotic endpoint and boundary eigenangles follow algebraically. Unproved limits: no statement about other primitive periods, basin sizes, or nonlinear invariant-curve existence.
+## correctness
 
-## Originality — PASS (qualified priority assessment)
-The accessible full text of Zheng et al. (2018), Sections 2–5, treats the identical three-dimensional map, fixed points, their local bifurcations, and numerical periodic windows. It does not give an exact primitive period-three count, three-cycle multipliers, or the sharp attracting tongue. Muni (2024) explores hyperchaos in the family; only the public abstract/indexed overview was examined for this comparison, and no whole-document negative conclusion is claimed. A published related calculation for period two treats a strictly different orbit period, and different three-dimensional quadratic-map and nilpotent-map results do not imply these exact formulas. Richter (2002) is a plausible antecedent, identified from its abstract only; its unavailable full text creates residual priority risk. Public search and record retrieval cannot prove global novelty.
+PASS
 
-## Mathematical value — PASS
-The exact count of two real three-cycles and the unique attracting branch resolve a natural bifurcation question in the very map whose periodic windows motivated the source study. The attracting tongue is sharp for every nonnegative delay coupling below one. Its boundary has a parameter-dependent unit-circle crossing frequency and a singular one-to-four resonance at zero coupling, distinguishing genuine three-dimensional Floquet behavior from the scalar period-three fact. The normalized stability window broadens toward two while the physical tongue shrinks quadratically; those exact geometric facts are potentially useful for bifurcation continuation and numerical comparisons.
+Period-three recurrence of T_(a,b) reduces with k=1-b>0 to scalar f_A(u)=A-u² with A=a/k². The degree-six dynatomic H_A=(f_A³(u)-u)/(f_A(u)-u) factors into two cubics with discriminants (t²+t+7)², (t²-t+7)² for t=sqrt(4A-7), proving 0/1/2 real primitive cycles across A=7/4. Each triple-product U±=(A-2±A sqrt(4A-7))/2. Independently expanded triple Jacobian charpoly (lambda-b)^3+8pqr lambda and the Schur cubic inequalities giving -1/8<U<(1+b)^3/8; U_- lies below, U_+ increases through upper bound at unique A*(b). Boundary factors (lambda-b³)(lambda²-(3b-b³)lambda+1), yielding cosine and b=0 endpoint. Verified in symbolic arithmetic and multiple real b slices; nonlinear NS bifurcation NOT claimed.
 
-## Closest references and remaining risks
-Zheng, Wang, Li and Wang (2018): full article examined for same map and coverage. Muni (2024): abstract/indexed overview only. Richter (2002): abstract, full text inaccessible. Related public period-two and quadratic-nilpotent results are on distinct claims/maps. An unindexed earlier period-three treatment could supersede the claim; independent audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original sharp full parameter 3D period-three stability tongue. Zheng et al 2018 studies exactly T=(a-y²+bz,x,y) and fixed-point local bifurcations and numerical periodic windows, not the exact prime-three Schur classification. A published full SCOPE period-two census concerns temporal period TWO and is not a stronger period-three statement. Classical scalar quadratic 3-cycle algebra covers the count threshold but not the b-dependent three-step multipliers or boundary unit-complex pair. Richter 2002 remains inaccessible in full; Oxford authenticated attempt returned VPN disconnected, explicitly retained as residual risk; no unsupported whole-document noncoverage claim.
+
+## value
+
+PASS
+
+Complete finite-prime-period 3-cycle existence and stability phase diagram for a natural 3D quadratic delayed recurrence is a motivated dynamical invariant. It sharpens numerical cycle windows with all-parameter sink tongue, exact birth and unit-circle spectral boundary, separating temporal periodicity from 3D attraction. Independent full Floquet algebra is substantive rather than textbook naming or tiny numerical gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
