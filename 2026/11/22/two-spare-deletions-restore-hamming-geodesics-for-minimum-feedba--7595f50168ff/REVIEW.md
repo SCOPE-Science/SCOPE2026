@@ -1,0 +1,19 @@
+# Scientific review: Heawood feedback-set TAR buffer and exact minimum-pair metric
+
+## Correctness — PASS
+
+The finite domain is exactly the fourteen-vertex Fano incidence graph. The new theorem uses a precise deletion-set TAR rule and intermediate capacity. Edge bookkeeping proves that minimum feedback vertex sets have size at least four. Independently of existing literature, both executable programs verify the complete seventy-set Fano classification, enumerate every one of the \(2^{14}\) deletion sets, and test foresthood with independent union-find and DFS implementations. The budget-five component structure follows by direct kernel-intersection counting plus an exact enumeration of the 168 inclusion-minimal size-five obstructions. The budget-six connectedness, edge count, all-pairs eccentricities and all 2415 minimum-pair distances are computed by exhaustive graph construction and complete breadth-first searches. A separate monotone-path search, in a different graph model, witnesses a Hamming-geodesic route for each distinct optimum pair. Finite computation is used only to prove claims about this fixed finite graph. The lower bound on distance is the inevitable one move per symmetric-difference vertex. Both checkers actually passed with the embedded sources.
+
+## Originality — PASS, with residual risks
+
+The previously published Heawood FVS census provides the minimum four-sets, their exact geometry and count. Those are expressly identified as existing work; the nontrivial new claim concerns the sharp TAR spare-capacity transition and its full metric, including the 168 budget-five isolated states, 3136-state connectedness at cap six, monotone Hamming shortest paths between all minima, and the eccentricity trichotomy. The known geometric kernels imply the fourteen nontrivial budget-five components by an elementary argument; that subset of the theorem is not presented as independently original. The 2023 Bousquet–Hommelsheim–Kobayashi–Mühlenthaler–Suzuki general result guarantees reconfigurability of non-minimum equal-size FVSs in subcubic graphs, which is stronger than some reachability assertions but neither specifies TAR budget-five fragmentation nor yields these exact distances or constrained monotone geodesics. Related public records on other small cubic graphs do not imply a Heawood metric. Targeted searches did not locate an equivalent assertion. The full 2023 publisher paper was not available for complete inspection, and an equivalent differently phrased study may exist.
+
+## Value — PASS
+
+The Heawood graph is the unique cubic graph of girth six on fourteen vertices, the natural smallest nontrivial incidence-geometry test case for feedback-set motion. The theorem identifies a sharp and interpretable resource threshold: one spare deletion place fails, two suffice; even when extra configurations create detours, optimal configurations always have cost-minimal monotone routes. The complete component and metric structure gives an exact benchmark for algorithms transforming near-minimum cycle-breaking sets, and a concrete boundary example for the general subcubic reconfiguration literature. The result is not framed as a generic theorem for larger projective planes.
+
+## Closest references and limitations
+
+The prior seventy-set Fano classification was read in full and used only for equivalence/implication comparisons. The 2023 general FVS reconfiguration publication was inspected at its available introduction, main results and section descriptions, but unavailable full pages leave priority uncertainty. The 2019 decycling formula addresses optimum size rather than paths. The finite checkers completely establish this graph's stated counts, but they do not imply an infinite-family result. The possibility of an unindexed or historically titled equivalent remains.
+
+Self-review: passed. Independent audit: not yet performed.

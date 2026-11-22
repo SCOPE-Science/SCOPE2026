@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The Fano incidence graph is constructed in two independent models (nonzero GF(2)^3 triples and cyclic Singer translates). All 2^14 deletion masks are checked for foresthood using union-find, with a separate DFS implementation. No feasible sets of fewer than four vertices exist. There are exactly 70 four-set optima, 812 feasible five-sets and 2254 feasible six-sets. At cap five, exact enumeration gives 882 states, 700 edges, fourteen components of 51 and 168 isolated vertices; geometric kernel counting independently accounts for the fourteen nontrivial components. At cap six, the constructed 3136-state, 8008-edge graph is connected. BFS from all states confirms eccentricity j+6 for each feasible j-set, radius 10, diameter 12, and 382466 +2 and 840 +4 Hamming-excess unordered pairs. Every one of the 2415 distinct optimum pairs reaches the target in exactly its symmetric-difference length, also verified by a separate monotone-only search. Both standalone included programs actually executed successfully. Since the theorem concerns exactly this finite graph, exhaustive finite loops are a complete proof of the enumerated claims; no infinite case is inferred.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bousquet et al. 2023 Theorem 4: non-minimum equal-size FVS exchange graphs of all subcubic graphs are connected; its exact claim supplies neither TAR cap-five components nor shortest-path equality.",
+        "published-finding corpus 2026/10/18/SCOPE-a-sharp-two-vertex-feedback-set-buffer-in-the-four-dimensional-c--593577b7fb16 gives a two-spare threshold for a distinct graph, the four-cube.",
+        "published-finding corpus 2026/11/2/SCOPE-adjacent-token-connectivity-and-sharp-distance-in-dodecahedral-m--af58442749cc studies a different graph and sliding rule."
+      ],
+      "reasoning": "The general subcubic theorem makes some cap-six connectivity unsurprising (exchange at size five lifts to two TAR moves), but does not characterize all size-six states, prove their membership in a single component, or give Hamming-shortest paths between all four-vertex minima. Neither the four-cube nor dodecahedron result dominates a Heawood-specific distance census.",
+      "searches": [
+        "web: 2023 feedback vertex set reconfiguration subcubic graph polynomial jump TAR connected graph 2 buffer exact theorem",
+        "web: \"Feedback vertex set reconfiguration in planar graphs\" pdf Bousquet Hommelsheim",
+        "published-finding corpus: Heawood minimum feedback vertex set token addition removal budget 5 6 14 components 168 isolated 70 Hamming geodesic"
+      ]
+    },
+    "checked_sources": [
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/13/SCOPE-all-seventy-minimum-feedback-vertex-sets-of-the-heawood-graph--83a003d33b54/RESULT.md",
+      "https://doi.org/10.1016/j.tcs.2023.114188",
+      "https://portal.mardi4nfdi.de/wiki/Feedback_vertex_set_reconfiguration_in_planar_graphs",
+      "https://doi.org/10.7151/dmgt.2064",
+      "https://arxiv.org/abs/2204.10526",
+      "published-finding corpus 2026/10/18/SCOPE-a-sharp-two-vertex-feedback-set-buffer-in-the-four-dimensional-c--593577b7fb16",
+      "published-finding corpus 2026/11/2/SCOPE-adjacent-token-connectivity-and-sharp-distance-in-dodecahedral-m--af58442749cc"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The previously published Fano-kernel result indeed directly implies that the one-exchange graph of 70 optimal sets consists of fourteen K5 components; that derivative is explicitly not presented as new.",
+        "Every four-set has ten five-set supersets, yielding fourteen 51-state TAR components from known geometry, but the 168 isolated size-five states require fresh feasibility counts.",
+        "Theorem 4 in the 2023 paper guarantees reachability for non-minimum FVSs under fixed-size swaps and does not provide the exact cost of one-at-a-time TAR paths or the full 3136-state metric."
+      ],
+      "reasoning": "The exact prior implication is carefully partitioned. The known four-set classification plus elementary set intersection implies some budget-five structure. Neither that claim nor the general fixed-cardinality connectivity statement implies every optimum pair has a monotone Hamming-geodesic at the minimum connected TAR cap, or the size-indexed eccentricity 10/11/12. These form the substantive claim beyond existing coverage.",
+      "searches": [
+        "Read public published-finding corpus 2026/10/13/SCOPE-all-seventy-minimum-feedback-vertex-sets-of-the-heawood-graph--83a003d33b54/RESULT.md",
+        "web: feedback vertex set reconfiguration in planar graphs Bousquet Hommelsheim 2023 theorem 4",
+        "published-finding corpus: decycling Heawood graph connected reconfiguration at two extra vertices"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus hit 2026/10/13/SCOPE-all-seventy-minimum-feedback-vertex-sets-of-the-heawood-graph--83a003d33b54 gives 70 sets and Fano kernels but no TAR shortest paths.",
+        "Web queries returned general FVS/Heawood descriptions and did not expose the exact six-capacity TAR metric.",
+        "Bousquet et al. (2023), DOI 10.1016/j.tcs.2023.114188, concerns equal-size exchange rather than one-step addition/removal and lacks the queried Heawood counts in the accessible results."
+      ],
+      "reasoning": "The equivalent formulations checked include induced-forest complements, minimum decycling sets, TAR vertex addition/removal, exchange via add-then-remove, Hamming geodesics and Fano incidence/Heawood aliases. The earlier 70-set classification alone does not specify the additional size-five and size-six feasible-state geometry or shortest-path metric.",
+      "searches": [
+        "published-finding corpus: Heawood minimum feedback vertex set token addition removal budget 5 6 14 components 168 isolated 70 Hamming geodesic",
+        "published-finding corpus: Fano plane vertex feedback set reconfiguration induced tree TAR cardinality six",
+        "web: \"Heawood\" \"feedback vertex set\" \"reconfiguration\" \"TAR\"",
+        "web: \"Heawood\" \"feedback vertex sets\" \"168\" \"51\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The only directly matching Heawood decycling record supplies the existing minimum-set census, not budget-five/six TAR component or pairwise distance tables.",
+        "General decycling-number reference Yang–Ren (2019), DOI 10.7151/dmgt.2064, concerns cardinality identities rather than enumeration of TAR shortest paths."
+      ],
+      "reasoning": "A matching size or minimum-state table is insufficient to cover the new theorem; an exact catalogue would need the 168 minimum-five obstructions, connectedness of all 3136 cap-six states, and all 2415 optimal-pair Hamming geodesics. No such catalogue was located.",
+      "searches": [
+        "published-finding corpus: Heawood minimum feedback vertex set token addition removal budget 5 6 14 components 168 isolated 70 Hamming geodesic",
+        "published-finding corpus: minimum feedback vertex sets Heawood graph 14 cliques size five",
+        "web: \"Heawood graph\" \"feedback vertex\" \"geodesic\" reconfiguration",
+        "web: Heawood graph decycling number feedback vertex set reconfiguration"
+      ]
+    },
+    "rationale": "The established Heawood minimum feedback-set size, 70 count, and geometric kernel description are expressly prior work, and the published 2023 theorem on subcubic non-minimum fixed-size exchange is acknowledged. Neither inspected claim yields the sharp cap-five isolation census, Hamming geodesics for all seventy optima under cap-six TAR, the exact full cap-six eccentricities, or the Hamming-excess histogram. Some cap-five structural consequences of the known kernel description are clearly separated from the genuine added metric. No stronger covering claim was found in the actual published-record and primary-literature searches; residual risk remains for inaccessible full text and unindexed equivalent work.",
+    "residual_risks": [
+      "The 2023 general FVS article full text was unavailable in this run: HAL OA access was denied and the optional authorized institutional route reported VPN disconnected. Its visible theorem statements were read, but appendix-level priority is not ruled out.",
+      "An unindexed historical claim phrased in terms of induced-forest deletion or Fano incidence matroid parity might imply some or all of the metric.",
+      "The 14 nontrivial cap-five components are a routine corollary of the known 70-set kernel classification, and are not independently claimed as novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The full known 70-set Fano classification overlaps the present premises and gives the elementary 14 K5 optimum exchange geometry, but not cap-five all-state fragmentation, cap-six shortest paths, or eccentricities.",
+        "evidence": "Its Theorem lists 14 type-A and 56 type-B minimum sets, using 7 line and 7 point kernels, and never defines a TAR graph or provides the 3136-state census.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/13/SCOPE-all-seventy-minimum-feedback-vertex-sets-of-the-heawood-graph--83a003d33b54/RESULT.md",
+        "material_read": "Entire RESULT.md: finding, assumptions, five proof sections, verification, prior work, limitations, references",
+        "method": "Public repository full-text file retrieval",
+        "title": "All seventy minimum feedback-vertex sets of the Heawood graph",
+        "trigger": "Exact same graph and optimum four-vertex deletion sets"
+      },
+      {
+        "assessment": "Theorem 4 entails equal-size exchange connectivity for all nonminimum subcubic FVS, but neither specifies one-element TAR thresholds for Heawood nor proves its optimum-pair Hamming metric.",
+        "evidence": "Theorem 4 requires a smaller FVS than the endpoint size; its step replaces one vertex in a fixed-cardinality FVS. The Heawood optima have minimum size four and cap-six paths add/delete singly.",
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2023.114188",
+        "material_read": "Accessible publisher abstract, full displayed introduction, Theorems 1–5 and section summaries; not the inaccessible complete article",
+        "method": "Publisher public HTML search result; separate OA/HAL and institutional attempts did not produce complete pages",
+        "title": "Feedback vertex set reconfiguration in planar graphs",
+        "trigger": "Directly relevant general subcubic FVS reconfiguration theorem"
+      },
+      {
+        "assessment": "Explains known regular-graph edge counting, not the TAR metric; abstract-only comparison does not establish absence throughout unseen full text.",
+        "evidence": "The stated results relate the decycling number to co-tree independent sets and induced edge/component counts.",
+        "identifier_or_url": "https://doi.org/10.7151/dmgt.2064",
+        "material_read": "Public abstract and listed formulae (not asserted as a whole-document exclusion)",
+        "method": "Public bibliographic abstract and article summary",
+        "title": "New Formulae for the Decycling Number of Graphs",
+        "trigger": "General stronger-looking exact formula for feedback-set cardinality in regular graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7595f501-68ff-4555-90a5-7699f745023d",
+  "value": {
+    "rationale": "This is a motivated exact threshold and shortest-path classification on the unique cubic 6-cage, the smallest incidence-geometry benchmark where minimum feedback sets are disconnected under exchange. It precisely quantifies the buffer required for globally feasible reconfiguration, shows all optimal pairs then attain their intrinsic symmetric-difference lower bound despite the failure of the same property on nonoptima, and supplies exact component and eccentricity metrics. The combination is a nontrivial, reusable benchmark for resource-constrained cycle-breaking algorithms, rather than a recomputation of the known 70-set census.",
+    "status": "PASS"
+  }
+}
