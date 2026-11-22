@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The finite forest leaf-antichain injection, period/equivalent palindromic extension lemma, DSU component count, inclusion-exclusion and the reflection-residue orbit error bound were reconstructed. Both independent standalone programs passed: 28 direct forest DP cases and direct period versus DSU agreement q=2 to N=14, q=3 to N=10, q=4 to N=8. Finite checks are corroboration, not proof of the all-N result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "US patent 5,488,616 derives construction of reversible variable-length codes using occurrence probabilities and a length-vector test.",
+        "2010 DCC employs satisfiability of a user-specified list of code lengths, with a table enumerating dominant length sequences for fixed source size."
+      ],
+      "reasoning": "General feasibility procedures could decide individual finite cases but do not themselves establish the all-ceiling closed period formula or the asymptotic constants. These prior results address different objective functions; no formal implication of this theorem was located.",
+      "searches": [
+        "palindromic prefix code maximum finite variable length avoiding prefixes",
+        "symmetric fix-free codewords maximal length bounded cardinality palindromic prefixes period leaves",
+        "US5488616 DESCRIPTION OF THE PREFERRED EMBODIMENTS",
+        "2010 DCC Sections 4-5"
+      ]
+    },
+    "checked_sources": [
+      "https://patents.justia.com/patent/5488616",
+      "https://www.mit.edu/~medard/Itpaperaward/A%20SAT-Based%20Scheme.pdf",
+      "https://academic.oup.com/comjnl/article-abstract/46/1/100/415459"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "US patent offers a forward/reverse instantaneous coding construction using probability-driven length vectors.",
+        "2010 DCC gives a SAT method and dominant length-sequence counts; its stated purpose is prescribed-length feasibility and minimum-redundancy optimization."
+      ],
+      "reasoning": "The claim requires exact maximal cardinality over all allowed variable lengths, a palindrome-prefix terminal characterization and precise growth constants. None follows merely by substituting a parameter in the observed prior formulas. A generic finite decision algorithm can be run case-by-case but is not an equivalent all-parameter derivation.",
+      "searches": [
+        "prefix free palindromic codes at most length n maximum capacity number of maximal palindrome prefix antichains",
+        "palindromic prefix code maximum finite variable length avoiding prefixes",
+        "maximum number of binary palindromic words of length at most n forming a prefix code exact leaf count periodic words",
+        "symmetric fix-free codewords maximal length bounded cardinality palindromic prefixes period leaves",
+        "US5488616 claims and description",
+        "2010 DCC Abstract, Sections 1 and 5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2010 DOI:10.1109/DCC.2010.22 defines symmetric fix-free as palindrome codewords; its optimization concerns fixed length sequences and redundancy, not maximum number under ceiling.",
+        "Two database searches returned deletion correction and comma-free code classifications, rather than this prefix-antichain/period statement."
+      ],
+      "reasoning": "Palindrome-prefix-free and symmetric fix-free are equivalent in this setting because a palindrome suffix relation is the reversal of a prefix relation. Such terminology variants were explicitly queried. No retrieved statement yields equation (1) or the parity constants.",
+      "searches": [
+        "prefix free palindromic codes at most length n maximum capacity number of maximal palindrome prefix antichains",
+        "palindromic prefix code maximum finite variable length avoiding prefixes",
+        "maximum number of binary palindromic words of length at most n forming a prefix code exact leaf count periodic words",
+        "2010 DCC Sections 1,3,4,5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2010 DCC Table 3 lists counts of dominant length sequences for binary symmetric fix-free codes with a specified number of codewords; it does not tabulate maximum codeword count by allowed length.",
+        "Direct check of 28 prefix-poset instances and 32 independent period-count instances agrees with the new displayed table; these are new computations, not evidence of priority."
+      ],
+      "reasoning": "Different table parameters were explicitly reconciled; no exact all-N table or generating identity was retrieved. Unindexed collections remain a risk.",
+      "searches": [
+        "prefix free palindromic codes at most length n maximum capacity number of maximal palindrome prefix antichains",
+        "maximum number of binary palindromic words of length at most n forming a prefix code exact leaf count periodic words",
+        "2010 DCC Table 3",
+        "binary sequence 2 2 4 6 10 16 26 38 62 88 140 194 palindrome prefix"
+      ]
+    },
+    "rationale": "Compared exact length-ceiling cardinality, period-avoidance formula, and even/odd asymptotic constants with the directly relevant symmetric fix-free coding sources (a full 2010 DCC paper and 1996 patent), with 2003 related abstract and multiple semantic database queries. Their fixed-length-sequence feasibility, average-codeword-length optimization and palindrome-constrained channel correction results do not state or imply the universal explicit ceiling formula and asymptotic constants. A 2003 backtracking paper (inspected abstract/methods) defines symmetric-child replacement in a palindrome-prefix tree, for a source-probability optimization objective rather than the displayed period-exclusion capacity; its remaining experimental sections were not fully inspected; unindexed equivalences remain acknowledged risks.",
+    "residual_risks": [
+      "2003 paper already describes symmetric-child operations on the palindrome-prefix tree, and its general tree framework could potentially be specialized to derive part of the present result.",
+      "Unindexed early reversible-code literature or patent implementations might contain equivalent terminal-tree counting.",
+      "A general mathematical all-period enumeration could imply this exact formula, but no such published specialization was found.",
+      "Remaining experimental sections of the openly accessible 2003 manuscript were not fully read; no whole-document noncoverage inference rests on the partial reading."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING as to length-ceiling maximal-cardinality exact formula and asymptotics; constructs/checks prescribed-length and redundancy objectives",
+        "evidence": [
+          "2010 DOI 10.1109/DCC.2010.22, abstract and pp.169–178",
+          "Sections 4 and 5, Table 3 dominant sequences for n codewords"
+        ],
+        "identifier_or_url": "https://www.mit.edu/~medard/Itpaperaward/A%20SAT-Based%20Scheme.pdf",
+        "material_read": "Complete ten-page PDF, including definition and Section 4 algorithm, Section 5 and Tables 2–3; pages 1 and 9 visually inspected",
+        "method": "Full text with page screenshots and line-by-line discussion of objective and tables",
+        "title": "A SAT-Based Scheme to Determine Optimal Fix-free Codes",
+        "trigger": "Exact same class, symmetric fix-free codes with palindromic codewords"
+      },
+      {
+        "assessment": "NOT_COVERING explicit all-N capacity and asymptotic constants; source-probability-driven design",
+        "evidence": [
+          "Patent #5,488,616 issued 1996-01-30",
+          "Detailed description of symmetric generator and n_rev(i) <= m(i)"
+        ],
+        "identifier_or_url": "https://patents.justia.com/patent/5488616",
+        "material_read": "HTML patent overview, background, symmetrical tree construction/length-vector test and claims sections",
+        "method": "Read complete displayed sections relevant to symmetric code construction, goal and codeword length vectors",
+        "title": "System for providing reversible variable length codes (US 5,488,616)",
+        "trigger": "1996 original reversible symmetric codewords construction"
+      },
+      {
+        "assessment": "Inspected methods explicitly optimize expected codeword length for a fixed source probability distribution and employ a prior-known symmetric-child prefix tree. No all-alphabet period formula or parity capacity constants appear in the inspected material; unread remainder is recorded as a residual risk.",
+        "evidence": [
+          "The Computer Journal 46(1) (2003), 100–105; DOI 10.1093/comjnl/46.1.100",
+          "Author manuscript Section 3 objective minimizes mean code length at fixed source size; Section 2 symmetric-child notions"
+        ],
+        "identifier_or_url": "https://academic.oup.com/comjnl/article-abstract/46/1/100/415459",
+        "material_read": "Open author manuscript: abstract, Sections 1–3 and main symmetric-child/prefix-tree construction on manuscript pp.1–10; the latter experimental sections were not fully inspected",
+        "method": "Direct material reading of open full-text PDF (through the backtracking and symmetric-child construction), with an additional page screenshot; not a whole-document negative search",
+        "title": "Construction of Symmetrical Reversible Variable Length Codes Using Backtracking",
+        "trigger": "2003 directly topical paper about constructing palindromic variable-length codes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "482629e1-0e25-4553-bd2a-5157eaeb0918",
+  "value": {
+    "rationale": "This is a naturally motivated exact source alphabet capacity problem for symmetric instantaneous codes with a maximum codeword length. The terminal-prefix/period equivalence gives an explicit all-N formula and sharp parity-dependent leading constants; for binary alphabets variable lengths improve capacity by factors tending to four and three over equal maximal length. That quantifies a substantive design tradeoff not implied by correctness or enumeration alone.",
+    "status": "PASS"
+  }
+}
