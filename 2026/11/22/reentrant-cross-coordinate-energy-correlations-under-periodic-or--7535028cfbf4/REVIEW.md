@@ -1,0 +1,15 @@
+# Scientific review: periodic-renewal cross-energy covariance
+
+## Correctness — PASS
+
+The theorem defines the entire stationary process, including the necessary uniformly randomized phase of a deterministic renewal schedule. The exponentially stable linear convolution yields an absolutely convergent geometric-interval representation. Uniform-sphere fourth-moment contractions produce a covariance equal to the variance of the shared square-weight sum minus the positive, dimension-dependent fourth-weight term. All phase integrals are elementary and supplied explicitly. The short- and long-period expansions have controlled signs for each finite dimension. A standard-library `Fraction` interval certificate independently checks strict positivity of the middle-period bracket in dimension 41, while its exact monotonicity in dimension proves the assertion for all larger integer dimensions. Continuity gives at least two sign changes. The certificate was run successfully and checked against a separate direct phase-integral quadrature. Numerical sampling is not used to prove a universal statement.
+
+## Originality — PASS, qualified
+
+Closest substantive prior theory is Guéneau–Majumdar–Schehr (arXiv:2602.08436, first public 2026-02-09), whose inspected full text uses exponentially timed, Poisson heading redraws and provides isotropic stationary laws and moments. Two closely related published mathematical results on anisotropic harmonic particles were read in full: they likewise treat a Poisson redraw clock and prove a *single* covariance sign transition with rate, so their conclusions neither imply nor contain the deterministic-clock *two*-crossing theorem. A further inspected mathematical result concerns deterministic reversals in **one dimension** and only the stationary variance, not a spherical cross-coordinate fourth moment. Farago–Smith (arXiv:2401.01576) covers nonexponential runs in one dimension; Sun–Ye–Podgornik (arXiv:2409.00578) concerns a finite tumble duration and was compared only at abstract level. Broad multivariate renewal-moment theory may imply the calculation, so publication priority remains qualified rather than independently certified.
+
+## Value — PASS
+
+The problem separates two physically different sources of fourth-order fluctuations in an active harmonic trap: positive common-clock phase fluctuations and negative fixed-length angular competition. The rigorous negative–positive–negative sign sequence is a structural counterexample to extrapolating a Poisson-clock single-transition phase diagram to regular renewal schedules. The exact covariance formula, explicit phase witness, and any-dimension sufficient condition supply reusable benchmarks for studying clock regularity in high-dimensional active transport. The result does **not** establish minimality of dimension 41, the exact count of sign crossings, or the general renewal-clock phase diagram; these are meaningful scientific limitations, not part of the proved claim.
+
+Self-review: passed. Independent audit: not yet performed.
