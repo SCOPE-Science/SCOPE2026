@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact base norm \(\sigma_k=2(k+1)^{-1}\cot(\pi/(2k+2))\) is Theorem 4.2 of Levene (2014); the exact tensor norm rule is Lemma 5.1 of Levene (2026). The bounded direct-sum norm is the supremum of its block norms. Strict monotonicity follows by differentiating \(t\cot t\), and \(\sigma_2=2/\sqrt3>1\) bounds the number of factors for every bounded product. Compactness of the one-limit-point factor set \(F=\{\sigma_k\}\cup\{4/\pi\}\) proves the exact closure. A sequence of distinct bounded products must acquire at least one limiting factor \(4/\pi\); replacing such a factor by finite path norms proves the reverse accumulation inclusion. Derived-set induction and the lower bound \((4/\pi)^m\) give rank \(\omega\). Algebraicity of finite path norms follows from roots of unity; the transcendence of \(\pi\) forbids collisions between levels and prevents algebraic accumulation points. The result does not infer an infinite statement from numerical samples.
+PASS
 
-## Originality — PASS, qualified
+The Schur norm formula for the main/upper diagonal mask is Levene 2014 Theorem 4.2, namely sigma_k=2/(k+1)cot(pi/[2(k+1)]) increasing to c=4/pi by Corollary 4.6. Exact multiplicativity under Kronecker products and supremum for Hilbert block-diagonal sums make the finite block norms a multiplicative monoid P, and bounded countable sums yield exactly bounded suprema of P. Let F={sigma_k:k>=2} union {c}; sigma_2=2/sqrt(3)>1 bounds the number of factors in any bounded product sequence, so compactness of F proves closure P equals all finite F-products and also equals union_m c^m P. For an accumulation point of this set, a sequence of distinct products with bounded factor number must have at least one factor tending to the only nonisolated element c, so S prime equals c S; conversely sigma_k p -> c p with distinct values. Repeated positive rescaling gives S^(m)=c^m S, and S^(omega) empty because each element of c^m S is at least c^m -> infinity. Each sigma_k is algebraic (cyclotomic cotangent) while c transcendental; c^m p cannot coincide with c^n q when m!=n and p,q positive algebraic, giving exact rank m, and no algebraic accumulation points, including at 2. This derivation is exhaustive and does not rely on a finite near-2 experiment.
 
-Levene (2014) determines single-path norms and the infinite-path limit; Levene (2026) determines multiplicativity, describes a triple product close to \(2\), and poses the unrestricted one-sided accumulation problem. These already imply the input formulas, but neither inspected paper computes the **norm closure, Cantor–Bendixson derivatives, individual ranks and algebraic isolation** of the path-tensor/block-sum subclass. The full-spectrum half-line theorem does not determine the topology of this subclass; a topological property of a subset cannot be inferred from a containing set with intervals. Related operator and graph projection findings in the searched mathematical records concern other masks or norms, with no identified equivalent or stronger path-product spectrum theorem. Possible older statements of a general elementary semigroup-with-one-limit-generator lemma remain a publication-priority risk, and a negative database search is not proof of global novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Levene (2026), Question 6.2(a), explicitly asks whether the unrestricted Schur norm spectrum can approach \(2\) from above and cites the finite path product \(\sigma_5\sigma_9\sigma_{122}\approx2.0000013191\) as suggestive numerical evidence. The classification proves that **no** sequence of norms built solely from finite path masks by the two standard operations (tensor product and bounded block sum) can realize that approach. It also determines the complete rank-\(\omega\) scattered spectrum and identifies its entire transcendental accumulation hierarchy. This is a natural structural boundary for an explicitly proposed family, not an arbitrary finite parameter slice. It offers no numerical separation constant and does not resolve the unrestricted question.
+Levene 2014 supplies sigma_k and 4/pi, Levene 2026 supplies tensor/supremum closure for the full uncountable Schur spectrum and notes near-2 products. The audited narrower family generated solely by finite path masks has a countable closed scattered spectrum, exact Cantor--Bendixson ranks and isolated algebraic thresholds, which are not implications stated in the inspected papers without the additional bounded-factor compactness/derived-set argument. An abstract general theorem about products of isolated convergent sequences could subsume the topological portion, a residual priority risk.
 
-## Closest sources and residual risks
+## value
 
-Levene (2014), Theorem 4.2 and Corollary 4.6, supplies the exact scalar generating sequence. Levene (2026), Lemma 5.1 and Section 6, supplies the multiplicative operation and states the near-threshold question. Both full relevant treatments were inspected. A general older result on finite products of convergent scalar sequences could subsume the abstract topological lemma; the value here lies in its exact operator-spectrum specialization and the concrete obstruction to the proposed near-\(2\) construction. This specialization is not asserted to cover arbitrary Schur masks. Independent audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The restricted path-generated norm family is mathematically natural because these are the explicit calculable nontrivial Schur idempotents and tensor/direct-sum are canonical operator constructions. A complete topological spectrum classification and algebraic isolation contrast with an unresolved accumulation question in the much larger full spectrum; the exact Cantor--Bendixson rank of every point is a useful structural invariant, not a mere near-numeric example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
