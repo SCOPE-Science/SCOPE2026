@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-PASS. The construction uses pairwise orthogonal cyclic-shift X-ray vectors and explicit positive rational weights to certify the optimal-ball lower bound and uniqueness. Every remaining containment inequality, including contact strictness, is checked exactly over all \(k!\) permutations for each of the nine integer orders \(2\le k\le10\). Convexity and the permutation-vertex theorem extend the result to the full polytope. The certificate is finite exhaustive arithmetic, not a statistical simulation.
+## correctness
 
-## Originality
-PASS, subject to historical priority. The 2026-10-21 primary paper classifies facets rather than Euclidean radii; its introductory results, main results, order-three treatment and full-text term checks do not contain the claimed minimum spheres. The closest identified metric record determines a diameter and next-distance gap, which do not imply the exact circumradius or unique contacts; at order three the diameter lower bound is strictly smaller than the computed value. An accessible earlier study of the uniform permutation X-ray covariance describes second moments, not worst-case geometric radius. Search coverage cannot rule out every older calculation.
+PASS
 
-## Value
-PASS. This establishes the complete exact Euclidean minimum-ball geometry through the first genuine contact-set transition of the newly studied polytope, rather than a routine point evaluation. The nine-to-ten collapse is a natural finite threshold, supported by exact rational centers, a complete equality classification, and a reproducible finite exhaustive certificate. It is useful for distinguishing metric complexity from the previously tabulated facet and diameter complexity. No claim is made for arbitrary order or for any downstream theorem.
+For each k=2..10 the image of the Birkhoff polytope is the convex hull of its k! permutation X-rays in ambient unnormalized Euclidean coordinates. The k disjoint-support cyclic X-rays Z_j have squared norms h_j=(k-j)²+j². Active subset J_k is all shifts for k<=9 and excludes j=5 at k=10; positive w_j=(1-t_k/h_j)/2, t_k=(|J|-2)/(sum_J 1/h_j), yield barycentric center C and equal active squared distance R²=t+||C||². Weighted mean-squared-distance identity proves optimality and unique center once containment holds. Independently implemented exact rational weight construction and independent C++ integer-arithmetic enumeration of all permutations for every k=2..10: at k=10 all 3,628,800 permutations verified, exactly nine equality permutations and nine distinct X-rays; all noncontacts strictly inside (minimum positive scaled slack 4,274,850). Checked all 9 exact rational radii, notably R_10²=235064670/3593269. This finite EXHAUSTIVE certificate proves the entire stated finite range and claims nothing for k>=11.
 
-## Specific limitations
-The factorial method does not classify orders beyond ten; old uncatalogued metric computations might overlap. Only the stated finite integer range is proved. No independent audit is supplied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 source on facets of permutation X-ray images studies linear inequality/facet structure rather than the Euclidean minimax enclosing ball. The published all-order X-ray diameter theorem concerns pairwise distances and yields only R²>=diam²/4; already for k=3 this is 7/2 versus the exact 98/23. Related circumradius/contact transitions for partial permutohedra and other polytopes concern different images. No covering result identified in source material; original X-ray article full text could not be obtained and old unindexed metric calculations remain a priority risk.
+
+## value
+
+PASS
+
+The finite classification reaches a natural first combinatorial-geometry contact transition: all k cyclic-shift X-rays are extremal through k=9 but one becomes strictly interior at k=10. Exact rational optimal balls, complete equality classification and a reproducible exhaustive proof distinguish the new polytope’s metric geometry from existing facet and diameter data. It is meaningful finite mathematical information, not claimed to solve arbitrary k.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
