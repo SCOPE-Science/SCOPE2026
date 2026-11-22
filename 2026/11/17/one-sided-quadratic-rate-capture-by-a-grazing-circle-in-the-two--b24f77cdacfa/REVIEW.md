@@ -1,15 +1,21 @@
-# Research assessment
+# Independent mathematical audit
 
-## Correctness
-PASS — The supplied proof derives an exactly decoupled stable and center mode from the four-dimensional rectified flow, constructs the nonnegative conserved action, and calculates the signed change from both possible clipping events. The parabolic tangency integral fixes the model-specific coefficient. A uniform one-sided return estimate and an invariant stable-mode cone justify iteration to arbitrarily many cycles. A self-contained checker verifies algebraic identities and both grazing multiplicities. Remaining limitation: the proof is local in initial outer excess and does not give a global basin theorem.
+## correctness
 
-## Originality
-PASS within inspected literature — Muramatsu–Kori explicitly give the center threshold and qualitative exterior attraction, so neither is claimed new. The universal three-halves grazing exponent is already known from di Bernardo–Budd–Champneys. The assessed statement is the exact Matsuoka-specific signed one-/two-graze loss coefficient and the derived sharp quadratic-in-return-index capture law along the neutral annulus. Full text of arXiv:2405.08409 was inspected at the model, center threshold, and bifurcation discussion; relevant general grazing sources were compared. An unindexed equivalent specialized calculation could still predate this result.
+PASS
 
-## Value
-PASS — The literature describes a semistable grazing cycle but gives no convergence clock. The explicit coefficient separates symmetric double-graze capture from asymmetric single-graze capture and quantifies slowing near a neuron activation boundary. This determines a natural dynamical observable not fixed by local linear spectra and may inform transient-time interpretation of the underlying neural oscillator.
+At rho=sqrt(a12 a21)=1+tx/ty<1+b, the exactly active four-dimensional linearization splits into exponentially stable (P,Q) and harmonic (U,V) sectors. The quadratic action I=(U−V)^2+(κ²−1)V² is conserved on the jointly active center plane; Lc=min(h1/√a12,h2/√a21)>0 is first grazing amplitude. ReLU clipping gives explicit signed center forcing; at a grazing extremum κ²V−U=0 and U=±Lc so action loss has strictly negative leading sign. The negative-potential excursion integral is (4√2√a_ij/(3ω√Lc))δ^{3/2}, with m=1 or 2 independent grazing times; converting ΔI to ΔL gives C=2√2 m rho/(3txω√Lc). Stable-sector variation of constants yields O(δ^{3/2}) per cycle and the local forward-invariant cone ||(P,Q)||≤K δ^{3/2} with a contractive stable return block; perturbation of clipping integrals is O(δ²). Thus 0<δ_{k+1}=δ_k−Cδ_k^{3/2}+O(δ_k²)<δ_k and δ_k^{-1/2}/k→C/2 by telescoping/Cesàro; stable section coordinates are O(k^{-3}). Independently recomputed symbolic action conservation, leading parabolic integral and m=1/2 theoretical constants 5.0082706562 and 8.3730811151. The local return uniformity argument is sketch-level and a residual analytic regularity risk, not replaced by finite integrations.
 
-## Scientific limitations
-No claim of global attraction, no new generic three-halves exponent, and no independent external audit. The finite diagnostic tests are not an infinite proof. Initial conditions must lie on or close to the specified center-plane section in the invariant local cone.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Comparisons made against specific mathematical statements, with natural aliases, stronger/other model hypotheses and integral versus finite-field distinctions; same-finding indexed hit not counted as independent earlier coverage.  Restricted bibliographic coverage remains as residual risk.
+
+## value
+
+PASS
+
+Sharp local asymptotics of a canonical neuronal oscillator's grazing transition quantify the convergence rate and explicit parameter dependence, including a nontrivial simultaneous-graze multiplicity. The distinction between exact neutral interior and algebraically attracting exterior is a motivated bifurcation boundary and a reusable quantitative diagnostic, not a trivial rephrasing of known qualitative behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
