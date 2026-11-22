@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof specifies the four knots, positive mesh ratio, exact natural second-derivative conditions, discrete and continuous variation, and the supremum over all nonconstant real data. Decomposition into three jump vectors is exact and attains the operator norm. Curvature solves a positive-determinant two-by-two system; sign analysis separates the two jump types, computes every interior cubic extremum, and gives exact expressions for the two norm branches. Strict monotonicity of opposite branches and limiting values prove existence and uniqueness of the minimax mesh. The supplied rational interval checker certifies a narrow optimum bracket; separate finite-data tests corroborate but do not replace the proof.
+PASS
 
-## Originality — PASS, qualified
+The frozen RESULT.md gives the natural C2 spline interior-curvature matrix with determinant (r+2)(3r+2)>0 and piecewise cubic formula. Telescoping jump data into three unit steps exactly attains the operator seminorm on a step. Central and outer step excursions have respectively C(r)=1+8/(3 sqrt(3) r(r+2)) and O(r)=1+2 F_r(q(r))+4r/[3 sqrt(3)(r+2)(3r+2)]. Differentiating the rational F_r confirms the displayed positive derivative polynomial. The proof controls the remaining derivative term by q(r)∈(1/3,1-1/sqrt(3)); C strictly decreases and O strictly increases, with opposite endpoint behaviors, proving a unique global symmetric minimax. Independent sympy exact derivative identity and numerical root solve give r*=1.428825530629474 and gain=1.3142559547735972. The package checker source was read (exact Fraction interval arithmetic and finite critical-point variation testing); the infinite result relies on the analytic step and monotonicity argument, not that finite stress test.
 
-Beatson–Chacko (1990 report, 1992 article) is the strongest directly inspected comparator: its natural-spline study uses sup-norm operator/first-derived projector norms and pointwise errors rather than the input-discrete-variation to output-continuous-variation norm and optimal symmetric four-knot spacing. Kobza (2002) optimizes squared-derivative and coefficient norms with boundary parameters instead of minimizing the sharp data-dependent variation gain over a mesh parameter. Hall (1973) treats approximation error. The published three-knot natural-spline positivity-defect result has a different number of knots and cannot imply the four-knot competition between central and outer jumps without an additional new calculation. An earlier four-node global cubic Lagrange variation minimax result uses a single cubic polynomial rather than a natural cubic spline, while the cardinal cubic result uses a bi-infinite uniform grid; neither is the present finite natural-boundary spline operator. Indexed database and prior-ledger searches did not reveal an equivalent or stronger theorem. Limitations: broad archival indexing is incomplete, and the three-knot published full text was not accessible in the attempted route; priority should be independently checked.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem resolves a concrete interpolation-design problem on the smallest symmetric natural cubic mesh with two coupled interior curvatures, where an outer and a central jump generate different instability branches. It establishes a unique nonuniform optimum and a quantitative approximately thirteen-percent improvement over the usual uniform choice; this is a structural extremal result, not an isolated numeric sample, and is useful when variation stability rather than approximation order governs knot selection. It does not optimize unrestricted meshes or other end conditions.
+Fresh best-of-knowledge primary-source and published-mathematics comparison of the exact final theorem, not a claim of exhaustive historical priority. The r=1 theorem does not imply a global minimum or the competing outer jump branch on nonuniform meshes. The Lagrange theorem does not imply spline boundary behavior.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A sharp mesh-design rule for a natural cubic C2 interpolant is a motivated stability invariant: it controls the worst possible continuous path variation for given discrete total variation, and reduces the sharp gain from the uniform-mesh 1.51320 to 1.31426. The coexistence of outer- and central-jump extremizers makes the uniquely balanced design a genuine structural fact rather than an isolated numeric optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

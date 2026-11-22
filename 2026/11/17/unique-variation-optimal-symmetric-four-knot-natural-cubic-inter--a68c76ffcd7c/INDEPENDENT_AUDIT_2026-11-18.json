@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T20:15:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen RESULT.md gives the natural C2 spline interior-curvature matrix with determinant (r+2)(3r+2)>0 and piecewise cubic formula. Telescoping jump data into three unit steps exactly attains the operator seminorm on a step. Central and outer step excursions have respectively C(r)=1+8/(3 sqrt(3) r(r+2)) and O(r)=1+2 F_r(q(r))+4r/[3 sqrt(3)(r+2)(3r+2)]. Differentiating the rational F_r confirms the displayed positive derivative polynomial. The proof controls the remaining derivative term by q(r)∈(1/3,1-1/sqrt(3)); C strictly decreases and O strictly increases, with opposite endpoint behaviors, proving a unique global symmetric minimax. Independent sympy exact derivative identity and numerical root solve give r*=1.428825530629474 and gain=1.3142559547735972. The package checker source was read (exact Fraction interval arithmetic and finite critical-point variation testing); the infinite result relies on the analytic step and monotonicity argument, not that finite stress test.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Beatson–Chacko full report sections on natural method and derivative norms uses supremum-type norms.",
+          "Kobza 2002 full article minimizes squared derivative energies while varying endpoint parameters at fixed knots."
+        ],
+        "reasoning": "Neither prior norm nor quadratic end-condition variational problem bounds this TV-to-TV mesh objective sharply. The general four-knot free-spacing Lagrange polynomial result concerns global, not natural piecewise cubic, interpolation.",
+        "searches": [
+          "Resultary: natural cubic spline variation four knots optimal symmetric mesh",
+          "Beatson Chacko Which cubic spline should one use natural spline report",
+          "Kobza Cubic splines with minimal norm 2002"
+        ]
+      },
+      "checked_sources": [
+        "https://ir.canterbury.ac.nz/server/api/core/bitstreams/76c796a1-5524-4a10-8394-a0e93ecc05e5/content",
+        "https://dml.cz/handle/10338.dmlcz/134498",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-total-variation-amplification-of-the-first-coupled-natural--287732549e93",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-unique-globally-variation-optimal-four-node-cubic-interpolation--068c5a0bfb03"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier natural-cubic result yields at r=1 exactly 1+8/(9 sqrt(3)) and central-step optimality.",
+          "The candidate optimizes r>0 and proves the unique O(r)=C(r) crossing at r≈1.42882553."
+        ],
+        "reasoning": "The r=1 theorem does not imply a global minimum or the competing outer jump branch on nonuniform meshes. The Lagrange theorem does not imply spline boundary behavior.",
+        "searches": [
+          "Resultary: sharp variation amplification first coupled natural cubic spline four equal knots",
+          "Resultary: unique globally variation-optimal four-node cubic interpolation fixed endpoints"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Natural cubic total variation operator norm is equivalently maximum unit-step spline path length; the Resultary 2026-11-17 equal-spacing theorem computes this norm only for r=1.",
+          "Beatson–Chacko 1990 report defines maximum/supremum operator and derivative norms, not the L1-integrated derivative from discrete jump norm."
+        ],
+        "reasoning": "The natural-spline, BV-stability, variation path-length, and unit-step formulations were compared. The equal mesh is a strict special case; global cubic polynomial interpolation uses different boundary conditions.",
+        "searches": [
+          "Resultary semantic: sharp natural cubic spline four knot symmetric mesh total variation amplification outer central step minimax",
+          "Web: natural cubic spline variation seminorm four knots optimal spacing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-total-variation-amplification-of-the-first-coupled-natural--287732549e93",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-unique-globally-variation-optimal-four-node-cubic-interpolation--068c5a0bfb03"
+        ],
+        "reasoning": "The retrieved exact r=1 natural-spline table is consistent and subsumed by the candidate. The different global Lagrange four-node result does not give the symmetric finite-natural optimum. Search failure alone is not proof of priority.",
+        "searches": [
+          "Resultary semantic: sharp natural cubic spline four knot symmetric mesh total variation amplification outer central step minimax"
+        ]
+      },
+      "rationale": "Fresh best-of-knowledge primary-source and published-mathematics comparison of the exact final theorem, not a claim of exhaustive historical priority. The r=1 theorem does not imply a global minimum or the competing outer jump branch on nonuniform meshes. The Lagrange theorem does not imply spline boundary behavior.",
+      "residual_risks": [
+        "Unindexed older natural-cubic BV mesh optimization may cover the nonuniform branch.",
+        "The four-node global Lagrange and uniform finite-natural cases are related but not implication-equivalent.",
+        "Independent rational root computation is a corroboration, not a formal computer-assisted universal proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different operator norm and boundary-method comparison; no symmetric mesh TV minimax found in material read",
+          "evidence": "Report defines sup norms/derived projections; natural method is not optimized over interval ratio",
+          "identifier_or_url": "https://ir.canterbury.ac.nz/server/api/core/bitstreams/76c796a1-5524-4a10-8394-a0e93ecc05e5/content",
+          "material_read": "Full PDF; report sections 1–3 and pages on natural boundary method and derived derivative norms",
+          "method": "Inspected accessible full text and relevant theorem/proof sections",
+          "title": "Which Cubic Spline Should One Use?",
+          "trigger": "Potential full spline operator-norm domination"
+        },
+        {
+          "assessment": "Quadratic derivative objective at fixed knots, not discrete-to-continuous TV mesh minimax",
+          "evidence": "Kobza 2002 formulation minimizes squared derivatives and discrete differences",
+          "identifier_or_url": "https://dml.cz/handle/10338.dmlcz/134498",
+          "material_read": "Full PDF pages 1–5, definitions of J0–J3 and variational parameter families",
+          "method": "Inspected accessible full text and relevant theorem/proof sections",
+          "title": "Cubic splines with minimal norm",
+          "trigger": "Potential prior minimization theorem"
+        },
+        {
+          "assessment": "Covers r=1 only, exact 1+8/(9 sqrt(3)); no variable-r optimum",
+          "evidence": "Prior four uniformly spaced knots and central jump extremizer",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-total-variation-amplification-of-the-first-coupled-natural--287732549e93",
+          "material_read": "Full prior RESULT.md finding, assumptions and proof jump reduction",
+          "method": "Inspected accessible full text and relevant theorem/proof sections",
+          "title": "Sharp total-variation amplification of the first coupled natural cubic spline",
+          "trigger": "Same interpolator and sharp seminorm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp mesh-design rule for a natural cubic C2 interpolant is a motivated stability invariant: it controls the worst possible continuous path variation for given discrete total variation, and reduces the sharp gain from the uniform-mesh 1.51320 to 1.31426. The coexistence of outer- and central-jump extremizers makes the uniquely balanced design a genuine structural fact rather than an isolated numeric optimization.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://ir.canterbury.ac.nz/server/api/core/bitstreams/76c796a1-5524-4a10-8394-a0e93ecc05e5/content",
+    "https://dml.cz/handle/10338.dmlcz/134498",
+    "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-total-variation-amplification-of-the-first-coupled-natural--287732549e93",
+    "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-unique-globally-variation-optimal-four-node-cubic-interpolation--068c5a0bfb03"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed older natural-cubic BV mesh optimization may cover the nonuniform branch.",
+    "The four-node global Lagrange and uniform finite-natural cases are related but not implication-equivalent.",
+    "Independent rational root computation is a corroboration, not a formal computer-assisted universal proof.",
+    "Independent bounded checks corroborate only their stated calculations, not an external or formal proof certificate.",
+    "Publication transport is not_ready due to unsanitized potentially public provenance; separate from the completed scientific disposition."
+  ],
+  "residual_risks": [
+    "Unindexed older natural-cubic BV mesh optimization may cover the nonuniform branch.",
+    "The four-node global Lagrange and uniform finite-natural cases are related but not implication-equivalent.",
+    "Independent rational root computation is a corroboration, not a formal computer-assisted universal proof."
+  ],
+  "schema_version": 1
+}
