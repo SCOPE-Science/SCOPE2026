@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "Unique canonical connected threshold words 0^(a1)1^(b1)... give s=max(b1-1+[a1=1],b2-1,...), t=a_last if b_last=1 else 0. The four disjoint one-block cases contribute R; for two or more blocks the first, interior and last blocks contribute U, geometric 1/(1-V), and W. Exact cumulative rational formula follows; n>=3 t=0 iff the word ends 11, while s=0 iff it starts 00 and has no adjacent 1s. Their counts are respectively 2^(n-3) and F_(n-2), with the first joint asymmetry at n=4. Independent direct graph verification for all canonical words through n=12 and 539 cumulative comparisons succeeded; finite checks are not substituted for proof. The K2 boundary is handled (s=t=1).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fürnsinn–Gangl–Rubey, Theorem 1: the joint law is symmetric over all connected graphs; their chordal-family consequence is symmetric over all chordal graphs.",
+        "Fürnsinn–Gangl–Rubey, Section 5 and Theorems 1, 3: bounded-statistic species decompositions for all connected graphs and fixed reduction cores, not a closed enumeration after requiring the P4-, C4-, 2K2-free threshold restriction.",
+        "The final paper has no occurrence of the terms threshold or split in searchable text, and the relevant theorem statements were read."
+      ],
+      "reasoning": "Threshold graphs are chordal, but a global or chordal aggregate equidistribution cannot imply equidistribution after deleting nonthreshold graphs. The new formula, including the asymmetry at n=4 and an exact all-n marginal defect, is not a corollary of the published symmetry statement.",
+      "searches": [
+        "\"Unexpectedly, a Symmetry on Unlabeled Graphs\" \"threshold\"",
+        "\"Unexpectedly, a Symmetry on Unlabeled Graphs\" \"split\"",
+        "\"threshold graphs\" \"number of leaves\" \"twin classes\" enumeration",
+        "Fürnsinn Gangl Rubey sibling tuft number graph class threshold graph asymmetry Fibonacci exact counting"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2505.03665",
+      "https://doi.org/10.37236/15312",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v33i4p32/pdf",
+      "https://arxiv.org/abs/1610.08816",
+      "https://onlinelibrary.wiley.com/doi/10.5402/2011/108509",
+      "2026/11/2/SCOPE-exact-unrestricted-variable-width-theories-of-finite-threshold-g--dc01ffee0f2a [summary only]",
+      "2026/11/8/SCOPE-exact-fixed-variable-theories-and-rational-order-spectra-of-thre--1bf9eaf7205a [summary only]"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2505.03665 first submitted 2025-05-06; journal version published 2026-11-06, the journal date is not the earliest public date.",
+        "Banerjee–Mehatari arXiv:1610.08816, Introduction: unique canonical threshold sequence 0...1 and 2^(n-2) isomorphism types.",
+        "The new comparison is strict: the full graph family has symmetric joint counts, but the threshold subclass has P_4(u,v)=u^3+u+uv+v^3 and leafless/siblingless counts 2^(n-3) versus F_(n-2)."
+      ],
+      "reasoning": "The encoding and broad symmetry were already known. Neither prior statement implies the rational formula or the failure under threshold restriction; conversely our theorem does not challenge the broader equidistribution or solve its open bijective version. The noncoverage conclusion is subject to specialized unindexed work.",
+      "searches": [
+        "connected threshold graphs leaf multiplicity true twins joint distribution asymmetry explicit involution",
+        "Fürnsinn Gangl Rubey sibling tuft number graph class threshold graph asymmetry Fibonacci exact counting",
+        "connected threshold graphs isolated addition universal addition closed-neighborhood siblings leaf fans bivariate cumulative distribution",
+        "\"Unexpectedly, a symmetry on unlabeled graphs\" arxiv submitted version 1",
+        "connected threshold graphs binary creation sequence unique enumeration 2^(n-2)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2025 preprint arXiv:2505.03665 (journal DOI:10.37236/15312) defines sibling and tuft numbers and proves symmetric distribution on all connected unlabeled graphs; its statement does not give an exact threshold-graph restriction.",
+        "arXiv:1610.08816 proves the uniqueness of canonical binary threshold words and gives run partitions, without enumerating these two graph parameters."
+      ],
+      "reasoning": "Translating the claim to maximal true-twin class size minus one and maximal pendant-leaf fan size locates the natural aliases. The new restricted joint cumulative series cannot follow from equality of unrestricted joint distributions: the full-sample counts can compensate across subclasses. The published canonical words supply a construction technique, not this statistic distribution.",
+      "searches": [
+        "tuft sibling distribution threshold graphs canonical creation sequences exact bivariate generating function",
+        "connected threshold graphs leaf multiplicity true twins joint distribution asymmetry explicit involution",
+        "unlabeled threshold graphs maximal twin classes and pendant leaves counts",
+        "\"threshold graphs\" \"tuft\" \"sibling number\"",
+        "\"threshold graphs\" \"true twins\" \"leaves\" generating function"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest mathematical-record result 2026/11/2/SCOPE-exact-unrestricted-variable-width-theories-of-finite-threshold-g--dc01ffee0f2a studies bounded variable-width logic, threshold twin skeletons and theory equivalences.",
+        "Closest mathematical-record result 2026/11/8/SCOPE-exact-fixed-variable-theories-and-rational-order-spectra-of-thre--1bf9eaf7205a supplies rational counting of logical theory types, not the sibling-tuft joint distribution.",
+        "The source arXiv:1610.08816 counts all connected threshold words as 2^(n-2), but does not tabulate joint sibling and tuft maxima."
+      ],
+      "reasoning": "Complete graph isomorphism-type tables and rational logical theory spectra are different counting objects. The direct finite enumeration in verification.py supports small cases but is not used as a novelty certificate. GitHub full texts for the two logic-related records could not be fetched and were not falsely treated as inspected.",
+      "searches": [
+        "tuft sibling distribution threshold graphs canonical creation sequences exact bivariate generating function",
+        "unlabeled threshold graphs maximal twin classes and pendant leaves counts",
+        "joint generating function maximum true-twin multiplicity and largest pendant leaf fan in connected threshold graphs",
+        "threshold graph joint enumeration degree-one vertices true twins",
+        "sibling tuft statistics threshold graphs generating function symmetry"
+      ]
+    },
+    "rationale": "The global joint symmetry theorem (Fürnsinn–Gangl–Rubey) and its chordal refinement do not imply symmetry in the smaller threshold subclass, and in fact this subclass has a provably asymmetric joint distribution. The unique canonical binary encoding is previously known and explicitly credited. The new claim is a complete rational bounded-statistic census together with the sharp first symmetry failure and Fibonacci-versus-exponential marginal defect. The inspected specialist threshold-graph literature and closest mathematical records do not state an equivalent joint census. Priority remains provisional because literature searches cannot exclude unindexed work.",
+    "residual_risks": [
+      "Unindexed or older threshold-statistic enumerations could contain an equivalent rational series or marginal formulas.",
+      "The full-text pages for two potentially relevant threshold-logic records could not be retrieved; search summaries describe different counting objects.",
+      "Counting by standard threshold creation strings is an elementary method, so historical overlap is a substantive possibility despite the motivated new symmetry comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BROADER_SYMMETRY_ONLY, not a threshold restriction law",
+        "evidence": [
+          "Theorem 1 claims joint equidistribution on all unlabeled connected graphs.",
+          "Theorem 3 conditions on reduction core; chordal consequence is noted.",
+          "Section 10 discusses difficulties of bijective tag swapping; threshold graphs are not treated by a separate theorem."
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v33i4p32/pdf",
+        "material_read": "Journal full text: abstract, introduction, definition of s and t, Theorems 1-4, Section 5 proof and Section 10 decorated-graph discussion, plus targeted text searches for threshold and split",
+        "method": "Open primary OA PDF text and inspect page 1 screenshot, theorem and proof passages and latter section",
+        "title": "Unexpectedly, a Symmetry on Unlabeled Graphs",
+        "trigger": "Exactly the same two statistics; strongest plausible broader theorem"
+      },
+      {
+        "assessment": "BACKGROUND_ENCODING, no matching joint statistic claim",
+        "evidence": [
+          "Introduction explicitly uses the word 0^(s1)1^(t1)... and gives 2^(n-2) connected unlabeled threshold graphs.",
+          "The results concern normalized spectral invariants rather than tuft/sibling joint enumeration."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1610.08816",
+        "material_read": "Abstract, Introduction, Definition 1.1, unique binary coding and first spectral results through Section 2",
+        "method": "Read accessible arXiv primary text",
+        "title": "On the normalized spectrum of threshold graphs",
+        "trigger": "Canonical threshold creation words and possible structural coverage of twin classes"
+      },
+      {
+        "assessment": "BACKGROUND_STRUCTURE, not a counting theorem about these two parameters",
+        "evidence": [
+          "Article characterizes threshold graphs and studies their spectra and degree partitions."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.5402/2011/108509",
+        "material_read": "Open-access abstract, Introduction and structural descriptions of threshold graphs and degree sequences",
+        "method": "Read publisher HTML primary full-text portions",
+        "title": "On the Spectrum of Threshold Graphs",
+        "trigger": "Earlier structural study of nested split/threshold graphs"
+      },
+      {
+        "assessment": "Different invariant in available summary; unresolved full-text comparison risk",
+        "evidence": [
+          "The summary describes k-variable first-order equivalence via truncated twin class sizes, not the joint maximum of leaf-fan and closed-neighborhood sibling classes."
+        ],
+        "identifier_or_url": "2026/11/2/SCOPE-exact-unrestricted-variable-width-theories-of-finite-threshold-g--dc01ffee0f2a",
+        "material_read": "Search-result mathematical summary only; full RESULT.md not accessible",
+        "method": "Mathematical-record search and attempted GitHub primary fetch",
+        "title": "Exact unrestricted variable-width theories of finite threshold graphs",
+        "trigger": "Contains threshold twin class skeletons"
+      },
+      {
+        "assessment": "Available scope is logical equivalence and theory enumeration, with inaccessible-text residual risk",
+        "evidence": [
+          "The summary counts k-variable logical theory types and uses truncated peeling words, whereas the new theorem counts graph isomorphism types jointly by two full-size graph statistics."
+        ],
+        "identifier_or_url": "2026/11/8/SCOPE-exact-fixed-variable-theories-and-rational-order-spectra-of-thre--1bf9eaf7205a",
+        "material_read": "Search-result mathematical summary only; full RESULT.md not accessible",
+        "method": "Mathematical-record search and attempted GitHub primary fetch",
+        "title": "Exact fixed-variable theories and rational order spectra of threshold graphs",
+        "trigger": "Contains threshold words and rational generating functions, so plausible equivalence threat"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "36f773d9-f998-41c7-93d2-ea9601522311",
+  "value": {
+    "rationale": "A recent symmetric joint law for sibling and tuft statistics holds even on chordal graphs; determining a natural structural boundary of that phenomenon is directly motivated. Connected threshold graphs are a canonical strict hereditary subclass with unique binary coding. Rather than reporting only a four-vertex counterexample, the theorem supplies a complete parameter-wise rational joint enumerator, proves the first failure is exactly four vertices, and quantitatively identifies the exponential marginal asymmetry (2^(n-3) versus Fibonacci). The exact enumeration provides reusable graph-class statistics, not a renamed known graph count.",
+    "status": "PASS"
+  }
+}
