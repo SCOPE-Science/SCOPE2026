@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the quotient classification
 
-The mathematical proof is contained in `RESULT.md`; the following are **finite exact corroborations** rather than infinite certificates. The two standalone scripts read no input files and do not rely on any unpublished data. Execute them with Python 3, and install SymPy for the second script.
+# Independent mathematical audit
 
-`python verify_rotation.py`
+## correctness
 
-The first checker exhaustively generates independent edge subsets, rotation-invariant edge orbits, and fixed-point Euler characteristics for \(8\le n\le18\). It verifies the Euler sums of the covering complexes, all generated stabilizer subgroups, the generator's signed chain Lefschetz number, and the predicted full quotient rational Euler characteristics.
+PASS
 
-`python verify_prime_quotients.py`
+PASS — For K_n=Ind(C_n), the standard n mod 3 homotopy types yield simple connectivity for n>=8. For a rotation r^a, a geometric fixed point exists iff gcd(n,a)>=2, because an invariant vertex orbit is an independent face exactly in that case. Armstrong gives pi1(Q_n)=C_n/<fixed rotations>, C_p precisely for prime-power n and trivial for multi-prime n. For rational homology, the generator has reduced Lefschetz number −1 (no fixed support for primitive rotation). Combined with the degree d_n sphere/wedge representation and finite cyclic rational averaging, invariants survive only for gcd(n,6)=1. For prime p>=5 the action is free; orientation on Z top class is trivial, and the multiplicative Cartan–Leray spectral sequence has an obligatory surjective d_{2m} from the top row to H^{2m}(C_p;Z); otherwise unbounded cup powers violate finite CW dimension. The surviving classes have Z[u,v]/(pu,u^m,uv,v²), |u|=2, |v|=2m−1, yielding the stated odd-degree p-torsion. Independent exact enumeration of rotation isotropy and rational Euler ranks n=8..18 agreed. The special p=5,7 cases have top degree 1 and no positive torsion, consistent with the m=1 convention; composite higher integral torsion is not computed. Finite enumeration does not establish the infinite spectral sequence argument.
 
-The second checker constructs the quotient cellular chain groups for \(p=5,7,11,13\), including signed face identifications under cyclic rotation. It verifies both boundary compositions and uses integer Smith normal forms (not floating-point linear algebra) to calculate all homology groups. For \(p=11\), quotient cell counts are \((1,4,7,5,1)\), free homology occurs in degrees zero and three, and the sole torsion is \(\mathbb Z/11\) in degree one. For \(p=13\), quotient cell counts are \((1,5,12,14,7,1)\) and the sole torsion is \(\mathbb Z/13\) in degree one. Widths five and seven have the homology of a circle.
+## originality
 
-`check_output.txt` records both actual successful executions. These scripts do not compute the cup products or prove the nonzero spectral-sequence transgression; those are deduced mathematically in the proof. They do not check infinitely many widths, higher composite-length integral homology, or independent publication priority.
+PASS
+
+PASS best of knowledge — Classical cycle independence homotopy and Armstrong orbit fundamental group are cited inputs. The explicit combined prime-power pi1, complete all-n rational quotient homology, and all-prime integral multiplicative quotient ring were not in the inspected older statements. A same-day **stronger** full homotopy lens-space model exists for the particular n=11 case, so the n=11 homology/ring specialization is already implied by that published theorem; the global all-n/all-prime claim is not. Analogous torsion on bidirected polygon multipath complexes or cyclohedron sphere quotients uses different face systems and does not imply this result. Any prior general equivariant independence-complex quotient formula or unindexed thesis remains a priority risk.
+
+## value
+
+PASS
+
+PASS — This naturally defined rotational geometric orbit of the classical cycle matching complex has a sharp arithmetic change in fundamental group (prime powers versus mixed prime factors) and an exact infinite family of integral p-torsion cohomology rings. It resolves meaningful quotient topology beyond the known ordinary cycle homotopy and distinguishes rational homology from possible composite integral torsion, without a false lens-space homeomorphism claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

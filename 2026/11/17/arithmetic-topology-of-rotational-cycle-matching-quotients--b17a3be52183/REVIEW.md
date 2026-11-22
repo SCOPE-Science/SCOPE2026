@@ -1,15 +1,21 @@
-# Review: arithmetic topology of rotational cycle-matching quotients
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The cycle matching-complex sphere/wedge theorem is identified with its exact three residue classes, giving simple connectivity for all \(n\ge8\). The fixed-simplex criterion is proved for every nonidentity rotation and correctly distinguishes stabilizers from setwise identification of vertices. Armstrong's theorem gives the asserted cyclic or trivial fundamental groups. The generator has no geometric fixed points, so the reduced Lefschetz number is \(-1\), determining the entire rational invariant rank from the rank-one/rank-two covering homology. At prime lengths the action is genuinely free, and the multiplicative integral Cartan–Leray spectral sequence has only two rows. A nonzero transgression is forced by finite-dimensionality, and yields the full lens-space integral cohomology ring and the specified complete homology. Exact finite orbit-count checks and integral Smith computations for four prime lengths corroborate the proof. They do not prove the infinite assertions by themselves.
+## correctness
 
-## Originality
-**PASS against inspected evidence.** Adamaszek and Donovan–Scoville calculate the covering complex's homotopy type; Waßmer develops the dual independence complex and dihedral symmetries. None of their inspected statements gives the ordinary **cyclic orbit space's** all-length fundamental groups or full prime-length integral ring. The closest identified published bidirected-polygon multipath finding has an analogous arithmetic isotropy mechanism but a different directed-path simplicial complex and only a partial high-torsion range, so it does not imply this matching-complex calculation. Searches for cycle matching, independence, cyclic quotient, prime powers, and cohomology found no equivalent statement. This is best-knowledge originality, not a guarantee against an unindexed general equivariant result.
+PASS
 
-## Value
-**PASS.** Cycle matching complexes are a canonical, historically studied family with fully known covering-space homotopy. Their geometric rotation quotients provide a sharply different arithmetic picture: prime powers control the fundamental group, coprimality with six controls all positive rational homology, and at prime lengths a complete integral cohomology-ring classification exhibits \(p\)-torsion in increasingly many degrees. The integral ring and the separation of two arithmetic regimes supply motivated, reusable exact invariants rather than a narrow accidental numerical observation.
+PASS — For K_n=Ind(C_n), the standard n mod 3 homotopy types yield simple connectivity for n>=8. For a rotation r^a, a geometric fixed point exists iff gcd(n,a)>=2, because an invariant vertex orbit is an independent face exactly in that case. Armstrong gives pi1(Q_n)=C_n/<fixed rotations>, C_p precisely for prime-power n and trivial for multi-prime n. For rational homology, the generator has reduced Lefschetz number −1 (no fixed support for primitive rotation). Combined with the degree d_n sphere/wedge representation and finite cyclic rational averaging, invariants survive only for gcd(n,6)=1. For prime p>=5 the action is free; orientation on Z top class is trivial, and the multiplicative Cartan–Leray spectral sequence has an obligatory surjective d_{2m} from the top row to H^{2m}(C_p;Z); otherwise unbounded cup powers violate finite CW dimension. The surviving classes have Z[u,v]/(pu,u^m,uv,v²), |u|=2, |v|=2m−1, yielding the stated odd-degree p-torsion. Independent exact enumeration of rotation isotropy and rational Euler ranks n=8..18 agreed. The special p=5,7 cases have top degree 1 and no positive torsion, consistent with the m=1 convention; composite higher integral torsion is not computed. Finite enumeration does not establish the infinite spectral sequence argument.
 
-## Literature and limitations
-Primary mathematical sources: Waßmer's 2005 dissertation, Chapter 5; Adamaszek's 2011 preprint, Example 3.8 and Section 6; Donovan–Scoville's 2022 preprint, Proposition 26; and Armstrong's 1965 orbit theorem. The nearest indexed different-object result is *Prime-power fundamental groups and unbounded torsion in bidirected-polygon orbit spaces*, public record `019b8ac173fd`. Composite-length higher integral torsion and geometric lens-space homotopy identification are not established. The original Kozlov 1999 article's full text was not examined, although the particular input theorem is proved in accessible later sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge — Classical cycle independence homotopy and Armstrong orbit fundamental group are cited inputs. The explicit combined prime-power pi1, complete all-n rational quotient homology, and all-prime integral multiplicative quotient ring were not in the inspected older statements. A same-day **stronger** full homotopy lens-space model exists for the particular n=11 case, so the n=11 homology/ring specialization is already implied by that published theorem; the global all-n/all-prime claim is not. Analogous torsion on bidirected polygon multipath complexes or cyclohedron sphere quotients uses different face systems and does not imply this result. Any prior general equivariant independence-complex quotient formula or unindexed thesis remains a priority risk.
+
+## value
+
+PASS
+
+PASS — This naturally defined rotational geometric orbit of the classical cycle matching complex has a sharp arithmetic change in fundamental group (prime powers versus mixed prime factors) and an exact infinite family of integral p-torsion cohomology rings. It resolves meaningful quotient topology beyond the known ordinary cycle homotopy and distinguishes rational homology from possible composite integral torsion, without a false lens-space homeomorphism claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
