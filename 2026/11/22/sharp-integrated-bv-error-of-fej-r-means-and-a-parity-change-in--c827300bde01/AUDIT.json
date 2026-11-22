@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "The proof accounts for unnormalized 2π arc length and full periodic variation. General positive even-kernel leakage is exactly an arc flux, and periodic BV coarea plus strict positivity give all-function norm and equality. The finite Fejér Fourier expansion yields the odd-frequency constant; near π the sine quotient has nonzero value at odd degrees and quadratic zero at even degrees, giving quadratic vs quartic arc deficit. Euler–Maclaurin gives the parity cubic law with O(n^-5). The actual standalone checker passed 96 Fourier/quadrature, 36 local parity, 6 asymptotic, and 240 sampled BV tests; numerical tests are corroboration only. Limits: ordinary Fejér kernel, all integer n>=1, real periodic BV.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Full RESULT.md inspected for 2026/11/1/SCOPE-exact-optimal-two-jump-poisson-leakage-and-its-logarithmic-bound--5a5f88c645ff: Poisson convolution, positive antipodal kernel, exact leakage within binary two-jump periodic families and quadratic stability.",
+        "Nochetto–Salgado arXiv:1211.1069 §§1–3: TVD finite-element interpolation and its approximation bounds, not Fourier Cesàro means."
+      ],
+      "reasoning": "The Poisson arc-leakage derivation shares a crossing identity and its half-circle optimizer, so these qualitative ingredients are not claimed independently. Fejér has an alternating antipodal zero, unlike the strictly positive Poisson kernel, producing quartic stability at even degrees. The exact Fejér harmonic coefficient, complete BV extremizer reduction, and cubic parity correction require additional operator-specific arguments and are not implied by the published Poisson numerical parameter formula or finite-element results.",
+      "searches": [
+        "sharp L1 to BV approximation error positive symmetric circular convolution and arc half-circle extremizer formula first absolute circular moment",
+        "Sharp bounded variation to integrated L1 approximation error for positive convolution kernels on circle, heat, Poisson, Fejer and circulant kernels",
+        "Sharp bounded variation to integrated L1 approximation error for positive convolution kernels on circle, heat, Poisson, Fejer and circulant kernels"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.15517/rmta.v14i1.283",
+      "https://arxiv.org/abs/1211.1069",
+      "https://arxiv.org/abs/1302.5226",
+      "https://arxiv.org/abs/2007.13700",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-exact-optimal-two-jump-poisson-leakage-and-its-logarithmic-bound--5a5f88c645ff",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-the-sharp-lipschitz-contraction-deficit-of-fej-r-means--8aa63d6abf65",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=41Axx"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026/11/1/SCOPE-exact-optimal-two-jump-poisson-leakage-and-its-logarithmic-bound--5a5f88c645ff result proof maximizes L1 leakage of a fixed Poisson sign wave and gives a quadratic stability bound, no even/odd degree parameter.",
+        "Fejér Lipschitz contraction result 2026-10-26 has sharp decay 1-4/(π²n) in the derivative L∞ seminorm, fundamentally different from the (log n)/n integrated error norm.",
+        "Gaubert–Qu arXiv:1302.5226 Theorem 1.1 evaluates Markov contraction in Hopf oscillation; its assumptions and dual norm are not the approximation norm T-I from BV to L1.",
+        "Kravitz–Steinerberger arXiv:2007.13700 Theorems 1–2 optimize discrete l² first/second derivative smoothing."
+      ],
+      "reasoning": "Compare domains, operator and quantifiers: our map is fixed Fejér convolution and the objective is ||(T-I)f||_L1/|Df| for all real BV functions, with complete equality, two parity-local exponents and parity cubic asymptotics. None of the inspected results contains a stronger theorem with those parameters, and none supplies the constants simply by specializing its printed statements.",
+      "searches": [
+        "exact sharp L1 approximation error of Fejér Cesàro Fourier means over periodic BV functions, half-circle indicator jumps, odd harmonic series",
+        "sharp L1 to BV approximation error positive symmetric circular convolution and arc half-circle extremizer formula first absolute circular moment",
+        "Fejer approximation bounded variation logarithmic sharp constant (2/pi) (log 2n+ gamma +1)/n",
+        "Fejer convolution BV L1 approximation sharp constant circle semicircle step function 2010"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus identified 2026/10/26/SCOPE-the-sharp-lipschitz-contraction-deficit-of-fej-r-means--8aa63d6abf65: exact median formula for Lipschitz contraction, not error of T-I on BV.",
+        "2007 López-Bonilla–Vidal Beltrán–Yalja Montiel Sections 1–2: the Fejér kernel trigonometric formula and link to Dirichlet kernel, no integrated BV norm."
+      ],
+      "reasoning": "Rewrite the proposed norm as the maximal flux of a half-circle step under a positive circular convolution and as its first geodesic kernel moment. Neither the Fejér Lipschitz seminorm (a median of kernel values) nor the classical Fejér kernel identity evaluates this norm or the parity of its extremal arc deficit. The equivalence was explicitly used to search, not presumed to establish priority.",
+      "searches": [
+        "exact sharp L1 approximation error of Fejér Cesàro Fourier means over periodic BV functions, half-circle indicator jumps, odd harmonic series",
+        "Exact BV to L1 error norm of circular Fejer convolution, Fourier Cesaro means, step extremizers half-circle, singular jumps",
+        "Fejer means exact L1 error half circle indicator bounded variation approximation logarithm"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact sharp coefficient or parity table appeared in the actual published-finding corpus results for the three submitted formulations.",
+        "The primary 2007 kernel note reports its Fourier kernel identities, not the specific odd-harmonic first-moment constant.",
+        "The older 2007 article has a verified publication year but no defensible exact first-publication day from inspected material."
+      ],
+      "reasoning": "The finite coefficient can be computed from classic Fejér Fourier coefficients, so equivalent entries under first kernel moment or Jackson-type inequality remain possible in unindexed reference works. Search nonappearance is not proof of absolute novelty; this remains a residual priority risk.",
+      "searches": [
+        "Fejer approximation bounded variation logarithmic sharp constant (2/pi) (log 2n+ gamma +1)/n",
+        "Fejér kernel integral first moment finite sum odd reciprocal square sharp approximation",
+        "Fejer means exact L1 error half circle indicator bounded variation approximation logarithm"
+      ]
+    },
+    "rationale": "Actual semantic published-finding corpus searches, historical claim deduplication and primary text comparisons found close but noncovering operator/norm results. The 2007 Fejér kernel note gives basic identities only; published Poisson leakage has no even-degree quartic antipodal zero, and the published Fejér Lipschitz norm is not an approximation-error norm. Unindexed older tables may still give the finite harmonic expression and remain a stated priority risk.",
+    "residual_risks": [
+      "Historical Fejér first-moment and BV Jackson-type tables in older textbooks were not exhaustively scanned; the exact harmonic coefficient may have appeared under another name.",
+      "The original 2007 kernel note has verifiable publication year only, without a verified first public calendar day. 2012-11-05 is the earliest day-verified archived research lead used for the BV approximation program.",
+      "General coarea and flux techniques themselves are classical; claimed contribution lies in their sharp Fejér combination and parity rigidity, not novelty of the elementary techniques."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Found kernel and Cesàro identities; no BV seminorm or integrated error extremizer",
+        "evidence": [
+          "Kernel convolution (1.6), formula (1.7), and Dirichlet link (2.2); published in 2007, initial day not established"
+        ],
+        "identifier_or_url": "https://doi.org/10.15517/rmta.v14i1.283",
+        "material_read": "Entire four-page paper, including Sections 1–2 and its closing polynomial identities and references, available as full text on ResearchGate HTML",
+        "method": "Full-text reading and inspection of kernel formulas (1.5)–(1.7), (2.2)–(2.9)",
+        "title": "A note on Dirichlet and Fejér kernels",
+        "trigger": "The same classical Fejér kernel and exact Fourier expansion"
+      },
+      {
+        "assessment": "Different finite-element construction; no Fejér harmonic mean or sharp BV-L1 norm",
+        "evidence": [
+          "arXiv first posted 2012-11-05; equation (TVD) and introduction §§1–3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1211.1069",
+        "material_read": "arXiv HTML introduction, TVD property and approximation program in Sections 1–3",
+        "method": "Read source text and compared definitions of Q1 interpolation and variation",
+        "title": "A Total Variation Diminishing Interpolation Operator and Applications",
+        "trigger": "Dated archival source motivating quantitative BV approximation by positive/smoothing operators"
+      },
+      {
+        "assessment": "Its Markov contraction coefficient is for oscillation, not approximation-error BV semivariation",
+        "evidence": [
+          "Theorem 1.1 and the stochastic matrix coefficient in Introduction §§1.1–1.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1302.5226",
+        "material_read": "arXiv HTML Sections 1–3, Theorem 1.1 and definition of Hopf oscillation seminorm",
+        "method": "Statement and domain comparison with BV-to-L1 norm of T-I",
+        "title": "Dobrushin ergodicity coefficient for Markov operators on cones, and beyond",
+        "trigger": "Possible dominating general Markov-operator norm theorem"
+      },
+      {
+        "assessment": "Optimizes discrete quadratic derivative smoothing; not fixed Fejér BV integrated error",
+        "evidence": [
+          "Theorems 1–2, discrete ℓ2 first/second difference bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.13700",
+        "material_read": "arXiv HTML introduction, main Theorems 1–2 and proof identifying the triangular discrete averaging kernel",
+        "method": "Read principal statements and Fourier kernel comparison",
+        "title": "The smoothest average: Dirichlet, Fejér and Chebyshev",
+        "trigger": "Fejér kernel and possible optimality stronger than the candidate norm"
+      },
+      {
+        "assessment": "Shared arc-crossing technique but Poisson kernel positive at antipode and only binary two-jump family; no Fejér parity classification",
+        "evidence": [
+          "Poisson RESULT.md Step 2 exact second derivative and Step 3 dilogarithmic coefficient"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-exact-optimal-two-jump-poisson-leakage-and-its-logarithmic-bound--5a5f88c645ff",
+        "material_read": "Entire published RESULT.md including finding, assumptions, four proof steps, limitations and references",
+        "method": "Fetched published RESULT.md via public GitHub repository read and compared kernel and parameters",
+        "title": "Exact optimal two-jump Poisson leakage and its logarithmic boundary law",
+        "trigger": "Nearest existing sharp circular positive-kernel L1 leakage theorem"
+      },
+      {
+        "assessment": "Operator T shared; ratio Lip(Tf)/Lip(f), not error (T-I) from BV to L1",
+        "evidence": [
+          "Fejér RESULT.md Step 1 median-of-kernel formula and Step 4 contraction deficit asymptotic"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-the-sharp-lipschitz-contraction-deficit-of-fej-r-means--8aa63d6abf65",
+        "material_read": "Entire published RESULT.md including median proof, asymptotics, limitations and references",
+        "method": "Fetched public RESULT.md via GitHub and compared exact operator norms and extremizers",
+        "title": "The sharp Lipschitz contraction deficit of Fejér means",
+        "trigger": "Same Fejér family but different domain seminorm"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c827300b-de01-453f-aa59-03cfcc6ab50c",
+  "value": {
+    "rationale": "A canonical positive Fourier approximator receives a sharp exact all-degree integrated L1 error budget over discontinuous real BV data and a complete extremizer classification. The different quadratic (odd degree) versus quartic (even degree) stability deficit of nearly semicircular jump pairs is structural and useful for sensitivity to jump location. The signed cubic parity correction resolves a nontrivial refinement of its logarithmic convergence rate. These are precise natural invariants, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}

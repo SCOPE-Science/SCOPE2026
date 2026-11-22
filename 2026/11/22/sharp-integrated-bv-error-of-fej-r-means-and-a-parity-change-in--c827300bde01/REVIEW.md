@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The proof uses an explicitly normalized positive Fejér density. For single arcs it computes the outgoing convolution mass exactly by translation overlap; coarea and connected-component splitting give a global BV inequality and exclude all other equality cases because the kernel is positive almost everywhere. Fourier integration gives the finite odd-harmonic constant, Taylor expansion at the antipode gives the odd/even quadratic-versus-quartic distinction, and Euler–Maclaurin expansions give the parity-dependent cubic term. The independent numerical checker passed 96 integral/Fourier comparisons, 36 local-rigidity checks, 6 asymptotic checks and 240 sampled multijump checks. Numerical checks are not used for universal quantifiers.
+
+## Originality — PASS (best-knowledge, with residual risk)
+The 2007 López-Bonilla–Vidal Beltrán–Yalja Montiel kernel paper was inspected through its full four-page text. It establishes classical kernel identities, not a sharp BV approximation-error norm. The complete relevant results of Nochetto–Salgado (arXiv:1211.1069), Gaubert–Qu (arXiv:1302.5226), and Kravitz–Steinerberger (arXiv:2007.13700) concern respectively TV-diminishing finite-element interpolation, Hopf-oscillation contraction, and discrete quadratic smoothing. The full RESULT.md statements of two nearby published findings were examined: the Poisson two-jump leakage work has a different kernel (positive at the antipode), and the Fejér Lipschitz-contraction theorem measures a different seminorm. Neither includes the fixed-kernel BV-to-\(L^1\) norm together with half-circle equality classification and the even-order fourth-order rigidity/parity asymptotics. Older harmonic-analysis books or unindexed sharp-constant tables may contain an equivalent exact finite sum: searches are not an exhaustive priority certificate.
+
+## Value — PASS
+Periodic Fejér averaging is a canonical positive Fourier approximation process, and BV is the natural discontinuity-tolerant input class. The exact coefficient is a directly usable worst-case error budget; the rigidity theorem identifies all worst inputs; and the quadratic/quartic parity transition shows that near-worst jump placement is much less identifiable at even degrees. The asymptotic parity correction refines the familiar logarithmic approximation rate by two powers of degree, giving a structural rather than a numerical-only observation.
+
+## Closest work and limitations
+The two nearest published findings are *Exact optimal two-jump Poisson leakage and its logarithmic boundary law* (2026-11-01) and *The sharp Lipschitz contraction deficit of Fejér means* (2026-10-26), both distinguished above by operator and norm. The result is restricted to ordinary Fejér kernels on the real one-dimensional periodic BV class with full cyclic variation and unnormalized Lebesgue \(L^1\) error; it does not treat signed Dirichlet kernels or higher-dimensional and nonperiodic transforms. Priority has not been independently verified.
+
+Self-review: passed. Independent audit: not yet performed.
