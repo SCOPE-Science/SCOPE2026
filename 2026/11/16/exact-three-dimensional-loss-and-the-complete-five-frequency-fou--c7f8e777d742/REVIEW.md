@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The statement quantifies over all 3,003 five-element row sets and all 3,003 five-element column sets. Translation-orbit invariance is proved by invertible diagonal scalings. The minimum-polynomial criterion over the integers is exact; testing the largest nonvanishing square minor gives the true complex rank. The standalone certificate independently regenerates the 201 orbits and exactly classifies all 40,401 representative pairs, then restores all 9,018,009 labeled pairs with orbit weights. An independent finite-field lower-bound calculation at primes 31 and 61 agrees on every representative. The rank-two construction and its count are also derived analytically; its converse is established by exhaustive exact ranks. Numerical calculations are corroboration, not substitutes for the finite proof.
+## correctness
 
-**Originality — PASS, with historical priority risk.** The closest publicly accessible order-fifteen rank-incidence result concerns four-by-four, not five-by-five, restrictions. The inspected Caragea–Lee manuscripts concern principal minors of size two and three and a conjecture about larger principal minors, rather than a full five-by-five nonprincipal rank census. Osgood–Siripuram–Wu treat universal sampling with prime-power classifications; Malikiosis–Oussa study full-spark group orbit frames. These results do not logically determine the five-by-five incidence or the precise three-dimensional loss stratum. Delvaux–Van Barel's Fourier-block work may explain subgroup-induced defects, but its full 2007/2008 text was inaccessible; a more general pre-existing classification is a residual risk.
+PASS
 
-**Value — PASS.** Five-frequency interpolation at the first odd composite order with two distinct prime factors is a natural next sampling dimension beyond the known four-frequency census. Exact rank distinguishes full recovery from one-, two- and three-dimensional information loss; merely knowing a minor is singular would conceal the 360 worst-observed patterns. The if-and-only-if coset structure gives a conceptual interpretation, and the exhaustive 201-by-201 table is a reusable finite benchmark for Fourier sampling and exact harmonic uncertainty experiments. It is not a routine recomputation of the four-by-four table, because fifth-order determinants and rank-three losses are not implied by fourth-order rank totals.
+For every two five-subsets of Z/15Z, independent translations preserve Fourier rank by nonzero diagonal factors. All 3003 five-subsets partition into 200 translation orbits of length 15 and one length 3, giving 201x201 cases. Independently recomputed the characteristic-zero ranks from signed determinant polynomials in Z[X]/Phi_15 with Phi_15=X^8-X^7+X^5-X^4+X^3-X+1, checking successively minors 5,4,3,2. Reproduced exact weighted totals (rank 2: 360; rank 3: 24480; rank 4: 880920; rank 5: 8112249), summing to 9,018,009; independent parsed certificate also has these totals and symmetric table. Exactly eight representative pairs have rank 2 and all have the H={0,3,6,9,12} coset/two-residue-class form. The direct analytic construction counts 2*3*60=360 such pairs; hence the observed exhaustive table establishes converse. Rank 1 is excluded because nontrivial row/column difference annihilators of a 15-point character pairing cannot both contain five elements. Exact finite computation suffices because the domain is finite and all classes were exhaustively enumerated.
 
-**Limits.** The contribution is finite and computationally certified. No universal order formula or singular-value bound is claimed. Full historical coverage cannot be guaranteed, especially for older maximal rank-deficiency constructions. Independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: exact five-by-five order-15 rank incidence and its 360 deepest defect cases are not implied by the inspected four-by-four order-15 table or principal-minor theorems. The earlier general Fourier block constructions give some subgroup structure but no full fifth-minor counts in material read. This is not a claim of exhaustive bibliographic priority.
+
+## value
+
+PASS
+
+The natural fixed-order five-frequency interpolation problem for squarefree Z/15Z has a complete, nontrivial exact rank-incidence invariant. The exact counts distinguish recoverability and losses of one, two or three independent modes; subgroup-defect characterization is a reusable structural boundary. Finite classification is mathematically meaningful even without an all-order theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

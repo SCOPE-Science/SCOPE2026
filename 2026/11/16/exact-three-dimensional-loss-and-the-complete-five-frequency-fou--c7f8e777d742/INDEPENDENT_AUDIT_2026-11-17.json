@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T05:51:24Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git tree 0862ce7a97c119856dd3b3379dcf86c03cad7149 / RESULT.md blob ff1790cc75acb9626933170da42cf3e22c51313d",
+        "Git blob ca3738a4f75d89e417c9565afcdc098cb75a1b34 (verify_f15_five.py) inspected",
+        "Git blob fe1be7b7047184aacbb8429f18d2769cdf501d5f (f15_five_incidence.json) parsed full 201x201",
+        "Independent exact cyclotomic determinant enumeration of all 40,401 translation-orbit pairs in check_f15.py"
+      ],
+      "rationale": "For every two five-subsets of Z/15Z, independent translations preserve Fourier rank by nonzero diagonal factors. All 3003 five-subsets partition into 200 translation orbits of length 15 and one length 3, giving 201x201 cases. Independently recomputed the characteristic-zero ranks from signed determinant polynomials in Z[X]/Phi_15 with Phi_15=X^8-X^7+X^5-X^4+X^3-X+1, checking successively minors 5,4,3,2. Reproduced exact weighted totals (rank 2: 360; rank 3: 24480; rank 4: 880920; rank 5: 8112249), summing to 9,018,009; independent parsed certificate also has these totals and symmetric table. Exactly eight representative pairs have rank 2 and all have the H={0,3,6,9,12} coset/two-residue-class form. The direct analytic construction counts 2*3*60=360 such pairs; hence the observed exhaustive table establishes converse. Rank 1 is excluded because nontrivial row/column difference annihilators of a 15-point character pairing cannot both contain five elements. Exact finite computation suffices because the domain is finite and all classes were exhaustively enumerated.",
+      "residual_risks": [
+        "The complete distribution relies on exhaustive integer cyclotomic enumeration rather than a short symbolic closed form; the Python script itself was inspected, and a separate implementation was executed.",
+        "No statement about arbitrary orders, noise conditioning, or asymptotic families is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Delvaux–Van Barel TW477 full accessible parsed report, Introduction and Theorem 14, builds subgroup rank-deficient Kronecker blocks and uncertainty bounds, not a complete count of all 40,401 order-15 five-by-five types.",
+          "Osgood–Siripuram–Wu universal sampling theorem assumes prime-power order; 15 is 3*5.",
+          "Caragea–Lee principal minors do not control all nonprincipal restrictions."
+        ],
+        "reasoning": "The general construction implies special rank-deficient subgroup examples, but the inspected statements do not dominate the complete rank incidence. Historical subgroup implication risk is retained.",
+        "searches": [
+          "Resultary: Fourier rank order 15 principal nonprincipal subgroup tilings",
+          "https://citeseerx.ist.psu.edu/document?doi=8e34019b75494fa56d9b8791527fcaed304a7ff9&repid=rep1&type=pdf",
+          "arxiv:1204.0992"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-complete-rank-incidence-census-for-four-frequency-fourier-sampli--6d1752cd1bea",
+        "https://citeseerx.ist.psu.edu/document?doi=8e34019b75494fa56d9b8791527fcaed304a7ff9&repid=rep1&type=pdf",
+        "https://arxiv.org/html/2409.09793v4",
+        "arxiv:1204.0992",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-complete-fifth-order-fourier-rank-incidence-on-the-twelve-cycle--db3ff8f3dd64"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Caragea–Lee theorem quantifies principal minors up to size three, with broader questions about principal matrices.",
+          "Delvaux–Van Barel rank-one tilings imply some zero patterns but not the stated exact rank 3/4/5 multiplicities in the material inspected.",
+          "Fourier 4x4 ranks do not determine 5x5 ranks (adding one independent row and column can change rank)."
+        ],
+        "reasoning": "Prior statements explain mechanisms but cannot deductively yield full counts at size five without further computation; novelty is the exact finite complete invariant.",
+        "searches": [
+          "Caragea and Lee principal minors Fourier matrices 2024",
+          "https://citeseerx.ist.psu.edu/document?doi=8e34019b75494fa56d9b8791527fcaed304a7ff9&repid=rep1&type=pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-complete-rank-incidence-census-for-four-frequency-fourier-sampli--6d1752cd1bea"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fourier five-frequency recovery equals nonprincipal fifth-order Fourier minor rank census. https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-complete-rank-incidence-census-for-four-frequency-fourier-sampli--6d1752cd1bea treats only four-subsets and has 18 affine orbits; current has 201 translation orbits of five-subsets.",
+          "Caragea–Lee arXiv:2409.09793v4 establishes principal 2x2 and 3x3 nonvanishing, not every independent row/column five-subset."
+        ],
+        "reasoning": "Mathematical equivalence to five-frequency interpolation-kernel classification was explicitly checked; the nearest same-order published table is a different sample size, not a relabeling of these ranks.",
+        "searches": [
+          "Resultary: finite Fourier matrix order 15 five by five rank incidence rank two cosets exact rank distribution",
+          "Resultary: five-by-five Fourier submatrix order 15 full rank classification squarefree 3 5",
+          "https://arxiv.org/html/2409.09793v4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published 2026-11-01 four-by-four order-15 table counts 4,500 rank-two and 161,100 rank-three (total 1,863,225), different matrix size.",
+          "Published 2026-11-16 five-by-five order-12 table uses a distinct group/order."
+        ],
+        "reasoning": "Neither table supplies the 201x201 fifth-order order-15 incidence matrix. Distinct N or sample size is substantive rather than terminological.",
+        "searches": [
+          "Resultary: finite Fourier matrix order 15 five by five rank incidence rank two cosets exact rank distribution",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-complete-rank-incidence-census-for-four-frequency-fourier-sampli--6d1752cd1bea",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-complete-fifth-order-fourier-rank-incidence-on-the-twelve-cycle--db3ff8f3dd64"
+        ]
+      },
+      "rationale": "Best-of-knowledge: exact five-by-five order-15 rank incidence and its 360 deepest defect cases are not implied by the inspected four-by-four order-15 table or principal-minor theorems. The earlier general Fourier block constructions give some subgroup structure but no full fifth-minor counts in material read. This is not a claim of exhaustive bibliographic priority.",
+      "residual_risks": [
+        "Equivalent historical five-by-five tables under different invariants may not be indexed.",
+        "Published 2007/2008 Delvaux–Van Barel journal versions have not been visually checked; nearby technical report is available only as parsed text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the 5x5 classification: explicitly restricts to four distinct rows and columns.",
+          "evidence": "Its 1,863,225 ordered pairs are C(15,4)^2, not current C(15,5)^2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-complete-rank-incidence-census-for-four-frequency-fourier-sampli--6d1752cd1bea",
+          "material_read": "Complete RESULT.md theorem, 18 affine orbits, proof and limitations",
+          "method": "Authorized read-only full file retrieval",
+          "title": "Complete rank-incidence census for four-frequency Fourier sampling on the cyclic group of order fifteen",
+          "trigger": "Same ambient Fourier matrix; potential full prior table"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE for subgroup construction, no inspected fifth-order 201x201 table; visual page unavailable.",
+          "evidence": "Theorem 14 characterizes a family of rank-one block tilings; does not enumerate all five-subset pair ranks.",
+          "identifier_or_url": "https://citeseerx.ist.psu.edu/document?doi=8e34019b75494fa56d9b8791527fcaed304a7ff9&repid=rep1&type=pdf",
+          "material_read": "Accessible parsed technical-report text: sections 1–4, definitions, general construction and subgroup tiling theorem; page screenshot attempt returned HTTP 403",
+          "method": "Lawfully posted 2006 KU Leuven report, text extraction; not visual PDF inspection",
+          "title": "Rank-deficient submatrices of Kronecker products of Fourier matrices",
+          "trigger": "Possible general stronger theorem deriving all subgroup defects"
+        },
+        {
+          "assessment": "NOT_COVERING all nonprincipal fifth-order restrictions",
+          "evidence": "R=C in the prior principal theorem, and proved low-order sizes 2/3 are not present 5x5 independent R,C.",
+          "identifier_or_url": "https://arxiv.org/html/2409.09793v4",
+          "material_read": "Accessible arXiv HTML: introduction, Theorems 1.1/1.2 and scope of principal-minor conjecture",
+          "method": "Read open primary HTML and compared quantifiers",
+          "title": "On the principal minors of Fourier matrices",
+          "trigger": "Squarefree Fourier minors and potential fifth-order theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-complete-rank-incidence-census-for-four-frequency-fourier-sampli--6d1752cd1bea",
+        "Independent cyclotomic 201x201 enumeration"
+      ],
+      "rationale": "The natural fixed-order five-frequency interpolation problem for squarefree Z/15Z has a complete, nontrivial exact rank-incidence invariant. The exact counts distinguish recoverability and losses of one, two or three independent modes; subgroup-defect characterization is a reusable structural boundary. Finite classification is mathematically meaningful even without an all-order theorem.",
+      "residual_risks": [
+        "Only one order and five-frequency sample size are addressed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite closed census, not an all-order Fourier full-spark criterion."
+  ],
+  "schema_version": 1
+}
