@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The proof fixes the signed combinatorial Laplacian and spectral normalization, checks positive semidefiniteness on the orthocomplement of constants, gives a correct path Jacobi resolvent via continuants, and obtains an exact signed endpoint resolvent from Sherman--Morrison. Strict endpoint ordering at every resolvent scale implies the endpoint fractional-power entry governs all off-diagonal signs. A single Chebyshev sign change makes the positive/negative integral ratio strictly monotone; zero- and first-order spectral limits force its unique crossing. The Metzler irreducibility criterion, short-time series and spectral-gap limit establish the claimed if-and-only-if in time. The derivative and boundary limits are independently justified, not extrapolated from finite experiments. Reproducible exact-rational and numerical diagnostics returned `VERIFICATION_OK rational=1548 spectral=4761 total=6309`.
+
+## Originality — PASS, with historical-priority limitation
+Chen et al. (2020), §IV-B and Theorem 6, already give the resistance test for a stable negative edge and the eventual positivity of the ordinary heat; neither gives the fractional threshold. Benzi--Simunec (2021), §3, establish fractional diffusion for singular \(M\)-matrices, excluding a Laplacian with a positive off-diagonal entry. Bianchi et al. (2021) study ordinary nonlocal random walks; only their abstract was accessible, so no full-text noncoverage is asserted. Published unsigned complete multipartite fractional-heat work concerns a different graph family and order-one transition. Previous complete-network signed-block classification encompasses the triangle case, so the asserted new theorem starts at four vertices; path-closure cycles then have missing edges. Search results from mathematical research records and literature do not establish an equivalent or stronger signed-cycle theorem; unindexed historical equivalents remain possible.
+
+## Mathematical value — PASS
+A single antagonistic edge of a signed cycle is a canonical minimally frustrated diffusion model. The stable network has eventual positivity but lacks a positive ordinary heat semigroup. The theorem provides a complete, nontrivial all-time Markov restoration phase diagram for every length and every stable negative conductance, with a strict parameter-order law and an explicit exact one-dimensional threshold. Its resolvent comparison is structural and potentially useful for other rank-one perturbed diffusion systems; it is not a fixed numerical example or a generic matrix-power deduction.
+
+## Scientific limitations
+No elementary closed form for the exponent, no exact last-negative-entry time above threshold, and no claimed extension to variable path conductances or multiple antagonistic edges. There is no independent mathematical audit; computational tests supplement rather than certify the proof. The complete Bianchi et al. text was inaccessible, so historical-priority assessment retains that bounded risk.
+
+Self-review: passed. Independent audit: not yet performed.
