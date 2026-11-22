@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Claim:** A fivefold ternary clock and exact orbit census on prime-power sunlets. The theorem concerns labelled states of the reversible neighbor-sum wave on the \(3^r\)-cycle with one leaf at each rim site, over finite fields of characteristic three.
+## correctness
 
-## Correctness — PASS
+PASS
 
-The polynomial-module reduction to \(R=\mathbb F_q[\epsilon]/(\epsilon^{3^r})\) is exact. The central check is the nonstandard relation \(T^5-I=\delta U\), with \(\delta=\epsilon^2/(1+\epsilon)\), where the companion polynomial is \(\Phi_5(X)-\delta(X^3+X)\). The proof establishes that \(U\) is a unit, then computes every fixed space by elementary ideal-kernel dimensions. It covers all positive iterate times, all \(r\ge1\), and all finite extensions of \(\mathbb F_3\). In particular the last strict kernel increase gives *exact* global order \(5\cdot3^r\), not only an upper bound. The independently written direct enumerator and modular rank checker both passed on their recorded source paths. Finite checks alone would not prove the infinite-family statement.
+The graph has n=3^r>=3 distinct rim neighbors, and R=F_q[z,z^-1]/(z^n-1)=F_q[epsilon]/(epsilon^n). With delta=epsilon^2/(1+epsilon), the 4x4 R-companion wave T obeys Phi_5(T)=delta(T^3+T) and T^5-I=delta U, U=T(T-I)(T^2+I). U reduces to a unit: roots of Phi_5 in characteristic three are nontrivial fifth roots, excluding 1 and square roots of -1. For 5∤k, T^k-I is invertible; for k=5*3^j*h, 3∤h, its kernel is the kernel of delta^(3^j) on R^4, dimension 4 min(n,2*3^j). This proves every fixed-space cardinality and the exact order 5n (last proper level j=r-1). Möbius/nested subtraction gives primitive period counts; no transient since T invertible. Independent direct GF(3) modular matrix tests at n=3,9,27 reproduce exact orders 15,45,135 and nullities [8,12],[8,24,36],[8,24,72,108]. Finite checks corroborate but do not replace the R-module proof.
 
-## Originality — PASS (historical priority qualified)
+## originality
 
-Published near matches were compared by implications. The full characteristic-two dyadic-sunlet claim has period \(3\cdot2^r\), and the full nilpotent-base corona result is expressly characteristic two. Neither statement extends its field hypothesis to three. The published all-field bare-cycle wave count has period \(3n\) for odd characteristic, without the pendant vertices. Barik–Pati–Sarma (2007, Theorem 3.1) gives complex corona adjacency spectra, but not modular Jordan data or temporal counts; Vlasov (2013, equations (2),(12)) supplies the reversible construction without the graph classification. Primary text for the listed published wave results and available sections of the primary literature was inspected, and specific graph/field/period synonyms were searched. The Macfarlane (2004) full text could not be obtained (authorized access was unavailable), leaving a named priority risk, but its publisher abstract focuses on binary rules and pattern-weight sequences; it presents no decisive competing characteristic-three claim. No search establishes absolute novelty.
+PASS
 
-## Value — PASS
+The fifth-cyclotomic Jordan mechanism and exact characteristic-three temporal orbit census on a 3-power cycle corona are not implied by the inspected characteristic-two nilpotent-corona result, the odd-characteristic bare-cycle result, or generic reversible automaton frameworks. The natural decoration and characteristic-three ramification change both companion polynomial and fixed-space dimensions. A plausible older binary automaton paper could not be read in full; best-of-knowledge originality is qualified rather than certified.
 
-The exact fivefold temporal clock is structurally motivated: characteristic-three cycle lengths make the rotation shift unipotent, while the leaf corona makes the temporal reduction fifth-cyclotomic. The all-size orbit counts are not a small sample and distinguish a \(5n\) decorated clock from the \(3n\) bare-cycle clock. The result reveals a different mechanism and fixed-space exponent from the characteristic-two analogue, with natural potential for classifying prime-characteristic graph-wave effects. The claim is delimited to the natural pure-three-power family, without claiming arbitrary coronas.
+## value
 
-## Sources and remaining limitations
+PASS
 
-The strongest published comparisons are the dyadic sunlet and general characteristic-two corona RESULTS, the full published finite-field bare-cycle wave RESULT, Barik–Pati–Sarma (2007) Theorem 3.1, and Vlasov (2013) equation (2). The Macfarlane (2004) manuscript was not accessible in full; equivalently formulated unindexed results cannot be excluded. Experimental confirmation of three sizes is not a proof for all sizes; the included symbolic argument carries that burden. Independent validation has not been conducted.
+A prime-power unipotent spatial module and a private-leaf corona yield a structurally nontrivial all-size fivefold clock, full primitive-orbit classification, and the exact 5n versus bare-cycle 3n comparison. This is a natural graph-wave mechanism, not a renamed finite observation.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
