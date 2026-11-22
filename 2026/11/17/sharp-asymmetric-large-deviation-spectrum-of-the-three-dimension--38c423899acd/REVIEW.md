@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The monomial Jacobian factorization reduces the singular values to a cyclic three-state occupation process. The tilted transition matrix has the exact Perron characteristic equation \((2\lambda-u)(2\lambda-1)^2=u\); the strictly monotone parameter \(x(y)\) and the finite-state large-deviation principle establish the claimed rate for every interior threshold. Polynomial sign comparisons give the strict, opposite-side inequalities against independent box counts. Exact integer and rational checks corroborate the critical finite algebra; they do not substitute for the infinite-time proof.
+## correctness
 
-## Originality
-PASS on the literature examined. The founding full text establishes the map, coding and periodic-orbit properties but not the stated rare-event tail classification. The closest full published follow-up results already give the cyclic occupation reduction and Gaussian statistics, and are expressly credited; their conclusions do not determine the asymmetric non-Gaussian rate or the strict comparison. Standard finite-state Markov large deviations may provide a general framework that covers the construction abstractly. The residual risk is an equivalent published specialization or a rate formula elsewhere not located by searches; this is not an independent priority certificate.
+PASS
 
-## Mathematical value
-PASS. The natural question whether the known multinomial-like Gaussian fluctuations actually capture rare expansion events has an exact and surprising negative answer, with opposite exponential discrepancies on the two sides of the mean. The full continuous rate and two sharp inequalities give a usable quantitative distinction between Gaussian-scale universality and large-deviation memory. The result does not claim wider dimensions or finite-time probability ordering.
+Products of the two signed monomial branch Jacobians place 2^Cj on the three singular axes; equal-measure branches give a lazy clockwise 3-state random-walk occupation law. The tilted matrix D_u(I+S)/2 has determinant equation (2λ-u)(2λ-1)^2=u; for u>0 its Perron root is simple, positive and analytic. Setting y=2λ-1 gives u=y²(1+y)/(1+y²), λ=(1+y)/2 and x=d log λ/d log u=y(1+y²)/(y³+3y+2), with strictly positive derivative and endpoint range (0,1). The finite-state additive LDP then yields I(x)=x log u - log λ; union bounding the three coordinate events gives the largest/least singular-value tails. Finite-prefix boundary path estimates give I(0)=I(1)=log2, not inferred from finite simulations. The polynomial benchmark identity f_u((u+2)/3)=-4(u-1)^3/27 and Perron monotonicity prove strict comparison of tilted pressures; variational arguments transfer to strict left/right rate ordering. Independently symbolically checked cubic, Legendre derivative and benchmark factor, plus numerical sign at four tilts. The Gaussian covariance equality is an acknowledged prior fact.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS after inspecting the frozen proof, searching mathematical aliases/general implications, comparing related primary theorems and published results at statement-level. The contribution is the specific final claim, not its openly credited combinatorial, signal-processing or probabilistic prerequisites. Inaccessible or less-indexed literature remains explicitly a residual risk.
+
+## value
+
+PASS
+
+The exact map-specific non-Gaussian rate of rare finite-time expansion/underexpansion, and proof that iid-box approximation is asymmetrically wrong on opposite tails, make a useful rare-event invariant not inferable from CLT and relevant to finite-time hyperbolicity diagnostics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
