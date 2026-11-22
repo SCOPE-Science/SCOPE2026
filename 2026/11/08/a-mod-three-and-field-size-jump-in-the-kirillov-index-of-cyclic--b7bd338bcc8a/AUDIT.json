@@ -1,136 +1,183 @@
 {
   "correctness": {
-    "rationale": "Using the exact cycle Lie brackets, the Kirillov form has a 2n-dimensional alternating block with off-diagonal n-by-n mixed matrix D. It is invertible exactly if D is invertible; if D is singular the alternating rank is at most 2n-2. Its support graph splits into gcd(n,3) bipartite cycles, giving determinant zero when 3 does not divide n and a product of three residue-class product differences when 3 divides n; C3 is proved separately. Explicit t choices realize full D rank over fields with more than two elements at divisible lengths, and corank one in all remaining cases including F2. Counting triples of pairwise distinct block products proves the exact finite-field count. The checker verifies 64 witnesses, 6419 exhaustive central assignments and 12730 full noncentral cases; finite checks are not treated as infinite proof.",
+    "evidence": [
+      "Source RESULT.md full proof read; original bracket presentation checked against Gallo–Videla Sections 2–4, including triangle Example 2.3 and cycle paragraph on page 9.",
+      "Independent sympy determinant identities checked at n=3,4,5,6,7,8,9; n=3 triangle handled separately; unit-weight D ranks checked at all seven lengths.",
+      "Independent finite-field product-fiber counts checked at q=2,3,5,7 and m=1,2,3, plus full mixed-rank enumeration over F4 at n=3 and 6 (24 and 1296 central assignments).",
+      "Independent Git-tree SHA assembled from all eight verified Git blob identities and matched the assigned record tree b3db585022ac37f08b4065202bb3ad33e11ca5e2."
+    ],
+    "rationale": "Independently reconstructed the three-step Gallo–Videla bracket presentation, including the separate triangle C3 and the all-characteristic alternating Kirillov block on V⊕A with central W. For n≥4, D_{i,i+1}=t_i and D_{i+2,i}=−t_i. Its bipartite support separates into gcd(n,3) cycles. When 3∤n the two full matching monomials coincide, so det D=0 identically; when n=3m its determinant is ±(P0−P1)(P1−P2)(P2−P0), with Pj the products of the m coordinates of residue class j. The triangle mixed block is monomial-diagonal with the three pairwise t differences. Invertible D gives Kirillov rank 2n; otherwise the alternating 2n block has rank at most 2n−2, and explicit rank-(n−1) D witnesses attain 2n−2 even in characteristic two. Thus index n occurs exactly for 3|n, |k|>2; otherwise n+2. The independent product-fiber counting argument gives A=q^m−(q−1)^m, B=(q−1)^(m−1) and the stated 3(q−1)(q−2)AB²+(q−1)(q−2)(q−3)B³ central-coefficient count, times q^(2n) arbitrary noncentral coefficients.",
+    "residual_risks": [
+      "Finite determinant tests and enumerations corroborate the written universal determinant and counting proofs, but cannot by themselves prove all n or fields.",
+      "No independent formal proof assistant verification was performed; the rank decomposition is reviewed mathematically."
+    ],
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "The graph index formula in Burde--Dekimpe 2025 uses the matching number for Dani--Mainkar class-two algebras, not the three-step Gallo--Videla algebra.",
-        "Earlier classes of class-three graph Lie algebras treated via paths or complete bipartite graphs do not cover all cycles."
+        "Burde–Dekimpe Proposition 4.4 is explicitly for the class-two algebra V⊕Λ²(V)/relations with central edges, with index |V|+|E|−2ν(G).",
+        "Their Theorem 3.4 treats the free class-three algebra F_{g,3}, not its graph-defined quotient.",
+        "The complete-bipartite three-step theorem includes only C4 among simple cycles of the Cn family."
       ],
-      "reasoning": "Both the brackets and center dimensions differ between the two-step and three-step constructions. A general graph-matching formula for one family does not imply the cyclic three-step result. The complete bipartite K2,2 special case does not dominate the full cycle statement.",
+      "reasoning": "Neither the class-two matching invariant nor a free-algebra index automatically gives the index of this non-free three-step graph quotient, including the field-cardinality exception and full-rank functional count.",
       "searches": [
-        "nilpotent Lie algebra from cycles C_n graph class three index maximal rank Kirillov form",
-        "rank deficiency coadjoint Kirillov graph nilpotent cycle Lie algebra 3 step Gallo Videla",
-        "Burde Dekimpe index graphical Lie algebra graph two step 2006 arxiv",
-        "index of Lie algebra associated graph Dani Mainkar graph Lie algebra Kirillov explicit"
+        "Burde–Dekimpe arXiv:2505.08331v1, Sections 3–5",
+        "Resultary: index of class three graph Lie algebras complete bipartite cycles paths and maximal rank alternating Kirillov form",
+        "Resultary: nilpotent Lie algebra index cyclic graph graph based generalized coadjoint orbit count finite fields"
       ]
     },
     "checked_sources": [
-      "Gallo and Videla, arXiv:2610.33963v1, 2026-10-25, entire accessible HTML preprint",
-      "Burde and Dekimpe, arXiv:2505.08331, 2025-05-13, index of nilpotent Lie algebras, especially Sections 3-5",
-      "Previous complete-bipartite class-three Kirillov-index statement, opaque ID fbb6201d-985d-41eb-af9d-30e4177b6b97",
-      "Previous path class-three Kirillov-index statement, opaque ID 178f5941-8846-4ff4-b58f-3a01fe4d77ea",
-      "Public research record on cycle graphical groups and character-degree enumeration (two-step, not the Gallo--Videla algebra)"
+      "Gallo and Videla, arXiv:2610.33963v1 (2026-10-25), source PDF and rendered pages",
+      "Burde and Dekimpe, arXiv:2505.08331v1 (2025-05-13), HTML; Journal of Lie Theory 36 (2026), 447–463",
+      "Resultary semantic search (three queries) for cyclic three-step index, matching and coadjoint rank",
+      "Resultary full RESULTS for complete-bipartite, paths and once-subdivided stars",
+      "Searches on Gallo–Videla index, three-step cycle rank, finite-field full rank counts (2026-11-18 UTC)"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "arxiv:2610.33963v1 gives the three-step cyclic brackets and center but no index.",
-        "arxiv:2505.08331 proves a graph matching index only for the two-step case.",
-        "The previously recorded complete-bipartite index result fbb6201d-985d-41eb-af9d-30e4177b6b97 includes the special case C4=K2,2.",
-        "The path result 178f5941-8846-4ff4-b58f-3a01fe4d77ea applies to P_n, not C_n."
+        "C4=K2,2: the earlier complete-bipartite result gives index 6; this is exactly the n+2 specialization for n=4, so that isolated case is covered.",
+        "Path Pn yields index n−1 and a stabilizer residue-class pattern, but Pn≠Cn and its vertex-edge matrix is rectangular.",
+        "Gallo–Videla defines the class-three objects and centers, with no rank/count theorem; Burde–Dekimpe treats different brackets."
       ],
-      "reasoning": "The C4 index value is explicitly acknowledged as previously covered and is not asserted to be a distinct new result. For n=3 and n>=5, neither the complete-bipartite specialization nor the path theorem implies the cyclic determinant criterion. The functional enumerator for every n divisible by three also goes beyond those prior claims.",
+      "reasoning": "Explicitly credit the C4 special case and the shared bracket construction. No reviewed prior statement logically implies the infinite-cycle field-size threshold or exact full-rank-functional count.",
       "searches": [
-        "three step nilpotent graph Lie algebras associated to cycles C_n Kirillov index rank coadjoint orbits Gallo Videla",
-        "nilpotent Lie algebra from cycles C_n graph class three index maximal rank Kirillov form",
-        "Burde Dekimpe index graphical Lie algebra graph two step 2006 arxiv",
-        "\"Kirillov index\" \"cyclic\" \"three-step nilpotent\" graph"
+        "Gallo–Videla arXiv:2610.33963v1, complete text, Section 3 cycle case",
+        "Resultary full RESULT: Kirillov index of the three-step graph Lie algebras of complete bipartite graphs",
+        "Resultary full RESULT: Kirillov index and mod-three stabilizers of three-step path Lie algebras",
+        "Burde–Dekimpe arXiv:2505.08331v1, Section 4"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "arxiv:2610.33963v1, Section 3 states brackets for C_n but no index; Sections 2,4 describe dimension and center.",
-        "arxiv:2505.08331, Section 4 studies a two-step Lie algebra on vertices and edges only."
+        "The asserted index is equivalent to invertibility of a cyclic vertex-edge Kirillov mixed block and, for n=3m, three pairwise distinct residue-class products.",
+        "The original Gallo–Videla cycle presentation on p. 9 gives the bracket and center, not this determinant or coadjoint rank.",
+        "Other exact cycle Lie-algebra search results concern two-step weighted-adjacency Kirillov forms."
       ],
-      "reasoning": "The new index formula is equivalent to a mixed Kirillov-block determinant criterion and, when 3 divides n, to pairwise inequality of three residue-class products. No identified result provides this equivalence for the Gallo--Videla three-step cycle algebra.",
+      "reasoning": "Compared both the determinant/rank formulation and minimal-stabilizer formulation; the matching formulas for class-two graph algebras are not equivalent to the present three-step cyclic mixed block.",
       "searches": [
-        "three step nilpotent graph Lie algebras associated to cycles C_n Kirillov index rank coadjoint orbits Gallo Videla",
-        "index of three step graph Lie algebra for cycle graph C_n coadjoint Kirillov characteristic two residue 3",
-        "cyclic 3-step nilpotent Lie algebras index cycle quiver and field size two",
-        "\"index\" \"cycle\" \"three-step\" \"graph\" \"Lie algebra\"",
-        "\"Kirillov\" \"cyclic\" \"Lie algebra\" index field order 2 3"
+        "Resultary: Kirillov index three-step nilpotent Lie algebra from cycle graphs C_n of Gallo Videla field size two modular 3 and full rank coadjoint forms",
+        "Web: Gallo Videla Kirillov cycle index 2026",
+        "Web: three-step cycle Lie algebra index 2026",
+        "Gallo–Videla arXiv:2610.33963v1"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "A closely ranked public record on character degrees of two-step cycle graphical groups treats a different algebra.",
-        "No matching exact count of full-rank Kirillov functionals for this three-step family was found in the checked sources."
+        "Resultary returns same assigned cycle record and related path, K2,2, subdivided star, two-step cycle graphical group and finite-field rank-distribution records.",
+        "The nearby two-step cycle character-degree enumeration addresses alternating weighted-adjacency matrices rather than the present vertex–edge block.",
+        "No directly dominating all-n, all-q exact functional count was located."
       ],
-      "reasoning": "No exact indexed table or database result covering the parameter tuple (cycle length, field size, mixed Kirillov rank) was identified. This negative search is not proof that no unindexed table exists.",
+      "reasoning": "The sought object/invariant tuple is (Gallo–Videla three-step Cn, q, minimal Kirillov radical). Searched existing exact databases and related families, while retaining the possibility of an unindexed table or differently phrased source.",
       "searches": [
-        "Heisenberg graph Lie algebras centralizer coadjoint orbit cycles",
-        "exact determinant three products cycle Lie algebra Kirillov matrix degree three",
-        "Kirillov index Gallo Videla graph Lie algebra cycle C_n coadjoint 2026",
-        "\"Gallo\" \"Videla\" \"index\" Lie graph cycles",
-        "\"Kirillov index\" \"cyclic\" \"three-step nilpotent\" graph"
+        "Resultary semantic searches: Kirillov index cycle Gallo Videla modular 3 field-size jump",
+        "Resultary: finite-field coadjoint orbit and adjoint rank graphical cycle algebras",
+        "Web: cycle graph Lie algebra Kirillov rank three step exact finite field count n 3 2026"
       ]
     },
-    "rationale": "The primary 2026 construction contains cyclic graph brackets and center dimensions but not a Kirillov index or central-radical enumerator. The closest 2025 graph index theorem applies to the distinct Dani--Mainkar two-step algebra. Existing complete-bipartite work covers the special case C4=K2,2, not the infinitely many other cycle lengths or the finite-field functional enumeration. Searches for aliases, coadjoint rank, and cyclic three-step constructions did not reveal a dominating theorem. This is a best-knowledge assessment, not uniqueness certification.",
+    "rationale": "Best-of-knowledge original for the all-cycle mod-three and field-cardinality index classification and finite-field central-radical functional enumerator. The defining source computes brackets, dimensions, centers and structural isomorphisms but no Kirillov index. The existing complete-bipartite three-step computation covers the C4=K2,2 index only, not all n or the functional counts. Results on paths and subdivided stars cover non-isomorphic graphs and have other mixed-block patterns. Burde–Dekimpe’s graph matching formula applies to the two-step Dani–Mainkar algebra; its free class-three result is not a quotient index theorem for the Gallo–Videla cycle family. No dominating result was found in targeted primary, Resultary or alias searches; absence from a search is not proof of priority.",
     "residual_risks": [
-      "Historical priority cannot be proved by unsuccessful searches; an unindexed or differently named cyclic three-layer Lie-index calculation may exist.",
-      "The previously known K2,2 index is a covered special case; no independent claim of novelty is made for that instance.",
-      "This is a same-model review, not independent mathematical validation."
+      "An unindexed equivalent cyclic three-step Lie index computation or prior unpublished work may exist; search absence does not establish global priority.",
+      "The known C4=K2,2 index six is covered, not separately novel.",
+      "Finite-field full-rank counts enumerate dual functionals, not group coadjoint orbits or character degrees."
     ],
     "source_inspections": [
       {
-        "assessment": "SOURCE_DEFINES_OBJECT_BUT_NOT_COVERING_INDEX_OR_ENUMERATOR",
+        "assessment": "Defines algebra and center but no index/determinant/cyclic functional enumerator.",
         "evidence": [
-          "Section 3 states [x_i,a_{i+1}]=[a_i,x_{i+2}]=w_i and dimension 3n, center dimension n.",
-          "Sections 2 and 4 treat class, center, and graph isomorphism, not Kirillov or coadjoint rank; no index result in the examined complete text."
+          "Example 2.3 gives [v1,a23]=w123−w132 and analogous triangle brackets; Section 3 gives [xi,a(i+1)]=[ai,x(i+2)]=wi, dim 3n and center W for n≥4.",
+          "Section 4 Lemma 4.4 confirms center W for all connected graphs with at least three vertices; Sections 5–6 address tensor quotients and balanced blow-ups."
         ],
-        "identifier_or_url": "https://arxiv.org/html/2610.33963v1",
-        "material_read": "Full HTML preprint, with Sections 2, 3 (Cycles), 4 (center and isomorphism), 5 (tensor description), 6 (blow-ups), and references inspected",
-        "method": "Full-text primary reading and explicit comparison of theorem statements and bracket formulas",
+        "identifier_or_url": "https://arxiv.org/abs/2610.33963 (v1, 2026-10-25); https://borowiecki.dev/pdf/2610.33963",
+        "material_read": "Accessible 17-page PDF text scanned across Sections 1–6; the construction and triangle brackets (pp.3–5), cycle paragraph (p.9), center and isomorphism section, tensor theorem and blow-up theorems checked; original page images inspected on pp.1,3–4,6,8–9.",
+        "method": "Primary text and rendered-page mathematical comparison",
         "title": "Nilpotent Lie algebras of nilpotence class at most three via graphs",
-        "trigger": "Exact defining brackets and treatment of the cycle family"
+        "trigger": "Original definition and cycle/triangle brackets, plausible dominating primary source"
       },
       {
-        "assessment": "DOES_NOT_COVER_DISTINCT_CLASS_THREE_CYCLE_ALGEBRAS",
+        "assessment": "Graph theorem concerns two-step Dani–Mainkar algebras; free class-three theorem is not a universal graph quotient formula.",
         "evidence": [
-          "Section 4 explicitly defines the graphical Lie algebra to be two-step and computes its index via maximum matchings.",
-          "Section 3 treats free-nilpotent class-three algebras, not the Gallo--Videla graph quotient."
+          "Section 4 defines W central and [g,[g,g]]=0, then index |V|+|E|−2ν(G).",
+          "Section 3 Theorem 3.4 computes F_{g,3}; neither theorem implies the special Gallo–Videla cyclic quotient."
         ],
-        "identifier_or_url": "https://arxiv.org/abs/2505.08331",
-        "material_read": "Introduction; Sections 3, 4 and 5 in the accessible complete arXiv HTML text",
-        "method": "Direct comparison of definitions, bracket nilpotency class, hypotheses and results",
+        "identifier_or_url": "https://arxiv.org/html/2505.08331v1 ; https://doi.org/10.5802/jolt.1435",
+        "material_read": "Full arXiv HTML consulted; definitions in Section 2, free class-three Theorem 3.4, Section 4 graph construction and Proposition 4.4, and adjacent Section 5 comparison read.",
+        "method": "Read primary theorem statements, constructions and hypotheses",
         "title": "The index of nilpotent Lie algebras",
-        "trigger": "Possible broad index theorem for all graph Lie algebras"
+        "trigger": "Potentially broader generic graph Lie index theorem"
       },
       {
-        "assessment": "COVERS_C4_INDEX_ONLY_NOT_THE_REMAINING_CYCLE_FAMILY",
+        "assessment": "Covers the n=4 index 6 but no n≥5 cycle index or finite-field full-rank count.",
         "evidence": [
-          "The earlier claim gives index six for K2,2=C4 and treats complete bipartite K_{a,b}, a,b>=2."
+          "Exceptional case (a,b)=(2,2) has rank six and index six; all other complete bipartite graphs are not cycles."
         ],
-        "identifier_or_url": "fbb6201d-985d-41eb-af9d-30e4177b6b97",
-        "material_read": "Recoverable prior claim and parameter scope",
-        "method": "Direct special-case implication check",
-        "title": "Earlier complete-bipartite class-three Kirillov-index calculation",
-        "trigger": "C4 is isomorphic as a graph to K2,2"
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-kirillov-index-of-the-three-step-graph-lie-algebras-of-complete--fbb6201d985d",
+        "material_read": "Full RESULT.md including theorem, assumptions, proof, and special K2,2 determinant.",
+        "method": "Direct mathematical specialization and implication comparison",
+        "title": "Kirillov index of the three-step graph Lie algebras of complete bipartite graphs",
+        "trigger": "Strongest directly overlapping same-construction result via C4=K2,2"
       },
       {
-        "assessment": "NOT_COVERING_CYCLES",
+        "assessment": "Does not cover cycle index or finite-field cyclic enumerator.",
         "evidence": [
-          "The earlier statement assumes a path P_n; the present statement concerns cycles C_n and adds the field-size exception and exact functional counts."
+          "Index n−1 for Pn; vertex-edge D is n×(n−1), unlike the cyclic square D."
         ],
-        "identifier_or_url": "178f5941-8846-4ff4-b58f-3a01fe4d77ea",
-        "material_read": "Recoverable prior claim and graph-domain hypotheses",
-        "method": "Graph-class and statement-implication comparison",
-        "title": "Earlier path class-three Kirillov-index calculation",
-        "trigger": "Same source family and shared step-three recurrence"
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-kirillov-index-and-mod-three-stabilizers-of-three-step-path-lie--178f59418846",
+        "material_read": "Full RESULT.md including proof, source comparison and assumptions.",
+        "method": "Compare rectangular path mixed matrix, boundary equations and cycle closure",
+        "title": "Kirillov index and mod-three stabilizers of three-step path Lie algebras",
+        "trigger": "Same three-step graph family, mod-three behavior and closely related recurrence"
+      },
+      {
+        "assessment": "Tree-only statement, not cycles and not their exact functional count.",
+        "evidence": [
+          "Subdivided-star index is m(m+1)/2+2ceil(m/2)−1, using a different rectangular mixed block."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-kirillov-index-of-once-subdivided-star-graph-lie-algebras-over-e--ca44818f55a4",
+        "material_read": "Full RESULT.md theorem, hypotheses, proof and limitations.",
+        "method": "Compare graph family, matrix rank and invariant",
+        "title": "Kirillov index of once-subdivided star graph Lie algebras over every field",
+        "trigger": "Same class-three algebra and rank-block technique, possible broad graph coverage"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
+  "prior_scientific_assessment": {
+    "context": "Preexisting mathematical assessment retained as scientific evidence; it is distinct from the present independently reconstructed review.",
+    "correctness": {
+      "rationale": "Using the exact cycle Lie brackets, the Kirillov form has a 2n-dimensional alternating block with off-diagonal n-by-n mixed matrix D. It is invertible exactly if D is invertible; if D is singular the alternating rank is at most 2n-2. Its support graph splits into gcd(n,3) bipartite cycles, giving determinant zero when 3 does not divide n and a product of three residue-class product differences when 3 divides n; C3 is proved separately. Explicit t choices realize full D rank over fields with more than two elements at divisible lengths, and corank one in all remaining cases including F2. Counting triples of pairwise distinct block products proves the exact finite-field count. The checker verifies 64 witnesses, 6419 exhaustive central assignments and 12730 full noncentral cases; finite checks are not treated as infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "checked_sources": [
+        "Gallo and Videla arXiv:2610.33963v1",
+        "Burde and Dekimpe arXiv:2505.08331",
+        "Earlier three-step complete-bipartite K2,2 index calculation",
+        "Earlier three-step path Lie-algebra index calculation"
+      ],
+      "rationale": "The primary 2026 construction contains cyclic graph brackets and center dimensions but not a Kirillov index or central-radical enumerator. The closest 2025 graph index theorem applies to the distinct Dani--Mainkar two-step algebra. Existing complete-bipartite work covers the special case C4=K2,2, not the infinitely many other cycle lengths or the finite-field functional enumeration. Searches for aliases, coadjoint rank, and cyclic three-step constructions did not reveal a dominating theorem. This is a best-knowledge assessment, not uniqueness certification.",
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Kirillov index is a standard nontrivial coadjoint invariant, not fixed by the center dimension. The complete infinite-cycle classification exhibits a mod-three obstruction and an exceptional field-size jump between F2 and F4 that cannot be inferred from characteristic alone. The exact finite-field count quantifies the space of center-minimal stabilizers, with potential relevance to orbit distributions; it is not merely a numerical small-case test.",
+      "status": "PASS"
+    }
+  },
+  "review_type": "independent_audit",
   "schema_version": 1,
-  "scope_run_id": "b7bd338b-cc8a-45c4-9532-c0c7d36db12a",
   "value": {
-    "rationale": "Kirillov index is a standard nontrivial coadjoint invariant, not fixed by the center dimension. The complete infinite-cycle classification exhibits a mod-three obstruction and an exceptional field-size jump between F2 and F4 that cannot be inferred from characteristic alone. The exact finite-field count quantifies the space of center-minimal stabilizers, with potential relevance to orbit distributions; it is not merely a numerical small-case test.",
+    "evidence": [
+      "Kirillov index is the minimum radical dimension of the coadjoint alternating form; distinct from simply dim(center).",
+      "For n=3m the support-component determinant and q-ary product fibers give the exact all-q count, with F4 witness and F2 obstruction."
+    ],
+    "rationale": "Kirillov index is a natural exact coadjoint-stabilizer invariant for a canonical new infinite graph-defined nilpotent family. The residue-class determinant gives a sharp all-length classification rather than an arbitrary small-instance recomputation. The distinction between F2 and F4 with the same characteristic is genuinely arithmetic and shows generic-over-closure indices need not descend to the smallest field. The exact finite-field count of minimal-stabilizer functionals refines the index in a way a researcher studying coadjoint rank strata could use. This precise n/q-count does not mechanically follow from center dimension, known path or C4 formulas.",
+    "residual_risks": [
+      "Does not determine complete coadjoint orbit-size distribution or character-degree enumerators; those are not claimed."
+    ],
     "status": "PASS"
   }
 }
