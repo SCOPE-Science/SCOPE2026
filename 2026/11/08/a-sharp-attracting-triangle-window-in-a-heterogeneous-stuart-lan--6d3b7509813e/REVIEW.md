@@ -1,11 +1,21 @@
-# Scientific review: an attracting-triangle window
+# Independent mathematical audit
 
-**Correctness (PASS).** The cancellation of the coupling-dependent onsite terms in the co-rotating frame is exact. Both reflected complex triangles have squared moduli \(1,2,3\) and zero mean. The full real Jacobian has one symmetry eigenvalue and an exactly computed quintic transverse factor. Five exact Routh–Hurwitz minors reduce strict stability to three polynomial signs; rational Sturm root counts certify their ordering and the two sextic thresholds. Exact symbolic replay and an explicit interior witness were checked. The conclusion concerns orbital exponential stability, not nonlinear endpoint bifurcation type.
+## correctness
 
-**Originality (PASS within inspected literature).** Zhao–Uchida (arXiv:2610.08239v1, Secs. 2 and 5) provide the zero-order-parameter polygonal family and numerical transverse-stability sampling in an eight-node slice. They do not give the three-node shape-preserving family, explicit sixth-degree stability boundary, or exact two-transition classification. Older higher-order phase-reduction literature and existing public results on engineered three-oscillator coupling involve different equations and do not imply this calculation. A preexisting five-active polygon-shape topology result likewise does not compute this full spectral boundary. Priority remains provisional against uninspected specialized global-coupling literature.
+PASS
 
-**Mathematical value (PASS).** A three-vertex polygon is the minimal nondegenerate mean-zero configuration. Showing that both chiral triangles can be genuine local attractors, and that varying the reactive/dissipative coupling along a geometry-preserving path makes them lose, gain, and lose attraction at two exact algebraic thresholds, resolves a structurally meaningful small-network question left open by sampled stability maps. The result separates coupling-induced spectral changes from changes in the underlying polygon shape.
+The co-rotating substitution at Omega=1-12q gives dot w_j=(j-|w_j|^2)w_j+(q+4iq)sum_l w_l. Closure and moduli (1,2,3) are exact. Independently assembled real 6x6 J_jk=-2 delta_jk u_j u_j^T+q[[1,-4],[4,1]] and recomputed det(lambda I-J)=lambda Q(lambda) with exactly the five stated quintic coefficients. All five Hurwitz minors independently factor as 12-6q, -2P3(q), -16P5(q), -192qS(q), -313344q^3 S(q). Exact Sturm root counts on (0,2) give one P3 root at .785633..., one P5 root at .599452..., and two S roots at .1400529264... and .5858841911..., so all strict minors are positive exactly on that open interval; for q>=2 Delta1<=0. Q(0)=1632q^2>0 ensures simple symmetry zero. At each endpoint Delta2,Delta3,a4,a5>0 and the Routh auxiliary quadratic gives a simple imaginary pair while a residual cubic is strictly Hurwitz. Conjugate mirror has R J^T R, hence identical spectrum. Local smooth orbital linearization yields distinct open basins for the two chiral periodic orbits in their stated interval. Finite root/eigenvalue checks are corroboration, not an inference of the global q statement.
 
-**Limits and risk.** Only local full-state stability of these two explicit periodic branches is proved. No comprehensive classification of other attractors or global basins, and no nonlinear Hopf analysis, is asserted. A broader past theorem covering the same full spectral slice could affect historical novelty; no independent scientific audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality attaches only to the exact two-threshold shape-preserving heterogeneous M=3 full-amplitude spectral classification. The original Zhao–Uchida polygon construction and conjugate mirror-isospectral argument are prior art. The published SCOPE triangle results concern either a fixed 7-13-17 heterogeneous geometry with reactive coupling varied at fixed real coupling, or an identical-growth equilateral splay with its distinct quadratic stability condition. Their theorems do not contain this 1-sqrt(2)-sqrt(3) geometry, coupling C=q+4iq, compensating beta_j=j+3q, or an implication that yields these two sextic threshold crossings. The universal noncollinear attraction theorem treats purely reactive coupling and perturbatively small positive dissipation; it does not establish this complete dissipative-to-reactive ratio-4 path.
+
+## value
+
+PASS
+
+The minimal nondegenerate zero-mean polygon in a full-amplitude heterogeneous network permits two chirality states. An exact all-positive-q bounded stability window, with loss–gain–loss via an algebraic pair-crossing boundary and full six-real-dimensional transverse criterion, resolves a naturally motivated question left open by numerical M=8 polygon maps. The growth-rate shift holds the geometry fixed, isolating coupling-induced stabilization from shape variation. The two distinct thresholds are nontrivial compared with the earlier single-threshold or purely reactive results; the exact fact can guide small-network bifurcation analysis even without a broad universality theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
