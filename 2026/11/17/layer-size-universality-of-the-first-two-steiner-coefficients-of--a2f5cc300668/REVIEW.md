@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result fixes the ambient orthonormal metric, all quantifiers and the Steiner normalization. Every ridge is shown to be exactly one of three types, with exceptional facet pairs ruled out by additional forced equalities. Direct Dirichlet/coarea integrals provide each ridge measure, and a two-normal Gram determinant fixes the only non-right exterior angle. Summing with \(\alpha/(2\pi)\) reproduces the claimed formula. The independent direct convex-hull script tested 268 metric ridges and exact volumes; a second rank script checked 1,023 ridges. These checks support, but do not substitute for, the all-dimensional proof.
+## correctness
 
-## Originality — PASS (provisional priority)
-The closest source, Ahmad–Fourier–Joswig (arXiv:2309.01626), gives the relevant face structures and facet equations, but its full accessible text concentrates on face-vector inequalities and does not calculate Euclidean Steiner coefficients. Mori (arXiv:2404.00263) counts triangular two-dimensional faces rather than Euclidean ridge volumes and external angles. Nearby published results about chain-polytope moment laws, inballs and order-polytope boundary area are mathematically different and do not imply these formulas. A prior related calculation for the corresponding order polytopes does not imply the chain formula: beyond two layers the facet normals and ridge measures differ. Catalog coverage cannot prove historical uniqueness.
+PASS
 
-## Mathematical value — PASS
-The finding determines two consecutive natural Euclidean coefficients for an infinite family whose facet count depends multiplicatively on individual ranks, while both normalized coefficients erase that entire rank-size profile. The exact three-class metric census is substantive, not merely an enumeration, and it identifies a geometric difference between Ehrhart-equivalent chain and order bodies from three layers onward. The two-layer orthogonal-congruence boundary is explicitly separated.
+The chain polytope is the free join of orthogonal unit cubes, with volume product(m_i!)/n!. Its facets are all L_{a,i}:x_{a,i}=0 and U_sigma:sum x_{a,sigma_a}=1, giving area budgets nr and n sqrt r. Inspected the proof and both actual ridge/codimension metric scripts. An L–L facet pair always defines a ridge, L–U precisely if the zero coordinate is not on selected chain, and U–U precisely if chains change exactly one block; additional crossed equalities exclude other pairs. Coarea factorial/normal Gram calculations give normalized total ridge measures relative to n(n-1)volume: LL=r^2/2, LU=r sqrt r, UU=r sqrt(2r-1)/2; exterior normal angles are pi/2,pi/2,arccos((r-1)/r). Ridge Steiner weighting angle/(2pi) yields the displayed V_{n-2}/volume formula. Independently computed convex hull volume and facet areas for (2,2,2): volume 1/90, boundary/volume 28.3923048454 = 6(3+sqrt3). All-r rank- and profile-independence rests on beta/coarea proof, not finite profiles.
 
-## Risks and limitations
-Only canonical Euclidean coordinates and layers with at least two members are covered; no higher intrinsic-volume sequence or arbitrary poset result is asserted. Undetected equivalent published curvature formulas remain possible. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS for second Steiner coefficient and the full metric ridge census in canonical unweighted chain polytopes, but the first surface ratio is ALREADY known: the 2026/11/17 published chain-order-interpolation result gives endpoint n(r+sqrt r). The 2026/11/17 exact order-polytope Steiner theorem uses a different nonisometric Euclidean polytope and a different coefficient; enriched chain polytope is a signed free join with different curvature formula. Ahmad–Fourier–Joswig provide facet/face combinatorics, not weighted metric ridge sums. The second coefficient is the substantive independent contribution, while concurrent prior dates and uncatalogued metric formulas are residual risks.
+
+## value
+
+PASS
+
+The second intrinsic volume is the curvature-weighted codimension-two metric of a natural full-dimensional poset polytope. Its cancellation of individual layer populations, despite varying facet systems and angles, is a structural invariant that cannot be deduced from Ehrhart equivalence or an f-vector alone; exact ridge classification enables further metric comparisons with order and enriched chain variants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
