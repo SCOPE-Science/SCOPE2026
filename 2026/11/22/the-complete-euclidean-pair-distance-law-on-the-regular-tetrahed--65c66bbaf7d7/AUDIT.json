@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Exact Gram-based classification of 36 ordered edge pairs; coordinate change gives a 120-degree wedge for adjacent edges, and midpoint orthogonality a centered disk-square intersection for opposite edges. All cap subtractions have nonoverlap for r<1. Their integrations yield the closed CDF on all r, and cap-tangency rescalings give the precise -56/27 three-halves exponent; first-order maximizing corner triangles give 25/6 diameter tail. Analytic moment equals 5/12. The standalone Python checker passed all 18 independent integration comparisons and singularity/moment tests; these are supporting calculations, not substitutes for proof. Boundary cases h,k,1 are explicitly included.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bäsel explicitly treats regular planar polygons with two uniform interior points, not tetrahedral edge-network points.",
+        "Finch treats width under uniformly sampled 3D direction rather than two independent sampled edge points."
+      ],
+      "reasoning": "The planar polygon and directional-width theorems impose incompatible sampling spaces. While a general distance-pushforward integral can always be written, neither source provides a covering evaluation for the nonplanar six-edge 1-skeleton or the sharp 1/sqrt2 and sqrt3/2 transitions.",
+      "searches": [
+        "polyhedral wireframes pairwise distance distributions Platonic graph spatial embedded random edge points",
+        "random Euclidean distance polyhedral graph embedded in R3 skeleton exact law",
+        "https://arxiv.org/abs/1204.2707",
+        "https://arxiv.org/abs/1110.0671"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1110.0671",
+      "https://arxiv.org/abs/1204.2707",
+      "https://arxiv.org/abs/1409.8105"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fodor–Hug–Ziebarth establish asymptotic volume errors of random circumscribed polytopes under halfspace sampling; these are not distributions of two points on a fixed embedded graph.",
+        "The related result on a regular tetrahedral surface samples by area and its metric is intrinsic; it cannot imply the wireframe Euclidean conditional mixture."
+      ],
+      "reasoning": "The 36-class reduction and the disjoint-edge perpendicular geometry are absent from those published statements. The more general convex-body sampling results assume an absolutely continuous 2D or 3D measure, whereas this measure is 1D arclength on a fixed graph. No stronger prior theorem identified implies the new complete CDF.",
+      "searches": [
+        "regular tetrahedron one-skeleton random point chord distance complete law opposite adjacent edges",
+        "polyhedral wireframes pairwise distance distributions Platonic graph spatial embedded random edge points",
+        "https://arxiv.org/abs/1409.8105"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A complete-graph tetrahedral edge skeleton has 36 ordered edge pairs with multiplicities (6,24,6); the three conditional squared-distance forms are explicitly derived in RESULT.md.",
+        "The nearest related surface and graph-metric research records sample different measures or use intrinsic rather than ambient distance."
+      ],
+      "reasoning": "The query also targets aliases wireframe, one-skeleton, edge network and pair chord/separation. Intrinsic graph-distance laws are not equivalent because the shortest edge route differs from Euclidean chord distance; tetrahedron surface/volume distributions cannot be specialized to the 1-dimensional singular skeleton sampling measure.",
+      "searches": [
+        "two independent points uniformly on edges of regular tetrahedron wireframe Euclidean distance cumulative distribution 1/sqrt2 sqrt3/2",
+        "regular tetrahedron one-skeleton random point chord distance complete law opposite adjacent edges",
+        "tetrahedral graph edge-uniform ambient Euclidean separation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic record results under tetrahedron-distance aliases concerned tetrahedral intrinsic surface geodesics, random simplex volume points, and fixed-graph intrinsic distances; no exact matching Euclidean 1-skeleton CDF entry was identified.",
+        "Published arXiv comparisons do not tabulate the claimed full edge-pair distance distribution."
+      ],
+      "reasoning": "The exact formula, its square-root onset, two simultaneous clipping contacts and coefficients were compared as a complete claim rather than merely checking the title. No covering table was located, but incomplete indexing cannot prove priority.",
+      "searches": [
+        "two independent points uniformly on edges of regular tetrahedron wireframe Euclidean distance cumulative distribution 1/sqrt2 sqrt3/2",
+        "tetrahedron skeleton independent uniform edge points CDF circle sector clipped square 1/sqrt2 sqrt3/2 25/6",
+        "uniform random points on edges of a regular tetrahedron ambient distance probability three-piece arcsin",
+        "tetrahedron wireframe random distance exact formula"
+      ]
+    },
+    "rationale": "The archive literature and mathematical-record comparison isolates a complete Euclidean two-point law for 1D arclength on a fixed 3D tetrahedral skeleton, not implied by width distributions, polygon-interior point pairs, random circumscribed polytopes, volume-uniform simplices, tetrahedral surfaces, or intrinsic graph distance distributions. Direct searches of exact thresholds and aliases found no dominating or exact covering claim; residual historical-priority risk persists.",
+    "residual_risks": [
+      "Historical searches and source inspections cannot exclude older literature under unexpected terminology; no independent priority audit has been performed.",
+      "A broad general-purpose integral expression for distances on spatial segments could implicitly specialize, even though no published evaluated formula was found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: samples directions and measures support width, not a pair of edge-arclength points",
+        "evidence": "The paper computes the mean square width of the unit-edge tetrahedron and its direction-induced distribution; neither vertex/edge-pair conditional CDF nor the fixed wireframe metric is stated.",
+        "identifier_or_url": "https://arxiv.org/abs/1110.0671",
+        "material_read": "Full arXiv PDF introductory material and tetrahedral width-distribution section, plus arXiv submission and classification information",
+        "method": "Read original arXiv open access PDF and record; compared random object and statistic",
+        "title": "Width Distributions for Convex Regular Polyhedra",
+        "trigger": "regular tetrahedron; first public archival source"
+      },
+      {
+        "assessment": "NOT_COVERING: two independent planar interior points in regular polygons, rather than six-edge 3D tetrahedral wireframe",
+        "evidence": "The paper explicitly derives the distribution of distances between two independent uniformly distributed random points inside a regular planar polygon.",
+        "identifier_or_url": "https://arxiv.org/abs/1204.2707",
+        "material_read": "Original arXiv PDF introduction, definitions, probability distribution sections and point-distance formula material",
+        "method": "Read lawful arXiv full text and inspect source definitions",
+        "title": "Random chords and point distances in regular polygons",
+        "trigger": "close point-separation probability title and exact chord CDF technique"
+      },
+      {
+        "assessment": "NOT_COVERING: random supporting halfspaces and convex-body volume errors, not fixed embedded edge-network pair separations",
+        "evidence": "The paper states expectation and variance bounds for volume approximation of a body by random halfspaces; it has primary MSC 52A22.",
+        "identifier_or_url": "https://arxiv.org/abs/1409.8105",
+        "material_read": "Original arXiv PDF title page, assumptions, abstract and theorem statements on random circumscribed polytopes",
+        "method": "Read lawful arXiv PDF and inspect original theorem models",
+        "title": "The volume of random polytopes circumscribed around a convex body",
+        "trigger": "primary MSC 52A22 published research on random convex geometric objects"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "65c66bba-f7d7-4741-a297-5598255f04ad",
+  "value": {
+    "rationale": "This is a canonical complete metric-measure invariant of a classical fixed 3D wireframe, not a contrived conditional slice. It exhibits two different singularity mechanisms, a new exact 25/6 diameter-tail benchmark, and exact second moment. The whole law with exact transition structure is a natural reference case for skeletal sampling, embedded graph geometry and comparisons of intrinsic and ambient metrics; no broader theorem is necessary for this substantive exact result.",
+    "status": "PASS"
+  }
+}
