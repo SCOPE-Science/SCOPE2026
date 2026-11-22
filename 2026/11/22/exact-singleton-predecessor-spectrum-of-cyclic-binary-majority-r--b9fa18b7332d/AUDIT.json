@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "An explicit four-pair transfer graph yields the exact number of periodic predecessors as an integer trace; cap-at-two products preserve zero/one/multiple counts. Exhaustive integer closure has 476 states and 136 singleton-accepting states. For the displayed D(z), the verifier proves the full 476-coordinate equality sum_{j=0}^{18} d_j T^{21-j} e=0 and the 21 exact numerator initial coefficients; multiplication yields the recurrence for all n>=21, not an empirical extension. Independent brute-force enumeration of every cyclic input through n=16 agrees, including n=1,2 conventions. Sources: RESULT.md proof, verify_transfer.py and verify_bruteforce.py. Limits: no all-fiber distribution, no independent audit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The closest cyclic Rule232 record supplies |im F_n|, not singleton-fiber counts; its Limitations explicitly exclude inverse-fiber distribution",
+        "Jen (1989), Section 4 and Appendix give N(S) for free-boundary blocks; Powley–Stepney (2010) restrict to homogeneous outputs",
+        "Turau (2023), main Theorems 1–3 describe fixed and pure two-cycle counts, not the one-step indegree-one census"
+      ],
+      "reasoning": "General per-output linear-lattice recurrence and a total cyclic image count are mathematically distinct from counting exactly-one periodic predecessors across all indexed targets. The former can inspire a derivation but neither inspected theorem states nor directly gives the claimed rational function. No stronger encompassing explicit enumeration was found.",
+      "searches": [
+        "Rule 232 majority cellular automata preimage counting finite cyclic ring uniqueness preimages 2021 2022",
+        "majority cellular automaton periodic inverse list unique predecessors finite ring generating function",
+        "Powley Stepney Counting Preimages of Homogeneous Configurations 1 dimensional cellular automata pdf 2009"
+      ]
+    },
+    "checked_sources": [
+      "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+      "https://arxiv.org/pdf/2312.13769",
+      "https://www.oldcitypublishing.com/journals/jca-home/jca-issue-contents/jca-volume-5-number-4-5-2010/jca-5-4-5-p-353-381/",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-cyclic-image-counts-and-spectral-growth-for-elementary-maj--da4a182e6a5a",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-singleton-predecessor-generating-function-for-cyclic-eleme--c2f1f9b3c735",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-entrance-time-census-and-logarithmic-settling-for-cyclic-m--380fba13c913"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jen 1989 Rule232 recurrence counts finite-block predecessors and does not impose periodic closure in its counting convention",
+        "A cyclic image size gives the number of nonempty fibers and cannot alone determine the number of singleton fibers",
+        "The closest Rule232 published cyclic record expressly excludes fiber multiplicity distribution; Rule54 singleton enumeration has a different truth table"
+      ],
+      "reasoning": "The new U_n is an indegree-one count in the finite periodic global map. Counting total attainable targets does not determine the multiplicity-one portion; neither attractor counts nor homogeneous-target counts determine it. The proof adds an exact saturated closed-path enumeration and vector-recurrence certificate rather than taking a corollary from an already stated stronger theorem.",
+      "searches": [
+        "cyclic binary majority rule 232 cellular automaton exact image size singleton preimage counts finite rings periodic boundary rational generating functions",
+        "Rule 232 cyclic majority singleton predecessor enumeration exact generating function",
+        "Jen 1989 Enumeration of Preimages in Cellular Automata Rule 232",
+        "Exact cyclic image counts and spectral growth for elementary majority cellular automaton Rule 232"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jen (1989) treats output preimages with free block boundaries; source inspection pp. 441–442 and appendix p. 455",
+        "No exact indexed cyclic singleton series among retrieved search results; same-observable Rule54 result concerns another map"
+      ],
+      "reasoning": "Equivalent naming as indegree-one image points, uniquely invertible cyclic observations, singleton one-step fibers and predecessor multiplicity one was tested. Jen gives a general per-block method but no periodic all-target singleton total; separate Rule54 statement does not imply Rule232. Search failure is not proof of absence.",
+      "searches": [
+        "Rule 232 cyclic majority singleton predecessor enumeration exact generating function",
+        "majority cellular automaton periodic inverse list unique predecessors finite ring generating function",
+        "\"Rule 232\" \"indegree one\" finite configurations count",
+        "\"majority rule\" \"exactly one predecessor\" \"cyclic\" 232",
+        "Jen 1989 Rule 232 preimage formula Section 4 Case e Appendix"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published cyclic image record tabulates image sequence 2,4,2,8,22,... without singleton columns; singleton sequence here 2,4,0,6,20,...",
+        "Direct independently computed singleton values n=1..16 are not identified as a published all-length table in checked sources"
+      ],
+      "reasoning": "A finite table of attainable outputs would not specify singleton totals, and a finite singleton table alone would not imply the all-length recurrence. The search did not reveal an exact comprehensive database of Rule232 singleton numbers; lack of a table hit is not proof of originality.",
+      "searches": [
+        "Rule 232 cyclic majority singleton predecessor enumeration exact generating function",
+        "\"rule 232\" \"singleton\" \"preimage\" generating function",
+        "\"majority\" \"unique preimage\" \"cellular automata\" ring"
+      ]
+    },
+    "rationale": "Checked the same-rule published all-image result (not fiber distributions), the directly relevant Jen 1989 classical Rule232 block-preimage formula and appendix, homogeneous cyclic predecessor literature, a Rule54 singleton counterpart, temporal-entry results, and date-eligible Turau 2023. None of the materially read primary statements proves an all-length cyclic Rule232 singleton-count rational function. These methods are credited; priority remains subject to unindexed sources or non-obvious equivalences.",
+    "residual_risks": [
+      "A published or unindexed cyclic Rule232 singleton formula under different terminology could have escaped retrieval.",
+      "Jen (1989) provides broad free-boundary predecessor recurrences; their relation to cyclic all-target singleton enumeration was compared but an unmentioned specialization might exist.",
+      "Full text of Powley–Stepney (2010) could not be fully inspected; the accessible focus is homogeneous targets, not a direct all-target singleton result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes free-boundary per-string preimage recurrence, not exact all-length counts of indexed cyclic outputs with exactly one periodic preimage",
+        "evidence": [
+          "Jen (1989), Sec. 4 Case e equations (4.16)–(4.19), pp. 441–442",
+          "Jen (1989), Appendix, Rule 232 entry on p. 455"
+        ],
+        "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+        "material_read": "Section 2; Section 4 Case e pp. 441–442; Section 5 context; Appendix Rule 232 entry on p. 455",
+        "method": "Primary PDF text with direct page screenshots of pp. 441, 442 and 455",
+        "title": "Enumeration of Preimages in Cellular Automata",
+        "trigger": "Direct classical Rule 232 predecessor theory may dominate the claim"
+      },
+      {
+        "assessment": "Counts targets with at least one cyclic predecessor; explicitly excludes inverse-fiber distributions, so does not provide U_n",
+        "evidence": [
+          "Exact cyclic image count a_n has generating function -zD'(z)/D(z), with D=(1+z^3-z^5)(1-2z+z^3-z^5)",
+          "Its Limitations say inverse-fiber-size distribution is not described"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-cyclic-image-counts-and-spectral-growth-for-elementary-maj--da4a182e6a5a",
+        "material_read": "Complete RESULT.md, especially Finding, proof and Relationship to prior work",
+        "method": "Retrieved primary publication file through GitHub read connector",
+        "title": "Exact cyclic image counts and spectral growth for elementary majority cellular automaton Rule 232",
+        "trigger": "Same dynamics and cyclic periodic boundary"
+      },
+      {
+        "assessment": "Its Rule 54 transition is x_i XOR (x_{i-1} OR x_{i+1}), not the majority function; cannot imply Rule 232 numerical counts",
+        "evidence": [
+          "Published Rule 54 singleton series starts 0,0,3,12,15,24; cyclic majority series starts 2,4,0,6,20,26"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-singleton-predecessor-generating-function-for-cyclic-eleme--c2f1f9b3c735",
+        "material_read": "Finding and Relationship to prior work of RESULT.md",
+        "method": "Retrieved primary publication file through GitHub read connector",
+        "title": "Exact singleton-predecessor generating function for cyclic elementary Rule 54",
+        "trigger": "Exact same observable, different elementary rule"
+      },
+      {
+        "assessment": "Counts first arrival at periodic orbits, not one-step singleton predecessor targets",
+        "evidence": [
+          "Describes number of x with T(x)<=t and sharp maximal entry-time counts, no singleton-fiber statistic"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-entrance-time-census-and-logarithmic-settling-for-cyclic-m--380fba13c913",
+        "material_read": "Finding and Relationship to prior work in RESULT.md",
+        "method": "Retrieved primary publication file through GitHub read connector",
+        "title": "Exact entrance-time census and logarithmic settling for cyclic majority dynamics",
+        "trigger": "Same cyclic majority rule and all-length enumeration"
+      },
+      {
+        "assessment": "Focuses on fixed points and pure two-cycles on trees, not full one-step inverse-fiber singleton counts on binary rings",
+        "evidence": [
+          "arXiv v1 posted 2023-12-21; Theorems 1–3 concern numbers of fixed points and pure cycles in tree cellular automata"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2312.13769",
+        "material_read": "Abstract; introduction; state-of-art and main theorem statements (pp. 1–3); first page inspected visually",
+        "method": "Primary arXiv PDF parsed text and page screenshot",
+        "title": "Counting Problems in Trees, with Applications to Fixed Points of Cellular Automata",
+        "trigger": "Date-eligible modern literature on synchronous majority dynamics"
+      },
+      {
+        "assessment": "Counts predecessors of homogeneous configurations rather than number of arbitrary targets with exactly one predecessor; nonhomogeneous singleton census not supported by material read",
+        "evidence": [
+          "Powley–Stepney (2010) abstract explicitly restricts to homogeneous configurations",
+          "Residual risk: full article not verified for ancillary exact singleton enumeration"
+        ],
+        "identifier_or_url": "https://www.oldcitypublishing.com/journals/jca-home/jca-issue-contents/jca-volume-5-number-4-5-2010/jca-5-4-5-p-353-381/",
+        "material_read": "Publisher abstract plus public detailed introduction/conclusion excerpt; complete publisher PDF unavailable",
+        "method": "Web publisher metadata and publicly readable excerpt",
+        "title": "Counting Preimages of Homogeneous Configurations in 1-Dimensional Cellular Automata",
+        "trigger": "Potentially stronger periodic-predecessor enumeration"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b9fa18b7-332d-42dd-a338-dc489938101e",
+  "value": {
+    "rationale": "The count of outputs with exactly one predecessor is the natural unique-decoding capacity of the classical finite cyclic majority map. Total image counts, homogeneous-predecessor counts, and attractor counts leave this invariant unknown; an exact rational series and verified all-length recurrence resolve it at every ring size. The result concerns a standard nonlinear rule and all lengths rather than an arbitrary short slice; the explicit reproducible certificate makes it usable for future finite-ring reconstruction comparisons. Scope is deliberately one-step and labelled; no downstream generalization is asserted.",
+    "status": "PASS"
+  }
+}
