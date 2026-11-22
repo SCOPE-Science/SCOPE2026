@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the centralizer indicator-gauge theorem
 
-The mathematical proof is in `RESULT.md`. In particular, the key nonstandard step is the pointwise Lambert bound \(\min\{1,u\log(u/s)\}\le W_0(1/s)u\) for \(u\ge s\), with the separate estimate \(|u\log(u/s)|\le s/e\) for \(u<s\). The derivative of \(sW_0(1/s)\) equals \(W_0(1/s)^2/(1+W_0(1/s))\). The golden ratio is the unique positive root of \(H^2-H-1=0\). The positive restriction has an attained measure-saturation minimizer, but this does not establish an unrestricted finite-mass formula.
+# Independent mathematical audit
 
-Run `python CHECK.py` (standard library only). It numerically compares the constructed positive costs on 299 mass points, tests 7,360 random finite-cell signed real-witness configurations, 660 signed complex-witness configurations and 6,633 scalar Lambert-envelope configurations, with deterministic seed 6079. These checks do not prove the universal inequality or rule out uninspected earlier literature. The proof and bibliographic comparison are given separately in `RESULT.md` and `REVIEW.md`.
+## correctness
 
-Independent audit: not performed.
+PASS
+
+The pointwise Lambert W0(1/s) envelope for |Omega f| separates |f|>=s from |f|<s, yielding ∫_A min(1,|Omega f|) <= s W0(1/s)+st/e for arbitrary signed or complex f. The residual inequality |1-z|>=1-min(1,|z|) and a decreasing lower-bound expression for 0<s<=t/L when L>=phi give rho>=t/L(1-t/e); f=1_A/L yields matching upper bound. Positive witnesses have no helpful negative Omega term: s+max(0,t-sW), with delta=sW=e^{-W}, reduces to t-delta+delta/log(1/delta). Its derivative vanishes at log(1/delta)=phi, and measurable E subset A realizes every delta by atomlessness. The unrestricted gauge is not claimed equal to the positive restriction for finite t.
+
+## originality
+
+PASS
+
+The canonical quotient gauge is defined in Cabello Sánchez et al. (2026), whose accessible indexing and quoted Example 6.1 establish an upper indicator witness and Orlicz-space equivalence, not a checked sharp unrestricted quotient constant. A specific positive-support transition was not identified in Resultary/primary-source searches. Full most-relevant primary text was inaccessible; originality is explicitly best-of-knowledge, not independently proven priority.
+
+## value
+
+PASS
+
+The canonical quotient fundamental indicator quasi-gauge is a natural invariant in twisted Banach-space and centralizer studies. Resolving its exact small-mass leading constant for all witnesses is nontrivial beyond equivalence of function spaces; the accompanying sharp support-saturation transition of positive witnesses explains a structural optimization mechanism, not an arbitrary parameter example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
