@@ -1,0 +1,15 @@
+# Review: Extreme-edge sensitivity trichotomy
+
+## Correctness (C) — PASS
+Every one-dimensional radius-one left-permutive binary rule can uniquely be written \(g(a,b,c)=a\oplus h(b,c)\). The rightmost initial bit can reach the observed output in exactly \(t\) steps only along a unique fastest path; its derivative is the product of the local right Boolean derivatives along this path. Successive path-side cells are *independent fair bits*, because each uses a fresh, independent leftmost input with XOR coefficient one. The product law gives all three cases. Counting the 16 truth tables gives the \(4/8/4\) split. The embedded full enumerator verifies 96 exact finite comparisons, along with 80 exhaustive boundary-independence and factorization checks at times 1 through 5, with all-time correctness supplied by the proof.
+
+## Originality (O) — PASS within available evidence
+Chan-López and Martín-Ruiz (arXiv:2604.00165, pp. 12–13), on the *same influence observable*, prove exactly the leftmost-edge influence and show right-side influence only numerically. Their result does not imply the extreme right-edge probability \(2^{-t}\), whose derivation requires a separate boundary-independence lemma. The more general standard notion of left-permutivity and its preimage theory do not by themselves state this trichotomy. Direct searches for the precise formula, geometric influence at the far edge, equivalent Boolean-derivative forms, and published-finding corpus nearest claims did not identify prior coverage. Wolfram's qualitative one-sided-additivity discussion does not contain an all-time rightmost fair-coin influence law. Priority remains provisional: broader classical influence theory may contain an equivalent formula, and the 2025 combinatorial cellular-automata survey could not be read in full.
+
+## Value (V) — PASS
+The 2026 source measures a pronounced but merely empirical rightward decay in a canonical nonlinear automaton. Here that decay is exactly \(2^{-t}\) *at the natural fastest-propagation boundary*, with a complete 16-rule structural phase classification distinguishing absent, suppressed and deterministic propagation. This separates geometric reachability from probabilistic influence quantitatively, supplies an exact test for finite-time sensitivity simulations, and applies uniformly to all left-permutive elementary binary rules. The restriction to the outermost ray is substantive and stated explicitly, rather than pretending to classify the full sensitivity profile.
+
+## Closest literature and limitations
+The nearest source is arXiv:2604.00165, Section 8.2, Proposition 4 and Figure 5. A published-finding corpus finding on Rule 45 concerns geometric sensitivity of a *finite-ring inverse*, not the forward fastest-ray derivative here. Qualitative Rule 30 notes and general CA preimage-surjectivity discussions do not imply the exact all-time probability. A broad 2025 survey remains inaccessible in full; earlier priority is not certified. Fair iid input is essential to the \(2^{-t}\) coefficient, and the interior cone and biased cases remain outside the claim.
+
+Self-review: passed. Independent audit: not yet performed.
