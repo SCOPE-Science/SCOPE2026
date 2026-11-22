@@ -1,0 +1,165 @@
+{
+  "correctness": {
+    "rationale": "Exact box-containment follows from coordinatewise corner extrema. Squaring half-widths turns volume optimization into a strictly concave log-product problem on three pair-sum inequalities. Verified positive KKT multipliers in the three-active branch and first-two-active branch give global optimality; strict concavity gives the unique half-widths. Two active equalities enforce unique centering. Explicit witness proves the third cylinder changes the body until \\(\\gamma=\\alpha+\\beta\\), although the box freezes at smaller \\(\\gamma_*\\). Direct differentiation gives the \\(C^1\\)-but-not-\\(C^2\\) log-volume boundary. The extracted standard-library checker passed 2,507 triples and 80 feasible competitors each; 250 independent SciPy optimization tests agreed to \\(1.23\\times10^{-6}\\) relative error. Computations support but do not establish universality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Behroozi treats general convex sets and numerical/exact optimization methods but does not assert a corresponding closed three-cylinder active-set or smoothness theorem.",
+        "Published bicylinder John–Löwner classification is for ellipsoids of two cylinders; the complete RESULT.md gives a different shape functional."
+      ],
+      "reasoning": "A general convex-optimization algorithm can compute a particular instance, but is not automatically a prior statement of the explicit closed-form phase diagram and its inactive-yet-nonredundant interval; no inspected stronger theorem entails those assertions without doing the present special-family analysis. The distinct ellipsoid claim is not a cuboid result.",
+      "searches": [
+        "unique John ellipsoid intersection of three perpendicular circular cylinders unequal radii optimal inscribed ellipsoid phase transitions",
+        "arxiv:1905.13246",
+        "published: Exact John–Löwner ellipsoids and an angle-independent ratio for intersecting cylinders"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1312.3604 (dated abstract; 2013-12-12)",
+      "arxiv:1905.13246 (accessible HTML and relevant sections)",
+      "Paul Bourke, Intersecting cylinders (1992/2003 indexed sections)",
+      "Wolfram MathWorld, Steinmetz Solid (indexed content)",
+      "published 2026 two-cylinder John–Löwner RESULT.md (complete)",
+      "published 2026 tricylinder section RESULT.md (complete)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "May 2013 concerns the flattened boundary of two-cylinder surface intersections.",
+        "Behroozi 2019 provides general box-solving algorithms without this special-family classification.",
+        "The complete published tricylinder-section claim concerns intrinsic planar sections, not maximum axis-parallel boxes."
+      ],
+      "reasoning": "Neither the known equal-radius solid volume nor the different shape/invariant theorems implies the explicit threshold \\(\\gamma_*=(\\alpha+\\beta+2\\sqrt{\\alpha^2-\\alpha\\beta+\\beta^2})/3\\), the interval \\(\\gamma_*<\\gamma<\\alpha+\\beta\\) of nonredundant box invisibility, or the \\(C^1\\)-but-not-\\(C^2\\) log-volume transition. General first-order optimality conditions underlie the proof but do not supply those derived equalities.",
+      "searches": [
+        "arxiv:1312.3604",
+        "arxiv:1905.13246",
+        "published: Exact twelve-sector sections and cubic directional anisotropy of the Steinmetz tricylinder",
+        "maximal volume rectangular box inscribed triple Steinmetz solid three perpendicular cylinders unequal radii contact phase",
+        "orthogonal cylinder intersection largest axis-aligned cuboid KKT transition nonredundant invisible",
+        "cuboid packing three unequal cylindrical constraints C1 not C2 maximal volume"
+      ]
+    },
+    "closest_results": [
+      {
+        "comparison": "Two-cylinder extremal ellipsoids, not a three-cylinder axis-parallel box",
+        "id": "2026/11/2/SCOPE-exact-john-l-wner-ellipsoids-and-an-angle-independent-ratio-for--bef1cf01440b"
+      },
+      {
+        "comparison": "Equal-radius central-section areas, not unequal-radius maximal cuboids",
+        "id": "2026/10/18/SCOPE-exact-twelve-sector-sections-and-cubic-directional-anisotropy-of--428486a75562"
+      },
+      {
+        "comparison": "Cylinder-axis packing around a sphere rather than box fitting in cylinder intersection",
+        "id": "2026/11/17/SCOPE-exact-two-transition-packing-law-for-three-cylinders-with-prescr--953b1cb63fb8"
+      }
+    ],
+    "equivalent_formulations": {
+      "evidence": [
+        "Historical equal-radius tricylinder definitions and volume are in Bourke 1992 and MathWorld; these do not identify optimal axis-aligned box dimensions for arbitrary three radii.",
+        "Behroozi arXiv:1905.13246 develops general box-optimization models; relevant full-page searches contain no Steinmetz or cylinder example."
+      ],
+      "reasoning": "The axis-aligned box claim is equivalent to maximizing the strictly concave log of the product of three positive squared half-sides subject to three pair-sum inequalities. The specific two-branch algebraic solution, inactive-but-geometrically-nonredundant third cylinder, and second-derivative jump were compared as a combined statement, not merely by common object names.",
+      "searches": [
+        "maximal volume rectangular box inscribed triple Steinmetz solid three perpendicular cylinders unequal radii contact phase",
+        "orthogonal cylinder intersection largest axis-aligned cuboid KKT transition nonredundant invisible",
+        "maximal inscribed parallelepiped Steinmetz intersection of three cylinders",
+        "web: three cylinders maximal rectangular box inscribed",
+        "web: inscribed cuboid Steinmetz solid equal unequal radii",
+        "three pairwise orthogonal cylinders maximum axis aligned rectangular box strictly before redundant cylinder 4/3 squared radius threshold",
+        "Steinmetz tricylinder cube cuboid box optimum contact 4/3 radius squared phase transition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld tables contain cylinder-intersection volumes including \\(8(2-\\sqrt2)r^3\\) for the equal-radius tricylinder, not the maximal unequal-radius box.",
+        "Semantic records returned nearby cylinder packing, bicylinder ellipsoids, and tricylinder central-section entries, but no exact axis-box threshold."
+      ],
+      "reasoning": "Previously tabulated volume of the *solid* must not be conflated with volume of the *largest inscribed cuboid*. No same-invariant table or exact matching three-radius parameter formula was found in actually inspected material; this is a bounded search, not proof of uniqueness.",
+      "searches": [
+        "maximal volume rectangular box inscribed triple Steinmetz solid three perpendicular cylinders unequal radii contact phase",
+        "orthogonal cylinder intersection largest axis-aligned cuboid KKT transition nonredundant invisible",
+        "maximal inscribed parallelepiped Steinmetz intersection of three cylinders",
+        "Steinmetz largest cuboid three cylinders",
+        "Steinmetz inscribed box three cylinders maximum volume",
+        "https://mathworld.wolfram.com/SteinmetzSolid.html",
+        "three pairwise orthogonal cylinders maximum axis aligned rectangular box strictly before redundant cylinder 4/3 squared radius threshold",
+        "Steinmetz tricylinder cube cuboid box optimum contact 4/3 radius squared phase transition"
+      ]
+    },
+    "rationale": "Classical triple-cylinder geometry and general maximum-box optimization are acknowledged as known. Actual semantic-record queries, accessible historical texts, full published two-cylinder extremal-ellipsoid and triple-cylinder section results, and the arXiv full HTML box-optimization study were compared by statements and implication. No inspected result provides the unequal-radius box contact threshold plus a range of geometrically active but optimization-invisible third cylinder and the precise smoothness transition. Priority is provisional, especially for unindexed older packing literature.",
+    "residual_risks": [
+      "Paul Bourke page returned 502 on full opening; some old historical items only have excerpts.",
+      "Older unindexed geometry and packaging literature may contain the same axis-box regime under different terminology.",
+      "A general optimization recipe predates the explicit special-case calculation; priority asserted only for the specific new phase and plateau classification, not generic KKT theory.",
+      "No independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Addresses flat-state surface boundary of two equal-radius cylinders, not an unequal-radius triple intersection or volume-maximal axis-parallel box; abstract does not settle any unseen full-text priority issues",
+        "evidence": "Abstract states a flat-state boundary solution for the intersection of two dual-rotated cylinder surfaces.",
+        "identifier_or_url": "https://arxiv.org/abs/1312.3604",
+        "material_read": "Full available arXiv abstract and date; full paper not read",
+        "method": "Open abstract HTML with explicit 2013-12-12 source date",
+        "title": "A closed-form solution for the flat-state geometry of cylindrical surface intersections bounded on all sides by orthogonal planes",
+        "trigger": "Day-stamped archival treatment of orthogonal cylinder surface intersections"
+      },
+      {
+        "assessment": "Describes the equal-radius tricylinder and its volume but not a three-radius cuboid optimum in inspected material; uninspected portions remain a priority risk",
+        "evidence": "1992 section describes three orthogonal cylinders and 8 corners; 2003 section gives bicylinder volume \\(16r^3/3\\).",
+        "identifier_or_url": "https://www.paulbourke.net/geometry/cylinders/",
+        "material_read": "Indexed 1992 and 2003 dated sections and mathematical volume statements; complete web-page opening returned 502",
+        "method": "Direct web-result text and attempted full-page open",
+        "title": "Intersecting cylinders",
+        "trigger": "Historical construction of the three-cylinder solid"
+      },
+      {
+        "assessment": "Provides volume/surface formulas and unequal-bicylinder references, not the stated three-radius axis-parallel box transition in inspected material",
+        "evidence": "Lists equal-radius tricylinder volume \\(8(2-\\sqrt2)r^3\\) and references Hubbell 1965 on bicylinder volumes.",
+        "identifier_or_url": "https://mathworld.wolfram.com/SteinmetzSolid.html",
+        "material_read": "Indexed article sections for two and three cylinders and historical references; not an entire independently downloaded text",
+        "method": "Web search-result text and excerpts",
+        "title": "Steinmetz Solid",
+        "trigger": "Classical definitions and cylinder-intersection volume tables"
+      },
+      {
+        "assessment": "Gives optimization models and algorithms for broad convex sets, but no explicit triple-cylinder box semiaxes, sharp nonredundancy interval or \\(C^1\\)-but-not-\\(C^2\\) transition. It supplies a general method, not a stated stronger result implying these formulas without solving a new special case.",
+        "evidence": "Abstract and §1 state general interior-point and parametric algorithms; full-page searches find no Steinmetz or cylinder.",
+        "identifier_or_url": "https://arxiv.org/abs/1905.13246",
+        "material_read": "Accessible arXiv HTML abstract, introduction, relevant optimization section, examples/conclusion, and full-page text searches for Steinmetz and cylinder",
+        "method": "Opened 641-line HTML rendering, inspected §§1, 4–6, conclusion and keyword searches",
+        "title": "Largest Inscribed Rectangles in Geometric Convex Sets",
+        "trigger": "General algorithms for maximal axis-aligned inscribed boxes could dominate an explicit special-family statement"
+      },
+      {
+        "assessment": "Classifies unrestricted maximal inscribed and minimal enclosing ellipsoids of two cylinders, whereas the present theorem concerns maximal axis-parallel rectangular boxes in three cylinders with independent squared radii; neither object nor parameters imply the box threshold.",
+        "evidence": "Its canonical two-cylinder body is a pair of quadratic cylinder inequalities; its inscribed ellipsoid is explicitly stated, with no third cylinder or box.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-john-l-wner-ellipsoids-and-an-angle-independent-ratio-for--bef1cf01440b",
+        "material_read": "Complete published RESULT.md via public repository file retrieval",
+        "method": "Read full theorem, assumptions, proof, relationship and limits",
+        "title": "Exact John–Löwner ellipsoids and an angle-independent ratio for intersecting cylinders",
+        "trigger": "Same cylinder family and extremal-volume approximating body"
+      },
+      {
+        "assessment": "Studies equal-radius tricylinder central plane-section areas and their directional expansion. An unequal-radius maximal axis-parallel inscribed box with a contact plateau is a different invariant not implied by these results.",
+        "evidence": "The theorem minimizes central-section area at coordinate planes and proves a cubic angular jet; no box packing appears.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-twelve-sector-sections-and-cubic-directional-anisotropy-of--428486a75562",
+        "material_read": "Complete published RESULT.md via public repository file retrieval",
+        "method": "Read complete claim, assumptions, proof, comparisons and limits",
+        "title": "Exact twelve-sector sections and cubic directional anisotropy of the Steinmetz tricylinder",
+        "trigger": "Same classical triple-cylinder body"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b8200a8f-2a6f-4075-87bc-5e71860d3f8d",
+  "value": {
+    "rationale": "A complete sharp classification of optimal axis-aligned cuboid packing in a natural 3-cylinder Steinmetz family answers which constraints actually control a practical convex-body box approximation. The transition strictly precedes geometric redundancy, producing a provable interval where changing the solid leaves its unique packed cuboid invariant. The C1 but non-C2 optimal-volume response identifies a meaningful sensitivity boundary; neither effect follows from simply reporting the equal-radius tricylinder volume.",
+    "status": "PASS"
+  }
+}
