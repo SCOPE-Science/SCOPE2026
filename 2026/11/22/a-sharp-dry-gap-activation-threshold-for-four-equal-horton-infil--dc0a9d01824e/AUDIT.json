@@ -1,0 +1,175 @@
+{
+  "correctness": {
+    "rationale": "The full wet/dry state recurrence yields an exact exponential pair expansion. Adjacent pairs make the Hessian of infiltration strictly negative definite for any positive wet-block durations; four equal blocks are symmetric and give a strictly convex reduced loss. The derivative endpoint signs change exactly at D_c=log(1+e^{-kw})/r; a unique root gives two simultaneous outer-gap activations, central gap strictly longer for every finite D, and zero-gap equality handled. Three blocks always have two equal positive gaps. Local checker.py passed 51,770 supplemental checks, including exact identities; finite checks not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Karmeli and Peri (1974) describe pulse irrigation and choices of number of wet/rest cycles in an accessible abstract; original full article not inspected.",
+        "Assouline (2019) fully readable sections analyze irrigation rate and duration against infiltration capacity, not allocating fixed rest-time across three interruptions.",
+        "The 2016 EPA manual supplies dynamic model definitions rather than an optimal scheduling theorem."
+      ],
+      "reasoning": "A general optimal-control or pulse-irrigation theorem could dominate this case even if no number four appears in its title. The accessible Assouline article and EPA chapter address different design variables and do not imply the claim. The Karmeli–Peri and Bauer full texts remain an explicit residual priority risk, not judged noncovering.",
+      "searches": [
+        "Four equal rainfall or irrigation pulses with saturated infiltration, Horton wet exponential capacity decay and dry exponential recovery: optimal distribution of fixed total pause time; central pause only until threshold log(1+exp(-kw))/r then side gaps activate",
+        "Unique optimum for exponential capacity recovery across n wet bursts, strictly concave accumulated infiltration in dry-gap allocation; positive definite Hessian and KKT",
+        "doi:10.1061/JRCEA4.0000988",
+        "doi:10.1029/2019WR025221"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1002/hyp.10454",
+      "doi:10.1002/hyp.10990",
+      "EPA/600/R-15/162A",
+      "doi:10.1029/2019WR025221",
+      "doi:10.1061/JRCEA4.0000988",
+      "doi:10.1080/02626667409493900",
+      "published-finding corpus record 2026/11/2/SCOPE-a-sharp-rainfall-block-rearrangement-law-for-infiltration-excess--085aa8fe8a29",
+      "published-finding corpus record 2026/10/26/SCOPE-a-sharp-rainfall-sequencing-law-for-a-green-ampt-infiltration-mo--955c7a9f5dc3",
+      "published-finding corpus record 2026/11/2/SCOPE-exact-cyclic-gap-law-for-saturation-excess-runoff-from-two-perio--e537d5c1eb7c",
+      "published-finding corpus record 2026/11/2/SCOPE-a-sharp-storm-ordering-window-for-saturation-runoff-in-a-periodi--d7dd28e86fa3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rainfall-block rearrangement: ordering different wet intensities under declining capacity; no dry-rest allocation or recovery.",
+        "Green–Ampt sequencing: different governing infiltration equation with no wet/dry switching budget.",
+        "Cyclic two-storm runoff: exponential drainage of a finite-capacity store and its overflow, not exponential recovery of infiltration capacity inside one four-burst event.",
+        "Three-storm ordering: a finite-capacity linear runoff store with unequal storm depths."
+      ],
+      "reasoning": "Sorting distinct rain intensities or comparing pulse order cannot directly determine optimal lengths of three recovery interruptions with all four rain intensities equal. A storage-overflow process is not the same state equation as a capacity that decays under wet exposure and relaxes toward its maximum when dry. These results thus do not imply the four-burst support activation or universal unequal central-gap inequality on their published statements.",
+      "searches": [
+        "2026/11/2/SCOPE-a-sharp-rainfall-block-rearrangement-law-for-infiltration-excess--085aa8fe8a29",
+        "2026/10/26/SCOPE-a-sharp-rainfall-sequencing-law-for-a-green-ampt-infiltration-mo--955c7a9f5dc3",
+        "2026/11/2/SCOPE-exact-cyclic-gap-law-for-saturation-excess-runoff-from-two-perio--e537d5c1eb7c",
+        "2026/11/2/SCOPE-a-sharp-storm-ordering-window-for-saturation-runoff-in-a-periodi--d7dd28e86fa3",
+        "Four stage alternating wet-dry exponential decay and exponential recovery, rearrangement spacing intervals optimum middle interval longer than exterior, equal-duration pulses"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "EPA Hydrology Reference Manual volume I (2016), chapter 4, describes exponential wet infiltration-capacity decline and exponential recovery in dry weather.",
+        "Bauer (1974) identifies an intermittent-rainfall Horton modeling problem; only bibliographic information and abstract were accessible.",
+        "Dunkerley (2016/2017) studies fluctuating-rainfall infiltration and recovery; full original article was inaccessible."
+      ],
+      "reasoning": "The present objective is to allocate a fixed rest budget among three gaps of four equal saturated wet bursts, with an exact activation threshold. Formulating the same model as minimizing infiltration-excess runoff gives an equivalent statement, so all comparisons explicitly include runoff. Accessible materials show the underlying mechanism but do not demonstrate this exact optimization. Inaccessible plausible papers retain unresolved publication-priority risk.",
+      "searches": [
+        "Horton infiltration capacity rainfall hiatus recovery optimal equal spaced pulses wet dry intervals exact infiltration recharge Jensen",
+        "Optimal intermittency of constant intensity rainfall for Horton infiltration decay and dry recovery given wet duty fraction and number of pulses",
+        "doi:10.1080/02626667409493900",
+        "doi:10.1002/hyp.10990"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The compared published Green–Ampt reading-identifiability finding concerns how many depth observations recover parameters.",
+        "Published rainfall-rearrangement findings compare block intensity ordering, not the three-gap optimum at fixed total dry time."
+      ],
+      "reasoning": "Neither an exact table entry for the fixed-rest-gap activation threshold nor an exact-case classification was identified in the searched mathematical records. Failure to find an entry does not establish uniqueness in the entire literature.",
+      "searches": [
+        "Soil infiltration capacity first flush pulsed storm recovery complete scheduling and infiltration amount",
+        "Pulse irrigation four on periods dry-rest allocation central concentration transition equal spacing exponential infiltration capacity Horton",
+        "2026/11/2/SCOPE-four-equal-depth-infiltration-readings-with-unknown-volume-and-c--49ccbc1b6a86"
+      ]
+    },
+    "rationale": "The exact four-burst support activation and strict nonuniform spacing were not identified in inspected full 2016 hydrology manual or 2019 irrigation-design article, available related primary abstracts, or compared published-result statements. Unlike rain-intensity rearrangement or store runoff results, this fixes all four wet blocks and optimizes just dry rest allocation with exponential recovery. This is provisional relative to unreadable older primary full texts, explicitly named in risks.",
+    "residual_risks": [
+      "Karmeli and Peri (1974) primary full text inaccessible, despite plausible pulse-irrigation design overlap; no complete noncoverage comparison.",
+      "Bauer (1974) and Dunkerley (2016/2017) full original texts inaccessible; material comparisons limited to available summaries.",
+      "More general optimal switching/control theorems not identified by searches could imply the special result; independent priority check not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides model mechanism and caveats; no fixed-three-rest-gap schedule optimum in material read",
+        "evidence": [
+          "Exponential capacity decay during wet intervals and recovery approximations during dry intervals."
+        ],
+        "identifier_or_url": "https://nepis.epa.gov/Exe/ZyPDF.cgi/P100NYRA.PDF?Dockey=P100NYRA.PDF",
+        "material_read": "Hydrology chapter 4, infiltration capacity and dry-recovery equations and descriptions, including equations 4-6 and 4-20/4-21",
+        "method": "publicly accessible government technical PDF, text and page inspection",
+        "title": "Storm Water Management Model Reference Manual, Volume I: Hydrology (Revised)",
+        "trigger": "Document defines the same Horton wet capacity and dry recovery approximations"
+      },
+      {
+        "assessment": "Optimizes rate and duration, not placement of three dry gaps among four fixed wet bursts",
+        "evidence": [
+          "Analyses irrigation intensity and dose using infiltration-capacity curves."
+        ],
+        "identifier_or_url": "https://doi.org/10.1029/2019WR025221",
+        "material_read": "Freely accessible full article through methodology, results and conclusion",
+        "method": "public full-text HTML examination",
+        "title": "A Simple Method to Design Irrigation Rate and Duration and Improve Water Use Efficiency",
+        "trigger": "Potentially dominating irrigation schedule optimization"
+      },
+      {
+        "assessment": "Defines rainfall intermittency descriptors, not established to contain this optimum; residual risk",
+        "evidence": [
+          "First published 2015-02-02; considers intra-event rain/no-rain periods."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/hyp.10454",
+        "material_read": "Title, publication date, available abstract and bibliographic metadata; not full paper",
+        "method": "publisher record and public scholarly indexes",
+        "title": "Intra-event intermittency of rainfall: an analysis of the metrics of rain and no-rain periods",
+        "trigger": "Motivation for fixed rain/no-rain interval allocation"
+      },
+      {
+        "assessment": "Mechanism overlap; no full-document noncoverage conclusion; priority risk retained",
+        "evidence": [
+          "First published 2016-08-16, later 2017 volume; considers rainfall-driven infiltration and runoff."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/hyp.10990",
+        "material_read": "Abstract and publisher bibliographic record only; full text unavailable",
+        "method": "open-access and preprint search; original content inaccessible",
+        "title": "An approach to analysing plot scale infiltration and runoff responses to rainfall of fluctuating intensity",
+        "trigger": "Same hydrologic response to interrupted rainfall"
+      },
+      {
+        "assessment": "Plausible prior coverage remains unresolved; cannot claim full paper does not state analogous design law",
+        "evidence": [
+          "Describes pulsed irrigation wet/rest cycles and design principles."
+        ],
+        "identifier_or_url": "https://doi.org/10.1061/JRCEA4.0000988",
+        "material_read": "Bibliographic metadata and accessible abstract only, not original paper",
+        "method": "open abstract and institutional access attempt",
+        "title": "Basic Principles of Pulse Irrigation",
+        "trigger": "1974 pulse-irrigation optimization may dominate modern specialization"
+      },
+      {
+        "assessment": "Mathematical model overlap; full priority comparison unresolved",
+        "evidence": [
+          "Specifically develops intermittent Horton infiltration, without an accessible full theorem statement."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/02626667409493900",
+        "material_read": "Bibliographic metadata and available summary only; full text not obtained",
+        "method": "public index and publisher preview",
+        "title": "A Modified Horton Equation for Infiltration During Intermittent Rainfall",
+        "trigger": "1974 use of infiltration-capacity recovery under intermittent rainfall"
+      },
+      {
+        "assessment": "Available summaries describe different state equations or intensity/order optimizations, not the full present fixed-rest problem",
+        "evidence": [
+          "a-sharp-rainfall-block-rearrangement-law-for-infiltration-excess",
+          "a-sharp-rainfall-sequencing-law-for-a-green-ampt-infiltration-model",
+          "exact-cyclic-gap-law-for-saturation-excess-runoff",
+          "a-sharp-storm-ordering-window-for-saturation-runoff"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026",
+        "material_read": "Title and summary records for the four closest result identifiers; full source documents not accessed",
+        "method": "semantic published-result index search and implication comparison",
+        "title": "Published mathematical results on Green–Ampt rainfall ordering and runoff-store storm gaps",
+        "trigger": "Exact similar infiltration or storm-scheduling results might subsume claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dc0a9d01-824e-455c-99a5-93a15427d1fa",
+  "value": {
+    "rationale": "The question naturally arises from fixed-total-recovery-time pulse irrigation, and a nontrivial first support transition at exactly four wet blocks provides a sharp operationally interpretable limit of the simplified model. The explicit critical rest budget and strict inequality that the central rest always dominates make the answer mathematically useful for checking numerical control routines. This is not field-calibrated guidance, and no empirical claim is made.",
+    "status": "PASS"
+  }
+}
