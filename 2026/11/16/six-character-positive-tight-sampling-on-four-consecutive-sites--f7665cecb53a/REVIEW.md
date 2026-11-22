@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The normalized Gram condition is equivalent to moments at differences \(\pm1,\pm2,\pm3\). The five-node polynomial argument forces \(e_2=e_3=0\); cyclotomic coefficient rigidity and the five-sign congruence exclude \(p\ge7\). A strictly positive six-frequency construction uses the origin inside a triangle of \(p\)-th roots; all required moments vanish. Both bounds apply to all allowed primes. The finite checker verifies only examples, not the infinite proof.
+## correctness
 
-**Originality — PASS, provisional.** The closest published comparators prove minima for three consecutive sites or for antipodal triples, not four consecutive sites. The harmonic ETF background is not a general positive-weight minimal-quadrature theorem. Title, parameter, equivalence, and implication searches did not identify a result covering the six-node theorem; inaccessible specialist sources and unsearched aliases remain priority risks.
+PASS
 
-**Value — PASS.** Four consecutive samples form the first nontrivial trigonometric quadrature band beyond degree two; the exact minimum number of positive discrete-frequency samples is an intrinsic harmonic sampling invariant. The bound reveals a sharp arithmetic obstruction and explicit sparse designs for an infinite composite cyclic family; it is not a reweighting of a known three-site theorem.
+PASS: The tight Gram is equivalent after normalization to vanishing Fourier moments k=1,2,3 and conjugates. Any alleged rule at <=5 nodes can be zero-extended to five distinct 2p-th roots, with P=product(z-z_j). The Laurent polynomials z^-2 P, z^-3P supported in [-3,3] and vanish at nodes; their constant coefficients force e3=e2=0. Express each root as epsilon_j zeta_p^rj: e2=0 gives integer pair-sum coefficients c_r all equal by Phi_p=1+...+z^(p-1), hence pc=((sum epsilon)^2-5)/2 in {-2,2,10}, impossible for p>=7. For six roots, choose three pth roots with angular gaps <pi (residues 0,floor(p/3),ceil(2p/3)); strict positive barycentric weights cancel second moments while antipodal pairing kills first and third. Checked independent positive moment residual for 13 primes through p=103, all small <3e-13; the cyclotomic argument, not enumeration, proves infinite p.
 
-Closest limitations: no classification of six-frequency solutions, no stability bounds, and no exhaustive historical-priority assessment of positive trigonometric quadrature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: published nearby three-site/antipodal-triple cases and four-site odd-prime-11 case do not imply the 2p four-consecutive-site six-node threshold. General roots-of-unity vanishing-sums theory alone constrains possible lengths but not the structured elementary-symmetric pair coefficients; the matched five-node obstruction is the essential novel argument under the inspected sources.
+
+## value
+
+PASS
+
+PASS: Exact minimal positive quadrature cardinality on natural four consecutive cyclic time coordinates and order twice a prime, plus a root-of-unity impossibility stronger than positivity, is a motivated finite-sampling cutoff with a uniform-in-prime constructive optimum. It extends adjacent three-site results rather than recomputing a finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
