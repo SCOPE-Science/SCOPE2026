@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For each edge Q=I-zz^T/2; the three shore-permutation invariant projectors diagonalize D=Ezz^T and give exact 3x3 mean-square recursion. Nonincreasing forcing s_k and last-reset coupling show strict all-horizon ordering. Perron theory and diagonal-rank-one determinant lemma give unique exact exponential rate; spectral perturbation yields R(r), strict derivative and fixed-p limit. Independent full covariance Fractions computations corroborate across p,q,k; 17,019 checker assertions succeeded. Finite tests are not used to prove the infinite range.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Agaskar et al. 2014 Proposition 1 provides exact general MSE in arbitrary full-rank row systems; Section 2.3 gives annealed rate as the largest lifted operator eigenvalue.",
+        "Boyd et al. 2004 and 2006 Theorem 3 and Section II concern the general spectral envelope, rather than the sharp finite-horizon covariance eigenmodes."
+      ],
+      "reasoning": "The Agaskar Kronecker formula is broader in graph and frame class; therefore a generic MSE formula is already covered. The claim is deliberately restricted to the new structural consequences on two genuinely nontrivial shores, including universal all-horizon maximizers and the explicit monotone R(r). The general method does not state those comparisons or the shape of R.",
+      "searches": [
+        "published-finding corpus: Randomized Kaczmarz exact MSE Agaskar Wang Lu 2014 mean-square tensor operator",
+        "published-finding corpus: Asymptotic decay rate of randomized gossip on complete bipartite networks ratio to one-step bound as partition aspect ratio varies from balanced to star",
+        "web: \"randomized gossip\" \"bipartite\" \"convergence rate\" pairwise averaging exact"
+      ]
+    },
+    "checked_sources": [
+      "Boyd, Ghosh, Prabhakar, Shah (2004), IEEE CDC 5310-5315, DOI 10.1109/CDC.2004.1429652; verified IEEE online 2005-05-16",
+      "Boyd, Ghosh, Prabhakar, Shah (2006), IEEE Trans Inf Theory 52:2508-2530, DOI 10.1109/TIT.2006.874516",
+      "Agaskar, Wang, Lu (2014), GlobalSIP 389-393, DOI 10.1109/GlobalSIP.2014.7032145",
+      "published-finding corpus nearest objects IDs 6219a5881272 (Gini variation on balanced bicliques), ace060b21935 (two-round matching averaging), 5f95cb30e1af (Kaczmarz reshuffling on paired rows); different norms, sampling or objects"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The one-vertex-shore star boundary case K_{1,m} has a two-mode rather than three-mode mean-zero decomposition, so its asymptotics do not settle the stated p>=2 theorem.",
+        "Boyd 2004/2006: spectral upper bound is not sharp after the first update; see theorem/projection formula.",
+        "Agaskar 2014: exact tensor-power formula generically enables computation but does not determine monotone all-horizon mode ordering or asymptotic ratio."
+      ],
+      "reasoning": "The earlier star statement cannot imply the all-p>=2 two-shore theorem or the nonconstant R(r) with R(1)=1. The broad lifted formula does formally imply an algorithm for evaluating MSE on any finite graph, so neither that existence nor general Kronecker contraction is claimed as new. Additional invariant-subspace ordering and singular eigenvalue asymptotics are proved separately.",
+      "searches": [
+        "published-finding corpus: Exact finite horizon mean square consensus on star complete bipartite random edge averaging, asymptotic four thirds speedup",
+        "web: complete bipartite graph randomized pairwise gossip exact mean squared error convergence eigenvalues finite time",
+        "web: Randomized Kaczmarz algorithms Exact MSE analysis optimal sampling probabilities pdf Agaskar Wang Lu"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boyd et al. 2004, pp. 5310-5311 and 2006, pp. 2509-2510: undirected-edge pair averaging Q=I-zz^T/2 and one-step expected spectral analysis, https://web.stanford.edu/~boyd/papers/pdf/gossip.pdf",
+        "Agaskar, Wang and Lu 2014, Section 2.2, Proposition 1: exact Kaczmarz MSE by powers of E(Q tensor Q), https://dash.harvard.edu/server/api/core/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/content"
+      ],
+      "reasoning": "The random projection viewpoint and Kronecker tensor-power formulation are equivalent to the generic covariance recursion and are credited. Neither inspected source expresses the three class-specific coefficients or identifies the worst eigenspace at every horizon; the latter requires the monotone-forcing reset coupling.",
+      "searches": [
+        "published-finding corpus: Exact finite-horizon worst-case mean-square pairwise averaging uniform random edges on complete bipartite graphs K_{p,q}, larger-shore difference extremizers, 3 by 3 covariance recursion",
+        "web: \"mean square\" \"complete bipartite\" \"gossip\" convergence",
+        "web: \"complete bipartite\" \"randomized gossip\" \"exact\" \"rate\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No explicit biclique mean-square table appeared in the examined published-finding corpus nearest matches; leading nearby IDs concern Gini variation, bipartite polytopes or two-round stochastic mixing.",
+        "The inspected 2014 full text uses random Gaussian numerical examples, not a tabulation of K_{p,q} finite-horizon worst-case coefficients."
+      ],
+      "reasoning": "No exact database or table matching the shore-wise covariance coefficients or aspect-ratio profile was located. Negative search evidence alone does not establish absence; structural source comparisons carry the originality reasoning.",
+      "searches": [
+        "published-finding corpus: uniform random-edge gossip on complete bipartite network exact covariance spectrum Perron eigenvalue finite time worst-mode",
+        "web: \"complete bipartite\" \"gossip\" \"second moment\" error",
+        "web: \"complete bipartite\" \"averaging\" \"gossip\" \"mean square\" 2010"
+      ]
+    },
+    "rationale": "The novelty is the all-horizon identification of the larger-shore disagreement mode and the exact continuous aspect-ratio speedup law on K_{p,q} for 2<=p<=q; general exact mean-square tensor powers are explicitly acknowledged as prior art. The inspected full texts of Boyd et al. (2004, 2006) and Agaskar et al. (2014) give general model/bound or full-space Kronecker formula, not the claimed bipartite optimal spaces or ratio function. The one-vertex-shore star boundary case p=1 is excluded, and its limiting rate does not imply the two-nontrivial-shore ordering or balanced-to-unbalanced formula.",
+    "residual_risks": [
+      "A specialized published biclique covariance computation may exist outside indexed or successfully searched sources; independent literature search is still warranted.",
+      "The 2014 full-rank generic Kronecker result subsumes the existence of an exact finite-horizon computation and restricts the scientific novelty to the structural extremizer and aspect-ratio classifications."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same pairwise averaging projection and a general spectral convergence design framework, but no K_{p,q} exact finite-horizon mode extremizers or closed aspect-ratio rate law",
+        "evidence": "CDC 2004 pp. 5310-5315, Eq. (1), introduction and abstract; IEEE publication metadata https://ieeexplore.ieee.org/document/1429652/ says added 2005-05-16; no occurrence of bipartite in extracted text.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/gossip_opt.pdf",
+        "material_read": "Six-page author-open paper, including the first page model derivation, spectral convergence framing, and search of all searchable text for bipartite",
+        "method": "Author-hosted open PDF extraction, first-page screenshot and exact searchable-text terms",
+        "title": "Analysis and Optimization of Randomized Gossip Algorithms",
+        "trigger": "Earliest fully inspected source for pairwise edge-averaging and the matrix-update formalism"
+      },
+      {
+        "assessment": "Covers model, projection Q, and general bound. Does not give the special p-by-q all-horizon extremizer or aspect-ratio rate law.",
+        "evidence": "Sections I.A and II, especially pair update Eq. (2) and general averaging-time statements; no occurrence of complete bipartite in searchable text.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/gossip.pdf",
+        "material_read": "Full-text sections I-II and theorem framing; searched entire searchable full text for bipartite and complete bipartite",
+        "method": "Lawful author open PDF textual extraction and page screenshot",
+        "title": "Randomized Gossip Algorithms",
+        "trigger": "Same pair-averaging process and one-step spectral bound"
+      },
+      {
+        "assessment": "Broad tensor-power exact MSE formula implies a computational route, but numerical illustrations and theorems do not state biclique sharp input-mode ordering or continuous R(r) family law.",
+        "evidence": "Proposition 1 Eq. (5)-(12), Section 2.3 and Section 3; examples are random Gaussian matrices; no complete bipartite example.",
+        "identifier_or_url": "https://dash.harvard.edu/server/api/core/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/content",
+        "material_read": "Whole five-page scientific paper including sections 2.1-2.3, Section 3, conclusions and references; checked for bipartite",
+        "method": "Harvard lawful OA PDF, full extracted text and page screenshot",
+        "title": "Randomized Kaczmarz Algorithms: Exact MSE Analysis and Optimal Sampling Probabilities",
+        "trigger": "Potentially dominating exact second-moment result on arbitrary random projections"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c93f751b-4cab-4f47-bb78-4285c84f9d65",
+  "value": {
+    "rationale": "The exact slowest initial-disagreement space at every horizon is useful for worst-case network tests, rather than a generic bound. The aspect ratio continuously shifts the sharp rate-gap factor from 1 to 4/3, specifying a concrete graph-design dependence not captured by the expected one-step spectrum; the theorem covers an infinite two-parameter natural graph family and has no unsupported downstream claims.",
+    "status": "PASS"
+  }
+}
