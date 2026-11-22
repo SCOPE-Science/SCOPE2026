@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+For every cycle, meeting both neighbors' edge constraints is exactly vertex covering of the step-two auxiliary graph. Complementing identifies all minimum total dominating sets with all maximum independent sets; this is a bijection of concept vectors that preserves shattered supports. The auxiliary graph is one odd cycle or two equal parity cycles. On an even auxiliary cycle, the maximum independent sets are the two alternating words, giving just singleton supports. On an odd auxiliary cycle, every maximum independent word contains exactly one `00` cyclic edge, which permits precisely the singleton and nonadjacent-pair supports: direct alternating-arc constructions realize four pair labels, while a parity-consistent assignment across three arcs would demand at least three such edges. Component products imply polynomial multiplication and simplicial joins. The graph and join homotopy computations account for all small exceptions, including the three-cycle, four-cycle and six-cycle. The standalone executable was run using the embedded code and returned `MINIMUM_TOTAL_DOMINATION_CYCLE_PASS 93592 60 11`; finite tests are corroboration, not a substitute for the unrestricted proof.
+
+## Originality — PASS, with qualified priority
+Earlier total-domination and independence-polynomial literature gives size/number data, not the queried-coordinate support polynomial or integral homotopy type. A closely related published fixed-weight cyclic-independent-set theorem already implies the scalar VC values and is fully credited; it does not claim the complete shattering polynomial. The published all-coefficient theorem for inclusion-maximal independent sets is about a larger, not optimizer-only, class. The detailed implication comparisons and material primary-source inspections appear in `AUDIT.json`. The exact optimiser shattering profile and mod-four homotopy change were not identified in those sources or in semantic records. Priority remains uncertain under alternative extremal-cyclic-word or graph-transversal terminology.
+
+## Value — PASS
+The contribution is an explicit complete classification of every Boolean support for a standard optimum-solution family, not merely a count of optimum sets or a scalar learning dimension. The topological conclusion yields a sharp transition from graph-like complexes to wedges of three-spheres and an exact quartically growing integral Betti rank. These natural invariants are not specified by previously known total domination numbers or independence-polynomial coefficients and give a structural benchmark for optimum-concept learning complexes.
+
+## Scope and risk
+The theorem is confined to finite labelled cycles and minimum total domination. Historical-priority searches are incomplete in principle. The standalone checker is exhaustive only within its documented finite range. Independent mathematical verification has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
