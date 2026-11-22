@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Gaussian strict positive definiteness gives a positive denominator; the two-by-two reflection-even inverse formula follows by block reduction. Verified symbolic order-two Taylor expansions imply positive flat limits; Gaussian concentration implies positive sharply localized limits. The packaged exact-rational Taylor remainder checker verifies strict middle-shape numerator signs with wide margins; continuity ensures two distinct zeros and robust open-set persistence. No infinite conclusion rests on sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Huszár and Duvenaud establish Bayes quadrature weights and mention that weights can be negative but do not establish positive–negative–positive shape dependence for one symmetric node set.",
+        "Karvonen–Kanagawa–Särkkä guarantee at least half positive and complete positivity at locally optimal nodes; the present prescribed nodes are not locally optimal at the negative-weight shape.",
+        "Karvonen–Särkkä determine the increasingly-flat limit, not an intermediate reentrant sign excursion."
+      ],
+      "reasoning": "The strongest nearby existing theorem is compatible with exactly two positive weights and does not fix the sign trajectory. The strong optimal-node positivity hypothesis is inapplicable to this nonoptimal fixed-node design.",
+      "searches": [
+        "Bayesian quadrature Gaussian interpolation kernel mean positivity varying lengthscale all 4 nodes",
+        "arxiv:1204.1664 Section 3.1.1",
+        "arxiv:1812.08509 Sections 3.3 and 3.5",
+        "arxiv:1906.02096 increasingly flat kernel limit"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1204.1664",
+      "arxiv:1812.08509",
+      "arxiv:1906.02096",
+      "https://www.ins.uni-bonn.de/media/public/publication-media/diss_oettershagen.pdf?pk=460",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-one-crossing-positivity-diagram-for-symmetric-three-node-gauss--bf59562e8e52 (indexed summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2019 half-positivity bound for n=4 gives only at least two positive coefficients; our certified shape has exactly two.",
+        "Flat polynomial quadrature establishes the positive limiting coefficients for selected radii, and Gaussian concentration yields positive narrow-kernel coefficients; neither supplies strict negative coefficients at an intermediate shape."
+      ],
+      "reasoning": "The new claim cannot be obtained merely by setting n=4 in the old half-bound or taking its known flat limit. A middle-shape strict inequality is independent additional mathematical information, certified by rational interval arithmetic.",
+      "searches": [
+        "arxiv:1812.08509 Theorem 1 Corollary 1",
+        "arxiv:1906.02096 Theorem 2.4 Corollary 2.5",
+        "kernel quadrature positivity 4 symmetric sites shape parameter sign reentry"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kernel-quadrature weights equal integrals of Gaussian RBF cardinal functions, the same linear system used for this example; the relevant 2019 paper discusses general sign bounds, not four-node reentrance.",
+        "The reflection-even reduction gives a finite two-by-two system; the novel property concerns the sign as the shape parameter traverses the entire positive half-line."
+      ],
+      "reasoning": "The claim was compared to cardinal-basis integration and Gaussian-process Bayes quadrature, not only terminology. A general negative-weight example or half-positive theorem does not imply two separated sign transitions for one fixed symmetric four-node design.",
+      "searches": [
+        "Gaussian kernel Bayesian quadrature four symmetric nodes positive for small and large lengthscale negative outer weights intermediate bandwidth reentrant positivity",
+        "kernel interpolation Gaussian four nodes [-b,-a,a,b] outer quadrature weight sign two crossings shape parameter",
+        "arxiv:1812.08509, Sections 2.1, 3.3–3.7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A close public indexed result concerns three nodes, where at most one central-weight sign crossing is classified, rather than four nodes with two strictly negative outer weights at an intermediate shape.",
+        "Inspected primary literature and accessible indexed abstracts provided no exact four-node matrix, certified rational sign table, or robust sign-reentrance theorem."
+      ],
+      "reasoning": "No matching exact database row or closed-form table was found in the actual searches. This is evidence of limited coverage, not a proof of uniqueness or publication priority.",
+      "searches": [
+        "Gaussian kernel quadrature weights bandwidth outer node negative intermediate scale positive both limits",
+        "four node uniform interval Gaussian kernel quadrature positivity reentrance as lengthscale changes",
+        "2026/11/2/SCOPE-a-one-crossing-positivity-diagram-for-symmetric-three-node-gauss--bf59562e8e52"
+      ]
+    },
+    "rationale": "Original contribution is the strict positive–negative–positive weight trajectory for fixed four symmetric sites, sharp attainment of the existing half-positive bound in this geometry, and perturbation robustness. Existing 2012 negative-weight observations, 2019 half-positivity/local-optimum results and 2020 Gaussian flat-limit theorems do not entail the middle-shape sign reversal, which is separately certified. Inspected material and accessible research records revealed no exact covering statement, with residual unindexed literature risk.",
+    "residual_risks": [
+      "An equivalent reentrant four-node example may exist in older or unindexed kernel quadrature literature.",
+      "Only relevant sections, not the full 181-page Oettershagen dissertation, were read.",
+      "Closest public research-index three-node record was available as summary, not primary full text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes standard unconstrained weight definition and occurrence of negatives, not robust four-symmetric-site shape reentrance",
+        "evidence": [
+          "General Bayesian quadrature formula and negative-weight discussion in §3.1.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1204.1664",
+        "material_read": "PDF, mathematical Bayes-quadrature weight discussion including §3.1.1; publication entry confirms 2012-04-07",
+        "method": "Read primary PDF text and visually inspect corresponding page",
+        "title": "Optimally-Weighted Herding is Bayesian Quadrature",
+        "trigger": "Original early treatment of Gaussian Bayesian quadrature and possible negative weights"
+      },
+      {
+        "assessment": "Theorem 1 gives floor((n+1)/2) positive, and local node optimality implies all positive; neither implies or excludes this fixed-site nonoptimal example",
+        "evidence": [
+          "Theorem 1 in §3.3/3.4",
+          "Corollary 1 in §3.5",
+          "§3.7 other kernels and node sets"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11222-019-09901-0",
+        "material_read": "Full open HTML article, especially introduction, §§2, 3.3–3.7, 4",
+        "method": "Read exact mathematical theorem statements and their hypotheses in open-access full text",
+        "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+        "trigger": "Most directly related general lower bound and local optimality result"
+      },
+      {
+        "assessment": "Covers the classical polynomial flat-limit equivalence but not strict negative weights at a finite shape and their return at the localized limit",
+        "evidence": [
+          "Flat Gaussian interpolation and polynomial quadrature limit statements"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1906.02096",
+        "material_read": "Primary PDF mathematical flat-limit statements in §§2–3, including Theorem 2.4 and Corollary 2.5",
+        "method": "Read full-text relevant claims and inspect PDF figure/page",
+        "title": "Worst-case optimal approximation with increasingly flat Gaussian kernels",
+        "trigger": "Potentially dominates the claimed small-shape behavior"
+      },
+      {
+        "assessment": "Inspected material concerns optimized site selection and numerical designs, not an exact reentrant sign theorem for the specified fixed four nodes; unexamined sections are a residual risk",
+        "evidence": [
+          "Kernel cubature design section",
+          "Gaussian kernel numerical examples in §6.5"
+        ],
+        "identifier_or_url": "https://www.ins.uni-bonn.de/media/public/publication-media/diss_oettershagen.pdf?pk=460",
+        "material_read": "Relevant sections on optimal cubature and Gaussian kernel numerical designs, including §§5.1 and 6.5; not the entire thesis",
+        "method": "Read text passages and visually inspect PDF relevant pages",
+        "title": "Construction of Optimal Cubature Algorithms with Applications to Econometrics and Uncertainty Quantification",
+        "trigger": "Early kernel cubature monograph/dissertation may contain numerical examples of sign-changing weights"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5fe7e9b5-8136-4f26-848f-ff4e654f3ac0",
+  "value": {
+    "rationale": "Sign changes of unconstrained Gaussian Bayesian quadrature weights directly govern the stability constant and the ability of positive integrands to yield positive estimates. The theorem displays a robust node-design-dependent failure invisible from both conventional extreme-scale asymptotics, and it attains the sharp general half-positive bound at finite shape. The result is a structural boundary phenomenon, not a numerically optimized small accuracy gain.",
+    "status": "PASS"
+  }
+}
