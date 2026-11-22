@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "From the verified published coefficient identity, direct algebra gives y2=F/(3+2k-k^2+2z). The derivative bound uses the exact maximizer of e^-z(kz-1-k+k^2) and the strictly negative logarithmic inequality. Thus each k has precisely one positive zero. The quadratic F=A+Bk+Ck² is strictly concave in k; its interior vertex is proved using B>0 and B+2C<0. Pointwise strict decrease in z makes the maximal envelope strictly decreasing; sign brackets at log4 and 2 yield one and only one tangency root D(z)=0 and unique global k optimizer. The BDF2 crossing follows from exact factorization at log4. Rational consistency checks, recurrence checks, 1,001 parameter-grid sign boundaries and high-precision root diagnostics were run from the actual standalone package, and no finite check is treated as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Complete positive-start record reports robust positivity up to kappa-dependent bounds, maximized at kappa=1/2.",
+        "Backward-Euler-started result reports the all-iterate threshold, not a single exact-start output.",
+        "Hundsdorfer et al. provide general positivity and monotonicity with starting procedures, not this exact 2026 family."
+      ],
+      "reasoning": "All-time positivity implies a first positive update within the all-time safe region, but says nothing about the larger region of transiently positive first outputs nor its unique best kappa. The new optimizer kappa approximately 0.3668716 and z approximately 1.51721474 differ from the all-time kappa=1/2 and 3/2. A generic theorem in a source appendix could still cover a specific optimizer, so priority is qualified.",
+      "searches": [
+        "published-finding corpus query: optimized A-stable two-step L(kappa) first negative step from exact exponential initialization unique sweet spot",
+        "published-finding corpus ID 2026/11/2/SCOPE-complete-positive-start-phase-diagram-for-optimized-two-step-sti--89235ce0d52d",
+        "published-finding corpus ID 2026/11/8/SCOPE-a-sharp-positivity-phase-boundary-for-error-optimal-two-step-sti--d8e0bc3614f5",
+        "CWI:MAS-R0210 report sections 2–3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.22685v1, relevant original method full text",
+      "CWI:MAS-R0210, relevant classic full-text sections",
+      "published-finding corpus:2026/11/2/...89235ce0d52d, indexed title and summary",
+      "published-finding corpus:2026/11/8/...d8e0bc3614f5, indexed title and summary",
+      "web search: positivity optimized linear multistep exact starting values, first step, monotonicity"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original provides optimized family and L(kappa) characteristic roots; the new F sign and first-step extremum are not an immediate source-stated result.",
+        "Existing all-time positivity bound max 3/2 at kappa=1/2 is strictly lower than new first-step maximum 1.5172147 at kappa about 0.36687.",
+        "At kappa=0.8 the first-step threshold about 1.38367 far exceeds the indexed robust all-step threshold 0.45."
+      ],
+      "reasoning": "The prior strongest same-family statements classify positivity across indefinitely many outputs, whose failure is compatible with a positive first output. The new complete first-step sign classification and its global tangency optimization are not implied by those step restrictions. This comparison is based on indexed claims where full published record text was inaccessible and remains provisional.",
+      "searches": [
+        "arxiv:2610.22685v1 Corollary 4.2, PDF pp.15-17",
+        "CWI:MAS-R0210 PDF pp.1-5 and Section 3",
+        "published-finding corpus ID 2026/11/2/...89235ce0d52d and 2026/11/8/...d8e0bc3614f5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Original Corollary 4.2 fixes alpha_j,beta_j but optimizes asymptotic damping versus local error constant, not first-output sign.",
+        "published-finding corpus closest match 2026/11/2/...89235ce0d52d is about every future iterate given positive history.",
+        "The exact-start first-output sign reduces to F(z,kappa), with a separate discriminant-based maximization absent from these described claims."
+      ],
+      "reasoning": "Equivalent first-output formulations include a positive recurrence numerator, a first-update sign crossing, and a tangency envelope of the exponential-quadratic F. The source and indexed records do not state the uniquely optimized first-update frontier, though uninspected appendices could in principle contain it.",
+      "searches": [
+        "published-finding corpus query: Jensen Loczi optimal two step multistep exact exponential starting history first completed update positivity threshold unique optimal damping coefficient around 0.36",
+        "web query: optimized two-step first step positivity kappa Jensen Ketcheson 2026",
+        "arXiv:2610.22685v1 PDF section 4.1 Corollary 4.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact numeric record for 1.517214740336255583 or 0.366871635162403894 appeared in the accessible search hits.",
+        "Closest indexed exact database rows concern indefinite positivity and other methods/starting rules."
+      ],
+      "reasoning": "No matching exact first-output extremizer, table, or number was identified. Search absence alone cannot prove uniqueness.",
+      "searches": [
+        "published-finding corpus query: BDF2 optimal damping family N(z,k) exp negative one-step transition crossing threshold logistic nonmonotone",
+        "published-finding corpus query: linear multistep methods positive history nonnegative recurrence sharp positivity preservation infinite time characteristic roots BDF2 SSP monotonicity",
+        "web query: BDF exact initial values first-step positivity coefficient optimized multistep"
+      ]
+    },
+    "rationale": "The new object is the sharp exact-start first-completed-output sign margin and its unique global optimization over the 2026 error-optimal damping family. The source derives coefficients and damping/error tradeoff but does not give this one-update frontier. The most relevant indexed published results describe indefinite positive-start trajectories or backward-Euler-started all-iterate positivity; those results imply positivity of the first update within their narrower all-iterate safe regions, not the optimal first-update failure boundary or the damping parameter that maximizes it. Classic starting-procedure monotonicity results establish general guarantees but not this parameter-specific transcendental optimizer. No source establishes the same exact claim in material inspected; related complete published texts unavailable by web access remain an explicit risk.",
+    "residual_risks": [
+      "Full original text of two plausible published-finding corpus publications was inaccessible; indexed summaries cannot rule out an appendix on first-update tuning.",
+      "Classic other published optimal-starting-procedure formulas could be algebraically reduced to the specialized first-update optimum without matching terminology.",
+      "No claim of independent peer review, exhaustive priority or nonlinear validity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Coefficient premise verified; no first-step exact-start sign-optimum among inspected statements",
+        "evidence": [
+          "Corollary 4.2 equation (25) supplies the two-step coefficients",
+          "Source compares error constant and asymptotic damping, not completed-step positivity"
+        ],
+        "identifier_or_url": "https://pdfs.assets.alphaxiv.org/2610.22685v1.pdf",
+        "material_read": "PDF abstract, introduction, Section 4.1 including exact Corollary 4.2 coefficients and surrounding A-stability discussion, and source contribution list, pp.1-3, 14-17",
+        "method": "Full-text page extraction with visual check of coefficient page and page 2",
+        "title": "Optimized linear multistep methods for stiff problems",
+        "trigger": "Exact same coefficient family and error-vs-damping optimization"
+      },
+      {
+        "assessment": "Prior positivity and starting-procedure framework; no 2026 coefficient-family optimizer in inspected sections",
+        "evidence": [
+          "Defines positivity property and discusses separate treatment of starting procedures",
+          "General two-step analysis predates the target 2026 coefficient family"
+        ],
+        "identifier_or_url": "https://ir.cwi.nl/pub/4231/04231D.pdf",
+        "material_read": "Full PDF sections 1–2 and beginning of section 3, pages 1-5",
+        "method": "Web text extraction and visual screenshot of positivity definitions",
+        "title": "Monotonicity-preserving linear multistep methods",
+        "trigger": "General monotonicity and positivity with starting procedures"
+      },
+      {
+        "assessment": "All-iterate positivity classification is relevant but not the first-step optimum; whole-document coverage remains unresolved",
+        "evidence": [
+          "Summary gives maximal robust boundary 3/2 at kappa=1/2 and a fragile eigenhistory region"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-complete-positive-start-phase-diagram-for-optimized-two-step-sti--89235ce0d52d",
+        "material_read": "Indexed title and scientific summary only; direct GitHub full text request failed",
+        "method": "published-finding corpus semantic search and direct GitHub open attempt",
+        "title": "Complete positive-start phase diagram for optimized two-step stiff integrators",
+        "trigger": "Closest same-family published finding"
+      },
+      {
+        "assessment": "Reports full future positivity with backward-Euler start, not exact-start first-output maximization; full text not inspected",
+        "evidence": [
+          "Summary reports the separate piecewise all-iterate threshold"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-sharp-positivity-phase-boundary-for-error-optimal-two-step-sti--d8e0bc3614f5",
+        "material_read": "Indexed title and scientific summary only; direct GitHub full text request failed",
+        "method": "published-finding corpus semantic search and direct GitHub open attempt",
+        "title": "A sharp positivity phase boundary for error-optimal two-step stiff multistep methods",
+        "trigger": "Same coefficient family with a different starting rule"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1a386c9e-3e30-4ffd-9b0f-5b870b2aa3a6",
+  "value": {
+    "rationale": "The parameter-specific exact first-update sign frontier is a natural finite-horizon invariant for an error-optimized stiff integrator: a one-step positive diagnostic is weaker than persistent positive trajectory safety. The unique first-step optimizer is quantitatively different from the published best persistent-positivity parameter and the complete crossing criterion identifies when increasing the damping parameter makes the first output worse than classical BDF2. At k=0.8, one apparently positive completed output remains possible near z=1.38 although the indexed robust positivity boundary is only z=0.45. This exact benchmark can inform short-horizon diagnostic design and caution against extrapolating a single accepted update; it is not a global scheme improvement or a broad PDE guarantee.",
+    "status": "PASS"
+  }
+}
