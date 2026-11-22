@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The square-zero reduction kernel is the additive adjoint module \(\mathfrak{sl}_2(k)\); the full argument verifies every involution lift, the dihedral base centralizers, and all edge fibers via simultaneous eigenlines. The graph-degree, commuting-pair, unique-triangle and subgroup formulas follow by explicit bijections. The packaged Python checker enumerates all relevant projective matrices and lift pairs for \(q=3\) and \(q=5\), corroborating but not replacing the proof. Scope excludes even characteristic, mixed-characteristic rings, and all unproved generalizations.
+
+**Originality — PASS relative to the inspected record.** Actual searches compared projective involution graph, square-zero lifts, two degree types, Klein four counts, and the stronger possibility of an existing general centralizer or Hensel-lifting theorem. Baek–Han treats graph diameters over fields; Cotner treats group-scheme centralizer geometry; Crisp–Meir–Onn treats representations; Panja–Roy–Singh treats power-map images. The closest indexed results concern characteristic-two \(\mathrm{SL}_2\) over two ring types and a fixed small-field \(\mathrm{GL}_2\) product-order spectrum. None of the inspected statements yields the entire odd-characteristic projective graph, its \(qK_{q,q}\) fiber geometry, or unique triangle decomposition. An unindexed equivalent characterization remains possible.
+
+**Value — PASS.** This is a complete local-to-residue incidence classification for a natural commuting graph of a finite matrix group. It shows exactly how square-zero deformation multiplies the involutions, splits edge fibers into bicliques, and preserves a sharp clique ceiling, while supplying a uniform subgroup-lift formula. The result determines the graph's two degree strata and its complete triangle decomposition for an infinite family of non-field coefficient rings. These are natural invariants in the study of centralizers and involution-generated subgroups, not arbitrary parameter slices.
+
+Closest work and limits: arXiv:1610.07938, arXiv:2203.15133, arXiv:1704.05575, arXiv:2508.18952. The result concerns split dual numbers over odd fields only. Search completeness is not proof of priority and independent validation remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
