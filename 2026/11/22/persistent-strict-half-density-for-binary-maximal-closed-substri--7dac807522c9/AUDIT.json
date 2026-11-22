@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For every \\(a\\ge3\\), \\(\\varepsilon\\in\\{0,1\\}\\), and \\((a,\\varepsilon)=(2,1)\\), the eight listed endpoint families have independently identifiable two-occurrence longest borders. The one-character extension lemma proves that every available neighboring context is mismatched. The intervals all cross cut \\(a+2\\), are distinct, and count \\(a+5=\\lfloor n/2\\rfloor+1\\). Parity covers every \\(n\\ge13\\). Executed border-counting checks cover 57 parameter instances, 1211 intervals, and 15 complete cut enumerations; symbolic reasoning handles all parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Faro et al. prove \\(3(n-1)\\) as a universal upper bound and \\(\\lfloor(n-1)/2\\rfloor\\) as a uniform lower construction.",
+        "Umezaki et al. provide an all-word algorithmic family representation of MCSs with O(m^2) families, rather than an extremal fixed-cut lower formula."
+      ],
+      "reasoning": "The general enumeration framework can check a specified word, but obtaining the new uniform strict-half construction requires extra analysis of border pairs and context mismatches; its theorem does not state or directly imply the parameterized numerical lower bound. The published lower construction attains a smaller number of crossings. The universal upper bound does not imply the lower bound.",
+      "searches": [
+        "maximal closed substring local cut bound optimal constant binary 2026",
+        "maximal closed repeats binary eight runs cut crossing uniform half density 2026",
+        "arxiv:2611.11552v1 Theorem 12 and Proposition 14",
+        "arxiv:2607.02838v2 Theorem 1.1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.11552v1 §7 and definitions",
+      "arxiv:2607.02838v2 §§1-4",
+      "arxiv:2610.38114v1 §§1-3",
+      "Topical scientific literature and equivalent-formulation searches listed in the four named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published full-text §7 proves a \\(\\lfloor(n-1)/2\\rfloor\\) witness using two blocks separated by one marker; no eight-run parameter family or persistent excess over half is stated.",
+        "A finite length-fourteen example gives one special case but no implication for every larger length."
+      ],
+      "reasoning": "Statement comparison: one isolated counterexample does not entail an all-length lower bound; neither a universal upper bound nor a weaker lower-bound construction entails a strictly larger lower bound. General MCS enumeration supplies a correctness method, not the structural joint occurrence proof. Potential implicit specialization remains a documented originality risk.",
+      "searches": [
+        "maximal closed substring cut density 11 zeros 1011101 zeros all n half plus one construction",
+        "maximal closed substring cut crossing floor n/2 plus one uniform all n 13 binary 11 0^a 1011101 0^(a-1)",
+        "persistent strict half-density for binary maximal closed substrings across a cut",
+        "arxiv:2611.11552v1 Section 7 full HTML",
+        "arxiv:2607.02838v2 Sections 2 and 4 full HTML"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Umezaki et al. give longest-border valid-pair formulations for maximal closed substring occurrences, also known as maximal closed repeats, but not the proposed uniform family.",
+        "Faro et al. Definition 1 gives the same interval maximality convention and Section 7 studies fixed-cut crossings."
+      ],
+      "reasoning": "Aliases compared: maximal closed substring/closed repeat, consecutive-longest-border valid pair, and global versus query-relative cut crossings. The eight-run construction is checked in the global-word convention, which is the same convention for a query spanning the entire word. No inspected equivalence proves the all-length displayed lower bound.",
+      "searches": [
+        "maximal closed substring occurrence exactly three run binary words border 2026 Umezaki",
+        "maximal closed substrings all-length 11000101110100 1100001011101000",
+        "maximal closed substring cut crossing floor n/2 plus one uniform all n 13 binary 11 0^a 1011101 0^(a-1)",
+        "arxiv:2607.02838v2 §§2,4; arxiv:2611.11552v1 §7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A finite length-fourteen extremizer of the same form is known, and the new statement does not claim its isolated instance as novel.",
+        "Searches of related MCS four- and five-run total-count spectra did not yield the all-length fixed-cut strict-half construction."
+      ],
+      "reasoning": "The own finite record concerns lengths at most 14 and cannot imply existence at every longer length. The present claim is the infinite parameter construction n>=13, not the already known length-14 extremizer or a recomputed finite table.",
+      "searches": [
+        "maximal closed substrings all-length 11000101110100 1100001011101000",
+        "MCS crossing cut eight runs all lengths floor(n/2)+1",
+        "persistent strict half-density for binary maximal closed substrings across a cut"
+      ]
+    },
+    "rationale": "The closest inspected 2026 primary text gives the universal upper bound \\(3(n-1)\\) and a uniform lower construction \\(\\lfloor(n-1)/2\\rfloor\\), but not this all-length strict-half construction. A finite length-fourteen example is already known and not claimed as separately new. General RLE algorithmic MCS characterizations do not state this structural all-length witness; priority remains conditional on unindexed work.",
+    "residual_risks": [
+      "An unindexed or otherwise inaccessible all-length equivalent construction may exist.",
+      "A straightforward specialization of an established general RLE family classification may be judged prior coverage by a stricter implication test.",
+      "Later sections of a related algorithmic source were not examined exhaustively; their noncoverage is not inferred from a partial reading.",
+      "A prior finite length-fourteen extremizer is known, so the numerical seed instance is not novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related and weaker lower construction; does not supply the family or uniform strict-half conclusion.",
+        "evidence": "Theorem 12: at most 3(s-1); Proposition 14: binary example attains floor((s-1)/2), centered on a unique b between a-runs.",
+        "identifier_or_url": "https://arxiv.org/html/2611.11552v1",
+        "material_read": "Full HTML relevant sections: Definitions in §2; one-character criterion in §4; all of §7 including Theorem 12, Corollary 13, Proposition 14 and proof; §8 and conclusion.",
+        "method": "Read primary OA HTML and compared quantitative statements and construction patterns",
+        "title": "Internal Queries for Maximal Closed Substrings",
+        "trigger": "Direct fixed-cut local density upper/lower results for same object"
+      },
+      {
+        "assessment": "Provides universal valid-pair enumeration, not a fixed-cut all-length lower-count construction; possible implicit derivability remains a risk.",
+        "evidence": "Definition 1 and Lemma 1 characterize MCS via border valid pairs; Theorem 1.1 represents occurrences using O(m^2) RLE families.",
+        "identifier_or_url": "https://arxiv.org/html/2607.02838v2",
+        "material_read": "OA HTML abstract, introduction, §2, and §4 classification of RLE MCS family types.",
+        "method": "Read primary full-text sections and compared parameter type, task, and theorem implications",
+        "title": "Compact Enumeration of Maximal Closed Substrings in Run-Length Encoded Strings",
+        "trigger": "Valid-pair equivalence and all-run-family coverage of a candidate eight-run word"
+      },
+      {
+        "assessment": "Inspected contributions concern global enumeration complexity, not a uniform fixed-cut density witness; partial reading of implementation details leaves a limited residual risk.",
+        "evidence": "Abstract gives O(n sqrt(log n)+k log^eps n) enumeration with linear space, no cut-density formula.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.38114",
+        "material_read": "Primary open-access HTML §§1–3 and §5, including definitions, successor-based enumeration structure, and future-work discussion; later algorithm implementation details only sampled.",
+        "method": "Read author abstract and opening description; explicitly limited comparison",
+        "title": "Output-Sensitive Enumeration of Maximal Closed Substrings in Linear Space",
+        "trigger": "Potential stronger covering algorithmic theorem in latest MCS literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7dac8075-22c9-40ad-a9ab-d657c663a95f",
+  "value": {
+    "rationale": "A recent primary paper leaves the sharp local cut-density constant open and exhibits \\(\\lfloor(n-1)/2\\rfloor\\) binary crossing MCSs at each length. A single finite strict-half example cannot show persistence, while the all-length family proves a strict excess over half for every \\(n\\ge13\\). This is a structural persistence boundary rather than a merely tabulated numerical improvement. The gain over the published witness is additive and the leading asymptotic constant remains \\(1/2\\); these material limitations are stated.",
+    "status": "PASS"
+  }
+}
