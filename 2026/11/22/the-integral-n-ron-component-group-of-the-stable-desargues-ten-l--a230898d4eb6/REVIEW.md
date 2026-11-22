@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The Desargues ten-triple-point labeling by two-subsets and three-subsets yields precisely thirty exceptional-to-line nodes and fifteen line-to-line nodes, with twenty rational components and genus twenty-six. The block-Laplacian determinant is derived from the standard Petersen spectrum; the resulting tree count agrees with the product of the complete invariant factors. The supplied standard-library certificate executes independent prime-power Smith calculations at each prime divisor of the determinant, using both an exceptional and a line vertex as deleted root. The necessary Néron interpretation assumes a regular semistable unit-thickness smoothing over an algebraically closed residue field.
+
+**Originality — PASS (historical priority provisional).** The ten-line Desargues arrangement and the general Raynaud correspondence are established prior work, not claimed here. The inspected Amram–Cohen–Teicher–Ye classification establishes the geometry but gives no full Smith decomposition for this boundary. The generalized Petersen graph has the same twenty vertices as the Desargues Levi graph but only thirty edges; its Jacobian literature does not cover the additional fifteen nodal edges. The claim differs also from other previously examined line-arrangement boundary critical groups with different incidence lattices. Alternative descriptions or unindexed tables remain a residual risk.
+
+**Mathematical value — PASS.** This is a complete integral degeneration invariant of the canonical stable boundary associated to a classical maximally symmetric ten-line, ten-triple-point arrangement. The group distinguishes valuation layers, generator ranks, exponent, and distinct prime-primary structures that cannot be recovered from the characteristic polynomial or total spanning-tree count alone. It is a meaningful exact geometric benchmark, not an arbitrary induced subgraph or a routine restatement of the graph-spectrum formula.
+
+**Limits.** This does not assert an integral Picard group of the ambient blown-up surface, a classification of every ten-line arrangement, or an unconditional identification for every model thickness. A broader published exact sandpile table could establish prior coverage; independent mathematical audit is pending.
+
+Self-review: passed. Independent audit: not yet performed.
