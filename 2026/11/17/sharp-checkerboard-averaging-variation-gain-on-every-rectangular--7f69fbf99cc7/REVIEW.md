@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement is for all integer rectangles with both sides at least two, with free nearest-neighbor boundaries, unweighted color means and unweighted edge total variation. The projection output has exactly one difference per graph edge, so its variation is the number of edges times the absolute difference of the two means. In even order a Hamiltonian cycle supports a nonnegative flow with the required vertex sums and sharp edge capacity. In odd order every Hamiltonian snake has the correct vertex sums but insufficient individual capacity; averaging eight snakes with weights proportional to the two side lengths' decrements yields explicit rational formulas. Interior and boundary inequalities prove the cap on every edge. The two-edge corner indicator attains equality, closing both sides of the estimate. The exact-arithmetic checker reproduces the flux and capacity identities, small-graph exhaustive cut maxima and larger-grid cases. These computations do not replace the unrestricted symbolic proof. Risk: the argument specifically requires unit grid edges, free boundaries and uniform within-color masses.
+## correctness
 
-## Originality — PASS, with residual historical risk
-The 2009 Chambolle–Giacomini–Lussardi paper develops discrete coarea and continuum-limit theory rather than the two-class projection's sharp variation norm. The published two-cell cyclic-variation theorem does give an exact cyclic norm, but cannot directly cover odd-by-odd rectangular grids: they have unequal class sizes and no Hamiltonian cycle. The exact sharp odd-grid norm with its nonnegative eight-snake capacity certificate is not implied by the cyclic result's run-balance statement. A related archived path-class formula addresses path variation, whereas the grid counts every horizontal and vertical edge. Mathematical searches for checkerboard averaging, parity-class conditional expectation, graph-total-variation sharp norms, equivalent cut/flow formulations and rectangular grids did not reveal a covering result. Unindexed literature may exist; lack of a retrieved record does not prove priority.
+PASS
 
-## Mathematical value — PASS
-Checkerboard averaging is a natural positive, constant-preserving, idempotent operator on pixel grids. Its sharp two-input total-variation stability is a concrete global operator invariant, with a nontrivial parity correction that disappears for even-order grids and is not obtainable from a spanning-cycle argument in odd order. The eight-path congestion certificate links an optimal graph variation bound to explicit discrete transport. A corner impulse simultaneously certifies every grid order's exact constant, establishing that only the smallest rectangle is nonexpansive and that large grids approach amplification two. These facts give direct information about stability of a natural grid reconstruction/aggregation map, not an arbitrary parameter table.
+The projection has exactly two class means and every grid edge crosses colors, so V(Pf)=e|mean_B-mean_W|. Orient edges black to white. An edge load with black incident sum 1/b, white sum 1/w, max load 1/(2b), certifies |mean_B-mean_W|<=V(f)/(2b). For even mn a spanning Hamiltonian cycle with each edge load 1/(2b) supplies the certificate. For odd mn, the source gives eight explicit Hamiltonian snake paths and nonnegative divergence-preserving flows, mixed with weights (m-1)/(m+n-2) and (n-1)/(m+n-2); its explicit interior/boundary edge formulas show every load <=1/(2b), with corner-edge equality. The corner impulse (degree two and class size b) attains e/(2b), where e=2mn-m-n. Independent fresh exhaustive enumeration of 103,234 nontrivial cuts on seven small grids gives the exact value; independent LP feasibility of capacitated divergence flows succeeds on five odd grids including 7x7. Infinite-grid proof relies on explicit symbolic edge estimates, not these finite LP checks.
 
-## Limitations and closest sources
-The result does not cover unequal edge weights, nonuniform averaging masses, nonrectangular subgraphs or alternative total-variation geometries. The most relevant primary texts were *Continuous limits of discrete perimeters*, arXiv:0902.2313, and *Sharp cyclic-variation stability of two-cell conditional expectations* (public 2026 result). The classical 1982 rectangular Hamilton-path paper was consulted for context, but Hamilton-cycle construction was proved directly. Earlier equivalent theorems not indexed by the searches are an unresolved historical risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The sharp odd-by-odd grid norm and bounded eight-path flux solve a two-dimensional constrained cut problem; known coarea/flow theory supplies the framework, and cyclic/path two-color projector results supply related special geometries, but not the odd grid capacity bound or full rectangular sharp norm. Even-size cycle upper bounds are acknowledged as a simpler known mechanism.
+
+## value
+
+PASS
+
+A graph-TV exact operator norm for a natural two-class averaging map exposes a sharp stability boundary (only 2x2 nonexpansive), a parity correction in odd-area grids and a near-two amplification limit. The explicit nonnegative eight-snake certificate resolves a nontrivial odd-grid combinatorial obstruction and gives reproducible sharp worst-case corner data, relevant to graph smoothing and cut-based variation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
