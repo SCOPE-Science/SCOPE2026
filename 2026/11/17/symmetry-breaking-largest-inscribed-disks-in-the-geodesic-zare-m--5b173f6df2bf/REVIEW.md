@@ -1,19 +1,21 @@
-# Scientific review: symmetry-breaking inballs of even-parameter geodesic monotiles
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The original geodesic graph defines a compact nonconvex hyperbolic polygon. Even parameter parity places the lower arc crest and an upper arc corner on the vertical reflection axis. Vertical-geodesic interception bounds every axis-centered disk, while a Euclidean rectangle contained in the polygon supplies the sharp feasible axis disk. That disk touches the boundary exactly at the crest and corner, not the vertical sides. Horizontal displacement strictly increases both local contact distances, and compactness protects clearance to all remaining boundary points. This proves strict improvement and the existence of at least two symmetry-related unrestricted maximizing centers for every even integer parameter.
+PASS
 
-## Originality
+For even q≥2 with δ=q^-2, r=(q+1)/q, H=sqrt(1+δ²/4), L=(q+1)δ, periodic φ describes Liao–Wang geodesic tile T_q between y=φ(x) and y=rφ(x/r). The reflection axis x0=L/2 passes through a lower arc crest H and upper concave corner of height r. Axis balls obey ρ≤min(log(y/H),log(r/y)), with equality only at y0=sqrt(rH); the hyperbolic ball of radius ρ0=.5log(r/H) has Euclidean horizontal half-width (r-H)/2, fits [0,L]×[H,r]⊂T_q, proving sharp axis constraint. The ball touches only lower smooth arc at A and upper strict corner B. On moving center horizontally by t, distance to the lower supporting geodesic is arsinh((t²+y0²-H²)/(2Hy0))>ρ0, while the locally nearest upper corner has cosh distance coshρ0+t²/(2r y0)>coshρ0; one-sided upper distance derivatives remain strict. Compact separation from all other boundary parts completes a strict improvement for small nonzero t. Reflection then yields distinct maximizing centers. No exact unrestricted inradius or odd-q result is claimed.
 
-PASS, subject to independent historical priority review. Liao--Wang establish the Zare geodesic monotiles and bound area and diameter, but do not analyze inballs or the location of their centers. The closest identified prior claim supplies an exact diameter, not a distance-to-boundary extremum; generic polygon inball algorithms do not imply the exact even-parameter symmetry obstruction without carrying out this analysis. Search results for other incenter-locus theorems concern different Euclidean polytopes. Searches of accessible prior claims found no equivalent statement. Unindexed work and differently indexed general theorems remain residual risks.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. For convex reflection-invariant bodies, symmetrizing the centers of maximal inscribed balls preserves a maximal disk. The present naturally constructed geodesic monotiles are nonconvex and violate that reduction at every even parameter, while their diameter tends to zero. The exact best axis-constrained radius and strict global separation identify a geometric parity obstruction, not a numerical artifact or a one-off arbitrarily selected shape.
+The Liao–Wang paper defines/tiles these nonconvex geodesic polygons and controls their areas and diameters. A direct published follow-up finds exact diameters but says nothing about inradii. General maximum-inscribed-circle algorithms on polygons do not determine this hyperbolic reflection-axis obstruction without the submitted active-boundary derivation. Comparison supports bounded originality with possible hidden incenter calculations.
 
-## Limits and closest literature
+## value
 
-The unrestricted inradius, full incenter locus, odd-parameter behavior, and optimal quantitative off-axis gain are not established. Numerical consistency checks support but do not replace the geometric argument. Closest sources: Liao and Wang, *Area and diameter gaps for hyperbolic monotiles*, arXiv:2610.05438v1, Section 7.2; *Exact diameter of the geodesic Zare monotiles*, published research record, https://github.com/published-finding corpus/2026 (public record identifier f5389af65e93); O. Martinez, arXiv:1212.3193 (general numerical algorithms).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Largest-inball centers are natural geometric extremizers for a specific published hyperbolic monotile family. The exact axis-constrained radius and strict off-axis improvement establish a concrete infinite-family symmetry-breaking phenomenon for nonconvex geodesic tilings, a motivated boundary for naive center symmetrization. The result does not need full incenter classification to be independently informative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

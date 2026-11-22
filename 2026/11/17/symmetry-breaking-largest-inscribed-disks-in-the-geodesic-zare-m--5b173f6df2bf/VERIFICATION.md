@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof is self-contained in RESULT.md and covers all even integers \(q\ge2\). The source's lower circular arcs and upper corner are obtained directly from its explicit piecewise-periodic definition. The sharp axis radius follows from vertical geodesic endpoints and a feasible contained Euclidean rectangle. The strict improvement follows from exact hyperbolic distances to one supporting geodesic and the upper corner, a strict nearest-corner derivative sign, and compactness of the remaining boundary.
+## correctness
 
-Execute `python verify.py` to reproduce 100 finite even-parameter consistency tests, for \(q=2,4,\ldots,200\). Checks include the hyperbolic disk's vertical extrema, strict horizontal-side clearance, correct parity positions, upper-corner derivative signs, and positive local contact-distance increments. For larger parameters, direct inverse-hyperbolic floating-point subtraction can round tiny positive increments to zero; the program therefore checks their positive pre-inversion arguments exactly up to ordinary floating-point positivity, rather than comparing rounded distances. The finite sample is an illustration and not an infinite-parameter certificate.
+PASS
 
-No exact unrestricted inradius, complete incenter classification, or odd-parameter assertion is claimed. No independent review has been performed.
+For even q≥2 with δ=q^-2, r=(q+1)/q, H=sqrt(1+δ²/4), L=(q+1)δ, periodic φ describes Liao–Wang geodesic tile T_q between y=φ(x) and y=rφ(x/r). The reflection axis x0=L/2 passes through a lower arc crest H and upper concave corner of height r. Axis balls obey ρ≤min(log(y/H),log(r/y)), with equality only at y0=sqrt(rH); the hyperbolic ball of radius ρ0=.5log(r/H) has Euclidean horizontal half-width (r-H)/2, fits [0,L]×[H,r]⊂T_q, proving sharp axis constraint. The ball touches only lower smooth arc at A and upper strict corner B. On moving center horizontally by t, distance to the lower supporting geodesic is arsinh((t²+y0²-H²)/(2Hy0))>ρ0, while the locally nearest upper corner has cosh distance coshρ0+t²/(2r y0)>coshρ0; one-sided upper distance derivatives remain strict. Compact separation from all other boundary parts completes a strict improvement for small nonzero t. Reflection then yields distinct maximizing centers. No exact unrestricted inradius or odd-q result is claimed.
+
+## originality
+
+PASS
+
+The Liao–Wang paper defines/tiles these nonconvex geodesic polygons and controls their areas and diameters. A direct published follow-up finds exact diameters but says nothing about inradii. General maximum-inscribed-circle algorithms on polygons do not determine this hyperbolic reflection-axis obstruction without the submitted active-boundary derivation. Comparison supports bounded originality with possible hidden incenter calculations.
+
+## value
+
+PASS
+
+Largest-inball centers are natural geometric extremizers for a specific published hyperbolic monotile family. The exact axis-constrained radius and strict off-axis improvement establish a concrete infinite-family symmetry-breaking phenomenon for nonconvex geodesic tilings, a motivated boundary for naive center symmetrization. The result does not need full incenter classification to be independently informative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
