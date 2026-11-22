@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "Piecewise scalar ODE admits exact interval-state and integrated-cost formulas. Direct differentiation factors out the augmented-rate effect as a strictly positive G; strict derivative monotonicity or positivity yields a unique global minimizer on every admissible parameter region, including b=0, equality and endpoint cases. Exact regret follows by integration. Replayed code gave 71,003 assertions; analytic proof certifies quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kusiak and Li (2009), DOI 10.1016/j.energy.2009.07.039, full readable article, sections 2-4: time-windowed fan schedules, multiobjective evolutionary search and CO2 threshold exceedance; not a theorem minimizing integrated C with one fixed h.",
+        "Risbeck et al. (2021), DOI 10.1016/j.enbuild.2021.111497, full OA text including dynamic concentration equations, appendix on integrated dose and case-study optimization; broader realistic simulation does not state the exact special-case all-rate phase law."
+      ],
+      "reasoning": "The 2021 dynamic HVAC framework is more physically comprehensive but its general optimization methodology does not logically supply the unique closed form or global regret for the fixed one-window subproblem. The 2009 evolutionary scheduling results cannot be specialized by direct parameter substitution into an exact global optimizer of integrated concentration.",
+      "searches": [
+        "Optimal decision making in ventilation control Kusiak Li first available online 15 August 2009",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8457902/"
+      ]
+    },
+    "checked_sources": [
+      "Kusiak and Li (2009), DOI 10.1016/j.energy.2009.07.039, full readable article, sections 2-4: time-windowed fan schedules, multiobjective evolutionary search and CO2 threshold exceedance; not a theorem minimizing integrated C with one fixed h.",
+      "NISTIR 7042 (2003), 51-page original report, sections on simulations of indoor pollutant mass balances and demand-controlled ventilation; not a complete single pulse start-time optimum.",
+      "Risbeck et al. (2021), DOI 10.1016/j.enbuild.2021.111497, full OA text including dynamic concentration equations, appendix on integrated dose and case-study optimization; broader realistic simulation does not state the exact special-case all-rate phase law."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kusiak and Li (2009), DOI 10.1016/j.energy.2009.07.039, full readable article, sections 2-4: time-windowed fan schedules, multiobjective evolutionary search and CO2 threshold exceedance; not a theorem minimizing integrated C with one fixed h.",
+        "NISTIR 7042 (2003), 51-page original report, sections on simulations of indoor pollutant mass balances and demand-controlled ventilation; not a complete single pulse start-time optimum.",
+        "Risbeck et al. (2021), DOI 10.1016/j.enbuild.2021.111497, full OA text including dynamic concentration equations, appendix on integrated dose and case-study optimization; broader realistic simulation does not state the exact special-case all-rate phase law."
+      ],
+      "reasoning": "The prior single-room mass balance implies a segment solution, but it does not by itself entail that the minimizing calendar is independent of filter strength; the theorem combines derivative factorization, global monotonicity, and boundary analysis. The other studies have distinct optimization criteria or computer-simulated systems and do not dominate the explicit theorem as a published statement.",
+      "searches": [
+        "Optimal decision making in ventilation control Kusiak Li first available online 15 August 2009",
+        "https://www.nist.gov/publications/simulations-indoor-air-quality-and-ventilation-impacts-demand-controlled-ventilation-0",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8457902/"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kusiak and Li (2009), DOI 10.1016/j.energy.2009.07.039, full readable article, sections 2-4: time-windowed fan schedules, multiobjective evolutionary search and CO2 threshold exceedance; not a theorem minimizing integrated C with one fixed h.",
+        "Risbeck et al. (2021), DOI 10.1016/j.enbuild.2021.111497, full OA text including dynamic concentration equations, appendix on integrated dose and case-study optimization; broader realistic simulation does not state the exact special-case all-rate phase law."
+      ],
+      "reasoning": "Equivalences under first-order drug-clearance, forced linear reservoir, or switched filter removal could represent the same mathematical problem; the existing inspected indoor-air papers solve different objective/control constraints and provide no explicit equivalent theorem. A deeper literature survey remains a residual risk.",
+      "searches": [
+        "Optimal decision making in ventilation control Kusiak Li first available online 15 August 2009",
+        "Single boosted ventilation window optimal start time constant indoor pollutant emission fixed exposure horizon room concentration initial contamination; universal independent of boost strength",
+        "optimal continuous-time indoor air exposure single contiguous air purifier activation exact formula midpoint phase transition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "NISTIR 7042 (2003), 51-page original report, sections on simulations of indoor pollutant mass balances and demand-controlled ventilation; not a complete single pulse start-time optimum."
+      ],
+      "reasoning": "This result is a continuous universal algebraic classification rather than a finite numerical table. The NIST simulated scenarios are not an exact database of optimizer times over all parameters.",
+      "searches": [
+        "https://www.nist.gov/publications/simulations-indoor-air-quality-and-ventilation-impacts-demand-controlled-ventilation-0",
+        "Single boosted ventilation window optimal start time constant indoor pollutant emission fixed exposure horizon room concentration initial contamination; universal independent of boost strength"
+      ]
+    },
+    "rationale": "Against the relevant inspected full texts, the specific globally unique single-window cumulative-exposure solution, its exact initial-load boundary, its independence of augmented rate, and its full regret identity are not stated or implied by an already-derived optimizer. This is a best-knowledge, not independently certified, priority claim; exact elementary state propagation is acknowledged as known.",
+    "residual_risks": [
+      "A general single-interval scalar optimal-control theorem under terminology outside ventilation might subsume the result; comprehensive priority verification not complete.",
+      "Physical assumptions are restrictive; no evidence of field performance or robustness to model uncertainty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides prior mass balance and numerical schedule formulation, not fixed-duration cumulative-dose unique closed form",
+        "evidence": "Kusiak and Li (2009), DOI 10.1016/j.energy.2009.07.039, full readable article, sections 2-4: time-windowed fan schedules, multiobjective evolutionary search and CO2 threshold exceedance; not a theorem minimizing integrated C with one fixed h.",
+        "identifier_or_url": "https://doi.org/10.1016/j.energy.2009.07.039",
+        "material_read": "Available full article text including article history, mass-balance model, experimental scheduling, tables and conclusions",
+        "method": "Read open full text and cross-check fan-on timing objectives and analytic expressions",
+        "title": "Optimal decision making in ventilation control",
+        "trigger": "Closest two-mode single-room ventilation timing primary study; source date and model"
+      },
+      {
+        "assessment": "Simulation comparison rather than exact unique enhanced-removal window theorem",
+        "evidence": "NISTIR 7042 (2003), 51-page original report, sections on simulations of indoor pollutant mass balances and demand-controlled ventilation; not a complete single pulse start-time optimum.",
+        "identifier_or_url": "https://www.nist.gov/publications/simulations-indoor-air-quality-and-ventilation-impacts-demand-controlled-ventilation-0",
+        "material_read": "Full 51-page government report with pollutant-model and simulation-comparison sections",
+        "method": "Inspected report pages and technical outcomes as exposed in its original PDF",
+        "title": "Simulations of Indoor Air Quality and Ventilation Impacts of Demand Controlled Ventilation in Commercial and Institutional Buildings",
+        "trigger": "Historical primary indoor pollutant and demand-control baseline"
+      },
+      {
+        "assessment": "Uses general simulated building optimization; no direct special-case global duration-locked analytical start-time result",
+        "evidence": "Risbeck et al. (2021), DOI 10.1016/j.enbuild.2021.111497, full OA text including dynamic concentration equations, appendix on integrated dose and case-study optimization; broader realistic simulation does not state the exact special-case all-rate phase law.",
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8457902/",
+        "material_read": "Full accessible paper including model Eqs. (1)-(4), dynamic risk, cumulative exposure and optimization case studies",
+        "method": "Read model, objectives, numerical optimization and appendix on dose",
+        "title": "Modeling and multiobjective optimization of indoor airborne disease transmission risk and associated energy consumption for building HVAC systems",
+        "trigger": "Potential more general optimization encompassing scalar exposure"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a6b5f7a9-7228-429c-a803-79cfe902751d",
+  "value": {
+    "rationale": "A fixed-duration mechanical cleaning episode with known finite operating availability is a motivated constrained indoor-exposure control design. The complete sharp threshold for activation, device-strength independence, and exact quantified regret of mistiming give useful actionable mathematical structure beyond a restatement of the familiar linear concentration ODE; applicability is restricted to the idealized model.",
+    "status": "PASS"
+  }
+}
