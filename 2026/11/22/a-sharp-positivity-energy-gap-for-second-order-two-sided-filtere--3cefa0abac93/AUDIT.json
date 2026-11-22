@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Substituting the constant-coefficient path Laplacian into equations (3.6), (3.13) and (3.39) of arXiv:2611.02282 produces the exact Heun polynomial in the symmetric filter. Three orthogonal projectors reduce cone preservation to one scalar inequality. The two explicit integer polynomials M and P each have one descending-coefficient sign change; their rational signs at 0,1 and 3,4, respectively, prove unique positive roots and the unique global optimal splitting ratio, without relying on finite sampling. verify.py symbolically checks polynomial identities and the separate direct rational resolvent witness T13=-37010590/4202539929. The result is limited to completed steps in the stated three-site/energy-stable regime.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Horváth (1998) describes general conditions and step-size radii for RK and diagonally split RK schemes, but only its indexed abstract was accessible.",
+        "Wu–Shu (2026) supplies energy stability, including noncommuting operators, and does not claim coordinatewise nonnegative-cone invariance in the source sections read."
+      ],
+      "reasoning": "A general theorem on positivity radii may enable a new derivation, but without an identification of this parameterized source-specific filter it does not directly imply the exact constant or the uniquely bounded negativity window. The inaccessible 1998 full text is flagged as unresolved priority risk, not deemed definitively noncovering.",
+      "searches": [
+        "\"Positivity of Runge-Kutta and diagonally split Runge-Kutta methods\" pdf Horvath 1998",
+        "\"filtered Runge Kutta\" \"maximum principle\" \"resolvent\" 2026",
+        "\"Unconditionally L2 stable\" \"positivity\" \"Wu\" \"Shu\" 2026"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2611.02282",
+      "https://arxiv.org/abs/2610.34539",
+      "https://doi.org/10.1016/S0168-9274(98)00050-6",
+      "https://doi.org/10.1137/S003614450036757X",
+      "https://www.sspsite.org/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source arXiv:2611.02282v1 equations (3.6), (3.13), (3.39) and Table 2 prove unconditional L2 contractivity under s/a >= C2, which does not imply a nonnegative matrix; the exact witness has a negative entry in this range.",
+        "arXiv:2610.34539v1 studies IMEX EIN energy estimates with different updates, not the specified two-sided filtered Heun mapping.",
+        "Classical SSP positivity preservation requires positivity of its branch maps; energy contraction of the filtered branches by itself does not guarantee it."
+      ],
+      "reasoning": "The new claim is not a corollary of the published L2 estimate: a nonnegative-cone claim is logically stronger. Replacing the filter with a Padé or unfiltered RK function changes the decisive q(t) and its threshold, so other graph positivity results do not imply the constant by parameter substitution.",
+      "searches": [
+        "arxiv 2610.34539 energy stability EIN explicit implicit null nonlinear degenerate parabolic equations Wu Shu first submitted date",
+        "site:arxiv.org/abs/2611 \"Numerical Analysis\" \"positivity\" \"integrators\"",
+        "\"SSP-EIN2\" positivity filter Heun graph diffusion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The original two-sided filter is R=I-(I-J)^2 and the completed Heun step is (I+E^2)/2, whereas the searched positivity literature mainly treats unfiltered RK, Padé and Radau steps.",
+        "The exact step in the new claim has the scalar symbol G(rho q(lambda t)) with q(t)=16t(1+t)^2/(t+2)^4."
+      ],
+      "reasoning": "General cone-invariance notions can be rephrased as entrywise nonnegativity of the step matrix, but no inspected source gives this filtered Heun P3 all-step coefficient threshold or an equivalent exact polynomial minimizer.",
+      "searches": [
+        "\"SSP-EIN2\" positivity filter Heun graph diffusion",
+        "\"two-sided filtering\" \"positivity\" \"Heun\" \"diffusion\" 2026",
+        "\"symmetric filter\" \"Heun\" \"graph Laplacian\" positivity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary paper Table 2 reports only the sufficient energy factor C2=(107+51 sqrt(17))/512.",
+        "The distinctive nonnegativity ratio 0.675255515112861 and the integer root polynomial are not in that source table."
+      ],
+      "reasoning": "Searched exact filter/parameter combinations and inspected the available source table. No exact positivity bound or matching table entry was located; absence from search results alone is not treated as a novelty proof.",
+      "searches": [
+        "\"4(1+z)/(2+z)^2\" \"Heun\" diffusion",
+        "\"EIN2\" \"positivity\" \"3\" \"path\"",
+        "\"SSP-EIN2\" graph positivity threshold 0.675255515112861",
+        "\"symmetric filtering\" \"SSP-EIN2\" site:arxiv.org"
+      ]
+    },
+    "rationale": "The original paper provides the filter and the sharp L2 stability factor, but not the positivity threshold or a three-vertex nonnegative-cone classification. The companion energy paper studies distinct IMEX schemes. Earlier general positivity analyses provide a framework, not this specialized 2026 filtered-Heun sharp threshold. Related graph-heat rational integrators have different scalar symbols. Exact-source searches, semantic record searches, and comparison of the statements identified no result that implies the computed threshold. Older indexed literature may contain equivalent formulas and remains a priority risk.",
+    "residual_risks": [
+      "The 1998 general positivity paper was not accessible in full, so an equivalent older characterization cannot be ruled out.",
+      "Unindexed literature could already contain the specialized calculation or a stronger equivalent statement.",
+      "The claim does not generalize to nonlinear, variable-coefficient or noncommuting filtered stage operators."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers algorithm, filter and energy factor; no path-graph all-step cone-positivity threshold in inspected material",
+        "evidence": [
+          "Eq. (3.6) order-p filter",
+          "Eq. (3.13) symmetric filtered Euler residual",
+          "Eq. (3.39) SSP-EIN2 Heun",
+          "Eq. (3.10) and Table 2 C2 energy bound"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.02282",
+        "material_read": "Full primary introduction and contribution claims, Section 3.1 filter/energy lemmas, Section 3.2 SSP-EIN2 construction, numerical-method table and references",
+        "method": "Accessible original preprint PDF parsed text and page-one image",
+        "title": "Unconditionally L2-stable explicit–implicit–null filtered Runge–Kutta methods for general nonlinear degenerate parabolic equations",
+        "trigger": "Exact source of the new integrator and closest possible covering theorem"
+      },
+      {
+        "assessment": "Different IMEX-based nonlinear energy stability rather than the two-sided filtered Heun P3 cone threshold",
+        "evidence": [
+          "Section 1.2 EIN-IMEX splitting",
+          "Section 1.3 contribution and coefficient criteria"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.34539",
+        "material_read": "Introduction, source-specific scheme definitions and stated contribution in accessible original preprint text",
+        "method": "Lawful OA preprint PDF parsed text; page-image request timed out",
+        "title": "Energy stability of explicit–implicit–null time discretizations for nonlinear degenerate parabolic equations with state-dependent coefficients",
+        "trigger": "Same authors, closely related time discretizations"
+      },
+      {
+        "assessment": "Potential broad theory, no exact new filter threshold demonstrable from accessible abstract; priority uncertainty retained",
+        "evidence": [
+          "1998 abstract discusses positivity radii for general RK/DSRK, not the present source coefficients"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0168-9274(98)00050-6",
+        "material_read": "Indexed journal abstract and bibliographic summary only; full primary text inaccessible in the available retrieval",
+        "method": "Publisher-indexed description and title/DOI lookup",
+        "title": "Positivity of Runge-Kutta and diagonally split Runge-Kutta methods",
+        "trigger": "Plausible broader historical positivity theory"
+      },
+      {
+        "assessment": "Describes SSP inheritance when branches preserve a convex property; does not supply positivity of this source-specific filtered branch",
+        "evidence": [
+          "SSP positivity inheritance requires forward Euler branch property"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S003614450036757X",
+        "material_read": "Citation, source bibliography and specialist SSP-methods overview",
+        "method": "Accessible specialist overview and reference metadata",
+        "title": "Strong stability-preserving high-order time discretization methods",
+        "trigger": "Classical SSP implication and convexity framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3cefa0ab-ac93-4745-a7c5-8802f2fb0ba3",
+  "value": {
+    "rationale": "This is an exact natural benchmark for positivity versus unconditional quadratic-energy stability of a new high-order filtered diffusion method. It identifies a nonempty splitting-ratio gap and computes the unique sharp all-timestep coefficient boundary on the smallest possible connected graph. A rational negative transition at an energy-stable parameter value makes the distinction operational; the exact extra splitting requirement removes the defect on that model. No unsupported universal extension or runtime-performance claim is made.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,11 @@
+# Scientific assessment of the three-site filtered Heun positivity boundary
+
+**Correctness — PASS.** The stage operator is obtained by substituting the constant graph Laplacian into the source's exact order-two two-sided filter and Heun composition. The orthogonal eigenprojectors reduce all entrywise signs to one rational inequality. Two explicit integer polynomials each have exactly one variation of coefficient signs; rational bracketing plus Descartes' rule makes the minimizer and parameter boundary globally unique. An exact negative three-vertex transition is reproduced independently by direct matrix inversion. The checker verifies the critical symbolic identities and includes additional finite diagnostics. Its samples are not used as a proof.
+
+**Originality — PASS, qualified.** The source's SSP-EIN2 formula and energy factor \(C_2\) are established earlier, as are the general SSP and positive RK frameworks. The asserted contribution is the exact three-vertex nonnegative-cone threshold for that specific 2026 filtered method, including an isolated zero at equality and one bounded negative window above it. The 2026 source focuses on energy estimates, and its earlier companion uses a different IMEX scheme. Related Padé/Radau positivity classifications use different rational functions. A 1998 general positivity paper could contain broader methods applicable after nontrivial reduction; full text was unavailable, so historical priority remains qualified.
+
+**Value — PASS.** The question is a natural compatibility test between unconditional Euclidean-energy stability and a discrete diffusion maximum principle. The exact parameter gap is nonempty, and three vertices are minimal; a strengthened splitting requirement avoids the sign failure without changing the integrator. This is a sharp self-contained benchmark for numerical method selection, rather than an assertion of wider graph or nonlinear stability.
+
+**Limitations.** Fixed time-independent scalar coefficients, one three-site undirected path, the source's two-sided order-two filter, and completed steps. Outside the energy-stable parameter range no all-step classification is asserted. Nonconstant coefficients and other graphs are not covered. No independent audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
