@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+For the exact two-operation prime-square cyclic Alexander quandle, direct substitution yields the fiber formula and its inverse. The argument splits every congruence exhaustively at the canonical fiber relation: a fiber-preserving congruence either collapses or separates each prime-sized translation orbit, and a cross-fiber pair forces all fibers to collapse by nonzero translations. Above the fiber relation the quotient is a projection quandle, so arbitrary partitions occur. The group has exactly three additive subgroups. The attached verifier checks both operations and both input positions on every set partition for four and nine elements and the full Boolean selection family for 25 elements. There is no extension beyond the stated prime-square family.
+
+## Originality — PASS relative to inspected sources
+Burrows–Tuffley 2023 gives correct quandle congruence definitions and connected-case theory; Burrows 2022 gives non-module examples. Jedlička–Pilitowska–Zamojska-Dzienio (2015), Theorem 3.2, already describes the full congruence interval below the orbit relation for arbitrary medial quandles, and their Proposition 3.1 concerns the orbit quotient. The new mathematical ingredient is the proven exclusion of cross-fiber congruences that fail to contain the full orbit relation. The finite exact lattice, its Bell-number census and the two-stage structural dichotomy are not in the specifically inspected sections. The closest result for the exact same rank-one unipotent operation enumerates subquandles rather than congruences; subquandle counts do not imply the compatibility partition lattice. Searches for cyclic prime-square congruences, unipotent rank-one quandle congruences, and equivalent Boolean/partition formulas revealed no direct overlap. **Priority remains provisional:** a general medial-quandle congruence theorem or inaccessible full article could imply this specialization.
+
+## Value — PASS
+This is a complete, intrinsically motivated universal-algebra invariant for a natural finite Alexander family: the full congruence poset, not merely an example. The Boolean-to-partition transition exactly identifies which quotients stop being module-induced, and the Bell term yields rapidly increasing non-module congruence diversity. These are mathematically distinct from classifications of subquandles or of quandle isomorphism types.
+
+## Closest literature and limits
+Burrows–Tuffley (arXiv:2308.11852), Burrows thesis (2022), and Jedlička–Pilitowska–Zamojska-Dzienio (arXiv:1511.06529, Section 3) are the closest congruence-related sources. The latter establishes a general module correspondence for congruences below the orbit relation; the present cross-fiber forcing step is an additional special-case assertion. The same-object subquandle classification is not a same-invariant result; it remains a comparison target pending full-text access. The full proof is algebraic and covers every prime; finite examples alone establish no universal claim. An independent audit has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
