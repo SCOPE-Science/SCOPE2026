@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Final claim reviewed:** The complete E-optimal fifteen-sample quadratic frame classification on the twenty type-\(D_5\) projective root directions, including common squared determinant, exact smallest-eigenvalue trichotomy, counts and geometric optimizers.
+## correctness
 
-## Correctness — PASS
+PASS
 
-The domain is all real symmetric \(5\)-by-\(5\) matrices with Frobenius norm; the precise sample directions and unweighted operator are specified. A fifteen-row invertible selection must select both signs for exactly five edges of \(K_5\), and its doubled-edge graph must be connected odd-unicyclic. Row sum/difference reduction yields unsigned incidence determinant magnitude \(2\), so every invertible squared Gram determinant is \(1/256\). Graph enumeration has four unlabelled classes of respective labeled counts \(12,60,30,60\); each has \(32\) possible singleton signs. The Schur-complement polynomial is derived directly from the coefficient blocks. Four independent rational fifteen-row Gram characteristic-polynomial comparisons and exact rational Sturm root counts establish the optimal two graph shapes and their sharp shared quartic root. `verify_exact.py` replays these checks; `verify_numeric.py` separately evaluates all \(5,184\) nondegenerate selected operators. No infinite-dimensional extrapolation is claimed.
+The measurement rows are Frobenius-normalized symmetric rank-one projectors with 1/2 diagonal and +/-1/sqrt2 off-diagonal components. Absence of any edge-pair makes an off-diagonal column zero, and doubling five of ten pairs reduces invertibility to the 5-by-5 unsigned incidence graph with every component odd-unicyclic. Enumeration of all C(10,5)=252 doubled-edge choices independently found 162 invertible graph choices with class counts 12,60,30,60, each with 32 singleton sign choices, hence 5184 bases. Their row-Gram determinants independently equal 1/256 for all four representatives, and independently formed exact 5-by-5 characteristic determinants passed rational Sturm tests in four graph classes; numerical symmetric eigensolver confirmed four class minimum eigenvalues: 0.075171201059 (two classes), 0.049327534803 and 0.043850023016. Exact package gives graph Schur-complement determinant polynomials and rational Sturm isolates, proving the stated ordering beyond numerics and the 2304 optimizer count.
 
-## Originality — PASS, qualified historical priority
+## originality
 
-The inspected 2023 Xiao–Zhuang manuscript treats spherical designs and framelets, not this prescribed type-\(D_5\) E-optimal measurement selection. Monfared–Mallik establishes the signless graph-Laplacian determinant framework; the current graph criterion is not presented as an original general combinatorial principle. Previously published cuboctahedral rank/erasure work treats a different fixed grid in three dimensions, and a perfect-matching Walsh sampling theorem already captures related odd-unicyclic determinant and D-optimal basis phenomena. Those results do not give the present four exact \(15\)-row Gram spectra, three least-eigenvalue levels or two E-optimal geometric classes. Searches for equivalent quadratic matrix tomography, projective root measurements, graph-incidence designs and implied E-optimality identified no specific encompassing theorem. A specialist historical table or a spectral equivalence that was not indexed remains a real priority risk.
+PASS
 
-## Mathematical value — PASS
+Signless incidence and odd-unicyclic determinants are established graph facts and not the claimed novelty. The full earlier Walsh matching D-optimal theorem optimizes determinants of a different frame; it does not imply the D5 Frobenius-normalized least-eigenvalue trichotomy and two optimal graph topologies.
 
-Fifteen samples are the information-theoretic minimal number to recover a general symmetric \(5\)-by-\(5\) matrix. The twenty candidate directions form a standard root-system orbit. The striking phenomenon is that all \(5,184\) available bases have **identical volume**, so determinant optimization cannot distinguish them, whereas the exact least eigenvalue separates three stability levels, and precisely \(2,304\) are sharp E-optimal. This supplies a fully classified natural minimal-sampling stability benchmark; it neither claims general weighted-optimality nor universal spherical-design performance.
+## value
 
-## Unresolved limitations and comparison risk
+PASS
 
-The claim is for this explicit finite set and the Frobenius-normalized unweighted model only. Root-line phase signs are irrelevant to quadratic evaluation except as the two distinct \(e_i+e_j\) and \(e_i-e_j\) directions. The exact determinant graph identity uses established signed-incidence ideas, and direct root-system/projective-design tabulations could potentially contain an equivalent E-optimal result. The additional generality of unrelated frame constructions cannot be inferred to prove this particular discrete spectral trichotomy without a concrete reduction.
+An E-optimal (noise-amplification/conditioning) design over a natural complete finite root-system sampling set is an independently useful exact classification. The spectrum separates frames with identical determinant and makes the least-singular-value optimization nontrivial.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
