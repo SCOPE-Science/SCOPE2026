@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T18:02:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Normalize the base triangle by an invertible affine map. Independent uniform arclength fractions stay iid uniform on (0,1), and area fraction is invariant. Direct affine-cevian algebra gives Z=T^2/Q with T=H(w-w0), H=uv+(1-u)(1-v)>0, w0=(1-u)(1-v)/H, and positive Q=(1-u+uv)(1-w+uw)(1-v+vw)<=1. Therefore a one-dimensional sqrt-epsilon tube around the Ceva surface contributes 2 sqrt(Q0)/H for each (u,v); the global bound 2/H is integrable (linear corner singularities only) and proves dominated-convergence asymptotic. Barycentric coordinates of the first intersection P obey u=b/(b+c),v=c/(a+c). The measured Jacobian from a,b to auxiliary triangle angles was independently finite-differenced at three generic/equilateral points and equals A′B′C′/2, giving sqrt(Q0)/H du dv=(sin alpha+sin beta+sin gamma)/8 d alpha d beta. Integration yields 3pi/8 and thus 3pi/4 sqrt-epsilon. On compact parameter sets the signed normalized defect s=sgn(T)sqrt(Z/epsilon) changes coordinates smoothly with locally uniformly convergent densities; dominance controls boundary tails, proving joint L1/total-variation convergence. Resulting angular density is (sin alpha+sin beta+sin(alpha+beta))/(6pi) on angular simplex times s in (-1,1), and acute auxiliary probability 1/pi. Independent 300k-sample Monte Carlo ratios at epsilon .02/.005/.001 were 2.140/2.250/2.314 approaching 3pi/4=2.356; those finite experiments do not prove the asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fixed-product Routh envelope bounds area at each deterministic ratio triple; McConnell and Abboud generalize algebraic cevian identities."
+        ],
+        "reasoning": "A deterministic pointwise envelope supplies neither the distribution of product ratios under independent u,v,w nor the conditional distribution along the Ceva surface; no broader probability theorem among these is shown to dominate.",
+        "searches": [
+          "Routh triangle random cevians uniformly on sides near Ceva concurrence normalized area square root sine weighted shape",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-routh-area-profile-at-fixed-ceva-product--9339fa8c11cd",
+          "https://arxiv.org/abs/1403.0478",
+          "https://arxiv.org/abs/1403.5652"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md at 99f270f0fd4b6b0f73e91d8f288edf78e9c84674",
+        "Frozen verify_random_routh_cevians.py at actual Git tree, original code scope",
+        "Independent Monte Carlo and derivative Jacobian tests",
+        "https://faculty.curgus.wwu.edu/Papers/BenyiCurgusAMM.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-routh-area-profile-at-fixed-ceva-product--9339fa8c11cd/RESULT.md",
+        "https://arxiv.org/abs/1403.0478",
+        "Resultary searches on random cevians, Routh, Ceva near concurrency"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Area near zero is governed by a smooth Ceva surface T=0 with nonconstant coarea weight sqrt(Q0)/H, and the angular Jacobian integrates to 3pi/8."
+        ],
+        "reasoning": "The coarea weight and limit cannot be derived merely by substituting a random input into the old Routh identity; the proof genuinely evaluates a two-dimensional surface integral and derives strong marked convergence.",
+        "searches": [
+          "Routh triangle random cevians uniformly on sides near Ceva concurrence normalized area square root sine weighted shape",
+          "https://faculty.curgus.wwu.edu/Papers/BenyiCurgusAMM.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-routh-area-profile-at-fixed-ceva-product--9339fa8c11cd"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bényi–Ćurgus (2012) Eq. (2) is Routh deterministic area fraction (xyz-1)^2/[(1+x+xy)(1+y+yz)(1+z+zx)]; Ceva concurrence is xyz=1. No probability measure or rare-event mark in the inspected article."
+        ],
+        "reasoning": "The event Z<epsilon has the old Ceva algebra as a premise, but the square-root flux and explicit conditional law require independent side-uniform sampling and a new Jacobian calculation.",
+        "searches": [
+          "Routh triangle random cevians uniformly on sides near Ceva concurrence normalized area square root sine weighted shape",
+          "https://faculty.curgus.wwu.edu/Papers/BenyiCurgusAMM.pdf",
+          "https://arxiv.org/abs/1112.4813"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The classical Routh formula and published envelope contain exact expressions but do not tabulate the stochastic 3pi/4 constant or 1/pi acute auxiliary-triangle limit."
+        ],
+        "reasoning": "An exact deterministic area formula is not an exact table of this random event or its marked conditional density; no such table was identified in material actually read.",
+        "searches": [
+          "Routh triangle random cevians uniformly on sides near Ceva concurrence normalized area square root sine weighted shape",
+          "https://faculty.curgus.wwu.edu/Papers/BenyiCurgusAMM.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-routh-area-profile-at-fixed-ceva-product--9339fa8c11cd"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: classical Routh/Ceva area identities and the generalized deterministic formula are known. Full primary Bényi–Ćurgus (2012) explains those deterministic ratios; the published 2026 fixed-product envelope is also deterministic. Neither states the exact probability from independently and uniformly sampling one point on EACH of three sides, nor the sine-weighted marked total-variation law of the auxiliary intersection-angle triangle. Generic geometric probability tube formulas do not imply the evaluated 3pi/4 coefficient and explicit angle bias without this model-specific Jacobian. Unindexed older probability papers remain a genuine historical uncertainty.",
+      "residual_risks": [
+        "An older or unindexed stochastic Ceva/Routh probability article might already derive the square-root coefficient or equivalent conditional shape law.",
+        "At the triangle boundary where H approaches zero the proof relies on the explicitly stated integrable majorant; the asymptotic has no uniform finite-threshold error rate.",
+        "The auxiliary angles are those defined by barycentric coordinates of P, not angles of the tiny Routh triangle."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides deterministic area identity and generalized Ceva/Menelaus formulas, not stochastic sampling law",
+          "evidence": "Equation (2) explicitly gives (xyz-1)^2 denominator, and paper discusses six-cevian generalization without near-concurrency probability/marked angular density.",
+          "identifier_or_url": "https://faculty.curgus.wwu.edu/Papers/BenyiCurgusAMM.pdf",
+          "material_read": "Full seven-page PDF source: introduction, Routh Eq. (2), generalization theorem, later consequence sections; page 2 verified visually",
+          "method": "read extracted PDF text and checked page 2 screenshot",
+          "title": "A generalization of Routh’s triangle theorem",
+          "trigger": "Primary deterministic Routh formula and possible stochastic Ceva results"
+        },
+        {
+          "assessment": "No dominance: deterministic fixed-product optimization not iid-side-sampling near-concurrency law",
+          "evidence": "Its exact envelope F(s)=2(cosh s-1)/(2cosh s+1) concerns a fixed Ceva product, not the induced probability measure of triples.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-routh-area-profile-at-fixed-ceva-product--9339fa8c11cd/RESULT.md",
+          "material_read": "Entire source RESULT.md, its fixed-product theorem, proof, limit and prior-work sections",
+          "method": "GitHub read-only full file retrieval",
+          "title": "Sharp Routh-area profile at fixed Ceva product",
+          "trigger": "Highly relevant published same Routh triangle, stronger deterministic inequality"
+        },
+        {
+          "assessment": "No whole-document noncoverage certified",
+          "evidence": "Six-point deterministic incidence/area relations are plausibly upstream identities, not demonstrated stochastic marked laws.",
+          "identifier_or_url": "https://arxiv.org/abs/1403.0478",
+          "material_read": "Accessible bibliographic summary and named scope; full primary text not fully inspected in this run",
+          "method": "abstract/known-statement comparison only",
+          "title": "A Six-Point Ceva-Menelaus Theorem",
+          "trigger": "Potential more general cevian identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Random near-concurrency is a geometrically natural singular event and the square-root law plus its universal coefficient is an exact invariant of affine-uniform cevian sampling. The full conditional angular law, the uniform signed defect, Beta half exponent and 1/pi acute probability are nontrivial predictive shape information useful beyond a classical deterministic Routh identity. Both a precise rare-event asymptotic and complete marked conditional limiting distribution are motivated by Ceva degeneracy; not a routine random slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Independent uniform arclength sampling one point on each specified side; not whole-perimeter or correlated distributions.",
+    "Total variation is asymptotic at epsilon->0, with no error rate."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python verify_random_routh_cevians.py` with NumPy and SciPy installed (versions unrestricted). Successful execution ends with `ROUTH_CEVA_SQRT_AND_ANGLES_CHECK_OK`. It checks exact polynomial area against direct line intersections for 120 independently sampled triples; verifies the leading \(3\pi/4\) constant by adaptive two-dimensional quadrature; simulates 1,800,000 triples for each of three thresholds; and checks the conditional auxiliary acute frequency against \(1/\pi\).
+## correctness
 
-Observed threshold, empirical probability, leading prediction, and ratio of empirical to prediction:
+PASS
 
-| Threshold | Empirical | Leading | Ratio |
-| --- | --- | --- | --- |
-| 0.01 | 0.220670556 | 0.235619449 | 0.9365549 |
-| 0.001 | 0.072931667 | 0.074509412 | 0.9788249 |
-| 0.0001 | 0.023564444 | 0.023561945 | 1.0001061 |
+PASS: Normalize the base triangle by an invertible affine map. Independent uniform arclength fractions stay iid uniform on (0,1), and area fraction is invariant. Direct affine-cevian algebra gives Z=T^2/Q with T=H(w-w0), H=uv+(1-u)(1-v)>0, w0=(1-u)(1-v)/H, and positive Q=(1-u+uv)(1-w+uw)(1-v+vw)<=1. Therefore a one-dimensional sqrt-epsilon tube around the Ceva surface contributes 2 sqrt(Q0)/H for each (u,v); the global bound 2/H is integrable (linear corner singularities only) and proves dominated-convergence asymptotic. Barycentric coordinates of the first intersection P obey u=b/(b+c),v=c/(a+c). The measured Jacobian from a,b to auxiliary triangle angles was independently finite-differenced at three generic/equilateral points and equals A′B′C′/2, giving sqrt(Q0)/H du dv=(sin alpha+sin beta+sin gamma)/8 d alpha d beta. Integration yields 3pi/8 and thus 3pi/4 sqrt-epsilon. On compact parameter sets the signed normalized defect s=sgn(T)sqrt(Z/epsilon) changes coordinates smoothly with locally uniformly convergent densities; dominance controls boundary tails, proving joint L1/total-variation convergence. Resulting angular density is (sin alpha+sin beta+sin(alpha+beta))/(6pi) on angular simplex times s in (-1,1), and acute auxiliary probability 1/pi. Independent 300k-sample Monte Carlo ratios at epsilon .02/.005/.001 were 2.140/2.250/2.314 approaching 3pi/4=2.356; those finite experiments do not prove the asymptotic.
 
-This is finite numerical corroboration. The analytic proof uses the integral formula, domination and Jacobians, and does not infer any infinite statement from simulations. No independent audit is reported.
+## originality
+
+PASS
+
+PASS best-of-knowledge: classical Routh/Ceva area identities and the generalized deterministic formula are known. Full primary Bényi–Ćurgus (2012) explains those deterministic ratios; the published 2026 fixed-product envelope is also deterministic. Neither states the exact probability from independently and uniformly sampling one point on EACH of three sides, nor the sine-weighted marked total-variation law of the auxiliary intersection-angle triangle. Generic geometric probability tube formulas do not imply the evaluated 3pi/4 coefficient and explicit angle bias without this model-specific Jacobian. Unindexed older probability papers remain a genuine historical uncertainty.
+
+## value
+
+PASS
+
+PASS: Random near-concurrency is a geometrically natural singular event and the square-root law plus its universal coefficient is an exact invariant of affine-uniform cevian sampling. The full conditional angular law, the uniform signed defect, Beta half exponent and 1/pi acute probability are nontrivial predictive shape information useful beyond a classical deterministic Routh identity. Both a precise rare-event asymptotic and complete marked conditional limiting distribution are motivated by Ceva degeneracy; not a routine random slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
