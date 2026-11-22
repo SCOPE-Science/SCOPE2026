@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The established one-skeleton/basis-exchange correspondence reduces any three-edge geodesic to two internal Johnson levels. Direct set calculations prove the two rook-board adjacency criteria. Every interior vertex lies on four of the 36 possible geodesics, and Johnson stability ensures no geodesic contains two deletions. The exact rook compatibility enumeration yields the bivariate polynomial, sharp bound, and equality classification. The construction from any locally stable pattern gives a genuine sparse-paving matroid for every \(3\le k\le n-3\). The standalone checker independently enumerates all 202 stable configurations and their actual path counts; no asymptotic extrapolation from finite computation is used.
+## correctness
 
-**Originality — PASS (priority provisional).** Compared with Ferroni's 2021 matroid-polytope/Ehrhart results and Ferroni--Schröter's 2023 sparse-paving face enumerations, the finding is a **shortest-path multiplicity** statement, not a numerical face or lattice-point count. Two closely related published geometric records determine spherical width variance and Euclidean surface area, not exchange-geodesic spectra. The classical matroid basis-graph isometry and Johnson-stability facts are explicitly treated as established; the contribution is the complete sharp three-exchange multiplicity classification. Actual targeted published-finding corpus searches found no equivalent assertion. Earlier combinatorial literature under alternative terms remains a residual historical-priority risk.
+PASS
 
-**Mathematical value — PASS.** Three exchanges are the first length with two nontrivial internal levels, so deletion patterns interact across two rook boards. The result gives a universal sharp geometric routing redundancy threshold (a retention fraction of \(5/9\)) for all sparse-paving matroid-polytope one-skeleta, the complete multiplicity spectrum, all 202 local patterns and their counts, and all 18 sharp extremizers. It is a natural finite-depth geometric classification rather than an arbitrary isolated numeric table; it identifies the last short-distance regime before multiple deleted vertices can lie on one geodesic.
+A basis polytope edge is a single-element exchange, so shortest length-three paths in the hypersimplex are independent deletion/insertion permutations (3!)²=36 through 18 internal Johnson interval vertices. Each internal vertex lies on exactly four paths. Forbidden rank-k sets form a Johnson independent set, hence no path contains two, so g=36-4s. Independently constructed the two 3x3 rook layers and cross-board adjacency, enumerated all 2^18 candidate nonbase subsets; exactly 202 are stable, with s multiplicities 1,18,81,84,18, and independent path enumeration yields all five g-values. Four-forbidden patterns are exactly 18 crossed rectangles. Global realization uses the basis-exchange fact for stable forbidden k-subsets, which holds for all 3<=k<=n-3 rather than being inferred from J(6,3) alone. No claim for higher exchange distance.
 
-**Closest literature and limitations.** The prior work supplies the underlying matroid/Johnson geometry, not this geodesic classification. The theorem is deliberately restricted to exchange distance three; at distance four the non-overlap of deleted geodesic contributions fails. The local pattern count is not a count of all globally distinct sparse-paving matroids. Independent audit and exhaustive historical priority determination remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical Johnson-isometric matroid basis graphs and Johnson-stability characterizations are known. Ferroni/Ferroni–Schröter concern sparse-paving polytope geometry and faces, not count of fixed-endpoint 3-step paths. Published four-way Johnson geodesic-rerouting result classifies the full unpunctured Johnson graph, not deletions of a stable set. The 202-pattern two-board geodesic census remains a new separately proved claim subject to specialist literature risk.
+
+## value
+
+PASS
+
+The exactly enumerated geodesic redundancy of a natural matroid-basis exchange graph is a motivated graph-metric resilience invariant. It distinguishes path multiplicities from known shortest-path lengths, f-vectors and Ehrhart statistics; sharp universal 5/9 survival and exact equality configurations can inform local exchange routing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

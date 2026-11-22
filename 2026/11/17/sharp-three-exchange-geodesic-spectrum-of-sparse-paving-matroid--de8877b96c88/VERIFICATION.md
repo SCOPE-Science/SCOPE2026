@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The proof counts length-three geodesics by identifying the two nine-vertex interior layers of the Johnson exchange interval with two rook boards. It establishes their precise within-board and cross-board adjacency conditions, then gives an elementary case-by-case derivation of the complete two-variable stable-set enumerator.
+# Independent mathematical audit
 
-The accompanying `check_geodesic.py` is standalone Python 3 and uses exact integer arithmetic. It enumerates all 262,144 subsets of the 18 internal vertices of the six-element rank-three Johnson interval, retains exactly 202 stable configurations, and independently counts every surviving length-three path from one endpoint to the other. It checks all five multiplicities and their frequencies, plus the eighteen sharp configurations.
+## correctness
 
-Reproduction: `python3 check_geodesic.py`.
+PASS
 
-Limits: the script checks the universal local 18-vertex model, not every ambient rank and ground-set size. The infinite-parameter extension is established separately by the explicit interval identification and matroid construction in the proof. Independent mathematical audit has not been performed.
+A basis polytope edge is a single-element exchange, so shortest length-three paths in the hypersimplex are independent deletion/insertion permutations (3!)²=36 through 18 internal Johnson interval vertices. Each internal vertex lies on exactly four paths. Forbidden rank-k sets form a Johnson independent set, hence no path contains two, so g=36-4s. Independently constructed the two 3x3 rook layers and cross-board adjacency, enumerated all 2^18 candidate nonbase subsets; exactly 202 are stable, with s multiplicities 1,18,81,84,18, and independent path enumeration yields all five g-values. Four-forbidden patterns are exactly 18 crossed rectangles. Global realization uses the basis-exchange fact for stable forbidden k-subsets, which holds for all 3<=k<=n-3 rather than being inferred from J(6,3) alone. No claim for higher exchange distance.
+
+## originality
+
+PASS
+
+Classical Johnson-isometric matroid basis graphs and Johnson-stability characterizations are known. Ferroni/Ferroni–Schröter concern sparse-paving polytope geometry and faces, not count of fixed-endpoint 3-step paths. Published four-way Johnson geodesic-rerouting result classifies the full unpunctured Johnson graph, not deletions of a stable set. The 202-pattern two-board geodesic census remains a new separately proved claim subject to specialist literature risk.
+
+## value
+
+PASS
+
+The exactly enumerated geodesic redundancy of a natural matroid-basis exchange graph is a motivated graph-metric resilience invariant. It distinguishes path multiplicities from known shortest-path lengths, f-vectors and Ehrhart statistics; sharp universal 5/9 survival and exact equality configurations can inform local exchange routing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
