@@ -1,0 +1,19 @@
+# Scientific review: sharp blended-microlensing peak-jet identifiability
+
+## Correctness — PASS
+
+For \(u_0,T,S_j,B_j>0\), the point-source magnification is \(g(v)=(v+2)/\sqrt{v(v+4)}\) evaluated at \(v+q(t-t_0)^2\), with \(v=u_0^2\), \(q=T^{-2}\). A strictly decreasing \(g\) implies a unique peak. Differentiating exactly through third order in the squared separation yields \(J_2=2S_jqg'\), \(J_4=12S_jq^2g''\), and \(J_6=120S_jq^3g'''\); the ratio \(J_2J_6/J_4^2\) equals \((20/9)(1+(v+2)^{-2})\). Its strict monotonicity determines \(v\), and explicit formulas then recover \(q\), every \(S_j\), and every \(B_j\). For each nearby \(v'\), continuity and the unrestricted positive affine flux nuisance parameters yield a distinct model sharing the complete fifth jet in every passband. Thus both injectivity at order six and failure through order five hold for every finite band count. A package-contained standard-library checker performed 22,222 supplementary arithmetic assertions and positive-parameter reconstruction/ambiguity tests; this finite testing is not substituted for the proof.
+
+## Originality — PASS within inspected evidence, provisional
+
+The primary prior literature addresses a closely related known microlensing blending degeneracy, so the comparison is at the level of implication rather than titles. Woźniak and Paczyński (1997; arXiv:astro-ph/9702194) study blended-light-curve parameter correlations; Han (1998 preprint; 1999 publication, arXiv:astro-ph/9810401) derives analytic biases in standard fitted peak/time-scale quantities when blending is ignored; Smith et al. (2007; arXiv:0707.0550) study blended event recovery and simulation; Dominik (2008 preprint; arXiv:0811.4173) specifically discusses how a wing/half-maximum slope can in principle break blending degeneracies. The last is an important nonlocal full-light-curve insight, but it does not entail the minimum local derivative order at the maximum with arbitrary independent passband source and blend fluxes. No inspected source states the strict sixth-jet invariant or proves that every fifth-order multi-band peak jet admits a continuous positive-parameter ambiguity. Equivalences via Taylor coefficients and higher-order derivatives were specifically considered. Historical formulae or unindexed equivalent results remain a genuine priority risk; no claim of globally certified uniqueness is made.
+
+## Value — PASS
+
+The exact threshold resolves a natural inverse-calibration gap in a widely used astronomical light-curve model: it distinguishes mathematical structural identifiability from the severe, previously documented practical blending correlation. The minimality statement for arbitrarily many unconstrained bands shows that additional independent affine flux channels, despite adding measurements, do not lift the fifth-jet ambiguity. This supplies a checkable model-identifiability benchmark and explains what information is genuinely carried by the sixth-order peak shape. It is not asserted that estimating a sixth derivative is an effective procedure on noisy sky surveys, and prior flux information or correlated passband colors can change the minimal order.
+
+## Closest literature and remaining limitations
+
+Most directly relevant: Dominik (2008/2009), whose full-curve/wings characterization differs from the local peak-jet problem, and Woźniak–Paczyński (1997), whose approximate blending correlations differ from the precise identifiability threshold. Han (1999) and Smith et al. (2007) study other blending effects. Additional historical priority and unindexed equivalent-invariant results remain possible. There has been no independent external mathematical review, statistical error analysis, or instrumental demonstration.
+
+Self-review: passed. Independent audit: not yet performed.
