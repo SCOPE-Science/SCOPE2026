@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T00:15:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read the specified polygon boundary increments and independently evaluated the closed shoelace sum, verifying the quadratic A_n=Q[s(1+lambda) + Q(1-2s)]/sin(phi) with s=cos(phi) for n=1..3 at phi=.35,pi/3,1.3, lambda=.985. Algebraic subtraction gives D_(n+1)-D_n=2eta^2(1+cos phi)^2(1-2cos phi)/sin phi and the strict positivity follows from n<=N. Fixed-angle floor remainder gives N eta(1+cos phi)->1/2, so A_floor(uN)/A_N converges to the stated quadratic CDF with positive density and unique uniformity at pi/3. Polygon nesting/invariance are explicitly imported from Cockram–Ashwin–Rodrigues, not reproved here; finite sampled forward images do not imply invariant sets for all parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Read full published Resultary three-cone theorem and proof: https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-planar-area-spectrum-of-rational-translated-cone-excha--5b1c8ed826f4"
+        ],
+        "reasoning": "A three-cone translated-cone map has an exact period-vs-area distribution for rational lambda, but its invariant interpolation trapezium and return map differ from the four-cone nested polygons and their u=K/N law.",
+        "searches": [
+          "Resultary semantic search: translated cone exchange invariant stepped pyramids area occupation law Cockram Ashwin Rodrigues",
+          "https://arxiv.org/abs/2312.17412",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-planar-area-spectrum-of-rational-translated-cone-excha--5b1c8ed826f4"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2312.17412",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-planar-area-spectrum-of-rational-translated-cone-excha--5b1c8ed826f4",
+        "https://www.tandfonline.com/doi/full/10.1080/14689367.2025.2514193"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "RESULT.md source polygon increments; https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-planar-area-spectrum-of-rational-translated-cone-excha--5b1c8ed826f4"
+        ],
+        "reasoning": "Source nesting plus explicitly integrated polygon widths yields A_n and ratios, but neither the IET embedding nor a different three-cone period law mathematically implies these weighted shell areas without the new n-dependent shoelace computation.",
+        "searches": [
+          "Resultary semantic search: translated cone exchange invariant stepped pyramids area occupation law Cockram Ashwin Rodrigues",
+          "https://arxiv.org/abs/2312.17412",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-planar-area-spectrum-of-rational-translated-cone-excha--5b1c8ed826f4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cockram–Ashwin–Rodrigues 2025 Theorem 4.2 and introduction indexed at https://www.tandfonline.com/doi/full/10.1080/14689367.2025.2514193"
+        ],
+        "reasoning": "The same polygons appear under the labels translated-cone exchange, four-atom piecewise isometry, n-stepped pyramid and invariant-curve embedding. Their already-known construction and nesting are expressly excluded from the novelty claim; the additional planar area polynomial and critical angle are the claimed new invariants.",
+        "searches": [
+          "Resultary semantic search: translated cone exchange invariant stepped pyramids area occupation law Cockram Ashwin Rodrigues",
+          "https://arxiv.org/abs/2312.17412",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-planar-area-spectrum-of-rational-translated-cone-excha--5b1c8ed826f4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Journal indexed introduction singles out the existence of invariant curves/regions, not an area distribution; https://dspace.uevora.pt/rdpc/handle/10174/39468"
+        ],
+        "reasoning": "The original source describes n-step barriers and their geometric edges, not a checked table of D_n or the limiting density; full source PDF was unavailable, so a prior area formula hidden in that text remains a named risk.",
+        "searches": [
+          "Resultary semantic search: translated cone exchange invariant stepped pyramids area occupation law Cockram Ashwin Rodrigues",
+          "https://arxiv.org/abs/2312.17412",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-planar-area-spectrum-of-rational-translated-cone-excha--5b1c8ed826f4"
+        ]
+      },
+      "rationale": "Prior Cockram–Ashwin–Rodrigues establishes four-cone polygon curves and nested invariance. The new independent area and normalized layer-index distribution are not the three-cone period spectrum; the same object not merely the same translation parameters must be compared.",
+      "residual_risks": [
+        "High-relevance same-paper PolygonalCurves.pdf was not read in full: repository returned 502, publisher 403, and authorized Oxford returned vpn_disconnected; cannot assert its complete appendices omit areas.",
+        "Area-uniform point is not an orbit occupation/equidistribution statement; layer invariance prevents crossing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_SOURCE_PARTIAL_UNRESOLVED_PRIORITY",
+          "evidence": "Theorem 4.2 constructs the invariant polygons; full text unavailable to exclude possible unstated or appended area computation",
+          "identifier_or_url": "https://www.tandfonline.com/doi/full/10.1080/14689367.2025.2514193",
+          "material_read": "Indexed article introduction, abstract, theorem descriptions; primary full text could not be fetched (403); institutional repository identifies PolygonalCurves.pdf but fetch returned 502",
+          "method": "Read indexed primary material and attempted same-paper arXiv HTML, publisher and lawful institutional repository",
+          "title": "Construction of invariant curves for some piecewise isometries",
+          "trigger": "Identical four-cone transformation and polygon family"
+        },
+        {
+          "assessment": "DISTINCT_THREE_CONE_TRAPEZIUM",
+          "evidence": "Its normalizer uses rational p/q and least periods, whereas four-cone result uses invariant layer count n and lambda->1",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-planar-area-spectrum-of-rational-translated-cone-excha--5b1c8ed826f4",
+          "material_read": "Full RESULT.md theorem, first-return rotation proof, and normalized period-area law",
+          "method": "Read published mathematical proof and compared underlying regions",
+          "title": "Universal planar area spectrum of rational translated-cone-exchange cycles",
+          "trigger": "Same dynamics vocabulary and area spectrum but other cone count"
+        },
+        {
+          "assessment": "FULL_TEXT_NOT_READ",
+          "evidence": "The abstract establishes invariant curves/layers but cannot settle whether a complete same-object area formula occurs elsewhere",
+          "identifier_or_url": "https://arxiv.org/abs/2312.17412",
+          "material_read": "Abstract and metadata; arXiv full HTML disabled",
+          "method": "Open-access search; attempted primary full text before institutional retrieval",
+          "title": "Construction of Invariant Curves for Some Piecewise Isometries",
+          "trigger": "Preprint full-text alternative for the identical publisher article"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sizes of known invariant sets are intrinsic planar Lebesgue weights; an exactly equiareal angle and a nondegenerate continuum law describe how a natural dynamical space partitions among these disjoint invariant shells as the shell count grows.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "High-relevance same-paper PolygonalCurves.pdf was not read in full: repository returned 502, publisher 403, and authorized Oxford returned vpn_disconnected; cannot assert its complete appendices omit areas.",
+    "Area-uniform point is not an orbit occupation/equidistribution statement; layer invariance prevents crossing."
+  ],
+  "schema_version": 1
+}
