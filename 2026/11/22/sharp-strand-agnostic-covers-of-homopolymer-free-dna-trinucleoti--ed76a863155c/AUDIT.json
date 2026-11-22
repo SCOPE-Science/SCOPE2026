@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "The 36 constrained oriented three-mers form exactly 18 reverse-complement pairs. The eight-vertex undirected quotient of the 12-vertex overlap digraph has four odd vertices AT, TA, CG, GC (degree three) and four even vertices (degree six). Euler parity prohibits a perfect one-occurrence path or circuit; the only odd-to-odd target edges are ATA/TAT and CGC/GCG, giving necessary exact repeated classes at lengths 19 open and 20 closed windows. Two explicit words attain the bounds. A terminating exact integer recurrence over 18-bit coverage masks and duplicate flags proves 57,984 linear optima and 289,920 rooted circular optima; primitive-period reasoning divides by 20. A separately written DFS verifier without memoization checks these counts independently across 3,221,436 nodes. Every counted word is in the stated homopolymer-free alphabet and covers all required classes. Infinite-alphabet extrapolation is not claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Orenstein and Shamir prove that all unconstrained odd-order reverse-complement classes can be covered once and present optimal even-order sequences and tables; their source set includes all 64 oriented DNA three-mers.",
+        "The 2026 run-restricted universal-cover theorem forbids a run of one distinguished letter and covers every permitted ORIENTED factor, with no reverse-complement identification; its hypotheses and conclusions do not give this all-homopolymer, orbit-coverage result."
+      ],
+      "reasoning": "Neither theorem applies after simultaneously forbidding AA, CC, GG, TT and replacing all targets by reverse-complement orbit representatives. General minimal-postman algorithms can compute finite instances but do not entail the evaluated complete exact equality counts.",
+      "searches": [
+        "doi:10.1093/bioinformatics/btt230 §§2–4",
+        "published-finding corpus: Orenstein Shamir 2013 shortest double-stranded DNA k-mer covering under no identical adjacent letters",
+        "2026/11/2/SCOPE-exact-shortest-cyclic-covers-of-zero-run-free-windows-before-rep--fd51f9f719e9/RESULT.md"
+      ]
+    },
+    "checked_sources": [
+      "Orenstein–Shamir 2013, Bioinformatics 29(13), doi:10.1093/bioinformatics/btt230 (full open-access primary article)",
+      "Burris–Motta–Shipman 2016, arxiv:1608.08480 (abstract and §§1–2)",
+      "Published reverse-complement dinucleotide covering-cycle census, published-finding corpus 2026/11/8, RESULT.md (complete)",
+      "Published one-symbol zero-run constrained universal-cycle theorem, published-finding corpus 2026/11/2, RESULT.md (complete)",
+      "Published reverse-complement four-palindrome covering theorem, published-finding corpus 2026/11/2, RESULT.md (complete)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The inspected 2026 dinucleotide census treats order two and 10 RC classes without a homopolymer constraint; no way to infer a 3-mer graph with 18 different target orbits.",
+        "The inspected four-palindrome covering result requires each Watson–Crick fixed four-mer literally, not all orbit classes of heterodimer three-mers, and allows homopolymers.",
+        "The inspected zero-run result covers every oriented allowed factor and forbids only one particular run, so neither the target alphabet of constraints nor the quotient objective agrees.",
+        "The unrestricted 2013 theorem attains the no-repeat orbit lower bound at odd k, while here that lower bound fails under a new graph restriction."
+      ],
+      "reasoning": "The scientific statements differ in target language, involution, and whether a single orientation or every oriented word must be present. There is no reduction from these stronger-in-different-dimensions statements that supplies the exact homopolymer-free 18-orbit equality census.",
+      "searches": [
+        "2026/11/8/SCOPE-exact-enumeration-of-shortest-reverse-complement-dinucleotide-co--4e4aebaf05de/RESULT.md",
+        "2026/11/2/SCOPE-sharp-cyclic-and-linear-covers-of-reverse-complement-four-palind--1c5013f138d2/RESULT.md",
+        "2026/11/2/SCOPE-exact-shortest-cyclic-covers-of-zero-run-free-windows-before-rep--fd51f9f719e9/RESULT.md",
+        "doi:10.1093/bioinformatics/btt230",
+        "arxiv:1608.08480"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2016 unoriented de Bruijn construction identifies factors under ordinary reversal, with an undirected quotient graph and Euler conditions (arXiv:1608.08480, §§1–2).",
+        "The new observation identifies trinucleotides under reversal AND Watson–Crick complementation and deletes every adjacent identical-letter factor; its quotient graph has four specific degree-three vertices.",
+        "No indexed exact same-object statement was returned in these targeted comparisons."
+      ],
+      "reasoning": "Ordinary reversal is not Watson–Crick reverse complementation: different equivalence classes, quotient vertices, admissible arcs, and exact class counts. An abstract Euler-parity method alone does not compute the two finite constrained enumeration results.",
+      "searches": [
+        "published-finding corpus: homopolymer-free DNA trinucleotide reverse-complement coverage exactly 18 classes length 21 linear length 20 circular 57984 14496",
+        "published-finding corpus: reverse complement complete no homopolymers trinucleotide cyclic Euler trail parity obstruction odd degree four fixed dinucleotides",
+        "web: \"homopolymer-free\" \"reverse complement\" \"k-mer\" covering",
+        "web: \"reverse complementary\" \"universal cycles\" \"homopolymer\" DNA",
+        "arxiv:1608.08480"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Orenstein–Shamir Table 1 lists unrestricted EVEN-order k-mer cover lengths, not no-homopolymer three-mer counts.",
+        "The nearest full published RC dinucleotide enumeration gives 544 optimal order-two circular covers with all 16 dinucleotides allowed, not the constrained order-three class.",
+        "The target counts 57,984 and 14,496 are obtained directly from new finite exact-integer verifiers."
+      ],
+      "reasoning": "No inspected table or indexed record directly lists or implies the stated order-three homopolymer-free minima and complete optimizer counts. Search absence is only evidence of coverage checked, not a proof of global novelty.",
+      "searches": [
+        "published-finding corpus: homopolymer-free reverse complement complete universal words optimal cyclic DNA order three exact count four letter alphabet",
+        "published-finding corpus: strand symmetric de Bruijn no homopolymers universal cycles all trinucleotide probes exact enumeration",
+        "web: \"reverse complement\" \"trinucleotide\" \"covering sequence\" no repeats",
+        "doi:10.1093/bioinformatics/btt230 Table 1"
+      ]
+    },
+    "rationale": "Orenstein–Shamir (2013) treat the unrestricted reverse-complement k-mer completion problem, proving the odd-k lower bound sharp in that unrestricted graph; the all-letter homopolymer constraint changes the graph and introduces a genuine odd-vertex obstruction. Burris–Motta–Shipman (2016) supply an unoriented reversal quotient framework but neither the DNA complementation variant nor the constrained exact equality census. Fully read published related dinucleotide and forbidden-one-run results have different target sets, order, or coverage semantics, and their statements do not imply these specific numeric counts. Qualified by possible unindexed historical calculations.",
+    "residual_risks": [
+      "Earlier unindexed specialized trinucleotide covering calculations may exist; full literature priority cannot be proven from index search.",
+      "The 2016 unoriented de Bruijn article was inspected through its early sections rather than a complete appendix-level examination; however, its target involution is different.",
+      "A generic shortest-superstring or bidirected-graph algorithm could calculate finite examples, but no directly covering evaluated census was located."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING constrained three-mer order and optimizer count",
+        "evidence": [
+          "First published 2013-06-19; unrestricted all k-mers permitted.",
+          "Odd-k construction attains the unrestricted class-count lower bound; discussion asks number of optimal sequences.",
+          "Table 1 reports even orders under unrestricted targets, not the constrained order-three instance."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3694677/",
+        "material_read": "Full accessible HTML of introduction, definitions, core construction, even-order algorithms, tables, discussion and explicit enumeration question",
+        "method": "Read primary open-access article text via web source and compared scope and implication",
+        "title": "Design of shortest double-stranded DNA sequences covering all k-mers with applications to protein-binding microarrays and synthetic enhancers",
+        "trigger": "Direct ancestor: reverse-complement-complete probe sequences, odd-order optimality and unanswered counting"
+      },
+      {
+        "assessment": "GENERAL_TECHNIQUE_RELATED, NOT SAME_OBJECT",
+        "evidence": [
+          "The paper identifies ordinary reflected word pairs and studies an undirected quotient.",
+          "It does not impose the present all-homopolymer exclusion or DNA strand complementation in the inspected sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1608.08480",
+        "material_read": "Abstract, introduction, definitions, unoriented quotient construction and lemma 2.1",
+        "method": "Read open-access arXiv HTML primary text and compared reflection versus Watson–Crick involution",
+        "title": "An Unoriented Variation on de Bruijn Sequences",
+        "trigger": "Potential equivalent quotient Euler-parity method"
+      },
+      {
+        "assessment": "NOT_COVERING higher-order homopolymer-free target family",
+        "evidence": [
+          "10 reverse-complement dinucleotide classes; 544 optimal unconstrained cycles.",
+          "No three-mer homopolymer-free constraint or 18-orbit coverage count."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-enumeration-of-shortest-reverse-complement-dinucleotide-co--4e4aebaf05de/RESULT.md",
+        "material_read": "Entire RESULT.md: finding, graph/BEST proof, verification, prior work and limitations",
+        "method": "Read public repository science file via authorized read-only source",
+        "title": "Exact enumeration of shortest reverse-complement dinucleotide covering cycles",
+        "trigger": "Closest related strand-aware covering enumeration"
+      },
+      {
+        "assessment": "INAPPLICABLE: one distinguished forbidden run, oriented exact factor set",
+        "evidence": [
+          "The theorem forbids only 0^h and requires every allowed ORIENTED factor.",
+          "The present constraints forbid all four repeated-letter pairs and require only RC-orbit coverage."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-shortest-cyclic-covers-of-zero-run-free-windows-before-rep--fd51f9f719e9/RESULT.md",
+        "material_read": "Entire RESULT.md including general formula, proof, limitations",
+        "method": "Read public repository science file; checked whether hypotheses specialize to current target set",
+        "title": "Exact shortest cyclic covers of zero-run-free windows before repeated-run overlap",
+        "trigger": "Potential stronger arbitrary forbidden-run shortest covering theorem"
+      },
+      {
+        "assessment": "NOT_COVERING: only RC-fixed four-letter targets",
+        "evidence": [
+          "Requires every oriented four-letter reverse-complement palindrome as a literal factor.",
+          "The present result covers 18 orbits of allowable three-mers instead."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-sharp-cyclic-and-linear-covers-of-reverse-complement-four-palind--1c5013f138d2/RESULT.md",
+        "material_read": "Entire RESULT.md including constructive formula, proof and limitations",
+        "method": "Read public repository science file and compared required target families",
+        "title": "Sharp cyclic and linear covers of reverse-complement four-palindromes",
+        "trigger": "Potential covering theorem for complementary-palindrome motifs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ed76a863-155c-435d-800e-be229e46dea5",
+  "value": {
+    "rationale": "The specific object is motivated before computation by constrained DNA-probe design: 3-mers without identical neighbors, opposite-strand equivalence, and both circular and linear synthesis formats. The result isolates a parity-based obstruction that distinguishes the constrained setting from an unrestricted odd-order theorem, gives sharp exact overhead of one linear and two circular windows, identifies precisely which motifs must repeat, and counts all optimizer designs. These structural and complete-classification facts have plausible value for benchmark construction and probe design flexibility; they are not arbitrary recomputations of a known table. No downstream biological efficacy is inferred.",
+    "status": "PASS"
+  }
+}
