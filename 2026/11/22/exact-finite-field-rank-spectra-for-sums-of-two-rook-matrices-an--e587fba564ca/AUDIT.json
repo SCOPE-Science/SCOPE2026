@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Colored pair-of-matchings decomposition is bijective and exhaustive, including double edges. Each path rank equals its smaller vertex class, and each cycle rank is k except exactly when char two or k even, by determinant 1-(-1)^k and one-dimensional kernel. Labeled path/cycle exponential weights give the full coefficient identity. Nonsingular pairs use only balanced paths and nonsingular cycles; a local Gaussian saddle expansion with controlled tails gives exact leading constants. Exhaustive independent elimination agrees for all pairs through n=4 over characteristic 2 and 3; formal total consistency is checked through n=8. These checks do not replace the symbolic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Solomon (2002), pp.309–311, embeds the rook monoid into matrices and gives order by rank, then addresses its representation theory.",
+        "Malandro–Rockmore, arXiv:0709.4175, introduction and section outline, addresses Fourier transforms on the rook monoid.",
+        "Wanicharpichat–Rangpung (2015), material reviewed, discusses linear combinations of full permutation matrices over real/complex scalars."
+      ],
+      "reasoning": "Existing full-permutation matrix classifications restrict to a proper subset of rook-matrix pairs and therefore cannot imply aggregate counts over all partially defined maps; ordinary random finite-field matrix rank results sample a different ensemble with no matching constraint. The general rook-monoid order formula alone does not determine the rank of an additive sum.",
+      "searches": [
+        "NONSINGULARITY OF LINEAR COMBINATION OF PERMUTATION MATRICES",
+        "random partial permutation matrices sum invertible bipartite matchings paths cycles",
+        "Complete rank distribution of sums of two partial permutation 0-1 matrices over finite fields, alternating bicolored matching paths and cycles. Invertibility probability characteristic-two n^{-1/4} versus odd and stretched exponential."
+      ]
+    },
+    "checked_sources": [
+      "Solomon 2002 Representations of the rook monoid, Journal of Algebra 256:309-342, https://u.cs.biu.ac.il/~margolis/Representation%20Theory%20Seminar/Monoid%20Representations%20and%20Applications/Solomon%20Rook%20presentation.pdf",
+      "arXiv:0709.4175 (Malandro-Rockmore, first submission 2007-09-26)",
+      "doi:10.13140/RG.2.1.3224.0808 (Wanicharpichat-Rangpung)",
+      "https://mathoverflow.net/questions/311052/distribution-of-sum-of-two-permutation-matrices/311055"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zaimi (2018) derives the cycle distribution when both matrices are invertible: https://mathoverflow.net/questions/311052/distribution-of-sum-of-two-permutation-matrices/311055",
+        "Wanicharpichat–Rangpung (2015) gives nonsingularity tests for sums of two full permutation matrices.",
+        "Solomon (2002) supplies one-factor rook rank counts."
+      ],
+      "reasoning": "The earlier cycle criterion covers the full-invertible-factor subpopulation and explains the cycle determinant test; its all-degree path-free enumeration does not count pairs with unmatched row/column vertices. The all-rank partial-matching EGF and the difference in n^{-1/4} versus n^0 prefactors require the unmatched-path series and separate singular cycle handling. No cited prior result implies both.",
+      "searches": [
+        "distribution of sum of two permutation matrices MathOverflow Zaimi 2018",
+        "sum of two partial permutation matrices rank rook monoid bipartite matchings alternating paths cycles exact generating function",
+        "matrix rank of sum of two rook matrices partial injections over finite fields characteristic-dependent cycles"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Solomon (2002), Section 1 and (1.2), defines rook matrices and their individual ranks; it does not present the rank of sums.",
+        "Wanicharpichat–Rangpung (2015), abstract, introductory definitions and permutation-matrix analysis, treats full permutations only; https://www.researchgate.net/publication/279173309_NONSINGULARITY_OF_LINEAR_COMBINATION_OF_PERMUTATION_MATRICES",
+        "Zaimi (2018) treats full permutation-matrix sums via cycles; https://mathoverflow.net/questions/311052/distribution-of-sum-of-two-permutation-matrices/311055"
+      ],
+      "reasoning": "The sum rank is equivalent to the rank of a degree-two bicolored bipartite matching adjacency block with row and column vertices, or equivalently to its colored path-cycle decomposition. The full permutation pair special case admits only cycles and is prior coverage. The partial pair model also admits paths; these produce nonsingular sums in characteristic two and an additional exponential component absent in full permutation work. No located source supplied the resulting joint rook-monoid rank polynomial or its asymptotic probability.",
+      "searches": [
+        "\"partial permutation matrices\" \"sum\" \"rank\" characteristic",
+        "\"rook matrices\" \"sum\" \"nonsingular\"",
+        "rank distribution of sum of two partial permutation matrices over finite fields",
+        "Sum of two partial permutation matrices rank rook monoid bipartite matchings alternating paths cycles exact generating function"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Solomon (2002), equation (1.2), tabulates by the rank of a SINGLE rook matrix, not sums.",
+        "Independent exact enumeration of all ordered rook pairs through n=4 matched the newly derived ranks: n=4 even-characteristic full rank 7296; odd-characteristic 13464."
+      ],
+      "reasoning": "The familiar rook-polynomial table determines |R_n| but not sum ranks; the finite enumerations provide reproducibility, not novelty evidence. No checked exact table for all ranks of P+Q was found.",
+      "searches": [
+        "count invertible sum two partial permutation matrices alternating cycles",
+        "enumeration invertible sum of two rook matrices partial permutation matrices",
+        "rank sum of two partial permutation matrices rook matrices finite field"
+      ]
+    },
+    "rationale": "The closest primary material supplies the rook monoid and special-cycle criteria for sums of two FULL permutations, not the additive all-rank spectra of TWO partial permutations or the characteristic-sensitive stretched-exponential invertibility law. Multiple meaning/alias searches and archival source comparisons found no dominating or equivalent statement; novelty is qualified by possible unknown specialized enumerations.",
+    "residual_risks": [
+      "The complete mathematical literature has not been exhausted; an equivalent colored-matching rank enumerator in another terminology may exist.",
+      "The original full-permutation-sum theory is prior art for cycle-only subcases.",
+      "Arbitrary weighted partial permutations are outside the claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers rook-monoid definition and individual rank counts; does not establish the additive rank distribution of two matrices.",
+        "evidence": [
+          "Journal of Algebra 256 (2002), pp.309–311, equation (1.2) and stated section plan."
+        ],
+        "identifier_or_url": "https://u.cs.biu.ac.il/~margolis/Representation%20Theory%20Seminar/Monoid%20Representations%20and%20Applications/Solomon%20Rook%20presentation.pdf",
+        "material_read": "Full first two pages, equation (1.2), complete section-by-section introduction and section subjects; searched for additive-rank/sum terminology.",
+        "method": "Primary published PDF with page image check and machine-readable text examination",
+        "title": "Representations of the rook monoid",
+        "trigger": "Exact same rook matrices and their single-factor rank count"
+      },
+      {
+        "assessment": "Studies Fourier algorithms for semigroup functions, not the rank of P+Q.",
+        "evidence": [
+          "Public arXiv submission on 2007-09-26; introduction describing rook-monoid harmonic analysis."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0709.4175",
+        "material_read": "Abstract, introduction and section overview, definitions and Fourier-transform framing.",
+        "method": "Public arXiv source and HTML-derived text",
+        "title": "Fast Fourier Transforms for the Rook Monoid",
+        "trigger": "Archival rook-monoid source with verified first public preprint date"
+      },
+      {
+        "assessment": "Subsumes particular full-permutation cycle criteria, not the broader partial-matching pair count.",
+        "evidence": [
+          "2015 full-text pp.1–2, full permutation matrix definition and stated nonsingularity results."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/279173309_NONSINGULARITY_OF_LINEAR_COMBINATION_OF_PERMUTATION_MATRICES",
+        "material_read": "Public full-text abstract and introduction, primary statement and definitions; searched the available full-text text for partial permutations (no match).",
+        "method": "Public full text HTML extraction and explicit scope comparison",
+        "title": "Nonsingularity of Linear Combination of Permutation Matrices",
+        "trigger": "Same sum operation and nonsingularity, but only full permutation factors"
+      },
+      {
+        "assessment": "Explains prior cycle-only case; misses paths required for all rook matrices.",
+        "evidence": [
+          "G. Zaimi, answer dated September 2018, deriving cycle-length dependence."
+        ],
+        "identifier_or_url": "https://mathoverflow.net/questions/311052/distribution-of-sum-of-two-permutation-matrices/311055",
+        "material_read": "Question and complete answer deriving cycle-based distribution.",
+        "method": "Direct public text reading and comparison of sample spaces",
+        "title": "Distribution of sum of two permutation matrices",
+        "trigger": "Explicit exact distribution for the sum of two FULL permutation matrices"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e587fba5-64ca-48eb-b52d-04c0ec6c9ad2",
+  "value": {
+    "rationale": "Additive ranks in the natural matrix embedding of the inverse semigroup form a motivated structural invariant distinct from multiplicative rank. The exact polynomial solves every finite-size rank stratum. Its full-rank specialization exhibits a sharp characteristic-dependent polynomial prefactor and common stretched-exponential exponent for a natural growing random ensemble, revealing a robust structural cancellation rather than a small special case.",
+    "status": "PASS"
+  }
+}
