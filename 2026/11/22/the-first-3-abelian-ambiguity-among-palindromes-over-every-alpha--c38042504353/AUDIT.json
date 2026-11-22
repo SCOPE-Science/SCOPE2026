@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "Every palindrome of length at most ten uses at most five symbols. Equivalent palindromes share the same used alphabet; injective relabeling to five letters preserves all contiguous factor frequencies. Two standalone exhaustive Python verifiers independently check all 7810 five-letter palindromes at lengths 1..10: uniqueness before ten, precisely 50 doubletons and 3025 singleton profiles at ten, with the entire 50-pair set equal to the proposed two explicit symbolic families. The all-q counts follow by counting injections of distinct labels and no two families overlap.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Karhumäki–Saarela–Zamboni give general unrestricted 2k-length collisions and k-Abelian complexity but not the palindrome-restricted ten-letter equality layer.",
+        "Karhumäki–Puzynina–Rao–Whiteland prove general switching and class formulas; these do not imply, without a further restricted analysis, the exact first length and its two palindrome families."
+      ],
+      "reasoning": "Unrestricted class formula and switching characterize all equivalences but do not themselves enumerate the intersection of those classes with palindromes. The claimed sharp threshold and all-alphabet second family are not a stated special case of the inspected propositions.",
+      "searches": [
+        "arxiv:1301.5104v1 Theorem 2.6 and §2",
+        "arxiv:1605.03319v1 §§3–5",
+        "published-finding corpus: palindrome spectrum reconstruction 3-mers strings exact twin patterns a a a b a a b a a a",
+        "published-finding corpus: palindromic word k-mer multiset spectrum reconstruction first ambiguity q^2(q-1)/2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1301.5104v1 (2013-01-22)",
+      "arxiv:1605.03319v1 (2016-05-11)",
+      "doi:10.1016/j.ic.2018.04.001 (abstract only)",
+      "published-finding corpus published two-marker 3-mer fiber RESULT.md",
+      "published-finding corpus published binary 4-Abelian palindrome RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The two-marker theorem assumes exactly two positions nonzero and n>=8, so it cannot cover the four nonmajority positions in the family with three pairwise distinct letters.",
+        "The 4-Abelian palindrome result asks whether one word is equivalent to its reversal; all ordinary palindromes satisfy that, irrespective of collisions between two distinct words."
+      ],
+      "reasoning": "The first source may imply the repeated-marker subfamily but neither covers the second symbolic family nor sharp non-collision at all shorter lengths for unrestricted alphabet q. General switching might be used to derive these, but no covering implication or same exact classification was found in the inspected statements.",
+      "searches": [
+        "published-finding corpus closest: 2026/11/8/SCOPE-exact-three-mer-multiplicity-fibers-for-two-marker-words--14cf0c12c2fc",
+        "published-finding corpus closest: 2026/11/8/SCOPE-an-algebraic-enumeration-of-binary-4-abelian-palindromes--8628bcb6058d",
+        "arxiv:1605.03319v1 §4–5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem compares full length-one-to-three contiguous spectra on two distinct ordinary palindromes, equivalent to matching three-mer multiplicities and first two symbols for length at least three (Lemma 2.4).",
+        "Searched papers and indexed titles did not state the first collision under this exact restriction."
+      ],
+      "reasoning": "K-spectrum and 3-Abelian equivalence are equivalent given matching boundary k-1 letters. This boundary condition is explicitly included in the new proof; comparison is statement-level, not title-level.",
+      "searches": [
+        "published-finding corpus: palindromic words 3-abelian equivalence first collision length ten all alphabets",
+        "web: palindrome reconstruction length k-gram multiset minimal 3k+1 distinct palindromes",
+        "web: k-abelian equivalent palindromes shortest length 3k+1",
+        "arxiv:1605.03319v1 §2 Lemma 2.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed exact table matching q^2(q-1)/2 palindromic doubletons at length ten was returned.",
+        "The closest finite exact three-mer result partitions words containing exactly two nonzero positions, not all palindromes of length ten."
+      ],
+      "reasoning": "No known exact output table covers the new all-alphabet palindrome census; a negative search does not establish global novelty.",
+      "searches": [
+        "published-finding corpus: palindromes length 10 equivalent trigram histograms 3 abelian",
+        "published-finding corpus: palindromic 3 abelian classes same prefix suffix 10",
+        "web: palindromes 3-spectrum histogram first collision 10 aabcaacbaa"
+      ]
+    },
+    "rationale": "The exact all-alphabet minimal palindrome collision length and complete two-family length-ten equality classification are not supplied by the inspected 2013, 2016 k-Abelian papers, by the two-marker contiguous-three-mer restricted theorem, or by the 4-Abelian-to-reversal counting theorem. These works cover different source constraints, equivalence predicates, or unrestricted global classes. Risk remains from unindexed historical papers and a relevant 2018 journal article available only in abstract form.",
+    "residual_risks": [
+      "Unindexed earlier classification of short palindromic k-spectrum reconstruction may exist.",
+      "Only abstract and not full journal text of the related 2018 k-Abelian palindromes article was accessible.",
+      "General k-switching theory may admit an unstated routine deduction, though the complete all-alphabet first layer is not explicitly covered by examined statements."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering restricted-palindrome earliest collision and two-family census",
+        "evidence": [
+          "Submission 2013-01-22; primary MSC 68R15",
+          "Section 2 demonstrates unrestricted nontrivial k-Abelian pairs of length 2k; no restriction to two ordinary palindromes in the inspected theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1301.5104",
+        "material_read": "HTML full-text sections 1–3, notably Lemma 2.4, Theorem 2.6, Proposition 2.8, and section 2.3 de Bruijn correspondence",
+        "method": "Read accessible arXiv full-text rendered page and searched palindrom* throughout",
+        "title": "On a generalization of Abelian equivalence and complexity of infinite words",
+        "trigger": "Original definition and unrestricted minimal collision"
+      },
+      {
+        "assessment": "General switching and class-size formula do not directly state restricted-palindrome first-collision or doubleton families",
+        "evidence": [
+          "2016-05-11 initial arXiv version",
+          "Lemma 2.4 characterizes k-equivalence by k-factor multiset and two (k-1)-letter boundaries; Proposition 3.3 gives switching characterization.",
+          "No palindrom* term in the indexed PDF full text."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1605.03319",
+        "material_read": "Pages 1–8 (definition, Lemma 2.4, section 3 switching, section 4 class sizes, section 5 opening and singleton characterization); full-text search for palindrome terminology",
+        "method": "Opened indexed PDF, viewed page-1 screenshot, read source text in relevant theorem sections and searched entire text",
+        "title": "On cardinalities of k-abelian equivalence classes",
+        "trigger": "Potential stronger class-size and switching theorem"
+      },
+      {
+        "assessment": "Abstract concerns a word compared with its own reversal, not two ordinary palindromes sharing three-mer spectrum; full text residual risk",
+        "evidence": [
+          "Information and Computation 260 (2018), 89–98 abstract identifies k-Abelian rich/poor factor questions."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.ic.2018.04.001",
+        "material_read": "Abstract and bibliographic information only, full text inaccessible",
+        "method": "Read abstract and compared its reversal-equivalence and palindromic-richness question",
+        "title": "On k-abelian palindromes",
+        "trigger": "Plausible title and object overlap"
+      },
+      {
+        "assessment": "Covers exactly two nonzero positions; not a covering claim for the three-distinct-letter family nor global palindromic earliest collision",
+        "evidence": [
+          "Source assumes n>=8 and exactly two nonzero positions; general n,q fixed two-marker fiber distribution."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-three-mer-multiplicity-fibers-for-two-marker-words--14cf0c12c2fc/RESULT.md",
+        "material_read": "Full RESULT.md including assumptions, proof, scope and theorem",
+        "method": "Read complete scientific result and compared both explicit collision families",
+        "title": "Exact three-mer multiplicity fibers for two-marker words",
+        "trigger": "Closest existing fixed-three-mer fiber classification"
+      },
+      {
+        "assessment": "Different measurement; does not yield first length-ten collision under 3-Abelian spectra",
+        "evidence": [
+          "Its counting sequence concerns words equivalent to their own reversal under 4-Abelian relation, not 3-Abelian equivalence fibers restricted to ordinary palindromes."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-an-algebraic-enumeration-of-binary-4-abelian-palindromes--8628bcb6058d/RESULT.md",
+        "material_read": "Full RESULT.md including equivalence definition and proof",
+        "method": "Read full result and contrasted equivalence-to-reversal versus equality between different palindromes",
+        "title": "An algebraic enumeration of binary 4-abelian palindromes",
+        "trigger": "Palindromic k-abelian near match"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c3804250-4353-425f-b44a-69147e63f730",
+  "value": {
+    "rationale": "The sharp reconstruction threshold under complete tri-gram multiplicity for ordinary palindromes is structurally motivated and alphabet-universal. The classification gives both independent mechanisms for first failure, a complete and parameterized equality layer, and exact numbers of usable distinguishing profiles; it is a natural short-block benchmark rather than an arbitrary slice.",
+    "status": "PASS"
+  }
+}
