@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The symmetric Markov kernel yields exact crossing mass for each unit jump. The beta-binomial tail identity converts it to independent binomial absolute differences. A positive derivative 2m P(S_{m-1}=0) with respect to u=s(1-s) proves strict midpoint optimality, and telescoping at s=1/2 produces the central binomial factor. The BV signed-jump decomposition extends the bound to all distributional BV and forces equality at a centered jump. An exact polynomial/binomial checker confirms n=0..15 and further tests; finite experiments are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Berdysheva–Dyn–Farkhi–Mokhov (arXiv:2212.00439), section 6.2, proves general integrated approximation estimates of order n^{-1/2} but does not determine the optimal scalar classical Durrmeyer coefficient.",
+        "Liu (2014), introduction and approximation theorems, treats a related positive modification but not a sharp BV-to-L1 norm."
+      ],
+      "reasoning": "A generic O(n^{-1/2}) estimate or an operator with a different kernel cannot imply equality with the explicit central-binomial coefficient, uniqueness of the midpoint jump or the sharp asymptotic ratio. Broader kernel families were checked for dominance rather than ruled out by title.",
+      "searches": [
+        "sharp L1 approximation error norm Bernstein Durrmeyer positive operators bounded variation single jumps",
+        "Bernstein Durrmeyer worst case L1 approximation variation minimax jump",
+        "two independent binomial random variables absolute difference Bernstein Durrmeyer approximation step L1",
+        "Metric approximation set valued bounded variation integral operators Durrmeyer L1 rate"
+      ]
+    },
+    "checked_sources": [
+      "Wang–Zhou (2009), DOI 10.1155/2009/702680",
+      "Zeng–Chen (2000), DOI 10.1006/jath.1999.3367, abstract/theorem quotation only",
+      "Liu (2014), DOI 10.1186/1029-242X-2014-106",
+      "Öksüzer–Karsli–Taşdelen Yeşildal (2016), arXiv:1605.03976",
+      "Berdysheva–Dyn–Farkhi–Mokhov (2022), arXiv:2212.00439"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wang–Zhou (2009) improves Zeng–Chen (2000) pointwise bounds on Durrmeyer–Bézier functions with BV data.",
+        "Öksüzer et al. (2016) gives V(M_nf)≤V(f), whereas the claim estimates ||M_nf-f||_1/V(f).",
+        "The classical point-sampled Bernstein coefficient has Gaussian constant (2π)^{-1/2}, while the integral Durrmeyer kernel produces π^{-1/2}."
+      ],
+      "reasoning": "Neither V(M_nf)≤V(f) nor a pointwise nonsharp error estimate yields the central-binomial sharp integrated error, all f, exact finite n, or equality rigidity. Likewise a Bernstein-grid norm is a different operator and cannot cover the proposed result. The inaccessible Zeng–Chen/Guo full texts remain residual risks, not affirmative noncoverage certificates.",
+      "searches": [
+        "sharp L1 approximation error norm Bernstein Durrmeyer positive operators bounded variation single jumps",
+        "Bernstein Durrmeyer beta binomial Markov chain survival midpoint spectral convergence",
+        "Bernstein Durrmeyer operators sharp total variation norm iterated Markov kernel midpoint jump contraction",
+        "Durrmeyer sampling-type operators approximation in variation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wang–Zhou (2009), Theorem 1.1 is a pointwise BV approximation bound; it does not state a sharp integrated L1 coefficient.",
+        "Öksüzer–Karsli–Taşdelen Yeşildal (arXiv:1605.03976), Theorem 3.1 concerns variation diminution.",
+        "The candidate uses a symmetric-kernel crossing integral, a centered binomial mean absolute deviation and rigid equality."
+      ],
+      "reasoning": "Aliases checked include L1 norm of identity-minus-Durrmeyer, BV step error, symmetric binomial Gini mean difference, symmetric beta-binomial crossing mass and sharp integrated convergence. Existing accessible primary formulations concern pointwise decay or output variation; no inspected statement with these equivalent metrics and complete equality condition was found.",
+      "searches": [
+        "\"Durrmeyer\" \"variation\" \"L1\" \"binomial\" \"sharp\" error",
+        "\"Durrmeyer\" \"central binomial\" \"total variation\" approximation",
+        "exact integrated BV error Bernstein Durrmeyer beta binomial moment",
+        "exact binomial coefficient central binomial L1 error Bernstein Durrmeyer BV norm 1/sqrt(pi n) jump"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic database hits include sharp Jacobi Durrmeyer oscillation contraction and sharp input-Lipschitz regularization; their norms are different.",
+        "Exact comparable published computations concern point-sampled Bernstein BV L1 error, not classical integral Durrmeyer L1 error."
+      ],
+      "reasoning": "Queries included the closed coefficient, binomial absolute-deviation identity, centered step and standard operator aliases. No returned table/database item asserted the target whole-degree sharp L1-error norm. Search absence alone is not conclusive and is not the sole originality argument.",
+      "searches": [
+        "sharp L1 approximation error norm Bernstein Durrmeyer positive operators bounded variation single jumps",
+        "exact integrated BV error Bernstein Durrmeyer beta binomial moment",
+        "Bernstein Durrmeyer worst case L1 approximation variation minimax jump",
+        "exact binomial coefficient central binomial L1 error Bernstein Durrmeyer BV norm 1/sqrt(pi n) jump",
+        "Durrmeyer L1 operator error sharp 1/sqrt(pi n) midpoint jump unique extremizers",
+        "two independent binomial random variables absolute difference Bernstein Durrmeyer approximation step L1"
+      ]
+    },
+    "rationale": "The new exact integrated L1-error norm, unique centered-jump equality classification and binomial-absolute-difference formula differ by objective and implication from existing pointwise rate, image-variation, oscillation-contraction and sampled Bernstein results. Full or material primary sources support these distinctions. A historical-priority risk remains from earlier inaccessible articles.",
+    "residual_risks": [
+      "Original full-text comparison with Zeng and Chen (2000) was unavailable.",
+      "Earlier Guo (1987) work on BV Durrmeyer pointwise approximation was not inspected in full.",
+      "Unindexed historical equivalents cannot be excluded by semantic or title searching."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Pointwise BV estimates and related kernel, no exact global L1 error norm or midpoint rigidity in inspected theorem",
+        "evidence": "Theorem 1.1 bounds pointwise |D_{n,α}f(x)-weighted one-sided limit|, not sup ||M_nf-f||_1/V(f).",
+        "identifier_or_url": "https://doi.org/10.1155/2009/702680",
+        "material_read": "Accessible full 2009 article, especially introduction equation (1.2), Theorem A, Theorem 1.1, and subsequent proof context",
+        "method": "Full HTML and text transcription compared at the level of norms and quantifiers",
+        "title": "A New Estimate on the Rate of Convergence of Durrmeyer–Bézier Operators",
+        "trigger": "Closest older BV Durrmeyer pointwise bounds, citing the 2000 generalized Durrmeyer work"
+      },
+      {
+        "assessment": "Known accessible result is a pointwise BV rate. Other content cannot be ruled out without original full text",
+        "evidence": "Abstract describes convergence to weighted one-sided limits; Wang–Zhou quotes a pointwise-bound Theorem A.",
+        "identifier_or_url": "https://doi.org/10.1006/jath.1999.3367",
+        "material_read": "Abstract, bibliographic metadata, and quotation of its Theorem A in Wang–Zhou (2009); original complete text not available",
+        "method": "Author abstract and later primary quotation; inaccessible full-text risk explicitly retained",
+        "title": "On the Rate of Convergence of the Generalized Durrmeyer Type Operators for Functions of Bounded Variation",
+        "trigger": "Original 2000 paper on the same kernel family; plausible stronger coverage"
+      },
+      {
+        "assessment": "Different modified operator and pointwise approximation, not the exact unweighted classical integrated BV error",
+        "evidence": "The title, operator definitions and displayed approximation results concern pointwise bounds.",
+        "identifier_or_url": "https://doi.org/10.1186/1029-242X-2014-106",
+        "material_read": "Accessible complete article, introduction and main pointwise approximation results",
+        "method": "HTML scientific claim and proof-object comparison",
+        "title": "Pointwise approximation for a type of Bernstein–Durrmeyer operators",
+        "trigger": "Related kernel and positive polynomial approximation"
+      },
+      {
+        "assessment": "Variation of the transformed function and convergence in variation are different from L1 norm of transformation minus identity",
+        "evidence": "Theorem 3.1 proves V(M_nf)≤V(f); section 4 discusses variation seminorm convergence.",
+        "identifier_or_url": "https://arxiv.org/abs/1605.03976",
+        "material_read": "Available complete preprint, introduction, section 3 variation diminution and section 4 convergence",
+        "method": "Read PDF and accessible text, compared hypotheses and output variation norm",
+        "title": "Convergence of the Bernstein–Durrmeyer Operators in Variation Seminorm",
+        "trigger": "Same classical operator and BV space; plausible covering norm theorem"
+      },
+      {
+        "assessment": "Provides rate scale rather than exact sharp coefficient or complete scalar extremizer classification",
+        "evidence": "Section 6.2 offers O(n^{-1/2}) L1-type estimates, without the proposed exact coefficient.",
+        "identifier_or_url": "https://arxiv.org/abs/2212.00439",
+        "material_read": "Complete accessible preprint, sections 5.1, 6.2 and 6.3 on integral approximation bounds",
+        "method": "Full-text sections and relevant theorem statements",
+        "title": "Metric approximation of set-valued functions of bounded variation by integral operators",
+        "trigger": "General integral-operator L1 BV approximation could dominate the target"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "480d74d4-4971-4086-8aa3-58e19c40a560",
+  "value": {
+    "rationale": "A natural sharp norm for integrated approximation of BV discontinuities is evaluated for all polynomial degrees and all real BV inputs, including rigid equality. It identifies an exact, reproducible binomial kernel-mixing penalty with leading factor sqrt(2) compared to point-sampled Bernstein smoothing; pointwise convergence and variation diminution alone do not supply this design calibration.",
+    "status": "PASS"
+  }
+}
