@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "Exact scalar row projection resets the iterate to d_i/s_i; this gives the all-q distribution formula at every positive step. For beta<q a near-zero row yields divergence; at equality the supremum m follows by bounding numerator and denominator; for beta>q strict Jensen concavity reduces all row geometries to one equal-weak parameter, whose derivative has a unique root and strict global maximum. The 3-by-2 witness has singular values 1 and sqrt(2+epsilon^2), only one bounded corrupt datum, exact q-error and sharp tail. Standalone checker passed 9,048 exact-rational and 232,920 finite floating-point supplementary assertions; neither finite set is the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun et al. 2026 analyze consistent subspace-constrained randomized iterations.",
+        "Lok-Rebrova 2023 cover inconsistent-data expected squared error for individual matrices."
+      ],
+      "reasoning": "The earlier squared-error horizon does not control all higher-order moments uniformly under near-null projected row geometry, and the 2026 consistent-data theory does not imply a corrupted-data minimax value or equality classification. Residual-rejection variants need not exhibit the same distribution and are excluded.",
+      "searches": [
+        "single corrupted nearly redundant row subspace constrained randomized Kaczmarz high moment despite full linear system condition number bounded",
+        "subspace-constrained Kaczmarz arbitrary p-th moment uniform noise amplification projected row exponent risk",
+        "arxiv:2605.29304 Section 3 (read)",
+        "arxiv:2309.04889 Theorem 3.4 (read)"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2605.29304",
+      "https://arxiv.org/abs/2309.04889",
+      "https://arxiv.org/abs/0902.0958",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-moment-thresholds-for-gaussian-noisy-norm-weighted-kaczmar--81db12815a13",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-frobenius-optimal-two-row-constraints-can-arbitrarily-slow-norma--6cdb9b864fa7",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-unbounded-rejected-draw-cost-of-frobenius-selected-subspace-cons--5c14167b84fb",
+      "https://epubs.siam.org/doi/10.1137/25M1785678",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-exact-two-state-dynamics-and-a-sharp-rare-corruption-horizon-for--2639ecb81dd1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 exact projected noisy update implies a scalar reset identity upon restriction to one free coordinate, but no q-moment maximization or sharp equality classification is given in its examined sections.",
+        "Needell 2009/2010 abstract describes a noise-dependent error horizon.",
+        "published-finding corpus neighboring records address random Gaussian rows, row-selection cost, or consistent spectral rates."
+      ],
+      "reasoning": "A general algorithmic formula alone is not the sharp quantified worst-case all-q statement; it is a starting identity from which the new convexity optimization and critical endpoint are proved. No inspected stronger theorem subsumes the exact minimax profile. Potential omitted stronger literature is recorded as risk.",
+      "searches": [
+        "uniform all-system worst-case qth absolute noise amplification norm-power sampled projected Kaczmarz unique equal weak projected row norms Jensen beta q extremizer",
+        "single corrupted nearly redundant row subspace constrained randomized Kaczmarz high moment despite full linear system condition number bounded",
+        "Well-conditioned 3 by 2 matrix one hard constraint Kaczmarz heavy-tailed iterates from bounded corrupt data norm squared sampling fourth moment unbounded",
+        "arxiv:2309.04889 equations (3.12)-(3.13) (read)",
+        "exact sharp minimax all-q moment of one-free-coordinate subspace constrained Kaczmarz norm-power iid sampling one strong and equal weak rows beta t^q+q(m-1)t^beta=beta-q; bounded corrupted rhs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lok-Rebrova 2023 eq. (3.13) provides the projected noise correction, while Theorem 3.4 is a mean-square horizon, not a global sharp q-moment extremizer.",
+        "The Gaussian-row published-finding corpus record gives q<min(md,d+beta), for a distinct random-coefficient probability model."
+      ],
+      "reasoning": "A scalar projected Kaczmarz iterate is an inverse-projected-row sample; the all-q supremum over deterministic normalized row magnitudes and its unique maximizing pattern are neither a restatement of a fixed-row MSE error horizon nor equivalent to the random-matrix ensemble moment-existence condition.",
+      "searches": [
+        "Sharp high-order moment threshold beta q for norm-power sampled subspace constrained randomized Kaczmarz inconsistent right-hand sides one-dimensional residual system; rare small projected rows",
+        "uniform all-system worst-case qth absolute noise amplification norm-power sampled projected Kaczmarz unique equal weak projected row norms Jensen beta q extremizer",
+        "exact minimax q moment one-dimensional randomized Kaczmarz probability proportional norm beta bounded corrupted measurements",
+        "arxiv:2309.04889 Section 3.2 (read)",
+        "exact sharp minimax all-q moment of one-free-coordinate subspace constrained Kaczmarz norm-power iid sampling one strong and equal weak rows beta t^q+q(m-1)t^beta=beta-q; bounded corrupted rhs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned the Gaussian coefficient-noise moment record (2026/11/2/...--81db12815a13) and related constrained-Kaczmarz records, but no matching deterministic-response-noise all-q minimax formula in retrieved results."
+      ],
+      "reasoning": "This theorem is a continuum optimization over normalized projected row magnitudes and response errors, not a finite census or tabulated invariant. An indexed search cannot certify absence from all databases.",
+      "searches": [
+        "Sharp high-order moment threshold beta q for norm-power sampled subspace constrained randomized Kaczmarz inconsistent right-hand sides one-dimensional residual system; rare small projected rows",
+        "uniform all-system worst-case qth absolute noise amplification norm-power sampled projected Kaczmarz unique equal weak projected row norms Jensen beta q extremizer",
+        "exact minimax q moment one-dimensional randomized Kaczmarz probability proportional norm beta bounded corrupted measurements",
+        "norm-weighted Kaczmarz projected nearly zero rows fixed noise finite moment exponent subGaussian failure"
+      ]
+    },
+    "rationale": "Public comparisons distinguish the specific sharp all-real-q finite-row minimax function, endpoint, equality profile, and single-corruption tail from earlier algorithm definitions, noisy mean-square horizons, and an adjacent random-Gaussian-coefficient moment threshold. Search nonappearance is not a uniqueness proof; priority risks remain for unindexed or uninspected stronger work.",
+    "residual_risks": [
+      "High-order norm-weighted importance-sampling bounds may exist in unindexed older probability/numerical-analysis sources under equivalent normalization.",
+      "The full paper associated with the high-similarity Gaussian-coefficient published-finding corpus record was not obtained; its abstract-level comparison does not establish full-document noncoverage.",
+      "The Needell article was compared only at abstract level; its full proof was not inspected.",
+      "The statement concerns only the iid projected-row variant, not the null-step-rejecting implementation in Sun et al. (2026)."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper derives the subspace projector and expected convergence in the consistent setting but does not state a supremum over bounded-error scalar projected row geometries, q-th moment frontier, or sharp equality row pattern. Its suggested no-null-step construction is not identified with the independent-row variant analyzed here.",
+        "evidence": [
+          "arXiv HTML Sections 1.1, 3 and 6; equations (11)-(15); first-public v1 header"
+        ],
+        "identifier_or_url": "arxiv:2605.29304; https://arxiv.org/html/2605.29304",
+        "material_read": "Open-access full-text HTML: introduction and contributions, Section 3 projected stochastic iteration equations (11)-(15), convergence framework, and Section 6 future directions",
+        "method": "Read relevant equations and noise/consistency scope, checked the declared MSC and 2026-05-28 v1 date",
+        "title": "On subspace-constrained preconditioning for randomized iterative methods",
+        "trigger": "Motivating recent work on exact trusted-row subspaces and projected stochastic row updates"
+      },
+      {
+        "assessment": "Baseline algorithm and noise-horizon result are explicitly prior. Theorem 3.4 controls expected squared distance for fixed data, not the complete all-q sharp supremum over normalized projected row strengths or unique minimax equality geometries. Equation (3.13) makes the scalar update elementary, but the present higher-moment minimax and sharp tails require a separate maximization and quantifiers.",
+        "evidence": [
+          "Section 3.2 Theorem 3.4; lines on conditional expectation and equations (3.12)-(3.13)",
+          "https://arxiv.org/abs/2309.04889"
+        ],
+        "identifier_or_url": "arxiv:2309.04889; https://arxiv.org/abs/2309.04889",
+        "material_read": "Open-access HTML full text: Algorithm 1 and row-projection rule; Section 3.2, Theorem 3.4 and its proof, especially noise term (3.13)",
+        "method": "Compared the exact squared-norm sampling update, its noisy mean-square horizon, and the proof formula for projected noise amplification",
+        "title": "A subspace constrained randomized Kaczmarz method for structure or external knowledge exploitation",
+        "trigger": "Original projected norm-squared row sampler and directly relevant inconsistent-data analysis"
+      },
+      {
+        "assessment": "Abstract establishes expectation/error-horizon behavior, not an all-real-order minimax geometry theorem; undisclosed full-text technical implications remain a residual risk, and absence of coverage in the whole article is not asserted.",
+        "evidence": [
+          "arXiv abstract 0902.0958, first public 2009-02-05"
+        ],
+        "identifier_or_url": "arxiv:0902.0958; https://arxiv.org/abs/0902.0958",
+        "material_read": "Public abstract and original submission metadata only; full text not inspected in this comparison",
+        "method": "Compared stated noise-dependent mean/error horizon with current all-q sharp minimax statement",
+        "title": "Randomized Kaczmarz solver for noisy linear systems",
+        "trigger": "Foundational noise-floor prior that might dominate a claimed robustness boundary"
+      },
+      {
+        "assessment": "The record considers newly Gaussian-resampled random coefficient rows and moment existence in their joint distribution, with q<min(md,d+beta). Here rows are fixed deterministic, bounded response noise and uniform worst-case over normalized finite-row geometry gives beta>=q, including the endpoint; equal-weak-row maximizers and single-corruption tail are not stated by the summary. Article full-text comparison remains a priority uncertainty.",
+        "evidence": [
+          "published-finding corpus public record at https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-moment-thresholds-for-gaussian-noisy-norm-weighted-kaczmar--81db12815a13"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-moment-thresholds-for-gaussian-noisy-norm-weighted-kaczmar--81db12815a13",
+        "material_read": "Public published-finding corpus indexed title and full short scientific summary; article full text not retrieved",
+        "method": "Compared probability spaces, source of noise, moment quantifiers, and critical expressions",
+        "title": "Sharp moment thresholds for Gaussian-noisy, norm-weighted Kaczmarz projections",
+        "trigger": "High-similarity published research record with q-moment sampling-exponent threshold"
+      },
+      {
+        "assessment": "It concerns consistency and mean-square spectral contraction from choosing two exact constraint rows, not bounded deterministic corruption and all-q minimax moments with one free coordinate.",
+        "evidence": [
+          "published-finding corpus indexed result https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-frobenius-optimal-two-row-constraints-can-arbitrarily-slow-norma--6cdb9b864fa7"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-frobenius-optimal-two-row-constraints-can-arbitrarily-slow-norma--6cdb9b864fa7",
+        "material_read": "Public published-finding corpus title and scientific summary only",
+        "method": "Compared object, noise assumptions and conclusion",
+        "title": "Frobenius-optimal two-row constraints can arbitrarily slow normalized-row Kaczmarz",
+        "trigger": "Similar constrained-row geometry and projected random Kaczmarz in public records"
+      },
+      {
+        "assessment": "That record analyzes median/quantile acceptance with hypergeometric corruption probabilities and a rare-first-error time horizon, not independent projected norm-power draws or the full all-q minimax geometry. Full text was not inspected; additional unidentified implications remain a risk.",
+        "evidence": [
+          "Public published-finding corpus record identified by suffix 2639ecb81dd1"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-exact-two-state-dynamics-and-a-sharp-rare-corruption-horizon-for--2639ecb81dd1",
+        "material_read": "Public published-finding corpus indexed scientific summary; full paper not inspected",
+        "method": "Compared sampling law and asserted risk quantity",
+        "title": "Exact two-state dynamics and a sharp rare-corruption horizon for small-sample quantile Kaczmarz",
+        "trigger": "Final exact-claim search found related two-level corruption Kaczmarz with independent iterates"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1a86c473-780a-4522-9c4d-38251ae0e336",
+  "value": {
+    "rationale": "The problem directly quantifies how projected norm-power sampling controls amplified errors from nearly redundant yet corrupted measurements, under the natural normalization of at least one unit informative projected row and bounded response error. The exact all-order minimax frontier, unique equal-weak-row worst geometry and critical endpoint provide a calibration rule and tight high-probability failure envelope at classical squared-norm sampling, even when the original least-squares matrix is uniformly conditioned. This is a complete natural reliability classification rather than a mere isolated negative example.",
+    "status": "PASS"
+  }
+}
