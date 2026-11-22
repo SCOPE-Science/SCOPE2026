@@ -1,0 +1,15 @@
+# Scientific review of the fibbinary additive-energy theorem
+
+## Correctness
+PASS. Kummer's binary-carry criterion gives the exact no-adjacent-ones support. The explicit twelve-state transfer counts ordered additive quadruples by ordinary integer addition. The matrix annihilation and characteristic factorization are integer identities reconstructed independently by the packaged checker; they prove the recurrence and generating function for all depths. Primitivity proves the positive leading spectral asymptotic. Prefix-cylinder probabilities lie between two fixed multiples of the inverse Fibonacci growth, and conditional tails shift prefix sums by at most one cell. These arguments prove the claimed correlation dimension and the \(L^2\) obstruction. The 353 checker assertions cover the nonstandard finite identities, parity boundaries, and direct small-depth enumerations, but are not substituted for the infinite proof.
+
+## Originality
+PASS, subject to the recorded historical-priority risk. The 2011 Kenyon--Peres--Solomyak paper studies the dimension of a multiplicative constraint and mentions the ordinary golden-mean set; it does not compute its additive energy. The published dyadic valuation law for the proportional binomial coefficient gives exactly the Fibonacci zero-valuation count, not its four-point additive correlations. Exact energy for Pascal-row support and a base-four independent-digit convolution are separate settings and do not imply the present polynomial, spectral root, or limiting Markov-convolution result. Broad searches of alternative names, the exact initial sequence, the polynomial, and the convolution found no matching evaluated theorem. Unindexed evaluations or a hidden specialization of general finite-type results remain possible; search failure alone is not a priority proof.
+
+## Mathematical value
+PASS. The counting problem is the ordered two-sum collision statistic for the natural fibbinary set arising from Kummer's theorem. It is not determined by its familiar Fibonacci cardinality or by progression-length results. Its exact rational census yields a natural non-independent Markov digit measure whose self-convolution has correlation dimension strictly below one even though the original support has dimension greater than one-half. The derived analytic obstruction supplies a structural interpretation of the exact fifth-order arithmetic recurrence rather than a purely routine finite enumeration.
+
+## Limits and closest literature
+The result is specific to \(\binom{3n}{n}\) modulo two, dyadic cutoffs, and a particular golden-mean limiting measure. The theorem proves absence of an \(L^2\) density but neither singularity nor absence of all \(L^p\) densities. Relevant comparisons are Kenyon--Peres--Solomyak (arXiv:1105.3441), the published dyadic valuation law for \(\binom{3n}{n}\), the published Pascal-row sumset-energy census, and an evaluated independent-digit convolution-dimension theorem. Historical coverage is bounded and cannot establish absolute priority.
+
+Self-review: passed. Independent audit: not yet performed.
