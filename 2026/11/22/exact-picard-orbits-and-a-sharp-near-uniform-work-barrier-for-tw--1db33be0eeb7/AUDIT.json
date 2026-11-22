@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Direct Gram elimination gives the orthogonal inversion map; predictor initialization reduces it to a positive Möbius orbit with |kappa|<1. Cayley linearization proves its exact formula, convergence, and branches. Parity-exact threshold inequalities and log expansion prove the sharp 1/r work constant. A skew generator with J^2=-I on the mean-zero plane gives the finite-step singular predictor and its sharp 1/|h-1| law. Exact-rational Gram tests and oscillator tests in checker.py passed. Limits for r=0, r=rho and d>=3 are distinguished.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Norton--Quispel arXiv:1301.4717v1, Section 4, constructs a DIFFERENT linearly implicit discrete-gradient scheme for quadratic invariants.",
+        "Norton et al. arXiv:1302.2713v1 give local existence and order theory, not a predictor-dependent sharp Picard count.",
+        "Pu--Ran arXiv:2605.30827v1 proves its general correction conservation and local accuracy."
+      ],
+      "reasoning": "General solvability and energy-preservation theory does not imply an exact convergence factor or a quantitative singular work asymptotic for the specific predictor-initialized Gram map. The older linearly implicit construction avoids rather than bounds this particular nonlinear fixed-point iteration.",
+      "searches": [
+        "multi invariant discrete gradient correction positive radial branch negative antipodal solutions iteration complexity",
+        "implicit invariant preserving correction Picard iteration rational update sphere predictor convergence",
+        "https://arxiv.org/pdf/1301.4717",
+        "discrete gradient methods for preserving a first integral quadratic linearly implicit"
+      ]
+    },
+    "checked_sources": [
+      "Pu--Ran, arXiv:2605.30827v1, 2026-05-29",
+      "Norton et al., arXiv:1302.2713v1, 2013-02-12",
+      "Norton--Quispel, arXiv:1301.4717v1, 2013-01-21"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 method prescribes the iteration but only general conditional existence, conservation and consistency analyses in the inspected sections.",
+        "The 2013 multiple-integral projection comparison concerns mathematical equivalence and numerical invariant drift, not the present Picard orbit.",
+        "The 2013/2014 quadratic linearly implicit method has a different update and cannot dominate an algorithm-specific work statement."
+      ],
+      "reasoning": "Substituting a quadratic invariant into the 2026 formula is necessary but not by itself the present claim. The additional solved Cayley orbit, exact parity stopping thresholds, singular family of implicit solutions and conservative oscillator realization are not stated or logically furnished by the inspected results alone. Classical Möbius algebra is explicitly acknowledged as the derivation technique.",
+      "searches": [
+        "\"multi-invariant preserving\" discrete gradient Pu Ran iteration convergence",
+        "\"projection methods\" \"fixed point\" \"quadratic invariant\" \"energy\" iteration",
+        "https://arxiv.org/pdf/1302.2713",
+        "https://arxiv.org/pdf/1301.4717"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pu--Ran arXiv:2605.30827v1, Section 4, Eq. (10)-(13) and Algorithm 1, gives precisely the Gram multiplier correction and predictor-initialized fixed-point solve.",
+        "Norton et al. arXiv:1302.2713v1, Sections 1 and 4, characterize broad projection/discrete-gradient equivalences."
+      ],
+      "reasoning": "The exact correction point for the quadratic slice is a radial projection, which is classical and not claimed as novel. But equivalence of the final point does not determine the Picard implementation orbit, its second algebraic branch, its sharp inner stopping cost or the finite-step singular predictor.",
+      "searches": [
+        "discrete gradient correction for quadratic invariant fixed point iteration Möbius Cayley transform exact convergence rate radial projection",
+        "quadratic invariants sphere hyperplane average vector field correction Gram Picard iteration nonuniqueness",
+        "Projection methods and discrete gradient methods for preserving first integrals of ODEs",
+        "https://arxiv.org/pdf/1302.2713"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Pu--Ran Section 4 and Algorithm 1 contain symbolic method formulas and general tests, not an explicit rational Picard orbit or work-bound table.",
+        "The available related mathematical records include general Picard/projection convergence, but no exact table for this scheme."
+      ],
+      "reasoning": "No exact record of this algorithm-specific recurrence, two-branch classification or asymptotic stopping law was identified; record coverage is not exhaustive and absence of matching titles is not a proof of novelty.",
+      "searches": [
+        "Pu Ran A Multi-Invariant Preserving Discrete Gradient Methods mean value quadratic invariant exact Picard iteration mass energy singular predictor",
+        "discrete gradient correction fixed point mass and energy exactly two solution branches eigenvalue Gram uniform state",
+        "\"discrete gradient correction\" \"fixed point\" quadratic \"sphere\" convergence",
+        "https://arxiv.org/html/2605.30827"
+      ]
+    },
+    "rationale": "The complete inspected source method specifies a generic Gram correction, not this exact two-invariant predictor-initialized orbit or the limiting inner-work coefficient. Earlier projection/discrete-gradient equivalence and linearly implicit quadratic schemes do not imply that algorithm-specific work law. Specific original-source and published-record comparisons and risks are recorded.",
+    "residual_risks": [
+      "Classical Cayley/Möbius iteration may appear in earlier work indexed under different projection names",
+      "Not all global literature or unpublished manuscripts were accessible or inspected",
+      "The theorem does not apply to general nonlinear or non-isotropic invariants"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Specifies the source method and general properties but does not state the sharp solver-orbit/work result",
+        "evidence": [
+          "arXiv:2605.30827v1, Section 3 Eq. (6)-(7), Section 4 Eq. (10)-(13), Algorithm 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.30827",
+        "material_read": "Section 2 definitions; Section 3 fixed-point derivation and well-posedness; Section 4 Gram system, theorem statements and Algorithm 1",
+        "method": "Full-text HTML with equations and source line comparisons",
+        "title": "A Multi-Invariant Preserving Discrete Gradient Methods",
+        "trigger": "Primary method defining the correction and Picard iteration"
+      },
+      {
+        "assessment": "Provides general equivalence and local theory, but not exact iteration complexity of the Pu--Ran map",
+        "evidence": [
+          "arXiv:1302.2713v1, pp. 1-3, 9, 24; multiple-integral example and final conclusions"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1302.2713",
+        "material_read": "Abstract, Section 1 definitions/equivalences, Section 4 fixed-point setting, and Section 6 multi-integral example/conclusion",
+        "method": "Primary preprint text extraction and page-image inspection",
+        "title": "Projection methods and discrete gradient methods for preserving first integrals of ODEs",
+        "trigger": "Classical potentially covering multi-invariant projection equivalence"
+      },
+      {
+        "assessment": "Contains a distinct linearly implicit scheme, not the exact Picard map under study",
+        "evidence": [
+          "arXiv:1301.4717v1, pp. 1-3, 10-17, Corollary 4.10"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1301.4717",
+        "material_read": "Abstract, Sections 1 and 4, quadratic-integral corollary and comparison to a projection method",
+        "method": "Primary preprint extracted text and page-image inspection",
+        "title": "Discrete gradient methods for preserving a first integral of an ordinary differential equation",
+        "trigger": "Earlier quadratic-energy linearly implicit solver potentially dominates the work result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1db33be0-eeb7-4948-a8ac-79133972b8e2",
+  "value": {
+    "rationale": "The mathematical question concerns the cost and conditioning of simultaneously preserving two standard conservative invariants. Its sharp near-uniform work law and unbounded transient are realized by a concrete explicit conservative oscillator predictor at a finite step, identifying a consequential implementation boundary even though direct radial projection solves this special geometry cheaply. No global claim is made.",
+    "status": "PASS"
+  }
+}
