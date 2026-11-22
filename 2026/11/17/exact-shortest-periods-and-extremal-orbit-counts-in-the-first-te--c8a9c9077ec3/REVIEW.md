@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The primitive oriented inverse-run lemma, nine-step lower bound and exhaustive 2170-seed cutoff prove that all depth-ten periodic orbits of least period at most \(269\) are included. The explicit checker reports 16 primitive necklace orbits all at length \(269\), and independently checks short-period anchors. This is an exhaustive finite computation supported by a mathematical bound; it is not independent proof certification.
+## correctness
 
-**Originality (O): PASS, provisional priority.** Mitchell–Walton–Whittaker define the smooth hierarchy and prove transitivity, Cassaigne–Henry establish smooth-word properties and infinite-smooth aperiodicity, and Fédou–Fici construct finite-word automata. Their inspected statements do not imply the numerical finite-depth least periods and orbit counts. No direct overlap emerged from targeted public mathematical-record searches. Unindexed finite-depth tables and incompletely read historical literature remain risks.
+PASS
 
-**Mathematical value (V): PASS.** The exact primitive-orbit systole profile addresses a natural dynamical invariant of the finite approximants to a Kolakoski shift with no periodic infinite-smooth points. Its nontrivial depth dependence and exact depth-ten 16-orbit census supply a useful reproducible quantitative benchmark.
+For bi-infinite periodic nonconstant binary words, run differentiation gives a primitive circular derivative. A primitive inverse alternates two symbols and uses one run-length period for even derivative period or two for odd; the inverse least period equals the corresponding sum. Every X1 primitive derivative avoids cyclic 111/222, forcing at least one symbol 2 per three positions, so inverse length grows at least 4/3. Any depth-ten period <=269 descends nine steps to an X1 primitive period <=floor(269(3/4)^9)=20. I independently enumerated all primitive oriented binary necklaces without cyclic triples at length 2..20 and expanded every retained inverse orientation, pruning only lengths>269; 2170 seeds, level counts [2170,3474,5632,9073,11218,5590,2666,300,32,16], least period counts [(2,1),(3,2),(8,1),(12,2),(18,4),(27,8),(80,4),(120,8),(180,16),(269,16)]. This reproduces the exact first-ten table with a genuinely exhaustive finite cutoff for each claimed depth, not an inference that any infinite-depth word is periodic. The proof's distinct rotation/complement handling is necessary and present.
 
-**Limits.** The theorem does not infer the shortest periods at depths above ten, nor any periodic point of the fully smooth shift. The result depends on a transparent exhaustive finite computation, not a separate independently reviewed proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the motivated finite-depth primitive-period and minimizing-orbit census, not for the established differentiation hierarchy or elementary run-length inversion. Full relevant Kolakoski/smooth-word primary introductions and mathematical sections checked; Resultary search returned the same claim but no stronger covering Kolakoski-period census.
+
+## value
+
+PASS
+
+The natural derivative-depth filtration X_k poses a concrete primitive periodic-orbit systole question that is not a textbook substitution. A proved growth cutoff makes the finite-depth classification complete, and exact periods and counts through ten (especially sharp 269 with sixteen oriented orbits) are reusable finite combinatorics for smooth-word and symbolic-dynamics comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
