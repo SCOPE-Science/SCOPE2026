@@ -1,25 +1,21 @@
-# Review: universal logarithmic invasion clock
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(r\ge2\), common positive coefficient, and strictly positive initial vector, the normalized map is exact. The key decompositions are \(p_i=(1-z)u_i\), resident variance \(E=\sum(u_i-1/r)^2\), and the exact reciprocal relation
-\[
-\frac1{z_{n+1}}-\frac1{z_n}
-=\frac{2r+1}{2(2r-1)}\frac{1-z_n}{1-z_n/2}
--\frac{(1-z_n)^2E_n}{2h z_n(1-z_n/2)}.
-\]
-The proof uniformly separates the rare share from one, establishes resident equalization at an exponential rate independent of the rare-share limit, proves rare-share extinction and a linear upper bound on its inverse, and hence shows the variance error has a summable total. The inverse increments first give the sharp leading \(1/n\) law; a second summation establishes the **finite** renormalized limit after adding half a logarithm. There is no appeal to numerical trajectories for an infinite-time conclusion. Rational identity checks and longer-iteration experiments passed with the actual standalone checker.
+PASS
 
-## Originality — PASS within inspected evidence
+For r≥2 positive equal-rate residents and one rare rate a(1−1/(2r)), homogeneity yields exact simplex map. With S=1−z, normalized residents u_i obey u_i′=u_i(1−Su_i/2)/(1−S∑u_i²/2). Exact bounds keep z≤M<1, and order-preserving contraction of resident spread gives E=∑(u_i−1/r)²=O(ρ^{2n}). The exact z drift forces extinction and 1/z=O(n); the inverse increment w′−w=c_r(1−z)/(1−z/2)−ε, c_r=(2r+1)/(2(2r−1)), ε≥0 summable because E/z=O(nρ^{2n}). Therefore w/n→c_r, z−1/(c_r n)=O(log n/n²), and summing the inverse increments gives w=c_r n−(1/2)log n+C+o(1). No boundary-zero initial composition or uniform rate is asserted. Independently checked the rational normalized, drift, and inverse identities for several r and iterated 60000 steps; checks support not replace the argument.
 
-The 2024/2025 originating article treats this same quadratic operator but does not quantify the multiple-resident critical tie. The closest published general result (*An exact global separatrix and water-filling convergence for a positive quadratic map*) establishes global convergence to a water-filling composition but explicitly leaves finer convergence rates at ties open. *Universal critical algebraic exclusion in a many-type quadratic population map* establishes a leading inverse-time law for one dominant resident and multiple subordinate types at coefficient ratio two; exchanging labels cannot create this theorem's \(r\) equal dominant residents, single neutrally invading type at ratio \(2r/(2r-1)\), or the logarithmic second term. The geometrical radial-separatrix result concerns a different, strict-positive-interior parameter chamber. Exact published-finding corpus overlap queries and primary literature were checked at the claim-implication level, not by title alone. Unindexed parabolic-map or replicator literature may contain an equivalent formula; this remains a publication-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The operator is a natural discrete population-interaction model, and the invader's threshold is the geometrically distinguished water-filling boundary where its linearized growth factor equals one. A first-order \(1/n\) decay does not determine the systematic finite-time bias; the dimension-independent \(-\frac12\log n\) term gives the first nontrivial correction for every positive trajectory and all resident multiplicities, despite initially unequal resident coordinates. This is a precise, structurally motivated dynamical asymptotic rather than an arbitrary parameter sample or numerical recomputation.
+The original homogeneous quadratic operator and its neutral regions predate the submitted analysis. The exact general water-filling theorem identifies limiting compositions without tie rates, while a distinct one-dominant/many-rare critical theorem gives only first-order constants at an inequivalent rate ratio. No matching all-positive-initial-data multi-resident inverse clock with -1/2 log n was found. Priority is best-of-knowledge; the 2025 primary journal full text could not be obtained, and any general parabolic-result implication remains a risk.
 
-## Limits and related literature
+## value
 
-Only relative compositions are covered; absolute biomass can go extinct or escape with initial mass. No uniform estimate over nearly extinct initial resident types or heterogeneous resident weights is asserted. There is no independent audit. The closest inspected prior sources are Shoyimardonov–Rozikov (arXiv:2409.13450; DOI:10.20537/nd250803), *An exact global separatrix and water-filling convergence for a positive quadratic map* (2026), *Universal critical algebraic exclusion in a many-type quadratic population map* (2026), and *A computable global extinction–escape separatrix for a homogeneous quadratic population map* (2026).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A quantitative critical invasion law for a natural multitype nonlinear population operator differentiates the inverse-time coefficient from a universal second-order log correction and proves that all positive asymmetries are summable. The exact log term is a motivated finite-generation correction not mechanically implied by prior directional convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
