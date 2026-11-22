@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T00:50:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-facial-distance-spectrum-and-anisotropy-rigidity-of-weight--8a5a65ed6552/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-facial-distance-spectrum-and-anisotropy-rigidity-of-weight--8a5a65ed6552/check_crosspoly.py",
+        "Git blob 713d83157505237ce3f3f5c10f68d103e87fb3e7 (RESULT.md)",
+        "Git blob f890ab134a014b42e6ca8ec5f69599d018714e05 (check_crosspoly.py)"
+      ],
+      "rationale": "The definition uses the Euclidean distance between F and the convex hull of all vertices absent from F, rather than a supporting-hyperplane margin. Each proper face is a signed one-per-axis subset I. For |I|<d, a missing axis puts 0 in the complementary hull, and every complementary vertex has nonpositive signed coordinates along I; minimizing ||(a_i alpha_i)|| with sum alpha=1 yields 1/sqrt(sum_I a_i^-2), attained by alpha_i proportional a_i^-2. For facets complement=-F, convexity implies min ||x+z||=2 min_F||x||=2/sqrt(sum_all a_i^-2). Strict enlargement of I and the facet/nonfacet inequality show minimizers are exactly (d-1)-faces omitting an axis of maximal a_i, with 2^(d-1) sign choices for each such axis. Diameter 2 max a_i and normalized rigidity follow directly. I checked the inequalities at d=2 and tie cases and independently solved convex-pair quadratic programs for representative d=2,3,4 weights: 114 pairs in this run and further source checker face enumerations; largest residual of the independent QP run was under 5e-14. Finite QPs are corroboration, not proof of arbitrary d.",
+      "residual_risks": [
+        "Finite numerical or exhaustive small-parameter checks do not prove unbounded cases; only the reconstructed analytic argument supports universal claims."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Peña–Wirth Corollary 5.2 supplies affine-map upper and lower bounds, not exact diagonal Euclidean minima",
+          "Deza et al discuss dimension-optimal normalized width and Birkhoff-type examples"
+        ],
+        "reasoning": "The more general geometric results do not by their inequalities determine equality or exact all-face distance for arbitrary semiaxes; distinct global bound is not a stronger exact classification.",
+        "searches": [
+          "Calculus of the Facial Distance Corollary 5.2 diagonal affine maps",
+          "arXiv:2609.32440 facial distance and diameter universal dimension bound"
+        ]
+      },
+      "checked_sources": [
+        "https://optimization-online.org/wp-content/uploads/2026/08/calculusoptonline.pdf",
+        "https://arxiv.org/abs/2609.32440",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-facial-distance-spectrum-and-anisotropy-rigidity-of-weight--8a5a65ed6552"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Regular a_i=1 specialization reproduces Example 6.2 exactly",
+          "The weighted Cauchy-Schwarz equality depends on sum of inverse square semiaxes for each I, not just a norm-comparison constant"
+        ],
+        "reasoning": "Neither an unweighted special case nor broad norm inequalities gives the full weighted statement or its if-and-only-if roundness conclusion. The cross-polytope p=q=2 overlap is a known special case, not separate independent novelty.",
+        "searches": [
+          "Peña Wirth Example 6.2 face distance cross polytope",
+          "Peña Wirth Corollary 5.2 bounds linear images",
+          "Resultary: exact pyramidal width facial distance spectrum weighted orthogonal cross-polytope all faces diagonal scaling Euclidean"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Peña–Wirth Example 6.2: regular l1 ball has distances 1/sqrt(r) for nonfacets, 2/sqrt(d) for facets",
+          "P(a) is a diagonal affine image of the regular cross-polytope but ambient metric is not preserved"
+        ],
+        "reasoning": "The unweighted specialization is covered; a diagonal linear change preserves combinatorics but generally changes Euclidean distances and does not directly import its unweighted numerical spectrum.",
+        "searches": [
+          "exact pyramidal width facial distance spectrum weighted orthogonal cross-polytope all faces diagonal scaling Euclidean",
+          "weighted l1 ball Euclidean facial distance diagonal scaling cross-polytope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest distinct Resultary results concern hypersimplices, weighted staircase difference bodies, and cubical joins; the current record itself is not independent prior art"
+        ],
+        "reasoning": "No verified table or theorem giving the exact weighted cross-polytope formulas was located. The searched unweighted table is known and credited; failure to locate is not proof of novelty.",
+        "searches": [
+          "Resultary: exact pyramidal width facial distance spectrum weighted orthogonal cross-polytope all faces diagonal scaling Euclidean",
+          "Resultary: facial distance orthogonal free sum two cubes cubical joins minimizing face"
+        ]
+      },
+      "rationale": "The regular cross-polytope is an established case; the audited final claim extends to arbitrary positive coordinate semiaxes and gives all face-rank distances, all minimizing supports, ties, and exact anisotropy penalty. The full accessible Peña–Wirth paper gives regular examples and norm-dependent bounds for general affine images, not the precise diagonal family. The universal Deza et al dimension bound does not evaluate this family. No exact covering mathematical implication was found in Resultary or the primary comparisons; priority remains provisional.",
+      "residual_risks": [
+        "Unindexed prior exact computations for weighted l1 balls may exist under another name.",
+        "The Deza et al full primary proof was not exhausted here; general theorem may have consequences not evident from its summary.",
+        "Numerical QPs check only selected dimensions and finite weights; analytic proof carries universality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known regular case and general bounds, no exact full weighted-family theorem in inspected text",
+          "evidence": [
+            "Definition 2.1 p2",
+            "Corollary 5.2 p8",
+            "Example 6.2 p10"
+          ],
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2026/08/calculusoptonline.pdf",
+          "material_read": "Complete accessible 16-page primary text with Definitions 2.1, Corollary 5.2, Example 6.2 and the linear-map examples, including rendered pages",
+          "method": "Full primary PDF text and representative page images",
+          "title": "Calculus of the Facial Distance",
+          "trigger": "Primary same invariant and same unweighted cross-polytope"
+        },
+        {
+          "assessment": "General dimension inequality does not itself supply exact arbitrary weighted cross-polytope spectrum; full-text priority not fully excluded",
+          "evidence": [
+            "arXiv:2609.32440 abstract and title"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.32440",
+          "material_read": "Abstract and publication description; complete proof not materially inspected in this run",
+          "method": "Primary abstract and cross-reference comparison",
+          "title": "Facial distance and diameter",
+          "trigger": "Potential dominating universal facial-distance/diameter result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-facial-distance-spectrum-and-anisotropy-rigidity-of-weight--8a5a65ed6552/RESULT.md",
+        "https://optimization-online.org/wp-content/uploads/2026/08/calculusoptonline.pdf",
+        "https://arxiv.org/abs/2609.32440",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-facial-distance-spectrum-and-anisotropy-rigidity-of-weight--8a5a65ed6552"
+      ],
+      "rationale": "This is a complete exact face-to-complement separation spectrum for a natural diagonally weighted cross-polytope family, not a scalar width substitution. The invariant is the sharp Euclidean facial distance used in conditional convergence analysis. Determining which faces attain it, precise tie multiplicities and the unique isotropic equality in a fixed ambient Euclidean metric are independent, mathematically usable geometric facts; the regular case is expressly known.",
+      "residual_risks": [
+        "No independent claim of external certification, application beyond proven hypotheses, or complete exclusion of unindexed literature."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed prior exact computations for weighted l1 balls may exist under another name.",
+    "The Deza et al full primary proof was not exhausted here; general theorem may have consequences not evident from its summary.",
+    "Numerical QPs check only selected dimensions and finite weights; analytic proof carries universality."
+  ],
+  "schema_version": 1
+}

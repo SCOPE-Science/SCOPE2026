@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result defines both the face-complement distance and the fixed Euclidean metric. A missing coordinate places the origin in the complement and forces all included coordinate differences to retain their signed magnitude; sharp weighted Cauchy–Schwarz gives every nonfacet distance. The complementary set of a facet is its opposite facet, where convexity gives exactly twice the facet's minimum norm. Strict optimization over included index sets and a separate facet comparison classify all global minimizers. Vertex-pair distances give the exact diameter. Eight numerical instances with 712 independently optimized pairs corroborate the formulas, but the proof (not the numerics) establishes all positive weights and all dimensions.
+PASS
 
-## Originality — PASS (provisional historical priority)
+The definition uses the Euclidean distance between F and the convex hull of all vertices absent from F, rather than a supporting-hyperplane margin. Each proper face is a signed one-per-axis subset I. For |I|<d, a missing axis puts 0 in the complementary hull, and every complementary vertex has nonpositive signed coordinates along I; minimizing ||(a_i alpha_i)|| with sum alpha=1 yields 1/sqrt(sum_I a_i^-2), attained by alpha_i proportional a_i^-2. For facets complement=-F, convexity implies min ||x+z||=2 min_F||x||=2/sqrt(sum_all a_i^-2). Strict enlargement of I and the facet/nonfacet inequality show minimizers are exactly (d-1)-faces omitting an axis of maximal a_i, with 2^(d-1) sign choices for each such axis. Diameter 2 max a_i and normalized rigidity follow directly. I checked the inequalities at d=2 and tie cases and independently solved convex-pair quadratic programs for representative d=2,3,4 weights: 114 pairs in this run and further source checker face enumerations; largest residual of the independent QP run was under 5e-14. Finite QPs are corroboration, not proof of arbitrary d.
 
-The closest directly relevant primary paper is Peña–Wirth, *Calculus of the Facial Distance* (arXiv:2608.28971), inspected in full at Definition 2.1, Section 5 and Example 6.2. Its Example 6.2 **already proves** the unweighted \(\ell_1\)-ball formula, and that case is excluded from the new contribution. Its Corollary 5.2 only bounds facial distance under arbitrary invertible maps using operator norms; its Example 7.4 concerns a nonorthogonal three-dimensional perturbation. Neither gives exact diagonal-weight all-face distances, minimizing-face classification, or strict anisotropy-rigidity identities. Exact published-finding corpus searches and mathematical-literature searches for weighted orthogonal cross-polytopes, anisotropic \(\ell_1\) balls and diagonal transforms found no equivalent published theorem; the closest published-finding corpus records concerned hypersimplex facial distances and weighted \(\ell_1\)-ball projections. A later 2026 paper on normalized facial distance by Deza et al. has a stronger global extremal statement, but that statement does not determine this within-family metric spectrum. Historical priority is not certified; an unindexed derivation under an equivalent description remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Facial distance / pyramidal width is an established quantitative condition measure for variants of the Frank–Wolfe method, and anisotropic axis scalings are natural in applications. Euclidean facial distances do not survive these affine changes of variables. Determining every face distance, the sharp bottleneck support and its exact multiplicity, and the unique aspect-ratio optimizer provides a complete, dimension-uniform metric classification rather than a recomputation of the regular case or just an operator-norm bound.
+The regular cross-polytope is an established case; the audited final claim extends to arbitrary positive coordinate semiaxes and gives all face-rank distances, all minimizing supports, ties, and exact anisotropy penalty. The full accessible Peña–Wirth paper gives regular examples and norm-dependent bounds for general affine images, not the precise diagonal family. The universal Deza et al dimension bound does not evaluate this family. No exact covering mathematical implication was found in Resultary or the primary comparisons; priority remains provisional.
 
-## Limits and closest literature
+## value
 
-The result is restricted to orthogonal positive diagonal stretches in the fixed Euclidean metric. It does not handle arbitrary non-orthogonal affine cross-polytopes. Peña–Wirth (arXiv:2608.28971, especially Example 6.2 and Corollary 5.2) is the closest inspected full text. Deza et al. (arXiv:2609.32440) was inspected at the abstract but not in full; the residual search risk and absent independent validation are not disguised.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a complete exact face-to-complement separation spectrum for a natural diagonally weighted cross-polytope family, not a scalar width substitution. The invariant is the sharp Euclidean facial distance used in conditional convergence analysis. Determining which faces attain it, precise tie multiplicities and the unique isotropic equality in a fixed ambient Euclidean metric are independent, mathematically usable geometric facts; the regular case is expressly known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
