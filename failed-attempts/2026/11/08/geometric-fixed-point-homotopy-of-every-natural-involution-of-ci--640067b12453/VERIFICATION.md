@@ -1,0 +1,42 @@
+---
+{
+  "expert_attestation": {
+    "evidence": null,
+    "status": "not_performed"
+  },
+  "independent_audit": {
+    "status": "failed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-19.md",
+      "INDEPENDENT_AUDIT_2026-11-19.json"
+    ]
+  },
+  "lean_verification": {
+    "evidence": null,
+    "status": "not_performed"
+  },
+  "schema_version": 1
+}
+---
+
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Read the assigned eight actual GitHub source blobs at the frozen 3285a17 commit; reconstructed their Git tree object and independently matched the assigned ae322a... tree SHA. The claim is for n>=5, graph C_n square K_2 and every nonidentity order-two element of its explicitly defined D_n x C_2. For any involution, fixed barycentric coordinates are constant on vertex orbits: an internal-edge orbit must have zero weight and conflicting orbits cannot co-occur. Dividing orbit masses by orbit size gives a continuous inverse and proves the orbit-conflict graph geometric fixed-point homeomorphism, including empty cases. For odd n=2k+1, the two reflection variants quotient to L_k. For even n=2k, the four classes s_even, s_odd, s_even*t, s_odd*t quotient respectively to L_(k+1), L_(k-2), L_(k-1), L_k, with k>=3; t has no admissible orbits. For even n, r^k yields C_k square K_2 and r^k*t yields the twisted Möbius ladder M_(2k). For open ladder L_m, deletion of a_2 has contractible link (b_1 isolated after deleting its closed neighborhood), and the subsequent open-neighborhood graph fold N(a_1) subset N(b_2) leaves K_2 disjoint union L_(m-2), so Ind(L_m) is a suspension of Ind(L_(m-2)); L_1 and L_2 both have type S^0. This gives the claimed sphere dimensions, including m=1. Remaining half-turn homotopy classifications are explicitly imported, not proved, from Agarwal-Basak arXiv:2608.30601v2 (the original full PDF was inaccessible in this run, but the complete earlier 2026/11/1 published proof and its quoted ordinary formulas were read). Rebuilt orbit quotient graphs independently, testing all reflection exponents for n=5..22: 522 quotient graph models, all isomorphic to the claimed target graphs. Separate mod-two reduced boundary checks for 19 open and twisted/ordinary cyclic ladders agreed with the predicted Betti groups. These finite computations corroborate the exact graph identifications, not arbitrary-width integral homotopy by themselves. The unrestricted claim rests on structural orbit arguments, graph folds, and the published ordinary homotopy theorem; no higher-order subgroup fixed-point claim.
+
+## originality
+
+FAIL
+
+A directly covering earlier published mathematical result was found and its complete primary RESULT.md read: Geometric fixed-point homotopy types for every circular-ladder symmetry, public record dated 2026/11/1. That theorem is strictly stronger: it classifies the geometric fixed space of EVERY element r^a and r^a t as well as all reflections r^a s t^c, for the identical graphs, n>=5, and natural D_n x C_2 action. Its reflection table lists exactly the five open-ladder lengths k, k+1, k-2, k-1, k for the identical parity/twist cases and the equivalent sphere formula S^(ceil(m/2)-1). Its pure and twisted rotations cover both even-n half-turns, and its t case is empty. It also explicitly gives the identical n=12 S^3 versus S^1 example and establishes the same orbit graph fixed-point lemma. The submitted theorem is a strict involution-only corollary, with no surviving unknown invariant; reorganization of the open-ladder proof does not restore originality. The older 2026/10/11 rational-character record and Agarwal-Basak ordinary homotopy theorem are further antecedents but not the decisive coverage. Earlier record folder date is 2026/11/1; its exact first-public Git commit time was not independently verified, though the full mathematical record is presently accessible.
+
+## value
+
+FAIL
+
+A full integral geometric fixed-space classification of the natural involution symmetries on circular-ladder independence complexes is mathematically motivated. The exact open-ladder sphere dimensions, half-turn models, boundary cases and n=12 equal-Lefschetz/different-sphere witness are worthwhile properties of a natural graph family. But they are all printed and proved in the directly covering 2026/11/1 all-elements theorem, including the exact same numerical illustration. The present restriction to involutions, revised proof layout and independently reproducible finite checks add no new exact invariant, motivated structural boundary, or classification. Scientific value as a distinct original mathematical contribution therefore fails; this does not deny the pedagogical utility of the computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
