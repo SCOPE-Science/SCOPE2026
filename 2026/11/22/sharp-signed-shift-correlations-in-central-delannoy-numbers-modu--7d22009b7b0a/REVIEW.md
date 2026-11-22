@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The classical base-seven Lucas factorization of central Delannoy numbers reduces the character sequence to the explicit seven-digit sign vector. The exact two-carry matrices are independently reconstructible from their defining sums, and the terminal-carry sign makes the finite-block identity valid even at the upper boundary. Their column-sum norms prove the global one-third bound, and strict contraction plus the special role of carry-one at digit six determines both equality families. The supplied checker passed 17,262 finite assertions. Its computations are not used as a substitute for the infinite proof.
+
+**Originality — PASS, qualified.** Deutsch–Sagan Theorem 5.9 gives digit factorization, Pan gives a q-Delannoy Lucas analogue, and Rowland–Yassawi gives general automaticity methods; the inspected statements do not evaluate signed character correlations over every shift or classify their sharp positive/negative extremizers at seven. OEIS A001850 tabulates the sequence rather than the correlation function. A prior Delannoy-character analysis at modulus five has a different, nowhere-zero digit alphabet and different correlation normalization; its conclusions do not imply the signed, sparse modulus-seven theorem. More general automatic-sequence correlation frameworks may permit a short derivation, and the coverage of historical literature remains incomplete.
+
+**Mathematical value — PASS.** Modulo seven, the Delannoy digit character simultaneously has positive signs, negative signs, and a zero digit. Thus neither unnormalized natural density nor the earlier unit-only setting captures the signed overlap geometry. The exact all-shift finite-block identity and complete sharp endpoint classification determine a natural invariant of a sparse arithmetic sequence, with opposing resonances at two distinct digit classes.
+
+**Closest sources and limitations.** Deutsch–Sagan (arXiv:math/0407326), Pan (arXiv:1508.02046), Rowland–Yassawi (arXiv:1310.8635), and OEIS A001850. The theorem is confined to the prime seven, fixed shifts, and aligned base-seven blocks. Same-model proof and computation checks are not independent certification.
+
+Self-review: passed. Independent audit: not yet performed.
