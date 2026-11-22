@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The real-to-complex conjugate-quadratic change is an isometry up to a constant factor; the radial comparison bound is valid on the entire closed simplex. Subtracting two complex flow equations and applying Grönwall gives the precise upper bound. The exact median scalar flow supplies a family of near-vertex initial pairs whose ratios approach equality at every time. Algebraic identities were checked symbolically and several numerical trajectories corroborated the bound; numerical results are not used as proof.
+## correctness
 
-**Originality — PASS, subject to recorded priority risks.** Rasulov (2022) analyzes this same flow and explicitly solves symmetry-axis trajectories, but does not establish its globally sharp Lipschitz norm. A 2026 follow-up advertises general analytic power series and exponential convergence, but its full text was inaccessible; a priority overlap cannot be ruled out. The checked published-finding corpus analogues address other contraction mechanisms and do not imply this exact population-flow profile. Strong convexity alone implies a weaker exponential bound.
+PASS
 
-**Mathematical value — PASS.** The sharp global time-dependent modulus measures worst-case perturbation sensitivity for all initial population triples. Its exact crossover from initial unit contraction rate to asymptotic double rate is invisible in the mere statement of convergence to equilibrium. The vertex-median extremizer has a clear dynamical interpretation.
+For the closed two-simplex, the coordinate z=(3(x0+x1)-2)+i√3(x0-x1) rescales Euclidean differences by constant √6. Direct symbolic derivation gives ż=−2z−bar(z)^2/4. Its radius obeys r′≤−2r+r²/4; since all simplex points have r0≤2, scalar comparison gives R(t)=8/(1+3exp(2t)). For two solutions, the factored difference equation w′=−2w−(bar(z1)+bar(z2))bar(w)/4 gives |w|′≤(−2+R/2)|w|; integration yields G(t)=16e^{2t}/(1+3e^{2t})². On z=−r the scalar exact solution r(t;r0)=8r0/[r0+(8−r0)e^{2t}] has derivative at r0=2 precisely G(t), so distinct initial pairs approaching that boundary vertex saturate the Lipschitz supremum. The proof includes t=0 and distinguishes supremum from attainment. Independent symbolic derivative and sample ODE checks support the analytic comparison.
 
-**Limitations.** Euclidean distance on the probability simplex only; no independent expert validation, and the 2026 full-text comparison remains open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original non-Volterra flow and explicit symmetry-line solutions predate the calculation, but the globally optimal nonlinear time-dependent Euclidean two-point Lipschitz profile is not given by the inspected 2022 source. The 2026 analytic-solutions follow-up may cover quantitative contractivity and was accessible only in abstract, so priority remains best-of-knowledge with that specific risk.
+
+## value
+
+PASS
+
+Computing an exact, time-varying worst-case contraction norm for a nonlinear population flow has direct utility in quantitative mixing/stability and differs materially from qualitative global convergence or a generic e^{-t} bound; the boundary median realizing sharpness identifies the source of loss.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
