@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "The joint Brownian increment identity yields the exact covariance residual h² A[(1−2m1)I+h²m2 A²]. Eigenvalue subtraction proves the anisotropy barrier, and q_t(u)=(1−u)²+(t²−1)u² yields a sharp t<1 calibration window. Uniform contraction at t<1 proves unique stationary moments. Conditional Gaussian fourth moments yield a strictly positive cumulant for every nonconstant calibrated law. Differentiating 2−t−sqrt(1−t²) gives the unique interior contraction minimum. The proof is parameter-uniform; exact rational verifier and independently derived fourth-moment recursions passed 13,897 checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Laurent–Vilmart 2017 abstract presents general high-order asymptotic invariant-measure analysis, not a finite-step all-stage law classification",
+        "He et al. 2020 Section 2.2 bounds W2 bias for the uniform-stage chain with small steps, not exact covariance match for all arbitrary stage laws",
+        "published-finding corpus closest 2026-11-02 Gaussian calibration for two/three-gradient SRK reports a different update and a resonance at h lambda=4/3"
+      ],
+      "reasoning": "Broad finite-order or upper-bound convergence theorems do not imply the exact polynomial constraint on first two stage moments, its feasible window or positive stationary fourth cumulant. A proof that all stage distributions are covered was not found in the actually inspected comparator statements.",
+      "searches": [
+        "arXiv:1707.02877, exotic aromatic B-series invariant-measure order conditions",
+        "arXiv:2011.03176, generalized RLMC ergodicity and stationary bias",
+        "published-finding corpus: stochastic Runge Kutta single intermediate Brownian shared same gradient predictor anisotropic Gaussian equilibrium impossible invariant covariance"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2011.03176v1, full HTML relevant Sections 1–3",
+      "arxiv:1909.05503v1, abstract inspected",
+      "arxiv:1707.02877v1, abstract/publication record inspected",
+      "Public 2026-09-19 underdamped harmonic equilibrium result, statement/proof inspected",
+      "Public 2026-11-08 random-order splitting result, statement/proof inspected"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "He et al. state uniform-alpha updates, general ergodicity and a W2 bias bound, leaving arbitrary alpha distributions unclassified",
+        "Shen–Lee explicitly target underdamped Langevin with velocity and different coupled flow",
+        "The 2026-09-19 underdamped result proves a different small-step predictor no-go; the 2026-11-08 splitting result proves non-Gaussian covariance-calibrated random-order chains"
+      ],
+      "reasoning": "No inspected prior statement simultaneously covers our update law and the stronger exact finite-step claim. Shared methods (discrete Lyapunov balance, conditional Gaussian mixtures) are acknowledged and do not alone entail our explicit sharp threshold, unique deterministic stage and optimizer. The conclusions are compatible rather than contradictory.",
+      "searches": [
+        "He Balasubramanian Erdogdu arXiv:2011.03176, Section 2 equations and Theorem 1/Proposition 2.2",
+        "Shen Lee arXiv:1909.05503, randomized midpoint underdamped sampling",
+        "Published result: Harmonic equilibrium bias and a one-gradient covariance obstruction for randomized ULMC",
+        "Published result: Spectral minimax calibration and unavoidable fourth-order dependence in random-order Langevin splitting"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2011.03176v1, RLMC update and Section 2.2; this source fixes U uniform and gives W2 stationary bias bound",
+        "2026-09-19 public Harmonic equilibrium bias... result: underdamped position/velocity, not this overdamped predictor/corrector",
+        "2026-11-08 public Spectral minimax calibration... result: random exact subflow order rather than random midpoint stage"
+      ],
+      "reasoning": "The object is the specific predictor X-hUA X+sqrt(2)W_{Uh} and corrector X-hAY+sqrt(2)W_h. A change of variable from these two other Markov maps would need to match both P(u)=I-hA+uh²A² and its joint-noise Q(u). Their stated maps do not. No exact same-map, same-law classification was located.",
+      "searches": [
+        "published-finding corpus: overdamped randomized midpoint Gaussian target invariant covariance stage distribution moment 1-2 E alpha + h² lambda² E alpha²",
+        "published-finding corpus: randomized midpoint RLMC exact Gaussian invariant stationary variance finite step alpha deterministic 1/(1+sqrt(1-t²))",
+        "Web: randomized midpoint Langevin exact invariant variance tuning stage distribution quadratic Ornstein Uhlenbeck"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact tabulated midpoint-stage root or calibrated all-spectrum covariance formula occurred in the returned published finding summaries or inspected related full-result pages",
+        "A random-order splitting source tabulates a different spectral minimax probability; its formula is not an entry for the RLMC common-stage family"
+      ],
+      "reasoning": "The algebraic stage root alpha_t and noise-covariance balance are specific to this shared-increment rule; the checked tables/results do not list them. Failure to locate a table is not uniqueness or priority proof.",
+      "searches": [
+        "published-finding corpus: randomized midpoint RLMC exact Gaussian invariant stationary variance finite step alpha deterministic 1/(1+sqrt(1-t²))",
+        "Web: randomized midpoint stationary covariance quadratic Gaussian stage; exact invariant measure midpoint Ornstein Uhlenbeck"
+      ]
+    },
+    "rationale": "Statement-by-statement comparisons focused on the conditional shared-Brownian update, exact stage-moment identity, unique isotropic calibrated law, fourth-cumulant obstruction and sharp contraction. The closest 2020 primary RLMC paper fixes the stage as uniform and supplies general bias bounds, not the displayed arbitrary-law finite-step classification. The closest published research records concern underdamped sampling and random-order drift/diffusion splitting, neither of which implies the claimed conditional covariance identity. An unlocated earlier equivalent remains possible.",
+    "residual_risks": [
+      "A preexisting Gaussian Runge–Kutta specialist derivation may use another stage or noise-coupling vocabulary and was not identified",
+      "Laurent–Vilmart 2017 and Shen–Lee 2019 full texts were not available in the inspected access routes; no whole-document absence claim is made",
+      "Novelty rests on the exact specified update, not on the generic fact that random Gaussian mixtures can be non-Gaussian or on existence of the discrete Lyapunov equation",
+      "Independent publication-priority review has not occurred"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The update fixes U uniform and asserts general bias and ergodicity, not arbitrary-stage exact Gaussian preservation or a spectral no-go",
+        "evidence": [
+          "Section 2 RLMC explicitly U uniform on [0,1] with noise correlation sqrt(U)",
+          "Section 2.2 gives a W2 stationary bias bound and does not state the new stage-moment equation"
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2011.03176",
+        "material_read": "Introduction; Section 2 RLMC predictor/corrector with shared Gaussian increments; Section 2.1 rate; Section 2.2 Theorem 1 and Proposition 2.2; Section 3 underdamped definition",
+        "method": "Full-text HTML, selected relevant sections and proof context, not merely search snippets",
+        "title": "On the Ergodicity, Bias and Asymptotic Normality of Randomized Midpoint Sampling Method",
+        "trigger": "Exact overdamped randomized-midpoint update, stage distribution and stationary-bias baseline"
+      },
+      {
+        "assessment": "UnderDamped position–momentum, continuous parameter/noise family and small-step expansion; not the exact overdamped shared-increment scalar-stage theorem",
+        "evidence": [
+          "UnderDamped update contains position and velocity with friction; no finite h common-stage t=1 barrier or alpha_t calibration for the overdamped rule"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b/RESULT.md",
+        "material_read": "Published RESULT: underdamped equations, principal stationary moments, one-gradient no-go proof, comparison and limitations",
+        "method": "Public repository file text",
+        "title": "Harmonic equilibrium bias and a one-gradient covariance obstruction for randomized ULMC",
+        "trigger": "Random-stage Gaussian equilibrium covariance obstruction could conceivably dominate the new result"
+      },
+      {
+        "assessment": "Different exact-subflow random-order map T X+sqrt(2h)[B I+(1-B)T] Z; cannot imply the random midstage predictor/calibration condition",
+        "evidence": [
+          "Its minimax probability is determined by f(t)=1/(2t)-1/(e^{2t}-1), whereas our calibration is an algebraic stage-time law and permits exact Gaussian invariant at isotropic t<1"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-spectral-minimax-calibration-and-unavoidable-fourth-order-depend--ba2056df054f/RESULT.md",
+        "material_read": "Published RESULT: statement, exact-drift/random-diffusion-order update, proofs of covariance and kurtosis, and relationship to prior work",
+        "method": "Public repository file text",
+        "title": "Spectral minimax calibration and unavoidable fourth-order dependence in random-order Langevin splitting",
+        "trigger": "Exact covariance calibration, fourth cumulants and spectral isotropy appear in both results"
+      },
+      {
+        "assessment": "The explicit main algorithm is underdamped; further detailed variants in full text are an access-related residual risk",
+        "evidence": [
+          "Abstract describes ULD and Wasserstein complexity, not exact overdamped OU invariant covariance calibration"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1909.05503",
+        "material_read": "Public abstract and mathematical description of its underdamped sampler; full paper not retrieved",
+        "method": "Bibliographic/abstract inspection only",
+        "title": "The Randomized Midpoint Method for Log-Concave Sampling",
+        "trigger": "Origin of randomized midpoint technique"
+      },
+      {
+        "assessment": "Asymptotic order conditions are broader methodology, but an unstated exact Gaussian midpoint specialization cannot be excluded solely from abstract",
+        "evidence": [
+          "Abstract announces exotic aromatic B-series for long-time integrators and order analysis, not an explicit stage-time sharp barrier"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1707.02877",
+        "material_read": "Public abstract and bibliographic material; full text was inaccessible in attempted web retrieval",
+        "method": "Abstract and publication record only",
+        "title": "Exotic aromatic B-series for the study of long time integrators for a class of ergodic SDEs",
+        "trigger": "Possible broad invariant-measure order theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1009bfee-52e4-457a-aea2-baacf72a4b80",
+  "value": {
+    "rationale": "Gaussian stationary bias in random-midpoint Langevin integrators is a motivated numerical sampling question. This is the complete exact all-stage law and all-curvature feasibility classification for a published shared-Brownian explicit rule, with a practically interpretable covariance-vs-full-law warning and a sharp best exactly calibrated contraction. The statement does not claim general nonlinear-target or wall-time improvements, but it supplies a meaningful structural boundary and precise design law absent from the inspected baseline.",
+    "status": "PASS"
+  }
+}
