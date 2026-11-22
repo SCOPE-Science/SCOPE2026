@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T17:39:16.954490Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md 2d1a25acb5504c896731fde136af466a9ff90aa5",
+        "check_symbolic.py 7693d905b02c5eaf8d517345c4739dd0c0e45308",
+        "exhaustive_cycles.cpp 6d8e12f458cb059333a3ba4f37ce28f3a7891de0",
+        "independent Python closed-neighborhood direct sweeps beta 2,3,4,5,8,13"
+      ],
+      "rationale": "Explicit upper prefixes T_r and lower blocks B_j form a grid of (beta+1)(beta+2) states plus beta-2 intermediate empty-lower-row states. The stated vertexwise sweep table acts on grid as (p,q)->(p+1,q-1) modulo beta+1,beta+2, except one edge is subdivided by the extra chain. Those moduli are consecutive and coprime, hence grid translation is one cycle of full product order; inserting beta-2 delay states yields beta(beta+4). Independently implemented the local sequential closed-neighborhood sweep and verified every designated state/transition and primitive cycle for beta=2,3,4,5,8,13 (periods 12,21,32,45,96,221), including beta=2 empty-chain boundary. The universal proof is the transition table and coprime translation, not finite enumeration.",
+      "residual_risks": [
+        "The invariant cycle does not imply global cycle uniqueness or period maximality for all configurations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published sharp tree period maxima cover all unlabelled trees only through 14 vertices; the current graph contains a triangle and the parameter beta is unbounded."
+        ],
+        "reasoning": "A bounded-order tree optimization cannot imply any uniform family on unicyclic graphs. General sequential dynamics supplies a model, not this specific orbit calculation.",
+        "searches": [
+          "sequential Boolean bi threshold graph H network triangle chord quadratic period cycles",
+          "https://arxiv.org/pdf/1108.2974",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-primitive-period-maxima-through-fourteen-vertices-for-sequ--9e5a9ef7f73d"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1108.2974",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-primitive-period-maxima-through-fourteen-vertices-for-sequ--9e5a9ef7f73d",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-binary-necklace-attractors-and-triangular-run-basins-for-sequent--e79a108b9794",
+        "sequential Boolean bi threshold graph H network triangle chord quadratic period cycles"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tree edge-modification problems in Kuhlman et al. do not state beta(beta+4) for this graph. The tree census includes no chorded H graph."
+        ],
+        "reasoning": "Adding the chord is not a graph isomorphism or an immediately inherited invariant for a threshold sequential map; actual transition table is required to deduce the clock.",
+        "searches": [
+          "sequential Boolean bi threshold graph H network triangle chord quadratic period cycles",
+          "https://arxiv.org/pdf/1108.2974",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-primitive-period-maxima-through-fourteen-vertices-for-sequ--9e5a9ef7f73d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kuhlman et al. Proposition 4.2 concerns acyclic long-period H-tree graphs; present source adds edge u0u2 and uses coprime-grid translation."
+        ],
+        "reasoning": "An exact graph- and scan-specific orbit result requires more than a broad existential long-period tree claim; a triangle chord changes the graph hypothesis.",
+        "searches": [
+          "sequential Boolean bi threshold graph H network triangle chord quadratic period cycles",
+          "https://arxiv.org/pdf/1108.2974",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-primitive-period-maxima-through-fourteen-vertices-for-sequ--9e5a9ef7f73d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact tree table lists M(n) for 1<=n<=14, not unicyclic graphs; indexed cycle theorem concerns C_n binary necklaces, not the double-path plus bridge and chord."
+        ],
+        "reasoning": "The current claim is an explicit all-beta construction, not an empirical count copied from a finite global table.",
+        "searches": [
+          "sequential Boolean bi threshold graph H network triangle chord quadratic period cycles",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-primitive-period-maxima-through-fourteen-vertices-for-sequ--9e5a9ef7f73d",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-binary-necklace-attractors-and-triangular-run-basins-for-sequent--e79a108b9794"
+        ]
+      },
+      "rationale": "Kuhlman et al. built long-period unchorded trees under the same (1,3) update; the exact one-edge chorded unicyclic graph and beta(beta+4) clock were not found in primary text or indexed finite tree/cycle classifications.",
+      "residual_risks": [
+        "Unindexed graph-dynamical-systems catalogues could contain an isomorphic chorded network and identical primitive orbit.",
+        "Published C_n necklace result was compared by precise summary and graph scope only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same dynamic class but no one-chord all-beta exact clock theorem",
+          "evidence": [
+            "Long-period family on trees and explicit edge modification motivation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1108.2974",
+          "material_read": "Full primary arXiv 19-page PDF with definition of local update, H-tree period construction and edge-modification discussion",
+          "method": "Read full PDF text with relevant pages visually inspected",
+          "title": "Bifurcations in Boolean Networks",
+          "trigger": "original sequential bi-threshold systems and H-tree period results"
+        },
+        {
+          "assessment": "Finite unlabelled acyclic tree census cannot cover unicyclic infinite beta family",
+          "evidence": [
+            "Tree hypothesis, 14-vertex cutoff and maximum period 106."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-primitive-period-maxima-through-fourteen-vertices-for-sequ--9e5a9ef7f73d",
+          "material_read": "Complete published RESULT.md including M(1)..M(14), tree-only hypothesis and proof",
+          "method": "GitHub full scientific file",
+          "title": "Sharp primitive-period maxima through fourteen vertices for sequential bi-threshold dynamics on trees",
+          "trigger": "potential dominating exact period census"
+        },
+        {
+          "assessment": "Different C_n graph; whole-document noncoverage not asserted",
+          "evidence": [
+            "Simple cycles C_n only, rather than H-graph with bridge/chord."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-binary-necklace-attractors-and-triangular-run-basins-for-sequent--e79a108b9794",
+          "material_read": "Indexed Resultary statement/summary only, not complete primary text",
+          "method": "Indexed theorem scope comparison",
+          "title": "Binary-necklace attractors and triangular-run basins for sequential bi-threshold cycles",
+          "trigger": "possible equivalent cyclic graph period theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/1108.2974",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-primitive-period-maxima-through-fourteen-vertices-for-sequ--9e5a9ef7f73d",
+        "2d1a25acb5504c896731fde136af466a9ff90aa5"
+      ],
+      "rationale": "A single edge of a classical long-period H-tree creates an exact, all-size quadratic primitive-period construction, answering a motivated edge-perturbation question for a natural deterministic hysteresis rule. The explicit coprime-clock mechanism is useful independently of a full attractor census.",
+      "residual_risks": [
+        "No global attractor census and only one scan order; result is an existence clock."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The invariant cycle does not imply global cycle uniqueness or period maximality for all configurations.",
+    "Unindexed graph-dynamical-systems catalogues could contain an isomorphic chorded network and identical primitive orbit.",
+    "Published C_n necklace result was compared by precise summary and graph scope only.",
+    "No global attractor census and only one scan order; result is an existence clock."
+  ],
+  "schema_version": 1
+}
