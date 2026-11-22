@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T00:06:17.051480Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed chord-direction reduction: regular P11 chords have oriented outward normals n_k at k*pi/11 for k mod22; h_k=1 at even k and cos(pi/11) at odd k. Translating four enclosing lines inward to supports never increases area. A bounded support intersection requires each cyclic normal gap <11. The support-length/area formula sums [h_i*h_j-(h_i^2+h_j^2)cos(g*pi/11)/2]/sin(g*pi/11) around the polygon, allowing zero length edges; redundant even support constrained by adjacent odd supports is treated as three-support case. Inspected complete chord11_checker.py blob 77bcd8380a7da40e600f3e2edb0e37fa8912dd41: rational enclosing intervals for pi (Machin alternating series) and sin/cos (Taylor remainders), fixed scale 10^28, all 3674 bounded nonredundant four-normal sets, 330 bounded triangles, 11 redundant fours, exact strict >0.008 margin for every nonwinner. Independently enumerated all admissible index sets in floats, reproducing 3674,330,11, eleven rotated winners with next gap 0.008464051366; float check is only diagnostic, not a certificate. The eleven winners have all odd normals with gaps (4,6,6,6), hence area cos^2(pi/11)*(tan(2pi/11)+3tan(3pi/11)); proof strictly distinguishes saturated discrete gap from arbitrary translated quadrilaterals.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vígh arXiv:2610.08168 abstract introduces chord-direction enclosure and a universal upper bound; no accessible exact n11 statement confirmed.",
+          "General enclosing-parallelogram results optimize a strict subclass, not arbitrary four-line chord enclosures."
+        ],
+        "reasoning": "An upper bound or a subclass optimum cannot derive the exact P11 optimum/equality class; full Vígh appendix remained inaccessible and is named a material limitation.",
+        "searches": [
+          "Resultary semantic query: regular hendecagon minimum area chord direction enclosing quadrilateral eleven symmetry rigidity",
+          "Vigh a note on Kuperberg quadrilateral conjecture arxiv 2610.08168 2026"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and complete checker in exact tree",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-chord-quadrilateral-enclosure-of-the-regular-heptagon--8caa008cc219/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-chord-quadrilateral-enclosure-of-the-regular-nonagon-and-t--54cf1fb013d5/RESULT.md",
+        "https://arxiv.org/abs/2610.08168",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-chord-quadrilateral-enclosure-and-elevenfold-rigidity-of-t--0845efa5b321"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nonagon exact result includes an extra diagonal and different 9-gon formula, so its theorem has fixed n=9 scope.",
+          "Heptagon result fixed n=7 likewise; Vígh broad conjectural bound does not fix an exact optimum."
+        ],
+        "reasoning": "No inspected result logically implies exact 11-gon number of minimizers or all-edge tangency; a general all-n formula would be decisive, but none was fully verified. Maintain full-paper priority risk.",
+        "searches": [
+          "Resultary semantic query: regular hendecagon minimum area chord direction enclosing quadrilateral eleven symmetry rigidity",
+          "regular 11-gon chord quadrilateral area minimization exact 11 symmetry"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full heptagon optimum cos²(pi/7)(tan(pi/7)+3tan(2pi/7)), seven winners, and full nonagon result with essential diagonal, nine winners.",
+          "Candidate n11 value 3.7790306749908567 and eleven all-edge winners not equal to these fixed-n results."
+        ],
+        "reasoning": "The finite-n results share the geometric normal machinery but specify different polygons and cannot be identified by an affine map across vertex counts.",
+        "searches": [
+          "Resultary semantic query: regular hendecagon minimum area chord direction enclosing quadrilateral eleven symmetry rigidity",
+          "chord enclosure regular heptagon nonagon exact Kuperberg Vigh"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact heptagon and nonagon Resultary papers inspected in full; each provides its own exhaustive numerical/algebraic finite table, not P11.",
+          "Candidate checker enumerates all 3674 nonredundant P11 quadruples and 330 triangles with certified rational intervals."
+        ],
+        "reasoning": "No known P11 exact database/table surfaced in relevant searches; changing n changes the finite normal combinatorics, and candidate finite certificate is original evidence rather than recomputation of a located table.",
+        "searches": [
+          "Resultary semantic query: regular hendecagon minimum area chord direction enclosing quadrilateral eleven symmetry rigidity"
+        ]
+      },
+      "rationale": "Best-of-knowledge no exact P11 chord-restricted enclosing quadrilateral and full elevenfold equality classification found in inspected published sources. Full heptagon and nonagon papers give natural analogous finite instances, but do not imply P11 values/optimizer symmetry, and the nonagon requires one diagonal direction unlike P11 all-edge winners. Vígh (2026) treats general conjectural enclosure bounds; its complete full text could not be lawfully obtained, so potential detailed P11 discussion remains an explicit priority risk.",
+      "residual_risks": [
+        "The full Vígh October 2026 paper and appendices inaccessible after arXiv/OA and Oxford VPN-disconnected checks. It might contain an explicit exact P11 specialization not visible in abstract.",
+        "The positive >0.008 gap concerns discrete fully supporting candidates, not all continuously translated enclosing quadrilaterals.",
+        "Independent float enumeration verifies count/equality structure but not a rigorous area inequality; rigor relies on inspected rational interval script and reduction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering n11; baseline n7 edge-supported sevenfold optimizer",
+          "evidence": "n7 min c²[tan(pi/7)+3tan(2pi/7)] with seven rotational winners",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-chord-quadrilateral-enclosure-of-the-regular-heptagon--8caa008cc219/RESULT.md",
+          "material_read": "Complete RESULT.md including theorem, geometric normal derivation, all 511 finite comparisons, equality pattern, references and limitations",
+          "method": "Connected GitHub complete published source",
+          "title": "Exact chord-quadrilateral enclosure of the regular heptagon",
+          "trigger": "Same invariant and finite support-normal method"
+        },
+        {
+          "assessment": "Not covering n11; n9 sharp winner requires diagonal, unlike candidate n11 all-edge winners",
+          "evidence": "n9 set {0,5,9,13}+2r and edge-only gap ~0.02998",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-chord-quadrilateral-enclosure-of-the-regular-nonagon-and-t--54cf1fb013d5/RESULT.md",
+          "material_read": "Complete RESULT.md including normal formula, all 1548 bounded candidates, 9 winners, edge-only gap",
+          "method": "Connected GitHub complete published source",
+          "title": "Exact chord-quadrilateral enclosure of the regular nonagon and essential diagonal phase",
+          "trigger": "Closest adjacent odd polygon and same invariant"
+        },
+        {
+          "assessment": "Cannot claim paper full text lacks P11 appendix; bibliography priority risk retained",
+          "evidence": "Abstract presents chord-conjecture bound and general quadrilateral enclosure context",
+          "identifier_or_url": "https://arxiv.org/abs/2610.08168",
+          "material_read": "Search metadata and abstract; arXiv PDF and HTML/OA mirrors failed to supply full content",
+          "method": "Abstract/metadata only; authorized Oxford access returned vpn_disconnected, job 0a1c22691b1d5c7b6bde3781c70da304",
+          "title": "A note on Kuperberg’s quadrilateral conjecture",
+          "trigger": "Primary general source on chord-direction quadrilateral enclosures"
+        },
+        {
+          "assessment": "Strict parallelogram subclass, no dominance for arbitrary non-parallelogram containing quadrilateral",
+          "evidence": "Problem allows arbitrary chord-parallel 4-gons, not only pairs of parallel sides",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-minimum-area-enclosing-parallelograms-for-regular-polygons--827c68cd7bad",
+          "material_read": "Resultary indexed theorem and summary; full text not independently read",
+          "method": "Resultary semantic source lookup",
+          "title": "Exact minimum-area enclosing parallelograms for regular polygons",
+          "trigger": "Possible all-n dominating geometric result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The regular hendecagon is a natural fixed-input benchmark in the established chord-quadrilateral enclosure problem. Exact optimum and all eleven optimizer directions, with a rigorous discrete positive gap and the return to edge-only support after the nonagon diagonal phase, classify a meaningful finite invariant and its structural combinatorics. It is valuable as a sharp small-n test even without an all-n quadrilateral theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md and complete checker in exact tree",
+    "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-chord-quadrilateral-enclosure-of-the-regular-heptagon--8caa008cc219/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-chord-quadrilateral-enclosure-of-the-regular-nonagon-and-t--54cf1fb013d5/RESULT.md",
+    "https://arxiv.org/abs/2610.08168",
+    "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-chord-quadrilateral-enclosure-and-elevenfold-rigidity-of-t--0845efa5b321"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only regular/affine-regular 11-gon chord-direction enclosures (three or four supporting sides); not unrestricted enclosing quadrilaterals, not universal conjecture.",
+    "The full Vígh October 2026 paper and appendices inaccessible after arXiv/OA and Oxford VPN-disconnected checks. It might contain an explicit exact P11 specialization not visible in abstract.",
+    "The positive >0.008 gap concerns discrete fully supporting candidates, not all continuously translated enclosing quadrilaterals.",
+    "Independent float enumeration verifies count/equality structure but not a rigorous area inequality; rigor relies on inspected rational interval script and reduction."
+  ],
+  "schema_version": 1
+}
