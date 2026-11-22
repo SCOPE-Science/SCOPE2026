@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "For all specified positive parameters, monotone per-capita nullclines give exactly one coexistence equilibrium above \\(b_0=m/(cU)\\). Its Jacobian determinant is -eta F_u-cb F_v>0, giving \\(u_b<0\\). Elimination yields \\(f_v<0\\), \\(f_{uu}<0\\), positive \\(v=h(u)\\) with zero endpoint limits; at every critical point h_uu=-f_uu/\\(f_v<0\\). Hence there is exactly one global maximum and it is nondegenerate in b. Exact witness (r,k,alpha,a,c,m,eta)=(25,1,3,1,1,1,3), (u,v,b)=(1,1,4) gives determinant 32 and \\(v_{bb}=-11/320\\). Standalone SymPy checker passed. No finite computation is used as proof of the universal quantifier.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Holt and Hochberg, 2001, Indirect Interactions, Community Modules and Biological Control, p. 22 / Figure 2.2, https://people.clas.ufl.edu/rdholt/files/106.pdf explicitly teaches intermediate efficiency and prey overexploitation; its example assumes logistic prey and linear predation",
+        "Barbier, Wojcik and Loreau, 2021, A macro-ecological approach to predation density-dependence, DOI 10.1111/oik.08043 analyzes power-law predation density dependence and the general abundance mechanism",
+        "Ramraj and Poornima, 2026, DOI 10.3389/frai.2026.1868693, sections 2, 4, 6; Figure 3 adds rational fear, crowding, and predator quadratic loss"
+      ],
+      "reasoning": "A broader qualitative ecological principle is known, and no novelty is claimed for the hump mechanism itself. The checked predecessors do not state a theorem whose assumptions contain the 2026 combined rational-growth/quadratic-interference model and whose conclusion forces exactly one, nondegenerate interior optimum at every positive parameter vector. The conclusion in a simpler model does not mathematically imply the all-parameter classification in this different nonlinear model.",
+      "searches": [
+        "fear refuge predator prey Ramraj Poornima increasing refuge increases predator density paradox counterintuitive predator benefit from prey protection nonmonotone efficacy",
+        "\"predator density\" \"maximum\" \"attack rate\" prey refuge fear mathematical",
+        "\"predator abundance\" \"unimodal\" \"predation rate\" refuge fear",
+        "https://doi.org/10.1111/oik.08043",
+        "https://people.clas.ufl.edu/rdholt/files/106.pdf"
+      ]
+    },
+    "checked_sources": [
+      "Ramraj and Poornima, 2026, DOI 10.3389/frai.2026.1868693, sections 2, 4, 6; Figure 3",
+      "Holt and Hochberg, 2001, Indirect Interactions, Community Modules and Biological Control, p. 22 / Figure 2.2, https://people.clas.ufl.edu/rdholt/files/106.pdf",
+      "Barbier, Wojcik and Loreau, 2021, A macro-ecological approach to predation density-dependence, DOI 10.1111/oik.08043",
+      "Fear changes the critical predator-extinction clock without moving the invasion boundary (published indexed finding, identifier 51346d9c0d76)",
+      "A sharp global predator–prey threshold and universal critical extinction law under fear and refuge (published indexed finding, identifier 3206215d6907)",
+      "Ramraj and Poornima PMID:42639063 source public date corroboration",
+      "2022 survey of fear, refuge, cooperation, harvesting, PMID source https://pmc.ncbi.nlm.nih.gov/articles/PMC9217126/ (indexed text only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ramraj and Poornima, 2026, DOI 10.3389/frai.2026.1868693, sections 2, 4, 6; Figure 3 derives individual equilibrium identities and local stability, not cross-parameter ordering",
+        "Fear changes the critical predator-extinction clock without moving the invasion boundary (published indexed finding, identifier 51346d9c0d76) proves parameterwise convergence, which does not compare equilibria across b",
+        "A sharp global predator–prey threshold and universal critical extinction law under fear and refuge (published indexed finding, identifier 3206215d6907) studies invasion thresholds and extinction rates",
+        "Holt and Hochberg, 2001, Indirect Interactions, Community Modules and Biological Control, p. 22 / Figure 2.2, https://people.clas.ufl.edu/rdholt/files/106.pdf already supplies a specific model-level and conceptual hump"
+      ],
+      "reasoning": "A fixed-b existence, uniqueness, or stability result does not imply unimodality as b varies. Source sensitivity monotonicity on its plotted interval does not imply all-b monotonicity. The new proof requires a global elimination f and its strictly negative u-curvature at every critical point. Generic ecological hump examples do not establish this exactly-once theorem for the rational fear/crowding model.",
+      "searches": [
+        "Fear-driven predator-prey dynamics with prey refuge analytical framework Ramraj Poornima predator equilibrium global unique unimodality as predation rate beta varies optimal refuge density",
+        "fear refuge predator prey Ramraj Poornima increasing refuge increases predator density paradox counterintuitive predator benefit from prey protection nonmonotone efficacy",
+        "unique peak of predator abundance over predator attack rate in rational fear-modified growth with intraspecific crowding",
+        "site:frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2026.1868693 refuge predation equilibrium sensitivity",
+        "\"predator density\" \"attack rate\" \"unique maximum\" predator prey"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ramraj and Poornima, 2026, DOI 10.3389/frai.2026.1868693, sections 2, 4, 6; Figure 3 defines equilibria via two nullclines but no all-rate optimizer",
+        "Holt and Hochberg, 2001, Indirect Interactions, Community Modules and Biological Control, p. 22 / Figure 2.2, https://people.clas.ufl.edu/rdholt/files/106.pdf illustrates a peak in another model",
+        "Fear changes the critical predator-extinction clock without moving the invasion boundary (published indexed finding, identifier 51346d9c0d76) has fixed-parameter global attractor and critical extinction statements"
+      ],
+      "reasoning": "The new claim is equivalent to a unique nondegenerate maximum of the eliminated curve f(u,v)=0, or exactly one positive simultaneous solution f=f_u=0 for arbitrary positive parameters. The 2026 article uses these model terms but its displayed theorems/figures do not assert either formulation. The old Lotka–Volterra hump illustrates the qualitative possibility, not the same rational-fear/crowding model or universal uniqueness theorem.",
+      "searches": [
+        "Fear-driven predator-prey dynamics with prey refuge analytical framework Ramraj Poornima predator equilibrium global unique unimodality as predation rate beta varies optimal refuge density",
+        "predator population density is unimodal in effective predation coefficient beta times one minus refuge exact interior maximum fear prey competition predator self regulation",
+        "unique peak of predator abundance over predator attack rate in rational fear-modified growth with intraspecific crowding",
+        "\"predator density\" \"maximum\" \"attack rate\" prey refuge fear mathematical",
+        "https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2026.1868693/full"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ramraj and Poornima, 2026, DOI 10.3389/frai.2026.1868693, sections 2, 4, 6; Figure 3 Figure 3 panels (b),(c) show selected, apparently monotone sweeps; not the global parameter family",
+        "Fear changes the critical predator-extinction clock without moving the invasion boundary (published indexed finding, identifier 51346d9c0d76)",
+        "A sharp global predator–prey threshold and universal critical extinction law under fear and refuge (published indexed finding, identifier 3206215d6907)"
+      ],
+      "reasoning": "The relevant source table/figure and published indexed titles and summaries were compared for same parameters and implications. The source sweeps do not display an exact optimum, and no indexed exact statement of the new universal curve was found. Database nonmatches alone are not proof of originality; the decisive evidence is the difference in stated mathematical conclusions.",
+      "searches": [
+        "Fear-driven predator-prey dynamics with prey refuge analytical framework Ramraj Poornima predator equilibrium global unique unimodality as predation rate beta varies optimal refuge density",
+        "predator population density is unimodal in effective predation coefficient beta times one minus refuge exact interior maximum fear prey competition predator self regulation",
+        "unique peak of predator abundance over predator attack rate in rational fear-modified growth with intraspecific crowding",
+        "10.3389/frai.2026.1868693",
+        "Ramraj Poornima original Figure 3 predator predation and refuge"
+      ]
+    },
+    "rationale": "Relative to the inspected source and indexed claims, the exact all-positive-parameter, unique, nondegenerate equilibrium maximum and refuge-optimum classification are not stated or implied. The general intermediate-attack hump and overexploitation explanation are established prior art and expressly excluded from novelty. Search breadth and inaccessible older full texts leave historical-priority uncertainty.",
+    "residual_risks": [
+      "Historical uniqueness cannot be established from finite literature searches; general hump mechanism was known in 2001 and earlier.",
+      "Barbier et al. 2021 full article was inaccessible, and published indexed finding full pages could not be opened; no claim is made that those whole documents were completely inspected.",
+      "Classification is specific to the 2026 rational fear/crowding, quadratic competition system and does not automatically extend to other nonlinear predation models."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact unique peak theorem; prior result covers model and local equilibrium stability",
+        "evidence": [
+          "Published 10 August 2026; F(u,v),G(u,v) model; sections 4.1–4.5 treat equilibria; section 6.3 and Figure 3 show monotone refuge decrease and attack increase only over selected ranges"
+        ],
+        "identifier_or_url": "https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2026.1868693/full",
+        "material_read": "Full accessible HTML: abstract, model formulation, sections 2–4, section 6 including Table 5 and Figure 3 sensitivity discussion, section 7",
+        "method": "Read direct open-access primary HTML, inspect equations, figure discussion and explicit parameter ranges",
+        "title": "Fear-driven predator–prey dynamics with prey refuge: analytical framework and physics-informed neural network approach",
+        "trigger": "Same ODE, fixed positive parameter assumptions and refuge/predation sensitivity graph"
+      },
+      {
+        "assessment": "BROADER_MECHANISM_KNOWN but NOT_COVERING exact modern ODE/parameter-universal uniqueness",
+        "evidence": [
+          "Figure 2.2 explicitly depicts predator abundance maximized at an intermediate attack coefficient for logistic prey and linear predator functional response"
+        ],
+        "identifier_or_url": "https://people.clas.ufl.edu/rdholt/files/106.pdf",
+        "material_read": "PDF chapter pertinent pp. 21–23, including page-image inspection of p.22 and Figure 2.2 with displayed source assumptions",
+        "method": "Open primary lawful PDF text and screenshot PDF page 9; compare Figure 2.2 and surrounding argument",
+        "title": "Indirect Interactions, Community Modules and Biological Control: a Theoretical Perspective",
+        "trigger": "Older model-level phenomenon of predator overexploitation and intermediate attack rate"
+      },
+      {
+        "assessment": "General effect and differing power-law forms known; unable to conclude whole article excludes broader theorem",
+        "evidence": [
+          "The 2021 abstract focuses on power-law effective predation and maximizing predator abundance in regimes, rather than the 2026 combined rational fear/crowding model"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/oik.08043",
+        "material_read": "Publisher abstract, bibliographic data and indexed descriptions only; full publisher article denied",
+        "method": "Read publisher abstract and indexed scholarly search passages",
+        "title": "A macro-ecological approach to predation density-dependence",
+        "trigger": "Older theoretical predator-abundance peak under alternative predation density dependence"
+      },
+      {
+        "assessment": "NOT_COVERING as indexed: global convergence and critical extinction, not peak-versus-b theorem",
+        "evidence": [
+          "Same source model; indexed claim supplies threshold and critical temporal extinction law"
+        ],
+        "identifier_or_url": "51346d9c0d76",
+        "material_read": "Public index title and substantive summary; full publication page fetch disabled",
+        "method": "Semantic scientific record search, compared reported claims and implications",
+        "title": "Fear changes the critical predator-extinction clock without moving the invasion boundary",
+        "trigger": "Indexed publication about exact same 2026 ecological model"
+      },
+      {
+        "assessment": "NOT_COVERING as indexed: fixed-parameter attractor/threshold laws do not order equilibria across b",
+        "evidence": [
+          "Indexed summary describes invasion threshold and no cycles, not all-parameter unimodality"
+        ],
+        "identifier_or_url": "3206215d6907",
+        "material_read": "Public index title and substantive summary; full publication page fetch disabled",
+        "method": "Semantic scientific record search and statement-level implication comparison",
+        "title": "A sharp global predator–prey threshold and universal critical extinction law under fear and refuge",
+        "trigger": "Closest indexed global ecological boundary classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2aebbdac-b618-417c-97a9-2961a058d123",
+  "value": {
+    "rationale": "The source paper presents only local-range monotone refuge and predation sensitivity. A sharp one-peak theorem for all positive parameters, analytic optimal-refuge criterion and exact feasible witness resolve the full ecological response, including reversal under sufficiently high attack intensity. This is a nontrivial structural classification rather than a parameter substitution or a generic repetition of the known overexploitation phenomenon; it needs the strict global implicit-curve curvature argument.",
+    "status": "PASS"
+  }
+}
