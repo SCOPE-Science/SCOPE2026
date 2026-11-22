@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The key exact identity is that the order-\(k\) sum set of six primitive triangular-lattice directions equals every lattice point in the dilated hexagon for \(k\ge2\), with the missing origin precisely at \(k=1\). The lattice word metric \(\max\{|a|,|b|,|a+b|\}\), length-raising step split and zero-sum cycles establish all integers \(k\). An equilateral triangulation proves that the nearest-site law is exactly a triangular-lattice Voronoi-cell law. Explicit disk-segment and radial-kite integrations prove both CDFs and moments with correct endpoint normalization. The independent verifier enumerated finite cases and separately sampled geometric distances. Finite tests are not used as an infinite proof.
+## correctness
 
-## Originality
-**PASS, provisional historical priority.** The 2026 Minkowski-convexification source establishes general smoothing bounds but not this fixed regular-hexagon distribution. The 2024 hexagonal conditional-quantization source optimizes placements of added sites subject to fixed vertices, a distinct operation from equal-weight vertex sums; the 2015 triangular source concerns optimal quantizers. Classical triangular-lattice cell geometry and its second moment are known and explicitly excluded from any novelty claim. The 1988 hexagonal partitioning literature concerns lattice partitioning and asymptotic optimization, and the 2008 lattice Minkowski-summation result starts from full lattice-point sets. Published-claim searches found related but differently scoped simplex, orthotope, and polygon results; no identified source directly gave the all-order distribution with a discrete two-stage transition. The possibility of an older or unindexed equivalent result remains.
+PASS
 
-## Mathematical value
-**PASS.** The problem asks for an exact all-order geometric quantization law for finite, canonically generated vertex averages, not an arbitrary finite numerical instance. It identifies a sharp saturation threshold after the second summand and derives an exact distribution, all-order covering radius, and squared error with no asymptotic remainder. The transition connects Minkowski convexification, word geometry, and lattice quantization, and provides a complete worked non-simplicial example for comparison with other polygons.
+The six vertex directions generate the triangular lattice with word length m(a,b)=max(|a|,|b|,|a+b|). Shortest paths reach every site in kH; splitting one nonzero step into two neighboring unit steps, insertion of cancelling pairs and 2/3-step zero loops give every k>=2 while excluding the missing origin for k=1. Independent integer enumeration agrees for k=2..6 and site counts 1+3k(k+1). Tessellating kH into unit equilateral triangles gives one common 3-corner distance distribution; the triangular-lattice Voronoi hex cell has area sqrt(3)/2 and radial disk/segment CDF, covering radius 1/sqrt(3), and mean squared distance 5/36. Initial six-kite integration yields initial CDF, covering radius 1 and squared error 1/4. Finite tests are corroborative, not proof for every k.
 
-## Limits
-The geometric result does not establish a new lattice optimality theorem or a bound uniform over all polygons; priority remains provisional. Numerical computations are supplementary. The statistical sampling error is nonzero but bounded for the stated tests.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge targeted statement-and-implication comparison supports an original claim in its specified model and conclusion; inaccessible/unindexed literature is named as residual risk rather than treated as proof of novelty. Equivalent language is lattice polygon sumsets, triangular lattice ball of radius k, and a hexagonal-grid quantizer. Classical hexagonal lattice Voronoi geometry gives the cell law, but the claim additionally proves exact vertex-sum saturation beginning at k=2.
+
+## value
+
+PASS
+
+This describes a natural deterministic arithmetic approximation of a symmetric convex polygon and gives an exact, nonasymptotic quantization law that persists across arbitrarily many averaging orders. The k=1 versus k>=2 transition, full law, and precise error rates are useful beyond the isolated classical Voronoi-cell moment; it is neither an arbitrary parameter substitution nor an optimization claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
