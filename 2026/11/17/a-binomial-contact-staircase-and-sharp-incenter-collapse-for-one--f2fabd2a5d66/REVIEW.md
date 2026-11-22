@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof first classifies every polar vertex without parameter genericity, by anchoring a saturated remote-point inequality and using the interval width \(t\). For each subset size \(k\), centering over all \(m+1\) points yields the explicit squared normal length \(Q_{m,t}(k)\); its negative quadratic term and completed square prove the nearest-integer maximizing rule for all real \(0<t<1\). Opposed facet inequalities prove global radius optimality. Contact-normal ranks and strict slack at noncontact facets determine the full affine dimension of optimal centers, including equality at \(t=2/m\). The independent finite spanning-tree census and exact-rational rank checks corroborate, rather than substitute for, these arguments.
+## correctness
 
-## Originality
-**PASS, qualified.** Prior work on finite-ultrametric free spaces provides structural isomorphism bounds, not this Euclidean inball. The directly relevant four-point ultrametric note explicitly gives the fourteen polar vertices and a Hilbert Banach--Mazur distortion, so that special-case vertex list is *not* a new claim; it does not imply the infinite-family fixed-Euclidean facet shells, contact multiplicities or sharp incenter collapse. The separately inspected clustered-metric projection result optimizes the norm of a canonical projection, not a Euclidean insphere. An inspected all-dimensional equiradial-star Hilbert-distortion theorem has a different normalized distance regime, with hub radius no greater than leaf-to-leaf distance, whereas here it is larger, and again optimizes a different invariant. More general metric-polytope literature gives duality rather than the parameter-dependent exact optimization. The possibility of an equivalent, differently named Lipschitz-variance theorem remains the principal historical-priority risk.
+PASS
 
-## Mathematical value
-**PASS.** The object is a basic nontrivial two-level ultrametric with a natural canonical Euclidean realization; its radius and optimal-center set are natural geometric invariants. The exact switch at \(t=2/m\) causes an \((m-1)\)-dimensional family of maximal-ball centers to collapse to one point, while the number of contact facets follows further exact binomial resonance walls. The structural classification and all-parameter formulas provide mathematical information not implied by prior facet enumeration or Banach-space isomorphism bounds.
+The polar potential polytope has |f_i|<=1 and |f_i-f_j|<=t. At every vertex some |f_i|=1; the entire cluster is then in [1-t,1] or its negative and a coordinate strictly in the interior can be varied both ways, so exactly the nonempty-subset +/- corner potentials occur, giving 2(2^m-1) facets. Squared centered Euclidean polar normal lengths are Q_m,t(k) with centering over all m+1 sites, with strictly concave k-dependence and vertex alpha=(m-1)/2+1/t; therefore maximizers are nearest integer(s). Central symmetry and opposed support inequalities give global inradius 1/sqrt(max Q), not only an origin-centered optimum. At contact level k=m alone, normals span one radial direction and slack permits an (m-1)-dimensional center family. For k<m, differences of all equal-k subset normals span the m-1 cluster contrast directions and their mean adds radial direction, forcing unique center. This switches exactly at t=2/m, including the tie wall. Independently checked exact rational Q maximizers and binomial contact counts for m=3,4,5,7 at t<,=,>2/m; all matched.
 
-## Remaining limitations
-The claims concern real scalar spaces and the specific zero-sum Euclidean embedding. The metric endpoints are excluded. Independent mathematical/historical audit remains to be performed. The finite computation does not certify the continuum of \(t\) values; the symbolic proof does.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier four-point m=3 work lists the 14 polar vertices and exact Banach–Mazur distortion; all-dimensional equiradial-star work optimizes an arbitrary Euclidean ellipsoid in a different metric-distance regime. Neither determines the canonical Euclidean inradius, all-m facet-shell/tangency staircase or sharp fixed-embedding incenter-locus collapse. No dominating named theorem retrieved in semantic searches, but broader historic metric-polytope literature is not exhaustively read.
+
+## value
+
+PASS
+
+This is a natural one-cluster family in finite ultrametric Lipschitz-free geometry. The canonical Euclidean inradius and all maximizing-ball centers are geometric invariants not encoded by Banach–Mazur distortion, and the sharp phase change from (m-1)-dimensional center set to uniqueness at t=2/m is structurally meaningful. Further rational tie walls give full binomial contact counts for all m and t, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
