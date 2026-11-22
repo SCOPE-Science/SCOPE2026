@@ -1,11 +1,21 @@
-# Review of the stated theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** In a transitive tournament, a suffix containing only two colors fixes after one step. The one-vertex extension lemma is proved by separating already-fixed suffixes from positive-time suffixes; it yields the exact polynomial recurrence and closed expression without extrapolating finite experiments. Direct exhaustive checks in Python and a separately written C++ enumerator agree through orders nine and eleven, respectively. Characteristic functions prove the normal limit from the displayed exact probability generating function.
+## correctness
 
-**Originality — PASS, subject to historical limitations.** The 1993 cyclic cellular automaton source defines the contact successor rule, while Gravner–Lyu–Sivakoff (2016) treat undirected graph dynamics, not the feedforward transitive orientation. Searches for oriented/tournament/feed-forward versions and all-time relaxation polynomials found no directly implying result in the inspected records; neither an absence of search results nor the distinct graph class establishes absolute priority. The older full text was not accessible.
+PASS
 
-**Value — PASS.** The directed acyclic tournament is the canonical densely connected feed-forward network. Its exact all-order stabilization-time distribution, Gaussian typical scale, and exactly six extremal histories sharply quantify how removal of directed feedback suppresses oscillations without forcing constant-time relaxation. This is more than a single finite enumeration or a generic convergence observation.
+PASS: Reconstructed synchronous directed successor-contact condition including n=1 and n=2 boundaries, proven two-color collapse and prefix-extension categories; coefficient recurrence gives fixed counts, sharp depth, exact mean and Gaussian scaling. Independently enumerated all 3^n initial colorings for n=1..9 via the actual directed local rule and compared complete first-fixation histograms with algebraic recurrence, including six extremizers n>=3. Finite checks corroborate but do not replace prefix induction and probability generating-function limit.
 
-**Limitations.** This applies only to transitive tournaments, cyclic three-color successor contact, and synchronous threshold-one dynamics. A broader directed-graph or alternate-color theorem is neither stated nor claimed. Earlier unindexed work may overlap. No independent mathematical audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified): Early 3-color cyclic cellular automaton literature establishes the rule on other graphs, and Gravner–Lyu–Sivakoff study undirected graphs with winding/cycles. A transitive tournament is acyclic and strictly directed; the undirected complete graph dynamics are not an equivalent graph model. Search results for multipartite/cocktail/wheel automata don't imply the ordered-tournament all-depth polynomial or CLT. Unindexed predecessor on directed acyclic graphs is a residual risk.
+
+## value
+
+PASS
+
+The transitive tournament is the canonical fully ordered directed complete graph: despite dense contact, finite-time absorption admits an exact enumeration, extremizer classification, and a central-limit scaling distinct from the n−1 worst case. The exact first-fixation distribution is mathematically motivated and useful beyond a mere convergence yes/no theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
