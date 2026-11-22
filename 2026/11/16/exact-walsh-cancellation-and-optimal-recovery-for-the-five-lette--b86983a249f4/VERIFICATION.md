@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproducing the exact order-five spectral census
+# Independent mathematical audit
 
-The packaged standalone programs are `check_even_permutation_walsh.py` (Python 3 standard library) and `check_even_permanent.cpp` (ISO C++17). They independently evaluate the entire 65,536-member gauge-reduced domain, with no data files or stochastic sampling.
+## correctness
 
-Run from this directory:
+PASS
 
-```sh
-python3 check_even_permutation_walsh.py
-g++ -O2 -std=c++17 check_even_permanent.cpp -o check_even_permanent
-./check_even_permanent
-```
+For the 60 even permutations of 5, Walsh W=(per B+det B)/2 over integer signs. Row/column gauge masks dimension 9, so all F2^25 Fourier frequencies fall into 2^16 representatives repeated 512 times. An independent complete Walsh transform of 60 projected permutation masks reproduces 65,536-class absolute histogram {0:11320,4:24600,8:17400,12:7850,16:3720,20:360,24:200,28:60,36:25,60:1}, Parseval, full nullity 5,795,840, least positive magnitude 4, condition 15 and inverse-indicator kernel norm 266611/4096. Analytically even extensions of prescribed k<=3 compatible edges number (5-k)!/2, giving first zero at exactly three-edge paths, 400 on K5,5. Averaging arbitrary range projections over translations proves the canonical projection has minimum possible l1/l∞ norm. Enumeration is genuinely exhaustive only for order 5, and is the finite certificate not an infinite proof.
 
-The Python program constructs the sixty even permutation-incidence masks, performs the sixteen-bit Walsh transform, verifies the complete ten-level absolute-value census, checks Parseval and the projection norm, and separately checks all 25-coordinate frequency supports of size at most three, including exactly 400 vanishing length-three paths.
+## originality
 
-The C++ program independently enumerates all 120 permutations and computes the integer permanent and determinant for each gauge-reduced sign matrix; it uses their half-sum to check the ten-level spectrum, Parseval and the projection-kernel absolute sum. Both use an integer butterfly only for the final projection-norm step.
+PASS
 
-Observed outputs include `rank=27758592`, `nullity=5795840`, minimum positive multiplier magnitude 4, projection absolute-kernel sum 4,265,776, and exact norm \(266611/4096\). Computation is finite and exhaustive only at this order; it cannot validate a higher-order formula. No independent external mathematical audit was undertaken.
+Bounded PASS for even-permutation A5 rather than all S5: older exact |permanent| Fourier census does not supply the joint permanent/determinant distribution needed for W=(per+det)/2. The minimal 400 path cancellations and much larger projection constant are distinct. A pre-existing order-five even-sign table remains an explicit risk.
+
+## value
+
+PASS
+
+Even permutations form the canonical size-five alternating group orbit; parity restriction changes Fourier nullity, local recovery and optimal amplification. The exact 400 first-support cancellation paths give structural content beyond the finite histogram, while the fully exhaustive 65,536-class integer certificate yields a natural exact benchmark for Fourier recovery. No paper-sized generalization required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

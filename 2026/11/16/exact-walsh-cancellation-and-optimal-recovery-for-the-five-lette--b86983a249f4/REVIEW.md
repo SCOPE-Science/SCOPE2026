@@ -1,9 +1,21 @@
-# Scientific review: exact even-permutation Walsh spectrum
+# Independent mathematical audit
 
-**Correctness: PASS.** The pointwise signed-even-permanent identity and 512-fold gauge reduction are proved directly. Two algebraically different exhaustive integer coefficient methods agree on all ten absolute-multiplier multiplicities, total 65,536 gauge classes, Parseval, rank and the sharp projection norm. A separate full-coordinate check verifies the 400 minimal three-edge paths, and their uniqueness also follows analytically from counts of even extensions of partial matchings. The averaging argument proves minimum endpoint projection norm. Limits: finite order five; exhaustive code is a necessary part of the coefficient multiplicity certificate.
+## correctness
 
-**Originality: PASS under bounded comparison.** The nearest published exact full-permutation Fourier census provides the marginal absolute permanent distribution, not the joint permanent/determinant information required for the even-permutation half-sum. Wanless studies possible permanent values and vanishing orders, Tao–Vu asymptotic random permanents, Dolinar and coauthors arithmetic over finite fields, and Ayyer determinant/matching representations. Inspected claims do not imply the evaluated parity-restricted histogram, the exact 400 path cancellations, or its optimal range-projection norm. Accessible historical claims and actual mathematical-record searches produced no covering result. Residual risk: unindexed historical finite tables or previously unpublished parity-restricted computations.
+PASS
 
-**Mathematical value: PASS.** The parity restriction from all 120 permutations to the simple alternating-group orbit of 60 changes the zero-frequency fraction and greatly enlarges the optimal projection norm. The precise first cancellation geometry is a structural three-edge theorem rather than solely a table. The complete finite census is a natural Fourier recovery benchmark at the first nonabelian simple alternating-group order. It does not claim a general theorem for all permutation orders.
+For the 60 even permutations of 5, Walsh W=(per B+det B)/2 over integer signs. Row/column gauge masks dimension 9, so all F2^25 Fourier frequencies fall into 2^16 representatives repeated 512 times. An independent complete Walsh transform of 60 projected permutation masks reproduces 65,536-class absolute histogram {0:11320,4:24600,8:17400,12:7850,16:3720,20:360,24:200,28:60,36:25,60:1}, Parseval, full nullity 5,795,840, least positive magnitude 4, condition 15 and inverse-indicator kernel norm 266611/4096. Analytically even extensions of prescribed k<=3 compatible edges number (5-k)!/2, giving first zero at exactly three-edge paths, 400 on K5,5. Averaging arbitrary range projections over translations proves the canonical projection has minimum possible l1/l∞ norm. Enumeration is genuinely exhaustive only for order 5, and is the finite certificate not an infinite proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Bounded PASS for even-permutation A5 rather than all S5: older exact |permanent| Fourier census does not supply the joint permanent/determinant distribution needed for W=(per+det)/2. The minimal 400 path cancellations and much larger projection constant are distinct. A pre-existing order-five even-sign table remains an explicit risk.
+
+## value
+
+PASS
+
+Even permutations form the canonical size-five alternating group orbit; parity restriction changes Fourier nullity, local recovery and optimal amplification. The exact 400 first-support cancellation paths give structural content beyond the finite histogram, while the fully exhaustive 65,536-class integer certificate yields a natural exact benchmark for Fourier recovery. No paper-sized generalization required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
