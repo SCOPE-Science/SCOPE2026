@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 transfer_certificate.py`. It uses only Python's standard library, recomputes the full \(4096\)-vertex, \(6140\)-edge graph of mutually consistent two-time Life columns, and reconstructs every strongly connected component without a stored graph. It asserts precisely three cyclic components, whose vertex/edge sizes are \((30,75),(27,81),(4,4)\), as well as the four directed edges of the only non-phase-diagonal component. A closed-walk/periodic-configuration bijection then proves the theorem for all \(n\ge3\), including the circumference threshold.
+## correctness
 
-Independently, run `g++ -O3 -std=c++17 direct_enumeration.cpp -o verify_direct && ./verify_direct`. Its direct cell-neighborhood masks enumerate all \(2^{3n}\) configurations for each \(n=3,4,5,6,7\). The exact populations in `direct_output.txt` are thereby checked independently of the transfer graph.
+PASS
 
-The two recorded output files correspond to successful runs of those programs. Neither a finite list of torus sizes nor a sampled numerical experiment alone establishes the universal theorem; its proof is the exhaustive finite graph and the closed-walk correspondence. No higher temporal periods, basins, or nonperiodic histories are classified here. Independent audit has not been performed.
+For n>=3, each time-two pair of 3-bit columns encodes 64 symbols. Period-two constraints for both phases depend only on triples, so all n-step closed walks in the 4096-vertex two-time de Bruijn graph biject with F_n^2 fixed configurations. Independently assembled all 262144 possible triples, 6140 valid edges and Kosaraju SCCs (4038 total); only cyclic components are (30 vertices,75 internal edges), (27,81) and (4,4). First two are time-diagonal, last has exactly the four directed edges on nodes 455,504,3640,3591. Therefore only four nonfixed returns when 4|n, giving two temporal 2-orbits. Direct original-rule full configurations n=3..6 corroborate. Finite exhaustive graph establishes all ring lengths, unlike mere bounded brute force.
+
+## originality
+
+PASS
+
+McIntosh original Life still-life work explicitly gives the 30- and 27-state fixed-only components for width three; §conclusion states his approach does not calculate period-two patterns. Earlier period-three rigidity and two-row torus results handle different periods/heights, not this complete three-row temporal two-classification.
+
+## value
+
+PASS
+
+Proves a sharp universal spatial rigidity for all circumferences of a natural finite-width full Conway Life system, ruling out localized and partial-column oscillators. The exact unique nontrivial two-time transfer component is a meaningful classification, not a toy observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

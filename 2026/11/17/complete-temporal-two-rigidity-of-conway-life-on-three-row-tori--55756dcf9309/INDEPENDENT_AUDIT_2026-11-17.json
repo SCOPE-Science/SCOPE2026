@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T20:56:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=3, each time-two pair of 3-bit columns encodes 64 symbols. Period-two constraints for both phases depend only on triples, so all n-step closed walks in the 4096-vertex two-time de Bruijn graph biject with F_n^2 fixed configurations. Independently assembled all 262144 possible triples, 6140 valid edges and Kosaraju SCCs (4038 total); only cyclic components are (30 vertices,75 internal edges), (27,81) and (4,4). First two are time-diagonal, last has exactly the four directed edges on nodes 455,504,3640,3591. Therefore only four nonfixed returns when 4|n, giving two temporal 2-orbits. Direct original-rule full configurations n=3..6 corroborate. Finite exhaustive graph establishes all ring lengths, unlike mere bounded brute force.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Three-row period-three exclusion differs from time two; two-row torus and vertically open three-row cylinder have different neighbor incidences."
+        ],
+        "reasoning": "None of the inspected broader-looking CA results dominates exact temporal period-two on the full vertically and horizontally periodic 3×n torus.",
+        "searches": [
+          "Resultary 2026/11/17 period-three rigidity Life HighLife three-row tori",
+          "Resultary two-row Life tori short return",
+          "McIntosh 1988 Life Still Lifes"
+        ]
+      },
+      "checked_sources": [
+        "Source RESULT.md and transfer_certificate.py at frozen Git commit",
+        "https://delta.cs.cinvestav.mx/~mcintosh/comun/still/still.pdf",
+        "Resultary Life period-three and fixed-state findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "McIntosh p.19: direct extension to structures of period 2 was out of scope; published period-three theorem states Fix(F^3)=Fix(F) but not Fix(F^2)."
+        ],
+        "reasoning": "The current non-diagonal 4-cycle does not follow as a simple corollary of stated prior results.",
+        "searches": [
+          "McIntosh Still Lifes original PDF concluding section",
+          "Resultary 2026/11/17 period-three rigidity for Life"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "McIntosh pp. 15–18 catalogs 30- and 27-node still-life components, but does not report the extra non-diagonal two-time four-cycle."
+        ],
+        "reasoning": "A one-time fixed-state graph has no direct implication for all exact 2cycles; the two-time transfer constraint adds essential structure.",
+        "searches": [
+          "McIntosh Life Still Lifes width three 30 27 de Bruijn",
+          "Resultary Life three row temporal two rigidity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "McIntosh tables are 1-step still-life de Bruijn components. Three-row fixed-state resonance computes tr(B^n), not tr(two-time graph^n)."
+        ],
+        "reasoning": "No checked exact database supplies the total non-fixed 2-return 4*1_{4|n}; lack of indexed coverage is not proof of priority.",
+        "searches": [
+          "Life still lifes McIntosh 1988 exact diagrams 30 27",
+          "Resultary 3row Life fixed state resonance",
+          "3xN Conway Life temporal two oscillator 1100"
+        ]
+      },
+      "rationale": "McIntosh original Life still-life work explicitly gives the 30- and 27-state fixed-only components for width three; §conclusion states his approach does not calculate period-two patterns. Earlier period-three rigidity and two-row torus results handle different periods/heights, not this complete three-row temporal two-classification.",
+      "reasoning": "McIntosh original Life still-life work explicitly gives the 30- and 27-state fixed-only components for width three; §conclusion states his approach does not calculate period-two patterns. Earlier period-three rigidity and two-row torus results handle different periods/heights, not this complete three-row temporal two-classification.",
+      "residual_risks": [
+        "Unindexed historical Life oscillator catalogues may independently contain the 3×n torus classification, even though primary McIntosh paper does not.",
+        "Unlike direct exhaustive finite-ring samples, the graph SCC reconstruction is complete for the exact local two-time constraints."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms fixed-point components and says period-two structures are beyond its direct approach",
+          "evidence": [
+            "At p.15–16 two 30- and 27-node still-life diagrams; conclusion p.19 explicitly discusses inability to compute period-two with same direct method."
+          ],
+          "identifier_or_url": "https://delta.cs.cinvestav.mx/~mcintosh/comun/still/still.pdf",
+          "material_read": "Full 20-page author-hosted text, especially width-three 30/27 diagrams pp.14–17 and closing discussion p.19",
+          "method": "Primary open PDF text, page screenshot p.12 and source passages",
+          "title": "Life's Still Lifes",
+          "trigger": "Exact width-three fixed-state precursor"
+        },
+        {
+          "assessment": "Counts still lifes, not full F^2 fixed-space excess",
+          "evidence": [
+            "Result states exact one-step fixed configurations by spectral formula, omitting 2cycles."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-three-column-resonance-in-conway-life-s-width-three-fixed-stat--123f185b2261",
+          "material_read": "Resultary detailed abstract/summary only",
+          "method": "Semantic published-result search",
+          "title": "Three-column resonance in Conway Life width-three fixed-state spectrum",
+          "trigger": "Same 3-row torus geometry"
+        },
+        {
+          "assessment": "Bulk mean-field approach does not in inspected material classify finite-width exact 2cycles",
+          "evidence": [
+            "Focus on near-critical global behavior rather than exact periodic 3-row torus fixed iterates."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.1006",
+          "material_read": "Abstract and described model orientation; full text not revisited in this run",
+          "method": "Public arXiv metadata",
+          "title": "Conway Game of Life as near-critical metastable state",
+          "trigger": "General Life dynamics, possible broader coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Proves a sharp universal spatial rigidity for all circumferences of a natural finite-width full Conway Life system, ruling out localized and partial-column oscillators. The exact unique nontrivial two-time transfer component is a meaningful classification, not a toy observation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Source RESULT.md and transfer_certificate.py at frozen Git commit",
+    "https://delta.cs.cinvestav.mx/~mcintosh/comun/still/still.pdf",
+    "Resultary Life period-three and fixed-state findings"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed historical Life oscillator catalogues may independently contain the 3×n torus classification, even though primary McIntosh paper does not.",
+    "Unlike direct exhaustive finite-ring samples, the graph SCC reconstruction is complete for the exact local two-time constraints."
+  ],
+  "residual_risks": [
+    "Unindexed historical Life oscillator catalogues may independently contain the 3×n torus classification, even though primary McIntosh paper does not.",
+    "Unlike direct exhaustive finite-ring samples, the graph SCC reconstruction is complete for the exact local two-time constraints."
+  ],
+  "schema_version": 1
+}
