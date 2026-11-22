@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The exact complementary-square boundary parametrization reduces every external-target minimizer to a strictly convex scalar quadratic with clipped unique optimum. Its two preimages generate all minimizers. Piecewise distances and selection obstruction follow by direct differentiation and swap inequality; exact rational script checks are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yang et al. prove first-order necessary conditions and implement approximate stationary-point projection.",
+        "Won et al. give dual computational approaches for general exponent/dimension and discuss possible nonzero duality gap."
+      ],
+      "reasoning": "Broader algorithms can process the input but do not by themselves give all global minimizers or prove the sharp transitions and continuous-selection obstruction. The present claim does not contest their computational coverage.",
+      "searches": [
+        "sparsity quasi norm p half ball exact projection equal coordinates first bifurcation at 3/4",
+        "nonconvex ell_p ball metric projection symmetry breaking equal positive target two dimensional",
+        "arxiv:2101.01350",
+        "arxiv:2203.00564"
+      ]
+    },
+    "checked_sources": [
+      {
+        "first_public_date": "2021-01-05",
+        "url": "https://arxiv.org/abs/2101.01350"
+      },
+      {
+        "first_public_date": "2022-03-01",
+        "url": "https://arxiv.org/abs/2203.00564"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "First-order stationary conditions alone do not select global minimizers on a nonconvex feasible set.",
+        "The exact quadratic identity in the complementary-square parameter supplies a new complete global classification."
+      ],
+      "reasoning": "Neither retrieved prior theorem was seen to contain a stronger explicit result implying the present piecewise projection fibers as an immediate corollary. The conclusion requires solving a special exact global minimization and proving an ordered-limit obstruction.",
+      "searches": [
+        "arxiv:2101.01350 first-order necessary conditions",
+        "arxiv:2203.00564 nonconvex duality gap",
+        "Euclidean projection onto nonconvex l1/2 unit quasi norm ball diagonal symmetric data symmetry breaking bifurcation threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yang–Wang–Wang mentions possible multiple minimizers generally but no exact diagonal phase law.",
+        "Won–Lange–Xu treats general nonconvex projection; equality-of-coordinate case and exact branch law were not stated in inspected text."
+      ],
+      "reasoning": "Equivalent sparse shrinkage, Euclidean metric projection and proximal-indicator formulations were compared. General multi-minimizer remarks are weaker than classification with thresholds and no-selection theorem; an unlocated alternate statement remains possible.",
+      "searches": [
+        "Euclidean projection onto nonconvex l1/2 unit quasi norm ball diagonal symmetric data symmetry breaking bifurcation threshold",
+        "sqrt abs x plus sqrt abs y less than one projection symmetric input (t,t) threshold 3/4 square root bifurcation multivalued",
+        "arxiv.org/html/2101.01350v6: symmetric; multiple minimizers",
+        "arxiv.org/html/2203.00564v2: symmetric; non-uni"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Returned published-record search hits concern convex cross-polytopes, two-ball lenses, or unrelated bifurcations, rather than exact half-quasinorm fibers.",
+        "Public searches returned no relevant exact tabulation in the returned pages."
+      ],
+      "reasoning": "No exact precomputed table or record supplying the claimed four cases was located. This is a bounded search, not a proof of universal absence.",
+      "searches": [
+        "sqrt abs x plus sqrt abs y less than one projection symmetric input (t,t) threshold 3/4 square root bifurcation multivalued",
+        "nonconvex ell half unit ball Euclidean projection diagonal pitchfork two branch square root threshold",
+        "web: \"sqrt(x)+sqrt(y)\" \"projection\" \"3/4\"",
+        "web: \"nonconvex\" \"projection\" \"diagonal\" \"3/4\""
+      ]
+    },
+    "rationale": "Inspected 2021 and 2022 primary full-text treatments state general nonconvex projection methods and necessary conditions, but not the particular global diagonal thresholds or continuous-selection obstruction. Targeted database and literal-formula searches found only noncovering analogues; an unlocated equivalent remains possible.",
+    "residual_risks": [
+      "An equivalent exact planar half-quasinorm example may exist in older sparse projection/shrinkage literature not indexed by the searched text.",
+      "The model is deliberately two-dimensional and does not classify arbitrary inputs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General convergence/necessary-condition and algorithmic results; no displayed exact diagonal half-quasinorm four-case phase portrait or local selection obstruction.",
+        "evidence": [
+          "https://arxiv.org/abs/2101.01350",
+          "https://arxiv.org/html/2101.01350v6"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2101.01350v6",
+        "material_read": "Abstract, introduction, formulation, first-order conditions, iterative method, numerical experiments and appendices/section headings; HTML full text available",
+        "method": "Read and searched full-text HTML for symmetric exact cases, multiple solutions, and analytic thresholds",
+        "title": "Towards An Efficient Approach for the Nonconvex ℓp Ball Projection: Algorithm and Analysis",
+        "trigger": "Same nonconvex Euclidean ball projection and possible multiple minimizers"
+      },
+      {
+        "assessment": "Dual Newton/bisection and existence/duality theory; does not state the exact nonconvex two-coordinate projection phases or branch separation.",
+        "evidence": [
+          "https://arxiv.org/abs/2203.00564",
+          "https://arxiv.org/html/2203.00564v2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2203.00564v2",
+        "material_read": "Abstract, introduction, convex/nonconvex primal/dual sections and empirical discussion, including duality-gap caveats",
+        "method": "Read available full-text HTML and searched for equal-coordinate and symmetry descriptions",
+        "title": "A unified analysis of convex and non-convex lp-ball projection problems",
+        "trigger": "Potential broader general projection algorithm covering the same geometry"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3da7baaf-4858-4002-9a23-c75c85435d9d",
+  "value": {
+    "rationale": "The two-coordinate half-quasinorm ball is the simplest nonconvex sparsity constraint allowing a nontrivial projection fiber. A complete exact phase portrait yields two structural thresholds, a sharp square-root sensitivity law, support collapse, and impossibility of continuous local selections at all post-threshold diagonal targets. These facts inform the robustness of projected sparse algorithms.",
+    "status": "PASS"
+  }
+}
