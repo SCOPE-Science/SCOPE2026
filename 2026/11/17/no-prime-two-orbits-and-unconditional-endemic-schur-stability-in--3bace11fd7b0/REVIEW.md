@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The general prime-two contradiction uses only simplex invariance, the linear inactive-reservoir equation, and nondecreasing incidence; it covers boundary points and arbitrary positive round length. The original competing-risk incidence is increasing and has strictly decreasing incidence per adopter, giving one positive equilibrium exactly above the previously published threshold. The exact planar Jacobian obeys all three strict Schur--Jury inequalities there, while the residual primed coordinate has a strictly contracting transverse multiplier. The rational witness has exact two-way identities, not just floating-point approximations. Standalone reproducibility checks passed; they are not treated as proofs.
+PASS
 
-## Originality
+Reduced exact p=1 four-compartment map to probability-preserving F(a,r)=(ea+H(a)(1-a-r),ta+zr); s1 multiplier exp[-(ca+m)]<1 so nonfixed periodic states cannot have s1>0. If a0>a1 in hypothetical two-cycle, subtracting r equations gives r1-r0=t(a0-a1)/(1+z), s1-s0=(1-t/(1+z))(a0-a1); subtracting a equations requires -(1+e)Delta=H(a0)s0-H(a1)s1 >= -(1-t/(1+z))Delta for monotone H, contradiction. For exact H, H/a=c int_0^1 exp[-(ca+m)u]du strictly decreases, giving one positive equilibrium iff e+Hprime(0)>1 (the established R_tau threshold) and global extinction at/below. At endemic equilibrium J=[[A,-h],[t,z]], A=e-h+(1-e)eta with 0<eta<1; Jury factors (1-A)(1-z)+th, (1+A)(1+z)+th and 1-zA-th all positive since zA+th<=max(z,t)<1. Full transverse multiplier exp[-(ca+m)]<1. Independently verified rational nonmonotone H bump cycle exactly (1/2,9/40)<->(1/5,3/10). Does not rule out longer cycles or global supercritical convergence.
 
-**PASS within inspected evidence.** The 2026 motivating paper derives the map, invasion multiplier, and equilibrium parametrization, but its one-stage stability discussion is observational rather than an all-parameter theorem and it contains no primitive-two exclusion proof. A 2021 stochastic/discrete-SIR paper proves extinction, persistence, and partial global-stability results for a different exponential-escape recurrence. A 2014 Euler-style SIR paper gives flip bifurcations for a differently normalized update. Previous publicly indexed related results on Euler SIR and probability-admissible SIS concern different maps. Related existing local threshold results for the same competing-risk map do not imply global prime-two exclusion or stability at arbitrarily large contact rates. Residual risk: the no-two-cycle argument may be an instance of a more general unindexed monotone-incidence or compartmental-map theorem.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The motivating paper reports one-stage stability numerically and contrasts it with chaos in two-stage contagion. An exact, all-step-size obstruction to the first nontrivial periodic locking, together with unconditional local endemic stability and a probability-admissible sharpness example, gives a structural explanation unavailable from finite parameter scans. It separates positivity and monotone incidence from the Euler-map mechanisms known to create flip cycles; the conclusion is not a claim of global supercritical attraction or complete dynamical classification.
+Best-of-knowledge scope-limited advance beyond the threshold and numerical one-stage stability reported in the original 2026 finite-round competing-risk paper. The no-two-cycle comparison theorem for arbitrary nondecreasing probability incidence and uniform endemic Schur inequalities were not stated in the reviewed original, and related SIS/SIR maps differ in the update law.
 
-## Remaining scientific limitations
+## value
 
-The proof excludes only primitive two-cycles; higher-period cycles, nonperiodic recurrent sets, and supercritical global basins remain open for this statement. Historical priority is best-knowledge rather than certified uniqueness. The smooth negative example alters the incidence law and does not assert a counterexample to the original exponential family.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An all-parameter exclusion of the first possible discrete-time oscillatory bifurcation in a natural epidemic map, with a sharp monotonicity boundary witness and exact stability classification, resolves a substantive dynamics gap, not a routine numerical parameter check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

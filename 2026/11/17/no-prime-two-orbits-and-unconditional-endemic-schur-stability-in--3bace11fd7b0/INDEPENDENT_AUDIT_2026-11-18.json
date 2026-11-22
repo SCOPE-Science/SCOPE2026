@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T06:53:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reduced exact p=1 four-compartment map to probability-preserving F(a,r)=(ea+H(a)(1-a-r),ta+zr); s1 multiplier exp[-(ca+m)]<1 so nonfixed periodic states cannot have s1>0. If a0>a1 in hypothetical two-cycle, subtracting r equations gives r1-r0=t(a0-a1)/(1+z), s1-s0=(1-t/(1+z))(a0-a1); subtracting a equations requires -(1+e)Delta=H(a0)s0-H(a1)s1 >= -(1-t/(1+z))Delta for monotone H, contradiction. For exact H, H/a=c int_0^1 exp[-(ca+m)u]du strictly decreases, giving one positive equilibrium iff e+Hprime(0)>1 (the established R_tau threshold) and global extinction at/below. At endemic equilibrium J=[[A,-h],[t,z]], A=e-h+(1-e)eta with 0<eta<1; Jury factors (1-A)(1-z)+th, (1+A)(1+z)+th and 1-zA-th all positive since zA+th<=max(z,t)<1. Full transverse multiplier exp[-(ca+m)]<1. Independently verified rational nonmonotone H bump cycle exactly (1/2,9/40)<->(1/5,3/10). Does not rule out longer cycles or global supercritical convergence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original paper Propositions 4–5 cover invasion threshold/equilibria, not all-time no-prime-two theorem; general unrelated SIR and critical-boundary work concerns other maps or other parameter directions."
+        ],
+        "reasoning": "A theorem about extinction below threshold and persistence in a different recurrence does not imply all-rate Schur stability of the one-stage exact-round competing-risk equilibrium.",
+        "searches": [
+          "one stage exact round competing risk contagion epidemic model no period 2 Schur stable endemic equilibrium monotone incidence",
+          "https://doi.org/10.1137/20M1339015",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-nonlinear-invasion-boundary-threshold-for-a-discrete-two-s--805e988e68e0"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.cnoctave.top/pdf/2611.08353",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-nonlinear-invasion-boundary-threshold-for-a-discrete-two-s--805e988e68e0",
+        "https://doi.org/10.1137/20M1339015"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Muñoz et al Definition 1 Eq (2), Proposition 4 gives R_tau and Proposition 5 parametrizes endemic branch; the manuscript reports numerical p=1 stability but does not establish global prime-two exclusion or uniform analytic Jury inequalities."
+        ],
+        "reasoning": "The manuscript supplies the map and threshold which are credited; local numerical examples and threshold alone cannot imply an exact all-parameter structural period-two obstruction.",
+        "searches": [
+          "https://arxiv.cnoctave.top/pdf/2611.08353",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-nonlinear-invasion-boundary-threshold-for-a-discrete-two-s--805e988e68e0",
+          "one stage exact round competing risk contagion epidemic model no period 2 Schur stable endemic equilibrium monotone incidence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Muñoz–Nuño–Meacci Definition 1 uses four classes s0,s1,a,r and a competing-risk fraction phi P; at p=1 this reduces exactly to the present planar F. Schreiber et al study a different discrete epidemic recurrence."
+        ],
+        "reasoning": "Explicitly matched source notation to H(a), e,z,t before comparison; similar terms epidemic/SIR are not equivalent model definitions.",
+        "searches": [
+          "one stage exact round competing risk contagion epidemic model no period 2 Schur stable endemic equilibrium monotone incidence",
+          "https://arxiv.cnoctave.top/pdf/2611.08353",
+          "https://doi.org/10.1137/20M1339015"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact rational nonmonotone witness uses e=1/4,z=1/2,t=3/8, H(1/2)=3/11,H(1/5)=9/10, and survives a direct fractions check."
+        ],
+        "reasoning": "A constructive witness is a mathematical boundary, not a recomputation of an established data table. Search found no identical two-cycle exclusion or witness; search failure is not priority proof.",
+        "searches": [
+          "one stage exact round competing risk contagion epidemic model no period 2 Schur stable endemic equilibrium monotone incidence",
+          "p=1 competing risk Schur Jury matrix two cycle exact orbit"
+        ]
+      },
+      "rationale": "Best-of-knowledge scope-limited advance beyond the threshold and numerical one-stage stability reported in the original 2026 finite-round competing-risk paper. The no-two-cycle comparison theorem for arbitrary nondecreasing probability incidence and uniform endemic Schur inequalities were not stated in the reviewed original, and related SIS/SIR maps differ in the update law.",
+      "residual_risks": [
+        "Full Schreiber 2021 theorem body was not retrieved; potential general structural theorem under an equivalence remains a residual risk, not established coverage.",
+        "Results apply to deterministic large-population exact-round dynamics and p=1; they do not give stochastic finite-N survival or exclude period three and above."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: exact map/invasion threshold and equilibrium parametrization known, period-two and all-rate Schur claims not established",
+          "evidence": "Definition 1 Eq (2) p-dependent map, Proposition 4 invasion R_tau and Proposition 5 endemic parameterization; text does not assert the present universal two-cycle exclusion.",
+          "identifier_or_url": "https://arxiv.cnoctave.top/pdf/2611.08353",
+          "material_read": "Full PDF Section 4.3 Definition 1, Section 5 Propositions 4–5 and bifurcation section",
+          "method": "Open-access arXiv PDF text, inspected through full-document sections",
+          "title": "Muñoz, Nuño and Meacci, From elementary processes to chaos (2026)",
+          "trigger": "Same model and parameters p=1, most plausible direct covering source"
+        },
+        {
+          "assessment": "UNRESOLVED_FULL_TEXT: different recurrence asserted by submitted package; no whole-paper noncoverage claim",
+          "evidence": "The accessible citation gives extinction/persistence context, not the exact competing-risk map formula.",
+          "identifier_or_url": "https://doi.org/10.1137/20M1339015",
+          "material_read": "Citation bibliographic metadata and reviewed topical summary; full paper not accessed in this run",
+          "method": "Search and primary-reference summary",
+          "title": "Schreiber et al, Extinction and Quasi-Stationarity for Discrete-Time, Endemic SIS and SIR Models (2021)",
+          "trigger": "Possible broader global discrete epidemic theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An all-parameter exclusion of the first possible discrete-time oscillatory bifurcation in a natural epidemic map, with a sharp monotonicity boundary witness and exact stability classification, resolves a substantive dynamics gap, not a routine numerical parameter check.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "No prime-two orbits and unconditional endemic Schur stability in one-stage exact-round contagion",
+  "limitations": [
+    "Full Schreiber 2021 theorem body was not retrieved; potential general structural theorem under an equivalence remains a residual risk, not established coverage.",
+    "Results apply to deterministic large-population exact-round dynamics and p=1; they do not give stochastic finite-N survival or exclude period three and above."
+  ],
+  "schema_version": 1
+}
