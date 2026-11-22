@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Exact harmonicity follows from the ambient Laplacian; geometric weights ensure normal convergence and a real-analytic kernel. A consecutive block of length at least the number of distinct nonzero complex nodes produces an invertible Vandermonde matrix. Cosine and sine block families recover projected aggregate coefficients and vertical weighted aggregates separately; the zero projection is handled by degree-zero and degree-one features. Every spherical fibre has at most two points with distinct heights, so all annihilating site coefficients vanish. The positive Gram sum and one-eigenvalue-per-degree spectrum then follow. Finite checker diagnostics are auxiliary, not substituted for infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Buhmann–Jäger 2022 Theorem 4 assumes fully positive coefficient blocks for infinitely many even and odd degrees; each positive block in this construction has rank one.",
+        "Guella–Jäger 2023 Corollary 8 uses sufficiently large coefficient sets in selected degrees and does not automatically cover a single eigenfunction per degree on the two-sphere."
+      ],
+      "reasoning": "These broader sufficiency results establish strict positivity for other supports but do not imply that this particular drastic rank reduction works. The separate exact proof is needed.",
+      "searches": [
+        "Strict Positive Definiteness of Convolutional and Axially Symmetric Kernels on d-Dimensional Spheres theorem 4",
+        "Strictly positive definite non-isotropic kernels on two-point homogeneous manifolds Corollary 8",
+        "arxiv:2205.07396"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2005.02798",
+      "https://link.springer.com/article/10.1007/s00041-022-09913-x",
+      "https://arxiv.org/abs/2205.07396",
+      "https://link.springer.com/article/10.1007/s11117-023-01022-3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jäger 2020 positivity criterion supplies the abstract finite-atomic form; its easy full-positive-block sufficient result does not imply rank-one strict positivity.",
+        "Guella–Jäger 2022 preprint Theorem 1 gives an iff criterion for each active eigenfunction, and their Corollary 8 does not cover all-but-one omitted eigenfunctions per degree.",
+        "The earlier explicit complex two-mode-per-degree sphere construction does not imply a real one-mode-per-degree kernel, since suppressing one feature may destroy strict positivity."
+      ],
+      "reasoning": "The exact new statement is not a renaming of an old kernel: the real scalar feature space in each degree is strictly smaller and uses frequency-block allocation plus both cosine/sine and latitude-weighted channels. Its proof verifies finite-atomic uniqueness directly.",
+      "searches": [
+        "arxiv:2005.02798v1",
+        "doi:10.1007/s00041-022-09913-x",
+        "arxiv:2205.07396v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jäger 2020 characterizes coefficient-block strict positivity via nonannihilation of finite atomic harmonic evaluation vectors, but no explicit four-family rank-one-per-degree real construction was identified in the inspected relevant text.",
+        "The claim is equivalent to separating all finite atomic complex measures using one real spherical harmonic per degree, not merely to positivity of its coefficient matrices."
+      ],
+      "reasoning": "General finite-atomic nonannihilation is a test to be checked, not a proof that these particular coefficients satisfy it. The constructive four-family long-block moment argument is the substantive new verification.",
+      "searches": [
+        "strictly positive definite kernels sphere non isotropic rank one in each degree spherical harmonics explicit 2023",
+        "rank one coefficient matrices each degree strictly positive definite spherical kernels",
+        "spherical kernels 'one coefficient' 'strictly positive definite' each degree",
+        "arxiv:2005.02798, sections 2-3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact one-real-mode-per-degree construction or enumerated table of the four specified feature families was identified in the inspected publications and targeted mathematical search results.",
+        "The explicit interval partition and fibre-wise coefficient uniqueness are structural, infinite assertions rather than finite database entries."
+      ],
+      "reasoning": "A negative targeted search cannot prove worldwide uniqueness or publication priority; the positive evidence is a statement-level comparison with the closest primary theorems.",
+      "searches": [
+        "real-valued strictly positive definite nonzonal kernel sphere S2 precisely rank-one positive coefficient matrix in every spherical harmonic degree",
+        "spherical covariance with one real spherical harmonic per degree separates all finite point measures but is noncharacteristic",
+        "spherical interpolation kernels supported on sparse partition of cosine and sine high-degree blocks Vandermonde finite atomic uniqueness"
+      ]
+    },
+    "rationale": "The claim is an explicit real, rank-one-in-every-degree strictly positive definite two-sphere construction, with a new finite-fibre Vandermonde proof and explicit non-characteristic witness. Jäger (2020) and Guella–Jäger (2022/2023) state coefficient-support characterizations, while Buhmann–Jäger (2022) provides full-block sufficiency, none of which directly supplies the particular one-mode real construction. Targeted mathematical literature and indexed-result searches found no equivalent construction or stronger statement plainly covering it. Earlier constructions of nonisotropic strict-positive kernels are acknowledged and first priority remains provisional.",
+    "residual_risks": [
+      "An earlier sparse non-isotropic kernel construction outside the inspected papers might already realize rank one in every degree.",
+      "General-purpose finite-atomic uniqueness tools are known; the asserted novelty is the explicit real per-degree feature construction and its sharp spectral rank, not the abstract Vandermonde theorem or general SPD characterization.",
+      "No independent external priority or mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes general coefficient/finite-atomic criteria but does not present the same real rank-one feature partition in inspected relevant material",
+        "evidence": [
+          "arXiv version 1 first posted 2020-05-06, with primary MSC 42A82 in its abstract metadata",
+          "Degree-block Theorem 3 and strict positivity Theorem 4 concern matrix/block criteria rather than the new four-family example"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2005.02798",
+        "material_read": "Introduction, positive-definiteness characterization, degree-block positivity and strict positivity conditions in relevant Sections 2–3, plus conclusion and references",
+        "method": "Read the primary public preprint text and inspect displayed source pages",
+        "title": "Strictly positive definite kernels on the 2-sphere: beyond radial symmetry",
+        "trigger": "earliest public primary treatment of non-isotropic positive definite spherical harmonic block matrices; matching MSC"
+      },
+      {
+        "assessment": "The displayed sufficient convolutional condition requires full positive blocks at infinitely many even and odd degrees; not applicable to these rank-one blocks",
+        "evidence": [
+          "Section 4 Theorem 4 and Lemma 12; coefficients in the stated example are positive in all azimuthal modes",
+          "Section 3 example has all diagonal entries positive, not one chosen real mode per degree"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00041-022-09913-x",
+        "material_read": "Full-text Introduction and spherical harmonic setup, axially symmetric example/Theorem 3, convolutional Sections 4–5 including Lemmas 11–13 and Theorem 4, discussion",
+        "method": "Read official open-access primary full text",
+        "title": "Strict Positive Definiteness of Convolutional and Axially Symmetric Kernels on d-Dimensional Spheres",
+        "trigger": "plausibly stronger sufficient coverage of non-isotropic sphere kernels"
+      },
+      {
+        "assessment": "Theorem 1 is a general equivalent condition; explicit Corollary 8 retains far more modes than rank one per degree and does not directly cover the example",
+        "evidence": [
+          "Theorem 1 uses vanishing of all active eigenfunction moments",
+          "Corollary 8 imposes a quantitative bound on omitted coefficients; the new construction omits 2n of 2n+1 modes per positive degree"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11117-023-01022-3",
+        "material_read": "Official open-access full-text Sections 1–2 and 4, including Theorem 1, Corollary 8, examples, discussion and references",
+        "method": "Read primary full-text mathematical statements and their hypotheses",
+        "title": "Strictly positive definite non-isotropic kernels on two-point homogeneous manifolds: the asymptotic approach",
+        "trigger": "exact finite-atomic characterization and sparse-positive-mode sufficient conditions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3a8065ca-d27f-487d-bbfc-cae3d4bc8347",
+  "value": {
+    "rationale": "Determining whether strict interpolation on every finite subset of S² is compatible with the smallest nonzero spectral rank in each degree is a motivated structural sparsity problem. An explicit real-analytic real-valued kernel with exactly one positive spherical harmonic mode at every degree is an extremal spectral realization, not a narrow numerical table; the counterexample for probability-measure characteristicness identifies a useful boundary between finite-site interpolation and distributional identifiability. The construction is all-degree and all-site, while uniform stability and higher-dimensional extensions are explicitly not claimed.",
+    "status": "PASS"
+  }
+}
