@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "A direct M-matrix resolvent proof shows the Perron growth boundary r_c=aN/H. Exact positive polynomial denominator and derivative numerator a²(a+q)+2(a+q)(2a-q)d+(5a-3q)d² give a strict monotone regime and unique interior maximum precisely at q>5a/3. A cooperative quadratic-crowding argument proves extinction when the Perron root is nonpositive and a unique globally attracting positive equilibrium when positive, including the two equality boundaries. The two-patch threshold is monotone. The attached standard-library checker reconstructs determinant, cofactor and derivative identities; finite tests are supplementary, not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2301.06640 studies two-species competition and heterogeneity of resident carrying capacity, not a birth-only headwater source with negative sink intrinsic rates; its single-species Lemma 2.2 assumes strictly positive local growth.",
+        "arxiv:2301.06638 studies species competition in patch chains with uniform intrinsic birth and varying local directed drift and gives different global competition outcomes.",
+        "research-record related mathematical research record uses two-season time-dependent directed migration cycle, not one autonomous source-only stream."
+      ],
+      "reasoning": "The same broad dispersal matrices and eigenvalue tools do not by themselves imply the sharp 5/3 drift-mortality threshold or the two diffusion crossings and nonlinear persistence classification. Possible general-purpose finite-matrix reduction results remain a priority risk; no inspected stronger statement covers this specialization.",
+      "searches": [
+        "source-sink advective three patch stream mortality with births only in upstream site and diffusion; reentrant persistence due to nonmonotone reproduction number",
+        "advection diffusion patch model population persistence at low and high diffusion but extinction at intermediate dispersal, upstream source and closed stream",
+        "arxiv:2301.06640 (model 1.2, lemma 2.2, theorem 3.1, discussion and numerical sections)",
+        "arxiv:2301.06638 (intro, equations 1.1–1.3, theorems 2.1 and 2.3)",
+        "Web: intermediate dispersal extinction large dispersal small dispersal stream"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2301.06640",
+      "https://arxiv.org/abs/2301.06638",
+      "https://arxiv.org/abs/1911.02232",
+      "https://doi.org/10.1007/s12080-009-0068-y",
+      "https://doi.org/10.1007/s11538-021-00939-8 (abstract only)",
+      "https://doi.org/10.1137/20M1345220 (publication abstract; arXiv full preprint inspected)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Both Chen et al. 2023 papers use related conservative movement but study competition with differing local-growth assumptions, not the exact source-only survival region.",
+        "The Karlin–Altenberg theorem scales the entire dispersal generator and so cannot force monotonicity of just the symmetric component in a model with fixed directed drift.",
+        "Jiang–Lam–Lou 2021 abstract discusses competition and topology-dependent dispersal selection; full text comparison was not possible."
+      ],
+      "reasoning": "The new statement is neither a literal previously reported constant nor a direct implication of the inspected theorems. An accessible abstract cannot establish that a full paper does not cover it; that source and broad matrix theory are retained as material residual risks.",
+      "searches": [
+        "arxiv:2301.06640 model matrices and invasion criterion",
+        "arxiv:1911.02232 Karlin–Altenberg reduction principle hypotheses",
+        "2021 Jiang Lam Lou 10.1007/s11538-021-00939-8 abstract and OA retrieval (full text unavailable)",
+        "diffusion driven extinction then recovery in finite river network despite fixed drift source patch"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1911.02232, Theorem 2.2 treats s(mu A+Q) with Q diagonal and fixed movement matrix A; in this model varying d leaves qQ with off-diagonal entries, so it is outside that exact theorem.",
+        "research-record closest related mathematical research record compares permutations of patch reproductive values without downstream drift or a reentrant survival window."
+      ],
+      "reasoning": "The rank-one birth resolvent 1/[(-dD-qQ+aI)^{-1}]_{11} is an alternative formulation, not a matched prior theorem. The most plausible general spectral-reduction theorem has a diagonal-remainder hypothesis that fails here; the source-only nonmonotonic frontier is proved independently.",
+      "searches": [
+        "three-patch closed advective stream with source restricted to upstream only; threshold on directed drift relative to mortality 5/3 for unique interior maximum of critical fecundity, two diffusion-induced extinction bifurcations",
+        "Web: three patch stream \"5/3\" \"diffusion\" drift persistence",
+        "Web: three patch stream advective diffusion local growth upstream patch principal eigenvalue nonmonotonic d",
+        "arxiv:1911.02232 (sections 1–2; Karlin/Altenberg theorem)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No queried research-record entry gave the rational threshold r_c(d) or its turning criterion q/a=5/3.",
+        "The inspected accessible own ledger claims included population dispersal, source–sink allocation, and competing ecological transitions, but no source-only advective three-patch persistence frontier."
+      ],
+      "reasoning": "This is a continuous-parameter rational frontier, not a finite classification table or number in a known database. Similar titles and broad population-dispersal themes were excluded by comparison of mathematical objects and implications, not merely keywords.",
+      "searches": [
+        "rank one birth upstream three compartment diffusion advection spectral bound unimodal threshold drift mortality five thirds",
+        "three patch drift paradox diffusion two reentrant survival transitions upstream localized growth",
+        "Web: stream population three patch 5/3 diffusion drift persistence",
+        "own weekly JSONL: claims and IDs of 30 preexisting records"
+      ]
+    },
+    "rationale": "Comparison of the current exact theorem against accessible own claim summaries, repeated actual research-record searches, fully inspected 2023 stream-patch arXiv papers and the 2019 full-text spectral monotonicity preprint found no statement or stronger theorem implying the source-only three-patch 5/3 reentrant persistence frontier. Source-only rank-one births and independently fixed downstream drift are decisive differences. The closely related 2021 three-patch study was not accessible in full and remains a nontrivial priority risk.",
+    "residual_risks": [
+      "Full text of Jiang, Lam and Lou (2021), DOI 10.1007/s11538-021-00939-8, was not obtained despite arXiv/OA attempts and authorized institutional retrieval; potential overlapping special case remains to be checked externally.",
+      "Broad matrix spectral and resolvent literature could contain an equivalent special case not uncovered by the bounded literature and record searches.",
+      "Claim is a new model-specific classification on inspected evidence, not certified historical priority or empirical ecological validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING in read mathematical claims",
+        "evidence": "Equations (1.2)–(1.3) use the same D and Q, but the paper treats two competing species with positive local growth/carrying capacities and invasion curves; Lemma 2.2 assumes all local intrinsic growth positive.",
+        "identifier_or_url": "https://arxiv.org/abs/2301.06640",
+        "material_read": "Full HTML text including Introduction, movement matrices 1.2–1.3, Lemma 2.2, Theorem 3.1, discussions, and numerical findings",
+        "method": "Read searchable arXiv HTML sections and compared hypotheses, growth terms and claims",
+        "title": "On the impact of spatial heterogeneity and drift rate in a three-patch two-species Lotka-Volterra competition model over a stream",
+        "trigger": "Same exact three-patch closed stream movement matrices and eigenvalue framework"
+      },
+      {
+        "assessment": "NOT_COVERING in read claims",
+        "evidence": "Studies competition of two species and nonuniform directed drift with spatially uniform intrinsic recruitment; no rank-one-source mortality-only-sinks frontier.",
+        "identifier_or_url": "https://arxiv.org/abs/2301.06638",
+        "material_read": "Full HTML Introduction, matrix definitions, and Theorems 2.1 and 2.3 with hypotheses",
+        "method": "Compared precise drift, local birth and survival criterion assumptions",
+        "title": "Evolution of dispersal in advective patchy environments with varying drift rates",
+        "trigger": "Competing spatially varying drift model and nearby dispersal selection statements"
+      },
+      {
+        "assessment": "INAPPLICABLE_HYPOTHESIS",
+        "evidence": "Theorem 2.2 concerns mu A plus a diagonal Q; our varying diffusion dD has non-diagonal fixed remainder qQ-aI+rE11.",
+        "identifier_or_url": "https://arxiv.org/abs/1911.02232",
+        "material_read": "Full HTML Introduction, definitions and Theorems 2.1–2.2 with proof explanation and applications overview",
+        "method": "Checked decomposition hypotheses against fixed downstream drift qQ",
+        "title": "Spectral Monotonicity of Perturbed Quasi-positive Matrices with Applications in Population Dynamics",
+        "trigger": "Potentially dominating theorem claiming global monotonicity for dispersal"
+      },
+      {
+        "assessment": "NOT_COVERING in read problem and result scope",
+        "evidence": "Discrete-time semelparous reproduction and upstream invasion requirement, not sharp three-patch matrix frontier.",
+        "identifier_or_url": "https://doi.org/10.1007/s12080-009-0068-y",
+        "material_read": "Accessible Springer full text, abstract and Introduction, including semelparous kernel model discussion",
+        "method": "Compared discrete-time dispersal-kernel survival theorem with finite continuous-time patch system",
+        "title": "Population persistence in the face of advection",
+        "trigger": "Foundational persistence criteria for river populations with drift"
+      },
+      {
+        "assessment": "FULL_TEXT_UNAVAILABLE_PRIORITY_RISK",
+        "evidence": "Accessible abstract concerns competitive dispersal selection with identical carrying capacities and variable drift/topologies; no full-text NOT_COVERING assertion is made.",
+        "identifier_or_url": "https://doi.org/10.1007/s11538-021-00939-8",
+        "material_read": "Bibliographic metadata and abstract only; preprint/OA full text not located; institutional retrieval unavailable",
+        "method": "Searched arXiv and open-access sources, then attempted authorized institutional retrieval (VPN disconnected)",
+        "title": "Three-patch Models for the Evolution of Dispersal in Advective Environments: Varying Drift and Network Topology",
+        "trigger": "Historically close three-patch closed-stream drift and diffusion study"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d9aabbab-b22e-4c07-aac3-abfc74722b61",
+  "value": {
+    "rationale": "The headwater reproduction versus downstream-drift tradeoff is a natural idealization of the drift paradox. A complete exact drift-to-mortality boundary makes intermediate diffusion uniquely harmful, but sufficient diffusion rescues the source patch; an explicit strict rational witness demonstrates the reversal and proves three patches minimal in this family. This is a nontrivial qualitative phase classification of nonlinear population persistence, not an arbitrary sampled parameter case or generic numerical gain. It provides a reusable benchmark for heterogeneous stream networks; no field-calibrated conservation implication is claimed.",
+    "status": "PASS"
+  }
+}
