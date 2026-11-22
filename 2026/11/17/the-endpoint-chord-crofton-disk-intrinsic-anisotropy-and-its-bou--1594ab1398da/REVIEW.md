@@ -1,15 +1,21 @@
-# Scientific assessment of the endpoint-chord Crofton disk
+# Independent mathematical audit
 
-## Correctness — PASS
-The chord-offset density follows directly from independent uniform endpoint angles, and integrating it over the normal-angle direction proves the exact fixed-pair probability kernel. The separating-line indicator proves the metric triangle inequality and exact segment additivity; positive line density proves strictness off the segment. Differentiating the kernel yields the Finsler norm, with positive support curvature. Two substitutions evaluate the radial and tangential infinitesimal lengths. A positive derivative establishes strict recoverability of radius. The boundary metric and strict geodesic uniqueness also force every completed-space isometry to be orthogonal. The support-curvature identity excludes ellipsoidal tangent norms at every off-center point. Boundary formulae are obtained independently by a two-arc crossing count. The provided checker reproduces these identities and checks the endpoint sampling model numerically. Remaining correctness risk is transcription/logic error not identified by this self-review.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-The general Crofton construction of projective metrics is explicitly credited to earlier work; it is not a new theorem. The known arcsine offset distribution and two-chord intersection results also are not new. The distinctive assessed result is an evaluated, fixed-pair separation metric with local radial identifiability by a single two-direction ratio, a sharp proof that no noncentral tangent norm is Riemannian, exact boundary completion, and full isometry-group rigidity. Read portions and full-text searches of Schneider's projective-Finsler treatment and Aramyan's inverse Crofton work did not reveal that specialized disk model. Bortolotto–Souza studies the intersection of two random chord lines and not this metric. Semantic published-finding corpus searches gave no implication-equivalent finding. Negative search evidence does not guarantee priority; unindexed specializations or folklore remain possible.
+PASS
 
-## Value — PASS
-A chord-separation probability is a canonical distance-like observable for stochastic line tessellations and Crofton metrics; unlike a pointwise scalar, its induced local geometry explains how the chord-sampling rule distorts lengths. The exact anisotropy ratio reconstructs radial position from just two local directional measurements, while the non-Riemannian obstruction, exact isometry group and boundary metric distinguish this structure from the invariant-line (Euclidean) model. These are structural properties of an independently motivated metric, rather than an arbitrary parameter slice or a numerical table.
+Under endpoint-uniform sampling, the unoriented line angle is uniform on [0,pi) and signed offset has density [pi sqrt(1-s²)]^{-1}; integrating intersection offsets between x·n and y·n gives the claimed arcsine-difference integral /pi². Positive line separation yields strict triangle inequality unless a point lies on the Euclidean segment, so segments are precisely unparametrized minimizing geodesics. Differentiation for interior x gives F_x(v), with smooth strictly convex co-unit curve from h+h''=2/(pi² sqrt(1-(x·n_perp)²))>0. Direct integration yields F_radial=2 artanh(r)/(pi² r), F_tangent=2 arcsin(r)/(pi² r); derivative of arcsin(r)-sqrt(1-r²)artanh(r) is r artanh(r)/sqrt(1-r²)>0, proving strict radial ratio recovery. An ellipse support h would have (h+h'')^{-2/3} affine in sin² theta, contradicting its actual nonaffine cube-root dependence away from zero. Radial integral gives odd dilogarithm and distance 1/4 at boundary; pairs of boundary endpoints give alpha(2pi-alpha)/(2pi²). Continuous compact completion is closed disk, and any completed isometry agrees on the metric boundary with O(2), fixes the unique radial midpoint and all straight radial geodesics. Independent numeric quadrature checked radial/tangent formulas for r=.1,.5,.9, not used as proof.
 
-## Limits and closest literature
-R. Schneider's projective-Finsler paper states the known general line-measure construction (not novelty). R. Aramyan (2011) gives Crofton-reconstruction methods (not a fixed-endpoint-chord evaluation). Álvarez Paiva (2013) concerns general Finsler projective metrics. Bortolotto and Souza (2025) gives the different two-random-chord intersection-position law and the arcsine-offset sampling context. The proof is model-specific; there is no independent validation and finite indexing cannot certify priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general Crofton construction of Hilbert-fourth-problem projective Finsler metrics is fully credited. The explicitly sampled endpoint arcsine disk model, its local anisotropy ruler and global boundary/isometry rigidity are not established by the searched broad inverse-Crofton theorems or random-chord intersection distributions.
+
+## value
+
+PASS
+
+The endpoint-uniform chord is a canonical, historically distinguished Bertrand-paradox sampling law. Its separation distance gives a fully explicit and non-Riemannian projective Finsler disk whose local anisotropy uniquely identifies radius and whose global metric rigidly identifies O(2), concrete invariants useful in geometric probability and inverse metric reconstruction. These computations are not merely the textbook line-separation metric existence assertion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T15:53:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under endpoint-uniform sampling, the unoriented line angle is uniform on [0,pi) and signed offset has density [pi sqrt(1-s²)]^{-1}; integrating intersection offsets between x·n and y·n gives the claimed arcsine-difference integral /pi². Positive line separation yields strict triangle inequality unless a point lies on the Euclidean segment, so segments are precisely unparametrized minimizing geodesics. Differentiation for interior x gives F_x(v), with smooth strictly convex co-unit curve from h+h''=2/(pi² sqrt(1-(x·n_perp)²))>0. Direct integration yields F_radial=2 artanh(r)/(pi² r), F_tangent=2 arcsin(r)/(pi² r); derivative of arcsin(r)-sqrt(1-r²)artanh(r) is r artanh(r)/sqrt(1-r²)>0, proving strict radial ratio recovery. An ellipse support h would have (h+h'')^{-2/3} affine in sin² theta, contradicting its actual nonaffine cube-root dependence away from zero. Radial integral gives odd dilogarithm and distance 1/4 at boundary; pairs of boundary endpoints give alpha(2pi-alpha)/(2pi²). Continuous compact completion is closed disk, and any completed isometry agrees on the metric boundary with O(2), fixes the unique radial midpoint and all straight radial geodesics. Independent numeric quadrature checked radial/tangent formulas for r=.1,.5,.9, not used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general projective Finsler framework is vastly broader, but permits arbitrary line densities and does not imply the particular artanh/arcsin radial ratio by statement alone."
+        ],
+        "reasoning": "Generic existence/uniqueness of projective structures does not dominate the concrete endpoint-chord computations without specializing density and working out derivatives.",
+        "searches": [
+          "arxiv:1301.2524 Asymmetry in Hilbert Fourth Problem",
+          "Schneider projective Finsler general constructions"
+        ]
+      },
+      "checked_sources": [
+        "https://home.mathematik.uni-freiburg.de/rschnei/IG.proj.Finsler.pdf",
+        "https://arxiv.org/abs/1103.4088",
+        "https://arxiv.org/abs/1301.2524",
+        "https://arxiv.org/abs/2504.12866",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-boundary-layers-of-random-chord-midpoints-a-curvature-law-marked--9c3ddb068ac2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general fact d_mu(x,y)=mu{lines separating x,y} supplies a metric and straight geodesics.",
+          "The exact arcsine line density from uniform endpoints and its strong nonelliptic anisotropy, radial inversion, boundary completion and O(2) rigidity require concrete integration and geometry absent from the compared general statements."
+        ],
+        "reasoning": "Credits generic theory and probability sampling laws while treating the explicitly evaluated metric as remaining mathematical claim.",
+        "searches": [
+          "Schneider full PDF Section 1",
+          "arxiv:2504.12866",
+          "Resultary chord models"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Schneider defines distances by the measure of lines meeting [x,y] and already proves geodesic segment construction in general.",
+          "The assigned line distribution is specifically the singular arcsine offset from uniform independent endpoints rather than translation-invariant Crofton line measure."
+        ],
+        "reasoning": "Known projective line-metric formulations subsume general metric/geodesic existence, which is acknowledged, but give no displayed exact model-specific anisotropy formula or disk isometry classification.",
+        "searches": [
+          "Schneider On integral geometry in projective Finsler spaces Section 1 full PDF",
+          "arxiv:1103.4088 Reconstruction of Crofton Measures from Projective Finsler Metrics",
+          "Resultary endpoint chord separation disk Finsler anisotropy queries"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bortolotto–Souza computes intersection positions for two random chords, whereas d(x,y) uses one random chord crossing a fixed segment.",
+          "Endpoint-chord midpoint boundary layer result treats rare events in a different observable."
+        ],
+        "reasoning": "No exact same kernel/isometry table found in the inspected material; neither title coincidence nor negative search establishes absolute novelty.",
+        "searches": [
+          "arxiv:2504.12866 Intersections of random chords of a circle",
+          "Resultary random chord midpoint boundary layer models"
+        ]
+      },
+      "rationale": "The general Crofton construction of Hilbert-fourth-problem projective Finsler metrics is fully credited. The explicitly sampled endpoint arcsine disk model, its local anisotropy ruler and global boundary/isometry rigidity are not established by the searched broad inverse-Crofton theorems or random-chord intersection distributions.",
+      "residual_risks": [
+        "Older integral geometry texts may compute the same arcsine endpoint chord metric under another name.",
+        "No Riemannian approximation or arbitrary-convex-body extension claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general line measure metric only; specialized endpoint measure and invariants not established in inspected section",
+          "evidence": [
+            "Section 1 explicitly constructs point distance by mass of intersecting lines and recovers straight geodesics"
+          ],
+          "identifier_or_url": "https://home.mathematik.uni-freiburg.de/rschnei/IG.proj.Finsler.pdf",
+          "material_read": "Full relevant opening/section on projective Finsler line-separation metric and straight geodesics",
+          "method": "Read full relevant source text and inspected PDF screenshot",
+          "title": "On integral geometry in projective Finsler spaces",
+          "trigger": "Generic Crofton metrics may dominate the claim"
+        },
+        {
+          "assessment": "Chord-crossing location distribution, not fixed-point pair separation metric",
+          "evidence": [
+            "No whole-document exclusion claimed; full text remains publication-priority check"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2504.12866",
+          "material_read": "Abstract, title and problem setup (two independent chords); full primary PDF not material-read in this run",
+          "method": "Abstract-level comparison only",
+          "title": "Intersections of random chords of a circle",
+          "trigger": "Same sampling law might supply kernel"
+        },
+        {
+          "assessment": "General inverse problem, not an explicit unit-disk endpoint distribution formula",
+          "evidence": [
+            "Potential older equivalent line-density computation remains a residual risk"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1103.4088",
+          "material_read": "Title/abstract and identifying dimension R3; full original text not material-read this run",
+          "method": "Contextual citation, no claim about uninspected sections",
+          "title": "Reconstruction of Crofton Measures from Projective Finsler Metrics in R3",
+          "trigger": "Inverse Crofton framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The endpoint-uniform chord is a canonical, historically distinguished Bertrand-paradox sampling law. Its separation distance gives a fully explicit and non-Riemannian projective Finsler disk whose local anisotropy uniquely identifies radius and whose global metric rigidly identifies O(2), concrete invariants useful in geometric probability and inverse metric reconstruction. These computations are not merely the textbook line-separation metric existence assertion.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://home.mathematik.uni-freiburg.de/rschnei/IG.proj.Finsler.pdf",
+    "https://arxiv.org/abs/1103.4088",
+    "https://arxiv.org/abs/1301.2524",
+    "https://arxiv.org/abs/2504.12866",
+    "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-boundary-layers-of-random-chord-midpoints-a-curvature-law-marked--9c3ddb068ac2"
+  ],
+  "disposition": "passed",
+  "final_claim": "Two independent uniform boundary endpoints of a unit-disk chord induce a Crofton-separation metric with explicit arcsine two-point kernel, strongly convex projective Finsler norm, radial/tangential ratio artanh(r)/arcsin(r) strictly recovering radius, center only locally isotropic point and no noncentral Riemannian indicatrix, closed disk completion and exact boundary quadratic angular metric, full completed isometry group O(2).",
+  "limitations": [
+    "Specific scope: Two independent uniform boundary endpoints of a unit-disk chord induce a Crofton-separation metric with explicit arcsine two-point kernel, strongly convex projective Finsler norm, radial/tangential ratio artanh(r)/arcsin(r) strictly recovering radius, center only locally isotropic point and no noncentral Riemannian indicatrix, closed disk completion and exact boundary quadratic angular metric, full completed isometry group O(2).",
+    "Bibliography searched but full exhaustive priority cannot be certified; named material read and residual risks identified.",
+    "Public metadata/privacy sanitization and status consistency not completed, so plan not_ready."
+  ],
+  "residual_risks": [
+    "General projective Crofton construction is classical and is not a novelty component.",
+    "Only some highly relevant original works were materially read; unindexed specialized formulas remain possible."
+  ],
+  "schema_version": 1
+}
