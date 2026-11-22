@@ -1,0 +1,196 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T09:00:48.985380Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From the actual package definitions, conditioning on which walk and index is updated gives E[epsilon(t+1)|epsilon(t)]=(I-L_m/(2m))epsilon(t) for one walk, where L_m is mixed Neumann/antisymmetric terminal Laplacian, diag 1,2,...,2,3 (m=1: [2]), off diag -1. IID centered starting increments give C=1^T P^t 1/m. Verified half-integer cosine ghost boundary eigenvectors and their squared projections 1/[2m^2 sin^2(theta/2)], all nonnegative bases and sum-one coefficients. Exact Green vector x_j=(m^2-j(j-1))/2 solves Lx=1, sum yields cubic formula. Fixed-k eigenvalue limit under t/m^3->s plus O((k-1/2)^-2) summable weights prove F(s), including s=0. F is continuous strictly decreasing (F(0)=1, F(infinity)=0), so every fixed threshold has unique cubic crossing. M=1 and extra-inert convention are correctly handled. Independently constructed full finite-state rational Markov kernels at m=1..7 for both update clocks, compared 12 lags per case to exact conditional expectations and numerical spectral formula, 350 checks; independent exact Git tree reconstruction and high-precision F threshold bisections support finite constants, not infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gonçalves–Jara–Marinho–Menezes (2021), introduction and Theorem 2.1, profile cutoff under two-ended continuous-time reservoir dynamics, with a citation to the one-end Neumann/Dirichlet spectral gap, not the discrete stationary endpoint covariance.",
+          "Gonçalves–Jara–Menezes–Neumann (arXiv:1810.05015) derives hydrodynamic fluctuation fields for a two-reservoir, slowed-boundary SSEP and spacetime correlation bounds, not the specified exact finite Markov-chain series.",
+          "The November 2 Resultary sitewise-reservoir covariance theorem gives static total-number variance and two-particle simultaneous spatial covariance under baths at all sites, not this temporal autocorrelation with one terminal reservoir.",
+          "Franco–Franco–Gonçalves arXiv:2604.02579 considers finite reservoirs and Wentzell hydrodynamic limits, with different microscopic boundary rules."
+        ],
+        "reasoning": "Broader mixing and hydrodynamic results encompass related diffusion mechanisms, but a global mixing-time estimate or stationary spatial covariance does not determine every finite-lag covariance, its exact Green sum, and its universal normalized profile. Duality supplies a reduction but not an already stated complete quantitative resolution. None of the inspected stronger statements entails the final formula without extra mathematical computation; no negative conclusion is drawn from abstracts alone.",
+        "searches": [
+          "Resultary: one reservoir symmetric exclusion finite chain covariance integrated correlation endpoint",
+          "Gonçalves–Jara–Marinho–Menezes arXiv:2110.06353",
+          "Gonçalves–Jara–Menezes–Neumann arXiv:1810.05015",
+          "Floreani/Astoquillca/González-Casanova arXiv:2307.02481",
+          "Resultary: spectral fluctuation and exact covariance laws for exclusion with sitewise reservoirs"
+        ]
+      },
+      "checked_sources": [
+        "Wei arXiv:2610.03730v1 (full PDF sections and author corrected code)",
+        "Santos–Schütz 2001 DOI 10.1103/PhysRevE.64.036107 (author OA PDF)",
+        "Gantert–Nestoridi–Schmid arXiv:2003.03781v4 (primary full-text relevant sections)",
+        "Gonçalves–Jara–Marinho–Menezes arXiv:2110.06353",
+        "Gonçalves–Jara–Menezes–Neumann arXiv:1810.05015",
+        "Franco–Franco–Gonçalves arXiv:2604.02579",
+        "Astoquillca–Floreani–González-Casanova arXiv:2307.02481",
+        "Resultary 2026/11/2 spectral fluctuation covariance for sitewise reservoirs (full RESULT)",
+        "Resultary 2026/11/8 spatial excess current (full RESULT)",
+        "Resultary 2026/11/8 same-title record (self-match, not prior independent coverage)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wei, Conjecture 4, presents endpoint and crossing decorrelation exponents as questions and supplies regressions; it does not give an exact endpoint answer.",
+          "Gantert–Nestoridi–Schmid Theorem 1.2 establishes the single-reservoir continuous-time chain mixing scale N^2 log N; no exact stationary endpoint covariance law is asserted.",
+          "Santos–Schütz studies Fourier modes and time-dependent exclusion correlations, with a semi-infinite nonequilibrium focus, not the discrete-time finite symmetric normalized total-increment observable."
+        ],
+        "reasoning": "The new formula confirms cubic exponent for the explicitly specified discrete-time stationary walk-endpoint observable and yields a complete normalized limiting decay curve and integrated constant. Earlier general exclusion methods motivate the proof but do not alone imply the particular exact quantities as stated. The crossing-event exponent, independent joint geometry and total-variation mixing remain unproved. An unknown direct classical equivalent is disclosed as residual risk.",
+        "searches": [
+          "Wei arXiv:2610.03730v1 Sections 4–6, Appendix A, Conjecture 4",
+          "Santos–Schütz 2001 full author-hosted PDF Sections II–V",
+          "Gantert–Nestoridi–Schmid 2022 arXiv:2003.03781 Theorems 1.1–1.2",
+          "Gonçalves–Jara–Menezes–Neumann 2018 arXiv:1810.05015 Sections 1–2",
+          "Resultary relevant SSEP/mode covariance findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under sign-to-occupation encoding, swapping adjacent increments and flipping the final increment is finite SSEP with fair-density refresh at one endpoint; its stationary initial law is Bernoulli product.",
+          "Gantert–Nestoridi–Schmid (arXiv:2003.03781), Theorem 1.2 uses precisely the single-open-end SSEP class but states total-variation mixing-time cutoff, not stationary total-occupation two-time covariance.",
+          "Santos–Schütz (Phys Rev E 64, 036107) uses discrete Fourier modes of boundary-driven exclusion; Section V concerns particle-number change/current in continuous time, not this stationary finite discrete-time covariance."
+        ],
+        "reasoning": "The same dynamics is a well-known one-reservoir exclusion process and its first-moment heat operator is classical, so diagonalization as a technique is not claimed original. The mathematical final claim specifies an exact discrete-time stationary total-increment covariance at every finite m and lag, its Green sum, and a full cubic scaling profile. The inspected equivalent formulations did not state that package or logically deliver its exact normalization without evaluating the finite modes and integrated Green function. Classical unindexed specializations remain a priority risk.",
+        "searches": [
+          "Resultary: meandric peak valley walk endpoint autocorrelation cubic time exponent half-integer cosine stationary boundary flip Wei",
+          "Resultary: exact endpoint decorrelation meandric walk cubic scale",
+          "Web: one boundary reservoir symmetric simple exclusion finite path discrete time total particle number autocorrelation exact spectral weights cubic relaxation",
+          "arXiv:2003.03781v4; doi:10.1103/PhysRevE.64.036107"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Wei (2026) numerically estimates power-law endpoint decorrelation in tables and explicitly conjectures an unspecified exponent; the numerical data are not exact all-m all-t correlation values.",
+          "The high-ranked Resultary record with the same final theorem is a publication of the assigned source itself, not an independent predecessor; other relevant results report unrelated observables.",
+          "The author's corrected code samples j from 0 through m and includes an inert j=0, a minor update-clock variation explicitly handled by the submitted claim."
+        ],
+        "reasoning": "The numerical threshold fitting table and executable simulation cannot substitute for an exact closed finite spectral formula, integrated polynomial or limiting function. An identical all-dimensions/all-lags table was not identified, but absence from a search index is not proof of priority.",
+        "searches": [
+          "Wei arXiv:2610.03730v1, Conjecture 4 and numerical tables for walk endpoint mixing",
+          "Resultary: exact endpoint decorrelation meandric walk cubic scale",
+          "Web: meandric peak valley endpoint mixing exponent 3 exact table",
+          "David Wei author-public repository mixing_times_corrected.py"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact solution of the endpoint-correlation half of Wei's explicit open exponent conjecture: a normalized finite-m all-lag cosine expansion, integrated cubic polynomial, and nontrivial complete crossover profile. Classical one-reservoir SSEP and Fourier methods are established; inspected prior mixing, hydrodynamic and static/spatial covariance theorems have different precise conclusions. Potential unindexed exact exclusion reformulation is a genuine priority caveat, not a claim of absolute novelty.",
+      "residual_risks": [
+        "An unindexed or older explicit finite one-reservoir SSEP time covariance/Green-function mode series could cover the result under alternate notation; historical priority is not certified.",
+        "The finite-time constants change with whether inert index 0 is sampled; both conventions are carefully distinguished.",
+        "Wei's conjecture also asks about crossing events; those are not settled by endpoint-only estimates.",
+        "No claim of full-chain total-variation mixing or independence of walk endpoints and planar-map events; published results on global mixing are not logically equivalent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines precisely the two-walk process and leaves endpoint exponent conjectural with numerical fits; does not establish the submitted finite exact series, Green sum or cubic scaling profile.",
+          "evidence": [
+            "https://arxiv.org/pdf/2610.03730v1",
+            "https://github.com/davidw289/Meandric-System-Numerical-Analysis/blob/main/mixing_times_corrected.py"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.03730v1",
+          "material_read": "Full-text PDF: microscopic update rules, Sections 4–6 including Conjecture 4 and numerical endpoint threshold tables, appendix simulation model; author implementation's update and endpoint-correlation lines 300–450",
+          "method": "Inspected primary arXiv PDF, page images and the author's corrected Python implementation at github.com/davidw289/Meandric-System-Numerical-Analysis",
+          "title": "Uniform meandric systems as percolation on planar maps: conjectures and a numerical study",
+          "trigger": "Original peak/valley/free-terminal dynamics and explicit endpoint exponent conjecture"
+        },
+        {
+          "assessment": "Supplies known exclusion spectral technology, not the finite stationary discrete-time total endpoint covariance formula and threshold profile for the submitted update clock.",
+          "evidence": [
+            "https://juser.fz-juelich.de/record/46852/files/96.pdf"
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.64.036107",
+          "material_read": "Author-hosted 2001 PDF: abstract and Sections I–II finite exclusion generator/Fourier construction, Sections III–IV time-dependent semi-infinite relaxation, Section V net-particle-current fluctuations; PDF page image",
+          "method": "Opened and inspected full OA PDF at https://juser.fz-juelich.de/record/46852/files/96.pdf",
+          "title": "Exact time-dependent correlation functions for the symmetric exclusion process with open boundary",
+          "trigger": "Classical Fourier exclusion correlation theorem, potential dominating prior"
+        },
+        {
+          "assessment": "Its one-open-end SSEP class matches the encoding in continuous time and yields total-variation cutoff N^2 log N; does not assert an exact all-lag stationary discrete-time endpoint covariance, integrated value or full decorrelation profile.",
+          "evidence": [
+            "https://arxiv.org/pdf/2003.03781"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2003.03781v4",
+          "material_read": "45-page primary PDF: introduction, full model and Theorems 1.1–1.2, one-reservoir assumptions and Section 3 eigenfunction lower-bound argument, relevant theorem page image",
+          "method": "Primary arXiv full-text examination with targeted theorem/eigenmode text and page-image inspection",
+          "title": "Mixing times for the simple exclusion process with open boundaries",
+          "trigger": "Single-reservoir symmetric exclusion model with exact mixed boundary and possibly stronger mixing theorem"
+        },
+        {
+          "assessment": "Gaussian total-variation cutoff for continuous-time two-ended reservoir SSEP is distinct from stationary endpoint autocorrelation in discrete-time single-end dynamics.",
+          "evidence": [
+            "https://arxiv.org/pdf/2110.06353"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2110.06353",
+          "material_read": "Full primary PDF introduction, spectral-gap comparison of one/two reservoirs, main profile-cutoff formulation, bibliography; inspected PDF page image",
+          "method": "Accessed primary arXiv PDF and compared observables and normalization",
+          "title": "Sharp Convergence to Equilibrium for the SSEP with Reservoirs",
+          "trigger": "General sharp mixing profile could dominate endpoint decay profile"
+        },
+        {
+          "assessment": "Two-boundary slowed-reservoir fluctuation fields and spacetime estimates do not state the finite exact discrete-time single-end total-mass correlation series.",
+          "evidence": [
+            "https://arxiv.org/pdf/1810.05015"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1810.05015",
+          "material_read": "Original arXiv full-text introduction, stationary product-measure discussion, two-boundary hydrodynamic fluctuation objectives and boundary-regime definitions; inspected PDF page image",
+          "method": "Read primary arXiv full-text sections on assumptions/theorems and compared one-end clock and observable",
+          "title": "Non-equilibrium and stationary fluctuations for the SSEP with slow boundary",
+          "trigger": "Prior general time-space covariance/fluctuation-limit theorem on boundary SSEP"
+        },
+        {
+          "assessment": "Different finite-capacity reservoir and hydrodynamic limit; no same finite discrete-time endpoint observable or exact series.",
+          "evidence": [
+            "https://arxiv.org/pdf/2604.02579"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.02579",
+          "material_read": "Full arXiv manuscript introduction and model/boundary-regime sections, including PDF image; compared boundary finite capacity with fair fixed bath",
+          "method": "Opened lawful OA arXiv full text",
+          "title": "Finite reservoirs lead to Wentzell boundary conditions for independent random walks and exclusion process",
+          "trigger": "Recent one-reservoir exclusion result potentially covering same scale"
+        },
+        {
+          "assessment": "Provides stationary spatial joint moments for two-reservoir systems, not the submitted full finite-time two-time stationary covariance and cubic crossover.",
+          "evidence": [
+            "https://arxiv.org/pdf/2307.02481"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.02481",
+          "material_read": "Updated arXiv full-text introduction/model and stationary absorption/duality theorem framing; PDF page image and targeted text searches",
+          "method": "Inspected lawful OA arXiv PDF",
+          "title": "Non-equilibrium steady state of symmetric exclusion process with reservoirs",
+          "trigger": "Duality formula might implicitly dominate endpoint covariance"
+        },
+        {
+          "assessment": "Stationary same-time spatial covariances under baths at every site and edge-response, not one-end temporal endpoint covariance; does not imply claimed all-lag series by a stated theorem.",
+          "evidence": [
+            "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-spectral-fluctuation-and-exact-covariance-laws-for-exclusion-wit--63ed21b70fd1/RESULT.md"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-spectral-fluctuation-and-exact-covariance-laws-for-exclusion-wit--63ed21b70fd1/RESULT.md",
+          "material_read": "Full published RESULT.md: all-graph stationary mean/variance, edge response, two-particle spatial Green formula and complete-graph covariance",
+          "method": "Read full primary published theorem and proof through GitHub file content",
+          "title": "Spectral fluctuation and exact covariance laws for exclusion with sitewise reservoirs",
+          "trigger": "Related published exact covariance formula in SSEP"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This exact, size-uniform endpoint time-correlation law answers a specifically posed recent numerical exponent question for a natural two-walk representation of meandric systems. The nontrivial full scaling curve, lag-integral Green polynomial, explicit threshold constants and sampling-clock distinction are mathematically useful benchmarks for isolating endpoint transport from as-yet-unanswered crossing-event fluctuations. Even though Fourier diagonalization/exclusion duality are classical methods, the precise conjecture resolution and quantitative normalizations are not a mere renaming or textbook tautology.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every integer m>=1, stationary independent fair +/-1 walk increments with top/bottom and uniform-index local swap/free-terminal flip dynamics have normalized top-endpoint covariance C_m(t)=sum_{k=1}^m [2m^2 sin^2((k-1/2)pi/(2m))]^{-1}[1-(1-cos((k-1/2)pi/m))/m]^t, all integer t>=0 (including m=1, t=0). Its lag sum is m(2m^2+1)/3. For all t_m/m^3->s in [0,infinity) the limit is F(s)=sum_{k>=1}2 exp(-pi^2(k-1/2)^2 s/2)/(pi^2(k-1/2)^2), with nontrivial threshold scales m^3. If an additional inert index 0 is sampled, replace m by m+1 only in the decay eigenvalue denominators, sum=(m+1)(2m^2+1)/3 and same F.",
+  "limitations": [
+    "Finite-state numerical checks are bounded to m<=7 and lags<12; they are not infinite-volume proofs.",
+    "Novelty is best-of-knowledge with real risk of an unindexed older exact finite SSEP correlation formula; no independence or outside certification claimed.",
+    "Only stationary one-walk endpoint autocorrelation under terminal flip and specified two-walk update clock; neither crossing-event decorrelation nor overall full-meandric-map mixing is proved.",
+    "Asymptotic profile is for finite scaled time s>=0 and fixed nontrivial thresholds, not uniform over unbounded s.",
+    "The inert-index clock changes finite m constants but retains the same limiting profile."
+  ],
+  "schema_version": 1
+}

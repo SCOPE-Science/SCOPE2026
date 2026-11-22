@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The random-walk increment process is exactly a symmetric swap chain with a boundary spin flip and an inert second-walk choice. Direct conditional expectation yields the finite tridiagonal first-moment operator \(I-L_m/(2m)\), including the terminal coefficient and \(m=1\) case. Its half-integer discrete-cosine eigenvectors diagonalize the operator; orthogonality supplies positive normalized spectral weights. The explicit Green vector solves the full finite difference equation, giving the integrated-correlation identity. Fixed-mode asymptotics plus a summable weight bound prove the cubic scaling limit at all fixed scaled times, including zero; strict decay of the limit proves threshold asymptotics. The code performs 21,378 exact/finite numerical diagnostic assertions, with no use of simulation as a substitute for the infinite proof.
+PASS
 
-## Originality — PASS (best-knowledge, with residual risk)
+From the actual package definitions, conditioning on which walk and index is updated gives E[epsilon(t+1)|epsilon(t)]=(I-L_m/(2m))epsilon(t) for one walk, where L_m is mixed Neumann/antisymmetric terminal Laplacian, diag 1,2,...,2,3 (m=1: [2]), off diag -1. IID centered starting increments give C=1^T P^t 1/m. Verified half-integer cosine ghost boundary eigenvectors and their squared projections 1/[2m^2 sin^2(theta/2)], all nonnegative bases and sum-one coefficients. Exact Green vector x_j=(m^2-j(j-1))/2 solves Lx=1, sum yields cubic formula. Fixed-k eigenvalue limit under t/m^3->s plus O((k-1/2)^-2) summable weights prove F(s), including s=0. F is continuous strictly decreasing (F(0)=1, F(infinity)=0), so every fixed threshold has unique cubic crossing. M=1 and extra-inert convention are correctly handled. Independently constructed full finite-state rational Markov kernels at m=1..7 for both update clocks, compared 12 lags per case to exact conditional expectations and numerical spectral formula, 350 checks; independent exact Git tree reconstruction and high-precision F threshold bisections support finite constants, not infinite proof.
 
-The closest source, Wei [1], poses the endpoint exponent \(\beta\) in Conjecture 4 and supplies only numerical fits around \(3\), not the exact finite-time series, exact polynomial sum or limiting profile. The source's own code samples an extra inert position; the finite-time normalization of that convention is handled explicitly by the present theorem. Santos–Schütz [2] treats a related exclusion process but focuses its main exact correlations on a semi-infinite relaxing chain; its statements do not yield this finite-volume stationary discrete-time endpoint result without a separate reduction and diagonalization. The finite-reservoir work [3] concerns different boundary rules and macroscopic limits. Targeted published-research and index searches identified no same-observable coverage. Residual risk: classical finite-chain exclusion spectral methods may contain an equivalent formula under other terminology, and historical uniqueness is not proved.
+## originality
 
-## Value — PASS
+PASS
 
-The new quantitative statement resolves the walk-endpoint half of an explicitly posed two-exponent problem arising from simulations of a nontrivial percolation/planar-map representation. Determining \(\beta=3\) together with a full decay curve, explicit endpoint-threshold constants and an exact integrated correlation goes beyond a routine model restatement; it provides a benchmark that separates endpoint transport from the still-open crossing-event behavior. The reduction shows concretely why a single boundary reservoir produces cubic single-update decorrelation despite bulk local swaps.
+Best-of-knowledge original exact solution of the endpoint-correlation half of Wei's explicit open exponent conjecture: a normalized finite-m all-lag cosine expansion, integrated cubic polynomial, and nontrivial complete crossover profile. Classical one-reservoir SSEP and Fourier methods are established; inspected prior mixing, hydrodynamic and static/spatial covariance theorems have different precise conclusions. Potential unindexed exact exclusion reformulation is a genuine priority caveat, not a claim of absolute novelty.
 
-## Sources and limitations
+## value
 
-Wei, arXiv:2610.03730v1 (Sections 4–6, Appendix A, and public implementation); Santos and Schütz, Phys. Rev. E 64 (2001), 036107 (full OA text); Franco, Franco and Gonçalves, arXiv:2604.02579 (abstract and scope). The result assumes the terminal free-end flip, initial fair independent increments, and the precise update clock. It does not prove crossing decorrelation, independent scaling limits or overall mixing. The strongest residual priority risk is an unrecognized classical equivalent stationary SSEP finite-volume mode expansion.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This exact, size-uniform endpoint time-correlation law answers a specifically posed recent numerical exponent question for a natural two-walk representation of meandric systems. The nontrivial full scaling curve, lag-integral Green polynomial, explicit threshold constants and sampling-clock distinction are mathematically useful benchmarks for isolating endpoint transport from as-yet-unanswered crossing-event fluctuations. Even though Fourier diagonalization/exclusion duality are classical methods, the precise conjecture resolution and quantitative normalizations are not a mere renaming or textbook tautology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
