@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For all m>=2, exact distinct-ending-symbol recurrence gives determinant-one unipotent maps on primitive mod-m columns. Legal blocks 0 and 10 generate SL2(Z/m), including all inverses by finite-order positivity, so every primitive counter column is reachable with each legal last-symbol flag. Primitive rows give separating legal suffixes for every distinct same-flag pair; an initial 1 distinguishes flags and accepted continuations distinguish the sink. CRT counts primitive columns as J_2(m). The independent finite checker minimizes m=2..20 and performs 38,893 literal-subsequence acceptance checks; the algebraic proof covers all moduli.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kovačević–Vukobratović 2021, arXiv:2105.04617, examines constrained-run information rates, not modular distinct-subsequence state minimization.",
+        "Earlier unrestricted modular distinct-subsequence counting has J_2(m) primitive classes, whereas this result has 2J_2(m)+1 run-constrained classes."
+      ],
+      "reasoning": "The unconstrained result neither implies a lower bound for the intersection language nor proves whether last-symbol copies merge. A product upper bound is not a sharp minimality theorem; complete generation by safe 0,10 blocks and safe suffixes are independently proved here.",
+      "searches": [
+        "Radoslaw Zak coprime subsequence pairs restricted run length automaton exact m square product",
+        "distinct binary subsequences modulo m no adjacent ones exact state complexity fibonacci automaton",
+        "state complexity modular distinct subsequence counts Fibonacci words",
+        "\"runlength limited\" \"distinct subsequences\" automaton"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2210.00342v1",
+      "https://arxiv.org/abs/2105.04617",
+      "https://arxiv.org/abs/1006.4843",
+      "2026/11/8/SCOPE-exact-state-complexity-of-modular-scattered-zero-power-one-count--9df1828ce330",
+      "2026/11/8/SCOPE-exact-moore-state-complexity-of-modular-scattered-0011-counts--f0fa64081c4c",
+      "2026/10/26/SCOPE-prime-power-staircases-in-modular-scattered-subsequence-automata--b8dbc861b2e5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Żak 2022 proves the integer word-to-coprime pair correspondence and investigates fixed integer counts, not this constrained modular minimal DFA.",
+        "Kovačević–Vukobratović 2021 studies runlength constraints but does not derive the modular all-prime-factor state formula.",
+        "Relevant indexed fixed-pattern modulo automata are about counts of embeddings of prescribed subsequence words."
+      ],
+      "reasoning": "None of the inspected prior claims contains both the distinct-word subsequence count modulo arbitrary m and avoidance of 11, so none entails the sharp 2J_2(m)+1 state count as stated. The closest prior unrestricted result describes only the modular count component; the new proof must show the restricted legal-block group generation and cross-layer Myhill–Nerode separation.",
+      "searches": [
+        "arxiv:2210.00342 full text binary subsequences coprime pairs",
+        "arxiv:2105.04617 full text runlength-limited constrained sequences",
+        "minimal deterministic automaton number of distinct scattered subsequences modulo m constrained avoid 11 Fibonacci language",
+        "SL2 modular primitive pairs distinct subsequence counting modulo m no consecutive ones Myhill Nerode",
+        "regular language forbidden 11 with count of distinct subsequences congruent to zero mod m state complexity",
+        "Radoslaw Zak coprime subsequence pairs restricted run length automaton exact m square product"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Żak 2022, arXiv:2210.00342, gives integer coprime-pair coordinates, not run-forbidden modular minimization.",
+        "Indexed close match: 2026/11/8/SCOPE-exact-state-complexity-of-modular-scattered-zero-power-one-count--9df1828ce330 counts embeddings of a fixed pattern 0^d1, not distinct subsequence words."
+      ],
+      "reasoning": "Changing from integer to modular coprime pairs and forbidding 11 is not simply a rephrasing: legal suffixes form a strict regular language; the two distinct recent-letter layers require a new reachability and separation argument. Fixed-pattern scattered-occurrence counts are a different output function.",
+      "searches": [
+        "minimal deterministic automaton number of distinct scattered subsequences modulo m constrained avoid 11 Fibonacci language",
+        "SL2 modular primitive pairs distinct subsequence counting modulo m no consecutive ones Myhill Nerode",
+        "regular language forbidden 11 with count of distinct subsequences congruent to zero mod m state complexity",
+        "\"distinct subsequences\" \"DFA\" \"no adjacent ones\"",
+        "\"subsequence\" \"run-length limited\" \"modulo\" \"state complexity\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact indexed mathematical result with the same 2J_2(m)+1 language state complexity was identified.",
+        "Finite values obtained by new checker for m=2 through 20 reproduce the proved formula but are not a preexisting database classification."
+      ],
+      "reasoning": "Matching counts for small moduli are not enough to imply the all-modulus theorem; the argument treats all composite integers through SL2 over finite residue rings and CRT.",
+      "searches": [
+        "\"2J_2(m)+1\" automaton",
+        "\"Jordan totient\" \"adjacent ones\" \"subsequences\"",
+        "minimal deterministic automaton number of distinct scattered subsequences modulo m constrained avoid 11 Fibonacci language",
+        "SL2 modular primitive pairs distinct subsequence counting modulo m no consecutive ones Myhill Nerode"
+      ]
+    },
+    "rationale": "The integer coprime-pair precursor and the run-constrained-word precursor were compared with the proposed combined-language theorem. The unrestricted modular primitive-state result does not imply the exact no-11 state complexity, because legal suffixes and last-symbol contexts change the equivalence relation. Indexed close matches count embeddings of fixed patterns, not all distinct subsequence words. No decisive implication or equivalent classification identified; priority remains subject to indexed-source limitations.",
+    "residual_risks": [
+      "Unindexed equivalent publications or alternate implicit consequences of broad automata theorems may exist.",
+      "Independent review of the algebraic state-minimality proof and historical priority has not yet been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the counting coordinates but does not classify mod-m minimal automata under forbidden adjacent ones.",
+        "evidence": [
+          "arxiv:2210.00342 (2022-10-01), coprime pair correspondence, recurrence and primitive pairs."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2210.00342v1",
+        "material_read": "Full text sections on recurrence, integer coprime pairs, and word concatenation; examined theorem statements and scope.",
+        "method": "Read accessible original arXiv HTML text and compared its objects and conclusions to the constrained modular recognizer.",
+        "title": "Finding binary words with a given number of subsequences",
+        "trigger": "The central exact distinct-subsequence integer pair correspondence potentially entails modular automata."
+      },
+      {
+        "assessment": "Runlength-limited enumeration/rates do not determine the minimal DFA for modular distinct-subsequence count.",
+        "evidence": [
+          "arxiv:2105.04617 (2021-05-10), RLL constrained-word models and asymptotic rates."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2105.04617",
+        "material_read": "Accessible source text and definitions/results about runlength-limited constraints and rates.",
+        "method": "Read publicly accessible preprint text and compare its run restriction and optimization outcomes with DFA modular counting.",
+        "title": "Asymptotic Behavior and Typicality Properties of Runlength-Limited Sequences",
+        "trigger": "Primary literature for the hard no-adjacent-one run constraint."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6dcb469e-388b-4b3b-b32a-57e7b18190c9",
+  "value": {
+    "rationale": "The sharp two-parameter deterministic memory law for simultaneous constrained-run avoidance and modular distinct-subsequence counting is a natural complete classification; the jump from J_2(m) primitive counter states to two independently necessary live layers plus a sink is a structural nontrivial effect of local constraints, not an automatic product construction or a small numerical gain.",
+    "status": "PASS"
+  }
+}
