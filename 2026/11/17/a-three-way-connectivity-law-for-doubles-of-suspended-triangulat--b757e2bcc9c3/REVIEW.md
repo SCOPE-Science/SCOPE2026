@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The claim has a direct combinatorial proof: opposite-edge partitions of suspended triangles identify the entire double with a doubled incidence graph of the opposition multigraph. Connectivity and the precise integral wedge ranks follow from graph theory, while propagation of component labels across the connected facet-dual graph proves the at-most-three law and the exact face-transversal count. The proper three-coloring equivalence is established separately, and the degree-even criterion is restricted to the simply connected two-sphere. Direct reconstruction from tetrahedra, explicit small examples, sphere edge-flip tests and an independent proper-coloring backtracker corroborate the proof.
+## correctness
 
-## Originality
-The closest primary source is Lesh–Schreiner–Wahl, arXiv:2506.10436, introducing doubling and proving a connectivity lower bound but not this complete suspended-surface classification. Recoloring research on triangulated spheres, arXiv:2210.17105, treats three-colorability but not doubling. Prior special-case double calculations for joins of cycles and stacked three-spheres have different scopes. The current theorem covers every connected closed triangulated surface, identifies all componentwise circle ranks, and introduces the exact-transversal \(0,1,3\) rule. Search did not establish formal priority against all earlier graph-theoretic formulations; an implicit equivalent remains possible.
+PASS
 
-## Value
-The number of connected components of a simplicial double of a three-dimensional suspension is not determined by dimension or sphere homotopy type alone. This theorem explains precisely which combinatorial structure controls it, proves that the only possibilities are one, two and three, and gives all integral circle ranks. Each case is realized by natural triangulated spheres, with a uniform theorem also covering surfaces of nonzero genus. The face-transversal characterization provides a structural and independently testable criterion rather than a list of computations.
+For a closed surface, 3f=2m and m=3(n-chi). Every original edge ab has two incident triangles abc,abd and defines indexed edge cd of the opposition multigraph. In the suspension double, base-edge vertex ab has four neighbors +c,-c,+d,-d: exact bipartite incidence graph with edge and duplicated vertex sides. Its component i has e_i+2v_i vertices, 4e_i edges and integral circle rank 3e_i-2v_i+1; summing gives 7n-9chi+q. Connected face-dual graph propagates the multiset of three opposition-component labels, hence q<=3 and exact triangle transversal counts 0,1,3; q=3 iff three-colorability. Sphere coloring by even-degree link propagation uses simply connected dual surface. Independently constructed tetrahedral/opposition and octahedral instances, confirming q=1,3 and their ranks/transversals; finite tests corroborate the general incidence proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The opposite-third-vertex component criterion gives an explicit all-surface, integral circle-wedge decomposition not supplied by prior general double-connectivity theorems. The transversals/classical 3-color connections are background or consequences, not claimed as wholly new in isolation.
+
+## value
+
+PASS
+
+Provides an exact integral homotopy classification of a natural double operation on the entire suspension-of-closed-surface class, with a sharply bounded number of components and a concrete transversal/colorability criterion. The result can compute ranks from ordinary graph connectivity without full simplicial homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
