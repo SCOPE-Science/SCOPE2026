@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The stationary OU velocity is Gaussian with covariance Theta I. Generator identities solve the two X_1-V cross moments and the stationary variance; a forced scalar lag equation integrates to the displayed exact covariance. A positive prefactor governs r<gamma, a nonzero slower cyclotron sinusoid governs r>gamma, and an exact trigonometric amplitude gives the gamma/sqrt(2) critical endpoint. The proof handles every positive rate and every lag without extrapolating finite numerics. 436 independent computational comparisons passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Olsen/Löwen 2024, Sections 2–3, reset velocity but retain position and derive diffusion coefficients, unlike the stationary position covariance here.",
+        "The 2020 magnetic active resetting article derives density, polarization, flux and first-passage metrics."
+      ],
+      "reasoning": "Although general linear-generator and Ornstein–Uhlenbeck methods apply, the cited published theorems under their stated assumptions do not entail the present sharp critical tangencies and infinite sign-change boundary. An as-yet-unidentified stronger theorem remains a residual risk.",
+      "searches": [
+        "Lorentz force stochastic resetting inertial particle position only velocity persistent autocorrelation",
+        "arxiv:2401.12685",
+        "arxiv:2010.02103"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1812.07227",
+      "https://arxiv.org/abs/2010.02103",
+      "https://arxiv.org/html/2401.12685v2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gupta 2018 supplies stationary 1D marginal and finite-time position distributions; adding a magnetic matrix changes the velocity spectrum and the late-lag sign mechanism.",
+        "Abdoli/Sharma 2020 analyze reset-to-axis density, current and first-passage for active particles; those outcomes do not determine a fully-reset inertial planar autocovariance.",
+        "Olsen/Löwen 2024 treat velocity-reset transport, the inverse reset channel."
+      ],
+      "reasoning": "The mathematical object, reset operator, and observable all differ from the closest statements. A resolvent calculation from known techniques is required; the exact nonnegative tangency boundary is not a special case of the compared published conclusions.",
+      "searches": [
+        "arxiv:1812.07227",
+        "arxiv:2010.02103",
+        "arxiv:2401.12685",
+        "Lorentz force stochastic resetting inertial particle position only velocity persistent autocorrelation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The scalar covariance is a linear combination of the position-reset and velocity-memory semigroups, unlike the stationary one-point distribution problem of Gupta (2018).",
+        "Abdoli/Sharma use resetting to a line, whereas here both planar coordinates return to zero while velocity remains unchanged."
+      ],
+      "reasoning": "The same sign classification would require a theorem on the two-time covariance of an unreset rotating inertial velocity coupled to fully reset position; none appears in the inspected antecedents.",
+      "searches": [
+        "Lorentz force stochastic resetting inertial particle position only velocity persistent autocorrelation",
+        "arxiv:1812.07227",
+        "arxiv:2010.02103"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The checked articles contain no table enumerating the parameter conditions of the present time-lag covariance for complete planar position-only resets."
+      ],
+      "reasoning": "The claim is an infinite-time sign-phase classification of an explicit correlation function, not a finite constant in a standard tabulation; relevant tables and results were compared by physical model and implication, not by title.",
+      "searches": [
+        "Lorentz force stochastic resetting inertial particle position only velocity persistent autocorrelation",
+        "arxiv:1812.07227",
+        "arxiv:2010.02103",
+        "arxiv:2401.12685"
+      ]
+    },
+    "rationale": "The underlying underdamped reset-position mechanism and standard OU resolvent are known. The inspected primary articles treat one-dimensional stationary position laws (Gupta), reset-to-line magnetic active transport and first-passage properties (Abdoli/Sharma), and the opposite channel of velocity resetting (Olsen/Löwen). None of their inspected claims implies the stated full-plane positional autocovariance sign classification. Implicit broader spectral methods or literature not identified remain priority risks.",
+    "residual_risks": [
+      "Generic linear Markov semigroup results may implicitly subsume the covariance calculation and sign classification without using the model-specific terminology.",
+      "Theoretical originality is supported by comparisons of accessible relevant primary results, not by an exhaustive proof of absence from all literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest baseline for partial position resets; no magnetic planar lag-covariance sign classification",
+        "evidence": [
+          "arXiv:1812.07227 Sections 2–4, especially stationary distribution calculations"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1812.07227",
+        "material_read": "Abstract, model, stationary propagator/distribution and relaxation sections in full-text HTML",
+        "method": "Direct inspection of arXiv full-text article and mathematical model/results",
+        "title": "Stochastic resetting in underdamped Brownian motion",
+        "trigger": "Same underdamped position-only reset mechanism"
+      },
+      {
+        "assessment": "Uses resetting to axis, active propulsion, density/current/first-passage observables, not the present full planar inertial lag covariance",
+        "evidence": [
+          "arXiv:2010.02103 Sections 2–6 and model equations"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2010.02103",
+        "material_read": "Model and theory, uniform/inhomogeneous field results, first passage and conclusions in complete accessible arXiv HTML",
+        "method": "Direct inspection of model/reset operator and analytical results",
+        "title": "Stochastic resetting of active Brownian particles with Lorentz force",
+        "trigger": "Combines external magnetic field with stochastic resetting"
+      },
+      {
+        "assessment": "Velocity-only resetting with position unreset; cannot yield stationary fully-position-reset covariance by an immediate specialization",
+        "evidence": [
+          "arXiv:2401.12685v2 Sections 2–3, Eq. (24), Eq. (32)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2401.12685v2",
+        "material_read": "Full-text HTML introduction, propagator method, inertial transport Section 3 and discussion of reset channel",
+        "method": "Direct inspection of assumptions and derived effective-diffusion statements",
+        "title": "Dynamics of inertial particles under velocity resetting",
+        "trigger": "Related coupled position/velocity partial resetting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7dc5802b-c275-4865-a637-b3ed09ad6a9f",
+  "value": {
+    "rationale": "A Lorentz force preserves velocity rotation through spatial resets, creating a motivated physical question whether a reset stationary signal can display infinitely many anticorrelations. This result gives an exact exhaustive phase boundary and a distinct tangential-zero equality case at the natural relaxation-rate resonance, rather than an arbitrary parameter slice or a restatement of the reset marginal.",
+    "status": "PASS"
+  }
+}
