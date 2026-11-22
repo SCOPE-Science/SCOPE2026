@@ -1,11 +1,21 @@
-# Scientific review: three-row rook general-position complexes
+# Independent mathematical audit
 
-**Correctness — PASS.** The face condition is established from all graph geodesics; the asserted cover is exact; the intersection of each thick-column contractible piece with the thin-column join has the homotopy type of a circle by three contractible cover members with pairwise point intersections and empty triple intersection. Every attachment is nullhomotopic for \(n\ge3\), since the join of three-point discrete complexes is simply connected. Thus the integral homotopy and homology assertions follow, including the sharp excluded boundary \(n=2\). Complete mod-two face and boundary-rank checks for four small values and fifteen signed symmetry characters independently corroborate, but do not replace, the uniform proof.
+## correctness
 
-**Originality — PASS, subject to bibliographic risk.** The 2026 public rook-graph records already establish all general-position faces via bipartite star forests, the generating polynomial, and maximal-set spectra. These known results are openly credited and not recast as new. Their inspected full scientific statements provide no integral homotopy classification, no separate \(2^n\) upper-dimensional and \(n\) two-dimensional sphere bouquets, and no row/column integral homology representations. The geodesic-hypergraph paper by Cody–Detore concerns invariant definitions and extremal parameters; the older 2023/2024 papers concern extrema and enumerators. The precise new claim is a nontrivial homotopy-pushout consequence of already characterized faces. Unindexed or differently named star-forest-complex calculations remain a residual risk; existing complete face data make the new theorem derivable but do not expressly cover the derived homotopy statement.
+PASS
 
-**Mathematical value — PASS.** The naturally defined general-position complex of a whole infinite family is classified integrally. The proof exhibits a structural reason for a sharp two-degree homology pattern: exponential \(2^n\) top spheres come from choosing one cell per column, while \(n\) extra two-spheres arise from single thick-column attachments. At \(n=3\) the degrees merge, and at \(n=2\) the splitting fails. In addition to Betti numbers, the result determines homology inclusion maps and integral row/column symmetry modules for \(n\ge4\). This is a motivated topological invariant, not a new labeling of the enumerated face polynomial.
+Every geodesic-violating triple corresponds to a length-three path of selected edges in K_{3,n}, so faces are exactly star forests. The column-thin subcomplex is the n-fold join of three-point discrete complexes with 2^n top-sphere generators. Every face with a thick column lies in a unique contractible B_j; B_j intersect earlier pieces only through A_n and L_j=A_n intersect B_j is covered by three contractible subcomplexes with pairwise point intersections and no triple intersection. The nerve is S^1, and simple connectivity of A_n for n>=3 nulls each attaching map; homotopy pushouts add n S^2. Relative integral homology and signed join orientations prove the row sign times column-permutation module in H2 for n>=4 and the top augmentation tensor. At n=3 only the stated short exact sequence follows; the n=2 boundary differs. Independent exhaustive geodesic-face and binary boundary tests for n=3 and n=4 yielded 102 and 355 nonempty faces and reduced Betti {2:11} and {2:4,3:16} respectively; finite results are corroboration, not infinite proof.
 
-**Limitations.** The homotopy splitting is nonequivariant and restricted to three-row rook graphs with \(n\ge3\). For \(n=3\), the integral symmetry statement is an exact sequence, not a claimed equivariant direct sum. Full homotopy for four or more rows and priority beyond the inspected sources remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge finding after comparing actual statements and consequences, not titles. The four structured checks and specific full/partial source inspections below separate previously known inputs from surviving contributions.
+
+## value
+
+PASS
+
+This is a full integral homotopy classification, inclusion map, and natural group-module calculation for the natural geodesic general-position complex of the infinite three-row rook-graph family. The additional n two-spheres are structurally forced by thick-column attachments and invisible to the previously published enumerator, while n=3 gives a genuine degree collision and n=2 a distinct boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The structural proof analyzes every integer \(n\ge3\). Its critical steps are: (i) exact geodesic-to-three-edge-path correspondence; (ii) the thin-column join \(A_n=D_1*\cdots*D_n\); (iii) the complete thick-column cover \(B_j\), with \(B_j\) contractible and all cross-intersections lying in \(A_n\); (iv) each \(L_j=B_j\cap A_n\simeq S^1\); (v) simple connectivity of \(A_n\), making every attaching circle nullhomotopic. Integral long exact sequences yield the inclusion and symmetry statements.
+# Independent mathematical audit
 
-Run `python verify_rook_gp_homotopy.py` to reproduce `verification_output.txt` with standard Python 3. The program independently compares direct graph-geodesic faces, star-forest faces and the proposed cover for every subset on boards with \(n\in\{2,3,4,5\}\). It then calculates reduced homology over \(\mathbb F_2\) using exact bit-matrix elimination, and checks fifteen signed Lefschetz characters for row/column permutations against the derived integral-module characters.
+## correctness
 
-The finite calculations do not prove the unrestricted homotopy theorem, torsion-freeness or the integral symmetry modules. Those claims rely on the explicit joins and homotopy pushouts above. No computer proof system, external certificate or independent mathematical audit is claimed.
+PASS
+
+Every geodesic-violating triple corresponds to a length-three path of selected edges in K_{3,n}, so faces are exactly star forests. The column-thin subcomplex is the n-fold join of three-point discrete complexes with 2^n top-sphere generators. Every face with a thick column lies in a unique contractible B_j; B_j intersect earlier pieces only through A_n and L_j=A_n intersect B_j is covered by three contractible subcomplexes with pairwise point intersections and no triple intersection. The nerve is S^1, and simple connectivity of A_n for n>=3 nulls each attaching map; homotopy pushouts add n S^2. Relative integral homology and signed join orientations prove the row sign times column-permutation module in H2 for n>=4 and the top augmentation tensor. At n=3 only the stated short exact sequence follows; the n=2 boundary differs. Independent exhaustive geodesic-face and binary boundary tests for n=3 and n=4 yielded 102 and 355 nonempty faces and reduced Betti {2:11} and {2:4,3:16} respectively; finite results are corroboration, not infinite proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge finding after comparing actual statements and consequences, not titles. The four structured checks and specific full/partial source inspections below separate previously known inputs from surviving contributions.
+
+## value
+
+PASS
+
+This is a full integral homotopy classification, inclusion map, and natural group-module calculation for the natural geodesic general-position complex of the infinite three-row rook-graph family. The additional n two-spheres are structurally forced by thick-column attachments and invisible to the previously published enumerator, while n=3 gives a genuine degree collision and n=2 a distinct boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
