@@ -1,11 +1,21 @@
-# Scientific review: complete-bipartite total-matching diametral pairs
+# Independent mathematical audit
 
-**Correctness — PASS.** The object is the ordinary binary incidence embedding of the total-matching polytope of \(K_{p,q}\), \(2\le p<q\). Squared Euclidean distance between its distinct binary vertices equals the cardinality of their symmetric difference. Shared elements cannot occur at a maximum because one can delete them from one total matching to increase distance. Splitting pairs by their selected vertex shores yields exact bounds \(p+q\), \(2p\), and \(\min\{2q,q+2p\}\); only the last may be sharp. The two explicit matching constructions attain the bound on either side of \(q=2p\). Equality forces all right-column occupancy rules. Inclusion-exclusion avoids duplicated edges when the two matching layers share right endpoints. Exhaustive independent enumeration and counts agree in seven nontrivial examples. Nonvertex endpoints are excluded by strict convexity, so the theorem is about the continuous polytope, not merely its finite vertex set.
+## correctness
 
-**Originality — PASS, qualified.** Material inspected: Ferrarini, arXiv:2111.15528v1, sections on tree and complete-bipartite facets and conclusion; and Faenza–Ferrarini, arXiv:2303.00328, complete discussion of total-matching facets, extended formulations and projection arguments. The sources establish the combinatorial objects and facet structure, but do not state exact two-point Euclidean diameters, a transition at \(q=2p\), or the complete diametral-pair enumeration. A published geometric inball calculation for balanced total-matching polytopes concerns a different metric invariant. Additional related records on bicliques and matching polytopes do not imply the asserted value or equality cases. Priority remains provisional, especially under the aliases maximum symmetric difference and maximum induced bipartite subgraph of a total graph.
+PASS
 
-**Value — PASS.** The Euclidean diameter is a canonical quantity for the original, naturally unit-scaled incidence embedding. The elementary maximum-cardinality estimate gives \(\operatorname{diam}^2\le2q\), but is strictly nonsharp whenever \(q>2p\). The theorem gives the exact deficit \(q-2p\), identifies all maximizing pairs for an infinite two-parameter family, and counts them with explicit formulas on both sides of a sharp packing transition. The enumerator is not a restatement of the diameter: in the dense regime it requires injective-layer overlap correction via inclusion-exclusion. This provides a reproducible extremal benchmark for graph packing polytopes without claiming a broad theory for arbitrary graphs.
+All 0/1 total-matching incidence vectors are polytope vertices; pairwise squared distance equals symmetric-difference cardinality, and any shared element can be removed to increase extremal distance, hence diametral T1,T2 are disjoint. Because selected graph vertices within a matching occupy one shore, mixed-shore pairs have at most p+q items and both-left at most 2p, strictly below target since q>p. Both-right has at most q+2p (q right vertices and max 2p edges), and independently 2q by at most two objects per right vertex. Witnesses cover R if q<2p and use disjoint full p-matchings if q>=2p. Saturating either bound forces stated right-vertex assignments; the overlapping-edge ban is enforced. For q>=2p choose two ordered injections on 2p distinct right endpoints, 2^(q-2p) spare assignments, divide by 2. For q<2p choose ordered right endpoint sets with union R and sizes a,b, and use inclusion-exclusion over t=a+b-q shared right endpoints to forbid common edges. Nonvertex points cannot realize the farthest distance by strict convexity of squared norm.
 
-**Closest literature and limitations.** The foundational facet descriptions are credited in RESULT.md. The equal-shore case, weighted embeddings, and other graphs are outside the theorem. The general maximum total-matching cardinality bound is known and is not claimed as new. No independent mathematical audit has been performed; an unidentified equivalent earlier graph-theoretic result remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The reported diameter is Euclidean in the natural vertex-edge incidence coordinates, not the graph-theoretic/1-skeleton diameter. Ferrarini and Faenza/Ferrarini treat facets and extended formulations for exactly these polytopes, but inspected relevant primary results do not classify the Euclidean farthest pairs or their sharp q=2p count transition. Resultary semantic matches were the same self-record and different polytopes or matching-flip graphs, not a dominating theorem. Possible equivalent formulation via independent sets of total graph remains historical risk.
+
+## value
+
+PASS
+
+A sharp two-parameter Euclidean diameter, complete farthest-pair classification, and a closed count with a q=2p phase transition are meaningful metric invariants for a well-defined established polytope family. The count is not a routine recasting of facet descriptions or the elementary upper bound 2q; it gives a reusable diameter graph characterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
