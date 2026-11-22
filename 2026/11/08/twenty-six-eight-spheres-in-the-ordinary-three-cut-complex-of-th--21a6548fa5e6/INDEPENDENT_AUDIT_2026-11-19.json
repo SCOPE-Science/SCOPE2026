@@ -1,0 +1,178 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T19:52:53.973403Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact connected 12-vertex cubic edge-list graph was independently checked isomorphic to the standard NetworkX Frucht graph, with only identity automorphism, 18 edges, three induced triangles, and its unique 4-cycle {2,3,8,9}. Rebuilding all 220 triples gives exactly 30 connected triples (27 induced P3 and 3 triangles), and the Alexander dual has faces by cardinality (1,12,66,30,1), with only the tetrahedron {2,3,8,9}. A fresh independently implemented free-face algorithm checked every strict coface and produced 30 valid elementary collapses, ending in a connected 12-vertex 37-edge graph and hence 26 circles. Exact combinatorial Alexander duality gives H~_8(Delta_3(F);Z)=Z^26 and all other reduced integer groups zero. Because no dual 5-face exists, Delta includes the complete six-skeleton of the 11-simplex, is 5-connected; successive Hurewicz vanishing in dimensions 6 and 7 makes it 7-connected. Since it is 8-dimensional, Hurewicz and homological Whitehead upgrade the integral top homology basis to the asserted wedge of 26 eight-spheres. Independent direct construction of 190 disconnected-triple facets gave cut f-vector (1,12,66,220,495,792,924,792,494,190), mod-2 augmented boundary ranks (1,11,55,165,330,462,462,330,164) and only beta8=26. These field computations corroborate but are not the integral proof. Source verifier has a nonoperative incorrect comment saying graph rank =25; the computed assertion and proof correctly say 26.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bayer, Denker, Jelić Milutinović, Rowlands, Sundaram and Xue, Topology of Cut Complexes of Graphs, arXiv:2304.13675v2 (2024), https://arxiv.org/pdf/2304.13675; Definition and Theorems 6.1, 6.4; Table 1 and Sections 6–7.",
+          "Bayer, Denker, Jelić Milutinović, Sundaram and Xue, Topology of Cut Complexes II, arXiv:2407.08158v1 (2024), https://arxiv.org/pdf/2407.08158; introduction/contents and Sections 3–6.",
+          "Three-cut complexes of four-cycle-free graphs with triangles, Resultary/2026, 2026/10/11/…06da2f0ef7ce/RESULT.md; full theorem, assumptions and proof checked via GitHub.",
+          "Three-cut complexes of triangle-free graphs with edge-disjoint squares, Resultary/2026, 2026/10/11/…8ca830284420/RESULT.md; full theorem, assumptions and proof checked via GitHub.",
+          "Square-filling theorem for ordinary three-cut complexes of triangle-free graphs, Resultary/2026, 2026/11/1/…8942f5d1eacf/RESULT.md; full theorem, assumptions and proof checked via GitHub.",
+          "Three-cut complexes of graphs without short cycles: sphere wedges and symmetry characters, Resultary/2026, 2026/10/11/…868c7d2aa0e7/RESULT.md; full theorem, assumptions and proof checked via GitHub."
+        ],
+        "reasoning": "The two primary series papers classify families such as trees, cycles, multipartite, prisms, squared paths and rectangular grids, not arbitrary cubic/Halin graph three-cut complexes. The triangle-permitting theorem requires absence of every 4-cycle (fails on {2,3,8,9}); all other cited broad three-cut sphere/collapse theorems require triangle-free graphs (fails on the three listed triangles). Existing general combinatorial duality and Euler formulas do not themselves certify the integral wedge homotopy without additional topology.",
+        "searches": [
+          "Resultary query: three cut complexes graphs with triangles four cycles cubic graphs Frucht graph homotopy Betti",
+          "Resultary query: square-filling theorem Alexander dual ordinary 3 cut complex arbitrary graph triangles squares clique 4 cycle free faces wedge",
+          "Resultary query: ordinary three cut homotopy general graph every square contributes one Betti sphere connected triple 4clique",
+          "Web search: Halin graphs 3-cut complex homotopy type topology",
+          "arXiv:2304.13675 Sections 6–7 and Table 1",
+          "arXiv:2407.08158 Sections 3–6"
+        ]
+      },
+      "checked_sources": [
+        "Bayer, Denker, Jelić Milutinović, Rowlands, Sundaram and Xue, Topology of Cut Complexes of Graphs, arXiv:2304.13675v2 (2024), https://arxiv.org/pdf/2304.13675; Definition and Theorems 6.1, 6.4; Table 1 and Sections 6–7.",
+        "Bayer, Denker, Jelić Milutinović, Sundaram and Xue, Topology of Cut Complexes II, arXiv:2407.08158v1 (2024), https://arxiv.org/pdf/2407.08158; introduction/contents and Sections 3–6.",
+        "Three-cut complexes of four-cycle-free graphs with triangles, Resultary/2026, 2026/10/11/…06da2f0ef7ce/RESULT.md; full theorem, assumptions and proof checked via GitHub.",
+        "Three-cut complexes of triangle-free graphs with edge-disjoint squares, Resultary/2026, 2026/10/11/…8ca830284420/RESULT.md; full theorem, assumptions and proof checked via GitHub.",
+        "Square-filling theorem for ordinary three-cut complexes of triangle-free graphs, Resultary/2026, 2026/11/1/…8942f5d1eacf/RESULT.md; full theorem, assumptions and proof checked via GitHub.",
+        "Three-cut complexes of graphs without short cycles: sphere wedges and symmetry characters, Resultary/2026, 2026/10/11/…868c7d2aa0e7/RESULT.md; full theorem, assumptions and proof checked via GitHub.",
+        "Frucht graph, MathWorld Frucht Graph and NetworkX standard Frucht graph reference; independently verified isomorphism to the assigned 18-edge labeling.",
+        "Resultary search finds named Frucht independence, matching and Čech complexes; their summaries define different objects, not whole-text noncoverage evidence."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The four-cycle-free triangle-bearing formula yields formal numeric 55-36+6=25 on degree/triangle counts, but it explicitly excludes this graph; 25 is not a valid prior prediction. The actual value is 26.",
+          "The triangle-free edge-disjoint-square and no-K2,3 square-filling theorems require absence of all triangles, while Frucht has exactly three.",
+          "Frucht is 3-connected and not an instance of the disjoint-union/squared-path classifications studied in the two primary papers.",
+          "The proposed 30-pair free-face collapse includes one tetrahedron-triangle pair caused by the single square and needs to be established for this specific graph."
+        ],
+        "reasoning": "Compared theorem quantifiers and graph hypotheses, not merely titles. Prior general Euler-characteristic and Alexander-duality tools are inputs to the calculation; they do not directly yield the claimed integral wedge homotopy type. The advertised family theorems fail at genuine structural hypotheses, so no identified valid implication covers the final claim.",
+        "searches": [
+          "GitHub Resultary full RESULT.md: 2026/10/11/…06da2f0ef7ce",
+          "GitHub Resultary full RESULT.md: 2026/10/11/…8ca830284420",
+          "GitHub Resultary full RESULT.md: 2026/11/1/…8942f5d1eacf",
+          "arXiv:2304.13675 Theorem 6.1 and Section 6.2",
+          "arXiv:2407.08158 Introduction and Theorem 4.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordinary Delta_3(F) facets are complements of disconnected induced triples, and its Alexander dual consists of sets whose every triple is connected; a 26-loop dual and a 26-fold S8 cut-complex wedge are dual reformulations, not separate claims.",
+          "The exact matching Resultary hit is the assigned record itself, not an independent previously established theorem. Other indexed Frucht-specific homotopy claims involve matching, independence or Čech complexes with different simplices.",
+          "Bayer et al. arXiv:2304.13675 §1 distinguishes ordinary cut and total cut complexes; the total-cut variant does not classify this object."
+        ],
+        "reasoning": "Searched the direct wording, Alexander-dual criterion and conventional k-cut terminology. The only exact Frucht triple-cut hit was the present indexed record; other Frucht complex names are non-equivalent. A negative search is not proof of absolute novelty.",
+        "searches": [
+          "Resultary query: Frucht graph ordinary 3-cut complex 26 copies of S8 Alexander dual 26 circles",
+          "Resultary query: Frucht graph cut complex topology independence neighborhood homology",
+          "Web search: Frucht graph ordinary three cut complex homotopy 26 spheres",
+          "Web search: Frucht graph disconnected triples cut complex alexander dual homology"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct independently published indexed exact Frucht ordinary 3-cut table or theorem located; the present assigned indexed record is excluded from prior-art inference.",
+          "Fresh exhaustive enumeration: cut facet count 190, cut face-cardinalities (1,12,66,220,495,792,924,792,494,190), dual profile (1,12,66,30,1), reduced mod-two Betti rank 26 solely in degree 8.",
+          "Bayer et al. arXiv:2304.13675 Table 1 includes other graph families but no Frucht graph entry."
+        ],
+        "reasoning": "The exact integer 26, dual 30 triangles/one tetrahedron, and object definition were searched jointly. Indexed nonappearance only lowers risk; unknown tables, unpublished code or unindexed appendices could still duplicate the result.",
+        "searches": [
+          "Resultary query: Frucht graph 3 cut wedge 26 spheres covered general theorem",
+          "Resultary query: Frucht graph ordinary 3-cut complex 26 copies of S8 Alexander dual 26 circles",
+          "Web search: Frucht graph topology cut complex simplicial clique four cycles 26",
+          "Web search: Frucht graph ordinary three cut complex homotopy 26 spheres"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality survives as a precisely specified integral homotopy computation for the ordinary three-cut complex of the classical asymmetric cubic Frucht graph. The foundational 2023/2024 and 2024/2025 full-text papers define general cut complexes and classify other graph classes, not this graph. Four relevant published Resultary family results were read in full: they respectively require no four-cycle, no triangles, no triangles plus restricted codegree, or no triangles/four-cycles; Frucht has three triangles and one four-cycle, so none implies its 26-sphere classification. The original candidate itself appears in the published index and is not falsely counted as earlier independent priority evidence. General Alexander-duality/Euler identities may determine numerical Euler differences but not on their own the checked integral collapse and homotopy equivalence. This is a small isolated exact instance, and genuine unindexed or otherwise equivalent precedents remain possible.",
+      "residual_risks": [
+        "An unindexed or inaccessible prior Frucht ordinary-three-cut calculation or graph database entry could duplicate the 26-sphere conclusion.",
+        "The general face-lattice/Euler theory makes much of the numerical calculation elementary; the independent homotopy-specific information is the finite collapse, so novelty/value are modest rather than a broad new theorem.",
+        "Other publications containing a general three-cut theorem for graphs simultaneously containing triangles and squares were not exhaustively ruled out.",
+        "The source same-model claim of prior reading is not treated as independent evidence; only fresh primary-text checks listed above support this best-of-knowledge decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No inspected all-cubic/all-Halin ordinary three-cut homotopy theorem; Theorem 6.4 classifies connected triangle-free TWO-cut complexes, not this three-cut example.",
+          "evidence": [
+            "Table 1 families: multipartite, cycles, trees, prism; Theorem 6.4 assumes triangle-free and concerns Delta_2, page 18.",
+            "arXiv:2304.13675, pp. 1–2, 17–19 and §§6–7."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.13675",
+          "material_read": "Full searchable 37-page arXiv v2 document; page 2 scope table and theorem list, Definitions in §1, Theorem 6.1, Theorem 6.4 and its proof, Section 6.2 and §7 family results; document-wide Frucht and cubic text searches. Page 2 image viewed.",
+          "method": "Open-access primary PDF with parsed text, find and page screenshot.",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "Defines exactly the ordinary k-cut complex and gives foundational theorems potentially covering this case."
+        },
+        {
+          "assessment": "No Frucht-specific result or broader three-cut cubic/Halin theorem in inspected text; its special graph constructions do not match this graph.",
+          "evidence": [
+            "Introduction outlines disjoint unions, squared paths and grid graphs; §§3–6.",
+            "arXiv:2407.08158, p. 1 and selected mathematical sections."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.08158",
+          "material_read": "Full 29-page searchable arXiv v1; title/contents/intro and scope §§3–6, including squared paths, grids, disjoint unions and group actions; Frucht/cubic document-wide searches. First page image viewed.",
+          "method": "Open-access primary PDF text inspection and page screenshot.",
+          "title": "Topology of Cut Complexes II",
+          "trigger": "Direct primary follow-up to the original cut-complex classification; possible more general coverage."
+        },
+        {
+          "assessment": "Explicit no-4-cycle assumption excludes the candidate graph; theorem neither asserts nor implies its 26-sphere type.",
+          "evidence": [
+            "Finding requires no four-cycle, including non-induced ones; proof crucially removes all dual 3-simplices."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-three-cut-complexes-of-four-cycle-free-graphs-with-triangles--06da2f0ef7ce/RESULT.md",
+          "material_read": "Complete public RESULT.md theorem, hypotheses, proof and limitations.",
+          "method": "GitHub primary research-source file at published path.",
+          "title": "Three-cut complexes of four-cycle-free graphs with triangles",
+          "trigger": "Closest formula permitting graph triangles."
+        },
+        {
+          "assessment": "Requires triangle-free graphs; Frucht has three graph triangles, so theorem does not subsume this claim.",
+          "evidence": [
+            "Assumptions: triangle-free with edge-disjoint 4-cycles; formula plus q correction."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-three-cut-complexes-of-triangle-free-graphs-with-edge-disjoint-s--8ca830284420/RESULT.md",
+          "material_read": "Complete public RESULT.md finding, assumptions, collapse proof and limitations.",
+          "method": "GitHub primary research-source file at published path.",
+          "title": "Three-cut complexes of triangle-free graphs with edge-disjoint squares",
+          "trigger": "Closest sphere-wedge formula allowing squares."
+        },
+        {
+          "assessment": "Broader square coverage but still explicitly triangle-free, so it does not cover the Frucht graph.",
+          "evidence": [
+            "Theorem requires a connected triangle-free graph with at most two common neighbors; not satisfied by the three-triangle Frucht graph."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-square-filling-theorem-for-ordinary-three-cut-complexes-of-trian--8942f5d1eacf/RESULT.md",
+          "material_read": "Complete full RESULT.md including the square-filling collapse, theorem hypotheses, proof and limitations.",
+          "method": "GitHub primary research-source file at published path.",
+          "title": "Square-filling theorem for ordinary three-cut complexes of triangle-free graphs",
+          "trigger": "A later stronger overlapping-square theorem with potential domination."
+        },
+        {
+          "assessment": "Graph must have no triangles or four-cycles; Frucht violates both assumptions.",
+          "evidence": [
+            "Explicit no-C3/no-C4 quantification and private-endpoint-edge proof."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-three-cut-complexes-of-graphs-without-short-cycles-sphere-wedges--868c7d2aa0e7/RESULT.md",
+          "material_read": "Complete full RESULT.md including theorem, proof, hypotheses, representation and limitations.",
+          "method": "GitHub primary research-source file at published path.",
+          "title": "Three-cut complexes of graphs without short cycles: sphere wedges and symmetry characters",
+          "trigger": "An all-graph result with a stronger homology-character conclusion, potentially dominating the claim."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The ordinary three-cut complex is an established natural graph-to-topology invariant, and the Frucht graph is a canonical smallest asymmetric cubic graph. Its coexistence of three graph triangles and one square puts it outside both established triangle-free-square and four-cycle-free-triangle classification families. A complete integral homotopy classification is stronger than a finite-field Betti count; the explicit 30-step collapse identifies why the square changes the sphere multiplicity from the out-of-domain 25 expression to 26. An exact small canonical boundary example can be useful in future graph-family classification or testing even without a universal cubic-graph theorem. The contribution is intrinsically narrow and relies on a specific finite enumeration; no broader structural or shellability claim is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the specified 12-vertex Frucht graph F, the ordinary three-cut complex with facets complements of disconnected induced three-vertex sets has exactly 190 eight-dimensional facets and integral homotopy type Delta_3(F) ≃ wedge^{26} S^8; the Alexander dual collapses by one tetrahedron-triangle and 29 triangle-edge free pairs onto a connected 12-vertex graph with 37 edges.",
+  "limitations": [
+    "Exactly one finite labeled graph, not all cubic/Halin/asymmetric graphs.",
+    "The numeric out-of-domain 25 from a four-cycle-free theorem is illustrative only and not a valid theorem application.",
+    "Mod-two chain ranks alone cannot establish integral homotopy; the checked free-face collapse plus standard duality and connectivity are decisive.",
+    "No classification of shellability or automorphism action; Frucht graph is asymmetric.",
+    "Unindexed equivalents and historical exact Frucht tables remain possible.",
+    "Scientific C/O/V passes do not constitute a new external human attestation or publication; publication transport withheld for provenance sanitization."
+  ],
+  "schema_version": 1
+}
