@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The piecewise quarter-turn maps every off-grid unit square to the exact integer-labeled square stated in the proof. Each of the ten exhaustive rank cases has nonnegative integer rank, the two trap labels have zero rank, and every other case decreases by one under the square map; this proves exact global first entry without a finiteness assumption. Direct two-iterate formulas prove the primitive periods. Explicit lattice-pair counts prove shell areas for all positive times, and the pointwise rank bound plus exact coupling gives the limiting triangular law. The standalone exact-arithmetic checker confirms numerous cases but is not used as a proof of an infinite claim.
+PASS
 
-## Originality
+Reconstructed T action off the integer grid as Q(m,n)=(-n-1,m) for n<0 and (-n,m-1) for n>=0, exact ten-case integer rank h, and strict h(Q)=h-1 outside the absorbing labels (0,0),(0,-1); this proves finite entry for every off-grid point without finite extrapolation. In the trap, T exchanges the two squares and T^2 reflects each square, giving T^4=id and exactly two period-two centers. Counting rank cases yields a0=2 and a_{2k-1}=a_{2k}=2k; summation gives 2+2s(1+s)/(1-s^2)^2. Ten cases also establish |h(m,n)-2(|m|+|n|)|<=3; floor-coordinate errors add <=4, so coupling yields W1<=7/R and the triangular density on [0,4]. Inspected RESULT.md blob 3a6d8ee070e26fdc5bbd0ed2953292a8ee4b1d22 and exact-integer check.py f940a870f324e9a3d3636ed8da5c166df1896287. Independently iterated all 2601 square labels in [-25,25]^2 and checked shell counts through k=19; these confirm but do not prove all-index identities.
 
-**PASS within available primary evidence.** The complete 2022 source develops the non-injective two-center rotation family and uniform attracting-radius bounds, not an exact transient-time census. The 2003 dichotomy supplies qualitative global attraction; the 2017 non-symmetric and 2023/24 rational-rotation studies concern bijective geometries. Search comparisons with existing mathematical findings found no same statement, including after matching dynamics rather than titles. Residual risk: the full 2003 source could not be read through institutional access, so an unindexed specialized discussion cannot be ruled out; no available theorem was identified that dominates the exact rank and shell law.
+## originality
 
-## Value
+PASS
 
-**PASS.** In non-invertible piecewise isometries, the size of the attracting set does not determine how long a remote point remains transient. The natural first-entry statistic of a two-square absorbing periodic subsystem is resolved completely, with infinitely many exact finite-measure shells and a macroscopic distributional scaling law. The exact parity-paired shell sizes and quantitative Wasserstein convergence distinguish this work from the earlier coarse global attraction bounds. The restricted canonical configuration and grid exclusion are stated explicitly.
+Best-of-knowledge PASS. General piecewise rotations with non-bijective trapping appear in primary literature, but the explicit square-label rank for this particular switch map, complete shell-area generating function, and centered-large-window triangular W1 law are not stated or implied by the checked broad attractor theorems. Highly relevant older Boshernitzan–Goetz full text inaccessible; abstract-only coverage and institutional VPN error are specifically retained, not construed as uniqueness proof.
 
-## Closest literature and limits
+## value
 
-Bédaride–Bertazzon–Kaboré (2022), Section 2/3 and Theorem 31, is the originating source. Boshernitzan–Goetz (2003), Goetz (1998), Bédaride–Kaboré (2017), and Cimà–Gasull–Mañosa–Mañosas (2023/24) were compared by map geometry and conclusions. The theorem does not classify grid-line dynamics or arbitrary center placements. No independent mathematical audit has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete first-entry time function, exact Lebesgue shell-area census and quantitative large-window weak limit for a natural non-injective planar piecewise isometry give a coherent global transient-statistics theorem. These exact quantities are independent of a generic qualitative finite-attractor assertion and provide a reusable solvable reference case with provably finite capture and sharp scale normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
