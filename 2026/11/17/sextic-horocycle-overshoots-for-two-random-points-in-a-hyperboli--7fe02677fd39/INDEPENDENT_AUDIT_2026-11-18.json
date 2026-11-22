@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T10:01:57.922032Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The intrinsic quotient shortest lift uses signed horizontal separation in (-w/2,w/2), independent of heights with density y^-2. An upper-half-plane geodesic arc from endpoints of heights a,b<=H rises past H iff z>sqrt(H^2-a^2)+sqrt(H^2-b^2); the discarded outside-apex case cannot overshoot. Transformation u=sqrt(H^2-a^2), v=sqrt(H^2-b^2) gives the exact triangular double integral with Jacobians u/(H^2-u^2)^(3/2) and v/(H^2-v^2)^(3/2), valid for H>=sqrt(1+(w/2)^2). I independently evaluated its two Dirichlet moments exactly, L^4/120 and L^6/420, giving the asserted w^4/1920 and w^6/17920 coefficients. Fresh scipy double quadrature w=2,H=5,10 yielded 5.426287647211641e-7 and 8.369194605559188e-9; relative error of two-term expansion decreased from 2.81e-4 to 1.76e-5. The marked change (z=Lr,u=z s,v=z t) yields density proportional r^4 s t and hence independent Beta(5,1) and Dirichlet(2,2,1); uniform convergence of compact-domain density factors proves TV O(H^-2), not just weak convergence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Read complete prior random-distance theorem for the exact same truncated cusp: D_w tail e^-R+w^2 e^-3R/24+..., and inverse width from that distance tail.",
+          "The submitted event instead conditions both endpoint heights <=H and tests maximum height of the joining geodesic."
+        ],
+        "reasoning": "Cusp width recovery is already known from a distance statistic, and is not the new mathematical motivation by itself. That scalar distance law does not determine the joint location event without additional integration and is not a dominating theorem for the sextic overshoot.",
+        "searches": [
+          "2026/11/8/SCOPE-sharp-random-distance-tails-and-inverse-rigidity-for-finite-area--e7c5d4116ecb/RESULT.md",
+          "2026/11/17/SCOPE-a-universal-leading-tail-and-a-horocycle-length-signature-for-ra--229bb4a3498f"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-random-distance-tails-and-inverse-rigidity-for-finite-area--e7c5d4116ecb/RESULT.md",
+        "https://arxiv.org/abs/0709.0313",
+        "https://doi.org/10.1088/1361-6544/adc8f0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier width inverse formula uses limit of e^{3R}(P(D_w>R)-e^-R), distinct from proposed 1920 lim H^6P(E_H).",
+          "Our conditional marked variables (horizontal separation, two height deficits) are absent from inspected earlier source statements."
+        ],
+        "reasoning": "Same underlying random points, but maximum height is a path observable that is not a pointwise monotone transform of their separation distance; no implication from previous distribution to the asserted event or marks follows.",
+        "searches": [
+          "sharp random-distance tails and inverse rigidity finite-area hyperbolic cusps",
+          "geodesic cusp excursions Haas 2007"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Haas 2007/09 studies rates of excursions made by typical bi-infinite geodesics on a finite-area surface.",
+          "Marklof–Pollicott 2025 studies rare events of horocycle flows and shrinking Poincaré sections, not the same two area-uniform finite-endpoint event."
+        ],
+        "reasoning": "Geodesic-flow/Liouville sampling and two independent normalized-area endpoints have different probability measures and marked variables. A flow extreme-value law is not an equivalent formulation of the present fixed-segment threshold probability.",
+        "searches": [
+          "two area random points in hyperbolic truncated cusp geodesic maximum height horocycle overshoot conditional beta dirichlet",
+          "Andrew Haas Geodesic cusp excursions metric diophantine approximation 2007",
+          "Marklof Pollicott extreme events for horocycle flows 2025"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search surfaced the assigned exact result and same-object distance papers, but no prior table of H^-6 or Beta(5,1)*Dirichlet(2,2,1) marks."
+        ],
+        "reasoning": "No exact older database table was identified; search limitations and possible unindexed probability-geometric computations remain explicit.",
+        "searches": [
+          "hyperbolic cusp interior geodesic maximum height event endpoint below threshold",
+          "sextic horocycle overshoot beta dirichlet conditioned area random endpoints"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the interior maximum-horocycle event with both endpoints below H and its beta–Dirichlet mark law. Previously published same-cusp area-point results study the distance D_w, while Haas and other cusp-excursion work studies generic geodesic/flow observables. Identical cusp geometry and an inverse-width consequence do not imply this distinct event or its sextic coefficient.",
+      "residual_risks": [
+        "An undiscovered geometric-probability identity might express the same two-area-point overshoot law under another name.",
+        "Total variation error is fixed-w; no uniform claim when width grows with H."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_OVERSHOOT",
+          "evidence": "Prior statistic is intrinsic endpoint distance D_w; it has e^-R tail and no event conditioning both heights below H or geodesic maximum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-random-distance-tails-and-inverse-rigidity-for-finite-area--e7c5d4116ecb/RESULT.md",
+          "material_read": "Full RESULT.md including exact survival integral, main proof, scope and limitations",
+          "method": "Read full prior mathematical text and compared event sigma-algebra and asymptotic coefficient",
+          "title": "Sharp random-distance tails and inverse rigidity for finite-area hyperbolic cusps",
+          "trigger": "Exact same cusp, endpoints, intrinsic geodesic and inverse-width conclusion"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_SAMPLING",
+          "evidence": "Theorems describe typical geodesic excursion rates and Fuchsian orbit approximation, not independent pair endpoints.",
+          "identifier_or_url": "https://arxiv.org/abs/0709.0313",
+          "material_read": "Full accessible arxiv HTML theorem and introduction materials as inspected; not a full text-negative search across every formula",
+          "method": "Read the published main theorem/assumptions and contrasted Liouville generic bi-infinite geodesics",
+          "title": "Geodesic cusp excursions and metric diophantine approximation",
+          "trigger": "Classical cusp-excursion law may dominate the rare overshoot observable"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_FLOW",
+          "evidence": "Horocycle flow hitting times and Farey-gap limit rather than fixed finite geodesic overshoot under endpoint area measure.",
+          "identifier_or_url": "https://doi.org/10.1088/1361-6544/adc8f0",
+          "material_read": "Peer-reviewed publisher/Warwick abstract and stated main law, not full body",
+          "method": "Abstract-level screening with explicit source scope",
+          "title": "Extreme events for horocycle flows",
+          "trigger": "Modern broad rare cusp dynamics comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The probability of a minimizing geodesic leaving a horocyclic depth cap even though both randomly sampled endpoints lie below it is a natural geometric rare event. Its sharp exponent six and next coefficient distinguish it from distance tails; the exact beta–Dirichlet conditioned shape identifies how overshoot occurs and provides an independent inverse-width statistic. This is a motivated new path observable and a nontrivial limit theorem, not a relabelled distance distribution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sextic-horocycle-overshoots-for-two-random-points-in-a-hyperboli--7fe02677fd39/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-random-distance-tails-and-inverse-rigidity-for-finite-area--e7c5d4116ecb/RESULT.md",
+    "https://arxiv.org/abs/0709.0313",
+    "https://doi.org/10.1088/1361-6544/adc8f0"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Applies only to fixed width, area-uniform independent endpoints and intrinsic shortest cusp geodesics. Numerical quadrature alone does not prove the asymptotics or total-variation statement.",
+    "An undiscovered geometric-probability identity might express the same two-area-point overshoot law under another name.",
+    "Total variation error is fixed-w; no uniform claim when width grows with H."
+  ],
+  "schema_version": 1
+}

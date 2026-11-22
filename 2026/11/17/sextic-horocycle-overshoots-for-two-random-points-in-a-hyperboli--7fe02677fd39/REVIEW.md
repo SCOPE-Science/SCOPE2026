@@ -1,19 +1,21 @@
-# Self-review of the horocycle overshoot theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement fixes curvature, quotient, sampling measure, intrinsic minimizing geodesic, level \(H\), and independent marks. The upper semicircle apex criterion is proved by the strictly increasing horizontal-span function of its radius, including the boundary case of an apex outside the segment. The positive height-to-offset Jacobian gives the exact integral. Both coefficients follow from explicitly evaluated simplex integrals; the remainder follows from a uniform expansion on a compact domain. After an exact change of variables, the marked density converges uniformly after normalization to a beta–Dirichlet product with \(O_w(H^{-2})\) total-variation bound. The independent sign and initial phase follow from quotient translation symmetry. A standalone standard-library checker verifies the geometry and corroborates finite-threshold integrals. Numerical samples and quadrature are not treated as proofs.
+PASS
 
-## Originality — PASS, with residual historical risk
+The intrinsic quotient shortest lift uses signed horizontal separation in (-w/2,w/2), independent of heights with density y^-2. An upper-half-plane geodesic arc from endpoints of heights a,b<=H rises past H iff z>sqrt(H^2-a^2)+sqrt(H^2-b^2); the discarded outside-apex case cannot overshoot. Transformation u=sqrt(H^2-a^2), v=sqrt(H^2-b^2) gives the exact triangular double integral with Jacobians u/(H^2-u^2)^(3/2) and v/(H^2-v^2)^(3/2), valid for H>=sqrt(1+(w/2)^2). I independently evaluated its two Dirichlet moments exactly, L^4/120 and L^6/420, giving the asserted w^4/1920 and w^6/17920 coefficients. Fresh scipy double quadrature w=2,H=5,10 yielded 5.426287647211641e-7 and 8.369194605559188e-9; relative error of two-term expansion decreased from 2.81e-4 to 1.76e-5. The marked change (z=Lr,u=z s,v=z t) yields density proportional r^4 s t and hence independent Beta(5,1) and Dirichlet(2,2,1); uniform convergence of compact-domain density factors proves TV O(H^-2), not just weak convergence.
 
-The closest full mathematical record on **the same truncated cusp** determines the *two-point intrinsic geodesic distance* distribution, not the maximum height of the connecting geodesic subject to endpoints below a high horocycle. Its result does not imply the exact sextic excursion law or the marked total-variation law. A second full record treats distances of points in ideal hyperbolic polygons, a different random geometry. Haas (arXiv:0709.0313) and Gadre (arXiv:1408.5812) investigate excursions of a typical long geodesic or ray, not an independently area-sampled finite endpoint pair. Borthwick (arXiv:1006.5478) studies spectral resonance estimates and gives background cusp coordinates. Searches using terms for horocycle height, endpoint-below-threshold events, geometric overshoots, Dirichlet marks, and geodesic cusp excursions returned no equivalent claim. No failed search is interpreted as proof of uniqueness; obscure earlier geometric-probability or cusp excursion literature remains a genuine priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The event is geometrically canonical: a shortest segment enters a deeper horocycle even though neither endpoint lies there. Its sixth-order rarity is a non-obvious effect of a **double near-tangency constraint** and its sharp positive constant recovers the original boundary horocycle's circumference. The second asymptotic term and universal conditional beta–Dirichlet structure quantify how an exceptional segment achieves the excursion. This is an intrinsic finite-chord statistic, not a routine restatement of a known distance tail, a synthetic exercise, or an unmotivated parameter slice. It can be used for inverse identification of cusp width and for models that condition geodesic chords on deep excursions.
+Best-of-knowledge PASS for the interior maximum-horocycle event with both endpoints below H and its beta–Dirichlet mark law. Previously published same-cusp area-point results study the distance D_w, while Haas and other cusp-excursion work studies generic geodesic/flow observables. Identical cusp geometry and an inverse-width consequence do not imply this distinct event or its sextic coefficient.
 
-## Limitations and closest sources
+## value
 
-The theorem concerns a fixed-width standalone cusp with curvature \(-1\), independent uniform-area endpoints and shortest geodesics. It does not treat the geodesic flow's stationary excursion process, other sampling measures, unbounded width-to-height ratios, or ambient shortcuts through an enlarged surface. The available older sources were materially read in relevant full-text sections, and the two closest published mathematical records were read in their complete result documents. Historical indexing may be incomplete; independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The probability of a minimizing geodesic leaving a horocyclic depth cap even though both randomly sampled endpoints lie below it is a natural geometric rare event. Its sharp exponent six and next coefficient distinguish it from distance tails; the exact beta–Dirichlet conditioned shape identifies how overshoot occurs and provides an independent inverse-width statistic. This is a motivated new path observable and a nontrivial limit theorem, not a relabelled distance distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
