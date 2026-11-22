@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T02:15:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For δ(z)=min(1-|z1|,1-|z2|), layer-cake integration of the true coupled boundary-distance weight gives ||z1^j z2^k||²=m!(2j+2k+4)!/[(j+1)(k+1)(2j+2k+m+4)!]. Angular monomials are complete and orthogonal, so the kernel series and G_{m+1}=(2u∂u+2v∂v+m+5)G_m follow. K0 is the nonvanishing product; K1 numerator 5-u-v-3uv has no zeros for |u|,|v|<1 by |5-u|>|1+3u|. Restricting cross products u=v=x gives K_m(x,x)=P_m(x)/(1-x)^(m+4) with recurrence (m+1)P_{m+1}=2x(1-x)P_m'+[(m+5)+(m+3)x]P_m. Coefficient positivity, derivative sign alternation at the simple negative roots, the root between the rightmost old root and zero, and extra left root when degree grows establish all-negative simple interlacing for every integer m. P2=15+22x+3x² has x2=(-11+2√19)/3 in (-1,0); rightmost roots move to zero, giving actual off-diagonal zeros for each m≥2. Independent exact P2 recurrence and coordinate root checks agree; finite tests do not replace induction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published sharp Euclidean-distance results are for the one-variable unit DISK or smooth complex BALL, with different distance functions and moment sequences; Marinescu–Xing principal result assumes C² boundary, whereas bidisk corners violate it."
+        ],
+        "reasoning": "The shared word distance does not imply geometric reduction from disk/ball to min-distance bidisk; no prior dominating theorem shown.",
+        "searches": [
+          "Resultary 2026/10/11/SCOPE-sharp-lu-qi-keng-transitions-for-euclidean-boundary-distance-wei--b68d363f03d0",
+          "Resultary 2026/10/11/SCOPE-negative-real-scalar-zeros-of-euclidean-distance-bergman-kernels--996941b74aa3",
+          "Marinescu–Xing arXiv:2609.24258"
+        ]
+      },
+      "checked_sources": [
+        "Fu–Deng arXiv:2209.09394 Theorem 2.3",
+        "Marinescu–Xing arXiv:2609.24258 Theorem 1.3",
+        "Perälä arXiv:1703.05976 one-variable weights (context)",
+        "Resultary disk/ball Euclidean-distance Lu Qi-Keng publications"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Reinhardt moment expansion is general and prior, but does not evaluate min-distance moments or prove the all-integer Sturm interlacing. Smooth-boundary theorem cannot directly apply to cornered bidisk. Disk and ball moment denominators are not the bidisk coupled factorial ratio."
+        ],
+        "reasoning": "The classification depends on an additional nonproduct layer-cake moment identity and polynomial recurrence with a negative-root interlacing induction; these are not consequences of the inspected broader frameworks.",
+        "searches": [
+          "Fu–Deng arXiv:2209.09394 Theorem 2.3",
+          "Marinescu–Xing arXiv:2609.24258 Theorem 1.3",
+          "Resultary disk/ball Euclidean-distance results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zero-freeness of weighted bidisk Bergman K_m is equivalent to lack of admissible zeros of the equal-cross-product specialization only for the witness direction, not full zero variety; exact coupling δ=min(1-r1,1-r2) matters."
+        ],
+        "reasoning": "Compared real-negative numerator-root representation and Lu Qi-Keng terminology, keeping off-diagonal u=v=x distinct from diagonal z=ζ. No matching bidisk polynomial table identified.",
+        "searches": [
+          "Resultary: Euclidean distance to boundary bidisk weighted Bergman reproducing kernel Lu Qi Keng zeros integer powers real rooted interlacing",
+          "arXiv:2209.09394",
+          "arXiv:2609.24258"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Database hits give disk and ball scalar kernel-zero tables and Jacobi disk weights, but no m=0,1 zero-free/m≥2 zeros table for coupled bidisk δ."
+        ],
+        "reasoning": "Database coverage was evaluated by objects/weights rather than matching result titles; absence is not unconditional novelty proof.",
+        "searches": [
+          "Resultary Euclidean-distance bidisk Lu Qi-Keng semantic query",
+          "Fu–Deng arXiv:2209.09394 monomial moment formula"
+        ]
+      },
+      "rationale": "Exact Lu Qi-Keng zero/nonzero classification is for the BIDISK with genuinely coupled Euclidean boundary distance=min of two disk distances, not a product radial weight or smooth unit ball. The inspected prior disk and ball classifications, and the general Reinhardt moment representation, do not imply this particular interlacing family or threshold m=2. Best-of-knowledge originality survives with specialist Reinhardt weighted-kernel risk.",
+      "residual_risks": [
+        "Specialist cornered Reinhardt-domain weighted Bergman zeros may have equivalent exact generating functions not indexed by Euclidean distance terminology.",
+        "Only nonnegative integer weights and one equal-cross-product zero witness are classified; full two-variable zero set is not."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General method prior; no precise min-distance bidisk classification stated",
+          "evidence": "General orthogonal monomial expansion theorem",
+          "identifier_or_url": "https://arxiv.org/abs/2209.09394",
+          "material_read": "Theorem 2.3 and surrounding monomial orthogonality/moment-kernel representation",
+          "method": "Read accessible full-text theorem and formulas",
+          "title": "The weighted reproducing kernels of the Reinhardt domain",
+          "trigger": "General torus-invariant monomial kernel formula"
+        },
+        {
+          "assessment": "C² smooth-boundary assumptions do not cover bidisk corner geometry; no exact bidisk zero classification",
+          "evidence": "Theorem 1.3 requires C² boundary in relevant result",
+          "identifier_or_url": "https://arxiv.org/abs/2609.24258",
+          "material_read": "Principal statements including Theorem 1.3 smoothness conditions and parameter-dependence results",
+          "method": "Read accessible theorem statements and hypotheses",
+          "title": "Parameter Dependence of Weighted Bergman Kernels Beyond Smoothness",
+          "trigger": "Euclidean boundary-distance weighted kernels, same weight theme"
+        },
+        {
+          "assessment": "Disk-only mathematical object; not claimed as whole-text exclusion",
+          "evidence": "For disk (1-|z|)^t zero-free -1<t≤2; bidisk uses min-coupled weight and integer m≥0",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-lu-qi-keng-transitions-for-euclidean-boundary-distance-wei--b68d363f03d0",
+          "material_read": "Resultary finding and exact disk threshold/negative zero formulas",
+          "method": "Read Resultary scientific summary, not entire GitHub RESULT.md",
+          "title": "Sharp Lu Qi-Keng transitions for Euclidean boundary-distance weighted disk kernels",
+          "trigger": "Same named boundary distance but one-variable geometry"
+        },
+        {
+          "assessment": "Ball radial distance is different from cornered bidisk min-distance",
+          "evidence": "Complex unit balls d≥2 scalar zeros, not bidisk coupled moments",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-negative-real-scalar-zeros-of-euclidean-distance-bergman-kernels--996941b74aa3",
+          "material_read": "Resultary scientific summary of ball scalar zeros",
+          "method": "Read summary only; not a whole-document negative claim",
+          "title": "Negative-real scalar zeros of Euclidean-distance Bergman kernels in every complex-ball dimension",
+          "trigger": "Potential general dimension dominating source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Zero-freeness of reproducing kernels is a natural, global Lu Qi-Keng property. The bidisk Euclidean distance weight couples the variables and is not reducible to the familiar product kernel. An exact integer-weight cutoff at m=2, with a negative-simple-root and strict interlacing mechanism for all larger exponents, supplies a meaningful structural classification of a natural non-smooth domain/weight family.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Fu–Deng arXiv:2209.09394 Theorem 2.3",
+    "Marinescu–Xing arXiv:2609.24258 Theorem 1.3",
+    "Perälä arXiv:1703.05976 one-variable weights (context)",
+    "Resultary disk/ball Euclidean-distance Lu Qi-Keng publications"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No classification of noninteger weights or complete off-diagonal zero variety."
+  ],
+  "residual_risks": [
+    "Specialist cornered Reinhardt-domain weighted Bergman zeros may have equivalent exact generating functions not indexed by Euclidean distance terminology.",
+    "Only nonnegative integer weights and one equal-cross-product zero witness are classified; full two-variable zero set is not."
+  ],
+  "schema_version": 1
+}

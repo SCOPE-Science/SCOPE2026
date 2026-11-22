@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The distance formula is exact on the product disk, and angular orthogonality, layer cake and the beta integral yield the stated monomial norms. The kernel recurrence is a coefficient identity. The zero-free cases follow from a strict modulus inequality. The degree/positivity induction and derivative-sign interlacing argument prove all diagonal-specialization roots simple and negative, with an interior root for each integer exponent at least two. Explicit points in the bidisk realize the negative cross-products; these are not evaluations on the positive kernel diagonal. The included exact-arithmetic checks cover finite examples but do not replace the proof.
+## correctness
 
-## Originality
-PASS relative to sources inspected in full text and available published summaries. Marinescu–Xing's boundary-distance theorem requires a \(C^2\) boundary and concerns parameter analyticity, whereas this result is a zero-set classification on the cornered bidisk. Fu–Deng's general torus-invariant moment-series theorem can produce the series but neither the integer zero-free phase transition nor root interlacing follows without the new computation and argument. Perälä's radial-disk zeros and published classifications for disks and balls do not imply the coupled-minimum bidisk claim. Searches for aliases, equivalents and stronger coverage found no assertion of this exact result. An older unlocated equivalent is a residual priority risk, not excluded by a finite search.
+PASS
 
-## Value
-PASS. The bidisk is a canonical product domain, but its Euclidean distance to its boundary is a coupled minimum, producing a non-tensor weight. The sharp change already between integer exponents one and two contrasts with the behavior of distance weights on disks and balls. The all-integer classification and strict zero interlacing are structural consequences useful in comparing zero-free reproducing kernels under natural boundary degenerations, not isolated numerical examples.
+For δ(z)=min(1-|z1|,1-|z2|), layer-cake integration of the true coupled boundary-distance weight gives ||z1^j z2^k||²=m!(2j+2k+4)!/[(j+1)(k+1)(2j+2k+m+4)!]. Angular monomials are complete and orthogonal, so the kernel series and G_{m+1}=(2u∂u+2v∂v+m+5)G_m follow. K0 is the nonvanishing product; K1 numerator 5-u-v-3uv has no zeros for |u|,|v|<1 by |5-u|>|1+3u|. Restricting cross products u=v=x gives K_m(x,x)=P_m(x)/(1-x)^(m+4) with recurrence (m+1)P_{m+1}=2x(1-x)P_m'+[(m+5)+(m+3)x]P_m. Coefficient positivity, derivative sign alternation at the simple negative roots, the root between the rightmost old root and zero, and extra left root when degree grows establish all-negative simple interlacing for every integer m. P2=15+22x+3x² has x2=(-11+2√19)/3 in (-1,0); rightmost roots move to zero, giving actual off-diagonal zeros for each m≥2. Independent exact P2 recurrence and coordinate root checks agree; finite tests do not replace induction.
 
-## Closest literature and limits
-Marinescu–Xing (arXiv:2609.24258, September 21, 2026) and Fu–Deng (arXiv:2209.09394, 2022) had relevant theorem statements and applications inspected in accessible full-HTML versions; Perälä (arXiv:1703.05976) was available by abstract and associated indexed material. Noninteger exponents, general zero sets, and independent publication priority remain outside the proof. Exact coefficient computations are finite corroboration only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact Lu Qi-Keng zero/nonzero classification is for the BIDISK with genuinely coupled Euclidean boundary distance=min of two disk distances, not a product radial weight or smooth unit ball. The inspected prior disk and ball classifications, and the general Reinhardt moment representation, do not imply this particular interlacing family or threshold m=2. Best-of-knowledge originality survives with specialist Reinhardt weighted-kernel risk.
+
+## value
+
+PASS
+
+Zero-freeness of reproducing kernels is a natural, global Lu Qi-Keng property. The bidisk Euclidean distance weight couples the variables and is not reducible to the familiar product kernel. An exact integer-weight cutoff at m=2, with a negative-simple-root and strict interlacing mechanism for all larger exponents, supplies a meaningful structural classification of a natural non-smooth domain/weight family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
