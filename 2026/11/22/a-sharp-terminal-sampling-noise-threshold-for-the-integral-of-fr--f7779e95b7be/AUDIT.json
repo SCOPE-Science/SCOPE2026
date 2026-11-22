@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The conditioning risk is exact. For eta=1/2 Cauchy-Schwarz excludes t<=3/4 and two exact rational lower bounds for -2(t^(3/2)+1/2)c_second bound the derivative S_prime strictly below zero for t>=3/4; S(1)=0 proves unique endpoint optimality. The endpoint comparison increases strictly with eta because c(t)<c(1). For eta<1/2 the endpoint directional derivative is negative and an interior maximizer exists by continuity. Singular t=0 and eta=0 are handled by the information limit. Symbolic, exact rational and numerical covariance checks were replayed successfully; finite tests are only supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2023 manuscript treats deterministic and event-triggered sampling for causal path prediction; the H=3/4 scalar integral is not that loss.",
+        "Blu–Unser (2006) treats fixed integer-lattice noisy interpolation, not location choice on [0,1].",
+        "The earlier result concerning the Riemann–Liouville Volterra Gaussian kernel concerns Riemann–Liouville Volterra paths, whose increment covariance differs from stationary-increment fractional Brownian motion."
+      ],
+      "reasoning": "The general conditioning formula is common background, but neither the path-distortion or lattice-interpolation problem nor a Volterra-kernel cutoff dominates the particular sharp area-design theorem. The uninspected portions of older interpolation literature remain an acknowledged risk.",
+      "searches": [
+        "fractional Brownian integral quadrature optimal location noise Hurst parameter",
+        "Optimal Sampling for Estimation of Fractional Brownian Motion arxiv:2304.07661",
+        "Optimal interpolation of fractional Brownian motion given its noisy samples",
+        "Prior claim: Sharp regularity-dependent endpoint transition in one-sample Gaussian Volterra quadrature"
+      ]
+    },
+    "checked_sources": [
+      "Abundo–Pirozzi 2019 DOI 10.3390/math7100991 (full HTML sections inspected)",
+      "Cui–Chronopoulou 2023 arXiv 2304.07661 (primary PDF relevant sections inspected)",
+      "Blu–Unser 2006 EPFL PDF (partial indexed text, historical risk)",
+      "Published claim: sharp phase diagram for randomized fractional Brownian occupation quadrature (summary and statement comparison)",
+      "Published claim: exact OU quadrature nodes and stratification penalty (summary and statement comparison)",
+      "Related earlier mathematical findings on Gaussian Volterra and OU quadrature (statement comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The present theorem: terminal time t=1 uniquely maximizes Cov(J,B_t)^2/(t^(3/2)+eta) iff eta>=1/2.",
+        "The 2019 source supplies moments but makes no extremal time assertion.",
+        "The 2023 source extremizes a causal path-regression integral, not the variance of a regression onto J.",
+        "The earlier Gaussian Volterra claim has a kernel different from fBm for H!=1/2."
+      ],
+      "reasoning": "All one-point Gaussian posterior risks share elementary covariance conditioning, but the variance-optimal design does not follow from that identity alone: the global endpoint inequality at this Hurst index requires a separate analytic comparison. The viewed primary results do not logically imply it.",
+      "searches": [
+        "fractional Brownian motion Hurst H optimal single observation time integral posterior Gaussian noise threshold endpoint",
+        "fractional Brownian integral quadrature optimal location noise Hurst parameter",
+        "doi:10.3390/math7100991, covariance sections",
+        "arxiv:2304.07661, single sample proposition",
+        "Prior claim: Sharp regularity-dependent endpoint transition in one-sample Gaussian Volterra quadrature"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cui–Chronopoulou (2023), equation (1) and Proposition 1: distortion is E[integral (B_s - E[B_s|F_tau])^2 ds], rather than E[(integral B_s - E[integral B_s|Y_tau])^2].",
+        "Abundo–Pirozzi (2019), Section 2: variance and covariance of integrated fBm; no observation-time objective."
+      ],
+      "reasoning": "The proposed result maximizes a squared covariance of the entire integral divided by point-plus-noise variance. Its cross-time covariance term is not present in an integral of pointwise conditional variances, and the claimed variance cutoff does not follow by equality of the targets.",
+      "searches": [
+        "fractional Brownian motion Hurst H optimal single observation time integral posterior Gaussian noise threshold endpoint",
+        "fractional Brownian integral quadrature optimal location noise Hurst parameter",
+        "arxiv:2304.07661, Section 3.1, Proposition 1",
+        "doi:10.3390/math7100991, Section 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest fractional-Brownian-related published claim treats randomized occupation quadrature, not one Gaussian observation of the linear path integral.",
+        "Related earlier results about Gaussian Volterra and OU areas have different covariance priors.",
+        "No database table or precomputed list of the sharp noise threshold was located."
+      ],
+      "reasoning": "An exact table entry for this stochastic design was not identified. Database partitions and search failure do not prove novelty; literature comparisons and statement-level nonimplications support only a best-knowledge judgment.",
+      "searches": [
+        "fractional Brownian motion Hurst H optimal single observation time integral posterior Gaussian noise threshold endpoint",
+        "fractional Brownian integral quadrature optimal location noise Hurst parameter",
+        "Sharp phase diagram and optimal power grading for randomized fractional Brownian occupation quadrature (published mathematical claim)",
+        "Earlier numerical integration and single-point observation mathematical claims"
+      ]
+    },
+    "rationale": "The 2019 article provides the integrated-fractional-Brownian covariance, not a decision theorem for one noisy point sample. The 2023 one-point design has a different objective (the time integral of causal state-prediction MSE, with noiseless data), not the posterior MSE of the scalar area. The related historical Volterra finding uses a nonstationary-increment prior. No retrieved claim implies the sharp global endpoint cutoff for the stated model. Earlier equivalence remains possible.",
+    "residual_risks": [
+      "A mathematically equivalent earlier observation-design result may be unindexed or inaccessible, particularly in fractional stochastic-process sampling literature.",
+      "The complete 2006 interpolation paper was not inspected; available material suggests an objective mismatch but cannot establish whole-document noncoverage.",
+      "The theorem covers a canonical fixed Hurst exponent; extension of the global sufficient cutoff to other Hurst indices is unproved.",
+      "No independent expert audit of originality or mathematical correctness has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides exact integrated covariance/variance and applications; does not optimize a noisy point observation time",
+        "evidence": [
+          "Section 2, equation (19): Var(integrated fBm at t)=t^(2H+2)/(2H+2).",
+          "Introduction and conclusion state program of covariance and variance analysis, not sensor design."
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2227-7390/7/10/991",
+        "material_read": "Introduction, Section 2 integrated process and its formulas, Section 3 fractional OU comparison, conclusions",
+        "method": "Full accessible journal HTML inspected",
+        "title": "On the Integral of the Fractional Brownian Motion and Some Pseudo-Fractional Gaussian Processes",
+        "trigger": "Direct integral of fBm and its covariance; mathematical prerequisite and plausible overlap"
+      },
+      {
+        "assessment": "Not covering: causal path reconstruction aggregate distortion, not the scalar integral posterior error with additive sensor noise",
+        "evidence": [
+          "Section 2 equation (1), page 4: E[int_0^T (x_s - xhat_s)^2 ds].",
+          "Section 3.1 Proposition 1, page 5, analyzes the noiseless one-sample causal path objective."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2304.07661",
+        "material_read": "Introduction, problem formulation and Section 3.1 one-sample proposition; checked later sections about event-triggered sampling and the meaning of noise",
+        "method": "Read full-text arXiv PDF rendered pages 4–5 and parsed relevant sections, including time-loss definition",
+        "title": "Optimal Sampling for Estimation of Fractional Brownian Motion",
+        "trigger": "One-sample optimal time for fractional Brownian paths, a plausible stronger theorem"
+      },
+      {
+        "assessment": "Appears to treat fixed integer-lattice interpolation rather than selecting one time for final area estimation; does not establish whole-document noncoverage",
+        "evidence": [
+          "Abstract describes noisy samples at integers, digital Wiener filtering and fractional spline upsampling.",
+          "Indexed Theorem 2 concerns pointwise interpolation MSE."
+        ],
+        "identifier_or_url": "https://bigwww.epfl.ch/publications/blu0601.pdf",
+        "material_read": "Abstract and indexed theorem/implementation extract only; complete PDF not inspected",
+        "method": "Accessible indexed PDF excerpt, not full-paper review",
+        "title": "Optimal interpolation of fractional Brownian motion given its noisy samples",
+        "trigger": "Older noisy-fBm interpolation could contain a more general sampling method"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f7779e95-b7be-4d61-b64e-811fc34e5970",
+  "value": {
+    "rationale": "A fixed single-sensor budget for the time integral of a long-memory stochastic process is a natural numerical-integration/information-design problem. The theorem determines an exact sharp parameter threshold for when it becomes optimal to sample at the terminal time, a qualitative regime absent from ordinary Brownian sampling. The threshold has an analytic global certificate, not just a local stationarity test; it supplies a reproducible benchmark for resource allocation under persistent temporal correlation. The lack of a below-threshold uniqueness proof is stated, rather than silently broadened.",
+    "status": "PASS"
+  }
+}
