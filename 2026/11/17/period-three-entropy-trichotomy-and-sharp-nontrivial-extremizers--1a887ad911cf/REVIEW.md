@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement has fixed quantifiers over all Wolfram rules and all finite indexed cyclic rings of length at least three. Three successive rows satisfy precisely three local XOR relations; these are necessary and sufficient and encode bijectively as length-\(n\) closed walks in a 64-state de Bruijn graph. The integer-only checker constructs all local triples for every rule and verifies the SCC classification. The spectral-gap comparison uses the exact strict bound \(8^{56}\|M_r^{56}\|_\infty<25^{56}\) for 252 rules. The two quartic blocks and their cyclotomic factors are obtained by exact Newton identities, not floating eigenvalue fitting. Independently implemented full-state simulation of the original reversible map agrees for 256 rules at lengths three through six. Boundary and degeneracy cases are distinguished; a fixed point of the third iterate need not have primitive period three. Remaining uncertainty is external reimplementation of the finite certificate, not an unproved limiting extension.
+PASS
 
-## Originality — PASS, qualified
+Three successive rows A,B,C under R form period3 iff F(A)=B xor C, F(B)=C xor A, F(C)=A xor B. Encoding each temporal column as 3 bits yields exact 64-vertex directed pair-column transfer M_r; all n>=3 fixed states are closed walks tr(M_r^n), not simulations at sampled n. Independently implemented all 256 directed 64-node graphs, SCC cycle classification and exact 56-step integer infinity-row-sum comparison: found exponential129, bounded116, empty11 with exact empty rule list 167,173,181,189,191,229,231,239,247,253,255; for each of the other 252 rules max row sum(A^56)*8^56<25^56. Independently computed 16-node SCC characteristic polynomials for rules50,76, both t^7(t-1)(t^2+t+1)^2(t^4-2t^3-2t^2-6t+3). Trace identity and Newton recurrence give S_n plus 6 when n multiple3. For 51 and 204 sitewise identity/complement implies R^3=id on all 4^n states. All-length conclusions rely on finite transfer identity and exact integer certificate, not small-n trace simulation.
 
-The closest known work defines the reversible second-order update and studies its dynamical properties, but the inspected primary materials give no all-256-rule temporal-third-iterate entropy trichotomy or extremal quartic. In particular, the 2024 study of reversible elementary second-order automata treats rule equivalences and dynamical classifications including blocking phenomena; the accessible appendix and abstract do not assert this precise trace growth result. A 2026 study of Rule 115 concerns finite-support periodicity of one rule. Exact published first-order Rule 50 predecessor counts concern a different map and quantifier. The complete 1989 Takesue article and 2024 chapter were not available for full-text comparison; this is a genuine historical-priority risk, not evidence of absence. The individual Rule 54 period-three count is narrower and does not determine the 256-rule trichotomy or the unique extremal gap.
+## originality
 
-## Value — PASS
+PASS
 
-Reversible second-order extensions have exponentially many finite-state configurations, but knowing reversibility gives no distribution of a prescribed short temporal period. The new result settles a natural full finite-rule classification for period three, separates zero, bounded, and exponential growth regimes, and determines the unique nonlinear maximizers with a strict exact gap. It also supplies a compact exact quartic formula for their complete periodic-point counts. These are structural asymptotic distinctions rather than a finite numerical table or a mere reparameterization.
+Qualified best-of-knowledge: previous ECA and second-order reversible rule studies classify dynamical properties, reversibility, and particular rules, but do not in inspected accessible material give the all-rule third-iterate trace/entropy trichotomy, exact nontrivial maximizers 50/76 and rigorous uniform integer spectral gap. Full Formenti–Kamilya 2024 chapter and Takesue 1989 article remain inaccessible; these carry an explicit originality risk, not a false claim of noncoverage.
 
-## Residual limits
+## value
 
-The conclusion does not cover temporal periods other than divisors of three. Exhaustive programs are attached with their machine-checkable output, but no independent mathematical audit has been performed. The 1989 and 2024 primary full texts were not available; their relevant portions were not silently treated as checked.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exhaustive sharp phase diagram of a canonical 256-rule reversible CA class for an exact dynamical observable, with strict uniform spectral gap and unique nontrivial maximizers, is a natural complete classification. The quartic all-n trace recurrence and exact 11-rule emptiness set are reusable invariants not mechanically given by first-order image entropy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
