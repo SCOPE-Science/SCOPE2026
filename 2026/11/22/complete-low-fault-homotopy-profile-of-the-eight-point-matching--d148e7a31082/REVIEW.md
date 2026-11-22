@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The finite claim is exact for all eight-vertex graphs obtained by deleting at most three edges from the complete graph; the sphere counts also equal 132-16 times the number of faults plus twice the number of disjoint faulty pairs. Every fault set belongs to one of nine isomorphism types; the self-contained verifier exhausts the 3683 labeled fault sets for orbit coverage, enumerates all faces in each representative, constructs all acyclic Morse pairs, and tests the complete directed Hasse graph. For each representative exactly one empty-face pair and only critical two-simplices remain; hence the ordinary CW model is a bouquet of the listed two-spheres. An independent Euler count verifies every multiplicity. No infinite extrapolation or torsion assumption is made.
+
+**Originality — PASS against inspected evidence.** The complete-graph 132-sphere result in Mondal–Mukherjee–Saha is prior art, credited explicitly; it does not classify noncomplete edge-fault graphs. Bayer–Jelić Milutinović–Vega's line-tiling family and general deletion/link tools do not imply the dense graph fault-orbit table. The broader integral split-injection fact for matching homology is not reclaimed as new; it does not supply the homotopy types. Relevant indexed edge-fault studies concern distinct graphs or complexes. Search-based novelty cannot exclude an unindexed equivalent table.
+
+**Value — PASS.** Eight vertices is the first complete-graph matching-complex case with a simply connected nontrivial two-sphere bouquet and a known sharp homotopy result. The complete classification of single, double, and triple edge faults detects incidence dependence via the number of disjoint faulty pairs, and the first possible triangle-vs-star comparison at exactly three deletions. The result supplies missing homotopy information, not merely a known Euler table or routine primitive-inclusion corollary; complete finite orbit coverage is a coherent natural cutoff.
+
+**Risk and limits.** The finding is finite and does not assert higher-order generality. A prior unindexed equivalent calculation could remove originality. The exhaustive program and written argument have not received independent validation.
+
+Self-review: passed. Independent audit: not yet performed.
