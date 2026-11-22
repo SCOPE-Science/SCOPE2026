@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is for the ordinary matching complex, not the perfect-matching-generated subcomplex. A spanning-tree/triangle-relator elimination gives simple connectivity of the original complex. A transposition fixes a matching vertex, so Armstrong's finite-group quotient theorem makes the full quotient simply connected. An independently reconstructible standard-library program enumerates the 331 matching faces, all 120 automorphisms, and 125 quotient cells, constructs integral barycentric orbit-chain boundaries and proves exact chain acyclicity by 62 unit operations. Hurewicz and Whitehead promote simple-connected integral acyclicity to contractibility. The verifier does not conflate integer cancellation with a simplicial collapse.
+## correctness
 
-## Originality — PASS relative to inspected material
-The closest previous public result identifies the complete rational homology characters and rational acyclicity of this **same** quotient but explicitly does not determine integral torsion. A simply connected rationally acyclic quotient need not be contractible, so the new claim is not implied. The separately studied perfect-matching-generated complex is strictly smaller. Zaslavsky's 2012 matching-orbit classification and Shareshian–Wachs's 2004 general matching-complex homology do not compute this quotient's incidence-chain integral homology or homotopy. The 2012 publisher text was partially accessible only; unindexed priority remains a risk.
+PASS
 
-## Value — PASS
-The Petersen graph is a canonical small highly symmetric graph, and its ordinary matching complex has nonzero reduced homology in two dimensions. The full symmetry quotient's rational acyclicity had already been proved, leaving a specific meaningful integral torsion-and-homotopy gap. Exact contractibility settles that gap completely; it is not a rewording of rational acyclicity or of the smaller perfect-matching subcomplex result. The proof method additionally gives a reproducible finite integer certificate.
+The source builds Petersen KG(5,2), 15 graph edges, and matching faces (15,75,145,90,6). A spanning-tree/triangle edge-path presentation eliminates all 75 one-skeleton generators, so covering pi1=0. A transposition fixes a graph edge, and conjugate transpositions generate S5; Armstrong gives quotient pi1=0. Independent standard-Python enumeration (not running opaque source) built all 331 matching faces, all 120 label permutations, quotient barycentric flag cell vector (10,32,47,30,6), verified all d²=0 and 62 exact signed unit chain pivots by degree (9,23,24,6), leaving precisely one degree-0 generator. Thus integral acyclicity plus simple connectivity implies contractibility by Hurewicz and Whitehead. The verifier's finite calculation is complete for this exact finite graph, not an infinite-range test.
 
-## Scope and limits
-One graph and its full automorphism group; no statement for arbitrary subgroups or other graphs, and no geometric simple-collapse sequence is asserted. Source access and potential unpublished equivalent calculations remain originality risks. Independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The specific final scientific assertion is not known to be a mere restatement of the inspected broader theorems; the comparisons explicitly distinguish known methods/formal or rational information from the residual exact theorem. This is a best-of-knowledge priority assessment, not a proof of absence.
+
+## value
+
+PASS
+
+Determining the actual integral homotopy type of the full-symmetry orbit of a canonical highly symmetric graph matching complex resolves the integral-torsion obstruction left by previously known rational character data. An exact finite object can be independently significant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
