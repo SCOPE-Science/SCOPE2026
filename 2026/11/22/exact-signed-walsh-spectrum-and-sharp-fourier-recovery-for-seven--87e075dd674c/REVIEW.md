@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** On the exact fourteen-edge graph, all \(2^{14}\) orientations are exhaustively checked by two coordinate systems. The complete integer transform is compared against direct signed sums and independently against multivariate coefficient extraction for all 256 cut-space representatives. The fifteen signed histogram entries sum to 16,384; Parseval, all 14 two-edge null motifs, 256 nonzero projection-kernel values and the sharp norm \(281/64\) are asserted by the supplied executable checker. A symbolic translation-averaging argument independently establishes optimality among every linear projection, not only convolution operators. Limit: no arbitrary-order theorem is claimed.
+
+**Originality — PASS within inspected sources.** The 2004 circulant graph work and 2011 asymptotic theory do not supply the fully edge-signed \(C_7^2\) Fourier operator. A published odd-cycle-square result **does** already establish 60 states and its two-winding enumerator, and those facts are not claimed as new. Full-text comparison with that result, with the octahedral degree-one Walsh frame and with the distinct nine-vertex square-ice torus spectrum shows no implication yielding the fifteen-level seven-vertex signed histogram or its optimal endpoint recovery constant. Uninspected extended 2004 and 2007 texts and unindexed equivalences remain specific historical-priority risks. Search non-detection is not proof of absolute priority.
+
+**Value — PASS.** The first odd-order simple four-regular cycle square beyond the complete-five-vertex case gives a natural finite ice model whose counting-convolution information loss can be determined completely. Fourteen structurally specified first nontrivial cancellations and a sharp endpoint projection norm quantify both identifiability and stability; the exact 60-state count alone would not suffice. This is a motivated complete finite Fourier classification, not a routine recount of Eulerian orientations.
+
+**Scientific limits.** Originality is bounded by accessible full texts, and external independent mathematical review has not been performed. The script verifies finite exhaustive claims; it does not establish any unclaimed thermodynamic or all-size behavior.
+
+Self-review: passed. Independent audit: not yet performed.
