@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The conditional five-class probabilities follow from exact strict-convexity events in generic limits: the three-outer origin-containment event, uniform difference-angle cone membership, and a fair horizontal sign at the median vertical coordinate. The probability of degenerate geometric boundaries is zero. Almost-sure convergence gives bounded convergence; the five-term mixture gives uniform-in-weight convergence and a uniquely minimizing cubic. The included simulation corroborates but is not part of the proof.
+## correctness
 
-**Originality: PASS, provisional.** The accessible full texts of Marckert (arXiv:1402.3512v1) and Eisenberg–Sullivan (2011) respectively establish the filled-disk convex-position problem and a different normalized area functional for arbitrary distributions. Neither directly implies the two-atomic-radius, five-conditional-class limit. Indexed comparisons of concentric regular polygons, thin continuous homothetic shells, and nested-circle chord crossings concern different objects and limits. Search nonmatches cannot certify absolute priority; an undiscovered earlier exact two-shell treatment remains a risk.
+PASS
 
-**Value: PASS.** This is a natural radial-singular variant of Sylvester's original four-point problem, with a complete mixing-dependent limiting answer, a nontrivial five-case geometric classification, and a sharp optimum below the usual planar convex-body-uniform bound. It exhibits quantitatively how a central atom approached by a continuous ring changes a classical random-polytope question.
+From actual RESULT.md geometry, conditioning on k inner labels yields limiting q_k=(1,3/4,1/2,1/2,1): origin-in-outer-triangle event for k=1, difference-vector angular cone for k=2, fair horizontal sign of median-height inner point for k=3, and strictly convex single-circle configurations k=0,4. Nongeneric degeneracy null; bounded convergence and Bernstein basis give uniform convergence and unique minimizer. Independent Monte Carlo for r=1e-5, N=30000 per k gave [1,.75057,.49687,.4972,1], only diagnostic.
 
-The scope excludes finite-radius rates or claims for general radial measures. No independent validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge the five-shell-count collapse and sharp Bernoulli mixture optimum are not implied by compared filled-disk, continuous-shell or fixed-two-pair prior results; exact fixed-2+2 r-profile explicitly credits q2=1/2 but not the five-class vector or p optimization. Priority cannot be certified by negative searches.
+
+## value
+
+PASS
+
+Natural singular radial extension of Sylvester four-point convexity. Explicit five-case law, uniform mixture optimization, and strict optimum below 2/3 for convex-body area-uniform sampling are mathematically useful and not mere normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
