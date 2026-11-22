@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T06:17:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With a,b,c,Dx,Dy>0, ab>c^2 and r>=0, SPD drift plus nonexpansive projection gives unique stationary law. Its generator gives (2a+r)u-2cz=2Dx, 2bv-2cz=2Dy, (a+b+r)z=c(u+v); determinant 2Delta>0 for all parameters. Independently solved these equations symbolically and verified u,v,z, J_cont=c(u-v)+(a-b)z=cP/Delta, J_lag=J_cont+rz=2cQ/Delta, where P is the stated concave quadratic and Q stated affine function. Their sign partitions, roots and strict boundary cases follow directly; the explicit positive finite-lag factor follows from 2x2 symmetric semigroup B and eta>0. A new independent SymPy script checks all these symbolic identities as algebra, not just finite numerical samples. The prior October 25 source independently yields identical covariance specialization. Assumptions omit reset jumps from continuous area and do not count winding; no observed correctness defect.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior theta in [0,1) includes theta=0, target exact zeroing protocol. Prior equations (1),(3),(5) give all target stationary moments.",
+          "Published prior theorem classifies torque sign for all contractions, not only the target full reset."
+        ],
+        "reasoning": "Specializing the broader contraction theorem theta=0 covers target J_cont. The already-available covariance and generator matrix deliver J_lag and the full finite-lag antisymmetry without any new structural theorem.",
+        "searches": [
+          "Resultary: two temperature harmonic Brownian gyrator resetting first coordinate only to zero Poisson jumps circulation antisymmetric lag covariance sign reversal",
+          "Resultary: partial coordinate reset Ornstein Uhlenbeck stationary area current and two-time correlation",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-unique-resetting-induced-torque-reversal-in-a-two-bath-brownia--1f4878a82d95/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-directional-lag-correlations-and-parameter-identification-in-a-p--4f53487f213c/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-unique-resetting-induced-torque-reversal-in-a-two-bath-brownia--1f4878a82d95/RESULT.md (equations 1,3-7, theta=0)",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-directional-lag-correlations-and-parameter-identification-in-a-p--4f53487f213c/RESULT.md (semigroup and lag section)",
+        "https://arxiv.org/abs/2611.06322 (sections 2,3.7,4.4)",
+        "https://arxiv.org/html/2401.12685v1 (section 2)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Delta_old=2Delta_target, M_old=-cP/Delta_target=-J_cont; prior w=z.",
+          "J_lag=J_cont+r*z=2c[2(Dx-Dy)S+br(2Dx-Dy)]/Delta_target.",
+          "For symmetric B=[[a+r,-c],[-c,b]], e^{-Bt}=e^{-mt}(cosh eta t I -(B-mI)sinh(eta t/eta). The antisymmetric two-time covariance therefore equals J_lag e^{-mt}sinh(eta t)/eta."
+        ],
+        "reasoning": "The first target reversal is explicitly prior, and the second follows by a one-line generator identity plus substitution of published cross moment. The all-t>0 sign statement is the elementary two-eigenvalue propagator for the same covariance. Neither a new model, new independent invariant nor a nonstandard extension is needed.",
+        "searches": [
+          "Resultary: two temperature harmonic Brownian gyrator resetting first coordinate only to zero Poisson jumps circulation antisymmetric lag covariance sign reversal",
+          "Resultary: Brownian gyrator reset full position angular momentum rotational current exact formula resetting sign thresholds",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-unique-resetting-induced-torque-reversal-in-a-two-bath-brownia--1f4878a82d95/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-directional-lag-correlations-and-parameter-identification-in-a-p--4f53487f213c/RESULT.md",
+          "https://arxiv.org/abs/2611.06322"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under sign substitution c_prior=-c, and theta=0,p=r,h=1, prior torque M=-J_cont exactly.",
+          "Prior and assigned generator systems are identical after replacing prior w with target z."
+        ],
+        "reasoning": "Prior mechanical potential torque is exactly the negative continuous-path area rate for conservative harmonic drift, so observable wording and orientation do not distinguish the mathematical quantity.",
+        "searches": [
+          "Resultary: two temperature harmonic Brownian gyrator resetting first coordinate only to zero Poisson jumps circulation antisymmetric lag covariance sign reversal",
+          "Resultary: Brownian gyrator reset full position angular momentum rotational current exact formula resetting sign thresholds",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-unique-resetting-induced-torque-reversal-in-a-two-bath-brownia--1f4878a82d95/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct published formula (4) and threshold equation (6) in prior October 25 result give exact rate classification; this is more than a database table.",
+          "Resultary surfaced that result among highest-ranking matched records."
+        ],
+        "reasoning": "No separate tabulation of the two-current pair is required for coverage: existing closed-form torque/second-moment data determine both observables. Lack of an identically labeled table is irrelevant.",
+        "searches": [
+          "Resultary: two temperature harmonic Brownian gyrator resetting first coordinate only to zero Poisson jumps circulation antisymmetric lag covariance sign reversal",
+          "Resultary: Brownian gyrator reset full position angular momentum rotational current exact formula resetting sign thresholds",
+          "Resultary: partial coordinate reset Ornstein Uhlenbeck stationary area current and two-time correlation",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-unique-resetting-induced-torque-reversal-in-a-two-bath-brownia--1f4878a82d95/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-two-reversal-phase-diagram-for-stochastic-area-in-a-point-reset--4adcd0d96ebe/RESULT.md"
+        ]
+      },
+      "rationale": "Full earlier October 25 theorem already covers the continuous-path signed area rate and its unique reversal boundary as the negative of its conservative potential torque, for the same SPD two-temperature gyrator with theta=0 one-coordinate resetting. It also publishes the full covariance, especially z. From these old formulas the target lag rate is exactly J_lag=J_cont+r*z; simplifying is one affine numerator Q, and the every-lag formula is a standard 2x2 symmetric semigroup identity. Thus the claimed paired phase classification is a direct elementary consequence of a stronger prior result plus standard linear algebra, not an original independent mathematical theorem. The November 4 paper treats whole-state reset and is not the decisive source. Independently verified algebraic identity of prior and target formulas with SymPy.",
+      "residual_risks": [
+        "Strong direct prior coverage already decisive; no uncertain inaccessible source was used to justify rejection.",
+        "If the prior published October 25 formulas were later shown false, the implication would require reassessment, but independent symbolic algebra validates their specialization and the assigned formulas.",
+        "Even though the physical measurement comparison is informative, it is not an independent original theorem under this audit standard."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVELY COVERING: theta=0, p=r, h=1 and prior coupling c_prior=-c reproduce the target stationary covariance, target J_cont with opposite torque sign, the complete continuous-current sign thresholds and z; then lag claim is a direct generator-plus-semigroup corollary.",
+          "evidence": [
+            "Prior equation (4) M=2c_prior P/Delta_old with Delta_old=2 Delta_target; hence M=-J_cont.",
+            "Prior equation (3) w=-2 c_prior(2aD_y+2bD_x+rD_y)/Delta_old, hence w=z target.",
+            "Prior equations (1) and (5) already supply all second moments needed for the lag observable."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-unique-resetting-induced-torque-reversal-in-a-two-bath-brownia--1f4878a82d95/RESULT.md",
+          "material_read": "Complete published RESULT.md: finding, equations (1)-(8), proof of moments and one-reversal theorem, verification, scope and literature",
+          "method": "GitHub primary published result full source read through authorized read-only fetch_file",
+          "title": "A unique resetting-induced torque reversal in a two-bath Brownian gyrator",
+          "trigger": "Exact same two-bath SPD harmonic OU model, one-coordinate Poisson contraction, prior to assigned November 8 result"
+        },
+        {
+          "assessment": "Not the same SPD two-temperature gyrator: bath model is nonconfining without resets and friction-asymmetric; does, however, exhibit the routine 2x2 matrix-exponential reduction of directional lag correlations.",
+          "evidence": [
+            "Its lag proof states K(t)=e^{At}C, and antisymmetric difference is a scalar exponential factor times (AC)_{12}-(AC)_{21}.",
+            "Its stationary model requires r>0 for confinement, while target is already SPD at r=0."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-directional-lag-correlations-and-parameter-identification-in-a-p--4f53487f213c/RESULT.md",
+          "material_read": "Complete published RESULT.md including generator, matrix exponential, cross-time covariance and inverse formulas",
+          "method": "Authorized primary GitHub published result read",
+          "title": "Directional lag correlations and parameter identification in a partially reset Brownian probe–bath pair",
+          "trigger": "Earlier exact lag-antisymmetry under one-component reset; possible stronger implication"
+        },
+        {
+          "assessment": "Whole-state point resetting with jump-chord area differs from one-coordinate reset and omitted-jump area; not itself the decisive coverage source.",
+          "evidence": [
+            "The prior map relocates both X and Y to a fixed point; its area adds bX-aY at each reset.",
+            "The target maps only X to zero and deliberately omits jumps."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-two-reversal-phase-diagram-for-stochastic-area-in-a-point-reset--4adcd0d96ebe/RESULT.md",
+          "material_read": "Complete published RESULT.md: reset protocol, generator area decomposition, two-reversal proof, citations and limitations",
+          "method": "Authorized primary GitHub published result read",
+          "title": "Two-reversal phase diagram for stochastic area in a point-reset Brownian gyrator",
+          "trigger": "Another pre-November-8 Brownian gyrator resetting/area phase classification"
+        },
+        {
+          "assessment": "Not covering the target selective reset: its reset events replace BOTH coordinates by fixed point or point uniformly selected on a circle. Its angular momentum formula (44) and mean reversal criterion (45) concern a different law, though provide related context.",
+          "evidence": [
+            "Model: reset to (X0,Y0), or independently sample new two-coordinate location on circle, sections 2-3.",
+            "Section 3.7 equation (44) yields u[r(Y0^2-X0^2)+2(Ty-Tx)]/(2+r); not the selective-reset expression."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.06322",
+          "material_read": "Full HTML material at abstract URL, model and protocol (sections 2, 3.1), mean angular momentum/reversal (section 3.7), circular-reset case (section 4.4) and appendix angular-momentum definition",
+          "method": "Open-access arXiv HTML article read on web",
+          "title": "Brownian gyrator model with stochastic resetting",
+          "trigger": "Highly relevant Nov 4 2026 full primary paper on gyrator resetting and angular-momentum reversals"
+        },
+        {
+          "assessment": "Its Fourier-Laplace convolution formula assumes spatial homogeneity (section 2 Eq. 4) and therefore does not directly cover a harmonically confined two-bath gyrator, but sets background method.",
+          "evidence": [
+            "Equation (4) explicitly imposes translation homogeneity in observed coordinate.",
+            "Its main application is velocity-only reset of position–velocity transport."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2401.12685v1",
+          "material_read": "Full HTML sections 1, 2 and 2.1 (notably equations 1-11), transport section 3 and scope assumptions",
+          "method": "Open-access arXiv HTML read on web",
+          "title": "Dynamics of inertial particles under velocity resetting",
+          "trigger": "Prior framework for partially reset coupled degrees of freedom"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Although comparing continuous-path area and sampled antisymmetric lag is a physically intelligible distinction, the exact continuous current/reversal is already the previous torque theorem with a sign change, and the residual lag threshold and positive-lag sign are immediate algebraic corollaries of the earlier published stationary covariance plus the standard 2x2 matrix exponential. The proposed theorem contains no independently motivated unknown exact invariant or substantial new structural lemma beyond these mechanically implied deductions. It is useful explanatory commentary but not an independently valuable new mathematical finding under the common C/O/V bar.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-unique-resetting-induced-torque-reversal-in-a-two-bath-brownia--1f4878a82d95/RESULT.md (equations 1,3-7, theta=0)",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-directional-lag-correlations-and-parameter-identification-in-a-p--4f53487f213c/RESULT.md (semigroup and lag section)",
+    "https://arxiv.org/abs/2611.06322 (sections 2,3.7,4.4)",
+    "https://arxiv.org/html/2401.12685v1 (section 2)"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "A direct connector-to-container binary serialization path was unavailable: exact dispatcher identity values were transcribed in one private manifest, though all eight independently returned Git blob IDs reconstruct the exact assigned tree SHA.",
+    "Prior formula coverage is decisive; scientific rejection is not due to access or transport.",
+    "No GitHub write or dispatcher closeout."
+  ],
+  "residual_risks": [
+    "The complete prior published source is decisively covering and was inspected, not merely matched by title.",
+    "Symbolic replay verifies identities, not any claim of external formal certification.",
+    "Source package metadata includes operational provenance; cannot safely publish/relocate the frozen failed package without a guarded confidentiality handling plan."
+  ],
+  "schema_version": 1
+}
