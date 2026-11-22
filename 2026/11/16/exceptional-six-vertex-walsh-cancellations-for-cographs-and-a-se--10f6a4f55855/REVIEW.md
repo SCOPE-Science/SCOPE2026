@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The character normalization, edge-coordinate group, and graph-label conventions are explicit. Complementation proves exact zero at every odd support. At order seven, the forced-edge inclusion–exclusion identity reduces nonvanishing to 7,547 exact integer congruence checks on all edge sets of size at most four. The counted residue classes are \(16\pmod{32}\) for the empty support, \(8\pmod{16}\) for single edges, and zero modulo \(2^{5-k}\) for each size \(k\in\{2,3,4\}\). This proves the nonzero even-support claim for every seven-vertex frequency, not just sampled frequencies.
+PASS
 
-Two distinct exhaustive cograph predicates (forbidden induced \(P_4\) versus recursive graph/co-graph disconnection) agree on object counts and the full transform summaries at orders four through seven. A separate exhaustive orbit-set test identifies all 252 nonsymmetry zeros at order six. C++17 signed 64-bit integers exceed the needed signed-count magnitude (at most 78,416). This is an exact finite proof, conditional on transparent executable enumeration, not a formal independent certification.
+PASS: Complementation of P4-free graph family is exact involution, so W_n(S)=(-1)^|S|W_n(S), proving odd-support zeros. Independently built a stand-alone C++ enumeration, enumerating every 2^binom(n,2) labelled graph for n=4..7; tested P4 by all four-set edge/degree signatures; applied integer FWHT to full indicator, and independently constructed expected 6-vertex exceptional orbit set from every S6 permutation of complements of P4 disjoint 2 isolates and C5 disjoint isolate. Results exactly n4 (52, odd32, even0, rank32, gap4), n5 (472, odd512, even0, rank512, gap8), n6 (5504, odd16384, even252, rank16132, gap16, orbit set exact252), n7 (78416, odd1048576, even0, rank1048576, gap16, all even W congruent16 mod32). Source cograph_mod32.cpp independently formulates N_7(T) forced-edge subsets for |T|<=4 and gives N_empty=78416=16 mod32, singleton39208=8 mod16, higher forced counts divisible by 2^(5-|T|), so W7(S)=16-16|S| mod32. Finite enumeration here is exhaustive, not extrapolation to n>=8.
 
-## Originality — PASS under bounded comparison
+## originality
 
-The checked primary cograph literature supplies structural recognition, cotree decomposition or enumeration, rather than the labelled edge-wise Walsh transform and its exact exceptional frequency orbits. The closest accessible historical edge-Fourier graph results concern chordal graphs, spanning-tree/matching models or unrelated graph-exclusion interpolation; their claims do not imply these counts because the sampled graph sets and Fourier incidence coordinates are different. Indexed mathematical record searches identified no covering statement. Residual risk remains from unindexed archives and unpublished computations, so no absolute priority claim is made.
+PASS
 
-## Mathematical value — PASS
+PASS, best-of-knowledge: targeted Resultary, relevant published research and primary mathematical comparisons did not show claim coverage; overlap and residual risks separately specified.
 
-The object is a canonical complement-closed hereditary graph family. The complete Fourier kernel directly identifies which edge-parity observables cannot be recovered by its counting convolution; the two extra six-vertex orbits reveal a genuine cancellation not explained by complement symmetry, and the seven-vertex modular law proves that this defect disappears at the next size. The low-moment certificate compresses a 2,097,152-frequency nonvanishing question to 7,547 edge-pattern divisibility checks, with a structural Fourier explanation. The precise cut-off and exceptional isomorphism types make this a motivated finite classification, not an arbitrary numerical slice or known-table recomputation.
+## value
 
-## Closest sources and remaining limitations
+PASS
 
-Gioan–Paul, arXiv:0810.1823, §3.2 and §5.2, was read in the accessible full-text presentation; it concerns recognition and split trees, not signed edge-Fourier values. Jones–Protti–Del-Vecchio, arXiv:1612.05827, §§1–4, was read in the accessible full-text presentation; its enumeration is of unlabelled cographs. Corneil–Perl–Stewart (1985), DOI:10.1137/0214065, and Ravelomanana–Thimonier (2001), DOI:10.1016/S1571-0653(04)00224-0, were accessible only as abstracts; the latter is about asymptotic labelled and unlabelled cograph counts, not a reported signed Fourier census. Later unpublished or unindexed exact Walsh tables cannot be ruled out. All conclusions stop at seven vertices.
+PASS: Exact unexpectedly isolated n=6 cancellation orbits and recovery at n=7 are a natural boundary of a hereditary graph-class indicator Fourier transform; complete finite classification with a structural modular proof distinguishes two exceptional frequency graph types, and is useful as a precise known invariant for graph-convolution experiments. No all-n generality or paper-sized impact required.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

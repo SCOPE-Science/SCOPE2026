@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T06:42:59.426231Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Complementation of P4-free graph family is exact involution, so W_n(S)=(-1)^|S|W_n(S), proving odd-support zeros. Independently built a stand-alone C++ enumeration, enumerating every 2^binom(n,2) labelled graph for n=4..7; tested P4 by all four-set edge/degree signatures; applied integer FWHT to full indicator, and independently constructed expected 6-vertex exceptional orbit set from every S6 permutation of complements of P4 disjoint 2 isolates and C5 disjoint isolate. Results exactly n4 (52, odd32, even0, rank32, gap4), n5 (472, odd512, even0, rank512, gap8), n6 (5504, odd16384, even252, rank16132, gap16, orbit set exact252), n7 (78416, odd1048576, even0, rank1048576, gap16, all even W congruent16 mod32). Source cograph_mod32.cpp independently formulates N_7(T) forced-edge subsets for |T|<=4 and gives N_empty=78416=16 mod32, singleton39208=8 mod16, higher forced counts divisible by 2^(5-|T|), so W7(S)=16-16|S| mod32. Finite enumeration here is exhaustive, not extrapolation to n>=8.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Different graph properties and Fourier supports: edge covers, 2-connected, unicyclic are not same P4-free class; their finite rank/cancellation spectra do not specialize to cographs."
+        ],
+        "reasoning": "No broader graph-family theorem asserting all hereditary classes or P4-free indicator Fourier signatures found.",
+        "searches": [
+          "Resultary query: cograph edge indicator Walsh spectrum seven vertices modulo 32 exceptional six vertex zeros",
+          "Resultary 2026/11/16 edge-covers e4fd6a623ee6",
+          "Resultary 2026/11/16 biconnected graphs 92ada0c1e462",
+          "Resultary 2026/11/16 unicyclic graphs 31a21d50e71c"
+        ]
+      },
+      "checked_sources": [
+        "Frozen full RESULT.md, cograph_mod32.cpp, cograph_recursive.cpp and full Git tree",
+        "Independent exact exhaustive C++ graph and Walsh enumeration /tmp/independent_cograph_check_scope06.cpp",
+        "Gioan–Paul arXiv:0810.1823",
+        "Ravelomanana–Thimonier 2001 abstract, DOI 10.1016/S1571-0653(04)00224-0",
+        "Resultary graph-class Fourier comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Recognition/cotree decomposition and asymptotic enumerations are methods for generating the set; no direct claim implying exact exceptional Fourier supports."
+        ],
+        "reasoning": "New finite integer Fourier census is nontrivial additional assertion. Abstract-only primary source remains named priority risk, not evidence of whole-paper absence.",
+        "searches": [
+          "Resultary query: cograph edge indicator Walsh spectrum seven vertices modulo 32 exceptional six vertex zeros",
+          "Corneil–Perl–Stewart 1985",
+          "Gioan–Paul arXiv:0810.1823",
+          "Ravelomanana–Thimonier 2001"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical cograph characterization and counts concern graph membership and unsigned totals, not signed edge Walsh transform coefficients."
+        ],
+        "reasoning": "No equivalent full-cube Fourier zero classification is entailed by the ability to recognize/count cographs alone.",
+        "searches": [
+          "Resultary query: cograph edge indicator Walsh spectrum seven vertices modulo 32 exceptional six vertex zeros",
+          "Corneil–Perl–Stewart 1985 cograph recognition",
+          "Ravelomanana–Thimonier 2001 cograph enumeration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known table cograph totals 52,472,5504,78416 reused, but not rank 16132 and 252 exceptional orbits or n7 mod32 law."
+        ],
+        "reasoning": "Unsigned enumeration data do not determine full signed Walsh spectrum. Entire 2^21 transform explicitly computed here.",
+        "searches": [
+          "Resultary query: cograph edge indicator Walsh spectrum seven vertices modulo 32 exceptional six vertex zeros",
+          "Sage cographs documentation",
+          "Ravelomanana–Thimonier 2001"
+        ]
+      },
+      "rationale": "PASS, best-of-knowledge: targeted Resultary, relevant published research and primary mathematical comparisons did not show claim coverage; overlap and residual risks separately specified.",
+      "residual_risks": [
+        "Full Ravelomanana–Thimonier 2001 article inaccessible through authorized VPN (disconnected), so possible tucked-away finite table or appendix",
+        "Exhaustiveness is strictly restricted to 4<=n<=7, with no n>=8 claim",
+        "Strong finite computation certified independently but not formal Lean/expert attestation"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies structural decomposition and recognition, not signed edge-cube Walsh zero table.",
+          "evidence": "Different invariants: recognition via decomposition versus parity Fourier spectrum of graph-incidence indicator.",
+          "identifier_or_url": "https://arxiv.org/abs/0810.1823",
+          "material_read": "Public primary preprint overview, graph-labelled tree/split decomposition claims and algorithmic scope.",
+          "method": "Primary arXiv text inspected",
+          "title": "Split decomposition and graph-labelled trees: characterizations and fully-dynamic algorithms for totally decomposable graphs",
+          "trigger": "relevant cograph cotree recognition/decomposition"
+        },
+        {
+          "assessment": "INACCESSIBLE: not a whole-paper not-covering verdict; explicit historical priority risk retained.",
+          "evidence": "Asymptotic counting title/abstract cannot exclude finite signed transform appendix.",
+          "identifier_or_url": "https://doi.org/10.1016/S1571-0653(04)00224-0",
+          "material_read": "Abstract and bibliographic details only, primary full text inaccessible.",
+          "method": "Open access attempts then authorized institutional retrieval; VPN disconnected",
+          "title": "Asymptotic enumeration of cographs",
+          "trigger": "same labelled cograph family and count data"
+        },
+        {
+          "assessment": "Contains standard objects/counts, no evidence of exact 252 exceptional Walsh-support table.",
+          "evidence": "Unweighted count alone cannot fix alternating Fourier sums.",
+          "identifier_or_url": "https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/cographs.html",
+          "material_read": "Public documentation of P4-free characterization and basic cograph counts.",
+          "method": "Read published documentation",
+          "title": "SageMath graph reference: Cographs",
+          "trigger": "standard characterization and classical enumeration counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Exact unexpectedly isolated n=6 cancellation orbits and recovery at n=7 are a natural boundary of a hereditary graph-class indicator Fourier transform; complete finite classification with a structural modular proof distinguishes two exceptional frequency graph types, and is useful as a precise known invariant for graph-convolution experiments. No all-n generality or paper-sized impact required.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full Ravelomanana–Thimonier 2001 article inaccessible through authorized VPN (disconnected), so possible tucked-away finite table or appendix",
+    "Exhaustiveness is strictly restricted to 4<=n<=7, with no n>=8 claim",
+    "Strong finite computation certified independently but not formal Lean/expert attestation",
+    "Science review is distinct from publication readiness; no GitHub write, server certificate, Lean proof, or external expert attestation."
+  ],
+  "schema_version": 1
+}
