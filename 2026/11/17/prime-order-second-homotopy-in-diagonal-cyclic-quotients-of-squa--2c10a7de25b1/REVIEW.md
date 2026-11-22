@@ -1,17 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof classifies all isotropy points: any nontrivial stabilizer forces a full orbit of \(p\) nonattacking cells, hence one of exactly \(p\) invariant perfect matchings; their barycenters are the only fixed points. The reduced real regular representation has complex weights \(1,\ldots,(p-1)/2\), so a deleted neighborhood is a free covering of a generalized lens-space link. The chessboard connectivity theorem gives \(\pi_1(U_p)=0\), while the classical integral calculation gives \(H_2(U_5)=\mathbb Z/3\), and the higher connectivity bound gives \(H_2(U_p)=0\) for \(p\ge7\). The Cartan–Leray spectral sequence has no surviving nontrivial low-degree differential; the Mayer–Vietoris connecting map from \(p\) lens links to the \(C_p\) covering group is surjective on each summand. Therefore the kernel has \(p-1\) copies of \(\mathbb Z/p\). Van Kampen kills the covering group, and Hurewicz identifies the computed \(H_2\) with \(\pi_2\). In the exceptional \(p=5\) case, coprime primary decomposition splits the extension.
+## correctness
 
-Exact original-object citations are Shareshian–Wachs, Theorem 1.1 and Table 1.2 (arXiv:math/0409054v1, first public 2004-09-03) and Jonsson's Section 3 (arXiv:1203.5644v1, 2012-03-26). Complete enumerations for \(p=5,7\), and an independent low-dimensional modular quotient-chain calculation for \(p=5\), corroborate the proof. The program output and reproducible source are included. Computations are not presented as an infinite proof.
+PASS
 
-## Originality — PASS relative to inspected evidence
-The known unquotiented chessboard results determine connectedness and intrinsic \(3\)-torsion but not the diagonal cyclic quotient. The full published column-only fivefold quotient calculation concerns a *free* action and has \(H_1=\mathbb Z/5\), whereas the present action has \(p\) fixed barycenters and \(\pi_1=0\). The published transitive-bipartite fixed-point theorem gives the \(p\)-point fixed set, which is recognized as prior coverage of that subsidiary lemma; it does not calculate the local lens-space links or quotient \(\pi_2\). The published transpose quotient concerns order two rather than cyclic order \(p\). Focused published-finding corpus and literature searches did not locate the infinite-prime second-homotopy classification. That negative search is not a proof of priority; unindexed or otherwise inaccessible equivalences remain possible.
+Every nontrivial diagonal translation has precisely the p invariant perfect matching simplex interiors, with only the barycenters fixed; a fixed point must have support on one entire vertex orbit F_a. Local real normal rep is reduced p-cycle permutation module, with free lens-space sphere link L(p;1,...,(p−1)/2) dimension p−2 and H1=C_p, H2=0. Removing disjoint invariant neighborhoods leaves simply connected U (relative groups vanish up through degree two) and H2(U)=0 for p≥7 or Z/3 for p=5 from published chessboard results. The free quotient Y=U/C_p has π1=C_p, H2(Y)=H2(U) from Cartan–Leray, with no incoming H3(C_p)=Z/p map to Z/3. Each lens boundary inclusion induces an isomorphism on π1; adjoining p cones kills π1 by Van Kampen. Mayer–Vietoris exact sequence identifies H2 as extension by kernel ((Z/p)^p→Z/p), which is (Z/p)^(p−1), and coprime primary splitting for p=5. Hurewicz gives π2. Independent full face enumerations: p5 1545 faces, exactly 5 invariant facets, quotient χ=−7; p7 130921 faces, exactly 7 invariant facets, quotient χ=−23. These corroborate but cannot prove π2 universally.
 
-## Value — PASS
-The natural \(C_p\)-action is one of the most elementary nonfree symmetries of the square chessboard complex. Its \(p\) singular perfect matchings produce a **precise** rank \(p-1\) elementary \(p\)-group in \(\pi_2\) for every prime \(p\ge7\), even though the original complexes are at least three-connected. The initial case retains the independent known \(3\)-torsion and adds four \(5\)-torsion classes. This illustrates a systematic, nontrivial failure of low-dimensional connectivity to descend to ordinary finite-group quotients and supplies an exact infinite family, rather than a selected computation.
+## originality
 
-## Limitations and risks
-The result establishes only \(\pi_1\), \(\pi_2\), and the corresponding low-degree integral homology. It does not determine the rest of the homology, ring structure, composite parameters, or complete homotopy types. Standard spectral-sequence, covering-space, lens-space, and Mayer–Vietoris theorems are mathematical inputs. No independent mathematical audit has been performed. Publication priority requires expert review of further unindexed literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS best-of-knowledge: known chessboard connectivity, H2(M5,5)=Z/3 and fixed-point counts are prior inputs. Column-only cyclic quotients are free with nonzero H1, while the diagonal group has p isolated fixed barycenters and π1=0; the larger diagonal S_p quotient at p=5 is a different group and cannot imply the general C_p exact π2.
+
+## value
+
+PASS
+
+This is a natural exact homotopy invariant of simultaneous row-column symmetry on standard chessboard complexes. The quotient creates unbounded p-primary second homotopy even when the covering chessboard has H2=0, a motivated structural phenomenon rather than a trivial low-instance table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

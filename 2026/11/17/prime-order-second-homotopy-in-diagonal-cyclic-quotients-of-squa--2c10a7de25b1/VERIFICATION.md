@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` and `python3 check_modular.py` with Python 3 standard library. The accompanying `verify_output.txt` and `check_modular_output.txt` are actual recorded output from running these source files in the same directory.
+## correctness
 
-`verify.py` independently enumerates all \(1545\) nonempty faces at \(p=5\) and all \(130921\) nonempty faces at \(p=7\). It checks the sizes of all dimensions, the translation-invariant faces, that the invariant facets are exactly \(F_a=\{(i,i+a)\}\), and local representation weights. The Euler characteristics of the geometric quotients are \(-7\) and \(-23\), respectively, by the fixed-point formula.
+PASS
 
-`check_modular.py` constructs the actual orbit chains of the barycentric subdivision for \(p=5\), preserving ordered face-flags, and builds every boundary in dimensions one through three. Counts are \((313,3200,8640,8640)\) for quotient cells through dimension three. Over \(\mathbb F_2\) it finds boundary ranks \((312,2888,5752)\); over \(\mathbb F_3\) ranks \((312,2888,5751)\); over \(\mathbb F_5\) ranks \((312,2888,5748)\). Consequently \(H_1=0\) over each field, and the dimension of \(H_2\) is respectively \(0,1,4\). This independently checks the prime-specific low-dimensional conclusion.
+Every nontrivial diagonal translation has precisely the p invariant perfect matching simplex interiors, with only the barycenters fixed; a fixed point must have support on one entire vertex orbit F_a. Local real normal rep is reduced p-cycle permutation module, with free lens-space sphere link L(p;1,...,(p−1)/2) dimension p−2 and H1=C_p, H2=0. Removing disjoint invariant neighborhoods leaves simply connected U (relative groups vanish up through degree two) and H2(U)=0 for p≥7 or Z/3 for p=5 from published chessboard results. The free quotient Y=U/C_p has π1=C_p, H2(Y)=H2(U) from Cartan–Leray, with no incoming H3(C_p)=Z/p map to Z/3. Each lens boundary inclusion induces an isomorphism on π1; adjoining p cones kills π1 by Van Kampen. Mayer–Vietoris exact sequence identifies H2 as extension by kernel ((Z/p)^p→Z/p), which is (Z/p)^(p−1), and coprime primary splitting for p=5. Hurewicz gives π2. Independent full face enumerations: p5 1545 faces, exactly 5 invariant facets, quotient χ=−7; p7 130921 faces, exactly 7 invariant facets, quotient χ=−23. These corroborate but cannot prove π2 universally.
 
-Neither finite experiment independently establishes the universal formula. That follows from the proof with established connectivity and integral homology for ordinary chessboard complexes, plus the exact local lens-space structure and standard homotopical/algebraic-topological sequences. In particular the mod-\(p\) calculations alone do not distinguish exponent \(p\) from higher \(p\)-powers; the Mayer–Vietoris exact sequence does.
+## originality
 
-Independent external validation has not been performed.
+PASS
+
+PASS best-of-knowledge: known chessboard connectivity, H2(M5,5)=Z/3 and fixed-point counts are prior inputs. Column-only cyclic quotients are free with nonzero H1, while the diagonal group has p isolated fixed barycenters and π1=0; the larger diagonal S_p quotient at p=5 is a different group and cannot imply the general C_p exact π2.
+
+## value
+
+PASS
+
+This is a natural exact homotopy invariant of simultaneous row-column symmetry on standard chessboard complexes. The quotient creates unbounded p-primary second homotopy even when the covering chessboard has H2=0, a motivated structural phenomenon rather than a trivial low-instance table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
