@@ -1,0 +1,94 @@
+{
+  "correctness": {
+    "rationale": "Exact definitions and quantifiers are fixed. Two independent exhaustive algorithms inspect all n! permutations for 1<=n<=7 and all factor intervals of all intermediate words, build the complete legal swap graph and compute every-pair distances; both report the identical 20-pair exceptional spectrum at n=7 and none earlier. An explicitly verified six-edge path connects the witness; any Kendall-length-four path must first make a single forbidden swap (the resulting word 1000101 violates prefix normality), and parity rules out length five. Prepending new maxima is proved admissibility-preserving, extending the exact four-versus-six distance to every n>=7. Finite enumeration is used only for its stated finite range.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2025 paper proves the increasing-adjacent-swap preservation lemma, implying reachability of the decreasing permutation, but no geodesic distance equality.",
+        "An indexed 2026 theorem on quadratic adjacent-swap detours treats 132-avoiding permutations rather than prefix-normal word-chain generators."
+      ],
+      "reasoning": "General path connectivity and the analogous metric statement for a different permutation family do not logically entail the number, onset or distances of the exceptional prefix-normal-generator pairs. No stronger theorem applying to the same admissible generator class was established.",
+      "searches": [
+        "prefix normal bubble language weak Bruhat upper set geodesic induced permutahedron",
+        "prefix normal chain generators poset weak order ideal size",
+        "shortest path diameter prefix normal word chain generators adjacency swaps"
+      ]
+    },
+    "checked_sources": [
+      "Adamson et al., arXiv:2508.19619v1 (full public HTML, posted 2025-08-27)",
+      "Fici and Liptak, On Prefix Normal Words (2011; contextual definition referenced by Adamson et al.)",
+      "Indexed record: Quadratic adjacent-swap detours among 132-avoiding permutations (2026; related distinct class, summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Adamson et al. (2025), Section 3, guarantee that a single ascending adjacent pair can be swapped, a monotone connectivity fact.",
+        "Our explicit first necessary Kendall-correcting swap is a descending adjacent pair and its resulting generator is inadmissible: its intermediate word 1000101 contains 101 against prefix 100."
+      ],
+      "reasoning": "The monotone-swap lemma cannot supply a Kendall geodesic between arbitrary endpoints. Our mandatory disallowed first move proves a stronger negative metric statement in the exact same graph. The published distinct 132-avoiding result does not include our admissibility predicate or imply the length-seven census.",
+      "searches": [
+        "prefix normal reconfiguration graph distortion geodesic obstruction 7 permutations 2025",
+        "prefix normal word chain generators adjacent swap graph isometric geodesic Kendall distance seven 20 pairs",
+        "\"prefix normal\" \"word chain generators\" \"geodesic\" swap"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2025 primary paper defines precisely the admissible generator family and its neighboring-entry swap operation, and states swap criteria in Section 3; it does not state pairwise shortest-path distances.",
+        "Direct primary-source reading confirms that swapping increasing entries preserves admissibility but supplies no all-pair isometry result."
+      ],
+      "reasoning": "Equivalent metric formulations include induced-path isometry of a subgraph of the permutahedron, equality with Kendall tau distance, and existence of a shortest admissible adjacent-swap sorting path. The full source discusses connectivity and swap closure, not the exact first metric failure. Search results expose no equivalent seven-letter theorem; absence from an index is not a proof of priority.",
+      "searches": [
+        "\"prefix normal\" \"word chain generators\" \"geodesic\" swap",
+        "\"prefix normal generators\" \"Kendall\" shortest paths",
+        "prefix normal word chain generators adjacent swap graph isometric geodesic Kendall distance seven 20 pairs",
+        "Adamson Dudey Fleischmann Huch word chain generators length 7 pair distance 6 versus Kendall 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary paper gives illustrative small generator graphs and an iterative generation approach but no printed length-seven all-pair swap-distance table.",
+        "Independent exact enumerators return 220 vertices and 20 exceptional unordered pairs, partitioned into six distance classes."
+      ],
+      "reasoning": "No verified published table of the 20 pairs or the six-distance multiplicities was found. The new finite table is independently reconstructible from two complete enumerators; it has not been compared against an inaccessible or unindexed database.",
+      "searches": [
+        "number of prefix normal word chain generators exact closed form",
+        "prefix normal word chain generators permutations enumerations counts graph connected inversion swaps",
+        "\"prefix normal word chain generators\" diameter graph"
+      ]
+    },
+    "rationale": "The inspected 2025 initiating paper proves swap feasibility and raises a connectivity question but does not state an isometry theorem, first failed order, 20-pair spectrum, or infinite lifted witness. Published index queries for synonyms, geodesic/Kendall reformulations, tables, broader coverage and implication chains reveal no exact same-object result. Historical priority remains contingent on indexed accessible literature.",
+    "residual_risks": [
+      "Unindexed or not-yet-public priority claims might exist.",
+      "An indirect reinterpretation of a general permutation reconfiguration result not found in the queried records might cover the construction.",
+      "Only the closest same-object preprint received an extensive full-text comparison; the related 132-avoidance record was compared only at its stated summary level."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides definitions, preservation of increasing adjacent swaps, and local feasibility criteria, but no length-seven isometry failure census or general four-versus-six witness.",
+        "evidence": [
+          "Definitions and generator admissibility in lines 77-85.",
+          "Swap closure and conditions in lines 185-245.",
+          "Construction, questions and conclusions in lines 283-314."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2508.19619v1",
+        "material_read": "Full HTML text, especially definitions, Section 3 Lemmas 1-4 and Theorem 3.1, Propositions 2-3, and the conclusion.",
+        "method": "Read accessible original open preprint HTML and compare its stated swap propositions with the exact new graph-metric statement.",
+        "title": "Word Chain Generators for Prefix Normal Words",
+        "trigger": "Defines exactly the same generator graphs and investigates adjacent-swap relationships, including a question on their connectivity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "26333db5-5de7-4c19-8c33-18c756f02e8c",
+  "value": {
+    "rationale": "The question is motivated by an explicit literature investigation of legal adjacent swaps between prefix-normal word-chain generators; preserving unrestricted shortest routes is a natural stronger reconfiguration property than mere connectivity. A sharp first failure at length seven, its complete 20-pair joint metric census, and an explicit obstruction persisting at every higher length identify structural boundaries beyond routine relabeling or arbitrary finite slice. The result is not claimed to provide a closed all-length spectrum.",
+    "status": "PASS"
+  }
+}
