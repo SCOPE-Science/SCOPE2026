@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T06:00:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The canonical 2x2 two-projection blocks give D=sum_j t_j and C=max_j sqrt(t_j(1-t_j)), for unrestricted t_j in [0,1] because n>=2k. For C<=c the scalar sublevel is [0,a] union [1-a,1]; counting coordinates in the upper band gives the two necessary lower bounds delta/(k-m) and (1-delta)/(m+1), and saturation patterns attain the smaller. Upper bound follows exact feasible coordinate interval; convex fixed-sum polytope plus continuous C gives every intermediate value. Crossover in each integer cell gives sqrt(k)/(k+1). Independent 404 sampled fixed-distance tests across k=1,2,3,7 and direct block formulas corroborate the proof; equality cases and integer endpoints follow from saturation, not sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aouichaoui deals with additive/multiplicative commutator lengths of arbitrary idempotents; Bourin–Lee with norm identities from involutions; Conde Sec IV contains unconditional inequalities including ||[P,Q]||<=1/2."
+        ],
+        "reasoning": "These broader classes of projections or less-constrained bounds do not imply the exact conditional lower envelope at fixed rank/Tr(PQ) or the integer-cell equal-height peaks; no dominating theorem was located in material inspected.",
+        "searches": [
+          "Resultary semantic: rank k orthogonal projections fixed chordal distance commutator norm sharp lower upper envelope integer valley",
+          "web: C Conde 2022 A note about norm of sum and anticommutator of two orthogonal projections full pdf",
+          "Aouichaoui arxiv:2611.01316",
+          "Bourin Lee arxiv:2602.19599",
+          "Conde DOI:10.1016/j.jmaa.2021.125650"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1306.1923",
+        "https://arxiv.org/html/2611.01316v1",
+        "https://arxiv.org/html/2602.19599v1",
+        "https://doi.org/10.1016/j.jmaa.2021.125650",
+        "Resultary: principal-angle spectra of Gaussian-Fock composition projections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Loring angle bands bound each t_j separately but optimize operator perturbation, not the sum-constrained maximum. Conde inequalities bound C using norms of PQ and P±Q without fixing their full principal-angle sum."
+        ],
+        "reasoning": "Knowing the classical 2x2 blocks is a prerequisite, not the extremal solution: the two integer-count constraints and equality classification are substantive steps, so the claim is not a mere normalization of the antecedents.",
+        "searches": [
+          "Resultary semantic: rank k orthogonal projections fixed chordal distance commutator norm sharp lower upper envelope integer valley",
+          "web: C Conde 2022 A note about norm of sum and anticommutator of two orthogonal projections full pdf",
+          "Loring principal angles 2014",
+          "Conde Sec IV commutator norm inequalities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Loring (2014) Theorem 3.2 supplies common-angle blocks and commuting-approximation bounds, so t_j=sin^2 theta_j reduces the problem to a bounded-sum coordinate optimization."
+        ],
+        "reasoning": "Canonical-angle change of variables is genuinely equivalent, but does not supply the sharp fixed-sum extrema or characterize every attainable C; the proof performs a further nonlinear combinatorial optimization.",
+        "searches": [
+          "Resultary semantic: rank k orthogonal projections fixed chordal distance commutator norm sharp lower upper envelope integer valley",
+          "web: C Conde 2022 A note about norm of sum and anticommutator of two orthogonal projections full pdf",
+          "principal angles two orthogonal projections fixed trace Tr(PQ) commutator norm",
+          "Loring arxiv:1306.1923"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Gaussian-Fock composition commutators lift subspaces to a different Hilbert/Fock space; the published singular spectrum does not tabulate unlifted rank-k fixed-chordal envelopes."
+        ],
+        "reasoning": "The target is a continuum of distances and ranks with exact extrema, not a known finite lookup; search of exact invariant formulations found no reproducing table.",
+        "searches": [
+          "Resultary semantic: rank k orthogonal projections fixed chordal distance commutator norm sharp lower upper envelope integer valley",
+          "web: C Conde 2022 A note about norm of sum and anticommutator of two orthogonal projections full pdf",
+          "Resultary: principal-angle spectra for Gaussian-Fock composition projections",
+          "Conde 2022 article Sec IV"
+        ]
+      },
+      "rationale": "Classical principal-angle decomposition and operator-norm commutator bounds are fully credited. Loring studies perturbations to commuting projections, Aouichaoui arbitrary-idempotent commutator lengths, Bourin–Lee angle identities, and Conde unconditional norm inequalities; none of the inspected material gives the exact fixed-Frobenius-distance, rank-k joint compatibility region and all minimizers. Older equivalent conditional norm inequalities remain a risk.",
+      "residual_risks": [
+        "Conde 2022 full article body not completely available; exact fixed-sum theorem absent from material read but uninspected sections could hold more.",
+        "Older angle optimization formulated through Tr(PQ) and operator commutator could be unindexed; negative search is not proof of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical reduction covered; exact fixed-rank Tr(PQ) extremization not among inspected theorems",
+          "evidence": "Two-plane blocks, approximation-to-commuting objective.",
+          "identifier_or_url": "https://arxiv.org/abs/1306.1923",
+          "material_read": "Full available arXiv PDF, theorem and proof of angle decomposition/commuting approximation, including Theorem 3.2",
+          "method": "web PDF text and page screenshot",
+          "title": "Principal angles and approximation for quaternionic projections",
+          "trigger": "Same canonical two-projection blocks"
+        },
+        {
+          "assessment": "Different invariant: factorization length rather than Hilbert-Schmidt-conditioned norm region",
+          "evidence": "General arbitrary idempotents, similarity and additive/multiplicative lengths.",
+          "identifier_or_url": "https://arxiv.org/html/2611.01316v1",
+          "material_read": "Full accessible arXiv HTML main sections 1-4 and stated results",
+          "method": "web HTML text",
+          "title": "Optimal lengths of commutators of idempotents and similarity of nilpotent operators to their negatives",
+          "trigger": "Recent theorem on commutators of idempotents"
+        },
+        {
+          "assessment": "Known unconditional norm inequalities; no fixed rank/chordal-distance envelope in read material; partial-access risk preserved",
+          "evidence": "Section 4.6-4.7 states ||[P,Q]||<=1/2 and overlap estimates.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2021.125650",
+          "material_read": "Publisher article HTML introduction, Theorems 1.1-1.2, Sec IV inequality (4.6)-(4.7) and associated examples, but not all unexposed article body",
+          "method": "web indexed article text",
+          "title": "A note about the norm of the sum and the anticommutator of two orthogonal projections",
+          "trigger": "Exact same orthogonal projection commutator setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The orthogonal Grassmannian chordal distance and commutator norm are natural noncommutativity/geometric separation observables. Their complete attained joint region exposes a sharp quantized commuting-distance valley and rank-sensitive peak not captured by unconditional 1/2 inequalities; this is a mathematically motivated exact extremal classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1306.1923",
+    "https://arxiv.org/html/2611.01316v1",
+    "https://arxiv.org/html/2602.19599v1",
+    "https://doi.org/10.1016/j.jmaa.2021.125650",
+    "Resultary: principal-angle spectra of Gaussian-Fock composition projections"
+  ],
+  "disposition": "passed",
+  "final_claim": "For any pair of equal-rank k orthogonal projections over R/C in dimension n>=2k, at fixed D=||P-Q||_F^2/2=d their commutator operator norms form precisely the whole interval [L_k(d),U_k(d)]; L vanishes on integer d and has exactly one interior peak sqrt(k)/(k+1) per integer cell, with specified minimizers and upper piecewise envelope.",
+  "limitations": "Qualified originality best knowledge; operational provenance sanitization not performed; no GitHub or dispatcher writes; no false claim of formal or expert independent attestation.",
+  "residual_risks": [
+    "Conde 2022 full article body not completely available; exact fixed-sum theorem absent from material read but uninspected sections could hold more.",
+    "Older angle optimization formulated through Tr(PQ) and operator commutator could be unindexed; negative search is not proof of novelty."
+  ],
+  "schema_version": 1
+}
