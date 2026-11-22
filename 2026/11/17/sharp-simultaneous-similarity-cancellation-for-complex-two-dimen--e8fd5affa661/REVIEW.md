@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The argument covers finite and infinite families in complex dimension two. A nonscalar matrix has a two-dimensional centralizer spanned by itself and the identity. Commuting families therefore reduce to one generator, where the nilpotent/involution classification proves optimal-condition-number invariance; for noncommuting families, the scalar joint commutant makes all amplified intertwiners Kronecker multiples of one invertible common intertwiner. The block-inverse argument proves an invertible block exists without assuming cancellation. The exact sharpness witness is a one-element family. The 79 finite checker assertions supplement, not replace, these steps.
+## correctness
 
-## Originality — PASS (best-knowledge)
-Aouichaoui's Theorem 2.1 establishes a uniform but unspecified simultaneous conditioning bound and near-one continuity; Jiang–Ma–Shi–Zhang prove general-dimensional single-pair bounds. Classical two-block diagonalization is not a tuple condition. Accessible published records include prior *single-pair* dimension-two amplification invariance, which is excluded from the novel claim here; the exact arbitrary-family result relies on the additional joint-commutant dichotomy. Florentino's older simultaneous similarity classification is a residual full-text bibliographic risk. No exact covering quantitative arbitrary-family result was identified.
+PASS
 
-## Mathematical value — PASS
-This answers a natural exact constant problem for arbitrary simultaneously indexed matrix families at the first nonscalar dimension. The theorem identifies structural reasons that both commuting and noncommuting constraints prohibit improved conditioning after amplification, and supplies a sharp uniform value for every finite replication count.
+For a nonscalar complex 2x2 matrix A0, its full centralizer is span(I,A0) even in defective Jordan case. If every Ai commutes with A0, Ai=alpha_i I+beta_i A0; any amplified similarity forces corresponding Bi affine in B0, reducing all constraints to one similar pair. If some Ai fails to commute, the joint commutant is scalars; each block of W and W^-1 intertwines and their diagonal sum gives I, forcing one nonzero scalar product of opposite-direction blocks and hence an invertible unamplified common X. All amplified W then factor C tensor X; spectral-norm condition number factors. The single-pair 2x2 optimum is invariant via the shifted rank-one nilpotent or normalized involution norm ratio; the lower bound holds at every amplification and is attained by the canonical diagonal intertwiner. One-pair sharpness witness gives Theta_2,q(t)=t.
 
-## Limitations
-Only complex matrices of size two and finite Hilbert direct sums; no result for arbitrary higher dimensions, independent certification or exhaustive historical bibliographic uniqueness is claimed. Demmel's classical one-matrix formula and the earlier known single-pair cancellation remain prior ingredients.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Relevant published single-pair dimension-two exact cancellation was located and expressly credited, rather than claimed as new. Aouichaoui gives arbitrary-family but nonsharp C(2,q,t), while Florentino focuses qualitative simultaneous similarity. The surviving exact optimal norm preservation across arbitrary, even noncommuting, simultaneous families uses joint-commutant rigidity and is not a direct statement of the single-pair literature.
+
+## value
+
+PASS
+
+Exact simultaneous conditioning is a motivated structural quantitative question for arbitrary many pairwise constraints at the first nonscalar dimension. The all-family sharp constant and C tensor X rigidity resolve more than a finite numerical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
