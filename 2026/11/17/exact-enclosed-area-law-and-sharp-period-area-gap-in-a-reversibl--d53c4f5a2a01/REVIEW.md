@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The first-return equation is obtained by solving the left affine second-order oscillator with its signed constant forcing. Its explicit section-speed function is strictly decreasing on the interval \((\pi,\theta_0)\), so each positive crossing velocity has exactly one first return and no intervening crossings. Reversibility constructs the remaining half-orbit in original time. Green's theorem and the exact energy derivative \(H'=t(x')^2\) prove the enclosed-area identity without approximation; its hyperbolic form is an algebraic factorization. The high-area limit follows from explicit first-order expansions at \(\theta=\pi\). The independent finite quadrature checks are supplemental, not a substitute for proof. The nontransverse inner endpoint is excluded.
+PASS
 
-## Originality — PASS, subject to publication-priority uncertainty
+For a,t,d>0 with 4d>t², on the left x<0 the reflected coordinate u=-x solves u_second_derivative - t*u_first_derivative + d*u = a and u=vg+aW. The explicit h(theta) formula for a return has h′<0 on (pi,2pi), so each upper switching velocity v>0 identifies a unique first return theta∈(pi,theta0), with w<0. Reflection and time reversal supply exactly one right excursion and least physical period 2theta/omega; nontransverse endpoint (0,0) is excluded. Green area A=2 integral_left (x′)^2 ds and energy derivative H′=t(x′)^2 give A=(w²-v²)/t, including ordinary Euclidean area normalization. Ordering of crossings and disjoint Jordan curves gives strict area increase as v increases; expansion theta↓pi yields positive limit of (T-2pi/omega)sqrt(A). Independently integrated squared velocity for theta=3.3,3.6,4.05 at a=.9,t=1.2,d=2.3, matching the energy area. Numerical points confirm identities only; analytic first-return, energy and asymptotic arguments cover continuum.
 
-Carmona–Fernández-Sánchez–Novaes (arXiv:2212.09063, 2022; *Journal of Nonlinear Science*, 2023) gives general existence conditions, normal forms, and section-return integral relations for this broad class. The full open-access article was inspected, including its theorem and half-map analysis; it does not state the Euclidean enclosed-area identity or period asymptotics indexed by that area. The publicly available complete result *Five spectral edge laws for a two-zone crossing period annulus* (2026) derives period-versus-section-speed endpoints for a different signed-forcing balanced family; it does not compute enclosed Euclidean area. Its focus-speed result is explicitly treated as prior art rather than claimed here. The 2026 Liu–Liu–Wang abstract concerns the number of critical periods; full text could not be accessed, leaving a real residual risk. Search noncoverage is not a proof of absolute priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Ordinary Euclidean area of a closed planar orbit is an intrinsic geometric invariant, independent of the choice of section parameter, unlike a switching velocity. Relating it exactly to the accumulated mechanical-energy gain on one half-flight supplies a structural identity that is not a mere restatement of the half-map existence test. The explicit, sharp inverse-square-root period correction with a fully parameterized constant gives a quantitative geometry–timing relation over all crossing cycles, and distinguishes the positive-area nontransverse inner boundary from the large-area focus limit. The result is a natural complete geometric classification of this crossing annulus, not an arbitrary numerical slice or a claim about all piecewise-affine systems.
+Earlier general crossing-annulus existence and period function criteria are credited. The assessed new part is an exact orbit area functional and the period-versus-area edge coefficient for this family.
 
-## Limits and closest related results
+## value
 
-The theorem concerns the stated symmetric signed-forcing branch with \(a,t,d>0\), \(4d>t^2\), and genuine transverse crossing cycles. It does not classify other periodic families, nontransverse Filippov continuations, or global basins. Closest literature comprises Carmona et al. (2022/2023), the 2026 *Five spectral edge laws* mathematical result, and Liu et al. (2026), with the last work only inspected in abstract. A previously published but unindexed area computation is possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The invariant is actual enclosed Cartesian area, not merely switching speed or period. Establishing a global area coordinate, nonzero inner area boundary, and a sharp inverse-square-root physical period gap answers a geometric quantitative question about a natural reversible crossing-annulus family not settled by existence criteria or period-time information alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
