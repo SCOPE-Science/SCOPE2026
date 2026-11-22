@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "The adjacent first-two-pulse exchange holds for arbitrary nonnegative depths and equal retention by monotone one-Lipschitz clipping, gives no larger runoff and no larger carry-forward storage; complete saturation-case analysis establishes endpoint three-pulse exchange, yielding a largest-first minimizer for n<=3. All four-storm orders are exhausted with exact fractions, showing a unique optimum 1/8 below the best largest-first 1/4 for the specified C=14 and q=1/4. The standalone independent exact-rational checker passes 17,667 assertions. Finite checks are supplementary, not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bartlett et al. (2015), DOI 10.1098/rspa.2015.0389, stochastic rainfall-runoff threshold model; full PDF equations and discussion inspected.",
+        "Keim et al. (2004), DOI 10.5194/hess-8-23-2004, full PDF and original throughfall model inspected.",
+        "Gani and Pyke (1962), DOI 10.1111/j.2517-6161.1962.tb00440.x, abstract only, treats ordered stochastic inputs and first emptiness in a dam."
+      ],
+      "reasoning": "Stochastic threshold distribution, evaporation, and first-empty probability are not identical to deterministic finite-horizon minimum cumulative overflow. No identified stronger theorem states universal transient order over all nonnegative depths with a tight pulse-count failure. A broader general rearrangement theorem remains plausible and is recorded as residual risk.",
+      "searches": [
+        "published-finding corpus: Canopy interception bucket model rainfall pulse permutations storm sequence order maximize interception under exponential drying three unequal rainfall events",
+        "published-finding corpus: Rainfall ordering three storms canopy storage runoff minimum overflow geometric evaporation optimal arrangement",
+        "Literature: finite dam ordered inputs storage spill arrangement rainfall reservoir order stochastic control"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.5194/hess-8-23-2004",
+      "https://doi.org/10.1029/2009JD013530",
+      "https://doi.org/10.1098/rspa.2015.0389",
+      "https://github.com/published-finding corpus/2026",
+      "https://doi.org/10.1111/j.2517-6161.1962.tb00440.x"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published d7dd28e86fa3 theorem assumes the unique stationary three-periodic state and compares only its two cyclic orderings, yielding a strict capacity window; unlike the empty-start finite horizon, initial storage is not fixed to zero.",
+        "Bartlett et al. derive stochastic state and runoff distributions for a threshold water store, not deterministic finite permutation optima.",
+        "Miralles et al. work within a hydrologic canopy interception model commonly allowing complete drying between rainfall events, rather than a common q-retention permutation problem.",
+        "The Green–Ampt sequencing result concerns infiltration-excess runoff governed by a declining infiltration-capacity front, rather than instantaneous saturation overflow of a linear-loss bucket."
+      ],
+      "reasoning": "Neither the periodic ordered-cycle result nor stochastic distributional models prove the two transient exchange inequalities and their exact four-event failure; model assumptions and objective differ. A generic order-preserving-map rearrangement lemma could potentially imply the three-pulse theorem and is not ruled out.",
+      "searches": [
+        "Published published-finding corpus full RESULT.md id d7dd28e86fa3 (retrieved and examined)",
+        "Bartlett et al. 2015 original PDF and equations",
+        "Miralles et al. 2010 full article canopy interception model",
+        "Keim et al. 2004 original PDF",
+        "published-finding corpus: sharp rainfall-block rearrangement law for infiltration-excess runoff"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The indexed three-event periodic-storage result, id d7dd28e86fa3, optimizes a three-periodic stationary cycle, not a prescribed empty-start, finite-event runoff sum.",
+        "The relevant model is the capped affine map f_h(s)=min(C,qs+h), with an empty initial store and finite nonperiodic horizon; the three-storm exchange changes initial ordering and terminal storage."
+      ],
+      "reasoning": "Reversing cyclic order in periodic steady state, or ordering independent single-event intercepts, cannot be reduced to placing the largest pulse first in the empty-start transient problem. The four-pulse uniqueness certificate also has no logical counterpart in a three-periodic comparison.",
+      "searches": [
+        "published-finding corpus: Finite nonperiodic three rainfall events capped storage exponential recession minimal cumulative overflow largest storm first 4-storm counterexample",
+        "published-finding corpus: Ordering three inputs deterministic finite capacity leaky dam maximize retention and minimize spill transient start empty",
+        "published-finding corpus: Transient finite-horizon reservoir capacity event order permutations three rainfall pulses heaviest earliest best and four pulses fails"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed records include d7dd28e86fa3 (periodic three events), e537d5c1eb7c (two periodic storms), and 955c7a9f5dc3 (Green–Ampt infiltration sequencing).",
+        "The present rational data C=14, q=1/4, multiset (1,11,12,13) were exhaustively evaluated across all 24 orders in the provided checker."
+      ],
+      "reasoning": "No recovered indexed exact table or own-ledger claim directly reports this four-pulse finite-runoff optimum or covers it by a stronger theorem; database partition and failed search are not proofs of uniqueness. The exact 24-order exhaustive check verifies this instance, not historical novelty.",
+      "searches": [
+        "published-finding corpus: Leaky reservoir equal time interval reorder arbitrary rainfall pulses minimal overflow sorting largest first",
+        "published-finding corpus: Transient finite-horizon reservoir capacity event order permutations three rainfall pulses heaviest earliest best and four pulses fails",
+        "Own accessible ledger: recovered prior finding claims and filtered hydrology / runoff / rainfall / storm titles for matching four-pulse counterexample"
+      ]
+    },
+    "rationale": "Searches of indexed mathematical claims, own accessible findings, and primary full-text hydrology sources did not establish a claim implying both the universal initially-empty three-pulse theorem and the four-pulse minimal counterexample. In particular the closest three-storm theorem is cyclic periodic, not transient; Gash-type canopy interception models and stochastic threshold-runoff results do not supply a fixed-input permutation theorem. This is a qualified historical-priority assessment: a general finite-dam or capped-recursion rearrangement theorem could dominate the result.",
+    "residual_risks": [
+      "Historical priority is provisional: a general capped-recursion rearrangement or finite-dam theorem may subsume the three-pulse exchange despite different terminology.",
+      "The 1962 Gani–Pyke dam result was not available in full; conclusions are not asserted from its abstract.",
+      "The mathematical model is idealized and does not establish hydrologic field effect sizes or practical ability to reorder storms."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not imply the empty-start finite two/three-pulse theorem or exact four-pulse minimal failure",
+        "evidence": [
+          "Periodic regime begins at endogenous stationary storage; theorem compares two cyclic orders over three events, not all finite-horizon orderings."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026",
+        "material_read": "Complete published RESULT.md including finding, hypotheses, proof, limits and sources",
+        "method": "Fetched repository RESULT.md and compared initial state, quantifiers, time horizon and objective",
+        "title": "A sharp storm-ordering window for saturation runoff in a periodic linear store",
+        "trigger": "Closest indexed claim with identical capped-affine rainfall recursion"
+      },
+      {
+        "assessment": "Stochastic throughfall/extremes; no deterministic finite-pulse ordering proof located",
+        "evidence": [
+          "Hydrol. Earth Syst. Sci. 8 (2004) 23–34; first publication listed February 29, 2004."
+        ],
+        "identifier_or_url": "https://doi.org/10.5194/hess-8-23-2004",
+        "material_read": "Original article PDF including model and main conclusions, abstract and selected pages visually checked",
+        "method": "Accessible open PDF and publisher metadata",
+        "title": "A stochastic model of throughfall for extreme events",
+        "trigger": "Earliest motivating throughfall literature and archive date"
+      },
+      {
+        "assessment": "Empirical/retrieval model with Gash-style event assumptions, not permutation theorem",
+        "evidence": [
+          "Canopy wetting and evaporation context; no fixed-retention finite permutation optimality result in inspected material."
+        ],
+        "identifier_or_url": "https://doi.org/10.1029/2009JD013530",
+        "material_read": "Accessible full HTML paper with main modeling sections and methodology",
+        "method": "Publisher full article inspected",
+        "title": "Global canopy interception from satellite observations",
+        "trigger": "Canopy interception and between-event drying assumptions"
+      },
+      {
+        "assessment": "Stochastic threshold dynamics, not finite-horizon ordering theorem",
+        "evidence": [
+          "Equations formulate rainfall/moisture jump dynamics and statistical runoff, not the present fixed-multiset event permutation objective."
+        ],
+        "identifier_or_url": "https://doi.org/10.1098/rspa.2015.0389",
+        "material_read": "Full openly available article PDF, original model equations and conclusions",
+        "method": "Open PDF article examination",
+        "title": "Stochastic rainfall-runoff model with explicit soil moisture dynamics",
+        "trigger": "Closest threshold-storage hydrology primary literature"
+      },
+      {
+        "assessment": "Different stochastic dam first-emptiness event, but inaccessible full text remains priority risk",
+        "evidence": [
+          "The abstract explicitly identifies first-emptiness probabilities under ordered inputs."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1962.tb00440.x",
+        "material_read": "Publisher-indexed abstract, full text unavailable",
+        "method": "Abstract-only comparison, not a whole-document negative conclusion",
+        "title": "Inequalities for First Emptiness Probabilities of a Dam with Ordered Inputs",
+        "trigger": "Potential broad classical finite-dam order theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e27dfe4f-22cd-4c08-9e99-b76d537f350e",
+  "value": {
+    "rationale": "The minimum event count at which a seemingly plausible storm-magnitude-priority policy fails is a structural boundary relevant to interpreting idealized finite-capacity saturation-runoff and canopy bucket models. The all-parameter theorem and exact minimal counterexample demonstrate that small-event design conclusions cannot automatically be extrapolated to longer storm sequences; this is more than parameter tuning or a small numerical improvement. Hydrological transfer is conditional on model assumptions.",
+    "status": "PASS"
+  }
+}
