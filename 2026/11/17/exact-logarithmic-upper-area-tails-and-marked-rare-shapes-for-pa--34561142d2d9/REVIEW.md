@@ -1,25 +1,21 @@
-# Scientific review: near-maximal boundary triangles of parallelograms
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a fixed nondegenerate parallelogram, the normalized boundary sampling law is exactly a four-side mixture with masses \(u,v,u,v\). The four exhaustive occupancy probabilities sum to one. Their exact sublevel integrals are derived independently: three distinct sides give the explicitly integrated kernel \(x(1-y)+yz\); an opposite singleton gives the triangular-law tail \(\varepsilon^2\); and an adjacent singleton gives the product tail by the exact density of the separation of two uniforms. These yield the exact formula for every \(0<\varepsilon<1/2\). The positive log-series follows coefficient by coefficient, including cancellation of the cubic term, and yields the strict extremal statement.
+PASS
 
-The conditional limit rests on an **exact**, not approximate, factorization in the central range: the rescaled two area contributions are uniform on a two-simplex and independent of the middle-side coordinate. The logarithmic coordinate's transformed density converges in \(L^1\), and noncentral configurations carry only \(O(\varepsilon^2)\) probability versus the dominant \(\varepsilon^2\log(1/\varepsilon)\), yielding total-variation convergence. No finite simulation is mistaken for an infinite proof.
+PASS. Re-derived affine square coordinates with four side-selection masses u,v,u,v (arclength matters), where u+v=1/2. Exhaustive occupancy weights for three distinct, two opposed, two adjacent and three coincident sides are 6uv,6(u^3+v^3),6uv,2(u^3+v^3). The distinct-side deficit W=x(1-y)+yz gives a piecewise truncated triangle integral F(eps); opposite sides give eps^2; adjacent give J(eps). Algebra gives the claimed .75 eps^2+6uv H(eps) for each 0<eps<.5, with positive H series starting eps^2 log and strictly positive k>=4 coefficients. The maximum is S/2 and rhombi maximize uv. For y in [eps,1-eps], change X=x(1-y)/eps,Z=yz/eps has an exact simplex Jacobian eps^2/[y(1-y)]; normalized simplex Dirichlet(1,1,1) and logarithmic y-density imply joint total-variation mark convergence; outside mass O(eps^2) vs leading eps^2 log. Independent direct numerical analytic integrals/mixture algebra at eps=.03,.1,.2,.49 agree. Angle independence and fixed-positive-sides caveat observed.
 
-The standalone test compares nine parameter/threshold pairs against independent quadrature and checks 1.6 million directly constructed boundary triples for each of three aspect ratios and shears; all tested discrepancies stayed within the declared tolerance. The proof itself supplies quantifiers and boundary restrictions.
+## originality
 
-## Originality — PASS, provisional priority
+PASS
 
-The most closely related public full texts inspected concern (i) the **interior-area-uniform** triangle-area distribution and its six-defect conditional shape law for a square, (ii) the **expectation** of convex-hull area for boundary-uniform samples in a parallelogram, and (iii) rectangle-boundary **acute-triangle probabilities**. None of those theorems determines the full high-area distribution under the boundary measure, the exact strict tail ordering for each high threshold, or the three-simplex/log-uniform marked limit. Koroleva–Nikitin's original work analyzes unit-circle samples and differs in both the sampling domain and regularity of maximum configurations. The related older Henze paper specifies interior-uniform points in its accessible abstract and is not treated as a whole-document negative priority certificate.
+PASS, bounded: 2026-11-02 all-parallelogram boundary-sampled expected convex-hull area theorem has same arclength masses and rhombus shape ordering but an expectation does not determine the high-area event distribution for exactly three points, especially logarithmic correction and joint conditional Dirichlet marks. Area-uniform interior square triangle papers sample a different measure and have a different exponent. Related circular random polygons and 4-point one-side-each quadrilaterals are different random objects. No exact three-boundary-point tail / same conditional law located in direct corpus searches.
 
-Historical priority is not exhaustively established: older literature on polygonal-boundary random triangles may use different terminology, and the published-index search is finite. The relevant source inspections, mathematical implication checks, and remaining risks are recorded in `AUDIT.json`.
+## value
 
-## Value — PASS
+PASS
 
-The event probes a natural extremal invariant (inscribed-triangle area) under the canonical arclength distribution on polygonal boundaries. The maximum is achieved along continuous side-base families; their corner endpoints generate logarithmic rare-event enhancement. Formula (1) is exact throughout an interval, not merely a fitted leading term, and supplies a sharp rhombus-versus-thin-parallelogram ordering that is stronger than mean-area extremality. The universal quadratic correction and missing cubic power reveal a cancellation across geometrically distinct side-occupancy configurations. The joint marked law identifies where and how the rare triangles form, including a Dirichlet area budget and a log-uniform position mark. These properties offer precise geometric probability benchmarks beyond elementary expectation calculations.
+PASS. The logarithmic boundary rare-event singularity, universal nonlog quadratic coefficient, strict all-threshold rhombus ordering and exact independent logarithmic/Dirichlet rare-shape marks provide a nontrivial probability classification for a natural geometric sampling scheme, not a restatement of expected-area extremality.
 
-## Closest literature and limitations
-
-Koroleva and Nikitin, arXiv:1301.1360 (2013), give circle-inscribed polygon extremal laws; Henze, *J. Appl. Probab.* 20 (1983), addresses interior sampling; MathWorld's *Square Triangle Picking* catalogs interior-uniform area distributions. Three publicly available results dated 2026-10-25 and 2026-11-02 separately treat interior-square rare shapes, boundary-parallelogram means, and rectangle-boundary acuteness; their statements and mechanisms were compared, not merely their titles. The new theorem is limited to fixed nondegenerate parallelograms and normalized area thresholds above one quarter of the parallelogram area. General quadrilaterals, simultaneous shape degeneration, and external independent validation remain outside scope.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

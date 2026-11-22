@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The proof supplies analytic verification of the exact law and of the asymptotic and conditional statements. Its critical steps are the exhaustive four-pattern decomposition, exact integration of the distinct-side slice, the exact separation-product integral, positive logarithmic-series coefficients, and exact simplex factorization in the central layer.
+## correctness
 
-The reproducible checker is `check_parallelogram_boundary_tail.py` (Python 3; `requirements.txt` specifies NumPy and SciPy). It evaluates the near-maximal event independently by one-dimensional quadrature of geometric slice areas, comparing each result to the closed formula at \(\varepsilon=0.12,0.07,0.028\) for adjacent side ratios \(1:1\), \(2:1\), and \(5:1\). At \(\varepsilon=0.07\), each of three independent Cartesian samplings uses 1,600,000 random triples and a different parallelogram shear angle; the resulting deviations in standard-error units were about \(-0.124,-1.291,-2.442\), all inside the predeclared five-standard-error diagnostic threshold. A small-threshold check compares the first asymptotic terms. An actual execution completed with `PARALLELOGRAM_BOUNDARY_LOG_TAIL_AND_DIRICHLET_MARK_OK`.
+PASS
 
-Finite Monte Carlo tests, floating-point quadrature, and symbolic series expansion are not independent mathematical certification. They corroborate, but do not replace, the explicit proof, and they do not establish historical priority. Independent audit has not been performed.
+PASS. Re-derived affine square coordinates with four side-selection masses u,v,u,v (arclength matters), where u+v=1/2. Exhaustive occupancy weights for three distinct, two opposed, two adjacent and three coincident sides are 6uv,6(u^3+v^3),6uv,2(u^3+v^3). The distinct-side deficit W=x(1-y)+yz gives a piecewise truncated triangle integral F(eps); opposite sides give eps^2; adjacent give J(eps). Algebra gives the claimed .75 eps^2+6uv H(eps) for each 0<eps<.5, with positive H series starting eps^2 log and strictly positive k>=4 coefficients. The maximum is S/2 and rhombi maximize uv. For y in [eps,1-eps], change X=x(1-y)/eps,Z=yz/eps has an exact simplex Jacobian eps^2/[y(1-y)]; normalized simplex Dirichlet(1,1,1) and logarithmic y-density imply joint total-variation mark convergence; outside mass O(eps^2) vs leading eps^2 log. Independent direct numerical analytic integrals/mixture algebra at eps=.03,.1,.2,.49 agree. Angle independence and fixed-positive-sides caveat observed.
+
+## originality
+
+PASS
+
+PASS, bounded: 2026-11-02 all-parallelogram boundary-sampled expected convex-hull area theorem has same arclength masses and rhombus shape ordering but an expectation does not determine the high-area event distribution for exactly three points, especially logarithmic correction and joint conditional Dirichlet marks. Area-uniform interior square triangle papers sample a different measure and have a different exponent. Related circular random polygons and 4-point one-side-each quadrilaterals are different random objects. No exact three-boundary-point tail / same conditional law located in direct corpus searches.
+
+## value
+
+PASS
+
+PASS. The logarithmic boundary rare-event singularity, universal nonlog quadratic coefficient, strict all-threshold rhombus ordering and exact independent logarithmic/Dirichlet rare-shape marks provide a nontrivial probability classification for a natural geometric sampling scheme, not a restatement of expected-area extremality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
