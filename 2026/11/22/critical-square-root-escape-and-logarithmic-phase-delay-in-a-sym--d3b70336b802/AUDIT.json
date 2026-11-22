@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Direct exact reduction u_{n+1}=sin u_n gives full global forward alternative. For nonzero u_1, sign is preserved, u_n decreases to zero, and csc^2t-t^{-2}=1/3+t^2/15+O(t^4) yields v_n=n/3+(1/5)log n+C+o(1). The refined u_n=s sqrt(3/n)+O(log n/n^(3/2)) makes the drift error summable, proving existence of L and x_n=2s sqrt(3n)+L+O(log n/sqrt n), with y_n=-x_{n-1}. Poincare recurrence on invariant probabilities proves the measure statement. Checker performs symbolic identities and finite diagnostics, not infinite certification.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ge et al., sections 2, 3 and 5 examine bifurcation, offset boosting and hardware, not the a=-1 phase-integrator asymptotics.",
+        "Li et al., IEEE Trans. Industrial Electronics 69 (2022), abstract reports compound-lattice self-reproducing maps rather than an accessible theorem for this specific parameter."
+      ],
+      "reasoning": "A general parabolic iteration estimate for sin u supplies the 3/n phase law, but it does not alone imply the classification of all bounded planar orbits, the signed sqrt-n Cartesian escape and the exact stationary simplex. Distinct systems or qualitative offset-shift claims do not dominate the final joint theorem.",
+      "searches": [
+        "discrete sinusoidal offset boosting map parameter -1 neutral drift inverse square rate fixed line",
+        "a=-1 symmetric hyperchaotic map global escape parabolic drift sin u critical"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.3390/sym15030712",
+      "https://doi.org/10.1109/TIE.2022.3144592",
+      "https://www.mdpi.com/2073-8994/15/3/712",
+      "https://network.rawdatalibrary.net/publication/a-self-reproduction-hyperchaotic-map-with-compound-lattice-dynamics-06c156"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At Ge et al. equation (4), the proposed offset shift is l=d/(a+1); it is undefined precisely at a=-1, so it cannot assert the present critical dynamics.",
+        "The indexed result Unique subballistic separatrix in a no-equilibrium rational planar map is about a different rational map, growth exponent 2/3 and a single separating orbit, not a sine integrator with a full-measure sqrt-n escape domain."
+      ],
+      "reasoning": "The source identifies an offset singularity but not its dynamical resolution. Critical normal-form results for other models cannot directly imply the precise full-plane periodic/measure classification and coefficient (log n)/5 here.",
+      "searches": [
+        "2023 Multiple Alternatives of Offset Boosting at a=-1 critical neutral plane sin recurrence square root orbital escape",
+        "map F(x,y)=(x+sin(x+y), -x) all nonexceptional orbits escape sqrt n critical drift",
+        "discrete sinusoidal offset boosting map parameter -1 neutral drift inverse square rate fixed line",
+        "a=-1 symmetric hyperchaotic map global escape parabolic drift sin u critical"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ge et al., Symmetry 15 (2023) 712, equation (1) defines F_a(x,y)=(x+sin(x+y), ax); at a=-1 its sum variable obeys u_{n+1}=sin u_n.",
+        "Relevant indexed mathematical claims about critical sine maps concern different maps (e.g. sinusoidal torus updates), with no equal phase-integrator relation."
+      ],
+      "reasoning": "The phase reduction is exact but does not follow from the source analysis of offset boosting; the full classification and Cartesian escape must be derived by telescoping the neutral fiber. Searches of naming and formula aliases yielded no matching completed theorem.",
+      "searches": [
+        "2023 Multiple Alternatives of Offset Boosting at a=-1 critical neutral plane sin recurrence square root orbital escape",
+        "map F(x,y)=(x+sin(x+y), -x) all nonexceptional orbits escape sqrt n critical drift"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Primary article figures/tables report finite bifurcations, coexisting attractors and PRNG diagnostics, not exact a=-1 escape constants or an orbit census.",
+        "Prior mathematical indexed records about unrelated planar escape mechanisms do not tabulate this model."
+      ],
+      "reasoning": "The quantities are asymptotic continuous-state dynamical invariants, not a previously enumerated finite table. No exact formula match appeared in checked indexed searches.",
+      "searches": [
+        "2023 Multiple Alternatives of Offset Boosting at a=-1 critical neutral plane sin recurrence square root orbital escape",
+        "map F(x,y)=(x+sin(x+y), -x) all nonexceptional orbits escape sqrt n critical drift",
+        "discrete sinusoidal offset boosting map parameter -1 neutral drift inverse square rate fixed line",
+        "a=-1 symmetric hyperchaotic map global escape parabolic drift sin u critical",
+        "x + sin(x+y) a=-1 dynamics",
+        "Multiple Alternatives of Offset Boosting a=-1 dynamics"
+      ]
+    },
+    "rationale": "The originating primary article was inspected at its exact defining equations, parameter-based boosting formulas, described experiments, and conclusions; it supplies a division by a+1 and does not establish dynamics at the resonant a=-1 boundary. The present whole-plane escape/one-step capture classification with sharp inverse-square logarithm and invariant probability characterization is not implied by the accessible exact-map sources or closest indexed claims. The 2022 sinusoidal predecessor full text was not accessible; its possible coverage remains a real residual risk, not evidence of originality.",
+    "residual_risks": [
+      "The full 2022 predecessor article was not accessed; it might contain a more closely related construction or special case.",
+      "Unindexed results on parabolic sine iterates or equivalent planar coordinate changes may precede the specific constants.",
+      "Search noncoverage is not a proof of publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_MODEL_AND_GAP: the article studies other chaotic parameters and shifts dividing by a+1, but its inspected results do not imply the claimed a=-1 global dynamics",
+        "evidence": [
+          "https://www.mdpi.com/2073-8994/15/3/712#sec2",
+          "https://www.mdpi.com/2073-8994/15/3/712#sec3"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/sym15030712",
+        "material_read": "Full accessible HTML sections 1-5, equations (1), (3)-(6), parameter tables and conclusions",
+        "method": "Read governing equations, specified parameter cases, shifted-coordinate calculations and conclusions; compared at exact a=-1",
+        "title": "Multiple Alternatives of Offset Boosting in a Symmetric Hyperchaotic Map",
+        "trigger": "Exact original source of the two-coordinate sine map and offset-resonance a=-1"
+      },
+      {
+        "assessment": "PARTIAL_ACCESS_PRIORITY_RISK; no whole-document noncoverage conclusion",
+        "evidence": [
+          "https://network.rawdatalibrary.net/publication/a-self-reproduction-hyperchaotic-map-with-compound-lattice-dynamics-06c156"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TIE.2022.3144592",
+        "material_read": "Published abstract and bibliographic record only; full text not accessed",
+        "method": "Compared bibliographic record and abstract of sinusoidal self-reproduction; treated full-text scope as unresolved",
+        "title": "A Self-Reproduction Hyperchaotic Map With Compound Lattice Dynamics",
+        "trigger": "Explicitly cited sine-map predecessor in the originating 2023 paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d3b70336-b802-47b5-a94e-9c18b1fe6f81",
+  "value": {
+    "rationale": "The source offset-boosting formulas are singular exactly at a=-1. Rather than a decorative special value, this boundary reorganizes every orbit globally: a countable union of exceptional initial lines is captured in one step, all other states escape with a universal subballistic law, and recurrent probability collapses to the equilibrium line. The sharp logarithmic phase coefficient and finite orbit-dependent scattering offset are natural quantitative invariants resolving this singular dynamical regime.",
+    "status": "PASS"
+  }
+}
