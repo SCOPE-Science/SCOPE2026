@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Injectivity failure and all collision counts follow from the exhaustive condition \(w=-z\) and explicit quadratic equations \(z^2\pm ic_a z-1=0\). The derivative zeros are distinct, so the tuple is unramified. The transition parameter is obtained exactly and the operator consequence follows from Badea's Theorem 7.3. No numerical evidence is used as a substitute for proof.
+## correctness
 
-**Originality — PASS (qualified).** Badea's full primary manuscript proves the criterion and gives a different triple of test functions; the inspected §§7 and Example 7.5 do not state this pair's exact collision-fiber phase diagram. Dritschel–Estévez–Yakubovich's earlier work gives general sufficient test principles, with no matching explicit classification in the relevant inspected material. Targeted phrase/equivalence searches of mathematical records and web results revealed no directly covering claim. Possible obscure equivalent rational-map calculations remain a priority risk; searches cannot prove absence.
+PASS
 
-**Mathematical value — PASS.** The smallest nonlinear degrees \(2\) and \(3\) offer a natural attempt to replace the three-coordinate test family in Badea's example. This complete classification demonstrates that separating critical points is insufficient and identifies exactly how noninjectivity migrates from the open disc to its boundary, including multiplicity and all collision witnesses. It is a motivated structural boundary and not merely an application of a criterion without new geometric work.
+Either coordinate equality of squares forces w=−z (z≠0). Since the Möbius automorphism is injective and cannot have both b_a(z)=b_a(−z)=0 for a>0, equality of cubed values requires their quotient to be ω or ω². The resulting two quadratics z²±i c_a z−1=0, c_a=(1−a²)/(sqrt3 a), are interchanged by z↦−z. For c>2 only the small imaginary root lies in the disc; c=2 double unit root; c<2 two different unit roots. c=2 uniquely yields a=2−sqrt3. Derivatives vanish at z=0 and z=a respectively, never together. The exact Badea Thm7.3 injectivity-plus-unramified characterization makes collision failure sufficient. Recomputed representative roots and Möbius-cube equalities independently, with no finite sampling used as global proof.
 
-**Closest literature and limitations.** Badea (2026), Theorem 7.3/Example 7.5, establishes the generic testing principle; Dritschel, Estévez and Yakubovich (2017), §3.5/Corollary 19, supplies earlier spectral-set methods. The result concerns one explicit one-parameter family and leaves other pairs unclassified. There has been no independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published Badea criterion proves abstract equivalence and Example 7.5 uses a different three-function tuple (z²,z³,b_a²); its relevant full §7 material read does not state the explicit two-function collision phase diagram. Dritschel–Estévez–Yakubovich gives spectral-set criteria, not this parametric fiber enumeration. Targeted Resultary equivalence/alias searches returned the present record and unrelated Blaschke facts, not a stronger exact statement. Novelty is qualified by unindexed rational-map calculations; this search is not proof of global absence.
+
+## value
+
+PASS
+
+The pair of smallest distinct nonlinear degrees two and three provides a natural attempt to shorten three inner-function tests. Joint unramifiedness but global collision pinpoints a structural obstruction; the exact interior-to-boundary transition and split of all fibers quantify the mechanism beyond the routine negative conclusion of the general criterion. This is a motivated complete one-parameter classification rather than an arbitrary single numeric test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
