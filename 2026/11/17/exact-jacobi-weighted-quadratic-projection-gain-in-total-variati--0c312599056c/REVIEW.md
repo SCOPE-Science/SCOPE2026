@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A normalized three-dimensional Jacobi Gram basis produces the exact derivative of a projected jump. The absolute affine derivative has an elementary two-branch integral. A quartic stationary equation yields the unique off-center positive norming jump after a strict dominance argument; signed Stieltjes decomposition proves the bound for every real BV input and matches it with a single jump. Symbolic and independent high-precision quadrature checks corroborate, rather than establish, the theorem. The weak-endpoint and high-concentration limits follow from explicit beta/gamma and radical asymptotics.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest published comparable result, *Sharp two-branch monotone range envelope for quadratic symmetric Jacobi projection*, studies pointwise overshoot and contains a similar projection kernel, not the sharp integral of its absolute derivative. A separate discrete quadratic least-squares BV theorem already supplies the unweighted \(\alpha=0\) constant as a limit; that value is therefore not claimed to be independently new. The distinguishing result is the exact continuously weighted one-parameter norm, the maximizing jump law across all symmetric Jacobi parameters, and the two singular parameter limits. Kaber (2006), Kopotun et al. (2011), and Calderón–Urbina (2012) do not establish that statement in the inspected material. Historical equivalence outside accessible indexed sources remains a risk.
+PASS
 
-**Mathematical value — PASS.** Jacobi weights provide a canonical tunable family of spectral least-squares projections. The theorem completely determines the first oscillatory polynomial projection's total-variation stability for that family, demonstrates a nonmonotone dependence on the sampling law, and identifies an unbounded linear concentration regime despite fixed polynomial degree. These are structural, model-relevant facts, not merely a restatement of the pre-existing unweighted number or pointwise range bound.
+The Jacobi beta moments E[X^2]=1/(2r+1), E[X^4]=3/[(2r+1)(2r+3)] give the projected jump derivative K(1-t^2)^r(1+(2r+3)tx). The total variation of that affine derivative is K(1-s^2)^r(2 if ks<=1 else ks+1/(ks)); the positive maximum solves the displayed quartic in s^2. Off-center dominance and the endpoint limits rule out the central/edge alternatives. A BV Stieltjes signed-jump representation extends the sharp step supremum to all BV inputs with equality at the two reflected one-jump steps. Independently evaluated the closed-form norm for r=.5,1,3,10,1000, obtaining 1.4439635015,1.6331820958,2.5628959010,5.9359582840,485.0304, consistent with the nonmonotonic and linear-concentration regimes. Proof requires the analytic quartic and BV reduction, not discrete grid tests.
 
-**Scientific limits:** real degree-two symmetric Jacobi projection and unweighted variation only; no nonsymmetric extension or unique parameter minimizer is claimed. Independent verification and historical priority certification remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The previous symmetric-Jacobi quadratic result uses the same kernel for pointwise range overshoot and the discrete sampling result already yields the alpha=0 constant. Neither is the exact continuous all-weight unweighted-output BV norm, global jump optimizer and both parameter asymptotics.
+
+## value
+
+PASS
+
+Jacobi-weighted L2 spectral projection is canonical, but total-variation stability is a distinct shape-sensitive operator property. This exact degree-two parametric norm, off-center extremizers and singular concentration asymptotic give mathematically motivated operator-control information beyond previously known uniform-weight and pointwise-range values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

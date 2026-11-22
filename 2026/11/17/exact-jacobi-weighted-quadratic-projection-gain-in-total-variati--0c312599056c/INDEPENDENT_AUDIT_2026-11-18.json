@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T00:15:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Jacobi beta moments E[X^2]=1/(2r+1), E[X^4]=3/[(2r+1)(2r+3)] give the projected jump derivative K(1-t^2)^r(1+(2r+3)tx). The total variation of that affine derivative is K(1-s^2)^r(2 if ks<=1 else ks+1/(ks)); the positive maximum solves the displayed quartic in s^2. Off-center dominance and the endpoint limits rule out the central/edge alternatives. A BV Stieltjes signed-jump representation extends the sharp step supremum to all BV inputs with equality at the two reflected one-jump steps. Independently evaluated the closed-form norm for r=.5,1,3,10,1000, obtaining 1.4439635015,1.6331820958,2.5628959010,5.9359582840,485.0304, consistent with the nonmonotonic and linear-concentration regimes. Proof requires the analytic quartic and BV reduction, not discrete grid tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kaber 2006 Gibbs for Jacobi expansions; Kopotun et al arXiv:1109.0968; Resultary cubic Chebyshev same-day indexed summary"
+        ],
+        "reasoning": "General Gibbs overshoot and shape-preserving approximation treat different degree limits or constrained approximation; neither gives sharp fixed-degree all-alpha total variation amplification. A cubic Chebyshev BV result is a different polynomial degree/weight.",
+        "searches": [
+          "Resultary semantic search: symmetric Jacobi quadratic orthogonal projection total variation norm bounded variation jump location",
+          "https://arxiv.org/abs/1109.0968",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-two-branch-monotone-range-envelope-for-quadratic-symmetric--68d5f845db4a"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1109.0968",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-two-branch-monotone-range-envelope-for-quadratic-symmetric--68d5f845db4a",
+        "https://www.acadsol.eu/en/articles/10/2/3.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary range proof (linear output evaluation) versus current exact absolute derivative formula and quartic"
+        ],
+        "reasoning": "Even with identical kernel coefficients, a maximal pointwise overshoot does not bound the total derivative optimally without a separate absolute-affine integration and a global jump optimization; the discrete-grid alpha=0 limit alone does not imply alpha>-1 family.",
+        "searches": [
+          "Resultary semantic search: symmetric Jacobi quadratic orthogonal projection total variation norm bounded variation jump location",
+          "https://arxiv.org/abs/1109.0968",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-two-branch-monotone-range-envelope-for-quadratic-symmetric--68d5f845db4a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Read complete Resultary quadratic Jacobi range theorem https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-two-branch-monotone-range-envelope-for-quadratic-symmetric--68d5f845db4a"
+        ],
+        "reasoning": "The earlier two-branch Jacobi projection envelope concerns bounded monotone inputs and extrema of output VALUES at particular x, not integral |(Pf)′| for arbitrary BV input. Same reproducing kernel does not make the norms equivalent.",
+        "searches": [
+          "Resultary semantic search: symmetric Jacobi quadratic orthogonal projection total variation norm bounded variation jump location",
+          "https://arxiv.org/abs/1109.0968",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-two-branch-monotone-range-envelope-for-quadratic-symmetric--68d5f845db4a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary sharp bounded-variation amplification for discrete quadratic least squares, 2026/11/17; current beta formula gives alpha=0 identical value"
+        ],
+        "reasoning": "The discrete quadratic least-squares BV theorem gives the unweighted continuum alpha=0 constant 1.6331820958, so that value is explicitly not new. Other alpha and both singular limits were not located in a checked exact table.",
+        "searches": [
+          "Resultary semantic search: symmetric Jacobi quadratic orthogonal projection total variation norm bounded variation jump location",
+          "https://arxiv.org/abs/1109.0968",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-two-branch-monotone-range-envelope-for-quadratic-symmetric--68d5f845db4a"
+        ]
+      },
+      "rationale": "The previous symmetric-Jacobi quadratic result uses the same kernel for pointwise range overshoot and the discrete sampling result already yields the alpha=0 constant. Neither is the exact continuous all-weight unweighted-output BV norm, global jump optimizer and both parameter asymptotics.",
+      "residual_risks": [
+        "Other spectral approximation literature may contain an unindexed equivalent parametric total variation norm; no exhaustive historical priority.",
+        "The result is only for symmetric Jacobi weights and polynomial degree two; no minimizer uniqueness in alpha proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_KERNEL_DIFFERENT_OPERATOR_NORM",
+          "evidence": "Theorem bounds Pf(z) for monotone [0,1] inputs, whereas this theorem bounds integral |(Pf)′| for arbitrary BV inputs",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-two-branch-monotone-range-envelope-for-quadratic-symmetric--68d5f845db4a",
+          "material_read": "Full RESULT.md including Jacobi kernel, two-branch extremal pointwise formula and proof",
+          "method": "Read published full primary scientific record through GitHub connector",
+          "title": "Sharp two-branch monotone range envelope for quadratic symmetric Jacobi projection",
+          "trigger": "Same weight and projection degree with a potentially dominating theorem"
+        },
+        {
+          "assessment": "RELATED_NOT_DECISIVE",
+          "evidence": "Shape-preserving approximation differs from the unconstrained degree-two orthogonal projector; cannot assert whole-text noncoverage",
+          "identifier_or_url": "https://arxiv.org/abs/1109.0968",
+          "material_read": "Accessible indexed preprint metadata and overview; complete primary text not inspected",
+          "method": "Literature index and abstract comparison",
+          "title": "Uniform and Pointwise Shape Preserving Approximation by Algebraic Polynomials",
+          "trigger": "Potential broader polynomial BV/shape theorem"
+        },
+        {
+          "assessment": "RELATED_WITH_FULLTEXT_RISK",
+          "evidence": "Large-degree Gibbs limit for a fixed jump is not the claimed all-jump BV operator norm at degree two",
+          "identifier_or_url": "https://www.acadsol.eu/en/articles/10/2/3.pdf",
+          "material_read": "Source bibliographic information and reported large-degree Gibbs setting; full PDF not inspected",
+          "method": "Source lookup and theorem-object comparison",
+          "title": "The Gibbs Phenomenon for Jacobi Expansions",
+          "trigger": "Jacobi jump overshoots potentially conflated with variation norm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Jacobi-weighted L2 spectral projection is canonical, but total-variation stability is a distinct shape-sensitive operator property. This exact degree-two parametric norm, off-center extremizers and singular concentration asymptotic give mathematically motivated operator-control information beyond previously known uniform-weight and pointwise-range values.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Other spectral approximation literature may contain an unindexed equivalent parametric total variation norm; no exhaustive historical priority.",
+    "The result is only for symmetric Jacobi weights and polynomial degree two; no minimizer uniqueness in alpha proved."
+  ],
+  "schema_version": 1
+}
