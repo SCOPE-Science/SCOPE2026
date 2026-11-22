@@ -1,0 +1,11 @@
+# Supported mathematical assessment
+
+**Correctness — PASS.** The norm trace form is alternating and nondegenerate; its order-nine norm-one torus has no nontrivial invariant proper subspace for order-nine elements. For the unique order-three subgroup, exactly nine invariant rank-two planes are isotropic, counted by the trace-zero norm equation. The general Solomon–Tits sphere wedge and Armstrong orbit-space fundamental-group theorem then yield the claimed fundamental group, and the fixed-point Euler count together with free top-dimensional integral cellular chains proves all integer homology groups. An exact enumerator independently checks the finite data, orbit-cell counts, cellular boundary identity and mod-two/three/five ranks.
+
+**Originality — PASS relative to the inspected sources.** Ku's Solomon–Tits treatment gives the original building's homotopy type, Armstrong and Brown–Higgins provide general orbit fundamental-group tools, and Drudge's Singer-group theory addresses ordinary projective flats, not this particular symplectic fixed-isotropic-line condition or quotient homology. Closest indexed cyclic-quotient results involve chessboard, Fano matroid and tournament complexes, not an equivalent flag quotient. No inspected work directly states the nine fixed rank-two isotropic planes and ensuing integral quotient invariants. This is an evidence-limited comparison, not a proof of publication priority.
+
+**Value — PASS.** The order-nine norm-one action is a canonical finite symplectic-symmetry construction on the first genuinely two-dimensional binary symplectic building. Its fixed-line geometry determines the exact index-three stabilizer subgroup and creates the specific nontrivial \(\mathbb Z/3\mathbb Z\) first-homology torsion, while producing a complete rank-58 free top homology. This resolves a natural finite geometric-quotient invariant with conceptual symmetry consequences rather than an arbitrary slice of a data table.
+
+**Closest literature and limitations.** Drudge (Singer groups on projective flats), Ku (unquotiented building topology), Armstrong/Brown–Higgins (general quotient fundamental group). The work does not identify the whole homotopy type or cup products, and unindexed equivalent research cannot be ruled out.
+
+Self-review: passed. Independent audit: not yet performed.
