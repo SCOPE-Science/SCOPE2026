@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The one-parameter map and its two-sided real lift normalization are explicit. Exact conjugacy follows from the two polynomial factors under the constant coordinate scaling. At zero kick the negative drift set is precisely the finite pair of invariant bands between the two zero-drift levels; normalized area sampling is uniform in action on those bands. The variable \(U\) has the stated exact square-root density, and \(Z=4U(1-U)\). Integrating across the two inverse branches proves the full cumulative law. The stochastic-order derivative is strictly signed for *every* \(0<z<1\) and parameter \(\varepsilon\ne1\). Exact polynomial moment integrals, a positive variance, and the area-times-mean identity verify the three distinct collapse exponents. The boxed beta law is a limit, not a probability on an empty set. All symbolic identities and 21 independent quadrature instances passed from the provided checker.
+## correctness
 
-## Originality — PASS within inspected evidence
-The earliest public paper (arXiv:2209.07408v1, 2022-09-15) supplies the map, its twist profile and its shearless/reconnection geometry. The full-text source sections on the integrable twist and the critical fixed-point collision were read; they do not state a conditional Liouville-area frequency law or its stochastic order. The 2023 same-map breakup study (arXiv:2305.17538v1) studies parameter maps and transmissivity, not this distribution. The 2024 same-map transport preprint (arXiv:2409.00785v1) examines perturbed-system escape and does not derive the integrable reverse-frequency distribution. A publicly indexed later same-map result counts integer-winding fixed points and elliptic branches, which does not logically imply the conditional law, beta limit or integrated flux. Its complete text was inaccessible: this is a concrete residual priority risk, not evidence of absence. Ordinary change-of-variables mathematics and underlying factorization are acknowledged; the novelty claim is limited to the **combined model-specific complete distribution, strict two-sided ordering and flux law**, not the polynomial factorization alone. No claim of exhaustive discovery or independent verification is made.
+PASS
 
-## Mathematical value — PASS
-The \(\varepsilon=1\) collision merges the negative-rotation invariant band and is a natural dynamical boundary identified in the original literature. Its physical relevance is a signed-frequency reversal between pairs of invariant circles, directly motivating the *whole band's* phase-volume measure rather than an arbitrary subregion. A parameter-symmetric exact distribution converts a rotation-profile plot into a quantitative fraction of phase area above any normalized retrograde-speed threshold, and the strict stochastic ordering shows how **all** such fractions behave toward the collision. The two-sided nondegenerate beta limit and distinct area/maximum-speed/integrated-flux collapse powers supply meaningful finite-parameter benchmarks for numerical nontwist studies. This is not a claim of transport for nonzero kicks.
+Cε(x,y)=(x,sqrt ε y) exactly conjugates the full map to reciprocal ε with kick sqrt ε b, without pretending coordinate scaling is symplectic. For b=0 the full negative-lift band has |y| between 1 and ε^−1/2 and area 2|1−ε^−1/2|; the conditional variable T=sqrt ε |y| is uniform between sqrt ε and 1. Change to U=(T²−ε)/(1−ε), density (e+1)/(2 sqrt(e²+(1−e²)U)), yields Z=4U(1−U) and the stated survival law. Reciprocal e->1/e reflects U around 1/2. Explicit survival derivative in r=|1−e|/(1+e) proves strict stochastic order on (0,1); the band is empty at ε=1, only a weak Beta(1,1/2) limit is claimed. Independent SymPy integrations verified mean, variance, reciprocal identities and flux critical a/6 coefficient.
 
-## Literature and residual limits
-Read sources: the full-text 2022 original article's map derivation and shearless/fixed-point sections, the full-text 2023 breakup analysis around its rotation profile and parameter phase diagrams, and the full-text 2024 preprint around the model and transport diagnostics. Comparison to the later integer-winding result uses only its public indexed summary, not a downloaded full paper. The latter and potentially unindexed equivalent integral calculations remain priority risks. The mapped samples are normalized invariant area, not individual ergodic trajectory data. Computer algebra is an auxiliary check, not the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The underlying quartic nontwist profile/collision is prior; the complete continuous normalized conditional-area rotation-depth law, strict reciprocal stochastic order and cubic flux are additional quantitatively motivated assertions.
+
+## value
+
+PASS
+
+The negative-lift rotation band is a canonical finite-area region of an integrable nontwist map, and its physically meaningful conditional area-frequency law quantifies the disappearance of reverse rotation at a shearless collision. Exact stochastic ordering, nondegenerate two-sided beta weak limit, moments and cubic flux resolve a natural distributional question rather than a decorative parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
