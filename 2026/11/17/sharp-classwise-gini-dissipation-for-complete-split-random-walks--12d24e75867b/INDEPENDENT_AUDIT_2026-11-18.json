@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T09:52:39Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md binary-cut formula (3), convex-chord estimate (4)-(5), layer-cake (6), eigenmode for all powers",
+        "verify_split_gini.py rational test implementation inspected",
+        "independent_checks.py 3794 cut cases"
+      ],
+      "rationale": "For the loopless degree-normalized walk on K_c join independent K_s, the clique degree is d=c+s-1 and independent degree c. A cut selecting a clique vertices and b independent vertices maps the clique values to (a+b-1)/d for selected and (a+b)/d for unselected, while every independent vertex maps to a/c. The exact output complete-pair Gini F_a(b) is convex in b, and target (s/d)(a+b)(N-a-b) is a concave quadratic; their two endpoint deficits equal a(c-a)(s-1)/d and its chord surplus is s*b*(s-b)/d. This proves the two-deficit inequality for all binary cuts, then nested level sets plus the Gini layer-cake identity and triangle inequality establish it for every real f. The class-contrast signal 1_I has quotient eigenvalue -s/d, so the exact norm of every power is (s/d)^m. Equality rigidity follows from nonnegative within-class deficits for s>=2, and s=1 gives complete graph scalar -1/c on the quotient. The separate sharpness of each deficit coefficient is witnessed by a single vertex in each class when c,s>=2. Independent enumeration checked 3,794 labelled cuts for c,s<=5. This finite check is not the all-size proof.",
+      "residual_risks": [
+        "The unnormalized complete-pair Gini, non-lazy walk, real signals and unweighted complete-split graph are essential assumptions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier fastest-mixing result optimizes freely chosen symmetric kernels and a spectral objective, rather than fixed degree-normalized P on complete split graph.",
+          "Balanced biclique half-lazy Gini result uses a different graph and kernel, with a different sharp constant."
+        ],
+        "reasoning": "Broader graph-family/Markov framework does not itself provide this fixed-operator two-coefficient Gini inequality or its equality classification; nearby known theorems have different hypotheses.",
+        "searches": [
+          "complete split graph simple random walk classwise Gini pairwise variation sharp contraction and dissipation",
+          "Resultary Every fastest-mixing kernel on complete split graphs 2026/10/18",
+          "Resultary sharp Gini contraction half-lazy walks balanced bicliques"
+        ]
+      },
+      "checked_sources": [
+        "https://ar5iv.labs.arxiv.org/html/2201.03103",
+        "doi:10.1137/090752948",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-every-fastest-mixing-kernel-on-complete-split-graphs--0fb2efaf041d",
+        "Resultary semantic search: complete split graph simple random walk classwise Gini pairwise variation sharp contraction and dissipation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Submultiplicativity and spectral quotient eigenmode are general and known.",
+          "The exact cut formula, optimal within-class loss coefficients, and all-real-signal equality rigidity require specific complete-split graph algebra."
+        ],
+        "reasoning": "General induced-seminorm and spectral facts become useful only after establishing the sharp cut inequality. The theorem is not a direct corollary of the earlier frameworks without new analysis.",
+        "searches": [
+          "complete split graph simple random walk classwise Gini pairwise variation sharp contraction and dissipation",
+          "arxiv:2201.03103 §§II–III",
+          "doi:10.1137/090752948 §§3–6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "De Pasquale et al. defines general projection/distance seminorms and Markov contraction framework.",
+          "Ipsen–Selee emphasizes usual vector p-norm ergodicity coefficients, not the unnormalized sum of all vertex-pair absolute differences."
+        ],
+        "reasoning": "Gini is an ℓ1 norm of complete-pair incidence differences; generic induced seminorm theory covers the definition, not the sharp split-graph evaluation and optimal componentwise dissipation.",
+        "searches": [
+          "complete split graph simple random walk classwise Gini pairwise variation sharp contraction and dissipation",
+          "arxiv:2201.03103 induced incidence seminorm",
+          "doi:10.1137/090752948 vector norm ergodicity coefficient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search identifies the same present finding and different Gini walk/heat norms, but no earlier exact table with both classwise deficits."
+        ],
+        "reasoning": "The result gives two-parameter formulas for every c,s, not a small finite table; missing indexed matches only limits the search, not priority proof.",
+        "searches": [
+          "complete split graph simple random walk classwise Gini pairwise variation sharp contraction and dissipation",
+          "complete split random walk Gini coefficient exact norm all integer powers",
+          "Resultary split graph Gini complete-pair variation table"
+        ]
+      },
+      "rationale": "Ipsen–Selee surveys ergodicity coefficients defined through ordinary vector p-norms and De Pasquale et al. develops general induced incidence seminorms, neither evaluates the two sharp classwise Gini deficits for this particular degree-normalized split walk. Published results on optimizing other split-graph kernels or Gini variation on half-lazy bipartite graphs concern different maps/objectives and do not dominate the fixed P theorem. The all-power exact norm and equality rigidity follow here by a nontrivial cut deficit plus spectral witness.",
+      "residual_risks": [
+        "Full text of the published fastest-mixing split-graph paper was not inspected; its different optimization objective is explicit from the indexed result, but detailed possible connections remain to inspect.",
+        "Equivalent historical Gini coefficients might be indexed under generalized induced or incidence seminorm terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General semicontraction and induced ℓp seminorm theory, no read exact fixed split-graph Gini deficits or norm for every power",
+          "evidence": [
+            "arxiv:2201.03103 §§II–III, general ergodicity duality framework"
+          ],
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2201.03103",
+          "material_read": "Full accessible arXiv HTML transcription: Introduction, §§II–III definitions and induced semicontraction statements, including invariant and incidence seminorm examples, plus the theorem summary",
+          "method": "Full original primary mathematical HTML reading and targeted searches for split graph and complete-pair Gini",
+          "title": "Dual Seminorms, Ergodic Coefficients and Semicontraction Theory",
+          "trigger": "General induced norm machinery could give same exact coefficient"
+        },
+        {
+          "assessment": "States a survey of ordinary p-norm coefficient and projected matrices, different seminorm from complete-pair Gini; full document comparison limited",
+          "evidence": [
+            "Ipsen & Selee SIAM J Matrix Anal Appl 32 (2011) 153–200; publisher abstract explicitly restricts emphasis to p-norms"
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/090752948",
+          "material_read": "Publisher article abstract and bibliographic metadata; full original paper not independently read in this run",
+          "method": "Official publisher abstract plus author-posted public-PDF search metadata; explicitly not full-text exclusion",
+          "title": "Ergodicity Coefficients Defined by Vector Norms",
+          "trigger": "Classical broad ergodicity norm theorem potentially dominating"
+        },
+        {
+          "assessment": "Optimizes alternate symmetric stochastic kernels by spectral criterion rather than the prescribed degree-normalized simple random walk and complete-pair Gini norm; residual risk recorded",
+          "evidence": [
+            "Resultary record 2026/10/18, indexed fastest-mixing kernel statement"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-every-fastest-mixing-kernel-on-complete-split-graphs--0fb2efaf041d",
+          "material_read": "Published Resultary semantic summary on optimal symmetric split-graph kernels and spectral fastest mixing; full manuscript not read",
+          "method": "Indexed mathematical record summary; no assertion of whole-document noncoverage",
+          "title": "Every fastest-mixing kernel on complete split graphs",
+          "trigger": "Exactly same graph family, possibly stronger operator theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md exact cut deficit (5), layer-cake (6), quotient eigenmode and two class indicator witnesses"
+      ],
+      "rationale": "This is an exact all-size all-positive-power stability law for a canonical Markov operator on a degree-heterogeneous graph family, with two separately sharp within-community dissipation gains and complete equality rigidity. It distinguishes c=1 noncontraction from strict contraction for c>=2 and quantifies how clique-vs-independent oscillations dissipate. Such structural sharp estimates give more information than the spectral gap or a routine generic ergodicity bound.",
+      "residual_risks": [
+        "Only the fixed loopless unweighted split walk and complete-pair unnormalized Gini are covered."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The unnormalized complete-pair Gini, non-lazy walk, real signals and unweighted complete-split graph are essential assumptions.",
+    "Full text of the published fastest-mixing split-graph paper was not inspected; its different optimization objective is explicit from the indexed result, but detailed possible connections remain to inspect.",
+    "Equivalent historical Gini coefficients might be indexed under generalized induced or incidence seminorm terminology.",
+    "Only the fixed loopless unweighted split walk and complete-pair unnormalized Gini are covered."
+  ],
+  "schema_version": 1
+}

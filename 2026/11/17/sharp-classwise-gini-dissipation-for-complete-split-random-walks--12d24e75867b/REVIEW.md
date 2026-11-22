@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The row-stochastic matrix has clique degree \(c+s-1\) and independent-set degree \(c\). Its response to a binary cut has three exact values and gives equation (3) of RESULT.md. Convex interpolation in the number of selected independent vertices plus the exact quadratic-chord identity yields the classwise cut deficit. The layer-cake decomposition transfers this inequality to every real signal with no missing order cases. A two-class eigenvector attains the stated operator bound for all positive integer powers. The two additional coefficients are separately sharp by clique-only and independent-only singleton cuts. Equality and boundary cases \(c=1\), \(s=1\) are proved explicitly. The packaged exact-rational checker independently constructs the transition matrices and verifies cut and power identities in finite test ranges. Finite checks are corroborative, not substituted for the all-dimensional proof.
+PASS
 
-## Originality — PASS, with residual historical risk
+For the loopless degree-normalized walk on K_c join independent K_s, the clique degree is d=c+s-1 and independent degree c. A cut selecting a clique vertices and b independent vertices maps the clique values to (a+b-1)/d for selected and (a+b)/d for unselected, while every independent vertex maps to a/c. The exact output complete-pair Gini F_a(b) is convex in b, and target (s/d)(a+b)(N-a-b) is a concave quadratic; their two endpoint deficits equal a(c-a)(s-1)/d and its chord surplus is s*b*(s-b)/d. This proves the two-deficit inequality for all binary cuts, then nested level sets plus the Gini layer-cake identity and triangle inequality establish it for every real f. The class-contrast signal 1_I has quotient eigenvalue -s/d, so the exact norm of every power is (s/d)^m. Equality rigidity follows from nonnegative within-class deficits for s>=2, and s=1 gives complete graph scalar -1/c on the quotient. The separate sharpness of each deficit coefficient is witnessed by a single vertex in each class when c,s>=2. Independent enumeration checked 3,794 labelled cuts for c,s<=5. This finite check is not the all-size proof.
 
-The relevant full-text sections of Ipsen–Selee (DOI: 10.1137/090752948) and De Pasquale–Smith–Bullo–Valcher (arXiv:2201.03103) were compared for the actual seminorm and parameterized coefficients, not merely their titles. The former studies general stochastic-matrix ergodicity coefficients in standard vector norms; the latter includes complete-incidence weighted seminorms but does not supply the split-graph numerical coefficient, sharp internal dissipation deficits, or the all-power equality class. Public records concerning fastest-mixing symmetric kernels on complete split graphs optimize different transition kernels and a spectral objective. The closest previously accessible exact Gini investigations instead concern degree-normalized heat on complete bipartite graphs, graph heat on paths, and other filtering operators, not this discrete-time split-graph theorem. Unindexed or inaccessible equivalent derivations remain possible; originality is not independent priority certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem identifies a natural exact mixing invariant rather than a tuned numerical example. It proves that a two-part irregular family has an induced complete-pair variation norm equal to its class-contrast spectral radius at *every* integer time, while providing separately optimal classwise dissipation penalties and all equality cases. This distinguishes a star's persistent contrast from the sharp geometric contraction immediately obtained upon having at least two clique vertices. Both the stability constant and its rigid extremizers are useful in reasoning about repeated averaging and consensus on split networks.
+Ipsen–Selee surveys ergodicity coefficients defined through ordinary vector p-norms and De Pasquale et al. develops general induced incidence seminorms, neither evaluates the two sharp classwise Gini deficits for this particular degree-normalized split walk. Published results on optimizing other split-graph kernels or Gini variation on half-lazy bipartite graphs concern different maps/objectives and do not dominate the fixed P theorem. The all-power exact norm and equality rigidity follow here by a nontrivial cut deficit plus spectral witness.
 
-## Scope and limitations
+## value
 
-Only the fixed, loopless, unweighted degree-normalized transition matrix and real, unweighted complete-pair variation are treated. The generic semicontraction frameworks are broader, but their general bounds do not by themselves evaluate this particular norm. A closely related public split-graph spectral-optimization report was accessible as an indexed scientific summary, not as a complete manuscript; residual prior-art risk is recorded. No external independent audit has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is an exact all-size all-positive-power stability law for a canonical Markov operator on a degree-heterogeneous graph family, with two separately sharp within-community dissipation gains and complete equality rigidity. It distinguishes c=1 noncontraction from strict contraction for c>=2 and quantifies how clique-vs-independent oscillations dissipate. Such structural sharp estimates give more information than the spectral gap or a routine generic ergodicity bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
