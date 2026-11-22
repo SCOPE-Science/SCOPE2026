@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The mathematical theorem is justified by two-coordinate-plane affine determinant factorization, classification of square pairs and pentagon triples, and the separate-affinity extremal-vertex argument.
+# Independent mathematical audit
 
-Run `python3 verify.py` with the enclosed Python 3 standard-library file. It independently enumerates all \(126\) five-vertex subsets and tests the complete five-level frequency census. Each determinant uses a \(24\)-term signed permutation expansion. All assertions passed in the documented run. Numerical checks are not an infinite proof or independent audit.
+## correctness
 
-The geometric input that the square–pentagon orthogonal free sum is the uniquely optimal nine-vertex spherical four-polytope is Theorem 7.1 of Medgyes, arXiv:2611.10078v1, not reproved here. The result does not classify maximizers with interior-to-edge simplex vertices.
+PASS
+
+For the unique unit-sphere maximal-volume nine-vertex 4-polytope, the square and pentagon occupy orthogonal 2-planes. Splitting the augmented 5×5 affine determinant gives area(square triple)·|det(pentagon pair)|/12 and |det(square pair)|·area(pentagon triple)/12. The 3+2, 2+3 and degenerate splits contribute 20 of each of four positive levels and 46 zero subsets; their sum is C(9,5)=126. Divide by Medgyes V=5sin(2π/5)/6, use sin(π/5)/sin(2π/5)=(√5−1)/2 and compare strict levels. Exactly 4 adjacent square pairs times 5 pentagon (1,2,2)-gap triples maximize, and successive separate-affine vertex replacement proves equality of the unrestricted contained-simplex maximum (not classification of all maximizers). Direct independent 126-determinant computation gave [46,20,20,20,20] and 20 maxima. The theorem is about this unique free sum, not all nine-vertex polytopes.
+
+## originality
+
+PASS
+
+Primary published statements and actual full-text searches support provisional originality for the surviving mathematics; prior related inputs are explicitly credited; priority risks are retained.
+
+## value
+
+PASS
+
+A complete vertex-subset simplex-volume distribution and the largest contained-simplex volume fraction are natural geometric invariants of a newly classified extremal polytope. The five exact levels, multiplicities and 20 maximizing configurations give meaningful, previously non-implied shape information, not an arbitrarily selected one-case calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
