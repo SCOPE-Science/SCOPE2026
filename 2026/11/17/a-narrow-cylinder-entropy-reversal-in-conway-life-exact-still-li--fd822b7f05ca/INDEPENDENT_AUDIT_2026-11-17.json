@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T13:59:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Constructed the 64-state fixed and 4096-state time-paired de Bruijn transfer graphs independently from the B3/S23 local rule with dead exterior and n>=3 cyclic columns. Exact adjacency counts 134 and 5022; SCCs containing cycles are fixed (40 vertices,94 edges) and temporal (48,112 plus two 6-cycles). SymPy exact integer charpolys factor as u^7 P14 P19 and u^14 P14 P20, the six-cycles contributing 12[6|n]. Strong connectivity and self-loops make both main blocks primitive; positive powers of the ones vector give 100Uv-243v<0 with max -37829, and 100Vw-243w>0 with min +16163. Thus strict Perron gap rho_fixed<2.43<rho_two follows for every n>=3 by closed-walk identity, not by extrapolation. Independently brute-enumerated all 2^(3n) original configurations n=3..6 matching (s,t)=(26,26),(14,22),(102,112),(314,338).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full published Resultary three-row Life TORUS theorem isolates a four-cycle and exactly two primitive temporal-2 orbits for 4|n, using vertical wraparound.",
+          "McIntosh abstract indicates a generic periodic pattern-enumeration method, potentially covering narrow strips, but full source not inspected."
+        ],
+        "reasoning": "The vertical-boundary convention changes the update and yields (t_4-s_4)/2=4 rather than toroidal 2; the published torus theorem cannot imply these open-cylinder spectral polynomials.",
+        "searches": [
+          "McIntosh Conway Life Life Still Lifes complete 3 row transfer de Bruijn 2010",
+          "https://doi.org/10.1007/978-1-84996-217-9_3",
+          "https://doi.org/10.1007/978-1-84996-217-9_4",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-complete-temporal-two-rigidity-of-conway-life-on-three-row-tori--55756dcf9309"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/978-1-84996-217-9_3",
+        "https://doi.org/10.1007/978-1-84996-217-9_4",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-complete-temporal-two-rigidity-of-conway-life-on-three-row-tori--55756dcf9309",
+        "https://mathworld.wolfram.com/GameofLife.html"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A general de Bruijn algorithm shows computability for fixed strip height; it does not by itself output this particular pair of characteristic factors and strict 243/100 separation.",
+          "The toroidal width-three period-two result uses a different local rule at top and bottom rows."
+        ],
+        "reasoning": "Even if methods and related SCC components coincide, explicit characteristic factors, additional paired graph and Collatz inequalities require model-specific computation. An exact prior book table would supersede some or all originality, and remains unchecked.",
+        "searches": [
+          "https://doi.org/10.1007/978-1-84996-217-9_3",
+          "https://doi.org/10.1007/978-1-84996-217-9_4",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-complete-temporal-two-rigidity-of-conway-life-on-three-row-tori--55756dcf9309",
+          "Conway Life temporal two cylinder vertical dead exterior"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary Life local rule matches Gardner; labelled finite cylinder is distinct from full-plane or fully periodic vertical row model.",
+          "McIntosh 2010 book abstracts mention de Bruijn methods but do not expose full chapter results."
+        ],
+        "reasoning": "Temporal two-return transfer is a pair-of-configurations graph; ordinary still-life enumerations are not equivalent. Failure to retrieve McIntosh chapter does not demonstrate it lacks an equivalent count.",
+        "searches": [
+          "Conway Game of Life 3-row open cylinder still lifes temporal period two spectral radius",
+          "Life strip de Bruijn 1988 McIntosh width three oscillator counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching tabulated open-boundary n=3..8 count or 2.43 entropy separation in inspected available tables. The McIntosh chapter might contain unpublished or unindexed counts."
+        ],
+        "reasoning": "The exact integer arrays and strict comparison are the objects of originality; indexing absence alone is weak evidence and this uncertainty is explicitly material.",
+        "searches": [
+          "Conway Life 3xn open strip 26 14 102 314 338 still life period two",
+          "Life narrow strip transfer 2.42331694 2.43740860",
+          "Game of Life strip fixed-point period-2 table"
+        ]
+      },
+      "rationale": "Classical Life/de Bruijn techniques are known, as are width-three fully periodic Life transfers. The complete vertically OPEN three-row temporal-one/two characteristic-polynomial pair and certified strict entropy ordering are not consequences of the inspected toroidal result or generic construction alone. McIntosh 1988/2010 chapters are highly plausible exact width-three antecedents; only bibliographic material was available, authorized full text could not be read (institutional VPN disconnected). This leaves significant historical-priority risk but not a mathematical contradiction or a demonstrated dominating result.",
+      "residual_risks": [
+        "McIntosh 1988/2010 full book chapters unavailable due to disconnected authorized VPN; may explicitly enumerate the same strip and weaken priority.",
+        "Earlier unindexed Life oscillator databases may already contain exact counts, even if labelled conventions differ.",
+        "All-length result depends on correctness of transparent finite SCC and characteristic-polynomial enumeration; independently reconstructed and crosschecked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No scientific noncoverage judgment from unseen chapter; significant priority risk",
+          "evidence": "Abstract: de Bruijn enumeration; Oxford authorization blocked full pages",
+          "identifier_or_url": "https://doi.org/10.1007/978-1-84996-217-9_3",
+          "material_read": "Bibliographic abstract and chapter description only; complete 1988/2010 chapter inaccessible",
+          "method": "OA/arXiv search, authorized Oxford request for identical paper; returned VPN disconnected",
+          "title": "Conway’s Life",
+          "trigger": "Plausible original McIntosh narrow-strip theory"
+        },
+        {
+          "assessment": "Potential table of exact width-three counts remains unresolved; not automatic originality failure",
+          "evidence": "1998/2010 McIntosh methodology, same width-three combinatorics",
+          "identifier_or_url": "https://doi.org/10.1007/978-1-84996-217-9_4",
+          "material_read": "Publisher abstract and related published quotations only; no original pages",
+          "method": "OA/preprint search then Oxford authorized request; VPN disconnected",
+          "title": "Life’s Still Lifes",
+          "trigger": "Plausible original finite-width fixed-state enumeration"
+        },
+        {
+          "assessment": "Full vertical torus has four nonfixed states if 4|n, not the open-cylinder exponential temporal-two states",
+          "evidence": "Fully periodic 3xn torus versus dead vertical exterior; four-cycle classification",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-complete-temporal-two-rigidity-of-conway-life-on-three-row-tori--55756dcf9309",
+          "material_read": "Full published RESULT.md, local rule, 4096-state paired transfer construction and SCC conclusion",
+          "method": "Read entire mathematical theorem and proof",
+          "title": "Complete temporal-two rigidity of Conway Life on three-row tori",
+          "trigger": "Closest same cellular rule different vertical geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The vertically open height-three cylinder is a natural smallest nontrivial Life strip; its exact all-circumference still-life and two-return spectra supply a meaningful complete classification. The strict spectral inequality implies an unexpected exponential dominance of temporal-two over fixed configurations, requiring a substantive exact Perron comparison rather than mere transfer-matrix existence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "n>=3, dead exterior (not infinite plane or vertical torus), only temporal periods dividing two; missing accessible source chapter pages acknowledged.",
+  "schema_version": 1
+}

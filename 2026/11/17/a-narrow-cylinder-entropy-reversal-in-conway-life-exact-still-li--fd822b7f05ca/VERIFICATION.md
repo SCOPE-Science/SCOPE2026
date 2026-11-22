@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The all-length proof is the closed-walk bijection and exact cyclic-component trace identity in `RESULT.md`. `verify_life_cylinder.py` is a standalone standard-library implementation of the two transfer digraphs, an exact SCC decomposition, Newton-identity characteristic-polynomial checks, the integer Perron inequalities, and small-size traces. The strict inequalities are exact integer statements, not floating-point guesses or numerical experiments. This yields a proof for every integer circumference \(n\ge3\).
+## correctness
 
-`crosscheck_life_cylinder.py` implements an independently written direct Moore-neighborhood evolution and exhausts all \(299520\) configurations on the four sizes \(n=3,4,5,6\). This is a finite cross-check, not the basis of the all-length theorem. Captured stdout from both code paths is included as `transfer_check.txt` and `direct_check.txt`. Execute each script with Python 3 and compare its stdout with its text artifact.
+PASS
 
-Open issues: No analysis of return times three or more, transients, or infinite-plane objects. Published historical-priority comparison remains qualified by unavailable full chapters. No independent audit has been performed.
+Constructed the 64-state fixed and 4096-state time-paired de Bruijn transfer graphs independently from the B3/S23 local rule with dead exterior and n>=3 cyclic columns. Exact adjacency counts 134 and 5022; SCCs containing cycles are fixed (40 vertices,94 edges) and temporal (48,112 plus two 6-cycles). SymPy exact integer charpolys factor as u^7 P14 P19 and u^14 P14 P20, the six-cycles contributing 12[6|n]. Strong connectivity and self-loops make both main blocks primitive; positive powers of the ones vector give 100Uv-243v<0 with max -37829, and 100Vw-243w>0 with min +16163. Thus strict Perron gap rho_fixed<2.43<rho_two follows for every n>=3 by closed-walk identity, not by extrapolation. Independently brute-enumerated all 2^(3n) original configurations n=3..6 matching (s,t)=(26,26),(14,22),(102,112),(314,338).
+
+## originality
+
+PASS
+
+Classical Life/de Bruijn techniques are known, as are width-three fully periodic Life transfers. The complete vertically OPEN three-row temporal-one/two characteristic-polynomial pair and certified strict entropy ordering are not consequences of the inspected toroidal result or generic construction alone. McIntosh 1988/2010 chapters are highly plausible exact width-three antecedents; only bibliographic material was available, authorized full text could not be read (institutional VPN disconnected). This leaves significant historical-priority risk but not a mathematical contradiction or a demonstrated dominating result.
+
+## value
+
+PASS
+
+The vertically open height-three cylinder is a natural smallest nontrivial Life strip; its exact all-circumference still-life and two-return spectra supply a meaningful complete classification. The strict spectral inequality implies an unexpected exponential dominance of temporal-two over fixed configurations, requiring a substantive exact Perron comparison rather than mere transfer-matrix existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

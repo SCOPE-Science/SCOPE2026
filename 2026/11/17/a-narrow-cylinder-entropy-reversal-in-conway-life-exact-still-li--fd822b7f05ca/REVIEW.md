@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact B3/S23 column map with dead vertical exterior defines a 64-vertex one-step recurrence graph and a 4096-vertex two-phase recurrence graph. A closed length-\(n\) walk is in bijection with one indexed width-\(n\) configuration returning after respectively one or two updates. The exact integer certificate isolates cycle-bearing SCCs (40 vertices for one-step and 48,6,6 for two-step), computes their characteristic polynomials and checks the strict Collatz–Wielandt certificates. Strong connectivity and a self-loop make the large components primitive. This proves the all-length spectral formulas and strict exponential gap. Independent full bit-level enumeration matches the count table for \(n=3,4,5,6\). Risk: implementation bugs remain theoretically possible; the transparent local graph definitions and a separate exhaustive implementation reduce but do not eliminate this risk.
+PASS
 
-## Originality — PASS, qualified
+Constructed the 64-state fixed and 4096-state time-paired de Bruijn transfer graphs independently from the B3/S23 local rule with dead exterior and n>=3 cyclic columns. Exact adjacency counts 134 and 5022; SCCs containing cycles are fixed (40 vertices,94 edges) and temporal (48,112 plus two 6-cycles). SymPy exact integer charpolys factor as u^7 P14 P19 and u^14 P14 P20, the six-cycles contributing 12[6|n]. Strong connectivity and self-loops make both main blocks primitive; positive powers of the ones vector give 100Uv-243v<0 with max -37829, and 100Vw-243w>0 with min +16163. Thus strict Perron gap rho_fixed<2.43<rho_two follows for every n>=3 by closed-walk identity, not by extrapolation. Independently brute-enumerated all 2^(3n) original configurations n=3..6 matching (s,t)=(26,26),(14,22),(102,112),(314,338).
 
-The foundational Life rule and standard de Bruijn technique are preexisting. McIntosh's *Conway's Life* and *Life's Still Lifes* discuss periodic-state diagrams, but the accessible abstracts do not give the present exact labelled vertically-open three-row cylinder spectra or prove the strict threshold separating their Perron roots. Related current mathematical-record results concern other dynamics and/or vertical periodic boundary conditions. Searches for the precise spectra, equivalences and numerical constants revealed no matching prior statement. Full comparison with the McIntosh text was unavailable, so historical priority is qualified; this cannot establish uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural minimal-height strip supporting the canonical blinker mechanism. It gives exact all-length enumeration of both still lifes and temporal-two configurations, and a nontrivial qualitative conclusion: temporal-two configurations asymptotically dominate still lifes even though the two entropy bases are quite close. The strict difference requires a genuine 40- versus 48-state primitive spectral comparison and is not a restatement of the generic transfer-matrix method. No claim is made about higher temporal periods or attraction basins.
+Classical Life/de Bruijn techniques are known, as are width-three fully periodic Life transfers. The complete vertically OPEN three-row temporal-one/two characteristic-polynomial pair and certified strict entropy ordering are not consequences of the inspected toroidal result or generic construction alone. McIntosh 1988/2010 chapters are highly plausible exact width-three antecedents; only bibliographic material was available, authorized full text could not be read (institutional VPN disconnected). This leaves significant historical-priority risk but not a mathematical contradiction or a demonstrated dominating result.
 
-## Limitations and closest literature
+## value
 
-McIntosh (1988 manuscript; 2010 book chapters) is the strongest plausible prior technical source, and complete text comparison remains unresolved. Gardner (1970) establishes the original rule, not a documented comparable strip census. MathWorld discusses still-life objects and counts by population and symmetry, a different enumerative question. A separate mathematical-record result treats cyclic dominance on a 3-row torus, not Conway Life with open vertical boundaries.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The vertically open height-three cylinder is a natural smallest nontrivial Life strip; its exact all-circumference still-life and two-return spectra supply a meaningful complete classification. The strict spectral inequality implies an unexpected exponential dominance of temporal-two over fixed configurations, requiring a substantive exact Perron comparison rather than mere transfer-matrix existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
