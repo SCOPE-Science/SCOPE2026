@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "For every nonisolated x the localized cost of moving mass into or out of x is at least r a_x>0; the normalized transport estimate controls |mu(x)-nu(x)| on each link. The inequality telescopes over all finite chains. At isolated sites the pointwise costs vanish between any two isolated sites, giving an exact zero-cost coupling once active coordinates match. Conservation proves the iff threshold and norm coercivity. Definitions were checked against arXiv:2611.15938v1 Theorem 3.4 and Appendix A; 275 LP checks and the rational counterexample reproduced.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "McCabe--Perea, arXiv:2611.15938v1, Proposition 3.3 proves a larger localized transport distance is a metric; Theorem 3.4 bounds the smaller pointwise expression above by that larger metric.",
+        "Jin--Mémoli--Smith--Wan, arXiv:1810.07793v2, Section 4.5.1 proves kernel-localization Wasserstein upper stability with a different cost."
+      ],
+      "reasoning": "Neither a metric dominating the pointwise expression nor upper stability of localized measures implies positive lower bounds for its infimum over chains. The precise finite zero-cost defect from singleton balls is not covered.",
+      "searches": [
+        "\"localized transport\" \"chain pseudometric\" \"isolated\" point measures",
+        "\"Wasserstein Stability of the Nerve Map\" \"point-separating\" finite"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2611.15938v1 Sections 3,7,Appendix A",
+      "arXiv:1810.07793v2 Section 4.5.1",
+      "Adamaszek--Adams--Frick, 2018 publisher abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2611.15938v1, Appendix A, leaves chain separation open despite Theorem 3.4 upper bounds.",
+        "arXiv:1810.07793v2, Theorem 27 and Lemma 48, provide upper Lipschitz estimates for local kernels, not coercivity for the pointwise-cost chain metric."
+      ],
+      "reasoning": "An upper bound Delta<=d_L/beta cannot imply a lower bound for d_ch<=Delta. The new center-specific positive transport costs supply the missing lower bound; moving between isolated sites shows necessity.",
+      "searches": [
+        "\"McCabe Perea 2026 localized transport pointwise estimate chain pseudometric strict positive measures separation\"",
+        "\"The Wasserstein Transform\" \"Theorem 27\" kernel localization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2611.15938v1, Appendix A, defines chain pseudometric and expressly asks whether it separates under hypotheses.",
+        "No equivalent finite-site zero-kernel or second-nearest-neighbor criterion was found by the specified indexed and web queries."
+      ],
+      "reasoning": "Aliases searched include pointwise localized transport, chain pseudometric, and metricization. Published main source leaves this precise separation question open, rather than stating the proposed criterion.",
+      "searches": [
+        "\"Wasserstein Stability of the Nerve Map\" \"separates points\" chain metric",
+        "\"infimal chain\" \"nerve map\" McCabe Perea",
+        "\"infimum finite chains pointwise Wasserstein stability nerve map nearest-neighbor isolated radius threshold\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Retrieved mathematically unrelated finite-metric and transport findings; no same pointwise cost, exact threshold or numerical table was identified.",
+        "The target theorem is all-order and not a pre-existing finite tabulation."
+      ],
+      "reasoning": "Searches considered the exact objects, parameters, alternate notation and the second-nearest-neighbor reformulation; no precomputed database would imply the universal zero-kernel theorem.",
+      "searches": [
+        "\"kernel transport cost singleton local supports full-support probability simplex separation d_ch\"",
+        "\"nerve map pointwise estimate Δ_L^r non-degenerate finite metrics second-nearest-neighbor threshold\""
+      ]
+    },
+    "rationale": "The precise infimal-chain pseudometric is posed without a separation criterion in arXiv:2611.15938v1, Appendix A. Its proved localized transport metric is a different, generally larger object and the inequality points in the wrong direction to imply this lower bound. Nearby kernel-localization papers provide upper stability only. Semantic indexed searches and web phrase searches did not show a covering result; residual unindexed-equivalence risk remains.",
+    "residual_risks": [
+      "Equivalent unpublished or unindexed lower-bound derivations may exist.",
+      "Only finite strict metrics and full-support probability measures are covered; claims for arbitrary support or infinite spaces are not compared."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DOES_NOT_COVER: pointwise chain separation is explicitly left open, though all its definitions are adopted and credited.",
+        "evidence": "Theorem 3.4 and Appendix A, pp. 9, 23, 28: defines pointwise cost and finite-chain pseudometric, asks whether it separates points.",
+        "identifier_or_url": "https://arxiv.org/pdf/2611.15938",
+        "material_read": "Sections 3 and 7; Appendix A including Example A.1 and chain definition; relevant definitions, proof and final discussion",
+        "method": "Primary PDF text and visual pages 9 and 29, compared term by term with proof",
+        "title": "Wasserstein Stability of the Nerve Map",
+        "trigger": "Exact same pointwise cost and explicit open chain-separation question"
+      },
+      {
+        "assessment": "DOES_NOT_COVER: normalized localization stability does not address the new cost-dependent finite-chain metric or its kernel.",
+        "evidence": "Section 4.5.1 states an upper Wasserstein stability inequality with a positive Lipschitz kernel.",
+        "identifier_or_url": "https://arxiv.org/html/1810.07793v2",
+        "material_read": "Section 4.5.1, Theorem 27 and Lemma 48 plus kernel localization definitions",
+        "method": "Lawful full-text HTML, inspected relevant theorem and proof statements",
+        "title": "The Wasserstein Transform",
+        "trigger": "Earlier kernel localization and Wasserstein upper stability might dominate the target object"
+      },
+      {
+        "assessment": "BACKGROUND_ONLY; not used to assert whole-document noncoverage.",
+        "evidence": "Abstract treats Vietoris--Rips metric thickenings and homotopy reconstruction.",
+        "identifier_or_url": "https://doi.org/10.1137/17M1148025",
+        "material_read": "Bibliographic information and publisher abstract only",
+        "method": "Publisher abstract, not full-text negative conclusion",
+        "title": "Metric Reconstruction Via Optimal Transport",
+        "trigger": "Foundational metric-thickening work sometimes cited in nerve-map setting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2f8b8a98-f31f-46d7-b23f-73874c4099b9",
+  "value": {
+    "rationale": "The exact kernel and sharp second-nearest-neighbor radius criterion answer a concrete open point-separation question for the smallest natural finite-data class. A nonzero uniform lower bound shows chain metricization preserves weight information exactly outside the explicit degeneracy regime; this is meaningful for evaluating nerve-map stability metrics beyond correctness or computational novelty.",
+    "status": "PASS"
+  }
+}
