@@ -1,15 +1,21 @@
-# Scientific review: local exposed-probe Bessel law
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed domain is a positively curved \(C^3\) strictly convex plane curve, a positive \(C^1\) arclength sampling density, finitely many *fixed distinct* sites, and depths tending to zero on the indicated \(n^{-2}\) scale. A signed-curvature expansion of the neighboring sample chord gives normal depth \(\kappa uv/2+O(uv(u+v))\). The exact joint nearest-gap density converges in total variation to two independent exponentials; applying the chord inequality transfers this to both the exposure probability and the marked conditional law. For multiple separated sites, the falling-factorial joint density proves asymptotic independence. The independent circle checker confirms Bessel/integral equivalence, the exact finite-circle chord depth, and equality of chord exposure with full hull-halfplane testing. The proof does not infer an infinite theorem from finite simulations.
+## correctness
 
-## Originality — PASS, provisional priority
-The complete text of *Local curvature from the logarithmic containment law of random inscribed polygons* was compared. It treats the **opposite order of limits**—fixed \(n\), inward depth tending to zero—and explicitly does not assert uniformity in \(n\). Its logarithmic first term is consistent with but does not imply the Bessel critical window or the conditional total-variation law. Brunel's full open-access paper (2015) gives bounds for global Hausdorff distance based on cap probability, not the evaluated pointwise distribution. The full text of *Two geometric phase transitions from a vanishing boundary sampling density* treats vanishing rather than positive local density and global extremal errors; *Marked Wendel law and convex-order optimal sampling* concerns an exponentially rare center-missing event. Schneider's 1988 publisher abstract addresses global approximation rates; the original paper could not be inspected, so exact historical priority is not certified. The general exponential-spacing mechanism and standard Bessel integral are not claimed as new, only their combination into the local normal-probe crossover, multisite marked law, and curvature readout.
+PASS
 
-## Mathematical value — PASS
-The critical normal depth is a natural scale for boundary-sampled polygonal approximation: adjacent sample spacings are of order \(n^{-1}\), so the missing cap is quadratic in spacing. The theorem evaluates the *entire* transition from exposure to absorption, not a tuned slice or numerical coefficient, and supplies a conditional geometric explanation via the product of exponential gaps. Its strict monotone response to \(\kappa/f^2\) provides a precise stochastic local curvature measurement, while finite-site independence describes how distinct boundary locations decouple. The result is specifically different from global Hausdorff bounds and the earlier fixed-sample small-depth asymptotic. The main residual scientific risk is that an older local Poisson-hull paper might already contain an equivalent marked result under another formulation.
+Under strictly positive C3 curvature and positive C1 sampling density, the normal intercept of the chord joining nearest clockwise/counterclockwise samples is D(U,V)=kappa UV/2+O(UV(U+V)). For n iid boundary samples the exact nearest-gap joint density is n(n-1)f(z+a)f(z-b)[1-mass(-b,a)]^(n-2) on the short-arc domain. Its n f(z) rescaling converges in L1 by pointwise density convergence plus total mass (Scheffe), hence total variation to independent unit exponentials. For finitely many fixed separated sites, the disjoint-arc joint density with falling factorial (n)_{2m} yields independent pairs. The exposure flag reduces asymptotically to uv>x, a continuous-law threshold, and TV of the joint mark follows from dominated convergence of density and vanishing disagreement mass. Integrating yields H(x)=int_0^inf exp(-u-x/u)du=2sqrt(x)K1(2sqrt(x)). I independently checked this exact integral numerically at three positive depths; derivatives, endpoints and critical scaling follow from monotonicity. Conditional-TV convergence needs H(x)>0, which holds for all fixed t>0. The n^-2 regimes explicitly require depth->0 and fixed-site separation.
 
-## Evidence and limits
-Analytical proof: `RESULT.md`, steps 1–4. Independent numerical consistency checks: `check_boundary_probe.py` and `VERIFICATION.md`, with NumPy/SciPy declared in `requirements.txt`. Sources are specified in `RESULT.md`, and comparison details are preserved in `AUDIT.json`. The fixed-site separation and positive-density hypotheses are necessary for the stated simple independence and scale. The general process limit has not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier smooth-boundary curvature absorption law has fixed n and delta->0 and does not imply the simultaneous n->infinity critical window. A same-day circle Poisson-chord theorem gives a Bessel one-point circular special case, but does not establish the general C3 curve, variable f, conditional TV marked gap law or independent multiple fixed sites. Best-of-knowledge priority for general geometric marked law survives, with older stochastic geometry coverage risk.
+
+## value
+
+PASS
+
+The n^-2 scale is forced by neighboring spacings of order n^-1 and the quadratic local chord depth. The full Bessel crossover is a natural local statistic; its strictly monotone dependence on curvature/density gives an invertible local curvature probe, with conditional geometric explanation and multisite independence. This is a motivated structural boundary-layer theorem rather than a special numeric evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

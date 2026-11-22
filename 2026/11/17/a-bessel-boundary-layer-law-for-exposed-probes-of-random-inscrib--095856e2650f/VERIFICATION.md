@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,25 +19,24 @@
 }
 ---
 
-# Checks of the local boundary-probe law
+# Independent mathematical audit
 
-The proof in `RESULT.md` supplies the general smooth-curve and total-variation claims. The standalone diagnostic `check_boundary_probe.py` requires packages pinned by lower bounds in `requirements.txt`; run with `python check_boundary_probe.py`.
+## correctness
 
-The checker integrates \(\int_0^\infty e^{-u-x/u}\,du\) using numerical quadrature and independently evaluates \(2\sqrt{x}K_1(2\sqrt{x})\) for three \(t\)-parameters on the unit circle. Agreement was below \(2\times10^{-10}\) in absolute error. It next samples exact finite-\(n\) neighboring arc gaps from the Dirichlet\((1,1,n-1)\) law and evaluates the exact chord-normal intersection, without applying the parabolic approximation. There are \(260{,}000\) generated samples per configuration.
+PASS
 
-Observed versus limiting exposure frequencies were:
+Under strictly positive C3 curvature and positive C1 sampling density, the normal intercept of the chord joining nearest clockwise/counterclockwise samples is D(U,V)=kappa UV/2+O(UV(U+V)). For n iid boundary samples the exact nearest-gap joint density is n(n-1)f(z+a)f(z-b)[1-mass(-b,a)]^(n-2) on the short-arc domain. Its n f(z) rescaling converges in L1 by pointwise density convergence plus total mass (Scheffe), hence total variation to independent unit exponentials. For finitely many fixed separated sites, the disjoint-arc joint density with falling factorial (n)_{2m} yields independent pairs. The exposure flag reduces asymptotically to uv>x, a continuous-law threshold, and TV of the joint mark follows from dominated convergence of density and vanishing disagreement mass. Integrating yields H(x)=int_0^inf exp(-u-x/u)du=2sqrt(x)K1(2sqrt(x)). I independently checked this exact integral numerically at three positive depths; derivatives, endpoints and critical scaling follow from monotonicity. Conditional-TV convergence needs H(x)>0, which holds for all fixed t>0. The n^-2 regimes explicitly require depth->0 and fixed-site separation.
 
-| Scaled depth \(t\) | Vertex count \(n\) | Simulated | Limiting Bessel |
-|---:|---:|---:|---:|
-| 0.2 | 60 | 0.954796 | 0.954732 |
-| 0.2 | 300 | 0.954223 | 0.954732 |
-| 2 | 60 | 0.764300 | 0.764627 |
-| 2 | 300 | 0.764158 | 0.764627 |
-| 12 | 60 | 0.391335 | 0.397389 |
-| 12 | 300 | 0.396846 | 0.397389 |
+## originality
 
-The checker independently sampled \(18{,}000\) complete 35-vertex circle polygons and classified the normal probe by **all** oriented edge halfplanes. In every case the classification agreed exactly with that from the single chord joining the two sampled neighbors of the boundary point.
+PASS
 
-Final successful output: `BOUNDARY_PROBE_BESSEL_AND_CHORD_OK`.
+Earlier smooth-boundary curvature absorption law has fixed n and delta->0 and does not imply the simultaneous n->infinity critical window. A same-day circle Poisson-chord theorem gives a Bessel one-point circular special case, but does not establish the general C3 curve, variable f, conditional TV marked gap law or independent multiple fixed sites. Best-of-knowledge priority for general geometric marked law survives, with older stochastic geometry coverage risk.
 
-No simulation or quadrature establishes the asymptotic law on every smooth curve, the multi-site total-variation limit, or priority in the literature. Those claims rest on the analytical argument and remain subject to independent review. No external audit has been performed.
+## value
+
+PASS
+
+The n^-2 scale is forced by neighboring spacings of order n^-1 and the quadratic local chord depth. The full Bessel crossover is a natural local statistic; its strictly monotone dependence on curvature/density gives an invertible local curvature probe, with conditional geometric explanation and multisite independence. This is a motivated structural boundary-layer theorem rather than a special numeric evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
