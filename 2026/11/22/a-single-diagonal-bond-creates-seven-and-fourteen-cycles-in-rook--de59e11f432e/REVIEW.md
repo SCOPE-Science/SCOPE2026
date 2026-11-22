@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The graph is \(K_m\square K_n\) with one undirected edge connecting diagonally separated corners, \(m,n\ge2\), over a field \(\mathbb F_{2^h}\), \(h\ge1\). The formula \(F=J_m\otimes I_n+I_m\otimes J_n+E\) follows by characteristic-two diagonal cancellation. The decomposition by exceptional corners, tail all-ones vectors and tail sum-zero complements is a direct sum of invariant subspaces for every size, not an inference from samples. The six finite cores exhaust the resulting parity/dimension types; the polynomial-nullity checker reconstructs their primary blocks. The remaining sectors contribute only rank-one all-ones maps and zero blocks. The Jordan descriptions therefore determine the stated exact time, primitive-period and basin formulas. The independent full-state program directly traces every state of six small binary boards and one four-element-field board. Residual risk: verification and interpretation have not been independently audited.
+
+## Originality — PASS, qualified
+The 2008 XOR-network paper supplies the general dynamical setup, not the diagonal rook edge theorem. The intact Hamming-product edge operator operates on line-graph edge states; a single missing rook square deletes a vertex rather than inserting an edge. The known period-fourteen incidence-toggle theorem uses projective-plane Levi graphs, with unrelated geometry and matrix ranks; its six-dimensional fourteen-clock is acknowledged rather than treated as a new algebraic motif. Full accessible Results and relevant archived primary material were compared by their statements and mechanisms. No compared theorem implies the complete rectangular rook classification. Residual priority risk: inaccessible or unindexed historical treatments of equivalent rank-two matrix perturbations could cover it.
+
+## Value — PASS
+A natural smallest possible non-rook edge edit changes an infinite family's qualitative recurrent spectrum: mixed side parity creates genuinely primitive seven- and fourteen-cycles, odd–odd creates period four, and even–even creates two-cycles from a nilpotent intact map. The exact structural decomposition determines all Jordan chains, sharp transient depths and individual basins for every board and every characteristic-two finite field. This is not a purely numerical special-case census or a trivial corollary of the intact rook theory.
+
+Self-review: passed. Independent audit: not yet performed.
