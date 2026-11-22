@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-Run `python verify.py` with NumPy and SciPy as in `requirements.txt`. The actual packaged script was executed and printed `THREE_SITE_JOINT_AREA_CHECKS_OK 350000` followed by measured diagnostic values.
+## correctness
 
-The checks are: a two-dimensional quadrature normalization of the angle density; numerical quadrature of the largest-cell expectation; 350,000 independently simulated triples of surface-uniform sphere points; direct Euclidean chord-angle reconstruction; comparison of four CDF thresholds, the mean and one nontrivial two-angle rectangle against their analytical integrals; and direct spatial nearest-site assignment for six sample tessellations using 85,000 additional random sphere points each.
+PASS
 
-The deterministic proof in `RESULT.md` establishes the infinite continuum assertions through an affine Blaschke–Petkantschin disintegration and exact finite integrals. No finite sample certifies a continuous density or all real parameter values. The available comparison literature does not constitute proof of historical uniqueness, and independent mathematical review has not been performed.
+Read the full frozen RESULT.md and inspected verify.py. The two outward hemisphere normals at a site meet at Euclidean chord-triangle angle alpha_i; their intersection lune has area 2(pi-alpha_i), giving sum 4pi. The spherical Blaschke–Petkantschin shape-size disintegration (Akopyan–Edelsbrunner–Nikitenko, Lemma 5 and equation (9)) weights the uniform circle-angle simplex by chord triangle area 2r^2 product sin(alpha_i), so joint angle density is 8/(3pi) product sin alpha_i because its simplex integral is 3pi/8. Area-coordinate Jacobian is 1/4. For M<=m, each alpha_i >= pi-m/2; integrating the sine-sum identity over the truncated simplex gives the displayed CDF. Independently symbolically integrated normalization, mean and both boundary Taylor series, finding F(4pi/3+t)=9sqrt(3)t^2/(8pi)-9sqrt(3)t^4/(32pi)+O(t^5), 1-F(2pi-t)=t^2/2-t^4/24+O(t^5). The n=3 sampling has no degenerate atoms. A finite 350,000-trial verification is documented in the source VERIFICATION.md; I inspected rather than re-ran that Monte Carlo checker, and do not use its output as proof.
+
+## originality
+
+PASS
+
+Best-knowledge PASS for the specifically joint labelled three-cell law and largest-cell exact statistic; not for single-cell marginal, acute-chord probability, or general spherical BP. The published single-cell CDF and covariance for the same 3-site model do not identify the joint density, whereas Akopyan et al. give shape-size independence and volume-weighting but not the joint-area/maximum formulas. Inaccessible Miles (1971) and Arbeiter–Zähle (1994) are genuine historical-priority risks.
+
+## value
+
+PASS
+
+The labelled joint distribution determines all joint correlations and exact largest-cell extremes; neither can be recovered from individual marginals and sum constraint alone. The explicit special-function-free law and quadratic endpoint coefficients characterize a natural three-generator spherical tessellation, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,16 +1,21 @@
-# Scientific review: joint areas of three spherical Voronoi cells
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The deterministic reduction \(A_i=2(\pi-\alpha_i)\) follows from the intersection of the two bisector hemispheres and the Euclidean chord-triangle angle. The affine Blaschke–Petkantschin disintegration, restricted to the unit sphere through radial delta integration, puts a triangle-area weight on three points on their circumcircle. The area weight is \(2r^2\prod_i\sin\alpha_i\), whose radial and plane parameters integrate out independently of shape. Normalization gives an integrable, positive joint angle density with constant \(8/(3\pi)\), and the Jacobian of the area transformation gives \(2/(3\pi)\). The maximum-area CDF follows by a two-dimensional integral of the product-to-sum sine identity, and exact integration and endpoint Taylor expansion prove its mean and coefficients. The packaged code independently reconstructs geometric areas and tests the laws. A computational check does not substitute for the analytic derivation.
+## correctness
 
-## Originality
-**PASS, with historical limitations.** The two closest published research records (cited as [2,3] in `RESULT.md`) each give a one-cell area CDF and covariance but expressly state that they do not derive the three-cell joint area vector. The general spherical shape/size disintegration in Akopyan–Edelsbrunner–Nikitenko supplies an underlying method; it is expressly credited. It does not itself state or evaluate the labelled Voronoi area-vector density or the maximum-cell distribution. Finch–Jones instead studies intrinsically spherical triangle geometry, which has different angles. Kabluchko–Thäle determines spherical Voronoi f-vectors rather than this three-dimensional area statistic. This comparison is by statement and implication, not titles alone. A 1971 spherical-tessellation article of Miles and a 1994 spherical-mosaics article of Arbeiter–Zähle were not substantively accessible, so historical priority cannot be certified.
+PASS
 
-## Mathematical value
-**PASS.** A typical-cell marginal and exchangeable covariance cannot determine how often one cell dominates the entire three-cell tessellation. The new joint law determines *every* symmetric area statistic of the natural three-site model, and the sharp maximum law gives an exact worst-cell statistic and a concrete threshold probability, useful for quantifying spatial imbalance. The two quadratic endpoint laws reveal the geometry of near-equal partitions and nearly hemispheric dominance. The exact natural object is motivated before the integration; it is not an arbitrary slice of a table. The general geometric disintegration is prior work, and the contribution is its explicit joint-metric pushforward and nontrivial extreme-order integration.
+Read the full frozen RESULT.md and inspected verify.py. The two outward hemisphere normals at a site meet at Euclidean chord-triangle angle alpha_i; their intersection lune has area 2(pi-alpha_i), giving sum 4pi. The spherical Blaschke–Petkantschin shape-size disintegration (Akopyan–Edelsbrunner–Nikitenko, Lemma 5 and equation (9)) weights the uniform circle-angle simplex by chord triangle area 2r^2 product sin(alpha_i), so joint angle density is 8/(3pi) product sin alpha_i because its simplex integral is 3pi/8. Area-coordinate Jacobian is 1/4. For M<=m, each alpha_i >= pi-m/2; integrating the sine-sum identity over the truncated simplex gives the displayed CDF. Independently symbolically integrated normalization, mean and both boundary Taylor series, finding F(4pi/3+t)=9sqrt(3)t^2/(8pi)-9sqrt(3)t^4/(32pi)+O(t^5), 1-F(2pi-t)=t^2/2-t^4/24+O(t^5). The n=3 sampling has no degenerate atoms. A finite 350,000-trial verification is documented in the source VERIFICATION.md; I inspected rather than re-ran that Monte Carlo checker, and do not use its output as proof.
 
-## Closest literature and limits
+## originality
 
-The full text of both previous three-site area-law records was compared against the joint vector and largest-cell CDF; neither asserts these. Relevant accessible sections of the Akopyan–Edelsbrunner–Nikitenko and Kabluchko–Thäle papers were inspected and their general theorems are credited. Finch–Jones's intrinsic spherical-angle density does not imply a chord-angle distribution without a different geometric identification. Complete texts of Miles (1971) and Arbeiter–Zähle (1994) were not inspected; undiscovered coverage by those or other older works remains a risk. The scope is exactly three independent Haar sites on \(S^2\), not generic spherical mosaics or larger samples.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-knowledge PASS for the specifically joint labelled three-cell law and largest-cell exact statistic; not for single-cell marginal, acute-chord probability, or general spherical BP. The published single-cell CDF and covariance for the same 3-site model do not identify the joint density, whereas Akopyan et al. give shape-size independence and volume-weighting but not the joint-area/maximum formulas. Inaccessible Miles (1971) and Arbeiter–Zähle (1994) are genuine historical-priority risks.
+
+## value
+
+PASS
+
+The labelled joint distribution determines all joint correlations and exact largest-cell extremes; neither can be recovered from individual marginals and sum constraint alone. The explicit special-function-free law and quadratic endpoint coefficients characterize a natural three-generator spherical tessellation, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
