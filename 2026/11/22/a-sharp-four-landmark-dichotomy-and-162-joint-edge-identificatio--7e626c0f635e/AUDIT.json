@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The Petersen graph is explicitly modelled as KG(5,2); the exact edge-to-landmark distance rule gives 15 columns on 10 possible landmarks. Domination failure is equivalent to containment in a four-cross-pair obstruction for an edge, yielding 15 distinct four-element exceptional sets. The exhaustive 1024-subset certificate checks all edge signatures, domination predicates, and the entire S5 orbit partition of 4- and 5-sets; orbit representatives and sizes sum to 210 and 252. A separately constructed GP(5,2) graph with BFS distances independently reproduces every all-size coefficient. Scripts and actual outputs accompany the statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Filipović–Kartelj–Kratica, arXiv:1807.00580, Petersen Example 1 says ordinary edge metric dimension 4.",
+        "Tavakoli et al., DOI:10.5614/ejgta.2023.11.1.16, defines domination by vertex cover rather than edge distance at most one."
+      ],
+      "reasoning": "Ordinary edge metric dimension is weaker than the conjunction in this finding. The vertex-cover constrained invariant, although bearing a similar name, is stronger on the domination side. Neither scalar nor differently constrained result determines which of the 210 Petersen four-subsets qualify or the 162 exact joint optima.",
+      "searches": [
+        "arxiv 1807.00580 Petersen edge metric dimension 4 Filipovic Kartelj Kratica 2018",
+        "dominant edge metric Petersen vertex edge resolving"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2211.09327",
+      "https://arxiv.org/abs/1807.00580",
+      "https://doi.org/10.5614/ejgta.2023.11.1.16",
+      "https://onlinelibrary.wiley.com/doi/full/10.1155/2022/6490698",
+      "https://ejgta.org/index.php/ejgta/article/download/1686/pdf_264"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2211.09327: general definitions, paths/cycles/complete and bipartite families; bibliography cites the separate 2019 edge-metric results.",
+        "arXiv:1807.00580: Petersen edge-metric minimum 4, no simultaneous dominating-set census.",
+        "DOI:10.5614/ejgta.2023.11.1.16: vertex cover condition in abstract."
+      ],
+      "reasoning": "The implication from the earlier four-landmark edge-metric result to a four-landmark joint result fails sharply: every one of its fifteen four-landmark generators misses a distinct edge under the distance-one domination requirement. This necessary cross-comparison is the substantive separation, not a title mismatch.",
+      "searches": [
+        "gamma_emd(Petersen) Petersen 5 162 exact minimum vertex-edge dominant edge resolving sets",
+        "joint edge resolving and edge domination Petersen graph four orbits 60 60 30 12",
+        "Tavakoli Korivand Erfanian Abrishami Baskoro 2023 dominant edge metric dimension PDF"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ikhlaq–Hayat–Siddiqui, arXiv:2211.09327, definitions and concluding list of graph families; no Petersen statement in the inspected complete manuscript.",
+        "Petersen graph can equivalently be modelled as KG(5,2); its 4-sets are four-edge root graphs on 5 ground labels."
+      ],
+      "reasoning": "An equivalent statement would count all simultaneous resolving/vertex–edge dominating subsets of KG(5,2), not merely ordinary vertex or edge metric bases. The full 2022 study neither states the Petersen case nor implies this exact orbit partition.",
+      "searches": [
+        "vertex-edge dominant edge metric dimension Petersen graph exact",
+        "Petersen graph vertex-edge dominant edge-metric dimension joint resolving and within one endpoint edge domination minimum count orbits"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Filipović–Kartelj–Kratica, arXiv:1807.00580, ordinary Petersen scalar value 4 appears in Example 1 and tabular summary.",
+        "The six-by-six orbit representative census and complete 1024-subset counting certificates are newly supplied."
+      ],
+      "reasoning": "The known scalar table does not include simultaneous domination constraints, counts of all qualifying subsets or the four orbit types; no directly matching exact published table was located. A missing or unindexed table remains a live priority risk.",
+      "searches": [
+        "edge metric dimension Petersen minimum resolving sets",
+        "gamma_emd(Petersen) Petersen 5 162 exact minimum vertex-edge dominant edge resolving sets"
+      ]
+    },
+    "rationale": "The 2022 source introduced the joint distance-one vertex–edge domination and edge-resolution invariant but did not give this exact Petersen four-set dichotomy, joint sharp minimum, four-orbit classification or all-size polynomials. The 2018 original Petersen edge-dimension computation addresses only one predicate and gives the already-known minimum four. The similar-named 2023 dominant edge metric parameter instead uses vertex covers. Searches for the combined condition and equivalent root-graph orbit formulations identified no covering statement; this is provisional because unseen full texts/older computations remain possible.",
+    "residual_risks": [
+      "Historical publication or finite-graph census not indexed by the searches may already contain these exact counts.",
+      "Full-text inspection of every potentially relevant non-core article has not been established.",
+      "Other unindexed older calculations or databases of Petersen edge-resolving landmark sets may still overlap exact numbers."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines joint invariant but does not report Petersen joint optimum, four-set dichotomy or polynomials.",
+        "evidence": [
+          "2022-11-17 first arXiv date; primary MSC 05C12 and 05C69",
+          "The 2022 manuscript lists paths, cycles, complete graphs, bipartite graphs, Cartesian products and a few comparisons; Petersen occurs in a reference, not as a theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2211.09327",
+        "material_read": "Abstract, definitions and preliminaries, graph-family calculations, conclusions and problem list, plus searched full-text occurrences of Petersen.",
+        "method": "Public full-text arXiv PDF read and inspected; relevant pages visually checked.",
+        "title": "Unique identification and domination of edges in a graph: The vertex-edge dominant edge metric dimension",
+        "trigger": "Defines exactly the joint invariant"
+      },
+      {
+        "assessment": "Confirms already known ordinary edge metric dimension 4 but does not determine edge domination or combined optima.",
+        "evidence": [
+          "Petersen GP(5,2) example explicitly states edge metric dimension 4",
+          "The problem is edge metric representation alone, with no distance-one vertex–edge dominating condition in its definition."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1807.00580",
+        "material_read": "Graph construction and definitions, Petersen Example 1 with graph figure, generalized Petersen theorems and listed numerical values.",
+        "method": "Public arXiv full-text PDF read with relevant page images inspected.",
+        "title": "Edge metric dimension of some generalized Petersen graphs",
+        "trigger": "Same named graph and one of the two required predicates"
+      },
+      {
+        "assessment": "Explicit vertex-cover-constrained invariant. The complete manuscript does not report a Petersen joint vertex–edge domination classification and defines a strictly stronger kind of edge coverage.",
+        "evidence": [
+          "The vertex-cover requirement appears explicitly on PDF page 2 (printed page 198).",
+          "The described results address basic bounds, standard graph families and graph operations; full-document search returned no Petersen theorem."
+        ],
+        "identifier_or_url": "https://ejgta.org/index.php/ejgta/article/download/1686/pdf_264",
+        "material_read": "The complete open-access 12-page journal PDF, including the definitions, basic results, graph operations, and reference list; full-text search for Petersen returned no occurrence.",
+        "method": "Public journal-hosted original PDF read, with definition page visually inspected.",
+        "title": "The dominant edge metric dimension of graphs",
+        "trigger": "Potentially confusing almost-identical invariant name"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7e626c0f-635e-4f68-85db-3b56f76f1599",
+  "value": {
+    "rationale": "This answers a structurally natural first finite, highly symmetric non-bipartite test for a joint distance-based edge identification and coverage invariant. The absolute optimum 5 is one above its previously known ordinary edge-resolving value 4, while every ordinary optimum actively fails the coverage constraint; all 162 joint optima are classified geometrically into four different S5 orbits, and the all-size polynomials allow measurement of redundancy. Exact configuration data distinguish sensing tradeoffs and provide reproducible calibrating examples for broader graph-family research, rather than a trivial restatement of a known scalar.",
+    "status": "PASS"
+  }
+}
