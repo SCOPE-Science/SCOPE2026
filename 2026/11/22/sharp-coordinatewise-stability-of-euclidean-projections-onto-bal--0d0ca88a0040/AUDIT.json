@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "KKT uniquely identifies clipped radial scaling. Each smooth active stratum yields derivative s^{-1}(I-uu^T) on free coordinates. Its exact ell_infty row norm is optimized with Cauchy–Schwarz and scalar clamping to a provably feasible interval. Continuity and generic-segment integration give the global upper bound; explicit strictly feasible capped-face inputs as s decreases to 1 give matching two-input lower bounds. Algebra proves the n=13 clipped-face strict inequality and radius threshold jump. Independent standard-library computation passed 2,951 supplementary checks but is not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-weighted-coordinate-sensitivity-of-euclidean-ball-clipping--78696bf157c3",
+        "The ball-only calculation covers the exact contained-ball regime 0<r<=1 as a special case but has no box-active faces.",
+        "Bauschke–Bui–Wang 2017 concerns cones intersected with balls or spheres, not a bounded coordinate cube."
+      ],
+      "reasoning": "Neither the broader object name “projection onto norm balls” nor the special-case result for a single Euclidean ball gives a covering statement for the intersection where both bounds are active. The already-known special regime is expressly credited; the theorem is supported by a distinct mixed-constraint face optimization.",
+      "searches": [
+        "Euclidean ball clipped cube projection derivative Schur Jacobian active face Lipschitz",
+        "sharp weighted coordinate sensitivity of Euclidean-ball clipping",
+        "Euclidean projection cube intersect sphere ball stability condition number active saturated coordinates",
+        "arxiv:1708.00585"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1708.00585",
+      "https://arxiv.org/abs/1911.03946",
+      "https://arxiv.org/html/2007.04894v1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-weighted-coordinate-sensitivity-of-euclidean-ball-clipping--78696bf157c3",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-affine-projection-norms-on-ball-box-products--aaf07fe45c05"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bauschke–Bui–Wang: geometry restricted to conic intersections and ball/sphere.",
+        "Liu–Wang–Song: ell_1 instead of ell_infty intersection, and computational formulas for a projector rather than exact two-input ell_infty condition numbers.",
+        "Vasil'eva: widths optimize over linear approximating subspaces, not over perturbations to the metric projector.",
+        "The sharp single-Euclidean-ball clipping coefficient agrees with the candidate’s regime r<=1, but does not imply the n=13 active-face superiority or the r=sqrt(n) jump."
+      ],
+      "reasoning": "The implication test distinguishes weaker/special-case bounds and different maps, rather than relying on unmatched titles. The strict one-saturated-coordinate example rules out derivation by ignoring mixed active strata; the endpoint discontinuity depends on cube redundancy.",
+      "searches": [
+        "arxiv:1708.00585 Projecting onto the intersection of a cone and a sphere Bauschke Bui Wang",
+        "arxiv:1911.03946 Liu Wang Song norm ball intersection projections",
+        "arxiv:2007.04894 Vasil'eva Kolmogorov widths two finite dimensional balls",
+        "sharp stability of mixed-norm metric projection onto the Euclidean disk"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The projection map is coordinatewise clipped scaled input with a scalar KKT multiplier; equivalently, it is a box-constrained trust-region projector.",
+        "Liu–Wang–Song 2019, Sections 1 and 4, analyzes the differently constrained ell_1/ell_2 intersection and root-finding of a piecewise function.",
+        "Vasil'eva 2020, Theorem 1, estimates Kolmogorov widths of norm-ball intersections, not the derivative or Lipschitz modulus of their Euclidean nearest-point maps."
+      ],
+      "reasoning": "Comparisons were made at the level of set, optimizer, perturbation variable, input/output norm and quantifiers; none of the materially read equivalent-formulation sources asserts the computed global two-input bound. An older active-set condition-number formula with different notation remains plausible.",
+      "searches": [
+        "Euclidean metric projection onto intersection of coordinate cube and Euclidean energy ball exact sharp entrywise Lipschitz modulus saturated face",
+        "intersection of l infinity box and l2 Euclidean ball nearest point projector exact infinity-to-infinity Lipschitz coefficient sharp",
+        "box constrained Euclidean norm sensitivity projection formula",
+        "arxiv:1911.03946",
+        "arxiv:2007.04894"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No equivalent coefficient or face table was returned by these public mathematical-record searches.",
+        "Closest titled public record on ball–box products treats affine least-squares projection on product domains rather than metric projection onto intersection: https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-affine-projection-norms-on-ball-box-products--aaf07fe45c05",
+        "At n=13,r=sqrt(5) the exact one-active-face value (3+sqrt(33))/4 strictly exceeds the k=0 value 4(1+sqrt(3))/5."
+      ],
+      "reasoning": "The exact parameter and coefficient comparison was searched alongside the general formulation. The lack of a returned match is only a bounded priority check, not a uniqueness proof.",
+      "searches": [
+        "active coordinate stratum projection l infinity ball intersect l2 ball n=13 square root five one saturated coefficient (3+sqrt33)/4",
+        "ball and box intersection projector sudden discontinuity of sharp max norm stability at sqrt dimension",
+        "Euclidean metric projection onto intersection of coordinate cube and Euclidean energy ball exact sharp entrywise Lipschitz modulus saturated face"
+      ]
+    },
+    "rationale": "The complete nonlinear two-input coordinatewise modulus for Euclidean projection onto the intersection of a cube with an independent ball differs in object and implication from the compared cone-and-sphere projectors, ell_1-and-ell_2 ball algorithms, Kolmogorov width bounds, and the ball-only clipping coefficient. Exact face maximization, an active clipping witness at (n,r)=(13,sqrt(5)), and a jump at radius sqrt(n) remain outside their inspected statements. A semantically equivalent earlier bound-constrained trust-region condition-number calculation cannot be ruled out.",
+    "residual_risks": [
+      "Possible unindexed equivalent result in bound-constrained trust-region projection sensitivity or active-set condition-number literature.",
+      "Two highly related indexed mathematical-result pages were available as summaries but their full source text could not be retrieved.",
+      "Cone-and-sphere full text was only partly available, though its cited optimization domain is not the proposed ball–cube intersection.",
+      "No independent scholarly verification or comprehensive citation-priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No decisive full-text exclusion; cone/sphere result is different from a uniform cube intersected with a ball",
+        "evidence": [
+          "arxiv:1708.00585 first posted 2017-08-02",
+          "2018 SIAM J Optim article lists primary MSC 47H09"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1708.00585",
+        "material_read": "Accessible arXiv abstract and an incomplete extracted theorem fragment only",
+        "method": "Scope and model comparison from accessible abstract and metadata",
+        "title": "Projecting onto the intersection of a cone and a sphere",
+        "trigger": "Early foundational formulation of intersection metric projectors and primary MSC 47H09"
+      },
+      {
+        "assessment": "Not covering: their ell_1 cap and root algorithm are not the ell_infty box projector or its sharp coordinatewise sensitivity",
+        "evidence": [
+          "arxiv:1911.03946 first posted 2019-11-10",
+          "Sections 1 and 4 use ell_1 and ell_2 constraints, not an ell_infty bound"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1911.03946",
+        "material_read": "Accessible arXiv full-text introduction, explicit optimization models (1.1–1.3), Sections 2–4 models and KKT characterizations, including Theorem 4.2 and Table 1",
+        "method": "Compared constraints, projection outputs, derivative parameters and claims",
+        "title": "A unified approach for projections onto the intersection of ell_1 and ell_2 balls or spheres",
+        "trigger": "Directly related computational KKT projection onto intersecting norm balls"
+      },
+      {
+        "assessment": "Not covering: studies Kolmogorov widths rather than nearest-point Lipschitz coefficients",
+        "evidence": [
+          "arxiv:2007.04894 first posted 2020-07-09",
+          "Theorem 1 is formulated for d_n(B_p0^m intersect nu B_p1^m, ell_q^m), i.e. subspace widths"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2007.04894v1",
+        "material_read": "HTML full text, definitions, Theorem 1 and proof through final section",
+        "method": "Compared underlying set with the optimized functional and quantifiers of the theorem",
+        "title": "Kolmogorov widths of the intersection of two finite-dimensional balls",
+        "trigger": "Contains the same underlying intersected norm-ball geometry"
+      },
+      {
+        "assessment": "Covers r<=1 but not shown to cover 1<r<sqrt(n), where the cube constraint becomes active",
+        "evidence": [
+          "Public summary gives weighted Euclidean-ball clipping constant (1+||w||_2/min(w))/2",
+          "At uniform weights its result equals (1+sqrt(n))/2, the new theorem’s contained-ball branch"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-weighted-coordinate-sensitivity-of-euclidean-ball-clipping--78696bf157c3",
+        "material_read": "Published title and indexed mathematical summary, not full source text; direct page retrieval unavailable",
+        "method": "Compared summary theorem domain with the new formula’s radius regimes and mixed constraints",
+        "title": "Sharp weighted coordinate sensitivity of Euclidean-ball clipping",
+        "trigger": "Strongest visibly matching special case of exact mixed-norm sensitivity"
+      },
+      {
+        "assessment": "Distinct: linear L2 affine projection on a product measure space versus nonlinear Euclidean metric projection onto a set intersection",
+        "evidence": [
+          "Indexed summary describes endpoint norms for an affine least-squares projector over a ball–box product"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-affine-projection-norms-on-ball-box-products--aaf07fe45c05",
+        "material_read": "Published title and indexed summary only; direct page retrieval unavailable",
+        "method": "Compared the operator definition and domain",
+        "title": "Sharp affine projection norms on ball–box products",
+        "trigger": "High lexical overlap between ball, box and projection"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0d0ca88a-0040-4a0e-abc8-c969c064fc32",
+  "value": {
+    "rationale": "The intersection of amplitude box constraints and Euclidean energy constraints is a natural full family of convex feasibility sets. Exact coordinatewise robustness is needed for individual-entry error bounds; one saturated coordinate can outrank the ball-only stratum (n=13), and the optimal conditioning jumps when the energy constraint becomes redundant, despite continuity of sets. The all-dimensional active-face formula is not an arbitrary finite slice or a routine renaming of ball-only clipping.",
+    "status": "PASS"
+  }
+}
