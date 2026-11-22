@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Full real two-cycle elimination is necessary and sufficient: p>0, q²+p²/4=1-1/beta, alpha cos(p)=beta q p². For beta<=1 this is impossible; for 1<beta<=2 cos(p)>0 and q>0. The exact two-step Jacobian M satisfies tr M=2-2B-(k+t)² and det(I-M)=B²-4kt-8t², with B=beta p², t=beta pq, k=t p tan(p). For beta>=3/2, p<=1 gives det(I-M)<0 from the factorization (p²-1)(p²+8/3), hence a real multiplier exceeds one; p>1 gives tr M<-2 from tan p>=p+p³/3 and the strictly positive bracket >=49/24-2, hence an expanding multiplier. For 1<beta<3/2 the exact two-cycle branch p approaches P=2sqrt(1-1/beta) as alpha goes to zero, and its return matrix approaches (5-4beta)I with radius<1. Continuity and intermediate value yield a sink for every sufficiently small positive alpha. Recomputed algebra and diagnostics via the packaged standalone checker; finite tests are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/1/SCOPE-a-sharp-two-cycle-fold-and-a-three-halves-onset-law-for-a-fixed--3b64e28eaf02/RESULT.md",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-a-locked-two-cycle-and-a-sharp-persistence-transition-in-an-abso--ab503072ca36/RESULT.md",
+        "https://doi.org/10.3390/math11061319"
+      ],
+      "reasoning": "Original source contains plots over beta from 1.35 to 1.85 and no theorem excluding two-cycle sinks for arbitrary alpha. The FPFM1 census covers a larger count question but not stability. The read FPFM2 stability theorem has a different nonlinearity beta(|y|-1)x, with a nontransferable criterion beta<2. No inspected broader theorem entails the new beta=3/2 obstruction.",
+      "searches": [
+        "fixed point free cosine memristor map period-two orbit saddle fold pair stability exact classification",
+        "two-cycle stability Floquet linear multipliers at beta 3/2 cosine fixed-point-free memristor",
+        "2026/11/2/SCOPE-a-locked-two-cycle-and-a-sharp-persistence-transition-in-an-abso--ab503072ca36"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.3390/math11061319",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/1/SCOPE-a-sharp-two-cycle-fold-and-a-three-halves-onset-law-for-a-fixed--3b64e28eaf02/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-a-locked-two-cycle-and-a-sharp-persistence-transition-in-an-abso--ab503072ca36/RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/1/SCOPE-a-sharp-two-cycle-fold-and-a-three-halves-onset-law-for-a-fixed--3b64e28eaf02/RESULT.md",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-a-locked-two-cycle-and-a-sharp-persistence-transition-in-an-abso--ab503072ca36/RESULT.md",
+        "https://doi.org/10.3390/math11061319"
+      ],
+      "reasoning": "The cited exact two-cycle census proves the orbit count for the identical FPFM1 map on 0<beta<=2, but explicitly disclaims every assertion about attraction or the second return multiplier. A census alone does not entail the new Floquet sign inequalities, which distinguish the gain threshold 3/2. The first source has only numerical parameter bifurcations. The absolute-value FPFM2 source uses a different memory law and derives an incompatible gain window, so it cannot imply the current theorem. At the same beta in (1,3/2), this result constructs a sink, whereas for beta in [3/2,2] the two independent inequalities force |multiplier|>1 for every existing cycle. Neither is a corollary of root count, and neither can be inferred from the distinct absolute-value model.",
+      "searches": [
+        "cosine memristor FPFM1 a cos(x)+b(y^2-1)x 3/2 beta threshold period two sink no attracting orbits",
+        "two-cycle stability Floquet linear multipliers at beta 3/2 cosine fixed-point-free memristor",
+        "fixed point free cosine memristor map period-two orbit saddle fold pair stability exact classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/1/SCOPE-a-sharp-two-cycle-fold-and-a-three-halves-onset-law-for-a-fixed--3b64e28eaf02/RESULT.md",
+        "https://doi.org/10.3390/math11061319"
+      ],
+      "reasoning": "Full same-map census RESULT.md, proof and limitations were read. It reduces two-cycles to the same scalar ellipse and proves counts, but expressly says it does not determine linear stability, attracting cycles, or the second eigenvalue. Period-two Floquet multipliers are not equivalent to scalar root counts; at least one missing transverse stability inequality is essential. The new theorem establishes a parameter-only exact condition for the possibility of a sink.",
+      "searches": [
+        "Almatroud Pham Building Fixed Point-Free Maps with Memristor 2023 cosine map F(x,y)=(a cos x+b(y^2−1)x, y+x) complete primitive two-cycle fold threshold b=1.7 17/10",
+        "cosine memristor FPFM1 a cos(x)+b(y^2-1)x 3/2 beta threshold period two sink no attracting orbits",
+        "2026/11/1/SCOPE-a-sharp-two-cycle-fold-and-a-three-halves-onset-law-for-a-fixed--3b64e28eaf02"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/1/SCOPE-a-sharp-two-cycle-fold-and-a-three-halves-onset-law-for-a-fixed--3b64e28eaf02/RESULT.md",
+        "https://doi.org/10.3390/math11061319"
+      ],
+      "reasoning": "The exact prior FPFM1 table counts 0,1,2 primitive two-cycles as alpha crosses a fold. Its numerical alpha=0.1, beta=1.7 example lists two cycles without computing the Floquet sink-possibility parameter threshold. No retrieved explicit table or database gives that beta=3/2 threshold. A negative search is not a proof of novelty.",
+      "searches": [
+        "2023 fixed-point-free map memristor cosine quadratic 17/10 1.7 first period doubling inverse two-cycle classification",
+        "Almatroud Pham FPFM1 attracting period-two 2023 b 1.5 stability square-root fold",
+        "cosine memristor FPFM1 a cos(x)+b(y^2-1)x 3/2 beta threshold period two sink no attracting orbits"
+      ]
+    },
+    "rationale": "A highly relevant published census for the identical FPFM1 equation explicitly stops before linear stability, so it neither asserts nor implies the sharp 3/2 sink-possibility barrier. Almatroud and Pham (2023) give model and numerical bifurcations, not the all-forcing Floquet inequalities. An exact short-cycle stability theorem for FPFM2 does not transfer because |y|-1 and y²-1 yield different phase constraints and Jacobian products. The new assertion is restricted to this sharp global exclusion and small-forcing existence, not the older two-cycle census. Search coverage and publication priority remain imperfect.",
+    "residual_risks": [
+      "Unindexed or not-accessible prior work may independently prove an equivalent gain threshold for FPFM1.",
+      "The present theorem gives no full alpha-dependent sink region for 1<beta<3/2; its existence claim holds for sufficiently small forcing only.",
+      "The claim excludes beta>2 and does not infer global basins, higher periods or cryptographic properties."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the gain-uniform two-cycle stability theorem; does cover the map definition and fixed-point exclusion",
+        "evidence": [
+          "FPFM1 uses alpha cos(x)+beta(y²-1)x and y+x; parameter sweep beta in [1.35,1.85]; first public date 2023-03-09"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math11061319",
+        "material_read": "Complete model construction in Section 2, equation (5); Section 3 numerical bifurcation/Lyapunov analysis of FPFM1; conclusion and publication metadata",
+        "method": "Open-access publisher HTML full article text, read model and numerical section",
+        "title": "Building Fixed Point-Free Maps with Memristor",
+        "trigger": "Defines exact FPFM1 map and gives parameter experiments straddling beta=3/2"
+      },
+      {
+        "assessment": "NOT_COVERING the two-cycle Floquet stability or parameter-only sink threshold; its stated limitation explicitly excludes stability",
+        "evidence": [
+          "It proves 0/1/2 primitive two-cycle census and 3/2 onset exponent near beta=1, NOT a 3/2 stability threshold in beta; it states no linear stability determination"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/1/SCOPE-a-sharp-two-cycle-fold-and-a-three-halves-onset-law-for-a-fixed--3b64e28eaf02/RESULT.md",
+        "material_read": "Complete RESULT.md: Finding, Proof, Verification, Relationship to prior work, and Limitations",
+        "method": "Direct open-text read of publicly published result",
+        "title": "A sharp two-cycle fold and a three-halves onset law for a fixed-point-free memristor map",
+        "trigger": "Exact same FPFM1 recurrence, primitive two-cycle count and scalar parameterization"
+      },
+      {
+        "assessment": "DISTINCT_MODEL: memory coefficient beta(|y|-1)x, not beta(y²-1)x, so its sharp sink inequality is inapplicable",
+        "evidence": [
+          "FPFM2 sink criterion allows beta<2 and has sign-crossing orbit; FPFM1 has quadratic ellipse phase reduction and different Floquet signs"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-a-locked-two-cycle-and-a-sharp-persistence-transition-in-an-abso--ab503072ca36/RESULT.md",
+        "material_read": "Complete RESULT.md: original map, all piecewise branches, linear stability calculation, and limitations",
+        "method": "Direct open-text read of publicly published result",
+        "title": "A locked two-cycle and a sharp persistence transition in an absolute-value memristor map",
+        "trigger": "Similar fixed-point-free model with an exact two-cycle sink criterion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1f73da1a-e4b9-410e-906a-1d2271815990",
+  "value": {
+    "rationale": "The existing same-map exact orbit census leaves stability unanswered. A sharp gain boundary separating possible attracting primitive oscillations from unconditional period-two instability is a natural dynamical invariant with clear relevance to the published beta sweep crossing 3/2. The proof works for all positive forcing on the excluded side and constructs actual sinks on the other side. This is not a generic textbook Schur check or an arbitrary parameter slice: it combines an exhaustive nonlinear orbit reduction with two globally complementary Floquet inequalities and a singular small-forcing construction.",
+    "status": "PASS"
+  }
+}
