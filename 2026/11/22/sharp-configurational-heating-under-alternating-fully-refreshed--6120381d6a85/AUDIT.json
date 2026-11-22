@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "BAOAB full refresh yields q_n=[1-h_n(h_n+h_{n-1})/4]q_{n-1}+h_n(ξ_{n-1}+ξ_n)/2. Its Gaussian two-phase contraction is strict for \\(0<s,t<2\\). Exact moment equations with Cov(q_n,ξ_n)=h_n/2 give closed V_s,V_t. Their determinant factor D>0, strict average heating, short-phase switch and non-Gaussian cumulant follow by symbolic factorization. The fixed-sum product derivative is strictly negative and interval boundaries give sharp \\(R<1\\) with attainable supremum only in closure. The bundled verifier passed seven symbolic identities, six rational phase-moment checks, 120 direct matrix-covariance tests and 15,000 supplementary numerical bounds. Those finite checks are not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.1063/1.4802990 §III exact BAOAB fixed-step moments",
+        "doi:10.1101/266619v1 and doi:10.3390/e20050318 §2–§3 fixed-Δt configurational-bias methods",
+        "arxiv:2204.02105 §§II–III constant-step BAOA/GSD/BAOAB equivalence"
+      ],
+      "reasoning": "The general method of solving an affine Gaussian stationary covariance is established, but sources inspected solve the time-homogeneous case. The specific stationary 2-cycle and sharp all-(s,t) ceiling are not corollaries of a listed stronger theorem; the calculation uses cross-step reused thermal noise and a new product monotonicity analysis.",
+      "searches": [
+        "BAOAB variable time step size harmonic oscillator invariant configurational distribution alternating thermostats exact",
+        "two different alternating timesteps BAOAB Langevin harmonic oscillator thermostat variance",
+        "BAOAB fixed step configurational exactness lost by 2 periodic step sizes high friction variance formula",
+        "doi:10.1101/266619v1",
+        "arxiv:2204.02105"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1063/1.4802990",
+      "doi:10.1101/266619v1",
+      "doi:10.3390/e20050318",
+      "arxiv:2204.02105",
+      "alternating Verlet two-step Floquet published indexed summary"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "doi:10.1063/1.4802990: constant step gives exact Var(q)=1.",
+        "doi:10.3390/e20050318: high-friction timestep-induced configurational bias considered with fixed Δt.",
+        "Published deterministic alternating-Verlet stability theorem: unthermostatted Floquet growth differs from the Gaussian stationary moment problem."
+      ],
+      "reasoning": "The prior constant-step statements use one stationary covariance and a single repeated step length; their formula Var(q)=1 on s=t does not imply the phase-resolved off-diagonal covariance equations, a universal strict upper ceiling, a signed short-phase switch, or the fourth cumulant of a random-phase mixture. The deterministic alternating Verlet result has no independent O-step thermal noises, and concerns spectral growth rather than stochastic invariant covariance.",
+      "searches": [
+        "two-periodic stochastic Verlet Langevin thermostats stationary position variance equal time steps configurational exactness failure",
+        "BAOAB variable time step size harmonic oscillator invariant configurational distribution alternating thermostats exact",
+        "2026/10/12/SCOPE-exact-two-step-stability-tongues-and-unstable-stage-rescue-in-al--35a4953830cc",
+        "doi:10.1063/1.4802990"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2204.02105, §II.3: BAOA and BAOAB equivalence is organized around a common full timestep and matching half-kicks.",
+        "doi:10.1063/1.4802990, §III: one-parameter stationary harmonic covariance with Var(q)=1."
+      ],
+      "reasoning": "BAOA/GSD time staggering and normalization changes are the main possible aliases; a period-two stochastic covariance law with unequal steps is not given by the fixed-step BAOA/BAOAB equivalence. The strict mean law is not the result of merely relabeling the fixed-step covariance.",
+      "searches": [
+        "BAOAB harmonic high friction two alternating unequal timesteps stationary configurational variance Gaussian mixture exact variance",
+        "alternating BAOAB Langevin two period full momentum refresh exact phase averages and sharp variance inflation factor two",
+        "arxiv:2204.02105",
+        "doi:10.1063/1.4802990"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "doi:10.1063/1.4802990, Table I lists fixed-step exact BAOAB harmonic configurational variance, without a two-step pair parameter.",
+        "arxiv:2204.02105, numerical figures use a single fixed step per trajectory."
+      ],
+      "reasoning": "No inspected exact table records the two-input rational phase law or its 2 supremum. Failure to locate a database row is not a proof of worldwide novelty.",
+      "searches": [
+        "BAOAB harmonic high friction two alternating unequal timesteps stationary configurational variance Gaussian mixture exact variance",
+        "high friction BAOAB periodic step equilibrium covariance phase temperature hot cold strict averaged inflation",
+        "doi:10.1063/1.4802990 Table I"
+      ]
+    },
+    "rationale": "The main prior harmonic BAOAB papers establish exact covariance for a constant step, whereas this result gives a nonconstant 2-cycle, sharp hot/cold phase regions and optimal uniform ceiling. Actual targeted searches, published-result comparisons and accessible full primary-text inspections do not imply the off-diagonal theorem. Any unindexed historical equivalence remains a risk.",
+    "residual_risks": [
+      "Unindexed or non-English early variable-step Langevin thermostat calculations may contain an equivalent special-case covariance formula.",
+      "The fixed-step Lyapunov method can be extended in principle, but the cited papers do not report the sharp period-two inequality or mixture law.",
+      "Closest deterministic alternating-Verlet paper was compared by published summary, not by its full document; its different dynamics make decisive coverage unlikely."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes Var(q)=1 on the diagonal of the new parameter domain with one constant δt; no alternating 2-cycle, phase averages, or sharp global factor-two bound in inspected applicable sections.",
+        "evidence": [
+          "§III equations (11–13) and Table I, constant δt; BAOAB moments (Var(q),Var(p),Cov)=(1,1-δt²/4,0) at unit units."
+        ],
+        "identifier_or_url": "https://www.pure.ed.ac.uk/ws/portalfiles/portal/11336040/Robust_and_efficient_configurational_molecular_sampling_via_Langevin_Dynamics.pdf",
+        "material_read": "Peer-reviewed author manuscript: §II splitting definition and §III pp. 6–9, stationary moment equations (8–13), harmonic covariance table and formulas, PDF page image.",
+        "method": "Open-access PDF text and visual page inspection, equation-to-claim parameter comparison.",
+        "title": "Robust and efficient configurational molecular sampling via Langevin dynamics",
+        "trigger": "Most directly covering fixed-step harmonic BAOAB invariant covariance; fixed-step could be mistaken for variable-step."
+      },
+      {
+        "assessment": "Studies fixed-timestep sampling error estimation and simulations; no exact two-period full-refresh rational phase covariance or universal sharp ratio bound.",
+        "evidence": [
+          "§2 splitting and error definitions, §3 method; date verified by bioRxiv v1 DOI 10.1101/266619."
+        ],
+        "identifier_or_url": "https://www.mdpi.com/1099-4300/20/5/318",
+        "material_read": "Open full HTML text, §2 numerical splitting and timestep-dependent bias, §3 KL divergence, discussion of high-friction superconvergence, numerical methods and appendix headings.",
+        "method": "Primary full HTML inspected for operational definitions and the underlying Δt held fixed; original bioRxiv v1 metadata independently dated 2018-02-16.",
+        "title": "Quantifying Configuration-Sampling Error in Langevin Simulations of Complex Molecular Systems",
+        "trigger": "First publicly dated 2018-02-16 motivation for configurational bias and high-friction BAOAB."
+      },
+      {
+        "assessment": "An exact equivalence of three named integrators under constant shared Δt; does not assert invariant two-phase covariances with unequal alternating Δt or the sharp bound.",
+        "evidence": [
+          "§II.3 uses repeated B-half, A-half, O at a common Δt; §III comparisons at Δt=0.25."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.02105",
+        "material_read": "Freely readable full arXiv paper §§I–IV, especially §II.2–II.3 mapping fixed Δt half-steps and §III fixed-Δt numerical accuracy.",
+        "method": "Original arXiv HTML-rendered text in the abstract/full-text page, direct comparison of equations (11–13) and experimental parameter scope.",
+        "title": "GROMACS Stochastic Dynamics and BAOAB Are Equivalent Configurational Sampling Algorithms",
+        "trigger": "Possible implication of equal configurational trajectories under BAOA and BAOAB."
+      },
+      {
+        "assessment": "Addresses periodic deterministic velocity-Verlet Floquet stability with no stochastic thermostat; does not by its summary imply the BAOAB two-phase invariant covariance. No whole-paper noncoverage claim.",
+        "evidence": [
+          "Public summary distinguishes individually stable/unstable alternating Verlet stages and Floquet stability tongues."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-exact-two-step-stability-tongues-and-unstable-stage-rescue-in-al--35a4953830cc",
+        "material_read": "Indexed mathematical statement/summary only; full document not inspected.",
+        "method": "Published summary comparison by update map and objective.",
+        "title": "Exact two-step stability tongues and unstable-stage rescue in alternating Verlet",
+        "trigger": "Closest published deterministic alternating-step harmonic update result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6120381d-6a85-4fdd-99b4-692bc9acc85a",
+  "value": {
+    "rationale": "Alternation is the first nonconstant deterministic schedule for an influential sampler whose constant-step harmonic equilibrium covariance is exact. The result identifies a strict bias across the entire physically stable pair domain, the exact warmer/cooler phase transition, an optimal unachieved factor-two inflation bound, and nonzero fourth cumulant from phase mixing. This is a complete natural classification rather than an arbitrary computed slice. The full-refresh condition prevents claims about finite-friction practice.",
+    "status": "PASS"
+  }
+}
