@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and proof checks
+# Independent mathematical audit
 
-Execute `python3 checker.py` using Python standard library. It evaluates the two-frequency heat polynomial on a finite grid, compares selected large-degree gamma averages with their Gaussian limits, compares large-radius coherent-state Gaussian integrals in one complex dimension, and checks the strict explicit offset signs. The run reported **4013 finite assertions passed**. These tests do not validate the universal or asymptotic statements for all dimensions, degrees, profiles or periods.
+## correctness
 
-The infinite-dimensional proof is provided in `RESULT.md`: diagonal gamma law; central-limit heat profile; square-root phase density and Fredholm essential spectrum; direct Berezin Gaussian limit; strict positivity of the periodized heat kernel; and the coupled-Gaussian Lipschitz inequality with a periodic triangular near-extremizing family. The two-frequency minimum is reduced exactly to a convex quadratic in a cosine variable.
+PASS
 
-Integrity limitations: there is no independent mathematical audit or formal certification; existing general gamma/heat theory and single-frequency counterexamples are credited. Any future publication-priority review should examine whether the all-periodic paired classification or the sharp Lipschitz envelope has appeared previously under heat-semigroup terminology.
+Radial diagonalization on monomial degrees gives gamma expectations with finite multiplicity. The gamma CLT/delta method yields asymptotic N(0,1/4) root fluctuation; the square-root mesh has vanishing gaps and dense residues modulo P, proving the full H_(1/8) Fredholm interval. Coherent-state Gaussian translates converge to N(0,1/2), yielding the H_(1/4) Berezin cluster interval. Strict positivity of wrapped heat kernels and injective Fourier multipliers proves strict separation for nonconstant g; the offset inequalities follow exactly. A common-Gaussian coupling yields min(H1/4g)-min(H1/8g) <= L*(sqrt(2)-1)/sqrt(2*pi). For triangular periodic tents heat-flow reflection/Dirichlet positivity fixes minima at zero, and dominated convergence as P grows attains the coupling constant as a supremum. Independent numerical two-tone extrema and offset signs and the Gaussian constant matched the formulas. These calculations are not substitutes for the proof.
+
+## originality
+
+PASS
+
+Important prior domination: the complete 2026-11-01 almost-periodic radial Fock theorem already establishes the two exact lower heat edges, their strict gap for nonconstant profiles, and its broad bounded-amplitude universal optimum over a class containing periodic functions. Its spectral lower-edge assertions are covered; full cluster intervals follow by applying it to ±g plus elementary interval arguments. The distinct surviving claim is the natural sharp bound under a Lipschitz constraint, with large-period tent extremizers; the earlier theorem optimizes an L-infinity bound and uses discontinuous sign bumps, not a Lipschitz envelope. That sharp Lipschitz component is not an immediate numerical substitution of the prior 0.332128 constant. All preexisting spectral/Looi/cosine ingredients are credited; originality is limited to the sharp Lipschitz refinement and its realizing family.
+
+## value
+
+PASS
+
+The sharp L-Lipschitz envelope is a mathematically motivated stability bound for the gap between a Fredholm test and a Berezin lower-value diagnostic: it quantifies how a regularity constraint shrinks the possible false-positive window and identifies the extremal large-period geometry. The broader spectral classification is valuable context but is not treated as independently novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

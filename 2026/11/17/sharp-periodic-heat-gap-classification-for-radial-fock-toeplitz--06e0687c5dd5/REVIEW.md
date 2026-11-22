@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof establishes the exact gamma-law diagonal formula in every finite complex dimension and its Gaussian limit; the square-root phase sampling produces the full essential interval. The coherent-vector Gaussian transform yields the second full cluster interval. Strict heat-semigroup smoothing separates all four endpoints for nonconstant profiles. Coupled Gaussians prove the optimal Lipschitz gap, and periodized triangular waves approach the bound. A standalone finite checker corroborates 4013 diagnostic assertions; these do not replace proof.
+## correctness
 
-**Originality — PASS, with priority qualification.** The general one-dimensional eigenvalue heat approximation is established in Esmeral–Maximenko (2015), Proposition 6.5. Looi (2026), Theorem 2.2, Remark 2.5 and Proposition 3.8, already provide single-frequency counterexamples and their extension to all complex dimensions. Fulsche (2024) gives general essential positivity through limit operators. The distinct assessed claim is the complete **all-continuous-periodic** spectral and Berezin interval correspondence together with the **globally sharp Lipschitz false-positive width**, including strict characterization and extremizing periods. Targeted mathematical-record searches did not identify this combined result. Because it uses strong existing Gaussian smoothing results and elementary heat principles, an unstated or differently named earlier corollary remains a genuine priority risk; no absolute novelty assertion is made.
+PASS
 
-**Mathematical value — PASS.** The exact classification resolves the false-positive window for an entire natural function class, not merely examples, and the best Lipschitz coefficient measures the largest discrepancy per unit radial regularity. The proof identifies a universal structural contrast between spectral and coherent-state smoothing. Periodic sharpness requires a family of increasing periods; no uniform bound on symbol amplitude is imposed.
+Radial diagonalization on monomial degrees gives gamma expectations with finite multiplicity. The gamma CLT/delta method yields asymptotic N(0,1/4) root fluctuation; the square-root mesh has vanishing gaps and dense residues modulo P, proving the full H_(1/8) Fredholm interval. Coherent-state Gaussian translates converge to N(0,1/2), yielding the H_(1/4) Berezin cluster interval. Strict positivity of wrapped heat kernels and injective Fourier multipliers proves strict separation for nonconstant g; the offset inequalities follow exactly. A common-Gaussian coupling yields min(H1/4g)-min(H1/8g) <= L*(sqrt(2)-1)/sqrt(2*pi). For triangular periodic tents heat-flow reflection/Dirichlet positivity fixes minima at zero, and dominated convergence as P grows attains the coupling constant as a supremum. Independent numerical two-tone extrema and offset signs and the Gaussian constant matched the formulas. These calculations are not substitutes for the proof.
 
-**Scientific limits.** This does not classify nonperiodic symbols, arbitrary radial measurable symbols, fixed-period optimizers or Bergman analogues. Independent validation and publication-priority review have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Important prior domination: the complete 2026-11-01 almost-periodic radial Fock theorem already establishes the two exact lower heat edges, their strict gap for nonconstant profiles, and its broad bounded-amplitude universal optimum over a class containing periodic functions. Its spectral lower-edge assertions are covered; full cluster intervals follow by applying it to ±g plus elementary interval arguments. The distinct surviving claim is the natural sharp bound under a Lipschitz constraint, with large-period tent extremizers; the earlier theorem optimizes an L-infinity bound and uses discontinuous sign bumps, not a Lipschitz envelope. That sharp Lipschitz component is not an immediate numerical substitution of the prior 0.332128 constant. All preexisting spectral/Looi/cosine ingredients are credited; originality is limited to the sharp Lipschitz refinement and its realizing family.
+
+## value
+
+PASS
+
+The sharp L-Lipschitz envelope is a mathematically motivated stability bound for the gap between a Fredholm test and a Berezin lower-value diagnostic: it quantifies how a regularity constraint shrinks the possible false-positive window and identifies the extremal large-period geometry. The broader spectral classification is valuable context but is not treated as independently novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
