@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The equilibrium is the unique solution of \(r=x+\log(1-h/x)\), and at the stated threshold its Jacobian has the claimed delay polynomial. A direct triangle inequality excludes every multiplier of modulus at least one for every finite lag. An analytic implicit-function expansion gives the first near-unit conjugate pair; a separate argument controls *every* maximizer and proves other odd-phase branches have at least nine times its leading loss. The coefficient and phase are therefore global statements about the full spectrum. Symbolic and high-precision numerical diagnostics ran as described in `CHECKER.py`; those are checks of a proof, not evidence replacing it.
+PASS
 
-## Originality — PASS within inspected literature
+At r_*=X+log(1−h/X), X(X−h)=h, define b=X−h=h/X and a=1−b. The (N+1)-dimensional linearization has polynomial λ^(N+1)−aλ^N+b. At a root b=|λ|^N|λ−a|, ruling out |λ|≥1 by the reverse triangle inequality, including equality λ=1 which is not a root. For near-unit branches set λ=exp(z/N) and solve exp(z)(exp(z/N)−a)=−b around odd multiples of iπ. The IFT expansion gives log|λ|=−a(2m+1)²π²/(2b²N³)+O(N^-4) and phase π/N−π/(bN²)+O(N^-3). Every maximal-modulus root has bounded z=Nlogλ and must lie on finitely many such branches; |2m+1|=1 gives exactly one dominant conjugate pair and 1−ρ_N=aπ²/(2b²N³)+O(N^-4). Independently solved dominant branch numerically for h=1 at N=30,100,400; scaled gap approaches π²/2; finite tests not universal proof.
 
-The closest full-text sources are AlSharawi–Cánovas–Kallel (arXiv:2402.14127v1, §4.1) for the identical arbitrary-delay Ricker family and AlSharawi–Kallel (arXiv:2407.21551v1, §3) for delay-one local stability. Their claims and implications do not contain the cubic high-delay gap or the unique dominant pair. Generic discrete stability criteria imply strict stability but not the sharp cubic limit. General large-delay continuous DDE spectral theory is relevant but is not a direct covering theorem for these discrete characteristic polynomials. The 1994 Kuruklis paper treats exactly the linear recurrence and establishes general stability criteria; attempts at its full text did not succeed (HTTP 429 author-hosted copy, disconnected institutional gateway). This is a specific residual priority risk, alongside Levin–May and other unindexed work. Search comparisons and material-read limits are specified in `AUDIT.json`.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact cubic relaxation time and near-\(2N\) oscillation period quantify a biologically motivated delay effect at a natural, already recognized critical boundary. These distinctions are invisible to an assertion of local stability for each fixed delay and clarify the source paper's limiting stability phenomenon.
+Published Ricker studies derive stability regimes for the same stocked equation and different finite lags. Kuruklis (1994) treats precisely the generic delay recurrence and its stability criteria, but its entire original article was inaccessible; authorized Oxford institutional retrieval returned VPN disconnected after arXiv/OA attempts. This inability ALONE is not originality failure. No positively verified earlier statement dominates the sharp N^-3 spectral coefficient and unique dominant conjugate branch; best-of-knowledge PASS with material priority risk from Kuruklis and Levin–May.
 
-## Limitations
+## value
 
-The theorem is linear and local, and its constant depends on fixed positive stocking. There is no delay-uniform nonlinear basin, global convergence at equality, or independent verification claim. The proof establishes the extremal pair only for all sufficiently large integer delays.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At a natural exact stability threshold, strict Schur stability of each finite lag does not quantify practically relevant relaxation times. The explicit cubic damping law and nearly 2N oscillation period resolve a distinct asymptotic spectral bottleneck, motivated directly by delay-population dynamics; it is not a tiny parameter gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
