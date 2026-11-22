@@ -1,0 +1,209 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T01:13:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-sharp-bound-on-palindromic-minimal-absent-factors-of-binary-wo--a3767ec90631/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-sharp-bound-on-palindromic-minimal-absent-factors-of-binary-wo--a3767ec90631/verify_direct.py",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-sharp-bound-on-palindromic-minimal-absent-factors-of-binary-wo--a3767ec90631/verify_earliest.py",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-sharp-bound-on-palindromic-minimal-absent-factors-of-binary-wo--a3767ec90631/VERIFICATION.md"
+      ],
+      "rationale": "The theorem is for distinct palindromic ordinary minimal absent contiguous factors of binary length-n linear words, including missing one-letter words. For any word containing both letters, each missing palindrome p of length at least 2 has present proper prefix P(p); map p to the endpoint of the earliest P(p) occurrence. Equal-length collisions force equal prefixes, hence equal palindromes. For shorter p length r and longer q length s with equal endpoint, P(p) is a proper suffix of P(q). If p and q have the same outside letter, the last r letters of q form p, so by reversal p is a prefix of q and appears inside its present P(q), contradiction. If outside letters differ and endpoint t<n, both completion letters 0,1 would be forbidden by absence of p,q, contradiction. At endpoint n, an occurring suffix S(q)=q[2..s] must end before n (otherwise P(q)=S(q) makes q constant, incompatible with differing outside letters and the suffix P(p)); its interior contains P(p), yielding an earlier occurrence of P(p), contradiction. Thus an injection into n positions. For monochromatic words exactly the missing singleton and opposite constant (n+1)-letter run occur as MAWs, giving 2≤n for n≥2. For n≥3 the existing 01^(n−2)0 family has exactly n explicit missing palindromes: 00, 101, 1^(n−1), and 01^k0 for 1≤k≤n−3. Each has occurring length-minus-one prefix and suffix, all distinct; n=2 has 2 on 00 and n=1 has 2 on 0 or 1. No larger alphabet, circular or scattered absence is claimed. Fresh independent Python enumerated every length 1..12 binary word and directly generated palindromes of each length ≤n+1, checking both maximal proper factors, maxima n for n≥2 and exactly 2 at n=1, exactly two maximizers for n≥3 through 12, and no earliest-endpoint collision for any two-symbol word. Crucially the source tree was reconstructed from eight pinned Git blob SHAs and matches the assignment tree SHA 00cf789739326296c047dc76b4142a6a52e4b24e. These finite checks corroborate, not replace, the all-n proof.",
+      "residual_risks": [
+        "Finite exhaustive verification only through n=12 was independently rerun; the arbitrary-n proof relies on the endpoint injection reviewed above.",
+        "No formal Lean proof or external human expert attestation; channels remain explicitly not_performed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://link.springer.com/article/10.1186/s13015-017-0094-z Lemma 1: all ordinary MAWs have O(σn) upper bound, binary word a2 a1^(n-2) a2 yields n-2 examples, not exact all-palindrome maximum",
+          "https://link.springer.com/article/10.1186/1471-2105-10-137 Introduction/Methods reports |S||Σ|² general bound",
+          "https://link.springer.com/article/10.1186/s12859-014-0388-9 Background reports general O(σn) cardinality, no exact binary filtered optimum",
+          "https://catalog.lib.kyushu-u.ac.jp/opac_download_md/7161222/7161222.pdf Lemma 8 exact but different MAPW predicate and loose n+4 consequence for binary",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-minimal-absent-word-capacity-with-three-one-markers--998f342cebf9/RESULT.md a three-one restricted ordinary-MAW size n and explicit maximizers",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-four-run-binary-antidictionaries-an-exact-classification-and-gen--7e5197bef568/RESULT.md four-run restricted exact MAW bounds"
+        ],
+        "reasoning": "The broad O(σn), σn and |S|σ² results do not specialize to coefficient one. The exact MAPW eertree result yields at most n+4 for a different, larger set and so cannot dominate the n theorem. The three-marker and four-run ordinary-MAW results restrict input word forms; no implication of the unrestricted all-binary-palindrome bound. A hypothetical general bound |MAW(w)|≤n for every binary n≥3 would imply the upper bound, but this was not established by the sources read and is kept as a specific priority risk.",
+        "searches": [
+          "\"maximum number of minimal absent words\" \"binary\" exact [web search 2026-11-19]",
+          "\"binary\" \"minimal absent words\" \"at most n\" [web search 2026-11-19]",
+          "\"minimal absent words\" \"n\" \"binary alphabet\" sharp [web search 2026-11-19]",
+          "sharp upper bound palindromic minimal absent factors binary words palindromic minimal absent words tight bound [Resultary semantic search 2026-11-19]",
+          "https://link.springer.com/article/10.1186/s13015-017-0094-z",
+          "https://catalog.lib.kyushu-u.ac.jp/opac_download_md/7161222/7161222.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://catalog.lib.kyushu-u.ac.jp/opac_download_md/7161222/7161222.pdf",
+        "https://arxiv.org/abs/2006.02134",
+        "https://link.springer.com/article/10.1186/s13015-017-0094-z",
+        "https://link.springer.com/article/10.1186/1471-2105-10-137",
+        "https://link.springer.com/article/10.1186/s12859-014-0388-9",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-palindromic-and-minimal-absent-palindrome-spectra-of-bi--a8201f56b9b0/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-minimal-absent-word-capacity-with-three-one-markers--998f342cebf9/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-four-run-binary-antidictionaries-an-exact-classification-and-gen--7e5197bef568/RESULT.md",
+        "https://algorithm.tamnd.com/minimal-absent-words/",
+        "https://www.numdam.org/articles/10.1051/ita/2020008/"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://link.springer.com/article/10.1186/s13015-017-0094-z explicit length-n word x=a2a1^(n-2)a2 and n-2 absent bridge words",
+          "https://catalog.lib.kyushu-u.ac.jp/opac_download_md/7161222/7161222.pdf Sections 1 and 5.2 distinguish the MAPW interior condition, eertree missing-edge characterization and cardinality formula",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-palindromic-and-minimal-absent-palindrome-spectra-of-bi--a8201f56b9b0/RESULT.md scope explicitly contrasts MAPW with ordinary MAW",
+          "https://link.springer.com/article/10.1186/1471-2105-10-137 Theorem 2 describes missing left-right extension pairs but does not optimize palindromic subset"
+        ],
+        "reasoning": "The 2017 witness implies most of the lower-bound constructions; the two extra minimal absences 101 and 1^(n-1) raise its count to n (with 00 among n-2), a small but explicit exact completion. It does not imply the universal upper bound. General-context MAW algorithms and MAPW counts allow enumeration but do not state or mathematically imply a uniform coefficient-one palindrome-filtered bound without new collision/charging reasoning. The earlier block-power MAPW theorem cannot be transferred by a mere terminology substitution.",
+        "searches": [
+          "On avoided words absent words 2017 Lemma 1 [primary text]",
+          "On finding minimal absent words Pinho 2009 Theorem 2 [primary text]",
+          "Linear-time computation minimal absent words Barton 2014 Methods [primary text]",
+          "Palindromic trees for a sliding window and its applications Lemma 8 [full OA paper]",
+          "Resultary complete palindromic and minimal-absent-palindrome spectra [full RESULT.md]"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://catalog.lib.kyushu-u.ac.jp/opac_download_md/7161222/7161222.pdf Sec 5.2: MAPW means absent palindrome with occurring interior; Lemma 8: |MAPW(S)|=2σ+(|DPal(S)|-1)(σ-1)",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-palindromic-and-minimal-absent-palindrome-spectra-of-bi--a8201f56b9b0/RESULT.md Finding and Step 3 explicitly adopt Mieno interior-only MAPW, not the ordinary minimal-absent-factor predicate",
+          "https://link.springer.com/article/10.1186/1471-2105-10-137 Methods/Definitions 3 and Theorem 2 give ordinary MAW criteria for general words"
+        ],
+        "reasoning": "The target palindrome must have both full length-minus-one prefix and suffix present; Mieno-MAPW only requires the shorter interior palindrome. The former is a proper subset of the latter in general, so a size formula for the larger set does not imply the n bound. Minimal forbidden contiguous factor/antidictionary is a synonym of ordinary MAW; shortest missing subsequence, rich-word palindrome complexity and circular factors are different objects. No independently asserted all-binary first-occurrence injection was found.",
+        "searches": [
+          "palindromic minimal absent words eertree counting exact maximum binary string n Mieno MAPW [Resultary semantic search 2026-11-19]",
+          "minimal forbidden palindromes binary factor antidictionary sharp cardinality |w| endpoint injection [Resultary semantic search 2026-11-19]",
+          "\"palindromic minimal absent words\" number bound [web search 2026-11-19]",
+          "\"minimal absent palindromic\" \"upper bound\" n [web search 2026-11-19]",
+          "arxiv:2006.02134, Section 5.2, Lemmas 7-8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://algorithm.tamnd.com/minimal-absent-words/ gives an exhaustive finite table for the maximum of ALL binary MAWs through n=12 (n for 3≤n≤12) without a universal exact theorem; distinct from palindrome-filtered unrestricted claim",
+          "https://catalog.lib.kyushu-u.ac.jp/opac_download_md/7161222/7161222.pdf provides an exact count for interior-only MAPWs in terms of occurring palindromes, not target ordinary MAWs",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-palindromic-and-minimal-absent-palindrome-spectra-of-bi--a8201f56b9b0/RESULT.md exact MAPW enumerator concerns (0^a1^b)^k under interior-only definition"
+        ],
+        "reasoning": "The numerical sequence n is not itself novelty evidence; many unrelated invariants equal n. The known finite all-MAW table has no all-n certificate and does not dominate an all-n assertion. The inspected complete MAPW generating formulas are for a different predicate, so direct table comparison would conflate definitions.",
+        "searches": [
+          "\"maximum number of minimal absent words\" \"binary\" exact [web search 2026-11-19]",
+          "site:oeis.org palindromic minimal absent word maximum n [prior source audit, rechecked nature of result]",
+          "https://algorithm.tamnd.com/minimal-absent-words/",
+          "Resultary semantic search: palindromic minimal absent words eertree counting exact maximum binary string n Mieno MAPW"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the exact global maximum n for the ordinary (all proper contiguous factors occurring) palindromic subset and the first-occurrence endpoint injection are not mathematical consequences of the inspected 2009/2014 structural and algorithmic MAW theorems, of the 2017 asymptotic lower-bound witness, or of the distinct 2022 interior-only minimal absent palindromic word (MAPW) invariant. The 2022 Mieno et al. definition has an absent palindrome with an occurring interior, not necessarily occurring length-(|p|-1) prefix and suffix, and yields |MAPW|=|DPal|+3 for binary words, hence at most n+4; it does not establish this exact n bound for the stricter ordinary-minimal subset. Closest published block-power result explicitly uses that different Mieno definition; the three-marker/four-run exact ordinary MAW findings classify restricted families and do not establish the unrestricted palindromic maximum. The extremizing word 01^(n-2)0 and its n-2 bridge absences are old (Almirantis 2017); neither the family nor asymptotic linear growth is claimed new. No failed search was treated as priority proof.",
+      "residual_risks": [
+        "A published exact upper bound n for ALL ordinary binary minimal absent factors, if it exists for all n≥3, would dominate the target by subset inclusion. Only finite all-MAW maxima up to n=12 and generic O(σn)/σn published bounds were established here.",
+        "Unindexed variants under antidictionaries/minimal forbidden palindromes, especially theses, may overlap the exact endpoint injection despite targeted queries.",
+        "The extremal two-run witness was already known in 2017; only the exact n bound and the all-word injection are assessed as possible original contribution.",
+        "The 2022 Mieno MAPW name is easily conflated with the target MAW∩palindromes; a later importer must preserve the distinction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLOSE DIFFERENT PREDICATE: interior-only MAPW, not ordinary minimal absent factor. For σ=2 Lemma 8 reads |MAPW|=|DPal|+3≤n+4, not the claimed n sharp maximum for the stricter subset. Not decisive prior coverage.",
+          "evidence": [
+            "https://catalog.lib.kyushu-u.ac.jp/opac_download_md/7161222/7161222.pdf printed pp. 7-8, §5.2 Lemma 7 missing eertree edge and Lemma 8 exact 2σ+(|DPal|-1)(σ-1); introduction describes only interior occurrence"
+          ],
+          "identifier_or_url": "https://catalog.lib.kyushu-u.ac.jp/opac_download_md/7161222/7161222.pdf",
+          "material_read": "Open-access institutional PDF: introduction defining MAPW, eertree preliminaries, full Section 5.2 definitions, Lemmas 7-8, proof, Corollary 1, and references; inspected parsed PDF pages and screenshot request",
+          "method": "Read the actual accessible journal OA PDF through web text extraction and checked the definition and mathematical implications, not merely an abstract",
+          "title": "Palindromic trees for a sliding window and its applications",
+          "trigger": "Most directly named prior primary source for minimal absent palindromic words, with exact counting Lemma 8"
+        },
+        {
+          "assessment": "PARTIAL COVERAGE: same extremal word and n-2 missing bridge factors; paper proves Θ(σn) bound, not all-binary exact palindrome maximum n. No new priority attributed to the witness.",
+          "evidence": [
+            "https://link.springer.com/article/10.1186/s13015-017-0094-z Tight bounds §, Lemma 1 proof explicitly constructs a2 a1^(n-2) a2 and n-2 missing words; later section states ≤σn"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1186/s13015-017-0094-z",
+          "material_read": "Full OA HTML primary article: Background, tight bounds section including Lemmas 1-2 and proofs, algorithm/bound discussion, references",
+          "method": "Read primary Springer HTML and compared exact witness counts and quantifiers",
+          "title": "On avoided words, absent words, and their application to biological sequence analysis",
+          "trigger": "Identical binary witness, potentially dominant exact bound"
+        },
+        {
+          "assessment": "NOT_COVERING precise palindromic n coefficient: upper bound |S||Σ|² and MAW left/right context characterization, not sharp universal binary-palindrome cardinality",
+          "evidence": [
+            "https://link.springer.com/article/10.1186/1471-2105-10-137 Background |S||Σ|² and Methods Theorem 2 missing joint extension criterion"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1186/1471-2105-10-137",
+          "material_read": "Full OA Springer HTML, introductory cardinality statement, Methods/Definition and Theorems 1-2, characterization discussion",
+          "method": "Read primary article HTML and compared the factor-pair criterion with palindrome-subfamily extremum",
+          "title": "On finding minimal absent words",
+          "trigger": "Original MAW definition and possible general cardinality theorem"
+        },
+        {
+          "assessment": "NOT_COVERING sharp n: general enumeration and O(σn) bound, not an exact palindromic maximality theorem",
+          "evidence": [
+            "https://link.springer.com/article/10.1186/s12859-014-0388-9 Abstract/Background and Methods Lemma 1: absent words via suffix-array left context differences"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1186/s12859-014-0388-9",
+          "material_read": "Full OA Springer HTML: abstract, Background bounds, Methods definitions and Lemma 1 algorithmic correspondence",
+          "method": "Read primary paper accessible HTML and compared lemma hypotheses and conclusion",
+          "title": "Linear-time computation of minimal absent words using suffix array",
+          "trigger": "General MAW algorithm and O(σn) bound could potentially imply special maximum"
+        },
+        {
+          "assessment": "DIFFERENT PREDICATE and restricted block powers; result explicitly uses Mieno interior-only MAPWs and warns this differs from ordinary MAW. Its exact n+4 is not a contradiction or dominance of n.",
+          "evidence": [
+            "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-palindromic-and-minimal-absent-palindrome-spectra-of-bi--a8201f56b9b0/RESULT.md Finding: definition and caveat, Step 3: (2z²−1)H+1+2z, Relationship to prior work"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-palindromic-and-minimal-absent-palindrome-spectra-of-bi--a8201f56b9b0/RESULT.md",
+          "material_read": "Full published RESULT.md: precise predicate, scope, all proof Steps 1-4, relationship to prior work and limitations",
+          "method": "Read GitHub-published full scientific proof, explicitly checked object/parameter inclusion",
+          "title": "Complete palindromic and minimal-absent-palindrome spectra of binary block powers",
+          "trigger": "Relevant published result with an n+4 minimal absent palindrome count"
+        },
+        {
+          "assessment": "Only words with exactly three ones; exact all-MAW maximum n and two extremizers in that subfamily do not imply unrestricted maximum of the palindromic subset.",
+          "evidence": [
+            "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-minimal-absent-word-capacity-with-three-one-markers--998f342cebf9/RESULT.md Finding: fixed one-count three; sharpness reduces to finite gap cases"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-minimal-absent-word-capacity-with-three-one-markers--998f342cebf9/RESULT.md",
+          "material_read": "Full published RESULT.md: finding, three-one gap classification, sharpness proof and limitations",
+          "method": "Read original published mathematical proof and checked scope restriction",
+          "title": "Sharp minimal-absent-word capacity with three one-markers",
+          "trigger": "Potential stronger exact ordinary-MAW theorem with the same n coefficient"
+        },
+        {
+          "assessment": "Restricted to four nonempty runs, so its n−1 (apart from n=6) bound cannot imply all-length unrestricted palindrome-filtered maximum.",
+          "evidence": [
+            "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-four-run-binary-antidictionaries-an-exact-classification-and-gen--7e5197bef568/RESULT.md Finding and Step 7: sharp four-run maximum"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-four-run-binary-antidictionaries-an-exact-classification-and-gen--7e5197bef568/RESULT.md",
+          "material_read": "Full published RESULT.md: finding, four-run proof and sharp maximum",
+          "method": "Read published scientific proof, compared fixed-four-run limitation with all binary words",
+          "title": "Four-run binary antidictionaries: an exact classification and generating spectrum",
+          "trigger": "Another exact ordinary-MAW count close to n"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://link.springer.com/article/10.1186/1471-2105-10-137",
+        "https://link.springer.com/article/10.1186/s12859-014-0388-9",
+        "https://link.springer.com/article/10.1186/s13015-017-0094-z",
+        "https://catalog.lib.kyushu-u.ac.jp/opac_download_md/7161222/7161222.pdf",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-sharp-bound-on-palindromic-minimal-absent-factors-of-binary-wo--a3767ec90631/RESULT.md"
+      ],
+      "rationale": "An exact worst-case size for the reversal-symmetric component of an ordinary factor antidictionary is a natural invariant: palindrome-filtered negative patterns play a role distinct from positive palindromic complexity and interior-only MAPWs. Earlier generic O(σn) enumeration results and the known asymptotic witness leave the optimal exact binary coefficient unidentified. The n theorem is parameter-uniform, attained, and explained by a nontrivial endpoint charging argument; it is neither a finite recomputation nor a renamed general bound. This supplies a precise capacity bound for a natural restricted family of missing motifs without claiming a new general algorithm, biological significance, or classification of all maximizers.",
+      "residual_risks": [
+        "The result is specific to ordinary binary palindromic MAWs; effects on practical genome sequence analysis or general-alphabet complexity have not been demonstrated.",
+        "If a stronger exact all-MAW bound is independently located, originality and hence value as a new contribution must be revisited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Binary fixed two-letter alphabet, linear contiguous factors; not scattered/circular or ternary.",
+    "No uniqueness classification of all maximizers is proved; finite enumerations happen to show two through length 12.",
+    "Previously known two-run extremal word is credited to 2017 work; novelty claim is sharp global inequality and endpoint argument.",
+    "Historical originality best of knowledge; potential exact full-MAW dominating theorem is a concrete risk.",
+    "No external Lean or expert attestation; both channels remain unchanged."
+  ],
+  "schema_version": 1
+}
