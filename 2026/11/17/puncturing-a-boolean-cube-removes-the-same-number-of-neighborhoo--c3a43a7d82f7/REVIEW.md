@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is for each integer \(n\ge3\), every removed cube vertex, and the **open** neighborhood complex. Translating the puncture to zero, the odd component loses precisely one full neighborhood simplex except that all of its edges remain. The proof independently checks the unique-facet condition, constructs elementary collapses to dimension two, fills the boundary of **every** lost triangle by a three-triangle disk whose centers remain present, and proves simple connectivity by explicit cubical square relators. Exact face counts yield the sphere multiplicity. The nerve of the surviving neighborhood cover is exactly the other parity component. Both shores have the stated complete integral wedge homotopy type. The attached checker computes the finite graph complexes independently and replays elementary collapses through dimension six. Boundary-case \(n=3\) is included, and finite evidence is not substituted for the symbolic argument.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest directly inspected primary mathematical statement is the published intact-cube theorem, which specifies the homotopy of \(\mathcal N(Q_n)\), not of \(\mathcal N(Q_n-v)\), and gives no vertex-deletion map. The present statement is not implied by that numerical classification: proving it additionally requires a precise missing-face census, retained nullhomotopies for deleted relators, and a nerve comparison between altered shores. The inspected 2025 quadrangulation paper assumes a nonbipartite situation distinct from this graph family. General neighborhood-complex definitions, degree-bounded graph classifications, and Rips-complex deletion results do not subsume the claim. Named published-finding corpus and web alias searches found no exact or dominating statement. This is **not** a guarantee of first discovery: alternate-language or unindexed formulations remain a genuine risk.
+PASS
 
-## Value — PASS
-The ordinary open-neighborhood complex is a canonical topological invariant of a graph. Vertex deletion is the simplest possible disturbance of a cube and acts asymmetrically on the two bipartition shores; nevertheless both shores exhibit a matching explicit loss of an increasing number of integral sphere classes. The result gives a natural all-dimensional classification, a stable two-dimensional homotopy mechanism, and a useful counterexample to the idea that vertex-deletion effects follow simply from the parent's homotopy type. Its significance rests on the exact perturbation theorem and its local triangle fillings, not on mere face-count computation.
+Deleting even vertex 0 from Q_n removes the open-neighborhood simplex F0 in the odd-shore complex but all its edges remain through centers ei+ej. For each other center y, three or more neighbors determine y uniquely, so facetwise elementary apex collapses remove all dimension >=3 cells while retaining a 2-complex. The intact parity complex is simply connected via halved-cube generators gi=e1+ei and filled coordinate squares; every deleted triangle {ei,ej,ek} has the explicit 3-triangle disk using w=ei+ej+ek and surviving centers ei+ej,ej+ek,ek+ei, so π1 stays zero. Removing exactly C(n,r) faces for r>=3 changes χ by C(n−1,2), giving ν_n=2^{n−3}(n²−5n+8)−1−C(n−1,2). Hurewicz/Whitehead yields wedge of ν_n copies of S²; the other parity shore is its Dowker nerve and homotopy equivalent. Independent direct enumeration of all source-neighborhood faces for n=3..7, both shores, gives Euler-derived ν=(0,4,25,101,336). This is a bounded check; all n follow from the facet and disk proof.
 
-## Prior work and remaining limitations
-The unpunctured hypercube sphere formula and facet collapse are prior work; the contribution is the graph-vertex puncture homotopy classification and shore comparison. The computation ends at dimension seven and the full symbolic proof extends to all dimensions. Equivalent results in not-yet-inspected literature cannot be excluded; no outside mathematical validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for the one-deleted-vertex sphere-wedge classification, exact C(n−1,2) rank loss and equivalence of asymmetric parity components. The 2026-10-11 intact-cube result covers μ_n and the 2-complex collapse mechanism, but not removed triangles or the punctured parity rank. A same-day stronger two-vertex deletion paper includes and explicitly acknowledges the one-puncture intermediate lemma; it is not by itself evidence that the one-puncture finding was previously known independently, though publication priority order needs external confirmation.
+
+## value
+
+PASS
+
+The open-neighborhood homotopy type of a punctured hypercube is a natural stability problem for Lovász complexes. The exact loss of one combinatorially controlled cycle-lattice rank on each different parity component and their shared integral wedge type provide a useful one-defect base case for the already appearing two-defect theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
