@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "PASS: exact KKT stationarity certifies the unique nontied oracle; direct substitution yields the strict and sharp squared-error bound 2. The tied exact minimizer face is characterized exactly and the clipped step yields a two-branch rational expression; monotonicity of each branch proves the global piecewise maximum. The fixed-objective rational witness gives unbounded distance amplification with strict objective-gap contraction. Verification is by analytical identities for all reals, with 31,024 finite assertions only as supplemental checks. No iteration after the first or floating-point claim is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The original BroxGD distance bound requires admissible solution-controlled radii; its relaxed-oracle example is not an exact-oracle statement.",
+        "The adaptive short-step paper proves objective complexity and asymptotic point convergence, with no general one-step point-distance inequality."
+      ],
+      "reasoning": "Neither prior theorem implies the exact maximum over all tied exact oracle outputs at the gradient default radius. General objective convergence permits transient distance growth, while admissible-radius distance decrease excludes this oversized default-radius query.",
+      "searches": [
+        "\"gradient norm\" radius \"local linear minimization oracle\" distance increase 2026",
+        "arXiv:2605.08850v2 Appendix B, Proposition B.1",
+        "arXiv:2611.11354v1 Theorem 3.1 and Section 4"
+      ]
+    },
+    "checked_sources": [
+      "Kolzenburg--Richtárik, arXiv:2611.11354v1: default radius, arbitrary exact oracle, and objective convergence.",
+      "Richtárik--Gruntkowska--Li, arXiv:2605.08850v2: exact oracle distance under admissible radii and relaxed-oracle negative example.",
+      "Richtárik--Mahran, arXiv:2609.33383: projection/Fejér regime under Polyak-radius control.",
+      "Related mathematical-result summaries on inexact local-oracle relative accuracy and exact ball-proximal radius ordering; only their available scientific summaries were checked."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The current example satisfies quadratic growth and exact oracle hypotheses while objective gap contracts.",
+        "Proposition B.1 of arXiv:2605.08850v2 studies an output of a relaxed (not exact) local-oracle abstraction.",
+        "The present exact amplification is unbounded even for a fixed condition-one Hessian and fixed constraint set."
+      ],
+      "reasoning": "The prior exact projected-gradient reduction selects a unique oracle at a projection-dependent radius, which need not coincide with the gradient default radius. The present phase diagram does not contradict prior convergence statements and is not an immediate special case of the relaxed-oracle negative example.",
+      "searches": [
+        "\"BroxGD\" \"oracle\" \"tie\" \"distance\" 2026",
+        "\"BroxGD\" exact-oracle tie breaking one-step solution distance unbounded gradient initial radius",
+        "arXiv:2611.11354v1 Algorithm 1, Theorem 3.1, Proposition 4.2",
+        "arXiv:2605.08850v2 Appendix B, Proposition B.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2611.11354v1, Eq. (8), Eq. (10), Algorithm 1: exact LMO, clipped step, gradient default radius.",
+        "arXiv:2609.33383, Theorem 2: Fejér property only under Polyak-radius upper bound."
+      ],
+      "reasoning": "Compared the same step map and its equivalent segment-projection formulation, not only terminology. The motivating default radius can be larger than Polyak radius; the prior projection/Fejér statement therefore cannot imply one-step distance monotonicity or the tied-face envelope in this domain.",
+      "searches": [
+        "\"BroxGD\" \"oracle\" \"tie\" \"distance\" 2026",
+        "\"short-step\" \"local linear minimization\" \"nonunique\" 2026",
+        "arXiv:2611.11354v1 Sections 2--4 and Appendix B",
+        "arXiv:2609.33383 Section 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Full-text searches and inspection of the motivating source and related primary papers did not locate this piecewise sharp table.",
+        "Closest accessible mathematical research summaries concerned relative-accuracy inexact local oracles or exact ball-proximal radius-order laws, not the present exact default-gradient-radius step and tie bifurcation."
+      ],
+      "reasoning": "No exact parameter table or equivalent tied-face classification was found in the accessible literature/records. A search miss is not proof of originality; some related record bodies were not accessible and an older implicit derivation remains possible.",
+      "searches": [
+        "\"Broximal Gradient Descent\" first iterate point error growth constraint half-space isotropic quadratic",
+        "\"BroxGD\" exact-oracle tie breaking one-step solution distance unbounded gradient initial radius",
+        "arXiv:2611.11354v1 Tables 1--2; Section 4",
+        "\"local LMO\" nonunique minimizer face step Euclidean distance amplification"
+      ]
+    },
+    "rationale": "PASS, best-knowledge with residual priority risk: the motivating exact algorithm has an objective-rate/point-convergence theorem but not this full tied/unique exact-oracle one-step distance diagram. Prior Fejér theorems use a smaller Polyak/solution-controlled radius; the published negative distance example uses relaxed local-oracle outputs. Closest accessible research summaries concern different oracles/steps. Search misses cannot prove worldwide priority, and inaccessible related bodies remain a specific risk.",
+    "residual_risks": [
+      "An unindexed older observation or a theorem in a less accessible full text may implicitly contain the sharp tied-face envelope.",
+      "Some highly related research-result records were available only through scientific summaries; their complete proofs were not independently inspected.",
+      "This is a same-model originality assessment, not an independent priority determination."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact update and convergence framework apply, but no tied-face first-step point-distance classification was found",
+        "evidence": [
+          "Section 2.2 Eq. (8), (10); Algorithm 1 initial radius and arbitrary exact minimizer; Theorem 3.1 objective rate; Proposition 4.2 special projection-dependent radius."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.11354",
+        "material_read": "Full HTML sections 1--4, Algorithm 1, Theorem 3.1, Eq. (8)--(11), Proposition 4.2, relevant Appendix B radius comparison and point-convergence passages",
+        "method": "Read full-text HTML passages and searched for tie, nonunique, halfspace, distance, and related claims",
+        "title": "An Adaptive Short-Step Variant of BroxGD with Linear Convergence under Quadratic Growth",
+        "trigger": "Exact algorithm, default radius and strongest plausibly covering point-distance/convergence statements"
+      },
+      {
+        "assessment": "Shows point-distance descent for different radius hypotheses, and a counterexample for relaxed oracle outputs; neither covers the present exact oracle with gradient default radius",
+        "evidence": [
+          "Appendix B around Eq. (52)--(57) and Proposition B.1."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.08850",
+        "material_read": "HTML core radius discussion and Appendix B, including exact radius distance inequality and Proposition B.1 and subsequent comparison",
+        "method": "Read relevant full-text theorem statements and proof paragraphs",
+        "title": "Broximal Gradient Descent: A Projection-Free Sister of Projected Gradient Descent",
+        "trigger": "Earlier exact local LMO distance contraction and potential exact oracle counterexample"
+      },
+      {
+        "assessment": "The proved Fejér regime requires radius no greater than Polyak radius, unlike the present setup",
+        "evidence": [
+          "Introduction Eq. (4), Theorem 2 statement in Section 3, and Section 1.1."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.33383",
+        "material_read": "HTML introduction, Theorem 2 statement and surrounding Section 3 projection/Polyak-radius discussion",
+        "method": "Read stated radius bound and compare it to the gradient-radius initializer",
+        "title": "Local LMO is Secretly a Projection Method!",
+        "trigger": "Possible existing universal Fejér monotonicity implication"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d9b83be2-5066-4a67-b40a-1ae664e2b48b",
+  "value": {
+    "rationale": "PASS: default gradient-radius initialization and unconstrained exact tie selection are both authorized by the motivating algorithm, so tie-breaking can change the first-step point error by an arbitrarily large factor on one fixed condition-one quadratic even while the objective improves by nearly one-half. The complementary sharp nontied bound and exact threshold identify when this sensitivity appears and inform point-error diagnostics and local oracle selection, without claiming failure of convergence.",
+    "status": "PASS"
+  }
+}
