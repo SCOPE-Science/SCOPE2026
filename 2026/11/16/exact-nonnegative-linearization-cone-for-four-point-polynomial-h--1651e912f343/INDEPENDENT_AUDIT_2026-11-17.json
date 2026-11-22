@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T05:46:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The tridiagonal row-stochastic 4x4 recurrence J has positive irreducible off-diagonals, a simple real spectrum and orthogonal polynomials R_i normalized at one; coefficients g(m,n;k)=[R_m(J)]_{n,k}. All R1 multiplications are nonnegative, so only (2,2),(2,3),(3,3) must be checked. Independent symbolic SymPy reconstruction of R2(J),R3(J) verified the source 12 exact coefficient formulas and their row sums: only L/(1-x), H/(1-x), rH/[(1-x)(1-y)] and (1-r)K/(1-y) can be negative for 0<r<1. At r=1, K disappears, H=1-x-y and H>=0 forces L=1-x(1+y)>0. For every ratio r, H(r=1)>=0 forces x+y<=1 and limit K(r->1-) enforces y<=2/3; these two conditions force H,K>=0 and L>0 by the stated y(2-3y) bound. Independent exact rational witnesses verify L independence and a profile with negative third Newton coefficient. This is an all-real-parameter symbolic proof, not a finite parameter sampling claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Polzer arXiv:2611.01561 sufficient log-concave Newton condition for all ratios",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-an-exact-two-wall-criterion-for-five-point-symmetric-polynomial--40d7ab27dba1 treats five-point symmetric r=1 endpoint only"
+        ],
+        "reasoning": "Polzer gives a sufficient parameter cone, not a necessary criterion. The five-point theorem has more states but restricts to symmetric ratio r=1; neither dominates the four-point all-ratio statement.",
+        "searches": [
+          "four point orthogonal polynomial hypergroups nonnegative product linearization Jacobi recurrence constant down up ratios Newton coefficients",
+          "Polzer log-concavity coefficient profiles all constant ratios finite polynomial hypergroup"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen RESULT.md sha f66edc732926f406b3f711628deab6f1e76cb2e6",
+        "SCOPE CHECK.py sha 92840cfd6f15bcaa2d65029758fe6628ee6d5b4f",
+        "https://arxiv.org/html/2611.01561",
+        "https://doi.org/10.1007/s00365-002-0524-z",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-an-exact-two-wall-criterion-for-five-point-symmetric-polynomial--40d7ab27dba1",
+        "Resultary semantic query: four point orthogonal polynomial hypergroups nonnegative product linearization Jacobi recurrence constant down up ratios Newton coefficients"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Polzer Theorem A is sufficient and its Newton hypothesis fails at x=1/10,y=3/5 although that profile satisfies x+y<=1, y<=2/3",
+          "At (x,y,r)=(.7,.8,.2), H=23/250>0,K=6/125>0,L=-1/1250, showing the third wall needed",
+          "Szwarc general criterion does not eliminate variables to provide the explicit profile domain"
+        ],
+        "reasoning": "The new negative-Newton positive-profile point disproves equivalence of Polzer sufficiency with the exact four-point result; the separate L-negative point prevents the advertised 3-inequality condition collapsing to H and K.",
+        "searches": [
+          "four point orthogonal polynomial hypergroups nonnegative product linearization Jacobi recurrence constant down up ratios Newton coefficients",
+          "Szwarc necessary and sufficient condition nonnegative product linearization Polzer exact profile boundary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Szwarc 2003 general matrix criterion for nonnegative product linearization",
+          "The same finite linearization condition can be expressed as every entry of R_i(J) >=0, which source expands explicitly"
+        ],
+        "reasoning": "An implicit matrix-positivity test is equivalent in principle and supplies decidability, but it does not state the three sharp H/K/L inequalities or the uniform-ratio (x+y,y) region as inspected.",
+        "searches": [
+          "four point orthogonal polynomial hypergroups nonnegative product linearization Jacobi recurrence constant down up ratios Newton coefficients",
+          "finite hypergroup four point product linearization birth death Jacobi stochastic matrix"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The sharp fixed-r three-polynomial inequalities H,K,L were verified symbolically rather than taken from a known list",
+          "Polzer §6 asks for exact all-ratio profile boundaries"
+        ],
+        "reasoning": "No exact prior four-node H/K/L table found in inspected primary/source searches; unindexed historic finite hypergroup tables remain a credible priority risk.",
+        "searches": [
+          "four point orthogonal polynomial hypergroups nonnegative product linearization Jacobi recurrence constant down up ratios Newton coefficients",
+          "four point polynomial hypergroup classification nonnegative linearization exact region table"
+        ]
+      },
+      "rationale": "Polzer 2026 establishes Newton log-concavity as a sufficient condition and asks explicitly for the all-ratios exact region; the displayed four-point inequalities and two-wall sharp region resolve a nontrivial low-dimensional instance outside that sufficiency cone. Szwarc 2003 supplies an abstract general matrix criterion but not its explicit four-node semialgebraic elimination; the published five-state symmetric endpoint has different size and ratio quantifiers.",
+      "residual_risks": [
+        "Older specialized four-point polynomial hypergroup tables may encode the same profile boundaries",
+        "The theorem is only 4 points with increasing profile and constant downward-to-total ratio; no implication to arbitrary finite Jacobi systems",
+        "At r=1 condition K is vacuous because its coefficient multiplier vanishes: do not impose all three walls at endpoint"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING complete four-point necessity",
+          "evidence": "Sharp necessity/all-ratio boundary requested but not supplied; log-concavity cone strictly smaller at supplied explicit profile",
+          "identifier_or_url": "https://arxiv.org/html/2611.01561",
+          "material_read": "Full accessible HTML, Theorem A, Sections 1-6 and open problem in §6",
+          "method": "Read theorem and open-problem statement including its hypothesis and objective",
+          "title": "A log-concavity criterion for finite nonnegative linearization",
+          "trigger": "Same finite orthogonal polynomial recurrence and all-ratio Newton sufficient criterion"
+        },
+        {
+          "assessment": "GENERAL CRITERION, no explicit four-point H/K/L elimination located",
+          "evidence": "Abstract/matrix necessary-sufficient condition is used as theoretical context and does not tabulate the displayed uniform-ratio boundary",
+          "identifier_or_url": "https://doi.org/10.1007/s00365-002-0524-z",
+          "material_read": "Full accessible author-hosted PDF pages including criterion and representative proof pages/screenshots",
+          "method": "Read full material and inspected page images",
+          "title": "A necessary and sufficient condition for nonnegative product linearization of orthogonal polynomials",
+          "trigger": "General theorem might dominate special 4-node classification"
+        },
+        {
+          "assessment": "NOT_COVERING four-point varying-r classification",
+          "evidence": "Five-state profile (0,u,v,w,1), r=1 only; distinct matrices and variable quantifiers",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-an-exact-two-wall-criterion-for-five-point-symmetric-polynomial--40d7ab27dba1",
+          "material_read": "Entire published RESULT.md including hypotheses, proof and two-wall region",
+          "method": "Read complete primary SCOPE result",
+          "title": "An exact two-wall criterion for five-point symmetric polynomial hypergroups",
+          "trigger": "Very close published finite-hypergroup exact classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact four-point cone and all-ratio profile region give an explicit first nontrivial answer to a stated problem about necessary-and-sufficient property(P) conditions; independence of L and a negative-Newton but positive-profile witness demonstrate true enlargement beyond a known sufficient criterion. Exact small finite hypergroup classifications are natural and potentially reusable; no paper-sized generalization is required.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE frozen RESULT.md sha f66edc732926f406b3f711628deab6f1e76cb2e6",
+    "SCOPE CHECK.py sha 92840cfd6f15bcaa2d65029758fe6628ee6d5b4f",
+    "https://arxiv.org/html/2611.01561",
+    "https://doi.org/10.1007/s00365-002-0524-z",
+    "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-an-exact-two-wall-criterion-for-five-point-symmetric-polynomial--40d7ab27dba1",
+    "Resultary semantic query: four point orthogonal polynomial hypergroups nonnegative product linearization Jacobi recurrence constant down up ratios Newton coefficients"
+  ],
+  "disposition": "passed",
+  "final_claim": "For four-point finite orthogonal polynomial systems with 0<x<y<1 and constant downward-to-total ratio 0<r<=1, nonnegative product linearization is equivalent to H>=0,K>=0,L>=0 for 0<r<1, to x+y<=1 at r=1, and holds for every 0<r<=1 precisely if x+y<=1 and y<=2/3.",
+  "limitations": "Exactly four spectral points and profiles 0<x<y<1 with one constant ratio r; endpoint r=1 separate from interior criterion.",
+  "residual_risks": [
+    "Older specialized four-point polynomial hypergroup tables may encode the same profile boundaries",
+    "The theorem is only 4 points with increasing profile and constant downward-to-total ratio; no implication to arbitrary finite Jacobi systems",
+    "At r=1 condition K is vacuous because its coefficient multiplier vanishes: do not impose all three walls at endpoint"
+  ],
+  "schema_version": 1
+}

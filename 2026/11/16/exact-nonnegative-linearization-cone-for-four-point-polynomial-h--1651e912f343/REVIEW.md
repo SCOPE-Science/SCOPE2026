@@ -1,12 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-The claim concerns the four spectral nodes of an irreducible Jacobi matrix, so all products reduce to four-dimensional polynomial matrix identities. Explicit rows for the three products not controlled by the stochastic recurrence were derived and checked independently by exact symbolic matrix arithmetic. The denominators \(1-x\), \(1-y\) are strictly positive. The endpoint \(r=1\) is treated separately because the coefficient detecting \(K\) vanishes there. The universal-ratio necessity uses \(r=1\) for \(H\) and the one-sided limit \(r\to1^-\) for \(K\). Its sufficiency follows from explicit nonnegative expressions, including the exact lower bound for \(L\). No finite sampling is used to prove an infinite quantified statement.
+## correctness
 
-## Originality
-Polzer, arXiv:2611.01561v1 (2026-11-01), offers sufficient Newton-coefficient criteria and asks for the exact boundary; the four-point closed-form boundary is not stated in the inspected source. Szwarc (2003), DOI 10.1007/s00365-002-0524-z, supplies an abstract necessary-and-sufficient matrix criterion, not the explicit constant-ratio four-point semialgebraic parameter classification. Companion texts `papers/p2.tex` and `papers/p3.tex` concern more general sufficient and perturbative directions. The explicit profile \((x,y)=(1/10,3/5)\) falls in the new universal cone while failing positivity of the third Newton coefficient, demonstrating non-implication by the motivating sufficient result. Searches of the available mathematical index and accessible previous results did not identify an equivalent closed-form classification. The possibility of older unpublished or unindexed special-case formulas remains.
+PASS
 
-## Value
-Nonnegative linearization creates a polynomial hypergroup structure and is a longstanding recurrence-coefficient problem. Four support points give the smallest constant-ratio family with two independent interior profile parameters and several coupled deep product coefficients. The result gives both the complete fixed-ratio positivity cone and a compact sharp universal-ratio frontier, identifies a genuine endpoint phenomenon, and produces a counterexample to necessity of the motivating sufficient hypothesis. It is a structural low-rank classification, not a generic computation of one arbitrary coefficient.
+The tridiagonal row-stochastic 4x4 recurrence J has positive irreducible off-diagonals, a simple real spectrum and orthogonal polynomials R_i normalized at one; coefficients g(m,n;k)=[R_m(J)]_{n,k}. All R1 multiplications are nonnegative, so only (2,2),(2,3),(3,3) must be checked. Independent symbolic SymPy reconstruction of R2(J),R3(J) verified the source 12 exact coefficient formulas and their row sums: only L/(1-x), H/(1-x), rH/[(1-x)(1-y)] and (1-r)K/(1-y) can be negative for 0<r<1. At r=1, K disappears, H=1-x-y and H>=0 forces L=1-x(1+y)>0. For every ratio r, H(r=1)>=0 forces x+y<=1 and limit K(r->1-) enforces y<=2/3; these two conditions force H,K>=0 and L>0 by the stated y(2-3y) bound. Independent exact rational witnesses verify L independence and a profile with negative third Newton coefficient. This is an all-real-parameter symbolic proof, not a finite parameter sampling claim.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Polzer 2026 establishes Newton log-concavity as a sufficient condition and asks explicitly for the all-ratios exact region; the displayed four-point inequalities and two-wall sharp region resolve a nontrivial low-dimensional instance outside that sufficiency cone. Szwarc 2003 supplies an abstract general matrix criterion but not its explicit four-node semialgebraic elimination; the published five-state symmetric endpoint has different size and ratio quantifiers.
+
+## value
+
+PASS
+
+The exact four-point cone and all-ratio profile region give an explicit first nontrivial answer to a stated problem about necessary-and-sufficient property(P) conditions; independence of L and a negative-Newton but positive-profile witness demonstrate true enlargement beyond a known sufficient criterion. Exact small finite hypergroup classifications are natural and potentially reusable; no paper-sized generalization is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
