@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-Run `python check_direct.py` and `python check_census.py` with the standard Python library; the captured output is in `direct_output.txt` and `census_output.txt` respectively. They independently implement (i) the local ordered update and a closed run formula, and (ii) rational power-series coefficient extraction and direct orbit simulation. The first checks 131064 states on labelled cycles of lengths 3 through 16, while the second checks 102 exact entrance-time coefficients for lengths 3 through 14. Both programs completed with PASS. The mathematical proof is contained in `RESULT.md`; finite computations are corroboration, not a proof of every length. Full texts checked for literature comparisons are listed in `AUDIT.json`. Independent audit has not been performed.
+## correctness
+
+PASS
+
+PASS: Reconstructed all in-place boundary dependencies, invariant post-sweep region, and exhaustive four endpoint/run categories including exceptional one-block (0,1) initial states. These combinatorial clocks imply the rational cumulative G_t and basin sizes, with n>=3 restriction; uniform n=1,2 coefficients are only formal. Independently simulated all 2^n labelled rings n=3..12 and separately expanded G_t coefficients, matching every first-fixation histogram, sharp unique worst state and n all-ones basin. Infinite result comes from run-language enumeration, not a finite cutoff.
+
+## originality
+
+PASS
+
+PASS (qualified): Macauley–McCammond–Mortveit and Donoso-Leiva et al. establish homogeneous convergence for sequential Rule184, not the exact all-depth first-fixation populations. Another Resultary record characterizes the *one-step image* of the same scan, a different count from time-to-fixation; a Catalan-logarithm census applies to synchronous Rule184. The run clock and generating function are genuinely additional within the specific asynchronous order, subject to unindexed scan-specific historical work.
+
+## value
+
+PASS
+
+The fixed-scan asynchronous Rule184 loses the synchronous traffic conservation, making its boundary-sensitive relaxation a distinct and natural dynamical problem. An exact rational first-entry generating function for *every depth*, surprisingly asymmetric 0/1 basin sizes, unique linear worst-case and logarithmic typical time offer substantial structural information beyond prior convergence-only classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
