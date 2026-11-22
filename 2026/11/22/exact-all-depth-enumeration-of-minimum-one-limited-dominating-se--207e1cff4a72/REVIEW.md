@@ -1,0 +1,11 @@
+# Scientific review: exact ternary Sierpiński optimum census
+
+**Correctness — PASS.** Every nine-vertex block in a minimum one-limited dominating set has exactly six selected vertices; the proof establishes this directly from the actual linking-edge geometry. All locally admissible six-of-nine patterns are either one of four involutive balanced patterns or one of three empty-row patterns. Only outer corners can interface with another block, and the six permitted pairs of four boundary statuses are both necessary and sufficient. Unique recursive decomposition gives a bijection underlying the 64-state transfer. The independent direct graph census at depths three and four agrees with exact recurrence values 10 and 6656; higher values are exact integer evaluations, not empirical evidence for the induction.
+
+**Originality — PASS, historical priority provisional.** Božović (arXiv:2610.01584v1) establishes only the minimum size. *Exact limited domination of every Sierpiński graph* generalizes cardinalities, not multiplicities. *Extremal k-limited domination of depth-two Sierpiński graphs* covers the 2-level base count only. The closest *Four independent local choices in minimum one-limited dominating sets of ternary Sierpiński graphs* establishes a non-exhaustive bound of \(4^{3^{n-3}}\) and explicitly does not claim a complete classification. The current complete transfer is not implied by those bounds or constructions. Exact-count searches and the equivalent pitchfork terminology returned no covering text; an unindexed older equivalent remains a risk.
+
+**Value — PASS.** The result is a natural infinite classification/count rather than a finite isolated instance: it enumerates every minimum labelled solution for all depths, identifies exactly which local states were missing from previous partial constructions, and provides an efficient constant-state integer recurrence. The gap between the bound 64 and exact depth-four count 6656 is substantive.
+
+**Limitations.** Only the ternary graph and capacity one are enumerated; no elementary closed form, optimizer asymptotic or independent certification is claimed. The finite verification checks finite depths, and the proof provides the unrestricted conclusion.
+
+Self-review: passed. Independent audit: not yet performed.
