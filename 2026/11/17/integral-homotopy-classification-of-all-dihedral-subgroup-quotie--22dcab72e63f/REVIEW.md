@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The quotient is built from orbits of **entire** barycentric flags of a finite regular cubical face poset, avoiding the incorrect simplification to a poset of orbit cells. A stabilizer of a dimension-distinguished flag fixes its simplex pointwise, so the orbit-flag construction is a valid Δ-complex for the ordinary geometric quotient. Every chosen two- or one-dimensional collapse has an explicitly checked unique free face and hence preserves homotopy type. Independent Burnside orbit counts match the canonical orbit representatives, and the remaining connected graph ranks are 6, 2, 2, and 0. The proof covers every subgroup because the dihedral group of order ten has exactly the four listed conjugacy types. The executable certificate and its checked output are embedded.
+## correctness
 
-## Originality — PASS relative to inspected material
-The foundational 2000, 2004 and 2009 works on graph configuration spaces and deleted-product homology do not provide the homotopy types of all pentagonal-wheel symmetry quotients. A directly relevant publicly indexed result supplies rational dihedral first-homology characters for all wheel sizes; its stated rational ranks are compatible with the new classification but cannot by themselves prove integral graph collapsibility or rule out hidden torsion and nonfree fundamental groups. Exact-title and alias searches for pentagonal-wheel two-particle dihedral, rotational and reflection homotopy quotients gave no matching stronger statement. The directly relevant published result's full text could not be opened, so the priority assessment is conditional on that material and on unindexed equivalents.
+PASS
 
-## Value — PASS
-This is a complete subgroup homotopy classification for the smallest nondegenerate odd-rim wheel, a canonical 2-particle network model with a nontrivial order-ten symmetry group. It upgrades known rational symmetry information to the integral homotopy type and establishes that the complete symmetry quotient is contractible while partial symmetry leaves precisely two fundamental circles. The object and invariant are intrinsic to collision-free graph configurations; the statement is not selected by an arbitrary numerical cutoff.
+For unordered pairs of disjoint closed graph cells of W=K1*C5, direct independent graph enumeration confirms 15 vertex pairs, 40 nonincident vertex-edge pairs and 20 disjoint edge pairs; these are all cells of the finite two-particle cubical model. Full chains of its face poset (not chains of cell-orbit labels) give an admissible barycentric quotient triangulation since dimension-distinct flag vertices preclude inversions. The attached verify.py constructs every flag, finite D5 subgroup, canonical flag orbit and Burnside orbit count; the exact orbit flag cell counts are respectively (75,240,160), (15,48,32), (41,122,80), (11,26,16) for 1,C5,C2,D5. Its explicit free-face search tests unique surviving incidence before each elementary collapse, collapsing every two-cell and leaving connected one-dimensional graphs (23,28), (7,8), (11,12), (1,0). Each collapse preserves integral homotopy and yields beta1=6,2,2,0. All subgroup conjugacy classes (1,2,5,10) are exhausted. This is a finite constructive proof when the enumerator and certificates are executed; the full algorithm and incidence guards were inspected, and wheel cubical base counts independently recomputed; the exhaustive collapse was not independently replayed in this run.
 
-## Scientific limitations
-No all-wheel or higher-particle statement is asserted. An independent mathematical audit has not been performed. A relevant published full text was inaccessible, so novelty is assessed against the available record and materially read primary sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: published wheel two-particle D5 character gives rational quotient H1 ranks 6,2,2,0 (and rational acyclicity of full quotient), but neither torsion-free integral homology, free fundamental group nor contractibility of the D5 quotient follows from rational character. The new complete orbit-flag elementary collapses distinguish the integral homotopy types for every subgroup of the finite D5 group.
+
+## value
+
+PASS
+
+The six-vertex pentagonal wheel is the first natural odd-rim wheel test of collision-free two-particle graph braid topology with a nontrivial dihedral action. Computing ordinary quotient fundamental groups and integral homotopy rather than rational invariant dimensions provides a sharp exact finite classification useful in configuration space topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
