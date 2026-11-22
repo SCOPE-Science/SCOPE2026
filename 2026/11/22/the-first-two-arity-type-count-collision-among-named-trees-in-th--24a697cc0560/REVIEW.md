@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** Henson homogeneity reduces one-, two-, and three-tuple types to independently chosen neighborhood sets subject to forbidden triangles. The known identities \(t_1=I\), \(t_2=I^2+D\), \(t_3=I^3+3ID+3J\) are reconstructed explicitly. The exhaustive tree enumeration is complete by leaf deletion/attachment and isomorphism-free by canonical rooted-parenthesis codes. A second tree-transfer count for six witness tests independently confirms the ternary contributions. The exact ten-vertex witness values and complete collision census reproduce under `verify.py`.
+
+**Originality — PASS, provisional.** Earlier general finite-extension/type identities and a sharp seven-vertex collision over unrestricted triangle-free graph bases are credited and excluded from the claim. The latter's first witness is a disconnected graph/tree pair, not a pair of trees, and stops far below the tree threshold. Wagner–Wang's pseudo-twin results give asymptotic/large-tree indistinguishability for several graph polynomials but not the first collision of the joint numbers \((I,D)\), nor the ten-vertex uniqueness and ternary split. Primary Henson/Conant texts and the closest published higher-arity counting result were compared. An unindexed equivalent small-tree census remains a residual priority risk.
+
+**Mathematical value — PASS.** Tree-shaped named parameter structures are a natural constrained class, and the first two small-arity type-orbit counts form a natural logical reconstruction invariant. Establishing a sharp ten-vertex boundary, classifying its *sole* first failure despite identical degree sequences, and detecting that failure at arity three is an exact motivated structural cutoff, not an arbitrary numerical sample. The finite range is proved exhaustive, and the theorem does not claim any unsupported all-order extension.
+
+Self-review: passed. Independent audit: not yet performed.
