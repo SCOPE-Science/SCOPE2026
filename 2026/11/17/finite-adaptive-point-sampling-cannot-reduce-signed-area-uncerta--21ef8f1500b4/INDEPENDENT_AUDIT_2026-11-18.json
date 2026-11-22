@@ -1,0 +1,86 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T04:12:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "CDE first two channels equal X, third is F(X)=1/2∫X∧dX. Reflection of an arbitrary open path across the line joining its endpoints, then reversed traversal, creates a closed path of length ≤2B with signed area 2F; the signed isoperimetric inequality therefore gives |F|≤B²/(2π). Against any finite deterministic adaptive querying policy the adversary maintains a positive query-free time gap separating values 0 and q=(2B/π,0), answering left queries 0 and right queries q; reference straight transition fits B. After the finite transcript, two absolutely continuous opposite semicircle traversals of radius B/π fit entirely in the gap, use precisely total length B, return the same answers, and give F=±B²/(2π). Independently integrated the semicircle polynomial/trigonometric area exactly; no bound on instantaneous derivative invalidates short-gap hiding. Upper/lower match for each fixed finite N, with no appeal to asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full primary PDF Section 5 and Appendix D use bounded derivative to bound variation allocation over observed mesh; its 1/N factor relies on the uniform local speed budget."
+        ],
+        "reasoning": "Speed-constrained results are not stronger over larger W¹,¹ ball; the adaptive gap construction is admissible only under the weaker model.",
+        "searches": [
+          "arXiv:2611.03887v1",
+          "Resultary: neural controlled differential equations signed area total variation finite adaptive point sampling minimax radius"
+        ]
+      },
+      "checked_sources": [
+        "Source RESULT.md blob 98e23346f5a772b82b1a0dea397d9c433e03a09b",
+        "Gusev–Romanenkova–Zaytsev arXiv:2611.03887v1 Proposition 5.3 and Appendix D full PDF https://arxiv.org/abs/2611.03887",
+        "Classical signed isoperimetric inequality, reflected closed-curve proof given within source"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published radius under L∞ is L²T²/(2πN), whereas for fixed B=LT this proof produces B²/(2π), for every finite N. A finite point policy cannot control the variation spent between queried times under W¹,¹."
+        ],
+        "reasoning": "The prior theorem does not imply target even as formal corollary; it relies on stronger norm assumption. The geometric area representation and Dido inequality are established inputs, not claimed original.",
+        "searches": [
+          "https://arxiv.org/abs/2611.03887",
+          "Resultary: neural controlled differential equations signed area total variation finite adaptive point sampling minimax radius"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gusev–Romanenkova–Zaytsev Proposition 5.3 gives L²T²/(2πN) for Lipschitz drivers with pointwise speed ≤L; target takes merely ∫|X′|≤B and allows unbounded speed concentration."
+        ],
+        "reasoning": "Same controlled output F but different input class. Substituting B=LT into bounded-speed N-dependent result cannot recover nondecaying minimax radius.",
+        "searches": [
+          "Resultary: neural controlled differential equations signed area total variation finite adaptive point sampling minimax radius",
+          "arXiv:2611.03887v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact W¹,¹ all-finite adaptive policy table located; the sampled area CDE value in the primary known table pertains to L∞ path derivative regularity."
+        ],
+        "reasoning": "Specific absence from inspected proposition and appendix is not a global novelty certificate; the model admits elementary independent adversarial proof.",
+        "searches": [
+          "Resultary: neural controlled differential equations signed area total variation finite adaptive point sampling minimax radius",
+          "https://arxiv.org/abs/2611.03887"
+        ]
+      },
+      "rationale": "Closely relevant primary paper Gusev–Romanenkova–Zaytsev establishes the same output CDE information radius under the STRONGER pointwise L∞ speed bound and obtains decay ∝1/N; it does not entail the no-decay W¹,¹ total-variation result. The result is a sharp change in information-theoretic regularity threshold rather than a restatement of their semicircle upper bound.",
+      "residual_risks": [
+        "The result is limited to deterministic finitely many exact point queries; it makes no claim for randomized or countably infinite policies.",
+        "Potential other general optimal recovery W¹,¹ impossibility results could imply it abstractly, not exhaustively located.",
+        "Classical Dido semicircle estimate is borrowed; originality limited to sharp adaptive-information change of input class."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior work supplies the same CDE, semicircle geometry, speed-constrained 1/N rate, but not the weaker total-variation finite adaptive obstruction in read sections",
+          "evidence": "Proposition 5.3 bounded-speed formula L²T²/(2πN) and appendices require derivative L∞ bound",
+          "identifier_or_url": "https://arxiv.org/abs/2611.03887",
+          "material_read": "Relevant primary full PDF sections including Proposition 5.3, the fixed endpoint geometric bound and Appendix D proof of uniform-speed 1/N rate; page image inspected",
+          "method": "arXiv full PDF text and page screenshot read",
+          "title": "The Information Limits of Neural Controlled Differential Equations Under Sparse Observations",
+          "trigger": "Exact same area CDE and optimal-recovery radius model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp, easily testable boundary between successful finite sparse observations under bounded speed and complete finite-observation failure under only global path length; this is a mathematically motivated optimal recovery obstruction for a canonical CDE.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The result is limited to deterministic finitely many exact point queries; it makes no claim for randomized or countably infinite policies.",
+    "Potential other general optimal recovery W¹,¹ impossibility results could imply it abstractly, not exhaustively located.",
+    "Classical Dido semicircle estimate is borrowed; originality limited to sharp adaptive-information change of input class."
+  ],
+  "schema_version": 1
+}

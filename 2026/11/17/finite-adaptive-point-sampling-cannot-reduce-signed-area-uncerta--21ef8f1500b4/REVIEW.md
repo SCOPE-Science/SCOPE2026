@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The area CDE reduces exactly to the signed shoelace integral for absolutely continuous inputs. Reflection across the endpoint chord and the signed isoperimetric inequality give the sharp universal output bound \(B^2/(2\pi)\). The adversarial gap invariant is maintained under arbitrary deterministic time order, always leaves an unqueried interval after finitely many queries, and has a feasible linear-path transcript. Two opposite semicircles inserted in that gap are admissible, transcript-indistinguishable, and attain the two signs of the global bound. Thus the infimum over policies and supremum over compatible input fibers are correctly ordered. No numerical test is substituted for a universal proof.
+## correctness
 
-## Originality: PASS within examined evidence
-The closest source is Gusev--Romanenkova--Zaytsev [1], inspected in its complete accessible arXiv text, including Proposition 5.3 and Appendices A/D. It proves a sharp \(N^{-1}\) radius for the *pointwise-speed* admissible class. That statement does not cover inputs whose arbitrarily large instantaneous speed is constrained only by total length. Classical isoperimetric geometry and the Heisenberg area identity are attributed rather than claimed new. published-finding corpus semantic searches on area CDEs, global variation, deterministic adaptive point observations, and equivalent optimal recovery formulations returned no covering published finding. This is not a proof of worldwide novelty; general information-based complexity sources can contain implicit versions of this obstruction, a priority risk.
+PASS
 
-## Mathematical value: PASS
-The source asks how observation budgets and regularity control noncommutative CDE information. The theorem identifies a sharp regularity boundary: a bound on *integrated* speed allows adversarial concentration and defeats every finite adaptive observation strategy, whereas a bound on *pointwise* speed gives a decreasing \(1/N\) radius. The exact constant and all-budget result are natural, have a clear measurement-design interpretation, and go beyond a mere parameter substitution in the existing bounded-speed theorem.
+CDE first two channels equal X, third is F(X)=1/2∫X∧dX. Reflection of an arbitrary open path across the line joining its endpoints, then reversed traversal, creates a closed path of length ≤2B with signed area 2F; the signed isoperimetric inequality therefore gives |F|≤B²/(2π). Against any finite deterministic adaptive querying policy the adversary maintains a positive query-free time gap separating values 0 and q=(2B/π,0), answering left queries 0 and right queries q; reference straight transition fits B. After the finite transcript, two absolutely continuous opposite semicircle traversals of radius B/π fit entirely in the gap, use precisely total length B, return the same answers, and give F=±B²/(2π). Independently integrated the semicircle polynomial/trigonometric area exactly; no bound on instantaneous derivative invalidates short-gap hiding. Upper/lower match for each fixed finite N, with no appeal to asymptotics.
 
-## Closest literature and limitations
-[1] Gusev, Romanenkova, Zaytsev, *The Information Limits of Neural Controlled Differential Equations Under Sparse Observations*, arXiv:2611.03887v1, Sections 3 and 5 and Appendices A and D. Remaining historical-priority risk concerns general optimal-recovery lower bounds under variation-only classes. The result is for deterministic exact point samples and the canonical area CDE; no independent scientific audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Closely relevant primary paper Gusev–Romanenkova–Zaytsev establishes the same output CDE information radius under the STRONGER pointwise L∞ speed bound and obtains decay ∝1/N; it does not entail the no-decay W¹,¹ total-variation result. The result is a sharp change in information-theoretic regularity threshold rather than a restatement of their semicircle upper bound.
+
+## value
+
+PASS
+
+Sharp, easily testable boundary between successful finite sparse observations under bounded speed and complete finite-observation failure under only global path length; this is a mathematically motivated optimal recovery obstruction for a canonical CDE.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
