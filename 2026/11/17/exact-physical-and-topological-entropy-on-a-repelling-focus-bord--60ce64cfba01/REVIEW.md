@@ -1,12 +1,21 @@
-# Review of the exact entropy graph result
+# Independent mathematical audit
 
-## Correctness
-The right-branch affine matrix squares to minus twice the identity about its unique repelling fixed point. This forces every other orbit into the left branch and thence onto the compact finite-edge graph. Exact composition on the section gives three surjective full branches, their original-time return lengths, and a Lebesgue-preserving exact induced map. The invariant return tower and Abramov identity yield the physical entropy; the finite renewal Markov graph and its Perron polynomial give the topological entropy. A relative-entropy equality condition proves strict separation. The standalone reproducibility checker passed; finite checks support but do not substitute for these proofs.
+## correctness
 
-## Originality
-Simpson's complete accessible 2026 first-return article analyzes return-time partitions of zero-determinant border-collision maps at repelling foci, but does not give this explicit coupled planar capture, physical law, and original-time entropy comparison. The closest retrieved quantitative renewal records instead use a *zero right determinant* and a left expanding branch; their results do not imply the focus-branch invariant graph or its weighted roof. A different published result constructs a Cantor horseshoe for a distinct parameter range, rather than classifying the full graph and full planar basin. Finite-state ergodic theory and renewal pressure are credited as standard tools. An unindexed prior specialization remains possible; historical priority is not guaranteed.
+PASS
 
-## Mathematical value
-The source explicitly motivates quantitative ergodic analysis beyond return-partition topology. Here a positive right determinant and a repelling focus coexist with a globally capturing singular one-dimensional graph. The physical and maximal-entropy clocks differ by an exact, nonzero amount; this is a natural exact benchmark for how original-time excursion lengths alter statistics of border-collision dynamics. It is confined to a postcritically finite parameter point and does not prove robustness or nonlinear persistence.
+For left F_L(x,y)=(x+y+1,0) and right F_R=(y+1,-2x), the only right fixed point is X=(1/3,-2/3) with F_R²(z)-X=-2(z-X). Every other right itinerary eventually meets left and collapses onto the horizontal axis, which reaches the four-edge invariant K by bounded translation; first-return section E=[0,1]x{0} has three exact branches 4u on (0,1/4) with roof 6, 4u-1 on (1/4,1/2) and 2-2u on (1/2,1) with roofs 5. Independent Fraction rational iterates at u=1/8,3/8,3/4 confirmed all 3 returns. Full branches give iid Lebesgue p=(1/4,1/4,1/2), mean roof 21/4 and tower entropy (2/7)log2. Compact renewal graph Perron equation lambda^-6+2lambda^-5=1 yields log lambda; independent numerical 0.19804205158856 vs 0.20685980710198. Original-time entropy, not return-time entropy; numerical tests supplement explicit symbolic tower proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Simpson 2026 full article provides zero-left-determinant general return-map geometry for repelling focus and Farey return-time ordering. That general framework does not itself state the point-specific finite capture graph, unique full-planar-basin physical measure, nor both exact original-clock entropies. Related Resultary degenerate renewal papers have different maps/roofs, so are not covering by implication. Best-of-knowledge PASS, with residual risk of unindexed parameter specialization.
+
+## value
+
+PASS
+
+The explicit full-planar capture and strict physical-versus-topological entropy gap at a repelling focus is a concrete, exact dynamical case study distinguishing physical statistics from maximally entropic coding. This is substantially more than a routine invariant-density calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
