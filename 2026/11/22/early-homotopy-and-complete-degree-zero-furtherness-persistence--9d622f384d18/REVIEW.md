@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Exact downset counting creates a uniform gap between rank-\(r\), rank-\((r+1)\) and higher-rank outside points. Collapsing the contractible rooted downset gives literal graphs in the early stages; integral graph cycle lattices yield the circle ranks, the split injection and the complete degree-zero barcode. The separately implemented small-instance checker passed 35 parameter cases and 8,380 enumerated degree-two simplices. The checker is finite and mod-two only; the integral all-parameter assertions are proved by the graph construction.
+
+**Originality — PASS (best-knowledge, with priority risk).** Badra–Singh define furtherness and its filtration and prove generic degree-zero birth statements, not the exact truncated-Boolean two-scale deaths or early graph homotopy types. The closest published full Boolean result concerns every nonempty subset and uses different downsets and weights; the proper Boolean-sphere results omit the top and study extreme roots, and rank-span filtration results constrain a different function. Exact published claims and semantically indexed records were compared by implication rather than title alone. Unindexed equivalence remains a risk.
+
+**Mathematical value — PASS.** The truncated Boolean family is natural in order topology and rank-selection, and the first two positive-rank entrance thresholds reveal both connected-component deaths and emergent integral circles. The result specifies a complete all-time degree-zero barcode, plus explicit early homotopy and an integral persistent injection, not merely a small enumerated example or a routine restatement of generic stability.
+
+The homotopy classification stops before the first possible exterior rank-\((r+2)\) point, and there is no general positive-degree barcode claim after that cutoff. The earlier all-degree full-Boolean case is acknowledged as existing. Direct sources: arXiv:2610.16386v1 (primary MSC2020 55N31; first public October 12, 2026), arXiv:2603.18580v1, and the public mathematical results named in RESULT.md. Source comparison cannot guarantee absolute priority. Exact finite checks cannot substitute for the infinite proof.
+
+Self-review: passed. Independent audit: not yet performed.
