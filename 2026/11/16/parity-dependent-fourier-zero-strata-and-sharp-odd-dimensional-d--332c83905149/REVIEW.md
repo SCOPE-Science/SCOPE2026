@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The normalized parity-conditioned Rademacher characteristic function splits exactly into the product of all cosines plus \((-i)^d\) times the product of all sines. In odd dimension real/imaginary separation gives the complete affine-flat union and sharp nearest zeros; in even dimension explicit non-coordinate cancellations have nonzero gradient. The odd-dimensional diameter argument uses the fact that two parity-admissible vertices differ in an even number of coordinates. The stated boundaries and normalizations were rechecked. Thirty direct-sum/product numerical comparisons per dimension from three to nine supplement, but do not substitute for, the exact proof.
+## correctness
 
-**Originality — PASS relative to checked literature.** Gómez-Serrano–Levitin–Platt–Polterovich (arXiv:2609.10517v1) analyze Fourier zeros of convex-body indicator functions, not uniform atomic parity-selected vertices. The related published even-parity Walsh projection calculation treats endpoint norms of a different operator, and the four-point cyclic-rectangle result concerns discrete character zeros. Full published results for the latter two were read. No broader result subsuming the odd-dimensional zero-flat classification or the even-dimensional smooth hypersurface was identified in current searches. An equivalent old characteristic-function formulation could nonetheless exist and remains an originality risk.
+PASS
 
-**Mathematical value — PASS.** The complete real zero geometry and unique nearest-zero directions of demicube vertex measures give a sharp, scale-invariant invariant across infinitely many dimensions. The exact parity-dependent codimension jump makes the result a natural structural comparison rather than an arbitrary finite example. This is a self-contained theorem and not a resolution of the broad convex-body Fourier-zero optimization problem.
+The character-parity projector gives exactly product(cos θj)+(-i)^d product(sin θj) with probability mass one. For odd d real/imaginary parts must separately vanish, hence distinct cosine-zero and sine-zero coordinates and codimension-two flats. Minimal cosine-zero coordinate has magnitude 1/(4a) and only 2d nearest points. Max even Hamming distance in an odd halfcube is d-1, giving D=2a sqrt(d-1). For even d, at signed π/4 phases with product signs (-1)^(d/2+1), F=0 and ∂jF=-2 sj 2^(-d/2), so an analytic zero hypersurface exists. An independent direct 2^(d-1)-atom Fourier-sum check for d=3..8 agreed to 1e-10; finite checks are corroboration, not the proof.
 
-**Limits.** Even-dimensional nearest-zero optimization remains outside this result. Equal masses and exact sign vertices are essential. Classical parity-character algebra is credited; the newly assessed claim is its sharp all-dimensional zero geometry.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Atomic parity-selected demihypercube vertex measures differ from Lebesgue indicators of convex bodies; the exact odd zero-flat classification and even hypersurface parity transition do not follow from the searched smooth-body zero-radius result. Boolean parity identity is classical and explicitly excluded from novelty. Best-of-knowledge assessment; 1984 zero-set measure paper and older coding/polytope literature remain plausible aliases that were not fully inspected.
+
+## value
+
+PASS
+
+The complete real-zero geometry of a natural polytope vertex measure, the parity-driven change in codimension, and a sharp diameter-normalized first-zero radius are motivated structural results, rather than a renamed Fourier identity; the simplicity of the factorization limits the depth claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
