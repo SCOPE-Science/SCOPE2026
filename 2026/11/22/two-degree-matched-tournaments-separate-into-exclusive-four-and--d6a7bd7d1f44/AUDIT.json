@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The two fully standalone C++17 exhaustive algorithms independently classify all 2^23 inputs for each graph. One uses precomputed neighbor bitmasks and functional-graph indegree peeling; the other uses per-edge bit tests and individual path detection. They agree exactly on both complete first-entry/period histograms, all primitive cycle counts and basin sizes. Each histogram sums to 8,388,608. Explicit period and sharp-depth witnesses were directly iterated; no finite experiment is substituted for an infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The undirected symmetric majority convergence result does not apply to directed out-neighbor majority.",
+        "Jørgensen gives Paley/doubly-regular tournament structures but not the full majority trajectory map.",
+        "The closest indexed Paley majority census proves only orders 3,7,11,19, not 23."
+      ],
+      "reasoning": "No cited stronger general claim is known to imply four-only Paley q=23, twenty-three-only carousel q=23, or both exact basin counts.",
+      "searches": [
+        "directed majority on regular tournament period n large cycles majority dynamics",
+        "cyclic tournament majority dynamics period nineteen 19 eleven 11",
+        "arxiv:1405.2486 Theorem 1.1",
+        "arxiv:1410.8424 Paley tournament construction"
+      ]
+    },
+    "checked_sources": [
+      "published-finding corpus published indexed finding 2026/11/17/SCOPE-a-forbidden-two-clock-and-the-paley-19-revival-of-majority-oscil--13a06d889156",
+      "arxiv:1405.2486v1",
+      "arxiv:1410.8424v1",
+      "arxiv:2205.08972v1",
+      "Own accessible archive-week ledger claims through p0001_g000127"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published q19 census has no claims for 23 and its arguments use exhaustive enumeration at those finite orders, not all orders.",
+        "Published one-dimensional radius-r theorem constrains centered majority configurations rather than giving labelled q23 shifted-map basin counts; it does not concern the Paley Q23 orientation.",
+        "Benjamini et al theorem requires undirected interaction."
+      ],
+      "reasoning": "The exact new claim would not follow by relabelling or a simple parameter substitution from the inspected published results; it needs the verified new q23 enumerations. The possibility of an unindexed calculation remains explicitly open.",
+      "searches": [
+        "circulant tournament binary out-neighbor majority periodic traveling waves odd cyclic tournament",
+        "Paley tournament of order 23 majority 3542 period four fixed point basin 10 updates",
+        "cyclic regular tournament 23 versus Paley tournament 23 majority dynamics disjoint attractor periods",
+        "published https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-a-forbidden-two-clock-and-the-paley-19-revival-of-majority-oscil--13a06d889156"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The carousel out-neighbor set {1,...,11} is a 6-position shift of the centered radius-5 neighborhood {-5,...,5}; hence F_C=S^6 M_5.",
+        "Nakar–Ron define centered radius-r majority and establish eventual periods <=2 there. Their statement does not include the q=23 Paley tournament or the paired exact attraction histograms."
+      ],
+      "reasoning": "We did not dismiss shifted one-dimensional majority as unrelated: it provides strong structural context for the carousel part. Exact implications stop short of the joint Paley/carousel q=23 state-by-state census.",
+      "searches": [
+        "circulant tournament binary out-neighbor majority periodic traveling waves odd cyclic tournament",
+        "cyclic regular tournament 23 versus Paley tournament 23 majority dynamics disjoint attractor periods",
+        "arxiv:2205.08972 sections 1.1-1.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Full examined published Paley majority table has only p=3,7,11,19 and q19 counts 342 four-cycles and 18 nineteen-cycles; no q23 entry.",
+        "The searches returned q23 Paley tournament homology/logic, not binary synchronous-majority orbit tables."
+      ],
+      "reasoning": "No indexed exact q23 joint dynamical table matched; the absence of a hit is not itself a uniqueness proof.",
+      "searches": [
+        "Paley tournament of order 23 majority 3542 period four fixed point basin 10 updates",
+        "cyclic regular tournament 23 versus Paley tournament 23 majority dynamics disjoint attractor periods",
+        "Paley tournament 23 threshold dynamics all 2^23 configurations periodic four",
+        "published-finding corpus ID 2026/11/17/SCOPE-a-forbidden-two-clock-and-the-paley-19-revival-of-majority-oscil--13a06d889156"
+      ]
+    },
+    "rationale": "The new combined order-23 statement, including both disjoint primitive-period sets and the exact basin/entry-time census, is not stated or implied by the fully inspected closest indexed order-19 Paley majority result or the read published directed-tournament/undirected-majority literature. The one-sided carousel shift equivalence is explicitly accounted for; the 2022 centered-ring theorem is not an exact q=23 basin census and gives no Paley result. Residual unindexed-literature and possible unwritten corollary risks are explicitly retained.",
+    "residual_risks": [
+      "An unindexed historical q23 majority computation could duplicate one or more exact counts.",
+      "The shifted centered-ring equivalence may allow deriving the carousel component from a more comprehensive special-case treatment not located.",
+      "Finite computational completeness is documented but not yet independently externally audited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING q23: the enumerated orders are 3,7,11,19; q23 and carousel 23 absent",
+        "evidence": [
+          "RESULT.md section Finding enumerates exactly four orders and q19 cycle data",
+          "RESULT.md Limitations explicitly restricts census to {3,7,11,19}"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-a-forbidden-two-clock-and-the-paley-19-revival-of-majority-oscil--13a06d889156",
+        "material_read": "Complete RESULT.md: definitions, finite-order table, proof, verification table and limitations",
+        "method": "Connected public repository full-file read, not a snippet",
+        "title": "A forbidden two-clock and the Paley-19 revival of majority oscillations",
+        "trigger": "Closest indexed Paley tournament binary-majority census"
+      },
+      {
+        "assessment": "NOT_APPLICABLE: symmetric undirected interaction rather than directed tournaments",
+        "evidence": [
+          "The main period-at-most-two result relies on symmetric undirected neighbor interactions; our two orientations are directed"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1405.2486",
+        "material_read": "Manuscript opening and Theorem 1.1 / undirected-graph setup",
+        "method": "Open-access article PDF text and page inspection",
+        "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "trigger": "General fixed/two-cycle majority-dynamics restriction"
+      },
+      {
+        "assessment": "NOT_COVERING: directed graph structure, no stated exact majority dynamics at order 23",
+        "evidence": [
+          "Paley tournament is constructed using quadratic residues, without a binary-majority orbit census"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1410.8424",
+        "material_read": "Introduction and Paley-tournament construction",
+        "method": "Open-access article PDF text and page inspection",
+        "title": "Normally Regular Digraphs",
+        "trigger": "Definition and spectral properties of Paley tournaments"
+      },
+      {
+        "assessment": "PARTIAL_INFERENCE_RISK: centered majority structural results constrain shifted carousel but do not state joint q23 full basin census",
+        "evidence": [
+          "Definition 2: centered neighborhood [i-r,i+r]; Definition 3 majority over that window",
+          "F_C(x)_i=M_5(x)_{i+6}, so F_C=S^6 M_5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2205.08972",
+        "material_read": "Abstract, Section 1.1-1.3 definitions, main result statement and contents; the equivalence was derived exactly",
+        "method": "Open-access full PDF text and checked page 4 image",
+        "title": "The Structure of Configurations in One-Dimensional Majority Cellular Automata",
+        "trigger": "Potential alias of carousel 23 via shifted radius-five centered majority"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d6a7bd7d-1f44-4d94-a9ca-d8ed878e18d4",
+  "value": {
+    "rationale": "Comparing the Paley and circular carousel orientations is naturally motivated: both are canonical, vertex-transitive, degree-11 regular tournaments on the same 23 labelled sites but have distinct local geometries. The exact disjoint four-versus-twenty-three periods and ~56-fold attraction contrast show that degree and vertex-transitivity alone do not describe directed majority attractors. The full state-space basin probabilities and sharp transient ceilings are reusable benchmarks for directed threshold dynamics; these quantities are not generic naming changes or tiny marginal improvements.",
+    "status": "PASS"
+  }
+}
