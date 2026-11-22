@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T07:52:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Gale evenness makes every even-dimensional cyclic-polytope facet exactly a k-matching of the label cycle C_n. A minimum transversal is complement Y with induced matching number <=k-1. For proper cycle-induced path unions, alpha(Y)=|Y|-nu(Y) <=floor(n/2), so |Y|<=floor(n/2)+k-1 and equality forces a maximum independent set with k-1 additional vertices. Odd-n cyclic run encoding splits into t=u or t=u+1 and gives n[binom(h-1,r)+binom(h-1,r-1)] = n binom(h,r); even n has two alternating independence sets, each with binom(h,r) choices. Independent enumeration generated facets from literal Gale parity, enumerated all transversals and checked minimum families for n=3..11 and all admissible k. All-parameter proof is structural, not inferred from tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published H_n,k(s)= (n/s) Σ_{a=0}^{k-1} binom(s+a-1,a)binom(s,n-s-2a) for all s; exact circular gap matching constraint Σ floor(g_i/2)<=k-1."
+        ],
+        "reasoning": "All transversals at every size dominate the minimum transversal exact count; same equality families are a direct restricted case.",
+        "searches": [
+          "Resultary: The complete facet-transversal polynomial and a Poisson deletion window for even cyclic polytopes, entire RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-the-complete-facet-transversal-polynomial-and-a-poisson-deletion--8cd9a583d53b/RESULT.md",
+        "https://arxiv.org/abs/2111.06560",
+        "https://arxiv.org/abs/2603.16298"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior min-size-only result alone lacks optimizer count; published full polynomial expressly states previously established exact classification and count of minimum transversals not claimed anew and proves all gap sizes."
+        ],
+        "reasoning": "The full published theorem implies the current final claim as a strict special case, so O fails even though current standalone proof is correct.",
+        "searches": [
+          "Full stronger published RESULT.md including proof and prior-work paragraph",
+          "arXiv:2111.06560 Proposition 3.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gale matching characterization is identical in both results; full polynomial holds for all n>=2k+1, all s>=1 and includes minimum-layer specialization."
+        ],
+        "reasoning": "The complete enumerator is equivalent at the particular minimum cardinality and stronger in cardinality range; any alternative complementary maximum-avoiding-set wording is not a new invariant.",
+        "searches": [
+          "Briggs–Dobbins–Lee arXiv:2111.06560 Proposition 3.6",
+          "Resultary full facet-transversal polynomial record"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At s=ceil(n/2)-k+1, full enumerator yields the identical parity formulas (2 binom(floor(n/2),k-1) for even n; n binom(floor(n/2),k-1) for odd n)."
+        ],
+        "reasoning": "The existing exact coefficient/table fully covers the purported new count; failure of a title match would be irrelevant.",
+        "searches": [
+          "Resultary: full polynomial 2026/11/17 record",
+          "Briggs–Dobbins–Lee size theorem"
+        ]
+      },
+      "rationale": "FAIL: Published stronger Resultary theorem \"The complete facet-transversal polynomial and a Poisson deletion window for even cyclic polytopes\" establishes H_n,k(s)=n/s sum_{a=0}^{k-1} binom(s+a-1,a)binom(s,n-s-2a) for EVERY s and n,k, and its full proof gives the circular gap matching-number characterization. The present minimum-transversal count equals the known polynomial coefficient at s=ceil(n/2)-k+1, while its equality-family description follows by specializing the same gap constraints/known matching versus independence equality. The published stronger statement explicitly disclaims originality of classification/count of minimum transversals. Existing Briggs–Dobbins–Lee min SIZE alone would not cover this, but complete published enumerator decisively does.",
+      "residual_risks": [
+        "Full-polynomial published record directly covers count; no novel classifier remains after specializing circular gaps.",
+        "Historical publication sequence and independent import status were not used to claim earlier origination, only current mathematical prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_EXACT_SPECIAL_CASE",
+          "evidence": "H(s) all s specializes to claimed M_n,k and its circular-gap characterization proves minimum optimizer classification; text credits preexisting minimum enumeration.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-the-complete-facet-transversal-polynomial-and-a-poisson-deletion--8cd9a583d53b/RESULT.md",
+          "material_read": "Entire RESULT.md including all-size formula, circular-gap proof and Relationship to prior work",
+          "method": "Fetched and read full published GitHub RESULT.md",
+          "title": "The complete facet-transversal polynomial and a Poisson deletion window for even cyclic polytopes",
+          "trigger": "Same objects, stronger parameter coverage and identical minimum-layer coefficient"
+        },
+        {
+          "assessment": "PARTIAL_MIN_SIZE_ONLY",
+          "evidence": "Known exact minimum size tau; no need to infer count from this paper because stronger published polynomial supplies it.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.06560",
+          "material_read": "Primary full PDF, Proposition 3.6 and relevant cyclic evenness discussion",
+          "method": "Read relevant full-text proof with PDF screenshot inspected",
+          "title": "Transversals and colorings of simplicial spheres",
+          "trigger": "Historical minimum-size theorem and Gale correspondence"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_DECISIVE",
+          "evidence": "Extremal ratios not responsible for rejection; exact all-s cardinality theorem is decisive.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.16298",
+          "material_read": "Accessible title/abstract and relevant formulations",
+          "method": "Literature search and source scope comparison; not full text claimed",
+          "title": "Polytopes with large transversal ratio",
+          "trigger": "Recent broader context on facet transversal ratios"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL as a new contribution: The full optimizer count and parity jump are an already published special coefficient of the complete size polynomial, and the claimed classifier follows directly from the already published induced-cycle matching/gap analysis. No independent mathematically motivated unknown invariant or nonmechanical remaining result survives this coverage. Its elementary correct proof still has pedagogical value, but cannot be treated as a valuable novel finding under the required standard.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-the-complete-facet-transversal-polynomial-and-a-poisson-deletion--8cd9a583d53b/RESULT.md",
+    "https://arxiv.org/abs/2111.06560",
+    "https://arxiv.org/abs/2603.16298"
+  ],
+  "disposition": "failed",
+  "limitations": "The original correct claim is preserved unmodified; rejection is scientific overlap, not a computational failure; no repair via audit disclaimer.",
+  "residual_risks": [
+    "Full-polynomial published record directly covers count; no novel classifier remains after specializing circular gaps.",
+    "Historical publication sequence and independent import status were not used to claim earlier origination, only current mathematical prior coverage."
+  ],
+  "schema_version": 1
+}
