@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T08:13:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed assigned RESULT.md for λ>1, 0<γ<1, βγK=1, c≥0, K=λ−1. The actual Jacobian at (K,0) has multipliers 1/λ and 1 with center tangent h_1=-λγ. Independent SymPy Taylor expansion of the original map and invariant graph verifies h_2=-λ²γ²/K at c_*=1/2+λγ/K; quadratic reduced drift c−c_*; cubic drift exactly −b where b=1/3+λγ/K+2(λγ/K)^2>0. For c<c_* monotone small positive center trajectories have 1/y_{n+1}−1/y_n=(c_*-c)+O(y_n), giving n y_n→1/(c_*-c); at equality 1/y_{n+1}²−1/y_n²=2b+O(y_n), giving sqrt(n)y_n→1/sqrt(2b). y=0 is the invariant strong-stable line, so each sufficiently near positive orbit has a positive center projection and exponential tracking, giving identical limits; h_1 transfers prey deficits. A fresh independent direct fixed-point scalar residual verifies y²[δ−b y+O(δy+y²)]=0, so yδ=δ/b+O(δ²), xδ=K−λγδ/b+O(δ²). Center multiplier 1−δ²/b+O(δ³) and transverse 1/λ+O(δ) imply local asymptotic stability. Numerical checks of original maps across 3 parameter pairs and finite n=300000 corroborated relative amplitudes within 0.4%, and three δ=.001 positive fixed points with the exact scalar equations. Bounded calculations corroborate, do not prove, the universal theorem. Scope local only, no global claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The November 2 sharp fixed-point census for Jang–Yousef assumes R<1, explicitly excluding the assigned equality R=1.",
+          "The October 11 cubic slowing theorem uses a continuous-time modified Leslie–Gower system with different roles and hypotheses, not a general theorem for all discrete refuge maps.",
+          "The 2018 no-refuge theorem assumes prey factor e^{-y(1+αy)} instead of (1-γ)+γ e^{-y(1+cy)}."
+        ],
+        "reasoning": "No inspected stronger theorem covers the exact neutral invasion condition plus the parameter-dependent numerical decay and stable branch; related threshold and rate phenomena in different models are not reductions of the target result.",
+        "searches": [
+          "Resultary semantic: Jang Yousef predator prey cooperation refuge discrete map critical invasion threshold neutral equilibrium center manifold cubic slowing 1/sqrt(n) exact rate stable coexistence branch",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-unique-sharp-cooperation-threshold-for-coexistence-in-a-prey-r--1ab64a212b1b/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-universal-cubic-slowing-at-a-doubly-tangent-predator-only-thresh--574227374316/RESULT.md",
+          "https://arxiv.org/html/1808.00182v1"
+        ]
+      },
+      "checked_sources": [
+        "Sophia R.-J. Jang and Ahmed M. Yousef (2023), Effects of prey refuge and predator cooperation on a predator–prey system, Journal of Biological Dynamics 17, 2242372. DOI 10.1080/17513758.2023.2242372.",
+        "Yunshyong Chow, Sophia R.-J. Jang and Hua-Ming Wang (2018), Cooperative hunting in a discrete predator-prey system. arXiv:1808.00182v1.",
+        "Published Resultary finding 2026-11-02, A unique sharp cooperation threshold for coexistence in a prey-refuge predator map (1ab64a212b1b).",
+        "Published Resultary finding 2026-10-11, Universal cubic slowing at a doubly tangent predator-only threshold (574227374316).",
+        "https://www.tandfonline.com/doi/pdf/10.1080/17513758.2023.2242372 (full indexed text)",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-unique-sharp-cooperation-threshold-for-coexistence-in-a-prey-r--1ab64a212b1b/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At R=1, Theorem 2.4 ensures no positive fixed point when c≤c_*; such nonexistence alone cannot distinguish local extinction at n^-1 versus n^-1/2 or compute their coefficients.",
+          "The target direct expansion obtains h_1=-λγ, h_2=-λ²γ²/K and B(c_*)=-[1/3+λγ/K+2(λγ/K)^2], which are not an assumption/result of Jang–Yousef.",
+          "The strict R<1 census does not entail the R=1 center multiplier 1 or its local parabolic asymptotics."
+        ],
+        "reasoning": "Prior fixed-point counts and stability away from R=1 are logically weaker for the neutral boundary. Their raw equations permit further calculation, but the resulting explicit coefficient and two asymptotic limits are the distinct proved mathematics; generic center-manifold theorems do not supply a model-specific coefficient without computing it.",
+        "searches": [
+          "Full indexed publisher PDF https://www.tandfonline.com/doi/pdf/10.1080/17513758.2023.2242372, eq (2), Prop 2.3, Thm 2.4",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-unique-sharp-cooperation-threshold-for-coexistence-in-a-prey-r--1ab64a212b1b/RESULT.md",
+          "https://arxiv.org/html/1808.00182v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under βγK=1 the result is equivalently a parabolic map y_{n+1}=y_n+(c-c_*)y_n²+O(y_n³), with cubic -b y_n³ at c=c_*; general parabolic iteration alone does not compute this coefficient.",
+          "Jang–Yousef (2023) equation (2) is the same map and their Theorem 2.4 has exactly threshold 2c_*; it gives an equilibrium count, not the critical local clock.",
+          "Chow–Jang–Wang (2018) treats the distinct no-refuge γ=1 specialization and emphasizes interior equilibrium dynamics."
+        ],
+        "reasoning": "The original model and threshold are equivalents of prior results, correctly attributed. Extinction exponent and exact prefactor depend on a nonstandard degeneracy coefficient that the inspected prior equilibrium theorems do not provide.",
+        "searches": [
+          "Resultary semantic: Jang Yousef predator prey cooperation refuge discrete map critical invasion threshold neutral equilibrium center manifold cubic slowing 1/sqrt(n) exact rate stable coexistence branch",
+          "Resultary semantic: cooperative hunting prey refuge exact critical predator extinction algebraic rates sqrt n center manifold cubic map",
+          "web: Jang Yousef predator cooperation refuge critical center manifold cubic extinction rate map beta gamma lambda",
+          "https://arxiv.org/html/1808.00182v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2023 article provides the same parameter threshold but not a printed full exact value for the cubic coefficient b or the limiting constants.",
+          "Resultary closest same-model record is the strict R<1 fixed-point theorem; no table of the exact neutral R=1 map clock or branch coefficient was identified."
+        ],
+        "reasoning": "This is a continuous-parameter infinite-iteration asymptotic result, not a finite lookup table; existing isocline formulas and threshold are input to, not the result of, the critical center-manifold calculation. A negative search is not novelty proof.",
+        "searches": [
+          "Resultary semantic: predator refuge discrete Jang Yousef beta gamma K 1 stable coexistence branch near c*",
+          "Resultary semantic: cooperative hunting prey refuge exact critical predator extinction algebraic rates sqrt n center manifold cubic map",
+          "web: Jang Yousef 2023 full PDF Theorem 2.4 exact threshold"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality PASS: the exact 2023 normalized recurrence and the numerical/analytic cooperation cutoff are preexisting and explicitly credited, so neither is claimed new. The surviving contribution is the computed model-specific strictly negative cubic center coefficient at R=1,c=c_*, the exact 1/n versus 1/sqrt(n) local extinction amplitudes and asymptotically stable positive branch slope δ/b. Jang–Yousef Theorem 2.4 gives fixed-point nonexistence at the cutoff but no critical polynomial time law. Published same-model Resultary finding requires R<1 and does not classify this boundary; no-refuge and continuous-time cubic works have different equations and cannot imply these amplitudes. Searches are bounded, not proof of absolute novelty.",
+      "residual_risks": [
+        "The historical-priority search is not exhaustive: unpublished or unindexed critical-boundary notes may contain equivalent decay constants.",
+        "The primary 2023 publisher PDF was available in web-indexed text but its screenshot endpoint returned HTTP 403; visual PDF review could not be completed.",
+        "Earlier Jang/Chow cited no-refuge papers might derive critical special cases; the 2018 arXiv original was inspected and its hypotheses differ, but every citation chain is not exhaustively audited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the model, invasion threshold and equilibrium nonexistence cutoff; does not assert the local center-manifold coefficients, the two extinction amplitudes, or stable branch slope",
+          "evidence": "Equation (2) matches exactly after normalized k=a=1; Proposition 2.3(b) classifies strictly βγK ≠ 1; Theorem 2.4 for βγK ≤1 proves no positive equilibrium if 1<2c≤[λ(2γ+1)-1]/K, exactly 2c_*; Figure 3 studies R=.8, not critical R=1. No exact critical time rates are stated in these inspected sections.",
+          "identifier_or_url": "https://doi.org/10.1080/17513758.2023.2242372",
+          "material_read": "Publisher full article PDF indexed text: normalized equation (2), lines 162–184; boundary and isocline results, Proposition 2.3, lines 218–275; Section 2.3, Theorems 2.3–2.4, lines 573–616; Figure 3 and discussion, lines 617–661; introduction and conclusions. PDF screenshot attempts returned publisher HTTP 403; textual pages were accessible through indexed PDF.",
+          "method": "Read the full-text PDF extract by page/line location and compare hypotheses and theorem implications to target exact critical multiplier and rates; screenshot access failure noted",
+          "title": "Effects of prey refuge and predator cooperation on a predator–prey system",
+          "trigger": "The original primary article defines the precise normalized discrete recurrence and proves the relevant cooperation cutoff"
+        },
+        {
+          "assessment": "Not covering the target critical claim: assumes R=βγK strictly less than one and strong refuge γ≤K/(2λ); explicitly excludes R=1 and makes no dynamical stability claim",
+          "evidence": "Assumptions state R<1 and limitations exclude equality; the theorem proves count and monotonic branches, not y_n decay or critical equilibrium branch stability at R=1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-unique-sharp-cooperation-threshold-for-coexistence-in-a-prey-r--1ab64a212b1b/RESULT.md",
+          "material_read": "Full RESULT.md: assumptions, scalar reduction, strict-convexity proof, stationary root count, slope and asymptotics, relation to prior work",
+          "method": "Read complete primary GitHub text via repository connector and compared invasion regime, tuning and dynamics",
+          "title": "A unique sharp cooperation threshold for coexistence in a prey-refuge predator map",
+          "trigger": "Same Jang–Yousef map and possible dominating coexistence threshold theorem"
+        },
+        {
+          "assessment": "Not covering γ in (0,1) with constant prey refuge; no exact critical center-clock or positive-branch slope theorem established for this model",
+          "evidence": "Equation (2.4) has x_{n+1}=λx/(1+x) exp[-y(1+αy)] and y_{n+1}=βx(1-exp[-y(1+αy)]), corresponding to γ=1, excluded in the assigned assumptions; Theorem 3.1 concerns equilibrium counts, and Section 4 focuses on interior Neimark–Sacker dynamics.",
+          "identifier_or_url": "https://arxiv.org/html/1808.00182v1",
+          "material_read": "Full open-access HTML model (2.4), Theorem 3.1, local stability and Neimark–Sacker calculations in Section 4, summary",
+          "method": "Read arXiv primary paper full-text HTML including model, existence classification and local stability arguments",
+          "title": "Cooperative hunting in a discrete predator-prey system",
+          "trigger": "Original discrete cooperative-hunting theorem underpinning the refuge article; possible gamma=1 limiting equivalent"
+        },
+        {
+          "assessment": "Analogy but not logical coverage: continuous-time modified Leslie–Gower flow, prey-invasion neutral endpoint, not discrete Jang–Yousef predator-invasion refuge map",
+          "evidence": "The published model is x-dot=x(r/(1+ky)-d1-d2x-by/(1+qx)) and y-dot=sy(1-y/(a+nx)); its zero prey-invasion result t x(t)^2→u/(2P) cannot imply the exact discrete map b or n y_n^2 limit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-universal-cubic-slowing-at-a-doubly-tangent-predator-only-thresh--574227374316/RESULT.md",
+          "material_read": "Entire published RESULT.md with differential equations, two tangency identities, global convergence proof and rate formula",
+          "method": "Full GitHub text comparison of dynamical category and variables",
+          "title": "Universal cubic slowing at a doubly tangent predator-only threshold",
+          "trigger": "Similar cubic t^-1/2 extinction law could dominate the assigned slowing mechanism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The critical predator reproduction boundary R=1 is a natural ecological bifurcation where linearization is inconclusive, while the cooperation threshold c_* is independently motivated by the published equilibrium-count boundary. Its codimension-two coincidence cancels the generic quadratic restoring term, changing a well-defined extinction-time invariant from a universal 1/n amplitude to a 1/sqrt(n) amplitude and birthing a stable positive equilibrium at calculable slope. The exact b>0, rate amplitudes and stable-branch normal form are nontrivial model-specific quantities not implied by equilibrium existence alone; a future analyst of critical demographic persistence can use them. Claims correctly remain local, not global or stochastic.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Sophia R.-J. Jang and Ahmed M. Yousef (2023), Effects of prey refuge and predator cooperation on a predator–prey system, Journal of Biological Dynamics 17, 2242372. DOI 10.1080/17513758.2023.2242372.",
+    "Yunshyong Chow, Sophia R.-J. Jang and Hua-Ming Wang (2018), Cooperative hunting in a discrete predator-prey system. arXiv:1808.00182v1.",
+    "Published Resultary finding 2026-11-02, A unique sharp cooperation threshold for coexistence in a prey-refuge predator map (1ab64a212b1b).",
+    "Published Resultary finding 2026-10-11, Universal cubic slowing at a doubly tangent predator-only threshold (574227374316).",
+    "https://www.tandfonline.com/doi/pdf/10.1080/17513758.2023.2242372 (full indexed text)",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-unique-sharp-cooperation-threshold-for-coexistence-in-a-prey-r--1ab64a212b1b/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality only; no claim of universal literature coverage.",
+    "Publisher PDF textual full-source available, but web screenshot fetch HTTP 403; scope of inspected material recorded.",
+    "Public metadata privacy block makes science complete but publication not_ready.",
+    "Returned assignment fields copied from displayed connector response into local manifest; direct response-byte filesystem transfer unavailable; source-tree independently checked from seven actual Git blob identities."
+  ],
+  "residual_risks": [
+    "The historical-priority search is not exhaustive: unpublished or unindexed critical-boundary notes may contain equivalent decay constants.",
+    "The primary 2023 publisher PDF was available in web-indexed text but its screenshot endpoint returned HTTP 403; visual PDF review could not be completed.",
+    "Earlier Jang/Chow cited no-refuge papers might derive critical special cases; the 2018 arXiv original was inspected and its hypotheses differ, but every citation chain is not exhaustively audited."
+  ],
+  "schema_version": 1
+}

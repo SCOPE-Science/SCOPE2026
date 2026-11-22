@@ -1,19 +1,21 @@
-# Scientific review: critical extinction and local coexistence in a refuge map
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The recurrence and critical parameter domain are copied from the source's normalized model (equation (2)). At \(\beta\gamma(\lambda-1)=1\), the boundary equilibrium has multipliers \(1/\lambda\) and \(1\). Expanding the exact nonlinear map on its attracting center manifold yields \(y'=y+(c-c_*)y^2+O(y^3)\), with at \(c=c_*\) the explicitly checked negative cubic coefficient \(-b\). Reciprocal-coordinate telescoping gives the precise \(n^{-1}\) and \(n^{-1/2}\) clocks. An implicit-function argument and both multipliers establish the small positive stable branch. The algebraic identities were reproduced by a standalone exact-rational power-series verifier and original-map numerical trajectories. These are local statements only; finite computations are not used as infinite-time proofs.
+PASS
 
-## Originality
+Reconstructed assigned RESULT.md for λ>1, 0<γ<1, βγK=1, c≥0, K=λ−1. The actual Jacobian at (K,0) has multipliers 1/λ and 1 with center tangent h_1=-λγ. Independent SymPy Taylor expansion of the original map and invariant graph verifies h_2=-λ²γ²/K at c_*=1/2+λγ/K; quadratic reduced drift c−c_*; cubic drift exactly −b where b=1/3+λγ/K+2(λγ/K)^2>0. For c<c_* monotone small positive center trajectories have 1/y_{n+1}−1/y_n=(c_*-c)+O(y_n), giving n y_n→1/(c_*-c); at equality 1/y_{n+1}²−1/y_n²=2b+O(y_n), giving sqrt(n)y_n→1/sqrt(2b). y=0 is the invariant strong-stable line, so each sufficiently near positive orbit has a positive center projection and exponential tracking, giving identical limits; h_1 transfers prey deficits. A fresh independent direct fixed-point scalar residual verifies y²[δ−b y+O(δy+y²)]=0, so yδ=δ/b+O(δ²), xδ=K−λγδ/b+O(δ²). Center multiplier 1−δ²/b+O(δ³) and transverse 1/λ+O(δ) imply local asymptotic stability. Numerical checks of original maps across 3 parameter pairs and finite n=300000 corroborated relative amplitudes within 0.4%, and three δ=.001 positive fixed points with the exact scalar equations. Bounded calculations corroborate, do not prove, the universal theorem. Scope local only, no global claim.
 
-**PASS on a best-knowledge basis.** Jang–Yousef (2023), Theorem 2.4, already places the cooperation cutoff at \(2c_*=[\lambda(2\gamma+1)-1]/(\lambda-1)\); that previously known threshold is not the contribution. The comparison instead asks whether prior results imply the *actual nonhyperbolic convergence exponents and constants*, or the stability/slope of the branch right above that cutoff. The complete accessible source's model and theorems, related 2025 delayed-cooperation work, accessible earlier-work descriptions, targeted mathematical record searches and local records did not yield such a model-specific theorem. General one-dimensional parabolic iteration would imply the rates once the coefficient and cancellation are established, but does not supply that nontrivial model-dependent calculation. A possibly unindexed related paper or inaccessible earlier manuscript is a residual priority risk; a negative search is not a proof of uniqueness.
+## originality
 
-## Value
+PASS
 
-**PASS.** The boundary reproduction number being exactly one leaves linear stability inconclusive. This model's ecological cooperation threshold coincides with cancellation of the first nonlinear restoring term, leading to a measurable transition in predator extinction time and a quantitative stable coexistence branch. The result sharpens an existing equilibrium-count threshold with explicit *dynamical* information for a natural ecological parameter boundary; it does not rest on an arbitrarily selected numerical slice. The restricted local domain and exact tuning limit empirical generalization.
+Best-of-knowledge originality PASS: the exact 2023 normalized recurrence and the numerical/analytic cooperation cutoff are preexisting and explicitly credited, so neither is claimed new. The surviving contribution is the computed model-specific strictly negative cubic center coefficient at R=1,c=c_*, the exact 1/n versus 1/sqrt(n) local extinction amplitudes and asymptotically stable positive branch slope δ/b. Jang–Yousef Theorem 2.4 gives fixed-point nonexistence at the cutoff but no critical polynomial time law. Published same-model Resultary finding requires R<1 and does not classify this boundary; no-refuge and continuous-time cubic works have different equations and cannot imply these amplitudes. Searches are bounded, not proof of absolute novelty.
 
-## Closest literature and residual limits
+## value
 
-Jang, S. R-J., and Yousef, A. M. (2023), *Effects of prey refuge and predator cooperation on a predator–prey system*, https://doi.org/10.1080/17513758.2023.2242372 : equation (2), Proposition 2.3, and Theorem 2.4 are closest. The source gives equilibrium nonexistence in the relevant parameter domain but no cubic slowing clock. Peng and Jiang (2025), https://doi.org/10.3390/modelling6030084 , concern a delayed continuous-time system with a different functional response, so their center-manifold/Hopf results do not establish this claim. Related records on cubic slowing in other ecological flows were also considered and do not imply the coefficients for this discrete refuge map. Incompleteness of exhaustive literature indexing remains a limitation. Independent external verification is absent.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The critical predator reproduction boundary R=1 is a natural ecological bifurcation where linearization is inconclusive, while the cooperation threshold c_* is independently motivated by the published equilibrium-count boundary. Its codimension-two coincidence cancels the generic quadratic restoring term, changing a well-defined extinction-time invariant from a universal 1/n amplitude to a 1/sqrt(n) amplitude and birthing a stable positive equilibrium at calculable slope. The exact b>0, rate amplitudes and stable-branch normal form are nontrivial model-specific quantities not implied by equilibrium existence alone; a future analyst of critical demographic persistence can use them. Claims correctly remain local, not global or stochastic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
