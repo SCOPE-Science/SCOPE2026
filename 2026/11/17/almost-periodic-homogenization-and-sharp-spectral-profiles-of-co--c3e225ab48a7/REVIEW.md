@@ -1,11 +1,21 @@
-# Scientific review: almost-periodic Aluthge spectral homogenization
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact binomial iterate formula is stated and independently reconstructed from the shift polar decomposition. Uniform almost-periodic averaging follows by Fourier approximation and contractivity. The logarithmic binomial delta expansion uses centered moments and exponentially small deviations, uniformly over every starting index. Positive coordinatewise bounds transfer under decreasing rearrangement, and integral comparison supplies the Schatten and counting limits. The explicit lacunary low-frequency Fourier series gives one fixed modulus with no polynomial normalized-norm convergence rate. Finite reproducibility checks are supplementary, not an infinite proof.
+## correctness
 
-**Originality — PASS, with priority risk.** The 2026 source proves fixed-rank spectral convergence and gives the binomial weights, but it does not cover the all-index asymptotic envelope, almost-periodic log coefficients, or slow-rate example. Published finite-period nonlinear Aluthge consensus controls bilateral weights, not compact polynomially decaying and nonperiodic almost-periodically modulated shifts. The previously published monotone regularly varying spectral profile excludes nonconstant almost-periodic weights; neither known result individually implies the quantitative global statement or fixed slow example. Searches did not find directly covering results. Standard Fourier mixing and binomial recurrences are not claimed new; a prior synthesis in older ergodic or operator literature remains possible.
+PASS
 
-**Mathematical value — PASS.** The result gives a uniform-in-singular-index spectral classification for compact operators whose original singular coefficients can oscillate persistently at infinitely many independent scales, with exact Schatten asymptotics and counting limits. The fixed slow-rate example identifies a boundary of quantitative homogenization even though all spectral laws remain universal. This is a structural rigidity and rate-obstruction result, not just a further parameter evaluation.
+Binomial exact log-weight iteration; uniform Bohr Fourier mixing; on |S_n-nt|<=nt/2 Taylor through third order and binomial 4th moments give uniform O(n^-2); global rearrangement sandwich passes to norms, Schatten sums and counts. For the fixed series alpha_k=2^(-4^k), n_k=2^(3*4^(k-1)), low modes dissipate, tail phases remain near zero, producing lower error 2^(1-k)>>n_k^-a.
 
-**Limitations.** The assertion concerns positive unilateral shifts and Bohr-almost-periodic logarithmic modulation on a polynomial envelope. It does not assert polynomial rates generally, unknown publication independence, or independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published monotone regularly-varying theorem has the same limiting counting and Schatten coefficients, but oscillatory Bohr-almost-periodic weights are generally not regularly varying; Stankovic Proposition 5.8 only guarantees Schatten convergence, not the macroscopic distribution or fixed slow example.
+
+## value
+
+PASS
+
+Addresses a natural class of compact weighted shifts lying outside monotone regular variation, with sharp global spectral profile and a quantitative-rate obstruction rather than merely repeating a binomial identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

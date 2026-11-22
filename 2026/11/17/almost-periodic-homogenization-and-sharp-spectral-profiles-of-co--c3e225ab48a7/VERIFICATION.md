@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-19.md",
+      "INDEPENDENT_AUDIT_2026-11-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The analytical proof of the binomial iterate identity, Fourier mixing for uniform almost-periodic sequences, uniform Taylor expansion, rearrangement bound, tail integral, and slow convergence example is supplied in RESULT.md. The standard-library standalone CHECK.py replayed 252 finite assertions in the periodic and irrational-frequency cases and printed `ALMOST_PERIODIC_ALUTHGE_DIAGNOSTICS_OK 252`. These finite checks do not establish any infinite statement.
+## correctness
 
-The all-rank spectral bound is a multiplicative comparison, not an assertion that weighted singular values stay in their original coordinate order. The slow-example subsequence proves failure of every fixed polynomial convergence rate for one fixed almost-periodic modulation, not failure of convergence. No independent mathematical audit is recorded.
+PASS
+
+Binomial exact log-weight iteration; uniform Bohr Fourier mixing; on |S_n-nt|<=nt/2 Taylor through third order and binomial 4th moments give uniform O(n^-2); global rearrangement sandwich passes to norms, Schatten sums and counts. For the fixed series alpha_k=2^(-4^k), n_k=2^(3*4^(k-1)), low modes dissipate, tail phases remain near zero, producing lower error 2^(1-k)>>n_k^-a.
+
+## originality
+
+PASS
+
+The published monotone regularly-varying theorem has the same limiting counting and Schatten coefficients, but oscillatory Bohr-almost-periodic weights are generally not regularly varying; Stankovic Proposition 5.8 only guarantees Schatten convergence, not the macroscopic distribution or fixed slow example.
+
+## value
+
+PASS
+
+Addresses a natural class of compact weighted shifts lying outside monotone regular variation, with sharp global spectral profile and a quantitative-rate obstruction rather than merely repeating a binomial identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
