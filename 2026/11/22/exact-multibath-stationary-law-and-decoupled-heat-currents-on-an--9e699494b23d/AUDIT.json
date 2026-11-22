@@ -1,0 +1,162 @@
+{
+  "correctness": {
+    "rationale": "The exact generator maps every subset product to proper-subset products with positive denominators. Induction fixes all \\(2^{n+1}\\) stationary moments, and Walsh inversion reconstructs every full-state probability. First- and second-order identities give the currents and cross-correlations; a stationary two-state transport equation yields the known equal-rate beta mixture. An independent full-master-equation rational checker passed 1,524 states across 21 parameter/size combinations, with a separate exact beta-moment check. Finite verification is supplementary to the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The general switching-environment stationary-density discussion of Caligiuri–Galla, arXiv:2305.19096, addresses two-state PDMP limits, including beta-type stationary densities, and not the finite heterogeneous bath-current formula. https://arxiv.org/abs/2305.19096",
+        "Cornu–Hilhorst, arXiv:1701.06164, analyze a chain with two thermostats rather than one independently driven hub and many leaf-specific baths. https://arxiv.org/abs/1701.06164",
+        "A general finite-state Markov stationary system could of course be solved by a full linear solve, but does not itself supply the triangular correlation identities or leaf-current decoupling."
+      ],
+      "reasoning": "General stationary Markov techniques and Markov-modulated process theory provide possible routes to derive these special formulas and reduce novelty risk; the checked exact chain and uniform-star theorems neither state nor directly dominate the nonexchangeable all-order law coupled to independent bath-current identities. The result claims no new classical telegraph beta distribution.",
+      "searches": [
+        "exact joint stationary distribution Glauber star infinite-temperature hub heterogeneous leaf bath temperatures and heat currents Walsh Fourier moments",
+        "heterogeneous noisy voter model on star with autonomous center independent update noise unequal leaf rates exact steady law",
+        "two-temperature Ising star heat flow rectification exact formula",
+        "Markov modulated independent binary units shared environment joint stationary distribution exact",
+        "multi temperature Ising star stationary joint distribution and heat flux exact arbitrary rates",
+        "2026/11/8/SCOPE-an-exact-triangular-stationary-law-recursion-for-noisy-voters-on--30693f2b8577",
+        "arxiv:2305.19096",
+        "arxiv:1701.06164"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/cond-mat/0206345",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-an-exact-triangular-stationary-law-recursion-for-noisy-voters-on--30693f2b8577/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/26/SCOPE-a-beta-law-and-persistent-collective-fluctuations-for-noisy-voti--4aaf70898e7d/RESULT.md",
+      "https://arxiv.org/abs/1408.5122",
+      "https://arxiv.org/abs/2305.19096",
+      "https://arxiv.org/abs/1701.06164",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-minimal-two-bath-kawasaki-ring-exact-local-order-boundary-and-he--069d27d7962f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest published star recurrence has uniform parameter restrictions, with a genuine overlap at zero hub copying and matched spontaneous rates; it does not prove arbitrary heterogeneous star stationary laws. https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-an-exact-triangular-stationary-law-recursion-for-noisy-voters-on--30693f2b8577/RESULT.md",
+        "The 2014 noisy-voter star result proves a beta limit with a hub influenced by leaves, not a hub-autonomous heat-current law. https://github.com/published-finding corpus/2026/blob/main/2026/10/26/SCOPE-a-beta-law-and-persistent-collective-fluctuations-for-noisy-voti--4aaf70898e7d/RESULT.md",
+        "The 2002 two-temperature chain work derives nonequilibrium spin operators on an alternating ring, without the star flux-independence identity. https://arxiv.org/abs/cond-mat/0206345"
+      ],
+      "reasoning": "The final claim requires simultaneous independent leaf temperatures, couplings and rates, a free positive autonomous hub rate, complete nonexchangeable joint probabilities and exact, independent leaf heat currents. Previous homogeneous voter results do imply some uniform-rate special cases; previous telegraph-filter work implies the beta limit. Neither implication covers the complete multi-parameter statement. Broader unpublished switching-process reductions and generic Markov-stationary formulas are residual risks.",
+      "searches": [
+        "exact joint stationary distribution Glauber star infinite-temperature hub heterogeneous leaf bath temperatures and heat currents Walsh Fourier moments",
+        "heterogeneous noisy voter model on star with autonomous center independent update noise unequal leaf rates exact steady law",
+        "kinetic Ising star all-order stationary correlations and macroscopic magnetization beta distribution",
+        "two-temperature Ising star heat flow rectification exact formula",
+        "heterogeneous multi reservoir Ising star heat-bath full stationary Walsh moment recursion exact current",
+        "2026/11/8/SCOPE-an-exact-triangular-stationary-law-recursion-for-noisy-voters-on--30693f2b8577",
+        "2026/10/26/SCOPE-a-beta-law-and-persistent-collective-fluctuations-for-noisy-voti--4aaf70898e7d",
+        "2026/10/18/SCOPE-minimal-two-bath-kawasaki-ring-exact-local-order-boundary-and-he--069d27d7962f"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 published finite noisy-voter star hierarchy uses homogeneous leaf copying and redraw rates, with the hub itself copying leaves; its zero-hub-copy rate specialization covers a common-noise subfamily but not independently variable hub and leaf rates. https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-an-exact-triangular-stationary-law-recursion-for-noisy-voters-on--30693f2b8577/RESULT.md",
+        "Cox–Peres–Steif, arXiv:1408.5122, Section 4: hub copying is active and the stated result concerns mixing, not the arbitrary-heterogeneity heat-current law. https://arxiv.org/abs/1408.5122",
+        "Schmüser–Schmittmann, arXiv:cond-mat/0206345, treats an alternating two-temperature Ising chain rather than a star. https://arxiv.org/abs/cond-mat/0206345"
+      ],
+      "reasoning": "Binary-spin heat bath on a leaf can be rewritten as copying the independent hub with a local rate and unbiased redraw with a complementary rate. This makes homogeneous noisy-voter star theory an important partial equivalence, explicitly excluded from the novelty claim. However, with arbitrary individual leaf rates and bath parameters, exchangeability and the previous two-sequence factorial recurrence disappear; the new subset-indexed hierarchy, full Walsh inversion and all heterogeneous bath currents are not corollaries of the inspected homogeneous statement. An unindexed general switching-medium result remains a risk.",
+      "searches": [
+        "exact joint stationary distribution Glauber star infinite-temperature hub heterogeneous leaf bath temperatures and heat currents Walsh Fourier moments",
+        "heterogeneous noisy voter model on star with autonomous center independent update noise unequal leaf rates exact steady law",
+        "kinetic Ising star all-order stationary correlations and macroscopic magnetization beta distribution",
+        "independently flipping common hub two-state telegraph leaves heat bath correlation recursion all subsets",
+        "2026/11/8/SCOPE-an-exact-triangular-stationary-law-recursion-for-noisy-voters-on--30693f2b8577",
+        "2026/10/26/SCOPE-a-beta-law-and-persistent-collective-fluctuations-for-noisy-voti--4aaf70898e7d"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic search of published mathematical findings returned the finite homogeneous star recursion and classical beta law as nearest concrete entries; the inspected full claims do not tabulate exact probabilities or currents for arbitrary heterogeneous spin baths.",
+        "The closest older two-temperature spin-chain literature does not present an applicable all-heterogeneity table. https://arxiv.org/abs/cond-mat/0206345"
+      ],
+      "reasoning": "No exact equivalent table was found in the actually searched published corpus and literature terms. This negative search result is not proof of uniqueness; common-parameter covered cases are acknowledged and priority remains conditional on accessible evidence.",
+      "searches": [
+        "exact joint stationary distribution Glauber star infinite-temperature hub heterogeneous leaf bath temperatures and heat currents Walsh Fourier moments",
+        "heterogeneous noisy voter model on star with autonomous center independent update noise unequal leaf rates exact steady law",
+        "kinetic Ising star all-order stationary correlations and macroscopic magnetization beta distribution",
+        "multi-temperature Glauber Ising star stationary heat current leaf center reservoirs exact thermodynamic rectification",
+        "telegraph driven independent spin processes beta mixture exchangeable Ising graph",
+        "two-temperature Ising star heat flow rectification exact formula",
+        "2026/11/8/SCOPE-an-exact-triangular-stationary-law-recursion-for-noisy-voters-on--30693f2b8577",
+        "2026/10/26/SCOPE-a-beta-law-and-persistent-collective-fluctuations-for-noisy-voti--4aaf70898e7d",
+        "2026/11/8/SCOPE-a-non-self-averaging-beta-limit-and-a-persistent-density-gap-for--2e437c797ab7"
+      ]
+    },
+    "rationale": "Search and full-material comparisons support an original joint heterogeneous finite-star stationary hierarchy and sitewise heat-current decoupling relative to examined sources. Prior homogeneous-noisy-voter subfamily and classical beta-filter formulas are explicitly acknowledged as covered; the accepted claim does not repackage those alone. Historical priority remains provisional due to possible earlier Markov-modulated process equivalences.",
+    "residual_risks": [
+      "Unindexed or older general Markov-modulated binary network theorems might implicitly contain this all-order subset recursion.",
+      "The published 2026 homogeneous star recursion covers a special common-noise subfamily; the new claim must remain restricted to its full heterogeneous-and-current classification.",
+      "The beta/PDMP limiting distribution is well established; no separate originality attaches to the beta limit.",
+      "The Cornu–Hilhorst 2017 full text was not read; only the abstract-level comparison is used.",
+      "No independent priority audit has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Alternating-temperature Ising chain, not autonomous hub on arbitrary heterogeneous star; not a dominating result",
+        "evidence": "Even/odd-site Glauber dynamics, perturbative first two stationary corrections; arXiv original posting 2002-06-18",
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/0206345",
+        "material_read": "ArXiv full parsed article including introduction, model, generator perturbation and steady-state claims",
+        "method": "Direct comparison of geometry, temperature assignment, exact statements and correlation structure",
+        "title": "Non-equilibrium stationary state of a two-temperature spin chain",
+        "trigger": "Earliest verifiable literature-led two-temperature kinetic Ising source and closest general motivation"
+      },
+      {
+        "assessment": "A common-rate subfamily is prior-covered; no statement for independently heterogeneous leaf bath rates and freely driven hub or the heat-current law",
+        "evidence": "Published 2026 finite star theorem assumes common leaf rates and one common redraw rate including hub",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-an-exact-triangular-stationary-law-recursion-for-noisy-voters-on--30693f2b8577/RESULT.md",
+        "material_read": "Entire accessible RESULT.md including finite recurrence, all hypotheses, proof, limitations and related work",
+        "method": "Converted Ising heat-bath updates to voter copying plus noise and compared three independent rates and heterogeneous parameters",
+        "title": "An exact triangular stationary-law recursion for noisy voters on a star",
+        "trigger": "Closest ranked published finite-star stationarity result, plausible formula equivalence"
+      },
+      {
+        "assessment": "Hub copies a randomly selected leaf; not independently infinite-temperature-driven; beta limits already known in broad class",
+        "evidence": "The source states hub has total neighbor-copying rate one plus spontaneous flips",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/26/SCOPE-a-beta-law-and-persistent-collective-fluctuations-for-noisy-voti--4aaf70898e7d/RESULT.md",
+        "material_read": "Entire accessible RESULT.md including generator, proof, known beta form and caveats",
+        "method": "Compared hub flip mechanism and limiting law",
+        "title": "A beta law and persistent collective fluctuations for noisy voting on growing stars",
+        "trigger": "Strongly related star-beta title and possible stationary-limit coverage"
+      },
+      {
+        "assessment": "Concentrates on mixing and driven hub copying; no arbitrary heterogeneous thermal star currents",
+        "evidence": "Star model has hub sampling a leaf and rerandomization at each site",
+        "identifier_or_url": "https://arxiv.org/abs/1408.5122",
+        "material_read": "Accessible arXiv HTML section on star and abstract/mixing results",
+        "method": "Compared noisy-voter hub-update dynamics and target stationary current claim",
+        "title": "Cutoff for the noisy voter model",
+        "trigger": "Original star-noisy-voter background referenced by nearby work"
+      },
+      {
+        "assessment": "Beta density is known and explicitly not novel; examined source does not state target finite leaf-dependent current law",
+        "evidence": "Two-state switching PDMP stationary distributions studied in detail in 2023 work",
+        "identifier_or_url": "https://arxiv.org/abs/2305.19096",
+        "material_read": "Accessible arXiv HTML paper, sections on PDMP stationary switching and beta-type distribution",
+        "method": "Distinguished already-covered filtered telegraph stationary law from novel finite heterogeneous hierarchy",
+        "title": "Noisy voter models in switching environments",
+        "trigger": "Known PDMP stationary density that could cover the beta component"
+      },
+      {
+        "assessment": "Not sufficient for a whole-document noncoverage claim; residual risk retained, but different one-dimensional chain model is explicit",
+        "evidence": "Two thermostats on a chain with fermionization of current cumulants",
+        "identifier_or_url": "https://arxiv.org/abs/1701.06164",
+        "material_read": "ArXiv abstract and detailed publicly indexed synopsis; full primary article not read",
+        "method": "Compared declared geometry and heat-flow observable at abstract level",
+        "title": "Glauber's Ising chain between two thermostats",
+        "trigger": "Exact two-reservoir energy-current literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9e699494-b23d-4a16-b153-2ced584a0f3d",
+  "value": {
+    "rationale": "The natural gap concerns reservoir-specific heat transport and complete correlations in a many-bath nonequilibrium network. The result is an all-size, arbitrary-heterogeneity exact stationary classification, proving a sharp and unexpected independence of each heat current from every other leaf despite strictly positive induced correlations. The finite star system is physical and parametrically extensive, not a selected numerical invariant; the familiar beta mixture supplies interpretation but not the basis for claimed novelty.",
+    "status": "PASS"
+  }
+}
