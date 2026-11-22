@@ -1,0 +1,15 @@
+# Scientific review: near-balanced complete-bipartite heat approximation
+
+## Correctness — PASS
+The norm and quantifiers are fixed: unit-edge \(K_{m,m}\) or \(K_{m,m+1}\), every integer \(m\ge2\), all finite \(t>0\), real functions modulo constants, counting \(\ell^1\) numerator and once-per-edge total variation denominator. Exact heat eigenspaces give three entries \(A,B,X\), and a cut with shore counts \(p,q\) has ratio \(2[X+(Ap(m-p)+Bq(b-q))/(bp+aq-2pq)]\). The balanced identity \(D-U-V=(p-q)^2\) proves its equality cases. At one-vertex imbalance, the strictly intermediate ratio \(1<A/B<(m+1)/m\), the two integer endpoint cut inequalities and their exact equality conditions prove the all-time cut bound. Discrete coarea proves it for every real input; strict heat-kernel positivity eliminates multilevel equality. Spectral positivity proves monotonicity/concavity. Independent finite-checker output is supplementary evidence, not an infinite proof.
+
+## Originality — PASS (best-knowledge, with historical risk)
+Full scientific statements were compared against [4] (the stationary all-pair \(L^1\) Poincaré cut theorem), [5] (graph-variation norm of heat itself), and [6] (normalized heat on all-pair Gini variation). None states the finite-time identity-defect norm into counting \(\ell^1\), nor the stricter finite-time unbalanced equality classification. The published stationary theorem is genuinely close: its cut classification covers the limiting coefficient but does not imply the finite-time two-weight comparison without the additional heat-kernel argument. Steinerberger's 2013 complete open-access full text establishes classical \(L^1\) cut reasoning on Euclidean convex sets, not this graph-specific finite-time formula. ElGhawalby–Hancock (2015) develop graph heat spectral embeddings, not the extremal norm. Dowker's 2012 archived abstract is background only; the full text was not read. Unindexed equivalent graph heat-content identities cannot be excluded by these searches.
+
+## Value — PASS
+A finite-time exact error budget for diffusion on near-balanced two-community networks is a natural quantity for variation-regular signals. The key structural distinction is not a generic routine limit: balanced bicliques have a whole family of cardinality-optimal cuts, whereas one excess vertex selects exactly one-one paired cuts (and complements) for every positive finite time, even though the stationary cut problem has substantially more maximizers. It supplies both quantitative calibration and a stability-sensitive extremal geometry. No broader graph classification is claimed.
+
+## Limitations and priority
+Full historical priority is not certified; the stationary \(t\to\infty\) coefficient and coarea method are explicitly prior art. The all-time theorem is for near-balanced unweighted bicliques only. The equality structure is for nonconstant real inputs; finite tests cannot certify all integers and times.
+
+Self-review: passed. Independent audit: not yet performed.
