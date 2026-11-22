@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T11:52:39Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md, blob 0ad2c11f331d86e86d7761c1d0233ca0c347875b",
+        "Assigned CHECK.py inspected as a diagnostic, not accepted as proof",
+        "Independent subgroup-affine-action enumeration and direct polygonal operator-norm diagnostics in independent_checks.py",
+        "Assigned SLOGAN.txt, METADATA.json, AUDIT.json, REVIEW.md and VERIFICATION.md"
+      ],
+      "rationale": "For a finite-dimensional real centrally symmetric polytope, its norm additivity ∥u+v∥=2 occurs exactly when u,v lie on a common exposed facet. Every vertex can be uniquely exposed by a norm-one functional and every relative-interior facet point belongs to exactly its facet. Sufficiency: choose a norming vertex of f and an orbit facet containing both that vertex and gy; a common supporting functional gives ∥v+tgy∥=1+t for arbitrary t=∥T∥>0. Necessity: if a vertex misses the orbit of a facet, the rank-one f⊗y with f uniquely exposing v and y in relint(F) cannot satisfy norm 2 for any g; compactness and equality in triangle inequality force x=±v, yielding contradiction. The action of the isometry group is faithful on the vertices, hence finite. For a regular even N-gon, each subgroup acts on facets by step-L translations and optionally j↦s−j; every pair of adjacent facet residues meets all orbits iff L≤2. Cases L=3,4,≥5 exclude all reflective and nonreflective subgroups, proving R² membership exactly. Isometry group is dihedral (can prove orthogonality from the second moment matrix of regular polygon vertices). This argument treats t>0, N=4, arbitrary even N, and arbitrary real polyhedral dimensions without relying on finite extrapolation.",
+      "residual_risks": [
+        "Finite numerical diagnostics do not prove the universal classification; the analytic supporting-facet and residue-orbit arguments supply that proof.",
+        "No assertion about complex scalars, nonpolyhedral balls, or infinite-dimensional isometry actions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 2.9 covers all Banach spaces geometrically, but no explicit polytope face classification or minimal dihedral subgroup appears in its statements.",
+          "Example 3.8 establishes G-DPr for the whole order-eight cyclic rotation action on an octagonal normed plane, whereas the claim proves minimal order four there and all even polygon sizes.",
+          "Theorem 3.3 concerns locally uniformly rotund spaces; polyhedral norms have flat edges, making its almost-transitivity equivalence inapplicable.",
+          "Langemets et al define scalar alternative/super-ADP rather than arbitrary non-scalar dihedral subgroup actions."
+        ],
+        "reasoning": "A general geometric characterization supplies ingredients, but the conclusion of exact R² containment for every subgroup is not directly covered by the cited broad theorem without new combinatorial reasoning. In Euclidean quantitative profiles the underlying norms are strictly convex, and every finite group has a strict deficit, so those formulas do not dominate the polygonal setting.",
+        "searches": [
+          "https://arxiv.org/abs/2606.20429 Proposition 2.9 Theorem 3.3 Proposition 3.1 Example 3.8",
+          "polyhedral normed spaces finite isometry group Daugavet rank one operator finite face orbit criterion",
+          "https://arxiv.org/html/2504.07631v2 Proposition 3.1 Definition 1.2"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2606.20429",
+        "https://arxiv.org/html/2504.07631v2",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-rank-one-daugavet-deficits-for-finite-euclidean-symmetry-g--12c42ed856f1/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-simplex-rigidity-and-exact-rank-one-daugavet-deficits-for-finite--aa8b58d998af/RESULT.md",
+        "Resultary semantic searches listed in the four comparison objects",
+        "web query: polyhedral group Daugavet property polygon facet incidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full cyclic octagon C8 in Example 3.8 implies a sufficient group, but by subgroup monotonicity does not establish that proper C4 works.",
+          "In the inspected Euclidean 2026/10/18 and 2026/11/8 source files, finite orthogonal actions have worst rank-one norm strictly below 1+t because of round Euclidean sphere; this is not a result about regular-polygon Banach norms.",
+          "Facet-orbit criterion plus dihedral residue classification proves the necessary direction for every reflective subgroup, absent from the compared predecessors."
+        ],
+        "reasoning": "Prior full-action examples do not imply sufficiency for smaller subgroups, and scalar ADP does not imply sufficiency for a cyclic rotation group lacking -I. General G-slice conditions are equivalent abstractly, but deriving exact combinatorial membership adds content. The predecessor theorem can aid the proof without directly giving the final all-subgroups statement.",
+        "searches": [
+          "https://arxiv.org/abs/2606.20429 Example 3.8 Proposition 2.9 Proposition 3.1",
+          "Resultary: exact rank-one Daugavet deficits for finite Euclidean symmetry groups 2026/10/18",
+          "Resultary: simplex rigidity and exact rank-one Daugavet deficits for finite orthogonal actions 2026/11/8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dantas–del Río–Raunig Proposition 2.9 proves equivalence to G-slice and invariant-hull conditions in arbitrary G-Banach spaces, a genuinely broader but implicit formulation.",
+          "For a real polytope, common-norming supporting functionals reduce norm equality to sharing a facet; a uniquely exposed vertex yields necessity for the orbit incidence test."
+        ],
+        "reasoning": "The operator equation is the same invariant as prior G-DPr, but deriving its finite vertex-facet condition requires specializing norm-additivity and establishing both directions; it is not an explicitly stated pre-existing polyhedral theorem in the inspected primary manuscript. Independent exact all-subgroup classification is not implied without further dihedral orbit analysis.",
+        "searches": [
+          "group Daugavet property finite-dimensional polyhedral Banach spaces facet orbit vertices criterion subgroup regular polygon Dantas del Rio Raunig 2026",
+          "group Daugavet property polygons minimal rotations R2 subgroup regular polygon",
+          "https://arxiv.org/abs/2606.20429 Proposition 2.9 items (1),(4),(7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both Resultary searches returned the same submitted November 8 record as the top match, which cannot establish independent earlier priority.",
+          "Other close matches concern finite Euclidean orthogonal rank-one deficits, planar Birkhoff orthogonality, cube/cross-polytope reachability, or dihedral topology; their statements are different.",
+          "No independent exact table of G-DPr subgroup membership was found in the checked returns."
+        ],
+        "reasoning": "No earlier exact subgroup membership table was identified. Search absence is not mathematical novelty proof; an unindexed equivalent table remains a residual risk.",
+        "searches": [
+          "Resultary semantic search: group Daugavet property regular even polygon Banach plane subgroup dihedral rotations facets minimal group vertex facet orbit incidence",
+          "Resultary semantic search: polyhedral normed spaces finite isometry group Daugavet rank one operator finite face orbit criterion",
+          "regular even polygonal Banach plane all subgroups dihedral group Daugavet property contains two-step rotation"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the combined precise finite vertex-facet incidence criterion and complete subgroup classification of every regular even-gonal plane. Dantas–del Río–Raunig introduce the underlying G-Daugavet property and give a general slice/invariant-hull characterization plus a C8 octagon example. Their stated results do not classify all dihedral subgroups, especially C_{N/2}, nor establish the exact necessary and sufficient two-step rotation threshold; the new face and subgroup arguments are substantive. Resultary returned the same submitted finding (excluded as independent predecessor) and unrelated Euclidean norm profile work, not direct coverage. There remains priority risk from implicit or unindexed polyhedral specialization.",
+      "residual_risks": [
+        "General Proposition 2.9 implies this special finite criterion after a short but substantive convex-face reduction; a previously published explicit polyhedral corollary may exist under other vocabulary.",
+        "An unindexed older classification of dihedral subgroup actions on polygonal norms might cover the R² threshold.",
+        "No comprehensive historical priority or unpublished-thesis survey was possible; absence from search results is not evidence of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the general group Daugavet property, G-slice/invariant-hull equivalences, and full C8 octagonal example; does not state a finite polyhedral facet criterion or classify every dihedral subgroup of all even polygons.",
+          "evidence": [
+            "Proposition 2.9 items (1),(4),(7) at manuscript section 2; Example 3.8 at section 3.2 chooses G=Z8 and the 8-vertex unit ball; Theorem 3.3 assumes LUR."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.20429",
+          "material_read": "Accessible full manuscript HTML, especially definitions and proofs of Proposition 2.9, Proposition 3.1/Theorem 3.3, Example 3.8, and subgroup monotonicity Proposition 2.5; searched complete text for polyhedral and subgroup classification.",
+          "method": "Opened arXiv full-text HTML via paper landing page and checked relevant passages and theorem statements.",
+          "title": "A group action approach to the Daugavet property",
+          "trigger": "Exact same group norm equation; octagon full-rotation example and general characterization"
+        },
+        {
+          "assessment": "Scalar alternative and super-ADP are distinct; scalar ±I can coincide with the square case but this does not settle non-scalar minimal rotations in other even polygons or all subgroups.",
+          "evidence": [
+            "Definition of ADP at lines 60-64; Proposition 3.1 identifies dimension-one as the only finite-dimensional super-ADP; no all-dihedral subgroup theorem found."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2504.07631v2",
+          "material_read": "Full accessible HTML introduction and definitions, statement of Proposition 3.1, local spear discussion and searches of manuscript for polyhedral/polygon/rotation.",
+          "method": "Read the arXiv experimental HTML text, targeted statements and source searches.",
+          "title": "The super Alternative Daugavet property for Banach spaces",
+          "trigger": "Check scalar-action aDPr, the special group {±I}, and any finite-dimensional polyhedral coverage."
+        },
+        {
+          "assessment": "Theorems are for real Euclidean norms, with finite groups always having nonzero rank-one deficit; cannot imply group-DPr equality for polygonal Minkowski norms.",
+          "evidence": [
+            "Theorem gives profile Phi_t(cos(pi/N)) for Euclidean C_N/D_N; strict convexity changes the geometric mechanism."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-rank-one-daugavet-deficits-for-finite-euclidean-symmetry-g--12c42ed856f1/RESULT.md",
+          "material_read": "Complete Resultary source RESULT.md, including theorem and proof for planar C_N/D_N and its assumptions.",
+          "method": "Fetched published GitHub result file through read-only repository interface; compared norm, quantifiers and group action.",
+          "title": "Exact rank-one Daugavet deficits for finite Euclidean symmetry groups",
+          "trigger": "Published quantitative profile for finite planar cyclic/dihedral groups uses same operator norm expression."
+        },
+        {
+          "assessment": "Finite O(d) orthogonal group Euclidean norm theorem does not classify polygonal Banach group-DPr or the discrete finite facet incidence test.",
+          "evidence": [
+            "Theorem assumes real Euclidean H and computes Psi_t(eta_G), distinct from general polyhedral norm geometry."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-simplex-rigidity-and-exact-rank-one-daugavet-deficits-for-finite--aa8b58d998af/RESULT.md",
+          "material_read": "Complete published RESULT.md, including orthogonal orbit minimax theorem and planar group classification.",
+          "method": "Read GitHub source via read-only repository interface; compared scope and metric.",
+          "title": "Simplex rigidity and exact rank-one Daugavet deficits for finite orthogonal actions",
+          "trigger": "A second more general finite-orthogonal group result with the same analytic norm functional."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2606.20429",
+        "Assigned RESULT.md finite incidence and complete subgroup theorem",
+        "The two published Euclidean finite-group deficit results for contrasting geometry"
+      ],
+      "rationale": "The result makes the infinitely quantified rank-one group Daugavet equation exactly decidable by a finite geometric incidence relation for every real polyhedral norm. On regular even polygons it resolves a natural minimal-group question left open by the full-rotation example: an order-N/2 cyclic subgroup is sufficient and necessary inside every qualifying dihedral subgroup, with reflections unable to substitute. This is a structural classification and exact boundary, not only a computational or renaming exercise.",
+      "residual_risks": [
+        "The polyhedral reduction is fairly elementary relative to the prior general G-slice theorem, but exact all-subgroup sharpness is a nontrivial useful outcome."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem is real finite-dimensional polyhedral only; regular polygons are even with N≥4.",
+    "Originality is best-of-knowledge with residual priority risk from earlier implicit/generalized geometric criteria and unindexed subgroup classifications.",
+    "The literature comparison includes accessible relevant mathematical passages and full Resultary texts, but does not constitute exhaustive historical source coverage.",
+    "No public record changes, independent external attestation, or Lean verification is claimed."
+  ],
+  "schema_version": 1
+}

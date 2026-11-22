@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** For real polytopal norms, norm additivity is equivalent to common-facet incidence. The necessity proof constructs a rank-one witness from a uniquely exposed vertex and a relative-interior facet point; sufficiency selects a norming vertex and an appropriate orbit facet. Every dihedral subgroup has a rotation step \(L\) and at most one reflection class modulo \(L\). The residue orbit cases \(L\le2\), \(L=3\), \(L=4\), and \(L\ge5\) give the exact classification. The independently executed finite orbit diagnostic returned 13,831 passed cases, but universal validity comes from the proof.
+## correctness
 
-**Originality: PASS (qualified).** Dantas–del Río–Raunig's 2026 general slice characterization covers the same group property at a higher level, while their explicit regular-octagon example uses the full rotation group. The finite vertex–facet test and exact all-subgroup classification are not stated there. The structural reduction and dihedral orbit argument are the distinguishing content, not the general group Daugavet framework. published research-index searches for vertex–facet group action, polyhedral group Daugavet, and dihedral rotation thresholds did not return a directly covering item. The historical Euclidean finite-orthogonal group deficit result is different: its sphere is strictly convex and it computes quantitative rank-one deficits, not polyhedral group membership. Risk: an unindexed finite-dimensional consequence of a broader geometric characterization may subsume this theorem.
+PASS
 
-**Value: PASS.** The result turns an operator norm equation quantified over all rank-one operators into an exact finite incidence test usable in arbitrary polyhedral dimensions. It gives the minimal size and complete subgroup classification in a natural family emphasized by the motivating paper, and proves that reflections cannot replace the required two-step rotations. These are exact group-geometry boundaries rather than incremental estimates.
+For a finite-dimensional real centrally symmetric polytope, its norm additivity ∥u+v∥=2 occurs exactly when u,v lie on a common exposed facet. Every vertex can be uniquely exposed by a norm-one functional and every relative-interior facet point belongs to exactly its facet. Sufficiency: choose a norming vertex of f and an orbit facet containing both that vertex and gy; a common supporting functional gives ∥v+tgy∥=1+t for arbitrary t=∥T∥>0. Necessity: if a vertex misses the orbit of a facet, the rank-one f⊗y with f uniquely exposing v and y in relint(F) cannot satisfy norm 2 for any g; compactness and equality in triangle inequality force x=±v, yielding contradiction. The action of the isometry group is faithful on the vertices, hence finite. For a regular even N-gon, each subgroup acts on facets by step-L translations and optionally j↦s−j; every pair of adjacent facet residues meets all orbits iff L≤2. Cases L=3,4,≥5 exclude all reflective and nonreflective subgroups, proving R² membership exactly. Isometry group is dihedral (can prove orthogonality from the second moment matrix of regular polygon vertices). This argument treats t>0, N=4, arbitrary even N, and arbitrary real polyhedral dimensions without relying on finite extrapolation.
 
-**Limitations:** Real finite-dimensional polyhedral norms only. No independent audit or publication-priority verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the combined precise finite vertex-facet incidence criterion and complete subgroup classification of every regular even-gonal plane. Dantas–del Río–Raunig introduce the underlying G-Daugavet property and give a general slice/invariant-hull characterization plus a C8 octagon example. Their stated results do not classify all dihedral subgroups, especially C_{N/2}, nor establish the exact necessary and sufficient two-step rotation threshold; the new face and subgroup arguments are substantive. Resultary returned the same submitted finding (excluded as independent predecessor) and unrelated Euclidean norm profile work, not direct coverage. There remains priority risk from implicit or unindexed polyhedral specialization.
+
+## value
+
+PASS
+
+The result makes the infinitely quantified rank-one group Daugavet equation exactly decidable by a finite geometric incidence relation for every real polyhedral norm. On regular even polygons it resolves a natural minimal-group question left open by the full-rotation example: an order-N/2 cyclic subgroup is sufficient and necessary inside every qualifying dihedral subgroup, with reflections unable to substitute. This is a structural classification and exact boundary, not only a computational or renaming exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
