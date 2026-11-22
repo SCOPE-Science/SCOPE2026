@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The finite graph is explicitly normalized by residues {1,3,4,9,10,12}, yielding closed-neighborhood differences of size 3/4 for adjacent/nonadjacent pairs. Every 4-omission failure is exactly a 2+2 selection from an adjacent pair; a complete 13-orbit certificate shows 351 distinct failures, each with exactly one edge witness. A complete 19-orbit certificate shows every 5-omission includes a forbidden tetrad. Monotonicity excludes larger omissions; smaller ones satisfy all constraints, establishing the polynomial and affine-orbit count. The direct Python verifier tested all 8192 sensor masks, and the independently structured C++ checker enumerated all 715 tetrads and 1287 quintuples and the group action, both from actual source files. No infinite statement is asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gravier et al. (2015) PDF introduction and §§2-3 discuss identifying-code bounds and Paley graph families, without fault-tolerant directed-two-witness enumerators.",
+        "Jean--Seo (2022) PDF §§2-4 contains criterion, complexity, hypercube, cubic and grid results; no general strongly-regular theorem covering the exact P13 count."
+      ],
+      "reasoning": "A generic lower bound or family-level ordinary IC bound cannot determine all DET:IC counts on a specific graph. The 2022 definition is prerequisite, not a stronger counting theorem. The graph-specific residue-orbit certificate supplies missing information.",
+      "searches": [
+        "fault tolerant identifying code Paley 13 graph minimum 2 redundant",
+        "identifying codes Paley graph 13 optimum code family polynomial",
+        "closed-neighborhood 2 sharp identifying sets conference graphs",
+        "2015 Identifying codes in vertex-transitive graphs and strongly regular graphs full text",
+        "2022 Optimal Error-detection system for Identifying Codes full text"
+      ]
+    },
+    "checked_sources": [
+      "Jean--Seo 2022 arXiv 2208.06052v1 full PDF",
+      "Jean--Seo 2021 arXiv 2112.01685v1 PDF",
+      "Gravier--Parreau--Rottey--Storme--Vandomme 2015 Electronic Journal of Combinatorics PDF",
+      "Elsawy--Almohammadi 2025 European Journal of Pure and Applied Mathematics PDF",
+      "Related published records on projective-plane open-location and dodecahedral one-erasure identification (summary-level only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2.1 of Jean--Seo (2022) is a necessary-and-sufficient test only, with no Paley census.",
+        "Jean--Seo (2021) gives RED:IC symmetric separation, not asymmetric 2#; Gravier et al. (2015) concerns standard IC; Elsawy--Almohammadi (2025) concerns edge-graceful labeling of the exact graph."
+      ],
+      "reasoning": "None of these implies the exact 364 minimum DET codes, unique adjacent-edge witness partition of 351 forbidden tetrads, or complete five-size code polynomial. The explicit finite proof and full enumeration establish all stated counts independently of prior generic inequalities.",
+      "searches": [
+        "arxiv:2208.06052v1",
+        "arxiv:2112.01685v1",
+        "Gravier et al. 2015 Paley identifying codes",
+        "Paley graph order 13 asymmetric 2 distinguishing code closed neighborhoods",
+        "2025 Paley Cubic Paley Quadruple Paley Generalized Paley edge graceful"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DET:IC is asymmetric 2#-separation of closed-neighborhood signatures (Jean--Seo 2022 PDF pp.2-3); 2021 redundant identifying code requires symmetric-difference cardinality at least two (Jean--Seo 2021 PDF pp.1-2).",
+        "The 2015 vertex-transitive study uses ordinary identifying codes, requiring only one separating witness."
+      ],
+      "reasoning": "Different error model and directional requirement prevent assuming that standard or redundant identifying-code results yield this polynomial. The criteria are explicitly converted to set differences in the new proof and checked in both forms. The paper from 2022 defines the condition but does not classify Paley 13.",
+      "searches": [
+        "Paley P13 error detecting identifying codes 364 minimum 9 351 omitted four subsets",
+        "Paley graph order 13 asymmetric 2 distinguishing code closed neighborhoods",
+        "error detecting identifying codes Paley 13 two-sharp 9 sensor",
+        "Paley graphs error detecting identifying codes",
+        "arxiv:2208.06052v1 §2 Theorem 2.1",
+        "arxiv:2112.01685v1 §1 Theorem 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published research-record search hits included an error-detecting open locating polynomial on a 26-vertex projective-plane incidence graph and one-erasure identifying codes on a 20-vertex dodecahedral graph; neither is the 13-vertex Paley closed-neighborhood DET:IC condition.",
+        "All 85 accessible same-week own prior finding claims and source identifiers were checked for Paley 13, DET:IC aliases, and the 364/351 numerical signatures; no overlap was identified."
+      ],
+      "reasoning": "No retrieved table or source contains the target enumerator. Search incompleteness does not prove uniqueness; the strongest related cases are scientifically different and do not imply this exact count.",
+      "searches": [
+        "Paley P13 error detecting identifying codes 364 minimum 9 351 omitted four subsets",
+        "Paley graph order 13 asymmetric 2 distinguishing code closed neighborhoods",
+        "error detecting identifying codes Paley 13 two-sharp 9 sensor",
+        "error-detecting identifying code Paley 13 quadratic residue graph 9 detectors 364 optimal deletion tetrads",
+        "Paley 13 DET-IC code 9 364",
+        "13 vertex Paley graph two asymmetric difference distinguishing minimum sensor code"
+      ]
+    },
+    "rationale": "The actual Paley-13 closed-neighborhood DET:IC polynomial and unique-edge forbidden-tetrad structure were compared against the 2022 criterion paper, the 2021 RED:IC paper, the 2015 standard identifying-code study of Paley/strongly regular graphs, and a 2025 Paley-13 edge-labeling article. Published research-record searches for the graph, parameters, aliases, asymmetric two-witness condition, and exact counts returned different host graphs or code variants; none of the read source statements imply the 364-code census. Priority remains provisional.",
+    "residual_risks": [
+      "A relevant unindexed Paley-13 DET:IC computational table or later revised full text could affect priority.",
+      "A related published-record URL could not be retrieved for full-text inspection; its available description concerns a different 26-vertex incidence graph and open-location condition.",
+      "Independent peer or external mathematical review has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_CRITERION_NOT_COVERING_TARGET",
+        "evidence": "The theorem specifies directed 2# distinction; its graph-class theorems treat hypercubes, cubic graphs, infinite grids; no Paley-13 count or direct corollary.",
+        "identifier_or_url": "https://arxiv.org/pdf/2208.06052",
+        "material_read": "Entire thirteen-page PDF sections 1-4 and references; especially Definitions 1-4 and Theorem 2.1 on page 3",
+        "method": "Lawful arXiv open-access PDF text and page inspection",
+        "title": "Optimal Error-detection system for Identifying Codes",
+        "trigger": "Exact original DET:IC source and potential same-invariant coverage"
+      },
+      {
+        "assessment": "DIFFERENT_FAULT_MODEL_NOT_COVERING",
+        "evidence": "RED:IC requires cardinality-two symmetric-difference rather than asymmetric two witnesses on one side; it does not determine DET:IC code multiplicities on the Paley graph.",
+        "identifier_or_url": "https://arxiv.org/pdf/2112.01685",
+        "material_read": "Abstract, introduction, RED:IC theorem on PDF page 2, and whole-document search for Paley; enough to compare definitions, not a complete line-by-line reading of all later special graph cases",
+        "method": "Lawful arXiv full PDF text with page inspection",
+        "title": "Fault-tolerant Identifying Codes in Special Classes of Graphs",
+        "trigger": "Possible stronger or equivalent one-erasure code theorem"
+      },
+      {
+        "assessment": "ORDINARY_IC_NOT_COVERING_DET_CENSUS",
+        "evidence": "The paper defines standard IC with one separation and develops fractional/integer bounds for strongly regular graphs; the asymmetric 2# condition and Paley-13 counting polynomial are not derived.",
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v22i4p6/pdf/0",
+        "material_read": "Abstract, introduction, preliminaries, identifying-code integer-program section and Paley context, with targeted search for error-detecting; not a line-by-line reading of every later bound",
+        "method": "Lawful open PDF text and screenshot, targeted keyword search",
+        "title": "Identifying codes in vertex-transitive graphs and strongly regular graphs",
+        "trigger": "Paley graph identifying-code results may dominate the new parameter"
+      },
+      {
+        "assessment": "SAME_HOST_DIFFERENT_PROPERTY",
+        "evidence": "The explicit residue model is the same, but the paper studies edge-graceful labels, not identifying-code sensors.",
+        "identifier_or_url": "https://www.ejpam.com/ejpam/article/download/6600/2596",
+        "material_read": "Abstract, §1, §2 Example 1 and Paley-13 diagram, conclusions and source keywords",
+        "method": "Open research PDF text plus page image",
+        "title": "Paley, Cubic Paley, Quadruple Paley, and Generalized Paley Graphs with an Edge Graceful Labeling",
+        "trigger": "Exact same 13-vertex graph named in 2025 research"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a20d4d1c-9e45-4554-a925-a31faf978595",
+  "value": {
+    "rationale": "The Paley graph of order 13 is a canonical prime-order conference graph, with highly uniform local neighborhoods. Exact error-detecting detector reliability is natural and more restrictive than ordinary or outage-tolerant identification. The theorem resolves the precise optimum, every admissible detector size, a unique-witness family of 351 critical omission tetrads and a covering obstruction at five omissions. The seven-orbit structure and all-set multiplicities give informative fault-tolerant sensing benchmarks not implied by generic bounds; no downstream general theorem is necessary for this motivated exact finite classification.",
+    "status": "PASS"
+  }
+}
