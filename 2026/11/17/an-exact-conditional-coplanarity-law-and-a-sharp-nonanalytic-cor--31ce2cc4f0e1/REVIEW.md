@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact joint formula was reconstructed from the three-point spherical affine Blaschke–Petkantschin area Jacobian and the independent uniform height of the fourth point. The normalized first-triangle height density is \(3(1-h^2)/4\), and its angle density is the unit-circle triangle area \(T\) divided by \(3/(2\pi)\). The substitution from fourth-point signed height to the signed volume mark cancels exactly the size-bias terms, yielding the constant \(3\pi t\) and the physical admissibility indicator. The total-variation identity is exact. The two boundary rejection modes have respectively square-root and linear onset. A globally integrable bound permits dominated convergence, and the circular Dyson integral gives the finite negative-half-area moment and the coefficient. Every quantified limiting statement concerns fixed dimension three and \(t\downarrow0\); numerical sampling is corroborative only.
+PASS
 
-## Originality — PASS, subject to historical-priority risk
+PASS. Randomized plane-normal orientation is required to avoid angular ordering bias. Affine sphere Blaschke-Petkantschin for the first 3 vertices has height density (3/4)(1-h²) and circle-angle density proportional to triangle area T with E0[T]=3/(2pi). Given first plane, X4 latitude U=N⋅X4 is uniform [-1,1] and its azimuth independent uniform. Set z=(1-h²)T(U-h)/(3t), so V<t iff |z|<1 with physical latitude cutoff; Jacobian 3t/[(1-h²)T] cancels the area-biased density, proving the EXACT finite-t identity P(V<t)=3pi t μ0(E_t) and conditioned marks μ0(.|E_t). TV distance exactly 1-μ0(E_t). Near poles the outward rejection solves δ²(2-δ)<(3t/T)|z|, giving conditional rejection asymptotic √(t/(6T))? With both sign factors the integrated limit is (1/3)√(3/(2T)), and the inward contribution is O(t/T). Uniform bound sqrt(3/T) and circular Selberg/Dyson identity E0[T^-1/2]=2Γ(1/4)/Γ(3/4)^3 give c*=sqrt(6)Γ(1/4)/(3Γ(3/4)^3)≈1.6087333276801397. Thus P(V<t)=3πt-πsqrt(6)Γ(1/4)/Γ(3/4)^3 t^(3/2)+o(t^(3/2)). Full law and rate follow analytically by dominated convergence, not Monte Carlo.
 
-Miles (1971) gives an exact classical scalar moment formula for isotropic random simplices, which is strong enough to determine the one-variable volume distribution; the marginal tail constants therefore are **not** claimed to constitute a wholly new independent volume-distribution theory. Ruben and Miles (1980) give a general isotropic configuration decomposition, and Brauchart et al. (arXiv:1512.07470, initial version December 23, 2015) use a spherical plane-section area Jacobian in a many-point hole-radius calculation. None of the materially inspected full text or accessible classical statements supplied the particular all-threshold four-point *marked conditional uniform rejection law*, the limiting independent circle-angle and plane-height marks, or the sharp total-variation correction. The original complete texts of Miles (1971) and Ruben–Miles (1980) could not be read; a historically earlier equivalent conditional theorem remains a material residual risk. Distinct recent sphere-tetrahedron results on upper-volume tails, cap coverage, and visible facet counts do not imply the present small-volume marked law.
+## originality
 
-## Value — PASS
+PASS
 
-Near-zero tetrahedron volume can arise by several geometrically distinct degenerations. The exact conditional disintegration identifies which shapes dominate: the initially area-biased plane height becomes uniform, and all four angular marks become independent uniform samples. The exact rejection sampler has acceptance probability approaching one, whereas naive direct sampling has probability asymptotic to \(3\pi t\). The explicitly calculated nonanalytic square-root acceptance defect quantifies the approach to this universal marked limit. This is a structural conditioning law useful both for rare-event geometry and efficient simulation, not merely a restatement of a scalar moment formula.
+PASS bounded. Classical Miles 1971 scalar volume moments in principle determine the scalar distribution; the leading 3πt and qualitative unmarked chord weak limit were previously published. The surviving claim is the exact EVERY-positive-threshold marked uniform rejection identity and the sharp explicit sqrt(t) total-variation rate. These are not mathematical consequences of a weak limit alone. Unavailable classical original full texts prevent ruling out an earlier equivalent marked disintegration: acknowledged risk, not automatic failure. Oxford institutional retrieval of Miles 1971 returned VPN disconnected after arXiv and lawful OA efforts.
 
-## Limitations and closely related literature
+## value
 
-The base geometry is exactly the unit two-sphere with independently chosen normalized-area points and a fair normal-orientation coin. Other measures, dimensions, and geometries are not covered. The signed volume mark depends on the threshold, and no stronger universal theorem is asserted. Full historical textual comparison is limited by inaccessible original 1971 and 1980 papers. Independent mathematical and priority audits remain to be performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Near-coplanar random simplices are a natural rare-event geometry; providing an exact efficiently samplable conditional representation and quantified sharp nonanalytic total-variation correction for the WHOLE marked configuration is substantially stronger than the already-known scalar moments and qualitative weak convergence. Its exact coefficient comes from an integrable negative half-moment rather than arbitrary simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
