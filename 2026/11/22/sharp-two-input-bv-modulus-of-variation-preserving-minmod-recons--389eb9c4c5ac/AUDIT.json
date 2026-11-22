@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Reconstructing the complete distributional variation proves the one-input identity; the minmod secant is a convex combination of three affine gradient selectors. Each step input affects at most two adjacent cell slopes, giving exact step variation 1+lambda(a+b) and hence the all-dimensional bound. Distinct explicit input pairs reach each case. Exact rational checker verifies arithmetic and witnesses; no finite experiment substitutes for universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Harten presents l1 contraction of monotone evolution schemes and TVNI time steps",
+        "Dubois establishes minmod interpolation framework and broader TVD nonlinear interpolation theory, not a pairwise sharp BV constant parameterized by cell count and slope scaling"
+      ],
+      "reasoning": "The inspected published broader theory does not furnish a dominating pairwise bound with the sharp equality witnesses for all scaling strengths. No claim of exhaustive exclusion of inaccessible sources is made.",
+      "searches": [
+        "High-Resolution Schemes for Hyperbolic Conservation Laws Harten 1982 Chapter 2 TVNI",
+        "Nonlinear Interpolation and Total Variation Diminishing Schemes Dubois 2010 full PDF",
+        "TV preserving minmod cell reconstruction two input instability three n four",
+        "MUSCL piecewise linear reconstruction sharp BV Lipschitz gain two inputs minmod slope limiter",
+        "minmod flux limiter two input total variation contraction variation seminorm"
+      ]
+    },
+    "checked_sources": [
+      "Dubois 2010 arxiv:1006.3921v1 full relevant Sections 2, 6",
+      "Harten March 1982 NASA NTRS 19830002586 scanned relevant Chapter 2",
+      "Published path-median sharp two-input variation full result",
+      "Published cyclic median BV perturbation full result",
+      "published-finding corpus searched minmod/MUSCL/two-input/BV aliases",
+      "published-finding corpus final exact-sharpness semantic searches on 1+2lambda, minmod pairwise BV, and four-cell gain; closest hits were median and morphological filters rather than cellwise MUSCL reconstruction"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published path median formula is the BV norm of T_i=median(u_(i-1),u_i,u_(i+1)), not distributional variation of reconstructed cellwise affine functions",
+        "Published cyclic median theorem has a different boundary domain and dimension threshold",
+        "Minmod operator is a median of adjacent gradients, but inserting spatial differences before the median does not commute with the filter or the BV norm"
+      ],
+      "reasoning": "None of the examined statements directly implies the exact minmod reconstruction law; proving such an implication would require additional unprovided identities, and their parameter-dependent sharpness and actual witnesses are distinct. No universal priority conclusion follows.",
+      "searches": [
+        "2026/11/1/SCOPE-sharp-two-input-variation-sensitivity-of-three-point-median-smoo--5759b99f2a42/RESULT.md full text",
+        "2026/10/26/SCOPE-sharp-bv-perturbation-threshold-for-cyclic-three-point-medians--59530ef626eb/RESULT.md full text",
+        "arxiv:1006.3921v1 Sections 2 and 6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Minmod is the median of 0 and neighboring first differences, not the median of three original sample levels",
+        "The relevant Dubois sections calculate reconstruction and limiter quantities for one dataset, while the claimed norm takes a difference of two separately reconstructed datasets"
+      ],
+      "reasoning": "Searched both terms minmod and median-limiter with two-input variation; a one-input TVD assertion is not equivalent because R(u-v) need not equal R(u)-R(v), and nor does an l1-contractive time-step yield a BV reconstruction norm.",
+      "searches": [
+        "minmod MUSCL reconstruction exact one-input total variation equality two-input variation Lipschitz factor 3 sharp",
+        "minmod limited piecewise affine interpolation map BV seminorm distance Lipschitz factor three adjacent slopes",
+        "Dubois arxiv:1006.3921v1 Section 2 reconstructed variation, Section 6 minmod"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published mathematical records concern three-point median level filtering or finite-window min/max morphology, not minmod reconstruction",
+        "No examined exact constant table contains the dimension-dependent 1,1+lambda,1+2lambda law"
+      ],
+      "reasoning": "A coincidental full-slope value of three is not an exact duplicate: source objects, input variation space, output and scaling parameters differ. Failure to locate a table does not establish complete novelty.",
+      "searches": [
+        "published-finding corpus semantic search minmod MUSCL reconstruction sharp BV two-input sensitivity",
+        "published-finding corpus semantic search minmod cell reconstruction variation seminorm",
+        "Dubois arxiv:1006.3921v1 Section 6 minmod formula (6.16)",
+        "sharp two input BV variation Lipschitz norm of minmod MUSCL piecewise linear reconstruction 1+2lambda",
+        "variation preserving minmod reconstruction pairwise difference jump two neighboring slopes nonexpansive BV",
+        "minmod reconstruction two-input sharp variation gain 3 for four cells"
+      ]
+    },
+    "rationale": "The sharp two-input modulus for cellwise affine minmod reconstruction is not implied by inspected full primary accounts of minmod and TVNI evolution, nor by full statements for median-of-levels filters; those are different operators and function spaces. Search was targeted to minmod aliases, scales, BV norms, and related sharper bounds. Historical priority remains qualified.",
+    "residual_risks": [
+      "Potential older MUSCL limiter analyses, technical reports or less-indexed stability results may state equivalent two-input sharp bounds",
+      "Only material from identified relevant full texts was inspected, not a proof of exhaustive literature coverage",
+      "Source-publication exact-date evidence is supplied by the June 20, 2010 arXiv version; the older March 1982 report has only month-level date on its original cover"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The material treats interpolation and total variation of individual reconstructions and numerical evolution, not the sharp pairwise BV amplification of R_lambda u-R_lambda v",
+        "evidence": [
+          "Section 2 discusses total variation of interpolated sequence; Section 6 formula (6.16) defines the minmod limiter",
+          "No inspected statement gives a bound on V(R_lambda u-R_lambda v)/V_d(u-v), including the n-dependent sharp coefficient"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1006.3921",
+        "material_read": "Sections 2 and 6, especially the reconstructed-function variation identities and the minmod formula (6.16); original definitions and neighboring propositions",
+        "method": "Opened full arXiv PDF, inspected relevant pages in textual extraction and page screenshots",
+        "title": "Nonlinear Interpolation and Total Variation Diminishing Schemes",
+        "trigger": "Full-text primary source for minmod and variation of reconstructed data"
+      },
+      {
+        "assessment": "The analyzed theorem concerns a time-evolution operator and its l1 contraction; that is not a pairwise variation bound on the piecewise-affine reconstruction itself",
+        "evidence": [
+          "March 1982 original report; Chapter 2 displays l1-contraction for monotone schemes and TVNI in time",
+          "A norm of a time-step operator cannot imply the claimed exact piecewise-function reconstruction sensitivity without a separate argument"
+        ],
+        "identifier_or_url": "https://ntrs.nasa.gov/api/citations/19830002586/downloads/19830002586.pdf",
+        "material_read": "Cover and discussion of variation-nonincreasing time evolution and l1 contraction in Chapter 2 (scanned printed page 7)",
+        "method": "Inspected the publicly accessible scanned report and the relevant page images",
+        "title": "High-Resolution Schemes for Hyperbolic Conservation Laws",
+        "trigger": "Foundational archival TVNI scheme and nonlinear limiter reference"
+      },
+      {
+        "assessment": "A median filter of three signal values differs from minmod of consecutive differences with a cellwise affine output and an independent scaling parameter; the published claim does not imply the present theorem",
+        "evidence": [
+          "Its theorem has T_i f=median(f_{i-1},f_i,f_{i+1}) and sharp weighted seminorm factor",
+          "Here output lives on n real cells, is piecewise affine and has independent slope scaling; the n=3 coefficient and the scaling law differ"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/1/SCOPE-sharp-two-input-variation-sensitivity-of-three-point-median-smoo--5759b99f2a42/RESULT.md",
+        "material_read": "Entire RESULT.md, including definitions, theorem, proof and limitations",
+        "method": "Retrieved actual complete scientific result text via repository read and compared operator definitions and claims",
+        "title": "Sharp two-input variation sensitivity of three-point median smoothing on finite paths",
+        "trigger": "Same two-input BV seminorm and coinciding full-slope factor three"
+      },
+      {
+        "assessment": "A cyclic pointwise median of levels on a finite cycle, not an endpoint-pinned minmod slope reconstruction on an interval",
+        "evidence": [
+          "Its exact coefficients are 0,2,3 across cycle dimensions, whereas the present coefficients are 1,1+lambda,1+2lambda across path dimensions",
+          "No reduction preserves both these domains and constructions"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/26/SCOPE-sharp-bv-perturbation-threshold-for-cyclic-three-point-medians--59530ef626eb/RESULT.md",
+        "material_read": "Entire RESULT.md including all statements and proof",
+        "method": "Retrieved and compared full statement and proof via repository read",
+        "title": "Sharp BV perturbation threshold for cyclic three-point medians",
+        "trigger": "Alternative boundary convention for two-input median BV analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "389eb9c4-c5ac-41fc-9a52-a14a5f4961f3",
+  "value": {
+    "rationale": "Variation preservation of each separately reconstructed signal does not constrain variation of their difference. This theorem resolves that natural reconstruction-robustness gap sharply for all real signals, cell counts and limiter strengths, identifying the first expansive dimension and a precise factor-three instability with simple witnesses. The result directly informs propagation of BV perturbations through limited reconstruction.",
+    "status": "PASS"
+  }
+}
