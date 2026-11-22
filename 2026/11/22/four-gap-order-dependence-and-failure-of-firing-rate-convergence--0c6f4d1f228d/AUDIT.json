@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Each length-14 cell has four opportunities and gap multiset {2,3,4,5}; exact next-eligible-offset checks give counts 4, 3, (3 for A/2 for B), and 2 over four threshold bands. The boundary spike at 14 makes every cell independent of the preceding letter. Fast alternating superexponential letter blocks force the claimed full interval of firing-density limit points. For periodic clocks with <=3 gaps per cell, rotation/reflection cover all permutations; greedy maximum cardinality plus reflection gives invariant asymptotic rate. Exhaustive rational consistency checks supplement the complete proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2611.17219v1 Theorem 3 proves arbitrary-clock recursion; Section 6 proves a rate for a uniform lattice.",
+        "Previously accessible statements on two-phase periodic and Sturmian clocks give convergent rates for their own constrained classes."
+      ],
+      "reasoning": "The general recursion covers the model but does not include the constructed sharp nonconvergence and marginal-statistics boundary; special two-gap periodic and Sturmian results have narrower and different clock assumptions. No inspected stronger theorem gives the exact counterexample as a consequence with no additional construction.",
+      "searches": [
+        "arxiv 2611.17219 structure preserving leaky integrate fire firing rate nonconvergence time scale bounded graininess",
+        "Structure-preserving integrate and fire reset on arbitrary time scales. Spike recursion forward projection, periodic opportunity sets, phase locking and rational rotation numbers, exact long-run firing frequency",
+        "arxiv:2611.17219v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.17219v1, full accessible HTML text",
+      "doi:10.1007/s00422-021-00868-8, full accessible OA HTML text",
+      "Relevant pre-existing two-phase periodic and Sturmian clock results, scientific claim summaries examined for implication comparison",
+      "published-finding corpus 2026/11/17/SCOPE-uniform-marginal-rigidity-and-alternating-correlation-reversal-i--cedf8adecd43: periodic threshold-neuron voltage marginal rigidity, not reset-deadtime output rate",
+      "published-finding corpus 2026/10/11/SCOPE-constant-drive-restores-spike-count-monotonicity-in-the-mhr-hybr--25060b90e607: monotonicity of spike counts in another reset model, not clock histogram obstruction"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original paper: Kaymakçalan and Selçuk 2026 Theorem 3 and Corollary 4 give recursion and equal lattice sampling rate, not this infinite-word comparison.",
+        "Peterson 2021 examines expected detection-interval distributions for stochastic arrivals over finite observation windows and does not prove a deterministic nonconvergence theorem.",
+        "Greedy interval-scheduling exchange is classical and supplies only the minimality proof tool, not the constructed order-dependent gap-stationary result."
+      ],
+      "reasoning": "The new implication is gap histogram + bounded graininess + fixed opportunity density do not imply spike frequency. This quantified failure is independent of the existing scalar homogeneous rate formula and requires the explicit four-gap construction plus nonconvergent binary block sequence.",
+      "searches": [
+        "greedy time threshold selection discrete Delone set same gap multiset rearrangement changes asymptotic selection rate block concatenation no density",
+        "A numerical method for computing interval distributions inhomogeneous Poisson point process random dead times Peterson 2021",
+        "arxiv:2611.17219v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The original model uses earliest opportunity at least one reset-to-threshold time after last accepted event (arXiv:2611.17219v1, Section 5).",
+        "Peterson 2021 treats nonparalyzable dead time as an event filtering mechanism, DOI 10.1007/s00422-021-00868-8, Sections 1-4."
+      ],
+      "reasoning": "The deterministic finite-delay filter and nonparalyzable dead-time counting are formally the same selection rule; the prior stochastic full text does not state the fixed-gap-frequency nonconvergence or minimal four-gap ordering obstruction.",
+      "searches": [
+        "leaky integrate fire arbitrary time scale periodic opportunities constant interspike threshold no asymptotic firing rate despite uniform asymptotic opportunity density and convergent gap histogram",
+        "greedy time threshold selection discrete Delone set same gap multiset rearrangement changes asymptotic selection rate block concatenation no density",
+        "doi:10.1007/s00422-021-00868-8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published source arXiv:2611.17219v1 Section 7 presents numerical examples for homogeneous and one irregular clock, but not this four-gap construction.",
+        "Exact checker enumerates all binary words to eight cells at threshold endpoints; it is supporting evidence, not a prior mathematical table."
+      ],
+      "reasoning": "No located exact table presents the 14-length two-cell permutation pair with full threshold-band counts or the nonconvergent infinite concatenation. Database absence is not novelty proof.",
+      "searches": [
+        "periodic two three four phase clock time scale same gap distribution different spike firing rate order of intervals",
+        "same gap multiset integrate fire 14 periods spike rates 2 3 gap 2 3 4 5"
+      ]
+    },
+    "rationale": "The initiating 2026 paper establishes forward projection for arbitrary time scales and a rate formula only on homogeneous lattices, not the deterministic fixed-marginal nonconvergence theorem. Related 2021 dead-time work treats numerical distributions for stochastic Poisson events. The standard earliest-event greedy exchange rule is explicitly credited and not claimed novel. Similarity searches did not reveal a statement covering four-gap order minimality or the exact infinite-word limit interval; unindexed historical equivalence remains a risk.",
+    "residual_risks": [
+      "Unindexed deterministic refractory-event sampling or one-dimensional packing literature could contain an equivalent four-gap construction.",
+      "An arbitrary-clock recursion determines any particular event sequence, but does not itself explicitly state the new marginal-insufficiency or nonconvergence theorem.",
+      "No independent external mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING precise four-gap minimality and nonconvergent rate; does cover the projection recurrence, explicitly credited",
+        "evidence": [
+          "Section 5 Theorem 3: forward projection for arbitrary time scales",
+          "Section 6 Corollary 4: explicit firing rate only for hZ",
+          "Section 7 example: irregular sampling but no no-rate theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.17219v1",
+        "material_read": "Complete accessible HTML text, including Sections 1-8, theorem, proof of spike projection, rate corollary, examples and references",
+        "method": "Read and compared the mathematical statements of Theorem 3 and Corollary 4 with existence of asymptotic rate on clocks with fixed gap marginals",
+        "title": "Structure-Preserving Leaky Integrate-and-Fire Dynamics on Arbitrary Time Scales",
+        "trigger": "Same neuron model and arbitrary-time-scale spike recursion; closest published source"
+      },
+      {
+        "assessment": "NOT_COVERING the deterministic periodic gap-order obstruction or infinite-time fixed-marginal counterexample",
+        "evidence": [
+          "Introduction: events modeled as inhomogeneous Poisson process, dead times may be random",
+          "Section 3: finite-window numerical/simulation inter-detection interval distributions",
+          "Section 4: model limitations and inhomogeneous renewal assumptions"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00422-021-00868-8",
+        "material_read": "Open-access HTML Introduction, Methods, Sections 3.1-3.3, Discussion Sections 4.1-4.4",
+        "method": "Compared stochastic input assumptions, output distributions and finite-window numerical method against exact deterministic infinite-word rate failure",
+        "title": "A numerical method for computing interval distributions for an inhomogeneous Poisson point process modified by random dead times",
+        "trigger": "Potential alternative formulation via nonparalyzable dead-time detection"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0c6f4d1f-228d-4ff4-b434-ceb6c1014263",
+  "value": {
+    "rationale": "A natural unresolved dynamical question is whether strong first-order clock regularity ensures a long-run output rate. An exact four-gap minimality theorem and threshold-resolved counterexample show that the order of gaps matters even with identical marginal statistics and bounded graininess, and can force a whole continuum of rate limit points. The invariant is motivated by temporal sampling reliability, not an arbitrary isolated calculation.",
+    "status": "PASS"
+  }
+}
