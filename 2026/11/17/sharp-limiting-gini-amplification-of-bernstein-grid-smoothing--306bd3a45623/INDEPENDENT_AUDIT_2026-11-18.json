@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T12:11:59.100296Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For row-stochastic B_n and complete-pair Gini seminorm, the coarea identity for arbitrary real vectors reduces relevant inequalities to binary cuts. For a probability vector q, q(S)(1-q(S)) <= qmax s(N-s)/N gives a weighted Gini comparison; pairwise Jensen with independent draws gives operator norm <= maximum column mass. Bernstein columns are unimodal: grid-point count <= n integral+sup, and basis-mode bound <=(1−1/n)^(n−1) proves every interior column mass strictly smaller than endpoint U_n. Endpoint input e0 yields R_n=U_n−(2/n)sum k(1−k/n)^n, positive >1 for n>=3 by symmetric pairing; n=1 identity and n=2 Gini=2 oscillation gives norm one. Since (1−k/n)^n<=exp(−k), dominated convergence and geometric derivative sum show e/(e−1) sharp with gap <=2e^−1/[n(1−e^−1)^2]. Fresh rational exact exhaustive binary-cut computation for n=2..7 checked 492 cuts, with Lambda3=88/81 and endpoint witness maximal on tested dimensions only. Inspected actual checker.py; no all-n finite exact norm beyond sandwich is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2004 paper proves V(B_nf) <= V(f) in interval variation and reduction of zero sign changes, neither controls complete-pair Gini.",
+          "Same-day exact Cesaro Gini norm equals ((N+1)H_N−2N)/(N−1), divergent log N, whereas Bernstein converges e/(e−1)."
+        ],
+        "reasoning": "Broad smoothing/shape theorems use other geometries; their implication would contradict explicit Bernstein Gini expansion.",
+        "searches": [
+          "Bernstein collocation grid smoothing Gini mean difference amplification norm endpoint column sums",
+          "doi:10.1016/j.matcom.2003.11.010",
+          "doi:10.1080/03610926.2015.1053937",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-logarithmic-gini-amplification-by-finite-ces-ro-averaging--f64323950b96/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://www.iue.tuwien.ac.at/pdf/ib_2004/JB2004_Heitzinger_3.pdf",
+        "https://www.math.us.edu.pl/pkozyra/papers/Sharp%20bounds%20on%20the%20expectations%20of%20L%20statistics.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-logarithmic-gini-amplification-by-finite-ces-ro-averaging--f64323950b96/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2.7 Heitzinger is about real continuous interpolation and adjacent variation, distinct and compatible with Bernstein Gini expansion.",
+          "Published Cesaro Gini coefficient grows logarithmically, cannot be specialized to bounded Bernstein limit without changing matrix family."
+        ],
+        "reasoning": "The new weighted-coarea/column-mass sandwich plus endpoint pulse provides a new exact asymptotic for the particular equispaced Bernstein matrix.",
+        "searches": [
+          "Bernstein collocation grid smoothing Gini mean difference amplification norm endpoint column sums",
+          "doi:10.1016/j.matcom.2003.11.010",
+          "doi:10.1080/03610926.2015.1053937",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-logarithmic-gini-amplification-by-finite-ces-ro-averaging--f64323950b96/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gini pairwise dispersion G_n(f)=sum_i<j |f_i-f_j| is not classical partition total variation sum_j|f_(j+1)-f_j|; for nonmonotone vectors the seminorms differ.",
+          "Kozyra–Rychlik scale E|X−X'| and order-statistic expectations are expectation inequalities, not this deterministic finite matrix norm."
+        ],
+        "reasoning": "Bernstein polynomials occur in all sources, but the input/output functional and optimization quantifier are different, precluding equivalence.",
+        "searches": [
+          "Bernstein collocation grid smoothing Gini mean difference amplification norm endpoint column sums",
+          "doi:10.1016/j.matcom.2003.11.010",
+          "doi:10.1080/03610926.2015.1053937",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-logarithmic-gini-amplification-by-finite-ces-ro-averaging--f64323950b96/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Kozyra–Rychlik paper has tables for L-statistic expectation ratios (random sample distribution), not Lambda_n of Bernstein collocation matrix.",
+          "Published Cesaro Gini coefficient table is for triangular prefix-average matrix, not Bernstein collocation."
+        ],
+        "reasoning": "No matched table for exact n=3 88/81 and all-degree e/(e−1) in inspected sources; finite agreement alone would not prove novelty.",
+        "searches": [
+          "Bernstein collocation grid smoothing Gini mean difference amplification norm endpoint column sums",
+          "doi:10.1080/03610926.2015.1053937",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-logarithmic-gini-amplification-by-finite-ces-ro-averaging--f64323950b96/RESULT.md"
+        ]
+      },
+      "rationale": "Heitzinger et al 2004 Theorems 2.7–2.8 prove ordinary adjacent-interval total-variation diminution and sign-variation diminution for Bernstein polynomial; it cannot imply complete-pair Gini contraction, which indeed fails here. Kozyra and Rychlik 2016/17 use Bernstein basis to bound expectations of L-statistics relative to Gini scale of random variables; this is not a deterministic grid collocation operator Gini quotient. Same-day published exact Cesaro prefix Gini norm grows logarithmically under a different stochastic matrix. Nothing inspected entails the Bernstein e/(e−1) endpoint asymptotic, though historical priority is provisional.",
+      "residual_risks": [
+        "Exact finite-degree Lambda_n for all n>=4 remains unproved, and endpoint impulse maximization is only observed in tested dimensions.",
+        "Earlier deterministic Bernstein matrix norm work could exist under pairwise-dispersion/finite-sample Gini names."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING complete-pair Gini norm; explicitly covers adjacent total variation only",
+          "evidence": "Theorem 2.7 V(Bf,[0,1])<=V(f,[0,1]); no sum of all sampled-pair distances",
+          "identifier_or_url": "https://www.iue.tuwien.ac.at/pdf/ib_2004/JB2004_Heitzinger_3.pdf",
+          "material_read": "12-page author PDF including §2 Definition 2.1, Theorems 2.7–2.8 and proof/remarks",
+          "method": "full PDF parsed text and visual screenshot of page 6",
+          "title": "An algorithm for smoothing three-dimensional Monte Carlo ion implantation simulation results",
+          "trigger": "Classical Bernstein variation diminishing theorem potentially covering smoothing claim"
+        },
+        {
+          "assessment": "NOT_COVERING matrix Gini operator norm",
+          "evidence": "Sharp statistic E(sum c_i X_(i:n))/E|X_1-X_2| under i.i.d sampling, rather than sup_f G(B_nf)/G(f)",
+          "identifier_or_url": "https://www.math.us.edu.pl/pkozyra/papers/Sharp%20bounds%20on%20the%20expectations%20of%20L%20statistics.pdf",
+          "material_read": "Full accessible PDF parsed text §1 Theorem 1, §2 order-statistic and MAD applications, Bernstein polynomial representation",
+          "method": "PDF text inspection; screenshot rendering timed out, not claimed",
+          "title": "Sharp bounds on the expectations of L-statistics expressed in the Gini mean difference units",
+          "trigger": "Same key words Gini and Bernstein; high-priority primary source"
+        },
+        {
+          "assessment": "NOT_COVERING Bernstein matrix; related but different Gini amplification",
+          "evidence": "Finite prefix Cesaro matrix has Lambda ~log n rather than Bernstein limit e/(e−1)",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-logarithmic-gini-amplification-by-finite-ces-ro-averaging--f64323950b96/RESULT.md",
+          "material_read": "Entire RESULT.md including exact binary cut extremal and full matrix formula",
+          "method": "GitHub full text",
+          "title": "Sharp logarithmic Gini amplification by finite Cesàro averaging",
+          "trigger": "Closely related all-pairs seminorm applied to smoothing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Bernstein grid smoothing is a canonical approximation matrix. The finding precisely separates classical path-variation contraction from global all-pairs dispersion amplification in every n>=3, supplies an explicit first threshold and sharp limiting amplification constant with an O(1/n) certificate. These are natural exact stability quantities for numerical smoothing.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.iue.tuwien.ac.at/pdf/ib_2004/JB2004_Heitzinger_3.pdf",
+    "https://www.math.us.edu.pl/pkozyra/papers/Sharp%20bounds%20on%20the%20expectations%20of%20L%20statistics.pdf",
+    "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-logarithmic-gini-amplification-by-finite-ces-ro-averaging--f64323950b96/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-limiting-gini-amplification-of-bernstein-grid-smoothing--306bd3a45623/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-limiting-gini-amplification-of-bernstein-grid-smoothing--306bd3a45623/checker.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only classical equispaced one-step Bernstein collocation, real inputs and equal pair weights; no global finite-n extremizer theorem for n>=4.",
+    "The limiting constant follows from analytic envelope and witness, not tested finite endpoint optimality.",
+    "Exact finite-degree Lambda_n for all n>=4 remains unproved, and endpoint impulse maximization is only observed in tested dimensions.",
+    "Earlier deterministic Bernstein matrix norm work could exist under pairwise-dispersion/finite-sample Gini names."
+  ],
+  "schema_version": 1
+}

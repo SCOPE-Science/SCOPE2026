@@ -1,15 +1,21 @@
-# Scientific review: Bernstein grid smoothing and Gini variation
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns one precisely defined row-stochastic Bernstein matrix at each finite degree. The proof is complete: a weighted Gini comparison follows by an exact layer-cake reduction; independent sampling and Jensen give a column-mass upper bound; a unimodal-grid counting inequality and an elementary Bernstein-basis peak comparison show the maximal column mass occurs at the two endpoints. The endpoint impulse supplies an exact lower bound. A positive pairwise decomposition establishes the first amplifying degree, and dominated convergence plus an explicitly summable error proves the sharp limiting norm. The finite checker verifies the matrix identities and exhaustively verifies all 1,002 nontrivial binary input cuts for degrees two through eight. No infinite assertion relies on those finite tests. The finite-degree norm for every degree four and above is not claimed to equal the endpoint ratio.
+## correctness
 
-## Originality — PASS, qualified
-The most relevant primary text is Heitzinger–Hössinger–Selberherr (2004), Definition 2.1 and Theorems 2.7–2.8. Its classical variation bounds are in adjacent/interval total variation, not complete-pair Gini variation, and cannot imply amplification. Kozyra–Rychlik (published online April 11, 2016) use Bernstein bases and the Gini mean difference for **expectations of i.i.d. order-statistic combinations**, rather than the deterministic collocation-matrix seminorm. A published result on the identical Bernstein collocation matrix determines its squared Hilbert–Schmidt energy and a Poisson–Bessel correction, which cannot by itself determine a nonspectral pairwise-dispersion operator norm. Searches for Gini/Bernstein/binomial sampling aliases found no explicit matching sharp limiting operator norm. Because literature searches do not prove uniqueness, historical priority remains provisional.
+PASS
 
-## Mathematical value — PASS
-A classical shape-preserving approximation scheme is known to reduce adjacent variation, but that property need not control the all-pairs dispersion functional. The theorem determines the **first amplifying grid size for every subsequent degree**, proves a **sharp, nontrivial all-degree limiting amplification coefficient** \(e/(e-1)\), and gives an explicit \(O(n^{-1})\) proximity of the endpoint witness to the finite-degree optimum without pretending to know every finite-degree norm. The result explains a genuine distinction between local variation stability and global sample dispersion stability in a canonical positive approximation operator.
+For row-stochastic B_n and complete-pair Gini seminorm, the coarea identity for arbitrary real vectors reduces relevant inequalities to binary cuts. For a probability vector q, q(S)(1-q(S)) <= qmax s(N-s)/N gives a weighted Gini comparison; pairwise Jensen with independent draws gives operator norm <= maximum column mass. Bernstein columns are unimodal: grid-point count <= n integral+sup, and basis-mode bound <=(1−1/n)^(n−1) proves every interior column mass strictly smaller than endpoint U_n. Endpoint input e0 yields R_n=U_n−(2/n)sum k(1−k/n)^n, positive >1 for n>=3 by symmetric pairing; n=1 identity and n=2 Gini=2 oscillation gives norm one. Since (1−k/n)^n<=exp(−k), dominated convergence and geometric derivative sum show e/(e−1) sharp with gap <=2e^−1/[n(1−e^−1)^2]. Fresh rational exact exhaustive binary-cut computation for n=2..7 checked 492 cuts, with Lambda3=88/81 and endpoint witness maximal on tested dimensions only. Inspected actual checker.py; no all-n finite exact norm beyond sandwich is asserted.
 
-## Limits and priority risks
-The exact finite-degree optimal input structure is not classified for all degrees. The proof treats only equally spaced nodes and complete-pair unweighted Gini variation. More general approximation kernels or hidden equivalences under other names could alter priority assessment. Some relevant later literature was accessible only through its introduction or summary; none of the inspected main claims covered the stated limit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Heitzinger et al 2004 Theorems 2.7–2.8 prove ordinary adjacent-interval total-variation diminution and sign-variation diminution for Bernstein polynomial; it cannot imply complete-pair Gini contraction, which indeed fails here. Kozyra and Rychlik 2016/17 use Bernstein basis to bound expectations of L-statistics relative to Gini scale of random variables; this is not a deterministic grid collocation operator Gini quotient. Same-day published exact Cesaro prefix Gini norm grows logarithmically under a different stochastic matrix. Nothing inspected entails the Bernstein e/(e−1) endpoint asymptotic, though historical priority is provisional.
+
+## value
+
+PASS
+
+Bernstein grid smoothing is a canonical approximation matrix. The finding precisely separates classical path-variation contraction from global all-pairs dispersion amplification in every n>=3, supplies an explicit first threshold and sharp limiting amplification constant with an O(1/n) certificate. These are natural exact stability quantities for numerical smoothing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

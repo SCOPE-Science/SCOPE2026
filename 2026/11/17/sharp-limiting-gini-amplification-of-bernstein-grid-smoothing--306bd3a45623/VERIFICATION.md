@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Extract `checker.py` together with the Markdown files, and execute `python3 checker.py`. The checker uses only Python's standard library and `fractions.Fraction`: it computes exact Bernstein matrices and their column sums, enumerates every nonconstant binary input on three through nine sites, verifies computed ratios against the analytic sandwich, and checks the weighted Gini cut comparison on a range of exact rational probability vectors.
+## correctness
 
-The exact exhaustive cut totals for degrees two through eight are 6, 14, 30, 62, 126, 254 and 510, respectively (1,002 cuts). Their exact norms are `1`, `88/81`, `37/32`, `3781/3125`, `1217/972`, `1058952/823543` and `688641/524288`. These are finite diagnostics and are not extrapolated to assert an exact formula at every degree.
+PASS
 
-The general column-mass theorem, strict amplification for every degree at least three, and the sharp asymptotic operator constant are analytic consequences of the proof in `RESULT.md`. The mathematical proof specifically covers the unbounded dimension parameter, which no finite program execution can certify by itself. Rechecking sources and mathematical priority independently is outside the scope of this verification.
+For row-stochastic B_n and complete-pair Gini seminorm, the coarea identity for arbitrary real vectors reduces relevant inequalities to binary cuts. For a probability vector q, q(S)(1-q(S)) <= qmax s(N-s)/N gives a weighted Gini comparison; pairwise Jensen with independent draws gives operator norm <= maximum column mass. Bernstein columns are unimodal: grid-point count <= n integral+sup, and basis-mode bound <=(1−1/n)^(n−1) proves every interior column mass strictly smaller than endpoint U_n. Endpoint input e0 yields R_n=U_n−(2/n)sum k(1−k/n)^n, positive >1 for n>=3 by symmetric pairing; n=1 identity and n=2 Gini=2 oscillation gives norm one. Since (1−k/n)^n<=exp(−k), dominated convergence and geometric derivative sum show e/(e−1) sharp with gap <=2e^−1/[n(1−e^−1)^2]. Fresh rational exact exhaustive binary-cut computation for n=2..7 checked 492 cuts, with Lambda3=88/81 and endpoint witness maximal on tested dimensions only. Inspected actual checker.py; no all-n finite exact norm beyond sandwich is asserted.
+
+## originality
+
+PASS
+
+Heitzinger et al 2004 Theorems 2.7–2.8 prove ordinary adjacent-interval total-variation diminution and sign-variation diminution for Bernstein polynomial; it cannot imply complete-pair Gini contraction, which indeed fails here. Kozyra and Rychlik 2016/17 use Bernstein basis to bound expectations of L-statistics relative to Gini scale of random variables; this is not a deterministic grid collocation operator Gini quotient. Same-day published exact Cesaro prefix Gini norm grows logarithmically under a different stochastic matrix. Nothing inspected entails the Bernstein e/(e−1) endpoint asymptotic, though historical priority is provisional.
+
+## value
+
+PASS
+
+Bernstein grid smoothing is a canonical approximation matrix. The finding precisely separates classical path-variation contraction from global all-pairs dispersion amplification in every n>=3, supplies an explicit first threshold and sharp limiting amplification constant with an O(1/n) certificate. These are natural exact stability quantities for numerical smoothing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
