@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The Poisson parity moments give an exact nonstationary covariance. Because the observed bit takes only two values, its conditional-mean estimator is affine, so the posterior mean-square risk is computed exactly. Differentiation produces S(z)=p/z²-(2-p)+2c²(z-p) with Sʺ(z)>0; its endpoint signs (or a perfect-detector quadratic factorization) prove a unique global interior optimum. Implicit differentiation proves strict reliability ordering. A uniform rare-switching expansion yields the complete κ boundary layer and separates the fixed-imperfect/perfect limits; the fast-switching root balance proves the universal half-horizon limit. Exact symbolic checks and independent Poisson simulations corroborate but are not substituted for the proof. Assumptions and boundary c=0 are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bäuerle et al., arXiv:1411.0849, §§2–3 and §5: hidden Markov filtering given a regularly sampled continuous-valued noisy integral, rather than design of one instantaneous binary state measurement.",
+        "Michel, Theorem 2.2, optimizes asymptotic variance of the switching-rate estimator from K scheduled transition observations; the loss is not the path occupation integral.",
+        "Pozdnyakov et al., arXiv:1806.00849, Theorem 1, gives the joint occupation-time/state distribution of a three-state movement model.",
+        "Adaptive Bayesian inference of Markov transition rates (2022), accessible section excerpt, treats posterior uncertainty in a transition-rate parameter."
+      ],
+      "reasoning": "A general occupation distribution could be an input to the calculation, but the reviewed theorems do not optimize corrupted one-bit sensing over the observation time. The singular scaling requires comparing limits of two interacting parameters. An inaccessible full text remains a disclosed risk, not a claim that its entire contents were excluded. The 2014 integrated-telegraph filter is a relevant substrate but does not contain an optimization of state-bit timing.",
+      "searches": [
+        "optimal estimation occupation time two state continuous time Markov chain single noisy observation sampling time Bayes risk",
+        "optimal single observation sampling time integrated telegraph process noise state occupation expected squared error",
+        "Optimal adaptive sampling for a symmetric two-state continuous time Markov chain"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1411.0849 (2014): integrated telegraph process and reverse observation/filtering problem, relevant full-text sections",
+      "arXiv:1806.00849 (public first version 2018-06-03), relevant full-text material",
+      "Michel 2018 manuscript on symmetric two-state sampling, relevant PDF sections and Theorem 2.2",
+      "DOI:10.1080/07474938.2019.1701808 (2020 publication record for Michel manuscript)",
+      "DOI:10.1098/rspa.2022.0453 (accessible section excerpt, not full text)",
+      "Related published occupation-survey, revisit-rate and Markov observation-search records, compared by objective and observation model"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bäuerle et al. (2014), §3.1 (3.2), derive filtering via telegraph-integral observation; reversing conditional probability direction does not itself optimize Bayes squared risk over state observation times.",
+        "The standard symmetric telegraph transition kernel in Michel (2018), equation (2), supplies the exponential state correlation but does not perform one-bit posterior risk minimization.",
+        "Pozdnyakov et al. (2018) analyze likelihood/occupation distributions, not the derivative sign and noise-dependent maximizer.",
+        "Related Gaussian one-bit path-occupation optimizers condition on fundamentally different Gaussian/bridge processes, which do not imply this non-Gaussian Poisson-flip boundary layer."
+      ],
+      "reasoning": "The present result follows from conditioning a binary state observation, a new exact risk maximization and a uniform singular perturbation analysis. Existing transition formulas are acknowledged as inputs. The reviewed results do not provide a dominating theorem that makes the claimed global and asymptotic statements immediate special cases. In particular, conditional inference of the hidden state from continuous integrated observations does not imply optimal prediction of an integral from a single binary state observation.",
+      "searches": [
+        "symmetric two state telegraph process path average one point observation exact optimal schedule detector bit error",
+        "2018 2021 binary Markov chain occupancy Bayesian quadrature noisy sign measurements",
+        "2018 2020 random telegraph process optimal observation time integral estimation sensor placement Markov chain occupation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bäuerle–Gilitschenski–Hanebeck, arXiv:1411.0849, §3.1 equation (3.2), defines the same integrated telegraph path but observes its noisy integral to estimate the hidden Markov state; observation and target are reversed here.",
+        "Pozdnyakov et al., arXiv:1806.00849, §§1–3: telegraph/Markov occupation distribution and likelihood, not a single noisy-state-bit time design.",
+        "Michel, manuscript dated 2018-02-20, §§1–2 and Theorem 2.2: repeated-time sampling for unknown rate, not known-rate occupation-integral loss."
+      ],
+      "reasoning": "The path functional is also a Markov reward/occupation time. The reviewed papers use the same type of switching process but a different information target or an uncorrupted repeated observation history. Their stated theorems do not already classify the unique one-bit Bayes-risk optimum or its rare-event noise layer. Bäuerle et al. share the underlying integral but solve an inverse hidden-state filtering objective, not a single state-bit-to-integral sampling-design problem.",
+      "searches": [
+        "optimal sampling time telegraph process integrated occupation single noisy binary observation exact Bayesian risk deterministic initial state",
+        "integrated two-state Markov reward optimal noisy single observation time posterior mean square risk",
+        "\"two-state\" \"occupation time\" \"observation time\" posterior variance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible semantic records located neighboring occupation-survey, Markov-revisit, and telegraph-frequency-noise results, but none contained the cubic optimizer or crossover Φ.",
+        "Direct web phrase searches located known rate-estimation and occupation-distribution literature, without an exact timing/risk table for this model."
+      ],
+      "reasoning": "No exact precomputed table containing the present optimum was found in the material searched. Negative search results do not establish mathematical uniqueness, exhaustive coverage, or publication priority.",
+      "searches": [
+        "rare-switching telegraph occupation one-bit noisy sampling optimal time singular noise layer two thirds end",
+        "\"telegraph\" \"occupation time\" \"optimal\" \"observation\" estimation"
+      ]
+    },
+    "rationale": "Actual semantic record queries, published-paper searches, and inspected primary text were compared by mathematical implication. Bäuerle–Gilitschenski–Hanebeck (2014) study the same integrated two-state telegraph process, but use noisy measurements of its integral to filter hidden states, reversing the observation and estimation targets. Pozdnyakov et al. give occupation laws/likelihoods; Michel studies unknown-rate Fisher-optimal repeated sampling. None of these inspected results proves the global one-bit timing or singular boundary layer. Related Gaussian occupation designs do not imply the Poisson-flip result. The exact boundary layer is not claimed from a mere absence of matching terminology; prior equivalent work remains a residual risk.",
+    "residual_risks": [
+      "No exhaustive survey of all older telegraph, Markov reward, and binary-sensing papers; historical publication priority remains unverified.",
+      "The full text of the 2022 adaptive-rate article was unavailable; only an excerpt was inspected and no whole-paper noncoverage is asserted.",
+      "A general sensor-design theorem in older literature might subsume the special model even if the exact equations do not appear in search results.",
+      "The 2014 integrated-telegraph filtering literature is structurally close and could have later descendants solving the reversed single-bit design objective; only the identified primary source and related searches were reviewed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The continuous integrated telegraph signal is an observed noisy quantity used to infer a hidden state; there is no optimization of one noisy state-bit observation to infer the unobserved path integral.",
+        "evidence": "§3.1 Eq. (3.2) and observation/filtering formulation §§2–3; arXiv:1411.0849.",
+        "identifier_or_url": "https://arxiv.org/abs/1411.0849",
+        "material_read": "Public arXiv full-text HTML: Introduction, §§2–3 including §3.1 equation (3.2), concluding discussions in §5, and search for optimal observation-time design.",
+        "method": "Inspected relevant full mathematical text and compared the source-observation/target pair directly, not title or abstract alone.",
+        "title": "Exact and Approximate Hidden Markov Chain Filters Based on Discrete Observations",
+        "trigger": "Same integrated two-state telegraph process and discrete-time observations potentially suggesting a stronger filtering theorem."
+      },
+      {
+        "assessment": "Provides joint occupation/state laws and a likelihood for irregularly observed movement; no single corrupted-bit Bayes time optimizer in the inspected material.",
+        "evidence": "§2 occupation model and §3 Theorem 1, arXiv:1806.00849.",
+        "identifier_or_url": "https://arxiv.org/abs/1806.00849",
+        "material_read": "Public arXiv version metadata and relevant full-text HTML: Introduction, §§2–3, occupation definition, Theorem 1, and later model/discussion sections §§5–8; searched the text for design/optimal-time assertions.",
+        "method": "Relevant primary full-text HTML content inspected, including mathematical formulations rather than abstract alone.",
+        "title": "On estimation for Brownian motion governed by telegraph process with multiple off states",
+        "trigger": "Directly studies integrated occupation of a Markov switching process and noisy/discrete information."
+      },
+      {
+        "assessment": "Optimizes repeated observation interval for asymptotic inference of unknown switching rate, rather than one known-rate path integral from a corrupted bit.",
+        "evidence": "Introduction and §2, especially Theorem 2.2 (parameter-estimation asymptotic variance).",
+        "identifier_or_url": "https://bpb-us-w2.wpmucdn.com/u.osu.edu/dist/6/56774/files/2017/12/optimal_sampling_design_ctmc9-1nt190d.pdf",
+        "material_read": "Title and abstract, Introduction, transition matrix (equation 2), §§2 fixed-time designs, Lemma 2.1 and Theorem 2.2; first-page image inspected.",
+        "method": "Relevant primary PDF text and rendered first page, then searched parsed document for occupation-time and mean-square functional objectives.",
+        "title": "Optimal adaptive sampling for a symmetric two-state continuous time Markov chain",
+        "trigger": "Exact same symmetric two-state continuous-time switching rates and choice of sampling time."
+      },
+      {
+        "assessment": "Excerpt optimizes uncertainty in the unknown transition-rate parameter under adaptive sampling; full-document implication cannot be decisively excluded.",
+        "evidence": "Section 2.1 excerpt describing single-transition rate inference.",
+        "identifier_or_url": "https://doi.org/10.1098/rspa.2022.0453",
+        "material_read": "Accessible Section 2.1 web extract only; full publisher article could not be retrieved.",
+        "method": "Relevant accessible text excerpt, not a full-text clearance.",
+        "title": "Adaptive Bayesian inference of Markov transition rates",
+        "trigger": "Bayesian adaptive choice of observation times for binary Markov dynamics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0356d069-f755-40fb-a621-3b0f8a4aa654",
+  "value": {
+    "rationale": "The target signed occupation average is a natural numerical path integral when an on/off system can transmit just one potentially erroneous bit. The result provides a complete optimal estimator and design for all switching and binary channel noise levels, with strict uniqueness and a sharp singular rare-event scaling. The noncommuting perfect-detector and rare-switching limits, including the explicit κ transition curve, identify a qualitatively important detector-resolution regime. It is not a recomputation of a known numerical table or an arbitrary parameter slice; no paper-sized downstream claim is required.",
+    "status": "PASS"
+  }
+}
