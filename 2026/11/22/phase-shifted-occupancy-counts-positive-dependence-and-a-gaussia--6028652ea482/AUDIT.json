@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Pairwise bin-union measures give the exact finite covariance. Its positive binomial expansion proves sign, strictness and unique half-bin minimization; two orthogonal binary partitions prove exact independence at two bins. Poissonized independent cell processes give a one-dependent multivariate CLT, and sequential-addition martingale de-Poissonization supplies the fixed-sample correction. Exact phase integration and Fourier transform give the remaining formulas. The standalone checker passed 325 rational-enumeration and analytic checks. No functional limit or unverified numerical-to-infinite inference is asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Scott (1985), Section 3, calculates integrated squared error for a weighted linear histogram density estimator.",
+        "Barbour–Gnedin (2008), Theorem 3.1, gives normal approximation for box counts of fixed occupancy frequencies."
+      ],
+      "reasoning": "General finite-dependent random-variable central limit theorems and occupancy CLTs provide proof techniques, not the closed phase kernel, strict finite dependence and two-bin independent exception. A general theorem for overlap of varying sets could subsume the CLT step but would still need an explicit specialization and exact sign analysis; a precise such stronger covering theorem was not located.",
+      "searches": [
+        "Gaussian limit phase process of circular histogram occupied counts; covariance e^{-c(1+a)}+e^{-c(2-a)}-(2+c)e^{-2c}, Fourier eigenvalues",
+        "Stationary Gaussian process limit for number of nonempty bins in randomly shifted histograms and Fourier covariance kernel",
+        "averaged shifted histograms ASH Scott 1985 variance random shifts histogram density",
+        "2012 random occupancy empty boxes central limit theorem joint multivariate Poissonization"
+      ]
+    },
+    "checked_sources": [
+      "Scott 1985, doi:10.1214/aos/1176349654",
+      "Barbour and Gnedin 2008, arxiv:0809.4387v1",
+      "O’Neill 2023, doi:10.1007/s11009-023-10053-y",
+      "Scott 2010, doi:10.1002/wics.54 (abstract/background only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Barbour–Gnedin single-occupancy-frequency CLTs do not specify arbitrary phase overlap geometry.",
+        "Scott ASH risk expressions use linear histogram values rather than thresholded nonempty indicators.",
+        "A mathematical-record summary of variance correction for adjacent-bin roughness studies a different nonlinear observable; its full text was not retrievable during this comparison."
+      ],
+      "reasoning": "The claimed law contains a new finite combinatorial comparison, a Gaussian phase-indexed kernel, and an integrated truncated-spacing identity. A more general random-set overlap covariance identity may imply part of it without matching title or parameters. No such decisive covering implication was established; checking this remains an explicit originality risk.",
+      "searches": [
+        "phase-averaged occupied bin count truncated spacings and asymptotic variance",
+        "half-bin shift uniquely minimizes covariance of occupied cells in two partitions and exactly independent when there are two bins",
+        "Stationary Gaussian process limit for number of nonempty bins in randomly shifted histograms and Fourier covariance kernel",
+        "Covariance of numbers of empty or occupied cells between two shifted equal-width histogram partitions of the same independent uniform points on a circle; optimal half-cell shift"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Scott, Annals of Statistics 13 (1985), pp. 1026-1029: averaged histogram uses linear bin counts, with pointwise integrated MSE, not nonlinear nonempty-bin counts.",
+        "Barbour and Gnedin, arXiv:0809.4387v1, Sections 1-3: occupation-frequency count CLTs on one fixed set of boxes."
+      ],
+      "reasoning": "Translations and aliases such as nonempty cells, empty boxes, occupied categories, circular staggered histograms and phase-averaged occupancy were checked. The finite two-grid cross covariance depends on the two overlapping *partitions of the same continuous sample*, not just on single-partition occupancy marginals. Neither inspected antecedent states the cross-phase claim or its equality case.",
+      "searches": [
+        "\"occupied bins\" \"shifted\" covariance circle random points",
+        "\"empty cells\" \"shifted histograms\" covariance",
+        "\"nonempty bins\" \"averaged shifted histograms\" variance",
+        "Phase-shifted occupancy bin counts in cyclic histograms; two-grid covariance exact and asymptotic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "O’Neill, Three Distributions in the Extended Occupancy Problem (2023), abstract and model: one uniform allocation scheme with independent fall-through marks, not two translated cell partitions.",
+        "Scott (1985), occupied *load* or count in histogram cells appears as a linear density-estimation input; no table of pairwise nonempty-bin count covariances in examined construction and variance sections."
+      ],
+      "reasoning": "No consulted exact occupancy table supplied the finite shifted-phase covariance, the unique half-bin covariance minimizer, or the special two-bin independence. A web search absence is not treated as novelty proof; prior literature priority is a real risk.",
+      "searches": [
+        "random phase shifted occupancy counts correlated partition grid histogram variance empty cells",
+        "\"empty bins\" \"shift\" Gaussian occupancy random",
+        "rotated grid number of occupied bins same iid sample covariance aligned shifted bins",
+        "Scott 1985 averaged shifted histograms density pdf annals statistics"
+      ]
+    },
+    "rationale": "The closest primary works cover averaged linear histogram density estimation and fixed-partition occupancy-frequency CLTs, but do not state the nonempty-bin phase cross covariance, all-size strict positivity boundary, exceptional exact independence or Gaussian phase kernel. Statement-level comparisons were performed; broader occupancy-field or overlap theorems remain a historical-priority risk.",
+    "residual_risks": [
+      "Unindexed older finite random-set overlap formulas might recover the explicit covariance as a specialization.",
+      "A broad correlated-occupancy Gaussian-field theorem may imply the finite-dimensional CLT, though the explicit kernel and strict finite classification still need comparison.",
+      "A separately published 2026 record about multinomial histogram roughness was available only as a summary; it has a distinct observable but was not inspected in full."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different functional: weighted linear histogram density and integrated squared-error risk rather than number of occupied cells under each phase",
+        "evidence": "Section 2.1, formulas (2.1)-(2.6); Section 3, Theorem 1 and formula (3.5)",
+        "identifier_or_url": "https://www.stat.cmu.edu/~rnugent/PCMI2016/papers/ScottASH.pdf",
+        "material_read": "Original PDF Introduction and Sections 2-3, especially construction on p. 1026 and integrated variance around pp. 1028-1029",
+        "method": "Original accessible PDF text and rendered pages 1026 and 1028, with targeted term search",
+        "title": "Averaged Shifted Histograms: Effective Nonparametric Density Estimators in Several Dimensions",
+        "trigger": "Same shifting-of-bin-origin construction; plausible predecessor for phase-averaged statistics"
+      },
+      {
+        "assessment": "Supplies general Gaussian methodology, but its occupancy frequency coordinates in a fixed partition are not the overlapping phase-count field. It does not directly imply exact finite positivity classification.",
+        "evidence": "Sections 2 and 3, especially (2.1), Lemma 2.1, Theorem 3.1",
+        "identifier_or_url": "https://arxiv.org/html/0809.4387v1",
+        "material_read": "Full accessible HTML Sections 1-3 including Poissonization, Proposition 2.2, Theorem 3.1 and proof; title/abstract and remainder headings",
+        "method": "Original arXiv HTML version 1 with theorem and proof inspection",
+        "title": "Small counts in the infinite occupancy scheme",
+        "trigger": "Classical occupancy CLT and de-Poissonization can dominate the Gaussian part"
+      },
+      {
+        "assessment": "Single fixed box assignment with independent per-ball success/fall-through, not translated overlapping partitions. Later sections were not comprehensively checked, so this is not a whole-document exclusion claim.",
+        "evidence": "Abstract and definition of the iid uniform box variables and iid Bernoulli marks",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11009-023-10053-y",
+        "material_read": "Open-access abstract, introductory model and definitions of extended occupancy with fall-through probabilities",
+        "method": "Accessible HTML content inspected for model and scope",
+        "title": "Three Distributions in the Extended Occupancy Problem",
+        "trigger": "Potential exact occupancy distribution containing a two-grid law"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6028652e-a482-4a10-8023-b252b1a63b09",
+  "value": {
+    "rationale": "Phase choices create observable differences in category-coverage and bin-representation statistics. The exact all-size half-grid minimization, the sharp boundary between genuine dependence and two-bin independence, the multi-phase Gaussian uncertainty kernel and its strictly positive spectrum give meaningful calibration beyond one-bin occupancy. The deterministic spacing representation and exact phase-integrated variance support origin-robust histogram coverage summaries; no unsupported general density-estimation performance theorem is asserted.",
+    "status": "PASS"
+  }
+}
