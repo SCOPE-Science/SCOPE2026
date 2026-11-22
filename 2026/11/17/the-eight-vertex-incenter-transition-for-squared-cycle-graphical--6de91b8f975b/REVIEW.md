@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact graphical-zonotope cut inequalities follow from the support-function layer-cake argument. A circular transition-word classification proves that all nontrivial cuts have size four, six, or at least eight and isolates the active balanced cuts. The equality equations force the claimed incenter subspace. Singleton and near-balanced interval inequalities give the necessary sharp coordinate bounds; convexity controls every other six-edge interval, and a global \(mb_m<1\) estimate controls all larger cuts. These steps prove sufficiency, not merely feasibility for sampled centers. The central-section vertex count is an exact polyhedral enumeration. The standalone integer and high-precision checks agree with these deductions but are not treated as a general proof.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-The published general weighted graphical-zonotope inradius theorem already implies the radius via a cut minimum; that is explicitly prior work. The published center classification for plain cycles concerns a different graph and has no eight-vertex singleton-bound competition. The full mathematical text of both closely relevant results was inspected, together with the recent zonotope-containment paper and the graphical-zonotope construction paper. Searches for squared-cycle or circulant graphical-zonotope incenters and Chebyshev centers did not identify this exact classification. It remains possible that a differently named circulant-zonotope study contains it. The complete incenter locus and its exceptional scale, rather than the generic radius formula or the elementary cube-section count, are the novel assertion.
+PASS
 
-## Mathematical value — PASS
-The location and multiplicity of maximum Euclidean balls are intrinsic metric features not determined by knowing just the inradius. The theorem completely describes them for a natural infinite family of four-regular graph zonotopes, including a sharp parity split and an exceptional order-eight change of which facets constrain the center family. This distinguishes the squared cycle from the ordinary cycle while supplying exact polyhedral dimensions and vertex counts.
+The centered graphical zonotope has the exact cut halfspace description |sum_{i in S}x_i|<=|delta S|/2, justified by coarea/support-function separation. Thus a radius r ball at c is feasible iff |sum_S c_i|+r sqrt(|S|(n-|S|)/n)<=|delta S|/2. For C_n^2 every singleton cut has size four; six-edge cyclic intervals/distance-two pairs and all remaining >=8 are classified by circular bit-change counting. Comparing normalized singleton and balanced cuts gives radius 2sqrt(n/(n-1)) for n6,7, 3sqrt(n/floor(n²/4)) for n>=8. Tight singleton/length-m cuts force the claimed unique odd centers or the repeated vector (y,y) for even n. Singleton and near-balanced intervals respectively give gamma_m=2-3sqrt(2m-1)/m and beta_m=3(1-sqrt(1-1/m²)); min is gamma_4 and beta_m for m>=5. For general center candidates, convexity of f_m(d)=3(1-sqrt(1-d²/m²)) dominates d beta_m; all large-cut slack >=1 while m b_m<1, proving sufficiency for every cut, not just identified facets. The hyperplane cube-section vertex count follows m-1 active coordinate bounds. Fresh independent exact cut enumeration for n6..12 corroborates active normal families and radius; infinite n follows symbolic inequalities, not a bounded census.
 
-## Limitations and nearest sources
-All results require unit graph-edge weights, \(n\ge6\), and the specified intrinsic Euclidean embedding. The primary nearby works are *Deformed Graphical Zonotopes* (arXiv:2111.12422), *Nearly-Tight Bounds for Zonotope Containment and Beyond* (arXiv:2605.04183), the published general graph-zonotope inradius result (2026-10-11), and the published plain-cycle incenter classification (2026-11-08). Earlier literature on cut expansion or circulant zonotopes may have alternative formulations. Independent review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior general weighted-graph theorem exactly covers inradius, and earlier ordinary-cycle incenter theorem covers an analogous but distinct graph. The squared-cycle sharp n=8 exceptional cut and all optimal centers do not follow from those claims.
+
+## value
+
+PASS
+
+The center locus of a maximal Euclidean inball is a natural geometric invariant of a graphical zonotope, not fixed by its scalar inradius. The exact parity phenomenon, its first exceptional n=8 transition between two distinct active-cut types, sharp coordinate bounds and vertex census form a meaningful complete classification for the canonical second power of the cycle. The analogy with ordinary cycles makes the exceptional transition particularly informative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

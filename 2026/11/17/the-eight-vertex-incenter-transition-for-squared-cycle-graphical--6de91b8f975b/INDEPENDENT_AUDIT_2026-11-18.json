@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T15:53:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The centered graphical zonotope has the exact cut halfspace description |sum_{i in S}x_i|<=|delta S|/2, justified by coarea/support-function separation. Thus a radius r ball at c is feasible iff |sum_S c_i|+r sqrt(|S|(n-|S|)/n)<=|delta S|/2. For C_n^2 every singleton cut has size four; six-edge cyclic intervals/distance-two pairs and all remaining >=8 are classified by circular bit-change counting. Comparing normalized singleton and balanced cuts gives radius 2sqrt(n/(n-1)) for n6,7, 3sqrt(n/floor(n²/4)) for n>=8. Tight singleton/length-m cuts force the claimed unique odd centers or the repeated vector (y,y) for even n. Singleton and near-balanced intervals respectively give gamma_m=2-3sqrt(2m-1)/m and beta_m=3(1-sqrt(1-1/m²)); min is gamma_4 and beta_m for m>=5. For general center candidates, convexity of f_m(d)=3(1-sqrt(1-d²/m²)) dominates d beta_m; all large-cut slack >=1 while m b_m<1, proving sufficiency for every cut, not just identified facets. The hyperplane cube-section vertex count follows m-1 active coordinate bounds. Fresh independent exact cut enumeration for n6..12 corroborates active normal families and radius; infinite n follows symbolic inequalities, not a bounded census.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General theorem gives exact radius for every graph but explicitly does not classify full sets of centers.",
+          "Graphical-zonotope deformation theory describes normal fans/face cones, not this maximal-ball center set in inspected accessible descriptions."
+        ],
+        "reasoning": "The general radius formula is a necessary numerical input, not a stronger classification of centers. No other retrieved graph-family theorem dominates this squared-cycle sequence.",
+        "searches": [
+          "2026-10-11 Euclidean inradius of weighted graphical zonotopes RESULT.md",
+          "arxiv:2111.12422 Deformed Graphical Zonotopes"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-euclidean-inradius-of-weighted-graphical-zonotopes-is-a-cut-expa--cb1eceb082ab",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-euclidean-incenter-loci-of-cycle-graphical-zonotopes--977e1f3aebef",
+        "https://arxiv.org/abs/2111.12422",
+        "https://arxiv.org/abs/2605.04183"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General graph cut minimum determines rho but leaves the solution to all slack inequalities open.",
+          "Ordinary cycle proof uses only cyclic-interval cut inequalities, whereas its graph square has additional singleton/dist-two pair contacts."
+        ],
+        "reasoning": "The new all-center theorem requires deriving and checking those extra cuts and exceptional order eight, not substituting n into a preexisting radius or cycle-center formula.",
+        "searches": [
+          "2026-10-11 general weighted graph cut theorem",
+          "2026-11-08 ordinary cycle incenter theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordinary C_n has n edges, cut width 2, b_m=1-sqrt(1-1/m²).",
+          "Squared C_n^2 has 2n edges, special size-four singleton versus size-six interval contact; b_4=2-3sqrt7/4, not a rescaling of ordinary b_m."
+        ],
+        "reasoning": "Identical cube-section form and vertex count are consequences of common active interval symmetry, but the squared-cycle contact inequalities and b4 exception are mathematically different.",
+        "searches": [
+          "Resultary: center locus Euclidean inball C_n squared cycle graphical zonotope incenter cut inequalities parity cube section",
+          "2026-11-08 ordinary cycle incenter RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior C_n central cube section has same combinatorial binomial vertex count but different cut family/bounds.",
+          "No earlier explicit C_n^2 table located."
+        ],
+        "reasoning": "A shared vertex-count formula alone is not an exact C_n^2 incenter table; negative searches are not priority proof.",
+        "searches": [
+          "Resultary keyword: Euclidean incenter locus graphical zonotope squared cycle parity 8 vertices",
+          "2026-11-08 C_n center vertex census"
+        ]
+      },
+      "rationale": "Prior general weighted-graph theorem exactly covers inradius, and earlier ordinary-cycle incenter theorem covers an analogous but distinct graph. The squared-cycle sharp n=8 exceptional cut and all optimal centers do not follow from those claims.",
+      "residual_risks": [
+        "Possible overlooked higher-power incenter theorem subsuming C_n^2",
+        "Finitely checked n<=12 do not establish all n; cut-classification argument supplies infinity"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly provides inradius only, symmetry center existence; does not classify center sets",
+          "evidence": [
+            "Theorem r(G,w)=.5 min_S w(delta S)/||v_S||; listed limitations exclude center-locus classification"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-euclidean-inradius-of-weighted-graphical-zonotopes-is-a-cut-expa--cb1eceb082ab",
+          "material_read": "Full published RESULT.md: theorem, coarea proof, scope, limitations",
+          "method": "Fetched and read complete Resultary RESULT.md",
+          "title": "Euclidean inradius of weighted graphical zonotopes is a cut expansion constant",
+          "trigger": "Potential stronger all-graph result"
+        },
+        {
+          "assessment": "C_n not C_n^2: size-two cut normals vs size-four/six and no eight-vertex exceptional width",
+          "evidence": [
+            "For C_2m bound=1-sqrt(1-1/m²), whereas C_2m^2 bound is exceptional gamma4 and beta_m"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-euclidean-incenter-loci-of-cycle-graphical-zonotopes--977e1f3aebef",
+          "material_read": "Full published RESULT.md including six proof steps, radius, center locus and binomial vertex counts",
+          "method": "Fetched and read complete Resultary RESULT.md",
+          "title": "Complete Euclidean incenter loci of cycle graphical zonotopes",
+          "trigger": "Closest same-object-family parity/cube result"
+        },
+        {
+          "assessment": "Relevant general construction but possible uninspected statements remain residual risk",
+          "evidence": [
+            "Full paper should be checked for specialized metric incenter corollaries before definitive publication priority"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2111.12422",
+          "material_read": "Title, abstract and cited theorem scope of deformation cone; full proof not material-read in this run",
+          "method": "Primary bibliographic/abstract comparison, not whole-document exclusion",
+          "title": "Deformed Graphical Zonotopes",
+          "trigger": "Foundational zonotope geometry and potential general theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The center locus of a maximal Euclidean inball is a natural geometric invariant of a graphical zonotope, not fixed by its scalar inradius. The exact parity phenomenon, its first exceptional n=8 transition between two distinct active-cut types, sharp coordinate bounds and vertex census form a meaningful complete classification for the canonical second power of the cycle. The analogy with ordinary cycles makes the exceptional transition particularly informative.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-euclidean-inradius-of-weighted-graphical-zonotopes-is-a-cut-expa--cb1eceb082ab",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-euclidean-incenter-loci-of-cycle-graphical-zonotopes--977e1f3aebef",
+    "https://arxiv.org/abs/2111.12422",
+    "https://arxiv.org/abs/2605.04183"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the centered intrinsic-Euclidean zonotope of squared cycle C_n^2 (n>=6) all maximum-inscribed-ball centers are uniquely zero for n=6,7 and odd n>=9; for even n=2m>=8 the locus is {(y,y):sum y_i=0, |y_i|<=b_m}, b4=2-3sqrt7/4 and b_m=3(1-sqrt(1-1/m^2)) for m>=5. Sharp transition at eight vertices; explicit dimension m-1 and cube-section vertex counts. Inradius follows earlier general cut formula.",
+  "limitations": [
+    "Specific scope: For the centered intrinsic-Euclidean zonotope of squared cycle C_n^2 (n>=6) all maximum-inscribed-ball centers are uniquely zero for n=6,7 and odd n>=9; for even n=2m>=8 the locus is {(y,y):sum y_i=0, |y_i|<=b_m}, b4=2-3sqrt7/4 and b_m=3(1-sqrt(1-1/m^2)) for m>=5. Sharp transition at eight vertices; explicit dimension m-1 and cube-section vertex counts. Inradius follows earlier general cut formula.",
+    "Bibliography searched but full exhaustive priority cannot be certified; named material read and residual risks identified.",
+    "Public metadata/privacy sanitization and status consistency not completed, so plan not_ready."
+  ],
+  "residual_risks": [
+    "Full primary zonotope deformation paper was not searched page-by-page for every special case.",
+    "Quantities depend on intrinsic Euclidean norm and unit edge weights; no higher-cycle-power generalization."
+  ],
+  "schema_version": 1
+}
