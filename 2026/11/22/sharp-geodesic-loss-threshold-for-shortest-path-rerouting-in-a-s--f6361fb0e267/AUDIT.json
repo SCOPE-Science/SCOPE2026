@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Every cube antipodal geodesic corresponds bijectively to one permutation. The deleted weight-k vertex excludes exactly those having first-k label set A. Swapping consecutive flips is exactly one legal rerouting move. Strictly increasing B-before-A cross inversions connects each surviving ordering to a canonical B-block/A-block ordering; internal swaps connect all canonical block orderings. The deleted permutahedron facet has F=k!(n-k)! vertices, each of internal degree n-2 and exactly one distinct external neighbor, yielding the stated degree and edge census. At k=1 or n-1 ordinary insertion sorting always keeps the unique banned first/last label away from that endpoint and uses exactly the Kendall number of moves. At interior k, the four-letter witness has Kendall distance four, but a Kendall geodesic would have to cross the forbidden facet because its only two feasible cross-inversion witnesses cannot coexist while the common pair orders are preserved; a six-step valid sequence achieves distance six and parity excludes five. Conditions n>=2, 1<=k<=n-1 are covered, including boundary n=2. Actual graph checker reconciles cube paths and adjacent swaps, and exhaustive checks through n=6 corroborate all-pairs claims; it does not replace the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2017 non-leaving-face theorem states that geodesics between two vertices inside a common face stay in the face",
+        "Gu–Peng (1996) bounds lengths of faulty-cube source-target routes, not the sequence length between two cube geodesics",
+        "Gajjar et al. analyze unrestricted Boolean-cube shortest-path rerouting"
+      ],
+      "reasoning": "Neither retained-face geodesic convexity nor vertex-fault tolerant source-target routing implies preservation of the metric on the complement of a deleted facet. None supplies the central-layer obstruction or the extreme-layer isometric threshold.",
+      "searches": [
+        "face deleted permutahedron induced subgraph isometric iff two-block facet singleton",
+        "permutation graph permutahedron remove parabolic subgroup face isometric distances additive two detour",
+        "\"W-associahedra have the non-leaving-face property\"",
+        "\"single faulty node\" \"shortest path\" \"hypercube\""
+      ]
+    },
+    "checked_sources": [
+      "Published shortest-path reconfiguration of antipodal hypercube paths (arXiv:2112.07499v1, Section 5.4)",
+      "Asplund et al. (arXiv:1705.09385v1, Proposition 27)",
+      "Permutahedron non-leaving-face result (doi:10.1016/j.ejc.2017.01.006)",
+      "Related published result: Hypercube geodesics have an exact ballot-number distance spectrum (2026/11/2; published research index)",
+      "Related published result: Four-way rerouting cliques and sharp diameter for Johnson-graph geodesics (2026/11/8; published research index)",
+      "https://arxiv.org/abs/2112.07499",
+      "https://arxiv.org/abs/1705.09385",
+      "https://doi.org/10.1016/j.ejc.2017.01.006",
+      "https://doi.org/10.1093/comjnl/39/7/626"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 5 from Gajjar et al. states unpunctured minimum rerouting distance equals Kendall distance",
+        "Proposition 27 from Asplund et al. gives the unpunctured adjacent transposition model",
+        "The explicit interior pair is distance six while Kendall distance is four, so it violates a direct extension of the intact-cube theorem"
+      ],
+      "reasoning": "The earlier intact-cube theorems are used as the starting representation, but do not settle connectedness or isometry after removing a forbidden state. General algorithms for arbitrary reconfiguration can compute each finite instance, but no stated literature result implies the exact uniform fault-position threshold or the complete degree/edge formulas.",
+      "searches": [
+        "hypercube one vertex deleted shortest path reconfiguration adjacent swap permutahedron minus a facet, isometric failure central levels",
+        "punctured cube shortest path rerouting one forbidden intermediate vertex connected graph nongeodesic witness",
+        "permutations excluding prefix a specified subset Kendall geodesic detour witness",
+        "\"Reconfiguring Shortest Paths in Graphs\" hypercube Theorem 5",
+        "\"Reconfiguration graphs of shortest paths\" hypercube Proposition 27"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1705.09385v1 §6 / Proposition 27 identifies the intact cube shortest-path graph as a permutahedron",
+        "arXiv:2112.07499v1 §5.4, Theorem 5 gives the unrestricted Kendall rerouting metric; the puncture is a deleted two-block permutahedron facet",
+        "Related published research titles on hypercube-geodesic distance spectra and Johnson graph rerouting concern unpunctured or different graph families"
+      ],
+      "reasoning": "Equivalent descriptions include the shortest-path graph of a once-punctured cube and the adjacent-transposition permutahedron minus a specified parabolic two-block face. The full-paper results give the intact graph but not the induced complement, where our four-letter example shows nonisometry.",
+      "searches": [
+        "hypercube one vertex deleted shortest path reconfiguration adjacent swap permutahedron minus a facet, isometric failure central levels",
+        "shortest path reconfiguration hypercube vertex removed permutahedron forbidden prefix permutations",
+        "\"shortest paths hypercube avoiding vertex reconfiguration graph diameter Kendall distance\"",
+        "\"permutahedron deleted face distance shortest paths reconfiguration adjacent transposition\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The identified related published indexed hypercube work enumerates distances between intact-cube shortest routes, not distances in the face-deleted induced graph",
+        "Exact finite instances n<=8 were recomputed from definitions for sanity checks; no cited database or table identified the all-parameter dichotomy"
+      ],
+      "reasoning": "The claim is a uniform all-n all-k threshold plus constructive obstruction, not merely the recomputation of a small tabulated graph. Exact indexed and literature searches found no covering parameter table; this is a bounded search, not a proof of absence.",
+      "searches": [
+        "\"hypercube one vertex deleted shortest path reconfiguration\"",
+        "\"punctured cube shortest path rerouting\"",
+        "\"permutations excluding prefix a specified subset Kendall geodesic detour witness\""
+      ]
+    },
+    "rationale": "The original hypercube rerouting theorem fixes unrestricted Kendall distance, while the new claim concerns deleting one specified intermediate cube state, which removes a whole facet of the permutation reconfiguration graph. The established face-convexity theorem concerns geodesics with both endpoints inside a face, not the complement. Classic fault-tolerant cube routing addresses underlying routes after faults, not paths between the admissible shortest routes. Primary full-text relevant sections, exact title/alias searches, and published related findings did not provide the weight-layer connectivity/geodesic-loss dichotomy or its explicit six-versus-four witness. The negative search is not a proof of global novelty; unindexed literature remains a risk.",
+    "residual_risks": [
+      "The 2017 permutahedron face-geodesic paper was not retrieved in full at its publisher landing page; the theorem statement concerns the opposite (retained-face) property.",
+      "An unindexed or differently named fault-tolerant shortest-path reconfiguration theorem may exist.",
+      "No statement about arbitrary interior pairwise distances, generic maximum detours, or graph diameter is established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers permutation representation and unrestricted shortest rerouting, not deletion of a cube vertex/facet and not a constrained distance loss classification",
+        "evidence": "Section 5.4, Definition 10, Observation 2, Theorem 5 (HTML lines 412-452 in inspected rendition)",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00453-024-01263-y",
+        "material_read": "Full HTML article relevant §5.4, pp. narrative and Theorem 5; introductory roadmap §2",
+        "method": "Primary-source open HTML and section reading",
+        "title": "Reconfiguring Shortest Paths in Graphs",
+        "trigger": "Exact object (antipodal cube shortest paths) and unrestricted Kendall metric"
+      },
+      {
+        "assessment": "Identifies unrestricted Cayley graph of adjacent transpositions, but no formula for deleting one intermediate cube vertex",
+        "evidence": "Proposition 27 and immediately preceding permutation derivation; no deletion treatment located in full-text search",
+        "identifier_or_url": "https://arxiv.org/pdf/1705.09385",
+        "material_read": "Abstract/introduction and full hypercube segment on PDF pp. 13-14, including Proposition 27; text searched for deletions",
+        "method": "Primary arXiv PDF extracted text, visual page screenshots and targeted passages",
+        "title": "Reconfiguration graphs of shortest paths",
+        "trigger": "Original graph-theoretic characterization of the antipodal cube shortest-path graph"
+      },
+      {
+        "assessment": "States retained-face geodesic convexity, not isometry of complements; does not imply the target claim",
+        "evidence": "Theorem 3.2 and non-leaving-face definition",
+        "identifier_or_url": "https://doi.org/10.1016/j.ejc.2017.01.006",
+        "material_read": "Abstract, introduction and Theorem 3.2 proof material available in indexed readable HTML; original landing-page retrieval failed",
+        "method": "Published indexed HTML extract and primary abstract; bounded access",
+        "title": "W-associahedra have the non-leaving-face property",
+        "trigger": "Possible stronger Coxeter face-geodesic coverage"
+      },
+      {
+        "assessment": "Guarantees a bounded-length source-target route with faulty nodes, not optimal rerouting between valid shortest paths",
+        "evidence": "1996 abstract explicitly bounds faulty-cube path length by original distance plus two",
+        "identifier_or_url": "https://doi.org/10.1093/comjnl/39.7.626",
+        "material_read": "Abstract only; full text not retrieved",
+        "method": "Publisher abstract inspection",
+        "title": "Optimal Algorithms for Node-to-Node Fault Tolerant Routing in Hypercubes",
+        "trigger": "Plausible vertex-failure analogue from routing literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f6361fb0-e267-416e-aaa2-ac740283b54d",
+  "value": {
+    "rationale": "The object is the canonical network-routing shortest-path reconfiguration graph of a Boolean interconnection network under one failed intermediate node. The result supplies a sharp, complete failure-layer classification: connectivity always survives, all-pairs optimality survives exactly for failures one step from an endpoint, and a forced two-step rerouting detour appears at every deeper failure layer, with n=4 as sharp onset. It also quantifies every surviving route and all reconfiguration edges and vertex degree losses. The outcome is a nontrivial structural boundary between reachability and metric resilience rather than a new name for a known count; it can guide fault-aware route updates. It does not claim a general worst-case penalty bound.",
+    "status": "PASS"
+  }
+}
