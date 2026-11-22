@@ -1,19 +1,21 @@
-# Scientific review: a rare-return paradox for the founding voter
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two disagreement probabilities satisfy the explicitly derived linear generator ODE. Integrating it gives the expected founder flip count, and the terminal-state identity gives the exact mean upward count. For the first-return probability, the total-mutant embedded symmetric birth-and-death chain has gambler’s-ruin probability \(1/k\) to reach \(k\) before extinction. Its quadratic stopped potential has generator bounded above by minus the current mutant count, controlling the integrated potential founder-return intensity. The resulting finite-size probability bound forces \(N_n\to1\) in probability, while the mean tends to two. Direct labelled generator calculations checked \(n=2\) through \(9\) and an independent return-event reduction checked \(n=3\) through \(17\). These checks support, but do not replace, the all-size proof. The theorem is not about attempted self-updates or arbitrary initial densities.
+PASS
 
-## Originality — PASS (qualified)
+For n≥3, exchangeability separates disagreement probabilities d1 (founder vs nonfounder) and d2 (two nonfounders), satisfying (n−1)d1′=−n d1+(n−2)d2 and (n−1)d2′=2d1−4d2. Time-integrating with boundary zero gives ∫d1=2(n−1)/(n+2), the founder flip expectation. n=2 direct first exponential event gives 1/2, matching formula. Independently solved full 2^n-state transient generator for n=2..6; values 1/2,4/5,1,8/7,5/4 agree. The martingale fixation probability 1/n and pathwise D−U=1−1_all-one yield exact EU. Gambler-ruin chance 1/k to hit k before zero, plus Dynkin potential g(i)=(n−1)i(k−i)/(2(n−k)), bound P(U≥1)≤1/k+(k−1)/(2(n−k)). Choosing floor sqrt n gives N→1 in probability while EN→2 and EU/P(U≥1)≥(1/3+o(1))sqrt n. This is an upper bound on rare probability, not its asymptotic equivalence.
 
-The priority comparison was statement-based. Ben-Naim, Frachebourg and Krapivsky’s historical paper develops voter-model opinion-change statistics, including a complete-graph mean-field calculation, but its asymptotics are for different population/time regimes. Pickering and Lim’s full complete-graph spectral calculation gives occupation times of total positive-population states, not the flips of a distinguished initial founder. Sood, Antal and Redner provide the classical martingale fixation result. The nearest recorded result, *Exact hub persistence on clique bouquets and its size-biased blade law*, **does** cover the zero-founder-flip probability even on the complete graph. That probability is acknowledged as existing work and is explicitly excluded from the originality claim. None of the inspected full texts states or implies directly both the exact tagged mean count and vanishing second-flip probability together with a large conditional return count. Possible older unindexed coverage remains a priority risk; database absence alone is not a novelty proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The phenomenon is a meaningful finite-system singular limit: almost every founder changes opinion once, yet rare founder-revival trajectories contribute an extra unit to the average, and the mean number of upward changes conditional on any revival grows at least on the order of \(\sqrt n\). The proof identifies an explicit finite-size stopped-potential mechanism that separates typical and mean behavior in an archetypal neutral interacting system. This contributes a natural path statistic not provided by standard fixation probability or consensus-time calculations. The proved probability bound is not claimed optimal, and the full flip-count distribution is not determined.
+The absorption-stopped founder statistic separates convergence in probability of tagged changes from its limiting expectation and yields a quantitative rare-return lower bound; general voter persistence and full-population propagators supply tools, not this exact singular initial-condition conclusion.
 
-## Sources and remaining limits
+## value
 
-Primary works and the closest overlapping mathematical record are cited in `RESULT.md` and indexed with inspected sections, direct relevance and residual risks in `AUDIT.json`. No publisher-restricted full text was used as a negative coverage claim. There has been no independent external audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This resolves a natural tagged-observer question in a standard consensus process: typical founder almost never returns, yet rare returns carry an extra unit in expectation, demonstrating failure of uniform integrability with a quantified conditional scale. The exact marked initial condition, stopping time, and finite-n formulas are mathematically substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and boundaries
+# Independent mathematical audit
 
-The analytic proof computes the complete-graph tagged-pair disagreement ODE exactly, integrates its two components, and uses the distinguished site's terminal-state balance to identify both flip-count expectations. A separate gambler's-ruin and quadratic-supermartingale calculation proves the all-future probability bound for any upward return, and hence the nonuniform-integrability conclusion. No computation replaces these steps.
+## correctness
 
-`verification/check_founder.py` implements a labelled-state CTMC and a separate two-count aggregation. Run `python verification/check_founder.py` with Python, NumPy and SciPy. `verification/check_founder.out` contains the observed stdout. Labels are retained in the full-state check. The cases \(n=2\) through \(9\) validate the mean and the zero-flip control, and cases \(n=3\) through \(17\) validate the upward-return upper bound. These finite checks do not establish the all-\(n\) result. The exact zero-flip probability is a prior-work-covered comparison quantity, not a new claim.
+PASS
 
-The rate convention is one copying clock per vertex per unit time, not one global copying clock. Counts ignore ineffective copying updates. The theorem applies only to a singleton positive founder, not arbitrary initial proportions. The rare-event upper bound need not be sharp. No independent mathematical audit has been performed.
+For n≥3, exchangeability separates disagreement probabilities d1 (founder vs nonfounder) and d2 (two nonfounders), satisfying (n−1)d1′=−n d1+(n−2)d2 and (n−1)d2′=2d1−4d2. Time-integrating with boundary zero gives ∫d1=2(n−1)/(n+2), the founder flip expectation. n=2 direct first exponential event gives 1/2, matching formula. Independently solved full 2^n-state transient generator for n=2..6; values 1/2,4/5,1,8/7,5/4 agree. The martingale fixation probability 1/n and pathwise D−U=1−1_all-one yield exact EU. Gambler-ruin chance 1/k to hit k before zero, plus Dynkin potential g(i)=(n−1)i(k−i)/(2(n−k)), bound P(U≥1)≤1/k+(k−1)/(2(n−k)). Choosing floor sqrt n gives N→1 in probability while EN→2 and EU/P(U≥1)≥(1/3+o(1))sqrt n. This is an upper bound on rare probability, not its asymptotic equivalence.
+
+## originality
+
+PASS
+
+The absorption-stopped founder statistic separates convergence in probability of tagged changes from its limiting expectation and yields a quantitative rare-return lower bound; general voter persistence and full-population propagators supply tools, not this exact singular initial-condition conclusion.
+
+## value
+
+PASS
+
+This resolves a natural tagged-observer question in a standard consensus process: typical founder almost never returns, yet rare returns carry an extra unit in expectation, demonstrating failure of uniform integrability with a quantified conditional scale. The exact marked initial condition, stopping time, and finite-n formulas are mathematically substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
