@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every strict pooling chamber, the weighted least-squares projection has the derived root average, and its edge-difference Jacobian is explicitly a coordinate deletion plus the scalar mass-weighted correction. The weighted \(\ell^1\) induced norm is the largest weighted absolute column sum. Increasing a pooling set only decreases each pooled column bound, and every singleton set exists on an open chamber; thus the stated global maximum is both an upper bound and attained by a pair of finite real inputs. The nonpooling chamber supplies the constant one. The positive-weight minimax problem follows by normalizing the edge weights and solving the exact scalar feasibility inequalities. No enumeration is relied upon as a proof of the unrestricted statement. The included checker compares independent exact rational computations on many finite instances.
+## correctness
 
-## Originality — PASS (priority qualified)
-The foundational 2009 tree isotonic regression paper treats regression algorithms; the 2015 study of isotonic projection treats order preservation, a different stability notion. The closest published indexed cyclic-cover result concerns a cyclic Hasse graph, not a rooted star. An earlier sharp unweighted-tree result **already covers the equal-mass, equal-variation-weight star specialization**, which is expressly excluded from the novelty claim; an earlier weighted-path result has a different cover graph. The actual newly compared statement is the exact general rooted-star formula with arbitrary observation masses and arbitrary positive variation edge weights, including the feasibility criterion and unique optimal weight profile. Full text of some older literature and of the indexed cyclic-cover paper was not accessible, so historical priority remains provisional. Lack of a search hit alone is not treated as a proof.
+PASS
 
-## Mathematical value — PASS
-With branching, squared-error observation masses and edge-variation weights compete in the sharp two-input bounded-variation stability of a nonlinear estimator. The result turns this competition into a necessary-and-sufficient scalar mass-balance inequality and an explicit optimal weighting for every positive mass configuration. This is a natural stability-design question distinct from the known uniform-star coefficient, and a complete structural classification rather than a relabeling of the unweighted case.
+Given m>=2 and all masses μ0..μm and edge weights v1..vm positive, strict convexity produces unique rooted-star isotonic fit. On an active set S of pooled leaves, hub c=(μ0 x0+Σ_{S}μ_i x_i)/(μ0+Σ_S μ_i) and leaves max(x_i,c), with every S realized on an open chamber. In quotient d_i=x_i-x0, active columns have weighted norm μ_i Σ_{j notin S}v_j/[(μ0+Σ_S μ_j)v_i], bounded above by the singleton S={i}, which is strictly attainable; no-pooling yields norm 1. Finite segment integration proves sharp global Lipschitz. With Σ v=1, t_i=μ_i/(μ0+μ_i), R(v)=max_i t_i(1-v_i)/v_i, hence R<=ρ iff v_i>=t_i/(ρ+t_i); unique decreasing root of Σ t_i/(ρ+t_i)=1, threshold Σ μ_i/(μ0+2μ_i)<=1 and stated optimizers. Equal leaf mass μ_i=1 gives μ0>=m-2. Independent rational active-face checks cover m=2..8 and 105 instances, not arbitrary parameters.
 
-## Limits and sources
-The proof concerns rooted one-level stars, real signals and positive weights; arbitrary trees, mixed orientations and nonquadratic losses are not addressed. Earliest verified public lead is Agarwal–Phillips–Sadri, arXiv:0912.5182v1 (2009-12-28). Related primary text: Németh–Németh, arXiv:1503.08458v1 (2015-03-29). Relevant indexed results include *Cyclic-cover rigidity of weighted-variation stability for isotonic regression* and *Sharp ℓp isotonic regression stability on every finite partial order*, in topologies/norms not covering the general weighted-rooted-star statement.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A full relevant prior published tree-variation theorem determines the unweighted isotonic star special case L=max(1,(m-1)/2) and is correctly not reclaimed. Its hypothesis explicitly fixes unweighted vertex least squares and unweighted edge TV, so it cannot imply the mass-dependent singleton ratio, exact stabilizing region, or minimax edge weighting without new weighted optimization. Two primary isotonic papers address algorithmic and order-preserving concerns.
+
+## value
+
+PASS
+
+Optimally choosing variation edge penalties to stabilize a weighted isotonic estimator is a natural and nontrivial graph-filter design problem. The exact root-mass threshold and all weighted equality regions give sharp, interpretable decisions beyond the already established uniform star coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

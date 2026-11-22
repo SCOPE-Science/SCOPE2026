@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T13:53:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Given m>=2 and all masses μ0..μm and edge weights v1..vm positive, strict convexity produces unique rooted-star isotonic fit. On an active set S of pooled leaves, hub c=(μ0 x0+Σ_{S}μ_i x_i)/(μ0+Σ_S μ_i) and leaves max(x_i,c), with every S realized on an open chamber. In quotient d_i=x_i-x0, active columns have weighted norm μ_i Σ_{j notin S}v_j/[(μ0+Σ_S μ_j)v_i], bounded above by the singleton S={i}, which is strictly attainable; no-pooling yields norm 1. Finite segment integration proves sharp global Lipschitz. With Σ v=1, t_i=μ_i/(μ0+μ_i), R(v)=max_i t_i(1-v_i)/v_i, hence R<=ρ iff v_i>=t_i/(ρ+t_i); unique decreasing root of Σ t_i/(ρ+t_i)=1, threshold Σ μ_i/(μ0+2μ_i)<=1 and stated optimizers. Equal leaf mass μ_i=1 gives μ0>=m-2. Independent rational active-face checks cover m=2..8 and 105 instances, not arbitrary parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Read full published unweighted-tree RESULT: unweighted Euclidean projection and unweighted graph TV, general tree topology.",
+          "Agarwal–Phillips–Sadri 2009 trees paper treats isotonic and Lipschitz fitting algorithms; arbitrary-mass sharp TV difference quotient is not its stated endpoint."
+        ],
+        "reasoning": "Generality in tree shape does not dominate weighted projection/edge-weight design: two different axes of generalization. No found prior covers both.",
+        "searches": [
+          "isotonic regression projection edge total variation nonexpansivity rooted tree star mass leaf threshold",
+          "2026 exact tree variation sensitivity isotonic projection mass weights star"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-tree-variation-sensitivity-of-isotonic-projection-and-unbo--8a180bae4c2f",
+        "https://arxiv.org/html/0912.5182v1",
+        "https://arxiv.org/abs/1503.08458",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-weighted-star-isotonic-variation-modulus-and-optimal-stabi--d4226f395931",
+        "Resultary semantic searches: weighted star isotonic projection weighted total variation Lipschitz modulus optimal vertex masses edge weight; isotonic regression projection edge total variation nonexpansivity rooted tree star mass leaf threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior tree formula contains cardinalities a,b and boundary counts p,q only, not μ or v.",
+          "Current proof derives every face weighted column ratio μ_i sum_{j not in S} v_j/(v_i(μ_0+sum_{S} μ_j)), maximized by S={i}; minimax v_i>=t_i/(ρ+t_i) yields a new scalar feasibility equation."
+        ],
+        "reasoning": "To derive the current result from the unweighted theorem would require new weighted active-face and minimax analysis; the source does not imply the formula merely by setting numerical parameters.",
+        "searches": [
+          "isotonic regression projection edge total variation nonexpansivity rooted tree star mass leaf threshold",
+          "Agarwal Phillips Sadri isotonic regression paths trees 0912.5182",
+          "Nemeth isotonic projection 1503.08458"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Unweighted Resultary tree theorem: for arbitrary oriented unweighted trees, L_T is maximized by connected subtree boundary cuts; star specializes to max(1,(m-1)/2).",
+          "Current formula has independent vertex masses mu and variation weights v, sharp singleton μ_i/(μ_0+μ_i)."
+        ],
+        "reasoning": "Same problem class but additional independent positive mass measures and a global design minimax parameter; the unweighted statement is a strict specialization, not an equivalent representation.",
+        "searches": [
+          "weighted star isotonic projection weighted total variation Lipschitz modulus optimal vertex masses edge weight",
+          "weighted rooted tree isotonic regression projection graph total variation operator norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exact rational full active-face calculations for 105 mass/edge-weight instances verified the formula.",
+          "Previously published unweighted table gives only equal μ and v; no known table of the full positive-vector minimax weights."
+        ],
+        "reasoning": "The simple weighted m=2 and uniform specializations follow known results but the complete infinite-parameter design region and root threshold are not a known-table recomputation.",
+        "searches": [
+          "weighted star isotonic projection weighted total variation Lipschitz modulus optimal vertex masses edge weight",
+          "exact isotonic star nonexpansivity weighted leaf masses edge weights table"
+        ]
+      },
+      "rationale": "A full relevant prior published tree-variation theorem determines the unweighted isotonic star special case L=max(1,(m-1)/2) and is correctly not reclaimed. Its hypothesis explicitly fixes unweighted vertex least squares and unweighted edge TV, so it cannot imply the mass-dependent singleton ratio, exact stabilizing region, or minimax edge weighting without new weighted optimization. Two primary isotonic papers address algorithmic and order-preserving concerns.",
+      "residual_risks": [
+        "The unweighted star specialization is already covered by the complete unweighted tree-variation theorem; originality is limited to arbitrary positive vertex masses and optimal edge weights.",
+        "Weighted poset isotonic norm studies with implicit masses under unsearched older terminology remain possible; historical priority is bounded.",
+        "Computations of all active subsets for 105 chosen rational parameter instances do not prove unrestricted all-m and all-weight norm."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS uniform-unweighted star case only; does not cover weighted result",
+          "evidence": "Explicitly requires unweighted Euclidean objective and unweighted edge TV; formula (2) max{1,(m-1)/2}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-tree-variation-sensitivity-of-isotonic-projection-and-unbo--8a180bae4c2f",
+          "material_read": "Complete public RESULT.md including hypotheses, all six proof steps and sharp star corollary",
+          "method": "Full GitHub source file at published repository",
+          "title": "Exact tree-variation sensitivity of isotonic projection and unbounded cubic-branch amplification",
+          "trigger": "Highly relevant published more general tree shape"
+        },
+        {
+          "assessment": "NOT_COVERING weighted star TV norm, based on relevant methods and statements",
+          "evidence": "Dynamic algorithms for constrained regression instead of two-input total-variation Lipschitz or optimal edge metric.",
+          "identifier_or_url": "https://arxiv.org/html/0912.5182v1",
+          "material_read": "Accessible complete HTML including tree algorithm development and problem assumptions",
+          "method": "Lawful arXiv HTML full-text reading",
+          "title": "Lipschitz Unimodal and Isotonic Regression on Paths and Trees",
+          "trigger": "Primary tree isotonic regression"
+        },
+        {
+          "assessment": "DIFFERENT_NORM",
+          "evidence": "Order-isotone means coordinatewise input comparison, not TV perturbation norm and design minimax.",
+          "identifier_or_url": "https://arxiv.org/abs/1503.08458",
+          "material_read": "Abstract and accessible arXiv text sections on order-isotonic projection",
+          "method": "ArXiv public HTML/abstract",
+          "title": "Isotonic regression and isotonic projection",
+          "trigger": "Order-preserving metric projection general result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Optimally choosing variation edge penalties to stabilize a weighted isotonic estimator is a natural and nontrivial graph-filter design problem. The exact root-mass threshold and all weighted equality regions give sharp, interpretable decisions beyond the already established uniform star coefficient.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-tree-variation-sensitivity-of-isotonic-projection-and-unbo--8a180bae4c2f",
+    "https://arxiv.org/html/0912.5182v1",
+    "https://arxiv.org/abs/1503.08458",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-weighted-star-isotonic-variation-modulus-and-optimal-stabi--d4226f395931",
+    "Resultary semantic searches: weighted star isotonic projection weighted total variation Lipschitz modulus optimal vertex masses edge weight; isotonic regression projection edge total variation nonexpansivity rooted tree star mass leaf threshold"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All assigned Git source blobs were read-only; finite computational checks are corroborative, never all-parameter proof.",
+    "Originality is a best-of-knowledge statement-level comparison, not proof of unindexed historical absence; public text/source access differences explicitly disclosed.",
+    "Potentially public operational provenance and misleading first-publication dates block safe publication; publication plan is not_ready."
+  ],
+  "residual_risks": [
+    "The unweighted star specialization is already covered by the complete unweighted tree-variation theorem; originality is limited to arbitrary positive vertex masses and optimal edge weights.",
+    "Weighted poset isotonic norm studies with implicit masses under unsearched older terminology remain possible; historical priority is bounded.",
+    "Computations of all active subsets for 105 chosen rational parameter instances do not prove unrestricted all-m and all-weight norm."
+  ],
+  "schema_version": 1
+}
