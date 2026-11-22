@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For each n>=1 and all nonempty U,V, Boolean multiplication yields U×W and Z×V. Their equality has exactly the zero/zero and nonzero/matching-support cases. The zero/zero case leaves (n-a)(n-b) arbitrary bits; in the other case, the A×A block has H_c options with no zero rows/columns, B×U has (2^a-1)^(a-c) options, V×C has (2^b-1)^(b-c), and precisely the same free-bit rectangle remains. Inclusion-exclusion proves H_c and choosing support-overlap strata proves M_n. n<=3 all rectangles and n=4 all 26 overlap representatives are verified against all matrices by direct independent multiplication. Standard pairwise-intersection bounds prove the asymptotic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kim–Roush (1981) address ideals, congruences and endomorphisms of the full relation semigroup; the rank-one rectangle factorization is classical.",
+        "Bremner–El Bachraoui (2010), Lemmas 5–15, Theorem 21 and Corollary 22, build a field-semigroup-algebra ideal isomorphic to a full matrix algebra, not full-monoid centralizer valencies."
+      ],
+      "reasoning": "General structural theorems and algebra linearization do not provide a full-monoid commuting-partner count at specified supports. Their rectangle product lemmas are antecedents and are credited.",
+      "searches": [
+        "all binary relations monoid commutation probability centralizer of full rectangular rank one Boolean relation row union column union",
+        "centralizers in finite semigroup of all binary relations rank-one rectangular relations Boolean matrices centralizer counts",
+        "https://doi.org/10.1017/S0017089500004468",
+        "https://doi.org/10.1080/00927870902939418"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1017/S0017089500004468",
+      "doi:10.1080/00927870902939418",
+      "arxiv:1012.5505v1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-clique-and-maximal-clique-enumerators-for-rank-one-idempotent-bo--a2f16599b2ee"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The product identity for rank-one rectangles is prior work; the novelty claim is limited to disjoint two-case support enumeration and centralizer-size multiplicities in the entire monoid.",
+        "The prior clique result restricts both arguments to nonzero rank-one idempotents, whereas the present count ranges over all 2^(n*n) partners.",
+        "The prior all-ones support condition is a special case and is not counted as a distinct contribution."
+      ],
+      "reasoning": "Neither an intersection criterion for two rectangles nor a fixed special-matrix centralizer determines the arbitrary partner Y, the independent all-zero/nonzero block decomposition, or the overlap multiplicity of all support pairs. Thus searched antecedents are not dominating statements of the final claim.",
+      "searches": [
+        "Boolean matrix centralizer rank one rectangular relations commutation powerset relation semigroup",
+        "centralizer spectrum of rectangular binary relations all relations monoid nonzero rows columns inclusion exclusion",
+        "https://arxiv.org/html/1012.5505v1",
+        "https://doi.org/10.1080/00927870902939418"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dolžan–Kokol Bukovšek–Oblak, arXiv:1012.5505v1, Section 2, gives Boolean commuting-graph diameter and nilpotent-shift centralizer; Section 3 gives all-ones support condition for tropical matrices.",
+        "The zero-row/zero-column condition for the all-ones Boolean rectangle is treated as background, not as an independently novel criterion."
+      ],
+      "reasoning": "The whole family includes arbitrary overlapping nonempty U,V and explicitly counts all partners for every overlap size; the older all-ones or shift special cases do not imply the three-parameter enumeration without further combinatorial work.",
+      "searches": [
+        "commutant valency of rank-one Boolean matrices in full binary relation semigroup",
+        "commuting Boolean binary relations rank-one matrices all-field no zero row column count",
+        "https://arxiv.org/html/1012.5505v1: Section 2, Lemma 2.1; Section 3, Lemma 3.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The complete published RESULT.md for the rank-one-idempotent clique census gives clique-size coefficients and states its formulas do not count arbitrary-rank commuting elements.",
+        "Semantic search for full Boolean rank-one rectangular centralizers and zero-row-column inclusion-exclusion did not surface an identical table."
+      ],
+      "reasoning": "Clique counts among idempotent rectangles are not the neighborhood sizes of these vertices in the full binary-relation monoid. A failed database search alone is not evidence of uniqueness, so historical-priority risk remains.",
+      "searches": [
+        "exact number of Boolean n by n matrices commuting with fixed rectangular relation A times B; row column zero-free submatrix; intersection size",
+        "number of centralizers full Boolean relation monoid rank-one matrices 2^((n-a)(n-b)) rectangular",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-clique-and-maximal-clique-enumerators-for-rank-one-idempotent-bo--a2f16599b2ee"
+      ]
+    },
+    "rationale": "The rank-one rectangular element and product rule are established. The new result enumerates all arbitrary-rank partners commuting with each such element and gives the complete overlap-indexed size multiplicities and limiting contrast. Published rank-one idempotent clique counts enumerate only mutual commutation within a narrow subgraph, not this full centralizer; the full semigroup-algebra rectangle ideal describes a different linearized object. Exact statement and parameter-implication comparisons did not find prior coverage in inspected sources. The absence of an earlier equivalent formula remains a specific residual historical-priority risk.",
+    "residual_risks": [
+      "Unlocated earlier relation-algebra/multifunction terminology may conceal an equivalent overlap-indexed commuting-partner count.",
+      "Only the specified primary portions of the 1981 paper were inspected, not a line-by-line reading of every page.",
+      "Independent literature-priority evaluation remains unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Credited rank-one Boolean rectangle normal form; no centralizer-size spectrum observed in inspected sections",
+        "evidence": "1981 Glasgow Mathematical Journal 22(1), 57–68; article identifies ideal structure, congruences and endomorphisms as its questions.",
+        "identifier_or_url": "https://doi.org/10.1017/S0017089500004468",
+        "material_read": "Original PDF abstract, introduction, rank-one representation and structural-results discussion, including page 59",
+        "method": "Full original PDF text and page inspection",
+        "title": "The algebraic structure of the semigroup of binary relations on a finite set",
+        "trigger": "Foundational full relation semigroup; rank-one Boolean rectangles"
+      },
+      {
+        "assessment": "Studies a matrix algebra ideal in the field semigroup algebra, not the original Boolean monoid centralizer count",
+        "evidence": "Bremner–El Bachraoui (2010) Theorem 21 and Corollary 22 explicitly identify the rank-one ideal with a matrix algebra; first verified exact published online date 2010-09-30.",
+        "identifier_or_url": "https://doi.org/10.1080/00927870902939418",
+        "material_read": "Full-text online transcription: introduction and named Lemmas 5–15, Theorem 21, Corollary 22, and illustrative examples",
+        "method": "Author-published article text rendered online; inspected relevant mathematical statements, including full rectangle-product lemma and matrix-algebra ideal result",
+        "title": "On the semigroup algebra of binary relations",
+        "trigger": "Closest foundational treatment of all nonzero Boolean rectangles"
+      },
+      {
+        "assessment": "Classifies graph diameter and a nilpotent-shift centralizer; the all-ones support phenomenon is antecedent but no overlap-parameter census is stated",
+        "evidence": "arXiv:1012.5505v1 2010-12-26; Theorem 2.2 on Boolean graph diameter and Lemma 2.1 on shift matrix centralizers.",
+        "identifier_or_url": "https://arxiv.org/abs/1012.5505",
+        "material_read": "Full HTML version 1, introduction, Boolean Section 2, Lemmas 2.1–2.2, and Section 3 Lemma 3.1",
+        "method": "Read arXiv v1 HTML mathematical text, not only search snippet",
+        "title": "Diameters of commuting graphs of matrices over semirings",
+        "trigger": "Potential stronger commuting-graph theorem for the Boolean matrix monoid"
+      },
+      {
+        "assessment": "Counts only rank-one idempotent clique sets; its own limitations exclude arbitrary-rank commuting partners, so it does not cover full centralizers",
+        "evidence": "Its stated vertex set consists of idempotent rectangles X_(A,B) with A intersect B, and its limitations explicitly exclude all commuting elements of the full relation monoid.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-clique-and-maximal-clique-enumerators-for-rank-one-idempotent-bo--a2f16599b2ee",
+        "material_read": "Complete published RESULT.md including theorem, proof, relationship to prior work and limitations",
+        "method": "Read exact published primary claim and compare input domains and outputs",
+        "title": "Clique and maximal-clique enumerators for rank-one idempotent Boolean relations",
+        "trigger": "Closest published statement on commuting rank-one rectangles"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "94c0c774-8dc5-4d5b-b542-f76f9a5d1fe8",
+  "value": {
+    "rationale": "Determines the complete multiset of commuting-partner counts on the entire minimal nonzero Boolean-rank stratum of an exponentially large finite semigroup, for every n. The exact overlap dependence is not captured by fixed support sizes alone (n=4,a=b=2,c=0,1,2 yields 1312,160,128), and singleton versus complete-rectangle commuting probabilities have opposite limits; these are natural structural, quantitative invariants and not a standalone finite-table exercise.",
+    "status": "PASS"
+  }
+}
