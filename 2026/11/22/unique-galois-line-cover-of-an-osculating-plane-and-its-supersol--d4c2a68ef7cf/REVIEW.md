@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Higashine's explicit classification fixes the allowed line families. Points \([t:1:0]\) force each \(L_t\), and the two-element kernel of \(t\mapsto t^2+dt\) forces all nonzero \(M_d\); this proves covering minimality and uniqueness. Pairwise line intersections give an exhaustive triple/high-multiplicity profile. The addition–deletion argument supplies free exponents over characteristic two, and inclusion–exclusion gives all-extension point counts. Independently implemented exact field checks agree for \(Q=16,64,256\). The proof is uniform, not inferred from those checks.
+
+**Originality — PASS, qualified.** Higashine [1] classifies the lines but does not solve a covering optimization or give the intersection lattice, free exponents, or extension-field zeta function. The earlier characteristic-two all-triple arrangements of Kühne–Szemberg–Tutaj-Gasińska [2] are a different incidence family; the characteristic-zero supersolvable theory [3] does not contain the present arithmetic example. The closest previously recorded Galois-line result concerns the setwise projective stabilizer of the same line family, not its minimal rational cover or incidence profile. Searches for exact equations, aliases, broad covering theorems, and finite incidence tables found no stronger coverage. The main remaining risk is an unindexed earlier description of the same finite-field arrangement.
+
+**Value — PASS.** Minimum rational covers by geometrically distinguished Galois lines are a natural finite-geometric invariant of the embedding. The uniqueness is structural rather than a single numerical instance, and the complete singularity, freeness, and arithmetic-complement data describe a distinctive supersolvable no-node arrangement in characteristic two.
+
+The result relies on the previously classified Galois line list; it does not reprove that classification. No claim is made about covering all geometric points or about arbitrary osculating planes. The proof includes a field-independent addition–deletion step; the finite computer checks are ancillary. Independent mathematical validation remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
