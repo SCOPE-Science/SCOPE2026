@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Logistic comparison bounds prey. For \(E\geq AD\), the function \(h(x)=2\int_0^x g_+(u)/q(u)\,du\) is finite at zero and \(\log y+h(x)\) cannot increase when \(y\) is above a fixed state-independent-in-time threshold; each excursion gives the explicit uniform bound in `RESULT.md`. For \(E<AD\), \(g(x)\geq D-E/A>0\) forces finite-time Riccati blow-up. The reciprocal-predator identity first supplies a positive power upper bound for prey, then a precise predator pole; an integrable error in the prey logarithmic derivative yields a finite strictly positive asymptotic amplitude. The derivative trichotomy follows without finite-experiment extrapolation. Exact algebraic and numerical replay is provided. The isolated finite-time singularity and all parameter boundaries were checked directly.
+PASS
 
-## Originality
+PASS: Logistic comparison bounds prey x<=B. On E>=AD, g_+/q integrable through x=0 (g_+ vanishes near zero if E>AD, and g/q=D(x^p+C)/[M(x+A)] when E=AD). With Y*=2R(B^p+C)/M, y>=Y* forces xdot<=-qy/2 and d(log y+2∫_0^x g_+/q)/dt<=0; excursions give a uniform predator bound and forward globality including equality. On E<AD, δ=D-E/A>0 gives ydot>=δy² and finite terminal time, 1/y(t)=∫_t^Tg(x(s))ds. Since g<=D, y>=1/[D(T-t)]; logarithmic prey comparison gives x=O((T-t)^κ), κ=M/[D(B^p+C)]>0, so g(x)=δ+O(τ^κ) and y=1/(δτ)(1+O(τ^κ)). Then xdot/x=-ν/τ+O(1+τ^(κ-1)), ν=M/(Cδ), an integrable error; x/τ^ν→c in (0,infinity), and xdot~-νcτ^(ν-1). The limiting derivative trichotomy at ν<1,=1,>1 follows. Independently checked symbolic cancellation g/q at E=AD; no finite simulation used as general proof.
 
-**PASS within inspected evidence, with residual publication-priority uncertainty.** The 2021 original model article gives conditional boundedness and stability results, not this all-positive-data parameter dichotomy. The 2023 follow-on analyzes blow-up and claimed concurrent derivative quenching but does not establish the parameter-wide *converse* global bound or the exponent threshold. The 2024 Patra–Maitra–Kundu article proves the sufficient \(D>E/A\) blow-up side, which is explicitly credited and excluded from the novelty claim. Relevant indexed mathematical results on other Leslie–Gower and quadratic predator systems have different vector fields, invasion thresholds, or extinction regimes. The 2024 journal source was only accessible in material excerpts, so equivalence elsewhere remains a risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** The sharp \(D=E/A\) boundary resolves whether the printed mathematical flow can actually explode, a central question raised by the originating papers. The global boundedness statement resolves the full complementary parameter half, not just a local stability neighborhood. On the blowing-up half, the exact exponent \(\nu=M/[C(D-E/A)]\) yields a three-regime classification of the prey derivative and separates exploding derivatives from bounded or vanishing derivatives at predator blow-up. This directly tests the interpretation of reported simultaneous blow-up and quenching, and has concrete parameter-level implications without a special rational slice.
+PASS best-of-knowledge: Earlier 2024 Patra–Maitra–Kundu material explicitly treats D>E/A as sufficient blow-up; the 2023 Srivastava group-defence paper describes blow-up/quenching for some data. Neither accessible theorem statement includes the converse E>=AD global uniform bound across all positive starts together with positive-amplitude power law and ν-derivative trichotomy. Some original 2024 full-body material was not lawfully retrievable, so possible broad equivalence is residual rather than a reason to automatically fail.
 
-## Closest literature and limitations
+## value
 
-- Patra, Kundu and Maitra (arXiv:2104.09166; 2021), original model and conditional boundedness.
-- Srivastava, Antwi-Fordjour and Parshad (arXiv:2306.13666; 2023), blow-up and quenching analysis in the same printed ODE.
-- Patra, Maitra and Kundu (*Journal of Biological Systems* 2024, DOI:10.1142/S0218339024500165), sufficient blow-up condition \(D>E/A\), not a converse or exact power profile in the inspected section.
+PASS
 
-Unindexed equivalent results and incompletely accessible 2024 full-text material remain novelty risks. The theorem is restricted to the undelayed ODE, positive coefficients and initial populations, and \(p\geq1\); it does not describe delayed or spatial variants. Numerical tests do not constitute an infinite proof.
+PASS: the exact parameter-wide threshold resolves whether the printed undelayed ecological flow can blow up and distinguishes three mathematically different prey derivative behaviors. The sharp all-positive-data converse and boundary are useful structural results in a model with reported conflicting quenching simulations.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
