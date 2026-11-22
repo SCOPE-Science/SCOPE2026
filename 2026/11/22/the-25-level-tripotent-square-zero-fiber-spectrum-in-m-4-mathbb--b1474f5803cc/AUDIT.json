@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Explicit row-major encoding bijects 65,536 integers with M_4(F_2). The finite program checks ordinary field multiplication, all 316 square-zero N and all 5,317 tripotents T, verifies 1,680,172 ordered summands via a direct pair census, independently computes the 16-bit integer Walsh convolution and requires entry-by-entry equality. It separately lists all 34 primary rational types and sizes from the centralizer unit formula and requires the resulting weighted histogram to match. Fundamental polynomial identities and class-size formulas are reconstructed in RESULT.md. The proof is exhaustive only in dimension four.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2604.15286v1 proves four-potent-plus-square-zero existence over the binary field, a weaker potency restriction than tripotency.",
+        "arXiv:2611.24594v1 Proposition 4.7 proves every binary order-four matrix has at least one tripotent-plus-square-zero decomposition.",
+        "arXiv:2102.10460v1 constructs some potent-plus-square-zero decomposition, without fixed tripotency or pointwise multiplicities."
+      ],
+      "reasoning": "Uniform existence for a broader or weaker decomposition class cannot supply the exact number of fixed-exponent decompositions. The 2026-11-18 proposition is stronger on existence for this exact class, but asserts no uniform, pointwise, or tabulated counts. The new result is a quantitative refinement, not a new existence theorem.",
+      "searches": [
+        "Quantitative decompositions idempotent square zero matrices ring M4(F2) tripotent",
+        "arxiv:2604.15286v1 Theorem 3.1 and Corollary 3.3",
+        "arxiv:2611.24594v1 Proposition 4.7",
+        "arxiv:2102.10460v1 Proposition 2.2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2604.15286v1, submitted 2026-04-16",
+      "arxiv:2611.24594v1, submitted 2026-11-18",
+      "arxiv:2102.10460v1, submitted 2021-02-20",
+      "published record 2026/10/4/SCOPE-exact-3-times-3-binary-boundary-for-diagonalizable-plus-square-z--71d12e506077",
+      "published record 2026/10/13/SCOPE-exact-nil-clean-decomposition-multiplicities-in-2-times2-finite--5a7337677087"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026-11-18 work guarantees only r(A)>=1 for all A in M_4(F_2).",
+        "The present theorem proves 25 possible values, a unique singleton at zero, a unique nonzero minimum class, and a second maximum class, plus the complete weighted histogram."
+      ],
+      "reasoning": "The exact numerical distribution logically implies the qualitative existence theorem, but not conversely: a positive-integer-valued invariant can vary without affecting existence. No claim to a new universal decomposition theorem is made.",
+      "searches": [
+        "Exact 25-level representation multiplicity spectrum of decompositions of four by four binary matrices into a tripotent and square-zero matrix, 65536 matrices and 316",
+        "arxiv:2611.24594v1 Proposition 4.7",
+        "arxiv:2604.15286v1 Corollary 3.3",
+        "arxiv:2102.10460v1 Proposition 2.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026/10/4 published record counts existence of diagonalizable-plus-square-zero decompositions in M_3(F_2), not ordered tripotent fiber sizes in M_4(F_2).",
+        "arXiv:2611.24594v1, Section 4, proves existence of tripotent-plus-square-zero decompositions for M_4(F_2) without uniqueness or multiplicity census."
+      ],
+      "reasoning": "A diagonalizable binary matrix is tripotent, but the converse fails, and three-dimensional existence does not determine four-dimensional tripotent fiber multiplicities. The later order-four existence result implies positivity only, not 25 distinct fiber counts, class sizes, or unique extrema.",
+      "searches": [
+        "Number of decompositions of a 3 by 3 matrix over F2 as the sum of a tripotent and a square-zero matrix; similarity class spectrum multiplicities",
+        "Complete finite-field count of tripotent plus square-zero matrix decomposition fibers, F2 n=4, similarity classes",
+        "published-finding corpus published record 2026/10/4/SCOPE-exact-3-times-3-binary-boundary-for-diagonalizable-plus-square-z--71d12e506077"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved research record or primary paper tabulated the exact 25-valued fiber distribution for all 65,536 binary four-by-four matrices.",
+        "The 2-by-2 nil-clean record involves an idempotent and an unrestricted nilpotent, not a tripotent with a square-zero second summand in order four.",
+        "The complete original 34-class table is supplied as class_table.csv and reproduced by verify.py."
+      ],
+      "reasoning": "Names and matrix dimensions overlap, but neither first-summand identity, second-summand identity, and order all agree with the target. Published tables that classify the smaller or weaker problems do not dominate the claim.",
+      "searches": [
+        "Exact 25-level representation multiplicity spectrum of decompositions of four by four binary matrices into a tripotent and square-zero matrix, 65536 matrices and 316",
+        "Complete finite-field count of tripotent plus square-zero matrix decomposition fibers, F2 n=4, similarity classes",
+        "\"tripotent\" \"square-zero\" \"number of decompositions\" matrices",
+        "\"tripotent\" \"square-zero\" \"multiplicity\" \"4\" \"F2\"",
+        "binary matrices tripotent square zero representation counts similarity classes",
+        "Binary 4x4 matrices tripotent square-zero ordered decompositions sharp minimum three 1120 conjugacy class zero 2x2 and irreducible quadratic",
+        "Binary M4(F2) additive fiber spectrum 25 values 316 decompositions of identity tripotent and square-zero",
+        "published-finding corpus published record 2026/10/13/SCOPE-exact-nil-clean-decomposition-multiplicities-in-2-times2-finite--5a7337677087"
+      ]
+    },
+    "rationale": "The target is the pointwise number of ordered decompositions into T^3=T and N^2=0 over M_4(F_2), plus the full 25-level fiber histogram, complete 34 similarity classes, and sharp unique extrema. Primary papers published in 2021, April 2026, and November 2026 establish qualitatively different existence results and do not tabulate these quantities. Targeted research-record searches found related but not covering dimension-three and other summand constraints. The residual risk is an unindexed finite census or a specialist table.",
+    "residual_risks": [
+      "An unindexed or earlier specialist enumeration might already record the four-by-four tripotent/square-zero fiber table.",
+      "The dimension-three published record and available primary text were compared; specialist unindexed computational tables may still exist.",
+      "Exact finite enumeration establishes no symbolic formula uniform in matrix dimension."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "QUALITATIVE_OTHER_CONSTRAINT",
+        "evidence": "Provides fourth-potency or diagonalizability statements; no M_4(F_2) tripotent fiber table.",
+        "identifier_or_url": "https://arxiv.org/html/2604.15286v1",
+        "material_read": "Abstract, Section 1, core statements in Sections 2 and 3, including general and binary-field results",
+        "method": "Opened and inspected accessible arXiv full-text HTML",
+        "title": "Matrices over finite fields of characteristic 2 as sums of diagonalizable and square-zero matrices",
+        "trigger": "Recent fixed-potency and square-zero decomposition motivation, first public 2026-04-16"
+      },
+      {
+        "assessment": "EXISTENCE_COVERED_NOT_MULTIPLICITY",
+        "evidence": "Proposition 4.7 constructs one decomposition for each order-four matrix, without numbers of decompositions, class histogram, or extremal fibers.",
+        "identifier_or_url": "https://arxiv.org/html/2611.24594v1",
+        "material_read": "Abstract, Introduction, Sections 2-4 with Corollary 3.4, Proposition 4.7 and Remark 4.9, references and open problems",
+        "method": "Opened arXiv HTML full text, inspected PDF pages 1 and 11 for relevant definitions/construction",
+        "title": "A cubic obstruction to sums of tripotent and square-zero matrices",
+        "trigger": "Same exact summands and order-four existence; later source with first public date 2026-11-18"
+      },
+      {
+        "assessment": "GENERAL_EXISTENCE_NOT_EXACT_COUNT",
+        "evidence": "Proposition 2.2 constructs a variable-exponent potent summand and square-zero term, without counting four-by-four tripotent fibers.",
+        "identifier_or_url": "https://arxiv.org/abs/2102.10460",
+        "material_read": "Full accessible arXiv rendered text, introduction and Main Results including Proposition 2.2",
+        "method": "Opened primary preprint full-text rendering, compared quantifiers and summand exponent",
+        "title": "Decompositions of Matrices into Potent and Square-Zero Matrices",
+        "trigger": "Potential broader covering theorem for potent decomposition"
+      },
+      {
+        "assessment": "DIFFERENT_DOMAIN_AND_SUMMAND",
+        "evidence": "The record states 380 of 512 M_3(F_2) matrices admit diagonalizable-plus-square-zero decompositions and lists exceptional classes, not order-four tripotent decomposition counts.",
+        "identifier_or_url": "2026/10/4/SCOPE-exact-3-times-3-binary-boundary-for-diagonalizable-plus-square-z--71d12e506077",
+        "material_read": "Published published-finding corpus title and summary, and complete RESULT.md including statement, proof, verification and references",
+        "method": "Semantic record search followed by complete primary GitHub RESULT.md fetch and direct theorem comparison",
+        "title": "Exact 3×3 binary boundary for diagonalizable-plus-square-zero decomposition",
+        "trigger": "Closest indexed quantitative matrix-decomposition comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b1474f58-03cc-4619-aaf4-327b3e48d32f",
+  "value": {
+    "rationale": "At the first dimension after the cubic obstruction, the exact multiplicity of fixed-exponent decompositions is a natural rigidity measure independent of an existence theorem. The complete 25-level distribution and 34 similarity-class refinement supply natural, previously unreported precise data: uniqueness only at zero, nonzero minimum three on exactly one class of 1,120 matrices, and maximum among nonidentity matrices 162 on the rank-three idempotent class of 120 matrices. These sharp boundaries reveal substantial nonuniformity obscured by qualitative existence and support comparing constructive algorithms and presentation redundancy.",
+    "status": "PASS"
+  }
+}
