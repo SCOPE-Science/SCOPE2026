@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The coordinate-sign selection rule annihilates every product monomial below total degree \(2m\); at the first critical degree it isolates complementary squarefree monomials. Their harmonicity and mutual orthogonality are direct, and the two required Dirichlet moments give the coupling \((2/\pi)^m\). The full multiplicity count follows from the standard dimension formula. Separate generalized-eigenvalue calculations from monomial Laplacian nullspaces agree for eight cases across several ambient dimensions, without serving as a substitute for proof. The principal boundary conditions are \(d\ge2m\) and the distinctness of selected coordinate axes.
+## correctness
 
-**Originality — PASS (provisional historical priority).** The 2004/2006 general spherical Slepian framework, the 2019 spherical large-sieve concentration estimates, and the 2021 commuting-operator cap analysis do not state an even-parity orthant spectral law. A published half-domain reflection result gives generic spectral pairing, but no exact parity-depth threshold, complement-pair rank, or universal splitting. The separate cube-vertex Walsh interpolation theory concerns finite samples, not a positive-measure spherical mask. Full mathematical priority would require wider historical coverage of signed-orthant harmonic integration.
+PASS
 
-**Value — PASS.** The first bandwidth at which a maximally discontinuous half-sphere mask changes any low-frequency energy is a natural observability invariant. The complete critical spectrum, explicit extremizers, and exact sharp inverse-energy ratio quantify reconstruction stability for an infinite family of non-axisymmetric regions. Dimension-independence distinguishes the calculation from routine finite-matrix diagonalization; the fact remains useful without a larger downstream theorem.
+Coordinate reflection makes the sign-product mask orthogonal to all monomials of degree <2m, so the compressed sign operator vanishes for L<m. At L=m only the squarefree monomial involving exactly the 2m selected coordinates contributes. The harmonic degree-m monomials x_I form an orthogonal summand; only complementary I and I^c couple. Normalized spherical Dirichlet moments E x_I^2=Gamma(d/2)/(2^m Gamma(d/2+m)) and E product|x_j|=Gamma(d/2)/(pi^m Gamma(d/2+m)) give rho=(2/pi)^m. The complement involution yields equal ±rho eigenspaces, with the stated residual dimension and positive ratio; boundary d=2m and m>=2 checked.
 
-Limitations: odd-parity depths and all later bandwidths are not treated. The symmetric-sign cancellation below the threshold is elementary; the assessed contribution is the complete critical spectrum and its universality. Historical priority remains provisional. The supplied checker is numerical and not an independent mathematical validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classical spherical Slepian full text sets up general concentration eigenproblems, with explicit polar cap examples, but not the parity-orthant mask, first nonneutral bandwidth or universal complementary-monomial spectrum. Specialized cap commuting operators and large-sieve bounds do not imply these exact coefficients. Possible older sign-orthant harmonic moment formulas remain a historical risk; best-knowledge classification survives.
+
+## value
+
+PASS
+
+Determining the exact first spectral splitting of a natural positive-measure checkerboard half-sphere region across every dimension is a motivated concentration/observability question. Its explicit extremal eigenfunctions and dimension-independent (2/pi)^m splitting are mathematically nontrivial, even absent higher-band enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
