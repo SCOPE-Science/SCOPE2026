@@ -1,0 +1,164 @@
+{
+  "correctness": {
+    "rationale": "For odd moved support m>=3, the derangement recurrence and parity give v2(D_m)=v2(m-1). The factorial quotient binom(n,m)(m-1)=n(n-1)(n-2) binom(n-3,m-3)/(m(m-2)) makes the claimed full two-adic spectrum exact, and m=3 reaches the minimum for n>=4. For an odd p not powering n, a nonzero higher base-p digit gives a proper odd moved support m=p^j with both binom(n,m) and D_m p-units; when n=p^a every interior binomial is divisible by p, and m=p^(a-1) or m=3 has valuation exactly one. Lucas modulo two gives all digit-subset minimizers and their exact counts. The checker independently passed 17648 exact assertions, but infinite validity rests on these arguments. Boundaries n=4 and pure odd prime rows are addressed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The strong-divisibility theorem is about all B_U(n,k) from a positive strong-divisibility U-sequence.",
+        "The restricted-binomial result selects all lower indices divisible by a fixed m and gives a prime-divisibility row census."
+      ],
+      "reasoning": "The factor D_m depends on the moved support rather than arising from a U-factorial ratio and the selected odd supports are not multiples of a fixed positive modulus. The cited theorems therefore do not specialize to or dominate the current all-row weighted gcd and exact binary spectrum.",
+      "searches": [
+        "2026/10/18/SCOPE-universal-row-content-of-strong-divisibility-binomial-arrays--8c34899e8bac",
+        "2026/11/8/SCOPE-exact-logarithmic-row-counts-for-restricted-binomial-gcds--339a752cfdc3",
+        "restricted binomial row gcd all even lower indices valuation p and digit sum two"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1409.3820",
+      "https://arxiv.org/abs/1508.01987",
+      "https://oeis.org/wiki/Rencontres_numbers",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-logarithmic-row-counts-for-restricted-binomial-gcds--339a752cfdc3",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-universal-row-content-of-strong-divisibility-binomial-arrays--8c34899e8bac",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-dyadic-residue-multiplicities-of-derangement-numbers--2db8513e1620"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Meštrović supplies Lucas and Kummer, but no derangement-weighted row statement.",
+        "Miska treats arithmetic of D_m, but not the selected rowwise binomial products.",
+        "The three inspected public manuscripts concern different unweighted or single-sequence invariants."
+      ],
+      "reasoning": "Combining familiar identities is necessary but nontrivial: the exact factorization of each two-adic entry uses the odd-derangement law and a shifted binomial quotient; proving the odd-prime gcd uses a uniform choice m=p^j for all non-prime-power rows and a sharp one-carry witness at prime powers. None of the prior conclusions alone entails that full result.",
+      "searches": [
+        "arxiv:1409.3820",
+        "arxiv:1508.01987",
+        "2026/11/8/SCOPE-exact-logarithmic-row-counts-for-restricted-binomial-gcds--339a752cfdc3",
+        "2026/10/18/SCOPE-universal-row-content-of-strong-divisibility-binomial-arrays--8c34899e8bac",
+        "2026/11/2/SCOPE-exact-dyadic-residue-multiplicities-of-derangement-numbers--2db8513e1620"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The standard fixed-point formulation R(n,k)=binom(n,k) D_(n-k) was converted to odd moved-support m=n-k.",
+        "The initial actual gcds are 8,20,8,14,16,24 for n=4..9; the OEIS rencontres array presents values, not the all-row gcd formula."
+      ],
+      "reasoning": "Equivalent formulations under fixed-point parity and under moved-support parity were searched. The closest primary sources give the underlying terms but do not state or logically imply the complete gcd and binary minimizer count without the new exact valuation reduction.",
+      "searches": [
+        "odd support rencontres numbers gcd exact 2-adic valuation fixed points opposite parity derangement binomial row",
+        "for n and odd m gcd binom(n,m) subfactorial D_m, 2-adic valuation equals n(n-1)(n-2) and odd prime factors prime-power n",
+        "parity restricted rencontres triangle row content derangements even odd moved symbols full prime factorization",
+        "https://oeis.org/wiki/Rencontres_numbers"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS Wiki tabulates individual rencontres entries and their factorization as binomial times derangement.",
+        "The sequence of row contents and the digitwise minimizer census were not stated in the inspected tables.",
+        "Attempts to retrieve the two individual OEIS sequence-record URLs returned access denial (HTTP 403); the inspected table is the public OEIS Wiki presentation, not unseen sequence-record contents."
+      ],
+      "reasoning": "A finite table of the triangular array permits independently calculating particular gcds; it is not an exhaustive theorem or a direct indexed table of the parameterized invariant.",
+      "searches": [
+        "https://oeis.org/wiki/Rencontres_numbers",
+        "https://oeis.org/A008290",
+        "https://oeis.org/A098825",
+        "rencontres numbers row gcd odd moved points binomial derangement gcd formula"
+      ]
+    },
+    "rationale": "The result combines a precise full binary valuation reduction for the odd moved-support rencontres subrow with a complete all-prime content factorization and count of every binary minimizer. Full relevant published results address the original derangement recurrence, Lucas congruence, unweighted generalized binomial rows, or residue images of D_m alone; none of those inspected claims implies the weighted, parity-restricted row classification. Historical uniqueness remains qualified.",
+    "residual_risks": [
+      "Search and accessible full-text inspection cannot exclude an unindexed or differently named historic theorem for this exact parity-selected weighted array.",
+      "The relevant source set is representative, not a global exhaustive bibliography.",
+      "Finite row tables alone cannot prove historical uniqueness.",
+      "The OEIS individual sequence pages were inaccessible in the current search; no claim is made about unseen notes on those pages."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the required classical binomial congruences and valuations; does not treat the derangement-weighted rencontres row.",
+        "evidence": [
+          "First public posting dated 2014-09-06.",
+          "The Lucas statement reduces binomial divisibility to digitwise bounds; the paper describes Kummer carry valuations.",
+          "Text search for derangement returned no match."
+        ],
+        "identifier_or_url": "arxiv:1409.3820 / https://arxiv.org/abs/1409.3820",
+        "material_read": "Abstract, introduction, Lucas statement and exposition of base-prime digits and Kummer carry criteria in accessible full-text HTML.",
+        "method": "Public full-text HTML, direct reading and search for derangements.",
+        "title": "Lucas’ theorem: its generalizations, extensions and applications (1878–2014)",
+        "trigger": "Lucas and Kummer criteria are critical to the odd-prime support and binary minimum-column claims."
+      },
+      {
+        "assessment": "Provides derangement recurrences and arithmetic but does not state this selected weighted rencontres-row gcd or digitwise minimum spectrum.",
+        "evidence": [
+          "First public posting dated 2015-08-09.",
+          "The text studies p-adic valuations of individual derangement sequences and generalizations.",
+          "No occurrence of the targeted three phrases in accessible full-text search."
+        ],
+        "identifier_or_url": "arxiv:1508.01987 / https://arxiv.org/abs/1508.01987",
+        "material_read": "Abstract, introduction and accessible derangement p-adic/divisor discussion, including the divisibility by the preceding index; full-text phrase checks for rencontres, binomial coefficient and greatest common divisor.",
+        "method": "Public full-text HTML and targeted content inspection.",
+        "title": "Arithmetic Properties of the Sequence of Derangements and its Generalizations",
+        "trigger": "Closest classical arithmetic treatment of the derangement factor."
+      },
+      {
+        "assessment": "Defines the array and supplies finite rows; no complete odd-support row-gcd or minimizing-column formula appears in the inspected material.",
+        "evidence": [
+          "The entries are given by binomial coefficients multiplied by derangement numbers.",
+          "Tabulated rows do not establish an all-index content classification."
+        ],
+        "identifier_or_url": "https://oeis.org/wiki/Rencontres_numbers",
+        "material_read": "Definition, binomial-derangement factorization and displayed rencontres number tables.",
+        "method": "Public OEIS Wiki explanatory text and displayed triangular entries.",
+        "title": "Rencontres numbers",
+        "trigger": "Natural array formula and possible exact tabular coverage."
+      },
+      {
+        "assessment": "It studies unweighted coefficients with lower index divisible by fixed m and counts prime-divisible rows; no derangement weight, odd moved-index restriction, complete gcd or minimum-column census.",
+        "evidence": [
+          "Its definition is G(mq;m)=gcd_{1<=j<q} binom(mq,mj).",
+          "It proves exact logarithmic counts for the event p|G(mq;m), not a weighted gcd for every row."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-logarithmic-row-counts-for-restricted-binomial-gcds--339a752cfdc3",
+        "material_read": "Public RESULT.md finding, assumptions, Lucas/minimal-zero-sum proof, and asymptotic result.",
+        "method": "Fetched public manuscript text through read-only repository access.",
+        "title": "Exact logarithmic row counts for restricted binomial gcds",
+        "trigger": "Direct competing theorem on restricted Pascal-row gcds, possibly subsuming support selection."
+      },
+      {
+        "assessment": "Strong-divisibility generalized binomial products are a different unweighted array, and the theorem uses the entire interior row. Its hypotheses do not produce the odd-support derangement-weighted entries.",
+        "evidence": [
+          "Its B_U(n,k) is U_n!/(U_k! U_(n-k)!).",
+          "All interior columns are included, unlike the odd-support parity subrow here."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-universal-row-content-of-strong-divisibility-binomial-arrays--8c34899e8bac",
+        "material_read": "Public RESULT.md finding, general hypotheses, prime-adic minimizing-column construction, and relation to previous work.",
+        "method": "Fetched and read public manuscript text through read-only repository access.",
+        "title": "Universal row content of strong-divisibility binomial arrays",
+        "trigger": "Broad uniform row-gcd theorem may dominate a new one."
+      },
+      {
+        "assessment": "It classifies residue images and index multiplicities of individual derangements; it does not classify binomial-weighted rencontres rows or columnwise minima.",
+        "evidence": [
+          "Its statistic counts indices with D_n congruent to y modulo 2^k.",
+          "The binomial coefficient and selected row parameter are absent from its claim."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-dyadic-residue-multiplicities-of-derangement-numbers--2db8513e1620",
+        "material_read": "Public RESULT.md theorem, interpolation/local valuation steps and all residue-fiber formula.",
+        "method": "Fetched and read public manuscript text through read-only repository access.",
+        "title": "Exact dyadic residue multiplicities of derangement numbers",
+        "trigger": "Possible strong derangement p-adic theorem with overlapping conclusions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5262ffd8-6a74-4c4c-9613-886a33d49aad",
+  "value": {
+    "rationale": "Rencontres numbers encode fixed-point statistics of permutations; isolating the parity of moved support and positive fixed-point count is a canonical combinatorial subrow. Its exact all-index content is a natural arithmetic invariant; the result determines its entire prime support and exponents, all two-adic entry values and the exact number and location of minimizers. The unbounded binary exponent together with isolated odd prime-power exceptions and digit-subset strata constitute structural classification, not an arbitrary slice or finite table.",
+    "status": "PASS"
+  }
+}

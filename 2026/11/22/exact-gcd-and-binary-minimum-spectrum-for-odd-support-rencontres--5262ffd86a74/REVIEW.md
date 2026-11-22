@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness: PASS
+For all \(n\ge4\), the selected odd moved supports \(3\le m<n\) are nonempty and yield positive rencontres entries. The odd-index derangement recurrence gives \(\nu_2(D_m)=\nu_2(m-1)\); the exact factorial identity gives each two-adic entry valuation. The \(m=3\) column attains the binary minimum. For any odd prime, Lucas's theorem supplies a unit column unless \(n\) is that prime's pure power; Kummer's carry formula supplies valuation exactly one in the exceptional case. Lucas at two counts all minimizers. The packaged `check.py` verifies 17648 finite assertions, but the infinite claim follows from these complete algebraic arguments. Boundary cases \(n=4\), odd prime indices and the excluded endpoint are treated explicitly.
+
+## Originality: PASS (qualified)
+The complete accessible Miska and Meštrović papers supply derangement and digit-congruence tools, not the weighted odd-moved rencontres-row gcd and minimum-column classification. The OEIS rencontres table supplies the entries, not an all-row gcd theorem. The inspected published *Exact logarithmic row counts for restricted binomial gcds* treats unweighted coefficients in rows with lower indices divisible by a fixed integer, and counts row events, whereas the present theorem weights the odd columns by derangements and determines their complete gcd and binary spectrum. *Universal row content of strong-divisibility binomial arrays* concerns unweighted generalized binomial coefficients. *Exact dyadic residue multiplicities of derangement numbers* concerns values of the derangement sequence alone. The present result is not an immediate implication of these results; the full products and odd-support restriction require their own proof. Search limitations remain: an unindexed previous theorem might supply an equivalent statement, so historical priority is not certified.
+
+## Mathematical value: PASS
+Odd moved-support is a natural parity refinement of the fixed-point distribution of permutations, and exact content addresses the entire row rather than a selected value. The formula gives an unrestricted classification for every row, an unbounded two-adic component, sharply isolated odd-prime support, the exact valuation of each retained entry, and a nontrivial digital census of all minimizers. The binary spectrum and prime-power exceptions give structural information not present in the classical table of rencontres numbers. This is a complete intrinsic arithmetic invariant, not an arbitrary finite slice or isolated small numerical gain.
+
+## Limits and closest sources
+The prime-adic spectrum is complete only at two; odd-prime results identify the gcd rather than all individual valuations. The sequence and classical Lucas/Kummer facts are established prior work. Finite diagnostic checking is not exhaustive proof, and the review does not establish global historical priority. See the references in `RESULT.md` for the accessible foundational and closest published sources.
+
+Self-review: passed. Independent audit: not yet performed.
