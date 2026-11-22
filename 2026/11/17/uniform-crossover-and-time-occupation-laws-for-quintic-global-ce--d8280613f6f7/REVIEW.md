@@ -1,15 +1,21 @@
-# Scientific review: uniform quintic-center crossover
+# Independent mathematical audit
 
-## Correctness — PASS
-The result concerns the complete global-center parameter locus with \(\beta>0\), each amplitude \(A>0\), and original physical time. Differentiating the explicit integrating-factor energy proves that every positive regular level is a periodic oval. The exact normalized quadrature follows from the change of variables \(x=Au\), without changing time. The positive-variance identity for the tilted expectation of \(r^4\) proves \(J_q/I_q\le3\) uniformly for all \(q\ge0\), delivering the all-scale two-sided period inequality and relative error bound. Differentiating the integral kernel proves strict monotonicity of \(\Phi\). The integrable endpoint majorants justify both finite-\(q\) weak occupation convergence and the high-\(q\) turning-layer limit. The supplied checker confirms the energy derivative and representative quadratures, but the finite tests are not substituted for proof.
+## correctness
 
-## Originality — PASS within inspected evidence
-Da Cruz–Llibre (arXiv:2312.05709v1) identify the global-center locus; they do not determine this parameter/amplitude crossover. The closest full-text comparison is the published result *Strict period decrease and sharp large-amplitude laws for quintic global centers* (published-finding corpus record ffe383da977f, 2026), whose exact energy quadrature and fixed-parameter limits are prior. We do not claim those techniques or endpoint values as new. Its published theorem does **not** provide a uniform finite-\(q=\alpha A^4\) crossover law, the nonasymptotic bound in which the relative constant is independent of \(\alpha\), or the physical-time occupation law; neither fixed-parameter limit implies these uniform statements. Beléndez et al. (doi:10.1155/2017/7396063) cover the conservative \(\alpha=0\) oscillator, not the velocity-dependent crossover. Yang–Zeng (doi:10.1017/S0308210511000096) give general period-function criteria according to accessible metadata; their full text was unavailable and is a residual priority risk. No coverage was found in actual published-record and local-claim comparisons; absence of a search hit is not a uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-The noncommuting pure-quintic and fixed-positive-coupling high-amplitude regimes make \(q=\alpha A^4\) a natural **singular transition parameter**, not an arbitrary numerical slice. The new parameter-uniform inequality (valid even when \(q\to\infty\) at an arbitrary rate) quantitatively resolves this transition with relative error at most \(3/(2\beta A^4)\). A strictly decreasing explicit crossover function and the corresponding probability laws give physical-time information across the transition, including a universal normalized turning-point profile. These results are naturally useful in quantitative comparison of near-conservative quintic centers and singular perturbation calculations. No general theorem beyond this oscillator or claim of optimality for the period error constant is made.
+The RESULT.md Hamiltonian H=(1/2)exp(alpha*x^4/2)*v^2+int_0^x exp(alpha*s^4/2)(s+beta*s^5)ds has zero derivative; potential is even and coercive for beta>0, so every positive level is a regular oval. The exact physical-time quadrature after x=Au gives scaled period 2sqrt(2) int exp(q*u^4/4)/sqrt(I_q+epsilon*J_q)du. I_q/J_q is the q-exponential tilt expectation of r^4 on [u,1], hence nondecreasing in q; at q=0 it equals (1+u^2+u^4)/3 >=1/3. This proves the novel global J/I<=3 for all q,u, and two-sided period bound uniformly even q=alpha*A^4 -> infinity. Direct logarithmic differentiation gives strict Phi decrease; endpoint beta integral and q(1-u) layer dominated convergence give 2pi and turning-layer density. The normalized quarter-time integral proves physical occupation. Independent symbolic conservation, 20 tilt kernel comparisons, and verified RESULT/code paths corroborate, not replace these infinite proofs. Boundary beta=0 is excluded; q is nonnegative, A>0.
 
-## Limits and closest literature
-The assumptions require \(\beta>0\), \(\alpha\ge0\), and periodic initial data from a turning point. A related general Liénard-period article was inspected only through its publisher abstract; further unpublished or unindexed formulations could affect publication priority. Independent external mathematical audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS solely for the q-independent all-amplitude relative-period bracket. The previously published November 1 matched-crossover result already has exactly the same Phi(q), rho_q law (in stronger total-variation form), strict Phi monotonicity and turning-point layer, plus likelihood-ratio ordering and overshoot; none of those parts receives independent novelty credit. Its relative-error bound requires a bounded q-range and grows as exp(Q/2), whereas the current positive-tilt monotonicity yields the new sharp simple q-uniform kernel cap 3. The 2026-10-11 fixed-parameter theorem supplies the endpoints, not the all-q bracket.
+
+## value
+
+PASS
+
+PASS: there is a genuine natural gap between the pure-quintic and velocity-coupled asymptotics when alpha*A^4 varies without bound, not covered by bounded-q matched expansions. A nonasymptotic two-sided relative bound holding uniformly for all A, alpha, beta provides a useful stability/control estimate for original-time periods, even though most accompanying asymptotic statements are prior work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
