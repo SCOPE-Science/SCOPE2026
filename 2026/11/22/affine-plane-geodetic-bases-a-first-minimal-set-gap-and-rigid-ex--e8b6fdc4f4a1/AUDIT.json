@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "All affine-plane axioms and both line-parallel / line-intersecting distance cases are used explicitly. The point-localization bound yields the exact minimum and unique parallel-class equality. A distinct exhaustive near-minimum case division establishes the q+1 gap for q>=3 and six exceptions at q=2. The exchange threshold follows from pairwise disjoint bases. Python exhaustive BFS interval census confirms q=2,3,4; C++17 independent Floyd--Warshall confirms q=2,3. No finite checks are used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The general geodetic references introduce definitions and graphs of different classes.",
+        "The public projective-plane theorem explicitly requires projective incidence axioms and proves a different extremal structure.",
+        "Search on geodetic numbers of block designs returned design metrics and K-geodetic paths, not a statement subsuming minimum geodetic bases."
+      ],
+      "reasoning": "A theorem about all resolvable Steiner incidence graphs could cover this claim, but no such matching theorem was identified. Class-generic graph algorithms do not provide the proposed exact counts or near-minimum gap. Search failure is not uniqueness proof.",
+      "searches": [
+        "geodesic convexity and geodetic sets of affine plane incidence bipartite graph",
+        "all affine resolvable designs geodetic bases parallel classes and no minimal size q+1",
+        "geodetic number incidence graphs of designs block designs resolvable",
+        "geodetic number incidence graph Steiner 2 design affine plane parallel lines"
+      ]
+    },
+    "checked_sources": [
+      "Harary–Loukakis–Tsouros 1993 full accessible text (Academia)",
+      "Chartrand–Harary–Zhang 2000 article notice (full text unavailable)",
+      "Hon et al. 2015 preprint entry, first posted 2015-09-16",
+      "Public projective geodetic theorem (full RESULT read)",
+      "Published-index semantic searches for affine/projective geodetic bases and related aliases",
+      "Focused web search for affine geodetic number, resolvable-design geodetic bases, and exact tables"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Projective claim requires 2q landmarks split evenly across points and lines; affine claim has q landmarks exclusively lines, and its q+1 minimal gap is not discussed.",
+        "Chartrand–Harary–Zhang’s public notice treats minimal geodetic sets and possible upper geodetic numbers in general, without affine-plane classification."
+      ],
+      "reasoning": "The published projective-plane geodetic theorem does not imply the new affine-plane theorem: different graph distances invalidate direct restriction, and general definitions or algorithmic results do not supply the new exact coverage, gap and exchange characterization. The closest public text was read and contrasted claim by claim.",
+      "searches": [
+        "2026/10/18/SCOPE-geodetic-bases-of-finite-projective-plane-incidence-graphs-flag--25deca33c37d",
+        "geodetic sets in graphs Chartrand Harary Zhang 2000",
+        "The geodetic number of a graph Harary Loukakis Tsouros 1993"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full projective geodetic result: projective g=2q, bases indexed by incident flags and containing q points plus q lines.",
+        "Affine incidence graph has diameter 4 owing to disjoint affine lines, unlike projective diameter 3.",
+        "The finite affine geodetic cover is equivalent to parallel-class coverage of all points plus transverse lines on length-four intervals."
+      ],
+      "reasoning": "The same graph-geodetic vocabulary appears in general sources, but the incidence structures and intervals differ. The projective formula cannot be transferred by deleting the line at infinity. No equivalent affine statement appears in the sources inspected.",
+      "searches": [
+        "geodetic number of finite affine plane incidence graph complete minimal geodetic sets",
+        "geodesic convexity and geodetic sets of affine plane incidence bipartite graph",
+        "affine plane Levi incidence graph minimum geodetic set entire parallel class q lines, q+1 geodetic supersets and gap in inclusion minimal sizes",
+        "all affine resolvable designs geodetic bases parallel classes and no minimal size q+1",
+        "2026/10/18/SCOPE-geodetic-bases-of-finite-projective-plane-incidence-graphs-flag--25deca33c37d"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-index geodetic search returned projective-plane flag classification and unrelated affine metric/control studies, with no table for affine geodetic bases.",
+        "Direct literature searches for the exact affine-plane geodetic invariant surfaced metric-dimension results or general affine geometry, rather than its optimum geodetic sets.",
+        "Full finite q=2,3,4 counts were independently computed; none was used to assert absence of a published table."
+      ],
+      "reasoning": "No exact matching published table was seen. The unindexed/historical enumerations risk remains; absence of search hits is not evidence that no table exists.",
+      "searches": [
+        "geodetic number of finite affine plane incidence graph complete minimal geodetic sets",
+        "affine plane Levi incidence graph minimum geodetic set entire parallel class q lines, q+1 geodetic supersets and gap in inclusion minimal sizes",
+        "all affine resolvable designs geodetic bases parallel classes and no minimal size q+1",
+        "geodetic set incidence graph affine plane minimum q parallel lines",
+        "geodetic number affine plane Levi graph parallel classes"
+      ]
+    },
+    "rationale": "The closest public result classifies projective-plane incidence geodetic bases and a different exchange law. Its theorem applies to a distinct graph with different distances, and does not imply the affine-plane interval or minimal-gap classification. The archival primary sources examine general graph-geodetic parameters, not affine-plane line-class coverage. Specific resolvable-design and affine-plane geodetic searches revealed no direct or stronger record. Residual risks from unindexed literature are retained.",
+    "residual_risks": [
+      "The publisher full text of Chartrand–Harary–Zhang (2000) was inaccessible at the notice link; it was not certified absent from that full text.",
+      "Unindexed older geodetic studies of affine or resolvable designs might contain an equivalent invariant or table; no absolute priority is asserted.",
+      "Only q=2,3,4 were computationally exhausted; the general conclusion depends on the printed incidence proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: section 4 includes cliques, stars, trees, cycles, complete bipartite graphs, wheels, meshes, not affine-plane incidence graphs; general complexity claim is not an explicit characterization",
+        "evidence": [
+          "https://www.academia.edu/23671774/The_geodetic_number_of_a_graph; full HTML text includes section 4 examples"
+        ],
+        "identifier_or_url": "https://www.academia.edu/23671774/The_geodetic_number_of_a_graph",
+        "material_read": "HTML full text, introduction, methods, examples, section 4 graph classes and references",
+        "method": "Web-open textual source through line 29",
+        "title": "The geodetic number of a graph",
+        "trigger": "Original definition and algorithms"
+      },
+      {
+        "assessment": "Not covering: the result is about projective-plane graph and uses unique line intersection; affine graph has parallel nonintersecting lines, diameter four and different optima",
+        "evidence": [
+          "Public projective geodetic result: g=2q; flag bases; simultaneous threshold min(q+1,2q-2)"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-geodetic-bases-of-finite-projective-plane-incidence-graphs-flag--25deca33c37d",
+        "material_read": "Complete public RESULT.md including hypotheses, proof, conclusions, verification and limitations",
+        "method": "Complete publicly accessible article file, read from beginning through limitations and references",
+        "title": "Geodetic bases of finite projective-plane incidence graphs: flag rigidity and a sharp simultaneous-exchange threshold",
+        "trigger": "Highest-similarity research-index claim about identical invariant in related incidence geometry"
+      },
+      {
+        "assessment": "Insufficient to assert whole-document noncoverage; abstract gives generic realization claims, no same-object discussion; retains specific full-text access risk",
+        "evidence": [
+          "https://geodesic.mathdoc.fr/item/DMGT_2000_20_1_a9/; abstract and bibliographic notice, linked full article unavailable"
+        ],
+        "identifier_or_url": "https://geodesic.mathdoc.fr/item/DMGT_2000_20_1_a9/",
+        "material_read": "Complete bibliographic notice and detailed abstract, not full article; linked full-text host returned 403",
+        "method": "Web-open public article notice and attempted full-text follow-up",
+        "title": "Geodetic sets in graphs",
+        "trigger": "Original inclusion-minimal geodetic terminology and upper geodetic parameter"
+      },
+      {
+        "assessment": "Different graph families (tree-cographs, AT-free, P4-sparse); no identified implication to affine incidence graph extremizers; whole-document absence not asserted",
+        "evidence": [
+          "https://arxiv.org/abs/1509.04944; v1 posted 2015-09-16, arXiv abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1509.04944",
+        "material_read": "Abstract, author metadata and initial public release date; full paper not inspected",
+        "method": "arXiv-indexed v1 entry and alphaXiv abstract",
+        "title": "Convexities in Some Special Graph Classes—New Results in AT-free Graphs and Beyond",
+        "trigger": "Precisely dated archival public geodetic-number reference"
+      },
+      {
+        "assessment": "Studies resolving-set distance signatures, not geodetic interval covers; no direct implication",
+        "evidence": [
+          "https://arxiv.org/abs/1706.06583; abstract and scope"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1706.06583",
+        "material_read": "Abstract, author metadata and initial public release date; full paper not inspected",
+        "method": "Published arXiv index abstract",
+        "title": "On the metric dimension of affine planes, biaffine planes and generalized quadrangles",
+        "trigger": "Same incidence objects with metric graph invariants"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e8b6fdc4-f4a1-462c-8bdb-c8ef33bb8a41",
+  "value": {
+    "rationale": "A natural complete all-order classification for a classical family of finite incidence graphs, not a renamed textbook calculation: geodetic bases consist exclusively of the q+1 parallel classes, simultaneous relocation has a sharp all-at-once threshold q, and there is a missing q+1 cardinality in the inclusion-minimal spectrum for all q>=3, with exactly six exceptional minimal sets at q=2. These compare meaningfully with the different projective-plane flag-basis theorem. No large theorem or downstream application is asserted beyond the intrinsic classification.",
+    "status": "PASS"
+  }
+}
