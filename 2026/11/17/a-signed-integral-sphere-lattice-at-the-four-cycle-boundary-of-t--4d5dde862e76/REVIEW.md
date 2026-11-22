@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph's complete connected-triple criterion gives \(5n\) four-cycle tetrahedra and \(4n\) isolated two-step pairs; free-face elimination and a capped-torus CW decomposition prove the homotopy type. Integral strip/cap boundary equations exhibit a primitive \(n\)-element basis. The direct signed cellular action under all coordinate-dihedral generators proves the claimed natural module. Finite exact computations independently verified face enumeration, every collapse, mod-two Betti numbers and signed generator identities for four orders. Their finite range is explicitly not an infinite proof.
+## correctness
 
-**Originality — PASS, with residual bibliographic risk.** The full published general square-filling theorem already implies the nonequivariant wedge and homology; these are *credited consequences, not a claim of new independent coverage*. The primitive oriented capped-strip integral basis and signed \(D_4\times D_n\)-action are additional, not established by that result. The two earlier toroidal ordinary three-cut classifications require both cycle lengths to be at least five. The analogous signed representation for another Vietoris–Rips complex is not a result about the current cut complex. An equivalent unindexed equivariant calculation remains possible.
+PASS
 
-**Mathematical value — PASS.** The short-period boundary changes the square filling from a torus to a sphere wedge, and the new signed permutation module identifies the resulting classes and all reflections over \(\mathbb Z\). It is a natural complete infinite-family symmetry classification not implied by the earlier non-equivariant Betti information.
+For n≥5 the dual has 5n tetrahedra corresponding to 4n coordinate squares plus n meridian C4 caps, no five-vertex faces. Removing two simplicial pairs per square and one per 4n unique-common-neighbor diagonals gives 14n elementary collapses and leaves square filling plus 8n(n−3) long edges. The square filling is a torus capped along n parallel meridians, hence S1∨nS2. An integral cellular 2-cycle has four equal square coefficients λ_b in each strip and cap coefficients λ_{b−1}−λ_b, uniquely ∑λ_b z_b; no 3-cell introduces a relation. Orientation of annuli and caps gives the stated signed dihedral generator action, and Alexander duality yields H_{4n−5}=Z^n and H_{4n−4}=Z^{8n(n−3)+1}. n=4 excluded.
 
-The theorem excludes \(n=4\), determines no equivariant wedge splitting, and does not determine the original cut complex's homotopy type. The finite verification is corroborative. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026-11-01 general square-filling theorem already implies the nonequivariant topology and groups, and those are explicitly NOT credited as new. The new final claim is the exact primitive integral dihedral action on the rank-n sphere lattice at the C4 boundary.
+
+## value
+
+PASS
+
+The short-period C4 factor changes the topological rank from one torus class to n capped-annulus spheres. Determining a primitive Z-basis with reflection signs and full group action gives nontrivial integrally precise symmetry information not recoverable from wedge ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

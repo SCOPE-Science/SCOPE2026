@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-Run `python3 verify.py` with a standard Python 3 installation; there are no dependencies. The script independently constructs the graph and every allowed simplex directly from the connected-triple criterion, exhaustively rejects possible five-vertex faces, and validates all actual free-face/coface pairs in the \(14n\)-collapse. It reconstructs the survivor, counts long edges and independently computes mod-two boundary ranks from the original complex for \(n=5,6,7,8\).
+# Independent mathematical audit
 
-The second part builds the signed integral cell-boundary model, checks \(\partial z_b=0\) for every \(b\), verifies the strip-coordinate basis is primitive, and computes all four generator actions as actual oriented square permutations. It also checks the exact signs, not only rational traces. Successful execution ends with `INTEGRAL_SYMMETRY_PASS` and includes `THIN_TORUS_THREE_CUT_PASS`.
+## correctness
 
-The universal proof is the combinatorial collapse, integral two-chain boundary equations, and topological capping argument in RESULT.md. Finite checks are not an exhaustive proof of an infinite assertion. Independent audit is not performed.
+PASS
+
+For n≥5 the dual has 5n tetrahedra corresponding to 4n coordinate squares plus n meridian C4 caps, no five-vertex faces. Removing two simplicial pairs per square and one per 4n unique-common-neighbor diagonals gives 14n elementary collapses and leaves square filling plus 8n(n−3) long edges. The square filling is a torus capped along n parallel meridians, hence S1∨nS2. An integral cellular 2-cycle has four equal square coefficients λ_b in each strip and cap coefficients λ_{b−1}−λ_b, uniquely ∑λ_b z_b; no 3-cell introduces a relation. Orientation of annuli and caps gives the stated signed dihedral generator action, and Alexander duality yields H_{4n−5}=Z^n and H_{4n−4}=Z^{8n(n−3)+1}. n=4 excluded.
+
+## originality
+
+PASS
+
+The 2026-11-01 general square-filling theorem already implies the nonequivariant topology and groups, and those are explicitly NOT credited as new. The new final claim is the exact primitive integral dihedral action on the rank-n sphere lattice at the C4 boundary.
+
+## value
+
+PASS
+
+The short-period C4 factor changes the topological rank from one torus class to n capped-annulus spheres. Determining a primitive Z-basis with reflection signs and full group action gives nontrivial integrally precise symmetry information not recoverable from wedge ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
