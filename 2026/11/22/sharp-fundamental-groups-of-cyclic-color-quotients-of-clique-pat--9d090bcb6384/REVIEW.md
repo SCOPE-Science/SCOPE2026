@@ -1,0 +1,11 @@
+# Review
+
+**Correctness — PASS.** Every face lies in a first-column closed star, and every closed-star intersection is described by deleting first-column vertices and excluding two second-column colors. For \(q\ge4,m\ge3\) or \(q=3,m\ge4\), the pair intersections are connected, and all have the same column-three vertices; inductive van Kampen gives simple connectivity. The color action is free because a nontrivial rotation-invariant independent face would contain two colors in one clique column. The short-length cases are explicitly quotiented as graphs or reduced by equivariant free-face collapses. Ten independent signed orbit-chain Smith computations agree.
+
+**Originality — PASS, subject to residual priority risk.** Chakraborty's 13 November 2026 paper on exactly \(P_m\square C_3\) proves well-coveredness and Cohen–Macaulay/Buchsbaum classifications, not the free color-quotient fundamental groups. Carnero Bravo's graph-product homotopy paper considers other product operations. Published-result searches for triangular strip independence complexes, cyclic color symmetry, simple connectivity and arbitrary cyclic torsion found related but noncovering results: lexicographic clique-path homology, categorical-product quotient graph spines, and three-cut homology on the same base graph. A general theorem or unindexed duplicate might still subsume this statement; full priority certainty is not claimed.
+
+**Mathematical value — PASS.** The exact threshold for the emergence of finite cyclic fundamental groups in canonical flag-complex symmetry quotients is a structural classification over two unbounded parameters. It generates arbitrarily high finite torsion orders in first integral homology and separates true geometric quotients from naive orbit-graph constructions. The proof is uniform and not merely a finite-table computation.
+
+**Limitations and verification.** Only fundamental groups and degree-one integral homology are classified. No higher homotopy, integral higher homology or nonfree action result is asserted. Computations test ten small cases; the infinite claim uses the separate star-cover proof. Publication-priority risk remains. Independent verification has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
