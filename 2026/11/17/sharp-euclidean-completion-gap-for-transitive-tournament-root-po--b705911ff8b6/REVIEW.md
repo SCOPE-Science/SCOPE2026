@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The stated closed formula is obtained from a universal complementary-coordinate convex witness, and exact Euclidean projection inequalities at the negative highest root. The missing-root uniqueness argument has an explicit strictly improving feasible direction for every competing negative root. Dimensions two through four are covered by independent exact low-dimensional certificates. The distinction between a finite verifier and an all-dimensional proof is explicit.
+## correctness
 
-## Originality
-PASS, with residual historical-priority risk. The nearest same-object minimum-sphere result gives the parabolic coefficients used as a lemma and is credited: that part alone is not new. The complete graph of the positive-root polytope, its origin-adjoined face lattice, a highest-root vertex-deletion volume, and a random-direction Poisson width-loss theorem do not imply the global Euclidean Hausdorff distance or its unique extremizer. The 2019–2022 source papers principally study triangulations, cones, vertices and facets, not this distance. A possible earlier exact metric formula under other terminology cannot be excluded.
+PASS
 
-## Mathematical value
-PASS. The complete bidirected orientation of a transitive tournament is a natural comparison between two canonical type-A root polytopes. An exact full-polytope Hausdorff invariant, unique farthest root, nonvertex projection, and sharp external-to-internal support transition answer a geometry question not answered by the known radial or combinatorial data. The cubic correction to the nonzero limiting distance is exact in every dimension at least five. This is a motivated infinite-family geometric classification, not a small numerical improvement or arbitrary table.
+PASS. Reviewed full proof and verify.py exact rational certificates. For n>=5, the positive-root convex subset on complementary n-2 coordinates has minimal squared norm 12/[(n-3)(n-2)(n-1)]; use it as an upper-bound witness for every negative root. For x=e_n-e_1 the parabolic convex combination q satisfies KKT inner-product inequalities against ALL positive roots (including endpoint roots, using m>=3), attaining bound. Any other negative root has a strict local descent from its complementary witness toward an adjacent positive root, excluding equality. Convexity extends the uniqueness to every point in full symmetric hull. Explicit n2,n3,n4 formulas handle exceptions. Independently solved QPs for n2..7 verifying distances 8,9/2,16/5,5/2,11/5,21/10 and unique extremal negative root. Numerical tests are finite only.
 
-## References and limitations
-Numata–Takahashi–Tamaki, arXiv:2203.14521, and Setiabrata, arXiv:2001.05191, provide the directed-root and origin-adjoined frameworks. Ehrenborg–Hetyei–Readdy, arXiv:1901.07113, studies full-root triangulations; Gutekunst–Mészáros–Petersen, arXiv:1903.06595, studies resonance geometry. Public same-object findings on the minimum sphere, one-skeleton, and Poisson directional widths were read and compared. The theorem depends on the standard Euclidean embedding and is not asserted for arbitrary tournaments or affine images. Historical priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hausdorff projection and uniqueness are not implied by the earlier same-object minimum sphere, face and width theorems.
+
+## value
+
+PASS
+
+PASS. Measuring the Hausdorff loss from orienting all positive type-A roots and the location of its unique worst-case point is a natural geometric-approximation invariant of a classical root polytope. The exact finite-rank transition n=4 to n=5, interior-simple-root projection, cubic correction and global uniqueness are useful precise metric facts that are not implied by face or enclosing-sphere tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

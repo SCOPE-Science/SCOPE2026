@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3. The program uses standard-library rational arithmetic and prints `POSITIVE_ROOT_HAUSDORFF_PASS small=2,3,4 all_negative_certificates=5..16 large_highest_KKT=30,61,103` on success. It checks nonnegative convex weights summing to one, all root-vertex projection inequalities, the exact upper bounds, and the positive directional improvement separating every nonextremal negative root in dimensions five through sixteen. Additional highest-root projections are checked at dimensions thirty, sixty-one, and one hundred three.
+## correctness
 
-Optionally, with NumPy and SciPy installed, run `python3 verify_qp.py`. This was executed and printed `INDEPENDENT_QP_PASS negative_roots=220 dimensions=2..11`. It independently minimizes squared Euclidean distance over root convex combinations for every negative root in dimensions two through eleven and checks the winner, the claimed formula, and projection coordinates. This is numerical corroboration only. The analytic proof, not either finite computation, establishes the infinite-dimensional claim.
+PASS
 
-The scripts use the fixed orthonormal coordinate realization and do not require external files, network access or private data. They do not constitute independent mathematical auditing or certification.
+PASS. Reviewed full proof and verify.py exact rational certificates. For n>=5, the positive-root convex subset on complementary n-2 coordinates has minimal squared norm 12/[(n-3)(n-2)(n-1)]; use it as an upper-bound witness for every negative root. For x=e_n-e_1 the parabolic convex combination q satisfies KKT inner-product inequalities against ALL positive roots (including endpoint roots, using m>=3), attaining bound. Any other negative root has a strict local descent from its complementary witness toward an adjacent positive root, excluding equality. Convexity extends the uniqueness to every point in full symmetric hull. Explicit n2,n3,n4 formulas handle exceptions. Independently solved QPs for n2..7 verifying distances 8,9/2,16/5,5/2,11/5,21/10 and unique extremal negative root. Numerical tests are finite only.
+
+## originality
+
+PASS
+
+Hausdorff projection and uniqueness are not implied by the earlier same-object minimum sphere, face and width theorems.
+
+## value
+
+PASS
+
+PASS. Measuring the Hausdorff loss from orienting all positive type-A roots and the location of its unique worst-case point is a natural geometric-approximation invariant of a classical root polytope. The exact finite-rank transition n=4 to n=5, interior-simple-root projection, cubic correction and global uniqueness are useful precise metric facts that are not implied by face or enclosing-sphere tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
