@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T16:53:18.413008Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For iid uniform eccentric anomalies on a noncircular ellipse, equal-distance circumcenter equations imply Z=(z1+z2+z3+(z1 z2 z3)^(-1))/4. The linear integer torus homomorphism (u,v,w)->(u+v,u-v,-u+w) is onto Haar, producing X=cos(u)(cos(v)+cos(w))/2 and Y=sin(u)(cos(v)-cos(w))/2. Inverting the two independent arcsine variables yields the given a.e. normalized density with correct Jacobian |cosu sinu|/2 and filled astroid support. Fourier phase balance yields mixed moments with p-q divisible by four; independent exact E Z^4=3/32 and E|Z|^4=7/64. Unique right-cusp preimage at all zero angles; Taylor expansion 1-X=(sum theta_i^2+S^2)/8+O(|theta|^4), Y=(S^3-sum theta_i^3)/24+O(|theta|^5) and det(I+11^T)=4 give cusp probability 4sqrt2/(3 pi^2)*t^(3/2), uniform ellipsoid angle law in total variation, and weak 2D mark limit. Independent exact coefficients checked. The proof is local analytic with full dimensional integration; finite Monte Carlo alone cannot prove cusp asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baez and Kaiser discuss full sets of SU(n) traces/eigenvalue regions; Romaskevich addresses incenters of constrained elliptic billiard trajectories, unlike iid random circumcenters."
+        ],
+        "reasoning": "A Haar-uniform SU(4) matrix trace is a different distribution (Weyl Vandermonde weighting); neither the general support nor constrained billiard locus theorem dominates this torus-uniform pushforward law.",
+        "searches": [
+          "Baez 2012 Rolling Circles Part 3",
+          "Kaiser 2006 mean eigenvalues compact Lie groups",
+          "Romaskevich arxiv:1304.7588"
+        ]
+      },
+      "checked_sources": [
+        "Rolling Circles and Balls (Part 3): https://math.ucr.edu/home/baez/rolling/rolling_3.html",
+        "Mean eigenvalues for simple, simply connected, compact Lie groups: https://arxiv.org/abs/math-ph/0609082",
+        "On the incenters of triangular orbits on elliptic billiards: https://arxiv.org/abs/1304.7588",
+        "Klamkin-Miller E1348 circumcenter formula, Sister Mary Stephanie solution: https://carmamaths.org/resources/jon/Preprints/Books/Klamkin/komplete.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One can derive Z from E1348 and see the astroid support in Baez/Kaiser; the new theorem requires pushing forward uniform angular measure and proving an L1-localization limit at cusp."
+        ],
+        "reasoning": "Existing deterministic formula and set image do not supply the transformed probability density or asymptotic conditional law as a theorem; their derivation is nontrivial and constitutes the surviving statement.",
+        "searches": [
+          "Baez trace set SU(4), 2012",
+          "Kaiser mean-eigenvalue regions, 2006",
+          "1959 E1348 circumcenter formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normalized circumcenter exactly equals a trace of uniform maximal-torus SU(4) diagonal phases divided by four. Baez writes the same torus trace expression and the astroid region; Kaiser computes mean-eigenvalue region/boundary."
+        ],
+        "reasoning": "Same trace variables imply prior *support*, but an image set alone does not determine the probability density of independent torus angles, mixed moments, or local cusp conditioning.",
+        "searches": [
+          "Baez 2012 SU(4) trace support",
+          "Kaiser arxiv:math-ph/0609082",
+          "Resultary: random ellipse triangle circumcenters astroid probability distribution independent eccentric angles SU4 torus trace cusp law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Found old parametric trace-support/ellipse center identities but no inspected table of moments E Z^4=3/32 or exact conditional cusp constant 4sqrt2/(3pi^2)."
+        ],
+        "reasoning": "The Fourier-moment formula may be mechanically computable from the known torus expression, but the complete density and sharp conditional cusp law are independent non-tabulated statistical facts; exact-source full-text risk noted.",
+        "searches": [
+          "Kaiser arxiv:math-ph/0609082",
+          "1959 Klamkin-Miller E1348 identity",
+          "Resultary: random ellipse triangle circumcenters astroid probability distribution independent eccentric angles SU4 torus trace cusp law"
+        ]
+      },
+      "rationale": "The ellipse circumcenter trigonometric identity dates to the 1959 E1348 solution; John Baez (2012) and Kaiser (2006) treat the SU(4) maximal torus TRACE IMAGE filled astroid, not a law for independent uniform phases (and specifically not Haar SU4 matrices). The new probability density, entire moment array, and precise cusp concentration conditional limit are not stated by inspected prior source material. A torus trace distribution under another representation-theory name is a meaningful residual priority risk.",
+      "residual_risks": [
+        "An unindexed explicit distribution for random SU4 maximal-torus trace, including its cusp asymptotics, may predate this treatment.",
+        "The Kaiser full article and original 1959 scanned item were not independently fully inspected; scope limited to readable source content and reconstructed algebra.",
+        "Noncircular ellipse only; zero axis difference at the circle makes normalization undefined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING probability law",
+          "evidence": "Proves support as filled hypocycloid; no probability distribution, moment identities, cusp scaling or conditional law.",
+          "identifier_or_url": "https://math.ucr.edu/home/baez/rolling/rolling_3.html",
+          "material_read": "Full accessible essay, particularly lines 144-169 (filled astroid, arbitrary 3 eigenphases and trace expression)",
+          "method": "Read public full HTML",
+          "title": "Rolling Circles and Balls (Part 3)",
+          "trigger": "SU(4) trace image exactly matches normalization"
+        },
+        {
+          "assessment": "POTENTIALLY RELATED, FULL-TEXT RISK",
+          "evidence": "The stated results give boundary regions, area, boundary length, inscribed circles; an unexamined full text could contain a measure formula; cannot claim whole-document absence.",
+          "identifier_or_url": "https://arxiv.org/abs/math-ph/0609082",
+          "material_read": "Abstract and theorem-scope description returned by live primary-paper search; PDF full text not accessed",
+          "method": "Live arXiv index/abstract",
+          "title": "Mean eigenvalues for simple, simply connected, compact Lie groups",
+          "trigger": "Original 2006 SU(n) mean eigenvalue region potentially stronger"
+        },
+        {
+          "assessment": "NOT_COVERING independent random circumcenter",
+          "evidence": "Fixed dynamical billiard three-periodic triangles and incenters are a different object/sampling measure.",
+          "identifier_or_url": "https://arxiv.org/abs/1304.7588",
+          "material_read": "Public full-text theorem and model describing constrained periodic billiards",
+          "method": "Open full-text mirror/source inspection",
+          "title": "On the incenters of triangular orbits on elliptic billiards",
+          "trigger": "Ellipse-inscribed triangle center loci"
+        },
+        {
+          "assessment": "PRIOR_IDENTITY acknowledged; original print access limitation",
+          "evidence": "Supports classical trigonometric formula, but not established random probability law.",
+          "identifier_or_url": "https://carmamaths.org/resources/jon/Preprints/Books/Klamkin/komplete.pdf",
+          "material_read": "Identity as reproduced in assigned RESULT and historically cited reference; original printed scanned page not independently inspected in this run",
+          "method": "Cross-check algebraically by equal-distance equations rather than claiming full scanned-paper inspection",
+          "title": "Klamkin-Miller E1348 circumcenter formula, Sister Mary Stephanie solution",
+          "trigger": "Exact trigonometric identity for ellipse circumcenters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical equiaffine-uniform ellipse boundary measure produces a universal random circumcenter invariant. A full 2D law and all moments resolve more than a support picture; its t^(3/2) cusp exponent, exact coefficient and conditional ellipsoid geometry explain concentration near a singular support point. The restriction to a noncircular ellipse and distinction from Haar-random SU4 are mathematically essential.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Rolling Circles and Balls (Part 3): https://math.ucr.edu/home/baez/rolling/rolling_3.html",
+    "Mean eigenvalues for simple, simply connected, compact Lie groups: https://arxiv.org/abs/math-ph/0609082",
+    "On the incenters of triangular orbits on elliptic billiards: https://arxiv.org/abs/1304.7588",
+    "Klamkin-Miller E1348 circumcenter formula, Sister Mary Stephanie solution: https://carmamaths.org/resources/jon/Preprints/Books/Klamkin/komplete.pdf",
+    "Independent cross-checks /mnt/data/independent_scope03_checks_20261118.json (numerical/rational tests only)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed explicit distribution for random SU4 maximal-torus trace, including its cusp asymptotics, may predate this treatment.",
+    "The Kaiser full article and original 1959 scanned item were not independently fully inspected; scope limited to readable source content and reconstructed algebra.",
+    "Noncircular ellipse only; zero axis difference at the circle makes normalization undefined."
+  ],
+  "residual_risks": [
+    "An unindexed explicit distribution for random SU4 maximal-torus trace, including its cusp asymptotics, may predate this treatment.",
+    "The Kaiser full article and original 1959 scanned item were not independently fully inspected; scope limited to readable source content and reconstructed algebra.",
+    "Noncircular ellipse only; zero axis difference at the circle makes normalization undefined."
+  ],
+  "schema_version": 1
+}
