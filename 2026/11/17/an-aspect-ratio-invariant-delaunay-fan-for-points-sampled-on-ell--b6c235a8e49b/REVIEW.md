@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The lift \((x,y,x^2+y^2)\) transforms by a vertical-order-preserving affine map to \((\cos\theta,\sin\theta,\cos^2\theta)\), establishing the *entire* Delaunay subdivision for each finite point set. The incircle determinant factorization follows by a Laurent-polynomial Vandermonde identity. Rooting the independent uniform sample at the originally labelled first vertex makes its orientation independent of the Dirichlet cyclic gaps, so the normalized phase is exactly arcsine conditional on the gaps. The packaged script verifies finite instances but the mathematical claims rest on the analytic proof.
+## correctness
 
-## Originality — PASS, provisionally
-Khanimov–Sharir (arXiv:1510.04608, available full text materially examined) study independently Gaussian-perturbed grids/regular polygons, not a shared ellipse-axis deformation. Agarwal–Kaplan–Rubin–Sharir (arXiv:1404.4851, available full text inspected) treat kinetic Delaunay under polygonal distance metrics and event complexity, not this no-event Euclidean family. published-finding corpus comparisons include previously published equiaffine ellipse acuteness and two-chord angle claims, neither covering four-site incircle signs or all-site triangulations. Negative searches do not prove absolute priority; classical incircle and lifting techniques themselves are not new.
+PASS
 
-## Mathematical value — PASS
-A typical affine deformation changes a Euclidean Delaunay triangulation. The exact, all-site *nonchange* for an arbitrary sample on one fixed ellipse is a structural combinatorial rigidity theorem, with explicit degeneracy hypersurfaces for all four-site circuits. The gap-conditioned arcsine flip law supplies a directly interpretable, parameter-free random geometric consequence beyond a routine determinant identity.
+For all n≥4 distinct fixed eccentric-anomaly points on E_{a,b} with a>b>0, the vertical-positive invertible affine transform (x,y,z)↦(x/a,y/b,(z−b²)/(a²−b²)) sends Euclidean paraboloid lifts to (cosθ,sinθ,cos²θ), independent of aspect ratio. Lower faces and all Delaunay subdivisions are therefore invariant. Expansion of the four-site incircle determinant gives −16ab(a²−b²)sin(Σθ/2) times the positive cyclic Vandermonde sine product. Rooting four iid uniform anomalies at first label gives a uniformly shifted angle U independent of the Dirichlet(1,1,1,1) cyclic gaps; conditional on gaps, sin(2U+phase) is arcsine, giving both fair diagonals and exact near-zero margin probabilities. Independent random numeric determinant checks passed on 250 quadruples; they are not the all-real proof.
 
-## Limitations
-Axes do not cross and anomalies remain fixed. The circular configuration is degenerate. The random law uses uniform eccentric anomaly and a labelled cyclic root, not arclength sampling. No claim of independent validation or definitive priority is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS only for the exact normalized signed incircle-margin distribution independent of marked cyclic gaps, not for classical four-ellipse-point cocircularity or the generic lifting primitive. The classical ellipse cocircularity criterion already makes the aspect-ratio independence of four-point degeneracies, and hence the unchanged Delaunay fan, a direct corollary. No located prior source supplies the conditionally independent arcsine margin law for iid eccentric-anomaly samples; its natural random-geometric content is the distinct surviving finding. This is qualified best-of-knowledge.
+
+## value
+
+PASS
+
+The normalized signed incircle determinant controls the exact proximity of random four-point samples to a diagonal flip and yields its conditional distribution even after the four cyclic spacings are revealed. This is a motivated stochastic-geometry invariant with a sharp near-degeneracy probability, not just the known binary cocircularity condition; the structural fan corollary is not presented as novel by itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T19:17:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all n≥4 distinct fixed eccentric-anomaly points on E_{a,b} with a>b>0, the vertical-positive invertible affine transform (x,y,z)↦(x/a,y/b,(z−b²)/(a²−b²)) sends Euclidean paraboloid lifts to (cosθ,sinθ,cos²θ), independent of aspect ratio. Lower faces and all Delaunay subdivisions are therefore invariant. Expansion of the four-site incircle determinant gives −16ab(a²−b²)sin(Σθ/2) times the positive cyclic Vandermonde sine product. Rooting four iid uniform anomalies at first label gives a uniformly shifted angle U independent of the Dirichlet(1,1,1,1) cyclic gaps; conditional on gaps, sin(2U+phase) is arcsine, giving both fair diagonals and exact near-zero margin probabilities. Independent random numeric determinant checks passed on 250 quadruples; they are not the all-real proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical incircle predicate and ellipse cocircularity give the deterministic fan invariance via sign continuity.",
+          "Khanimov–Sharir concerns Gaussian perturbations of degenerate regular point sets, not the conditioned eccentric-anomaly arcsine statistic."
+        ],
+        "reasoning": "Known deterministic criteria dominate one feature but do not by themselves state the random marked-margin law as a probability result; elementary uniform-shift integration is added.",
+        "searches": [
+          "Ellipse cocircular four points theta sum mathworld",
+          "paraboloid lift Euclidean Delaunay triangulation positive vertical affine map",
+          "arXiv:1510.04608 Gaussian perturbed regular polygons"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md 1e204ffccdb30375f86762cc79c6fe453bb80362",
+        "frozen verify.py a5a3fc095eefe0ea2f4ed285d3448d6dbf06b856",
+        "https://mathworld.wolfram.com/Ellipse.html",
+        "https://arxiv.org/abs/1510.04608",
+        "https://arxiv.org/abs/1404.4851"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An old criterion identifies zeros of the determinant without specifying its magnitude as a function of cyclic gaps.",
+          "The exact factorization plus uniform independent root yields the conditional arcsine law."
+        ],
+        "reasoning": "Old geometry implies deterministic fan invariance; it does not directly imply the probability distribution without a nontrivial but short marked-sampling calculation. The new part is narrow and this reduces the novelty margin.",
+        "searches": [
+          "Classical ellipse cocircularity theorem and Delaunay incircle predicate",
+          "Resultary ellipse Delaunay fan conditional arc sine"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "MathWorld records a classical ellipse four-point cocircularity criterion involving only eccentric anomaly angles.",
+          "Current determinant shows sin(Σθ/2) zero set, and the positive prefactor fixes sign for all a>b."
+        ],
+        "reasoning": "The degeneracy locus and deterministic aspect-invariance are old-criterion consequences. The exact conditional *distribution of continuous signed margin* is a separate statement.",
+        "searches": [
+          "MathWorld Ellipse four points concyclic eccentric angles Berger 1984 Trott 2006",
+          "Delaunay triangulation ellipse aspect ratio affine stretching invariance",
+          "arXiv:1510.04608"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact table/distribution for the *gap-conditioned* normalized incircle margin was located.",
+          "The source verifier evaluates its own arcsine CDF, not a previously published external dataset."
+        ],
+        "reasoning": "Exact density dt/(π√(1−t²)) and CDF 2arcsin(t)/π are calculated in the assigned proof; their mere elementary form is not a known table for this conditioned geometric observable.",
+        "searches": [
+          "Resultary: ellipse Delaunay incircle arcsine normalized margin",
+          "MathWorld ellipse cocircular sum angles probability"
+        ]
+      },
+      "rationale": "PASS only for the exact normalized signed incircle-margin distribution independent of marked cyclic gaps, not for classical four-ellipse-point cocircularity or the generic lifting primitive. The classical ellipse cocircularity criterion already makes the aspect-ratio independence of four-point degeneracies, and hence the unchanged Delaunay fan, a direct corollary. No located prior source supplies the conditionally independent arcsine margin law for iid eccentric-anomaly samples; its natural random-geometric content is the distinct surviving finding. This is qualified best-of-knowledge.",
+      "residual_risks": [
+        "The older ellipse cocircularity and standard Delaunay lifting already imply all-site aspect invariance; do not claim those deterministic elements historically new.",
+        "The remaining conditional arcsine distribution is a short uniform-root consequence; its novelty/value margin is narrower than the statement heading suggests.",
+        "Full text of Gaussian-perturbation Delaunay source and original 1984 ellipse reference was not accessible; an indexed prior equivalent law remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shows deterministic angle-sum cocircularity is prior art; does not present marked random margin law",
+          "evidence": "Equations (30)–(31) state four ellipse anomalies cocircular iff an angle-only condition independent of semiaxes",
+          "identifier_or_url": "https://mathworld.wolfram.com/Ellipse.html",
+          "material_read": "Full accessible encyclopedia page, especially equations for four concyclic ellipse points and bibliographic citations",
+          "method": "Web primary-linked reference reading; older cited books not accessed",
+          "title": "Ellipse, MathWorld; Berger et al. 1984 and Trott 2006 cocircularity references",
+          "trigger": "Old directly relevant criterion for four points on the same ellipse"
+        },
+        {
+          "assessment": "Different Gaussian perturbation ensemble; cannot infer whole-paper noncoverage",
+          "evidence": "Only abstract-level distinctions claimed; residual uninspected full-text risk",
+          "identifier_or_url": "https://arxiv.org/abs/1510.04608",
+          "material_read": "Abstract and publication metadata only; PDF retrieval blocked",
+          "method": "arXiv abstract/index",
+          "title": "Delaunay Triangulations of Degenerate Point Sets, Khanimov and Sharir",
+          "trigger": "Nearby probability and Delaunay fan research"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The normalized signed incircle determinant controls the exact proximity of random four-point samples to a diagonal flip and yields its conditional distribution even after the four cyclic spacings are revealed. This is a motivated stochastic-geometry invariant with a sharp near-degeneracy probability, not just the known binary cocircularity condition; the structural fan corollary is not presented as novel by itself.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "frozen RESULT.md 1e204ffccdb30375f86762cc79c6fe453bb80362",
+    "frozen verify.py a5a3fc095eefe0ea2f4ed285d3448d6dbf06b856",
+    "https://mathworld.wolfram.com/Ellipse.html",
+    "https://arxiv.org/abs/1510.04608",
+    "https://arxiv.org/abs/1404.4851"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "n≥4 same ellipse with fixed eccentric anomalies, a>b>0; a=b is degenerate.",
+    "Random law uses iid uniform eccentric anomaly, cyclic root fixed at original label, not uniform Euclidean arclength."
+  ],
+  "residual_risks": [
+    "The older ellipse cocircularity and standard Delaunay lifting already imply all-site aspect invariance; do not claim those deterministic elements historically new.",
+    "The remaining conditional arcsine distribution is a short uniform-root consequence; its novelty/value margin is narrower than the statement heading suggests.",
+    "Full text of Gaussian-perturbation Delaunay source and original 1984 ellipse reference was not accessible; an indexed prior equivalent law remains possible."
+  ],
+  "schema_version": 1
+}
