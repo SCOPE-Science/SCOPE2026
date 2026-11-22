@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "Normalized beta-supported packets; exact positive reset-age difference representation. For 0<sigma<1, the scaled integrand has integrable tail iff 3a>1 and integration by parts gives strictly positive beta coefficient. At sigma=1 exact exponential integral produces the log; at sigma>1 bounded difference quotient permits dominated convergence and gamma curvature. Carefully distinguishes second derivative from mere symmetric quotient and uses even smooth integral away from origin. Checker tests key constants and asymptotic rates; proof handles all parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.3390/e25121647, section 2, equations (10)-(12)",
+        "The 2023 stationary PDE equation is nonlinear in the full density: D partial_xx rho^nu -r(rho-delta), whereas the renewal mixture is linear in the individual free profiles."
+      ],
+      "reasoning": "The 2023 paper concerns a distinct stationary solution with a central source cusp; a nonlinear operator does not commute with mixing free profiles. Thus its all-parameter profile is not a stronger theorem covering the renewal mixture, although its physical vocabulary overlaps.",
+      "searches": [
+        "porous medium stochastic resetting exact origin C2 threshold sigma 1 smoothness 2 derivative",
+        "Results for Nonlinear Diffusion Equations with Stochastic Resetting",
+        "doi:10.3390/e25121647 full section 2"
+      ]
+    },
+    "checked_sources": [
+      "Chełminiak, arXiv:2107.14680v2, sections 2 and 3.2, full HTML body: exact stationary mixture (28), critical special function (31), and sigma-two formula (32).",
+      "Lenzi et al., Entropy 25 (2023) 1647, full HTML section 2: nonlinear source-PDE stationary q-exponential (10)-(12)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2107.14680v2, section 3.2, equations (27)-(32)",
+        "doi:10.3390/e25121647, section 2, equations (10)-(12)",
+        "The present coefficients are obtained by the tail exponent u^{-3/(sigma+2)} and dominated convergence, not by matching stationary moments."
+      ],
+      "reasoning": "Published renewal representation is general and can be used to derive the result, but does not explicitly state the local curvature classification. Individual sigma=1 and sigma=2 asymptotics alone do not imply the statement quantified over all sigma>0; global moments are not local smoothness tests. The derivation is an additional theorem from an existing formula and is not claimed as a novel model.",
+      "searches": [
+        "Barenblatt stationary reset age mixture near-origin power law analytic expansion density smoothing",
+        "Chełminiak 2021 Barenblatt resetting stationary origin small x curvature",
+        "Lenzi et al. 2023 nonlinear diffusion stationary q-exponential"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2107.14680v2, section 3.2, equations (27)-(32)",
+        "The special sigma=1 solution involves Ei(-const |x|^3) and therefore implicitly has a logarithmic central term."
+      ],
+      "reasoning": "The reset-age integral matches the published Chełminiak stationary model exactly; that renewal formula and the individual sigma=1 logarithmic special case are prior. A uniform three-regime curvature classification, explicit fractional coefficient for every 0<sigma<1, and finite-curvature criterion at every sigma>1 are not stated there. We claim none of the prior formulas as new.",
+      "searches": [
+        "Barenblatt-Pattle Poisson renewal mixtures origin second derivative singularity cusp sigma one logarithmic",
+        "arXiv:2107.14680v2 section 3.2 equations 27-32"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published published-finding corpus search results identify smoothness of proportional Brownian resetting, not the Barenblatt packet renewal-age origin.",
+        "Chełminiak explicitly provides sigma=1 and 2 stationary formulas rather than a parameter-wide differentiability table."
+      ],
+      "reasoning": "No indexed exact table or result returned the sigma=1 second-curvature threshold for this object. Search absence is not proof of novelty; the explicit prior special cases are acknowledged.",
+      "searches": [
+        "Barenblatt-Pattle Poisson renewal mixtures origin second derivative singularity cusp sigma one logarithmic",
+        "porous medium stochastic resetting exact origin C2 threshold sigma 1 smoothness 2 derivative",
+        "Barenblatt stationary reset age mixture near-origin power law analytic expansion density smoothing",
+        "published-finding corpus: 2026/10/26/SCOPE-exact-non-gevrey-derivatives-and-a-log-periodic-fourier-fingerpr--53ab45fd43ae"
+      ]
+    },
+    "rationale": "New sharp local regularity classification of the already-published Barenblatt reset-age density: subquadratic power, logarithmic borderline, finite curvature above sigma=1. Chełminiak established the mixture and special sigma=1,2 forms; no general classification was found in the inspected source text. Lenzi et al. concerns a distinct nonlinear source PDE. Search and prior comparisons are best-knowledge, not independence or exhaustive world coverage.",
+    "residual_risks": [
+      "Chełminiak sigma=1 exact special function implicitly yields the logarithmic case; the general proof is an extension of existing formula.",
+      "Other nonlinear renewal resetting publications or unindexed appendices may already classify local regularity.",
+      "No independent publication-priority audit performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies the full renewal formula and two special cases; no stated all-sigma origin-curvature threshold.",
+        "evidence": [
+          "Equation (28): stationary reset-age integral.",
+          "Equation (31): critical exponential integral.",
+          "Equation (32): sigma=2 Bessel formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2107.14680v2",
+        "material_read": "Sections 2 and 3.2, including equations 27-35 and discussion of explicit sigma=1,2 solutions, plus introduction and conclusions.",
+        "method": "Full accessible HTML text read, equations compared algebraically.",
+        "title": "Non-linear diffusion with stochastic resetting",
+        "trigger": "Direct original publication defining the exact same reset-age mixture."
+      },
+      {
+        "assessment": "Different mathematical object: nonlinear source PDE, not linear renewal mixture; not covering the claim.",
+        "evidence": [
+          "Equation (10) defines nonlinear stationary source PDE.",
+          "Equation (11) solves it by q-exponential."
+        ],
+        "identifier_or_url": "https://www.mdpi.com/1099-4300/25/12/1647",
+        "material_read": "Abstract, introduction and complete section 2 including stationary PDE equations (9)-(12).",
+        "method": "Full accessible HTML relevant section read and nonlinear operator compared.",
+        "title": "Results for Nonlinear Diffusion Equations with Stochastic Resetting",
+        "trigger": "Very close title and same Barenblatt physics, plausible dominating result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0c768706-c25c-4eeb-a20d-8b1dced831a4",
+  "value": {
+    "rationale": "A sharp all-nonlinearity local regularity phase boundary for a standard physically motivated renewal-reset porous-medium propagator, with explicit fractional/logarithmic/analytic coefficients. This clarifies which contact-local observables and curvature-based descriptions are well-defined; the critical logarithm is not visible from stationary moments. It also differentiates two often-confused nonlinear restarting constructions. Specific original result is not an arbitrary parameter slice or solely a computational example.",
+    "status": "PASS"
+  }
+}
