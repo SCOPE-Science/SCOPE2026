@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For all k, a shuffle puts the input in blocks [A B; C D] and the amplified output in [A B; -bar B bar A]. Both output block rows have identical operator norms, with the first bounded by the input; stacking gives the exact √2 ceiling. At k=1 the scalar quaternionic identity improves this to one. At k=2 the explicit W=[I J; J I] and Z=[I J; -J I] obey WW*=2I and Z*=Z, Z²=2Z, proving a unitary input attaining √2; direct-sum padding works for all k≥2. The algebraic witness identities were checked independently by exact symbolic code; random checks are non-proof diagnostics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cui–Wu–Yuan Lemma 2.4 proves ordinary norm one, while Corollary 4.5 classifies forms; neither formulates matrix-amplification estimates.",
+        "Pisier–Shlyakhtenko arXiv:math/0108205 discusses general operator-space factorization and does not single out this nonlinear-over-complex-scalars unitary preserver."
+      ],
+      "reasoning": "General norm-one and structural theorems are strictly weaker statements: they do not bound the norms after entrywise amplification by id on complex matrices. General cb framework supplies background, not an identified exact constant for this map.",
+      "searches": [
+        "arxiv:2611.13822v1 Corollary 4.5 Theorem 4.3 Lemma 2.4",
+        "arxiv:math/0108205 Grothendieck theorem operator spaces row column factorization",
+        "\"spin factor\" \"complete contraction\" quaternionic"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.13822v1",
+      "https://arxiv.org/abs/2611.13822",
+      "https://arxiv.org/abs/math/0108205",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-exact-phase-law-and-extremizers-for-two-by-two-unimodular-schatt--07c79d85df8d",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-restricted-schatten-amplification-on-the-flip-entanglement--d968ae995271"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A pointwise contractive map need not have contractive entrywise matrix amplification; the source proves only the pointwise norm and classifies the preserver.",
+        "The exact unitary U2 built from the real skew matrix J attains the amplified √2 norm, a statement not derivable solely from the source classification without a separate operator-norm computation."
+      ],
+      "reasoning": "Prior results prove existence/classification and level-one norm one, whereas this claim proves every amplified norm plus attainment on a unitary at the minimal failing level. No inspected broader theorem supplied the exact constant as a stated corollary.",
+      "searches": [
+        "arxiv:2611.13822v1 full §4 and Lemma 2.4",
+        "\"unitary preservers\" \"amplifications\" real linear matrices",
+        "\"unitary preserving\" \"not completely contractive\" real"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2611.13822v1, §4, Corollary 4.5 classifies non-Jordan real-linear unitary preservers.",
+        "The present map is row quaternionic completion, an object whose matrix-amplification norm is distinct from the published pointwise classification.",
+        "The closest indexed quaternionic Stiefel result 2026/11/8/SCOPE-sharp-sixth-moments-and-spectral-stability-for-quaternionic-stie--32d9aecf344a studies Haar moment inequalities, not this operator map."
+      ],
+      "reasoning": "Quaternionization, spin-factor and first-row completion aliases were examined. No located source stated or implied the exact all-level √2 amplification law with a unitary witness. A hidden equivalent in older real operator-space literature remains a residual risk.",
+      "searches": [
+        "\"quaternionification\" \"completely bounded\" norm",
+        "\"first row\" \"quaternionic\" \"completely bounded\" map",
+        "\"real-linear unitary preserver\" \"cb norm\" matrix",
+        "query: unitary-preserving real linear map M2 complex quaternionic first row complete contraction matrix levels"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest: 2026/10/25/SCOPE-exact-phase-law-and-extremizers-for-two-by-two-unimodular-schatt--07c79d85df8d is a complex-linear Schatten-4 Schur multiplier formula.",
+        "Closest: 2026/10/11/SCOPE-exact-restricted-schatten-amplification-on-the-flip-entanglement--d968ae995271 concerns transpose symmetrization on a Schatten subspace.",
+        "Published-index searches for the exact real-linear map and the √2 two-level failure returned no matching result."
+      ],
+      "reasoning": "The searched records are different domains/maps/norms; the matching parameter 2 alone is not implication. This search does not certify uniqueness or exhaust older literature.",
+      "searches": [
+        "query: sharp completely bounded norm quaternionification first row 2 by 2 complex matrices real linear unitary preserver sqrt two amplification",
+        "query: real linear unitary preserver amplification norm unital non Jordan two by two matrices quaternion",
+        "query: entrywise quaternionization of first matrix row exact completely bounded norm √2 and two-level unitary obstruction"
+      ]
+    },
+    "rationale": "Cui–Wu–Yuan arXiv:2611.13822v1 classifies the exceptional real-linear M2 preserver and proves level-one norm one but does not state the sharp two-level operator-norm amplification formula or exact unitary witness. Available published searches for quaternionic first-row completion and all-level norms found no covering claim; the closest indexed items concern other maps and norms. Equivalence to an unlocated earlier operator-space result is an explicit residual risk.",
+    "residual_risks": [
+      "Prior operator-space work on real-linear quaternionic completion could contain an equivalent √2 amplification estimate; searches cannot exclude it exhaustively.",
+      "The more general classification of amplification norms for every non-Jordan map is not attempted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the source preserver structure and its norm-one property; does not contain the exact matrix-level operator-norm amplification or unitary witness.",
+        "evidence": [
+          "https://arxiv.org/html/2611.13822v1 §2 Lemma 2.4 and §4 Corollary 4.5",
+          "https://arxiv.org/abs/2611.13822 submission 2026-11-10"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.13822v1",
+        "material_read": "HTML full text: introduction, Lemma 2.4, §4 Theorem 4.3 and Corollary 4.5 including their proofs, plus searches within full text for amplification/completely bounded.",
+        "method": "Read available full HTML text and compare precise hypotheses and conclusions.",
+        "title": "R-linear unitary preservers of C*-algebras",
+        "trigger": "New source classifies the exact exceptional class of two-dimensional unitary preservers."
+      },
+      {
+        "assessment": "Conceptual background but no direct exact norm computation for the real-linear quaternionic row completion was located.",
+        "evidence": [
+          "https://arxiv.org/abs/math/0108205 abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0108205",
+        "material_read": "Open abstract and statement of row/column factorization; full paper not inspected.",
+        "method": "Read publicly available abstract and compare object and claimed norm.",
+        "title": "Grothendieck’s Theorem for Operator Spaces",
+        "trigger": "Check whether general completely bounded factorization results already imply the target exact constant."
+      },
+      {
+        "assessment": "Different complex-linear Schur multiplier in Schatten-4 norm; not evidence of coverage of this real-linear operator-norm theorem.",
+        "evidence": [
+          "Published indexed summary: Schatten-four Schur symbol and its known two-level amplification theorem."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-exact-phase-law-and-extremizers-for-two-by-two-unimodular-schatt--07c79d85df8d",
+        "material_read": "Indexed title and scientific summary, not full file text.",
+        "method": "Compared abstract-level object, norm and hypotheses.",
+        "title": "Exact phase law and extremizers for two-by-two unimodular Schatten-four Schur multipliers",
+        "trigger": "Most relevant published-index hit on sharp two-by-two amplification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2d18d74d-bad1-4599-813b-478c01e98b10",
+  "value": {
+    "rationale": "Sharp exact quantitative failure of unitary-preserver stability under the first nontrivial amplification: the map preserves every level-one unitary, while level two already maps a genuine unitary to an operator of norm √2, and this is the optimum at every higher level. This directly tests the structural difference between ordinary and matricial geometry for the newly classified exotic preservers, rather than rederiving a pointwise contraction.",
+    "status": "PASS"
+  }
+}
