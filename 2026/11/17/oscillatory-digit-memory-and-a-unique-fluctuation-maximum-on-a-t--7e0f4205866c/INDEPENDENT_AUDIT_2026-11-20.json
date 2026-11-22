@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-20",
+  "audited_at_utc": "2026-11-20T19:43:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rebuilt the three affine postcritical interval states, density normalization h=(Q,1+b,1)/(bD) across lengths b,b²,b³, and the row-stochastic transition R=[[1,b,b²]/Q,[1,0,0],[0,1,0]]. Cylinder-affine inverse branches give the binary order-two factor on states 00/01/10 and forbid 111 for every length; state R matrix has its nontrivial quadratic roots complex, modulus b/sqrt(Q), implying exponentially decaying sign-changing correlations. Independent exact SymPy reconstruction verified stationary digit mean b(1+2b)/D, C1=−b³(b+2)/D², two-step covariance recurrence, variance σ²=bQ(1+4b+b²)/D³ and its derivative −H(b)/D⁴. Descartes one-sign-change and endpoint signs prove one positive critical root in (0,1); finite irreducible aperiodic Markov-chain CLT justifies Gaussian fluctuations. Finite symbolic tests did not replace the all-cylinder Markov proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang–Komornik–Zou Theorems 1.1–1.3 cover all admissible Q for existence/support/density but omit digit fluctuation law.",
+          "Li–Sahlsten–Samuel study intermediate equal-slope beta shifts and topological finite type, not this two-slope invariant-digit Markov variance."
+        ],
+        "reasoning": "Broader parameter coverage for invariant measures or topological finite type is not broader coverage of stationary digit correlation formulas; the exact statistical conclusion requires the submitted finite-state reduction.",
+        "searches": [
+          "https://arxiv.org/pdf/2605.08641",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exactly-two-markov-loci-for-greedy-double-base-digit-dynamics--84eb54c8ccaf/RESULT.md",
+          "https://arxiv.org/abs/1401.7027"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2605.08641",
+        "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exactly-two-markov-loci-for-greedy-double-base-digit-dynamics--84eb54c8ccaf/RESULT.md",
+        "https://arxiv.org/abs/1401.7027",
+        "https://arxiv.org/abs/2209.02373"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General unique invariant measure gives permission to define stationary binary digits but does not make them order-two Markov.",
+          "Earlier necessity proof excludes all but two **first-order** loci, explicitly without claiming to exclude second-order chains."
+        ],
+        "reasoning": "The submitted proof computes the 3-state invariant density, full cylinder probabilities, two-mode covariance, CLT variance and exact one-root maximum; none follows solely from the prior density theorem or first-order exclusion.",
+        "searches": [
+          "https://arxiv.org/pdf/2605.08641",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exactly-two-markov-loci-for-greedy-double-base-digit-dynamics--84eb54c8ccaf/RESULT.md",
+          "https://arxiv.org/abs/1401.7027"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On the b-curve, Q=1+b+b², q1=1/b, forbidden word 111 and order-two states 00/01/10 generate a 3×3 transition with nonreal eigenvalues.",
+          "The prior first-order locus has a 2×2 matrix and one real geometric eigenmode, and the invariant-measure paper gives no all-lag covariance."
+        ],
+        "reasoning": "The 3-state law is a finite-type coding of a known map, but a first-order two-state chain cannot produce these genuine order-two complex correlations, so no equivalence with the two known first-order loci.",
+        "searches": [
+          "Resultary semantic query: greedy double base expansion second order Markov 111 forbidden digit covariance complex spectrum variance unique maximum postcritical orbit",
+          "https://arxiv.org/pdf/2605.08641",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exactly-two-markov-loci-for-greedy-double-base-digit-dynamics--84eb54c8ccaf/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first-order prior explicitly tabulates a different covariance and variance formula depending on q1.",
+          "The newly verified optimum b≈0.340712206148 is the unique positive root in (0,1) of 3b^6+26b^5+39b^4+40b³+7b²−6b−1; searched comparator does not give it."
+        ],
+        "reasoning": "The quantity is an exact invariant on a continuous natural postcritical locus, not a known numerical table lookup; symbolic sign and root arguments, not a decimal alone, are material.",
+        "searches": [
+          "Resultary semantic query: greedy double base expansion second order Markov 111 forbidden digit covariance complex spectrum variance unique maximum postcritical orbit",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exactly-two-markov-loci-for-greedy-double-base-digit-dynamics--84eb54c8ccaf/RESULT.md",
+          "https://arxiv.org/pdf/2605.08641"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality survives direct statement-level comparison with the invariant-measure theorem and exact first-order Markov-locus classification; neither determines this three-step second-order chain’s all-lag complex covariance nor the rational variance and unique optimal b. Relevant equal-slope beta-shift literature remains a specified, not decisive, risk.",
+      "residual_risks": [
+        "Full text of the related equal-slope intermediate-β finite-type article was not inspected; a deeper conjugacy is not categorically excluded by its abstract.",
+        "The Markov/CLT statement is only for the specified stationary absolutely continuous measure and one-parameter postcritical curve, not all double-base sequences."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_MEASURE_ONLY",
+          "evidence": "Proves unique absolutely continuous invariant law and explicit jump-density construction. It does not state a second-order Markov law on the postcritical curve, the oscillating covariance, or exact variance maximizer.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.08641",
+          "material_read": "Complete 16-page PDF, Theorems 1.1–1.3, greedy interval definition (1.2), density series, support, and examples",
+          "method": "Primary arXiv PDF text and inspected page image",
+          "title": "Invariant measure for double base expansions (Huang, Komornik, Zou, 2026)",
+          "trigger": "same greedy two-slope map and stationary measure"
+        },
+        {
+          "assessment": "COVERS_ORDER_ONE_ONLY",
+          "evidence": "Classifies first-order binary digit Markov parameters q0=1+1/q1 or q0=q1/(q1−1) and gives their statistics; expressly excludes classification of higher-order chains. The present b-curve has genuine order two and a different complex pair of correlation roots.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exactly-two-markov-loci-for-greedy-double-base-digit-dynamics--84eb54c8ccaf/RESULT.md",
+          "material_read": "Full 8,769-character RESULT.md including both loci, all-length necessity proof and covariance; exact source blob 40cde017b7d98d20f62a8a8ab2fe4a6a5539f4f4",
+          "method": "Read entire published primary finding via GitHub",
+          "title": "Exactly two Markov loci for greedy double-base digit dynamics (published finding, 2026-10-26)",
+          "trigger": "same model and competing exact Markov classification"
+        },
+        {
+          "assessment": "DIFFERENT_MAP_RESIDUAL_RISK",
+          "evidence": "Equal-slope intermediate β maps differ from the asymmetric two-base greedy Q-map; this abstract cannot conclusively rule out a reduction to a known symbolic finite-type result.",
+          "identifier_or_url": "https://arxiv.org/abs/1401.7027",
+          "material_read": "Author abstract and published bibliographic description: equal-slope T_{β,α}(x)=βx+α mod1 and kneading finite-type classification; full manuscript not read",
+          "method": "arXiv metadata/abstract",
+          "title": "Intermediate beta-shifts of finite type (Li, Sahlsten, Samuel, 2014)",
+          "trigger": "plausible general finite-type dynamical symbolic comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural second-level postcritical digit process reveals a qualitative shift from real one-step memory to damped oscillatory order-two memory. A complete rational covariance/variance law, strict dependence deficit and exact unique fluctuation optimizer are motivated statistical invariants of this expanding dynamical system, beyond invariant density alone.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2605.08641",
+    "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exactly-two-markov-loci-for-greedy-double-base-digit-dynamics--84eb54c8ccaf/RESULT.md",
+    "https://arxiv.org/abs/1401.7027",
+    "https://arxiv.org/abs/2209.02373"
+  ],
+  "disposition": "passed",
+  "final_claim": "On q1=1/b, q0=1+b+b² for 0<b<1, the absolutely continuous stationary greedy binary digits have an exact genuine second-order three-state Markov description with no 111, oscillatory decaying two-mode covariances, exact partial-sum CLT variance σ²=b(1+b+b²)(1+4b+b²)/(1+2b+3b²)^3 strictly below the Bernoulli benchmark, and a unique variance maximum at b≈0.340712206148.",
+  "limitations": [
+    "Stationary absolutely continuous greedy double-base digits on this one-parameter three-step locus only; no claim of all-parameter higher-order Markov classification.",
+    "Covariances decay but need not become zero; finite-state CLT refers to additive digit sums."
+  ],
+  "residual_risks": [
+    "Full text of the related equal-slope intermediate-β finite-type article was not inspected; a deeper conjugacy is not categorically excluded by its abstract.",
+    "The Markov/CLT statement is only for the specified stationary absolutely continuous measure and one-parameter postcritical curve, not all double-base sequences."
+  ],
+  "schema_version": 1
+}

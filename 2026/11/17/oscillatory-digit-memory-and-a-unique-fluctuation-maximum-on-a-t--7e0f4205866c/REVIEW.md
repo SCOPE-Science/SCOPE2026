@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The explicit three-step critical orbit gives a full three-cell Markov partition with constant invariant densities satisfying all Perron equations. Affine inverse cylinders establish the exact second-order digit rule and its forbidden triple, while the three-state characteristic polynomial proves the complete oscillatory covariance recurrence. Summation and the primitive finite-state CLT give a positive closed variance, and Descartes' sign rule proves the unique optimizing parameter. Symbolic rational-function checks and exact rational tests corroborate each nontrivial identity. The finite tests alone do not prove the infinite-dimensional statements.
+## correctness
 
-**Originality — PASS under accessible-source comparison.** Huang--Komornik--Zou give the underlying invariant-measure and support theory, not a three-step Markov digit characterization or sharp variance optimum. The closest available research record classifies *first-order* Markov parameters only, proving these lie on two curves different from this one. Direct inspection of its full RESULT.md finds no second-order curve or current covariance/optimum. Other relevant finite-type equal-slope literature has different branches and does not imply the parameter-dependent formulas. An unpublished or differently coded older Markov calculation remains a nonzero priority risk; database absence alone is not proof.
+PASS
 
-**Mathematical value — PASS.** Three-step closure of the critical orbit selects a motivated full continuum of unequal-base maps. Its stationary digits have a complete, nontrivial two-step law and a complex correlation spectrum for every parameter. The exact, uniquely maximized fluctuation strength separates mean digit frequency from temporal variability and identifies a quantitative benchmark beyond a generic finite-state CLT. No global classification of double-base Markov loci is claimed.
+Rebuilt the three affine postcritical interval states, density normalization h=(Q,1+b,1)/(bD) across lengths b,b²,b³, and the row-stochastic transition R=[[1,b,b²]/Q,[1,0,0],[0,1,0]]. Cylinder-affine inverse branches give the binary order-two factor on states 00/01/10 and forbid 111 for every length; state R matrix has its nontrivial quadratic roots complex, modulus b/sqrt(Q), implying exponentially decaying sign-changing correlations. Independent exact SymPy reconstruction verified stationary digit mean b(1+2b)/D, C1=−b³(b+2)/D², two-step covariance recurrence, variance σ²=bQ(1+4b+b²)/D³ and its derivative −H(b)/D⁴. Descartes one-sign-change and endpoint signs prove one positive critical root in (0,1); finite irreducible aperiodic Markov-chain CLT justifies Gaussian fluctuations. Finite symbolic tests did not replace the all-cylinder Markov proof.
 
-**Scope and risks.** The result concerns the canonical absolutely continuous stationary measure and one explicit postcritical parameter curve. The central-limit theorem and matrix pressure formalism are standard; the new part is their exact realization and sharp analytic parameter optimization in this family. Historical priority requires independent scrutiny.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality survives direct statement-level comparison with the invariant-measure theorem and exact first-order Markov-locus classification; neither determines this three-step second-order chain’s all-lag complex covariance nor the rational variance and unique optimal b. Relevant equal-slope beta-shift literature remains a specified, not decisive, risk.
+
+## value
+
+PASS
+
+The natural second-level postcritical digit process reveals a qualitative shift from real one-step memory to damped oscillatory order-two memory. A complete rational covariance/variance law, strict dependence deficit and exact unique fluctuation optimizer are motivated statistical invariants of this expanding dynamical system, beyond invariant density alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
