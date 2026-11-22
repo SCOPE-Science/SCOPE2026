@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For every valid supporting normal, nonnegative outward component follows from the last feasible exit and the rolling interior ball. The relaxed halfspace maximizer lies on the tangent plane at tangential distance t=sqrt(s²-tau² a²)-tau b in [0,s], with degenerate normal-only cases also bounded by s. Projection onto the tangent ball preserves the local radius, and its displacement equals sqrt(rho²+||p-q||²)-rho. Cauchy--Schwarz gives the uniform inequality. The disk witness with b=epsilon³ realizes asymptotic ratio one and a unique relaxed maximizer. Packaged checker passes 3,000 planar numerical cases and seven sharpness instances; proof is symbolic and dimension independent.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kolzenburg--Richtárik arXiv:2611.11354v1 §1.2 assumes an exact local linear minimization oracle and does not analyze this one-tangent approximation.",
+        "Richtárik--Mahran arXiv:2609.33383 abstract addresses a projection interpretation of the exact local LMO, not its repair error.",
+        "Hazan arXiv:2608.04321v2 describes the geometric approximation with the larger 2/rho coefficient."
+      ],
+      "reasoning": "An exact-oracle convergence theorem cannot determine the error of Hazan's specific approximate tangent-repair routine. The rolling-ball geometrical premise is shared with Hazan but his published coefficient is four times larger. The inaccessible complete text of the later exact-oracle projection paper remains an expressly recorded priority risk.",
+      "searches": [
+        "one tangent method exact ball sharp additive oracle coefficient curvature sharpness",
+        "tangent interior ball correction local optimization halfspace radius sharp error disk",
+        "smooth convex set rolling ball one tangent correction additive local oracle optimality disk",
+        "arxiv:2611.11354v1",
+        "arxiv:2609.33383"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.04321v2",
+      "PMLR:v89/levy19a",
+      "arxiv:2611.11354v1",
+      "arxiv:2609.33383 (abstract only)",
+      "published semantic research records for local-oracle accuracy and rolling-ball geometry"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hazan proof bounds ||p-q|| by 2s, giving correction <=2||c||s²/rho. The improved result proves ||p-q||<=s for every relaxed minimizer; this is not a consequence of the source's looser inequality.",
+        "The sharpness disk witness establishes an asymptotic error of ||c||s²/(2rho), not supplied by prior sources.",
+        "Levy--Krause uses a tangent-plane approximate projection for a separate objective and oracle; its error formula is not an identical extremal constant."
+      ],
+      "reasoning": "The earlier stronger *algorithmic guarantee* of linear convergence does not imply this sharp numerical coefficient; additive-error bounds with coefficient 2/rho are strictly weaker. The new bound combines a structural reduction of the tangent displacement and an asymptotically attaining family, so the exact result is not simply relabeling a prior estimate.",
+      "searches": [
+        "one tangent oracle interior ball repair sharp optimal constant 2/rho disk local linear minimization exact slack",
+        "one tangent local linear optimization radius rho rolling ball projection curvature quadratic error sharp factor four",
+        "Elad Hazan tangent projection local linear oracle quadratic error smooth convex body sharp constant counterexample",
+        "arxiv:2608.04321v2 §2.2 Lemma 2.3",
+        "PMLR:v89/levy19a §3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hazan Lemma 2.3 derives the looser radius coefficient 2/rho, not 1/(2rho).",
+        "Levy--Krause, 2019, §3 and Algorithm 1, repair a projected gradient attempt for online learning, not the relaxed local-linear minimizer.",
+        "Closest semantic record 2026/10/12/...-09315b59bb24 concerns relative local-oracle accuracy and solution distances, not geometric tangent repair."
+      ],
+      "reasoning": "Possible aliases include tangent-plane repair, one-tangent local LMO, rolling-ball approximate local linear optimization, and curvature-dependent oracle error. The source construction is the same but its stated bound is weaker; the only related retrieved records concern other oracle models or error notions. No equal assertion or reduction forcing the sharp constant was located.",
+      "searches": [
+        "one tangent local linear optimization radius rho rolling ball projection curvature quadratic error sharp factor four",
+        "Elad Hazan 2608.04321 Lemma 2.3 one tangent smooth convex sets sharpen 2/rho to 1/(2rho) local linear minimization",
+        "FAstProj Levy Krause quadratic tangent repair sharp error bounded 1 over 2 rho",
+        "arxiv:2608.04321v2",
+        "PMLR:v89/levy19a"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant semantic research-index results describe exact ball-proximal minimization or tangent-ball radius classification on ellipsoids, not the sharp loss of this approximate supporting-tangent optimizer.",
+        "No exact constant table for this algorithm was identified in the consulted primary full texts or published searches."
+      ],
+      "reasoning": "This is a universal continuous coefficient, not a finite numerical table. The queried published records and related ball-geometric results do not tabulate or imply the coefficient 1/(2rho) for the given algorithm. Search non-detection is not treated as a uniqueness proof.",
+      "searches": [
+        "uniform optimal constant curvature quadratic local linear oracle one tangent one supporting hyperplane ball 1/(2rho) sharp",
+        "Elad Hazan rolling ball local linear oracle sharp additive quadratic error factor 4",
+        "sharp local linear oracle rolling ball error constant",
+        "2026/11/8/...-90396b375e46",
+        "2026/11/1/...-67545b107c13"
+      ]
+    },
+    "rationale": "The directly motivating arXiv:2608.04321v2 Lemma 2.3 proves coefficient 2/rho using ||p-q|| <=2s, while the new sharp all-dimension bound follows from ||p-q|| <=s and has a separately proved extremizing disk sequence. Neither the approximate-projection paper Levy--Krause (2019) nor the exact-local-oracle BroxGD paper (2026) establishes this optimal approximate-oracle coefficient. Targeted semantic record searches found no equivalent result; this is best-knowledge originality, not certified historical priority.",
+    "residual_risks": [
+      "An earlier equivalent optimal-constant observation may exist under an unsearched geometric approximation alias.",
+      "The complete text of arxiv:2609.33383 could not be inspected; abstract-level comparison only, with modest priority risk because the object is an exact rather than approximate oracle.",
+      "No independent mathematical audit or exhaustive historical search."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_ALGORITHM_WEAKER_CONSTANT",
+        "evidence": [
+          "Lemma 2.3 explicitly uses ||p-q||<=2s and gives 2||c||s²/rho; the sharper ||p-q||<=s and sharpness witness are not stated."
+        ],
+        "identifier_or_url": "https://arxiv.cnoctave.top/pdf/2608.04321",
+        "material_read": "Accessible primary full text: Introduction, Section 2, one-tangent algorithm, Lemma 2.3 and its displayed proof through repair and local-ball preservation",
+        "method": "Accessible open-access PDF extracted text and page-4 screenshot; compared algorithm, hypotheses, and proof inequalities",
+        "title": "A Linearly Convergent Projection-Free Algorithm for Smooth Convex Sets",
+        "trigger": "Same exact tangent-halfspace projection routine and possible dominating inequality"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECTIVE_AND_ORACLE",
+        "evidence": [
+          "FAstProj first projects the proposed movement tangentially and performs a normal line repair, producing approximate Euclidean projections rather than Hazan's local linear minimizer."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v89/levy19a/levy19a.pdf",
+        "material_read": "Accessible primary full text: sections 1--3, especially the FAstProj algorithm and Theorem 3.1 on pages 3--4",
+        "method": "Primary open-access PMLR PDF extracted text and page-4 screenshot",
+        "title": "Projection Free Online Learning over Smooth Sets",
+        "trigger": "Prior tangent-plane feasibility repair with curvature-controlled error"
+      },
+      {
+        "assessment": "EXACT_ORACLE_NOT_APPROXIMATE_TANGENT_BOUND",
+        "evidence": [
+          "The BroxGD analysis explicitly assumes the exact local linear oracle and distinguishes Hazan's tangent approximation."
+        ],
+        "identifier_or_url": "https://arxiv.cnoctave.top/pdf/2611.11354",
+        "material_read": "Accessible primary full text: introduction, algorithm, Sections 1.2 and 2 discussing exact oracle assumptions and comparison to Hazan",
+        "method": "Open-access PDF extracted text and source comparison",
+        "title": "An Adaptive Short-Step Variant of BroxGD with Linear Convergence under Quadratic Growth",
+        "trigger": "Recent broader local-linear-oracle convergence results"
+      },
+      {
+        "assessment": "ABSTRACT_ONLY_RELEVANT_RISK",
+        "evidence": [
+          "Its described theorem identifies exact local-LMO steps with projections under Polyak-radius assumptions, and does not claim a sharp error coefficient for a tangent repair in the accessible material."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.33383",
+        "material_read": "Published title, dated abstract and abstract-level mathematical description only; full text was not accessible via the checked open routes",
+        "method": "Public indexed abstract and attempted full-text open-access retrieval",
+        "title": "Local LMO is Secretly a Projection Method!",
+        "trigger": "Potential stronger exact local-oracle geometric theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "990ade6e-0591-41ec-a7a5-901109f61b02",
+  "value": {
+    "rationale": "The original one-tangent local LMO is a concrete optimization subroutine whose proved additive quadratic constant enters the geometric term of the local-oracle convergence transfer. The result improves that coefficient from 2/rho to an optimal 1/(2rho) for the identical routine, a factor-four strengthening, and shows that even for the disk no higher-order uniform accuracy is possible. It does not assert improvements to all implementations, the order of outer convergence, or wall-clock time.",
+    "status": "PASS"
+  }
+}
