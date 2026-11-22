@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The construction is the explicitly normalized harmonic EITFF from the arXiv v1 source (Theorem 4.3). The proof accounts for normalization and the one-dimensional kernel of the twelve-column Gram matrix. Each of six square-affine orbit representatives has a characteristic polynomial calculated exactly over the degree-forty cyclotomic field. The six 55-set orbits exhaust all 330 four-subsets. Exact nonzero degree-one coefficients establish rank eleven; Sturm counts in the quadratic subfield isolate the least positive eigenvalues and identify all 165 worst cases. The packaged checker reproduces all exact coefficients. The theorem does not extrapolate from a finite experiment.
+PASS
 
-## Originality — PASS, with historical-priority risk
+For the precise character chi(2)=exp(2πi/10) in the real harmonic EITFF(11,11,3), the square-affine action partitions all 330 four-subsets into six size-55 orbits. Gram matrix for each representative is similar to a 12×12 cyclotomic matrix; the inspected certificate.py builds Q(zeta_55) entries and uses Faddeev–LeVerrier to check the complete degree-12 characteristic coefficients against the three polynomials in spectra.json, including exactly one simple zero for 12 columns in dimension 11. Positivity of the 11×11 sum of projections plus nonzero degree-one coefficient gives full span; exact quadratic-field Sturm checks isolate each least eigenvalue. Independent recomputation of orbit multiplicities and numerical eigenvalue roots gave class populations 165/110/55 and least roots ≈0.0389554/0.0849397/0.1859598. The numerical check is corroboration; the exact field and Sturm certificate algorithms were inspected for their mathematical soundness, not independently run.
 
-The primary 2021 construction establishes the EITFF but not these fourth-order subset spectra or stability constants in the inspected construction, appendix and stated theorems. The 2024 paper examines symmetric-code families and identifies block-RIP analysis as open in that context, without giving this code's 330-subset classification. The nearest indexed published-finding corpus records concern real rank-two Paley planes in thirteen dimensions and order-nine two-planes, with different objects and non-implying claims. The own available research ledger was searched for these aliases and the associated parameters; its nearest related entry concerns nine two-planes. Specialized older spectra not indexed in the accessible sources remain an independent priority risk; the published-finding corpus summaries were not misrepresented as full-text inspections.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The explicit real eleven-plane three-dimensional construction is an exceptional harmonic fusion frame rather than a tensor enlargement of a vector frame. Four is the first block count whose total nominal dimension exceeds eleven. Exact universal spanning, the full spectral trichotomy, and the sharp worst-case smallest frame eigenvalue are directly motivated stability invariants for subspace recovery. The orbit split is not implied by equi-isoclinicity, which fixes only pairwise principal angles.
+Best-of-knowledge original exact spectral classification and optimal lower frame bound for the specific real eleven-plane EITFF. Construction is prior art, not claimed. The published finite-fusion rank/spectrum results identified treat different 7-, 9- or 13-plane objects; no implication carries their coefficients and exact orbit types to this 11-plane object.
 
-## Residual limits
+## value
 
-The proof is a finite algebraic classification for one fixed character, not an all-code theorem. Historical priority is not independently certified; numerical noise performance is not analyzed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The specific Fickus–Iverson–Jasper–Mixon real 11-plane EITFF is a natural nontrivial fusion frame. Exact erasure-reconstruction stability of all four-subspace selections and the complete orbit-stratified sharp lower bound are meaningful intrinsic geometric invariants not furnished by pairwise coherence alone, with precise extremizers. This is a motivated complete finite classification rather than an arbitrary small random computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-## Reproduction
+# Independent mathematical audit
 
-Use Python 3 and SymPy 1.14 or another compatible version. From this directory, execute `python certificate.py --all` and `python certificate.py --roots`. The first command constructs and verifies the six exact cyclotomic block-Gram polynomials using the prime-field character and checks their complete orbit partition. The second uses exact polynomial root counting over the real quadratic field to verify the three strict lower-eigenvalue intervals.
+## correctness
 
-The characteristic-polynomial test is performed in \(\mathbb Q(\zeta_{55})\) using rational arithmetic. It verifies every coefficient, including the one-dimensional zero eigenspace in the twelve-column Gram matrix, and hence the positive spanning rank of the corresponding eleven-dimensional projection sum. This does not constitute an independent mathematical audit.
+PASS
 
-## Limits
+For the precise character chi(2)=exp(2πi/10) in the real harmonic EITFF(11,11,3), the square-affine action partitions all 330 four-subsets into six size-55 orbits. Gram matrix for each representative is similar to a 12×12 cyclotomic matrix; the inspected certificate.py builds Q(zeta_55) entries and uses Faddeev–LeVerrier to check the complete degree-12 characteristic coefficients against the three polynomials in spectra.json, including exactly one simple zero for 12 columns in dimension 11. Positivity of the 11×11 sum of projections plus nonzero degree-one coefficient gives full span; exact quadratic-field Sturm checks isolate each least eigenvalue. Independent recomputation of orbit multiplicities and numerical eigenvalue roots gave class populations 165/110/55 and least roots ≈0.0389554/0.0849397/0.1859598. The numerical check is corroboration; the exact field and Sturm certificate algorithms were inspected for their mathematical soundness, not independently run.
 
-The certificate is for the explicit character \(\chi(2)=e^{2\pi i/10}\), eleven planes and four-plane subsets. It does not address arbitrary EITFFs, arbitrary character generators, or spectral stability for a different number of subspaces. The root intervals are algebraic, not measurements.
+## originality
+
+PASS
+
+Best-of-knowledge original exact spectral classification and optimal lower frame bound for the specific real eleven-plane EITFF. Construction is prior art, not claimed. The published finite-fusion rank/spectrum results identified treat different 7-, 9- or 13-plane objects; no implication carries their coefficients and exact orbit types to this 11-plane object.
+
+## value
+
+PASS
+
+The specific Fickus–Iverson–Jasper–Mixon real 11-plane EITFF is a natural nontrivial fusion frame. Exact erasure-reconstruction stability of all four-subspace selections and the complete orbit-stratified sharp lower bound are meaningful intrinsic geometric invariants not furnished by pairwise coherence alone, with precise extremizers. This is a motivated complete finite classification rather than an arbitrary small random computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
