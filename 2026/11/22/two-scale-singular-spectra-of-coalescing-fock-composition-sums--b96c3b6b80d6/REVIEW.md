@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The monomial basis diagonalizes every composition summand exactly. The two limiting regimes are proved by mesh Riemann sums with explicit exponential envelopes; for the separated scale the bounded quotient at the first nonvanishing moment supplies uniform tail control. Vandermonde invertibility proves the maximal cancellation order. A standalone checker verifies 152 exact rational and approximate finite diagnostics, but finite diagnostics do not establish the infinite limits.
+
+**Originality — PASS (qualified).** The source most directly on finite Fock composition sums, Lin–Lu–Yang–Zu, gives fixed-symbol two-sided Schatten estimates and membership classification, not a scale-dependent singular-value counting law or the coalescence transition. The MDPI paper concerns order-boundedness of differences; the Chalendar–Partington work concerns semigroups and iteration. A published polynomially weighted dilation result has a limiting \(x^m e^{-x}\) profile compatible with our separated regime, but not the full finite-ratio exponential-polynomial profile or coefficient-moment classification. Published and searchable claims were checked for equivalent formulations, stronger implication, and table coverage; older semigroup-functional-calculus methods remain a residual risk.
+
+**Mathematical value — PASS.** Fixed-symbol no-cancellation results do not provide useful estimates when the symbols approach each other, a natural regime for perturbations and numerical stability. The theorem gives the entire singular-value distribution and sharp Schatten and norm constants across both contraction/separation regimes, isolates a Vandermonde cancellation hierarchy, and exhibits the distinction between strong cancellation and persistent operator norm. This is a quantitative instability/regularization classification, not merely a binary membership restatement.
+
+**Limitations.** The result is for a natural but restricted diagonal family. Bibliographic completeness and any implicit general semigroup coverage remain uncertain. Finite tests are diagnostic, and no independent review has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
