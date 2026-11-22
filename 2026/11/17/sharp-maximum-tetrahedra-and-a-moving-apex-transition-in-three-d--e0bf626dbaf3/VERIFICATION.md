@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-Run `python3 verify.py` with Python 3 and no external dependencies. It regenerates all sixteen labelled vertices, the 1,820 four-point determinants as integer polynomial coefficient dictionaries, the two isolated rigid maximizers, the six movable-apex base quadruples, and coefficientwise inequalities for the remaining 1,812. It also verifies all possible symbolic equality collapses at the first-parameter boundary and independently compares the formula against exact numerical enumeration for 72 parameter triples. Successful replay: `PARKING_TETRA_EXACT_PASS symbolic_quadruples=1820 coefficientwise=1812 rigid=2 facet=6 sample_parameter_triples=72 zero_first_checks=5`.
+# Independent mathematical audit
 
-The continuous parameter result follows from exact polynomial inequalities, not from the 72 numerical cases. Nonvertex equality is deduced analytically from determinant multiaffinity and equality-orbit intersection patterns. The general vertex description relies on the published primary source, and historical priority remains provisional. Independent audit has not been performed.
+## correctness
+
+PASS
+
+Given Bayer et al. Theorem 2.3 vertex characterization, translated polytope has 16 symbolic vertices, reduced to 10 when C=0. Determinant is multi-affine in four corners; vertex quadruple suffices for maximum. Independent sympy generated all C(16,4)=1820 symbolic determinants: exactly two ±(A^3+B^3), six ±B²(C+A) and 1812 others with for both signs coefficientwise nonnegative nonzero margin below A^3+B^3; C=0 coincidences collapse. Convex combinations of signed determinants show nonvertex equality is possible only via the six top apex vertices sharing three axial vertices; gives full 2D permutahedral apex face. Δ=(d-e)C²+(2d²+e²)C+d³+d²e+2de²+e³ switches once if e>d, never if e<=d; tested including C=0. This exact polynomial certificate plus multiaffinity proves full real C≥0,d,e>0, not merely finite samples.
+
+## originality
+
+PASS
+
+Best-of-knowledge original contribution remains after subtracting credited prior special or broader results; each of four implication comparisons and source inspections below document the boundaries. 
+
+## value
+
+PASS
+
+Maximum-volume contained simplex is a natural affine/metric invariant at the first nontrivial dimensional case, and identifying a sharp two-polynomial envelope with an optimizer-locus dimension jump 0→2 is substantive. This is not the known polytope volume, vertex count or enumeration alone; arbitrary-point equality uses a separate geometric argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

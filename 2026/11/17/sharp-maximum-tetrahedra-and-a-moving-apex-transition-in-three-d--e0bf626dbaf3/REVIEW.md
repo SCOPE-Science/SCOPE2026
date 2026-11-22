@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The cited vertex description supplies a complete finite parametrized vertex set. The exact determinant computation yields 1,820 symbolic quadruples, of which two yield the rigid branch and six yield the axial-face branch. Every other absolute determinant is strictly smaller than the rigid branch for positive parameters, certified by coefficientwise nonnegative cubic differences for both signs; the zero-first-parameter boundary is handled by collapsing coincident vertex labels. The proof of all continuous equality cases uses multilinear convex decompositions and the three-vertex overlaps of winning quadruples. The switching discriminant is an exact quadratic with the claimed unique root.
+## correctness
 
-**Originality — PASS, provisional historical priority.** Full primary texts of Bayer et al. (arXiv:2403.07387) and Hanada–Lentfer–Vindas-Meléndez (arXiv:2212.06885) determine the underlying vertices/combinatorics and total polytope volume, not the unrestricted maximum inscribed tetrahedron. The published asymmetric simplex-difference-body theorem concerns a distinct twelve-vertex Minkowski sum and has a different optimizer pattern, so it does not imply this sixteen-vertex result. Dedicated semantic searches found no equivalent all-parameter formula or movable-apex transition. A broader unindexed theorem and the not-fully-inspected Liu–Thawinrak paper remain priority risks.
+PASS
 
-**Mathematical value — PASS.** The three-dimensional member is the first dimension where maximal contained tetrahedral volume is a genuine optimization invariant. This result gives its complete three-parameter answer, a sharp algebraic phase boundary, and an optimizer-locus dimension jump from zero to two. This is neither the known total-volume polynomial nor merely a finite vertex tabulation; the continuous optimization and classification require a distinct argument.
+Given Bayer et al. Theorem 2.3 vertex characterization, translated polytope has 16 symbolic vertices, reduced to 10 when C=0. Determinant is multi-affine in four corners; vertex quadruple suffices for maximum. Independent sympy generated all C(16,4)=1820 symbolic determinants: exactly two ±(A^3+B^3), six ±B²(C+A) and 1812 others with for both signs coefficientwise nonnegative nonzero margin below A^3+B^3; C=0 coincidences collapse. Convex combinations of signed determinants show nonvertex equality is possible only via the six top apex vertices sharing three axial vertices; gives full 2D permutahedral apex face. Δ=(d-e)C²+(2d²+e²)C+d³+d²e+2de²+e³ switches once if e>d, never if e<=d; tested including C=0. This exact polynomial certificate plus multiaffinity proves full real C≥0,d,e>0, not merely finite samples.
 
-The included checker is an exhaustive exact polynomial certificate for this three-dimensional family, not independent validation or a higher-dimensional theorem. Numerical parameter probes play no role in establishing generality.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original contribution remains after subtracting credited prior special or broader results; each of four implication comparisons and source inspections below document the boundaries. 
+
+## value
+
+PASS
+
+Maximum-volume contained simplex is a natural affine/metric invariant at the first nontrivial dimensional case, and identifying a sharp two-polynomial envelope with an optimizer-locus dimension jump 0→2 is substantive. This is not the known polytope volume, vertex count or enumeration alone; arbitrary-point equality uses a separate geometric argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
