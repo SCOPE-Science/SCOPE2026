@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The eleven-vertex wheel matching complex decomposes as the rim independence complex of \(C_{10}\) with ten cones over independence complexes of \(P_8\). The path and cycle complexes are simply connected in this case, so the covering space is simply connected by van Kampen. Both reflection generators fix matching-complex vertices; Armstrong's orbit theorem makes the quotient simply connected. A complete barycentric flag-orbit cell computation and integral Smith normal forms give homology \(\mathbb Z\) in degrees zero and three and zero elsewhere; every nonzero Smith factor is one. Hurewicz and Whitehead then give \(S^3\). The exact program and the actual successful output are embedded; there is no infinite extrapolation.
+## correctness
 
-## Originality
-**PASS relative to the inspected literature and indexed findings.** The closest published wheel results supply the nonequivariant sphere wedge, complete rational dihedral representation and a rational quotient three-dimensional class; they expressly do not give a full integral orbit homotopy type. The integral wheel module calculation is about the covering space and does not imply the orbit Smith forms. The classical Armstrong formula proves only the fundamental group. Searches for the exact ten-rim wheel dihedral quotient and equivalents did not return an established homotopy three-sphere. An unindexed equivalent computation remains possible; a search result alone cannot prove novelty.
+PASS
 
-## Value
-**PASS.** The first higher-dimensional, rationally nontrivial full dihedral wheel matching quotient is a natural test case for integral orbit-space effects. Determining its actual homotopy type removes the integral torsion and higher-homotopy ambiguity left by the existing rational character calculation. A complete exact homotopy classification of this canonical object is useful in its own right, without suggesting an unproved all-wheel theorem.
+Reconstructed matching complex X=Ind(line graph W_11). Rim-only subcomplex Ind(C_10)≃S^2; all spoke cones attach along copies of Ind(P_8)≃S^2, proving simply-connected X. Two D_10 generating reflections each fix an actual matching vertex (a fixed spoke and a fixed rim edge), so Armstrong orbit-fundamental-group theorem gives π1(X/D_10)=0. Independently generated all matchings of sizes one through five, counts [20,115,260,225,52], all barycentric chains and their D_10 orbits [43,343,882,894,312]. Constructed the exact oriented integral orbit-boundary matrices, checked boundary squared zero, and computed all four complete integer Smith forms with SymPy (not merely cited archived logs): ranks 42,301,581,312 and no nonunit invariant factors for any B_d. Hence H_0=H_3=Z with no torsion, all other reduced integral homology zero. Simply connected plus H2=0 gives 2-connected; Hurewicz and homological Whitehead then identify the full ordinary quotient as S^3. This is an exhaustive finite computation for the specified 20-edge graph.
 
-## Closest literature and limitations
-Adamaszek (2011), arXiv:1106.6250, supplies cyclic independence-complex techniques; Vega (2019), arXiv:1909.10406, Theorem 5.2, supplies the nonequivariant wheel homotopy type. Armstrong (1965) supplies the orbit fundamental-group formula. Closest indexed all-wheel studies are the 2026-10-18 rational quotient character, the 2026-10-25 integral covering-module calculation, and the 2026-11-08 rational character. The result concerns one ordinary quotient up to homotopy, not a PL manifold classification or all dimensions; equivalent unindexed literature is a residual risk. Exact Smith reduction relies on reproducible installed arithmetic code and was replayed successfully.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier whole-wheel D_n character theorems calculate the same quotient rational invariant rank but explicitly exclude its integral orbit homology and homotopy. Vega classifies only unquotiented wheel matching complexes. Independent integer Smith and π1 calculations establish the missing homotopy type, a bounded best-of-knowledge original strengthening.
+
+## value
+
+PASS
+
+For a canonical symmetry quotient of a natural graph matching complex, the known rational invariant H3=Q left integral torsion and π1 unknown. The exact quotient S3 homotopy classification resolves these genuinely non-implied topological invariants with a reproducible finite integer chain model. Nonfree actions make invariant homology insufficient; the result is a substantive integral upgrade for a symmetry-distinguished first example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
