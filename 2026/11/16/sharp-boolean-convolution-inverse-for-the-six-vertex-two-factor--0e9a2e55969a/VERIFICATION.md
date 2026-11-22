@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 check_2factor6.py` with Python 3 and no third-party packages. `CERTIFICATE.json` lists the exact expected outcomes. The reproducible checker tests two independently constructed 70-member graph sets, all Fourier coefficients by direct character sums and transform, the modulo-four law, the 512-element annihilator support, an independent quotient-transform computation of the inverse kernel, both exact histograms, Parseval and all 32768 inverse convolution identities. It exits unsuccessfully if any assertion fails and prints `TWO_FACTOR_K6_EXACT_PASS` only after they all pass.
+## correctness
 
-The source-date 2005-02-25 is the verified first online date of the motivating 2-factor paper. The integer certificate proves claims only for the specified fifteen-edge group, not an arbitrary larger graph. The primary literature search is bounded and one plausible 2005 paper was accessible only as an abstract. No independent audit is represented.
+PASS
+
+Exactly 60 labelled Hamiltonian six-cycles and 10 pairs of disjoint triangles comprise all degree-2 spanning graphs, every edge is in 28; character expansion modulo four gives W(s)=70-2(28)|s|=2 mod4, ruling out zero globally. Independently enumerated all 5005 six-edge subsets, retained precisely 70 degree-two masks, ran exact integer Walsh transform across 2^15 characters and matched the full signed histogram. Reciprocal multiplier with LCM=2310 and exact second transform matched seven integer numerator levels with 32256 zeros and 512 nonzeros; all supported at even-size Eulerian masks. Integer numerator absolute sum 362840064 yields norm 362840064/(32768*2310)=3691/770. Group Fourier diagonalization gives inverse ℓ² norm 1/2; convolution sign vectors attain the endpoint ℓ¹/∞ norm. Scope is exactly K6, no extrapolation to n>6.
+
+## originality
+
+PASS
+
+Existing two-factor existence/factorizations and other natural finite graph-family Walsh spectra have distinct objects/invariants; indexed searches revealed no prior K6 two-factor exact inverse-kernel six-level table or endpoint norm. This remains bounded best-of-knowledge, not a certification against every older combinatorial table.
+
+## value
+
+PASS
+
+This natural smallest complete-graph two-factor family includes two cycle types. A full invertible incidence convolution plus exact worst-case inverse norms and structural support is a reproducible, nontrivial finite harmonic invariant useful for recovery and perturbation analysis beyond a textbook parity check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
