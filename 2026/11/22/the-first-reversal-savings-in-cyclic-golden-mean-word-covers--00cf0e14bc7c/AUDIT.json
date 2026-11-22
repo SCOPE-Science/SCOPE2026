@@ -1,0 +1,93 @@
+{
+  "correctness": {
+    "rationale": "Every admissible cyclic host is exactly a closed directed walk on the no-11 overlap graph. A finite directed-state BFS with bit masks exhausts all possible reversal-class coverage walks for orders two through six; direct exhaustive enumeration of every legal circular host below the candidate optimum independently excludes shorter solutions. Five explicit circular witnesses achieve the bounds. There is no extrapolation beyond order six.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The published all-order no-11 oriented cover length is F(n+2)+F(n)-1; at n=6 it is 28, a strictly stronger requirement than up-to-reversal coverage.",
+        "The unrestricted binary unoriented theorem covers every binary word, including patterns forbidden in the golden-mean shift."
+      ],
+      "reasoning": "Neither oriented all-window coverage nor unrestricted unoriented coverage implies the minimum of the combined relaxed condition. General graph shortest-walk algorithms are not a precomputed exact value for this constrained n=6 case.",
+      "searches": [
+        "Minimum cyclic binary string avoiding adjacent ones covering every admissible length n block up to reversal, golden mean reversal-unoriented de Bruijn sequence shortest lengths 3 6 10 17 23",
+        "golden mean shift reversal cover short n 6 unoriented de bruijn",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-sharp-fibonacci-length-for-cyclic-covers-avoiding-adjacent-ones--115d2faf86fa",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-shortest-cyclic-binary-reversal-covers-through-order-five--d2dd86a41c28"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1608.08480",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-sharp-fibonacci-length-for-cyclic-covers-avoiding-adjacent-ones--115d2faf86fa",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-shortest-cyclic-binary-reversal-covers-through-order-five--d2dd86a41c28",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-complete-small-order-census-of-minimum-golden-mean-cyclic-coveri--50305dee27be"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The oriented n=6 length 28 is an attainable upper bound, but not a lower bound under reversal.",
+        "The exact n=6 reversal minimum 23 is below the oriented optimum, so an oriented tour construction alone cannot furnish this claim."
+      ],
+      "reasoning": "The prior results imply definitions, related constructions and a weaker upper bound; they do not supply or imply the asserted equality.",
+      "searches": [
+        "Minimum cyclic binary string avoiding adjacent ones covering every admissible length n block up to reversal, golden mean reversal-unoriented de Bruijn sequence shortest lengths 3 6 10 17 23",
+        "unoriented de bruijn sequences reverse equivalence reverse classes restricted de Bruijn graph 2010 2015 paper",
+        "https://arxiv.org/abs/1608.08480",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-sharp-fibonacci-length-for-cyclic-covers-avoiding-adjacent-ones--115d2faf86fa"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Burris–Motta–Shipman, 2016, arXiv:1608.08480, constructs unoriented de Bruijn graphs for full alphabets; its main theorem concerns exact one-each reversal-class tours, not no-11 permitted edges."
+      ],
+      "reasoning": "Restriction to a non-full-shift graph and cyclic (rather than linear) coverage changes the shortest walks; the full-source results do not identify the specified constrained minima.",
+      "searches": [
+        "Minimum cyclic binary string avoiding adjacent ones covering every admissible length n block up to reversal, golden mean reversal-unoriented de Bruijn sequence shortest lengths 3 6 10 17 23",
+        "unoriented de bruijn sequences reverse equivalence reverse classes restricted de Bruijn graph 2010 2015 paper",
+        "https://arxiv.org/abs/1608.08480"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published small-order golden-mean census concerns oriented optimal covers (through order six).",
+        "Unrestricted binary reversal covers enumerated through order five."
+      ],
+      "reasoning": "No checked table gives constrained binary reversal-cover lengths 3,6,10,17,23. The key n=6 minimum 23 is certified anew by two exhaustive algorithms.",
+      "searches": [
+        "Minimum cyclic binary string avoiding adjacent ones covering every admissible length n block up to reversal, golden mean reversal-unoriented de Bruijn sequence shortest lengths 3 6 10 17 23",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-shortest-cyclic-binary-reversal-covers-through-order-five--d2dd86a41c28",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-complete-small-order-census-of-minimum-golden-mean-cyclic-coveri--50305dee27be"
+      ]
+    },
+    "rationale": "The 2016 primary unoriented-de-Bruijn paper treats unconstrained words and general Eulerizations, not the exact golden-mean finite threshold. The indexed oriented golden-mean cyclic covering theorem determines lengths 3,6,10,17,28 for orders two through six, and an indexed small-order census enumerates optimal oriented cycles, but neither implies the reversal-relaxed order-six minimum 23. Unrestricted binary reversal covers concern a different source set. This full finite reversal boundary was not identified in searches; unindexed prior small calculations remain a priority risk.",
+    "residual_risks": [
+      "The indexed 2016 general unoriented graph method may be specialized algorithmically to the finite instance; no directly stated equality was identified.",
+      "An unindexed finite enumeration of the golden-mean reversal-relaxed order-six tour could supersede this priority claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No no-adjacent-ones constrained source or its order-six exact cyclic covering length is stated",
+        "evidence": [
+          "General graph covers all binary n-grams rather than golden-mean subset",
+          "Section 5 treats unrestricted alphabet Eulerization and general upper bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1608.08480",
+        "material_read": "Abstract, graph definitions, Eulerization obstruction, theorem 4.3, section 5 on suboptimal tours and concluding constructions",
+        "method": "Read arXiv paper text and visually inspected page one",
+        "title": "An Unoriented Variation on de Bruijn Sequences",
+        "trigger": "Direct canonical reversal-cover problem and potential stronger result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "00cf0e14-bc7c-47d6-a456-75202985af9c",
+  "value": {
+    "rationale": "The first order where ignoring orientation strictly reduces a universal constrained cyclic covering length is a natural structural boundary, not an arbitrary slice. Exact savings of five symbols (23 versus 28, over 17 percent) at the first positive case measure the intrinsic cost of orientation in no-11 synchronization word families. Complete finite exclusion and explicit witnesses are provided, not just a computed upper bound.",
+    "status": "PASS"
+  }
+}
