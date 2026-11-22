@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The real truncated-Stiefel two-row density is derived by the residual-frame Gram-matrix Jacobian; writing the two rows in polar coordinates produces the exactly normalized conditional relative-angle density. Likelihood-ratio ordering is strict because the determinant is strictly decreasing in the edge-direction cosine, and the \(n=5\) uniform case follows from its zero exponent. The elliptic integral ratio for quadrilaterals is verified by the substitution \(x=\sin^2(\psi/2)\), while the monotone-likelihood-ratio comparison in the auxiliary variable proves the uniqueness of the mean-alignment threshold. Haar-frame simulation and an independent elliptic evaluation corroborate the formula, not the infinite statements by themselves.
+## correctness
 
-## Originality
-**PASS, with provisional historical priority.** The closest early polygon-model paper supplies the Haar-Stiefel construction and basic edge-length moments but identifies joint edge correlations as a direction needing more understanding. A separate 2012 paper contains a two-edge law for spatial polygons; this differs from the real planar measure, and does not imply the displayed planar threshold without changing models. General truncated-Stiefel/matrix-beta density results supply the probabilistic input but do not state or classify the geometric conditional alignment transition, the strict comparison across polygon sizes, or the unique elliptic boundary. A 2017 planar-polygon treatment covers Grassmann coordinates and quadrilateral topology rather than the present conditional angular classification. The exact-density change of variables is elementary given the matrix beta law; historical priority for the geometric phase diagram has not been independently established.
+PASS
 
-## Value
-**PASS.** The question of directional correlations at fixed side lengths is intrinsic to closure-constrained random polygon geometry. The complete all-\(n\) sign classification, the sharp four-to-five-edge change, and a unique universal boundary for quadrilaterals give a structural answer, rather than another ordinary moment calculation or an arbitrary numerical slice. This provides a natural geometric benchmark for conditional shape inference in the symmetric polygon model.
+For two selected frame rows R, the real 2×(n−2) Stiefel completion has density det(I−RᵀR)^((n−5)/2) at n≥4. Polar row coordinates have constant ds dt dα dβ Jacobian and doubling row angles correctly maps to ψ; determinant is D=1−s−t+st(1−cosψ)/2. Higher n multiplies density by D^((m−n)/2), strictly decreasing likelihood ratio in cosψ. At n=5 the full-support density is flat; sign comparisons follow angle pairing or support. For n=4 and s+t>1, x=sin²(ψ/2)∈(q,1), beta-elliptic substitution yields 1−2qE(1−1/q)/K(1−1/q). The monotone likelihood-ratio comparison in v=(x−q)/(1−q), with x increasing in both q and v, proves a unique crossing. Independently integrated four n values and the elliptic root. Excludes the null conditioning surface s+t=1.
 
-## Limitations
-The assertion concerns only the precise symmetric fixed-perimeter planar polygon measure and excludes the probability-zero critical length sum. It gives an explicit conditional distribution, not a spatial analogue, a new Stiefel-block theorem, or finite-sample inference guarantees. Closest cited literature has been inspected, but unindexed results may exist.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for full conditional n-parametric directional law, strict ordering and unique quadrilateral crossover. The Haar-Stiefel polygon model, simple edge-length beta law and general truncated-matrix-beta Jacobian predate this; spatial turning-angle results use a different 3D model. Primary planar paper inspected gives polygon moduli but does not itself state this all-size conditioned phase diagram.
+
+## value
+
+PASS
+
+Correlations of labelled edge directions conditional on lengths are a natural question in the symmetric closed-polygon ensemble. A universal pentagonal uniformity threshold and explicit elliptic crossover for quadrilaterals represent a complete, interpretable statistical classification, not a routine marginal re-expression.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
