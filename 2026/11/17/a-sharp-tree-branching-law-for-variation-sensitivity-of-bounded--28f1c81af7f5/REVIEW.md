@@ -1,19 +1,21 @@
-# Review of the bounded-slope tree projection finding
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement concerns one precise map, Euclidean projection onto the finite tree's symmetric bounded-edge-difference polyhedron, and one two-input graph-total-variation seminorm. The active-set argument establishes that every forest of tight edges occurs with strict complementarity and gives the block-average Jacobian. A one-edge-cut basis computes its exact norm, with an explicit weighted boundary-count formula. Optimizing the components yields the sharp all-tree formula; the degree-sum argument proves a \(3/2\) discontinuity between contractive and noncontractive shapes, and a broom witness attains the full sharp fixed-order envelope. The projection is piecewise affine, so derivative gains give actual ratios of nearby *finite* input pairs. A standalone exact rational checker verifies 1,441 labeled trees, 43,614 active-set faces and distinct primal-dual KKT witnesses; none of the infinite-family claims is inferred from enumeration.
+PASS
 
-## Originality — PASS, with residual priority risk
+The repaired final claim is the sharp order-n envelope, not an original claim to the general connected-subtree norm. For every active forest F of the symmetric slope constraints, strict-KKT data realize an open projection cell with derivative equal to its connected-component averaging operator Q_F. A tree cut-indicator basis gives the already published local norm (b b_A+a b_B)/(a+b). If the component S has s vertices, b_A+b_B<=n-s and a,b<=s-1, so every such gain is bounded by (s-1)(n-s)/s. The n-vertex broom made of an s-vertex path plus n-s leaves at one endpoint achieves equality on the cut at its first edge, and the strict cell yields an actual finite input pair. Thus M_n=max(1,max_{2<=s<=n-1}(s-1)(n-s)/s). The discrete difference n/[s(s+1)]-1 determines the first s with s(s+1)>=n, including possible integer ties; f_n(s)=n+1-s-n/s and exact deficit (s-sqrt n)^2/s show M_n=n+1-2sqrt n+O(n^-1/2). Independently checked exact cases through n=29; the proof is all n.
 
-Yeganova–Wilbur (2009) address monotone Lipschitz-isotonic regression on the line, and Agarwal–Phillips–Sadri (2009) address monotonicity/unimodality-constrained tree regression algorithms. Kyng–Rao–Sachdeva–Spielman (2015) optimize Lipschitz extensions of fixed labels rather than an all-observations nearest-point projection. The inspected mathematical statements do not imply the exact connected-subtree graph-variation gain, the path-or-claw contractivity classification or the fixed-order extremal envelope. Related published findings about edge-gradient orthoprojectors and descendant averaging concern different operators and likewise do not subsume the claim. Semantic searches under bounded-slope, slab projection, graph variation, connected averaging and equivalent cut formulations identified no decisive coverage. An unindexed publication deriving the same result remains possible, so originality is a best-knowledge scientific conclusion rather than a certificate of priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The variation sensitivity of a smoothness-constrained least-squares estimator controls how changes in observations can alter graph-edge roughness. A sharp tree formula is structurally different from the ambient Euclidean nonexpansivity and ordinary norm equivalence. The exact stability class consists of paths and the four-vertex claw, while every other tree has a quantitative gap of at least one half beyond nonexpansivity. The worst attainable amplification grows as \(n-2\sqrt n+1+O(n^{-1/2})\), showing a sharp nearly linear branching effect. Each of these is a natural, fully classified feature of the same estimator, with concrete finite witnesses.
+The unmodified original overclaims the exact connected-subtree formula, path/claw class and star law: all are in a published same-date isotonic-projection theorem, and both projection problems realize the identical family of connected-block averaging derivatives. The corrected mathematical finding credits all that prior coverage and retains only the sharp fixed-order extremal optimization over every n-vertex tree, matching explicit broom constructions and optimized n+1-2sqrt n asymptotic. This order-wise extremization is not stated in the inspected prior full theorem; it is mathematically deducible from its formula with the new sharp n-versus-s boundary argument, so this dependence and limited scope are made prominent. Natural exact global extremal invariant judged independently useful, with a residual risk of older corollary treatment.
 
-## Closest literature and limitations
+## value
 
-The relevant lead works are Yeganova–Wilbur, *Isotonic Regression under Lipschitz Constraint* (first public online 2009-01-07, DOI 10.1007/s10957-008-9477-0); Agarwal–Phillips–Sadri, *Lipschitz Unimodal and Isotonic Regression on Paths and Trees* (arXiv:0912.5182, first version 2009-12-28); and Kyng–Rao–Sachdeva–Spielman, *Algorithms for Lipschitz Learning on Graphs* (arXiv:1505.00290, first version 2015-05-01). The new theorem uses unweighted squared errors, symmetric positive edge caps and unweighted tree variation; general graphs, weighted observation laws and nonuniform variation weights are not treated. The finite reproducibility checks are supplementary, not substitutes for the all-dimensional proof. Historical priority remains provisional pending independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repaired natural extremal problem asks exactly how strongly any n-vertex tree can amplify observation differences under bounded-slope least squares, and exhibits full sharp n-dependent values and finite-input extremizers. The near-linear n+1-2sqrt n growth and optimal spine length about sqrt n guide worst-case graph roughness-conditioning. Although the local formula is known and the final extremal inequality is elementary once that formula is recognized, determining the exact global optimum and realizing it is an independently reusable invariant; the old formula and path/claw claims are not asserted as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

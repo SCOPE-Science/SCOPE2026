@@ -1,90 +1,91 @@
-# A sharp tree-branching law for variation sensitivity of bounded-slope least squares
+# The sharp fixed-order variation-amplification envelope for bounded-slope least squares on trees
 
 ## Finding
 
-Let \(T=(V,E)\) be any finite simple unweighted tree with \(n=|V|\ge2\), and let \(R>0\). Write
+Let \(T=(V,E)\) be any finite simple unweighted tree of order \(n\ge2\), and fix a common positive edge-slope bound \(R>0\). For real vertex data \(x\), let \(P_{T,R}x\) be the unique Euclidean least-squares fit satisfying \(|z_u-z_v|\le R\) on every edge. Set
 \[
-\operatorname{TV}_T(x)=\sum_{\{u,v\}\in E}|x_u-x_v|,
+\operatorname{TV}_T(x)=\sum_{uv\in E}|x_u-x_v|,
 \qquad
-K_R(T)=\{z\in\mathbb R^V:|z_u-z_v|\le R\text{ for every }\{u,v\}\in E\}.
-\]
-Let \(P_R(x)\) uniquely minimize \(\sum_{v\in V}(z_v-x_v)^2\) over \(z\in K_R(T)\), and define its sharp two-input quotient-seminorm coefficient
-\[
 L(T)=\sup_{\operatorname{TV}_T(x-y)>0}
-\frac{\operatorname{TV}_T(P_R(x)-P_R(y))}{\operatorname{TV}_T(x-y)}.
+\frac{\operatorname{TV}_T(P_{T,R}x-P_{T,R}y)}{\operatorname{TV}_T(x-y)}.
 \]
-The coefficient is independent of \(R>0\) and has the following exact connected-subtree formula. For every connected vertex subset \(S\subseteq V\) with \(|S|\ge2\), and every internal edge \(e\in E(S)\), removal of \(e\) splits \(S\) into nonempty parts \(A\) and \(B\). Let \(b_A\) and \(b_B\) be the numbers of edges from \(A\) and \(B\), respectively, to \(V\setminus S\). Then
+The **sharp envelope at fixed tree order** is
 \[
-\boxed{L(T)=\max\left\{1,\max_{S\text{ connected},\ |S|\ge2}
-\max_{e\in E(S)}\frac{|B|b_A+|A|b_B}{|S|}\right\}.}
+\boxed{\mathcal M_n:=\max_{|V(T)|=n}L(T)
+ =\max\left\{1,\max_{2\le s\le n-1}\frac{(s-1)(n-s)}s\right\}.}
+\tag{1}
 \]
-All terms attaining the maximum are realizable as sharp ratios of *distinct finite input pairs*, not merely as derivatives or limiting examples.
+The second maximum is omitted when its range is empty. Every nonbaseline candidate in (1) is realized by a tree consisting of an \(s\)-vertex path with all \(n-s\) extra leaves attached to one endpoint. The amplification is attained **exactly** by a pair of distinct finite input signals, not only as a directional derivative or a limit.
 
-**Contractivity and gap.** One has \(L(T)=1\) exactly when \(T\) is a path or the four-vertex claw \(K_{1,3}\). Every other tree obeys \(L(T)\ge3/2\). The first possible amplification occurs on five vertices; a four-leaf star has coefficient \(3/2\). More generally, the \(k\)-leaf star has \(\max\{1,(k-1)/2\}\).
-
-**Sharp fixed-order envelope.** For every integer \(n\ge2\),
+In particular, \(\mathcal M_2=\mathcal M_3=\mathcal M_4=1\), while \(\mathcal M_5=3/2\). For every \(n\ge5\), an optimal spine length is the smallest integer \(s\ge2\) satisfying \(s(s+1)\ge n\) (restricted to \(s\le n-1\)); adjacent lengths may tie when \(n=s(s+1)\). Hence
 \[
-\boxed{\max_{|V(T)|=n}L(T)=
-\max\left\{1,\max_{2\le s\le n-1}\frac{(s-1)(n-s)}s\right\},}
+\boxed{\mathcal M_n=n+1-2\sqrt n+O(n^{-1/2})\quad(n\to\infty).}
+\tag{2}
 \]
-where the inner maximum over an empty set is omitted. A tree made of an \(s\)-vertex path plus \(n-s\) leaves attached to one endpoint realizes each inner term. For \(n\ge5\), optimal \(s\) can be chosen as the first integer satisfying \(s(s+1)\ge n\), and the sharp envelope is
-\[
- n-2\sqrt n+1+O(n^{-1/2})\qquad(n\to\infty).
-\]
-Thus bounded-slope least squares can exhibit variation sensitivity almost linear in the number of tree vertices, notwithstanding its Euclidean nonexpansivity.
+The leading amplification thus grows almost linearly with \(n\), and an optimal construction balances a path of order about \(\sqrt n\) with a pendant-leaf branch of order about \(n-\sqrt n\).
 
-## Assumptions and scope
+**Prior-work boundary.** The connected-subtree boundary-cut formula for the graph-variation norm of connected-block averages, and its path/star consequences, are already established for Euclidean *isotonic* projection on arbitrary orientations of a tree in the published finding *Exact tree-variation sensitivity of isotonic projection and unbounded cubic-branch amplification* (2026-11-17). This document does **not** claim that formula, the path/claw stability classification, or the star constant as new. Those facts are used as background after identifying the same averaging-derivative family for the different symmetric bounded-slope projection. The additional finding here is the **global extremization over all trees of a prescribed order**: its exact \(n\)-dependent coefficient, attained broom witnesses, integer optimizer, and sharp asymptotic law. No generalization to weighted graphs or graphs with cycles is asserted.
 
-All signals and projections are real, squared-error weights are equal, each tree edge contributes unit weight to graph total variation, and the same strictly positive slope cap \(R\) applies to every edge. The supremum concerns *two inputs* and uses the seminorm \(\operatorname{TV}_T\) on vectors modulo constants; this is distinct from Euclidean Lipschitz continuity of the projector and from a one-input variation inequality. Connectivity and acyclicity of \(T\) are essential to the cut-basis reduction below. No claim is made for \(R=0\), general connected graphs with cycles, unequal observation masses, or unequal edge variation weights.
+## Assumptions and normalization
+
+All trees are finite, simple, connected, and unweighted. The least-squares objective is \(\sum_v(z_v-x_v)^2\), with equal vertex masses. Each unoriented edge imposes both inequalities \(-R\le z_u-z_v\le R\) with the same \(R>0\), and each edge contributes unit weight to \(\operatorname{TV}_T\). The coefficient is a **two-input difference** modulus on signals modulo constants, not the one-input inequality \(\operatorname{TV}_T(Px)\le\operatorname{TV}_T(x)\). Constants are respected because \(P(x+t\mathbf1)=P(x)+t\mathbf1\). The value of \(L(T)\) is independent of positive \(R\) by scaling the input and fitted signal by \(R\).
 
 ## Proof
 
-**1. Polyhedral active components.** For any active edge set \(F\subseteq E\) and either sign of its saturated difference, an ordinary differentiability cell of \(P_R\) has derivative \(Q_F\), the orthogonal projector onto the subspace of vectors constant on each component of the forest \((V,F)\). Thus \(Q_F\) replaces values by their arithmetic means within the components. Indeed, impose the active affine equalities \(z_v-z_u=\pm R\) and minimize squared error; its derivative is orthogonal projection onto the common nullspace of the active edge differences. Conversely, every \(F\subseteq E\) is realized on a full-dimensional cell: orient the tree from a root, choose a feasible \(z\) whose oriented edge differences are \(R\) on \(F\) and zero on \(E\setminus F\), and put \(x=z+\sum_{e\in F}\lambda_e d_e\), where \(d_e\) is the outward normal to the saturated inequality and every \(\lambda_e>0\). KKT stationarity, strict complementary slackness, and strict slackness off \(F\) give a neighborhood with this fixed active set. Tree independence guarantees the construction. Since Euclidean projection onto a finite polyhedron is continuous piecewise affine, integrating along an input segment gives
+**1. Why connected-block averaging governs these fits.** An active edge is one where the fitted edge difference is exactly \(+R\) or \(-R\). On an ordinary full-dimensional active-set cell, let \(F\subseteq E\) be the active forest. Differentiating the constrained least-squares optimum under the fixed active affine equalities gives the orthogonal projector \(Q_F\) onto the subspace of vectors constant on every connected component of \((V,F)\). This is componentwise arithmetic averaging; its derivative does not depend on the signs of the saturated differences.
+
+Every forest \(F\) is genuinely realized on a nonempty open cell. Fix a root orientation and choose a feasible fitted signal \(z\) with oriented edge differences \(\pm R\) on \(F\) and \(0\) on edges outside \(F\); such a choice is consistent because the graph is a tree. Let \(d_e\) be the outward active inequality normal and set \(x=z+\sum_{e\in F}\lambda_e d_e\) with all \(\lambda_e>0\). Strict KKT multipliers, strict slackness on inactive edges, and independence of the active incidence rows yield a full-dimensional neighborhood where the same face remains active. The projection is continuous and piecewise affine with finitely many such cells; integrating derivatives along input segments and using finite-pair perturbations within a maximizing open cell therefore establishes
 \[
 L(T)=\max_{F\subseteq E}\|Q_F\|_{\operatorname{TV}_T\to\operatorname{TV}_T}.
+\tag{3}
 \]
-The reverse inequality is attained on two distinct points of the corresponding open affine cell by any norming direction.
+This step identifies the derivative family for the bounded-slope estimator, rather than claiming the resulting connected-average variation norm as previously unknown.
 
-**2. A complete cut basis.** Fix an arbitrary orientation of the tree. Every real signal modulo constants is the sum of its signed edge differences times the corresponding one-edge cut indicators. More precisely, for an edge \(e=\{u,v\}\), let \(U_e\) be either component of \(T\setminus\{e\}\) and let \(h_e=\mathbf1_{U_e}\). Because \(\operatorname{TV}_T(h_e)=1\) and tree edge gradients are independent coordinates, for any constant-preserving linear operator \(Q\),
+**2. Known cut-boundary expression and its interpretation.** Edge-cut indicators \(h_e\) for the components of \(T\setminus\{e\}\) form, modulo constants, the \(\ell^1\) edge-gradient basis: \(\operatorname{TV}_T(h_e)=1\), and every signal is a signed sum of these indicators plus a constant. Thus the variation operator norm of \(Q_F\) is the maximum \(\operatorname{TV}_T(Q_Fh_e)\). If the cut edge \(e\notin F\), the gain is \(1\). Otherwise, \(e\) belongs to the active connected component \(S\), and its deletion splits \(S=A\sqcup B\) with \(a=|A|,b=|B|\). Write \(b_A\) and \(b_B\) for the numbers of edges leaving these respective parts for \(V\setminus S\). Since averaging makes \(h_e\) constant on \(S\), the output jumps occur only across the boundary of \(S\), with magnitudes \(b/(a+b)\) and \(a/(a+b)\), respectively. Consequently
 \[
-\|Q\|_{\operatorname{TV}_T\to\operatorname{TV}_T}
-=\max_{e\in E}\operatorname{TV}_T(Qh_e).
+\operatorname{TV}_T(Q_Fh_e)=\frac{b\,b_A+a\,b_B}{a+b},
+\qquad
+L(T)=\max\left\{1,\max_{S,e}\frac{b\,b_A+a\,b_B}{a+b}\right\}.
+\tag{4}
 \]
-The upper bound follows by decomposing an arbitrary edge-gradient vector into this basis, and equality follows by using the maximizing indicator.
+This is the same connected-subtree expression already proved for isotonic projection in the published 2026 tree-variation result cited below. Equation (3) shows why the expression also applies to the present symmetric bounded-slope fit, despite the different feasible set.
 
-**3. Exact response of an active component.** Fix \(F\) and an edge \(e\). If \(e\notin F\), every connected averaging block lies on one side of the cut, hence \(Q_Fh_e=h_e\) and the response variation is exactly one. If \(e\in F\), let \(S\) be its active component. The cut splits \(S=A\sqcup B\) into sides of respective cardinalities \(a\) and \(b\). Within \(S\), \(Q_Fh_e\) has the common value \(a/(a+b)\), choosing \(h_e=1\) on the side containing \(A\). Every other active component is entirely on one side of the cut and retains the original zero or one value. Consequently the only output jumps are boundary edges of \(S\): those leaving \(A\) contribute \(b/(a+b)\) each, while those leaving \(B\) contribute \(a/(a+b)\) each. The exact gain is
+**3. Sharp bound over all \(n\)-vertex trees.** Fix any connected \(S\) of size \(s=a+b\ge2\), with an internal cut edge. Each component of \(T\setminus S\) attaches by exactly one edge to \(S\), because \(T\) is a tree. Hence \(b_A+b_B\le n-s\), while \(a,b\le s-1\). Applying these two elementary but sharp constraints to (4) gives
 \[
-\operatorname{TV}_T(Q_Fh_e)=\frac{b b_A+a b_B}{a+b}.
-\]
-Conversely, each connected \(S\) and internal \(e\) is realized by taking \(F=E(S)\). Combining with steps 1–2 proves the exact formula, including finite-pair attainment.
-
-**4. Contractivity threshold and strict gap.** On a path every connected \(S\) is an interval, so the two ends can contribute at most one boundary edge each; the ratio in step 3 is no larger than \((a+b)/(a+b)=1\). Direct inspection gives the same bound for \(K_{1,3}\). If a tree is neither a path nor \(K_{1,3}\), it contains an edge \(uv\) with \(\deg(u)+\deg(v)\ge5\): a vertex of degree at least four has such an incident edge, and any vertex of degree three either belongs to the four-vertex claw or has a neighbor of degree at least two. Taking \(S=\{u,v\}\) gives
-\[
-L(T)\ge\frac{\deg(u)+\deg(v)-2}{2}\ge\frac32.
-\]
-For a star with \(k\) leaves, connected subsets containing an edge consist of the hub and \(j\) leaves. For an edge to a leaf, all \(k-j\) boundary edges leave the hub side, giving \((k-j)/(j+1)\), maximized at \(j=1\). This proves the star formula and establishes the first five-vertex occurrence.
-
-**5. Fixed-order envelope.** For a connected \(S\) of size \(s\ge2\), its total number of boundary edges is at most \(n-s\): each component of \(T\setminus S\) has exactly one edge into \(S\). Since both \(a\) and \(b\) are at most \(s-1\), step 3 yields
-\[
-\frac{b b_A+a b_B}{s}\le\frac{s-1}{s}(b_A+b_B)
+\frac{b\,b_A+a\,b_B}{s}
+\le\frac{s-1}{s}(b_A+b_B)
 \le\frac{(s-1)(n-s)}s.
+\tag{5}
 \]
-To attain equality for any \(2\le s\le n-1\), take an \(s\)-vertex path \(v_0,\ldots,v_{s-1}\), add \(n-s\) pendant leaves at \(v_0\), and choose \(S\) to be the path with internal edge \(v_0v_1\). All boundary edges attach to the one-vertex side of the internal cut, so its gain equals \((s-1)(n-s)/s\). The identity cell yields coefficient one when larger candidates are absent. Finally, the objective is \(n+1-s-n/s\); its discrete first difference is \(n/[s(s+1)]-1\), and its continuous maximum is \(n+1-2\sqrt n\) at \(s=\sqrt n\). The nearest integer choice loses \(O(n^{-1/2})\), completing the envelope and asymptotics.
+If \(s=n\) the right side is zero, so only \(2\le s\le n-1\) can contribute above the baseline \(1\). This proves the upper bound in (1) simultaneously for every tree of order \(n\).
 
-## Verification
+For the matching lower bound, take a path \(S=(v_0,v_1,\ldots,v_{s-1})\) and attach \(n-s\) new leaves at \(v_0\). Choose the active forest \(F=E(S)\) and the cut edge \(e=v_0v_1\). One side of \(S\setminus\{e\}\) has one vertex and all \(n-s\) boundary edges; the other side has \(s-1\) vertices and no boundary edges. Formula (4) gives exactly \((s-1)(n-s)/s\). By step 1, this norming direction is achieved between two sufficiently close distinct data vectors inside the corresponding strict active-set cell. When \(1\) is the maximum, an inactive cell makes the fit the identity on nearby inputs, attaining the baseline. Thus **every term in (1), including the overall optimum, is attained by finite inputs on an explicit tree**.
 
-Run `python3 verify.py` using the adjacent source file. It reconstructs the graph cut response via two independent descriptions—componentwise averaging and boundary cardinalities—using exact rational numbers for every labeled tree through six vertices (1,441 trees and 43,614 active-set faces). It verifies the contractivity classification, exact fixed-order envelope, and integer optimizer for sizes through 500, and constructs distinct rational input pairs for five broom configurations with exact KKT multipliers, including the nine-vertex amplification factor four. Outputs are reproducible and require only the Python standard library. The finite computations independently test the formulas but are not used as proofs for arbitrary tree order; the unrestricted proof is above.
+**4. Integer optimizer and asymptotic.** For fixed \(n\), put \(f_n(s)=(s-1)(n-s)/s=n+1-s-n/s\). Its discrete difference is
+\[
+f_n(s+1)-f_n(s)=\frac{n}{s(s+1)}-1.
+\]
+Therefore it increases up to the first integer \(s\) with \(s(s+1)\ge n\), then decreases, with a tie exactly when equality holds. For \(n\ge5\) the maximizing value exceeds \(1\), except the tie at the smallest cases where the formula still applies. Finally the continuous function \(n+1-s-n/s\) has its maximum at \(s=\sqrt n\), equal to \(n+1-2\sqrt n\). Choosing a nearest admissible integer \(s\) changes this maximum by \(O(n^{-1/2})\), by Taylor's theorem or the exact identity
+\[
+\bigl(n+1-2\sqrt n\bigr)-f_n(s)=\frac{(s-\sqrt n)^2}{s}.
+\]
+This proves (2) with its correct additive constant and completes the sharp fixed-order classification.
 
-## Relationship to prior work
+## Reproducibility and scope of verification
 
-Yeganova–Wilbur (2009) examine a monotone, Lipschitz-constrained regression on an ordered line and prove an algorithmic convergence result. Agarwal–Phillips–Sadri (2009) develop fast least-squares Lipschitz-isotonic and unimodal regression algorithms on paths and trees; their tree results retain orientation/order constraints. Kyng–Rao–Sachdeva–Spielman (2015) study Lipschitz extensions from prescribed labels, including lexicographically optimal extensions, rather than global Euclidean nearest-point fitting to bounded differences. These works motivate constrained fitting but do not supply the two-input graph-variation norm, connected-active-subtree formula, contractivity characterization, or sharp fixed-order envelope derived here. Related results about graph gradient-space projections or predetermined descendant averages act on different spaces or use different averaging families and do not imply the present formula. This literature comparison does not establish absolute priority over all inaccessible or unindexed sources.
+An independent exact-arithmetic check of the envelope formula and integer optimizer for the first several tree orders corroborates the sharp finite values \(\mathcal M_4=1,\mathcal M_5=3/2,\mathcal M_6=2,\mathcal M_9=4,\mathcal M_{16}=9\). The package's unchanged `verify.py` additionally reconstructs block averaging and cut-boundary gains for every labeled tree through six vertices using exact rational arithmetic, and gives explicit strict-KKT finite-pair witnesses for broom trees. These are finite diagnostics, not the argument for every \(n\). The universal result is proved in steps 1–4, including the separate upper bound and matching construction. The new statement concerns only order-wise extremization for symmetric uniform edge caps; it does not assert a new universal connected-subtree formula or the complete class of all maximizing tree shapes.
 
-## Limitations
+## Relation to prior work and limitations
 
-The result is restricted to finite unweighted trees, unweighted Euclidean least squares, a common positive symmetric edge-difference cap, and unit-weight undirected total variation. It does not determine stability for general graphs with cycles, asymmetric edge caps, vertex-dependent fitting weights, or arbitrary graph variation weights. It also does not claim a corresponding one-input variation inequality. Exact archival priority requires independent literature review.
+The published 2026 result *Exact tree-variation sensitivity of isotonic projection and unbounded cubic-branch amplification* establishes the connected-subtree graph-variation norm of connected-block averaging derivatives on trees, independent of isotonic edge orientations. In particular it already includes the star law, the path case, and arbitrarily large variation gain on maximum-degree-three caterpillars. Those are **credited** here, not new results. Although its tree-by-tree formula supplies the starting point for the bound (5), that source does not state the extremum over all \(n\)-vertex tree shapes, its attaining broom shape for every \(n\), or the sharp \(n+1-2\sqrt n\) growth law. The derivation here supplies the needed additional extremal argument and explicit witnesses.
+
+Yeganova and Wilbur (2009) study monotone Lipschitz-isotonic regression, and Agarwal, Phillips and Sadri (2009) provide Lipschitz-isotonic and unimodal regression algorithms on paths and trees. Kyng, Rao, Sachdeva and Spielman (2015) treat fixed-label Lipschitz extension rather than nearest-point fitting of full vertex data. These results give context but not an explicit fixed-order graph-TV envelope for this symmetric bounded-slope fit.
+
+The endpoint \(R=0\), weighted observations or edges, nonuniform edge caps, arbitrary graphs with cycles, and complete characterization of **every** maximizing tree are outside scope. The order-wise extremal calculation is short once the known connected-block formula is in place; its claim to originality is specifically that natural sharp envelope and matching construction, not an independent invention of the formula. Unindexed earlier derivations of the same envelope remain a historical-priority risk; no external certification is claimed.
 
 ## References
 
-1. L. Yeganova and W. J. Wilbur, *Isotonic Regression under Lipschitz Constraint*, Journal of Optimization Theory and Applications **141** (2009), 429–443; first published online 2009-01-07. https://doi.org/10.1007/s10957-008-9477-0
-2. P. K. Agarwal, J. M. Phillips, and B. Sadri, *Lipschitz Unimodal and Isotonic Regression on Paths and Trees*, first public arXiv version 2009-12-28. https://arxiv.org/abs/0912.5182
-3. R. Kyng, A. Rao, S. Sachdeva, and D. A. Spielman, *Algorithms for Lipschitz Learning on Graphs*, first public arXiv version 2015-05-01. https://arxiv.org/abs/1505.00290
+1. *Exact tree-variation sensitivity of isotonic projection and unbounded cubic-branch amplification*, publicly recorded 2026-11-17, full mathematical statement and proof: https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-tree-variation-sensitivity-of-isotonic-projection-and-unbo--8a180bae4c2f/RESULT.md.
+2. P. K. Agarwal, J. M. Phillips and B. Sadri, *Lipschitz Unimodal and Isotonic Regression on Paths and Trees*, arXiv:0912.5182 (2009), https://arxiv.org/abs/0912.5182.
+3. L. Yeganova and W. J. Wilbur, *Isotonic Regression under Lipschitz Constraint*, J. Optim. Theory Appl. 141 (2009), 429–443, https://doi.org/10.1007/s10957-008-9477-0.
+4. R. Kyng, A. Rao, S. Sachdeva and D. A. Spielman, *Algorithms for Lipschitz Learning on Graphs*, arXiv:1505.00290 (2015), https://arxiv.org/abs/1505.00290.
