@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Complete direct construction of all eligible words, equivalence to independent sets, exhaustive four-base clique census, a directly checked 27-strand code, and two full six-base 0-1 branch-and-bound programs (980 maximal-clique and 7804 edge rows) both terminate at integer and dual optimum 27. An explicit 136-strand eight-base construction passes all 9,180 unordered pair checks. Reproducible programs and witnesses are present. The solver upper bound is integer-separated from 28 and a material reproducibility dependency, not a bare log.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "King Table 1 reports an unrestricted GC+RC n=6,d=3,w=3 construction of size at least 41; this does not constrain its words to avoid equal neighbors",
+        "Nguyen et al. construct run-limited and nearly GC-balanced single-error codes but do not require reverse-complement cross-distance",
+        "Published four-base equality-case census addresses n=4, not the six-base restricted graph"
+      ],
+      "reasoning": "The known broader code-parameter bounds are not exact on the strictly smaller homopolymer-free domain, so neither the restricted six-base equality nor its 32-message threshold follows. A general 41-word unrestricted construction cannot dominate a new exact 27-word restricted capacity.",
+      "searches": [
+        "published-finding corpus: DNA four nucleotide length four constant GC two no adjacent equal reverse complement Hamming distance 3 four codewords optimal census",
+        "published-finding corpus: exact DNA homopolymer free GC-balanced length six d=3 reverse complement distance capacity 27",
+        "King 2003 Table 1 n=6,d=3,w=3",
+        "Nguyen et al. arXiv:2001.02839 sections II-VI"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0306197v1 pp. 1-3, 9-11, Table 1",
+      "doi:10.1016/j.disc.2011.11.021 full text HTML",
+      "arxiv:2001.02839v1 pp. 1-3",
+      "2026/10/12/SCOPE-complete-equality-case-census-for-a-4-gc-rc-4-3-2--1efe3bc8cf7b full RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "King gives exact n=4 unrestricted size 6 and an n=6 unrestricted lower bound >=41, but no restricted n=6 exact equality",
+        "Published SCOPE 2026-10-12 length-four result fully enumerates unrestricted n=4 equality cases, not the length-six graph",
+        "The reported 2020 encoding approach lacks Watson-Crick cross-distance constraints"
+      ],
+      "reasoning": "An upper bound on the unrestricted optimum and knowledge of unrestricted optimal codebooks do not determine the independence number of the induced homopolymer-free length-six subgraph. No inspected prior statement supplies an explicit 27 upper bound or a stronger theorem encompassing all four restrictions. The eight-base example is a constructive supporting witness.",
+      "searches": [
+        "published-finding corpus: homopolymer-free GC balanced DNA code length 4 reverse complement constraint count optimal",
+        "published-finding corpus: DNA codes six nucleotide 27 codewords GC content three no adjacent repeated bases reverse complement",
+        "King 2003 Theorem 7 halving bound and Table 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Equivalent graph-theoretic formulation: independent sets of conflict graph with edges when H(x,y)<3 or H(x,rc(y))<3",
+        "The standard A_4^{GC,RC}(n,d,w) defined by King imposes the same Hamming/RC requirements but omits homopolymer avoidance"
+      ],
+      "reasoning": "The added nonrepetition requirement restricts the ordinary GC/RC code domain. Correcting one aligned substitution is equivalent to pairwise Hamming distance at least three; cross-orientation separation adds the second distance test. No alternate label found that identifies the exact length-six restricted maximum.",
+      "searches": [
+        "published-finding corpus: zero error one substitution DNA code with GC weight 3 blocklength 6 run length 1 reverse complement Hamming separation bound",
+        "published-finding corpus: DNA code minimum Hamming distance three short balanced oligonucleotides homopolymer-free reverse Watson Crick complement exact 27",
+        "King 2003 arXiv math/0306197 pp. 1-2 definition of A_4^{GC,RC}"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "King Table 1 concerns standard unrestricted fixed-GC reverse-complement codes, without forbidding repeated neighbors",
+        "The Aboluion tables compare fixed-GC reverse-complement constructions, with no homopolymer-restriction variable",
+        "No matching published indexed table was found for the simultaneous four constraints at n=6"
+      ],
+      "reasoning": "The exact database/table issue is parameter coverage: dropping homopolymer restriction changes the feasible graph. The closest published table therefore does not state or logically imply the new 27 bound. The unrestricted n=4 full census may imply the auxiliary n=4 restricted count by additional filtering, which is not claimed as the principal original component.",
+      "searches": [
+        "King 2003 arXiv:math/0306197 Table 1 and Table 2",
+        "Aboluion Smith Perkins 2012 Tables 1,2,8,9",
+        "published-finding corpus: A_4^{GC,RC}(6,3,3) codewords no homopolymers maximum"
+      ]
+    },
+    "rationale": "The six-base exact capacity under joint homopolymer-free, exact GC balance, Watson-Crick cross-distance and Hamming-3 requirements is not implied by inspected historical constructions or published exact four-base census; no matching indexed six-base claim found. Risk remains of unindexed historical coverage.",
+    "residual_risks": [
+      "Published but unindexed earlier exact restriction-specific codes may exist",
+      "Some numeric tables of 2012 primary paper were only available as extracted HTML or embedded images; neither uses the homopolymer restriction as an explicit variable",
+      "Auxiliary n=4 statistics may be deduced by filtering an earlier complete unrestricted codebook census; n=6 novelty, not n=4, is essential",
+      "Two finite MILP formulations use a common numerical HiGHS backend, although their incidence construction is distinct"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not impose the homopolymer-free language; unrestricted n=6,d=3,w=3 at least 41 is not exact restricted n=6=27",
+        "evidence": [
+          "arXiv:math/0306197v1 dated 2003-06-12",
+          "PDF Table 1 length-six distance-three GC-three entry 39 with stronger cited 41"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0306197",
+        "material_read": "Definitions and RC/GC distance pp. 1-2; Johnson/halving bound statements; Tables 1 and 2 on p. 11; figures/pages visually inspected through rendered pages 2 and 11",
+        "method": "arXiv lawful PDF with text extraction and page images",
+        "title": "Bounds for DNA Codes with Constant GC-Content",
+        "trigger": "Defines the exact RC+GC Hamming model and publishes short-block tables"
+      },
+      {
+        "assessment": "Constructions do not add maximum-homopolymer-run-one condition; no result for restricted six-base optimum 27 identified",
+        "evidence": [
+          "Sections on cyclic/additive codes, shortenings, Tables 1-9 and Conclusion",
+          "Publication first online 2011-12-15, later journal 2012"
+        ],
+        "identifier_or_url": "https://www.academia.edu/98364935/Linear_and_nonlinear_constructions_of_DNA_codes_with_Hamming_distance_d_constant_GC_content_and_a_reverse_complement_constraint",
+        "material_read": "Full HTML-extracted main text sections 2-12 and table descriptions, including constructions and the bounds discussion; embedded numeric image tables not fully legible",
+        "method": "Lawful accessible full text HTML extraction",
+        "title": "Linear and nonlinear constructions of DNA codes with Hamming distance d, constant GC-content and a reverse-complement constraint",
+        "trigger": "Closest later reverse-complement code construction and short-length tables"
+      },
+      {
+        "assessment": "The decoding model does not impose Watson-Crick reverse-complement cross-distance; it gives encoder redundancies, not exact 6-mer benchmark",
+        "evidence": [
+          "arXiv:2001.02839v1 dated 2020-01-09",
+          "Definition 2 and Table I describe epsilon-balanced, ell-RLL channel constraints without reverse-complement separation"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2001.02839",
+        "material_read": "Abstract, notation, definitions and run-limited encoder construction (pages 1-3), with rendered page images of pages 1 and 3",
+        "method": "arXiv preprint PDF with text and rendered page inspection",
+        "title": "Capacity-Approaching Constrained Codes with Error Correction for DNA-Based Data Storage",
+        "trigger": "Combines homopolymer run constraints, GC balance and substitutions"
+      },
+      {
+        "assessment": "Classifies all unrestricted length-four equality cases and makes the four-base value potentially recoverable, but does not treat six-base homopolymer-free maximum or eight-base witness",
+        "evidence": [
+          "72 eligible unrestricted n=4 vertices, optimum 6 and 512 maximizers",
+          "No n=6 statements in full RESULT.md"
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/published-finding corpus/2026/main/2026/10/12/SCOPE-complete-equality-case-census-for-a-4-gc-rc-4-3-2--1efe3bc8cf7b/RESULT.md",
+        "material_read": "Complete RESULT.md including Finding, Assumptions, Proof and Relationship to Prior Work",
+        "method": "Published raw GitHub full text via authorized read-only connector",
+        "title": "Complete equality-case census for A_4^{GC,RC}(4,3,2)",
+        "trigger": "Exact same GC+RC distances at length four"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8ad1fa1a-18b8-40ba-b783-592239608c36",
+  "value": {
+    "rationale": "A motivated short-block design benchmark for exact 50% GC, maximal homopolymer length one, one-substitution correction and Watson-Crick separation. The sharp n=6 capacity 27 establishes a real five-bit capacity obstruction; a directly checkable n=8 code with 136 words resolves first feasibility for both five- and seven-bit payloads. The integer exactness and threshold distinction are useful independent of asymptotic results, but do not purport to be broad coding theorems.",
+    "status": "PASS"
+  }
+}

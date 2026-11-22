@@ -1,0 +1,36 @@
+# Sharp short-block DNA-code capacities under GC balance, homopolymer exclusion, and Watson–Crick separation
+
+## Finding
+Let \(M_n\) be the largest collection of even-length DNA words satisfying the simultaneous constraints below and correcting one substitution while maintaining reverse-complement separation. The following finite values are exact:
+
+| Length \(n\) | Eligible individual strands | Maximum \(M_n\) | Number of maximum codebooks |
+|---|---:|---:|---:|
+| \(2\) | \(0\) | \(0\) | \(1\) (empty code only) |
+| \(4\) | \(40\) | \(4\) | \(64\) |
+| \(6\) | \(344\) | \(27\) | not determined |
+
+At length \(8\), a concrete codebook of \(136\) strands is supplied, so \(M_8\ge136\). Consequently \(8\) is the **smallest positive even length** at which both \(32\) distinct messages and \(128\) distinct messages can be encoded under all constraints. The principal new exact boundary is \(M_6=27\); no exact value is asserted for \(M_8\).
+
+## Assumptions and scope
+The alphabet is \(\Sigma=\{A,T,C,G\}\). For a word \(w=w_1\cdots w_n\) write \(\operatorname{rc}(w)=\overline{w_n}\cdots\overline{w_1}\), with \(\overline A=T\), \(\overline T=A\), \(\overline C=G\), and \(\overline G=C\). Let \(d_H\) denote ordinary Hamming distance on same-length words. Every source word must have exactly \(n/2\) positions from \(\{C,G\}\) and satisfy \(w_i\ne w_{i+1}\) at each adjacent pair. A source word is eligible only if \(d_H(w,\operatorname{rc}(w))\ge3\). A codebook \(\mathcal C\) is admissible if, for every distinct \(x,y\in\mathcal C\), both \(d_H(x,y)\ge3\) and \(d_H(x,\operatorname{rc}(y))\ge3\). The self-reverse-complement condition also applies to each codeword. This is **reverse-complement avoidance**, not reverse-complement closure: both orientations of a strand are *not* automatically included as distinct codewords. Decoding assumes aligned reads, at most one substitution, and the stated reverse-complement cross-distance constraint; it does not address insertions or deletions.
+
+## Proof
+For each even \(n\) construct the graph \(G_n\): enumerate all GC-balanced, homopolymer-free words whose self-reverse-complement distance is at least three, and join distinct vertices \(x,y\) when either \(d_H(x,y)<3\) or \(d_H(x,\operatorname{rc}(y))<3\). Because the definitions are symmetric under the involution \(\operatorname{rc}\), these are undirected edges. Exactly the independent vertex sets of \(G_n\) are admissible codebooks. Thus \(M_n=\alpha(G_n)\).
+
+For \(n=2\), all exactly GC-balanced words have \(d_H(w,\operatorname{rc}(w))\le2\), so there are no eligible vertices. For \(n=4\), direct exhaustive generation gives \(40\) eligible vertices and \(468\) incompatibility edges. Complete maximal-clique enumeration in the *complement* graph has largest clique size \(4\), attained by exactly \(64\) labeled codebooks. For \(n=6\), complete generation gives \(344\) eligible vertices and \(7804\) incompatibility edges. The accompanying `verify.py` constructs **two equivalent integer programs from scratch**. First it independently lists all \(980\) maximal incompatibility cliques and imposes a binary cardinality-at-most-one inequality on every clique. Second it independently constructs all \(7804\) pairwise incompatibility inequalities. In either formulation the integer objective is to maximize the number of selected words. Complete mixed-integer branch-and-bound returns primal optimum \(27\) and certified upper bound \(27\); the supplied 27-word `code6.txt` independently satisfies all defining constraints, establishing equality. The verifier requires solver completion and compares the branch-and-bound dual bound with the integer optimum across a tolerance far smaller than one. Hence no feasible size \(28\) is possible, subject to the documented exact finite formulation and solver computation. This is a computer-assisted finite proof, not a symbolic inequality certificate.
+
+The file `code8.txt` lists \(136\) distinct eight-base words. The verifier checks that every word is GC-balanced, homopolymer-free and self-reverse-complement separated, and that every ordered distinct pair meets the Hamming and reverse-complement distance bounds. Thus \(M_8\ge136\). Since exact GC balance requires even length and the only smaller positive even lengths have maxima \(0\), \(4\) and \(27\), length \(8\) is the first meeting the \(32\)-message and \(128\)-message thresholds.
+
+## Verification
+Run `python verify.py` in a directory containing `code6.txt`, `code8.txt`, and the packages pinned in `requirements.txt`. It regenerates the complete eligible word sets, incompatibility edges and both integer formulations; checks the independent-set witnesses directly; enumerates all four-base optima; and verifies that both complete six-base optimizations have branch-and-bound upper bounds strictly below the next integer optimum. The observed successful output is `VERIFY_OK n2=0 n4=4,64-optima n6=27 n8>=136`. The two six-base programs use different constraint sets (maximal cliques and individual edges) and can be independently rerun.
+
+## Relationship to prior work
+King's 2003 paper defines the standard fixed-GC, reverse-complement separation problem and gives bounds and unrestricted constructions. Its table at length \(6\), distance \(3\), GC content \(3\), includes an unrestricted lower bound of at least \(41\), not the exact optimum after enforcing **no identical adjacent nucleotides**. Aboluion, Smith and Perkins also construct fixed-GC reverse-complement codes without this local source restriction. Nguyen, Cai, Immink and Kiah develop homopolymer-limited, GC-constrained single-error encoders, but do not impose the same reverse-complement separation or give this exact small-block capacity. Prior four-base equality classifications for the unrestricted fixed-GC reverse-complement problem may already imply parts of the auxiliary four-base census when filtered; the distinctive result asserted here is the exact six-base cutoff jointly with the eight-base threshold witness.
+
+## Limitations
+Only positive even lengths \(2\), \(4\), and \(6\) are optimized exactly; length \(8\) has a constructive lower bound, not an optimum. The short-block restriction has very high GC precision and excludes even dinucleotide repeats, substantially stronger than typical biological design constraints. The integer upper bound is justified by a reproducible finite mixed-integer optimization and independently generated formulations, not by a separately published solver-independent branch tree. Unindexed equivalent historical computations remain possible. No independent mathematical audit has been performed.
+
+## References
+1. O. D. King, *Bounds for DNA codes with constant GC-content*, Electronic Journal of Combinatorics 10 (2003), R33; first publicly posted 2003-06-12, https://arxiv.org/abs/math/0306197 ; DOI: 10.37236/1726.
+2. N. Aboluion, D. H. Smith and S. Perkins, *Linear and nonlinear constructions of DNA codes with Hamming distance d, constant GC-content and a reverse-complement constraint*, Discrete Mathematics 312 (2012), 1062–1075; DOI: 10.1016/j.disc.2011.11.021.
+3. T. T. Nguyen, K. Cai, K. A. Schouhamer Immink and H. M. Kiah, *Capacity-Approaching Constrained Codes with Error Correction for DNA-Based Data Storage*, arXiv:2001.02839 (2020), https://arxiv.org/abs/2001.02839.
