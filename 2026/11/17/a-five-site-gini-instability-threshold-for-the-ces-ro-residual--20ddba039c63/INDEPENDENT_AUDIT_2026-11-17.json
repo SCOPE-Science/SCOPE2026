@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T12:14:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob e86c43fe499f1587eb6de3a1bb3ef6f8552bd353",
+        "Frozen check_cesaro_residual.py blob f3c17c89e58a7b12ee68194ea96e78bd62e81385",
+        "Independent exact rational cut enumeration n=2..5"
+      ],
+      "rationale": "For real n>=2 and G_n(x)=sum_{i<j}|x_i-x_j|, coarea/layer-cake reduces the norm of D_n=I-C_n to nontrivial binary cuts, since D_n 1=0 and the complete-pair Gini total variation admits exact cut decomposition. Exact rational exhaustive evaluation of all 2^n-2 cuts at n=2,3,4 yields 1/2,5/6,11/12. For n>=5 the signed third-coordinate witness has pairwise formula G_n(D e3)=2(n-1)/3+(n+7)(H_n-H3)-2(n-3); its excess F_n has F5=1/15 and all subsequent first differences positive by a nonnegative second difference (n-5)/[(n+1)(n+2)]. The upper bound follows from a directly proved row-stochastic column-mass inequality G(Px)<=M G(x), max column sum H_n for Cesaro, hence Λ_n<=1+H_n. Witness grows log n+O(1) and upper bound also log n+O(1), establishing the exact leading coefficient one. Independently recomputed finite small-cut maxima with fractions; no extrapolation of numerical checks is used.",
+      "residual_risks": [
+        "The exact operator norm Λ_n is *not* established for n>=5; only strict lower and logarithmic leading growth",
+        "The column-mass comparison crucially needs a nonnegative row-stochastic P, not signed residual D"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published same-day C_n Gini norm is ((n+1)H_n-2n)/(n-1) with onset n=6",
+          "Residual D_n has onset n=5 witnessed by e3 and norm log coefficient one",
+          "Sinnamon standard ℓp and Hardy-space spectral operator results do not imply this quotient seminorm"
+        ],
+        "reasoning": "A C_n exact norm is not a dominating theorem for I-C_n because ∥I-C_n∥ may be smaller or larger; triangle gives only an upper bound. No general published residual-Gini theorem found.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-logarithmic-gini-amplification-by-finite-ces-ro-averaging--f64323950b96/RESULT.md",
+          "doi:10.7153/mia-2022-25-04",
+          "arXiv:1006.1520"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-logarithmic-gini-amplification-by-finite-ces-ro-averaging--f64323950b96/RESULT.md",
+        "https://doi.org/10.7153/mia-2022-25-04",
+        "https://arxiv.org/abs/1006.1520"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For every n, ∥I-C_n∥_G <=1+∥C_n∥_G but this cannot resolve whether it exceeds 1 at n=5",
+          "The explicit e3 residual has negative tail and positive pivot, unlike C e1 monotone sharp vector"
+        ],
+        "reasoning": "Neither the larger-n C_n harmonic formula nor ℓp residual norms produce the n=5 Gini-onset or sharp coefficient by direct specialization.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-logarithmic-gini-amplification-by-finite-ces-ro-averaging--f64323950b96/RESULT.md",
+          "doi:10.7153/mia-2022-25-04"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Residual written C-I differs by sign from I-C and has the same Gini norm",
+          "Sinnamon studies ℓp operator norms, not the complete-pair Gini quotient"
+        ],
+        "reasoning": "Signs and operator naming can be aliases, but must match domain seminorm and exact threshold to cover this finding; no such statement located in inspected material.",
+        "searches": [
+          "Resultary semantic: Cesaro residual I-C Gini mean difference complete pair five-site instability threshold",
+          "Sinnamon DOI:10.7153/mia-2022-25-04 norm discrete Cesaro minus identity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Current exact residual values for n2..4: 1/2,5/6,11/12; C_n values n2..4: 1/2,2/3,29/36 are different",
+          "Independent exhaustivity of 2+6+14=22 binary cuts for residual n2..4"
+        ],
+        "reasoning": "Existing same-seminorm table computes C_n, not D_n; routine finite table alone is not the value claim, which also has proof of universal cutoff and asymptotic.",
+        "searches": [
+          "Resultary semantic: Cesaro residual Gini first amplifying dimension and exact small n",
+          "Resultary sharp logarithmic Gini amplification by finite Cesaro averaging"
+        ]
+      },
+      "rationale": "The same-day published norm of *C_n* in exactly this Gini seminorm is a close and pertinent prior, giving sharp log n growth for prefix averaging itself; however D=I-C has cancellation and different cutoff (D first amplifies n=5; C first amplifies n=6), so C_n norm neither yields the third-coordinate cut nor implies the residual threshold or its sharp coefficient by a triangle inequality. Sinnamon's published C-I norm is in ordinary ℓ^p, not the quotient complete-pair Gini seminorm. The threshold is a new distinct signed-residual question on accessible evidence; priority is qualified against historical Cesaro literature.",
+      "residual_risks": [
+        "A full reading of Sinnamon 2022 article and older Brown–Halmos–Shields (1965) remains pending; inaccessible/unread relevant literature alone does not imply failure",
+        "Same-day published C_n result covers Gini logarithmic amplification generally; distinguish the residual witness and distinct cutoff rather than claim the log phenomenon alone is new"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sharp C_n norm but not residual D_n; close prior not a full cover",
+          "evidence": "Exact ((n+1)H_n-2n)/(n-1); its threshold n6 contrasts residual n5",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-logarithmic-gini-amplification-by-finite-ces-ro-averaging--f64323950b96/RESULT.md",
+          "material_read": "Entire RESULT.md including theorem/proof, finite values, exact formula and limitations",
+          "method": "GitHub connector read complete published RESULT.md",
+          "title": "Sharp logarithmic Gini amplification by finite Cesaro averaging",
+          "trigger": "Same matrix and identical complete-pair Gini seminorm"
+        },
+        {
+          "assessment": "Cannot certify noncoverage of full PDF; available scope indicates ordinary ℓp, not Gini pair variation",
+          "evidence": "Same operator name, but seminar norm is materially different; inaccessible full text priority risk",
+          "identifier_or_url": "https://doi.org/10.7153/mia-2022-25-04",
+          "material_read": "Publisher abstract / bibliographic description and cited package comparison, full article not read in this execution",
+          "method": "Publisher abstract-level search and frozen citation",
+          "title": "Norm of the discrete Cesaro operator minus identity",
+          "trigger": "Nearly identical operator C-I; potential stronger result"
+        },
+        {
+          "assessment": "Hardy-space operator setting not a direct finite Gini matrix-norm theorem",
+          "evidence": "Analytic Hardy-space norm/continuity not complete-pair Gini quotient",
+          "identifier_or_url": "https://arxiv.org/abs/1006.1520",
+          "material_read": "Accessible abstract and package comparison; full paper not reread",
+          "method": "Public abstract check",
+          "title": "Cesaro operators on Hardy spaces of the half-plane",
+          "trigger": "Cesaro spectral literature alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding/Proof",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-logarithmic-gini-amplification-by-finite-ces-ro-averaging--f64323950b96/RESULT.md"
+      ],
+      "rationale": "The natural residual of prefix averaging is a high-pass filter whose stability in complete-pair Gini variation matters for dispersion measurements. The sharp first amplifying dimension five differs from six for the averaging map itself, and a global all-n proof establishes a logarithmic instability coefficient one. This is not an arbitrary isolated constant: it identifies an onset boundary and asymptotic behavior for a canonical signed operator.",
+      "residual_risks": [
+        "No exact norm beyond four sites or weighted/complex-signal classification"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only real prefix uniform averages and unweighted complete-pair Gini variation",
+    "n>=5 exact best Λ_n remains unknown",
+    "Historical priority qualified"
+  ],
+  "schema_version": 1
+}
