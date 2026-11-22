@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-For \(\Delta=\{e\}\cup Hs\), admissible pairwise quotients force a complete bipartite Cayley graph, hence every partial Gram test has at most two distinct indices. The proof converts the global normalized positive-type condition into a unit-vector coefficient and uses the spectral projections for \(H\) to derive the Fourier \(\ell^1\) inequality. Conversely, an explicit finite convex combination of valid one-dimensional and two-dimensional unitary states reconstructs every real reflection datum satisfying that inequality. The proof includes inversion-fixed characters, repeated characters, zero Fourier coefficients, Fourier-norm equality, and the trivial/2-element cases. The one-negative datum has the exact obstruction \(3-4/N\). The numerical checker passed 2638 independent finite diagnostic assertions; the general proof is analytic.
+## correctness
 
-## Originality — PASS (qualified)
-The closest primary source, Kakariadis et al., arXiv:2603.29958, develops positivity domains, operator-system criteria, and a five-point lattice example. Levene–Lin–Todorov, arXiv:1511.07049, develops general positive-extension criteria; Bakonyi–Timotin, arXiv:0808.1273, gives chordal Cayley-graph sufficiency, which does not cover these complete bipartite graphs. None of their inspected statements identifies the extendible reflection-coset state space with the Fourier \(\ell^1\) ball, gives the explicit state reconstruction for every finite abelian base, or proves the first-group-order obstruction. Searches of published research records for generalized dihedral reflection cosets and Fourier-algebra norm tests located related but non-covering Fourier, Radon, and geometric results. Standard character decomposition is the known proof tool. Residual priority risk: an older general Fourier–Stieltjes restriction theorem might imply the result under an equivalent coset-coefficient formulation; the review does not certify exhaustive novelty.
+PASS
 
-## Mathematical value — PASS
-This is a natural complete classification, not a single unmotivated finite computation. The positivity domain consists of every involution in the nonidentity coset of an arbitrary finite generalized dihedral group, and local Gram positivity is maximally weak. The theorem supplies an explicit sharp and efficiently testable global condition, constructive extensions, a uniform family of sharp obstructions, and the precise smallest failing group. It separates local and global positive type on a broad canonical class and quantifies the smallest case geometrically. It does not classify matrix-valued data or arbitrary normal subgroup cosets.
+The Cayley graph for Δ={e}∪Hs is complete bipartite between even and odd group cosets; an admissible set of pairwise specified differences has at most 2 elements, yielding real interval local bounds. For any PD extension, GNS vector ξ and η=π(s)ξ have norm one; H spectral projections Pχ give coefficients <Pχη,ξ>. Cauchy–Schwarz summed over χ proves Fourier l1≤1. Conversely inversion-fixed characters yield signed 1D coefficient states, while inversion-pairs χ,χ^-1 yield explicit 2D dihedral representations with positive trace-one density matrices furnishing cχχ(h)+conj(cχ)conjχ(h); total positive weight L and unused 1-L can be filled by a balanced ±reflection character mixture. Boundary L=1 and H of order one/two are covered. A single negative among all positive reflection values has Fourier mass 3-4/N for N≥3, and the S3 cross-section is a circular bicone of volume π√3 inside cube volume 8. Independently computed exact one-negative masses for cyclic N1..8 and checked source check_extension.py builds full positive Gram matrices for cyclic samples; the analytic representation argument, not finite samples, proves all finite abelian groups.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+A preceding exact five-point S3 domain theorem concerns {e,s,t,st,ts}, omitting one reflection but prescribing both 3-cycles; here Δ={e} plus ALL three reflections and omits both 3-cycles. Neither domain is identical or contains the other. The S3 bicone might be derivable by eliminating the unspecified coordinates from that prior five-point Fourier completion formula; it is NOT claimed here as a separate novelty. The substantive surviving all-finite-abelian-H extension criterion is not supplied by the S3-only theorem. General operator-system/Schur multiplier theorems provide framework rather than this explicit reflection cone; possible general Fourier–Stieltjes restriction theorem is a residual priority risk.
+
+## value
+
+PASS
+
+A sharp scalar extension cone over all finite generalized dihedral groups, with constructive representation states, exact first size of local/global failure, and explicit S3 feasible-volume fraction, resolves a natural instance of the positive-extension problem. The Fourier criterion is a useful exact invariant distinct from abstract existence or chordal sufficient conditions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
