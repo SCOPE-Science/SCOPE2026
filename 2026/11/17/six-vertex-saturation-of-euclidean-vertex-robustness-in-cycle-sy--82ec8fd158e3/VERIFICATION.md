@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility
 
-Use Python 3 with NumPy and SciPy; run `python check_cycle_robustness.py` in the directory containing the standalone code. The expected success line is
+# Independent mathematical audit
 
-`CYCLE_VERTEX_ROBUSTNESS_PASS exact_n=158 independent_qp_n=16 cutoff=6 plateau_squared=11/12`
+## correctness
 
-The exact rational calculation checks complete supporting inequalities, exact norms, contact cardinalities and contact identities for every integer \(3\le n\le160\). The independent floating-point quadratic-programming comparison minimizes over all \(2n-1\) remaining root vertices for \(3\le n\le18\). The program does not perform exhaustive verification at all dimensions; the all-dimensional statement is proved symbolically in `RESULT.md` using the path Gram matrix and an exact projection certificate.
+PASS
 
-## Scientific limits
+In the canonical Euclidean zero-sum model r_i=e_i-e_(i+1), the remaining path roots b_j=r_(j+1) have tridiagonal Gram G=diag(2)+offdiag(-1) and r_1=-sum b_j. For each n, the stated positive weights s sum to one; q=-sum s_j b_j belongs to Q_n, y=r1-q=-sum(1-s_j)b_j, h_j=(G(1-s))_j. Exact rational reconstruction independently checked every claimed contact support inequality for n=3..50: min h>=0, h_j=lambda on s_j>0 and h_j<=lambda otherwise, while <y,-r1> is smaller. Thus (r1-q)·(z-q)<=0 for every surviving vertex, a complete KKT projection certificate. The squared norm v^T Gv is 1/2,4/5,9/10 for n=3,4,5 and identically 11/12 for n>=6; supports sizes 2,3,4,4. The displayed algebraic support formulas prove these facts for all n, and affine independence of path roots proves the exposed face count. Finally distance-to-convex-set is convex, giving directed Hausdorff equality. No nonorthogonal unimodular coordinate change is used.
 
-The metric and normalization are those of the standard-root Euclidean embedding of a simple unweighted cycle. Similar-looking affine polytope presentations need not preserve the Euclidean margin. Historical priority remains provisional; no independent mathematical audit or external certification has been performed.
+## originality
+
+PASS
+
+Canonical Euclidean deletion radius and exact stable contact face are not implied by the general vertex-robustness definition or combinatorial facet-subgraph classification; complete-bipartite signed-edge deletion is a different graph family.
+
+## value
+
+PASS
+
+A natural vertex robustness invariant for the canonical symmetric-edge polytope of a cycle admits an unexpected finite sharp saturation: deleting one oriented root gives the same squared Euclidean loss 11/12 at every n>=6 with a stable four-vertex contact simplex. This gives an exact geometric tolerance and projection face beyond combinatorial facet counts and is useful for vertex enumeration and deletion stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

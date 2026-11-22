@@ -1,15 +1,21 @@
-# Mathematical review: six-vertex cycle robustness cutoff
+# Independent mathematical audit
 
-## Correctness — PASS
-For all integers \(n\ge3\), the signed path roots form a basis of the zero-sum space, with tridiagonal Gram matrix having diagonal \(2\) and neighboring entries \(-1\). The stated nonnegative rational barycentric coordinates have total mass one. The residual vector has scalar products at most the contact value against *every* remaining vertex (all signed path roots and the reverse deleted root), with equality only at the enumerated contact roots. Thus the metric projection criterion, exact squared distance, exposed face, and equality cases hold without a finite-dimensional cutoff. Unique Euclidean projection follows from strict convexity of the squared norm, and dihedral symmetry plus inversion extends the result to all signed roots. Convexity of distance gives the directed Hausdorff identity. This reconstructs every nonstandard step rather than treating the finite checker as proof.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-Awasthi–Kalantari–Zhang introduce the general vertex-to-remaining-hull robustness measure, not the cycle-specific invariant. D’Alì–Delucchi–Michałek and Chen–Davis–Korchevskaia establish symmetric-edge-polytope and cycle face combinatorics, not a metric projection after deleting a signed root. The closest indexed records concern graph-edge deletion/inballs, directed-root enclosing spheres, and multi-vertex crown-graph loss, none of which implies the exact all-size four-regime deletion distance. A full-text comparison of the three named primary articles and targeted search did not locate the exact formula, its projection face, or a dominating theorem. This is evidence of noncoverage, not proof of universal uniqueness. An earlier equivalent formula in unindexed Euclidean polytope literature remains possible. A further 2018 arithmetic symmetric-edge-polytope paper was identified from its abstract only and is not represented as fully excluded.
+PASS
 
-## Value — PASS
-The minimum distance of a vertex to the other-vertex convex hull is an established geometric stability parameter, governing robust vertex enumeration and single-vertex approximation loss. Computing it for cycle symmetric-edge polytopes is a natural canonical case. The result identifies a sharp and initially unexpected finite-locality phenomenon: exact saturation at six graph vertices and stable four-point supporting face for every greater dimension. It is an all-dimensional classification with explicit contact certificates and an interpretable nontrivial cutoff, not a single unmotivated finite enumeration.
+In the canonical Euclidean zero-sum model r_i=e_i-e_(i+1), the remaining path roots b_j=r_(j+1) have tridiagonal Gram G=diag(2)+offdiag(-1) and r_1=-sum b_j. For each n, the stated positive weights s sum to one; q=-sum s_j b_j belongs to Q_n, y=r1-q=-sum(1-s_j)b_j, h_j=(G(1-s))_j. Exact rational reconstruction independently checked every claimed contact support inequality for n=3..50: min h>=0, h_j=lambda on s_j>0 and h_j<=lambda otherwise, while <y,-r1> is smaller. Thus (r1-q)·(z-q)<=0 for every surviving vertex, a complete KKT projection certificate. The squared norm v^T Gv is 1/2,4/5,9/10 for n=3,4,5 and identically 11/12 for n>=6; supports sizes 2,3,4,4. The displayed algebraic support formulas prove these facts for all n, and affine independence of path roots proves the exposed face count. Finally distance-to-convex-set is convex, giving directed Hausdorff equality. No nonorthogonal unimodular coordinate change is used.
 
-## Verification and limits
-The bundled executable reproduces exact Fraction inequalities and norms for 158 cycle sizes \(3\le n\le160\) and uses an independent full-point-set quadratic-programming minimization for 16 cycle sizes \(3\le n\le18\). Its successful output is `CYCLE_VERTEX_ROBUSTNESS_PASS exact_n=158 independent_qp_n=16 cutoff=6 plateau_squared=11/12`. Neither these finite tests nor literature search establishes an independent audit or universal historical novelty. The assertion is restricted to unweighted cycles in the standard Euclidean root normalization.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Canonical Euclidean deletion radius and exact stable contact face are not implied by the general vertex-robustness definition or combinatorial facet-subgraph classification; complete-bipartite signed-edge deletion is a different graph family.
+
+## value
+
+PASS
+
+A natural vertex robustness invariant for the canonical symmetric-edge polytope of a cycle admits an unexpected finite sharp saturation: deleting one oriented root gives the same squared Euclidean loss 11/12 at every n>=6 with a stable four-vertex contact simplex. This gives an exact geometric tolerance and projection face beyond combinatorial facet counts and is useful for vertex enumeration and deletion stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

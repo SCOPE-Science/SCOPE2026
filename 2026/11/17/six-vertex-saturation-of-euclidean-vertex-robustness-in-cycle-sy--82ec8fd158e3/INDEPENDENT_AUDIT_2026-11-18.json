@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T15:52:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the canonical Euclidean zero-sum model r_i=e_i-e_(i+1), the remaining path roots b_j=r_(j+1) have tridiagonal Gram G=diag(2)+offdiag(-1) and r_1=-sum b_j. For each n, the stated positive weights s sum to one; q=-sum s_j b_j belongs to Q_n, y=r1-q=-sum(1-s_j)b_j, h_j=(G(1-s))_j. Exact rational reconstruction independently checked every claimed contact support inequality for n=3..50: min h>=0, h_j=lambda on s_j>0 and h_j<=lambda otherwise, while <y,-r1> is smaller. Thus (r1-q)·(z-q)<=0 for every surviving vertex, a complete KKT projection certificate. The squared norm v^T Gv is 1/2,4/5,9/10 for n=3,4,5 and identically 11/12 for n>=6; supports sizes 2,3,4,4. The displayed algebraic support formulas prove these facts for all n, and affine independence of path roots proves the exposed face count. Finally distance-to-convex-set is convex, giving directed Hausdorff equality. No nonorthogonal unimodular coordinate change is used.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Davis–Korchevskaia abstract promises maximal bipartite facet/face subgraphs, not projections",
+          "D Alì–Delucchi–Michałek studies many faces and cycle face counts"
+        ],
+        "reasoning": "Facet-subgraph characterizations alone do not provide metric projection onto a one-vertex-deleted hull at exact Euclidean scale, especially after deleting just one orientation.",
+        "searches": [
+          "Chen Davis Korchevskaia arxiv:2107.12315",
+          "D Ali Delucchi Michalek arxiv:1910.05193",
+          "Resultary cycle vertex robustness semantic query"
+        ]
+      },
+      "checked_sources": [
+        "Resultary cycle robustness semantic search",
+        "Full Resultary complete-bipartite vertex deletion RESULT",
+        "Awasthi–Kalantari–Zhang PMLR 2018 primary pdf introduction and Section 2",
+        "Chen–Davis–Korchevskaia arxiv:2107.12315 abstract",
+        "D Alì–Delucchi–Michałek arxiv:1910.05193 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General definition of robustness gives no optimization solution",
+          "Graph facet classification is combinatorial, not exact nearest-point KKT",
+          "K_(p,q) projection formula depends on pq and p+q, not C_n path Gram"
+        ],
+        "reasoning": "No inspected broader source logically specializes to the exact n=6 plateau and four-vertex support; the simple KKT certificate is the substantive new calculation.",
+        "searches": [
+          "Awasthi–Kalantari–Zhang 2018 PMLR pdf",
+          "Chen–Davis–Korchevskaia 2021 abstract",
+          "Resultary complete bipartite deletion complete RESULT"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "PMLR 2018 paper defines Gamma_* as min vertex-to-other-hull distance for arbitrary point sets, not a closed-form cycle value",
+          "Complete bipartite source uses K_(p,q), different Gram matrix and a nonconstant threshold"
+        ],
+        "reasoning": "The parameter is the same robustness quantity, but different graph structures and inequalities prevent a direct substitution of the complete bipartite formula.",
+        "searches": [
+          "Resultary semantic search cycle symmetric edge polytope Euclidean vertex robustness deleted vertex nearest facet plateau",
+          "Awasthi Kalantari Zhang 2018 robust vertex enumeration",
+          "Resultary complete bipartite one-vertex deletion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest explicit exact signed-root deletion values are for K_(p,q), with threshold pq=2(p+q)",
+          "No checked Resultary row lists the all-n C_n distance 11/12 plateau other than the current claim"
+        ],
+        "reasoning": "A failed indexed search is not a global novelty proof; no matching exact cycle table was observed.",
+        "searches": [
+          "Resultary semantic query cycle symmetric edge polytope Euclidean vertex robustness",
+          "Resultary one-vertex deletion complete-bipartite symmetric edge polytope"
+        ]
+      },
+      "rationale": "Canonical Euclidean deletion radius and exact stable contact face are not implied by the general vertex-robustness definition or combinatorial facet-subgraph classification; complete-bipartite signed-edge deletion is a different graph family.",
+      "residual_risks": [
+        "Complete facet-subgraph primary full text and appendices were not read; an implicit radius formula could be present",
+        "The distance depends on canonical Euclidean coordinates; no claim under arbitrary unimodular transformations"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Introduces robustness Gamma_* and algorithm, not this specified cycle polytope metric",
+          "evidence": [
+            "Definition 3: Gamma_* is min_i d(v_i,conv(S minus v_i)); application to high-dimensional convex hulls"
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v84/awasthi18a/awasthi18a.pdf",
+          "material_read": "Research paper introduction and Section 2 robustness definition, algorithmic statements and related work, including viewed PDF page 2; not full appendices",
+          "method": "PMLR open-access PDF text and screenshot",
+          "title": "Robust Vertex Enumeration for Convex Hulls in High Dimensions",
+          "trigger": "Direct original invariant and application"
+        },
+        {
+          "assessment": "Not covering cycles: complete-bipartite roots and Gram structure are different; no cycle theorem in scope",
+          "evidence": [
+            "Formula for squared deletion distance switches at pq=2(p+q)"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-one-vertex-deletion-in-complete-bipartite-symmetric-edge-polytop--6809163b48e2/RESULT.md",
+          "material_read": "Entire RESULT.md including K_pq projection regimes, formula, cap volume and limits",
+          "method": "Connected GitHub file read",
+          "title": "One-vertex deletion in complete-bipartite symmetric-edge polytopes",
+          "trigger": "Closest identical metric on another symmetric-edge graph family"
+        },
+        {
+          "assessment": "This abstract asserts face/facet-bipartite graph correspondence, not exact Euclidean vertex deletion radius; full text comparison remains a risk",
+          "evidence": [
+            "Abstract specifies maximal bipartite subgraphs as face/facet objects"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.12315",
+          "material_read": "Full publicly indexed abstract and paper description, not full proofs",
+          "method": "Web primary literature lookup",
+          "title": "Facets and facet subgraphs of symmetric edge polytopes",
+          "trigger": "Same polytope class and graph facet parametrization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural vertex robustness invariant for the canonical symmetric-edge polytope of a cycle admits an unexpected finite sharp saturation: deleting one oriented root gives the same squared Euclidean loss 11/12 at every n>=6 with a stable four-vertex contact simplex. This gives an exact geometric tolerance and projection face beyond combinatorial facet counts and is useful for vertex enumeration and deletion stability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full face/facet geometry primary text was not inspected; residual originality risk",
+    "Finite exact check does not prove n>50; explicit tridiagonal identity is the proof"
+  ],
+  "schema_version": 1
+}
