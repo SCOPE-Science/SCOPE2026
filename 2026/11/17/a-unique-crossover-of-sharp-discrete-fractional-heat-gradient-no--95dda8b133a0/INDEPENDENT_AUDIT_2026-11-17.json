@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T17:08:09.886615Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/17/a-unique-crossover-of-sharp-discrete-fractional-heat-gradient-no--95dda8b133a0/RESULT.md and check_fractional_lattice_crossing.py actual Git blobs",
+        "Independent SciPy quadrature and Brent crossing tests for (1/4,1/2), (1/2,1), (3/4,1)"
+      ],
+      "rationale": "On ℤ, the ordinary heat-kernel difference d_j(u)=p₁(u,j)−p₁(u,j+1) solves a positive irreducible tridiagonal system; off-diagonal positive paths imply d_j(u)>0. For 0<s<1, Bochner positive-stable subordination integrates these strictly decreasing kernels at positive times, giving symmetric strictly unimodal p_s∈ℓ¹. Therefore the ∞→∞ forward-difference norm telescopes to 2p_s(t,0), with the same sign-step extremizer. For 0<a<b≤1, the CDF difference g(y)=F(U^a;y)−F(U^b;y) has the strict sign − on 0<y<1 and + on 1<y<4^b. Integrating by parts yields Δp=t∫e^(−ty)g(y)dy. H=e^tΔp/t has H′=−∫(y−1)e^(−t(y−1))g(y)dy<0; H(0)=m(b)−m(a)>0 from strict convexity of m(s)=E(U^s), m′(0)=E log U=0; H→−∞ from the strictly negative y<1 interval. There is one simple positive zero and the stated reversal. Beta identity and Laplace saddle rescaling give displayed short- and long-time coefficients. Analytic positivity and derivative signs establish all times/orders; finite evaluations do not.",
+      "residual_risks": [
+        "The proof uses stable subordination only for 0<s≤1; does not extend unimodality to s>1.",
+        "Strict simple crossing concerns ℓ∞→ℓ∞ norm of D e^(−tL^s), not ℓ¹→ℓ∞ gradient kernel peaks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen and Li arXiv:2602.16339v1 Proposition 1.2 gives translation-kernel ℓ¹ decay rate O_s(t^(−1/(2s))), not the exact all-t coefficient or pairwise order comparison.",
+          "Ciaurri et al arXiv:1401.2091 and arXiv:1608.08913 give classical/fractional kernel machinery."
+        ],
+        "reasoning": "The bounded-initial-data operator norm target follows from kernel total variation, but upper decay rates and general diffusion theory do not imply strictly unique crossing for all a<b.",
+        "searches": [
+          "sharp discrete fractional heat lattice gradient l infinity norm order unique crossing",
+          "Chen Li fractional heat kernel translation l1 sharp rate proposition 1.2 2602.16339",
+          "Ciaurri fractional discrete Laplacian kernel derivative estimates"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.16339v1 Proposition 1.2 §2.2.1 (full HTML relevant text)",
+        "arXiv:1401.2091",
+        "arXiv:1608.08913",
+        "arXiv:2107.06778",
+        "Resultary search sharp discrete fractional heat lattice gradient l infinity norm order unique crossing"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 1.2 of Chen–Li provides a rate at each fixed s, with unspecified sharp constants.",
+          "The proof here needs global strict monotonicity H′<0 from the unique sign threshold y=1, which is not a consequence of knowing both endpoint asymptotics."
+        ],
+        "reasoning": "Neither an upper bound nor endpoint rates imply a unique finite crossing; more complicated functions sharing those endpoints can cross repeatedly. The sign-variation argument supplies the missing statement.",
+        "searches": [
+          "sharp discrete fractional heat lattice gradient l infinity norm order unique crossing",
+          "Chen Li heat fractional translated kernel l1 estimates comparison two exponents",
+          "single crossing comparison all positive times power Laplace transforms"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For symmetric unimodal kernels ∑|p(k+1)−p(k)|=2p(0); thus the target is exactly a return-probability comparison for two fractional semigroups.",
+          "Resultary `2026/10/25/SCOPE-exact-switching-staircase-for-discrete-gaussian-gradient-peaks--14f278a0557c` studies a different ℓ¹→ℓ∞ norm and the location of a kernel-gradient peak."
+        ],
+        "reasoning": "Different norm domains and distinct fractional orders prevent reducing the target to the known peak-switching staircase. A general Laplace single-crossing theorem could prove the same mathematical statement, but no exact application was found.",
+        "searches": [
+          "sharp discrete fractional heat lattice gradient l infinity norm order unique crossing",
+          "fractional lattice semigroup step function total variation kernel exact norm",
+          "single crossing Laplace transforms of U^a U^b fractional powers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary earlier `2026/10/18/SCOPE-exact-endpoint-norms-and-integer-order-cusps-of-the-lattice-frac--aeb58b4b6533` concerns powers L^s themselves, not fractional heat semigroup gradients.",
+          "Finite root table in checked script lists several sample τ; theorem concerns every pair of real exponents and all times."
+        ],
+        "reasoning": "An exact sample table cannot cover the continuum uniqueness theorem. No matching table or stored norm-ordering classification observed.",
+        "searches": [
+          "sharp discrete fractional heat lattice gradient l infinity norm order unique crossing",
+          "lattice heat Bessel I0 return probability sharp gradients table order crossover"
+        ]
+      },
+      "rationale": "Sharp ordinary lattice heat kernel and fractional diffusion estimates precede this record, but none of the inspected statements gives the common ∞→∞ step extremizer together with an all-pairs unique reversal of the norm ordering across fractional orders. Both operator-norm direction and different-order quantifiers matter. Existing fixed-order decay estimates do not imply the global one-crossing Laplace comparison.",
+      "residual_risks": [
+        "Unindexed Laplace-order comparison results could express this single crossing in a dual distribution formulation.",
+        "Not every historical source on total variation and subordinate birth-death kernels was readable in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed-order ℓ¹ translated-kernel sharp exponent, without unique pairwise exponent ordering",
+          "evidence": "Prop.1.2 gives O_s(t^(−1/2s)), not exact ∞→∞ norm coefficient nor comparison a<b.",
+          "identifier_or_url": "https://arxiv.org/html/2602.16339v1",
+          "material_read": "Public full HTML Proposition 1.2 and §2.2.1 together with surrounding proof and rate/normalization definitions",
+          "method": "Read arXiv HTML relevant mathematical sections",
+          "title": "Large-Time Asymptotics for Heat and Fractional Heat Equations on the Lattice and General Finite Subgraphs",
+          "trigger": "Same one-dimensional lattice fractional heat and translated kernels"
+        },
+        {
+          "assessment": "Prior p₁(u,k)=e^(−2u)I_|k|(2u), not the cross-exponent theorem",
+          "evidence": "Classical kernel not independently new.",
+          "identifier_or_url": "https://arxiv.org/abs/1401.2091",
+          "material_read": "Abstract and indexed heat-kernel formula material",
+          "method": "Read accessible indexed preprint excerpts and referenced formula",
+          "title": "Harmonic Analysis associated with a discrete Laplacian",
+          "trigger": "Foundational ordinary lattice heat/Bessel formulas"
+        },
+        {
+          "assessment": "Regularity bounds for fixed generator, no found all-order unique crossover",
+          "evidence": "Does not compare exact ℓ∞→ℓ∞ norm between every two fractional orders.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.06778",
+          "material_read": "Abstract and relevant indexed kernel-derivative estimates",
+          "method": "Read available preprint summary and operator scope",
+          "title": "Discrete Hölder spaces, their characterization via semigroups associated to the discrete Laplacian and kernels estimates",
+          "trigger": "Potential broader gradient semigroup control"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Known heat-kernel and fractional-diffusion bounds in Ciaurri/Chen–Li",
+        "Analytic strict Laplace sign-variation argument in assigned RESULT.md"
+      ],
+      "rationale": "Identifies the exact worst-case rough-input smoothing norm for every order with one extremizer, and proves a surprising global reversal: no fractional power dominates another in sharp gradient smoothing at every time. This is not a routine rate estimate; the strict one-crossing classification removes ambiguity among a continuum of diffusion orders on a natural lattice model.",
+      "residual_risks": [
+        "Only the nearest-neighbor infinite line, first difference, 0<s≤1; no general graphs or arbitrary norms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No s>1 or high-dimensional extension; all-parameter theorem from analytic sign change, not interpolation of sampled roots.",
+    "Originality best-of-knowledge.",
+    "Unindexed Laplace-order comparison results could express this single crossing in a dual distribution formulation.",
+    "Not every historical source on total variation and subordinate birth-death kernels was readable in full."
+  ],
+  "schema_version": 1
+}

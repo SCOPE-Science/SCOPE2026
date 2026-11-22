@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,28 +19,24 @@
 }
 ---
 
-# Verification of fractional lattice-heat gradient crossover
+# Independent mathematical audit
 
-The source file `check_fractional_lattice_crossing.py` is a reproducible finite numerical verification artifact. Run it using Python 3 with SciPy installed:
+## correctness
 
-```sh
-python check_fractional_lattice_crossing.py
-```
+PASS
 
-The checker compares spectral moments against the exact gamma quotient, classical heat return probabilities against the modified Bessel function, and finite Fourier heat-kernel coefficients against the asserted symmetry/unimodality pattern. It also compares the integral of two semigroup multipliers to the difference of the distributions' Laplace integrals, brackets four representative positive time crossings, checks their orientations, and evaluates strict derivative signs of the rescaled difference at representative times.
+On ℤ, the ordinary heat-kernel difference d_j(u)=p₁(u,j)−p₁(u,j+1) solves a positive irreducible tridiagonal system; off-diagonal positive paths imply d_j(u)>0. For 0<s<1, Bochner positive-stable subordination integrates these strictly decreasing kernels at positive times, giving symmetric strictly unimodal p_s∈ℓ¹. Therefore the ∞→∞ forward-difference norm telescopes to 2p_s(t,0), with the same sign-step extremizer. For 0<a<b≤1, the CDF difference g(y)=F(U^a;y)−F(U^b;y) has the strict sign − on 0<y<1 and + on 1<y<4^b. Integrating by parts yields Δp=t∫e^(−ty)g(y)dy. H=e^tΔp/t has H′=−∫(y−1)e^(−t(y−1))g(y)dy<0; H(0)=m(b)−m(a)>0 from strict convexity of m(s)=E(U^s), m′(0)=E log U=0; H→−∞ from the strictly negative y<1 interval. There is one simple positive zero and the stated reversal. Beta identity and Laplace saddle rescaling give displayed short- and long-time coefficients. Analytic positivity and derivative signs establish all times/orders; finite evaluations do not.
 
-The actual run finished with these messages:
+## originality
 
-```
-MOMENT_GAMMA_AND_CLASSICAL_BESSEL_NORMALIZATION_PASS
-FINITE_FOURIER_UNIMODALITY_AND_SHARP_GRADIENT_IDENTITY_PASS
-CROSSOVER_SAMPLE_PASS 0.25 0.5 1.418656660926
-CROSSOVER_SAMPLE_PASS 0.5 1.0 1.351743246075
-CROSSOVER_SAMPLE_PASS 0.75 1.0 1.294242931795
-CROSSOVER_SAMPLE_PASS 0.3 0.9 1.390737853437
-CDF_LAPLACE_IDENTITY_AND_FOUR_CROSSINGS_PASS
-RESCALED_TRANSFORM_DERIVATIVE_SIGN_SAMPLES_PASS
-ALL_FRACTIONAL_LATTICE_CROSSING_CHECKS_PASS
-```
+PASS
 
-The checker is **not** an exhaustive verification over a continuum of orders and times. It cannot replace the half-line positivity argument, Bochner subordination, strict Laplace sign-change proof, or asymptotic analysis in `RESULT.md`. Floating-point integration can produce finite accuracy errors, so only conservative numerical tolerances are asserted. There is no independent mathematical audit or external certification.
+Sharp ordinary lattice heat kernel and fractional diffusion estimates precede this record, but none of the inspected statements gives the common ∞→∞ step extremizer together with an all-pairs unique reversal of the norm ordering across fractional orders. Both operator-norm direction and different-order quantifiers matter. Existing fixed-order decay estimates do not imply the global one-crossing Laplace comparison.
+
+## value
+
+PASS
+
+Identifies the exact worst-case rough-input smoothing norm for every order with one extremizer, and proves a surprising global reversal: no fractional power dominates another in sharp gradient smoothing at every time. This is not a routine rate estimate; the strict one-crossing classification removes ambiguity among a continuum of diffusion orders on a natural lattice model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

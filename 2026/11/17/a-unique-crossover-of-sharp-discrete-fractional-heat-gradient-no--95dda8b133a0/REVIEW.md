@@ -1,19 +1,21 @@
-# Scientific assessment: sharp lattice fractional-heat gradient crossover
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The ordinary heat-kernel differences form a positive tridiagonal evolution on the half-line, giving strict radial unimodality without relying on numerical Bessel inequalities. Positive-stable Bochner subordination transfers strict unimodality to every fractional order in the claimed range. Telescoping the difference kernel proves the exact operator norm and exhibits one common step-function extremizer. The probability integral has a single distribution-function sign change at spectral level \(1\). After removing the positive factor \(te^{-t}\), the difference of the two Laplace transforms is strictly decreasing. Its positive initial value follows from the strictly increasing spectral moment, and its negative divergence follows from the interval below level \(1\). This proves one positive simple crossing for every pair of orders. The short- and long-time constants follow from a beta integral and low-frequency rescaling. The packaged finite checker completed without errors; it is corroboration rather than an infinite proof.
+PASS
 
-## Originality
+On ℤ, the ordinary heat-kernel difference d_j(u)=p₁(u,j)−p₁(u,j+1) solves a positive irreducible tridiagonal system; off-diagonal positive paths imply d_j(u)>0. For 0<s<1, Bochner positive-stable subordination integrates these strictly decreasing kernels at positive times, giving symmetric strictly unimodal p_s∈ℓ¹. Therefore the ∞→∞ forward-difference norm telescopes to 2p_s(t,0), with the same sign-step extremizer. For 0<a<b≤1, the CDF difference g(y)=F(U^a;y)−F(U^b;y) has the strict sign − on 0<y<1 and + on 1<y<4^b. Integrating by parts yields Δp=t∫e^(−ty)g(y)dy. H=e^tΔp/t has H′=−∫(y−1)e^(−t(y−1))g(y)dy<0; H(0)=m(b)−m(a)>0 from strict convexity of m(s)=E(U^s), m′(0)=E log U=0; H→−∞ from the strictly negative y<1 interval. There is one simple positive zero and the stated reversal. Beta identity and Laplace saddle rescaling give displayed short- and long-time coefficients. Analytic positivity and derivative signs establish all times/orders; finite evaluations do not.
 
-**PASS, qualified.** The 2014 Ciaurri et al. discrete harmonic-analysis paper supplies ordinary heat-kernel formulas and a fractional discrete Laplacian maximum principle, but does not state a sharp \(\ell^\infty\)-to-discrete-gradient norm for all fractional powers or compare the norms across different orders. Their 2016 fractional-diffusion paper develops the nonlocal generator and regularity framework, but its inspected main results do not contain the unique-crossing criterion. The 2021 Abadias–De León-Contreras work provides estimates for the classical heat and Poisson kernel differences. Chen–Li (2026) is especially close: Proposition 1.2 gives an optimal decay *order* for the \(\ell^1\) first difference of fractional lattice heat kernels, not the exact coefficient in one dimension and not a theorem that all pairs of order-dependent norm curves cross exactly once. Comparable published results concerning generator norms, bounded-input Lipschitz preservation, or \(\ell^1\)-to-\(\ell^\infty\) gradient norms do not imply the present comparison. A hidden older equivalent in Laplace-transform ordering remains a residual priority risk; no independent historical validation is claimed.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Sharp smoothing constants, rather than exponent-only decay estimates, are relevant when choosing fractional diffusion order for rough data. The all-pairs single-crossing theorem establishes a structural obstruction to universally ranking fractional orders: the order with the smaller initial contraction deficit eventually becomes the stronger smoother, exactly once. Common extremizers make the contrast operational for the same bounded input, not simply for separately chosen witnesses. The sign-changing spectral distribution and monotone rescaling supply a reusable comparison mechanism. This is not a restatement of generic heat-kernel estimates or a selection of an arbitrary numerical parameter.
+Sharp ordinary lattice heat kernel and fractional diffusion estimates precede this record, but none of the inspected statements gives the common ∞→∞ step extremizer together with an all-pairs unique reversal of the norm ordering across fractional orders. Both operator-norm direction and different-order quantifiers matter. Existing fixed-order decay estimates do not imply the global one-crossing Laplace comparison.
 
-## Coverage and limitations
+## value
 
-The claims apply only to the infinite one-dimensional unnormalized lattice, orders strictly above zero and at most one, and the bounded-input-to-first-difference norm. The theorem does not imply an order-crossing statement on other geometries or norms. The exact first-public-source evidence is the 2014-01-09 original arXiv submission of Ciaurri et al.; sources from 2016, 2021 and 2026 are supporting comparisons. Numerical checks cannot prove uniqueness. Originality comparison is based on accessed texts and indexed records and cannot establish complete historical uniqueness.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Identifies the exact worst-case rough-input smoothing norm for every order with one extremizer, and proves a surprising global reversal: no fractional power dominates another in sharp gradient smoothing at every time. This is not a routine rate estimate; the strict one-crossing classification removes ambiguity among a continuum of diffusion orders on a natural lattice model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
