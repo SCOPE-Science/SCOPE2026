@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T20:52:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed full state (16 binary cells, one position and one of four headings), update turn/flip/move and explicit inverse. Every state is cyclic because the finite update is a permutation. Independently enumerated all 4,194,304 states and 128 rule-preserving translations/D4 actions, with global board complement for orientation reversals; grouped all primitive cycles. Exact independently recomputed complete 25-row table: 46,976 primitive temporal cycles, 4,194,304 period-weighted states, 376 geometric classes, minimal period 16 (16,384 cycles), maximum period 512 (256 cycles, two classes). This is exhaustive integer enumeration for this finite object, not extrapolation to other torus sizes. Original C++ full-source certificates separately use orbit mapping and Burnside fixed-cycle sums.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "3x4 full source has 196,608 states, 2,480 temporal cycles and a 48-element symmetry group; 2xn formula covers width-two degenerate geometry rather than a 4x4 square. Twisted-torus complexity does not classify 4x4 primitive cycles."
+        ],
+        "reasoning": "Previous torus families and broad ant complexity/recurrence theorems address different geometries, so none mathematically specializes to these 4x4 period and group fixed-sum counts.",
+        "searches": [
+          "Resultary Langton ant 2xn torus reflector gap orbit census",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-twenty-clock-lengths-and-seventy-four-symmetry-types-for-langton--7fbd03c0667a",
+          "https://doi.org/10.3390/a13120344"
+        ]
+      },
+      "checked_sources": [
+        "Assigned frozen RESULT.md and both standalone C++17 orbit/cycle programs; DATA/temporal_orbits.txt and DATA/burnside_cycles.txt path inventory",
+        "https://doi.org/10.3390/a4010001",
+        "https://math.stackexchange.com/questions/3296855/what-is-the-period-of-langtons-ant-on-a-torus",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-twenty-clock-lengths-and-seventy-four-symmetry-types-for-langton--7fbd03c0667a",
+        "OEIS:A309251",
+        "https://doi.org/10.3390/a13120344"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard invertibility implies every state is periodic but leaves its primitive period and symmetry type undetermined; generic even-even factor 8 does not force all 25 precise 4x4 rows or factor16."
+        ],
+        "reasoning": "Neither reversibility nor the 3x4 census yields the specific 4x4 group quotient and orbit multiplicities. Unindexed older exact enumeration remains a residual risk.",
+        "searches": [
+          "https://doi.org/10.3390/a4010001",
+          "https://math.stackexchange.com/questions/3296855/what-is-the-period-of-langtons-ant-on-a-torus",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-twenty-clock-lengths-and-seventy-four-symmetry-types-for-langton--7fbd03c0667a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Turn-flip-move inverse is standard; 2019 single uniform-board torus period is 96 at 4x4, not a census of 2^16*64 arbitrary board-position-heading states."
+        ],
+        "reasoning": "The same model can be phrased as a finite reversible automaton/colored orbit graph; the known single orbit or cover-time formulation does not determine the full orbit decomposition.",
+        "searches": [
+          "Langton ant 4 by 4 torus all states primitive temporal cycles geometric orbits classification",
+          "https://math.stackexchange.com/questions/3296855/what-is-the-period-of-langtons-ant-on-a-torus"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A309251 lists selected white-board return periods; compared published 3x4 table has 20 periods and 74 classes on a distinct state space."
+        ],
+        "reasoning": "A single periodic trajectory or a different torus table is not an exact database containing all 4,194,304 4x4 labelled states. No previously covering 25-row classification was identified; absence of search results is not proof of novelty.",
+        "searches": [
+          "OEIS A309251 Langton ant 4x4 period",
+          "Langton ant 4x4 complete phase space period table",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-twenty-clock-lengths-and-seventy-four-symmetry-types-for-langton--7fbd03c0667a"
+        ]
+      },
+      "rationale": "The complete all-start-state temporal-period and geometric-quotient census on the nondegenerate 4x4 square torus was not implied by the compared general reversible-ant and single-initial-configuration sources, or published smaller 3x3/3x4 exact tables. Novelty is best-of-knowledge, not an absolute absence of old enumerations.",
+      "residual_risks": [
+        "An unindexed historical enumeration might contain the same finite 4x4 census.",
+        "Program-assisted exhaustive finite proof is not a theorem for any other torus size; independent enumeration validates only defined group and state encoding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering 4x4 all-state orbit counts",
+          "evidence": "Generalized ant complexity, not primitive-cycle table for labelled 4x4 torus.",
+          "identifier_or_url": "https://doi.org/10.3390/a4010001",
+          "material_read": "Accessible open full article, model and main recurrence-complexity results",
+          "method": "Open full-text HTML and inspected mathematical scope",
+          "title": "Recognizing the Repeatable Configurations of Time-Reversible Generalized Langton’s Ant Is PSPACE-Hard",
+          "trigger": "Reversibility/complete ant model; possible general dominating theorem"
+        },
+        {
+          "assessment": "Not covering full census",
+          "evidence": "One initial board return time 96 and generic even-even factor8 constraint.",
+          "identifier_or_url": "https://math.stackexchange.com/questions/3296855/what-is-the-period-of-langtons-ant-on-a-torus",
+          "material_read": "Question and mathematical answers including 4x4 period and parity argument",
+          "method": "Read discussion and its period/divisibility assertions",
+          "title": "What is the period of Langton’s ant on a torus?",
+          "trigger": "Same local dynamics and 4x4 uniform-board example"
+        },
+        {
+          "assessment": "Different state space, not covering 4x4",
+          "evidence": "3x4 has 12 cells, 48 symmetries, 2,480 temporal cycles, 74 geometric classes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-twenty-clock-lengths-and-seventy-four-symmetry-types-for-langton--7fbd03c0667a",
+          "material_read": "Complete RESULT.md including count table, inverse, group actions and scope",
+          "method": "Read full primary RESULT.md via GitHub",
+          "title": "Twenty clock lengths and seventy-four symmetry types for Langton’s ant on 3x4 torus",
+          "trigger": "Closely related primary published SCOPE exact finite census"
+        },
+        {
+          "assessment": "Not covering finite ordinary 4x4 orbit spectrum",
+          "evidence": "Twisted-torus hardness, not all 4x4 primitive orbit counts.",
+          "identifier_or_url": "https://doi.org/10.3390/a13120344",
+          "material_read": "Accessible open full article, main objects and results",
+          "method": "Open article inspected in literature review",
+          "title": "Hardness of Approximation for Langton’s Ant on a Twisted Torus",
+          "trigger": "Broad torus ant theorem potentially covering periods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The 4x4 torus is the first nondegenerate even-even periodic square grid with four distinct cardinal neighbors. Its exact 25 clock lengths, sixteen-divisibility beyond the known general even-even eight-divisibility restriction, and nontrivial 376 orbit symmetry classes are a natural complete classification and reproducible benchmark for initial-condition sensitivity. A single motivated complete finite object is substantively useful even without an all-n formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed historical enumeration might contain the same finite 4x4 census.",
+    "Program-assisted exhaustive finite proof is not a theorem for any other torus size; independent enumeration validates only defined group and state encoding."
+  ],
+  "schema_version": 1
+}

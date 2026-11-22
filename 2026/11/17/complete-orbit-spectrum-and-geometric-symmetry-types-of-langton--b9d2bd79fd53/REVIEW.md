@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The successor and inverse rules are written explicitly for all 4,194,304 labelled states. Full-state inverse and indegree checks establish that the map is a permutation; complete cycle traversals produce the 25 exact period counts. Both standalone programs reconstruct the total, and distinct orbit-image grouping and Burnside fixed-sum computations independently yield the same 376 geometric classes. The proof is an exhaustive finite certificate, with no inference about arbitrary larger tori.
+## correctness
 
-## Originality — PASS (qualified)
-The closest directly inspected square-torus sources record only uniform-board return time 96, its general even-even factor-eight lower bound, or uniform-board cover time. The two relevant research papers instead address generalized-ant recurrence hardness and asymptotic twisted-torus complexity. The prior \(3\times3\) and \(3\times4\) censuses cover different geometries and do not imply this first nondegenerate even-even square census. Exact-table, aliases, group-quotient and stronger-coverage searches identified no prior statement implying all 25 rows or 376 types. Historical priority remains subject to unindexed calculations.
+PASS
 
-## Value — PASS
-The \(4\times4\) square is the smallest even-by-even periodic *simple square grid* with distinct neighbors in each of the four directions. Unlike odd-sided or mixed-parity examples, it exposes the even-even parity restriction. The complete orbit census sharpens the previously known generic eight-divisibility to sixteen for this finite model and exhibits 25 distinct clocks and two inequivalent longest-period cycle types. This natural complete classification supplies a reproducible benchmark for symmetry reduction and initial-condition sensitivity; it is not claimed as a general size-family theorem.
+Reconstructed full state (16 binary cells, one position and one of four headings), update turn/flip/move and explicit inverse. Every state is cyclic because the finite update is a permutation. Independently enumerated all 4,194,304 states and 128 rule-preserving translations/D4 actions, with global board complement for orientation reversals; grouped all primitive cycles. Exact independently recomputed complete 25-row table: 46,976 primitive temporal cycles, 4,194,304 period-weighted states, 376 geometric classes, minimal period 16 (16,384 cycles), maximum period 512 (256 cycles, two classes). This is exhaustive integer enumeration for this finite object, not extrapolation to other torus sizes. Original C++ full-source certificates separately use orbit mapping and Burnside fixed-cycle sums.
 
-## Sources and remaining limits
-Inspected sources: Tsukiji–Hagiwara (2011), the 2015 MathOverflow square-torus problem, the 2019 Mathematics StackExchange torus discussion, OEIS A309251, and Hagiwara–Tsukiji (2020). The two prior finite tori were checked for overlap in the existing scientific ledger. Residual priority risk: older or unindexed exhaustive torus enumerations. Finite-state computational certification needs external mathematical replay for independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete all-start-state temporal-period and geometric-quotient census on the nondegenerate 4x4 square torus was not implied by the compared general reversible-ant and single-initial-configuration sources, or published smaller 3x3/3x4 exact tables. Novelty is best-of-knowledge, not an absolute absence of old enumerations.
+
+## value
+
+PASS
+
+The 4x4 torus is the first nondegenerate even-even periodic square grid with four distinct cardinal neighbors. Its exact 25 clock lengths, sixteen-divisibility beyond the known general even-even eight-divisibility restriction, and nontrivial 376 orbit symmetry classes are a natural complete classification and reproducible benchmark for initial-condition sensitivity. A single motivated complete finite object is substantively useful even without an all-n formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
