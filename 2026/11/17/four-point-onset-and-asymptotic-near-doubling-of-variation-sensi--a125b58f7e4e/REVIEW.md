@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Each possible strict active-curvature face of convex least-squares projection is realizable, with orthogonal linear derivative. Translation invariance reduces the adjacent-BV operator norm to single-jump probes. Exhaustive exact-rational enumeration covers all faces for sizes two through ten; finite input pairs are verified by primal feasibility and positive KKT multipliers. An explicit face with free endpoints and affine interior gives the two analytic asymptotic lower-bound formulas. No finite enumeration is claimed to prove the unrestricted large-dimension behavior.
+## correctness
 
-## Originality
-PASS, with historical-priority risk. The closest published convex-sequence result concerns coordinate maximum-norm sensitivity; the previously available complete-pair Gini values are also different. Meyer (2008) supplies facewise cone projection structure, Chatterjee–Guntuboyina–Sen (2013) study squared-error risk, and Mazumder and colleagues (2015) study algorithms and Lipschitz constraints on functions. None of the inspected propositions supplies these BV coefficients or the near-doubling lower bound. The technique of face enumeration itself is not claimed as new; nonindexed historic work remains a risk.
+PASS
 
-## Value
-PASS. Adjacent variation quantifies perturbations in the localized jumps that shape-restricted signal fitting is intended to control. It is meaningful that Euclidean projection amplifies such differences from four samples onward and that a realizable family makes amplification arbitrarily close to two. The exactly classified sizes through ten show a real eight-to-nine-sample plateau. These conclusions are not merely restatements of known sup-norm or Gini bounds.
+The cone D_j z=z_j-2z_{j+1}+z_{j+2}>=0 has full-row-rank D. Every active face is realized with strict KKT multipliers and positive inactive slack, so the projector's local Jacobians are precisely H_A=I-D_A^T(D_A D_A^T)^(-1)D_A. Global polyhedral piecewise-affinity and translation equivariance reduce the two-input adjacent-variation norm exactly to max_A max_k V(H_A s_k) by the path-step decomposition. Independent rational SymPy active-face enumeration reproduces C_n=1,1,6/5,4/3,7/5,28/19,11/7,11/7,5/3 for n=2..10, with a separately checked n=10 face and finite KKT attainability mechanism. For a face with free endpoints and interior affine line, balanced interior steps give even n>=6 lower bound 2-3/(n-1), odd n>=7 lower bound 2-3/(n-2), hence liminf>=2; this is analytic and proves neither C_n<=2 nor exact C_n above 10.
 
-## Limits and provenance
-The exact coefficients beyond ten and a matching asymptotic upper bound are unproved. Claims concern equal-weight equally spaced real sequences only. The proof is reproducible from `RESULT.md` and `verify_convex_bv.py`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: compared the exact mathematical claim and implications against same-object primary literature and published result records. Previously known model definitions, finite-face methods, cone inequalities, or alternate-parameter/loss theorems are credited. The cited prior statements do not imply the submitted exact additional invariant. This is not a certification of comprehensive historical priority.
+
+## value
+
+PASS
+
+The natural sharp two-input path-total-variation stability modulus of convex-sequence least-squares fitting is not the standard Euclidean nonexpansivity constant; an unexpected four-observation threshold and explicit dimension-uniform near-doubling construction make a meaningful shape-constrained regression stability invariant. Exact small-size values and the even/odd all-size lower bound have nontrivial content independent of unproved asymptotic optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

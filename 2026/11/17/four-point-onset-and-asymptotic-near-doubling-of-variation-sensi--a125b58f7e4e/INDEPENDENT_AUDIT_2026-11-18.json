@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T04:02:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/four-point-onset-and-asymptotic-near-doubling-of-variation-sensi--a125b58f7e4e/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/four-point-onset-and-asymptotic-near-doubling-of-variation-sensi--a125b58f7e4e/verify_convex_bv.py"
+      ],
+      "rationale": "The cone D_j z=z_j-2z_{j+1}+z_{j+2}>=0 has full-row-rank D. Every active face is realized with strict KKT multipliers and positive inactive slack, so the projector's local Jacobians are precisely H_A=I-D_A^T(D_A D_A^T)^(-1)D_A. Global polyhedral piecewise-affinity and translation equivariance reduce the two-input adjacent-variation norm exactly to max_A max_k V(H_A s_k) by the path-step decomposition. Independent rational SymPy active-face enumeration reproduces C_n=1,1,6/5,4/3,7/5,28/19,11/7,11/7,5/3 for n=2..10, with a separately checked n=10 face and finite KKT attainability mechanism. For a face with free endpoints and interior affine line, balanced interior steps give even n>=6 lower bound 2-3/(n-1), odd n>=7 lower bound 2-3/(n-2), hence liminf>=2; this is analytic and proves neither C_n<=2 nor exact C_n above 10.",
+      "residual_risks": [
+        "Exact C_n undetermined above ten, no proof of a universal upper bound two or limiting constant."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Meyer 2008 arXiv:0811.1705 studies spline cone projections and piecewise linear faces",
+          "Guntuboyina and Sen 2013 arXiv:1305.1648 studies L2 statistical risk",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-five-point-nonlocal-instability-and-a-persistent-lower-bound-for--45dce1453393"
+        ],
+        "reasoning": "Facewise KKT structure and Euclidean risk estimates supply methods but no sharp two-input adjacent path-variation rates; the coordinate maximum norm result does not dominate exact BV norm values.",
+        "searches": [
+          "convex least squares projector cone of convex sequences total variation between adjacent differences sharp finite coefficients independent active faces",
+          "shape restricted regression spline projection path total variation two-input stability"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/four-point-onset-and-asymptotic-near-doubling-of-variation-sensi--a125b58f7e4e/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-five-point-nonlocal-instability-and-a-persistent-lower-bound-for--45dce1453393",
+        "https://arxiv.org/pdf/0811.1705",
+        "https://arxiv.org/pdf/1305.1648"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published curvature-capped projection study uses an upper curvature bound, not the nonnegative-convexity cone.",
+          "Published variation-ball projector uses an entirely different feasible set.",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-five-point-nonlocal-instability-and-a-persistent-lower-bound-for--45dce1453393"
+        ],
+        "reasoning": "An all-parameter sup-coordinate gain or a variation-ball/curvature-cap gain cannot be specialized to sharp adjacent variation sensitivity of Euclidean projection onto a convex cone. The all-n lower bound here follows from a different, explicitly realized face.",
+        "searches": [
+          "convex least squares projector cone of convex sequences total variation between adjacent differences sharp finite coefficients independent active faces",
+          "curvature capped projection variation amplification 16/7 convex nonnegative curvature cone"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Facewise projector H_A is standard, but the adjacent first-difference seminorm and its unit-step operator norm constitute a separate invariant.",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-five-point-nonlocal-instability-and-a-persistent-lower-bound-for--45dce1453393"
+        ],
+        "reasoning": "Same convexity cone is the second-difference nonnegative cone; aliases include shape-restricted regression and discrete convex least squares. The older same-cone result uses coordinate sup norm. Such an operator norm is not equivalent to the exact adjacent variation norm and cannot determine these coefficients.",
+        "searches": [
+          "convex regression projection adjacent bounded variation sharp Lipschitz constant",
+          "convex least squares projector cone of convex sequences total variation between adjacent differences sharp finite coefficients independent active faces"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent active-face calculations yielded the submitted exact nine size coefficients.",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-five-point-nonlocal-instability-and-a-persistent-lower-bound-for--45dce1453393"
+        ],
+        "reasoning": "Targeted Resultary comparisons locate different seminorm or feasible-set sharp tables but not the sharp BV coefficient array for the same cone. An unsuccessful search is not proof of universal priority.",
+        "searches": [
+          "convex least squares projector cone of convex sequences total variation between adjacent differences sharp finite coefficients independent active faces",
+          "convex regression adjacent variation facewise maxima 6/5 28/19 5/3"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: compared the exact mathematical claim and implications against same-object primary literature and published result records. Previously known model definitions, finite-face methods, cone inequalities, or alternate-parameter/loss theorems are credited. The cited prior statements do not imply the submitted exact additional invariant. This is not a certification of comprehensive historical priority.",
+      "residual_risks": [
+        "Relevant alternative norm and curvature-cap results have similar words but different metrics/feasible sets; full historical priority cannot be certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes shape-restricted spline least squares and cone/face mathematics, not an inspected sharp two-input adjacent variation norm table",
+          "evidence": "Meyer 2008 arXiv:0811.1705: spline projection/shape constraints versus submitted max_A max_k V(H_A s_k)",
+          "identifier_or_url": "https://arxiv.org/pdf/0811.1705",
+          "material_read": "PDF title/abstract, introductory formulation and face-projection discussion; not whole document or all appendices",
+          "method": "arXiv open-access primary PDF and page screenshot plus textual mathematical comparison",
+          "title": "Inference using Shape-Restricted Regression Splines",
+          "trigger": "Primary cone-projection shape-regression theory with same feasible curvature structure"
+        },
+        {
+          "assessment": "Provides statistical risk/adaptation in Euclidean loss, no inspected sharp adjacent-variation two-input theorem",
+          "evidence": "Guntuboyina–Sen 2013, arXiv:1305.1648, risk formulation",
+          "identifier_or_url": "https://arxiv.org/pdf/1305.1648",
+          "material_read": "Introduction, risk and estimator statements and PDF initial page; not complete appendix",
+          "method": "arXiv open-access primary paper",
+          "title": "Global risk bounds and adaptation in univariate convex regression",
+          "trigger": "Same convex-sequence Euclidean least squares; possible dominating stability theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/four-point-onset-and-asymptotic-near-doubling-of-variation-sensi--a125b58f7e4e/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-five-point-nonlocal-instability-and-a-persistent-lower-bound-for--45dce1453393",
+        "https://arxiv.org/pdf/0811.1705",
+        "https://arxiv.org/pdf/1305.1648"
+      ],
+      "rationale": "The natural sharp two-input path-total-variation stability modulus of convex-sequence least-squares fitting is not the standard Euclidean nonexpansivity constant; an unexpected four-observation threshold and explicit dimension-uniform near-doubling construction make a meaningful shape-constrained regression stability invariant. Exact small-size values and the even/odd all-size lower bound have nontrivial content independent of unproved asymptotic optimality.",
+      "residual_risks": [
+        "Exact C_n undetermined above ten, no proof of a universal upper bound two or limiting constant."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Sharp adjacent-total-variation modulus of equal-weight convex-sequence projection, first nine coefficients and all-dimensional near-two lower bound",
+  "limitations": [
+    "Exact C_n undetermined above ten, no proof of a universal upper bound two or limiting constant.",
+    "Relevant alternative norm and curvature-cap results have similar words but different metrics/feasible sets; full historical priority cannot be certified."
+  ],
+  "schema_version": 1
+}
