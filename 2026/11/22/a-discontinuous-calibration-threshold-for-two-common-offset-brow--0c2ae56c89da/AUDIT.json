@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Gaussian projection after transforming to B_s+Z and independent increment B_t-B_s yields the exact two-sensor objective. The t-optimization is globally unique for each s<1; the first-time derivative has exactly two strictly ordered critical roots for positive eta and the rational threshold function has one global maximum. At eta=0 the reduced derivative has the unique root 2/5; at the critical variance precisely two designs tie. SymPy verified the exact derivative and threshold identities, and 7000 independent direct matrix-design checks passed. Limits and singular s=eta=0 are treated directly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Attia–Constantinescu full-text Introduction, Sections 2–4: general correlated-observation Bayesian OED equations, gradients and numerical advection–diffusion sensor placements; no two-time Brownian path-integral classification.",
+        "The standard weighted likelihood is expressed through inverse error covariance; the common-only error covariance is singular, requiring the independent-increment reduction in the present proof."
+      ],
+      "reasoning": "A general covariance formula and optimization framework encompass the possibility of posing related Gaussian design questions, but neither directly state nor imply the sharp threshold without solving this particular singular-correlated measurement problem. No stronger exact result with a parameter range dominating all common-offset variances was found.",
+      "searches": [
+        "arXiv:2007.14476",
+        "optimal sampling of Brownian path integral with two measurements corrupted by common additive Gaussian error covariance rank one",
+        "Optimal Experimental Design for Inverse Problems in the Presence of Observation Correlations"
+      ]
+    },
+    "checked_sources": [
+      "https://www.academia.edu/58479186/Optimal_Measurement_Times_for_Observing_a_Brownian_Motion_over_a_Finite_Period_Using_a_Kalman_Filter",
+      "https://arxiv.org/abs/1902.06126",
+      "https://www.academia.edu/73256681/Optimal_Experimental_Design_for_Inverse_Problems_in_the_Presence_of_Observation_Correlations",
+      "https://web.cels.anl.gov/~aattia/Files/Slides/SIAM_CSE_21/Attia_OED_SIAM-CSE21.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The η=0 noiseless optimizer (2/5,4/5) is an elementary special case and is explicitly excluded from the new contribution.",
+        "The target and observation model differ from Aksenov’s Kalman state-reconstruction objective; correlated-noise OED is formulated generically by Attia–Constantinescu without the closed-form theorem.",
+        "The whole positive η interval, exact threshold and two-design coexistence are necessary parts of the claimed result."
+      ],
+      "reasoning": "A theorem for η=0 does not imply the positive-noise phase diagram. A theorem minimizing time-averaged error of B_t does not dominate the risk for integral J. General posterior-covariance algebra requires new optimization and boundary analysis for the singular common offset and therefore does not by itself cover the present sharp statement.",
+      "searches": [
+        "Aksenov optimal Brownian Kalman two measurements mean estimator variance",
+        "Attia Constantinescu correlated observation A optimality path integral",
+        "two point Brownian Wiener Bayesian quadrature noiseless optimal sampling"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Aksenov et al. 2017: Kalman posterior state uncertainty aggregated across time, with separate per-measure variance, rather than estimation risk for a single integral with common offset.",
+        "Aksenov et al. 2019 abstract: one/two Kalman measurement times with average state variance; full text not obtained.",
+        "No retrieved exact formula for the noise variance (7 sqrt(105)-69)/64 in a Brownian integral design."
+      ],
+      "reasoning": "The observation covariance here has rank-one error and the goal is one linear functional. State-trajectory average variance is a distinct trace of posterior covariance, and independent measurement errors do not cancel in increments. Formal conditioning can be similar without logical equivalence of optimization statements.",
+      "searches": [
+        "two measurement brownian motion integration common offset error optimal times phase transition",
+        "Brownian motion integral best sampling times two observations Gaussian shared bias quadrature",
+        "arXiv:1902.06126"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published exponential-covariance quadrature result gives optimal noiseless sampling nodes and stratification penalty, not the shared-noise phase transition.",
+        "A search for the exact critical numerical variance and symbolic threshold retrieved no source that tabulates the common-offset Brownian integral optimum."
+      ],
+      "reasoning": "The exact algebraic threshold and its discontinuity were compared against returned mathematical statements and accessible claim summaries, not merely paper titles. Search nonretrieval alone does not prove the statement is unpublished.",
+      "searches": [
+        "sensor placement Brownian integral calibration sensor at zero versus two interior locations common bias critical variance 0.04263524",
+        "correlated observation noise Brownian Bayesian quadrature optimal nodes first-order jump two sensors",
+        "published results for noiseless exponential-covariance Bayesian quadrature"
+      ]
+    },
+    "rationale": "The new claim is the exact two-measure Brownian integral Bayes-risk design under a perfectly shared random calibration offset, including an algebraic nonzero threshold and first-order jump to a zero-time calibration measurement. Generic correlated-noise OED and independent-noise Kalman trajectory reconstruction do not contain an established covering analytic phase classification; the noiseless boundary is not claimed new. The most relevant unavailable 2019 full text creates residual historical-priority risk.",
+    "residual_risks": [
+      "The full 2019 two-measure Brownian Kalman paper was not accessible; historical coverage might be more extensive than its abstract suggests.",
+      "Some pre-2017 or unindexed literature on singularly correlated errors and Brownian quadrature could be equivalent.",
+      "Generic posterior formulas do not establish publication priority or mathematical novelty on their own."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIFFERENT_TARGET_AND_NOISE_MODEL",
+        "evidence": "Their cost integrates filtering-state posterior variance through time and treats measurement-specific independent noise variances; no path-integral common-offset phase diagram.",
+        "identifier_or_url": "https://www.academia.edu/58479186/Optimal_Measurement_Times_for_Observing_a_Brownian_Motion_over_a_Finite_Period_Using_a_Kalman_Filter",
+        "material_read": "Full textual paper extract including Sections 1–5 and main optimal one-measurement formula",
+        "method": "Read accessible HTML text of the 2017 paper including state equation, objective and conclusion",
+        "title": "Optimal Measurement Times for Observing a Brownian Motion over a Finite Period Using a Kalman Filter",
+        "trigger": "Same Brownian process and optimization of measurement times"
+      },
+      {
+        "assessment": "GENERAL_FRAMEWORK_NO_EXACT_CLASSIFICATION",
+        "evidence": "Correlated likelihood OED gradient framework and numerical PDE sensor-placement experiments; not closed-form Brownian integral with rank-one shared calibration error.",
+        "identifier_or_url": "https://www.academia.edu/73256681/Optimal_Experimental_Design_for_Inverse_Problems_in_the_Presence_of_Observation_Correlations",
+        "material_read": "Full HTML paper text, especially problem setup, Sections 2–4, correlated weighting and numerical test section",
+        "method": "Read primary-text transcription and identified scope, Gaussian posterior equations and experimental objectives",
+        "title": "Optimal Experimental Design for Inverse Problems in the Presence of Observation Correlations",
+        "trigger": "Strong general correlated-error Bayesian design possible dominating coverage"
+      },
+      {
+        "assessment": "SUPPORTS_MOTIVATION_NOT_COVERING",
+        "evidence": "General OED with correlated measurements and numerical advection–diffusion example; no calibration-versus-quadrature algebraic threshold.",
+        "identifier_or_url": "https://web.cels.anl.gov/~aattia/Files/Slides/SIAM_CSE_21/Attia_OED_SIAM-CSE21.pdf",
+        "material_read": "Slides discussing model, goal operator, correlated design weights and PDE experiments",
+        "method": "Examined rendered PDF page and slide text including Bayesian posterior and correlated-space-time design",
+        "title": "Optimal Experimental Design for Sensor Placement and Acquisition of Highly-Correlated Data",
+        "trigger": "Independent accessible scientific presentation of correlated-error method"
+      },
+      {
+        "assessment": "PLAUSIBLE_HISTORICAL_OVERLAP_UNRESOLVED",
+        "evidence": "Abstract states Brownian Kalman filter mean state-estimator variance with one/two measures; common offset or path-integral loss not mentioned, but full body not inspected.",
+        "identifier_or_url": "https://arxiv.org/abs/1902.06126",
+        "material_read": "Bibliographic metadata and abstract only; full arXiv PDF and lawful alternate full-text access attempts failed",
+        "method": "Read source abstract and searched for lawful full text, without inferring an entire paper comparison",
+        "title": "Optimal Measurement Times for a Small Number of Measures of a Brownian Motion over a Finite Period",
+        "trigger": "Potential exact two-measure Brownian timing theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0c2ae56c-89da-4ac1-b354-81b5c5e9da64",
+  "value": {
+    "rationale": "Exact shared sensor bias is a motivated correlated-error model and produces a counterintuitive discontinuous resource-allocation choice: retain two interior path samples at low bias, but sacrifice the earliest sample to calibrate a fixed systematic offset beyond the algebraic threshold, leaving an irreducible risk plateau. This is a complete natural 2-point design over the full noise-variance parameter, not a known-table lookup or arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
