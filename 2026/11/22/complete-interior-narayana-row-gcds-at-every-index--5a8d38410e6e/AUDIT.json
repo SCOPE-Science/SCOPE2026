@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For each q, Lucas gives a specific interior coefficient pair that is q-unit if neither n nor n−1 is a q-power. If n=q^a, the identity nu_q C(q^a,j)=a−nu_q(j) makes the minimum exactly 1. If n−1=q^b, Lucas isolates four q-unit binomial positions and forces a minimum min(2,b) except for (q,b)=(2,1),(2,2), with boundary or q^(b−1) witnesses. The proof covers n>=3 and all q; no infinite claim is inferred from tests. Actual packaged verify.py recomputes rows 3..600 and 5210 local minima through n=700 using a separate factorial-valuation algorithm; all passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-exact-valuation-polynomials-and-a-geometric-limit-for-dilated-na--bde71f25e69e — full RESULT.md gives all p-adic valuations for n=mp^r, p dividing n, but no all-prime gcd at arbitrary n.",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-universal-row-content-of-strong-divisibility-binomial-arrays--8c34899e8bac — full RESULT.md concerns generalized binomial rows B_U(n,k), whereas Narayana entries are products of adjacent ordinary binomials divided by n."
+      ],
+      "reasoning": "The dilated-row valuation formula subsumes one local prime-dividing-n calculation; it does not imply the q∤n prime-power-predecessor factor or the universal cross-prime classification. The strong-divisibility-binomial gcd theorem concerns a different row statistic; the required Narayana product is not a generalized binomial row covered by its hypotheses.",
+      "searches": [
+        "gcd of interior Narayana numbers N(n,k) 2<=k<=n-1 exact prime power row content",
+        "arithmetic peak counts noncrossing partitions common divisor all interior columns n prime-power or n-1 prime power",
+        "prime-power valuation profile Narayana rows multiplier p^r",
+        "strong divisibility binomial arrays interior gcd lcm increment"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/math/0505382v1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-common-divisors-of-interior-narayana-counts-in-prime-rows--6ee2efd0166c",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-exact-valuation-polynomials-and-a-geometric-limit-for-dilated-na--bde71f25e69e",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-universal-row-content-of-strong-divisibility-binomial-arrays--8c34899e8bac",
+      "https://luschny.de/math/oeis/Narayana.html",
+      "https://dlmf.nist.gov/26.6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-common-divisors-of-interior-narayana-counts-in-prime-rows--6ee2efd0166c — formula G(p)=p times a binary factor for odd prime p, explicitly excluding composites.",
+        "https://arxiv.org/html/math/0505382v1 — Corollary 2.2 establishes p divides interior row when n=p^a, but not exact exponent at any prime nor complete gcd."
+      ],
+      "reasoning": "Restricting the present formula to odd-prime n yields the published Fermat-prime result (p=3 has no 2-factor, p=5 has 2p, and larger Fermat primes have 4p). The converse implication fails by domain: no odd-prime-only theorem states G(10)=9, G(28)=9, or the full n=q^b+1 family. Individual nondivisibility checks fix possible prime support but not higher gcd exponents.",
+      "searches": [
+        "Narayana row gcd for arbitrary composite indices n−1 prime powers 2-adic exceptions n=3,5,9,17",
+        "For every n, greatest common divisor of interior Narayana numbers equals a prime if n is prime power times q, q^2 if n−1 is prime power; exact gcd full classification",
+        "\"Narayana\" \"row gcd\" \"prime\"",
+        "On divisibility of Narayana numbers by primes Bóna Sagan 2005",
+        "Narayana prime-index row gcd Fermat primes exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/math/0505382v1 — Theorem 1.2 characterizes q-nondivisibility of individual entries, not simultaneous gcd exponents.",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-common-divisors-of-interior-narayana-counts-in-prime-rows--6ee2efd0166c — complete prime-row RESULT.md inspected; its domain is odd prime indices, not composite rows."
+      ],
+      "reasoning": "The local reformulation nu_q(G(n)) as the minimum over all interior k is exactly equivalent to the global gcd statement. The known row-prime theorem and prime-nondivisibility criterion do not imply the sharp exponent at a prime-power predecessor without the new valuation comparison and extremal binomial witnesses.",
+      "searches": [
+        "gcd of interior Narayana numbers N(n,k) 2<=k<=n-1 exact prime power row content",
+        "For every n, greatest common divisor of interior Narayana numbers equals a prime if n is prime power times q, q^2 if n−1 is prime power; exact gcd full classification",
+        "gcd of Narayana numbers without first and last entries row gcd formula",
+        "\"Narayana\" \"gcd\" \"prime power\" \"n-1\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://luschny.de/math/oeis/Narayana.html — search-indexed finite RowGcd table of small values, matching examples, no published all-index formula present in accessible excerpt.",
+        "https://dlmf.nist.gov/26.6 — Narayana entry table, not an all-index gcd theorem."
+      ],
+      "reasoning": "Finite tables demonstrate some known values, including composite indices; those entries do not entail the exact arbitrary-n prime-support criterion and q-adic exponents. The full RowGcd webpage was not accessible during the read attempt, a recorded residual historical-priority risk.",
+      "searches": [
+        "\"Narayana\" \"row gcd\" \"prime\"",
+        "\"Narayana triangle\" \"greatest common divisor\" rows",
+        "\"3, 6, 10, 5, 7, 14, 12, 9, 11\" Narayana gcd"
+      ]
+    },
+    "rationale": "The May 2005 Bóna–Sagan full text determines individual prime divisibility and a prime-power row divisibility statement, not the integer gcd for every n. A published exact gcd result was read in full but assumes odd prime n; the present proof strictly contains it and determines infinitely many composite n cases, including n=q^b+1. A full all-index predecessor was not located in targeted semantic/primary searches, though finite indexing and search cannot certify priority.",
+    "residual_risks": [
+      "Finite and index-based searches cannot establish absolute novelty; a presently unlocated closed formula or a routine corollary in broader combinatorial number theory could cover the result.",
+      "The full Narayana RowGcd table webpage timed out; only its search-visible initial sequence was checked.",
+      "A more general exact valuation formula for all primes and arbitrary n, if published elsewhere, could imply the gcd statement even without naming it."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTING_NOT_COVERING_ALL_INDEX_GCD",
+        "evidence": "Theorem 1.2 gives digit conditions for q∤N(n,k). Corollary 2.2 gives q|N(q^a,k) in interior positions. No exact all-index content factorization is stated.",
+        "identifier_or_url": "https://arxiv.org/html/math/0505382v1",
+        "material_read": "Complete HTML sections 1–3, Theorem 1.2, Corollaries 2.1–2.2, comments and references.",
+        "method": "Opened article full text, compared its hypotheses and individual-entry divisibility claims to the new gcd identity.",
+        "title": "On divisibility of Narayana numbers by primes",
+        "trigger": "Original prime-divisibility theorem and earliest archival source, primary MSC 11B50."
+      },
+      {
+        "assessment": "STRICTLY_SPECIAL_CASE",
+        "evidence": "It requires n odd prime and explicitly excludes composite indices; its Fermat-prime rule is recovered by the new all-index formula.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-common-divisors-of-interior-narayana-counts-in-prime-rows--6ee2efd0166c",
+        "material_read": "Complete RESULT.md (~6.7 kB): theorem, prime-row proof, scope, references, limitations.",
+        "method": "Read original file via public repository contents and compared statements including all boundary cases.",
+        "title": "Exact common divisors of interior Narayana counts in prime rows",
+        "trigger": "Closest directly overlapping theorem, same gcd object and binary exceptional factors."
+      },
+      {
+        "assessment": "PARTIAL_LOCAL_OVERLAP_NOT_GLOBAL_COVERAGE",
+        "evidence": "It computes valuations at the dilating prime p for n=mp^r; no cross-prime gcd characterization or predecessor prime-power branch.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-exact-valuation-polynomials-and-a-geometric-limit-for-dilated-na--bde71f25e69e",
+        "material_read": "Full RESULT.md (~9.35 kB): valuation polynomial and proof for rows mp^r.",
+        "method": "Read primary theorem and proof and checked quantifiers p|n, entire valuation spectrum versus q∤n gcd.",
+        "title": "Exact valuation polynomials and a geometric limit for dilated Narayana rows",
+        "trigger": "Potential stronger valuation result might imply the new prime-power content."
+      },
+      {
+        "assessment": "DIFFERENT_OBJECT",
+        "evidence": "Its B_U(n,k) is a generalized binomial from one strong-divisibility sequence, not the Narayana product divided by n.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-universal-row-content-of-strong-divisibility-binomial-arrays--8c34899e8bac",
+        "material_read": "Full RESULT.md (~9.4 kB): exact generalized-binomial row theorem and proof.",
+        "method": "Compared array definition with product of adjacent ordinary binomials defining Narayana rows.",
+        "title": "Universal row content of strong-divisibility binomial arrays",
+        "trigger": "Possible general theorem dominating integer row gcds."
+      },
+      {
+        "assessment": "FINITE_VALUES_ONLY_INSPECTED",
+        "evidence": "Table includes initial interior row-gcd values, but accessible material did not state an all-n closed factorization.",
+        "identifier_or_url": "https://luschny.de/math/oeis/Narayana.html",
+        "material_read": "Search-exposed RowGcd data values; direct full-page retrieval timed out.",
+        "method": "Compared indexed initial values 3,6,10,5,7,14,12,9 with the direct gcd checker and theorem.",
+        "title": "Narayana RowGcd finite sequence display",
+        "trigger": "Check whether exact integers or formulas were already tabulated."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5a8d3841-0e6e-4ac3-871f-bb256d32e9ee",
+  "value": {
+    "rationale": "A natural invariant in Dyck-path/Narayana peak enumeration is the exact common divisor of all nonendpoint peak counts. The result yields a complete uniform all-index classification and restricts all prime factors to prime powers among consecutive indices, with exact exponents, striking composite families G(q^b+1)=q^2 for most b>=2, and two sharp small binary exceptions. It strengthens a previously prime-index-only gcd theorem and is not a table recomputation or an arbitrary numerical slice; its exact sharp content can support divisibility and primitive-content questions for Narayana polynomials.",
+    "status": "PASS"
+  }
+}
