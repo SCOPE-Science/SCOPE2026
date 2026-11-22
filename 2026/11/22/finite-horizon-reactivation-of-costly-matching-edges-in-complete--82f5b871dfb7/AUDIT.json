@@ -1,0 +1,162 @@
+{
+  "correctness": {
+    "rationale": "For all even n>=4, B>0, r>1, t>0, trace-exp is strictly convex in every independent edge conductance because its symmetric matrix Hessian is positive in every nonzero direction and edge weights determine the Laplacian. Symmetry gives the exact two-class unrestricted optimizer, the pair-antisymmetric and pair-constant eigenspaces give the complete spectrum, and the strictly convex scalar derivative proves the exact b*=0 price-time boundary and interior formula including r=2 and t=T*. Direct algebra yields the diffusive limiting ratio. A standalone verifier passed 17,202 finite checks, corroborating but not replacing this proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://www-leland.stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf: general convex symmetric spectral graph optimization and averaging, but no matched-complete finite-time heat-trace classification.",
+        "https://stanford.edu/~boyd/papers/pdf/fmmp.pdf: continuous-time spectral-gap formulation, examples paths and cycles, not finite-time all-mode loss.",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-a-single-pair-versus-multi-pair-price-threshold-for-spectral-gap--c0a7ce2499f8/RESULT.md: arbitrary matching cardinality, but gap rather than heat-trace objective.",
+        "The priced-star heat-trace activation theorem treats a different graph geometry and does not imply permanent deletion above a price-two boundary."
+      ],
+      "reasoning": "The general graph-convexity framework provides an optimization method rather than an evaluated closed-form full-spectrum solution for these parameters. A stronger parameter domain for spectral gap does not dominate an objective over the full spectrum. Price-star reactivation does not imply the price-two complete-graph barrier because its Laplacian eigenspaces and connectivity differ.",
+      "searches": [
+        "published-finding corpus: thermal spectral graph design matching-priced complete graph convex heat kernel optimization and transition",
+        "published-finding corpus: continuous time diffusion thermal trace matching edge price and optimal activation price two, exponential",
+        "published-finding corpus: weighted graph Laplacian heat trace minimum with fixed conductance budget symmetric graphs edge pricing",
+        "web: graph heat trace minimization under edge weight budget exponential Laplacian control"
+      ]
+    },
+    "checked_sources": [
+      "https://stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+      "https://www-leland.stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-the-price-two-rigidity-transition-and-full-optimizer-faces-for-m--2e1277c4e435/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/13/SCOPE-a-sharp-matching-price-transition-in-resistance-optimized-comple--cf3b1355b128/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-a-single-pair-versus-multi-pair-price-threshold-for-spectral-gap--c0a7ce2499f8/RESULT.md",
+      "Published spectral-gap comparators 2026/11/2/SCOPE-exact-spectral-gap-price-transition-and-all-optimal-allocations--efaad5dd81d4 and 2026/10/13/SCOPE-a-discontinuous-matching-price-frontier-for-fastest-mixing-on-ba--ab43d87936fe (different complete-bipartite geometry; ranked hits only)",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-sharp-worst-pair-resistance-design-for-complete-graphs-with-pric--78a63c5af6f2/RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-the-price-two-rigidity-transition-and-full-optimizer-faces-for-m--2e1277c4e435/RESULT.md: at \\(1<r<2\\) the unique spectral-gap optimum has equal weights, but new heat-trace optimum deletes the matched edges until a positive threshold.",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/10/13/SCOPE-a-sharp-matching-price-transition-in-resistance-optimized-comple--cf3b1355b128/RESULT.md: priced perfect-matching A-optimal deletion boundary is \\(n^2/(n^2-2n+2)\\), whereas new finite-time objective has boundary \\(r=2\\) and a separate horizon threshold.",
+        "https://stanford.edu/~boyd/papers/pdf/fmmp.pdf: maximum asymptotic mixing rate is a distinct loss functional from \\(\\operatorname{tr}e^{-tL}\\).",
+        "The published matched-complete resistance-diameter theorem finds equal conductances for a premium-price interval below two; those rates are not finite-time heat-trace optimal at short horizons."
+      ],
+      "reasoning": "For fixed \\(1<r<2\\), prior gap optimality recommends equal edge rates at all network sizes. The current optimizer instead has matched rates zero for \\(t\\le T_*\\), and positive but strictly lower than ordinary rates for every finite \\(t>T_*\\). These explicit contradictions to endpoint prescriptions prove that prior optimizer formulas cannot directly imply the entire finite-time answer. At \\(r\\ge2\\), prior gap maximizers can have nonuniform faces, whereas strict heat-trace convexity selects one optimizer.",
+      "searches": [
+        "published-finding corpus: finite-time heat trace diffusion weighted complete graphs with a priced perfect matching, optimal conductance budget, edge deletion or activation",
+        "published-finding corpus: continuous time diffusion thermal trace matching edge price and optimal activation price two, exponential",
+        "web: \"trace\" \"exp\" \"Laplacian\" \"weight\" \"optimization\" \"graph\" fixed budget"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The eigenvalue trace sums both pair-antisymmetric and pair-constant modes, with multiplicities m and m-1; the observation-time parameter does not appear in earlier spectral-gap objectives.",
+        "published-finding corpus hit 2026/10/18/SCOPE-the-price-two-rigidity-transition-and-full-optimizer-faces-for-m--2e1277c4e435: exact lambda_2 optimizer faces, not trace exponential.",
+        "published-finding corpus hit 2026/11/2/SCOPE-a-single-pair-versus-multi-pair-price-threshold-for-spectral-gap--c0a7ce2499f8: more general matching size but only lambda_2.",
+        "The exact inverse-trace matched-complete graph theorem has a different threshold depending on n, and integrates rather than determines finite-time heat objectives."
+      ],
+      "reasoning": "Trace heat can be viewed as aggregate mean-square diffusion on the centered subspace; this aliases transient consensus error, thermal trace, partition function and Laplacian exponential trace. A spectral-gap maximum does not imply a minimum of the sum of all decay modes at each finite time: in the identified active regime the unique heat optimum is nonuniform even though the spectral-gap optimum is uniform. The fixed graph and full cost budget distinguish this from leader placement or grounded heat traces.",
+      "searches": [
+        "published-finding corpus: finite-time heat trace diffusion weighted complete graphs with a priced perfect matching, optimal conductance budget, edge deletion or activation",
+        "published-finding corpus: matched complete network priced matching finite horizon trace exponential Laplacian heat trace optimal edge allocation",
+        "web: weighted graph Laplacian heat trace optimal edge weights finite time fixed trace convex conductance budget",
+        "web: heat trace optimization weighted complete graph matching edges conductance budget price"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus IDs: 2026/10/18/SCOPE-the-price-two-rigidity-transition-and-full-optimizer-faces-for-m--2e1277c4e435; 2026/10/13/SCOPE-a-sharp-matching-price-transition-in-resistance-optimized-comple--cf3b1355b128; 2026/11/2/SCOPE-a-single-pair-versus-multi-pair-price-threshold-for-spectral-gap--c0a7ce2499f8.",
+        "Published priced-star heat trace, cocktail-party grounded heat trace, matched-biclique inverse-moment and single-priced-edge resistance results treat different objects or objectives.",
+        "No exact database/table entry showing the full \\(t,r,n,B\\) conductance allocation was found in actual searches."
+      ],
+      "reasoning": "Matching deletion fixed-topology spectra are shared input data, but neither an exact value table nor the examined published-finding corpus theorem contains the finite-time optimizing conductance ratios. A failed search alone is not a novelty proof; this finding is based on statement-level comparisons with full texts.",
+      "searches": [
+        "published-finding corpus: matched complete network priced matching finite horizon trace exponential Laplacian heat trace optimal edge allocation",
+        "published-finding corpus: transient conductance edge deletion complete cocktail party heat trace budget",
+        "web: \"heat trace\" \"perfect matching\" weighted complete graph optimization",
+        "published-finding corpus: unique global finite-time heat-trace conductance minimizer on complete graph with expensive perfect matching: matching edges zero until t=n(n-2)/(4B) log(r/(2-r)), permanent deletion if r at least two",
+        "published-finding corpus: priced perfect matching complete graph Laplacian trace exponential optimization cost-constrained time threshold diffusive scaling"
+      ]
+    },
+    "rationale": "Whole-spectrum finite-horizon price-time activation and macroscopic scaling are not implications of the exact prior spectral-gap optimizer faces, matched-graph resistance formulas, or general convexity/symmetry theory. This judgment is qualified by possibility of an unindexed equivalent finite-horizon result. The closest prior whole-heat-trace result on a priced star is on a different graph and has no permanent price-two deletion regime.",
+    "residual_risks": [
+      "Potential unindexed equivalent theorem on finite-horizon optimal matching-edge conductances in complete graphs.",
+      "Some search hits offer summaries rather than full texts, not relied upon to rule out coverage.",
+      "No independent external publication-priority review has been completed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes spectral-gap framework and motivating diffusion dynamics, but finite-horizon whole-spectrum heat-trace minimization and matching-price classification are not among stated results/examples.",
+        "evidence": [
+          "DOI 10.1137/S0036144504443821; electronic publication 2006-11-02; objective is maximize lambda_2 under positive linear costs.",
+          "Sections 3 and 5 focus on SDP, examples, paths and cycles."
+        ],
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Full primary PDF text inspected, including abstract, problem/price framework, convexity formulation, and Examples Section 5 on small graphs, paths and cycles (pages 1–17).",
+        "method": "Read the author-hosted primary PDF; examined the price formulation, duality, examples, and source text for matched-complete-network claims.",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Foundational 2006 continuous-time Laplacian budget optimization with relative edge costs."
+      },
+      {
+        "assessment": "Covers generalized convexity/symmetry principles, not an explicit price-time classification for a marked matching and heat trace.",
+        "evidence": [
+          "ICM 2006 3:1311–1319, Section 7 symmetry reduction and Sections 2–6 individual spectral objectives."
+        ],
+        "identifier_or_url": "https://www-leland.stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf",
+        "material_read": "Nine-page primary PDF text, including definition of symmetric convex spectral losses, examples, and symmetry section.",
+        "method": "Read the primary full PDF and visually inspected pages covering convexity and symmetry.",
+        "title": "Convex Optimization of Graph Laplacian Eigenvalues",
+        "trigger": "Potential general convex spectral theorem that could subsume the specific design."
+      },
+      {
+        "assessment": "Strong same-network antecedent: proves spectral gap and full optimal faces, but its equal-weight recommendation below r=2 is different from finite-time optimal weights.",
+        "evidence": [
+          "For r<2 its unique spectral-gap optimizer has identical weights on all edges; for r>2 its optimizer can form a positive-dimensional face."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-the-price-two-rigidity-transition-and-full-optimizer-faces-for-m--2e1277c4e435/RESULT.md",
+        "material_read": "Full RESULT.md, all spectral formulas, proof, dimensions and limitations.",
+        "method": "Read the publicly available complete primary text and compared both two-mode eigenvalues and optimizer implications.",
+        "title": "The price-two rigidity transition and full optimizer faces for matched complete networks",
+        "trigger": "Same graph, same cost geometry, price-two cutoff; most direct possible domination risk."
+      },
+      {
+        "assessment": "Exact prior inverse-trace result but does not give pointwise heat-trace minimization; its premium price cutoff tends to 1 rather than fixed value 2.",
+        "evidence": [
+          "The inverse-trace deletion cutoff is n^2/(n^2-2n+2) and is distinct from finite-time activation."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/13/SCOPE-a-sharp-matching-price-transition-in-resistance-optimized-comple--cf3b1355b128/RESULT.md",
+        "material_read": "Full RESULT.md, spectrum, convexity, threshold, finite-size limits and references.",
+        "method": "Read the publicly available complete primary text; compared objective, eigenvalue multiplicities, cost thresholds.",
+        "title": "A sharp matching-price transition in resistance-optimized complete networks",
+        "trigger": "Same graph and budget with an inverse whole-spectrum objective; could imply heat-trace result via integral transform."
+      },
+      {
+        "assessment": "Only optimizes the smallest positive Laplacian eigenvalue; full-spectrum finite-time values and a time-triggered activation threshold are not furnished.",
+        "evidence": [
+          "For matchings of cardinality at least two the gap cutoff is r=2, but no positive finite-time boundary t is part of the theorem."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-a-single-pair-versus-multi-pair-price-threshold-for-spectral-gap--c0a7ce2499f8/RESULT.md",
+        "material_read": "Full RESULT.md including all-cardinality theorem, dual certificate, deletion regimes and limitations.",
+        "method": "Read the publicly available complete primary text and compared the theorem statement and its dual implications.",
+        "title": "A single-pair versus multi-pair price threshold for spectral-gap design of complete graphs",
+        "trigger": "More general matching cardinality and same complete-graph cost geometry."
+      },
+      {
+        "assessment": "Optimizes the maximum pair resistance, not finite-time heat-trace loss; the price-two support endpoint does not determine a positive observation-time threshold or a diffusive scaling law.",
+        "evidence": [
+          "Its symmetric solution uses equal edge weights throughout a nontrivial premium-price interval below two, while the finite-time heat-trace solution deletes premium edges until its horizon threshold."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-sharp-worst-pair-resistance-design-for-complete-graphs-with-pric--78a63c5af6f2/RESULT.md",
+        "material_read": "Complete theorem, full proof, exact resistance spectral formulas, threshold analysis and limitations.",
+        "method": "Read the publicly available complete primary text and compared objective, boundary and optimizer implications.",
+        "title": "Sharp worst-pair resistance design for complete graphs with priced matching links",
+        "trigger": "Same complete graph and matching-price class, with another minimax objective and a price-two support boundary."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "82f5b871-dfb7-419d-8fad-f2db57aabb24",
+  "value": {
+    "rationale": "The problem is a natural finite-horizon diffusion resource-allocation design on a complete network with a protected matching of costly links. It yields an exact network-size-dependent activation horizon, a universal price-two permanent-disconnection boundary, and a nontrivial macroscopic positive-part ratio law. It directly distinguishes finite-time whole-spectrum design from preexisting slowest-mode and stationary inverse-trace designs, and strict convexity selects a unique finite-time design even when prior gap problems admit optimizer faces.",
+    "status": "PASS"
+  }
+}
