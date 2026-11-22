@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "For every support with at most n−2 cells, inclusion-exclusion over negative cells reduces the signed trace count to sums of signs over completions of at most n−2 fixed assignments, each annihilated by a sign-reversing transposition of two unassigned images. A one-factorization leaves at least two valid completions for every matching positive trace and hence one of each parity. At n−1 cells only the full inclusion-exclusion term can survive: for a near-perfect matching it is the unique completion sign times (−1) raised to the number of negative answers. Each adaptive leaf of depth n−1 has signed mass at most one, with at most 2^(n−1) leaves; a fixed near-perfect matching attains this exact bound and gives TV 2^(n−1)/n!. Nonmatching supports cannot be shattered, and for n−1 disjoint cells one parity fails the all-positive trace while the other fails a single-negative trace. A positive query branch reduces to a parity coset on n−1 rows, giving Ldim=n−2 by induction. Both finite enumerators replayed successfully through n=6, and a separate minimax tree verifier passed n=2,3,4; these calculations are corroboration, not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bucić–Devlin–Hendon–Horne–Lund arxiv:1906.05908 studies perfect-matching/derangement intersections and counting, not signed counts of arbitrary Boolean assignment traces.",
+        "Published 2026/11/8/SCOPE-exact-online-ranks-for-permutation-assignments-avoiding-a-matchi--bbd7533ba4ae gives exact Littlestone ranks for deleting a matching of forbidden cells, not retaining only one parity coset.",
+        "Ghazi et al arxiv:2007.03668v1 gives general Littlestone closure estimates, not equality or sharp signed transcript TV on permutation matrices."
+      ],
+      "reasoning": "None of the cited stronger-looking statements concerns the same restriction and query model; removing forbidden board edges and selecting sign cosets have distinct implications. All-permutation incidence claims may bound parity-class shattering from above, but do not establish the exact parity boundary and statistical leakage.",
+      "searches": [
+        "published-finding corpus: parity constrained perfect matchings of complete bipartite graph Boolean shattering support",
+        "published-finding corpus: exact alternating group permutation edge-membership shattering polynomial chessboard complex",
+        "Primary arxiv:1906.05908 full text",
+        "Primary arxiv:2007.03668 closure bounds"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1806.00949v1",
+      "arxiv:1906.05908v1",
+      "arxiv:2007.03668v1",
+      "arxiv:2112.01946v1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-perfect-matching-trace-universality-and-the-shattering-polynomia--d84d57a040aa",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-online-ranks-for-permutation-assignments-avoiding-a-matchi--bbd7533ba4ae",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-parity-refined-comparison-shattering-of-even-permutations--824e5263ec2a",
+      "https://www.theoryofcomputing.org/articles/v009a015/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The nearest published edge-membership theorem on derangements has VC dimension n−2 but different concept family and Ldim n−1 for n≥5.",
+        "The complete-bipartite matching-deletion online rank theorem has Ldim n−1 at n≥5, not n−2.",
+        "The parity-comparison paper uses comparisons between elements in a permutation word, not assignment positions."
+      ],
+      "reasoning": "The assessed statement is not implied by these because all three restrict different hypothesis sets or use different query types. The classical alternating-group transitivity is acknowledged as covering the low-order parity-blindness component, so the claim of original content rests on the first-leakage signed formula, sharp adaptive TV optimum and full combined structural learning classification.",
+      "searches": [
+        "published-finding corpus: Littlestone dimension even permutation matrices n minus 2",
+        "Published full published-finding corpus 2026/11/8/SCOPE-perfect-matching-trace-universality-and-the-shattering-polynomia--d84d57a040aa",
+        "Published full published-finding corpus 2026/11/8/SCOPE-exact-online-ranks-for-permutation-assignments-avoiding-a-matchi--bbd7533ba4ae",
+        "Primary arxiv:2112.01946v2 HTML (definitions and main statements)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A_n is classically (n−2)-transitive, hence this lower-order parity invisibility is not separately new.",
+        "Johnson–Wickes arxiv:2112.01946v1 studies order-pattern shattering of selected symbols, not Boolean membership of row-image cells.",
+        "Published 2026/11/2/SCOPE-parity-refined-comparison-shattering-of-even-permutations--824e5263ec2a concerns pair-comparison queries and not assignment-cell queries."
+      ],
+      "reasoning": "Relative-order comparisons are not interdefinable with a bounded number of fixed row-image equalities; the first signed imbalance of an arbitrary partial assignment is a different invariant. General alternating-group transitivity predicts equal distributions before n−1, but not the exact cellwise signed imbalance for all traces at n−1 or adaptive testing optimality without further reasoning.",
+      "searches": [
+        "published-finding corpus: even permutations alternating group permutation matrix shattering VC dimension Littlestone dimension",
+        "published-finding corpus: parity of perfect matchings VC dimensions alternating permutation group assignment incidence",
+        "Web: permutation parity testing query random permutation entry equality n-1 total variation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published 2026/11/8/SCOPE-perfect-matching-trace-universality-and-the-shattering-polynomia--d84d57a040aa determines rook matching supports of the diagonal-deleted board with unrestricted sign.",
+        "published-finding corpus entry 2026/11/16/SCOPE-exact-walsh-cancellation-and-optimal-recovery-for-the-five-lette--b86983a249f4 computes Walsh spectral cancellations for the A_5 incidence codebook, not adaptive statistical transcript TV at the n−1 boundary.",
+        "A recoverable prior finite six-symbol even-derangement finding uses a strict subfamily with diagonal deletions, not all alternating permutations for every order."
+      ],
+      "reasoning": "Rook-number tables for n×n chessboards give the matching-count coefficient but do not imply which parity-specific trace families survive or the optimal signed adaptive transcript distance. No exact signed-boundary table or theorem was identified by these actual searches.",
+      "searches": [
+        "published-finding corpus: even permutation fixed-point-free edge membership shattering six symbols",
+        "published-finding corpus: parity indistinguishability of permutation matrices under fewer than n minus one incidence queries",
+        "published-finding corpus: exact alternating group permutation edge-membership shattering polynomial chessboard complex"
+      ]
+    },
+    "rationale": "Actual published records and primary mathematical statements were compared for direct implication. Classical (n−2)-transitivity already supplies parity blindness for low-order injective data, and that classical implication is expressly excluded from the claimed new contribution. The distinctive exact signed trace formula at n−1 observations and its globally optimal, possibly adaptive total-variation experiment, along with full support classification and precise online rank, are not implied by the identified derangement, matching-deletion, or parity-comparison results. This is a qualified best-knowledge PASS, not uniqueness certification.",
+    "residual_risks": [
+      "Historical priority may exist under alternating-group partial injection, designs, parity-query decision trees, or equality-testing terminology not returned by sampled searches.",
+      "The simple low-order parity-blindness itself is classical, so original contribution is explicitly restricted to the sharp signed boundary, optimal adaptive TV, and the combined classification.",
+      "Finite code tests through n=6 do not certify the unrestricted quantification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Counts/intersections of matchings, not an alternating-sign restricted Boolean assignment query experiment",
+        "evidence": "No result on all partial row-image equality patterns separated by permutation sign in inspected main text.",
+        "identifier_or_url": "https://arxiv.org/abs/1906.05908",
+        "material_read": "Accessible primary full-text introduction, principal results and proof discussion",
+        "method": "arXiv lawful open-access HTML reading",
+        "title": "Perfect matchings and derangements on graphs",
+        "trigger": "Potential perfect-matching signed-count implication"
+      },
+      {
+        "assessment": "Order patterns of selected symbols, not cellwise binary membership; no direct covering implication",
+        "evidence": "Shattering defined by relative orders, not arbitrary 0/1 labels on row-image tests.",
+        "identifier_or_url": "https://arxiv.org/abs/2112.01946",
+        "material_read": "Accessible HTML main definitions and mathematical statements through subsequent sections",
+        "method": "arXiv lawful open-access HTML reading",
+        "title": "Shattering k-sets with Permutations",
+        "trigger": "Same words permutation shattering; potential definitional equivalence"
+      },
+      {
+        "assessment": "General theory; not exact alternating-group assignment trace bounds",
+        "evidence": "No specific permutation-cell sign restrictions in stated general theorem.",
+        "identifier_or_url": "https://arxiv.org/abs/1806.00949",
+        "material_read": "Abstract and relevant general statement",
+        "method": "arXiv abstract and linked literature context",
+        "title": "Private PAC learning implies finite Littlestone dimension",
+        "trigger": "Learning-theoretic foundational source dated 2018"
+      },
+      {
+        "assessment": "General closure dimension bounds; no exact parity-filtered assignment result",
+        "evidence": "No signed trace counting or likelihood test for parity of a permutation.",
+        "identifier_or_url": "https://arxiv.org/abs/2007.03668",
+        "material_read": "Accessible HTML abstract and main stated closure results",
+        "method": "arXiv HTML inspection",
+        "title": "Near-tight closure bounds for Littlestone and threshold dimensions",
+        "trigger": "Potentially broader online-dimension implications"
+      },
+      {
+        "assessment": "Derangements forbid diagonal cells, do not impose sign parity; independent trace-count result",
+        "evidence": "The classification is for diagonal-deleted board with all derangements and not even/odd full permutations.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-perfect-matching-trace-universality-and-the-shattering-polynomia--d84d57a040aa",
+        "material_read": "Complete published RESULT.md including definitions, proof, limits and references",
+        "method": "Public GitHub repository file read",
+        "title": "Perfect-matching trace universality and the shattering polynomial of derangements",
+        "trigger": "Matching supports and trace universality might subsume current result"
+      },
+      {
+        "assessment": "Deleting a forbidden matching is different from a sign coset; n≥5 online rank differs",
+        "evidence": "Their derangement Ldim is n−1 whereas the current even-permutation class has n−2.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-online-ranks-for-permutation-assignments-avoiding-a-matchi--bbd7533ba4ae",
+        "material_read": "Complete published RESULT.md including its six proof steps",
+        "method": "Public GitHub repository file read",
+        "title": "Exact online ranks for permutation assignments avoiding a matching",
+        "trigger": "Possible stronger online implication"
+      },
+      {
+        "assessment": "Pairwise position comparisons differ from binary assignment-cell queries; no implication",
+        "evidence": "Spanning-path obstruction is for oriented comparison graphs, not chessboard matchings.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-parity-refined-comparison-shattering-of-even-permutations--824e5263ec2a",
+        "material_read": "Complete published RESULT.md including proof and comparison-query definitions",
+        "method": "Public GitHub repository file read",
+        "title": "Parity-refined comparison shattering of even permutations",
+        "trigger": "Same parity family but potentially dual query model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "aa8ae022-a14b-46c0-9fe4-62b778d6c19a",
+  "value": {
+    "rationale": "Parity restriction is a canonical statistical and combinatorial constraint on permutation assignments. The first-observable-depth problem asks precisely when a sequence of membership observations can distinguish the two equally numerous sign cosets, and how much information survives optimally with adaptive testing. The exact signed boundary law gives the complete optimal TV and Bayes risk, not merely textbook (n−2)-transitivity; the same theorem identifies the full VC shattering complex and online dimension and contrasts a different, previously studied matching-deletion restriction. Both the all-order information threshold and its tight adaptive constant have mathematical motivation independent of the finite verifiers.",
+    "status": "PASS"
+  }
+}
