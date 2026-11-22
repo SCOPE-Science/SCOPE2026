@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a finite-state Markov-additive theorem, not an inference from trajectory-density experiments. Geodesic right-triangle trigonometry gives the explicit hyperbolic and spherical polar-angle jumps, including correct quadrant choices. Two positive Feres return loops have phase difference \(\Delta_{\pm,r}(\theta)\); flat and extreme-radius limits prove this difference is a nonconstant analytic function. Countable rational level sets then exclude all unit-modulus Fourier-twisted eigenvalues, by a fully stated finite irreducible Markov-chain equality argument. Trigonometric approximation establishes weak Haar convergence. The original Feres probability law uses the normalized function \(u_\beta(v)=\tfrac12(1+\tan\beta/\tan v)\) [Vales--Pinto-de-Carvalho, arXiv:2005.01892, Section 3]. Finite numerical tests confirm representative stochastic matrices and phase gaps but are not used to establish the theorem for all parameters.
+## correctness
 
-## Originality — PASS within inspected evidence
-The closest inspected results are Vales's 2022/2024 constant-curvature circular billiards paper (arXiv:2212.00872, Sections 3–6), concerning global mixing, Liouville-initial-state convergence, and pathwise density, and Vales--Pinto-de-Carvalho's Euclidean paper (arXiv:2005.01892, Sections 3, 5–6). An earlier directly related planar point-source classification characterizes irrational initial angles; it does not extend to nonzero curvature or show spatial convergence for fixed rational angles. The new result has different hypotheses and conclusion: rational reflection parameter and point starting state, with a countable exceptional set of **curvature radii** and weak one-time spatial convergence, including rational incoming angles. Relevant database and literature phrase searches did not disclose an equivalent published statement; this is not a claim of exhaustive literature coverage.
+PASS
 
-## Mathematical value — PASS
-A fixed rational initial angle in the flat billiard is trapped in a finite spatial rotation subgroup, whereas generic positive or negative curvature destroys that obstruction without changing the finite, non-mixing angular class. The result isolates a concrete geometric control parameter for statistical equidistribution and supplies a constructive resonance test and modewise exponential decay; it is not simply the global mixing theorem applied to a different metric. It separates point-source spatial behavior from global mixing and density and holds uniformly in the sense of quantification over every interior incoming angle, subject to an explicitly countable exceptional-radius set.
+For integer N≥7, 0<θ<α=π/N and the stated curved geodesic-disk radii, reconstructed the signed constant-curvature chord identity Γ_{-,r}(v)=2atan2(sin v,cosh(r)cos v), Γ_{+,r}(v)=2atan2(sin v,cos(r)cos v), correct quadrant and flat Γ=2v. Verified both positive two-step return loops v=2α−θ→4α−θ→v and v→2α+θ→v from the actual Feres probabilities; their Δ jump is strictly positive. At r=0 Δ=4(α−θ); at spherical r→π/2 Δ→0; at hyperbolic r→∞ Δ→0,π,2π as a=4α−θ is below/equal/above π/2. Since 0<Δ(0)<4π/7<π, both radius functions are nonconstant analytic, so each rational level set is discrete and the union countable. At any fixed admissible radius, Δ decreases strictly with θ, so the angle-resonance set is also countable. Finite irreducible angular chain and maximum-modulus triangle rigidity of twisted Fourier matrix K_k(x,y)=P(x,y)e^{ikΓ(y)} force e^{ikΔ}=1 if ρ(K_k)=1; outside resonance this is impossible for any k≠0, giving modewise exponential decay and weak Haar via trigonometric approximation. Euclidean rational-θ/π increments remain in a finite subgroup translate. Independently recomputed finite chains, positive loops, stochastic rows and 2,560 representative Fourier eigenvalues (maximum observed modulus 0.9994626093913185<1); finite tests alone do not establish infinitely many modes or generic irrationality.
 
-## Closest literature and remaining limits
-The curvature paper already supplies the Feres model, invariant Liouville measure and finite angular classes; these are not claimed as new. The planar point-source result supplies a related Fourier method but its arithmetic obstruction is opposite for rational incoming angles. The sets of excluded radii may be overinclusive; possible cancellation among other loops was not classified. No total-variation, global mixing, or parameter-uniform exponential convergence is claimed. Unindexed derivations and later papers may require independent priority review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: comparison with the complete closest primary curved Feres article, original planar model and general Feres framework, together with three full published same-system results and two Resultary searches, did not show a theorem implying point-source one-time weak spatial Haar convergence for rational α/π and arbitrary fixed θ outside a countable set of nonzero-curvature radii. Existing angular and planar Fourier results provide inputs but not the curvature-specific nonconstant two-loop return phase; negative searches are not proof of priority.
+
+## value
+
+PASS
+
+For the natural random Feres billiard on geodesic disks, the result pinpoints a mathematically surprising sharp qualitative contrast: a rational outgoing angle is spatially locked in a Euclidean disk but gains point-source weak spatial equidistribution at all but countably many curved radii in both constant-curvature signs, despite a finite nonmixing angular component. The nontrivial curvature-dependent geometric return-loop mechanism and all-mode nonlattice implication supply a useful exact boundary between spatial statistics and full-system mixing. It is motivated rather than a routine restatement of invariant-start mixing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

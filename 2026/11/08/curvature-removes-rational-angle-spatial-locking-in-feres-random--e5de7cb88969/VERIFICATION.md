@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-19.md",
+      "INDEPENDENT_AUDIT_2026-11-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The finite-state argument uses an irreducible stochastic matrix, so the spectral-radius bound follows from equality in the triangle inequality along two different positive return loops. The needed loop probabilities were checked directly against the normalized branch probabilities in the 2020/2022 originating papers. The spherical and hyperbolic jump formulas were independently derived from the right-triangle laws, with quadrant choice fixed by the positive boundary orientation. Their extreme-radius limits were compared with the Euclidean limit \(\Gamma_{0,r}(v)=2v\), proving that the return-phase difference cannot be constant on either admissible radius interval.
+## correctness
 
-The embedded script `check_curved_billiards.py` was run with Python, NumPy and standard-library `math`: **966 supporting finite checks passed**. It constructs angle classes and transition matrices for \(N=7,8,9,10,11,13\), three interior incoming-angle ratios and both curvature signs, confirms Markov row sums and positive two-step loops, checks the radius-zero angular formula, and estimates spectral radii of representative nonzero Fourier twists. Such calculations do not certify the irrationality of a phase at any given numerical radius; the theorem excludes a countable analytically defined set instead.
+PASS
 
-The law at each finite time is a finite atomic measure, so total-variation convergence to Haar is false. The proof yields a separate exponential estimate for each fixed nonzero Fourier mode and weak convergence after Fourier approximation, not a uniform rate over modes. The exceptional resonance sets are sufficient exclusions, not an exact classification of bad radii. Independent audit has not been performed.
+For integer N≥7, 0<θ<α=π/N and the stated curved geodesic-disk radii, reconstructed the signed constant-curvature chord identity Γ_{-,r}(v)=2atan2(sin v,cosh(r)cos v), Γ_{+,r}(v)=2atan2(sin v,cos(r)cos v), correct quadrant and flat Γ=2v. Verified both positive two-step return loops v=2α−θ→4α−θ→v and v→2α+θ→v from the actual Feres probabilities; their Δ jump is strictly positive. At r=0 Δ=4(α−θ); at spherical r→π/2 Δ→0; at hyperbolic r→∞ Δ→0,π,2π as a=4α−θ is below/equal/above π/2. Since 0<Δ(0)<4π/7<π, both radius functions are nonconstant analytic, so each rational level set is discrete and the union countable. At any fixed admissible radius, Δ decreases strictly with θ, so the angle-resonance set is also countable. Finite irreducible angular chain and maximum-modulus triangle rigidity of twisted Fourier matrix K_k(x,y)=P(x,y)e^{ikΓ(y)} force e^{ikΔ}=1 if ρ(K_k)=1; outside resonance this is impossible for any k≠0, giving modewise exponential decay and weak Haar via trigonometric approximation. Euclidean rational-θ/π increments remain in a finite subgroup translate. Independently recomputed finite chains, positive loops, stochastic rows and 2,560 representative Fourier eigenvalues (maximum observed modulus 0.9994626093913185<1); finite tests alone do not establish infinitely many modes or generic irrationality.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality: comparison with the complete closest primary curved Feres article, original planar model and general Feres framework, together with three full published same-system results and two Resultary searches, did not show a theorem implying point-source one-time weak spatial Haar convergence for rational α/π and arbitrary fixed θ outside a countable set of nonzero-curvature radii. Existing angular and planar Fourier results provide inputs but not the curvature-specific nonconstant two-loop return phase; negative searches are not proof of priority.
+
+## value
+
+PASS
+
+For the natural random Feres billiard on geodesic disks, the result pinpoints a mathematically surprising sharp qualitative contrast: a rational outgoing angle is spatially locked in a Euclidean disk but gains point-source weak spatial equidistribution at all but countably many curved radii in both constant-curvature signs, despite a finite nonmixing angular component. The nontrivial curvature-dependent geometric return-loop mechanism and all-mode nonlattice implication supply a useful exact boundary between spatial statistics and full-system mixing. It is motivated rather than a routine restatement of invariant-start mixing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
