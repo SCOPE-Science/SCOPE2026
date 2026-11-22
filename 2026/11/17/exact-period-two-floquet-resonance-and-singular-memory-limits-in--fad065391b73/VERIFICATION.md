@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` alongside `RESULT.md`. Python standard library only. The checker evaluates the original GL recurrence and the full four-phase linearized GL recurrence at the claimed root on 24 finite order/memory pairs; independently verifies the quadratic determinant changes sign across the root; checks the classical endpoint; and evaluates the predicted large-memory coefficient on nine combinations. A successful run prints `VERIFY_OK four_phase_cases=24 asymptotic_orders=3 memory_lengths=3 endpoint_q1=1`.
+## correctness
 
-The analytical argument proves for every \(0<q\le1\), integer \(M\ge2\), that exactly one primitive two-cycle negative-unit Floquet resonance exists above its birth parameter. The asymptotic limit and \(M^{-q}\) correction are proved for each fixed \(0<q<1\). Numerical checks do not certify any infinitely quantified statement.
+PASS
 
-The result does not claim a generic period-four branch, all multipliers inside the unit disk, or an exact periodic orbit of an infinite-memory map. Independent validation has not been performed.
+The period-two phase equations give u=(r-1+tM)/(2r), (2rv)²=(r-1+tM)(r-r1). A 4-antiperiodic Floquet mode at two-step multiplier -1 obeys the explicit 2x2 determinant, yielding (r-1+tM)(r-r1)=|tM+iP_M(-i)|²>0. The LHS is strictly increasing for r>r1, proving uniqueness. Gamma ratio and alternating root-of-unity tails yield sM=M^{-q}/Gamma(1-q)+O(M^{-q-1}) and tM,P_M(-i) errors O(M^{-q-1}); expansion gives the stated Rq+AqM^{-q}+O(M^{-2q}); fixed-M q->0 versus M->infinity constants differ. Independently solved q=.5,M=3: resonance 3.6207731640774234, substituted original two-phase recurrence and all four antiperiodic variational equations with residual <1e-11. Resonance alone does not imply generic period four branching.
+
+## originality
+
+PASS
+
+Dong et al. 2026 give a general exact implicit period-2 Floquet system and numerical r2 tables, with first fixed point exact. The separately published companion census proves 2-cycle birth and local stability only. Neither inspected full text asserts this explicit all-M radical, its sharp coefficient, or noncommuting memory/order limits. The related Bouzeraa paper remains abstract-only. Best-of-knowledge PASS with explicit residual risk.
+
+## value
+
+PASS
+
+Solving an implicit all-M Floquet system in a closed radical and exposing noncommuting singular limits is a motivated spectral and asymptotic result for a natural finite-memory family, not a decorative numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
