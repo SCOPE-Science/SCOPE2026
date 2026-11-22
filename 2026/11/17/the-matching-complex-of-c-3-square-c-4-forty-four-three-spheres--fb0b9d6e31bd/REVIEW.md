@@ -1,11 +1,21 @@
-# Scientific comparison and verification
+# Independent mathematical audit
 
-**Correctness — PASS.** The standalone enumerator reconstructs all 2764 matching faces, including the empty face, on the explicitly specified twenty-four graph edges. The 1358 matched pairs have unit incidences and are disjoint, and a complete orientation/topological sort certifies acyclicity on all 2763 nonempty faces. The unique Morse four-cell has a seven-entry primitive integer boundary against forty-five three-cells; the wedge of forty-four three-spheres follows from Hurewicz and the integral attaching degrees. Independent mod-two ranks on the original chain complex corroborate the Betti number without being used as an integral torsion argument. All forty-eight signed Lefschetz sums agree with independent orbit-conflict independence-polynomial evaluations, and rational character decomposition has nonnegative integer multiplicities summing to forty-four. Risk: computational transcription is mitigated by complete executable generation, independent formulations and exact arithmetic, but independently verified mathematical certification has not occurred.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest recent source, Chauhan–Sharma–Shukla, arXiv:2609.27366v1 (2026-09-23), defines its graphs as products of two *paths* on pages 1–2 and treats only rectangular path strips, with its nine-generator three-dimensional homology table on page 22. Neither that graph, theorem, nor its listed table is the twelve-vertex 4-regular periodic \(C_3\square C_4\), and it provides no row/column character of the latter. Nearby published computations concern rectangular grids, perfect-matching subcomplexes, or neighborhood complexes; matching terminology does not identify their objects. The relevant 2005 unpublished grid manuscript was not materially inspected and could conceivably contain an implicit overlapping computation. No external search alone establishes uniqueness, and full literature saturation is not claimed.
+PASS
 
-**Value — PASS.** This is the smallest Cartesian product of unequal simple cycle lengths, a natural periodic counterpart to the much-studied rectangular three-row grids. The integral homotopy type, complete forty-eight-element symmetry character and one-dimensional invariant quotient are precise and non-implied topological data. Distinguishing the periodic graph from the rectangular \(3\times4\) grid explains the otherwise striking change from 9 to 44 third-homology generators. The character allows further study of equivariant cells and periodic matching spaces; no such future theorem is asserted here.
+The frozen graph is K3 Cartesian C4 with 12 vertices, 24 edges. An independent edge-mask matching enumeration counted 2764 faces including empty and f=(24,204,748,1149,588,50). Rebuilding the stated pivot matching gives 1358 pairs, one critical vertex, 45 critical three-cells and one critical four-cell. Independently constructed oriented Hasse graph is acyclic on all 2763 nonempty faces and 10488 incidences. Exact signed integer Morse projection gives seven distinct ±1 coefficients (-1,+1,-1,-1,-1,-1,+1) on masks 0x90102,0x94002,0x210500,0x404410,0x408401,0x40c010,0x480101; its primitive attaching map kills one of 45 S3 generators yielding wedge 44 S3. Independent GF2 chain ranks (23,181,567,538,50) match. Evaluating all 48 S3 x D4 edge permutations via signed invariant simplices reproduces every of 15 character classes and rational invariant dimensions 1 (full),4 (rotation subgroup). No equivariant wedge or integral quotient classification is inferred.
 
-The result is restricted to one toroidal product and rational symmetry quotients. The executable code uses only the Python standard library and reproduces the complete certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS. The published 3x4 grid classification is P3 Cartesian P4, not C3 Cartesian C4; boundary wrap and triangle close both directions, changing edge count, homotopy ranks and the automorphism representation. Published dihedral character tables for rectangular matching grids, perfect matching complexes or total-cut complexes concern different graphs or functors. No verified stronger all-toroidal-grid result implying the full rational character found; Jonsson 2005 unpublished grid manuscript remains unread.
+
+## value
+
+PASS
+
+A complete exact integral homotopy type plus full rational row-column character for the first naturally periodic three-by-four toroidal matching complex is a concrete natural object and invariant: it distinguishes periodic boundary conditions from rectangular grid results and resolves genuine quotient homology not derivable from Betti ranks alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
