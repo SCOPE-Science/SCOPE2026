@@ -1,0 +1,15 @@
+# Scientific review: signed Fano triple-interaction Ising cluster
+
+## Correctness — PASS
+The statement is for all \(J>0\), \(\lambda\in\mathbb R\), \(h\ge0\), and seven spins on precisely the seven lines of the Fano plane. Its sixteen-entry joint signature census follows from the Steiner incidence equations and the classification of three- and four-point subsets. Every positive-field minimizer is among five explicitly stated affine functions; the remaining sixth maximal-magnetization signature is dominated by one of two listed competitors over the entire field axis. The zero-field coupling crossing, degeneracies, and the partition function follow directly from the census. An independent pair of exhaustive finite calculations in `verify_fano.py` agrees on all \(128\) states, with rational boundary and parameter checks. No infinite-size statement is inferred.
+
+## Originality — PASS on examined evidence; historical priority remains provisional
+Published background covers higher-order Ising interactions, general incidence-matroid partition-function methods, and different regular lattices. The 2026 higher-order-spin framework supplies general tools, but the examined primary text does not evaluate this signed Fano design in a uniform field or imply the five concrete affine branches without an instance-specific computation. The 2018 exact triplet lattice model is a mixed-spin infinite centered-square geometry rather than the Fano Steiner design. The 1974 field/triplet article treats particular two-dimensional lattice systems according to its primary abstract; complete text was unavailable. A 2026 quantum-dot Fano Hamiltonian has different onsite/hopping interactions and only its abstract was accessible. The specific equality of energy signatures, ground-state degeneracies, and sharp \(\lambda=-2\) threshold was not located in examined material. Search failure alone is not novelty proof; full-text access gaps and unindexed equivalents remain risks.
+
+## Mathematical value — PASS
+The Fano plane is the unique smallest Steiner triple system and a canonical test case for parity-Ising hypergraph models. The claim goes beyond a bare brute-force count: it proves a structural two-extra-violation cost for a sign-defective triple, a sharp coupling/frustration boundary with a thirty-two-fold degeneracy, and a complete signed-coupling/uniform-field ground-state classification. The exact finite-temperature partition function supplies a compact reproducible benchmark for multi-spin equilibrium calculations. The contribution is finite, not a claimed macroscopic phase transition.
+
+## Scope and residual risks
+Full text of one early field-triplet source and a recent Fano quantum-network preprint was not accessible; their available descriptions indicate different Hamiltonians, but unseen details could affect priority. The general hypergraph parity-Ising framework could generate this example after additional evaluation, so the distinction is the explicit model-specific classification, not a new general method. There is no independent scientific audit.
+
+Self-review: passed. Independent audit: not yet performed.
