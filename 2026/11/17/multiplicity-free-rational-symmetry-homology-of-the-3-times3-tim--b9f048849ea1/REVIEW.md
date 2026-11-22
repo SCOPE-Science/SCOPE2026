@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite theorem is fully supported by a replayable exhaustive certificate: 36 vertices, 30,992 augmented simplices, 15,448 matched Hasse pairs, 178,704 directed covers, a complete acyclic topological ordering, and exactly 96 critical three-cells. Two independent exact Lefschetz procedures (signed invariant faces and cycle-orbit alternating enumeration) produce identical 45 rational homology character values. Irreducible inner products are integer sums divided by the verified 1,728-element group order; all 45 multiplicities are zero or one, exactly fourteen are one, and dimension sum equals 96. The proof gives the oriented-chain signs and group conventions. This proves a **finite** rational equivariant statement; numerical experiments on small subsets or floating-point ranks are not used.
+## correctness
 
-## Originality — PASS, with residual risk
-The full results of the closest published 36-point mixed-box homotopy calculation and the uniform-ternary 22-class character calculation were inspected. The former computes a 96-three-sphere wedge but explicitly excludes equivariant representations; the latter concerns \([3]^3\), a 27-point object with a distinct 1,296-element symmetry group. Complete binary-hypercube representation theorems likewise do not imply the mixed 36-point module. Targeted published-finding corpus and primary-source searches found no equivalent 45-class mixed-box character. An unindexed equivalent computation or overlooked appendix remains a genuine priority risk; absence from search alone would not prove novelty.
+PASS
 
-## Mathematical value — PASS
-The natural full symmetry action on a previously studied, geometrically meaningful finite Rips complex was not specified by its nonequivariant 96-sphere classification. The complete multiplicity-free decomposition supplies substantially more structure than ranks, answers which top homology classes descend to the full quotient, and gives a reproducible 45-class representation test case for mixed Hamming metrics. Neither an arbitrary parameter slice nor a relabeling of the symmetric ternary calculation yields the result.
+At Hamming threshold two, compatible triple subsets of A=[3]x[3]x[4] are exactly independent sets in the categorical graph product K3 x K3 x K4. Fresh independent full 36-vertex clique enumeration gives augmented f-vector (1,36,414,2028,4869,6804,6816,5184,3042,1324,396,72,6), 30992 faces. An exact greedy vertex matching has 15448 pairs including empty face and 96 critical 4-vertex simplices, with full Hasse acyclicity; hence X ≃ wedge 96 S3. For each of nine S3 wr S2 and five S4 conjugacy classes, signed invariant-face Lefschetz trace or equivalent orbit-cycle alternating independent set sum gives all 45 claimed character entries independently. Character orthogonality and dimensions yield fourteen inequivalent constituents once each, sum dimension 96; trivial absent, so rational finite-group quotient homology vanishes by transfer. This finite enumerative proof is exhaustive only for [3]x[3]x[4], not general products.
 
-## Boundaries
-Only rational equivariant homology at inclusive Rips radius two is determined. No integral torsion statement for the quotient, equivariant homotopy splitting, arbitrary alphabets or independence from unindexed publications is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The nonequivariant X≃wedge^96 S3 and barcode were expressly established in 2026-10-25 and 2026-11-08 Resultary publications, so are **known prerequisites**. The earlier exact same-box papers expressly omit equivariant homology representations. The known full-group 22-class 3x3x3 character and 2x4x4 symmetry results concern different vertex sets and different groups; their irreps do not transfer to the mixed 3x3x4 module. Binary hypercube representation theorems and categorical products with K2 factor also do not imply the mixed 45-class character. New complete representation and rational quotient acyclicity pass best-of-knowledge.
+
+## value
+
+PASS
+
+The natural 1728-element symmetry of the smallest unequal all-nonbinary triple Hamming box acts nontrivially on a previously known 96-sphere homology group. Resolving the entire 45-class representation multiplicity-free and its quotient invariant obstruction is a substantive finite equivariant invariant not fixed by homotopy type or Euler characteristic; exact classification can serve as a benchmark for general mixed-box symmetry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

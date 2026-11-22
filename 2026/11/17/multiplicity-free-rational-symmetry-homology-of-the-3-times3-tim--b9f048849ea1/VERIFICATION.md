@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Exact verification instructions and limitations
 
-Run `python3 verify_equivariant_334.py` in a Python 3 standard-library environment. The checker reconstructs all \(30,992\) augmented faces and \(178,704\) cover incidences, verifies an acyclic matching leaving \(96\) four-vertex critical faces, computes the rational Lefschetz character on all \(9\times5=45\) conjugacy classes in two independent integer combinatorial ways, and performs exact 45 irreducible-character inner products. The run completed successfully and printed:
+# Independent mathematical audit
 
-```
-MORSE {'faces_including_empty': 30992, 'matching_pairs': 15448, 'critical_faces_of_size_four': 96, 'directed_covers': 178704, 'acyclic': True}
-CHARACTER_ROWS [[96, 14, 4, 0, 4], [0, 6, 12, 0, 0], [6, 2, -2, 0, -2], [12, 2, 0, 0, 0], [0, 0, 0, 0, 0], [-3, -1, 1, 0, 1], [-30, -4, -2, 0, -2], [0, -2, -4, 0, 0], [-3, -1, 1, 0, 1]]
-VERIFIED_FULL_334_SYMMETRY_CHARACTER
-```
+## correctness
 
-The Python executable uses only exact integer and bitset operations for the mathematical checks. No other data file, external resource, cached intermediate calculation or private path is required. Finite exhaustive verification concerns only this precise 36-point complex. Quotient rational acyclicity uses the standard finite-group rational transfer argument; the program does **not** calculate integral homology of the orbit quotient. No independent external audit has been performed.
+PASS
+
+At Hamming threshold two, compatible triple subsets of A=[3]x[3]x[4] are exactly independent sets in the categorical graph product K3 x K3 x K4. Fresh independent full 36-vertex clique enumeration gives augmented f-vector (1,36,414,2028,4869,6804,6816,5184,3042,1324,396,72,6), 30992 faces. An exact greedy vertex matching has 15448 pairs including empty face and 96 critical 4-vertex simplices, with full Hasse acyclicity; hence X ≃ wedge 96 S3. For each of nine S3 wr S2 and five S4 conjugacy classes, signed invariant-face Lefschetz trace or equivalent orbit-cycle alternating independent set sum gives all 45 claimed character entries independently. Character orthogonality and dimensions yield fourteen inequivalent constituents once each, sum dimension 96; trivial absent, so rational finite-group quotient homology vanishes by transfer. This finite enumerative proof is exhaustive only for [3]x[3]x[4], not general products.
+
+## originality
+
+PASS
+
+The nonequivariant X≃wedge^96 S3 and barcode were expressly established in 2026-10-25 and 2026-11-08 Resultary publications, so are **known prerequisites**. The earlier exact same-box papers expressly omit equivariant homology representations. The known full-group 22-class 3x3x3 character and 2x4x4 symmetry results concern different vertex sets and different groups; their irreps do not transfer to the mixed 3x3x4 module. Binary hypercube representation theorems and categorical products with K2 factor also do not imply the mixed 45-class character. New complete representation and rational quotient acyclicity pass best-of-knowledge.
+
+## value
+
+PASS
+
+The natural 1728-element symmetry of the smallest unequal all-nonbinary triple Hamming box acts nontrivially on a previously known 96-sphere homology group. Resolving the entire 45-class representation multiplicity-free and its quotient invariant obstruction is a substantive finite equivariant invariant not fixed by homotopy type or Euler characteristic; exact classification can serve as a benchmark for general mixed-box symmetry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
