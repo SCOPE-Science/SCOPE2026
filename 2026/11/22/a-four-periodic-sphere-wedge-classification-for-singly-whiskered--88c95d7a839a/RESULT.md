@@ -1,0 +1,40 @@
+# A four-periodic sphere-wedge classification for singly whiskered cycle two-independence complexes
+
+## Finding
+For every integer \(n\ge 3\), let \(L_n\) be the undirected graph obtained from the simple cycle \(C_n\) on vertices \(0,1,\dots,n-1\) by attaching one new vertex \(\ell\) adjacent only to vertex \(0\). The two-independence complex \(\operatorname{Ind}_2(L_n)\), whose simplices are those vertex subsets inducing connected components of order at most two, has integral homotopy type
+\[
+\operatorname{Ind}_2(L_n)\simeq
+\begin{cases}
+S^{2k-1}\vee S^{2k-1},&n=4k-1\text{ or }n=4k,\
+\{\mathrm{point}\},&n=4k+1\text{ or }n=4k+2,
+\end{cases}
+\qquad(k\ge1).
+\]
+In particular, the complex is contractible in precisely the residue classes \(n\equiv1,2\pmod4\), and its reduced integral homology is torsion-free for all lengths.
+
+## Assumptions and scope
+A graph is finite, simple and undirected. The notation \(P_m\) denotes a path with \(m\) vertices, with \(P_0\) empty. A face of \(\operatorname{Ind}_2(G)\) is exactly a vertex subset not containing three vertices spanning a connected induced subgraph. Its face poset consists of nonempty faces ordered by inclusion. A partial matching pairs incident faces of consecutive dimensions; reversing the matched cover directions in the otherwise downward-oriented Hasse diagram defines acyclicity. This theorem concerns a single leaf at exactly one cycle vertex, not fully whiskered cycles or arbitrary unicyclic graphs.
+
+## Proof
+**1. An endpoint-toggle reduction for paths.** Write \(F_m=\operatorname{Ind}_2(P_m)\). Match every face \(\sigma\) not containing the initial path vertex \(0\) with \(\sigma\cup\{0\}\), whenever both faces belong to \(F_m\). This is an element matching. An unmatched face has no \(0\) and cannot acquire it: when \(m\ge3\), this is equivalent to containing both vertices \(1\) and \(2\). Because \(\{1,2,3\}\) would induce a connected triple, vertex \(3\) is excluded if present. The remaining unrestricted coordinates \(4,\dots,m-1\) have precisely the face constraints of \(F_{m-4}\). Thus for \(m\ge4\) the unmatched subposet is \(\{1,2\}\) joined with the face poset of \(F_{m-4}\); it may be matched recursively using the same endpoint rule. For the four bases \(m=0,1,2,3\), the augmented face poset has, respectively, one empty critical face, no critical faces, no critical faces, and a single critical edge \(\{1,2\}\). A critical path face therefore exists exactly for \(m\equiv0,3\pmod4\). For \(m=4q\) it contains \(2q\) vertices; for \(m=4q+3\) it contains \(2q+2\) vertices. In the other two residues there are no critical path faces. All matchings are acyclic: each stage is an element matching, and the union of successive matchings is acyclic by the standard successive-element-matching lemma, or directly because a closed gradient path cannot cross back to an earlier pivot stage.
+
+**2. Toggle the single pendant leaf.** Apply the element matching with pivot \(\ell\) on the augmented face poset of \(\operatorname{Ind}_2(L_n)\). Every leaf-containing face is paired, and a leaf-free face remains unmatched exactly when adding \(\ell\) would induce a forbidden connected triple. Since the only neighbor of \(\ell\) is \(0\), this happens precisely when the face contains vertex \(0\) and one neighbor of \(0\) on the cycle. The two cycle neighbors cannot both be present, since \(\{n-1,0,1\}\) would itself be a forbidden triple (also true for the triangle \(C_3\)). Consequently, the unmatched faces are two inclusion-incomparable families.
+
+When \(n\ge4\), in the first family vertices \(0,1\) are selected, vertices \(2,n-1\) are absent, and the remaining available coordinates \(3,\dots,n-2\) form the path \(P_{n-4}\). In the second family, vertices \(0,n-1\) are selected, vertices \(1,n-2\) are absent, and the remaining coordinates \(2,\dots,n-3\) again form \(P_{n-4}\). Each family is therefore a two-vertex shift of the face poset of \(F_{n-4}\). For \(n=3\), the two residual families are the individual edges \(\{0,1\}\) and \(\{0,2\}\), already of the desired critical dimension.
+
+**3. Apply the path matchings in each residual family.** Being disjoint and inclusion-incomparable, these two families may be matched independently after the leaf-toggle stage. The standard patching principle for acyclic matchings, or the element-matching argument above, shows the resulting matching is acyclic. The leaf-toggle stage pairs the empty face with \(\{\ell\}\). When passing to the ordinary nonempty face poset, omit this single augmented pair, making \(\{\ell\}\) the unique critical vertex. This cannot create a directed cycle: removing a matched pair incident with the minimal empty face only makes the formerly paired vertex terminal for the additional downward cover.
+
+If \(n=4k-1\) or \(n=4k\), the path calculation leaves exactly one critical face in each residual family, of cardinality \(2k\), hence dimension \(2k-1\). If \(n=4k+1\) or \(n=4k+2\), no residual critical faces survive. Thus the finite CW complex supplied by discrete Morse theory has either one vertex and two cells both of dimension \(2k-1\), or only one vertex. In the first case \(2k-1\ge1\). For dimension one the CW model is a bouquet of two circles; for higher dimensions all attaching maps land in the unique vertex and are constant. It is therefore a wedge of the stated two spheres. The second case is contractible. This proves the integral homotopy assertions for every \(n\ge3\).
+
+## Verification
+The standalone program `verify.py` independently enumerates permissible faces by minimal forbidden connected triples and checks each enumerated face by component-size breadth-first search. For every \(3\le n\le16\), it constructs a vertex-toggle matching with \(\ell\) first, removes the augmented empty-face pair, exhaustively orients every codimension-one face-poset cover, verifies the resulting digraph is acyclic by a topological sort, and checks that the critical cells comprise exactly one vertex plus two cells in the asserted positive dimension or just one vertex. `expected_output.json` records the exact output. Reproduce with `python3 verify.py` and compare stdout against `expected_output.json` (which includes its final newline). This finite replay cross-checks, but does not replace, the all-length proof above.
+
+## Relationship to prior work
+Deshpande and Singh's [DS] Theorems 3.8 and 3.10 treat fully whiskered graphs and graphs with at least one leaf at **every** non-leaf vertex, and their Theorem 4.6 computes bare cycles. None of these hypotheses contains this singly whiskered family. Their Proposition 4.3 gives the path calculation; the new step is identifying and matching the two incomparable residual path families after just one leaf is added, yielding a different cycle-length periodic classification. Sawant's [S] 2026 theorem proves vertex decomposability for higher-independence complexes of trees, not these unicyclic graphs. The result is an integral homotopy classification, not merely a face-count consequence. Search-based priority assessment cannot exclude all uncatalogued equivalent proofs.
+
+## Limitations
+The theorem applies only to \(r=2\) and exactly one leaf attached to a single cycle vertex. It does not characterize vertex decomposability or shellability, equivariant homotopy, higher independence thresholds, or multiple-leaf unicyclic graphs. Finite verification runs through \(n=16\); correctness for arbitrary lengths rests on the explicit matching argument, not extrapolation. An independently performed audit remains outstanding.
+
+## References
+- [DS] P. Deshpande and A. Singh, *Higher Independence Complexes of Graphs and Their Homotopy Types*, arXiv:2001.05448, first publicly posted 2020-01-15; see Theorems 3.8, 3.10, 4.6, Proposition 4.3 and Proposition 2.10. https://arxiv.org/abs/2001.05448
+- [S] R. Sawant, *On the Vertex Decomposability of \(r\)-Independence Complexes of Trees*, arXiv:2605.25150, first publicly posted 2026-05-24. https://arxiv.org/abs/2605.25150
