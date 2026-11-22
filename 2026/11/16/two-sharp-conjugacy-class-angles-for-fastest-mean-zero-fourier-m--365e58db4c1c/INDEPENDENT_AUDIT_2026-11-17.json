@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T11:53:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Peter-Weyl/Schur reduces norm to sup_{m>=1}|U_m(cos theta)|/(m+1). The m=1 lower bound t and m=2 lower bound |4t^2-1|/3 give >=1/4 globally with equality possible only t=1/4. At equality m=3 gives 7/32 and for m>=4 the strict bound <=4/(5 sqrt(15))<1/4 is uniform over infinite tail. Independent numerical first 1000 highest weights at both angles confirmed only m=1,2 saturate and max m>=3 equals 7/32. Selfadjointness gives power identity. Full analytic proof does not rely on numerical enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Borda Section 5.1 gives general spectral radius/Wasserstein relationship",
+          "Manack assumes adjoint simple groups, excluding SU(2)",
+          "SO3 class optimization is on different Fourier sector set"
+        ],
+        "reasoning": "None is a stronger theorem covering the SU2 fixed-class optimizer with all nontrivial representations.",
+        "searches": [
+          "https://arxiv.org/pdf/2110.00295",
+          "https://arxiv.org/pdf/1309.2750",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-the-unique-fastest-fixed-angle-isotropic-random-rotation-walk-on--2ed82d7a85cc"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2110.00295",
+        "https://arxiv.org/pdf/1309.2750",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-the-unique-fastest-fixed-angle-isotropic-random-rotation-walk-on--2ed82d7a85cc",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-two-step-total-variation-optimum-for-mathrm-su-2-conjugacy--359ba3bb3278"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At t<1/4, normalized m=2 character magnitude (1-4t^2)/3>1/4",
+          "At t>1/4, normalized m=1 magnitude t>1/4; at equal first two attain, m>=3 strict tail"
+        ],
+        "reasoning": "The sharp minimax and equality-sector exclusion require the full m spectrum; these do not follow from generic gaps or quotient-group optimization. Short elementary argument is genuinely specific.",
+        "searches": [
+          "https://arxiv.org/pdf/1309.2750",
+          "https://arxiv.org/pdf/2110.00295",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-two-step-total-variation-optimum-for-mathrm-su-2-conjugacy--359ba3bb3278"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SU(2) class convolution multiplier chi_m/(m+1), full m>=1",
+          "SO(3) covers even SU(2) highest weights only, omitting m=1 that forces the bound"
+        ],
+        "reasoning": "Character minimax is an operator-norm design problem, not fixed-angle total variation, Wasserstein bound or normalized-character range alone.",
+        "searches": [
+          "single conjugacy class SU(2) sharp normalized character sup operator norm minimax cos 1/4",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-the-unique-fastest-fixed-angle-isotropic-random-rotation-walk-on--2ed82d7a85cc",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-two-step-total-variation-optimum-for-mathrm-su-2-conjugacy--359ba3bb3278"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "TV paper explicitly calls |cos theta|=1/4 familiar L2 spectral tuning but focuses on 2-step TV",
+          "Checked related Resultary records concern SO3 distinct angle and SU2 finite-time total variation"
+        ],
+        "reasoning": "No earlier exact SU2 all-m equality-sector theorem found; the prior mention constrains originality confidence and must remain residual risk.",
+        "searches": [
+          "single conjugacy class SU(2) sharp normalized character sup operator norm minimax cos 1/4",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-two-step-total-variation-optimum-for-mathrm-su-2-conjugacy--359ba3bb3278",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-the-unique-fastest-fixed-angle-isotropic-random-rotation-walk-on--2ed82d7a85cc"
+        ]
+      },
+      "rationale": "The exact SU(2) single-class L2 minimax, complete equality sectors and every-power law were not proved in the primary sources and inspected related published SO3/TV findings. The TV finding acknowledges angle |cos|=1/4, a significant priority warning, but is not the same L2 result and does not establish the full theorem.",
+      "residual_risks": [
+        "The explicit acknowledgement of optimal tuning |cos(theta)|=1/4 in a separate same-day SU2 total-variation paper makes historical priority of the optimizer less certain; full equality-sector proof not found as prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General results assume an arbitrary walk and use its spectral radius; do not solve the single-class Chebyshev minimax problem or classify all equality sectors",
+          "evidence": [
+            "arXiv:2110.00295v2, Section 5.1"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2110.00295",
+          "material_read": "Complete accessible 28-page arXiv PDF, introduction and Section 5.1 spectral gap definitions/theorems",
+          "method": "Compared general operator spectral radius T_nu and Wasserstein estimates with sharp fixed SU(2) class choice",
+          "title": "Empirical measures and random walks on compact spaces in the quadratic Wasserstein metric",
+          "trigger": "Known mean-zero spectral radius and random walk mixing bounds for compact Lie groups"
+        },
+        {
+          "assessment": "Theorem 1.1 explicitly requires adjoint simple (centerless) G and does not apply to SU(2), nor prescribe optimal class angle",
+          "evidence": [
+            "arXiv:1309.2750v2, Theorems 1.1-1.2"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1309.2750",
+          "material_read": "Complete 14-page arXiv PDF, Theorems 1.1 and 1.2, group assumptions",
+          "method": "Read main theorem hypothesis and checked centerless restriction against SU(2) nontrivial center",
+          "title": "Character estimates of adjoint simple Lie groups",
+          "trigger": "Normalized characters might supply minimax lower bounds"
+        },
+        {
+          "assessment": "Optimizes only integer-spin/center-invariant spectrum; cannot imply SU(2) objective containing 2-dimensional spin-half sector",
+          "evidence": [
+            "Resultary 2026/11/16/SCOPE-the-unique-fastest-fixed-angle-isotropic-random-rotation-walk-on--2ed82d7a85cc"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-the-unique-fastest-fixed-angle-isotropic-random-rotation-walk-on--2ed82d7a85cc",
+          "material_read": "Full published RESULT.md, main spin character formula and minimax proof",
+          "method": "Compared representation set integer spins vs SU(2) including odd highest weight m=1",
+          "title": "The unique fastest fixed-angle isotropic random rotation walk on SO(3)",
+          "trigger": "Close fixed-class optimization on quotient group"
+        },
+        {
+          "assessment": "Mentions |cos(theta)|=1/4 as familiar L2 tuning, but does not state or prove the value 1/4 and full representation equality classification as its theorem; priority risk remains",
+          "evidence": [
+            "Resultary 2026/11/16/SCOPE-exact-two-step-total-variation-optimum-for-mathrm-su-2-conjugacy--359ba3bb3278"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-two-step-total-variation-optimum-for-mathrm-su-2-conjugacy--359ba3bb3278",
+          "material_read": "Complete published RESULT.md, scope and comparison paragraph and finite-time TV formula",
+          "method": "Compared two-step total variation with all-time mean-zero L2 operator norm minimax",
+          "title": "Exact two-step total-variation optimum for SU(2) conjugacy-class walks",
+          "trigger": "Same class family and explicit reference to L2 spectral tuning"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp optimization of an actual natural compact-group one-step mixing kernel, including all irreducible equality classes and all-step exact rate, is potentially reusable. It is a motivated exact optimization despite elementary Chebyshev bounds and no general compact-group theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2110.00295",
+    "https://arxiv.org/pdf/1309.2750",
+    "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-the-unique-fastest-fixed-angle-isotropic-random-rotation-walk-on--2ed82d7a85cc",
+    "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-two-step-total-variation-optimum-for-mathrm-su-2-conjugacy--359ba3bb3278"
+  ],
+  "disposition": "passed",
+  "final_claim": "For one fixed SU(2) conjugacy-class step, the minimal norm on mean-zero Haar L2 is 1/4, only at cos theta=+/-1/4; exactly m=1 and m=2 characters saturate, and optimal k-step contraction is 4^(-k).",
+  "limitations": [
+    "Restricted to single conjugacy class and mean-zero L2 operator norm; same-day prior literature explicitly notes angle tuning so originality not absolute priority certification."
+  ],
+  "residual_risks": [
+    "The explicit acknowledgement of optimal tuning |cos(theta)|=1/4 in a separate same-day SU2 total-variation paper makes historical priority of the optimizer less certain; full equality-sector proof not found as prior coverage."
+  ],
+  "schema_version": 1
+}

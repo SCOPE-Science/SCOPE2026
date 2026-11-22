@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytical proof reconstructs the complete \(\mathrm{SU}(2)\) Peter--Weyl Fourier multiplier sequence from the classical character formula; the first two sectors give a strict global lower bound away from the two optimal angles. At those angles the third sector is checked explicitly and the bound \(4/(5\sqrt{15})<1/4\) controls all higher representations without truncation.
+# Independent mathematical audit
 
-Running `python3 checker.py` completed 3523 supplemental assertions on angle grids, 25000 Fourier weights at each optimum, parity and five powers. These computations do not establish the theorem by themselves. The code uses Python standard library only.
+## correctness
 
-No independent mathematical assessment was performed. Full historical originality remains subject to additional external specialist review, particularly older character estimates on compact Lie groups.
+PASS
+
+Peter-Weyl/Schur reduces norm to sup_{m>=1}|U_m(cos theta)|/(m+1). The m=1 lower bound t and m=2 lower bound |4t^2-1|/3 give >=1/4 globally with equality possible only t=1/4. At equality m=3 gives 7/32 and for m>=4 the strict bound <=4/(5 sqrt(15))<1/4 is uniform over infinite tail. Independent numerical first 1000 highest weights at both angles confirmed only m=1,2 saturate and max m>=3 equals 7/32. Selfadjointness gives power identity. Full analytic proof does not rely on numerical enumeration.
+
+## originality
+
+PASS
+
+The exact SU(2) single-class L2 minimax, complete equality sectors and every-power law were not proved in the primary sources and inspected related published SO3/TV findings. The TV finding acknowledges angle |cos|=1/4, a significant priority warning, but is not the same L2 result and does not establish the full theorem.
+
+## value
+
+PASS
+
+Sharp optimization of an actual natural compact-group one-step mixing kernel, including all irreducible equality classes and all-step exact rate, is potentially reusable. It is a motivated exact optimization despite elementary Chebyshev bounds and no general compact-group theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

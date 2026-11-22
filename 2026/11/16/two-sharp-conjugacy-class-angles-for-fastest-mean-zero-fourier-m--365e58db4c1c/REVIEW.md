@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is all conjugacy-class angles in \([0,\pi]\), with the endpoints handled separately. Peter--Weyl and Schur's lemma give the exact all-weight norm formula. The explicit weights \(m=1,2\) force \(\rho\ge1/4\), strictly away from the two candidate traces. At either candidate, the weight-three value is \(7/32\), and a strict uniform character bound handles every weight at least four; no finite computation is substituted for the all-weight proof. The operator is central and self-adjoint, justifying the exact powers. Supplemental code completed 3523 tests.
+## correctness
 
-## Originality — PASS, with documented historical-priority risk
-Actual targeted research-record and literature searches compared fixed-class \(\mathrm{SU}(2)\) convolution, normalized Chebyshev-character minimax problems, trace \(\pm1/2\), and representations that dominate the operator norm. Borda's 2021 full-text Section 5.1 analyzes general group spectral gaps rather than a fixed-angle minimax. Published character-moment records are about \(L^4\)/\(L^6\) maximization, not convolution spectra. A separate rotation-group class problem omits the fundamental two-dimensional representation and has a different objective. The full-text Manack 2013 preprint assumes the adjoint/centerless condition, excluding \(\mathrm{SU}(2)\). Earlier specialized numerical or minimax classifications may nonetheless exist. No universal claim of bibliographic novelty is made.
+PASS
 
-## Mathematical value — PASS
-This is a complete and exact natural infinite-dimensional spectral design problem, not a preselected finite parameter slice. The extremal angle pair, the sharp contraction constant, the complete binding Fourier sectors and multiplicities, and the all-step optimum establish precisely how double-cover representations constrain class-step mixing. This serves as a quantitative benchmark for central random walks on \(\mathrm{SU}(2)\), with explicit limitations on broader walk classes.
+Peter-Weyl/Schur reduces norm to sup_{m>=1}|U_m(cos theta)|/(m+1). The m=1 lower bound t and m=2 lower bound |4t^2-1|/3 give >=1/4 globally with equality possible only t=1/4. At equality m=3 gives 7/32 and for m>=4 the strict bound <=4/(5 sqrt(15))<1/4 is uniform over infinite tail. Independent numerical first 1000 highest weights at both angles confirmed only m=1,2 saturate and max m>=3 equals 7/32. Selfadjointness gives power identity. Full analytic proof does not rely on numerical enumeration.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact SU(2) single-class L2 minimax, complete equality sectors and every-power law were not proved in the primary sources and inspected related published SO3/TV findings. The TV finding acknowledges angle |cos|=1/4, a significant priority warning, but is not the same L2 result and does not establish the full theorem.
+
+## value
+
+PASS
+
+Sharp optimization of an actual natural compact-group one-step mixing kernel, including all irreducible equality classes and all-step exact rate, is potentially reusable. It is a motivated exact optimization despite elementary Chebyshev bounds and no general compact-group theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
