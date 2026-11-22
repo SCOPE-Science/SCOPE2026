@@ -1,0 +1,160 @@
+{
+  "correctness": {
+    "rationale": "For each n≥3 and 2≤m<n, rank exchangeability gives J=j mass m/[j(j−1)] or censoring mass m/n, and conditional suffix ranks are uniform, proving the exact marked unsigned-Stirling law. A monotone record-exposure identity and harmonic sum prove the marginal checks. Exponential transformation of suffix record values yields a unit-rate Poisson process with threshold equal in law to the maximum of m exponentials, deriving the product of independent zero-based geometrics. The finite/infinite coupling fails only when the prefix maximum persists through n, probability m/n. Lyapunov applies to the independent geometric sum for m=o(n); for m/n→α∈(0,1), uniform conditional CLT away from blocks of length o(n) plus tail m/j gives independence of Gaussian count and censored Pareto mark. The script exhaustively checks all permutations through n=8, not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wilf (1995) and Myers–Wilf (arXiv:math/0701078v1) give record-count/Stirling and left-to-right maximum enumerations, not conditional prefix-erasure recovery times.",
+        "Naiman–Torcaso (arXiv:2210.08426v1) gives a geometric limit for one newly arriving observation, not a batch or joint marked process.",
+        "Ahsanullah et al. (doi:10.2991/jsta.2014.13.4.4) develop record-value transformation properties rather than deletion-block laws."
+      ],
+      "reasoning": "Classical independence of relative ranks and the Poisson structure of transformed record values are acknowledged as ingredients. The broadest inspected source studying destroyed records has one new observation, whereas the new claim conditions on a batch of size ≥2 and obtains a complete exact marked law, a product of m distinct geometries, and a macroscopic Gaussian count independent of a censored Pareto recovery clock. An uninspected general record-process or spacing theorem could contain a stronger equivalent statement; this remains a residual risk.",
+      "searches": [
+        "record process under deleting an observation sensitivity left-to-right maxima",
+        "random sequence records exposed after deleting first m entries asymptotically independent crossing time and normal count",
+        "For iid continuous observations deleting first m elements number of newly exposed upper records exact joint Stirling law first subsequent observation exceeding removed-prefix maximum; macroscopic m/n normal count independent Pareto censor time",
+        "linear prefix loss of iid sample record gains Gaussian on sqrt log n and independent waiting time Pareto distribution",
+        "prefix record deletion record count geometric Stirling Poisson mixing distribution-free",
+        "random records broken by a block of m future observations exact signed Stirling distribution",
+        "joint record breaking count for block of arrivals large m/n Pareto hitting clock",
+        "Naiman Torcaso 2022 A Geometric(1/2) Distribution Associated with Record Breaking",
+        "Myers Wilf 2007 left-to-right maxima multiset permutations"
+      ]
+    },
+    "checked_sources": [
+      "Wilf (1995), On the outstanding elements of permutations, public PDF",
+      "Myers and Wilf, arXiv:math/0701078v1 (2007-01-03), full HTML",
+      "Ahsanullah et al., doi:10.2991/jsta.2014.13.4.4, open PDF",
+      "Naiman and Torcaso, arXiv:2210.08426v1, full HTML",
+      "Published exact one-arrival published-finding corpus research record, full RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known m=1 exact count and TV identity is a covered boundary, explicitly removed from the claimed novelty.",
+        "Myers–Wilf provides unconditioned upper-record polynomial statistics; conditioning on a random recovery time and proving its asymptotic independence from count fluctuations are not stated therein.",
+        "The derived macroscopic marked law has a continuous density α/t² on (α,1), an atom α at 1, and a Gaussian fluctuation independent of that mark, which is logically stronger than marginal Stirling/count knowledge."
+      ],
+      "reasoning": "The assertion is not the sum of already published marginal results, as a joint independence result cannot follow from marginal asymptotics. The proof exploits the exact recovery-time conditional law and a uniform conditional CLT, which are not supplied by the inspected prior statements. Only the m=1 marginal and classical fixed-length record law are recognized as logically covered.",
+      "searches": [
+        "prefix deletion iid records number newly exposed left-to-right maxima joint hitting time unsigned Stirling distribution",
+        "Maximum of first m observations acts as an initial boundary for suffix record process, hidden record count sum independent Geometric(j/(j+1)) for j=1..m with finite horizon total variation m/n",
+        "batch arrival multiple observations breaking current records geometric sum distribution record-breaking iid Pareto frontier",
+        "successive m new observations destroy current Pareto records geometric sums independent mark time batch record breaking",
+        "published-finding corpus:2026/10/18/SCOPE-sharp-total-variation-convergence-for-the-number-of-records-brok--3626aee77ba9",
+        "arxiv:math/0701078v1",
+        "arxiv:2210.08426v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A time-reversal equivalence identifies the one-new-arrival record-kill count of Naiman and Torcaso (arXiv:2210.08426v1) with the excluded single-deletion marginal.",
+        "The cited published exact one-arrival research record explicitly gives the m=1 marginal distribution and total-variation rate; its RESULT.md does not state or prove the multi-arrival marked law.",
+        "For m≥2, the exact joint formula conditions on an entire removed-prefix maximum and the first subsequent exceedance, introducing a nontrivial variable-length Stirling mark."
+      ],
+      "reasoning": "The closest symmetry is time reversal between newly exposed records under prefix deletion and destroyed active reverse-records under future arrival. This gives a genuine equivalence when exactly one item is removed/arrives; the published one-arrival theorem covers that case, which is excluded from the novelty claim. It does not, without a new multi-arrival analysis, supply the distribution of the joint batch count and the marked recovery time, or the Gaussian–Pareto independent joint limit for m/n→α.",
+      "searches": [
+        "record number deletion of first observation random permutation new records geometrically mixed poisson",
+        "size distribution of record changes after deleting first rank uniform permutation",
+        "prefix deletion iid records number newly exposed left-to-right maxima joint hitting time unsigned Stirling distribution",
+        "batch removal initial observations record process poisson maximum exponential geometric summands",
+        "Maximum of first m observations acts as an initial boundary for suffix record process, hidden record count sum independent Geometric(j/(j+1)) for j=1..m with finite horizon total variation m/n",
+        "batch arrival multiple observations breaking current records geometric sum distribution record-breaking iid Pareto frontier",
+        "successive m new observations destroy current Pareto records geometric sums independent mark time batch record breaking",
+        "published-finding corpus:2026/10/18/SCOPE-sharp-total-variation-convergence-for-the-number-of-records-brok--3626aee77ba9"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Unsigned Stirling numbers c(ell,k) are the classical exact marginal record-count table and are not new.",
+        "The closest published research record already contains an exact generating function and one-arrival total-variation rate, but not an m≥2 marked table.",
+        "The factorial normalization and prefix-exceedance weights form a newly identified conditional coupling, not a claim to new Stirling coefficients."
+      ],
+      "reasoning": "The classical table gives r_ell(k) for a fixed block length ell. It does not determine the first-recovery index or the joint distribution without the conditional rank argument; the marks and their dependency are explicit new assertions. There is no claim that the original Stirling table itself is new.",
+      "searches": [
+        "prefix deletion iid records number newly exposed left-to-right maxima joint hitting time unsigned Stirling distribution",
+        "batch removal initial observations record process poisson maximum exponential geometric summands",
+        "For iid continuous observations deleting first m elements number of newly exposed upper records exact joint Stirling law first subsequent observation exceeding removed-prefix maximum; macroscopic m/n normal count independent Pareto censor time",
+        "batch arrival multiple observations breaking current records geometric sum distribution record-breaking iid Pareto frontier",
+        "random records broken by a block of m future observations exact signed Stirling distribution",
+        "published-finding corpus:2026/10/18/SCOPE-sharp-total-variation-convergence-for-the-number-of-records-brok--3626aee77ba9",
+        "c(ell,k) unsigned Stirling number of the first kind distribution record count"
+      ]
+    },
+    "rationale": "The checked primary papers and public research record give classical uniform-record Stirling counts, record-value transforms and an exact m=1 one-arrival law, all fully credited. Their statements do not imply the new exact joint count/first-recovery law for deletion batches m≥2 or the independent Gaussian–censored-Pareto joint limit without additional conditioning and asymptotic proof. Multiple alias and broader-coverage searches were executed; absolute priority is uncertain because older general record-process coverage could be indexed differently.",
+    "residual_risks": [
+      "General time-reversal/record-process identities not indexed as prefix deletion may independently yield the marked batch theorem.",
+      "Older record-process survey theorems may cover finite mixtures or infinite geometric factorization under a different name.",
+      "The main paper-sized novelty is the joint count/recovery clock and independent Gaussian–Pareto limit, not the classical fixed-block Stirling law or the already covered m=1 marginal."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides classical one-permutation record statistics, not a joint first-recovery time under deletion of an initial block.",
+        "evidence": [
+          "Unsigned Stirling first-kind coefficients encode upper-record counts under a uniform permutation; joint marked prefix-removal probabilities are not present in the inspected results."
+        ],
+        "identifier_or_url": "https://www2.math.upenn.edu/~wilf/website/outstelmts.pdf",
+        "material_read": "PDF text on positional records, distributions and Stirling polynomial; opening page visually inspected",
+        "method": "Read primary public PDF including displayed record-count formulas and the definitions of outstanding elements",
+        "title": "On the outstanding elements of permutations",
+        "trigger": "Classical distribution and generating functions for positional upper records"
+      },
+      {
+        "assessment": "Addresses words/multisets and static record-count statistics, rather than the joint post-deletion recovery-time count.",
+        "evidence": [
+          "arXiv math/0701078v1 initially posted 2007-01-03; no inspected theorem gives the marked batch prefix-deletion law."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0701078",
+        "material_read": "Accessible full-text HTML including statement and enumerative framework",
+        "method": "Reviewed the arXiv public version, its problem definition, and general maxima enumeration",
+        "title": "Left-to-right maxima in words and multiset permutations",
+        "trigger": "Archival source for the general enumerative law of left-to-right maxima"
+      },
+      {
+        "assessment": "Its record-value distribution characterizations do not state a finite marked prefix deletion law or the joint Gaussian–Pareto limit.",
+        "evidence": [
+          "The paper concerns random shifts in record-value characterization, not deletion of m initial observations and recovery to the original maximum."
+        ],
+        "identifier_or_url": "https://doi.org/10.2991/jsta.2014.13.4.4",
+        "material_read": "Full open-access PDF text including the record-value identities and related theorem pages",
+        "method": "Read primary PDF and inspected mathematically relevant pages",
+        "title": "Characterizations of distributions via record values with random exponential shifts",
+        "trigger": "Potential stronger coverage using exponential coordinates of record values"
+      },
+      {
+        "assessment": "Covers the one-arrival marginal, therefore the m=1 case is not claimed new; m≥2 batch laws and joint marked limit not covered in inspected statements.",
+        "evidence": [
+          "Definition of a new observation breaking previous current records and a geometric(1/2) limit as past sample grows; no arbitrary-size arrival batch or recovery-time mark."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2210.08426v1",
+        "material_read": "Accessible full HTML: theorem, derivation, one-arrival object and arguments",
+        "method": "Read relevant primary theorem and proof and compared distributions after time reversal",
+        "title": "A Geometric(1/2) Distribution Associated with Record Breaking",
+        "trigger": "One-arrival geometric limit directly equivalent to the m=1 time-reversed special case"
+      },
+      {
+        "assessment": "Directly subsumes the m=1 marginal even to exact total-variation rates, but does not address arrival batches m≥2, their marked first recovery clock or Gaussian–Pareto joint scaling.",
+        "evidence": [
+          "Its main exact generating function is for B_n broken by one newly arriving observation, with limit Geometric(1/2). The claim here explicitly begins at m≥2."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-sharp-total-variation-convergence-for-the-number-of-records-brok--3626aee77ba9/RESULT.md",
+        "material_read": "Entire published RESULT.md including exact generating function, signed law, TV theorem, proof, limitations and references",
+        "method": "Retrieved full repository RESULT.md and compared one-arrival distribution and implications statement by statement",
+        "title": "Sharp total-variation convergence for the number of records broken by an observation",
+        "trigger": "Highest-relevance published same-topic exact law and stronger m=1 rate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "82ab039c-5a66-49ad-9515-9b2567be601f",
+  "value": {
+    "rationale": "Batch erasure of early observations is a natural perturbation to an online running-maximum record monitor: false retroactive upper records are exposed until the previous threshold is first recovered. The joint law quantifies count, recovery clock and nonrecovery probability, rather than only an already-known one-arrival marginal. A finite-to-macroscopic transition yields an unexpected censored Pareto clock independent of Gaussian false-record fluctuations, with direct mathematical use in restarting/thinning record monitoring; this structural coupling is not merely the harmonic expectation or a renamed Stirling coefficient.",
+    "status": "PASS"
+  }
+}
