@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The tangent Taylor coefficients are strictly positive by an exact recursion from tan derivative 1+tan squared, so |z-tan z|<=tan|z|-|z|, with equality exactly for real z at nonzero modulus below pi/2. Unique R solves tan R=2R. The increasing scalar envelope maps [0,R] into itself, and real ±r saturate every iterate. For r<R its iterates decay to zero with a valid cubic quantitative bound. The two real boundary points form a repelling two-cycle; every other critical-circle point strictly enters the convergence disk and lies in its immediate component. Translation by k*pi completes the statement. Finite checker tests confirm formulas but are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bray et al. 2020 Section 2.1 describes the sine Newton map but its later basin theorem concerns z-sin(z)cos(z), a different map.",
+        "Classical triangle-inequality majorization for analytic power series is a general technique; the exact specialized inradius and critical-circle intersection are deduced here using the sine-Newton two-cycle."
+      ],
+      "reasoning": "The earlier 2020 unit-disk theorem cannot dominate the present claim: it applies to Newton iteration for tan(z), not Newton iteration for sin(z). General local convergence principles do not, without further exact computations, give the sharp inradius R, equality at real points for every iterate, and only two critical-circle exceptional points. No stronger covering source was identified.",
+      "searches": [
+        "analytic map z-tan(z) exact extremal iterates max modulus disk tan(r)-r",
+        "Newton method sine complex convergence disk sharp tan r 2 r power series",
+        "Newton sin z disk pointwise inequality tangent majorant",
+        "2020 Fixed Points Symmetries Bounds Basins Attraction Complex Trigonometric Functions Newton maps sine tangent full text"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.3390/sym16020162",
+      "https://doi.org/10.1155/2020/1853467",
+      "https://math.stackexchange.com/questions/3379990/",
+      "https://math.stackexchange.com/questions/3380400/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2024 Section 2.3.1: ±R forms a real two-cycle, restricting any centered immediate basin disk. Section 2.3.5: disk inclusion reported as numerical appearance.",
+        "2020 earlier article Section 2.1: same sine-Newton map defined; later unit-disk convergence analysis is for tangent-Newton map.",
+        "October 4, 2019 answer: tan(R)=2R is the real-axis boundary, with no quantification over complex initial conditions."
+      ],
+      "reasoning": "The known real two-cycle supplies the obstruction to a larger centered disk but does not imply that all nonreal points of smaller modulus converge. The newly proved positive Taylor-coefficient majorant provides the missing uniform complex inclusion, equality for all iteration counts, and first-contact circle classification. The earlier tangent-Newton result is neither equivalent nor stronger for this function.",
+      "searches": [
+        "Dynamics of Iterations of the Newton Map of sin(z) Sections 2.3.1 and 2.3.5",
+        "Fixed Points, Symmetries, and Bounds for Basins of Attraction of Complex Trigonometric Functions Sections 2.1 and 2.3",
+        "Newton method sin z largest real basin interval 2019 Math Stack Exchange",
+        "sin z Newton method convergence radius 1.165561185 complex"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cloutier et al. 2024 Section 2.3.5 explicitly treats the centered complex disk inclusion as a numerical appearance, not a proved statement.",
+        "The 2019 Q&A and Cloutier et al. Section 2.3.1 derive the real root of tan(R)=2R but do not establish the complex-disk statement."
+      ],
+      "reasoning": "Equivalent wording includes invariant disk, immediate-basin inradius, sharp disk radius of Newton convergence, and complex Newton attraction for sine. The exact complex inclusion, critical-circle contact set, and all-iterate radial maximum are absent from materially read source sections; real-axis results are strictly weaker.",
+      "searches": [
+        "Newton map of sine complex N(z)=z-tan z largest disk in immediate attracting basin of zero sharp radius tan(r)=2r, power series majorant",
+        "sin z Newton iteration exact disk of convergence centered at root complex plane radius 1.1655 and boundary two-cycle",
+        "complex Newton sin z disk modulus inequality tan absolute value",
+        "Cloutier Dwyer Barnard Stone Williams 2024 Dynamics of Iterations of the Newton Map of sin(z) sharp complex convergence disk"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Cloutier et al. 2024 Figures 1–4 and Sections 2.3.1–2.3.5 give plots and real-axis bounds, not a table of exact all-iterate complex modulus maxima.",
+        "The 2019 real-line answer records the critical radius numerically, but the statement is restricted to real inputs."
+      ],
+      "reasoning": "The exact modulus envelope for every finite iteration and the full complex critical-circle contact classification do not appear in the inspected same-map source or the real-only precursor. No exact published database table containing these quantities was identified, but missing tables alone do not certify novelty.",
+      "searches": [
+        "Newton map of sine complex N(z)=z-tan z largest disk in immediate attracting basin of zero sharp radius tan(r)=2r, power series majorant",
+        "sin z Newton iteration exact disk of convergence centered at root complex plane radius 1.1655 and boundary two-cycle",
+        "analytic map z-tan(z) exact extremal iterates max modulus disk tan(r)-r"
+      ]
+    },
+    "rationale": "The 2024 primary article proves the real-axis two-cycle but says the entire complex disk of radius R merely appears numerically to lie in the immediate basin (Section 2.3.5); the present positive-coefficient proof establishes that exact disk, identifies the only two exceptions on its critical circle and determines the exact extremal modulus of every iterate. The 2020 precursor presents the sine Newton map but focuses basin estimates on the distinct Newton map of tangent. The 2019 public discussion establishes only the real threshold. No equivalent statement appeared in the queried indexed findings or targeted searches. General positive-series majorants could supply the method; they were not identified as a previous specialized theorem. Priority remains provisional.",
+    "residual_risks": [
+      "A classical complex Newton-method or analytic-majorant theorem may state this exact specialized consequence without the same terminology.",
+      "Semantic search does not exhaust unpublished notes, unindexed papers or books; independent publication-priority assessment was not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Real two-cycle and interval are established, but full complex disk and all-time sharp radial envelope are not proved in inspected results",
+        "evidence": [
+          "Section 2.3.1, real root x*=1.166 and two-cycle ±x*.",
+          "Section 2.3.5: entire disk |z|<x* appears numerically in immediate basin."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/sym16020162",
+        "material_read": "Open-access full HTML Sections 2.1, 2.3.1–2.3.5, Section 3 and conclusions, including proof of the real two-cycle and the numerical complex-disk remark",
+        "method": "Read the publicly accessible article text and directly compared hypotheses and conclusions",
+        "title": "Dynamics of Iterations of the Newton Map of sin(z)",
+        "trigger": "Direct same-map primary work states the numerical complex-disk observation"
+      },
+      {
+        "assessment": "The major basin theorem concerns Newton iteration of tangent, z-sin(z)cos(z), not the present z-tan(z)",
+        "evidence": [
+          "Section 2.1 defines the Newton map of sin(z).",
+          "Section 2.3 bound and unit disk theorem are for F_t(z)=z-sin(z)cos(z)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2020/1853467",
+        "material_read": "Open-access full HTML Sections 2.1 and 2.3, including sine-Newton definition and the proved unit-disk result for tangent-Newton",
+        "method": "Read mathematical formulas and distinguish the two Newton maps",
+        "title": "Fixed Points, Symmetries, and Bounds for Basins of Attraction of Complex Trigonometric Functions",
+        "trigger": "Earlier source discussing the same sine Newton map and potentially stronger basin estimates"
+      },
+      {
+        "assessment": "Real threshold is known; no complex-disk guarantee or radial modulus theorem",
+        "evidence": [
+          "October 4, 2019 posted answer identifies ±1.165561185 as a two-cycle on the real axis."
+        ],
+        "identifier_or_url": "https://math.stackexchange.com/questions/3379990/",
+        "material_read": "Question and October 4, 2019 answer with tan(a)=2a and numerical R",
+        "method": "Read the posted mathematical calculation and contrasted the real-only quantifier",
+        "title": "Newton's method, find the initial value which will produce a periodic cycle when we start the iteration from this value",
+        "trigger": "Earliest verified public precursor of the real critical number"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d8699598-787e-4f63-b7e6-07bc58eef49c",
+  "value": {
+    "rationale": "The 2024 same-map complex-dynamics article explicitly leaves its displayed centered complex convergence disk as a numerical observation. Establishing the exact sharp radius, the complete first-contact set on the critical circle, and exact worst-case modulus at every iteration is a motivated resolution of that gap and supplies rigorous uniform convergence guarantees for complex initial guesses. It is not an arbitrary parameter slice, a real-only restatement, or an unmotivated numeric bound; its proof is elementary but its object and invariant are natural and it answers a specifically published open numerical observation.",
+    "status": "PASS"
+  }
+}
