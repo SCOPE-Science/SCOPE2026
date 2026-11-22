@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For each n>=4 every four-vertex induced subgraph is connected exactly when kappa>=n-3. Complementing sends 1+3 and 2+2 disconnections to forbidden K1,3 and K2,2 subgraphs. Max degree at most two and absence of induced cycles >=5 in permutation graphs imply disjoint paths and triangles. Value complementation and unique direct-sum decomposition, with exact path block multiplicities, prove the rational weighted series. Matchings give Fibonacci cumulative n-2 connectivity; the complete graph is unique at n-1. The standalone verifier reproduces full permutation counts, exact connectivity through n=7, four-set threshold at n=8, and all q coefficients. Finite checks are not substituted for the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Verkama gives the full connectivity polynomial only as finite values up to n=7, and lower bounds for fixed k, not all-order upper coefficients.",
+        "Albert et al. enumerate paths and use the no-long-cycle fact, not the high-connectivity class of complements."
+      ],
+      "reasoning": "Neither source subsumes the all-order high-kappa criterion or bivariate noninversion enumerator, and other ranked results concern different graph parameters.",
+      "searches": [
+        "published-finding corpus: Permutation inversion graph vertex connectivity kappa n-3 all induced 4-vertex subgraphs connected; paths and triangles; high connectivity coefficient generating function",
+        "published-finding corpus: Connectivity polynomial K_n(x) permutation graph coefficient x^{n-3}, x^{n-2}, Fibonacci rational high tail",
+        "published-finding corpus: Verkama 2026 K_n(x) vertex connectivity of inversion graphs count coefficients n-3 n-2, path and triangle components, Fibonacci",
+        "published-finding corpus: top three high connectivity coefficients inversion-graph connectivity polynomial",
+        "arXiv:2611.17237v1 §6",
+        "arXiv:1602.00672v3 §9"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.17237v1",
+      "https://arxiv.org/pdf/1602.00672",
+      "https://arxiv.org/pdf/1912.07713",
+      "https://oeis.org/A180965"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new proof combines the four-vertex connectivity criterion with complementary K1,3/K2,2 obstructions and decompositions.",
+        "Path-only series from prior work omits the size-three triangle block of weight q^3.",
+        "The pre-existing unweighted rational function does not encode the noninversion weight or identify connectivity kappa>=n-3."
+      ],
+      "reasoning": "The new structural equivalence and q series are not direct restatements of the cited prior claims. However an unlocated theorem about a pattern class equivalent to this complement characterization could dominate the result, so that priority risk is retained.",
+      "searches": [
+        "arXiv:2611.17237v1 §§1,6",
+        "arXiv:1602.00672v3 §9",
+        "arXiv:1912.07713v3 p.8",
+        "OEIS A180965"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Path/triangle complement criterion implies a specific permutation pattern class; Albert–Jelínek–Opler treats only the path-component subclass.",
+        "OEIS A180965 has the same scalar sequence but a distinct tiling interpretation; no q statistic or connectivity interpretation in the entry."
+      ],
+      "reasoning": "The decomposition into path blocks plus a triangle block is strictly broader than path-only permutations; a mere match of univariate sequences is not a covering theorem for the structural and refined claims.",
+      "searches": [
+        "published-finding corpus: Permutation inversion graphs layered permutations vertex connectivity exactly",
+        "published-finding corpus: Permutations whose inversion graph consists of paths and triangles, increasing oscillations rational enumeration n-3 vertex connectivity",
+        "published-finding corpus: A180965 tatami tiling permutations high vertex connectivity inversion graph paths triangles",
+        "published-finding corpus: inverse complement permutation graph union of paths and triangles rational bivariate generating function",
+        "Web: \"inversion graph\" \"paths and triangles\" permutation",
+        "Web: \"permutations\" \"paths and triangles\" \"generating function\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A180965 already lists 1,2,6,13,29,68,156,357 and the scalar rational formula; the coefficients coincide after a one-step shift.",
+        "Verkama Table 1 contains the exact top-layer counts at n<=7 (including 8,21,55,135)."
+      ],
+      "reasoning": "The scalar counts and finite numerical cases are prior coverage and are not claimed as novel. Neither source records the general graph-connectivity interpretation and q-refined generating function.",
+      "searches": [
+        "OEIS A180965 https://oeis.org/A180965",
+        "Verkama Table 1 arXiv:2611.17237v1",
+        "Web: \"13, 29, 68, 156, 357\" permutation",
+        "Web: \"1-2x-2x^3+x^4\" permutation graph"
+      ]
+    },
+    "rationale": "The exact tail interpretation, path–triangle structural classification and noninversion-weighted generating series are not contained in the inspected primary sources or retrieved mathematical records. The scalar a_n sequence and recurrence are already OEIS A180965 and are explicitly excluded from novelty claims; published path-permutation counts are used as existing ingredients. Priority is provisional because an unindexed equivalent permutation class could imply the refinement.",
+    "residual_risks": [
+      "The numerical sequence is already OEIS A180965; claiming novelty for that unweighted sequence alone would be false.",
+      "Other pattern-class generating functions or permutation/tatami bijections could encode the same weighted statistic under a different name.",
+      "Semantic retrieval is not a proof of exhaustive historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The finite n<=7 values are covered, but no exact all-n path–triangle criterion, high-tail coefficients, or noninversion-weight enumerator appears",
+        "evidence": "§6 defines K_n(x) and displays the n<=7 table; the paper studies inversion lower bounds for fixed connectivity.",
+        "identifier_or_url": "https://arxiv.org/html/2611.17237v1",
+        "material_read": "Full arXiv HTML, especially introduction, definitions, §6 and Table 1 at lines 647–663",
+        "method": "Read the primary text and explicitly compared its table and general claims with the proposed all-order top-tail theorem",
+        "title": "Permutation patterns and higher connectivity in inversion graphs",
+        "trigger": "Primary source defining the exact connectivity polynomial"
+      },
+      {
+        "assessment": "Directly supplies the two path-permutation options of length at least four; does not establish the vertex-connectivity statistic, the triangle-supplemented class or its weighted generating function",
+        "evidence": "Explicit increasing-oscillation constructions and the sentence excluding induced cycles on five or more vertices.",
+        "identifier_or_url": "https://arxiv.org/pdf/1602.00672",
+        "material_read": "§9, p. 27 (PDF page index 26), including text and figures as page image",
+        "method": "Inspected the cited section with rendered PDF page and checked the path and no-long-cycle claims",
+        "title": "Rationality For Subclasses of 321-Avoiding Permutations",
+        "trigger": "Exact enumeration of path inversion graphs and exclusion of long induced cycles"
+      },
+      {
+        "assessment": "Uses path-component sum permutations but not the triangle extension nor an inversion-graph vertex-connectivity characterization",
+        "evidence": "Defines class SIO by sum components with path inversion graphs, and states two options for paths of length >=3.",
+        "identifier_or_url": "https://arxiv.org/pdf/1912.07713",
+        "material_read": "p. 8 of the PDF, the SIO description and path block counts",
+        "method": "Read and viewed the PDF page around the path-graph direct-sum construction",
+        "title": "Two examples of Wilf-collapse",
+        "trigger": "Possible stronger enumeration of all direct sums of increasing oscillations"
+      },
+      {
+        "assessment": "Scalar counts and recurrence ARE already known, so the new claim explicitly does not assert their novelty; OEIS does not relate its sequence to this connectivity tail or the q refinement",
+        "evidence": "A180965 lists 1,2,6,13,29,68,156,357,... and generating function (1+2x^2-x^3)/(1-2x-2x^3+x^4), equal to the shifted a_n sequence.",
+        "identifier_or_url": "https://oeis.org/A180965",
+        "material_read": "Sequence, offset, comments, formula, and cited permutation interpretation on the complete OEIS entry",
+        "method": "Compared the listed coefficients and denominator with the derived rational generating function",
+        "title": "OEIS A180965",
+        "trigger": "Exact coefficient sequence matches the derived scalar counts after a one-position shift"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e0242b53-23a9-4d58-8ae3-9a3792ba2da8",
+  "value": {
+    "rationale": "The motivating source explicitly asks for understanding the distribution of inversion-graph vertex connectivity but gives only seven rows. The theorem completely characterizes its three extremal high-connectivity layers for all n and refines the tail by original noninversions. Identifying a high-connectivity family with path–triangle sum classes is structural information not supplied by the known unweighted tatami sequence and provides a tractable entry to the otherwise unknown full distribution.",
+    "status": "PASS"
+  }
+}
