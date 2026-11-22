@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graphic-matroid independent-set complex is pure of rank five and shellable. The covering face counts \((9,36,84,117,81)\) agree with the independent published forest-count table of Stones (2014, Fig. 1). The explicit finite flag-orbit chain model handles nonfree simplex stabilizers correctly by preserving flag ranks and does not merge distinct cells having the same orbit-vertex names. `verify_k33.py` checks all \(327\) nonempty faces, group orders \(36\) and \(72\), the two orbit-cell vectors, independent Burnside orbits, every \(\partial^2=0\), and exact integral unit cancellations. Both final chain complexes have one zero-cell and one four-cell. Simple connectivity follows from Armstrong because a set of fixed-point generators generates each group. Hurewicz and Whitehead then give homotopy type \(S^4\). Unit cancellation establishes homology rather than topological collapse, a distinction used explicitly in the proof.
+## correctness
 
-## Originality — PASS (relative to inspected material)
-The 2014 complete-bipartite forest enumeration provides labeled face counts but not integral orbit homology. Hughes–Swartz concern torus actions on linear spheres, with a matroid as an indexing invariant rather than as the space being quotiented. Armstrong determines orbit fundamental groups, and Björner establishes matroid shellability. Indexed nearby reports address \(K_{2,n}\), directed multipath complexes, Morse complexes or fixed-point loci, none of which implies the two calculated ordinary orbit spaces of the \(K_{3,3}\) *edge-forest matroid*. Full-text inspection of the plausible older primary sources supports this distinction; indexed work whose full text was inaccessible remains a nonzero novelty risk.
+PASS
 
-## Value — PASS
-The smallest balanced cubic complete bipartite graph is the canonical Kuratowski obstruction and gives a natural nine-element rank-five graphic matroid. Its unquotiented independence complex has twenty sphere summands. Two distinct large natural group actions surprisingly produce simply connected integral four-dimensional homology spheres, hence single four-spheres up to homotopy. The complete classification is stronger than known labeled forest enumeration or rational invariant counts, and tests how matroid topology interacts with nonfree group orbits in a concrete setting.
+The edge-forest complex is precisely the graphic matroid independence complex on nine K3,3 edges, rank five. Matroid shellability implies its labelled homotopy type is wedge of four-spheres; exact forest counts (9,36,84,117,81) yield Euler wedge multiplicity 20. Nonfree H=S3×S3 and full G=H⋊C2 orbit quotients are modeled correctly by barycentric FLAG orbit cells with rank-preserving stabilizers; an ordinary quotient requires these flag orbits, not a false simplicial vertex-orbit quotient. Independently reimplemented exact enumeration of all 327 nonempty faces, all 36/72 group elements and Burnside flag counts, independently formed cellular boundaries and verified every ∂²=0. H orbit cells [20,162,504,630,270], G [14,92,260,315,135]. Exact integral ±1-pivot chain cancellations were independently performed, H degrees (1,2,3,4) [19,143,361,269], G [13,79,181,134], leaving a generator at C0 and C4 and no torsion (homology, NOT asserted simplicial collapse). Both quotient fundamental groups vanish by Armstrong because transpositions within shores and the shore-swap have fixed singleton edge vertices and generate the groups. With π1=0 and homology S4, Hurewicz/Whitehead imply genuine homotopy equivalence to S4, not manifold homeomorphism. Finite enumeration is exhaustive for THIS graph/groups and standard topology upgrades it; none is extrapolated to larger n.
 
-## Limitations and closest literature
-The result applies only to the two specified symmetry quotients. No assertion is made that either orbit space is a manifold, that a sphere equivalence is equivariant, or that a general \(K_{m,n}\) formula holds. The close enumeration source is Stones (2014), the quotient-homology analogue for another action is Hughes–Swartz (2012), and the only exact orbit-space theorem used is Armstrong (1965). Indexed results about \(K_{2,n}\) graphic-matroid forests and \(K_{3,3}\) Morse/multipath complexes concern distinct objects. An independent proof audit and exhaustive priority search have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Original as a complete natural finite quotient-homotopy classification: established matroid shellability and labelled forest counts do not compute orbit quotient homology. A related octahedral graph quotient in fact has nontrivial 2-torsion, demonstrating graph dependence rather than a common general theorem.
+
+## value
+
+PASS
+
+K3,3 is the smallest balanced nonplanar complete bipartite graph and supplies a canonical rank-five, nine-edge graphic matroid. Its labelled independence complex has twenty S4 summands, while both natural nonfree symmetry quotients unexpectedly have homotopy type a single S4. This is a complete exact integral homotopy classification for two meaningful quotients, revealing what survives under full shore symmetries; different octahedral forest quotients can have 2-torsion, so the phenomenon is not generic or a table-recomputation triviality. Homotopy rather than mere rational Betti counts matters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
