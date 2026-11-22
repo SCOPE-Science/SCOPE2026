@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification performed
+# Independent mathematical audit
 
-The included `verify.py` was executed with Python, SymPy, NumPy and SciPy and printed:
+## correctness
 
-```
-VERIFY_OK similarity_cases=27 star_cases=24 nonstar_cases=3
-VERIFY_OK universal_threshold_examples=3
-```
+PASS
 
-It tests twenty-four star choices using exact SymPy arithmetic; three non-star exact similarity instances; and three examples of the two numerical hub-radius roots. The proof in `RESULT.md` is an analytic argument for every eligible finite graph and every real \(q\ge0\); these finite examples do not establish the universal quantifiers. The Perron bounds and strict monotonicity are proved separately, not inferred from sampling. The limits exclude ties for maximum degree and do not assert stability properties of a nonlinear source system. Independent validation has not been performed.
+The identity D^q(-I+D^{-q}AD^q)D^{-q}=A-I proves spectrum independent of exponent q. A connected unique-hub graph has Perron root sqrt(Delta)<=rho(A)<Delta: Rayleigh vector with hub entry sqrt(Delta) and 1 on every neighbor gives the lower bound even with extra adjacent neighbors, and irreducible strict row-sum bound gives upper bound. Radius R_h(q)=sum_(j~h)(d_j/Delta)^q falls continuously and strictly from Delta at q=0 to 0 for q->infty because all neighbors have smaller degree. It crosses rho(A) and 1 uniquely in the stated order. Disc containment of rho-1 and stable-halfplane threshold follow directly. For star K_(1,n), R=n^(1-q), thresholds (1/2,1), and rho=sqrt(n). Exact analytic reasoning covers all admissible finite graphs; verifier star examples only corroborate.
+
+## originality
+
+PASS
+
+The true spectrum invariance and Gershgorin discs are classical, but the exact one-row ownership and one-row false-safe transition theorem for every unique-hub graph and its arbitrarily severe star discrepancy supplies a sharp scope test of the concrete hub shortcut advocated by Patil--Meena. Their accessible manuscript discusses empirical misclassifications and special diagonal forms, not this exact full graph-class phase diagram. No claim of failure of all-row Gershgorin.
+
+## value
+
+PASS
+
+Directly clarifies a recently proposed hub-only stability shortcut by proving two necessary/sufficient exact thresholds and constructing unbounded false-safe margins on natural star networks; not merely rediscovering diagonal similarity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
