@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The new theorem is finite and fully quantified over all graph edges by edge transitivity. The standalone file `verify.py` reconstructs the full simplex families and replays 268 valid elementary collapses, then checks a directed-acyclic 53-pair Morse matching with exactly one zero-cell and 17 two-cells. For the relative inclusion, it replays 22 free relative cancellations and checks an integral boundary matrix with two independent unit rows, proving a free rank-two cokernel through the integral long exact sequence. All data are embedded in `CERTIFICATE.json`, and the actual package files replay successfully. The known 19-sphere intact classification is cited from primary literature.
+
+**Originality — PASS against inspected evidence.** Nilakantan–Singh (arXiv:1802.05848v1, full HTML Sections 1–5 inspected) proves the intact family and analyzes an aggregate unstable-edge subgraph; it does not give this one-edge intermediate homotopy type or primitive integral inclusion. Searches also checked one-edge/edge-deleted aliases, related Kneser vertex-deletion findings, neighborhood-complex symmetry computations, and broader graph-fault records. No exact or stronger implication was found. The aggregate matching construction could potentially admit an unpublished one-edge refinement; searches cannot prove universal novelty.
+
+**Value — PASS.** The graph is the first nontrivial triangle-bearing two-subset Kneser case, and its neighborhood complex is central to Lovász-type topological graph invariants. The exact response to a minimal graph fault is neither a mere face-count change nor a Betti-number guess: it gives the damaged integral homotopy type and a primitive homology map, distinguishing loss of two free spheres from possible torsion or nonprimitive effects. It provides a reproducible benchmark for fault resilience in neighborhood complexes without claiming a family-wide extension.
+
+**Limitations.** Only the fifteen-vertex graph and one deleted edge are covered. A certificate of exhaustive finite computations is not an independent review. Bibliographic equivalence outside indexed sources remains possible.
+
+Self-review: passed. Independent audit: not yet performed.
