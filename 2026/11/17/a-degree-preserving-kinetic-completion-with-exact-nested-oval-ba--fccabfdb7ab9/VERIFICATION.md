@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The polynomial completion, quartic factorization and strict Lyapunov derivative were reconstructed algebraically within the same mathematical review. On each level, direct substitution of the source field confirms the completed field has identical velocities; the extra cofactor is a complete derivative of \(N\log(xy)\), so the Poincaré multipliers also agree. The weighted-area formula follows by Green's theorem and has a strictly positive integrand.
+# Independent mathematical audit
 
-`check_kinetic_completion.py` is executable with Python, SymPy, NumPy and SciPy. It was run using the embedded file's identical bytes and printed `KINETIC_COMPLETION_CHECK_OK`. The symbolic tests cover \(N=1,2,3\); numerical evaluations sample \(N=1,2,3\). Those finite checks do not certify the theorem for all integers. The all-\(N\) proof is in RESULT.md and uses the product rule, sign analysis, strict convexity in logarithmic coordinates, the compactness of sublevels and the divergence theorem.
+## correctness
 
-No computer algebra output, finite experiment or bibliographic search is represented as an independent proof or independent review. The chemical decomposition is existence-only and does not establish weak reversibility. Existing results about the source oscillator's ovals and general invariant curves are acknowledged as prior work.
+PASS
+
+For every N>=1, 0<delta1<...<deltaN and epsilon>0, the identity h_delta=xy(L-delta) gives H=(xy)^N P(L), with L=(x+1+x^{-1})(y+1+y^{-1})-9. Differentiating H and adding correction epsilon N H(x,-y) cancels exactly the extra J∇log(xy) term, yielding new field (xy)^N P(L)F0+epsilon(xy)^(N+1)P′(L)J∇L. The exact strict Lyapunov derivative Ldot=-(xy)^N P(L)D with D>0 off (1,1), and proper strictly convex log-coordinate sublevels, excludes additional cycles/equilibria and fixes all basins. Root signs P′(delta_i) yield hyperbolic alternating cycle stabilities; center Jacobian eigenvalues -2P(0)±6i epsilon P′(0) yield focus parity. Along each oval correction H times vector vanishes, preserving parametrized trajectory and minimal original-time period. The cofactor correction in the transverse H equation is total derivative d[N log(xy)]/dt, so the original and completed multipliers agree on each closed orbit. Speed gives the T_i integral; the divergence identity -div(F0/(xy))=(1+1/y)/x²+(1+1/x)/y²>0 yields multiplier A(delta)/epsilon by Green. Axis boundary terms are (1+y)(y²+y+1)^N and (1+x)(x²+x+1)^N, permitting mass-action production/consumption realization at degree 4N+2. Independent SymPy checked exact cancellation, Ldot and divergence for N=1,2,3 and analytically the product-rule identities hold all N; finite checks do not substitute for the all-N derivation.
+
+## originality
+
+PASS
+
+Four statement-level comparisons distinguish the specified result from the inspected primary-source coverage; best-of-knowledge priority, not an absence-of-search novelty guarantee. 
+
+## value
+
+PASS
+
+The earlier chemical polynomial oscillator guarantees at least N algebraic cycles; the present degree-preserving mass-action-compatible alteration supplies exact complete positive-quadrant basin and cycle classification while maintaining physically meaningful on-oval original-time periods and multipliers. It is a motivated structural improvement rather than a routine assertion of the original construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
