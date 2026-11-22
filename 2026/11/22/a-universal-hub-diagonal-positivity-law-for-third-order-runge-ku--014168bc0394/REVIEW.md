@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Direct multiplication yields the complete finite matrix-entry formulas. The hub cubic is strictly decreasing by a negative derivative discriminant. The hub–leaf entries have a strictly positive quadratic bracket. Every leaf diagonal strictly dominates the hub diagonal by a separately certified negative discriminant. Every leaf–leaf transition's first positive zero lies strictly after the hub zero, by an explicit positive polynomial. The sharp normalized constants follow from comparison to one-spoke and diffuse-weight limiting cubics. These steps cover every stated quantifier and boundary; independent rational-matrix checks add reproducibility, not an infinite proof.
+
+**Originality — PASS on inspected evidence, with residual bibliographic risk.** The full text of Gottlieb–Shu–Tadmor (2001) gives sufficient SSP step bounds, and the complete Horváth (2005) paper concerns thresholds over broad positive-IVP classes and positive-invariant subsets. Neither provides the fixed symmetric heterogeneous weighted-star necessary-and-sufficient degree-three cutoff, universal first-failing center entry, and sharp normalized bounds. Semantically close repository results treat different time integrators, or unweighted complete-multipartite graphs. Those cross-method statements do not imply the present heterogeneously weighted RK3 classification. Repository full texts were not all available, and unindexed historical specializations remain a residual priority risk.
+
+**Value — PASS.** Positive completed transitions matter for stable probabilistic diffusion. Generic SSP yields only \(h\le1/S\), while the exact star-specific result proves a uniform strict improvement with a sharp range and requires solving only a single cubic no matter how many or how uneven the spokes are. Identifying which entry fails first also provides a structural diagnostic rather than a small numerical improvement.
+
+The result is limited to symmetric weighted stars, completed standard cubic RK endpoints, and finite positive weights. It asserts neither stagewise positivity above the SSP limit nor an all-graph criterion.
+
+Self-review: passed. Independent audit: not yet performed.
