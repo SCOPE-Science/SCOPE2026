@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The exact state maps for the flags F00,F01,F10,F11 are derived by matching the newly attached leaf versus not; iterating pairs from {00,11} proves perfect matching iff b_(2j-1)!=b_(2j). Invertible adjacent-orientation differences give m-2 independent Bernoulli leaf increments conditional on this event, and Acan–Hitczenko’s proven caterpillar diameter identity completes the law. Finite exact independent inverter and matching-subset enumeration through order 14 checks all boundary flags and distribution counts; 41,003 actual checks pass. The induction, not the tests, establishes the infinite domain.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mészáros, Matchings on trees and the adjacency matrix (2023), Theorems 1–3 concern a fixed finite tree and local limits of maximum matching uncovered sets; no choice of uniform tree permutations or complementary-bit pair probability is given.",
+        "Saitoh et al., Random generation and enumeration of bipartite permutation graphs (2011), addresses the larger bipartite permutation graph class with a different enumeration scope."
+      ],
+      "reasoning": "A general fixed-tree matching theorem could classify perfect matchability on an individual input, but it cannot imply the stated frequency and conditional macrogeometry without evaluating the special binary random tree measure. General bipartite-permutation-graph counting also does not directly count the matching-conditioned inversion trees.",
+      "searches": [
+        "permutation trees inversion graphs perfect matching number trees n vertices exact 2^n 2014",
+        "perfect matchings random permutation tree graphs matching probability caterpillar tree permutations",
+        "Uniformly random caterpillar tree perfect matchings enumeration degree blocks, number of matchable trees"
+      ]
+    },
+    "checked_sources": [
+      "Acan and Hitczenko, arXiv:1406.3958v1 (first posted 2014-06-16): construction, leaf and diameter sections",
+      "Janson, arXiv:2203.04182 (2022): pattern-count limit theorems in tree and forest permutations",
+      "Mészáros, doi:10.1002/rsa.21167 (2023): general matching structure on fixed trees",
+      "Saitoh et al., doi:10.1016/j.jda.2011.11.001: bipartite permutation graph enumeration (scope comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Acan–Hitczenko: independent insertion bits and exact diameter 2+Bin(n-3,1/2) unconditionally; neither theorem specifies the perfect-matchability subset.",
+        "Janson 2022, Theorem 3.1, discusses centered fixed-pattern counts and does not select trees by a perfect matching.",
+        "Mészáros Theorem 1 identifies a determinantal law for vertices uncovered by uniform maximum matchings on a fixed finite tree, not the random tree ensemble distribution."
+      ],
+      "reasoning": "The known unconditional laws are compatible with many distinct correlations with the matching event, so they do not imply the displayed conditional law. The exact new four-state predicate on insertion words yields the event probability, an event-leaf joint distribution, and the resulting linear geometry shift. Fixed-graph deterministic or determinantal matching results do not supply the needed uniform-word probability calculations.",
+      "searches": [
+        "random permutation trees matching existence conditional number of leaves and diameter versus unconditioned tree exact leaf conditional matching probability",
+        "On random trees obtained from permutation graphs matching",
+        "Random permutation trees matching existence conditional number of leaves and diameter versus unconditioned tree; exact leaf conditional matching probability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Acan–Hitczenko, arXiv:1406.3958, §2 gives the insertion encoding; §3.1–3.2 gives leaves/diameter but not perfect matching.",
+        "The inspected Janson arXiv:2203.04182 treats occurrences of fixed permutation patterns, which are not the global matching feasibility event."
+      ],
+      "reasoning": "Perfect matchability, existence of a 1-factor and full-rank adjacency of a tree are plausible aliases. For trees, full adjacency rank or zero unmatched vertices of a maximum matching is equivalent to a perfect matching, but the inspected general matrix theorem does not compute the probability of this event under the tree-permutation measure, nor its leaf-conditioned law.",
+      "searches": [
+        "\"permutation trees\" \"perfect matching\"",
+        "\"tree permutations\" \"perfect matching\" \"Acan\" \"Hitczenko\"",
+        "Uniform permutation inversion tree perfect matching iff insertion sequence consists of opposite bit pairs, exact probability 2^(1-m) and conditional leaf distribution Bin(m-2,1/2) diameter shift 3/4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Acan–Hitczenko enumerates all inversion trees as 2^(n-2) and gives the unconditional leaf binomial table; inspected §2–3 contains no matching-conditioned refinement.",
+        "The new count 2 binomial(m-2,l-2) is analytically derived from complementary consecutive insertion pairs and independently checked through 14 vertices."
+      ],
+      "reasoning": "The original all-tree enumeration and unconditional leaf/diameter laws are not the conditional table: conditioning on matching feasibility changes the number of independent leaf indicators from 2m-3 to m-2. Searches found no exact matching-conditioned table for this ensemble, though absence from an index is not a proof of priority.",
+      "searches": [
+        "number 2^(m-1) of perfect-matchable inversion trees on 2m vertices leaf-resolved count 2 binomial(m-2,l-2)",
+        "\"permutation tree\" \"perfect matching\" \"diameter\" random",
+        "Perfect matchings in random tree permutations; number 2^(m-1) of perfect-matchable inversion trees on 2m vertices; leaf-resolved count 2 binomial(m-2,l-2)"
+      ]
+    },
+    "rationale": "The Acan–Hitczenko construction already proves the unbiased binary encoding and unconditional leaves/diameter; the genuinely new event characterization requires a matching-state recursion, after which the rare conditioned law yields the nontrivial 3/4 versus 1/2 diameter distinction. Janson treats permutation pattern occurrence laws, not perfect matchability. Mészáros proves general determinantal statements for uncovered vertices of maximum matchings on fixed trees, not an ensemble-specific matching feasibility law. Verified original source sections and close related results reveal no statement with equivalent scope. Remaining priority risk from unlocated broad caterpillar matching enumerations is explicitly acknowledged.",
+    "residual_risks": [
+      "A historically unlocated perfect-matching enumeration for caterpillar permutations could imply part or all of the claim under a reduction not documented in the checked primary sources.",
+      "No exhaustive comprehensive bibliography of all matching-counting papers exists from these searches; novelty is a best-knowledge comparison rather than certified uniqueness.",
+      "The 60C05 primary classification describes the new random-graph probability law; cited foundational source has a combinatorial primary classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTING_BUT_NOT_COVERING new matching-conditioned law; the binary encoding, leaf and diameter identities are prior results credited in the proof",
+        "evidence": [
+          "§2 Theorem 1 enumerates 2^(n-2) inversion trees and gives I1/I2.",
+          "§3.1 Lemma 5 and §3.2 Lemma 6 give leaves and diameter; full text contains no perfect-matching result."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1406.3958",
+        "material_read": "full 17-page paper, especially §2 insertion algorithm, §3 leaf and diameter proofs, abstract/results and matching text search",
+        "method": "read accessible primary arXiv PDF text and inspected page images of insertion algorithm and diameter/leaf sections",
+        "title": "On random trees obtained from permutation graphs",
+        "trigger": "identical random-tree ensemble and insertion code"
+      },
+      {
+        "assessment": "DIFFERENT_STATISTIC: fixed permutation pattern counts, not 1-factors or conditioning on matching feasibility",
+        "evidence": [
+          "Theorem 3.1 gives limit laws for occurrences of fixed patterns in tree permutations.",
+          "No theorem with perfect matching as a global selection event was found in inspected material."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2203.04182",
+        "material_read": "full 30-page paper with main theorems §3, representations §§6 and 10–12, references and matching text search",
+        "method": "read accessible primary arXiv PDF and viewed first page image",
+        "title": "The number of occurrences of patterns in a random tree or forest permutation",
+        "trigger": "same random permutation-tree measure, possibly stronger random-word limit theorems"
+      },
+      {
+        "assessment": "BROADER_FIXED_TREE_STRUCTURE_NOT_A_DISTRIBUTIONAL_COVERING: its fixed-tree matching theorem does not evaluate the specific random model",
+        "evidence": [
+          "Theorem 1 describes unmatched vertices of a uniformly chosen maximum matching on a fixed finite tree as a determinantal point process.",
+          "Theorems 2–3 concern local approximation and entropy on bounded-degree tree sequences; no uniform permutation-tree law."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.21167",
+        "material_read": "accessible full-text HTML, abstract, introduction and Theorems 1–3, searched for permutation-tree model",
+        "method": "read publisher OA HTML full article text focusing on main theorem statements",
+        "title": "Matchings on trees and the adjacency matrix: A determinantal viewpoint",
+        "trigger": "plausibly more general tree-matching structure theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1fc85bd4-a0d0-4a7d-b496-6d0f6a204c20",
+  "value": {
+    "rationale": "Perfect matching is a natural global feasibility property of sparse trees. Its probability \\(2^{1-m}\\) identifies an exponentially rare graph subclass whose leaf and diameter laws are completely different at linear scale: matched-conditioned diameter ratio \\(\\Delta_{2m}/(2m)\\to 3/4\\) instead of the unconditioned \\(1/2\\). The leaf-resolved matching probability gives a sharp monotone feasibility response across all possible leaf counts, so this is not an arbitrary slice or a routine unconditional statistic.",
+    "status": "PASS"
+  }
+}
