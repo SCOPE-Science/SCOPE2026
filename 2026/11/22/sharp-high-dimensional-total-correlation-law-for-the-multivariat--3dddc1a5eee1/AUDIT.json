@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For all integers d>=2 and each fixed 0<theta<1, the Laplace transform of each common-shock coordinate simplifies exactly to 1/(1+s), giving entropy 1 for each margin. The conditional likelihood of the vector given W=JZ factors through the sample minimum M, so I(W;X)=I(W;M). Conditional independent exponential noises give h(X|W)=d(1+log q), while M=W+(q/d)E has the explicit normalized convolution density in the result. Hence TC=d log(1/q)+1+log(q/d)-h(M). The exact mixture-entropy identity implies TC=d log(1/q)-theta log(d/q)-H_b(theta)-theta delta+H(J|M), with 0<=delta<=log(1+q/d) by conditional entropy and maximum-entropy bounds. Threshold classification at M>d^(-1/2) bounds H(J|M) by binary entropy of a false-classification probability <=q exp(-sqrt(d)/q)+theta/sqrt(d), proving the three-term expansion and explicit remainder bound. The standalone scalar quadrature and mixture-entropy reproducer passed; finite numerical checks are not treated as infinite-dimensional proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Saali, Mesfioui and Shabri (2024) generalize to multiple dependence parameters and include the homogeneous model as a special case, but the relevant full-text sections focus on construction, moment measures, rank dependence and statistical application, not total-correlation asymptotics.",
+        "Rowe and Day (2019), DOI 10.3390/e21100921, analyze total correlation for Gaussian variables, not this mixed common-exponential-shock family."
+      ],
+      "reasoning": "A mathematical result for a larger copula family would cover the present homogeneous family if it provided exact information divergence for the specialization. The inspected heterogeneous Raftery article does not do this. Gaussian total-correlation theory is not sufficient to imply the mixture-specific theta log d correction or binary-entropy constant.",
+      "searches": [
+        "multivariate Raftery copula \"total correlation\" high dimensional information",
+        "Raftery copula differential entropy mutual information 2024 2025 2026",
+        "https://doi.org/10.54216/IJNS.230224",
+        "common shock exponential multivariate \"total correlation\" entropy asymptotic"
+      ]
+    },
+    "checked_sources": [
+      "Saali, Mesfioui and Shabri (2023), DOI 10.3390/math11020414, original Raftery copula construction and properties",
+      "Saali, Mesfioui and Shabri (2024), DOI 10.54216/IJNS.230224, heterogeneous extension",
+      "Rowe and Day (2019), DOI 10.3390/e21100921, Gaussian total-correlation benchmark",
+      "Ma and Sun (2008), arXiv:0808.0845, general copula-entropy concept",
+      "Related published research on Gaussian-magnitude Renyi total correlation, bivariate Sarmanov information capacity, and multivariate copula transport (distinct objects and measures)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 copula construction specifies its stochastic representation, but its analyzed outcomes do not include the entropy of the sample minimum, posterior uncertainty of the latent Bernoulli activation, or the d-dependent relative entropy from independence.",
+        "The 2024 heterogeneous model specializes to the same law but also does not evaluate this KL invariant.",
+        "The general entropy chain rule and maximal-entropy inequality are prior mathematical tools; together with the originating construction they allow the new proof but do not constitute a published statement of the resulting exact formula and three-term asymptotic."
+      ],
+      "reasoning": "The originating copula family and latent shock are not new. Nor is a generic identity TC=sum marginal entropies minus joint entropy. The specifically asserted conclusion is that the likelihood for the latent shock compresses to the minimum and gives TC=d log(1/q)-theta log(d/q)-H_b(theta)+o(1), including a computable error bound. Comparison of the explicit conclusions and quantifiers in the inspected works found no stronger theorem implying this whole information-theoretic expansion.",
+      "searches": [
+        "https://doi.org/10.3390/math11020414",
+        "https://doi.org/10.54216/IJNS.230224",
+        "https://doi.org/10.3390/e21100921",
+        "https://arxiv.org/abs/0808.0845",
+        "relative entropy to independence of Raftery common shock exponential copula: sample minimum sufficient for latent Bernoulli shock"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2023 source constructs X_i=(1-theta)E_i+JZ and studies the resulting copula density, correlations, concordance and tail dependence; the inspected scientific sections do not state a KL-to-independence formula or a logarithmic-in-d entropy correction.",
+        "General copula-entropy or mutual-information terminology describes the same invariant but does not by itself evaluate it for this family."
+      ],
+      "reasoning": "Using copula entropy, multi-information, total correlation or KL divergence to the product of exponential margins all represents the same object under the coordinatewise probability-integral transform. None of these aliases found a source giving the proposed exact sample-minimum formula or its d-asymptotic; the originators' common-shock representation alone does not state the evaluated information-theoretic law.",
+      "searches": [
+        "Raftery copula \"mutual information\" \"entropy\" multivariate",
+        "Saali Mesfioui Shabri Raftery copula \"Kullback\" \"total correlation\"",
+        "Raftery copula joint entropy multivariate differential entropy",
+        "https://doi.org/10.3390/math11020414"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2023 and 2024 papers do not contain numerical or symbolic tables of the stated KL functional or its high-dimensional coefficients.",
+        "Related indexed mathematical research results on Gaussian-magnitude Renyi-2 total correlation, Sarmanov bivariate information capacity, and multivariate copula transport concern different laws/invariants and contain no exact Raftery entropy table."
+      ],
+      "reasoning": "The claim is an exact analytical identity and asymptotic law for an unbounded continuous multivariate family, not a lookup of an existing discrete database or table. Searches found no exact recorded table entry or formula subsuming it.",
+      "searches": [
+        "Raftery distribution information theoretic \"Shannon\" entropy",
+        "multivariate exponential shared random shift Bernoulli exponential frailty information total correlation entropy minimum statistic dimension d log d",
+        "Raftery exponential copula multiinformation dual total correlation latent entropy asymptotic mutual information minimum sufficient statistic"
+      ]
+    },
+    "rationale": "The 2023 multivariate Raftery copula and Bernoulli/common-exponential construction are expressly credited, as are general total-correlation and copula-entropy definitions. Primary full-text comparisons identified no exact scalar entropy reduction, dimension-dependent logarithmic correction or constant-order term in the originating homogeneous paper or its more general 2024 heterogeneous extension. Search results and related published scientific claims were compared by mathematical implication, not by title. These observations support a qualified originality assessment rather than an exhaustive priority certification.",
+    "residual_risks": [
+      "Historical priority cannot be certified by a nonexhaustive online and mathematical-record search; Raftery (1984) full article was inaccessible.",
+      "Some broader conditional-mixture information-theory literature may indirectly imply one or more identities, though no decisive stronger coverage was identified in inspected materials.",
+      "The claim concerns fixed interior theta and does not cover endpoint or heterogeneous-parameter regimes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes same model and representation, but inspected results do not supply its exact total-correlation formula, large-d logarithmic expansion or entropy constant",
+        "evidence": "Saali, Mesfioui and Shabri, Mathematics 11 (2023), article 414, DOI 10.3390/math11020414",
+        "identifier_or_url": "https://doi.org/10.3390/math11020414",
+        "material_read": "Publisher/open full text: model definition and mixture construction, joint copula results, concordance and tail-dependence discussion, and main scientific conclusions",
+        "method": "Read open PDF with extracted text and inspected relevant page images",
+        "title": "Multivariate Extension of Raftery Copula",
+        "trigger": "Originating primary work containing the same stochastic construction and homogeneous d-dimensional family"
+      },
+      {
+        "assessment": "Broader object class but no covering information-theoretic exact formula or asymptotic expansion for its homogeneous specialization was identified",
+        "evidence": "Saali, Mesfioui and Shabri, International Journal of Neutrosophic Science 23(2) (2024), 296–307, DOI 10.54216/IJNS.230224",
+        "identifier_or_url": "https://doi.org/10.54216/IJNS.230224",
+        "material_read": "Open full text: extension definition, relevant parameter-dependent formulas, discussion of its reported moment and dependence measures, and searched occurrences of entropy/relative entropy",
+        "method": "Read publisher PDF text with relevant-page visual review and textual searches",
+        "title": "A novel multivariate copula of Raftery type with multiple dependence parameters and its neutrosophic application in finance",
+        "trigger": "Plausible dominating heterogeneous extension containing the homogeneous family"
+      },
+      {
+        "assessment": "Gaussian sampling distribution theory, not the Raftery exponential common-shock law; cannot imply the exact mixed-shock asymptotics",
+        "evidence": "Rowe and Day, Entropy 21 (2019), 921",
+        "identifier_or_url": "https://doi.org/10.3390/e21100921",
+        "material_read": "Bibliographic and abstract-level description of Gaussian sample total-correlation results",
+        "method": "Web bibliographic/summary inspection",
+        "title": "The Sampling Distribution of the Total Correlation for Multivariate Gaussian Random Variables",
+        "trigger": "General multivariate total-correlation literature"
+      },
+      {
+        "assessment": "Material historical coverage risk retained; no positive evidence of the precise total-correlation expansion was found",
+        "evidence": "Raftery (1984), Communications in Statistics—Theory and Methods, DOI 10.1080/03610928408828733",
+        "identifier_or_url": "https://doi.org/10.1080/03610928408828733",
+        "material_read": "Bibliographic metadata and searchable descriptions only; primary full text unavailable during this review",
+        "method": "Bibliographic search; no unsupported full-document noncoverage claim",
+        "title": "A continuous multivariate exponential distribution",
+        "trigger": "Original Raftery-family ancestor and possible historical priority source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3dddc1a5-eee1-4049-9dd7-7cc338a3d202",
+  "value": {
+    "rationale": "The original multivariate Raftery paper analyzes moments, concordance and tails without identifying how whole-vector information dependence scales with dimension. Determining total correlation requires the full joint law and does not follow from pairwise dependence measures. The exact reduction from an arbitrary-dimensional KL calculation to one-dimensional sample-minimum entropy is structurally useful for evaluation; the coefficient -theta of log d and constant -H_b(theta) quantify an unexpected mixed discrete/continuous latent-shock penalty. Explicit uniform-in-d fixed-parameter error inequalities allow controlled finite-dimensional use. The invariant and asymptotic coefficients are motivated by high-dimensional dependence, not chosen ad hoc.",
+    "status": "PASS"
+  }
+}
