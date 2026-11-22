@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The geometric incidence is identified with two/three-subset inclusion by Boben–Gévay–Pisanski, Lemma 4.5. Direct counting proves the Gram identity \(BB^{\mathsf T}=2I+N^{\mathsf T}N\), so the nonzero spectrum and tree count follow. Standard-library exact fraction-free determinants and independent prime-local row/column elimination recover the group over \(2\), \(3\) and \(5\). A separate symbolic integer Smith calculation with opposite vertex deletions matches every factor. All steps and actual runnable code are included, and the stable-curve interpretation is explicitly conditional.
+
+**Originality — PASS, provisional priority.** The 2013 geometry source gives the Steiner–Plücker/Danzer subconfiguration but does not compute its graph critical group. The rectangular incidence Smith results of Wilson/Ducey et al. and the single-rank Kneser-graph critical-group results do not themselves supply the Smith form of this mixed-rank 35-vertex Laplacian. The closest previously recorded Pascal-chord graph uses 105 different vertices and does not imply the result. Searches for Steiner–Plücker, Cayley–Salmon, the 35-vertex unique edge-transitive bipartite graph, and equivalent Smith/sandpile terms did not identify this complete decomposition. Historical graph tables and unindexed work remain possible priority risks; a negative search is not a proof of novelty.
+
+**Value — PASS.** The configuration is a distinguished projective incidence invariant of the six-point conic, and its Levi graph is a well-studied, edge-transitive, nontrivial \((3,4)\)-biregular configuration. Determining all torsion factors rather than only its rational spectrum or tree count gives the full degree-zero divisor class group of the graph. It supplies the precise geometric component group for every regular unit-thickness semistable genus-26 smoothing with this dual graph, and exposes a substantial \(5\)-primary subgroup of rank eight. No general-family formula is claimed.
+
+The main residual risk is historical coverage under the graph-table identifier or a more general integral decomposition theorem; the two cited subset-matrix papers have been compared by statement and matrix dimensions. This review is not external certification.
+
+Self-review: passed. Independent audit: not yet performed.

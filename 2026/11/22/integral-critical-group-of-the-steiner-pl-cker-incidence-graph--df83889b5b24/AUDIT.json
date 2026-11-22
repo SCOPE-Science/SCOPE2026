@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Boben–Gévay–Pisanski Lemma 4.5 identifies the exact 15-by-20 subset inclusion matrix. From the counted identity BB^T=2I+N^TN and NN^T=4I+J, the 35-vertex Laplacian eigenvalues and determinant follow exactly. The standard-library verifier reconstructs both reduced matrices, obtains exact integer cofactor 377913600000000 and performs invertible p-adic row/column elimination over Z/p^9, with all pivot valuations at most two. Both roots give valuation multiplicities 2:(24,6,4), 3:(28,2,4), 5:(26,8,0), forcing factors 1^24,2^2,10^2,30^2,180^4; independent SymPy SNF and characteristic polynomial agree. Only the 35-vertex case, under stated genericity and smoothing hypotheses, is proved.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ducey et al., arxiv:2310.09227, abstract and Section 0, Definition 1 and Theorem 1.7: diagonal forms for rectangular subset-intersection matrices and generalized Laplacians on a single subset rank.",
+        "Ducey–Hill–Sin, arxiv:1707.09115, article abstract/introduction: critical groups of Kneser graphs KG(n,2), vertices only the 2-subsets, not the bipartite rank-2/rank-3 Levi graph.",
+        "Wilson 1990 subset inclusion diagonal forms, as discussed in arxiv:2310.09227 Section 0."
+      ],
+      "reasoning": "The known square single-rank Johnson/Kneser Laplacian theory has 15 or 20 vertices here, not 35. The rectangular 15-by-20 inclusion Smith normal form does not determine the 34-by-34 reduced Laplacian of the block matrix [[4I,-B],[-B^T,3I]] merely by substitution. It is possible that some uninspected universal block-matrix theorem yields the instance, but none of the inspected published statements does.",
+      "searches": [
+        "Web: rank-selected Boolean lattice Laplacian Smith normal form subset graphs",
+        "Web: critical group incidence graph combinatorial Grassmannian two three subset rank selected Boolean lattice",
+        "arxiv:2310.09227",
+        "arxiv:1707.09115"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1301.1067",
+      "https://arxiv.org/abs/2310.09227",
+      "https://arxiv.org/abs/1707.09115",
+      "https://mathworld.wolfram.com/SteinerPoints.html",
+      "https://resources.wolframcloud.com/FunctionRepository/resources/HexagrammumMysticum/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boben–Gévay–Pisanski, arxiv:1301.1067, Sections 2 and 4, Lemma 4.5, Remark 4.9: (20_3,15_4) incidence, subset labels, graph {35,2}; no assertion about its Laplacian Smith factors in the inspected text.",
+        "Ducey et al., arxiv:2310.09227, abstract and Section 0, Definition 1 and Theorem 1.7: diagonal forms for rectangular subset-intersection matrices and generalized Laplacians on a single subset rank.",
+        "Own 105-vertex Pascal/opposite-chord incidence has different vertex types and 180 edges; the new graph has 35 vertices and 60 edges."
+      ],
+      "reasoning": "The established underlying configuration fixes B but not the claimed p-primary Smith factors without calculation. The older Pascal/chord group concerns a different matrix and has no implication supplying the present factors. The group is invariant under duality, so no separate Cayley–Salmon result is counted.",
+      "searches": [
+        "arxiv:1301.1067",
+        "arxiv:2310.09227",
+        "published-finding corpus: Plucker lines Steiner points 15 20 incidence critical group Smith form",
+        "Own accessible ledger: 2026-11_week2 p0001_g000069 claim 1e8dd542-ee39-4fcc-b126-d8c4fd91af60"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boben–Gévay–Pisanski, arxiv:1301.1067, Sections 2 and 4, Lemma 4.5, Remark 4.9: (20_3,15_4) incidence, subset labels, graph {35,2}; no assertion about its Laplacian Smith factors in the inspected text.",
+        "Remark 4.9 in arxiv:1301.1067 identifies the same Levi graph as Cayley–Salmon and the unique 35-vertex (3,4)-biregular edge-transitive girth-six graph {35,2}."
+      ],
+      "reasoning": "The same Smith form applies to the dual Cayley–Salmon and graph-table {35,2} names. This was treated as one claim. Neither aliases nor alternate graph descriptions in the inspected sources state the integer Laplacian invariants.",
+      "searches": [
+        "published-finding corpus: Steiner-Plücker 20 Steiner points 15 Plücker lines 35-vertex Levi graph critical group Smith Laplacian 2^14 3^10 5^8",
+        "published-finding corpus: Cayley-Salmon 15 Salmon points 20 Cayley lines 35 vertex graph Neron component group",
+        "published-finding corpus: Danzer configuration DCD(4) Steiner Plucker subconfiguration graph sandpile group 180 30 10",
+        "Web: 35 vertices 60 edges edge transitive girth 6 35 2 Jacobian graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:1301.1067 Remark 4.9 describes table identifier {35,2} and the unique biregular edge-transitive graph of this order and girth.",
+        "The same source reports no Smith-form values for {35,2} in searched full-text sections; no published exact critical-group table value was located."
+      ],
+      "reasoning": "The graph itself is catalogued; cataloguing an incidence graph is not equivalent to tabulating its torsion group. A pre-existing machine-readable table of complete critical groups remains a genuine residual priority risk.",
+      "searches": [
+        "Web: Potočnik semisymmetric 35 2 graph critical group",
+        "Web: biregular graph 35 2 Smith normal form sandpile",
+        "published-finding corpus: Danzer configuration DCD(4) Steiner Plucker subconfiguration graph sandpile group 180 30 10",
+        "published-finding corpus: Steiner-Plücker 20 Steiner points 15 Plücker lines 35-vertex Levi graph critical group Smith Laplacian 2^14 3^10 5^8"
+      ]
+    },
+    "rationale": "Literature establishes the classical 20-point/15-line incidence and dual realization; the newly claimed object is the complete integral Smith form of its 35-vertex graph Laplacian. The closest subset-matrix literature gives a rectangular incidence-matrix diagonal form or one-rank association-scheme graph Laplacians. Those statements do not themselves supply the mixed-rank block Laplacian invariant factors; same-size/parameter coverage was checked explicitly. An own previous Pascal graph has 105 vertices with different incidence. No matching whole-group statement was identified, subject to unindexed-graph-table priority risk.",
+    "residual_risks": [
+      "Unindexed critical-group tables for the unique {35,2} biregular graph could contain an equivalent result.",
+      "A stronger general integer block-matrix theorem could implicitly specialize to this computation; the reviewed rectangular and single-rank theorems do not explicitly do so.",
+      "Only the generic characteristic-zero projective configuration and unit-thickness semistable interpretation are claimed; no positive-characteristic collision classification is established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS classic Steiner–Plücker and Cayley–Salmon incidence, not the computed integral Laplacian group in the inspected source",
+        "evidence": "Section 2 (20 Steiner points, 15 Plücker lines), Lemma 4.5 (subset incidence), Remark 4.9 (edge-transitive 35-vertex graph identification).",
+        "identifier_or_url": "https://arxiv.org/pdf/1301.1067",
+        "material_read": "Introduction, Sections 2, 4 (through Lemmas 4.5–4.6 and Remark 4.9), source text searches across the 25-page PDF for Smith, Laplacian, critical and spanning",
+        "method": "full-text PDF reading with page rendering and targeted term searches",
+        "title": "Danzer’s configuration revisited",
+        "trigger": "Primary geometric incidence and potential exact graph coverage"
+      },
+      {
+        "assessment": "COVERS rectangular inclusion matrix and equal-rank subset graph Laplacians; no matching mixed-rank block Laplacian statement was found in material examined",
+        "evidence": "Introduction distinguishes rectangular An,krow,kcol,l diagonal forms from equal-rank generalized Laplacian A−λI.",
+        "identifier_or_url": "https://arxiv.org/pdf/2310.09227",
+        "material_read": "Abstract and introduction, definitions and proof setup in Section 1; full-text searches across the PDF for bipartite, Levi, incidence graph, rank selected",
+        "method": "PDF text and page 2 visual inspection",
+        "title": "Integer diagonal forms for subset intersection relations",
+        "trigger": "Potential stronger theorem for subset inclusion Smith invariants"
+      },
+      {
+        "assessment": "DIFFERENT: Kneser KG(n,2) has one rank of subset vertices, not the mixed rank-2/rank-3 incidence graph",
+        "evidence": "Title and introduction explicitly define the graph as disjointness on 2-subsets.",
+        "identifier_or_url": "https://arxiv.org/abs/1707.09115",
+        "material_read": "Arxiv abstract and accessible journal article introduction",
+        "method": "web article reading and parameter comparison",
+        "title": "The critical group of the Kneser graph on 2-subsets of an n-element set",
+        "trigger": "Possible all-parameters stronger critical-group theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "df83889b-5b24-4476-ad60-d33581b1530f",
+  "value": {
+    "rationale": "The invariant is the full degree-zero divisor class group of the canonical symmetric, edge-transitive (20_3,15_4) Steiner–Plücker incidence graph (also the Cayley–Salmon dual), not an arbitrary numerical slice. Its order and rational spectrum do not fix its integral invariant factors. The exact 5-primary rank-eight torsion and exponent 180 are intrinsically interpretable and give precise Néron geometric component groups for genus-26 unit-thickness semistable degenerations. The result is a natural complete invariant of one historically significant configuration; no broader theorem is claimed.",
+    "status": "PASS"
+  }
+}
