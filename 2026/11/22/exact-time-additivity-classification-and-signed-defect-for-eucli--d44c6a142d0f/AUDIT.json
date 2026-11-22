@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Strict convexity and first-order conditions ensure unique proximal points. Explicit coordinatewise and radial shrinkage prove p=1,2. Moreau duality and the exact positive-part splitting identity prove all-time p=infinity including extinction. The smooth positive-orthant implicit-equation Taylor expansion gives composition minus direct step = -h^2 Hessian(f) gradient(f)+O(h^3); at (1,2,1,...,1), its first coordinate equals the stated nonzero coefficient for all finite 1<p<infinity except 2. A standard-library checker passed 6360 supplementary tests. No finite test is used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bungert et al. Theorem 4.5 offers sufficiency for flow/variational equivalence under eigenvector subgradients; §§5.2–5.3 explicitly establish L1/Linfinity flow properties",
+        "Bërdëllima–Steidl §6.2 establishes iteration-limit semigroup for much broader operators but not finite-resolvent equality"
+      ],
+      "reasoning": "General semigroup existence does not dominate a claim about single-step equality. The one-homogeneous flow criterion accounts for positive endpoints, but extracting the complete negative finite-p boundary and coefficient requires the specific Hessian-gradient computation here. This is an acknowledged priority risk because an unstated easy corollary may be viewed as covered.",
+      "searches": [
+        "proximal mapping semigroup norm one homogeneous gradient flow",
+        "proximal semigroup l p norm shrinkage infinity exact composition",
+        "nonlinear spectral decompositions gradient flows one homogeneous arxiv 2019",
+        "Moreau resolvent exact parameter additivity l_p group shrinkage p infinity 2019"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1901.06979, source relevant PDF sections 4.2 and 5.1–5.3",
+      "arXiv:2104.05304, publisher full HTML section 6.2",
+      "arXiv:2007.03798, public abstract only",
+      "Published mathematical research index, multiple semantic queries on norm proximal additivity, curvature and flow equivalence"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bungert et al. Theorem 4.5: if flow subgradients are nonlinear eigenvectors, gradient flow equals variational method",
+        "Bungert et al. Theorems 5.3 and 5.5: L1 and Linfinity flow are affirmative examples",
+        "Bërdëllima–Steidl §6.2: the semigroup T(t) is constructed from limits of R_{t/n}^n; T(t)=R_t is not claimed in that construction"
+      ],
+      "reasoning": "The cited theorems cover substantial positive-context components. The present all-p iff conclusion requires the explicit evaluation of nonzero Hessian-gradient at the same positive witness for every excluded exponent, plus the quantitative defect; those exclusions do not follow just from general existence of a flow. No checked statement with stronger necessary-and-sufficient all-norm coverage was found. A general geometric theorem with a checkable implicit equivalence could nevertheless dominate this narrow classification, which is a residual priority risk.",
+      "searches": [
+        "proximal mapping semigroup norm one homogeneous gradient flow",
+        "proximal maps semigroup one homogeneous functionals necessary sufficient",
+        "prox_{t ||x||_p} semigroup",
+        "proximal operator norm l_p composed times s t semigroup only p 1 2 infinity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bungert et al. arXiv:1901.06979 §§4.2, 5.2–5.3: gradient-flow/variational equivalence with L1 and Linfinity examples",
+        "Bërdëllima–Steidl arXiv:2104.05304 §6.2: strongly continuous semigroup from resolvent power limit"
+      ],
+      "reasoning": "Equivalent language is exact finite-step resolvent parameter additivity, equality with the continuous subgradient flow at every time, or vanishing local composition defect. The checked theory includes flow-versus-variational equivalence under geometric sufficient conditions but not an explicit necessary/sufficient ell_p exponent classification with its signed defect.",
+      "searches": [
+        "semigroup property proximal maps ell p norm p 1 2 infinity classification proximal flow",
+        "complete classification when proximal maps prox_{t ||x||_p} form semigroup across time p 1 2 infinity",
+        "proximal mapping semigroup norm one homogeneous gradient flow",
+        "proximal maps semigroup one homogeneous functionals necessary sufficient"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed public result: Sharp proximal bifurcation and cusp laws for logistic spectral shrinkage (2026), which treats a nonconvex logistic spectral penalty, rather than norm-prox finite time-additivity.",
+        "Closest indexed public result: Exponent-invariant cross-polytope projection and its sharp Lipschitz threshold (2026), which treats metric-projection crossnorm behavior rather than parameter additivity.",
+        "The previously identified graph total-variation and rank-weighted Kullback-Leibler semigroup statements concern different regularizers and spaces; neither implies the displayed ell_p classification."
+      ],
+      "reasoning": "The checked structured-search hits and accessible own claims do not state this ell_p Euclidean norm prox classification or the signed quadratic defect. A search result list does not establish mathematical uniqueness, and this observation is not used to substitute for comparison with primary full text.",
+      "searches": [
+        "semigroup property proximal maps ell p norm p 1 2 infinity classification proximal flow",
+        "complete classification when proximal maps prox_{t ||x||_p} form semigroup across time p 1 2 infinity",
+        "second order semigroup defect Hessian gradient ell p norm proximal 1 homogeneous regularization"
+      ]
+    },
+    "rationale": "The new claim is the complete finite-dimensional Euclidean ell_p finite-resolvent additivity classification together with an explicit signed second-order defect, rather than standard existence of continuous semigroups or endpoint shrinkage formulas. Relevant full primary sections contain sufficient mechanisms and related examples but no stated all-p exclusion/classification. Historical-priority uncertainty remains, especially unstated implications of general results.",
+    "residual_risks": [
+      "Full priority over all older literature not proved; an implicit corollary of a stronger exact one-homogeneous flow criterion could count as covered.",
+      "Full arXiv:2007.03798 text was not inspected, so no claim that its uninspected sections exclude an equivalent result.",
+      "No independent mathematical validation; finite checker sampling does not prove universal statements."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes iteration-limit semigroup; finite-parameter resolvent additivity for ell_p penalties not stated.",
+        "evidence": "§6.2 defines R_lambda and T_{n,t}=R_{t/n}^n then limits to a semigroup; first published as arXiv:2104.05304 in 2021.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00025-021-01481-8",
+        "material_read": "Full HTML abstract, §§6.1–6.3 and the specifically displayed proofs and semigroup formulas of §6.2; publication/MSC metadata.",
+        "method": "Accessible complete publisher HTML, navigated to primary formulas and proof",
+        "title": "On alpha-Firmly Nonexpansive Operators in r-Uniformly Convex Spaces",
+        "trigger": "Potential direct construction of finite-parameter resolvent semigroup"
+      },
+      {
+        "assessment": "Gives sufficient structural criteria and positive L1/Linfinity examples; not an explicit p-wide iff classification or signed local semigroup defect.",
+        "evidence": "Theorem 4.5 on equivalence under nonlinear eigenvector subgradients; Theorems 5.3 and 5.5 treat L1 and Linfinity gradient flows.",
+        "identifier_or_url": "https://arxiv.org/pdf/1901.06979",
+        "material_read": "Relevant full PDF text and page images for introduction, §4.2 Theorem 4.5, and §§5.1–5.3 Theorems 5.1, 5.3, 5.5; not a claim of reading every page.",
+        "method": "Open-access arXiv full PDF, text search, relevant page screenshots",
+        "title": "Nonlinear Spectral Decompositions by Gradient Flows of One-Homogeneous Functionals",
+        "trigger": "Strongest plausible general theory equating gradient flow and variational proximal regularization"
+      },
+      {
+        "assessment": "Only the abstract was inspected; full-text overlap remains a residual risk.",
+        "evidence": "Abstract concerns determination and Lipschitz characterization of convex functions through proximal maps; no explicit additive-parameter statement in the material inspected.",
+        "identifier_or_url": "https://arxiv.org/abs/2007.03798",
+        "material_read": "Public arXiv abstract and bibliographic metadata only.",
+        "method": "arXiv abstract-page discovery",
+        "title": "Proximal Determination of Convex Functions",
+        "trigger": "Comparison-principle possibility for resolvent identities"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d44c6a14-2d0f-4bf8-a4a4-cf45f6c4c9b0",
+  "value": {
+    "rationale": "The complete natural ell_p family is classified for exact finite-step proximal time-additivity, a property stronger than the general continuous semigroup limit. The nonsmooth infinity endpoint is exceptional alongside 1 and 2, while all interior non-Hilbert exponents fail with a computable signed h^2 defect. This distinguishes actual finite-step modeling from infinitely subdivided gradient flow and yields explicit diagnostic direction/scale, not merely a textbook nonexpansivity restatement.",
+    "status": "PASS"
+  }
+}
