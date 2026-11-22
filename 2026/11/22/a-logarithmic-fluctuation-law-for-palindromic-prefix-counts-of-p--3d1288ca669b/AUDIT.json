@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md, steps 1–5; standalone verify_fluctuations.py and verification_output.txt",
+      "Hamoud, arXiv:2611.20221v1, Theorem 2.15 and Corollary 3.3 for the previously known unique lengths",
+      "Exact computations: 360,000 integer cutoffs across 12 directives, 630 spectral phase-period combinations, 12 direct palindromic-closure oracles, three ordinary-phase means"
+    ],
+    "rationale": "The published unique-index length theorem fixes the exact object and removes only the initial empty prefix. A period matrix gives an order-two Cayley–Hamilton recurrence with explicitly computed two initial values in each phase; its exact solution is the displayed two-eigenvalue expression. Positive Perron coefficients order the within-period thresholds and give a strict interperiod wrap gap. The second eigenvalue has modulus below one, so the actual integer thresholds are eventually nearest-integer roundings of their Perron terms and differ from ideal thresholds at O(1) integers per exponentially growing period. Consequently the centered count equals a finite-branch staircase except at O(log X) cutoffs. Harmonic integration gives the uniform logarithmic phase and the stated pushforward density; geometric-annulus integration gives the ordinary phase-conditioned density, and differentiation proves that its means vary. Branch endpoint limits prove the exact liminf and limsup. Literal-word palindromic closure was independently reconstructed for 12 directives, with 360,000 integer-count comparisons, 630 spectral comparisons and three ordinary-phase empirical mean checks. These finite computations are consistency checks, not a substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hamoud Proposition 4.1 extends first-order bounding to arbitrary directives under growth assumptions but does not control the phase-resolved second-order error.",
+        "Fischler studies limiting ratios of consecutive palindromic-prefix lengths, not the distribution of the centered number up to N."
+      ],
+      "reasoning": "The broader arbitrary-directive counting bound does not imply the explicit finite phase law, because periodicity and the subordinate eigenvalue are needed to obtain stable thresholds. An unrestricted palindromic-periodicity theorem concerns a different object.",
+      "searches": [
+        "Sturmian word palindromic prefixes logarithmic error distribution limit law periodic directive Perron eigenvalue 2026",
+        "Hamoud \"Lengths and Counting\" \"fluctuation\" eigenvalue distribution",
+        "arxiv:2611.20221v1 Theorems 3.4, 4.1",
+        "Fischler 2006 Introduction and Section 3.1"
+      ]
+    },
+    "checked_sources": [
+      "Hamoud (2026), arXiv:2611.20221v1, Theorem 2.15 and Corollary 3.3: unique palindromic-prefix length indexing; Theorem 3.4/Corollary 3.5: first-order count and O(1) remainder; Discussion: error is not o(1).",
+      "Fischler (2006), Introduction and Section 3.1: occurrence lengths and limsup of ratios between consecutive palindromic-prefix lengths, not a centered counting fluctuation distribution.",
+      "de Luca and Fici (2013), Introduction and main open/closed-prefix structure: a distinct binary prefix statistic, not the present centered count or limit law."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hamoud (2026), arXiv:2611.20221v1, Theorem 2.15 and Corollary 3.3: unique palindromic-prefix length indexing; Theorem 3.4/Corollary 3.5: first-order count and O(1) remainder; Discussion: error is not o(1).",
+        "Fischler (2006), Introduction and Section 3.1: occurrence lengths and limsup of ratios between consecutive palindromic-prefix lengths, not a centered counting fluctuation distribution.",
+        "de Luca and Fici (2013), Introduction and main open/closed-prefix structure: a distinct binary prefix statistic, not the present centered count or limit law."
+      ],
+      "reasoning": "The old length formula and O(1) bound are needed premises and are not independent original conclusions. The O(1) bound plus nonconvergence does not determine the branch phases, explicit absolutely continuous harmonic law, ordinary phase family or two sharp oscillation endpoints. The new claims follow from additionally proved exact per-phase eigenvalue coefficients and a full threshold-measure calculation.",
+      "searches": [
+        "arxiv:2611.20221v1 Theorem 3.4 and Corollary 3.5",
+        "arxiv:2611.20221v1 Discussion paragraph on failure of o(1)",
+        "doi:10.1016/j.jcta.2005.12.001",
+        "arxiv:1306.2254"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The length sequence is an algebraic-exponential union of phase classes; the proposed distribution is the pushforward of uniform logarithmic phase under a finite-branch sawtooth, unlike the pre-existing coefficient of log N.",
+        "Hamoud Corollary 3.5 states only bounded nonconvergent error, not a law of that error."
+      ],
+      "reasoning": "Compared the exact Z(N) normalization, the phase breakpoints z_m, the harmonic and ordinary probability laws, and sharp endpoints, rather than merely whether a paper mentions palindromic prefixes. A general lattice-renewal identity might be formally equivalent at a different level, but no inspected source states the word-specific constants or their implication.",
+      "searches": [
+        "\"palindromic prefixes\" \"logarithmic\" \"distribution\" periodic",
+        "\"palindromic prefixes\" \"fluctuations\" sturmian periodic directive",
+        "Sturmian periodic directive palindromic prefix counting logarithmic limit distribution piecewise constant density staircase Perron rounding theorem",
+        "arxiv:2611.20221v1 Sections 2.2, 3.2, 4, 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published paper contains no numerical table of the complete harmonic fluctuation density or the phase-conditioned ordinary limit measures.",
+        "The cited 2013 prefix-structure article concerns open/closed runs, not these spectra."
+      ],
+      "reasoning": "The claimed output is a symbolic all-positive-directive-period formula, rather than a finite table or an aggregate count that a known table could subsume; the checked mathematical literature did not give an exact matching formula.",
+      "searches": [
+        "\"Sturmian\" \"palindromic prefixes\" \"log-periodic\" fluctuations",
+        "\"palindromic prefixes\" \"logarithmic\" \"distribution\" periodic",
+        "arxiv:1306.2254"
+      ]
+    },
+    "rationale": "The exact input classification and O(1) logarithmic counting result are explicitly attributed to Hamoud rather than recast as discoveries. Full-text inspection of Hamoud’s paper through the discussion and conclusions found no finite-branch error law, harmonic probability density, phase-dependent ordinary-sampling limit family, or sharp universal extrema of this centered count. Relevant older original work characterizes either the palindromic-prefix length ratio or the open/closed prefix indicator. The new contribution is the complete phase-calibrated second-order fluctuation spectrum and integer-rounding representation. A stronger indexed theorem implying this precise density or an equivalent general geometric-renewal formulation was not found in the checked sources. Historical priority is not certified and nonindexed equivalent literature remains a residual risk.",
+    "residual_risks": [
+      "An unindexed or independently published equivalent finite-branch geometric-renewal theorem with palindromic-Sturmian specialization may imply the distributional claim.",
+      "Not every historical paper on Sturmian prefixes or general lattice renewal was read in full. No global uniqueness or historical priority certification is claimed.",
+      "The exact two-eigenvalue recurrence and harmonic phase-uniformity are elementary components; the assessment of novelty and value rests on the specific all-period Sturmian fluctuation law and its phase-dependent ordinary refinement, not these components in isolation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS first-order bound and exact length indexing; does NOT give the present second-order density, ordinary phase family, sharp endpoints or integer threshold rounding.",
+        "evidence": [
+          "arXiv:2611.20221v1 Theorem 2.15, Lemma 3.1, Theorem 3.4, Corollary 3.5, §4, §5"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.20221v1",
+        "material_read": "Abstract, §§2.1–2.2 (definitions and unique length formula), §§3.1–3.2 (main theorems, proof and O(1) refinement), §4 (comparison and no o(1) claim), §5 (conclusions), references.",
+        "method": "Direct reading of full open-access HTML and comparison of the formulas and stated conclusions; checked submission record for first public date.",
+        "title": "Lengths and Counting of Palindromic Prefixes of Standard Sturmian Words",
+        "trigger": "Identical base object and strongest source for the earlier logarithmic counting theorem."
+      },
+      {
+        "assessment": "Length sequences and extremal ratio invariants appear, but no distributional refinement of the centered logarithmic counting function was found in inspected material.",
+        "evidence": [
+          "J. Combin. Theory Ser. A 113 (2006) 1281–1304, Introduction and relevant Sturmian section; DOI 10.1016/j.jcta.2005.12.001"
+        ],
+        "identifier_or_url": "https://www.imo.universite-paris-saclay.fr/~stephane.fischler/palindromes.pdf",
+        "material_read": "Original open-access PDF, title page/abstract/introduction and relevant discussion of Sturmian palindromic-prefix ratios, with section headings and relevant formulas inspected.",
+        "method": "Direct PDF text and first-page visual inspection; comparison of stated length-ratio goals and subsequence-growth quantities.",
+        "title": "Palindromic prefixes and episturmian words",
+        "trigger": "Classical original source for palindromic-prefix sequences and characteristic Sturmian words."
+      },
+      {
+        "assessment": "Deals with open versus closed prefixes and doubled standard-word run lengths, not logarithmic counts of palindromic prefixes or the stated finite-branch limiting law.",
+        "evidence": [
+          "arXiv:1306.2254, Introduction and main-results discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1306.2254",
+        "material_read": "ArXiv open text abstract, introduction, main declared results and explanations of open/closed prefix sequence.",
+        "method": "Direct HTML/abstract reading and comparison of underlying prefix statistics.",
+        "title": "Open and Closed Prefixes of Sturmian Words",
+        "trigger": "Potentially stronger structural classification of Sturmian prefix lengths."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3d1288ca-669b-414d-b859-68c728e85438",
+  "value": {
+    "evidence": [
+      "Hamoud (2026), Corollary 3.5 and Discussion explicitly describe the O(1) nonconvergent error",
+      "RESULT.md, explicit general phase constants, complete probability laws and exact endpoints",
+      "verify_fluctuations.py, empirical distinctions for 12 directives and ordinary-phase mean tests"
+    ],
+    "rationale": "The 2026 research explicitly identifies a logarithmic counting asymptotic with an irreducibly oscillating bounded error. Determining an entire exact and computable asymptotic error distribution, the phase-dependent ordinary-sampling family (which has no single mean limit), the sharp two-sided oscillation endpoints, and eventual Perron-term integer rounding quantifies this natural unresolved second-order phenomenon in every periodic-directive Sturmian word. It supplies the full statistical and structural behavior of the count’s residual rather than a textbook first-order rephrasing. In particular, the Fibonacci word has uniform harmonic error but constant-two directives produce a nonuniform piecewise density; that distinction is not implied by knowing only the logarithmic coefficient or an O(1) error.",
+    "status": "PASS"
+  }
+}
