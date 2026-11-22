@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Exactly derive p3(t)=t²[(1+c)t-c], p3(1)=1 and the worst-case projective ratio. The endpoint P(c) strictly falls and interior magnitude N(c) strictly rises, with a unique crossover. The fixed interior witness proves uniqueness even beyond the endpoint positivity interval; the parameter cap gives the single q_* frontier, and the only possible notch yields the golden-ratio cutoff. The full proof is in RESULT.md; 110,612 standalone exact-rational/numerical assertions were replayed, not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tappenden, arXiv:2611.13283v1, studies asymptotic augmented-matrix eigenvalue rates and algorithmic performance.",
+        "Xu et al., AISTATS 2018, use polynomial filtering with the distinct recurrence v_next=A v-beta v_previous.",
+        "Unrestricted Chebyshev minimax polynomial optimization allows polynomial coefficients not realizable by one fixed beta in this warm-started recurrence."
+      ],
+      "reasoning": "Stronger general spectral contraction/approximation results do not automatically determine the unique restricted beta. Direct substitution of the source recurrence and its initial history is required; the compared asymptotic and unrestricted theorems do not imply the finite-three-step frontier.",
+      "searches": [
+        "\"Tappenden 2026 An Accelerated Power Method finite horizon optimal beta positive semidefinite 3 steps polynomial spectrum spectral max\"",
+        "\"finite step acceleration eigenvector exact filtering Chebyshev momentum 3-step sharp threshold\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.13283v1",
+      "https://arxiv.org/abs/2611.13283",
+      "https://proceedings.mlr.press/v84/xu18a/xu18a.pdf",
+      "https://arxiv.org/abs/2610.41627",
+      "https://github.com/published-finding corpus/2026"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Originating source: initialization v_{-1}=v_0, recurrence v_next=A((1+beta)v-beta v_previous), asymptotic rate optimization, and its associated momentum restriction; the new theorem imposes a closed cap [0,q] even if q is a loose spectral bound.",
+        "Related 2018 accelerated stochastic power iteration: v_next=A v-beta v_previous, fundamentally different polynomial recurrence.",
+        "The present exact polynomial t²[(1+c)t-c] yields the two distinct boundaries q_*=0.755526784... and (sqrt(5)-1)/2."
+      ],
+      "reasoning": "Neither the source optimal asymptotic rate nor the other methods imply the unique finite-three-product minimax beta or the endpoint-notch feasibility cutoff. The new theorem specializes the initialized polynomial and performs the missing constrained alternation comparison. It makes no claim that the underlying recurrence or Chebyshev methods are new.",
+      "searches": [
+        "\"Accelerated Power Method Nesterov warm start exact finite termination in three iterations two eigenvalues golden ratio threshold\"",
+        "\"An Accelerated Power Method\" \"three\" \"minimax\" \"power\"",
+        "\"finite step acceleration eigenvector exact filtering Chebyshev momentum 3-step sharp threshold\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tappenden, arXiv:2611.13283v1, Sections 2-3: same acceleration recurrence but asymptotic augmented-matrix analysis, not the cubic finite-time constrained minimax.",
+        "Sun et al., arXiv:2610.41627: a differently normalized two-sweep parameterized power step and warm-start Rayleigh analysis.",
+        "The cubic E_q minimax and exact notch are direct finite-step polynomial statements, unlike eigenvalue-asymptotic rate equivalences."
+      ],
+      "reasoning": "The initialized recurrence is encoded by t²[(1+c)t-c] with c=beta(2+beta). Comparison must preserve initialization, placement of momentum inside A, and the interval supremum; none of the compared schemes and published results yields the c-equioscillation law or both sharp q cutoffs.",
+      "searches": [
+        "\"three step finite horizon minimax accelerated power iteration Nesterov positive semidefinite spectral interval eigenvalue 0 to q momentum beta cap\"",
+        "\"spectral polynomial p3(lambda)=lambda squared times lambda minus beta(2+beta)(1-lambda) three step eigensolver\"",
+        "\"golden ratio three iteration exact top eigenvector two eigenvalue accelerated power method 0<lambda<=0.618\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The quantities are an exact continuum minimax function, a unique scalar crossing, and a spectral notch boundary, not finite tabulated values.",
+        "Published related exact risk law for a warm-started two-sweep power step uses a different polynomial and Rayleigh-quotient risk outcome."
+      ],
+      "reasoning": "A checked title or table of eigenvalue-rates does not imply these functions. The full-text comparisons and searched mathematical records supplied no exact finite-three-step table or equivalent result; search absence is not proof of novelty.",
+      "searches": [
+        "\"three step finite horizon minimax accelerated power iteration Nesterov positive semidefinite spectral interval eigenvalue 0 to q momentum beta cap\"",
+        "\"power iteration Nesterov momentum annihilate second eigencomponent degree three polynomial root beta 1/sqrt(1-lambda)-1\""
+      ]
+    },
+    "rationale": "Compared identical-history inside-A power recurrence and asymptotic rate in Tappenden (2026) with the initialized cubic finite-budget minimax; Xu et al. (2018) use a different outside-A momentum, and a published warm-started two-sweep result uses different normalization and a different loss. No corresponding sharp one-parameter cubic minimax / distinct cap and notch boundaries was found among the reviewed full-text sources and published records. Unindexed equivalent polynomial work remains possible.",
+    "residual_risks": [
+      "An unindexed equivalent finite-step polynomial equioscillation analysis could cover the result.",
+      "Unrestricted Chebyshev design may permit alternate derivations, but its coefficient freedom does not directly imply the constrained optimal beta.",
+      "The bound q is presumed known; implementability with an estimated bound is outside scope."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies the source algorithm and asymptotic tuning, not the claimed constrained three-product minimax or golden-ratio endpoint cancellation.",
+        "evidence": [
+          "Recurrence and common normalization in algorithm section; asymptotic augmented-matrix spectral eigenvalue analysis, no equality of P(c) and N(c)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.13283v1",
+        "material_read": "Full accessible HTML: introduction, algorithm and initialization, asymptotic spectral rate sections, numerical examples, conclusion and references.",
+        "method": "Direct full-text reading and equation-level comparison against the three-step spectral polynomial and minimax.",
+        "title": "An Accelerated Power Method",
+        "trigger": "Exact recurrence and related momentum interval, plus potential finite-step performance discussion"
+      },
+      {
+        "assessment": "Momentum lies outside A in its update, so its Chebyshev recursion and bounds do not imply this fixed-beta, inside-A cubic minimax.",
+        "evidence": [
+          "Published recurrence and stochastic variance/convergence results for a different method."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v84/xu18a/xu18a.pdf",
+        "material_read": "Full primary PDF inspected including algorithm, polynomial recurrence, theorems and examples.",
+        "method": "Full-text extraction and visual PDF page inspection; compared momentum placement and initial polynomial.",
+        "title": "Accelerated Stochastic Power Iteration",
+        "trigger": "Potential stronger Chebyshev polynomial theorem covering power-method momentum"
+      },
+      {
+        "assessment": "Different update and objective; no implication of the sharp three-multiplication interval minimax.",
+        "evidence": [
+          "The published two-sweep result uses normalized x2=(A x1+beta x0)/norm and a Rayleigh descent classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.41627",
+        "material_read": "A closely relevant published mathematical result on this algorithm was read in full, together with source-paper context.",
+        "method": "Compared normalized two-sweep recurrence and Rayleigh-descent result with the three-product constant-beta polynomial.",
+        "title": "A Gaussian Process Regression-Enhanced Two-Sweep Parameterized Power Method for Computing Extreme Eigenpairs",
+        "trigger": "Potential same two-step spectral filter and sharp first-step risk law"
+      },
+      {
+        "assessment": "Uses sliding residual-minimizing affine fixed-point acceleration, not power iteration or a third-step interval minimax law.",
+        "evidence": [
+          "Its characteristic-root threshold controls scalar fixed-point finite termination, rather than eigenmode filtering."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026",
+        "material_read": "Full published mathematical statement, detailed proof, limitations and literature comparison.",
+        "method": "Compared optimization variables, recurrence polynomial, and finite termination notion.",
+        "title": "A sharp coefficient-cap frontier for finite termination of scalar Anderson acceleration",
+        "trigger": "Similar golden-ratio style finite-termination threshold under a parameter cap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f2494e35-c380-4d00-90da-8f53a04ea382",
+  "value": {
+    "rationale": "For a practically relevant fixed three-multiplication budget, gives the exact unique momentum minimizing worst-case directional error from only an eigenvalue-gap upper bound. It identifies where the admissibility cap becomes active and proves that exact removal of the endpoint mode is possible through a distinct golden-ratio threshold but inferior as an interval-robust tuning. The object, invariant, and use follow directly from finite-budget accelerated eigenvector computation.",
+    "status": "PASS"
+  }
+}
