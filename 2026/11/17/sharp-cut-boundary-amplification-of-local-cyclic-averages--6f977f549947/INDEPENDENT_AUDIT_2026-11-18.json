@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T11:06:15.553427Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Open-path step basis h^(k)=1_{i<k} gives an exact l1 jump coordinate representation and reduces linear quotient norm to max step response. Shifts satisfy V(S^s x)<=2V(x); for h^(m), nonnegative negative and positive jump contributions are disjoint if n>=2m, giving 2-p0 without cancellation. Boxcar telescoping gives edge derivative (x_(i+m)-x_i)/m. For step h^(k) the cyclic difference count is 2min{k,n-k,m,n-m} minus the omitted closing edge 1_{k>=m}, yielding exact two branches. Binomial powers meet local-support hypothesis, with p0=2^{-r}; Fourier nonconstant modes decay for fixed n. Independent exhaustive step tests all 496 n,m pairs n=2..31 match the formula. The n>=2r+2 boundary is essential; no beyond-threshold assertion is made.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/pdf/1211.1069 Sections 3,4",
+          "https://arxiv.org/pdf/1512.02715 Section 1.3/Theorem 2"
+        ],
+        "reasoning": "Nochetto–Salgado uses a mesh-adapted periodic/nonperiodic interpolation operator; Carneiro et al. uses a nonlinear supremum maximal function. Neither provides a general theorem controlling the sharp open-path quotient by 2-p0 under the incompatible cyclic wrap.",
+        "searches": [
+          "cyclic convolution open path total variation operator norm boxcar averaging cut boundary",
+          "cyclic boxcar average open path variation sharp coefficient 2 - 1/m two tap",
+          "total variation diminishing convolution boxcar and nonperiodic boundary"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1211.1069",
+        "https://arxiv.org/pdf/1512.02715",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-gini-contraction-of-uniform-boxcar-averages-on-prime-cycle--c7bdace477b8/RESULT.md",
+        "cyclic convolution open path total variation operator norm boxcar averaging cut boundary",
+        "cyclic boxcar average open path variation sharp coefficient 2 - 1/m two tap"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/1211.1069 periodic and boundary sections",
+          "https://arxiv.org/pdf/1512.02715 periodic analogues",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-gini-contraction-of-uniform-boxcar-averages-on-prime-cycle--c7bdace477b8/RESULT.md Finding and proof"
+        ],
+        "reasoning": "No inspected published theorem with these input/output seminorms and exact convolution support hypotheses dominates the local mass or global m,n result; shifting to a different seminorm is not an implication. The proof is self-contained elementary cut bookkeeping but obtains a substantial sharp boundary classification.",
+        "searches": [
+          "https://arxiv.org/pdf/1211.1069",
+          "https://arxiv.org/pdf/1512.02715",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-gini-contraction-of-uniform-boxcar-averages-on-prime-cycle--c7bdace477b8/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/1211.1069",
+          "https://arxiv.org/pdf/1512.02715",
+          "Assigned source step-coordinate reduction and finite boxcar response"
+        ],
+        "reasoning": "The relevant alias is finite path-TV norm of cyclic convolution, distinct from cycle-TV contraction or a scalar Gini dispersion. Continuous periodic BV and finite path BV are not equivalent because the closing-edge jump is excluded only in the latter.",
+        "searches": [
+          "cyclic convolution open path total variation operator norm boxcar averaging cut boundary",
+          "cyclic boxcar average open path variation sharp coefficient 2 - 1/m two tap",
+          "periodic convolution acting on nonperiodic bounded variation norm cut edge"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact cyclic boxcar complete-pair Gini theorem (prime n)",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-gini-contraction-of-uniform-boxcar-averages-on-prime-cycle--c7bdace477b8/RESULT.md",
+          "Resultary search result: sharp cyclic-variation stability of two-cell conditional expectations"
+        ],
+        "reasoning": "The prime boxcar table is for G_p=sum_{i<j}|f_i-f_j|, and its finite formula is not a table of V_n=sum adjacent differences excluding the last edge. No checked exact path-TV phase table for cyclic boxcars was found.",
+        "searches": [
+          "cyclic convolution open path total variation operator norm boxcar averaging cut boundary",
+          "cyclic boxcar average open path variation sharp coefficient 2 - 1/m two tap"
+        ]
+      },
+      "rationale": "This is not periodic BV contraction: the operator wraps at the boundary while the seminorm deletes the closing edge. Nochetto–Salgado construct a boundary-adjusted continuous TVD finite-element interpolation, while Carneiro–Finder–Sousa analyze maximal convolutions on a continuous torus. Resultary cyclic Gini-boxcar formulas use all-pairs variation, not this open-path variation; none inspected directly implies the exact 2-p0 mass law or all-width phase diagram.",
+      "residual_risks": [
+        "Historical finite-signal variation estimates with incompatible periodic operator and path metric may be indexed under boundary-gain nomenclature not surfaced by search.",
+        "The arbitrary kernel exact formula requires consecutive support m<=n/2; outside this only boxcars are classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different interpolation operator with geometry-matched boundary; cannot imply mismatched finite cyclic convolution on path variation",
+          "evidence": [
+            "Section 3 starts on p3: torus S1xS1, weighted cell-average interpolant"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1211.1069",
+          "material_read": "Read arXiv full PDF text, Section 3 periodic torus Q1 interpolation and Section 4 nonperiodic boundary construction, theorem statements; visually checked page 3",
+          "method": "Full PDF text and screenshot",
+          "title": "Nochetto and Salgado, A Total Variation Diminishing Interpolation Operator and Applications",
+          "trigger": "Closest TVD interpolation with periodic vs nonperiodic boundary"
+        },
+        {
+          "assessment": "Studies maximal convolution-type map on continuous torus, not linear finite uniform boxcars in path-TV",
+          "evidence": [
+            "Section 1.3 periodic analogues, Theorem 2 variation diminishing maximal map"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1512.02715",
+          "material_read": "Read arXiv full PDF text, Section 1.3 and Theorem 2 periodic analogues; visually checked p4",
+          "method": "Full PDF text and screenshot",
+          "title": "Carneiro, Finder and Sousa, On the variation of maximal operators of convolution type II",
+          "trigger": "Periodic convolution BV analogue"
+        },
+        {
+          "assessment": "Different unweighted all-pairs Gini seminorm, not open-path TV; no overlap in exact norm claim",
+          "evidence": [
+            "G_p=sum_{i<j}|f_i-f_j|, prime order only"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-gini-contraction-of-uniform-boxcar-averages-on-prime-cycle--c7bdace477b8/RESULT.md",
+          "material_read": "Read complete published RESULT.md, including finite formula, layer cake and prime set rearrangement",
+          "method": "Full GitHub result",
+          "title": "Sharp Gini contraction of uniform boxcar averages on prime cycles",
+          "trigger": "Same averaging kernels possible wider parameter coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp stability loss from a single boundary convention mismatch is a concrete numerical-analysis phenomenon. The complete width threshold m>=ceil(2n/3) and initial nonmonotone transient for a mixing kernel are natural operator-norm classifications and practical warnings about data wrap versus open-path metrics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Historical finite-signal variation estimates with incompatible periodic operator and path metric may be indexed under boundary-gain nomenclature not surfaced by search.",
+    "The arbitrary kernel exact formula requires consecutive support m<=n/2; outside this only boxcars are classified."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review — sharp cut-boundary amplification of local cyclic averages
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is quantified for real sequences of length \(n\ge2\) and unweighted open-path variation. The proof verifies the exact step-input basis on the quotient by constants, the universal two-shift boundary estimate, a witness with separated positive and negative difference bands for \(n\ge2m\), and an exact translated-circular-arc count for every uniform-window width. The power result follows from the binomial expansion under the stated support restriction, with convergence on the fixed finite-dimensional quotient established from all nonconstant eigenvalues. Exact rational replay verifies representative critical computations and does not stand in for the proof. The result does not claim the later-time power coefficients are monotone or known exactly.
+PASS
 
-## Originality — PASS (best-knowledge, priority provisional)
+Open-path step basis h^(k)=1_{i<k} gives an exact l1 jump coordinate representation and reduces linear quotient norm to max step response. Shifts satisfy V(S^s x)<=2V(x); for h^(m), nonnegative negative and positive jump contributions are disjoint if n>=2m, giving 2-p0 without cancellation. Boxcar telescoping gives edge derivative (x_(i+m)-x_i)/m. For step h^(k) the cyclic difference count is 2min{k,n-k,m,n-m} minus the omitted closing edge 1_{k>=m}, yielding exact two branches. Binomial powers meet local-support hypothesis, with p0=2^{-r}; Fourier nonconstant modes decay for fixed n. Independent exhaustive step tests all 496 n,m pairs n=2..31 match the formula. The n>=2r+2 boundary is essential; no beyond-threshold assertion is made.
 
-The closest full-text primary work is Nochetto–Salgado, arXiv:1211.1069, Sections 3 and 4, which changes the boundary averaging construction when changing from periodic to nonperiodic variation; it does not study open-path variation of a retained cyclic boxcar matrix. Carneiro–Finder–Sousa, arXiv:1512.02715, Sections 1.1, 1.3, and 3, proves variation diminishing for continuous convolution-type maximal operators on periodic geometries, not this mismatched finite boundary norm. A published exact boxcar result for cyclic Gini variation uses the complete-pair seminorm \(G_n(x)=\sum_{i<j}|x_i-x_j|\) and therefore does not imply an exact open-path norm. Searches for equivalent statements under cyclic convolution, boxcar, periodic smoothing, finite-difference variation, and the boundary cut revealed no covering formula. These are statement-level comparisons, not an assertion that an unsuccessful search proves novelty. Unindexed historical equivalences remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete natural finite-dimensional classification of a standard positive smoothing operator under a boundary convention routinely encountered when a periodic filter is applied to linearly ordered data. The mass law is unexpectedly insensitive to all positive interior kernel weights; the sharp boxcar calculation identifies the exact \(2n/3\) nonexpansivity transition; and powers of a two-tap positive average initially become *more* expansive in open-path variation before eventual convergence to zero norm. The precise boundary mechanism, transition and transient reversal together are a meaningful stability result, rather than a computed isolated numerical example.
+This is not periodic BV contraction: the operator wraps at the boundary while the seminorm deletes the closing edge. Nochetto–Salgado construct a boundary-adjusted continuous TVD finite-element interpolation, while Carneiro–Finder–Sousa analyze maximal convolutions on a continuous torus. Resultary cyclic Gini-boxcar formulas use all-pairs variation, not this open-path variation; none inspected directly implies the exact 2-p0 mass law or all-width phase diagram.
 
-## Limits of the comparison and result
+## value
 
-The arbitrary-weight law requires separation of support from its wrapped counterpart, and the exact arbitrary-length formula requires uniform coefficients. The review does not establish a formula for general long-time powers or general nonlocal kernels. Historical priority remains conditional on the searched accessible literature; independent assessment is still needed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp stability loss from a single boundary convention mismatch is a concrete numerical-analysis phenomenon. The complete width threshold m>=ceil(2n/3) and initial nonmonotone transient for a mixing kernel are natural operator-norm classifications and practical warnings about data wrap versus open-path metrics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
