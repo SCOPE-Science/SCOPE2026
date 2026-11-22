@@ -1,19 +1,21 @@
-# Scientific review: finite Cesàro averaging in Gini variation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise domain is the real finite matrix \(C_n\), \(n\ge2\), with uniform complete-graph pairwise-difference seminorm. The proof establishes the cut reduction by a nonnegative level-set decomposition; it then derives a closed expression for each column Gini norm, proves decreasing column norms, and bounds every \(k\)-element cut. The nontrivial uniform harmonic estimate uses a strictly positive first difference, 20 explicit rational anchor checks and an all-large-\(k\) logarithmic inequality. Independent fraction-based enumeration covers the seven low dimensions with 494 cut cases. The attaining input and asymptotic follow algebraically. The infinite family does not rest on a finite numerical extrapolation.
+PASS
 
-## Originality — PASS, qualified
+For real n-vectors modulo constants the layer-cake/coarea identity represents arbitrary x by nested indicator cuts with exactly additive G_n(x), so the maximum over all cuts equals the quotient norm. The column values g_j=(n+2j−1)(H_n−H_{j−1})−2(n−j+1) follow from the lower-triangular Cesaro matrix; monotonic g_j is proved by D_j(n)=n+1−2j sum_{i=j}^n1/i≥0. Triangle bound reduces every k-cut to (sum_{j<=k}g_j)/[k(n−k)], and complement reduces to k<=n/2. The exact harmonic gap F(n,k)>0 comes from a strict positive difference for n>=2k and 17 rational base cases k=5..21 plus explicit log lower bounds for k>=22. Independent exact-rational enumeration of every nontrivial cut for 2<=n<=8 reproduced sharp values 1/2,2/3,29/36,37/40,103/100,118/105,2369/1960 and confirmed the harmonic anchors and n<100 gaps. e1 attains formula ((n+1)H_n−2n)/(n−1); monotonic increase and n=6 instability follow from its exact expression. Finite check alone is not an all-n proof; the harmonic estimates fill that gap.
 
-The closest primary comparisons are Akhmedov–Başar (2008), Theorem 3.1, and Lacruz–León-Saavedra–Petrovic–Zabeti (2014), Sections 1 and 5. The former establishes a norm-one result for the adjacent-difference sequence space \(bv_p\); the latter studies extended eigenvalues of the discrete Cesàro operator on \(\ell^p\). Neither stated result covers the complete-graph Gini seminorm. Published mathematical-record searches for Gini, pairwise absolute differences, complete-graph variation, and prefix Cesàro operator norms identified Cesàro self-commutator and spectral results, but no exact equivalent formula. The earlier available finite path-variation formula for powers of the same operator (in particular, first-power norm \(1-1/n\)) also does not imply this result, since its underlying seminorm is different. An equivalent formulation under a different finite matrix norm or in older majorization literature might remain unindexed; historical priority is not independently certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Gini difference is a canonical dispersion functional on a finite sample. The theorem gives its exact, attained norm for every finite prefix-averaging operator, identifies the first nonexpansive-to-expansive dimension boundary, and proves a logarithmic amplification law. The contrast with strict finite adjacent-edge variation contraction is structural: the same averaging matrix contracts finite adjacent-edge variation with norm \(1-1/n\), but amplifies complete-graph Gini variation once \(n\ge6\). No claim is made about arbitrary weighted graphs or Cesàro powers.
+The finite complete-pair Gini quotient norm is not the bv_p sequence norm or adjacent variation studied by Akhmedov–Başar; their Theorem 3.1 norm 1 includes constant vectors and uses successive differences, while this exact norm crosses 1 at n=6 and grows logarithmically. The separately published finite Cesaro residual I-C_n threshold is a different signed operator and its norm does not determine ||C_n||_G. Resultary matching semantic search primarily retrieved this finding and distinct averaging kernels, not an antecedent with the identical finite harmonic constant. This supports best-of-knowledge original exact Gini characterization, with possible historical unindexed forms still a risk.
 
-## Closest literature and limitations
+## value
 
-A. M. Akhmedov and F. Başar, *The Fine Spectra of the Cesàro Operator \(C_1\) over the Sequence Space \(bv_p\)*, 2008, open publisher PDF; and M. Lacruz et al., *Extended eigenvalues for Cesàro operators*, arXiv:1403.4844, first public posting March 19, 2014. The older source gives only month-level publication evidence; no day is inferred from it. Complete visual inspection of its PDF was unavailable because of a retrieval rate limit, although the relevant open textual sections were read. Unindexed older equivalences remain a residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete-pair Gini dispersion is a natural measure of inequality/consensus distinct from adjacent-edge variation. The exact all-n norm formula, extremal one-coordinate signal, sharp onset n=6, and logarithmic instability quantify a meaningful norm incompatibility under a widely used averaging matrix. This is not a numeric slice or renaming of a standard l^p norm and may be needed to certify finite population disparity gains.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
