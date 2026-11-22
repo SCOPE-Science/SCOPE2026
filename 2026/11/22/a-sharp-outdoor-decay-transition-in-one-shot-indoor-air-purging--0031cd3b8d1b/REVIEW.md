@@ -1,0 +1,19 @@
+# Mathematical and literature review
+
+## Correctness — PASS
+
+The cumulative-exposure saving is exactly \(\eta u(1-e^{-a(T-\tau)})D(\tau)/a\) under the specified jump and linear mass-balance law. The unique sign change of \(D\) gives the sharp first beneficial horizon. Strict logarithmic concavity on the profitable interval proves uniqueness, and implicit differentiation verifies horizon monotonicity. Matched exponential tails in the first-order condition yield the long-horizon fraction, its leading correction and the deficit coefficient. The equal-rate case and noncommuting positive-outdoor-amplitude limit follow from exact formulas. The stated endpoint and model hypotheses are necessary. The supplied Python 3 checker independently compares the closed formula against piecewise ODE integration and numerical optimization, including boundary cases; its finite checks do not replace the analytic arguments.
+
+## Originality — PASS on inspected evidence, with residual priority uncertainty
+
+The motivating 2024 household study and the earlier 2020–2023 ventilation, field measurement and mass-balance literature already establish the importance of indoor generation, outdoor pollutant levels, ventilation and well-mixed linear dynamics. None of the inspected primary full texts states or entails the complete one-shot, continuously occupied integrated-exposure timing theorem: the unique beneficial horizon, exact optimizer, asymptotic decay-rate transition, and noncommuting weak-outdoor/long-horizon limits. Generic ventilation control, sensor placement, continuously variable airflow and compartmental modeling do not by themselves imply these results; a reduction would require the same instantaneous fixed-fraction intervention and comparison across the full finite observation horizon. Wider impulse-control/building-science literature might contain equivalent mathematics, so this is a bounded originality assessment rather than proof of absolute first publication.
+
+## Value — PASS
+
+The exact theorem distinguishes a time window in which purging is net harmful from one admitting a unique beneficial time, and shows a qualitative rate-governed change in optimal late-horizon timing. Especially, an arbitrarily small but more persistent outdoor pollutant changes the late-horizon timing fraction, while taking outdoor amplitude to zero first restores the halfway rule. This nonuniformity is a motivated risk for mean-background simplifications in building air-quality modeling and a useful benchmark for more realistic finite-flow protocols. No health benefit, field-calibrated schedule or policy recommendation is claimed.
+
+## Closest literature, inspections and limitations
+
+Singh et al. (2024), *Heliyon*, DOI 10.1016/j.heliyon.2024.e34210: residential activity-related concentrations and source context, not intervention timing theorem. Kim et al. (2020), *Atmosphere*, DOI 10.3390/atmos11111140: continuously adjusted ventilation/filtration and energy-control thresholds rather than a single instantaneous replacement. Wu et al. (2022), *PLOS ONE*, DOI 10.1371/journal.pone.0275157: empirically compared multi-pollutant control strategies. Park et al. (2022), *Building and Environment*, DOI 10.1016/j.buildenv.2021.108465: validated compartment mass balances but not this timing classification. Shin et al. (2023), *Toxics*, DOI 10.3390/toxics11110912: comparative mechanical ventilation and outdoor concentrations. All five were inspected in accessible full text or full-text HTML/preprint. A broader unindexed impulse-control analogue cannot be excluded. The scalar benchmark omits infiltration, nonlinear chemistry, intermittent occupancy, pollutant sorption, finite-duration flows and co-optimization of energy or comfort.
+
+Self-review: passed. Independent audit: not yet performed.
