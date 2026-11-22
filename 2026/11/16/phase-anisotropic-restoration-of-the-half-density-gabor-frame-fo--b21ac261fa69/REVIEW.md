@@ -1,15 +1,21 @@
-# Scientific review: sharp recovery of the rational half-density Gabor frame
+# Independent mathematical audit
 
-## Correctness
-**PASS (self-review).** The Zak transform turns the exact optimal frame bound into the minimum of two squared fiber magnitudes. The three-point Zak-zero classification for the unperturbed rational window is reconstructible using the rational function and the strictly positive factor given in the proof, leaving only the single common two-channel fiber (represented twice under the original frequency period). Cotangent/cosecant periodization and direct differentiation give exact derivatives \(h_0,h_1,d_0,d_1,b_0,b_1\). Their nonzero determinant conditions yield a positive-definite local problem. The global minimizer is confined to that problem by compactness; its two orthogonal projections give the stated coefficients and a phase-uniform little-oh remainder. The bundled numerical checker independently confirms sampled derivatives and asymptotic trials. **Risk:** the result uses an earlier, explicitly verified rational-Zak zero lemma; the numerical tests alone would not establish it.
+## correctness
 
-## Originality
-**PASS relative to available full-text comparisons.** Ghosh's fixed-window rational-density analysis and Lyubarskii–Nes parity obstruction imply aspects of the unperturbed half-density failure but not sharp recovery under a complex numerator shift. The closest published two-coset rational result moves the modulation coset, not the window, and its scalar offset asymptotic does not determine the two phase-dependent coefficient formulas. The closest Gaussian–Hermite result treats an analogous perturbation but with a different generator and theta-series constants; its statement does not imply these rational-window values. No searched item or accessible own-history claim entails the present exact rational claim. **Risk:** the proof method is closely related to the general Zak local-minimization mechanism, and historical or unindexed work may already have evaluated this particular rational family.
+PASS
 
-## Mathematical value
-**PASS.** This is a sharp quantitative answer for how a natural complex symmetry-breaking perturbation repairs a concrete, recently studied rational-window frame obstruction. The two exact leading coefficients differ by a factor exceeding fifteen despite equal window energy at equal perturbation magnitude; the directional effect is not captured by mere frame/no-frame classification or by the fixed-window frequency-shift calculation. The claim is local, but it determines a natural stability invariant without arbitrary frequency cutoffs or discretization.
+For integer translations and half-integer modulations the scalar Zak frame multiplier is |Zg_c(x,w)|^2+|Zg_c(x,w+1/2)|^2. The exact full zero-set of the odd unperturbed window from the inspected October 26 primary theorem yields exactly the common zeros (0,0),(0,1/2). First-order real spatial vectors d and imaginary frequency vectors b are nondegenerate; the even perturbation vector h enters independently in both, so minimizing the local quadratic fibre energy gives C_R=(h0*d1-h1*d0)^2/(d0^2+d1^2)=0.267745213797... and C_I=(h0*b1-h1*b0)^2/(b0^2+b1^2)=0.0169530120582..., both positive. Independently computed these exact-formula coefficients and ratio ~15.793. Compactness and local Hessian bounds force all small-c global minimizers into O(|c|) neighborhoods, establishing phase-uniform little-oh rather than numerical-only proof; no global claim for large perturbation.
 
-## Limits and provenance
-No claim is made about arbitrary complex perturbation sizes, uniqueness of global minimizers, or independence of mathematical validation. Existing theory supplies Zak's frame criterion and the unperturbed rational Zak-zero identity; the new computation concerns the perturbation's sharp two-direction onset. This remains a self-review, not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No examined accessible primary theorem, exact table, or prior published mathematical result implies the complete specific final claim. This is best-of-knowledge originality, with the separately recorded plausible historical risks.
+
+## value
+
+PASS
+
+A nonframe odd rational window at a natural half-density lattice admits an explicitly quantified, strictly positive and strongly phase-anisotropic quadratic restoration by a tiny complex even numerator. Two distinct exact constants and an optimal phase comparison for the same window at equal energy provide a motivated sharp stability invariant; not just repeating qualitative Zak frame existence or unrelated Hermite coefficients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
