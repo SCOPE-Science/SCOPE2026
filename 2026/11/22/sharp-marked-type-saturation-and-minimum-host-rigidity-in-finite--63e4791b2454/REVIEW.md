@@ -1,0 +1,11 @@
+# Supported scientific review
+
+**Correctness — PASS.** The proof separates nonempty traces supported on opposite sides, proves the exact lower bound on host order from nonempty type-witness demand, constructs connected Ferrers staircases, and uses rigid staircase degrees to enumerate all minimum hosts. The balanced case requires a separate isolated-vertex argument. Exhaustive small instances and larger constructed families corroborate the deductions. The all-size claims rely on the written proof.
+
+**Originality — PASS within inspected evidence.** The 2026 Ferrers edge-partition paper supplies the chain normal form but treats edge partitions, not marked-host saturation; the 2026 graph-width neighborhood paper treats closed traces and width bounds, and the 2023 twin-width paper gives general linear open-trace bounds. The linear upper bound by itself is elementary and is not asserted as the distinctive novel contribution. No inspected statement implies the exact \(\max\{2\max(a,b),m+1\}\) minimum host, balanced connected penalty, and binomial rigidity census jointly. Nearby results on one-point types of cographs or colored-chain first-order ranks do not dominate this Ferrers-specific marked-host result. Older literature on Ferrers matrices and identification systems may contain related formulas and remains a historical-priority risk.
+
+**Value — PASS.** Minimum-size saturation, an exact extremal-isomorphism census and a connectedness cost address the natural resource question behind adjacency-type discrimination. For equal marked shore sizes, an extra isolated witness is unavoidable at absolute minimum order, while one additional vertex suffices for connected saturation; unequal shore sizes have an explicit connected minimum with an integer binomial number of marked shapes. These are precise, natural finite structural invariants rather than merely another coarse asymptotic upper bound.
+
+The host census distinguishes side-preserving unlabelled structures and does not count individually named parameters. The standalone computer checks are corroborative, not all-size certificates. The published literature search is not a proof of absolute historical priority.
+
+Self-review: passed. Independent audit: not yet performed.
