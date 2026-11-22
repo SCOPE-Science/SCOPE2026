@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The chord-orbit fixed-point construction follows directly from barycentric coordinates. Complete finite enumeration and exact Hasse-graph acyclicity checks certify 1, 5, 23, 109, and 524 top-dimensional critical cells, respectively, plus exactly one critical vertex in each case. Acyclic discrete Morse theory supplies the full wedge homotopy classifications. Independent subset enumeration checks the smaller four cases. The certificate is `verify.py`, and its reproduced output is `verification_data.json`.
+## correctness
 
-**Originality — PASS relative to checked evidence.** Flajolet–Noy study labeled noncrossing forest enumeration; Chen–Yan study parity and symmetric ternary trees; McCammond studies the different noncrossing hypertree complex; Athanasiadis–Tzanaki prove shellability for root-system cluster complexes. A reflection-fixed folding theorem for the same forest complex does not imply a half-turn-fixed classification. Searches for equivalent descriptions, broader coverage, tables, and implications did not reveal the stated result. Unindexed equivalents remain a risk.
+PASS
 
-**Value — PASS.** The canonical central symmetry of noncrossing forest complexes has a natural topology that is not read off from labeled forest counts. These five consecutive even sizes give a nonroutine complete finite range, with rapidly increasing nonzero top homology up to rank 524 and no intermediate integral homology. This gives test cases for future general classification.
+For each m=2..6 the orbit-barycenter construction exactly triangulates the geometric half-turn fixed space. Inspected exact polygon edge-orbit generation, proper-crossing and union-find forest tests and lexicographically deterministic discrete Morse matching. An independent bitmask implementation enumerated all faces and reversed matched Hasse edges for all five cases; it reproduced f-vectors (4,4), (9,24,21), (16,78,160,120), (25,190,660,1100,715), (36,390,2000,5445,7644,4368), pair counts 3,24,175,1290,9679 and critical top cells 1,5,23,109,524, and certified acyclic directed Hasse graph. Forman then yields wedge of b_m spheres in dimension m-1, since there is a single zero-cell and no intermediate cells.
 
-**Scientific limits.** These results cover only polygon orders 4 through 12, not all even sizes. They are geometric fixed-point statements, not quotient-space statements. No independent external mathematical audit has been performed. The primary public material and the exact self-contained finite verifier are available, but bibliographic incompleteness is possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of actual statement/implications, including relevant primary material and related published records; residual priority limitations stated.
+
+## value
+
+PASS
+
+Natural finite equivariant topological classification: exactly identifies integral geometric fixed-space homotopy for every even polygon up to twelve vertices, including 524 five-spheres. Not merely a table recomputation: the fixed orbit complex and acyclic Morse matching resolve topology and distinguish group-fixed geometry from invariant-face sets. This is a meaningful, fully exhausted finite cutoff, though it establishes no all-size formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational verification and boundaries
+# Independent mathematical audit
 
-Execute `python3 verify.py` in a directory containing that standalone script. No external packages, network, or proprietary software are required. The exact generated output is included as `verification_data.json`.
+## correctness
 
-For the polygon orders 4, 6, 8, 10, 12, the program respectively checks 8, 54, 374, 2690, 19883 nonempty orbit faces; verifies complete dimensions and face-count tables; constructs 3, 24, 175, 1290, 9679 disjoint pairs; orients all Hasse incidences; and checks that a topological sort visits every nonempty face. The residual critical cells are one zero-cell and 1, 5, 23, 109, 524 top-dimensional cells. The first four cases also have a distinct exhaustive all-subset face count, while the fifth uses complete hereditary generation.
+PASS
 
-The mathematically essential lemma is that the half-turn fixed-point space is PL-homeomorphic to the orbit-barycenter subcomplex. The proof uses equality of barycentric coefficients on each chord orbit. The enumeration and acyclicity checks are finite and exact and do not extrapolate beyond the stated domain. Verification does not imply any independent validation or certification.
+For each m=2..6 the orbit-barycenter construction exactly triangulates the geometric half-turn fixed space. Inspected exact polygon edge-orbit generation, proper-crossing and union-find forest tests and lexicographically deterministic discrete Morse matching. An independent bitmask implementation enumerated all faces and reversed matched Hasse edges for all five cases; it reproduced f-vectors (4,4), (9,24,21), (16,78,160,120), (25,190,660,1100,715), (36,390,2000,5445,7644,4368), pair counts 3,24,175,1290,9679 and critical top cells 1,5,23,109,524, and certified acyclic directed Hasse graph. Forman then yields wedge of b_m spheres in dimension m-1, since there is a single zero-cell and no intermediate cells.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of actual statement/implications, including relevant primary material and related published records; residual priority limitations stated.
+
+## value
+
+PASS
+
+Natural finite equivariant topological classification: exactly identifies integral geometric fixed-space homotopy for every even polygon up to twelve vertices, including 524 five-spheres. Not merely a table recomputation: the fixed orbit complex and acyclic Morse matching resolve topology and distinguish group-fixed geometry from invariant-face sets. This is a meaningful, fully exhausted finite cutoff, though it establishes no all-size formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

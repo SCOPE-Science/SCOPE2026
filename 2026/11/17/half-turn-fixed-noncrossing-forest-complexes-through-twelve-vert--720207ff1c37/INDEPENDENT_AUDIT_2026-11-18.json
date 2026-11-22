@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T04:55:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each m=2..6 the orbit-barycenter construction exactly triangulates the geometric half-turn fixed space. Inspected exact polygon edge-orbit generation, proper-crossing and union-find forest tests and lexicographically deterministic discrete Morse matching. An independent bitmask implementation enumerated all faces and reversed matched Hasse edges for all five cases; it reproduced f-vectors (4,4), (9,24,21), (16,78,160,120), (25,190,660,1100,715), (36,390,2000,5445,7644,4368), pair counts 3,24,175,1290,9679 and critical top cells 1,5,23,109,524, and certified acyclic directed Hasse graph. Forman then yields wedge of b_m spheres in dimension m-1, since there is a single zero-cell and no intermediate cells.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Flajolet–Noy ordinary chord forest component enumeration; independent published SCOPE reflection-axis theorem is a PL-folding identification for different involution."
+        ],
+        "reasoning": "Ordinary forest enumerations and reflection-fixed loci neither imply the half-turn-fixed integral wedge multiplicities nor its explicit acyclic matching. Same combinatorial objects under distinct group actions need genuine comparison.",
+        "searches": [
+          "half turn rotation fixed point complex noncrossing polygon forests wedge spheres dodecagon",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-reflection-folding-of-noncrossing-forest-simplicial-complexes--7aa9259d82f2",
+          "Flajolet Noy Analytic combinatorics of non-crossing configurations 1999"
+        ]
+      },
+      "checked_sources": [
+        "Flajolet–Noy 1999 forest enumerations (relevant full-text portion)",
+        "Published reflection folding result full RESULT.md",
+        "Snapshot RESULT.md, verify.py and verification_data.json"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Half-turn result counts orbit-barycenter faces and constructs acyclic Morse matching; reflection result uses fold to ordinary forest complex; hypertree complex uses different face labels."
+        ],
+        "reasoning": "Different symmetry, face object and proof; no stronger inspected theorem yields all five half-turn wedge types.",
+        "searches": [
+          "half turn rotation fixed point complex noncrossing polygon forests wedge spheres dodecagon",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-reflection-folding-of-noncrossing-forest-simplicial-complexes--7aa9259d82f2",
+          "McCammond noncrossing hypertrees"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Geometric fixed locus is PL orbit-barycenter complex K_m, not invariant faces alone; 2m=4,6,8,10,12 finite wedge S^{m-1}."
+        ],
+        "reasoning": "Alternatives include geometric vs setwise-invariant simplices and half-turn vs reflection; the former requires orbit barycenters. No exact half-turn result was identified in the relevant inspected work.",
+        "searches": [
+          "half turn rotation fixed point complex noncrossing polygon forests wedge spheres dodecagon",
+          "geometric fixed spaces noncrossing forest half-turn"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source tree finite face counts at 12 vertices (36,390,2000,5445,7644,4368) and critical (one 0-cell, 524 5-cells); no covering database identified."
+        ],
+        "reasoning": "These are exact finite homotopy types, not standard forest counting table values; finite computation fully exhaustive through 12 vertices, no claim for 14.",
+        "searches": [
+          "half turn rotation fixed point complex noncrossing polygon forests wedge spheres dodecagon",
+          "noncrossing forests fixed simplicial complex homotopy betti 524"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of actual statement/implications, including relevant primary material and related published records; residual priority limitations stated.",
+      "residual_risks": [
+        "Unindexed equivariant noncrossing-forest fixed-complex homotopy calculations may exist.",
+        "Uniform all-m classification has not been proved; finite source certificate and independent replay only cover m<=6."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background enumeration; does not establish geometric half-turn fixed-space homotopy classification in material read",
+          "evidence": [
+            "Definitions and forest-counting theory, not equivariant fixed topology"
+          ],
+          "identifier_or_url": "https://web.mat.upc.edu/marc.noy/uploads/2013/05/NC-configurations.pdf",
+          "material_read": "Paper page 1 and forest enumerative section beginning at page 4, including generating functions and component counts",
+          "method": "Public primary PDF, opened and page screenshots, read relevant forest exposition",
+          "title": "Flajolet and Noy, Analytic combinatorics of non-crossing configurations",
+          "trigger": "Same noncrossing polygon forest objects; potential preexisting finite counts"
+        },
+        {
+          "assessment": "Different involution: reflection through side-midpoint axis; fixed complex PL-homeomorphic to ordinary (m+1)-gon forest complex",
+          "evidence": [
+            "Explicit reflection orbit lifting, versus half-turn orbit identification"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-reflection-folding-of-noncrossing-forest-simplicial-complexes--7aa9259d82f2",
+          "material_read": "Complete RESULT.md including explicit lift orbit classification and forest acyclicity equivalence",
+          "method": "Actual published GitHub RESULT markdown fetched and read",
+          "title": "Reflection folding of noncrossing-forest simplicial complexes",
+          "trigger": "Same exact complex under distinct order-two dihedral symmetry"
+        },
+        {
+          "assessment": "All enumerated m=2..6 counts and directed acyclicity independently reproduced",
+          "evidence": [
+            "m=6: 19883 nonempty faces, 9679 pairs, critical 524 five-cells"
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026",
+          "material_read": "Full RESULT.md, verify.py, verification_data.json",
+          "method": "GitHub snapshot blobs read; independent exact bitmask enumeration and Hasse DAG checked",
+          "title": "Half-turn fixed noncrossing forest verification package",
+          "trigger": "Needed to check nonstandard finite Morse acyclicity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural finite equivariant topological classification: exactly identifies integral geometric fixed-space homotopy for every even polygon up to twelve vertices, including 524 five-spheres. Not merely a table recomputation: the fixed orbit complex and acyclic Morse matching resolve topology and distinguish group-fixed geometry from invariant-face sets. This is a meaningful, fully exhausted finite cutoff, though it establishes no all-size formula.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Flajolet–Noy 1999 forest enumerations (relevant full-text portion)",
+    "Published reflection folding result full RESULT.md",
+    "Snapshot RESULT.md, verify.py and verification_data.json"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No assertion beyond m=6; no uniform-m Morse matching theorem.",
+    "Independent enumeration checks exact finite discrete Morse certificate, not literature priority."
+  ],
+  "residual_risks": [
+    "Unindexed equivariant noncrossing-forest fixed-complex homotopy calculations may exist.",
+    "Uniform all-m classification has not been proved; finite source certificate and independent replay only cover m<=6."
+  ],
+  "schema_version": 1
+}
