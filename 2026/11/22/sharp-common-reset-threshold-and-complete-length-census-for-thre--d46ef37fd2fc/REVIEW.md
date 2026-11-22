@@ -1,0 +1,11 @@
+# Review of the seven-letter simultaneous reset census
+
+**Correctness (C): PASS.** The proof reduces the infinite input-word issue to finite subsets: an individually synchronizing three-state binary machine must reach a singleton along a simple path of at most six edges in a seven-vertex subset graph. The complete \(27^2\) table enumeration yields \(549\) synchronizing machines; each signature exactly records membership of all words at lengths \(1\) through \(7\). The resulting \(28\) equality classes are sufficient for a lossless weighted census of all \(549^3\) ordered triples. The direct subset-product BFS independently confirms each weighted histogram coefficient and the sharp witness. Computations were performed from the supplied exact source programs, not inferred from prior output records.
+
+**Originality (O): PASS against inspected sources.** Fernau–Rystsov's product-language identity and reset inequalities cover the existence and generic bounds, not the exact three-by-three-by-three seven-letter maximum or the full distribution. Szykuła's 2026 survey addresses single-automaton problems. An earlier finite pair enumeration gives only six for two components; a pairwise guarantee cannot replace simultaneous triple intersection. Semantic searches included reset language equivalences, direct products, and tuple synchronization. No dominating explicit triple census was located. Residual risks include an unindexed equivalent enumeration and incomplete inspection of some older product-automata bibliography.
+
+**Value (V): PASS.** The entire natural finite domain is classified, not an arbitrary sample: the sharp parameter rises from the pair setting, the exceptional \(165{,}888\) ordered labeled triples are counted, and all seven shortest-length layers are measured. This provides a usable small-state benchmark for coordinated input/reset protocols and reveals that pairwise short resets need not combine into a six-letter triple reset.
+
+**Scope/limits.** Exactly three components, each with three states and two common letters; complete deterministic transitions; independently labeled states; repeated components allowed. The argument is finite and computationally reproducible, but no claim is made about larger domains or independent expert validation.
+
+Self-review: passed. Independent audit: not yet performed.
