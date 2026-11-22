@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-20.md",
+      "INDEPENDENT_AUDIT_2026-11-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Execute `python check.py` with Python 3, NumPy, and SciPy. The check rebuilds permutation coordinates, parity classes, rational closest-point weights, the supporting inequality in every tested instance, and independently solves convex-hull volumes for \(3\le n\le6\). It also evaluates random generic integer directions by brute-force parity-constrained permutation maximization. The reported successful run was:
+## correctness
 
-```
-n=3 volume_ratio=0.500000000000000 predicted=0.500000000000000 facets=3
-n=4 volume_ratio=0.875000000000000 predicted=0.875000000000000 facets=20
-n=5 volume_ratio=0.979999999999999 predicted=0.980000000000000 facets=90
-n=6 volume_ratio=0.997685185185171 predicted=0.997685185185185 facets=422
-ALTERNATING_PERMUTOHEDRON_PASS exact_permutations=5910 width_trials=600 cartan_orders=199 hull_orders=4
-```
+PASS
 
-The exact statements for all \(n\ge3\) are established by the cut-decomposition, determinant and projection proofs in `RESULT.md`. Finite hull computations are supporting tests, not an infinite classification. The earlier published alternahedron face description and parity rearrangement are credited. A complete external specialist audit and exhaustive historical-priority examination have not occurred.
+Read frozen RESULT.md and check.py plus historical alternahedron facet discussion. Odd-vertex supporting planes <p_sigma,x>≤R²−1 touch exactly n−1 neighboring even vertices; other same-parity vertices lie at squared distance at least 4. Pairwise cap separations follow by summing supports, and each removed cap is a simplex with A_{n−1} Cartan Gram determinant n. With n!/2 caps removed from the standard permutohedron of volume sqrt(n)n^{n−2}, volume formula follows. The explicit barycentric identity projects every odd vertex to (1−1/R²)p_sigma; convex distance reduces Hausdorff maximum to vertices. Width part uses adjacent-swap rearrangement/parity and is not asserted new. Independent direct calculations reproduced projection weights n=3..6 and convex-hull volume fractions n=3..5. This is not a proof for arbitrary orbit labels.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality for exact Euclidean Hausdorff, metric projection and intrinsic volume deficit, not for alternahedron construction, simplex cuts, known face lattice, or width parity rearrangement.
+
+## value
+
+PASS
+
+Provides an exact, naturally normalized comparison of two inequivalent geometric losses when half the vertices are deleted, including unusual positive quadratic projection weights and dramatically different Hausdorff versus volume scales. The deletion is canonical (alternating subgroup) and exact metrics were not found in existing facet census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

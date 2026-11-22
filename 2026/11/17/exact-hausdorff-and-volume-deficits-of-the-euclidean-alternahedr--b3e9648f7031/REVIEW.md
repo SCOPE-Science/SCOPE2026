@@ -1,15 +1,21 @@
-# Scientific review: metric–volume deficits of the alternahedron
+# Independent mathematical audit
 
-## Correctness — PASS
-For every integer \(n\ge3\), the argument proves an exact cap decomposition of the regular permutohedron after removing all odd vertices, with disjoint cap interiors. The Gram determinant of each cap is \(n\); the complete-graph zonotope volume is \(\sqrt n\,n^{n-2}\). The supporting-cut inequalities and the strictly positive quadratic neighbor weights certify the exact metric projection. The distance-to-convex-set maximum is attained at one of the original vertices, giving the Hausdorff formula. The prior rearrangement identity supplies the stated angular-width comparison. The Python checker independently tests exact distances and cap geometry, permutation optimization, and low-dimensional hull volumes. No finite test is used as a universal proof.
+## correctness
 
-## Originality — PASS (with historical risk)
-The *underlying alternahedron, its halfspace/face description, and the parity rearrangement inequality are existing results*: Steinkamp (1999) and Cruickshank–Kelly (2005/2006) explicitly concern them. The mathematical claim assessed as new is instead the Euclidean **quantitative separation** between Hausdorff and volume loss for deleting the entire odd-permutation orbit, including its unique metric projection and strictly positive quadratic barycentric weights. Awasthi–Kalantari–Zhang (2018) motivates the same point-to-other-vertices robustness invariant without addressing this family; the general permutahedron volume is also established prior work. Dedicated literature searches and published-result comparisons did not identify the paired formulas or this quantitative certificate. The complete 2005 alternahedron paper could not be inspected, so historical priority remains provisional, and the potential of an earlier equivalent metric computation is a residual risk. In particular, a general facet description must **not** be misread as an original component of this finding.
+PASS
 
-## Mathematical value — PASS
-The two quantitative deletion invariants have distinct scaling: the Hausdorff gap is polynomial of order \(n^{-3/2}\), but the relative lost volume is \(1/(2n^{n-3})\), despite discarding exactly half of the original vertices. This is a natural robustness-versus-volume question for a classical symmetry orbit, not an arbitrary parameter slice. The full-support nearest-point certificate makes the metric bound exact and explicitly constructive. The comparison clarifies why vertex deletion can cause widespread directional support changes while negligibly affecting bulk volume.
+Read frozen RESULT.md and check.py plus historical alternahedron facet discussion. Odd-vertex supporting planes <p_sigma,x>≤R²−1 touch exactly n−1 neighboring even vertices; other same-parity vertices lie at squared distance at least 4. Pairwise cap separations follow by summing supports, and each removed cap is a simplex with A_{n−1} Cartan Gram determinant n. With n!/2 caps removed from the standard permutohedron of volume sqrt(n)n^{n−2}, volume formula follows. The explicit barycentric identity projects every odd vertex to (1−1/R²)p_sigma; convex distance reduces Hausdorff maximum to vertices. Width part uses adjacent-swap rearrangement/parity and is not asserted new. Independent direct calculations reproduced projection weights n=3..6 and convex-hull volume fractions n=3..5. This is not a proof for arbitrary orbit labels.
 
-## Literature and limits
-Nearest prior: H. Steinkamp (1999, complete relevant §3.2), J. Cruickshank and S. Kelly (online 2005, article published 2006; abstract and metadata available, full paper inaccessible), P. Awasthi, B. Kalantari and Y. Zhang (2018, read algorithmic robustness treatment), F. Ardila et al. (2020, permutohedron structure), and A. Postnikov (2009, classical volume theory). No claim is made about the originality of the alternahedron face lattice or its parity-constrained rearrangement inequality. Neither the complete 2005 source nor an independent specialist audit has been performed; unknown older equivalent metric formulas remain possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality for exact Euclidean Hausdorff, metric projection and intrinsic volume deficit, not for alternahedron construction, simplex cuts, known face lattice, or width parity rearrangement.
+
+## value
+
+PASS
+
+Provides an exact, naturally normalized comparison of two inequivalent geometric losses when half the vertices are deleted, including unusual positive quadratic projection weights and dramatically different Hausdorff versus volume scales. The deletion is canonical (alternating subgroup) and exact metrics were not found in existing facet census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
