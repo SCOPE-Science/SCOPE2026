@@ -1,25 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the stipulated globally split energy, the negative eigenspace is fixed and \(\nabla E=(I-2P_0)\nabla F\). For any orthogonal projectors \(P,P_0\), the exact identity
-\[
-\operatorname{sym}\big((I-2P)(I-2P_0)\big)=I-2(P-P_0)^2
-\]
-is obtained solely by expanding the idempotent symmetric matrices. The resulting strict Lyapunov inequality, global strong convexity and gradient-dominance inequality prove the stated all-start exponential bounds, while compact sublevel sets prevent finite-time escape. In dimension two, rotating the approximate projector by \(\phi\) gives an exact scaled rotation flow with real growth exponent \(-\beta\mu\cos(2\phi)\), proving attainment of the positive-rate bound, closed periodic trajectories at the threshold and instability above it. The same two-coordinate block embeds in any allowed index. The independent reproducibility script checked exact rational instances; the general result does not rely on finite sampling.
+PASS
 
-## Originality — PASS within checked evidence
+Let J=I-2P0 and R=I-2P. For every symmetric orthogonal projector P, the exact algebraic identity sym(RJ)=I-2(P-P0)^2 holds. The separability assumption gives J grad E=grad F, F=f+g, so dot F=-beta grad F^T RJ grad F <=-beta(1-2delta^2)||grad F||². Global mu-strong convexity implies the gradient-PL bound ||grad F||²>=2mu(F-F*); integrating gives the stated exact rate and a state-norm exponential estimate. Its compact sublevels prevent finite-time blowup for classical locally Lipschitz projectors. A rank-one planar projector rotated phi gives RJ a planar rotation by twice phi, so a quadratic achieves equality; at phi=pi/4 the flow is a pure rotation, at larger phi it expands. Embedding one mixed pair proves sharpness for all 1<=k<n. Exact rational projector identities, critical matrix and above-critical trace were checked independently, rather than treating the finite checker as proof of uniform dynamics.
 
-The closely related 2026 perturbed high-index saddle result assumes \(\mu-2\alpha L>0\) and provides a *local sufficient* estimate. Here the fixed-splitting subclass supports a *global* guarantee, permits arbitrary projector variation, removes dependence on upper curvature, and has a matching exact failure at the threshold. The 2025 Householder-angle result concerns the angle between a *gradient* and an ascent subspace to classify instantaneous increase/decrease of the original energy, not an error between exact and approximate unstable eigenspaces or a Lyapunov convergence theorem. The 2026 preconditioned method gives local/discrete spectral estimates and does not subsume the present continuous-time nonlinear guarantee. The sharp coefficient is derived, not assumed from an angular heuristic.
+## originality
 
-Published mathematical finding summaries concerning switched unstable saddle flows and approximate preconditioner directions were also compared by their hypotheses and implied conclusions. Neither concerns this globally split HiSD vector field. Historical novelty remains provisional because general variable-metric/sectorial gradient-flow results may imply parts of the argument; the elementary projector identity is not asserted to be original. The closely relevant three primary full texts were inspected in their applicable sections; an older discrete HiSD study was available only through its abstract in this review.
+PASS
 
-## Mathematical value — PASS
+Best-of-knowledge PASS within the explicitly separable, fixed-eigenspace class: global arbitrary state/time-varying projector tolerance and sharp critical counterexample are not obtained from the inspected local perturbative or discrete-time results. The algebraic reflector identity and the number pi/4 alone are classical/simple, not the claimed novelty. Closest arXiv 2611.09049 full text was inaccessible; uncertainty remains.
 
-The natural question is how inaccurate an unstable eigenspace can be while preserving saddle-search dynamics. Existing curvature-ratio-dependent sufficient bounds do not identify the *sharp* feasible angle even in a globally well-conditioned geometric class. A forty-five-degree threshold valid for arbitrary time-varying and state-varying subspaces, exact worst-case exponential rate, and critical periodic obstruction distinguish a universal robust-stability mechanism from mere local matrix stability. The result remains meaningful for nonlinear strongly convex block functions and arbitrarily ill-conditioned block curvatures. It neither asserts new projector algebra nor extrapolates to coupled landscapes, state-dependent true eigenspaces, discretizations, or eigenspace-tracking dynamics.
+## value
 
-## Closest literature and limitations
+PASS
 
-Most directly relevant are Shi et al., *Asymptotic stability of high-index saddle dynamics*, arXiv:2611.09049v1, Section 3.2, and Chu–Lin, *Generalized Gentlest Ascent Dynamics Methods for High-Index Saddle Points*, DOI:10.1137/24M1710905, Sections 2–3. Huang et al., *Preconditioned High-index Saddle Dynamics for Computing Saddle Points*, arXiv:2603.25390v1, contains a separate local/discrete inexact projector analysis. The fixed splitting is an essential hypothesis; no statement is made about general nonseparable nonlinear saddle energies. Mathematical priority and validation have not been independently established.
+A sharp global robustness margin independent of the upper curvature bound is useful in high-index saddle computations, especially as it distinguishes global guarantees from local condition-number estimates. Explicit periodic and expanding counterexamples prove genuine necessity, not just a sufficient inequality; separability is a natural but material restriction.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

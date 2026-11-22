@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T10:57:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let J=I-2P0 and R=I-2P. For every symmetric orthogonal projector P, the exact algebraic identity sym(RJ)=I-2(P-P0)^2 holds. The separability assumption gives J grad E=grad F, F=f+g, so dot F=-beta grad F^T RJ grad F <=-beta(1-2delta^2)||grad F||². Global mu-strong convexity implies the gradient-PL bound ||grad F||²>=2mu(F-F*); integrating gives the stated exact rate and a state-norm exponential estimate. Its compact sublevels prevent finite-time blowup for classical locally Lipschitz projectors. A rank-one planar projector rotated phi gives RJ a planar rotation by twice phi, so a quadratic achieves equality; at phi=pi/4 the flow is a pure rotation, at larger phi it expands. Embedding one mixed pair proves sharpness for all 1<=k<n. Exact rational projector identities, critical matrix and above-critical trace were checked independently, rather than treating the finite checker as proof of uniform dynamics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang et al. deal with preconditioned, discrete and local inexact eigenframes, with condition-number-dependent bounds.",
+          "Shi et al. accessible summaries give local sufficient perturbation conditions, not a sharp all-initial-state threshold on fixed globally split nonlinear energies."
+        ],
+        "reasoning": "These general algorithms have different regularity and local/discrete hypotheses. A general local result does not imply a universal global sharp constant; possible stronger proofs in the inaccessible article remain a residual risk.",
+        "searches": [
+          "high index saddle dynamics inexact subspace projector 45 degree threshold 1/sqrt2 reflected gradient global convergence",
+          "https://arxiv.org/html/2603.25390v1",
+          "https://arxiv.org/abs/2611.09049"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2611.09049",
+        "https://epubs.siam.org/eprint/6RBKIUEVWEEPYCJZVVBK/full",
+        "https://arxiv.org/html/2603.25390v1",
+        "https://arxiv.org/abs/2204.00171"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Principal projector distance delta=sin phi yields symmetric RJ=cos(2phi)I in the sharp plane; gradient–direction angular condition differs.",
+          "Local perturbation estimates with upper curvature L cannot directly imply condition-number-free global beta*mu*(1-2delta²) exponent."
+        ],
+        "reasoning": "The exact reflection identity plus split Lyapunov F proves this global theorem; no inspected prior conclusion implies both its necessity and all-initial-state sufficiency.",
+        "searches": [
+          "high index saddle dynamics inexact subspace projector 45 degree threshold 1/sqrt2 reflected gradient global convergence",
+          "https://arxiv.org/abs/2611.09049",
+          "https://epubs.siam.org/eprint/6RBKIUEVWEEPYCJZVVBK/full"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shi et al. analyze perturbed high-index saddle dynamics and a local condition mu-2alpha L>0.",
+          "Chu–Lin discuss 45-degree alignment of gradient and chosen ascent direction, not principal-angle distance between rank-k exact and perturbed unstable subspaces."
+        ],
+        "reasoning": "Compared perturbation norms and angles, rather than matching the numeral 45 degrees: the objects controlled and convergence quantifiers differ; the closest 2026 arXiv full text could not be inspected.",
+        "searches": [
+          "high index saddle dynamics inexact subspace projector 45 degree threshold 1/sqrt2 reflected gradient global convergence",
+          "https://arxiv.org/abs/2611.09049",
+          "https://epubs.siam.org/eprint/6RBKIUEVWEEPYCJZVVBK/full"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A related published momentum flow has a different angular bound, smaller than pi/4 for some parameters, because acceleration introduces extra state variables."
+        ],
+        "reasoning": "This is a sharp inequality over a continuum of projectors and energies, not a finite tabulated classification; the momentum result does not give the exact exponential F rate for the first-order split model.",
+        "searches": [
+          "high index saddle dynamics inexact subspace projector 45 degree threshold 1/sqrt2 reflected gradient global convergence",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-sharp-momentum-induced-angular-instability-frontier-for-planar--c2ea1aec9099"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS within the explicitly separable, fixed-eigenspace class: global arbitrary state/time-varying projector tolerance and sharp critical counterexample are not obtained from the inspected local perturbative or discrete-time results. The algebraic reflector identity and the number pi/4 alone are classical/simple, not the claimed novelty. Closest arXiv 2611.09049 full text was inaccessible; uncertainty remains.",
+      "residual_risks": [
+        "Shi et al. arXiv 2611.09049 primary complete text inaccessible and authorized Oxford retrieval indicated VPN disconnected; abstract cannot rule out exact theorem in paper.",
+        "The sharp guarantee assumes fixed globally decoupled convex/concave blocks and continuously evolving position; it does not cover rotating Hessian eigenspaces or explicit Euler steps.",
+        "Finite rational checks do not prove the universal all-state projector inequality; that follows from exact matrix identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Potential prior broad stability article, cannot assert full-document noncoverage.",
+          "evidence": "Reported condition mu-2alpha L>0 in local treatment; the exact sharp global split-theorem could appear in inaccessible portions.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.09049",
+          "material_read": "Public summary and accessible theorem description; complete arXiv text not obtained.",
+          "method": "arXiv/OA then authorized Oxford attempt, VPN disconnected.",
+          "title": "Asymptotic stability of high-index saddle dynamics",
+          "trigger": "Same model: high-index saddle perturbations"
+        },
+        {
+          "assessment": "Alignment of instantaneous gradient and ascent vector does not impose projector principal-angle or give all-start global bound.",
+          "evidence": "The 45-degree restriction is on directional ascent and energy-sign condition, not ||P-P0||.",
+          "identifier_or_url": "https://epubs.siam.org/eprint/6RBKIUEVWEEPYCJZVVBK/full",
+          "material_read": "Accessible article text, sections 2–3 and gradient-angle analysis.",
+          "method": "Read lawful author full-text eprint.",
+          "title": "Generalized Gentlest Ascent Dynamics Methods for High-Index Saddle Points",
+          "trigger": "The same pi/4 number occurs in a saddle search paper"
+        },
+        {
+          "assessment": "Local/discrete condition-number-dependent framework, not the exact continuous-time global split result.",
+          "evidence": "Local error and preconditioning hypotheses involve additional curvature quantities.",
+          "identifier_or_url": "https://arxiv.org/html/2603.25390v1",
+          "material_read": "HTML text sections 2,4,5 including convergence bounds.",
+          "method": "Read arXiv HTML.",
+          "title": "Preconditioned High-index Saddle Dynamics for Computing Saddle Points",
+          "trigger": "Quantitative projector perturbation stability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp global robustness margin independent of the upper curvature bound is useful in high-index saddle computations, especially as it distinguishes global guarantees from local condition-number estimates. Explicit periodic and expanding counterexamples prove genuine necessity, not just a sufficient inequality; separability is a natural but material restriction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For fixed split E=-f(u)+g(v) with f and g globally mu-strongly convex and exact negative subspace P0, any rank-k orthoprojector P(t,x) uniformly within delta<1/sqrt2 of P0 yields global exponential high-index saddle attraction with optimal F-energy exponent 2 beta mu(1-2delta^2); at delta=1/sqrt2 a quadratic yields periodic orbits and above it expanding spirals.",
+  "limitations": [
+    "Shi et al. arXiv 2611.09049 primary complete text inaccessible and authorized Oxford retrieval indicated VPN disconnected; abstract cannot rule out exact theorem in paper.",
+    "The sharp guarantee assumes fixed globally decoupled convex/concave blocks and continuously evolving position; it does not cover rotating Hessian eigenspaces or explicit Euler steps.",
+    "Finite rational checks do not prove the universal all-state projector inequality; that follows from exact matrix identity."
+  ],
+  "schema_version": 1
+}
