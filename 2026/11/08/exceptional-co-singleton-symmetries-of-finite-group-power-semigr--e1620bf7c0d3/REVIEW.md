@@ -1,17 +1,21 @@
-# Scientific review: Exceptional co-singleton symmetries of finite-group power semigroups
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof gives exhaustive group-order cases: every co-singleton in a group of order at least four other than V4 is an interior product (two explicit constructions); C3 and V4 have no nonsingleton factorization to a co-singleton. Singleton translation equivariance makes all co-singleton-supported automorphisms central shifts, realized exactly in the two exceptions. Unit recognition, finite-subgroup idempotents, left stabilizers and cosets determine the full groups S3 and S4. Exact finite multiplication-table checks reproduced VERIFY_OK; they corroborate but are not used as universal proof.
+## correctness
 
-## Originality — PASS (qualified)
-Compared the new universal support-kernel theorem and full-power small-group groups to Liu--Tringali inverse-semigroup singleton-rigidity, Rago reduced finite abelian power monoids (direct primary PDF, including Klein-four Example 2 and Theorem 13), and Tringali--Wen numerical-semigroup rigidity. Those statements do not imply the new assertions, and previously recorded claims concern other host semigroups. Residual risk: an uncatalogued full-power automorphism calculation might already establish one of these small examples.
+PASS
 
-Closest literature: Liu and Tringali, arXiv:2610.29525v1 (21 October 2026), prove singleton preservation, not augmentation rigidity; Rago, arXiv:2510.17533v1, studies the identity-containing reduced power monoid, not the nonempty-subset monoid, with a distinct Klein-four result; Tringali and Wen's 2026 open-access article treats numerical semigroups. The source and database checks and risk distinctions are recorded in AUDIT.json.
+Reconstructed full exact statement for arbitrary finite groups G and nonempty subsets: T(G) fixes every subset outside layer n-1, including singleton units, and is C3 for C3, V4 for V4, trivial otherwise. For any n and nonempty A,B, |A|+|B|>n implies AB=G. For any n>=4 containing a of order>=3, A={1,a} and B=G\{g,a^-1g} both have interior sizes, and AB=G\{g}; for exponent-two elementary abelian groups n>=8, A={0,u,v}, B=G\A give AB=G\{0} by A∩(u+A)∩(v+A)={0}, and translation yields every co-singleton. In C3 and V4 no nonsingleton factors multiply to a co-singleton. Fixing singleton units forces induced missing-element map f(ag)=af(g) and f(ga)=f(g)a, hence f(g)=gz=zg for z central; all these shifts are multiplicative for C3/V4 because products of nonsingletons never yield a co-singleton. For V4 idempotent subsets are subgroups and left stabilizers/translation force all two-subsets fixed by a unit-fixed automorphism; the full group is V4⋊GL2(F2)=S4. C3 full group C3⋊C2=S3. Boundary n=1,2 checked. Recomputed source Git tree exactly from all 8 actual blob SHAs, matching f34fbd6f29b1afd89260d5f1d23a7f9c59b6fe23. Independent finite bitmask checker reproduced no interior co-singleton factorizations for C3/V4, all 4/5/6/8 for C4/C5/C6/E8, and checked all ordered set products for proposed 3 C3 and 4 V4 shifts; finite checks only corroborate universal symbolic proof.
 
-## Mathematical value — PASS
-A natural distinction in current power-semigroup rigidity asks whether an automorphism merely preserves all singleton units or is actually induced by a group automorphism. The theorem gives a complete sharp finite-group classification of automorphisms supported on the maximal proper-subset layer, with a nontrivial exceptional boundary exactly C3 and V4, and exact full automorphism groups S3/S4 for these intrinsic first cases. This is a motivated structure result, not merely a finite table, and it explains why the reduced/full distinction is mathematically substantive.
+## originality
 
-## Scientific limitations and review status
-No classification is claimed for the complete automorphism group of the power semigroup of general finite groups. The finite checker is supporting evidence, not a universal proof. Historical originality is subject to independent specialist assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+QUALIFIED best-of-knowledge PASS only for the universal all-finite-group top-layer-support classification, especially the nonabelian domain. Historical priority correction is major: Byrd–Lloyd–Pedersen–Stepp (1977) ALREADY prove the complete C3 unit-fixed kernel and AutF(C3)=S3; Byrd–Lloyd–Stepp (1979), citing 1978 work, ALREADY give the exact co-singleton-only V4 translation subgroup and full AutF(V4)=S4, and classify full automorphisms for all finite abelian groups. These exceptional examples and full small automorphism groups are NOT original and must not be represented as such. Their abelian theorem does NOT alone imply the nonabelian support classification: the assigned proof gives a uniform co-singleton interior factorization in every finite nonabelian group and thereby excludes top-only shifts. The 1978 locally-finite-group primary article was not accessible after lawful attempts; it may already imply the nonabelian remainder. Record this serious priority risk, not a fabricated noncoverage conclusion. Prior source omission prevents the existing package from being publication-ready without scientific attribution revision.
+
+## value
+
+PASS
+
+QUALIFIED, modest mathematical structural value survives in the COMPLETE all-finite-group support-restricted automorphism classification: it answers whether a symmetry of the power semigroup can act only at the maximal proper-cardinality layer, uniformly even for nonabelian G. The interior co-singleton factorization gives a short but exact universal obstruction and explains why exponent-two V4 and C3 are special; this is a motivated natural support-filter invariant, not a randomly selected finite table. The previously published C3/V4 full groups and entire abelian classification are given zero new-contribution credit. The potential incremental nonabelian statement is self-contained; no downstream paper-sized theorem is claimed. Its value is limited if the uninspected 1978 general locally finite group paper already implies it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
