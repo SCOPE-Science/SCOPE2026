@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-20.md",
+      "INDEPENDENT_AUDIT_2026-11-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The claim concerns configurations \(x\) satisfying \(F_n(x)=\overline x\) on labelled three-row tori of circumference \(n\ge3\). The supplied exact finite-state certificate is the characteristic polynomial of the fully specified sixteen-state weighted transfer matrix. The matrix identity, local reduction, and trace formula together establish the all-circumference theorem. Direct enumeration is only a separate finite cross-check.
+## correctness
 
-## Exact algebraic check
+PASS
 
-Run `python3 transfer_verify.py` with Python's standard library. It constructs \(T\) from the triple-weight rule, calculates the first sixteen exact integer traces, reconstructs every coefficient of \(\det(tI-T)\) using Newton identities, compares with the displayed factorization, and tests the resulting power-sum formula through circumference twenty. The recorded output ends `ALL_CHECKS_PASS`.
+Every cell has eight distinct neighbors; its live-neighbor count is s_j−x_{r,j}, where s_j is the total of the three adjacent columns. Checking the precise B3678/S34678 birth/survival table proves full inversion iff every s_j∈{3,6}, including all-zero/all-one columns. The sixteen pair-column-weight states with T_(a,b),(b,c)=binom(3,b)1_{a+b+c∈{3,6}} enumerate all labelled cycles via trace(T^n). Independently rebuilt this weighted matrix, all n=1..16 traces, and all 16 Newton identities: characteristic polynomial t^4(t−3)^2(t³−18)^2(t²−t−1)(t²+t+1), implying the all-n Lucas/root-of-unity formula. Independently enumerated weighted column words for n=3..8. Complement equivariance yields F²(x)=x and no binary state equals its complement; hence exact least period 2. Dominant classes each have 3^n possibilities; all remaining eigenvalues grow at most 18^(1/3)<3.
 
-## Independently implemented update check
+## originality
 
-Compile and run `c++ -std=c++17 -O3 -Wall -Wextra direct_verify.cpp -o direct_verify && ./direct_verify`. The program enumerates all binary configurations on each \(3\times n\) torus for \(n=3,4,5,6,7\), applies the complete original eight-neighbor update, and verifies the all-flip count, the triple-window condition and the return after two steps. The recorded output ends `ALL_CHECKS_PASS`.
+PASS
 
-## Limits
+Bell 1997 explicitly introduced B3678/S34678 and sample oscillators; Eppstein 2009 gives complement symmetry and a strobing dual B01245/S0125. Therefore F(x)=~x can be viewed as a fixed state of the dual, and that alias was searched, but neither inspected primary description computes the three-row toroidal fixed-state count. Resultary search found the same self-record and unrelated Rule 150, hard-square, and other automata; their global matrices/counts do not imply this update-specific formula. Prior abstract symmetry credited, exact spectral census best-of-knowledge new.
 
-The finite direct checks cover circumferences three through seven; they are not a proof about larger circumferences. The exact characteristic-polynomial certificate supplies the all-size step, based on the mathematical transfer equivalence. Neither program checks historical novelty or supplies independent external validation. The result does not count all period-two states or initial-state attraction basins.
+## value
+
+PASS
+
+Inversion under the natural self-complementary Day & Night rule is a canonical strict subset of primitive period-two behavior, not an arbitrarily chosen toy slice. An all-circumference exact census with two matched exponential-density phases, an arithmetic mod-three resonant term and sharp entropy growth is an independently informative invariant of the width-three torus.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
