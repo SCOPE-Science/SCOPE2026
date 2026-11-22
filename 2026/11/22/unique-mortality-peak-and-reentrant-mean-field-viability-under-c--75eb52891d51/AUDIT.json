@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Exact differentiation gives a signed derivative with positive weight confined below A-epsilon and negative weight confined above it. The negative-to-positive Gaussian-weighted ratio strictly increases from zero to infinity, proving one maximum; dominated convergence gives the half-floor limit. The mean-field sign threshold is algebraic, while an exact rational conditional-Jensen witness proves intermediate noise exceeds it with both endpoints below. The accompanying checker reproduces the rational inequalities; numerical quadrature is nonessential. No stochastic-lattice survival assertion is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "C. Van den Broeck et al., Physical Review E 55, 4084 (1997), establish a reentrant transition under multiplicative noise in a different spatial dynamical model (https://doi.org/10.1103/PhysRevE.55.4084).",
+        "Related indexed finding on stochastic logistic maps with one-sided unbounded shocks concerns a different state recurrence and survival criterion, not censored Gaussian mortality."
+      ],
+      "reasoning": "General noise-induced reentrance is prior art and not the claimed novelty. A result in another dynamical model does not automatically imply a unique maximum for this clipped-Gaussian reciprocal-mortality function, nor the two crossings of the specified habitat mean-field threshold. A general variation-diminishing theorem could subsume the scalar lemma, but no decisive covering application was located.",
+      "searches": [
+        "Exactly two reentrant growth-extinction-growth transitions caused by unbounded Gaussian environmental variance clipped at positive floor in a pure-defector growing habitat",
+        "noise induced reentrance phase transitions extinction environmental randomness floor bounding",
+        "nonmonotonic Gaussian noise variance clipped sigmoidal response survival probability study"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.18660v1 full HTML, Sections II–IV, Eqs. 2 and 4–14",
+      "Park et al., J. Theor. Biol. 575 (2023), author-hosted PDF pp. 1–4, Eq. 8",
+      "Van den Broeck et al., Phys. Rev. E 55 (1997), journal abstract",
+      "Rectified Gaussian distribution standard reference, CDF and density",
+      "Indexed ecological findings on one-sided noise support, three-habitat reentrant allocation, and variance-dependent dispersal: mathematically distinct objects"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source 2026 Sec. II explicitly uses a positive floor 0.01 and Sec. III Eq. 7 truncates the average at quadratic order in small noise; Sec. IV discusses positive quadratic mortality correction.",
+        "Source 2023 Eq. 8 and source 2026 Eq. 4 give the pure-defector density closure; neither establishes global variance response under a clipped Gaussian.",
+        "Older published reentrance studies do not specify the microscopic clipped-environment reciprocal hazard or this mean-field closure."
+      ],
+      "reasoning": "The 2023 fixed-environment threshold supplies one component and the 2026 Taylor correction supplies the local low-variance direction. Neither implies a high-noise half-floor limit, strict unimodality, or exactly two mean-field sign changes; adding those requires the separate integral and conditional-Jensen arguments. Conversely the claim is confined to the defined mean-field sign, so it does not purport to settle full spatial survival.",
+      "searches": [
+        "\"Effects of spatial environmental noise on evolution of cooperation\" \"lower bound\" \"sigma\" \"extinction\" 2026",
+        "\"Vacancies in growing habitats promote the evolution of cooperation\" \"growth rate\"",
+        "Gaussian clipped normal expectation 1/(1+max epsilon A sigma Z) unique maximum variance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The noise law is the lower-censored/rectified normal distribution; its CDF and ordinary moments are standard (https://en.wikipedia.org/wiki/Rectified_Gaussian_distribution).",
+        "The source writes a second-order Taylor death-rate average, not a global response theorem (arXiv:2606.18660v1, Eq. 7–11)."
+      ],
+      "reasoning": "The exact expectation of a reciprocal affine response to a floor-clipped Gaussian variable is not identified with the familiar mean or CDF of a rectified normal. The analytic single-peak result derives from a support-separated signed derivative integral. Search found general normal-distribution facts but no statement implying the full unique maximum and two mean-field phase crossings.",
+      "searches": [
+        "Logistic death hazard of a rectified Gaussian environmental variable has one global maximum as variance increases",
+        "\"clipped Gaussian\" \"nonmonotonic\" expectation convex decreasing noise",
+        "Gaussian clipped normal expectation 1/(1+max epsilon A sigma Z) unique maximum variance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kim, Son and Park, arXiv:2606.18660v1, Figs. 3–4 and Eqs. 7–14 tabulate/plot the small-noise approximation for intensity at most 0.5, with no exact high-noise crossing table.",
+        "Park et al., Journal of Theoretical Biology 575, 111629 (2023), Fig. 3 and Eq. 8 report deterministic environment thresholds for fixed quality rather than for varying censored-Gaussian variance."
+      ],
+      "reasoning": "The nearest source-specific computed phase diagrams vary quality and small noise, rather than holding pre-clipping quality fixed and counting all noise-variance crossings. No exact distributional mortality or phase-table entry covering the rational witness was found.",
+      "searches": [
+        "Noise averaged death probability 1/(1+Ae^p) Gaussian truncation at 0.01 population growth mean field reentry",
+        "Kim Son Park 2026 spatial environmental noise cooperation high variance truncated positive quality nonmonotone average mortality reentrant",
+        "Gaussian truncated environmental noise variance growth extinction threshold cooperator defector lattice model reentrant survival"
+      ]
+    },
+    "rationale": "Direct full-text comparisons show the source treats quadratic small-noise mortality and a separate earlier source supplies deterministic mean-field growth. The new statement proves a global single-peak exact clipped-Gaussian death response and an explicit two-crossing ecological mean-field regime. General reentrance and Gaussian truncation are prior art, not claimed as new; a broader monotone-likelihood-ratio result may subsume a lemma but no decisive source-specific coverage was found.",
+    "residual_risks": [
+      "The 1997 multiplicative-noise article was available only as an abstract; a general theorem from that literature may imply a scalar response property.",
+      "Published results on variation-diminishing Gaussian transforms or censored-normal fractional expectations could cover the scalar unimodality statement under different terminology.",
+      "The claim is mean-field only; treating it as an actual spatial survival transition would overstate the evidence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides clipping and local positive quadratic correction, but does not supply exact all-intensity unimodality or reentrant mean-field phase count.",
+        "evidence": [
+          "2026-06-17 initial arXiv submission; Sec. II lower floor 0.01",
+          "Sec. III Eq. 7–14, small-noise approximation",
+          "Sec. IV stresses positive second-order correction; Figs. 3–4 noise up to 0.5"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.18660",
+        "material_read": "Full accessible arXiv HTML: model Sec. II, analytic derivation and Figs. 2–4 in Sec. III, conclusion Sec. IV and references; especially Eqs. 2, 4–14.",
+        "method": "Full-text section-by-section comparison of noise law, mean-field closure and studied parameter region.",
+        "title": "Effects of spatial environmental noise on evolution of cooperation",
+        "trigger": "Same microscopic death rule and noise floor; originating 2026 paper"
+      },
+      {
+        "assessment": "Precursor supplies constant-quality occupancy/velocity proxy but explicitly leaves stochastic environmental quality to future work. It does not imply the Gaussian variance phase diagram.",
+        "evidence": [
+          "J. Theor. Biol. 575, 111629 (2023), pp. 2–4",
+          "Equation 8: mean-field critical quality 1/sqrt(2)",
+          "Conclusion states environment treated as constant"
+        ],
+        "identifier_or_url": "https://christian-hilbe.github.io/files/2023_park.pdf",
+        "material_read": "Author-hosted full paper, pages 1–4 including methods, pure-D mean-field derivation Eqs. 6–8, Fig. 3 and conclusion; text searched for Gaussian/noise.",
+        "method": "Read text and visually inspected PDF page 3 against its equations; checked source-specific dependence on constant quality.",
+        "title": "Vacancies in growing habitats promote the evolution of cooperation",
+        "trigger": "Original pure-defector mean-field velocity and absorbing-phase threshold"
+      },
+      {
+        "assessment": "Already covers existence of noise-induced reentrance generally; no evidence it treats this reciprocal floor-censored Gaussian mortality. Full text access remains a priority risk.",
+        "evidence": [
+          "Physical Review E 55, 4084 (1997), abstract describes multiplicative-noise-induced reentrance"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.55.4084",
+        "material_read": "Journal landing-page abstract and metadata only; complete article not accessed.",
+        "method": "Compared abstract claim and dynamical mechanism with the present scalar mortality and mean-field closure.",
+        "title": "Nonequilibrium phase transitions induced by multiplicative noise",
+        "trigger": "Plausible broader coverage of reentrant noise-induced viability"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "75eb5289-1d51-4538-9aab-efdd69eac4a7",
+  "value": {
+    "rationale": "The motivating work predicts mortality increases through a positive local quadratic correction, but its actual simulation truncates the Gaussian environmental quality. An exact global theorem shows this response eventually reverses, and a fixed rational ecological parameter set crosses the mean-field growth/decline boundary twice. This is a substantive qualitative phase classification of a motivated model, not a normalization or tiny numerical improvement; the distinction between mean-field and genuine spatial survival is explicit.",
+    "status": "PASS"
+  }
+}
