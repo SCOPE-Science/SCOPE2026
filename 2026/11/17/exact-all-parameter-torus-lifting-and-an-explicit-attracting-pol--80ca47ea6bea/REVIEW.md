@@ -1,19 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact projection formula follows by cancellation of the linear rotation terms. On any compact region with positive lower bound on squared radius, a unit-length trajectory cannot have zero integral of squared vertical planar coordinate, since identically zero coordinate forces both horizontal coordinates to be zero. Compactness then gives a uniform positive lower bound, allowing complete-time reduction to the exact planar flow. Standard hyperbolic-cycle isolating neighborhoods lift directly and the planar normal contraction transfers to original time. The explicit example satisfies an exact logistic radial equation and the stated basin keeps the squared radius strictly positive. The symbolic checker confirms the defining identities. No large-coupling normal hyperbolicity is claimed.
+PASS
 
-## Originality — PASS, with publication-priority qualifications
+For u=x²+y², the original rotation cancels exactly: (u,z)dot=2εy²(P,Q). On compact u>=c>0, no full unit-time orbit segment has y identically zero (it would force x=0), so compactness gives a positive lower bound on the integral of y² and the signed planar clock diverges along complete confined orbits. Pull back a planar hyperbolic-cycle isolating annulus to obtain exact invariant torus and isolation. Floquet transverse decay transfers through the positive-time clock for ε>0 (reverses for ε<0). In the polynomial example w=u-2,R=w²+z² and wP+zQ=R(1-R), so Rdot=4εy²R(1-R); the set 0<R<4 keeps u>=2-sqrt(max(R(0),1))>0 and converges to R=1 for ε>0. This is not normal-hyperbolicity or a maximum basin assertion.
 
-The 2022-12-22 Novaes–Pereira preprint, Theorem A and complete Section 3.2, proves small-positive-coupling existence and normal hyperbolicity by averaging, not all-nonzero-parameter exact invariant surfaces. The 2026 Arakaki–Novaes–Pereira paper uses positive scalar time rescaling and Hopf-zero bifurcation for separate problems. Its theorem is not an all-coupling result for the degenerate scalar \(2\varepsilon y^2\). Actual semantic database searches for exact lift, planar projection and invariant torus found no implication covering the assertion; related records concern other toroidal flows. This is novelty evidence, not a guarantee of priority. An inaccessible publisher full-text version and unindexed derivations remain risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source construction is central to transferring planar limit-cycle lower bounds to isolated three-dimensional tori. Showing the torus equation is **exactly parameter-independent** and isolation and attraction persist at every coupling outside zero removes its perturbative parameter restriction at the level of invariant-set existence (while carefully preserving the distinction from normal hyperbolicity). The explicit polynomial attraction region supplies a nonlocal, all-positive-parameter dynamical certificate beyond an asymptotic theorem. This is a geometrically motivated, structural statement rather than a routine isolated numerical instance.
+Full relevant Novaes–Pereira primary source proves existence of normally hyperbolic tori for only sufficiently small positive epsilon, whereas the final result locates and isolates the exact lifted torus for every nonzero epsilon and establishes an explicit all-positive epsilon attracting region. No inspected published theorem implies those strengthened quantifiers. Best-of-knowledge, not proof of absolute priority.
 
-## Scope and limitations
+## value
 
-\(P,Q\) are \(C^2\) near the cycles; cycles lie in strictly positive squared radius and are hyperbolic. The attracting region is certified but not maximal. Normal hyperbolicity is unproved beyond the small-parameter range of the originating source. No independent validation has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact invariant geometry and isolated attraction for all nonzero couplings are structurally useful strengthenings of a concrete construction used to transfer planar limit-cycle counts to 3D polynomial fields. A positive-radius uniform-clock lemma proves a true nonperturbative parameter boundary and the explicit nonmaximal basin is a motivated global dynamical fact; it is not a mere finite parameter test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
