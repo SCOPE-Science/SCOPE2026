@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The source definition and discrepancy normalization agree exactly with Reyes (2026), Section 2. The two-branch recurrence gives an at-most-Fibonacci count at any fixed starting discrepancy. All changes in feasible words occur at explicitly counted finite thresholds, yielding at most a quadratic multiplier in the global language. A negative-drift \((10)^N\) prefix realizes every golden-mean factor below half density. The exact endpoint entropy is explicitly imported from Reyes, Theorem C(c). Infinite assertions do not depend on the finite checker; the checker verifies representative exact rational cases and boundary behavior.
+
+**Originality — PASS within inspected evidence.** The initiating article treats only the special parameter family \(k/(k+1)\) for its exact entropy, where \(k\ge1\). The 2023 introduction establishes general positivity of entropy and a composition count at integer-ratio parameters. The published records concerning transitivity of parameters below half do not imply any entropy formula. Searches using the threshold, plateau, golden-mean and Fibonacci descriptions found no identical theorem. Full 2023 text was inaccessible and remains a priority risk, not proof of absence of prior work. The direct comparison of implications is detailed in `AUDIT.json`.
+
+**Mathematical value — PASS.** An exact entropy formula on an entire real interval, with a sharp discontinuity at its endpoint, gives a natural phase diagram for a history-dependent symbolic system. The universal Fibonacci-language estimate also establishes nontrivial control of entropy for all interior parameters. This is a structural phenomenon, not a finite table or an arbitrary special parameter. The key mechanism is that forcing after \(1\) restricts each fixed-offset language, while a long negative-drift prefix restores full golden-mean complexity below half density.
+
+**Residual limits.** The historical 2023 complete manuscript was unavailable; the proof establishes the stated quantities but not entropy above one half or intrinsic ergodicity below half. All C/O/V decisions are same-model assessments, not independent mathematical certification.
+
+Self-review: passed. Independent audit: not yet performed.
