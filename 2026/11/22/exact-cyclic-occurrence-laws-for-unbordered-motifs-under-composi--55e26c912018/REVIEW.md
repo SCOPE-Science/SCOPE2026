@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Exact cyclic overlap constraints, circular gap-composition enumeration, and composition-refined inclusion–exclusion establish the fixed-content count. The iid polynomial is a rescaling of a claw-free graph independence polynomial; Chudnovsky–Seymour's published theorem supplies real-rootedness. Every root sign and boundary case is justified, and the standalone brute-force verifier confirms 36,984 fixed-composition and 1,968 biased iid cases plus 187 direct placement counts. The finite tests are not an infinite proof.
+
+**Originality — PASS against material inspected, with priority risk.** Brown–Hoshino already gives the cycle-power independence polynomial coefficients and Chudnovsky–Seymour already proves their real-rootedness. Neither directly states a circular-word motif law or fixed-composition anagram equidistribution. Arnoux concerns identities for a fixed circular word. The Bassino inclusion–exclusion article concerns ordinary linear texts. The closest 2026 published result gives a Poisson–binomial classification for ordinary linear-word occurrences, not indexed circles. The bridge from nonoverlapping circular occurrences to the graph polynomial is the distinctive step. Incomplete full-text access to the motivating preprint and the closest 2026 published linear-case source leaves a publication-priority risk; a known explicit cyclic specialization would supersede the originality claim. Multiple published sources were compared by implication, not just by title.
+
+**Value — PASS.** A single all-length theorem exactly classifies the motif-count distribution simultaneously for every alphabet and fixed source composition, reveals an anagram-equidistribution law, and proves an independent-Bernoulli representation under arbitrary biased iid sampling. Such a complete distribution distinguishes cyclic from linear boundary effects and is useful for exact motif-count null models. The known graph polynomial and its real-rootedness are explicitly credited, not passed off as new.
+
+**Limitations.** The result excludes bordered motifs from its exact universality assertion, does not prove a converse and does not claim that the actual occurrence indicators are independent. It is a mathematical review with no independent audit.
+
+Self-review: passed. Independent audit: not yet performed.
