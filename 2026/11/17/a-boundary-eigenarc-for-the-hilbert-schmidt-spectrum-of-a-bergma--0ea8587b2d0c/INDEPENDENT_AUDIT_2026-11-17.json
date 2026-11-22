@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T11:55:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Computed the map on the matrix units E_ij using the weighted Cauchy dual S'e_j=sqrt((j+2)/(j+1)) e_(j+1) and the positive telescoping projection coefficients. Every matrix diagonal is invariant under the resulting backward bidiagonal operator. The eigenvalue recurrence (lambda-n/(2(n+1)))u_n=(1/2)sqrt((n+2)/(n+1)*(n+d+2)/(n+d+1))u_(n+1) telescopes to u_n=u_0 sqrt((d+1)/((n+1)(n+d+1))) product_(j<=n)(2lambda-1+1/j). For z=2lambda-1 nonzero nonterminating, gamma ratios give |u_n|~const |z|^n n^(Re(1/z)-1). Therefore all |z|<1 occur; |z|>1 do not; on |z|=1 the l2 criterion is Re z<1/2, including z=-1 as a terminating special case. Nonnegative and negative matrix diagonals are orthogonal, and one nonzero eigenvector per diagonal implies infinite geometric multiplicity. No statement about entire spectrum. Independently checked 275 finite exact recurrence identities across d=0..4, five rational z choices and 11 steps, which validate algebra but not the infinite square-summability proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.5 characterizes fixed points among bounded operators; Lemma 4.4 excludes nonzero compact fixed points.",
+          "Theorem under review classifies all |z|<1 and part of |z|=1, not solely lambda=1."
+        ],
+        "reasoning": "The stronger ambient fixed-point result excludes lambda=1 but says nothing about nontrivial eigenvalues, and no other inspected result covers the eigenarc.",
+        "searches": [
+          "Panja normal unital completely positive map harmonic Toeplitz fixed points compact Hilbert Schmidt eigenvalue",
+          "arxiv:2611.09731 Lemma 4.4 Theorem 4.5"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2611.09731v1",
+        "https://arxiv.org/abs/2611.09731",
+        "Resultary semantic exact-map and weighted backward shift point-spectrum queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Panja fixed-point theorem gives only the non-eigenvalue lambda=1 on S2.",
+          "The reviewed gamma product yields a strict eigenarc with Re(2lambda-1)<1/2, an independent consequence of the map not of fixed-point characterization."
+        ],
+        "reasoning": "The exact map is inherited; the point-spectrum conclusion is genuinely more specific than prior fixed-point statements and not mechanically equivalent to them.",
+        "searches": [
+          "https://arxiv.org/html/2611.09731v1",
+          "Panja 2026 Toeplitz bounded harmonic Bergman Hilbert Schmidt point spectrum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Panja arXiv:2611.09731v1 Eq (4.10) is the same UCP map.",
+          "Matrix-unit decomposition identifies a direct sum of weighted backward shifts, with z=2lambda-1 as the spectral parameter."
+        ],
+        "reasoning": "Equivalent diagonal-shift descriptions were explicitly compared; Panja studies fixed points, not the full shift-derived point spectrum.",
+        "searches": [
+          "Resultary Bergman analytic disk Hilbert Schmidt completely positive map Panja point spectrum boundary eigenarc weighted backward shift",
+          "Panja arxiv:2611.09731 Eq (4.10) Schatten Hilbert Schmidt eigenvalues",
+          "Bergman Cauchy dual diagonal backward weighted shift eigenvector l2 spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No relevant coefficient-by-coefficient exact eigenarc table appeared among the Resultary hits; the nearest Bergman records treat kernels, Hankel/Toeplitz localization and Calkin norms."
+        ],
+        "reasoning": "The desired datum is an infinite-dimensional point-spectrum set rather than a finite table; this check considered exact spectral databases and stronger weighted-shift classifications, without treating search absence as proof of novelty.",
+        "searches": [
+          "Resultary Hilbert-Schmidt point spectrum Bergman completely positive Panja eigenarc",
+          "weighted backward shift Schatten diagonal gamma eigenvectors boundary l2"
+        ]
+      },
+      "rationale": "Panja 2026 defines exactly the underlying UCP map on the Bergman space, identifies bounded-operator fixed points and proves compact fixed-point exclusion, which only settles lambda=1 among these Hilbert–Schmidt candidates. The full boundary eigenarc and every non-fixed point eigenvalue require the diagonal recurrence and gamma asymptotics and were not stated in the inspected primary source. General weighted backward shift eigenvector theory is mathematical groundwork; a theorem specialized to this exact coefficient sequence may still exist but was not found in searched material.",
+      "residual_risks": [
+        "An unindexed paper on weighted unilateral backward shifts may state an equivalent gamma boundary exponent for exactly these coefficients.",
+        "No full or essential spectrum or other Schatten-p ideal is classified here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINING SOURCE, NOT COVERING: fixed points only, without S2 eigenarc",
+          "evidence": [
+            "Eq. (4.10) normal UCP map; Lemma 4.4 nonzero compact fixed-point exclusion; Theorem 4.5 harmonic Toeplitz fixed points"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.09731v1",
+          "material_read": "Complete accessible HTML primary article: section 4 map equation (4.10), surrounding construction, Lemma 4.4 and Theorem 4.5 fixed points",
+          "method": "Read primary article HTML and compare actual map/equations",
+          "title": "Toeplitz operators with bounded harmonic symbols on weighted Bergman spaces are the fixed points of a normal unital completely positive map",
+          "trigger": "Defines exactly the studied map"
+        },
+        {
+          "assessment": "Context only, no inferred negative full-text coverage",
+          "evidence": [
+            "Foundational Toeplitz fixed-point background, not claimed to classify this 2026 operator"
+          ],
+          "identifier_or_url": "https://doi.org/10.1515/crll.1963.213.89",
+          "material_read": "Bibliographic identification and audited reference only; full original text not directly read",
+          "method": "Secondary bibliographic comparison",
+          "title": "Algebraic properties of Toeplitz operators",
+          "trigger": "Foundational Toeplitz algebra context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the natural operator whose harmonic-symbol Toeplitz fixed-point structure is known, a complete Hilbert–Schmidt eigenvalue classification with a strict, nontrivial partial-circle boundary is a useful spectral invariant. The infinitely degenerate admitted eigenvalues contrast sharply with compact fixed-point rigidity and identify an actual summability transition, not a routine numeric lookup or arbitrary parameter slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Ordinary analytic Bergman measure and Hilbert–Schmidt ideal only; does not address full/essential spectrum.",
+    "The source map is borrowed and credited; originality concerns the resulting precise eigenarc."
+  ],
+  "schema_version": 1
+}
