@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Odd-grid Dirichlet cardinal identities give all weights exactly. Reflection, strict csc convexity and a three-ratio monotonicity argument prove the sharp one-crossing classification on the full continuous parameter interval, including zero-weight equality cases. Monotonicity of t cot t and an implicit expansion give the all-size asymptotic. A separate cardinal Gram computation proves the noise formula. Independent high-precision Fourier solves and 411 numerical checks supplement, not replace, the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yu–Townsend, Theorem 4.1: alternating disturbance at O(n) nodes gives a negative weight for every fixed positive jitter if n is sufficiently large; that is neither a nonnegativity guarantee nor a sharp threshold with just two slips.",
+        "van den Bos–Sanderse (2021), Section 4.2: general multi-node replacement regions are expressed as polynomial inequalities in an algebraic-moment problem; the paper says those multivariate inequalities are not solved explicitly in general."
+      ],
+      "reasoning": "General perturbation convergence and existence of adversarial multi-site negative examples do not fix the sign of weights under the much smaller two-location error support. General polynomial-moment replacement is on a distinct approximation space and does not entail the stated csc root, first-failing indices or n-dependent limit. No inspected stronger theorem dominates this statement.",
+      "searches": [
+        "\"two perturbed\" \"trigonometric quadrature\" weights positivity threshold",
+        "\"quadrature\" \"one perturbed node\" \"trigonometric\" weights",
+        "published-finding corpus: sharp positivity radius localized two moved adjacent samples on odd uniform Fourier grid trigonometric quadrature threshold sqrt 3"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1612.04018",
+      "https://arxiv.org/pdf/2202.04722",
+      "https://ir.cwi.nl/pub/30613/30613.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2016 article asserts convergence under regularity hypotheses, not positivity of every weight for a specified localized shift.",
+        "The 2022 article constructs an alternative alternating family with negative weights at arbitrarily small jitter as dimension increases; the family has different support and does not refute the present claim.",
+        "The 2021 article provides a broad moment-geometry framework but its explicit formulas concern polynomial bases and replacement procedures, not this sharp trigonometric one-parameter family."
+      ],
+      "reasoning": "Prior results and the new theorem are logically compatible: arbitrarily small many-node jitter can induce negativity, while two adjacent outward slips retain positivity up to an increasing threshold. The new closed sign criterion implies explicit first-failure indices and an asymptotic constant not recoverable by restating those prior statements.",
+      "searches": [
+        "published-finding corpus: trigonometric interpolation perturbed two nodes positivity threshold n increasing limit sqrt3",
+        "\"two\" \"perturbed\" \"equispaced\" \"trigonometric\" \"quadrature\" weights",
+        "\"A geometrical interpretation of the addition of nodes\" replacement pdf 2021"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yu–Townsend (2022), arXiv:2202.04722, Section 4: the negativity construction displaces many grid nodes in an alternating pattern, not exactly two adjacent nodes.",
+        "Austin–Trefethen (2016), arXiv:1612.04018, Section 1: convergence rates are proved for arbitrary perturbation vectors, without a localized csc-based positivity boundary.",
+        "A separately reported three-node perturbation result contains the degenerate n=3 case; the accepted statement is restricted to odd n>=5."
+      ],
+      "reasoning": "The Fourier moment problem can be equivalently described as Dirichlet-kernel cardinal interpolation, NUDFT inverse first-row coefficients, or a trigonometric moment cone. These representations were explicitly compared, not used as novelty claims. The inspected sources did not state or imply the increasing exact all-odd-n two-slip threshold and its asymptotic limit.",
+      "searches": [
+        "\"trigonometric\" \"quadrature weights\" \"two\" \"perturbed nodes\" positivity",
+        "\"quadrature weights\" \"two adjacent\" \"perturbed\" Fourier",
+        "published-finding corpus: trigonometric interpolation perturbed two nodes positivity threshold n increasing limit sqrt3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The ranked research records include a sharp three-node random-jitter positivity result, but no all-odd-grid two-adjacent-outward-node table.",
+        "The fixed five-node arbitrary-jitter universal threshold addresses all jitter patterns and has a different numerical boundary than this restricted two-slip problem.",
+        "Direct Fourier moment solutions for odd n=3..31 agree with the derived csc weights and sign thresholds (verifier)."
+      ],
+      "reasoning": "The small n=3 endpoint has recognized prior coverage. Neither the checked research record titles/summaries nor the three primary sources contain the exact odd-n parameter table or a dominating formula for n>=5. A negative search is not a uniqueness proof.",
+      "searches": [
+        "published-finding corpus: exact discrete Fourier quadrature weights two nodes moved outward same distance 1/4 1/3",
+        "\"trigonometric\" \"quadrature weights\" \"two\" \"perturbed nodes\" positivity",
+        "\"quadrature weights\" \"two adjacent\" \"perturbed\" Fourier"
+      ]
+    },
+    "rationale": "Examined primary papers concern general perturbed-grid convergence, many-node alternating negative-weight constructions and polynomial-moment node replacement rather than the exact sign frontier for two adjacent outward slips across every odd grid n>=5. Known three-node information is excluded from the novelty claim. An undiscovered equivalent older formula remains possible.",
+    "residual_risks": [
+      "An older barycentric trigonometric quadrature or moment-cone paper might contain an equivalent two-node boundary under different notation.",
+      "The nearby three-node case is covered by older work; the new scope is odd n>=5.",
+      "The literature search cannot establish global uniqueness of publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper treats general smooth-function convergence and Lebesgue bounds; no exact two-slip sign classification located in examined relevant sections.",
+        "evidence": [
+          "arXiv:1612.04018v1 dated 2016-12-13, pages 1–6",
+          "theorem 1.1 (general perturbation convergence) and quadrature setup"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1612.04018",
+        "material_read": "Abstract and introduction, definitions and quadrature setup, theorem/convergence discussion and proof overview in first six pages.",
+        "method": "Read arXiv PDF parsed text and viewed a page image; compared stated theorems with this exact two-node positivity statement.",
+        "title": "Trigonometric Interpolation and Quadrature in Perturbed Points",
+        "trigger": "Same trigonometric interpolatory quadrature under perturbed grid nodes."
+      },
+      {
+        "assessment": "Negative weights for any positive jitter are established using a distinct alternating many-node construction, not the sharp two-node threshold.",
+        "evidence": [
+          "arXiv:2202.04722v1 dated 2022-02-09",
+          "Section 4.1 and Theorem 4.1 on alternating perturbed nodes"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2202.04722",
+        "material_read": "Abstract, sections 1 and 2 setup/conditioning, Section 4 pages 10–11 including Theorem 4.1 and its alternating displacement construction.",
+        "method": "Read parsed arXiv PDF and visually inspected pages 10–11; compared how many nodes move and quantifiers.",
+        "title": "On the Stability of Unevenly Spaced Samples for Interpolation and Quadrature",
+        "trigger": "Sharp negative-weight examples and NUDFT conditioning for arbitrary jitter."
+      },
+      {
+        "assessment": "The paper gives general geometric polynomial-moment replacement conditions but does not state the specific odd Fourier-grid threshold; its multi-node inequalities are not solved in this form.",
+        "evidence": [
+          "J. Comput. Appl. Math. 391 (2021), 113430",
+          "Section 4.2, inequality (4.1) and replacement discussion"
+        ],
+        "identifier_or_url": "https://ir.cwi.nl/pub/30613/30613.pdf",
+        "material_read": "Abstract; Sections 1–2 of open full PDF; Section 4.2 on multi-node replacement, necessary/sufficient moment inequalities and Section 4.2.2.",
+        "method": "Read open-access full-paper parsed pages and visually inspected pages 2 and 18; compared polynomial-moment setting to trigonometric Fourier setting.",
+        "title": "A geometrical interpretation of the addition of nodes to an interpolatory quadrature rule while preserving positive weights",
+        "trigger": "Potentially dominating positivity characterization for replacing one or multiple quadrature nodes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cbf04609-6901-44f2-935c-a282d6887579",
+  "value": {
+    "rationale": "A two-corrupted-timestamp support constraint is a natural localized robustness model not reducible to unrestricted multi-site jitter. The result gives a sharp all-odd-grid positivity tolerance, identifies exactly which two weights fail first, proves an increasing grid-size trend to a nontrivial constant, and quantifies observation-noise amplification. This is a complete, motivated structural classification, not a small isolated numeric increment or practical speedup claim.",
+    "status": "PASS"
+  }
+}
