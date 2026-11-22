@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "The renewal transform for Poisson-reset Brownian first passage and exponential-death conditioning gives exact dimensionless mean M and variance V. Their difference V−M² has the sign of B(sqrt(m+rho))−m. Exact derivative identities and the all-n coefficient argument show that B has one and only one positive maximum, above 1 and below z_c². Restricting crossings to rho>0 and tracking z>sqrt(m) yields precisely 1,1,2,1,0 positive intersections in the five mortality regimes; the equality is tangential at m=m_c. An independent standard-library program verifies the identities and source moment equations, but the infinite sign and global count rest on the written analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Reuveni arXiv:1512.01600 (2015 preprint), Phys. Rev. Lett. 116 170601 (2016), treats the universal CV at unconditional mean-optimal resetting.",
+        "Belan arXiv:1703.01486, Phys. Rev. Lett. 120 080601 (2018), treats optimization of splitting/success probability.",
+        "Pal et al. arXiv:2502.09127 (2025) treats a criterion for selective outcome enhancement, not this complete finite-rate conditional CV phase diagram."
+      ],
+      "reasoning": "None of these results implies a global zero count for the successful-hitting-time CV at arbitrary resetting and strictly positive mortality. The already-published conditional moment formulas are much closer and are treated directly under claim_vs_prior_implication.",
+      "searches": [
+        "mortal Brownian particle Poisson resetting conditional first passage mean variance r_m r_c optimal ordering mortality thresholds",
+        "arxiv:1512.01600",
+        "arxiv:1703.01486",
+        "arxiv:2502.09127"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2211.16173 (full text)",
+      "doi:10.1103/PhysRevE.107.024136 (publication metadata)",
+      "arXiv:1512.01600 (abstract)",
+      "arXiv:1703.01486 (abstract)",
+      "arXiv:2502.09127 (full HTML)",
+      "Published 2026-11-02 reset-distance reentrance record (summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Radice, arXiv:2211.16173: the successful-hitting-time Laplace transform and its conditional mean and variance are already given in Eqs. (71)-(72).",
+        "The original paper discusses a single equality rate and an approximate existence threshold in its graphical presentation, not a proof that the equality curve has a global maximum and exactly two positive roots for mortality between 1 and 1.1064282209364.",
+        "The new proof differentiates the published transform, finds an explicit exponential-polynomial derivative, proves exactly one positive derivative zero by an infinite coefficient sign argument, then enforces the physical constraint z>sqrt(m)."
+      ],
+      "reasoning": "The baseline mean/variance formulas imply the claim only after substantial additional analytic sign/physical-domain analysis; the published statement does not directly assert either the reentrant interval or the sharp global count. As an explicit refinement deducible from known formulas, implicit coverage remains the strongest unresolved publication-priority risk.",
+      "searches": [
+        "mortal Brownian search under Poisson resetting conditional coefficient of variation reentrant two equal-mean-variance rates as function mortality",
+        "mortal Brownian particle Poisson resetting conditional first passage mean variance r_m r_c optimal ordering mortality thresholds",
+        "mortality Brownian search resetting conditional time optimal reset rate coefficient variation sharp mortality threshold",
+        "arxiv:2211.16173"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Radice arXiv:2211.16173, Sec. IV Eqs. (71)-(72), and Fig. 4: conditional mean and standard deviation and a numerically described single unit-CV reset rate.",
+        "A published result titled A sharp reset-distance threshold for reentrant first-passage fluctuations addresses a different condition: an immortal process with initial and reset positions unequal."
+      ],
+      "reasoning": "Unit coefficient of variation, equality of conditional standard deviation and conditional mean, and zero of conditional variance minus squared mean are the same claim. The closest reset-distance reentrance does not imply a two-positive-rate classification when mortality is the varying parameter and the reset position equals the initial position. The original mortal search moments are the correct starting point, but no equivalent global crossing classification is stated there.",
+      "searches": [
+        "mortal Brownian search under Poisson resetting conditional coefficient of variation reentrant two equal-mean-variance rates as function mortality",
+        "conditional first passage time finite lifetime resetting sub Poisson super Poisson reentrant noise threshold at mortality",
+        "arxiv:2211.16173",
+        "published:2026-11-02:599c525eb34e"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Radice arXiv:2211.16173 Fig. 4 presents numerical dependence and approximate disappearance near dimensionless mortality 1.1, rather than a table of two positive roots or the exact threshold 1.1064282209364.",
+        "The closest available published-search record describes a different immortal reset-distance threshold and numerical constant."
+      ],
+      "reasoning": "The new threshold, unique tangency, and two distinct positive reset-rate zeros are not present in the inspected original numerical figure or moment table. Search-record coverage cannot certify absence from every other database or table; the remaining priority risk is stated explicitly.",
+      "searches": [
+        "Mattia Radice 2022 mortality Brownian resetting r_c equal standard deviation multiple roots",
+        "arxiv:2211.16173 Fig. 4",
+        "published:2026-11-02:599c525eb34e"
+      ]
+    },
+    "rationale": "The original model, transform and conditional moments are explicit in Radice (arXiv:2211.16173); the numerical single crossing/disappearance around m=1.1 does not state the exact two-positive-root interval, unique global threshold, or analytic zero-count certificate. Related unconditional-optimal-CV, success-probability, selective-outcome, and immortal reset-distance studies have different quantified claims. This is a conditional CV zero-count refinement of known formulas with residual implicit-priority risk, not a new reset model.",
+    "residual_risks": [
+      "The exact inequality is an analytic implication of Radice’s published conditional moments, so earlier implicit or unindexed derivations cannot be ruled out.",
+      "A related published reset-distance reentrance record was inspected only as a searchable summary because complete full text was inaccessible; it appears to concern a distinct model.",
+      "Specialist independent priority assessment has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives same conditional mean and variance and estimates a disappearing single crossing near m=1.1; no analytical global two-positive-root classification or unique tangency seen.",
+        "evidence": [
+          "arXiv:2211.16173, Eqs. (71)-(72), Fig. 4, Appendix A",
+          "Original transform is exactly reproduced and independently compared in check.py"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2211.16173",
+        "material_read": "Full publicly accessible online article text, including conditional moment formulas in Sec. IV, numerical Fig. 4 and discussion, and its appendix; exact comparisons reconstructed against formulas (71)-(72)",
+        "method": "Read paper text and compare hypotheses, conditional transform, figures, quantifiers, and equations to proposed sharp zero-count theorem",
+        "title": "Effects of mortality on stochastic search processes with resetting",
+        "trigger": "Exact same mortal Brownian first-passage model and CV numerical crossings"
+      },
+      {
+        "assessment": "Universal CV=1 at an unconditional mean-optimal reset rate is different from the full arbitrary-rate conditional mortal CV phase diagram.",
+        "evidence": [
+          "arXiv:1512.01600, abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1512.01600",
+        "material_read": "Abstract and publicly indexed claim and bibliographic context (not a complete article-body comparison)",
+        "method": "Compare theorem assumptions and optimized quantity",
+        "title": "Optimal Stochastic Restart Renders Fluctuations in First Passage Times Universal",
+        "trigger": "Potentially stronger unit-CV theorem for stochastic restart"
+      },
+      {
+        "assessment": "Concerns splitting probability and success optimization, not sharp number of unit-CV reset rates.",
+        "evidence": [
+          "arXiv:1703.01486, abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1703.01486",
+        "material_read": "Abstract and publicly indexed claim (not full article body)",
+        "method": "Compare success-probability objective versus conditional first-passage fluctuation objective",
+        "title": "Restart Could Optimize the Probability of Success in a Bernoulli Trial",
+        "trigger": "Possible general theorem for resetting with success/failure outcomes"
+      },
+      {
+        "assessment": "No same-object global two-crossing theorem or exact critical mortality constant found in the inspected text.",
+        "evidence": [
+          "arXiv:2502.09127, online HTML main text"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2502.09127",
+        "material_read": "Full public online HTML main text and stated general criterion",
+        "method": "Compare conditional mean improvement criteria against global CV crossing multiplicity",
+        "title": "Universal criterion for selective outcomes under stochastic resetting",
+        "trigger": "Post-2024 general selective-outcome resetting criterion might subsume mortality conditioning"
+      },
+      {
+        "assessment": "Addresses an immortal process reset to a position different from its starting position; no direct implication for mortality-driven reentrance when those positions coincide. Full-text coverage risk remains.",
+        "evidence": [
+          "Published 2026-11-02 record statement: reset-distance ratio threshold q_c≈1.22863, two CV crossings at unequal reset and initial positions"
+        ],
+        "identifier_or_url": "published:2026-11-02:599c525eb34e",
+        "material_read": "Published search-record title and statement summary; full repository text unavailable on attempted access",
+        "method": "Compare variables and model parameters in available statement summary",
+        "title": "A sharp reset-distance threshold for reentrant first-passage fluctuations",
+        "trigger": "Published reentrant CV result potentially covering this new result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ddcfcae7-aacb-4877-bdc5-a52c4415160c",
+  "value": {
+    "rationale": "Conditional hitting-time variability in mortal search is a physical reliability observable. The existing numerical study treats the unit-CV rate as a single value near a death-threshold; the theorem rigorously discovers and completely characterizes a nonempty interval in which two distinct positive reset rates separately achieve unit CV, with a strict below/above/below sign sequence. It determines the exact universal threshold and tangency and scales to arbitrary diffusivity and target distance. It does not claim broader reset protocols or other optimization objectives.",
+    "status": "PASS"
+  }
+}
