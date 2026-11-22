@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducible verification and scope
+# Independent mathematical audit
 
-Run `python3 check_weighted_cyclic_robustness.py` using a standard Python 3 installation. No third-party package, external data, network connection or hidden artifact is required. Its exact-integer tests include all binary cuts and all corners of the uncertainty cube for four through seven sites and three rational center weights, both at and above the proposed radius. It also exhaustively checks the elementary integer inequality in the proof for all parameter combinations up to 199 sites.
+## correctness
 
-The recorded successful output is:
+PASS
 
-```
-EXACT_CRITICAL_RADIUS_ALL_ENVIRONMENTS_AND_CUTS_PASSED 127680
-EXACT_ALL_COMBINATORIAL_ROUNDNESS_CASES_PASSED 34324941
-ROBUST_TWO_TAP_GINI_CHECKS_PASSED
-```
+For each nontrivial binary cut S with k members and r cyclic runs, homogeneous two-tap averaging has exactly 2 min(theta,1-theta) r^2 Gini deficit. Sitewise perturbations change only 2r boundary outputs. Convex maximization over the box reduces to signs, with perturbation contribution <=2 epsilon[r^2+(2k-n)d-d^2] <=2 epsilon r^2(n-2); the r=1 case and r>=2 use |2k-n|<=n-2r. Layer cake extends the cut estimate to arbitrary real f with the osc(f) factor. A singleton cut and opposite perturbations at two adjacent output rows make the defect exactly 2[mu-(n-2)epsilon], turning negative just above mu/(n-2). Direct rational exhaustive checks independently verified all cuts and parameter-cube vertices for n=4,5,6 and theta=1/4,1/2,3/4 at critical radius; these are finite validations of an algebraic all-n proof.
 
-These finite calculations check boundary cases and error signs. The general theorem for all finite cycle lengths, all allowed real probabilities, and arbitrary real signals follows from exact identities, the all-dimensional inequalities in the proof and the layer-cake argument. Independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+Existing homogeneous cyclic cut-deficit theorem is an essential special case but does not supply the exact independently heterogeneous coefficient cube radius and minimax oscillation defect. General Dobrushin/Hopf oscillation theory concerns a different seminorm and has no strict contraction for n>=4 here. Comparison at actual statements/implications favors a new robust stability boundary, qualified by broad Gini-inequality literature.
+
+## value
+
+PASS
+
+The dimension-dependent sharp uncertainty threshold answers a natural stability question for spatially heterogeneous local averages, including the exact boundary and a two-coordinate adversarial witness. It is an independently useful perturbation theorem beyond the unperturbed contraction law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

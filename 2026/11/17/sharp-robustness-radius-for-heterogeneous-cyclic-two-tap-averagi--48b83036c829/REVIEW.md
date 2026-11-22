@@ -1,15 +1,21 @@
-# Review of a sharp robustness radius for cyclic two-tap averaging
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is valid for all real vectors and all independently perturbed cyclic transition probabilities under the stated radius. The central combinatorial bound is the integer inequality \(r^2+(2k-n)d-d^2\le r^2(n-2)\) for feasible cut size, run count and perturbation signs. The proof separates \(r=1\) from \(r\ge2\), verifies the homogeneous cyclic-run defect by explicit pair counting, and extends the resulting cut bound by layer-cake decomposition. A singleton input with two opposing parameter perturbations establishes the exact minimax defect and violates nonexpansivity immediately above the radius. Exact-integer independent calculations exhaust 127,680 finite cut-environment cases and 34,324,941 instances of the key combinatorial inequality; these calculations do not serve as a substitute for the unrestricted proof.
+## correctness
 
-## Originality
-PASS, subject to historical-priority risk. Gaubert–Qu's Dobrushin/Hopf results (arXiv:1302.5226 and arXiv:1307.4649) concern oscillation and dual total-variation contraction, rather than the unweighted sum of all pairwise output differences. Truquet's nonhomogeneous-chain analysis (arXiv:1610.01290) uses total-variation or Wasserstein contraction of distributions under varying kernels, not this sharp one-step complete-pair Gini defect. Homogeneous cyclic two-tap cut formulas concern one fixed repeated coefficient; their statements do not bound arbitrary independent probability errors at all sites or imply the exact radius \(\min\{\theta,1-\theta\}/(n-2)\). No covering statement was located in the accessible comparisons. Search absence cannot rule out an unindexed equivalent result.
+PASS
 
-## Value
-PASS. A stochastic two-tap filter preserves constants and has strong structural locality, but complete-pair signal dispersion need not remain contractive after spatially varying transition probabilities are introduced. The exact threshold quantifies the dimension-dependent tolerance to independent local calibration errors, with necessity witnessed by one impulse and sufficiency proved simultaneously for all cuts and signals. The sharp lower bound on Gini decrease in terms of input oscillation supplies a reusable stability certificate rather than only a yes/no classification. This is a complete natural perturbation-radius problem for every cycle length, not a fitted finite table or an arbitrary special parameter choice.
+For each nontrivial binary cut S with k members and r cyclic runs, homogeneous two-tap averaging has exactly 2 min(theta,1-theta) r^2 Gini deficit. Sitewise perturbations change only 2r boundary outputs. Convex maximization over the box reduces to signs, with perturbation contribution <=2 epsilon[r^2+(2k-n)d-d^2] <=2 epsilon r^2(n-2); the r=1 case and r>=2 use |2k-n|<=n-2r. Layer cake extends the cut estimate to arbitrary real f with the osc(f) factor. A singleton cut and opposite perturbations at two adjacent output rows make the defect exactly 2[mu-(n-2)epsilon], turning negative just above mu/(n-2). Direct rational exhaustive checks independently verified all cuts and parameter-cube vertices for n=4,5,6 and theta=1/4,1/2,3/4 at critical radius; these are finite validations of an algebraic all-n proof.
 
-## Closest literature and limits
-The closest inspected general sources are Gaubert–Qu, *Dobrushin's ergodicity coefficient for Markov operators on cones* (arXiv:1307.4649), especially its theorem on oscillation seminorm and Example 6.3, and Truquet, *Local stationarity and time-inhomogeneous Markov chains* (arXiv:1610.01290), especially its Sections 2.1–2.3. The 2013-02-21 Gaubert–Qu precursor was inspected at abstract/metadata level; its later full version was inspected as HTML. Neither source supplies a complete-pair Gini radius. The theorem does not classify arbitrary nonuniform environments away from the homogeneous center, repeated products, weighted vertex-pair losses or dimensions below four. An equivalent derivation outside the indexed literature remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing homogeneous cyclic cut-deficit theorem is an essential special case but does not supply the exact independently heterogeneous coefficient cube radius and minimax oscillation defect. General Dobrushin/Hopf oscillation theory concerns a different seminorm and has no strict contraction for n>=4 here. Comparison at actual statements/implications favors a new robust stability boundary, qualified by broad Gini-inequality literature.
+
+## value
+
+PASS
+
+The dimension-dependent sharp uncertainty threshold answers a natural stability question for spatially heterogeneous local averages, including the exact boundary and a two-coordinate adversarial witness. It is an independently useful perturbation theorem beyond the unperturbed contraction law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

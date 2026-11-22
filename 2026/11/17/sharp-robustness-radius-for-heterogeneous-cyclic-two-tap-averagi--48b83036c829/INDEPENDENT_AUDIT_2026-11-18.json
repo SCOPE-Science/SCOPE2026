@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T13:18:32.909880Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each nontrivial binary cut S with k members and r cyclic runs, homogeneous two-tap averaging has exactly 2 min(theta,1-theta) r^2 Gini deficit. Sitewise perturbations change only 2r boundary outputs. Convex maximization over the box reduces to signs, with perturbation contribution <=2 epsilon[r^2+(2k-n)d-d^2] <=2 epsilon r^2(n-2); the r=1 case and r>=2 use |2k-n|<=n-2r. Layer cake extends the cut estimate to arbitrary real f with the osc(f) factor. A singleton cut and opposite perturbations at two adjacent output rows make the defect exactly 2[mu-(n-2)epsilon], turning negative just above mu/(n-2). Direct rational exhaustive checks independently verified all cuts and parameter-cube vertices for n=4,5,6 and theta=1/4,1/2,3/4 at critical radius; these are finite validations of an algebraic all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published homogeneous result has uniform a_i=theta and sharp 1-2mu/floor(n^2/4) quotient; submitted allows independent |a_i-theta|<=epsilon."
+        ],
+        "reasoning": "Taking epsilon=0 recovers part of prior theorem but cannot bound independent perturbed rows sharply; general Markov contraction does not dominate the new robust Gini defect.",
+        "searches": [
+          "Resultary published sharp cut deficit and Gini contraction cyclic two tap averaging",
+          "Gaubert Qu Markov operators cones and beyond"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-cut-deficit-and-gini-contraction-of-cyclic-two-tap-averagi--100578f5c8f6/RESULT.md",
+        "Gaubert-Qu arXiv:1302.5226",
+        "Truquet arXiv:1610.01290",
+        "SCOPE frozen RESULT.md and check_weighted_cyclic_robustness.py 7e816b322a5cfb49fde9e0788fa377611744e459"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier equality G(P_theta 1_S)=k(n-k)-2mu r^2 is used in step 1, but the new combinatorial sign bound and sharp perturbed singleton witness are independent subsequent arguments."
+        ],
+        "reasoning": "Prior unperturbed theorem supplies a premise only; it does not imply the claimed positive robustness radius or amplification above it.",
+        "searches": [
+          "Resultary sharp cut deficit and gini contraction cyclic two tap",
+          "Gaubert Qu arXiv 1302.5226 theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Homogeneous cut identity G(P_theta 1_S)=k(n-k)-2mu r^2; Dobrushin coefficient one in n>=4, not the complete-pair Gini seminorm."
+        ],
+        "reasoning": "Layer-cake reduction to cuts gives a valid equivalent test for the claimed Gini inequality; neither stochastic-distribution total variation nor Hopf oscillation constants are equivalent to it.",
+        "searches": [
+          "Resultary: cyclic two tap heterogeneous averaging Gini mean difference pairwise variation robust sharp perturbation radius",
+          "Gaubert Qu Dobrushin Hopf oscillation ergodicity coefficient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct finite rational cuts reproduce epsilon*=mu/(n-2); no prior exact heterogeneous radius table found, and homogeneous data is a different parameter slice."
+        ],
+        "reasoning": "A same-center parameter table or conventional ergodicity coefficient cannot substitute for the minimax all-row coefficient-cube calculation.",
+        "searches": [
+          "Resultary: sharp robustness heterogeneous cyclic averaging",
+          "heterogeneous Markov kernels complete pairwise dispersion Gini nonexpansivity exact radius"
+        ]
+      },
+      "rationale": "Existing homogeneous cyclic cut-deficit theorem is an essential special case but does not supply the exact independently heterogeneous coefficient cube radius and minimax oscillation defect. General Dobrushin/Hopf oscillation theory concerns a different seminorm and has no strict contraction for n>=4 here. Comparison at actual statements/implications favors a new robust stability boundary, qualified by broad Gini-inequality literature.",
+      "residual_risks": [
+        "Unindexed exact Gini robustness inequalities might exist outside searched published mathematical sources",
+        "Only rational parameter/grid checks independently rerun; all-real statement relies on cut/convexity/layer-cake proof"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUBCASE_ONLY",
+          "evidence": "Equation for homogeneous r-run cut, explicitly no variable coefficients",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-cut-deficit-and-gini-contraction-of-cyclic-two-tap-averagi--100578f5c8f6/RESULT.md",
+          "material_read": "Complete RESULT.md: cut-run identity, Gini norm and binary extremizers",
+          "method": "GitHub source-file full text",
+          "title": "Sharp cut-deficit and Gini contraction of cyclic two-tap averaging",
+          "trigger": "Same output seminorm, same cyclic kernel at homogeneous center"
+        },
+        {
+          "assessment": "DISTINCT_SEMINORM",
+          "evidence": "Contraction in oscillation and dual distribution total-variation, not complete-pair Gini input-output seminorm",
+          "identifier_or_url": "https://arxiv.org/abs/1302.5226",
+          "material_read": "Accessible full HTML mathematical introduction and finite stochastic Hopf/Dobrushin theorem passages",
+          "method": "Primary paper HTML",
+          "title": "Dobrushin ergodicity coefficient for Markov operators on cones, and beyond, Gaubert and Qu",
+          "trigger": "Potential overarching operator contraction coefficient"
+        },
+        {
+          "assessment": "LIMITED_COMPARISON",
+          "evidence": "Perturbation of Markov kernels, not established Gini radius; no whole-document novelty claim",
+          "identifier_or_url": "https://arxiv.org/abs/1610.01290",
+          "material_read": "Abstract and indexed opening only; full paper was not examined",
+          "method": "Abstract search",
+          "title": "Local stationarity and time-inhomogeneous Markov chains, Truquet",
+          "trigger": "Potential robust nonstationary stochastic operator estimates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The dimension-dependent sharp uncertainty threshold answers a natural stability question for spatially heterogeneous local averages, including the exact boundary and a two-coordinate adversarial witness. It is an independently useful perturbation theorem beyond the unperturbed contraction law.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-cut-deficit-and-gini-contraction-of-cyclic-two-tap-averagi--100578f5c8f6/RESULT.md",
+    "Gaubert-Qu arXiv:1302.5226",
+    "Truquet arXiv:1610.01290",
+    "SCOPE frozen RESULT.md and check_weighted_cyclic_robustness.py 7e816b322a5cfb49fde9e0788fa377611744e459"
+  ],
+  "disposition": "passed",
+  "limitations": "n>=4, theta in (0,1), independently varied stochastic two-tap rows; fixed complete-pair Gini norm; does not characterize arbitrary heterogeneous kernel polytope.",
+  "residual_risks": [
+    "Unindexed exact Gini robustness inequalities might exist outside searched published mathematical sources",
+    "Only rational parameter/grid checks independently rerun; all-real statement relies on cut/convexity/layer-cake proof"
+  ],
+  "schema_version": 1
+}
