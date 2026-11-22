@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The four vertex vectors lie on the sphere of radius \(\sqrt{a^2+b^2+c^2}\) and all four facet planes have distance \((a^{-2}+b^{-2}+c^{-2})^{-1/2}\) from the origin, which is interior. The two exact, nonnegative slack identities in the proof give the complete sharp interval and equality classification without compactness or numerical assumptions. A quadratic in the middle squared axis proves the exactly-two-shapes conclusion; strict monotonicity in \(E\) gives the inverse bounds; Taylor expansion gives sharp local coefficients. A standalone exact-rational executable replays 75,261 assertions. Limits: the finite grid is not proof of the continuum; the displayed algebra is.
+
+## Originality — PASS, provisional
+Relevant existing research uses the same disphenoid objects but fixes different invariants: edge-square variance in *Sharp radius-ratio profile at fixed edge-square anisotropy for disphenoids*, and both radii when optimizing volume in *Sharp volume interval for concentric bicentric tetrahedra*. Their reported equality structures are two-equal-axis families, whereas the sharp *upper* roundness optimizer at fixed extremal box-axis ratio is genuinely three-distinct-axis geometric progression for all \(E>1\). Nour's 2026 paper was inspected directly in its complete original 12-page PDF: it gives a covering formula controlled by the radii and a particular two-equal-axis example, but not the fixed-eccentricity sharp interval or the two-branch inverse shape classification. Published source-result synopses and a 2016 abstract were checked with explicit material-read limitations. Searches did not identify an implication-equivalent statement, but search failure cannot establish absolute novelty. Unindexed or unavailable older geometry literature is a residual priority risk.
+
+## Value — PASS
+The circumscribed box is an intrinsic and elementary shape descriptor for the entire disphenoid class. At fixed ratio of its extremal semiaxes, the sharp *two-sided* radius spectrum has different equality geometries; moreover the complete inverse of that interval produces an exact quantitative shape-stability window, not just a bound. The two-to-one shape branching, geometric-progression fold, and sharp near-regular coefficients provide an exact classification of a natural two-parameter family. Nour's explicit tetrahedron occupies a distinguished extremal boundary, and its prior center-covering formula transfers the classification to a motivated geometric construction. No general high-dimensional extension is claimed.
+
+## Limitations and closest literature
+The proof treats full-dimensional disphenoids only. The source describing prior general radius formulas was inspected at abstract level, not in full. The related recent results were available through summaries/identifiers and were not claimed to have been inspected beyond that. All the new identities are reproduced in RESULT.md and the executable; an independent audit has not taken place.
+
+Self-review: passed. Independent audit: not yet performed.
