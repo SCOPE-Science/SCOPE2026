@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Mod-t residue and valuation argument identifies all possible periodic pairs; Hensel coefficient inversion makes the unit-residue core a permutation; affine shear lifting gives powers of two; strictly increasing polynomial-iterate degrees give unbounded dyadic periods. Explicit homogeneous degree-eight jets factor through ub(u+b), forcing F^8 to be identity mod t^9. The witness (1+t,t^2) has eighth iterate differing by t^9 but sixteenth iterate equal at m=10. Exhaustive traversal of 2^20 vertices yields the census and independently a coefficientwise fixed-point enumeration reproduces all counts. These facts are demonstrated in RESULT.md and verified by verify.py.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chernev–Chernev 2026 Statement 4.1 invokes existence of a 2-cycle for a nonzero nilpotent; §7 extends existence to every nonzero Jacobson radical",
+        "2026 Table 1 records prime residue rings and finite fields only",
+        "Earlier field-specific calculations for the same map use F_{2^r}, a reduced ring"
+      ],
+      "reasoning": "A global existence theorem for some nonfixed cycle is weaker than a primitive-period classification; prime-field or finite-field cases cannot specialize to nonreduced F_2[t]/(t^m) with unbounded nilpotency length.",
+      "searches": [
+        "structure graph Vieta map (a,b) -> (a+b,ab) over finite characteristic two fields and truncated chain rings, cycle periods, component counts",
+        "Lipkovski Chernev 2026 structure graph finite rings nilpotent F2 t^m cycle lengths",
+        "\"structural graph\" \"ring\" \"period\" \"16\" (a+b, ab)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2611.07521v1, 2026-11-05, material §3–§9 read including computational table",
+      "Daoub–Shafah–Lipkovski, Filomat 36 (2022) 715–720, full article text",
+      "Lipkovski 2015 repository record, abstract only",
+      "Publisher description of 2023 quiver methods, abstract only",
+      "Prior available local claim about Vieta map over binary finite fields (different ring object)",
+      "Semantic published-finding corpus searches for Vieta/structure-graph/finite chain-ring orbit spectra"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 Chernev–Chernev §9 expressly names investigation of long cycles as future research",
+        "2022 Daoub–Shafah–Lipkovski is scoped to Z/nZ and Chinese remainder decompositions",
+        "A prior accessible technical result for F_{2^r} determines a finite-field section cycle spectrum but does not involve nilpotents"
+      ],
+      "reasoning": "None of the stronger or exact published claims supplies the periodic-point core, dyadic-period induction, nonidentity-degree argument, explicit mod-t^9 jet obstruction, or R_10 count. The reduction from m=10 to m≤9 uses nilpotent truncation, not field extension; a field calculation cannot imply it.",
+      "searches": [
+        "structure graph Vieta map (a,b) -> (a+b,ab) over finite characteristic two fields and truncated chain rings, cycle periods, component counts",
+        "\"An Association between Digraphs and Rings\" Lipkovski Daoub Shafah pdf 2022"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2611.07521v1 §3 defines the identical (a+b,ab) map (also called Vieta/symmetric coefficient map)",
+        "Lipkovski 2015/2017 gives the original structure-graph definition",
+        "Daoub–Shafah–Lipkovski 2022 studies the same map on integer residue rings"
+      ],
+      "reasoning": "Synonyms and equivalent formulations were sought. The map itself is established prior work, but neither identical ring tower nor the sharp length-16 cutoff and all-iterates theorem were found in inspected results.",
+      "searches": [
+        "structure graph of finite ring map (a,b) -> (a+b,ab), cycle lengths 16 on F_2[t]/(t^m) nilpotency cutoff",
+        "functional graph of sum product map on dual numbers truncated polynomial rings characteristic 2, exact periodic orbit counts",
+        "Lipkovski Chernev 2026 structure graph finite rings nilpotent F2 t^m cycle lengths",
+        "\"structure graph\" \"ring\" \"cycle\" \"F_2\" nilpotent length"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026 paper Table 1 verified computations for Z_2,Z_3,Z_7, GF(4), GF(9), GF(49), binary finite fields through GF(2^13), and prime residue fields",
+        "2022 Filomat paper Figures 1–2 depict Z_2, Z_3 or Z_4 structure graphs and address integer residues",
+        "Exhaustive new 10th-truncation census yields 1024,1280,5888,17152,6144 directed cycles of primitive length 1,2,4,8,16"
+      ],
+      "reasoning": "Checked the closest published exact computational table. No included ring is F_2[t]/(t^10), and no table reports the claimed 16-cycle count or first onset. An inaccessible unpublished table could still exist.",
+      "searches": [
+        "structure graph of finite ring map (a,b) -> (a+b,ab), cycle lengths 16 on F_2[t]/(t^m) nilpotency cutoff",
+        "periodic orbits of elementarily symmetric coefficient transformation over F2 truncated polynomial ring, length 16 minimal degree",
+        "cycle counts structure graphs truncated polynomial rings F2[t] Vieta map"
+      ]
+    },
+    "rationale": "The full 2026 Chernev–Chernev treatment (Sections 3–9 and computational table) proves the nilpotence/two-cycle criterion, bounds the absence of nontrivial cycles and tabulates prime residue rings and finite fields; it explicitly identifies longer-cycle lengths as a future problem. The full 2022 Daoub–Shafah–Lipkovski text treats Z/nZ and its Chinese-remainder projections, not F_2[t]/(t^m). A 2015 foundational abstract defines the same map but supplies no evidence for this cutoff. Earlier technical results for the Vieta map over F_{2^r} establish statements for reduced fields, not the nonreduced local ring tower. No inspected comparison implies all-length dyadic-only/unbounded behavior plus the sharp 16-cycle onset and exact 6144-cycle census. Historical unindexed work remains a risk.",
+    "residual_risks": [
+      "Not all older foundational full texts were materially inspected; an unindexed computation on binary local algebras could exist.",
+      "published-finding corpus similarity search and online search do not prove global novelty.",
+      "Exact census has reproducible independently implemented calculations but not external independent mathematical audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: nonzero-radical 2-cycle existence and field-specific component tests; explicitly suggests studying long cycles",
+        "evidence": [
+          "§3 Definition 3.1 gives (a+b,ab)",
+          "§4 Statement 4.1 gives nilpotents ↔ existence of 2-cycles",
+          "§7 stage (5) invokes radical nilpotence only",
+          "§8 Table 1 enumerates finite fields/prime residue rings, not truncated polynomial chain rings",
+          "§9 names cycle lengths and large cycles as future research"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2611.07521",
+        "material_read": "Full bibliographic and abstract information, §§3–7 statements and proofs, pages 9–10 with computational table and future-work conclusion",
+        "method": "Read arXiv HTML and PDF text, visually inspected PDF pages 9 and 10",
+        "title": "On the Connected Components of Structure Graphs of Associative Rings",
+        "trigger": "Same structure-graph map, closest new work on components and nilpotence"
+      },
+      {
+        "assessment": "Not covering: ring objects are Z/nZ, not characteristic-two truncated-polynomial local algebras",
+        "evidence": [
+          "Abstract and §1 restrict to Z_n",
+          "§3 uses mod-divisor projection and Chinese remainder",
+          "Final page displays Z_4 example"
+        ],
+        "identifier_or_url": "https://doiserbia.nb.rs/img/doi/0354-5180/2022/0354-51802203715D.pdf",
+        "material_read": "Full text pages 715–720, including §3 Chinese-remainder and cycle-projection arguments and final figure",
+        "method": "PDF text examined and last page visually inspected",
+        "title": "An Association between Digraphs and Rings",
+        "trigger": "Earlier exact cycles under identical map"
+      },
+      {
+        "assessment": "Defines the map and considers small integer residue rings; complete text remains a historical-priority risk",
+        "evidence": [
+          "Repository abstract identifies finite rings Z_m and Z_k×Z_m as first targets"
+        ],
+        "identifier_or_url": "https://research.matf.bg.ac.rs/handle/123456789/2452",
+        "material_read": "Repository abstract and bibliographic details; full text not inspected",
+        "method": "Repository record and article description",
+        "title": "Structure graphs of rings: definitions and first results",
+        "trigger": "Foundational identical map and potential historical coverage"
+      },
+      {
+        "assessment": "Quiver/cohomological methods; no visible exact 16-cycle cutoff, but full-text comparison not asserted",
+        "evidence": [
+          "Abstract describes cohomology and quiver representations rather than truncated ring orbit tables"
+        ],
+        "identifier_or_url": "https://journal.pmf.ni.ac.rs/filomat/index.php/filomat/article/view/20138",
+        "material_read": "Abstract and scope information only",
+        "method": "Publisher abstract",
+        "title": "Quivers associated with finite rings - a cohomological approach",
+        "trigger": "Closest nearby framework using identical graph"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a8799d46-a536-4cc4-9937-9df190c62b8c",
+  "value": {
+    "rationale": "The 2026 motivating paper explicitly identifies study of longer structure-graph cycles as future research. The finding provides an all-m periodic-core decomposition, a rigorous universal dyadic-period and unboundedness theorem, and a sharp first natural ring cutoff for period 16 together with an exact five-period census and 31488 weak components. This goes beyond routine existence of a two-cycle; the finite count answers a motivated exact invariant at the first 16-cycle cutoff.",
+    "status": "PASS"
+  }
+}
