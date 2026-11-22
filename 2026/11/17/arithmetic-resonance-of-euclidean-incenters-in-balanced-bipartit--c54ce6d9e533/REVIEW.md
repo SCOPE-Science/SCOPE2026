@@ -1,15 +1,21 @@
-# Scientific review — balanced bipartite snowflake incenters
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses the connected-tight-edge vertex criterion with both directions established. In the open snowflake interval it exhausts three types of dual extreme potentials; the decisive equality \(\|P_Hf\|^2=R_m(t)^2-[ta+(2-t)b]^2/(2m)\) is exact. The balanced patterns attain the maximum for every even part size. Opposing maximum-norm facets certify global inradius optimality. Integer solutions to the equality constraint yield exactly the stated rational resonance set and binomial count. Balanced contact normals span the within-block zero-sum subspace; resonant additional contacts fill its one-dimensional orthogonal complement. Strict slack at finitely many noncontacts justifies the positive center-segment width away from resonance, and exact local expansion at the primitive resonant profile proves its quadratic pinching. Exact rational enumeration and independent small-dimensional halfspace reconstruction corroborate these claims; they are not substituted for the uniform argument.
+## correctness
 
-## Originality — PASS, qualified
-The direct prior snowflake-biclique result already classifies every dual vertex, and its total facet count is **not new**. Its full `RESULT.md` was inspected, including the interior tight-edge proof; it does not state the Euclidean normal-length maximum, rational equality classification, center rank or center-width asymptotic. The ordinary biclique symmetric-edge-polytope endpoint and its facets were inspected in the relevant sections of Higashitani–Jochemko–Michałek (arXiv:1807.07678). General finite-metric Lipschitz-free geometry and ordinary-graph Hilbert distortion treat different invariants. The geometric theorem is therefore not a mere restatement of the prior facet number, although it intentionally builds on the prior complete vertex list. A historical equivalent under an alternate formulation remains a residual priority risk; searches are not proofs of uniqueness.
+PASS
 
-## Mathematical value — PASS
-The metric family is canonical: snowflakes of a complete bipartite shortest-path metric. The result pinpoints a non-generic arithmetic mechanism by which the **entire maximum-ball center set** changes from a segment to a unique point. It gives an exact count of additional tangent facets and a sharp quadratic collapse coefficient near every resonant parameter, not just the combinatorial facet total already in the literature. The dense union of finite resonance sets across even dimensions explains why this phenomenon is structurally widespread, while each fixed-dimensional family has isolated exceptional parameters.
+PASS — In H={sum x=0} with Euclidean norm inherited from R^{2m}, the connected-tight-edge criterion exhausts dual vertices: two strong-shore binary-level families and two cross-constant potentials. For m=2h, each strong profile (a,b) has ||P_Hf||²=R_m(t)²-[ta+(2-t)b]²/(2m), R_m(t)²=m[t²+(2-t)²]/4. Balanced (a,b)=(0,0) gives the maximum and opposite normals force the *global* inradius 1/R_m(t), not just an origin-centered bound. Equality forces a=b=0 or t=2v/(u+v) with 1<=u<v<=h; exact binomial counts follow. Balanced contact normals span W_A⊕W_B (codimension one in H), and a resonant unbalanced normal completes H, so only resonances give unique incenters; otherwise the complete center set is a genuine segment along 1_A−1_B. The primitive resonant profile k=1 gives halfwidth L/(t−t0)²→(u+v)^3/[16muvR_m(t0)²], with all other normals retaining positive slack locally. Independent exact rational profile enumeration checked m=2,t=5/4 (norm²17/16,8 contacts); m=4,t=4/3 (20/9,88 contacts), t=3/2 (5/2,72); and m=6,t=4/3 (10/3,1160). The finite checks corroborate, not establish, all t, all even m. Endpoints t=1,2 and odd/unequal shores are not claimed.
 
-## Residual limitations
-The result does not cover odd or unequal cluster sizes, the graph and equilateral endpoints, or arbitrary Hilbert norm choices. The width law is a local asymptotic; a closed global piecewise width formula is not claimed. Independent audit has not been performed, and unindexed equivalent literature remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge — The cited 2026-10-11 complete dual-vertex/facet enumeration supplies the **input classification**, not canonical Euclidean centered-variance optimization, resonance contact ranks, uniqueness-versus-segment incenter locus, or a quadratic pinching law. A separate multiparty result assumes k≥3 and proves a unique center, not this bipartite phenomenon. Classical symmetric-edge-polytope results apply at t=2; generalized Lipschitz-free geometry covers distinct invariants. General maximum-variance and centrally symmetric polytope methods can be reused, but the exact arithmetic collision and full center geometry are additional, not a tautological restatement. Unindexed equivalent centered-spread calculations remain a priority risk.
+
+## value
+
+PASS
+
+PASS — The natural Euclidean inball geometry of canonical real Lipschitz-free polytopes has a meaningful, unexpected rational parameter resonance: generic nonunique centers become unique at finitely many arithmetic points, with exact tangent counts and a quadratic stability profile. This describes a structural geometric threshold, not a retitled facet census. Canonical norm, balanced even shore and open snowflake parameter are essential; no claim of general Banach–Mazur optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
