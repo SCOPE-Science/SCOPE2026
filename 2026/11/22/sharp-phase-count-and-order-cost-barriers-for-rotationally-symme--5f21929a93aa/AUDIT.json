@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Exact phase filter and bounded polynomial-cutoff witnesses give an identity for every smoothing radius. Hermite orthogonality and Gaussian-tail integrability prove sharp undersampling exponent and coefficient. For adequate phases, the source theorem supplies sufficiency. The exact high-order variance identity follows from the Hermite product and Gaussian integration by parts, with Legendre and Laplace asymptotics fixing the constant and base. The independently written stdlib checker passes 1721 assertions after extraction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fang et al. arXiv:2611.19909v1 eq. (27) gives the generic fixed-p limiting variance; Bornemann arXiv:0910.1841 examines deterministic contour-differentiation roundoff."
+      ],
+      "reasoning": "The generic fixed-p expression does not itself state a p→∞ sharp Legendre evaluation and exponential Monte Carlo sampling constant. Bornemann's loss-of-digits objective is not the independent Gaussian-probe risk computed here. The classical Legendre identity and Laplace theorem are not claimed as original.",
+      "searches": [
+        "Rotationally symmetric Stein estimator RSSE Gaussian smoothing high-order derivative variance Hermite polynomial monomial exact moments exponential derivative order",
+        "complex-circle roots-of-unity Gaussian Hermite derivative estimator high order variance binomial Legendre growth"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.19909v1",
+      "https://arxiv.org/abs/0910.1841",
+      "https://arxiv.org/abs/2412.00088"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fang et al., arXiv:2611.19909v1 Theorem 5 eqs. (26)-(27): n>=p, variance tends to Var[H_p(X)X^p u^(p)(0)/p!] in 1D. Their Eq. (14) gives Fourier alias filtering."
+      ],
+      "reasoning": "The source directly implies boundedness for n>=p and the fixed-order *starting* variance expression; these are excluded from claims of novelty. New comparison requires both n<p counter-witnesses under the same assumptions and a derived sharp p-dependent rate rather than repeating the fixed-order source formula. The result does not dominate the source's multidimensional theorem or PDE results.",
+      "searches": [
+        "complex step Gaussian Monte Carlo high order derivative sharp minimal phase count and exponential sample complexity Legendre 6+4sqrt2",
+        "rotationally symmetric Stein estimator 2611.19909 Gaussian Hermite monomial degree p exact variance binomial coefficient Legendre polynomial exponential 6+4sqrt2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fang et al. arXiv:2611.19909v1 §3.2 eq. (14) root-of-unity filter and §4 Theorem 5 prove only n>=p sufficiency; Eq. (30) is a Taylor decomposition."
+      ],
+      "reasoning": "The source filtering formula contains negative alias indices algebraically, but does not assert the n<p necessity for all admissible bounded locally analytic inputs or its sharp variance coefficient. Explicit cutoff witnesses resolve global boundedness without assuming entire polynomial inputs. Classical aliasing is acknowledged as prior machinery.",
+      "searches": [
+        "Rotationally symmetric Stein estimator less than derivative order phase points sharp necessity divergence Gaussian Hermite roots unity local Taylor jets",
+        "Variance stable Gaussian smoothing 2611.19909 minimal phases undersampled root unity variance blowup power sigma Taylor coefficients"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2611.19909v1 full preprint §3.2 and §4; arXiv:0910.1841 introduction; arXiv:2412.00088 abstract (not full text)."
+      ],
+      "reasoning": "No exact matching moment table or phase-by-order variance classification was seen in inspected material. Non-discovery in a search is not proof of priority, and a more general moment identity may algebraically cover the finite-p formula; the sharp joint resource statement remains the assessed contribution.",
+      "searches": [
+        "Gaussian Hermite polynomial squared times powers exact expected value binomial Legendre polynomial variance numerical differentiation",
+        "rotationally symmetric Stein estimator 2611.19909 Gaussian Hermite monomial degree p exact variance binomial coefficient Legendre polynomial exponential 6+4sqrt2"
+      ]
+    },
+    "rationale": "The original paper already establishes n>=p sufficiency, the Fourier filter, and the generic fixed-order variance expression; these are explicitly acknowledged. The assessed claim adds a sharp all-phase necessity with exact coefficients under the same bounded local-analytic assumptions and an evaluated sharp exponential growing-order sampling law. Literature inspections found no equivalent joint claim, while classical identities, implicit reductions, and inaccessible full sources remain residual risks.",
+    "residual_risks": [
+      "The finite-p exact variance formula may be obtainable as a direct corollary of general published Hermite Gaussian-moment identities; only its joint sharp resource interpretation and growing-order scale are assessed.",
+      "An equivalent necessity theorem could exist under alternative Fourier-alias terminology in unindexed literature.",
+      "Full text of arXiv:2412.00088 and some related sources was not inspected; abstract comparisons cannot exclude all coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Sufficiency and fixed-p variance are prior; no explicit n<p sharp necessary classification or Legendre-order growth statement located",
+        "evidence": [
+          "Eq. (14) roots-of-unity filter",
+          "Eq. (17) leading second moment",
+          "Theorem 5 eq. (27) finite variance for n>=p",
+          "Assumption 4 global boundedness and local analyticity"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.19909v1",
+        "material_read": "Full accessible HTML, sections 2 through 5 including eqs. (10)-(18), §4 Assumption 4, Theorem 5, proof and results",
+        "method": "Compared exact statements and phase/variance formulas, including both sign directions of Fourier aliasing",
+        "title": "Variance Stable Gaussian Smoothing Estimator for Arbitrary High-order Derivatives",
+        "trigger": "Same estimator, same admissibility hypothesis, and potentially dominating theorem"
+      },
+      {
+        "assessment": "Provides classical contour/alias machinery and numerical roundoff phenomena, but not the Gaussian-Hermite sample variance statement",
+        "evidence": [
+          "Eq. (1.3) discrete contour Fourier coefficient formula",
+          "Introduction emphasizes deterministic floating-point stability"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0910.1841",
+        "material_read": "Accessible detailed paper text: introduction and formula (1.3), contour sampling and roundoff-stability objectives",
+        "method": "Compared random variable, variance and limit to deterministic circular quadrature",
+        "title": "Accuracy and Stability of Computing High-Order Derivatives of Analytic Functions by Cauchy Integrals",
+        "trigger": "Roots-of-unity derivative coefficient extraction could dominate the phase-count claim"
+      },
+      {
+        "assessment": "No decisive equivalence at abstract level, possible residual literature risk",
+        "evidence": [
+          "arXiv:2412.00088 abstract description"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2412.00088",
+        "material_read": "Abstract-level descriptions only; full text unavailable in this review",
+        "method": "Compared the stated Taylor-mode autodifferentiation construction with Gaussian-function-value Hermite probes",
+        "title": "Stochastic Taylor Derivative Estimator: Efficient and Accurate High-Order Derivatives for Neural Networks",
+        "trigger": "Alternative stochastic differentiation might contain stronger order-cost bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5f21929a-93aa-4c13-bc0b-5fed2ae9fc8e",
+  "value": {
+    "rationale": "Sharp phases-vs-order threshold closes the sufficiency/necessity gap within the motivating method's same admissible class; precise exponential constant exposes statistical sampling cost obscured by the fixed-order smoothing-stability guarantee. Counterexample is normalized, bounded and locally holomorphic, and shows adding more than p phases does not reduce leading risk for this family. Applicability is explicitly restricted to this estimator and sequential limits.",
+    "status": "PASS"
+  }
+}
