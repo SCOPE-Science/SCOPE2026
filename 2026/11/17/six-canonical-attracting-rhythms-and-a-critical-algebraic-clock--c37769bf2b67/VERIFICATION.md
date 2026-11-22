@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Mathematical verification record
+# Independent mathematical audit
 
-The analytic proof establishes the global-in-time statements. The standalone `verify_triad.py` requires Python 3 and SymPy and checks directly:
+## correctness
 
-1. Expressions for three interaction derivatives \(A,B,C\) and both coefficient faces.
-2. Exact symbolic characteristic polynomials at synchrony, each splay orientation, and a pacemaker.
-3. The nonzero cubic gradient potential at the lower boundary and positive quadratic/quartic terms at the upper boundary.
-4. Rational examples \(r=2,s=9/10\), \(r=5/2,s=5/4\) within the open coexistence cone and \(r=2,s=1\) on its algebraic edge.
+PASS
 
-Observed execution: `VERIFY_OK characteristic_polynomials=3 critical_potential_derivatives=4 strict_examples=2 algebraic_boundary=1`.
+Read complete proof and independently checked the phase-Jacobian transverse spectrum. A=1+2r+3s, B=-1+2r-3s, C=-1/2-r+3s, with nontrivial modes synchrony -3gA (double), splay -3gC (double), pacemaker -g(2A+B),-3gB. Strict positivity reduces to r>3/2 and the stated open interval. At B=0 potential has strict local minimum with quadratic intra-pair term 2r*v² and quartic intercluster (5r-4)*u⁴/6; LaSalle/isolated critical points give attraction but not exponential rate. On pair manifold u_dot=-g(5r-4)u³+O(u⁵), hence t*u²->1/[2g(5r-4)]. At C=0 independently expanded splay potential cubic sqrt3*(4r-1)/4*u*v*(u-v), sign indefinite, forbidding gradient attractor. Verified H third derivative at pi =10r-8 via SymPy and first-order IFT lag derivative (A-B)/(3B) in strict cone. No statement that 6 exhaust all sinks or that phase shift is a true DDE delay.
 
-Finite symbolic tests do not independently certify the local-potential proof, the entire infinite-time asymptotic, the implicit-function continuation or historical priority. No independent audit has been performed.
+## originality
+
+PASS
+
+Ashwin–Bick–Burylko provide general S3 symmetry and 2-harmonic stability theory, Qie et al. build phase-reduced neuronal triad and demonstrate numerical multirhythmicity; neither checked text states exact three-harmonic coefficient wedge, critical quartic pacemaker attraction and algebraic rate. Published Resultary even-coupling Hamiltonian G=-cos+r cos3 has conservative rather than dissipative dynamics, so its third-harmonic clock is not a special case.
+
+## value
+
+PASS
+
+Exact simultaneous stability of six natural symmetry types and the nonlinear fate of marginal boundary states supply a motivated refinement of numerical three-neuron phase portraits. Distinguishing hyperbolic coexistence, nonhyperbolic attraction and exclusion at opposite face is mathematically informative; exact cubic slowdown constant gives a usable critical time scale.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

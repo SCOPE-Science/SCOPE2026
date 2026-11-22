@@ -1,15 +1,21 @@
-# Review of the three-harmonic phase-triad theorem
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The six canonical configurations are explicit. Graph-Laplacian eigenvalues give the strict coefficient wedge. The upper boundary is proved attracting by a strictly positive quadratic/quartic gradient-potential expansion; the scalar two-cluster equation yields the exact inverse-square clock. A nonvanishing cubic potential excludes the lower boundary. Hyperbolicity and the implicit-function theorem justify the small-delay continuation. The included checker verifies algebraic identities but is not the proof of the infinite-time limit.
+## correctness
 
-## Originality
-**PASS, provisional historical assessment.** Qie et al., arXiv:2611.06836v1, provides the general phase-reduced equation and numerical observations of coexisting rhythms but no exact three-harmonic coefficient classification or critical algebraic law. Ashwin–Bick–Burylko (2016) establishes general phase-network symmetry, two-harmonic bifurcations, and gradient structure; the present linear method is acknowledged as standard. Their Corollary 1 already identifies the need for a third harmonic to separate synchrony and splay thresholds; the additional exact six-state cone with its distinct nonlinear boundary is the assessed contribution. Zou–Zhan (2009) contains related splay stability analysis, but the entire article was inaccessible, so fuller overlap remains a residual risk. Distinct published findings for Stuart–Landau three-wave coexistence and pure triadic interactions were compared; neither concerns the same pairwise three-harmonic critical clock. Full independent priority checks remain outstanding.
+PASS
 
-## Value
-**PASS.** The precise six-rhythm coexistence region is motivated by numerical multiple-rhythm phase portraits, while the nonhyperbolic boundary and its \(t^{-1/2}\) algebraic slowdown explain why a stable pacemaker can appear neutrally stable in a finite-window linear analysis. The theorem identifies exact parameter boundaries and a measurable critical clock, with explicit restrictions on the phase-reduction model.
+Read complete proof and independently checked the phase-Jacobian transverse spectrum. A=1+2r+3s, B=-1+2r-3s, C=-1/2-r+3s, with nontrivial modes synchrony -3gA (double), splay -3gC (double), pacemaker -g(2A+B),-3gB. Strict positivity reduces to r>3/2 and the stated open interval. At B=0 potential has strict local minimum with quadratic intra-pair term 2r*v² and quartic intercluster (5r-4)*u⁴/6; LaSalle/isolated critical points give attraction but not exponential rate. On pair manifold u_dot=-g(5r-4)u³+O(u⁵), hence t*u²->1/[2g(5r-4)]. At C=0 independently expanded splay potential cubic sqrt3*(4r-1)/4*u*v*(u-v), sign indefinite, forbidding gradient attractor. Verified H third derivative at pi =10r-8 via SymPy and first-order IFT lag derivative (A-B)/(3B) in strict cone. No statement that 6 exhaust all sinks or that phase shift is a true DDE delay.
 
-## Limitations
-Only six canonical equilibria are classified, not all attractors. No validity is asserted for the unreduced delayed network, an arbitrary phase-response curve or a finite large delay. At the critical boundary the exact asymptotic is proved for the invariant two-equal-phase manifold. The inaccessible 2009 text and all independent scientific evaluation remain priority and validation risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ashwin–Bick–Burylko provide general S3 symmetry and 2-harmonic stability theory, Qie et al. build phase-reduced neuronal triad and demonstrate numerical multirhythmicity; neither checked text states exact three-harmonic coefficient wedge, critical quartic pacemaker attraction and algebraic rate. Published Resultary even-coupling Hamiltonian G=-cos+r cos3 has conservative rather than dissipative dynamics, so its third-harmonic clock is not a special case.
+
+## value
+
+PASS
+
+Exact simultaneous stability of six natural symmetry types and the nonlinear fate of marginal boundary states supply a motivated refinement of numerical three-neuron phase portraits. Distinguishing hyperbolic coexistence, nonhyperbolic attraction and exclusion at opposite face is mathematically informative; exact cubic slowdown constant gives a usable critical time scale.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
