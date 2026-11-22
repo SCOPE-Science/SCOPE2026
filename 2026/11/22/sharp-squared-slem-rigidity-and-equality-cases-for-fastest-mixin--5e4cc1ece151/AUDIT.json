@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For all n>=3, the normalized cosine eigenvector has y^T P y-c equal to a nonnegative diagonal slack with strictly positive interior coefficients. The spectral-norm bound y^T P^2 y<=s(P)^2 gives the squared energy inequality. Every equality case must have zero interior hold, hence alternating edge weights. Pairwise cosine-mode diagonalization proves that the alternating family attains equality and gives its exact spectrum. Summation and centered Cauchy--Schwarz derive coordinate recovery. All endpoint and degenerate t=+/-1/2 cases are covered algebraically. The supplied verifier independently passed 4,899 test matrices; finite tests are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd--Diaconis--Xiao, SIAM Review 46 (2004) 667--689, DOI 10.1137/S0036144503423264, objective and SDP dual framing.",
+        "Boyd--Diaconis--Sun--Xiao (2006), five-page original manuscript, equality-side cosine dual certificate.",
+        "Fill--Kahn (2011), arXiv:1109.6075, Section 4 treats dominance/majorization, not quantitative parameter recovery."
+      ],
+      "reasoning": "General fastest-mixing semidefinite formulations encompass the feasible problem but do not automatically give the sharp constant-one path residual inequality. General distributional comparisons do not identify the exact spectral energy norm or characterize equality over all feasible edge weights.",
+      "searches": [
+        "Fastest Mixing Markov Chain on a Graph Boyd Diaconis Xiao 2004 dual certificates",
+        "fastest mixing path quantitative stability edge probabilities spectral bound near-optimal",
+        "Fastest mixing path comparison inequalities Fill Kahn arxiv:1109.6075"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/S0036144503423264",
+      "doi:10.1080/00029890.2006.11920281",
+      "arxiv:1109.6075"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyd et al. derive y^T P y >= cos(pi/n). The new proof retains strict diagonal slack and combines it with y^T P^2 y <= s(P)^2.",
+        "Fill--Kahn Theorem 4 treatment concerns finite-time deviations from a fixed initial state and not estimates on edge probabilities.",
+        "The indexed crown-graph rigidity theorem covers a non-path family and supplies a different parameter bound."
+      ],
+      "reasoning": "The known path dual lower bound supplies one ingredient of a new sharp global inverse estimate; by itself it does not control ||Py-cy|| or produce the alternating equality spectrum and optimal exponent. Crown-graph stability is a distinct instance and does not logically imply this exact path theorem. Possible undiscovered general quantitative SDP stability results remain a risk.",
+      "searches": [
+        "Boyd Diaconis Sun Xiao Fastest Mixing Markov Chain on a Path dual lemma equality",
+        "Fill Kahn Comparison inequalities and fastest mixing Markov chains Section 4",
+        "Rigidity and quantitative near-optimality for fastest mixing on crown graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boyd--Diaconis--Sun--Xiao, Fastest Mixing Markov Chain on a Path, DOI 10.1080/00029890.2006.11920281, original proof pp. 3--5.",
+        "Fill--Kahn, arXiv:1109.6075, Section 4 on birth-and-death comparison inequalities.",
+        "Searches of published mathematical research index returned the crown-graph near-optimality theorem (2026/11/8, ID 5eef16ab8cf4) rather than a path analogue."
+      ],
+      "reasoning": "The exact squared-SLEM excess inequality is equivalent to a weighted path-edge H1 energy estimate, not merely to the known optimizer classification. The inspected sources give optimality of the half-edge walk, and from certain starts even stronger time-by-time distribution comparison, but neither states the quadratic inverse estimate or identifies all its equality cases.",
+      "searches": [
+        "fastest mixing Markov chain on a path unique optimal quantitative stability",
+        "fastest mixing path alternating transition probabilities exact eigenvalues",
+        "path Markov chain near-optimal SLEM edge probability stability",
+        "squared spectral radius path alternating off diagonal edge probabilities eigenvalues"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching path sharp-remainder record appeared among the nearest ranked records in three actual published-index semantic searches.",
+        "The original five-page path proof gives the optimal SLEM cos(pi/n) and a feasible dual certificate, rather than a tabulated perturbation-remainder identity."
+      ],
+      "reasoning": "The claim concerns a continuum of edge weights and a sharp functional inequality rather than a numerical table. Search nonappearance is not proof of novelty; the comparison is supported principally by inspected primary source statements.",
+      "searches": [
+        "Fastest mixing path squared spectral radius exact alternating eigenvalues cos^2 pi/n + 4t^2 sin^2 pi/n",
+        "Fastest mixing path near-optimal edge probability quantitative sum of squared discrete gradients staggered perturbation, sharp sqrt stability bound.",
+        "fastest mixing Markov chain path edge weight stability exact quadratic remainder"
+      ]
+    },
+    "rationale": "The classical path result establishes the minimizer and its SLEM but does not state the sharp global inequality s(P)^2 >= cos^2(pi/n)+||(P-P_*)y||^2, its if-and-only-if equality family, or exact edge-deviation bounds. Fill--Kahn compares time-indexed distributions and likewise does not imply the stated all-kernel squared-SLEM identity. The available indexed closest-claim searches identified related stability for crown graphs, not a path theorem. Originality is limited to evidence actually inspected; unindexed equivalences remain possible.",
+    "residual_risks": [
+      "The broad 2004 SDP paper was not exhaustively re-read beyond its directly relevant formulation sections.",
+      "An uncatalogued or differently normalized perturbation inequality might be equivalent to the present formula.",
+      "Finite numerical checks support but cannot establish the universal trigonometric theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers optimizer but not sharp squared excess inequality or alternating equality family",
+        "evidence": "The theorem on p. 4 establishes SLEM cos(pi/n) and the diagonal slack inequality on pp. 4--5.",
+        "identifier_or_url": "https://www2.stat.duke.edu/~scs/Courses/Stat376/Papers/ConvergeRates/DiaconisFastest.pdf",
+        "material_read": "Full five-page author manuscript, particularly cosine dual lemma and complete theorem proof (pages 3--5)",
+        "method": "Read source text and inspect page 4 image of the PDF",
+        "title": "Fastest Mixing Markov Chain on a Path",
+        "trigger": "Same feasible family and exact known optimal value"
+      },
+      {
+        "assessment": "Broader optimization framework; no exact path squared remainder in inspected material; remaining sections are residual-access/coverage risk",
+        "evidence": "p. 667 gives first-electronic-publication date 2004-10-29 and MSC 90C22; sections 1.1--1.2 formulate the SLEM SDP.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Original article cover, abstract, Introduction 1.1, objective, and model framing (pages 667--670); not the entire 23-page article",
+        "method": "Read PDF-extracted text and inspect opening-page image",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Original general SDP setting, possible dominating optimality result"
+      },
+      {
+        "assessment": "Strong majorization/time-of-mixing results, but no exact SLEM remainder or all-kernel edge recovery identified in material read",
+        "evidence": "Section 4 develops K0^2 comparison and finite-time dominance for fixed initial point; posted 2011-09-28.",
+        "identifier_or_url": "https://arxiv.org/abs/1109.6075",
+        "material_read": "Abstract, introduction, Section 4 principal statements and proof passages about uniform chain comparisons",
+        "method": "Read arXiv HTML full-text sections on time-indexed comparisons",
+        "title": "Comparison inequalities and fastest-mixing Markov chains",
+        "trigger": "Later primary paper claiming stronger comparisons for birth-and-death kernels"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5e4cc1ec-e151-475f-86ba-4b7566d2cdba",
+  "value": {
+    "rationale": "A fixed-width path is a canonical load-balancing and Markov-chain optimization model. The sharp global quadratic remainder distinguishes all near-optimal transition rules, recovers individual edge probabilities from observable SLEM excess, classifies the complete equality family for a nontrivial stability inequality, and proves that square-root recovery is unavoidable. This is not the already-known unperturbed optimal probability assignment, a finite sample, or a numerical table.",
+    "status": "PASS"
+  }
+}
