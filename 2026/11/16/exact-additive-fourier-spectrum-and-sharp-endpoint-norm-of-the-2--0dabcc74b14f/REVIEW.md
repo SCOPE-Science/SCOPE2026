@@ -1,15 +1,21 @@
-# Review of the exact Segre-cone spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
-The argument reduces every Fourier coefficient to the intersection of a hyperbolic quadric with the projectivized common kernel of two matrix slices; the scalar character-sum normalization and inclusion of zero are explicitly handled. Exhaustive line and hyperplane classification establishes exactly six frequencies and their multiplicities, including all ranks and all field orders. The endpoint sharpness follows from convolution on a finite group and the exact sign classification. The attached checker directly reconstructs all Fourier coefficients for field orders \(2,3,4,5\), verifies projective incidence statistics at \(2,3,5,7\), and independently checks Parseval and the formula for the norm. The general proof, not the numerical tests, provides the universal quantifiers.
+## correctness
 
-## Originality — PASS, with bounded priority
-The 2012 Segre-orbit paper describes the underlying geometric object but not the claimed sharp Fourier norm. Byrne--François (2026) already give the general Segre-intersection reduction and a complete \(2\times3\times3\) tensor-Cayley spectrum; the common spectral reduction and pointwise character formula are explicitly acknowledged as covered, so originality is not claimed for them. The new evaluated six-level multiplicity law for every field order, exact endpoint norm, and field-order-two-only zeros were not found in the inspected statement of that paper. A previous binary tensor-rank Fourier table covers the \(q=2\) special case; the infinite-field explicit classification, not that specialization, is the claimed advance. The remaining risk is an unlocated classical specialization or published table. An external mathematical priority audit has not been performed.
+PASS
 
-## Mathematical value — PASS
-The spectrum of the rank-one-tensor Cayley graph is a natural invariant of finite-field multilinear forms, and the sharp \(\ell^1\)/\(\ell^\infty\) projection constant quantifies amplification on the same canonical tensor cone. The complete all-field counts, the exact \(q^2-q+1+O(q^{-1})\) growth law, and the singular exception at \(q=2\) are mathematically motivated exact information not supplied merely by the general eigenvalue-incidence formula. The 2026 source itself observes that computing concrete eigenvalue multiplicities can be difficult. No conjectural implication for larger tensor formats is asserted.
+Each nonzero decomposable tensor is on one of (q+1)^3 projective Segre points, each scalar class summed by character orthogonality. A two-slice representation gives F(T)=q(q B(T)-q-2), with B the number of hyperbolic quadric Q=P1xP1 points in the projective common kernel. Rank-two slice pairs correspond to all P3 lines with multiplicity |GL2(q)|; the quadric has 2(q+1) contained generators, (q+1)^2(q-1) tangents, q^2(q+1)^2/2 secants and q^2(q-1)^2/2 external lines. Rank-one slices correspond to tangent or non-tangent hyperplane sections, and rank zero contributes T=0; these disjoint cases sum to q^8. The six signed values are q(qB-q-2), hence only B=0 and B=1 negative, and B=2 vanishes only at q=2. Fourier inversion gives the exact convolution ℓ1 and ℓ∞ norms by the absolute kernel sum. The general all-prime-power conclusion follows combinatorial counting, not the finite q tests. Independently checked q=2 by complete 256-input integer Walsh transform: 108 zeros and norm 55/16.
 
-## Closest literature and limitations
-The principal prior comparison is Byrne--François, arXiv:2607.03479, Theorem 42/Corollary 44 and Section 4; the original archive-period geometric source is Lavrauw--Sheekey, arXiv:1207.3972. The source comparison excludes novelty for the general pointwise reduction. Exact full multiplicity and endpoint-norm evaluation are the claims requiring independent priority verification. The checker samples finitely many fields and independently validates only those instances; it is not a formal proof of the general claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general tensor-Cayley character-incidence reduction is already in Byrne–François (2026), and q=2 rank Fourier shell information also overlaps prior computations. The claimed increment is the evaluated all-q six-row line/hyperplane multiplicity table, the exact harmonic endpoint norm and q=2-only cancellation transition. Checked general theorem statements did not explicitly supply these exact evaluations; risk remains that an unexamined specialized table or a direct published corollary already computes them.
+
+## value
+
+PASS
+
+The natural smallest nontrivial three-factor rank-one tensor cone is a finite-field tensor/Cayley graph frequency set. Its full all-q spectrum, exceptional cancellation transition and sharp norm quantify arithmetic harmonic projection amplification and are useful exact invariants beyond the general spectral-reduction identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
