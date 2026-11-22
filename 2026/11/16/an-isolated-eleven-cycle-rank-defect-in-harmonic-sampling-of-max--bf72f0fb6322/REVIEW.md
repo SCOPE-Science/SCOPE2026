@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The gap characterization is an exact bijection between maximal independent sets and cyclic compositions into \(3,4,5\). Conditioning on one or two sites gives the stated integer-count products, and dividing by the cyclic total count yields the explicit covariance. Fourier eigenvalues are exactly those of a circulant covariance. At nonzero frequency the positivity criterion is the existence of a configuration with a nonzero Fourier coefficient; a one-site gap slide \((3,5)\leftrightarrow(4,4)\) supplies that witness for \(n=8\) and every \(n\ge11\). The remaining short cases are elementary explicit configurations. The interval of attainable sizes controls the constant mode. A separate bit-mask enumeration and direct Fourier evaluation passed the packaged finite regression tests through \(n=17\); the infinite assertion is proved symbolically.
+## correctness
 
-## Originality — PASS, historical priority provisional
-The relevant primary literature treats (a) all dominating sets of cycle powers and their counting recurrences (Galvin–Zhang, 2024) or (b) minimum independent-domination size in degree-bounded graphs (Cho–Kim–Kim–Oum, 2022). Neither result states or implies the complete affine-span and Fourier nullity classification for the **uniform inclusion-maximal** set ensemble on squared cycles. Known first-coordinate harmonic analyses for ordinary cycles use \(2,3\)-gaps and do not transfer their rank thresholds to \(3,4,5\)-gaps. The general cyclic renewal coefficient formula is standard and is not claimed as independently novel; the novel content assessed here is the complete rank and exceptional-nullity pattern. Residual risk is an earlier differently phrased affine-span or local-pattern theorem for cycle squares.
+PASS
 
-## Mathematical value — PASS
-The rank is a natural coordinate-reconstruction invariant for the uniformly sampled independent dominating sets of a fundamental graph-power family. Determining it for **every** cycle length resolves both the exact onset of full-dimensional sampling and the counterintuitive isolated rank loss at eleven sites after full rank at nine and ten. This is not an arbitrary finite test or a cosmetic reparametrization of the ordinary-cycle result, because the permitted gap set and the singular-size pattern differ. No stronger downstream consequences are asserted.
+A maximal independent set is exactly a cyclic 3/4/5-gap composition; this gives a_n recursion, Z_n=3a_(n-3)+4a_(n-4)+5a_(n-5), and ordered one-site and two-site counts a_n and a_d a_(n-d), hence the stated circulant spectrum. At nonzero Fourier frequency, covariance is a nonnegative squared Fourier coefficient average. In every n>=11 a legal replacement (3,5)↔(4,4) changes one chosen vertex, forcing positive frequency; n=8 also allows it. Explicit small odd cycles and n=10 witness positivity; n=6 has three opposite pairs, leaving odd modes null. The constant mode is |S| variance/n and vanishes exactly if the interval ceil(n/5)..floor(n/3) has one integer, which occurs at 5,6,7,8,11. Independent exhaustive bit-mask enumeration and DFT checked all n=5..14; the gap-slide argument, not this finite enumeration, proves n>=12.
 
-## Scientific limits
-The finding is restricted to the uniform maximal-set ensemble; no generic stability bound or quantitative small-positive-eigenvalue estimate is established. The comparison to prior research is based on material actually inspected; an undiscovered equivalent formulation remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact isolated eleven-cycle loss of rank for uniform maximal independent sets of square cycles is not implied by published all-dominating-set power-cycle polynomials, ordinary-cycle maximal-independent-set covariance, or general independent domination bounds. Rank and complete Fourier covariance are more specific than configuration counts. Remains a priority risk from an unlocated equivalent cyclic renewal/affine-span theorem.
+
+## value
+
+PASS
+
+An exact all-length covariance and affine-hull rank classification for a natural graph ensemble reveals a nonmonotone isolated n=11 identifiability defect after n=9,10 success. This is a mathematically motivated, nontrivial finite exception with a uniform positivity proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T09:41:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A maximal independent set is exactly a cyclic 3/4/5-gap composition; this gives a_n recursion, Z_n=3a_(n-3)+4a_(n-4)+5a_(n-5), and ordered one-site and two-site counts a_n and a_d a_(n-d), hence the stated circulant spectrum. At nonzero Fourier frequency, covariance is a nonnegative squared Fourier coefficient average. In every n>=11 a legal replacement (3,5)↔(4,4) changes one chosen vertex, forcing positive frequency; n=8 also allows it. Explicit small odd cycles and n=10 witness positivity; n=6 has three opposite pairs, leaving odd modes null. The constant mode is |S| variance/n and vanishes exactly if the interval ceil(n/5)..floor(n/3) has one integer, which occurs at 5,6,7,8,11. Independent exhaustive bit-mask enumeration and DFT checked all n=5..14; the gap-slide argument, not this finite enumeration, proves n>=12.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Galvin–Zhang prove domination-polynomial properties for all dominating sets of powers of paths/cycles.",
+          "The indexed all-dominating-set square-cycle result measures a strictly larger configuration ensemble and gives positive finite covariances there, not ranks after conditioning to independent maximal sets."
+        ],
+        "reasoning": "A theorem for all dominating sets does not imply conditional covariance rank of the independent dominating subfamily; differences in measure invalidate restriction.",
+        "searches": [
+          "square of cycle maximal independent sets gap compositions 3 4 5 occupancy covariance circulant Fourier eigenvalues affine span rank isolated n=11",
+          "https://arxiv.org/html/2408.12731v1",
+          "Resultary:2026/11/16/SCOPE-two-peak-fourier-conditioning-of-dominating-sets-on-square-cycle--70f28a07c46c"
+        ]
+      },
+      "checked_sources": [
+        "GitHub frozen RESULT.md and check.py at source-tree 220e73846c730c0204f540ce45981150e666b302",
+        "https://arxiv.org/html/2408.12731v1",
+        "https://arxiv.org/abs/2202.09594",
+        "Resultary:2026/11/16/SCOPE-perrin-padovan-fourier-sampling-on-maximal-independent-sets-of-c--84ad81841c78",
+        "Resultary:2026/11/16/SCOPE-two-peak-fourier-conditioning-of-dominating-sets-on-square-cycle--70f28a07c46c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cho–Kim–Kim–Oum independent-domination bounds control extremal cardinalities under degree restrictions, not affine hull rank or the full uniform covariance.",
+          "A 14-periodic Walsh transform of all squared-cycle independent-set indicators uses a different observation operator and sampling ensemble."
+        ],
+        "reasoning": "Neither domination extrema nor Boolean convolution zeros imply that every nonconstant coordinate Fourier mode survives, or that only n=11 has the isolated constant deficiency.",
+        "searches": [
+          "square of cycle maximal independent sets gap compositions 3 4 5 occupancy covariance circulant Fourier eigenvalues affine span rank isolated n=11",
+          "https://arxiv.org/abs/2202.09594",
+          "Resultary:2026/11/16/SCOPE-a-fourteen-periodic-fourier-invertibility-law-for-squared-cycle--48359b7d10a2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Inclusion-maximal independent sets = independent dominating sets of C_n²; cyclic binary words have gaps 3,4,5.",
+          "The proof uses circulant coordinate covariances and affine-span rank, not the Fourier transform of the full indicator of the set family over {0,1}^n."
+        ],
+        "reasoning": "Checked graph-theoretic aliases and two different Fourier meanings; one-dimensional coordinate-covariance ranks are not general Boolean-convolution invertibility.",
+        "searches": [
+          "square of cycle maximal independent sets gap compositions 3 4 5 occupancy covariance circulant Fourier eigenvalues affine span rank isolated n=11",
+          "independent dominating sets squared cycles harmonic occupancy spectral covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest exact covariance table is for ordinary cycles with gap choices 2,3 and a different rank cutoff n=8.",
+          "The C_n² gap recurrence 3,4,5 and n=11 constant-mode deficiency are not contained in that ordinary-cycle table."
+        ],
+        "reasoning": "Similar renewal methods are background; the graph power changes the admissible-gap semigroup and the rank exceptions.",
+        "searches": [
+          "square of cycle maximal independent sets gap compositions 3 4 5 occupancy covariance circulant Fourier eigenvalues affine span rank isolated n=11",
+          "Resultary:2026/11/16/SCOPE-perrin-padovan-fourier-sampling-on-maximal-independent-sets-of-c--84ad81841c78"
+        ]
+      },
+      "rationale": "The exact isolated eleven-cycle loss of rank for uniform maximal independent sets of square cycles is not implied by published all-dominating-set power-cycle polynomials, ordinary-cycle maximal-independent-set covariance, or general independent domination bounds. Rank and complete Fourier covariance are more specific than configuration counts. Remains a priority risk from an unlocated equivalent cyclic renewal/affine-span theorem.",
+      "residual_risks": [
+        "An earlier independent-dominating-set affine-hull theorem or hidden renewal spectrum for squared cycles might cover the same n=11 effect.",
+        "The distribution is uniform on inclusion-maximal, not maximum-cardinality, independent sets; none of the conclusions extend by default to other sampling measures."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No covariance-rank theorem for this restricted ensemble in the inspected material",
+          "evidence": "The main statements control coefficients/unimodality of the domination polynomial, not affine span of maximal independent-set incidence vectors.",
+          "identifier_or_url": "https://arxiv.org/html/2408.12731v1",
+          "material_read": "Primary HTML abstract, introduction, main theorem statements and polynomial/unimodality sections",
+          "method": "Compared all-dominating-set polynomial to uniform inclusion-maximal independent set covariance",
+          "title": "The domination polynomial of powers of paths and cycles",
+          "trigger": "Most plausible cycle-power domination result"
+        },
+        {
+          "assessment": "No implication from general extremal bounds to exact covariance ranks identified; retain limited-reading risk",
+          "evidence": "The object is a maximum-degree graph bound, not the labelled square-cycle rank sequence.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.09594",
+          "material_read": "Title, abstract and stated extremal independent-domination scope only; complete full text inaccessible in this retrieval",
+          "method": "Compared invariant (minimum independent dominating set size) to uniform coordinate covariance rank",
+          "title": "Independent domination of graphs with bounded maximum degree",
+          "trigger": "Independent dominating set terminology might imply exact C_n² result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact all-length covariance and affine-hull rank classification for a natural graph ensemble reveals a nonmonotone isolated n=11 identifiability defect after n=9,10 success. This is a mathematically motivated, nontrivial finite exception with a uniform positivity proof.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub frozen RESULT.md and check.py at source-tree 220e73846c730c0204f540ce45981150e666b302",
+    "https://arxiv.org/html/2408.12731v1",
+    "https://arxiv.org/abs/2202.09594",
+    "Resultary:2026/11/16/SCOPE-perrin-padovan-fourier-sampling-on-maximal-independent-sets-of-c--84ad81841c78",
+    "Resultary:2026/11/16/SCOPE-two-peak-fourier-conditioning-of-dominating-sets-on-square-cycle--70f28a07c46c"
+  ],
+  "disposition": "passed",
+  "final_claim": "For uniform inclusion-maximal independent sets of C_n² (n>=5), the coordinate covariance has an exact cyclic gap-composition Fourier spectrum; ranks are (4,2,6,7,9,10,10) for n=5..11 and n for every n>=12; the nonconstant modes vanish only for n=6 at odd frequencies.",
+  "limitations": [
+    "An earlier independent-dominating-set affine-hull theorem or hidden renewal spectrum for squared cycles might cover the same n=11 effect.",
+    "The distribution is uniform on inclusion-maximal, not maximum-cardinality, independent sets; none of the conclusions extend by default to other sampling measures.",
+    "Verified immutable Git tree 220e73846c730c0204f540ce45981150e666b302 contains unsanitized internal scope_run_id values in public source METADATA.json and AUDIT.json. Their same_model_review provenance needs public-safe handling; complete guarded replacement source bytes were not prepared and checked for this execution. Do not export public files or server-derived certificate from this plan."
+  ],
+  "residual_risks": [
+    "An earlier independent-dominating-set affine-hull theorem or hidden renewal spectrum for squared cycles might cover the same n=11 effect.",
+    "The distribution is uniform on inclusion-maximal, not maximum-cardinality, independent sets; none of the conclusions extend by default to other sampling measures."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "No covariance-rank theorem for this restricted ensemble in the inspected material",
+      "evidence": "The main statements control coefficients/unimodality of the domination polynomial, not affine span of maximal independent-set incidence vectors.",
+      "identifier_or_url": "https://arxiv.org/html/2408.12731v1",
+      "material_read": "Primary HTML abstract, introduction, main theorem statements and polynomial/unimodality sections",
+      "method": "Compared all-dominating-set polynomial to uniform inclusion-maximal independent set covariance",
+      "title": "The domination polynomial of powers of paths and cycles",
+      "trigger": "Most plausible cycle-power domination result"
+    },
+    {
+      "assessment": "No implication from general extremal bounds to exact covariance ranks identified; retain limited-reading risk",
+      "evidence": "The object is a maximum-degree graph bound, not the labelled square-cycle rank sequence.",
+      "identifier_or_url": "https://arxiv.org/abs/2202.09594",
+      "material_read": "Title, abstract and stated extremal independent-domination scope only; complete full text inaccessible in this retrieval",
+      "method": "Compared invariant (minimum independent dominating set size) to uniform coordinate covariance rank",
+      "title": "Independent domination of graphs with bounded maximum degree",
+      "trigger": "Independent dominating set terminology might imply exact C_n² result"
+    }
+  ]
+}
