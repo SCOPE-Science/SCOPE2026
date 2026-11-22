@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Schwarz–Pick controls the only two coefficients contributing to the holomorphic functional calculus. A two-by-two singular-value calculation yields the exact determinant identity \(\det(3I-H(x))=6x(1-x)\) and hence the global mixing lower bound. Uniform perturbation expansions at both endpoint coefficient regimes, together with Parseval, establish the distinct local constants. An explicit finite Blaschke family attains both limits. The standalone checker independently verifies algebra and 3,975 finite diagnostic assertions, while the universal result rests on the proof, not the sample.
+
+**Originality — PASS, qualified.** The sharp scalar disk functional calculus norm and the existence of monomial maximizers for weighted nilpotent shifts were already proved in Crouzeix–Greenbaum (2025), so neither is presented as new. The complete dimension-three bound and equality theory of Åhag–Czyż–Perälä–Virtanen (2026) also supply broader background. The closest indexed quantitative work proves a sharp Hardy-space stability constant for the balanced shift, with one monomial orbit; it neither states nor implies the unequal pair of constants for the critical two-orbit case. The new statement controls the entire analytic symbol in \(H^2\) in two distinct local regimes, not merely the operator norm. Exact coverage by a lesser-known general symbol-rigidity theorem remains a bibliographic risk.
+
+**Value — PASS.** At the natural weight ratio where the previously known extremizing powers exchange dominance, the optimizer set splits into two disjoint circles. The new quantitative theorem determines how quickly every near-extremal analytic symbol approaches each circle and demonstrates that their curvatures are different. This addresses robustness of a natural spectral-set extremal classification rather than an arbitrary matrix entry calculation.
+
+**Limits.** Scalar Schur symbols satisfying \(f(0)=0\), the single critical weight ratio (up to reversal), and sharp local—not global—all-deficit constants. Existing qualitative extremality is credited, and independent validation remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
