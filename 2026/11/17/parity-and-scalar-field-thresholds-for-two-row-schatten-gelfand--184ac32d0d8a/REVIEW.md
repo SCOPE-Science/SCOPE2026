@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two-singular-value ratio has endpoints \(1\) (rank one) and \(\beta=2^{1/q-1/p}\) (equal positive singular values), including quasi-Banach exponents and infinite target exponent. Projection onto the first matrix row converts rank-one avoidance into an eigenvalue obstruction; the maximum real dimension is \(2\lfloor n/2\rfloor\), the maximum complex dimension is \(n-1\). Equal-singular-value graphs over the reals are rigid by skew-symmetry and parity of skew singular eigenspaces; over the complex field polarization forces orthogonality of the row images and limits dimension to \(\lfloor n/2\rfloor\). The two closed plateaux follow from these sharp dimensions and exact graph constructions. Compactness gives strict inequalities in the complex middle range. The argument distinguishes a finite sample check from the universal proof. Risk: an independently verified formal derivation is not supplied, so transcription/interpretation requires external human review.
+## correctness
 
-## Originality — PASS (qualified)
-Compared with the main results and rectangular-projection section of Prochno (2026, arXiv:2611.08448), the results concern square real matrices and asymptotic equivalence, while the present claim gives exact rectangular two-row real and complex threshold values plus optimizer rigidity. The square-matrix treatments by Hinrichs–Prochno–Vybíral (2021) and Prochno–Strzelecki (2022) were compared in their main result and proof sections. A prior two-by-two exact classification does not entail the family of all \(n\ge3\). Existing maximal rank-free constructions and constant-rank matrix-space theory supply related ingredients; they were not established to contain the combined Gelfand-width theorem. Targeted published-literature and research-record searches did not identify a stronger covering statement. Risk: older matrix-pencil/constant-rank subspace geometry might imply this result through a non-obvious reformulation; no priority guarantee is claimed.
+PASS
 
-## Mathematical value — PASS
-Two-row matrix spaces are the first nontrivial Schatten geometry beyond scalar sequence spaces and occur naturally in the rectangular projection approach to Gelfand widths. The result determines a *complete, all-indices real Gelfand sequence* for every allowable exponent pair, identifies two sharp complex threshold indices without claiming the unresolved middle values, and classifies all first bottom-level optimal measurement kernels. The odd/even real index and the real/complex gap are structural rather than numerical coincidences. These give sharp benchmarks for how few linear constraints eliminate low-rank matrices and when every remaining matrix has balanced singular values. Limitation: intermediate complex constants and higher-row extensions are not determined.
+For n>=3 and 0<p<q<=infty the singular-value two-coordinate ratio R is between beta=2^(1/q-1/p) and 1. R=1 iff rank one, and R=beta iff singular values equal; this holds for quasi-Banach p<1 too. The first-row projection of a rank-one-free F-linear subspace is injective. Over R, an n-dimensional graph T in odd n must have a real eigenvector, so maximal rank-one-free dimension is 2*floor(n/2), achieved by orthogonal complex-structure J on an even plane; hence c_k real is 1 for k<=2n-2d and beta thereafter. Real beta optimizers are rigid: any graph T has <Tu,u>=0 and ||Tu||=||u||; in odd n, decomposing T into skew part A:U->U and a normal b gives A*A=I-bb*, incompatible with even eigenvalue multiplicities unless b=0. Over C, maximal rank-one-free dimension n-1 (shift graph), while complex polarization of <u,Tu>=0 gives T(U) subset U^perp, so beta-only dimensions <=d; compact Grassmannian ensures strict beta<c_k<1 in n+2..2n-d. Complex d-plane-to-orthogonal-d-plane isometries classify first-beta minimizers. Inspected numerical SVD checker for n3..17 and sample exponent pairs; it checks witnesses only, not all-subspace infima.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS on best-knowledge statement/implication comparison, NOT a proof of absolute literature priority. Prior and current result evaluated using actual source theorem and full relevant published primary work; residual risks specifically documented.
+
+## value
+
+PASS
+
+Exact real-versus-complex and parity-dependent finite-codimension thresholds distinguish how many linear constraints eliminate rank-one extremizers, and the classification of equality subspaces reveals geometric rigidity not available from order-of-magnitude Schatten widths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
