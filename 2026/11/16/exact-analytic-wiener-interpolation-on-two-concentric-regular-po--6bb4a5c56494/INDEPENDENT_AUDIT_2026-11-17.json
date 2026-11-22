@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T04:10:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Cyclic averaging f(omega z) projects any competitor onto degrees divisible by n without increasing its ℓ1 norm; equality in ℓ1 forces all optimal coefficients outside this residue class to vanish. For 0<u<v<1, D_k=uv^k-vu^k>0 and the feasible trinomials F_k=1-P_k t+Q_k t^k attain norm 1+L_k. For a minimizing k, lambda=-(v^k+v)/D_k and mu=(u^k+u)/D_k define h_j=lambda*u^j+mu*v^j with h1=-1, hk=1; feasible F_j for each j≥2 and L_k≤L_j imply h_j≤1. The two-exponential curve h(t) increases then decreases to 0, giving h_j≥-1 for every j≥1, a valid ALL-degree dual certificate rather than a finite enumeration. Equality forces support {1,k}, or {1,k,k+1} at a unique adjacent tie; vanishing equations make the minimizer a trinomial or convex segment. The real extension L(t) has derivative controlled by strictly increasing G(x)=x^(eta+1)+(1+eta)vx-eta*u, proving unique continuous trough and at most adjacent integer minimizers. Direct L2-L3=(u+v+uv-1)/[uv(u+v)] yields first transition, and stationary-root asymptotics give k=log(1/(1-v))/log(1/u)+O_u(1), norm→2/u. Independently evaluated rational samples include exact tie u=1/5,v=2/3 (norm 15), and u=4/5,v=9/10 (index 9). These checks only corroborate the analytic certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abakumov et al §§4.1–4.2 treat infinitely many polygon layers and summability/zero-set criteria, not this finite two-layer exact optimum.",
+          "Cheng et al Proposition 6.3 has assumption 1<p<infinity and uses strict convexity, absent at p=1."
+        ],
+        "reasoning": "Broader zero-set criteria do not state a stronger explicit minimizer classification that dominates the endpoint equal-cardinality two-ring problem.",
+        "searches": [
+          "analytic Wiener norm zero sets two concentric regular polygons explicit minimum minimizer sparse interpolation",
+          "arXiv:2611.02159v1 §§3.1,4.1,4.2",
+          "arXiv:1802.04646v2 Proposition 6.3 and §6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.02159v1 §§3.1 and 4.1–4.2",
+        "arXiv:1802.04646v2 §§5–7",
+        "Resultary search analytic Wiener norm zero sets two concentric regular polygons explicit minimum minimizer sparse interpolation",
+        "Pinned RESULT.md and CHECK.py at e445181e127b2110093a44c41a607a46ab3f47e9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Abakumov et al formula A_p(W)=(1+delta_q(W)^(-p))^(1/p) leaves the two-shell delta_infinity unevaluated.",
+          "Cheng et al require p>1 and do not give adjacent-support ℓ1 ties."
+        ],
+        "reasoning": "Only after constructing h_j with all-integer inequalities and establishing the one-valley L_k phase diagram does the new claim follow. These are substantive additions not explicit corollaries of examined general theorems.",
+        "searches": [
+          "analytic Wiener norm zero sets two concentric regular polygons explicit minimum minimizer sparse interpolation",
+          "Abakumov Chalendar Poltoratski 2026 Theorem 3.1 equation 3.2",
+          "Cheng Mashreghi Ross 2018 Proposition 6.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3.1 expresses the optimal ℓ_A^1 norm via δ_infinity(W)^{-1} for any W but does not evaluate the dual for W={z^n=u} U {z^n=v}.",
+          "The presented explicit exponential h_j certificate solves the remaining two-moment sup-norm optimization and characterizes all equality cases."
+        ],
+        "reasoning": "The general dual moment identity is the same optimization in abstract form; explicit formula and optimizer/nonuniqueness transition do not follow without a nonstandard evaluation.",
+        "searches": [
+          "analytic Wiener norm zero sets two concentric regular polygons explicit minimum minimizer sparse interpolation",
+          "arXiv:2611.02159v1 Theorem 3.1 sharp moment duality",
+          "two positive points analytic Wiener minimum coefficient norm sparse polynomial dual support"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary reproduces the same current finding and nearby polygon phase-retrieval/Fock sampling entries, none an independent exact ℓ1 zero-interpolation table.",
+          "No exact two-positive-radius ℓ1 table was present in the inspected arXiv primary texts."
+        ],
+        "reasoning": "No table/prior database coverage was verified; this negative search is not an assertion of complete priority.",
+        "searches": [
+          "analytic Wiener norm zero sets two concentric regular polygons explicit minimum minimizer sparse interpolation",
+          "Resultary two concentric regular polygon coefficient norm optimum",
+          "two-shell Wiener zero interpolation table optimal degree L_k"
+        ]
+      },
+      "rationale": "Abakumov–Chalendar–Poltoratski sharp moment duality (Theorem 3.1) covers endpoint p=1 in abstract form, but not the computed 2-radius dual extremizer, sparse equality family, adjacent ties or escape-of-degree transition. Cheng–Mashreghi–Ross Proposition 6.3 is restricted to p in (1,infinity), excluding the nonsmooth ℓ1 endpoint. No inspected record gives a table of exact two-positive-radius values. The claim requires independent all-degree certificate and discrete one-valley analysis, so it is not a mere restatement of general moment duality.",
+      "residual_risks": [
+        "An older ℓ1 exponential Chebyshev interpolation/linear-programming extremal theorem might give this two-point formula under unrelated terminology.",
+        "The endpoint p=1 is sensitive to equality structure, which was reconstructed analytically rather than inferred from strict convexity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_DUAL_WITHOUT_TWO_SHELL_EVALUATION",
+          "evidence": [
+            "Theorem 3.1 equations (3.1)-(3.2), lines 383–401, give exact moment duality and p=1 existence but no two-radius δ_infinity or unique/tie index."
+          ],
+          "identifier_or_url": "arXiv:2611.02159v1 https://arxiv.org/html/2611.02159v1",
+          "material_read": "Full accessible article HTML §§1.1–1.3, §3.1 Theorem 3.1 and proof, §§4.1–4.2, and §8 Wiener endpoint overview",
+          "method": "primary arXiv HTML",
+          "title": "Zero sets in spaces of analytic functions with p-summable Taylor coefficients",
+          "trigger": "sharp endpoint moment duality for regular-polygon zero sets"
+        },
+        {
+          "assessment": "DIFFERENT_P_RANGE",
+          "evidence": [
+            "Proposition 6.3 lines 536–542 assumes p∈(1,∞); no classification for two positive radii at p=1."
+          ],
+          "identifier_or_url": "arXiv:1802.04646v2 https://arxiv.org/html/1802.04646v2",
+          "material_read": "Primary full HTML §§5–7, especially §6 Proposition 6.3 and proof",
+          "method": "primary arXiv HTML",
+          "title": "Inner functions and zero sets for ℓ_A^p",
+          "trigger": "finite zero sets and analytic-coefficient extremal norms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural finite zero-geometry problem in the analytic Wiener algebra has an explicit sharp norm and all minimizers, with genuinely nontrivial degree-transition structure and an outer-boundary asymptotic. This computes a motivated endpoint extremal invariant left implicit by general duality, not an arbitrary coefficient slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2611.02159v1 §§3.1 and 4.1–4.2",
+    "arXiv:1802.04646v2 §§5–7",
+    "Resultary search analytic Wiener norm zero sets two concentric regular polygons explicit minimum minimizer sparse interpolation",
+    "Pinned RESULT.md and CHECK.py at e445181e127b2110093a44c41a607a46ab3f47e9"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only two aligned equal-cardinality regular polygons with 0<u<v<1 and ℓ1 coefficients; additional zeros allowed.",
+    "No claim for other p, unequal polygons, or complete priority."
+  ],
+  "residual_risks": [
+    "An older ℓ1 exponential Chebyshev interpolation/linear-programming extremal theorem might give this two-point formula under unrelated terminology.",
+    "The endpoint p=1 is sensitive to equality structure, which was reconstructed analytically rather than inferred from strict convexity."
+  ],
+  "schema_version": 1
+}

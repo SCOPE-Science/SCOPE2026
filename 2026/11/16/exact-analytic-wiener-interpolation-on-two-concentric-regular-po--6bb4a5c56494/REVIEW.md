@@ -1,19 +1,21 @@
-# Scientific review: exact two-ring Wiener interpolation
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For \(0<u<v<1\), the explicit trinomials satisfy both interpolation equations, and each minimizes the norm by a dual exponential certificate \(h_j=\lambda u^j+\mu v^j\). Its upper bound follows from the integer minimum of the candidate costs, while the lower bound follows for *every* integer from the one-turning-point derivative of \(h(t)\). This establishes the result against arbitrary infinite complex coefficient sequences, not just polynomials or finite test cases. Strict contraction under rotational projection excludes non-invariant minimizers. The same dual certificate classifies all equality cases; a one-valley derivative proves adjacent ties and the transition law. The asymptotics follow from the unique small stationary root. Exact rational consistency checks pass, but are not used as an all-degree proof.
+PASS
 
-## Originality
+Cyclic averaging f(omega z) projects any competitor onto degrees divisible by n without increasing its ℓ1 norm; equality in ℓ1 forces all optimal coefficients outside this residue class to vanish. For 0<u<v<1, D_k=uv^k-vu^k>0 and the feasible trinomials F_k=1-P_k t+Q_k t^k attain norm 1+L_k. For a minimizing k, lambda=-(v^k+v)/D_k and mu=(u^k+u)/D_k define h_j=lambda*u^j+mu*v^j with h1=-1, hk=1; feasible F_j for each j≥2 and L_k≤L_j imply h_j≤1. The two-exponential curve h(t) increases then decreases to 0, giving h_j≥-1 for every j≥1, a valid ALL-degree dual certificate rather than a finite enumeration. Equality forces support {1,k}, or {1,k,k+1} at a unique adjacent tie; vanishing equations make the minimizer a trinomial or convex segment. The real extension L(t) has derivative controlled by strictly increasing G(x)=x^(eta+1)+(1+eta)vx-eta*u, proving unique continuous trough and at most adjacent integer minimizers. Direct L2-L3=(u+v+uv-1)/[uv(u+v)] yields first transition, and stationary-root asymptotics give k=log(1/(1-v))/log(1/u)+O_u(1), norm→2/u. Independently evaluated rational samples include exact tie u=1/5,v=2/3 (norm 15), and u=4/5,v=9/10 (index 9). These checks only corroborate the analytic certificate.
 
-PASS, with historical-priority caveat. Abakumov–Chalendar–Poltoratski (2026, arXiv:2611.02159v1, §§1.3, 3.1 and 4) give abstract moment duality and infinite polygon criteria, but no explicit two-radius endpoint norm, all-minimizer classification, or degree-transition law. Cheng–Mashreghi–Ross (2018, arXiv:1802.04646v2, §6) frame general \(\ell_A^p\) extremal problems for \(1<p<\infty\), excluding the \(p=1\) equality geometry solved here. The nearby 2020 Wiener-interpolation study by El-Fallah–Kellay concerns subsets of the *boundary* circle rather than these interior two-ring constraints; only its abstract was accessible. Semantic search of public mathematical results found no equivalent completed classification, but absence from a search is not proof of first discovery. Unchecked classical \(\ell^1\) Chebyshev/exponential-moment literature is a residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The paper motivating the problem treats norm-minimizing functions with prescribed zeros as a natural ingredient of coefficient-space zero-set theory. Even for two interior radial levels, abstract duality leaves a genuine continuous/sequence optimization, and the optimal polynomial degree can be arbitrarily large. The new result supplies its exact value, all extremizers, explicit first phase boundary, and a logarithmic degree-divergence law. This is a full classification of a canonical two-level finite-node case rather than an arbitrary numerical slice.
+Abakumov–Chalendar–Poltoratski sharp moment duality (Theorem 3.1) covers endpoint p=1 in abstract form, but not the computed 2-radius dual extremizer, sparse equality family, adjacent ties or escape-of-degree transition. Cheng–Mashreghi–Ross Proposition 6.3 is restricted to p in (1,infinity), excluding the nonsmooth ℓ1 endpoint. No inspected record gives a table of exact two-positive-radius values. The claim requires independent all-degree certificate and discrete one-valley analysis, so it is not a mere restatement of general moment duality.
 
-## Scope and limits
+## value
 
-The constraints are vanishing at *at least* the two polygon sets. This does not classify any extra zeros; the result does not extend to arbitrary rotations of the rings, unequal cardinalities, or \(p>1\). The exact proof is self-contained and independent of the finite rational checker. Historical priority and independent mathematical audit remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural finite zero-geometry problem in the analytic Wiener algebra has an explicit sharp norm and all minimizers, with genuinely nontrivial degree-transition structure and an outer-boundary asymptotic. This computes a motivated endpoint extremal invariant left implicit by general duality, not an arbitrary coefficient slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
