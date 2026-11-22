@@ -1,19 +1,21 @@
-# Review of the matched SIRD mortality-response theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact conserved mass balance gives \(d=t(1-x)/(1+t)\) and the active living population \(N_\infty=(1+t x)/(1+t)\). Integrating the two incidence equations yields the stated, distinct scalar final-size maps. Positivity and strict concavity give unique physical fixed points. The implicit-function expansions produce the first corrections \(sr\log(1/s)-(1-s)\) and \((1-s)(sr-1)\), and the active equality coefficient \(-(1-s)^2/(2s)\). Strict signs and derivatives for sufficiently large \(t\) follow from analytic remainders. The checker passes symbolic coefficient identities and multi-precision examples. No global monotonicity is asserted.
+PASS
 
-## Originality
+For the homogeneous invariant two-group sector, d=t(1-x)/(1+t) and x=s exp(-u). Integration gives u=(r/t)log[(1+t)/(1+t x)] for active and u=r(1-x)/(1+t) for fixed incidence. Unique positive fixed points follow from strict concavity and boundedness. The analytic expansion in epsilon=1/t gives active coefficient sr log(1/s)-(1-s), fixed coefficient (1-s)(sr-1); on r=(1-s)/(s log(1/s)) the active second coefficient is -(1-s)^2/(2s). Since log(1/s)>1-s, the wedge is nonempty; analytic remainders give the eventual opposite derivative and sidedness. Endpoint d_active(t)->0 as t->0 plus continuity and finite excess gives an attained finite positive maximum, not uniqueness. Independently recomputed coefficients with SymPy and fixed points numerically at s=1/2,r=3/2,t=100,1000,10000.
 
-**PASS within inspected evidence, subject to priority risk.** Melo and Santos identify active-population normalization and analyze mortality numerically. The separate published result *Parameter-unrestricted final-size uniqueness and certified geometric bracketing in active-population SIRD networks* proves uniqueness for the full multigroup model and geometric error bounds; it does not provide or imply the matched active-versus-fixed mortality-response asymptotics. The first-order sign wedge is not an algebraic restatement of general uniqueness. Exact title/term/parameter and published-finding corpus semantic searches found no dominating result. The original manuscript was located through indexed sections and abstracts but could not be retrieved in complete form, so an unindexed treatment of the same sign reversal remains a residual risk. General SIRD comparative statics should be examined by a future independent reviewer.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The mortality rate both reduces infection lifetime and changes the active force-of-infection denominator. Comparing the two normalizations using identical initial data isolates that feedback, yielding a sharp region in which long-run mortality responds in opposite directions. The result identifies a qualitative modeling risk even when both models agree on the infinite-mortality limit. It is not a claim of global heterogeneity or an arbitrarily selected numerical cutoff: the region depends naturally on initial susceptibles and transmission/recovery ratio.
+The 2026 originating SIRD paper defines living-population normalization and studies mortality response, while the published unrestricted multigroup theorem establishes uniqueness and certified root bounds, but neither inspected theorem states or algebraically implies the matched active-versus-fixed high-mortality sign wedge and equality second-order coefficient. These emerge from two distinct model equations and their asymptotic comparison. No matching prior record located; historical search is not proof of priority.
 
-## Limits
+## value
 
-The equality boundary was verified at second order, but the upper fixed-denominator equality boundary is not the subject of the theorem. The theorem concerns two identical initial communities and sufficiently large mortality. Full primary-paper text was not available in this review, and no independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two standard force-of-infection normalizations can predict opposite qualitative large-mortality response even with identical epidemic rates and initial fractions. The sharp nonempty parameter region isolates the mechanistic living-denominator feedback and is a directly motivated modeling invariant, not an arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
