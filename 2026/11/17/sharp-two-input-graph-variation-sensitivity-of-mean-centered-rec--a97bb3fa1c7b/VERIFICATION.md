@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-21.md",
+      "INDEPENDENT_AUDIT_2026-11-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification of weighted-tree centered-rectification variation sensitivity
+# Independent mathematical audit
 
-Run `python verification/check.py` using Python 3 standard library. Its deterministic rational computations compare exact activation-column values with the proposed weighted cut formula, verify all actual test-pair inequalities, construct explicit attaining checkerboard data, and check the path/star consequences.
+## correctness
 
-Observed successful output:
+PASS
 
-```text
-EXACT_ALL_ACTIVATION_SETS_AND_WEIGHTED_TREE_CUTS_PASS 210 90600
-EXACT_TWO_INPUT_RATIONAL_TESTS_PASS 2513
-EXACT_ATTAINED_BIPARTITE_ACTIVATION_WITNESSES_PASS 180
-ALL_PATH_AND_STAR_EXTREMA_PASS 28
-ALL_CENTERED_RECTIFICATION_VARIATION_CHECKS_PASS
-```
+On every strict sign mask A of the mean-centered vector, the Jacobian is D_A(I-1 mu^T/M), and every nonempty proper mask is attainable at x=1_A. A root-based expansion of any perturbation into constant plus descendant cut indicators is an isometric edge jump-basis for weighted tree-TV; thus every fixed mask's induced norm is its maximal normalized bridge-column variation. On a deleted edge splitting U,W with a=mu(U)/M,b=mu(W)/M, its centered cut has values -b on U and a on W; internal edges contribute at most b w(E[U])+a w(E[W]), the bridge at most w_e. Checkerboard activation on both components with both bridge incident vertices active simultaneously saturates all edges; for n>=3 at least one vertex is inactive, making that mask strictly realizable. Nearby x=1_A and y=x+eps 1_W attain equality without boundary ties. The n=2 two-mask case yields max(mu_i)/M. With unit weights internal tree-edge sums equal component size minus one, hence 2u(n-u)/n; nonstar tree has a nonpendant cut and path has a balanced cut. Independently enumerated all masks and edge-columns on sampled rational weighted trees of sizes 2..8 and matched the formula; no finite computation is used as infinite proof.
 
-Sampling comprises 210 rooted random tree realizations of orders 2 through 8 with independent integer masses and weights, not an exhaustive enumeration of all labeled weighted trees. The proof in `RESULT.md` supplies the all-finite-tree quantifiers. The exceptional two-vertex case is tested explicitly. The observed calculations do not establish originality or an independent scientific audit.
+## originality
+
+PASS
+
+The concrete external and published-record searches compared mathematical statements, operator domains, norms and implied subcases, not simply titles. Closest strong antecedents were read to their stated scope. No earlier theorem subsuming the final exact result was established. This is a best-of-knowledge conclusion, not priority certification; disclosed archival and nomenclature risks remain.
+
+## value
+
+PASS
+
+This theorem identifies a natural pairwise instability of weighted mean-centered ReLU under edge variation even while each single signal contracts. It gives an exact bridge-mass/weight law on every positively weighted tree, constructive equality masks and striking exact extremal consequences (path coefficient asymptotic n/2, stars optimal). The tree-cut geometry and simultaneous checkerboard saturation make it a structural nonlinear operator result, not an application of a known spectral inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

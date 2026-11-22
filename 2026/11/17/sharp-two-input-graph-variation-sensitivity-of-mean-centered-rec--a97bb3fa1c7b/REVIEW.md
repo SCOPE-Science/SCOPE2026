@@ -1,12 +1,21 @@
-# Review of sharp two-input variation for centered rectification
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof specifies a finite positively weighted tree, the weighted-mean positive-part map, and the exact seminorm. Every strict activation mask is realizable, so local Jacobians govern the global two-input modulus. Tree-edge step coordinates give an exact column-norm formula; the centered indicator has constant, opposite signs on the two sides of a deleted edge. Every internal edge and the crossing edge attain their separate upper bounds simultaneously under a checkerboard activation mask. A sufficiently small real input perturbation remains in that mask and attains equality. The two-vertex exceptional formula is handled explicitly. Exact-rational checks independently match every activation-mask column on 210 sampled weighted trees and test real attaining pairs; finite checks are corroboration, not proof.
+## correctness
 
-## Originality — PASS with residual risk
-Source and implication comparisons searched rectification, graph total variation, weighted mass centering, sharp two-input Lipschitz constants, cuts and equivalent terminology. Chambolle–Giacomini–Lussardi treat submodular discrete perimeters and coarea/continuum limits; Glorot–Bordes–Bengio treat rectifier activation modeling. The closest published graph truncation result supplies a graph-Sobolev (quadratic norm) two-input spectral formula for an *uncentered* positive part, not the present centered weighted-edge variation formula. The closest published median-filter two-input theorem uses a local order-statistic filter, not global centering and rectification. Their full accessible primary texts were compared at the statement and proof level. Own accessible research claims and the published semantic database did not reveal an equivalent; this is not proof of historical uniqueness. Older or unindexed formulations remain a residual risk.
+PASS
 
-## Mathematical value — PASS
-The theorem gives a complete, attained formula for arbitrary strictly positive vertex masses and edge-variation weights on any finite tree. It quantifies the instability of a natural thresholding layer despite one-input variation contraction; the unweighted specialization is a structural balanced-bridge invariant that grows linearly along paths while stars uniquely minimize it at each fixed order. The result explains the precise mechanism through activation patterns and a bridge-cut decomposition, rather than reporting only a finite computation or a renamed classical inequality. The tree restriction and alternative threshold rules are genuine limits.
+On every strict sign mask A of the mean-centered vector, the Jacobian is D_A(I-1 mu^T/M), and every nonempty proper mask is attainable at x=1_A. A root-based expansion of any perturbation into constant plus descendant cut indicators is an isometric edge jump-basis for weighted tree-TV; thus every fixed mask's induced norm is its maximal normalized bridge-column variation. On a deleted edge splitting U,W with a=mu(U)/M,b=mu(W)/M, its centered cut has values -b on U and a on W; internal edges contribute at most b w(E[U])+a w(E[W]), the bridge at most w_e. Checkerboard activation on both components with both bridge incident vertices active simultaneously saturates all edges; for n>=3 at least one vertex is inactive, making that mask strictly realizable. Nearby x=1_A and y=x+eps 1_W attain equality without boundary ties. The n=2 two-mask case yields max(mu_i)/M. With unit weights internal tree-edge sums equal component size minus one, hence 2u(n-u)/n; nonstar tree has a nonpendant cut and path has a balanced cut. Independently enumerated all masks and edge-columns on sampled rational weighted trees of sizes 2..8 and matched the formula; no finite computation is used as infinite proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The concrete external and published-record searches compared mathematical statements, operator domains, norms and implied subcases, not simply titles. Closest strong antecedents were read to their stated scope. No earlier theorem subsuming the final exact result was established. This is a best-of-knowledge conclusion, not priority certification; disclosed archival and nomenclature risks remain.
+
+## value
+
+PASS
+
+This theorem identifies a natural pairwise instability of weighted mean-centered ReLU under edge variation even while each single signal contracts. It gives an exact bridge-mass/weight law on every positively weighted tree, constructive equality masks and striking exact extremal consequences (path coefficient asymptotic n/2, stars optimal). The tree-cut geometry and simultaneous checkerboard saturation make it a structural nonlinear operator result, not an application of a known spectral inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
