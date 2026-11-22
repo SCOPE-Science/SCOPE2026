@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The affine determinant identity is verified directly and coincides with the published cubic-polynomial model. At each mixed cube corner the exact area identity, coordinate change, Jacobian, compact domination, and integrable logarithmic majorant give an \(L^1\) subdensity limit. The known exact scalar CDF normalizes the six disjoint corner contributions, excludes missing leading mass from the zero-set edges, and yields total-variation convergence. The conditional claim is valid for each fixed nondegenerate host triangle. The checker tests formulas at multiple scales, but its finite tests do not certify the infinite limit.
+## correctness
 
-## Originality — PASS, provisionally
-Maesumi's 2018 full preprint and 2019 author-hosted paper establish \(Q=XYZ+(1-X)(1-Y)(1-Z)\), its exact scalar CDF, and moments. These facts and the marginal \(Q/t\) beta law are excluded from novelty. The **claimed novelty** is joint total-variation convergence of the marked corner, logarithmic split and Dirichlet budget in the side-stratified **small**-area problem. The nearest other published mathematical research item concerns three interior-uniform points of a square conditioned on **maximal** area; it shares an analytic motif but its theorem does not imply this one. Relevant inclusion-depth results concern a fixed target's containment, not area-conditioned shape. Historical priority may still be affected by unindexed or inaccessible sources.
+PASS
 
-## Value — PASS
-The natural first-order scalar CDF is known, but says nothing about where sampled vertices concentrate or how the rare-area budget is divided. The theorem classifies six dominant corner configurations, the logarithmic family of relative approach rates, and the universal two-dimensional conditional geometry. It provides a principled rare-event sampling parameterization, and explains why the small-area tail carries a logarithm. This is a structural refinement of a classical geometric-probability model, not a renaming of the scalar CDF.
+Verified normalized area polynomial Q=XYZ+(1-X)(1-Y)(1-Z), six mixed corners, and exact local chart Q=xi eta+omega(1-xi-eta). For p=xi eta=ta and xi=p^u, eta=p^(1-u), omega=tb, independently computed |det(d(xi,eta)/d(p,u))|=|log p|, giving t²|log(ta)| da du db. On fixed delta=1/5 box, 0<a<=5/4, 0<b<=5/3, almost-everywhere indicator converges to 1(a+b<1,0<u<1), dominated by C(1+|log a|). L1 local subprobability density/(t² log(1/t)) tends to unit density on 3D simplex chart, mass 1/2 per corner. Maesumi exact scalar F_Q(t)=3t² log(1/t)+O(t²) makes outside-corner conditional mass negligible; normalizing yields corner 1/6, U uniform, density 2 on a+b<1 jointly in TV. Q/t->Beta(2,1) follows from A+B but not novel. The affine-invariant side-uniform domain and finite-threshold delta marking checked.
 
-## Boundaries and independent validation
-The theorem proves only the indicated conditional limit, without a finite-threshold error rate or claims about arbitrary nonuniform side distributions. The checker is numerical corroboration. Independent mathematical and historical validation remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Maesumi 2018/2019 established same polynomial and scalar CDF (hence Beta tail); neither the full primary paper nor related site sampled inclusion depth theorem supplies conditional marks, uniform log splitting and Dirichlet area-budget independence. A previously published square-interior near-maximal-area result has similar logarithmic-product/Dirichlet technique but different sampling distribution and opposite extremal event; it does not imply this law as a corollary.
+
+## value
+
+PASS
+
+A well-motivated marked rare-event geometry theorem: the known logarithmic small-area tail hides six inequivalent degeneration mechanisms and a conditional shape law. A full total-variation limit, independent scale splitting, and Dirichlet budget for a natural geometric model are precisely useful beyond an exact scalar area distribution. No novelty claimed for scalar tail or Beta marginal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
