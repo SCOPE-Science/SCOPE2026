@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof's necessary inequality follows directly from positive cycle equations and the predator multiplier ordering; it establishes \(R>p+1+p^{-1}\ge3\) for any positive primitive two-cycle. For the converse, explicit parameters enforce all four positive populations, \(0<r<1\), \(\gamma>0\), and exact two-step closure. Reversing the identities proves exhaustive parameterization. The exact rational witness and standalone checker were executed successfully; finite checks are corroborative only.
+## correctness
 
-## Originality — PASS within inspected evidence
-Shoyimardonov's 2025 manuscript defines only the \(R=2\) version and focuses on equilibria and Neimark–Sacker bifurcation. The closest published published-finding corpus record already excludes two-cycles for exactly this \(R=2\) map. The new statement instead characterizes the sharp universal existence boundary as \(R\) varies, and gives explicit full two-cycle parameterization above it. Targeted source/alias/broader-coverage searches returned no encompassing theorem. The complete closest published record could not be read: historical priority remains a material but non-decisive uncertainty, and absence from search is not treated as proof of uniqueness.
+PASS
 
-## Value — PASS
-The sharp intrinsic-growth threshold answers a natural structural bifurcation question not answered by fixed-growth stability calculations: for \(R\le3\) every biologically positive period-two oscillation is impossible, while for each \(R>3\) the parameters can be chosen to create one. The explicit parameterization provides a global coexistence-cycle feasibility description rather than a local example or a routine numerical observation.
+If a positive primitive cycle has prey ratio p=u/x>1 and predator ratio q=v/y, the increasing predator multiplier implies 0<q<1. The prey sums x+y=R-p and px+qy=R-1/p with q<p and y>0 imply R>p+1+1/p>=3. Conversely, for every R>3 choose p>1 sufficiently near 1 and q in (p^{-1/2},1). Solving linear prey sums gives positive x,y and u=px,v=qy; gamma=(1/q-q)/((p-1)x)>0, 1-r=(p q²-1)/(q(p-1)) in (0,1), so both predator multipliers equal q,1/q and both prey equations exactly close. Reversing identities gives every positive primitive cycle. Verified exact rational R=4 orbit and positivity; code samples are not existence proofs for all R.
 
-## Scientific limits
-The theorem gives no cycle stability, global attractor, higher-period, or positive-quadrant-invariance classification. The closest published full record was not accessible for exhaustive historical comparison.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original Shoyimardonov 2025 full text fixes R=2 and does not vary intrinsic prey growth. A separate fully inspected Resultary 2026-11-08 theorem excludes all nonnegative two-cycles at R=2 for every positive r,gamma; it is a strict slice of the proposed R<=3 nonexistence half and does not imply the sharp R>3 existence frontier or the p,q classification. No broader published fixed-growth or variable-R theorem was found in targeted searches; best-of-knowledge with residual risk.
+
+## value
+
+PASS
+
+The intrinsic growth parameter controls whether positive coexistence oscillations of prime period two are structurally possible at all. The sharp R=3 threshold and a complete explicit feasible-cycle parameterization provide a motivated global feasibility answer beyond fixed-growth stability/bifurcation analyses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
