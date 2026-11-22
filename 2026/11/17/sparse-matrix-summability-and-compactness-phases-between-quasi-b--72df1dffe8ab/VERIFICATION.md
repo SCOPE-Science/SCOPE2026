@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The statement has a complete analytic proof in RESULT.md. The cited Orlicz property of weakly 1-summable sequences in \(\ell_1\) is external and identified explicitly. The finite diagnostic script `verify_sparse.py` can be run with Python 3 standard library and returns `SPARSE_MATRIX_DIAGNOSTICS_OK 4403`. Those randomized and finite assertions do not establish infinite-dimensional claims. Independent audit and publication-priority certification have not been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+For 0<p,t<1 and at most d nonzeros per row, complex-phase subharmonic mean gives E||A(ζ_j u_j)||_t^t≥d⁻¹∑ c_j^t u_j^t; t-subadditivity gives reverse bound. Hölder/diagonal optimization yields boundedness iff c∈ℓ_{pt/(p−t)} for p>t, or bounded columns for p≤t. The ℓ1→ℓt version yields critical q_t=t/(1−t). A common geometrically scaled ℓ1-input witness gives nonsummability for all finite (r,s) if c∉ℓ_qt; otherwise factor via ℓ1 and apply Orlicz id_ℓ1∈Π_(2,1). For p>t finite-source-coordinate truncation makes all bounded operators compact; for p≤t exact tail norm and compact-column subsequence yields essential norm limsup c_j. Independent signed 2-entry row phase integration gave averages 1.0309,1.1093,1.2261 for t=.3,.6,.9 against required ≥1; these finite checks support but do not prove the infinite theorem.
+
+## originality
+
+PASS
+
+Araújo 2026 Proposition 2.5 already treats diagonal ℓ_p→ℓ_p, the common witness and compact diagonal examples; these inputs are credited. The presented signed arbitrary uniformly finite row overlap classification across independent p,t, target-only summability exponent, exact essential norm and compact signed difference example are not implied by diagonal results without the phase-averaged cancellation-control lemma. Older general matrix theory might dominate; publication priority remains qualified.
+
+## value
+
+PASS
+
+A natural complete boundedness/summability/compactness phase diagram for sparse matrices between nonlocally convex sequence spaces, insensitive to arbitrary complex cancellations. Provides a sharp nonnegative overlap constant and compact nonabsolutely summing signed examples, useful as exact classification beyond diagonal benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

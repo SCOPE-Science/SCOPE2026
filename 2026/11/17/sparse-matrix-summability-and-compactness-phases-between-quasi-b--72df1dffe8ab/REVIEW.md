@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The quantified object is a complex matrix with at most \(d\) entries in every row and column quasi-norms \(c_j\). A one-coordinate subharmonic mean inequality establishes the phase-averaged lower estimate; the \(t\)-subadditivity bound gives the upper estimate. The diagonal optimization gives the exponents \(r_{p,t}\) and \(q_t\) without any finite-to-infinite extrapolation. The \(\ell_1\) factorization and the cited Orlicz theorem prove the summing direction, while a single scaled weakly summable sequence proves the converse for every admissible pair. Compactness uses finite-input truncations and, in the noncompact regime, a coordinatewise-null column sequence with the \(t\)-power dominated-convergence identity. The positive merger attains the asserted sharp constant, and the explicit signed difference and rank-one boundary were checked analytically.
+PASS
 
-## Originality — PASS, with priority qualification
+For 0<p,t<1 and at most d nonzeros per row, complex-phase subharmonic mean gives E||A(ζ_j u_j)||_t^t≥d⁻¹∑ c_j^t u_j^t; t-subadditivity gives reverse bound. Hölder/diagonal optimization yields boundedness iff c∈ℓ_{pt/(p−t)} for p>t, or bounded columns for p≤t. The ℓ1→ℓt version yields critical q_t=t/(1−t). A common geometrically scaled ℓ1-input witness gives nonsummability for all finite (r,s) if c∉ℓ_qt; otherwise factor via ℓ1 and apply Orlicz id_ℓ1∈Π_(2,1). For p>t finite-source-coordinate truncation makes all bounded operators compact; for p≤t exact tail norm and compact-column subsequence yields essential norm limsup c_j. Independent signed 2-entry row phase integration gave averages 1.0309,1.1093,1.2261 for t=.3,.6,.9 against required ≥1; these finite checks support but do not prove the infinite theorem.
 
-Araújo's Proposition 2.5 gives a diagonal result for equal source and target exponent. Tomaz's earlier theorem proves lineability, and Maddox's 1987 theorem establishes a nonsumming identity; those claims are explicitly prior. Comparison with these accessible primary works, targeted searches, and the closest indexed mathematical records did not yield the signed finite-row-overlap, all-cross-exponent classification, its source/target compactness change, or its exact target-only summability threshold. The nearest weighted-composition result concerns one-input-entry rows and four s-number invariants, not the stated ideal equivalence. A general older signed sparse matrix result could nevertheless imply the present theorem; the available evidence is not an absolute novelty certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result is a natural complete phase classification of uniformly row-sparse operators between genuinely nonlocally convex sequence spaces. It supplies an invariant that is stable under arbitrary complex cancellation, a compactness transition at the source/target exponent boundary, a sharp positive overlap loss, and a robust signed compact family that defeats all finite absolute-summing conditions. These distinctions are motivated by recent compact nonsumming diagonal examples, rather than an arbitrary restricted computation.
+Araújo 2026 Proposition 2.5 already treats diagonal ℓ_p→ℓ_p, the common witness and compact diagonal examples; these inputs are credited. The presented signed arbitrary uniformly finite row overlap classification across independent p,t, target-only summability exponent, exact essential norm and compact signed difference example are not implied by diagonal results without the phase-averaged cancellation-control lemma. Older general matrix theory might dominate; publication priority remains qualified.
 
-## Scientific limits
+## value
 
-Only complex sequence spaces with \(0<p,t<1\) and uniformly bounded row support are covered. The signed lower constant is not claimed to be sharp. Computation checks finite diagnostics only; the proof rests on analytic inequalities and the stated classical Orlicz theorem. Independent review has not been completed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural complete boundedness/summability/compactness phase diagram for sparse matrices between nonlocally convex sequence spaces, insensitive to arbitrary complex cancellations. Provides a sharp nonnegative overlap constant and compact nonabsolutely summing signed examples, useful as exact classification beyond diagonal benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
