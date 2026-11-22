@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The Euclidean normalization is the inherited zero-sum hyperplane. The two spectral projectors and the rank-one deletion identity reconstruct the exact facet-normal Gram entries. The formula for \(F\) and four bivariate nonnegative-variable certificates exclude every unwanted positive off-diagonal entry. The facet-label ridge correspondence gives the exact multiplicity. Exact symbolic identities and direct rational Laplacian inversions verify the critical algebra, while the proof establishes the unbounded parameter range. The balanced first-order threshold and square-root asymptotic have independently checkable formulas.
+## correctness
 
-## Originality
-PASS on currently available evidence, with provisional historical priority. Closest published introductions emphasize Ehrhart and lattice geometry; the resistance-simplex construction is a geometrically different realization; published complete-bipartite Laplacian-simplex work describes a circumsphere-contact phenomenon and random normal cones rather than the edge-deletion angle sign phase. Searches of direct phrases, graph/parameter aliases and exact inequalities did not identify implication of this threshold. Relevant more remote or unindexed literature remains a risk.
+PASS
 
-## Mathematical value
-PASS. A single missing edge alters an all-acute infinite family in a sharply parameter-dependent way; the exact critical quantity \(pq\) yields a nontrivial first transition at dimension 24 (graph order 25) and a smaller-shore stability scale of order \(\sqrt n\). This is a complete natural sign classification for all ridges and every dimension/shore pair, not a single small-case computation or renaming of a known radius theorem.
+Verified rank-one inverse identity L′⁺=G+c(Gb)(Gb)^T with c=pq/[(p−1)(q−1)] by spectral projectors and b^TGb=(n−1)/pq. Independently derived all four group entries of K′=((L′)⁺)^2 symbolically, including exact K′_{a0,b}=K′_{a,b0}=F/[(p−1)^2(q−1)^2 n^3] and negative factor forms for other types. The provided positive-coefficient polynomials H1–H4 establish all-size negativity of remaining off-diagonal terms. Exact direct pseudoinverse calculations at (p,q)=(2,2),(3,5),(5,7),(11,14) match signs and mixed values. Exhaustively checked n=4..24 positivity and first nonpositive n=25 at (11,14) with F=−86. Facet-normal Gram K′ controls interior angle cos=−K′ij/sqrt(K′ii K′jj); the √n+5/2 asymptotic follows from positive quadratic root expansion.
 
-## Limitations
-Only one unweighted missing cross-edge is treated. No all-edge-deletion generalization, complete metric-angle enumeration, or independent historical-priority audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The pertinent metric is the Laplacian-column simplex normal Gram L⁺², not the effective-resistance simplex whose Gram is L⁺; existing undeleted Kpq metric results and original Ehrhart/lattice theory do not imply the one-edge deletion sign phase, exact n=25 boundary or sqrt(n) threshold. Best-of-knowledge, with limited original-literature sections read.
+
+## value
+
+PASS
+
+A single deleted edge changes geometric acuteness in a structured highly symmetric family. The exact sharp threshold, first dimension and square-root scaling are a meaningful and surprising stability boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
