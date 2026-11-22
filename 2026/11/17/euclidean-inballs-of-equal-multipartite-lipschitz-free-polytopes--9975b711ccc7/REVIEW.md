@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The polar of the finite real Lipschitz-free unit ball is the centered Lipschitz-potential polytope in the same intrinsic Euclidean space. The proof bounds the variance of all potentials: range at most one obeys the sharp centered Popoviciu bound, while range over one forces extreme values into a single part and hence a bounding coordinate box. Convexity in every coordinate reduces the maximum to endpoint configurations. Exact square completion gives the formula and even cardinalities attain it. Signed opposite contact facets give global inradius optimality; the exhibited contact-normal spans force unique center. Facet multiplicities follow from fully characterized maximizing endpoint assignments, with strict convexity excluding hidden interior maximizers. Exact-rational external-to-the-formula tight-tree enumeration for six points and larger endpoint-profile tests support, but do not replace, the all-parameter argument.
+## correctness
 
-## Originality — PASS, with stated historical risks
-The closest directly relevant existing result concerns **facet enumeration** in interpolated complete multipartite Lipschitz-free balls, and earlier graph-metric work treats the \(t=2\) endpoint. Neither the accessible full texts nor the available result summary establishes the Euclidean inradius, unique incenter, sharp \(5/3\) transition or rational tangent-facet resonances. Earlier maximum-Lipschitz-variance results are mathematically adjacent; an equivalent formula under the name graph spread remains a genuine historical-priority risk. The closest interpolated multipartite result's full document was not accessible for inspection, so no whole-document noncoverage is asserted.
+PASS
 
-## Mathematical value — PASS
-The work completely determines a natural Euclidean invariant, its uniqueness geometry and an arithmetic contact stratification across every even-sized equal multipartite metric with at least three parts. The fact that only three parts admit an interior phase transition, while four or more parts have a constant exact inradius throughout the interpolation, gives a structural distinction invisible in facet counts. Rational resonance jumps reveal additional information beyond the maximum variance value and can be used to study contact geometry and stability.
+PASS. Reconstruct centered polarity P={f∈1^⊥:|f_i−f_j|≤d(i,j)} and global symmetry of K. For potential range≤1, Popoviciu gives max variance N/4; for r>1, both extremes lie in one part and every optimum over the enclosing intervals is at endpoints. The exact completed-square formula V=m[r²+(k−1)(2−r)²]/4−[r(q−m/2)+(r−2)(s−L/2)]²/N and convexity in r force max of endpoints r=1 or r=t, attained because m and (k−1)m are even. Difference m(t−1)(kt−3k+4)/4 produces only tripartite t=5/3 crossover. Tight-edge connectivity establishes each contact potential is an actual polar vertex, and balanced/active contact normals span 1^⊥, yielding unique incenter; integer relation counts resonances without double count. Independent rational spot checks include (k,m,t)=(3,2,5/3) V=3/2 contacts 56 and (3,6,12/7) V=228/49 contacts 55530. Conditions k≥3, even m, 1<t<2 and canonical Euclidean norm are essential.
 
-## Limits
-Only equal even part sizes and strict interpolation \(1<t<2\) are proved; no claims are made about unequal or odd-sized parts, arbitrary Euclidean embeddings, or historical uniqueness of the variance expression. Formal independent auditing has not taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: a full published theorem for precisely the same interpolated metric already counts all facets, but does not give their Euclidean tangent subset, sharp global inradius, unique optimal center or rational resonance count. A separate Euclidean inradius theorem concerns graph-metric endpoint t=2. The current exact interior transition at t=5/3 and contact stratification are not implied by those comparator statements; historical graph-spread alternatives remain a qualified risk.
+
+## value
+
+PASS
+
+PASS. A natural family of transportation/Lipschitz-free balls undergoes a genuine interior inradius phase transition and arithmetic contact-facet resonances invisible to total facet counts. Exact global incenter uniqueness and tangency strata are motivated Euclidean invariants; bounded not an arbitrary tiny case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
