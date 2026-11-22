@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "For μ,S,u,v>0, the stable 3x3 Lyapunov equation has a unique solution. The exact control determinant is p²(S²-4p)/[32μ(μ+S)²(4μ²+4μS+3p)²(μ²+2μS+3p)], obtained by exact Cauchy and Kalman determinant identities and independently reconstructed symbolically by solving nine Lyapunov equations. A quadratic Q in normalized p has positive leading coefficient and negative constant for every damping ratio, hence exactly one positive stationary root; F vanishes on each product-domain boundary and has a unique interior global maximum. The positive root is <1/6, monotone with damping, and its small/large damping expansions follow via nonsingular rescaled polynomial roots. Exact symbolic checker replayed successfully; finite root illustrations do not establish infinite parameter statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cortesi–Summers–Lygeros 2014 prove submodularity under actuator subset selection for a fixed system.",
+        "Becker–Pequito–Pappas–Preciado 2019 tune weights for constraints on the least Gramian eigenvalue and inverse trace under polytopal bounds, not explicit determinant maximization on this system.",
+        "Pasqualetti–Zampieri–Bullo 2013 focus network energy and numbers of actuators."
+      ],
+      "reasoning": "General solvability and actuator-placement theorems do not imply the unique global edge-weight optimum for a determinant when the graph weights themselves are decision variables. The later weight-design work uses different objectives and did not yield the same closed classification in its inspected material.",
+      "searches": [
+        "log determinant Lyapunov controllability Gramian three-vertex star finite positive damping edge budget",
+        "network star hub actuator independent leaf weights controllability Gramian volume determinant",
+        "star graph controllability Gramian determinant optimal edge conductance budget Laguerre polynomial zeros high damping",
+        "Vandermonde controllability star Laplacian edge weights D optimal infinite horizon Gramian asymptotic Laguerre",
+        "arXiv:1403.6351 full HTML",
+        "arXiv:1902.04195 abstract"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1308.1201 (full HTML)",
+      "arXiv:1403.6351 (full HTML)",
+      "arXiv:1902.04195 (abstract only)",
+      "published-finding corpus:2026/10/13/SCOPE-a-complete-d-optimal-single-sensor-classification-on-weighted-di--860ca1cdc9c7 (full RESULT.md)",
+      "published-finding corpus:2026/10/12/SCOPE-exact-reachability-volume-factorization-for-a-cycle-with-one-wei--1ddd581661b4 (ranked summary)",
+      "published-finding corpus:2026/10/13/SCOPE-horizon-universal-spectral-majorization-for-a-damped-cyclic-actu--50b398f70222 (ranked summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The star sensor record gives w_j^{m-1}/∏_{i≠j}|w_j-w_i| for location choice at fixed weights; two equal weights make its hub unobservable.",
+        "The perturbed-cycle record gives a Kalman rank factor under one fixed edge defect, not the Lyapunov spectral Cauchy factor with damping and optimal weight budget.",
+        "The 2013 control energy framework establishes a network control energy benchmark and not the stated quadratic optimum."
+      ],
+      "reasoning": "Standard Kalman rank and Cauchy determinant identities are acknowledged prior mathematical tools. They yield the 3-node objective after a problem-specific derivation but are not already the theorem (which additionally proves a unique global budget optimum, damping monotonicity and singular-limit asymptotics). The published-finding corpus sensor classification can imply vanishing hub controllability at equal spokes, but not the identity or asymmetric optimizer.",
+      "searches": [
+        "published-finding corpus:2026/10/13/SCOPE-a-complete-d-optimal-single-sensor-classification-on-weighted-di--860ca1cdc9c7",
+        "published-finding corpus:2026/10/12/SCOPE-exact-reachability-volume-factorization-for-a-cycle-with-one-wei--1ddd581661b4",
+        "published-finding corpus:2026/10/13/SCOPE-horizon-universal-spectral-majorization-for-a-damped-cyclic-actu--50b398f70222",
+        "arXiv:1308.1201",
+        "arXiv:1403.6351",
+        "arXiv:1902.04195"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The same object can be described as infinite-horizon observability from a single hub for the symmetric stable diffusion generator by controllability/observability duality.",
+        "published-finding corpus 2026/10/13/SCOPE-a-complete-d-optimal-single-sensor-classification-on-weighted-di--860ca1cdc9c7 ranks one sensor on a fixed weighted star at finite time, not conductances.",
+        "arXiv:1308.1201 discusses control-energy metrics and leader selection, rather than the full asserted edge-budget D optimum."
+      ],
+      "reasoning": "Exchanging an actuator and an observer leaves a fixed-conductance Gramian determinant unchanged in this symmetric model, but does not turn a fixed-weight location ranking into the conductance optimization over u+v=S. The exact derivative quadratic and both asymptotics are new claim-specific ingredients beyond standard Cauchy formula.",
+      "searches": [
+        "three node weighted path hub actuator optimal infinite horizon controllability Gramian determinant unique product of edges damping",
+        "optimal two conductance allocation damped 3-state network reachability volume μ 1/6",
+        "published-finding corpus:2026/10/13/SCOPE-a-complete-d-optimal-single-sensor-classification-on-weighted-di--860ca1cdc9c7",
+        "arXiv:1308.1201 full HTML"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual published-finding corpus ranked searches returned no directly matching quadratic, weak-spoke scaling or optimized determinant coefficient.",
+        "The fixed-star sensor theorem, perturbed-cycle Kalman factorization, and damped cyclic actuator majorization closest hits have different decision variables, objects, or objectives."
+      ],
+      "reasoning": "No exact precomputed polynomial or optimization table was found among checked accessible records. Search is a finite index query, not an exhaustive novelty proof.",
+      "searches": [
+        "three node weighted path hub actuator optimal infinite horizon controllability Gramian determinant unique product of edges damping",
+        "optimal two conductance allocation damped 3-state network reachability volume μ 1/6",
+        "log determinant Lyapunov controllability Gramian three-vertex star finite positive damping edge budget",
+        "network star hub actuator independent leaf weights controllability Gramian volume determinant",
+        "published-finding corpus:2026/10/13/SCOPE-a-complete-d-optimal-single-sensor-classification-on-weighted-di--860ca1cdc9c7",
+        "published-finding corpus:2026/10/12/SCOPE-exact-reachability-volume-factorization-for-a-cycle-with-one-wei--1ddd581661b4",
+        "published-finding corpus:2026/10/13/SCOPE-horizon-universal-spectral-majorization-for-a-damped-cyclic-actu--50b398f70222"
+      ]
+    },
+    "rationale": "Compared implications, not title overlap. The accessible prior control-energy and actuator-selection frameworks do not fix the hub and optimize the two continuous positive conductances under a fixed total budget for the infinite-horizon determinant; the exact quadratic global optimum and singular weak-link law were not recovered in inspected primary material. Some possible unindexed equivalences remain publication priority risks.",
+    "residual_risks": [
+      "Earlier control literature could contain an equivalent three-state optimum under a different parametrization or actuator/observer duality.",
+      "The full text of the later edge-weight design paper was not compared; its abstract specifies different Gramian metrics.",
+      "published-finding corpus ranked searches cover only indexed material and cannot certify priority or independence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Energy and actuator-placement framework; no fixed-budget two-spoke infinite-horizon determinant optimum found in inspected full text.",
+        "evidence": [
+          "arXiv:1308.1201 initial public submission 2013-08-06",
+          "Study is discrete-time network-energy metric and control-node selection; contrast with damped continuous-time fixed hub and conductance optimization."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1308.1201v3",
+        "material_read": "HTML abstract, network model, control-energy sections, main results, examples, conclusion and appendices",
+        "method": "Open-access HTML primary full-text review; statement and implication comparison",
+        "title": "Controllability Metrics, Limitations and Algorithms for Complex Networks",
+        "trigger": "Focal pre-2016 network controllability benchmark"
+      },
+      {
+        "assessment": "Fixed dynamics, select actuator subsets, not maximize determinant by varying symmetric Laplacian edge conductances.",
+        "evidence": [
+          "arXiv:1403.6351 submitted 2014-03-25",
+          "Subset-function submodularity not a global continuous two-weight allocation law."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1403.6351v1",
+        "material_read": "Open HTML text: objectives, submodularity statements, fixed-system input set problem and conclusion",
+        "method": "Open-access HTML primary full-text inspection and optimization-variable comparison",
+        "title": "Submodularity of Energy Related Controllability Metrics",
+        "trigger": "D-logdet Gramian optimization close framework"
+      },
+      {
+        "assessment": "Optimizes sensor vertex j at fixed conductances and finite horizon for undamped full state, rather than edge weights with hub fixed and positive leakage; does not imply the present optimum.",
+        "evidence": [
+          "Finite-horizon ratios based on w_j^{m-1}/∏_{i≠j}|w_j-w_i|",
+          "Explicitly excludes infinite-horizon positive damping and conductance budget design."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-a-complete-d-optimal-single-sensor-classification-on-weighted-di--860ca1cdc9c7",
+        "material_read": "Entire public RESULT.md, including theorem, proof, comparisons and limitations",
+        "method": "GitHub repository file fetch and explicit model/quantifier comparison",
+        "title": "A complete D-optimal single-sensor classification on weighted diffusion stars",
+        "trigger": "Identical star topology, D-optimal Gramian and potential strong coverage"
+      },
+      {
+        "assessment": "Genuinely relevant edge design, but objective least Gramian eigenvalue/inverse trace; residual risk of stronger unreviewed full content.",
+        "evidence": [
+          "2019 network edge weight tuning under polytopal bounds and different controllability metrics."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1902.04195",
+        "material_read": "Abstract and source metadata (full article not inspected)",
+        "method": "Accessible abstract and objectives comparison",
+        "title": "Network Design for Controllability Metrics",
+        "trigger": "Directly related edge-weight design"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8bab5bdd-fc04-4a64-9f27-508baec4d4fe",
+  "value": {
+    "rationale": "The exact object is the smallest star whose single hub control can be full rank, the objective is reachability ellipsoid volume, and a fixed total conductance is a natural physical design constraint. The theorem classifies all optimizers for every positive damping ratio, proves a counterintuitive asymmetric limit, and exhibits an optimized μ^{-2} versus any fixed distinct design μ^{-1} volume determinant law. That sharp asymptotic tradeoff is more than a textbook normalization or small numerical table; it provides a benchmark for topology-constrained control-network design.",
+    "status": "PASS"
+  }
+}
