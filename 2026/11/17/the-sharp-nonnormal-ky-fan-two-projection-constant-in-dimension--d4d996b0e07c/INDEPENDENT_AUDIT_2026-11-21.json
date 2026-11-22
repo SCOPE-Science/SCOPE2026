@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-21",
+  "audited_at_utc": "2026-11-21T17:37:54.270108Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For singular values s1>=s2>=s3 the identity A=(s1-s2)R1+2(s2-s3)R2+2s3R3 has nonnegative coefficients summing to s1+s2, with partial-isometry R1=UE1V*, R2=UE2V*/2, R3=UE3V*/2, all Ky Fan-two norm1. Rank2 is bounded by ||C(R2)||_(2) <=sqrt(2)||C(R2)||_F <=1. Rank3 is U/2 with unit-circle eigenvalues; pairwise separation and quadratic (10+2c-8c²) give <=3/(2sqrt2)<1/2+sqrt6/4. Any rank1 partial isometry is unitarily conjugate, up to phase, to matrix first row (r,sqrt(1-r²),0); centred top block has sum of two singular values1 and the discarded smaller singular value <=r/3, giving ||C(R1)||_(2)=(1+sqrt(1-8r²/9))/2+r/3, uniquely maximized at r²=3/8. This real rank1 witness gives equality. Averaging arbitrary real-linear traceless projection over O(3) or U(3) conjugation kills its traceless value on identity/complex scalar trace, yielding C without increasing norm, proving minimality. On Hermitian matrices scalar eigenvalue triples reduce to finite signed extreme points; centering norm<=1, equality at (1,0,0). Independently checked explicit witness and 1200 real/complex random partial isometries; finite sampling is not the operator norm proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Foucart §4 covers general unitarily invariant norms and gives the bound 2-2/n=4/3 for n3,k2, above the claimed 1/2+sqrt6/4.",
+          "The full matrix 3×3 unit ball has nonnormal rank1 extremizers absent from Hermitian proof."
+        ],
+        "reasoning": "Greater generality in dimension and norm class does not dominate a sharp constant not explicitly/equivalently specified; self-adjoint is a smaller domain.",
+        "searches": [
+          "Foucart 2016 Theorem 1 Theorem 3 Corollary 4",
+          "Resultary sharp Ky Fan self-adjoint projections"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and check_constant.py",
+        "https://foucart.github.io/publi/CompMinExt.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-ky-fan-projection-constants-for-traceless-self-adjoint-mat--6d008ce6beb4",
+        "Resultary semantic search: minimal projection onto traceless three by three matrices Ky Fan two norm exact 1/2 plus sqrt6/4 nonnormal"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Foucart 4/3 upper bound and 1 lower bound leave a nontrivial interval containing the new exact constant.",
+          "Hermitian norm1 does not imply full norm1 and is contradicted by the explicit nonnormal witness."
+        ],
+        "reasoning": "The exact nonnormal induced norm is not an elementary numeric specialization of earlier endpoint formulas; the extra rank-one optimization is essential.",
+        "searches": [
+          "Foucart 2016 Corollary 4 intermediate ranks",
+          "self-adjoint Ky Fan projection formula 2026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Foucart Theorem 1 says trace-centering is norm-minimizing but does not give this particular induced norm; Corollary 4 only bounds intermediate ranks.",
+          "Published self-adjoint formula yields norm1 in dimension3 rank2, distinct from full nonnormal matrices."
+        ],
+        "reasoning": "The norm of a known minimal projection is a separate optimization, not automatically obtained from its minimality or the restricted self-adjoint formula.",
+        "searches": [
+          "minimal projection onto traceless three by three matrices Ky Fan two norm exact 1/2 plus sqrt6/4 nonnormal",
+          "Foucart 2016 computation minimal projections extensions Ky Fan Corollary 4",
+          "sharp Ky Fan projection constants traceless self-adjoint matrices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independently prior exact radical constant found in targeted Resultary searches; the only matching result is the same-day finding under audit.",
+          "The explicit rank-one matrix produces 1/2+sqrt6/4 and is absent from the examined Foucart intermediate-rank corollary."
+        ],
+        "reasoning": "No exact database/table is relevant to this small matrix norm; the exact constant requires continuous optimization, and old bounds do not supply it.",
+        "searches": [
+          "minimal projection onto traceless three by three matrices Ky Fan two norm exact 1/2 plus sqrt6/4 nonnormal",
+          "1/2 sqrt6/4 Ky Fan 2 traceless 3 3 projection trace centering"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of the exact mathematical statement/implications with named primary sources and published research; no independently earlier equivalent or dominating theorem found among inspected material. Same-day matching Resultary entries were excluded as independent prior evidence. Specific inaccessible texts and older alias risks are retained; negative searches are not treated as proof of uniqueness.",
+      "residual_risks": [
+        "An older unindexed symmetric-gauge or operator-space norm computation could contain the same n=3,k=2 constant.",
+        "Only 3×3 and Ky Fan rank2 covered, not arbitrary rank or dimension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING",
+          "evidence": "Theorem 1 supplies minimality, and Corollary 4 gives a nonsharp 4/3 upper bound at n3 k2; exact 1/2+sqrt6/4 and nonnormal maximizing rank1 were not asserted in inspected text.",
+          "identifier_or_url": "https://foucart.github.io/publi/CompMinExt.pdf",
+          "material_read": "Open author manuscript §4 including Theorem 1, Theorem 3 and Corollary 4; PDF pages were visually inspected",
+          "method": "lawful open author PDF, full relevant mathematical section and PDF page screenshots",
+          "title": "Computation of Minimal Projections and Extensions",
+          "trigger": "Closest highly relevant primary mathematical theorem"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Self-adjoint subspace has sharp norm1 at n3 rank2, strictly below nonnormal witness; cannot imply full matrix constant.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-ky-fan-projection-constants-for-traceless-self-adjoint-mat--6d008ce6beb4",
+          "material_read": "Published finding statement about Hermitian and symmetric 3x3 special case",
+          "method": "Resultary published theorem summary and parameter/subspace comparison",
+          "title": "Sharp Ky Fan projection constants for traceless self-adjoint matrices",
+          "trigger": "Potential same-day competing result"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY",
+          "evidence": "Singular-value majorization and Ky Fan norms are classical; this source is not used to certify a new exact projection constant.",
+          "identifier_or_url": "https://link.springer.com/book/10.1007/978-1-4612-0653-8",
+          "material_read": "Book bibliographic context only; not asserted fully read",
+          "method": "bibliographic/secondary contextual reference",
+          "title": "Matrix Analysis",
+          "trigger": "Standard Ky Fan norm background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first genuine intermediate Ky Fan rank in the first eligible dimension has a natural exact minimum projection constant. It strictly separates nonnormal full-matrix trace removal (about 1.11237) from its Hermitian counterpart (1) and improves the earlier 4/3 intermediate-rank bound to an attained value. This is a useful sharp finite-dimensional stability invariant even without higher-dimensional generalization.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md and check_constant.py",
+    "https://foucart.github.io/publi/CompMinExt.pdf",
+    "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-ky-fan-projection-constants-for-traceless-self-adjoint-mat--6d008ce6beb4",
+    "Resultary semantic search: minimal projection onto traceless three by three matrices Ky Fan two norm exact 1/2 plus sqrt6/4 nonnormal"
+  ],
+  "disposition": "passed",
+  "final_claim": "For all real or complex 3×3 matrices, trace-centering C(A)=A-(tr A/3)I has exact induced Ky Fan-two norm 1/2+sqrt(6)/4; it is norm-minimal among all real-linear projections onto traceless matrices. A real nonnormal rank-one matrix attains the constant, whereas the self-adjoint restriction has norm exactly 1.",
+  "limitations": [
+    "Exactly 3×3 real or complex matrices with unnormalized Ky Fan-two norm.",
+    "Not a classification of all maximizing inputs or uniqueness of minimizing projections."
+  ],
+  "residual_risks": [
+    "An older unindexed symmetric-gauge or operator-space norm computation could contain the same n=3,k=2 constant.",
+    "Only 3×3 and Ky Fan rank2 covered, not arbitrary rank or dimension."
+  ],
+  "schema_version": 1
+}

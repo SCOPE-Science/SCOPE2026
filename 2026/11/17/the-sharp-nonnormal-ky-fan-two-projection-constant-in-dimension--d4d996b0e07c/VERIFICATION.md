@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-21.md",
+      "INDEPENDENT_AUDIT_2026-11-21.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytical proof in `RESULT.md` is self-contained and covers all real and complex matrices of order three. The source comparison uses the accessible author manuscript of Foucart's 2016 article, especially §4, Theorem 1, Theorem 3 and Corollary 4. The exact radical is supported by the rank-one singular-value calculation; the full-rank bound is strict and does not rely on sampled unitary matrices.
+## correctness
 
-Run `python3 check_constant.py` with Python 3 and NumPy. The checker evaluates the rational critical identities, the exact extremizing real matrix to numerical tolerance, 3,000 seeded real/complex partial-isometry tests and a finite unitary-eigenangle grid. Numeric tests are corroboration, not an exhaustive matrix search. The full proof does not rely on randomized evidence.
+PASS
 
-The independent audit channel is not performed; no independent verification or certification is asserted.
+For singular values s1>=s2>=s3 the identity A=(s1-s2)R1+2(s2-s3)R2+2s3R3 has nonnegative coefficients summing to s1+s2, with partial-isometry R1=UE1V*, R2=UE2V*/2, R3=UE3V*/2, all Ky Fan-two norm1. Rank2 is bounded by ||C(R2)||_(2) <=sqrt(2)||C(R2)||_F <=1. Rank3 is U/2 with unit-circle eigenvalues; pairwise separation and quadratic (10+2c-8c²) give <=3/(2sqrt2)<1/2+sqrt6/4. Any rank1 partial isometry is unitarily conjugate, up to phase, to matrix first row (r,sqrt(1-r²),0); centred top block has sum of two singular values1 and the discarded smaller singular value <=r/3, giving ||C(R1)||_(2)=(1+sqrt(1-8r²/9))/2+r/3, uniquely maximized at r²=3/8. This real rank1 witness gives equality. Averaging arbitrary real-linear traceless projection over O(3) or U(3) conjugation kills its traceless value on identity/complex scalar trace, yielding C without increasing norm, proving minimality. On Hermitian matrices scalar eigenvalue triples reduce to finite signed extreme points; centering norm<=1, equality at (1,0,0). Independently checked explicit witness and 1200 real/complex random partial isometries; finite sampling is not the operator norm proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of the exact mathematical statement/implications with named primary sources and published research; no independently earlier equivalent or dominating theorem found among inspected material. Same-day matching Resultary entries were excluded as independent prior evidence. Specific inaccessible texts and older alias risks are retained; negative searches are not treated as proof of uniqueness.
+
+## value
+
+PASS
+
+The first genuine intermediate Ky Fan rank in the first eligible dimension has a natural exact minimum projection constant. It strictly separates nonnormal full-matrix trace removal (about 1.11237) from its Hermitian counterpart (1) and improves the earlier 4/3 intermediate-rank bound to an attained value. This is a useful sharp finite-dimensional stability invariant even without higher-dimensional generalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

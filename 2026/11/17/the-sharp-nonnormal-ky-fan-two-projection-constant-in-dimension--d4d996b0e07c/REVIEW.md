@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The input space is all real or complex \(3\times3\) matrices, with the Ky Fan-two norm equal to the sum of the two largest singular values. A singular-value-cone decomposition reduces every unit-ball input to three classes of partial isometries (rank one, rank two, and full rank) with total coefficient at most one. Rank two is bounded by Frobenius nonexpansivity; the full-rank class is bounded by an explicit unit-circle three-point inequality; rank one has an exact one-variable singular-value expression maximized at overlap squared \(3/8\). An explicit nonnormal real matrix attains the result. Orthogonal/unitary conjugation averaging independently proves the minimum projection claim, including real-linear projections on complex matrices. The self-adjoint comparison is independently proved by scalar extreme-point reduction. Exact symbolic identities and representative numerical matrices were checked using the packaged script. No extrapolation from finite enumeration is made.
+PASS
 
-## Originality — PASS (qualified)
+For singular values s1>=s2>=s3 the identity A=(s1-s2)R1+2(s2-s3)R2+2s3R3 has nonnegative coefficients summing to s1+s2, with partial-isometry R1=UE1V*, R2=UE2V*/2, R3=UE3V*/2, all Ky Fan-two norm1. Rank2 is bounded by ||C(R2)||_(2) <=sqrt(2)||C(R2)||_F <=1. Rank3 is U/2 with unit-circle eigenvalues; pairwise separation and quadratic (10+2c-8c²) give <=3/(2sqrt2)<1/2+sqrt6/4. Any rank1 partial isometry is unitarily conjugate, up to phase, to matrix first row (r,sqrt(1-r²),0); centred top block has sum of two singular values1 and the discarded smaller singular value <=r/3, giving ||C(R1)||_(2)=(1+sqrt(1-8r²/9))/2+r/3, uniquely maximized at r²=3/8. This real rank1 witness gives equality. Averaging arbitrary real-linear traceless projection over O(3) or U(3) conjugation kills its traceless value on identity/complex scalar trace, yielding C without increasing norm, proving minimality. On Hermitian matrices scalar eigenvalue triples reduce to finite signed extreme points; centering norm<=1, equality at (1,0,0). Independently checked explicit witness and 1200 real/complex random partial isometries; finite sampling is not the operator norm proof.
 
-Foucart, *Computation of Minimal Projections and Extensions*, §4, Theorem 1 and Corollary 4, was read in the open author PDF. Theorem 1 gives norm-minimizing trace-centering, and Corollary 4 gives only a nonsharp intermediate Ky Fan bound of \(4/3\) in the present dimension; neither asserts the exact \(1/2+\sqrt6/4\) constant. The separate self-adjoint result concerns Hermitian matrices, where the constant equals one, and therefore cannot imply this full-matrix formula. Targeted mathematical-record searches for the operator, parameter, radical constant and equivalent traceless/symmetric-gauge formulations produced no exact match. An unindexed older finite-dimensional matrix-norm result remains possible, and this review is not a historical-priority certification.
+## originality
 
-## Value — PASS
+PASS
 
-Dimension three is the first size supporting a genuine intermediate Ky Fan norm. The theorem determines the corresponding natural zero-trace minimum-projection constant and locates its extremizer among nonnormal rank-one matrices, despite contraction on the self-adjoint subspace. It also improves the explicit older upper bound \(4/3\) to a sharp achieved value. The distinction matters in applying trace removal to general nonselfadjoint matrices; no general-dimensional theorem is claimed or needed for the precise boundary question.
+Best-of-knowledge comparison of the exact mathematical statement/implications with named primary sources and published research; no independently earlier equivalent or dominating theorem found among inspected material. Same-day matching Resultary entries were excluded as independent prior evidence. Specific inaccessible texts and older alias risks are retained; negative searches are not treated as proof of uniqueness.
 
-## Limits
+## value
 
-Only matrix dimension three and Ky Fan rank two are resolved. The proof does not classify every extremizer or all minimal projections. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first genuine intermediate Ky Fan rank in the first eligible dimension has a natural exact minimum projection constant. It strictly separates nonnormal full-matrix trace removal (about 1.11237) from its Hermitian counterpart (1) and improves the earlier 4/3 intermediate-rank bound to an attained value. This is a useful sharp finite-dimensional stability invariant even without higher-dimensional generalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
