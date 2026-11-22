@@ -1,19 +1,21 @@
-# Scientific review: exact cubic Gaussian Fock sampling
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-All sixteen polarized Gaussian moments follow from the explicit six-node design; the standalone SymPy checker verifies forty-four exact identities. A universal real-quadratic annihilator reduces every at-most-five-point putative design to two perpendicular axes. Three odd moments force antipodal paired sites and yield incompatible sixth radial moment. A second Vandermonde proof classifies every centrally symmetric six-node rule. Neither theorem uses finite enumeration for a universal conclusion.
+PASS
 
-## Originality: PASS relative to inspected literature
+PASS: Polarization reduces the norm identity to 16 exact complex bidegree moments sum w z^j zbar^k=j!delta_jk for 0<=j,k<=3. At N<=5, a nonzero real quadratic Q vanishes on all nodes. Integrating Q,Qz,Q zbar and Q(|z|²-1) through those 16 moments forces the coefficients of |z|², z,zbar,constant to zero, leaving a nonzero harmonic quadratic whose zero set is two perpendicular lines. On each line, three odd moments and <=3 occupied sites force a single equal-weight antipodal pair; from second and fourth moments each line has radius²=2 and contributes sixth moment 2, summing 4 instead of required 6. Thus no-five-node impossibility is analytic, not numerical. At six sites ±sqrt((5±sqrt17)/2), ±i sqrt2 with claimed weights, independently checked all sixteen symbolic moments exactly using SymPy. In the centrally symmetric case, three distinct squared radii and the two even off-diagonal moments force opposite axes and the middle radius²=2; the remaining two-atom real radial moments force roots of s²-5s+2 and unique positive masses, while Vandermonde odd moments force equal within antipodal pairs. Unrestricted six-node uniqueness not claimed.
 
-Full relevant scientific statements were compared by actual domain and implication. Quadratic Fock exact sampling (four sites) has weaker moment degree; continuous near-tight discretization and finite-degree-uniform sampling are different problems; circle-only Gaussian designs exclude the three distinct radii used here. There is an explicit risk of an equivalent old Gaussian cubature rule under different terminology, especially in incompletely accessible historical monographs. The searches do not independently certify priority.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The minimum exact positive sample size is a natural sharp complexity invariant for finite-dimensional coherent-state reconstruction. The cubic case is a complete, nontrivial exact next step beyond quadratic sampling: it includes a global lower bound for arbitrary node configurations, an algebraic positive construction and rigidity in the natural centrally symmetric class. The result is neither numerical enumeration nor rescaling of a known table.
+PASS best-of-knowledge: prior quadratic-Fock exact four-node result concerns degree two, and one-radius sampling rigidity excludes multi-radius designs. General Fock Marcinkiewicz–Zygmund inequalities and Gaussian quadrature theory do not, in inspected parts, give the exact cubic mixed-bidegree six-node minimality with central symmetry classification; older Gaussian cubature tables remain material priority risk.
 
-## Limits
+## value
 
-The positive point rule covers only cubic holomorphic polynomials with the normalized Gaussian norm, with no uniqueness claim for nonsymmetric six-node designs or for degree-uniform sampling. The checker confirms construction but not universal minimality or literature priority; those need the arguments and external comparison above.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: A natural fixed-degree complex Gaussian Fock quadrature problem gets a sharp global minimal positive node count, an explicit algebraic rule, and a rigidity theorem within central symmetry; lower bound via a constrained zero-set argument is a useful structural obstruction for exact complex sampling, not a table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
