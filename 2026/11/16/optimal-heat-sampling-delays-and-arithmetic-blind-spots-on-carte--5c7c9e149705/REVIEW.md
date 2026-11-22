@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result is proved for every integer base dimension \(d\ge1\), transverse width \(m\ge2\), fixed sensor location, and positive heat-sampling interval. Separation of the combinatorial Cartesian-product Laplacian gives an explicit Fourier-fiber Vandermonde matrix. The cosine zero identity determines exactly the arithmetic blind modes and ranks. Uniform positive frame bounds follow from the compact Fourier torus and a uniformly invertible finite matrix. The determinant is minimized at the maximal longitudinal Laplacian frequency; strict logarithmic concavity proves existence and uniqueness of the sharp D-optimal spacing. The first-order strip-width expansion is established by a two-term triangular Euler summation formula, not by extrapolating numerics. The large-dimension expansion follows from a uniform small-parameter Taylor formula. `CHECK.py` returned `VERIFY_OK 5663 supplementary_assertions`; these checks supplement rather than substitute for the proof.
+## correctness
 
-## Originality — PASS with named access risk
-The inspected full-text dynamical-sampling survey gives general spectral visibility criteria, not the Cartesian-strip arithmetic rank, sharp worst-fiber information determinant, or width-corrected timing law. The closest inspected published mathematical result on normalized paths optimizes a finite-path heat interval, but its theorem does not cover the combinatorial infinite Cartesian strip or the longitudinal worst-frequency shift; notably its two-mode path optimum is attained only in an infinite-time limit, whereas the strip has a finite exact optimizer. A second inspected published result gives normalized-path endpoint sensor determinants rather than this infinite-strip timing law. The published arithmetic-spectrum temporal result has distinct sensors and a different spectral distribution. Claim-level and equivalence searches in the mathematical-results database did not identify the claimed strip theorem. The September 2026 motivating manuscript was accessible only through its public abstract despite arXiv, open-access, and authorized institutional attempts; its uninspected sections remain a specific priority risk, as do older equivalent strip-control arguments. These limitations are not represented as proofs of novelty.
+PASS
 
-## Value — PASS
-The problem asks whether a fixed rail can recover **all**, not merely bandlimited, initial signals on an infinite periodic graph when spatial sampling is reduced by a factor of \(m\). The result gives the exact minimal number of observations and the arithmetic obstruction for interior rails. Its spectral volume objective is physically defined by worst-base-frequency information and is optimized sharply across all widths and longitudinal dimensions. The all-width finite optimizer, including the exceptional two-rail case, and the continuum constant with its \(m^{-1}\) correction provide reproducible acquisition-design information unavailable from qualitative observability alone. The claim does not confuse D-optimality with maximization of the smallest frame bound.
+Base Fourier transform gives lambda(theta)=2 sum_r(1-cos theta_r) in [0,4d], while path eigenvalues mu_j=2-2cos(pi j/m) are distinct and eigenvector amplitudes v_j(a)=sqrt(2/m)cos(pi j(a+.5)/m) (j>0). Visibility vanishes exactly when j(2a+1)=m(odd), giving (g-1)/2 invisible modes; the weighted temporal Vandermonde hence has rank min(p,m-(g-1)/2). A compact base-frequency range and uniformly bounded invertible row rescalings give stable frames exactly at full rank. At endpoint, Vandermonde determinant times exp(-tau lambda C_m) is smallest at lambda=4d. Its log derivative equals sum_{i<j} Delta/(exp(tau Delta)-1)-[4d C_m+sum_{i<j}mu_i], and log second derivative strictly negative; zero and infinity limits yield one maximum. The triangular Euler-Maclaurin formula has first correction -m/(2tau), and sum_{i<j}mu_i=m²(1-4/pi²)-2m+O(1); uniform smoothness, monotone implicit function give tau=s_d+c_d/m+O(m^-2). Independently integrated defining double integral with scipy and solved finite stationarity: d1 s=0.1682323819219894,c=0.0587318012130304, width-error times m at m=20,50,100 is .0597264,.0591269,.0589289, approaching c; d2 s=.1003350654556886,c=.020539050871182. Finite computations corroborate but do not prove uniform asymptotic. Critical distinction: graph Laplacian is combinatorial, determinant not minimum frame eigenvalue.
 
-## Closest evidence and remaining limits
-- I. M. Bulai et al., *Dynamical Sampling in Graph Paley–Wiener Spaces*, arXiv:2609.25472v1, 2026-09-21. Only the full public abstract, not the complete manuscript, was available for inspection.
-- A. Aldroubi et al., *Dynamical Sampling: A Survey*, La Matematica 5:37 (2026). Full open-access article inspected, including the finite-dimensional frame criterion and graph research discussion.
-- *Optimal heat-sampling intervals on normalized paths: a bandwidth crossover*, published mathematical record dated 2026-11-01. Complete RESULT text inspected.
-- *Universal endpoint optimality for dynamical sampling on normalized paths*, published mathematical record dated 2026-10-11. Complete RESULT text inspected.
-- *A universal optimal observation horizon for arithmetic-spectrum flows*, published mathematical record dated 2026-10-11. Its finding, assumptions and determinant argument inspected.
+## originality
 
-The design fixes one sensor rail, uniform temporal spacing and the combinatorial Laplacian. No statement about nonlinear, noisy, nonuniform-time or multiple-rail optimal designs is proved. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+General iterated-frame criteria and prior normalized-path D-optimal problems are acknowledged. No confirmed source entails all three of arithmetic visibility, shifted worst-base determinant optimum and corrected wide-strip limit. Full text of a relevant 2026 graph paper could not be read, retained as real risk.
+
+## value
+
+PASS
+
+This exact structural observability law and all-width D-optimal design for natural infinite Cartesian strips addresses a real sensor-placement/time trade-off, with arithmetic invisible modes, a finite optimal two-rail time and a nontrivial first wide-strip correction. The full-space, uniform-in-longitudinal-frequency model is intrinsically motivated, not an arbitrary finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T07:51:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Base Fourier transform gives lambda(theta)=2 sum_r(1-cos theta_r) in [0,4d], while path eigenvalues mu_j=2-2cos(pi j/m) are distinct and eigenvector amplitudes v_j(a)=sqrt(2/m)cos(pi j(a+.5)/m) (j>0). Visibility vanishes exactly when j(2a+1)=m(odd), giving (g-1)/2 invisible modes; the weighted temporal Vandermonde hence has rank min(p,m-(g-1)/2). A compact base-frequency range and uniformly bounded invertible row rescalings give stable frames exactly at full rank. At endpoint, Vandermonde determinant times exp(-tau lambda C_m) is smallest at lambda=4d. Its log derivative equals sum_{i<j} Delta/(exp(tau Delta)-1)-[4d C_m+sum_{i<j}mu_i], and log second derivative strictly negative; zero and infinity limits yield one maximum. The triangular Euler-Maclaurin formula has first correction -m/(2tau), and sum_{i<j}mu_i=m²(1-4/pi²)-2m+O(1); uniform smoothness, monotone implicit function give tau=s_d+c_d/m+O(m^-2). Independently integrated defining double integral with scipy and solved finite stationarity: d1 s=0.1682323819219894,c=0.0587318012130304, width-error times m at m=20,50,100 is .0597264,.0591269,.0589289, approaching c; d2 s=.1003350654556886,c=.020539050871182. Finite computations corroborate but do not prove uniform asymptotic. Critical distinction: graph Laplacian is combinatorial, determinant not minimum frame eigenvalue.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Survey Thm 2.1 gives diagonalizable-mode visibility and finite rank.",
+          "Normalized path uses different Laplacian; infinite ladder lower-frame objective differs from worst-fiber information determinant."
+        ],
+        "reasoning": "The general theorem gives method and some qualitative necessity/sufficiency, but not the exact gcd blind count and distinct determinant extremization with its strip-width asymptotic correction.",
+        "searches": [
+          "Aldroubi Cabrelli Krishtal Molter Dynamical Sampling survey theorem 2.1",
+          "Resultary normalized path heat sampling optimal interval",
+          "Resultary infinite ladder lower frame bound optimal delay"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s44007-026-00215-y",
+        "https://arxiv.org/abs/2609.25472",
+        "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-optimal-heat-sampling-intervals-on-normalized-paths-a-bandwidth--4d44b2ae0221",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-sharp-two-time-heat-sampling-bounds-and-a-unique-optimal-delay-o--cb4197fd0dd2",
+        "Resultary semantic query: infinite Cartesian strip graph heat dynamical sampling endpoint arithmetic visibility optimal delays Vandermonde wide strip"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For strip, worst frequency has lambda=4d, contributing the term 2d m(m-1) to stationarity; m=2 tau=(1/2)log(1+1/(2d)) is finite.",
+          "Prior normalized-path m=2 determinant spacing has no finite optimum; lower-frame optimization is another objective."
+        ],
+        "reasoning": "Survey and the normalized-path record cannot imply the exact claim without an additional worst-fiber and asymptotic analysis. Full graph-Paley-Wiener manuscript inaccessible remains a possible nearer implication, not a proven noncovering source.",
+        "searches": [
+          "normalized path endpoint optimality vs combinatorial Cartesian strip heat uniform time",
+          "Dynamical Sampling in Graph Paley Wiener Spaces 2026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent problem is the Fourier-fiber frame matrix with columns v_j(a)exp(-k tau[lambda(theta)+mu_j]).",
+          "The strip longitudinal penalty lambda(theta) in [0,4d] changes every time-row scaling and worst-fiber optimization."
+        ],
+        "reasoning": "Generic temporal Vandermonde frame conditions and finite normalized-path formulas do not by parameter substitution yield the full shifted infinite-strip theorem, notably m=2 finite optimum.",
+        "searches": [
+          "infinite Cartesian strip graph heat dynamical sampling endpoint arithmetic visibility optimal delays Vandermonde wide strip",
+          "Cartesian graph strip Z^d times path P_m heat dynamical samples endpoint optimal delay Vandermonde",
+          "arxiv 2609.25472"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published exact table of jointly the gcd visibility and the d-dependent s_d,c_d continuum interval constants was identified.",
+          "The source gives the continuum root as a double integral, not a copied table."
+        ],
+        "reasoning": "A numerical match or an old table would count as prior coverage; none identified. The separate independent quadrature agrees but does not establish priority.",
+        "searches": [
+          "strip combinatorial Laplacian fixed rail gcd(2a+1,m) heat sampling first order correction constant 0.1682323819",
+          "Resultary infinite Cartesian strip graph heat dynamical sampling endpoint arithmetic visibility optimal delays Vandermonde wide strip"
+        ]
+      },
+      "rationale": "General iterated-frame criteria and prior normalized-path D-optimal problems are acknowledged. No confirmed source entails all three of arithmetic visibility, shifted worst-base determinant optimum and corrected wide-strip limit. Full text of a relevant 2026 graph paper could not be read, retained as real risk.",
+      "residual_risks": [
+        "Highly relevant Bulai–Cabrelli–Cordero–Molter–Saliani September 2026 full manuscript arXiv:2609.25472 inaccessible; Oxford returned vpn_disconnected; only abstract compared.",
+        "Prior shift-invariant graph observability literature may have an equivalent strip factorization or delay optimization.",
+        "D-optimal determinant is not a lower-frame-bound optimum; no claim about nonuniform time schedules."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 2.1 gives finite diagonalizable frame visibility criterion; no complete Cartesian strip gcd formula and no all-width high-frequency worst-fiber D-optimal interval/correction",
+          "evidence": "Theorem 2.1 reduces required eigenmode observability but is not the claimed asymptotic optimization.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s44007-026-00215-y",
+          "material_read": "Entire accessible open-access HTML, particularly Sections 1, 2.2 and Theorem 2.1, sections on graph sampling, optimization/open problems",
+          "method": "Read original article from publisher and inspected frame-iteration theorem plus mathematical scope",
+          "title": "Dynamical Sampling: A Survey",
+          "trigger": "Potential dominating general dynamical frame and observability criteria"
+        },
+        {
+          "assessment": "The abstract covers graph Paley–Wiener spaces, lattice Z^n and path numerical examples, but uninspected full paper could contain closer strip results; do not conclude whole manuscript is noncovering",
+          "evidence": "This incomplete comparison is a named residual priority risk; source is not deemed absent or fully checked.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.25472",
+          "material_read": "Primary arXiv abstract and metadata only, no full manuscript; arXiv/OA full-text requests failed",
+          "method": "Inspected abstract, sought arXiv and lawful alternative full text, authorized Oxford attempt returned vpn_disconnected",
+          "title": "Dynamical Sampling in Graph Paley–Wiener Spaces",
+          "trigger": "Highly relevant recent graph/path dynamical sampling and lattice analysis"
+        },
+        {
+          "assessment": "Works with normalized finite path spectral window and no longitudinal Fourier-frequency penalty. At m=2 its D-optimal spacing is unbounded while this Cartesian strip has a finite optimum",
+          "evidence": "Not a direct rescaling: worst-base Fourier multiplier contributes exp(-4d C_m tau), changing the derivative and optimum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-optimal-heat-sampling-intervals-on-normalized-paths-a-bandwidth--4d44b2ae0221",
+          "material_read": "Published statement, assumptions and formula in Resultary search; full linked record not re-opened in this execution",
+          "method": "Compared differential operators and m=2 result exactly",
+          "title": "Optimal heat-sampling intervals on normalized paths: a bandwidth crossover",
+          "trigger": "Closest published timing optimization"
+        },
+        {
+          "assessment": "Its objective is maximizing lower frame bound, unlike this theorem maximizing worst-fiber Gram determinant; distinct optima need not coincide",
+          "evidence": "Same object/subcase, but different objective, so not coverage of determinant-optimal delays. No whole-document noncoverage asserted.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-sharp-two-time-heat-sampling-bounds-and-a-unique-optimal-delay-o--cb4197fd0dd2",
+          "material_read": "Published Resultary theorem statement and summary, no full repository proof read",
+          "method": "Compared precise optimization objective on the two-rail ladder",
+          "title": "Sharp two-time heat-sampling bounds and a unique optimal delay on the infinite ladder",
+          "trigger": "Potential stronger m=2 case on the same ladder graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This exact structural observability law and all-width D-optimal design for natural infinite Cartesian strips addresses a real sensor-placement/time trade-off, with arithmetic invisible modes, a finite optimal two-rail time and a nontrivial first wide-strip correction. The full-space, uniform-in-longitudinal-frequency model is intrinsically motivated, not an arbitrary finite computation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://link.springer.com/article/10.1007/s44007-026-00215-y",
+    "https://arxiv.org/abs/2609.25472",
+    "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-optimal-heat-sampling-intervals-on-normalized-paths-a-bandwidth--4d44b2ae0221",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f",
+    "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-sharp-two-time-heat-sampling-bounds-and-a-unique-optimal-delay-o--cb4197fd0dd2",
+    "Resultary semantic query: infinite Cartesian strip graph heat dynamical sampling endpoint arithmetic visibility optimal delays Vandermonde wide strip"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the combinatorial Laplacian on G=Z^d square P_m, fixed transverse sensor site a at every base cell, p consecutive samples at times k tau have Fourier-fiber rank min(p,m-(g-1)/2) with g=gcd(2a+1,m); stable recovery of arbitrary l2 states occurs iff g=1,p>=m. With an endpoint a=0 and p=m, the square-root worst-fiber Gram determinant is W_m exp(-4d*m*(m-1)*tau/2) times a temporal Vandermonde product, with unique positive D-optimal tau including finite m=2 optimum; as width m increases it has a uniquely defined integral limit s_d and positive first-order c_d/m correction.",
+  "limitations": [
+    "Combinatorial not normalized Laplacian; observations at all base vertices; uniform time and fixed transverse sensor; endpoint determinant objective only.",
+    "Recent directly relevant graph Paley-Wiener manuscript not fully read due access restriction, originality remains best-of-knowledge."
+  ],
+  "residual_risks": [
+    "Highly relevant Bulai–Cabrelli–Cordero–Molter–Saliani September 2026 full manuscript arXiv:2609.25472 inaccessible; Oxford returned vpn_disconnected; only abstract compared.",
+    "Prior shift-invariant graph observability literature may have an equivalent strip factorization or delay optimization.",
+    "D-optimal determinant is not a lower-frame-bound optimum; no claim about nonuniform time schedules."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification of the mathematical package
+# Independent mathematical audit
 
-The analytic proof is in `RESULT.md`. Its decisive steps are Fourier diagonalization of the combinatorial Cartesian-product Laplacian, the finite-path cosine eigenvector formula, exact weighted-Vandermonde rank and determinant identities, strict concavity of the log determinant, and a uniform triangular Euler-summation estimate. The first-order continuum expansion is analytic, not an inference from finite matrices or plots.
+## correctness
 
-Run `python3 CHECK.py` from this package using only the Python 3 standard library. The actual replay produced:
+PASS
 
-```
-VERIFY_OK 5663 supplementary_assertions
-```
+Base Fourier transform gives lambda(theta)=2 sum_r(1-cos theta_r) in [0,4d], while path eigenvalues mu_j=2-2cos(pi j/m) are distinct and eigenvector amplitudes v_j(a)=sqrt(2/m)cos(pi j(a+.5)/m) (j>0). Visibility vanishes exactly when j(2a+1)=m(odd), giving (g-1)/2 invisible modes; the weighted temporal Vandermonde hence has rank min(p,m-(g-1)/2). A compact base-frequency range and uniformly bounded invertible row rescalings give stable frames exactly at full rank. At endpoint, Vandermonde determinant times exp(-tau lambda C_m) is smallest at lambda=4d. Its log derivative equals sum_{i<j} Delta/(exp(tau Delta)-1)-[4d C_m+sum_{i<j}mu_i], and log second derivative strictly negative; zero and infinity limits yield one maximum. The triangular Euler-Maclaurin formula has first correction -m/(2tau), and sum_{i<j}mu_i=m²(1-4/pi²)-2m+O(1); uniform smoothness, monotone implicit function give tau=s_d+c_d/m+O(m^-2). Independently integrated defining double integral with scipy and solved finite stationarity: d1 s=0.1682323819219894,c=0.0587318012130304, width-error times m at m=20,50,100 is .0597264,.0591269,.0589289, approaching c; d2 s=.1003350654556886,c=.020539050871182. Finite computations corroborate but do not prove uniform asymptotic. Critical distinction: graph Laplacian is combinatorial, determinant not minimum frame eigenvalue.
 
-The script checks path modal eigenvalue and orthogonality equations, arithmetic zero counts through width 64, direct-vs-product matrix determinants for small widths and several longitudinal dimensions, monotone unique optimum brackets and the exact two-rail solution, and continuum constant estimates by corrected triangular quadrature. Finite checks are deliberately not represented as verification of infinite-dimensional inequalities or uniform asymptotic error estimates.
+## originality
 
-The exact optimization equation specifies each finite optimum without relying on the displayed decimal approximations. The limiting constants \(s_d\) and \(c_d\) are defined by convergent integrals. All sampling conditions require \(d\ge1\), \(m\ge2\), positive sampling interval and the combinatorial Laplacian; there is no claim of optimality under alternative objectives, sensors, or nonuniform clocks.
+PASS
+
+General iterated-frame criteria and prior normalized-path D-optimal problems are acknowledged. No confirmed source entails all three of arithmetic visibility, shifted worst-base determinant optimum and corrected wide-strip limit. Full text of a relevant 2026 graph paper could not be read, retained as real risk.
+
+## value
+
+PASS
+
+This exact structural observability law and all-width D-optimal design for natural infinite Cartesian strips addresses a real sensor-placement/time trade-off, with arithmetic invisible modes, a finite optimal two-rail time and a nontrivial first wide-strip correction. The full-space, uniform-in-longitudinal-frequency model is intrinsically motivated, not an arbitrary finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
