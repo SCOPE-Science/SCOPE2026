@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For 0<t<1/2 the Gram eigenvalues are strictly positive. Reflections represented by B_i=I-2e_i G_i on the row basis preserve G and have the same eigenvalues as Euclidean Householder products. Exact multiplication of all 24 four-factor products proves the 8/16 characteristic-polynomial split. Reciprocal quartics yield the stated cosine eigenphases. The strict gap inequality follows from t sqrt(2+t^2)<1-t^2 iff 4t^2<1. Endpoint derivatives yield 2/sqrt(3). A standalone symbolic verifier and independent Euclidean spectral calculations were executed. No finite experiments are used as a substitute for universal proof. Order invariance for at most three real reflections follows by cyclic permutation similarity and inversion of reversed products; the present four-row family gives the first strict separation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shao 2024 Theorem 5.18 gives a general determinant equation for reflection products, attributed to Coxeter (1939).",
+        "Shao 2024 Theorem 5.23 gives bounds on the change of inverse eigengap under general left orthogonal transformations."
+      ],
+      "reasoning": "The broad equation is acknowledged as established and not claimed new. It is implicit for each row order; none of the explicit all-permutation optimum, strict comparison or limiting gain follows as a stated bound. This is a concrete special optimization rather than an asserted general spectral equation. Historic Coxeter papers were not independently read.",
+      "searches": [
+        "Reflective block Kaczmarz algorithms for least squares 2024 eigengap permutation",
+        "A deterministic Kaczmarz algorithm for solving linear systems 2021 eigenvalue order",
+        "product of four reflections cycle gram cos angles"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2105.07736",
+      "https://arxiv.org/pdf/2407.19226",
+      "https://www.mdpi.com/2673-9909/2/2/12"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dax 2022, Section 4, studies row shuffling for the ordinary projection method and its contraction, not reflector products.",
+        "Shao 2021 proves a general averaging-rate bound in terms of the inverse eigengap; Shao 2024 develops general equations and perturbation estimates."
+      ],
+      "reasoning": "The established general averaging bound gives the motivation and objective, while the known determinant identity permits spectrum computation. Neither gives a cycle-specific permutation optimum; the exact comparison uses two characteristic polynomial factorizations and a strict 0<t<1/2 inequality. Projection and Gauss–Seidel one-sweep energy results do not imply the reflected-product eigenphases.",
+      "searches": [
+        "Kaczmarz Anomaly in Tomography Problems optimal ordering 2022",
+        "four-cycle optimal Gauss Seidel one sweep energy three order classes",
+        "deterministic reflective Kaczmarz row ordering optimal eigengap inverse 4 rows"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Shao 2021 arXiv:2105.07736 pp.2-4 defines reflection-product inverse angular gap for averaging.",
+        "Shao 2024 arXiv:2407.19226 Section 5.2 defines sine-based inverse eigengap and relates it to the reflection-product spectrum."
+      ],
+      "reasoning": "The sine-based inverse eigengap is 2/min|1-lambda|, so it is an equivalent formulation of the exact same optimization. Neither inspected treatment supplies the two exact order classes or the preference for the C4 Gram family.",
+      "searches": [
+        "four-cycle unit-row Gram matrix product Householder reflections optimal permutation eigengap and inverse eigengap Kaczmarz",
+        "four vectors with cyclic adjacent correlations product four reflections two rotation angles exact spectra",
+        "deterministic reflective Kaczmarz row ordering optimal eigengap inverse 4 rows",
+        "product of Householder reflectors ordering eigenangle convergence spectral gap cyclic four vectors Gram circulant Kaczmarz"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches returned Kaczmarz sampling and four-cycle problems with projection, ordinary Gauss–Seidel or different inverse-Gram assumptions, but no table of the two reflection characteristic polynomials.",
+        "The exhaustive 24-order symbolic computation and the exact polynomial classes are included in verify_reflection.py."
+      ],
+      "reasoning": "No matching published exact table was identified. Absence from search is not proof of historical uniqueness; the conclusion is conditional on available indexed sources and inspected relevant primary text.",
+      "searches": [
+        "four-cycle unit-row Gram matrix product Householder reflections optimal permutation eigengap and inverse eigengap Kaczmarz",
+        "four vectors with cyclic adjacent correlations product four reflections two rotation angles exact spectra",
+        "row ordering cyclic interlaced alternating deterministic reflective Kaczmarz square graph",
+        "four-cycle unit row reflection product optimal row order exact eigengap",
+        "row ordering cyclic interlaced alternating deterministic reflective Kaczmarz square graph"
+      ]
+    },
+    "rationale": "The exact four-cycle order classification, strict universal eigengap preference and limiting 2/sqrt(3) ratio are not stated by the inspected primary results. Shao (2024), Theorem 5.18, explicitly supplies the known general characteristic equation (Coxeter 1939); the specialization of that equation alone does not provide the optimizer comparison. The contribution is the complete optimal-order assertion, not the general reflection product equation. The nearest known four-cycle Gauss–Seidel theorem concerns a different iteration and different norm.",
+    "residual_risks": [
+      "The general reflection-product determinant equation is classical, attributed to Coxeter (1939), and the original Coxeter source was not inspected.",
+      "Equivalent exact four-cycle eigengap order results could exist outside retrieved and inspected literature.",
+      "The result does not rank fixed finite-N Cesaro errors; this is explicitly excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHED_METHOD_NOT_EXPLICIT_ORDER_CLASSIFICATION",
+        "evidence": [
+          "Defines per-row reflections and their cyclic product; its inverse angular eigengap controls averaging.",
+          "No exact square-cycle Gram ordering classification in the inspected relevant material."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2105.07736",
+        "material_read": "Open-access PDF text, introductory algorithm and equations (3)–(12), main averaging theorem, relevant discussion of cyclic row schedule and numerical algorithm; portions of sections 1–2 and 5.",
+        "method": "Read indexed full-text PDF at the identified definitions, theorem and algorithm passages; page-image retrieval was unavailable.",
+        "title": "A deterministic Kaczmarz algorithm for solving linear systems",
+        "trigger": "Primary source defining the reflective method and angular-gap averaging guarantee"
+      },
+      {
+        "assessment": "KNOWN_GENERAL_SPECTRAL_EQUATION_NOT_EXPLICIT_OPTIMUM",
+        "evidence": [
+          "Theorem 5.18 attributes the general determinant formula to Coxeter (1939).",
+          "Theorem 5.23 gives quantitative bounds for row transformations; neither states the two-class four-cycle ordering or its sharp improvement ratio."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2407.19226",
+        "material_read": "Open-access PDF text, introduction and Section 5.2 including Definition 5.15, Theorem 5.18, Theorem 5.23 and their proof/comparison passages.",
+        "method": "Read indexed full-text PDF mathematical statements and proof paragraphs; page-image retrieval was unavailable.",
+        "title": "Reflective block Kaczmarz algorithms for least squares",
+        "trigger": "Closely related newer theorem explicitly characterizes reflection-product eigenvalues and row-change effects"
+      },
+      {
+        "assessment": "DIFFERENT_PROJECTION_METHOD",
+        "evidence": [
+          "Uses ordinary Kaczmarz projections and contraction arguments.",
+          "No claim about eigenphases of a product of four full Householder reflections."
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2673-9909/2/2/12",
+        "material_read": "Open-access HTML, Section 4 on shuffles/optimal ordering and method distinction.",
+        "method": "Read HTML section containing equations and the discussion of standard projection update ordering.",
+        "title": "Kaczmarz Anomaly in Tomography Problems",
+        "trigger": "Published source examining optimal row order and the relevance of row-angle geometry"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b6cba764-bb63-4adc-a67c-1bc17acba622",
+  "value": {
+    "rationale": "Reflective Kaczmarz convergence by epoch averaging is controlled by the smallest spectral separation from 1, and its dependence on deterministic row order is a real algorithm-design question. The minimal nearest-neighbor cycle is a natural four-row geometry with two commuting opposite-row pairs, giving a complete exact classification of all 24 orders. The strict best order and sharp near-singular 2/sqrt(3) gain clarify a meaningful stability constant; this is not a claim of practical runtime gain or a generic algebraic identity. A general three-reflector spectral-invariance lemma proves the four-row size is minimal for any ordering dependence.",
+    "status": "PASS"
+  }
+}
