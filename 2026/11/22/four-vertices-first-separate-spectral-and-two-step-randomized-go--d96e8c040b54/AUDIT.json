@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For every probability triple, direct expansion gives M2=sum_{i,j} p_i p_j W_i W_j W_i on mean-zero states. Reflection averaging is exactly M2(sym)+d^2 C with C positive semidefinite. The positive, unequal odd top-eigenvector has positive C-quadratic form, forcing symmetry. Its exact 2x2 block has top eigenvalue F(b), which strictly dominates the even block. At every stationary b, a fixed positive top-eigenvector supports a strictly convex Rayleigh quadratic tangent to F; therefore any stationary point is the unique global minimum. Endpoint derivatives and an exact isolating interval establish existence and uniqueness. The one-step unique optimizer, the four-path disagreement and the two-/three-vertex minimality are independently derived. verify.py checks the symbolic matrices and 300 supplementary randomized values; those samples are not used to justify universal quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd et al. (2004, 2006) https://web.stanford.edu/~balaji/papers/04analysisand.pdf; https://web.stanford.edu/~boyd/papers/pdf/gossip.pdf: broad convex spectral and gossip convergence frameworks.",
+        "Mangoubi et al., 2013, DOI 10.1109/ACC.2013.6580009, https://www.researchgate.net/publication/261162372_Towards_optimal_convex_combination_rules_for_gossiping: optimal convex contact coefficients and periodic gossip design.",
+        "Deterministic two-round stochastic consensus on odd cycles: https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-two-round-stochastic-consensus-on-odd-cycles--b2b600a3fbfd, not iid random contacts on a path."
+      ],
+      "reasoning": "General definitions of product moments and convergence estimates do not themselves imply an exact globally optimal iid two-draw edge distribution and minimality. The deterministic spectral two-round design addresses tunable synchronous Markov rounds rather than sampling one edge per round. A hypothetical stronger general finite-horizon optimizer theorem remains a priority risk, not an identified covering result.",
+      "searches": [
+        "finite-horizon worst-case expected squared disagreement randomized gossip two-step path P4 and minimality three nodes",
+        "optimal finite time mean square gossip sampling distribution edges two rounds path finite horizon",
+        "Boyd Ghosh Prabhakar Shah randomized gossip optimal probability mixing 2006 https://web.stanford.edu/~boyd/papers/pdf/gossip.pdf",
+        "finite-time two-step mean square consensus optimal edge probabilities path three edges"
+      ]
+    },
+    "checked_sources": [
+      "https://web.stanford.edu/~balaji/papers/04analysisand.pdf",
+      "https://web.stanford.edu/~boyd/papers/pdf/gossip.pdf",
+      "https://www.researchgate.net/publication/261162372_Towards_optimal_convex_combination_rules_for_gossiping",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-two-round-stochastic-consensus-on-odd-cycles--b2b600a3fbfd",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-parity-dependent-optimal-laziness-for-finite-horizon-star-walk-v--7b9a354b6356",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-the-four-vertex-path-is-the-unique-small-unweighted-amplifier-of--27e31b169a5f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2004 conference PDF https://web.stanford.edu/~balaji/papers/04analysisand.pdf: one-round expected update eigenvalue is optimized; its P4 optimizer is (0.3,0.4,0.3), not the new two-round optimizer (0.3028390758...,0.3943218483...,0.3028390758...).",
+        "2006 full paper https://web.stanford.edu/~boyd/papers/pdf/gossip.pdf: asymptotic averaging-time guarantees and optimization of a surrogate, not the exact finite-two-update worst-input second moment.",
+        "2013 paper https://www.researchgate.net/publication/261162372_Towards_optimal_convex_combination_rules_for_gossiping: optimizes relaxation weights or fixed sequences, not iid selection probabilities."
+      ],
+      "reasoning": "The prior one-step bound is a legitimate benchmark; its minimizer demonstrably fails the exact two-step criterion by approximately 0.00003775, so the two-step optimizer is not an automatic specialization of the one-step SDP. A formula defining the second-moment recursion is not equivalent to solving the minimax probability design; reflection strictness and a tangent strict-convexity certificate are needed. No stronger inspected statement logically implies the stated uniqueness and P3/P4 minimality.",
+      "searches": [
+        "\"Analysis and Optimization of Randomized Gossip Algorithms\" 2004 randomized edge probabilities lambda2",
+        "\"Randomized Gossip Algorithms\" Boyd Ghosh Prabhakar Shah finite time mean square",
+        "\"Towards Optimal Convex Combination Rules for Gossiping\" pdf",
+        "two step randomized gossip optimal edge sampling finite horizon path"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boyd et al., 2004, DOI 10.1109/CDC.2004.1429652, https://web.stanford.edu/~balaji/papers/04analysisand.pdf: expected one-contact averaging eigenvalue rather than two-product second moment.",
+        "Boyd et al., 2006, DOI 10.1109/TIT.2006.874516, https://web.stanford.edu/~boyd/papers/pdf/gossip.pdf: random gossip expectation and averaging-time bounds; not a stated exact two-contact optimization."
+      ],
+      "reasoning": "The exact criterion is lambda_max(E[W_i W_j W_i] restricted to mean-zero), and is not (lambda_max(E[W_i]))^2 or lambda_max(E[W_i W_j]); a formulation in terms of two-step finite-horizon mean-square contraction was explicitly searched. It requires the same iid distribution for both draws and an adversarial deterministic initial vector. Neither matching optimization nor an implication furnishing its exact root was located in inspected sources.",
+      "searches": [
+        "randomized gossip optimal probabilities finite time mean squared error two iterations sampling four path",
+        "\"two-step\" \"gossip\" \"optimal\" \"sampling\" path",
+        "two-step expected squared disagreement weighted edge sampling gossip spectral SDP",
+        "four-vertex path random edge averaging two exchanges optimal center edge 0.4 versus 0.394321848"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed four-vertex synchronous DeGroot result, https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-the-four-vertex-path-is-the-unique-small-unweighted-amplifier-of--27e31b169a5f: different nonrandom averaging operator.",
+        "Indexed finite-horizon star-walk TV result, https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-parity-dependent-optimal-laziness-for-finite-horizon-star-walk-v--7b9a354b6356: different graph and norm."
+      ],
+      "reasoning": "Actual numerical root and four-path iid squared-error parameters were included in searches for a matching numerical database or exact placement table. No exact two-contact probability triple or matching table was returned. Absence of indexed hits is not an originality proof.",
+      "searches": [
+        "two contact randomized averaging path four vertices two step optimal sampling finite horizon expected squared disagreement",
+        "two-step mean-square gossip edge probabilities four-node path spectral optimal probability 0.394",
+        "randomized gossip path P4 two-step transient worst case optimal sampling",
+        "optimal two-step iid pairwise averaging probabilities path of four nodes exact worst-case mean square 0.394321848"
+      ]
+    },
+    "rationale": "The inspected 2004 and 2006 primary articles develop randomized-gossip spectral or asymptotic design, but not the exact fixed-two-independent-contact minimax squared-disagreement factor and its unique P4 probability law. The 2013 article changes averaging weights or periodic activation rather than the iid edge-sampling law here. Indexed research on deterministic two-round filters, star total variation and synchronous DeGroot concerns different operators. A broader unindexed finite-product theorem might cover the result; priority has not been independently certified.",
+    "residual_risks": [
+      "An unindexed theorem on exact finite-horizon random-product optimization may subsume the P4 instance.",
+      "The 2013 contact-weight result was read in available author-hosted rendering rather than a separately typeset publisher PDF.",
+      "The tiny numerical gap motivates a structural minimality result, not a demonstrated practical acceleration.",
+      "Independent literature priority audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES_MODEL_AND_SINGLE_STEP_PROXY_NOT_NEW_FINITE_HORIZON_RESULT",
+        "evidence": [
+          "The optimization target is the eigenvalue of the expected averaging operator and convergence/averaging-time bound, not an exact two-draw expected quadratic product.",
+          "2004 IEEE CDC, DOI 10.1109/CDC.2004.1429652."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~balaji/papers/04analysisand.pdf",
+        "material_read": "Full author paper, introduction, modeling sections, eigenvalue optimization statements and conclusions, alongside page-image inspection.",
+        "method": "Lawful author-hosted PDF, text sections and PDF rendered first pages.",
+        "title": "Analysis and Optimization of Randomized Gossip Algorithms",
+        "trigger": "Original randomized edge-gossip optimization directly matches base model and sampling-law design."
+      },
+      {
+        "assessment": "GENERAL_BOUNDS_NOT_STATED_EXACT_TWO_ROUND_P4_OPTIMUM",
+        "evidence": [
+          "Optimizes averaging-time/spectral performance via edge probabilities.",
+          "2006 IEEE Transactions on Information Theory, DOI 10.1109/TIT.2006.874516."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/gossip.pdf",
+        "material_read": "Full author-hosted article, including problem definition, spectral convergence and design sections, theorem statements and relevant text matches; page-image front matter inspected.",
+        "method": "Lawful open author PDF, extracted text search and PDF screenshot.",
+        "title": "Randomized Gossip Algorithms",
+        "trigger": "Closely related comprehensive follow-up with possible stronger theorems or appendices."
+      },
+      {
+        "assessment": "DIFFERENT_OPTIMIZATION_VARIABLE_AND_FIXED_SCHEDULE",
+        "evidence": [
+          "Focuses on selecting convex contact weights and scheduling, rather than iid sampling probabilities of fixed half-averaging contacts.",
+          "2013 ACC DOI 10.1109/ACC.2013.6580009."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/261162372_Towards_optimal_convex_combination_rules_for_gossiping",
+        "material_read": "Author-uploaded accessible text: abstract, technical setup and sections on deterministic periodic paths and contact mixing coefficients.",
+        "method": "Lawful full-text HTML rendering, manually compared variables and objectives.",
+        "title": "Towards Optimal Convex Combination Rules for Gossiping",
+        "trigger": "Title and direct use of optimal gossip mixing could dominate finite-dimensional formulation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d96e8c04-0b54-4a0e-9f2c-088902cef47d",
+  "value": {
+    "rationale": "Finite-horizon mean-square error is a natural exact performance objective for gossip and contrasts sharply with the optimizable one-round eigenvalue surrogate. The path of four vertices is proved minimal for distinct optimal laws, with all probability triples considered, algebraic expressions for both unique policies, and a generalizable reflection-symmetrization plus tangent-Rayleigh certificate for a nonconvex finite product. The gain is quantitatively small, so the scientific value resides in the rigorous minimal counterexample and design boundary, not a large engineering improvement.",
+    "status": "PASS"
+  }
+}
