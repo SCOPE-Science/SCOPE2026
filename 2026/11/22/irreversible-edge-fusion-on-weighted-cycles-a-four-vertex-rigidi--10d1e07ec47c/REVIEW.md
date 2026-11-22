@@ -1,0 +1,11 @@
+# Mathematical assessment
+
+**Correctness: PASS.** The finite-dimensional strictly convex optimization has exact KKT conditions. Summing them within a maximal proper fused block gives an affine-in-reciprocal-regularization edge flux whose limiting value is a positive-mass convex combination of exterior boundary fluxes. Equal penalties ensure feasibility on cycles with at least four vertices; on a triangle the opposite exterior signs yield the precisely stated mass-weighted inequalities. For a failed condition, prescribing a fused pair with interior flux at one endpoint and larger limiting flux constructs data that must later unfuse, with exterior edges separated by a controllable margin. The exact-rational executable confirms both explicit witnesses, without substituting experiments for the general proof.
+
+**Originality: PASS, with priority uncertainty.** Hoefling's graph fused-lasso path already allows unfusion, and Tibshirani–Taylor give general dual methods and equal-weight boundary persistence; neither result is presented here as new. The new comparison target is the full necessary-and-sufficient all-data characterization by cycle size, edge penalties and fidelity masses. Closely related weighted-path fusion theory does not imply a closed-cycle classification, especially the exceptional nonconstant triangle region. Full texts and semantic research records were compared, but unindexed historical equivalents remain a risk.
+
+**Value: PASS.** Exact reversibility of a fusion event determines whether a segmentation-path algorithm may safely contract nodes permanently. The classification sharply separates the smallest cycle from every longer simple cycle; arbitrary positive vertex mass asymmetry cannot rescue a nonuniform penalty profile from four vertices onward, while a concrete nonuniform triangle remains safe. The complete structural criterion is a natural model-design theorem rather than a numerical instance or an arbitrary constant refinement.
+
+The scope is positive diagonal quadratic fidelity and common-scalar edge TV penalties on finite simple cycles. The result does not describe individual-data behavior or arbitrary graph topologies.
+
+Self-review: passed. Independent audit: not yet performed.

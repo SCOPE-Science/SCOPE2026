@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Strict convexity and KKT subgradients are explicit. The internal flux on a proper fused block is a convex interpolation of its initial flux and exterior-boundary flux average. Uniform cycle penalties preserve every block for n>=4; triangle exterior signs are opposite, giving exactly the three mass-weighted inequalities. A violated local inequality yields a KKT-defined two-vertex fused datum and a later flux infeasibility after the initial fusion interval. Two exact rational witnesses validate concrete separations, without extrapolating sampled checks to universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hoefling 2009 develops an algorithm for arbitrary graph fused-lasso paths and shows possible split events in the general setting. The algorithm applies to this graph family, but its graph-general applicability does not itself give the claimed iff criterion.",
+        "Generalized-lasso boundary theory covers sufficient no-leaving cases, not the exact weighted-cycle converse and exceptional triangle parameter cone."
+      ],
+      "reasoning": "An algorithm applicable to every graph is broader in object class but not stronger in the particular classification claim. The present result identifies the exact universal weight region and proves its converse.",
+      "searches": [
+        "For cyclic graph total variation proximal denoising, all-data monotone edge fusion iff cycle penalty weights are constant; triangle weighted triangle inequalities",
+        "Circular fused lasso irreversibility of fusion for all data nonuniform weights n=4 versus triangle exception",
+        "Cycle graph TV penalized least squares edge cut cannot reopen under increasing regularization iff equal edge weights",
+        "https://arxiv.org/pdf/0910.0526",
+        "https://www.stat.cmu.edu/~ryantibs/papers/genlasso-aos.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/0910.0526",
+      "https://www.stat.cmu.edu/~ryantibs/papers/genlasso-aos.pdf",
+      "https://arxiv.org/abs/1801.04987",
+      "https://arxiv.org/abs/0910.0526",
+      "2026/11/17/SCOPE-sharp-mass-aware-concavity-law-for-variation-stability-of-weight--c4a7412f8310",
+      "2026/11/17/SCOPE-exact-graph-variation-perturbation-modulus-of-the-graph-fused-la--b4b1357d8d1c",
+      "2026/11/2/SCOPE-cyclic-cover-rigidity-of-weighted-variation-stability-for-isoton--c6a0693fe803",
+      "c4264563-13be-414b-bb6c-853ed563251f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The historical weighted-PATH classification involves nonperiodic ends and does not force the triangle inequality or uniform longer-cycle penalty condition.",
+        "Hoefling 2009 covers existence and detection of general-graph splits, which is weaker than necessary-and-sufficient avoidance for all data.",
+        "Tibshirani–Taylor 2011 covers dual path algorithms and boundary permanence sufficient conditions; equal-edge sufficiency is prior, not asserted as new."
+      ],
+      "reasoning": "The new implication is a converse and a phase distinction in cycle size: if n>=4 any nonconstant positive penalty can be defeated by data, whereas triangle penalties satisfying three mass-weighted inequalities never split, even if nonconstant. No inspected source entails both statements or their explicit mass dependence.",
+      "searches": [
+        "cycle graph fused lasso monotone fusion iff equal edge penalties circle weighted cycle masses splitting and rejoining",
+        "unweighted circular fused lasso signal approximation no unfusion along lambda cyclic graph",
+        "mass concavity edge weights cyclic TV denoising no split monotone fusion",
+        "For cyclic graph total variation proximal denoising, all-data monotone edge fusion iff cycle penalty weights are constant; triangle weighted triangle inequalities",
+        "Circular fused lasso irreversibility of fusion for all data nonuniform weights n=4 versus triangle exception",
+        "Cycle graph TV penalized least squares edge cut cannot reopen under increasing regularization iff equal edge weights",
+        "https://arxiv.org/abs/1801.04987"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hoefling provides general-graph split tests but no all-data cyclic penalty classification in the inspected full-text sections.",
+        "Tibshirani and Taylor give a boundary persistence sufficient condition in a general dual formulation; no necessity by cyclic graph size is established in the inspected sections.",
+        "Own historical path theorem is a path-topology criterion, not equivalent on a closed cycle."
+      ],
+      "reasoning": "Cycle fusion persistence is a condition on the entire path of edge equality sets for every datum. A one-input TV reduction or two-input variation Lipschitz estimate is not an equivalent implication; separate cycle KKT flux limits and converse witnesses are needed.",
+      "searches": [
+        "cycle graph fused lasso monotone fusion iff equal edge penalties circle weighted cycle masses splitting and rejoining",
+        "unweighted circular fused lasso signal approximation no unfusion along lambda cyclic graph",
+        "mass concavity edge weights cyclic TV denoising no split monotone fusion",
+        "arXiv:0910.0526 Section 3 general-graph fused lasso",
+        "Tibshirani Taylor 2011 generalized lasso boundary lemma"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest semantic-record hits describe graph-fusion two-input stability, weighted isotonic projection and cyclic isotonic projection; their summaries specify different operator norms or projection events.",
+        "The 2009 and 2011 primary full texts develop theory and algorithms rather than a finite-cycle all-weights exact tabulation."
+      ],
+      "reasoning": "Neither a table matching the two cases n=3 versus n>=4 nor a database covering the exact all-data cycle fusion criterion was identified. Search failure by itself is not proof of novelty; the assessment relies on comparison of the actual stated implications.",
+      "searches": [
+        "cycle graph fused lasso monotone fusion iff equal edge penalties circle weighted cycle masses splitting and rejoining",
+        "unweighted circular fused lasso signal approximation no unfusion along lambda cyclic graph",
+        "mass concavity edge weights cyclic TV denoising no split monotone fusion",
+        "2026/11/17/SCOPE-sharp-mass-aware-concavity-law-for-variation-stability-of-weight--c4a7412f8310",
+        "2026/11/17/SCOPE-exact-graph-variation-perturbation-modulus-of-the-graph-fused-la--b4b1357d8d1c",
+        "2026/11/2/SCOPE-cyclic-cover-rigidity-of-weighted-variation-stability-for-isoton--c6a0693fe803"
+      ]
+    },
+    "rationale": "The full cyclic all-data classification by graph size is not logically implied by the inspected published graph-path algorithms, uniform-case boundary lemmas, or weighted-path results. New content is necessity of uniform penalties for every simple cycle with at least four vertices and the exact positive-mass triangle inequality including nonconstant stable examples. Literature and semantic comparisons were performed; remaining historical priority uncertainty is stated.",
+    "residual_risks": [
+      "No research-record or literature index is exhaustive; an unindexed historical cycle-specific all-data criterion could predate this finding.",
+      "The broad generalized-lasso theoretical literature could encode an equivalent converse in a non-obvious matrix reduction, although no such implication was identified in inspected material."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General graph method applies but does not state the iff weighted-cycle criterion; graph-general procedure must not be confused with claim-specific classification.",
+        "evidence": [
+          "arXiv:0910.0526 Section 3.1 connected fused groups, Section 3.2 split tests, Algorithm 2; arXiv abstract submitted 3 Oct 2009."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0910.0526",
+        "material_read": "Sections 2–3 and Appendix discussion of fused groups, general graph splitting and max-flow tests; original 2009 date checked against arXiv abstract page.",
+        "method": "Open-access PDF rendered and inspected in section text and page image.",
+        "title": "A path algorithm for the Fused Lasso Signal Approximator",
+        "trigger": "General-graph path algorithm and split tests are the most plausible dominating prior claim."
+      },
+      {
+        "assessment": "Prior equal-edge sufficiency acknowledged; full converse and triangle exception not supplied by the inspected claims.",
+        "evidence": [
+          "Tibshirani and Taylor (2011), Annals of Statistics 39, Sections 5–6, boundary lemma and general dual path."
+        ],
+        "identifier_or_url": "https://www.stat.cmu.edu/~ryantibs/papers/genlasso-aos.pdf",
+        "material_read": "Sections 2, 5–6 on one-dimensional fused lasso and general dual boundary transitions, with the matrix conditions read from the PDF.",
+        "method": "Full accessible PDF text and page image inspected.",
+        "title": "The solution path of the generalized lasso",
+        "trigger": "Boundary lemma and dominance results could imply equal-penalty sufficiency."
+      },
+      {
+        "assessment": "Weighted path, not closed simple cycle; models and claims do not imply the size-based cycle classification.",
+        "evidence": [
+          "Bento, Furmaniak, Ray, arXiv:1801.04987, weighted path FLSA and unfusion."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1801.04987",
+        "material_read": "Abstract, model assumptions, main weighted-path complexity and unfusion discussion in accessible full paper.",
+        "method": "Open-access PDF text and page image inspected.",
+        "title": "On the Complexity of the Weighted Fused Lasso",
+        "trigger": "Weighted fused-lasso path and splitting may cover necessary penalty inequalities."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "10d1e07e-c47c-4e1b-ad82-2ce28b0092bc",
+  "value": {
+    "rationale": "A complete all-data parameter classification makes permanent contraction of fused graph nodes mathematically safe exactly in the permitted regions. The graph-size discontinuity at n=4 is structural, and the nonconstant stable triangle plus arbitrarily asymmetric masses distinguish it from a routine restatement of the path result. The counterexample mechanism is constructive, not a tiny numerical gain.",
+    "status": "PASS"
+  }
+}
