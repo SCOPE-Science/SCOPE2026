@@ -1,0 +1,12 @@
+# Scientific review: random parabolic triangle circumradii
+
+## Correctness
+PASS. The exact circumradius product follows by canceling the three Vandermonde factors in the chord-length product and triangle-area determinant. It has a unique minimum at the origin and precisely two maximum corners. At the minimum the positive-definite Hessian is \(H/2\), with \(H=I_3+\mathbf1\mathbf1^{\mathsf T}\), yielding the three-dimensional ellipsoidal power \(3/2\). The second coefficient follows from a quartic expansion and the exact spherical fourth moment \(\mathbb E[(v\cdot\omega)^4]=\|v\|^4/5\). At the maximum each inward gradient equals \(c_a=2a\sqrt{1+4a^2}\), giving the simplex volume \(1/6\) and cubic exponent. The analytic localizations also prove total-variation limits. The standalone checker passed; its finite quadrature is corroboration rather than a proof of infinite-dimensional claims.
+
+## Originality
+PASS, provisionally. Kim–Shim (arXiv:1401.4751, original 2014 preprint) treats parabolic contact and tangent triangle **areas** and characterization, not circumradii. Finch (arXiv:1007.0261, original 2010 preprint) analyzes lengths and perimeters under **disk-interior** sampling. Published indexed findings concerning disk-interior circumradii or polygon-boundary circumradii have different support geometries and do not imply the formulas here without a new reduction. Related published results on random parabolic Steiner networks and random parabolic diameters do not cover circumradius tails. Targeted phrase, formula, and equivalence searches found no stronger covering statement. Risk: an unindexed textbook or classical treatment of parabolic-triangle circumradii could already contain some or all of the elementary product formula or its tail computations. Claims of definitive historical priority are withheld.
+
+## Value
+PASS. The circumradius is a canonical invariant of an inscribed triangle, and the parabola is the canonical noncircular conic. The result answers a well-posed two-endpoint geometric-probability question with exact support, a nontrivial second lower-tail term, distinct interior-versus-corner exponents, and marked conditional geometric limits. The natural boundary-versus-interior distinction supplies benchmarks for more general curve-supported triangle laws, beyond a single numerical parameter or arbitrary slice.
+
+Self-review: passed. Independent audit: not yet performed.
