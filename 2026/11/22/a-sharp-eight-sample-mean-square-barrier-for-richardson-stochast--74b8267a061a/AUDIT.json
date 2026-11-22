@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Exact OU generator, empirical moment ratios and the Gaussian polar factorization establish a_m+2=2/(R²U). Since 1/m≤U≤1 and R² is chi-square_m, every positive inverse moment has the sharp strict threshold m>2q. Polynomial degree then gives the two different propagation moment cutoffs, and explicit integration of the true Koopman image gives the squared-risk threshold. Small-ball chi-square constants yield both sharp Pareto tails. 78095 rational finite-checker assertions passed; infinite results rely on proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xu Theorem 3.3 assumes a controlled matrix perturbation; Proposition 3.6 enforces empirical Gram smallness on a probability-at-least-1−δ event, and Remark 3.7 extends bounds to unbounded features using a probabilistic argument",
+        "Xu Section 5.2 uses five trigonometric OU observables, not a single x² observable",
+        "Llamazares-Elias et al. prove almost-sure and finite-data convergence/error bounds; their results do not imply finiteness of unconditional second moments without control of small Gram events"
+      ],
+      "reasoning": "Strong conditional error and high-probability bounds permit divergent unconditional moments because rare samples can produce arbitrarily small empirical Gram matrices. Neither those results nor almost-sure convergence dominates the proposed exact inverse-moment statement; the sample-size cutoffs are not direct corollaries of the cited bounds.",
+      "searches": [
+        "arXiv:2611.00793v1 Theorem 3.3 Proposition 3.6 Remark 3.7 Sections 5.2 and 6",
+        "arXiv:2405.00539v3 Theorems on Monte Carlo convergence",
+        "empirical Koopman Galerkin generator Ornstein Uhlenbeck monomial dictionary ratio of Gaussian moments infinite mean square Richardson extrapolation sample size eight"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2611.00793v1",
+      "arXiv:2405.00539v3",
+      "arXiv:1909.10638",
+      "2026/10/26/SCOPE-sharp-gaussian-moment-threshold-for-noisy-anderson-extrapolation--6e96c99497d7",
+      "2026/11/8/SCOPE-sharp-heavy-tails-and-a-four-node-mean-square-threshold-for-unco--0bd09ba633ae",
+      "2026/11/2/SCOPE-sharp-small-singular-tails-and-inverse-moment-thresholds-for-a-c--5fb2ea549d24"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Xu equation (2.8) explicitly implies the Richardson polynomial dependence used here, and equation (2.7) implies the Taylor polynomial dependence",
+        "Xu reports a high-probability empirical sampling bound and experiments with m≥400 rather than the integral tail for m≤8",
+        "Known inverse-chi-square integration provides the radial component; our exact SDMD objective/tail comparison requires the scheme formulas and a one-observable OU reduction"
+      ],
+      "reasoning": "The original paper implies the update formulas and makes this calculation possible, but the specific unconditional-risk failure and exact Pareto laws do not follow as stated from any stronger bound in inspected sections. The elementary radial lemma is fully acknowledged; the claim is the sharp method-to-method statistical classification on a meaningful benchmark.",
+      "searches": [
+        "arXiv:2611.00793v1 equations (2.5)–(2.8); Remark 3.7; OU example Section 5.2",
+        "ratio sum Gaussian powers finite moments random Galerkin residual rational sample generator inverse chi-square threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2611.00793v1 Eq. (2.8) makes the Richardson map quadratic in empirical generator; Eq. (2.7) uses a separate second generator action",
+        "arXiv:2405.00539v3 considers a sampled Galerkin recovery framework and proves convergence; no matching Gaussian quadratic OU tail classification found in inspected results"
+      ],
+      "reasoning": "Generator EDMD and SDMD-R can be phrased as random rational moment estimators, or as a polynomial map of the empirical inverse Gram. Those representations are equivalent for the present one-observable setting and were included in searches. Published methods define the maps but do not state the cutoffs m>4 and m>8 or the squared-error Pareto constants.",
+      "searches": [
+        "empirical Koopman Galerkin generator Ornstein Uhlenbeck monomial dictionary ratio of Gaussian moments infinite mean square Richardson extrapolation sample size eight",
+        "SDMD stochastic dynamic mode decomposition sample Gram singular rare events heavy tailed empirical generator one-step Euler Richardson exact moment threshold",
+        "Xu arXiv:2611.00793v1 Sections 2.2–2.4, 3.3, 5.2",
+        "Llamazares-Elias arXiv:2405.00539v3 Sections 1–5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/10/26/SCOPE-sharp-gaussian-moment-threshold-for-noisy-anderson-extrapolation--6e96c99497d7 concerns noisy extrapolation with random inverse linear matrix",
+        "published-finding corpus 2026/11/8/SCOPE-sharp-heavy-tails-and-a-four-node-mean-square-threshold-for-unco--0bd09ba633ae concerns affine exact random quadrature",
+        "published-finding corpus 2026/11/2/SCOPE-sharp-small-singular-tails-and-inverse-moment-thresholds-for-a-c--5fb2ea549d24 concerns random Fourier interpolation"
+      ],
+      "reasoning": "Closest indexed threshold tables concern different random operators and loss functions. No exact published table for the scalar OU empirical SDMD-R versus SDMD-1 sample threshold was returned. Absence from search is not a uniqueness proof.",
+      "searches": [
+        "empirical Koopman Galerkin generator Ornstein Uhlenbeck monomial dictionary ratio of Gaussian moments infinite mean square Richardson extrapolation sample size eight",
+        "SDMD stochastic dynamic mode decomposition sample Gram singular rare events heavy tailed empirical generator one-step Euler Richardson exact moment threshold",
+        "ratio sum Gaussian powers finite moments random Galerkin residual rational sample generator inverse chi-square threshold",
+        "published-finding corpus published findings: Gaussian Anderson moment threshold; random affine-exact quadrature heavy tails; random Fourier Gram inverse moments; Gaussian regression control variates"
+      ]
+    },
+    "rationale": "Original source equations support maps but its finite-data bounds condition on a controlled matrix perturbation or a high-probability Gram event, and its OU example is trigonometric, not the scalar quadratic observable. In related general Koopman-generator literature and indexed mathematical records, no theorem was found giving the unconditional m>8 versus m>4 square-risk boundary and exact corresponding Pareto constants. Classical chi-square inverse moments are fully acknowledged. Unindexed historical coverage remains possible.",
+    "residual_risks": [
+      "The precise threshold could have an earlier unindexed formulation as a consequence of a general inverse-sample-Gram moment theorem.",
+      "Only displayed sections of the broad 2024 operator-estimation paper, rather than each appendix, were read; no conclusion of exhaustive historical priority is drawn.",
+      "Primary methods paper gives a high-probability statement, not unconditional integrability, so no contradiction is alleged."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines all algorithms but no exact unconditional squared-error/inverse-moment cutoff for quadratic one-function OU dictionary",
+        "evidence": [
+          "arXiv:2611.00793v1 Eq (2.7), (2.8), Theorem 3.3, Proposition 3.6, Remark 3.7, Section 5.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.00793",
+        "material_read": "Full published manuscript text at equations (2.5)–(2.8), section 3.3 including Theorem 3.3, Proposition 3.6, Remark 3.7, section 5.2 OU experiment, and conclusion; title page screenshot and p.5 method screenshot",
+        "method": "21-page arXiv PDF and page images inspected; equations, hypothesis/event bounds, and example object compared against the exact claim",
+        "title": "A Second-Order Stochastic Dynamic Mode Decomposition by Richardson Extrapolation",
+        "trigger": "Directly introduces all three empirical SDMD maps and studies their finite-sample errors"
+      },
+      {
+        "assessment": "Proves convergence/error bounds of estimated Koopman and generator operators; no observed exact OU Richardson-versus-Euler heavy-tail threshold",
+        "evidence": [
+          "arXiv:2405.00539v3 Sec 1 items 1–4 and discussion of empirical Gram assumptions"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2405.00539v3",
+        "material_read": "Full-text HTML abstract, section 1 contributions, section 2 framework, section 5 outline, and its stated conditions",
+        "method": "Original open-access arXiv full-text inspected by section and compared to estimator moment claim",
+        "title": "Data-driven approximation of Koopman operators and generators: Convergence rates and error bounds",
+        "trigger": "General prior theorem potentially covering all Galerkin generator error moment conditions"
+      },
+      {
+        "assessment": "Gives the generator-Galerkin approximation framework but not this later SDMD-R moment classification",
+        "evidence": [
+          "arXiv:1909.10638"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1909.10638",
+        "material_read": "Accessible abstract and introductory method description",
+        "method": "Primary arXiv abstract/introduction inspected and method compared",
+        "title": "Data-driven approximation of the Koopman generator: Model reduction, system identification, and control",
+        "trigger": "Foundational generator EDMD formulation that could subsume random Gram ratios"
+      },
+      {
+        "assessment": "Anderson update in noisy affine sampling is not a Koopman generator Galerkin method",
+        "evidence": [
+          "2026/10/26/SCOPE-sharp-gaussian-moment-threshold-for-noisy-anderson-extrapolation--6e96c99497d7"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-sharp-gaussian-moment-threshold-for-noisy-anderson-extrapolation--6e96c99497d7",
+        "material_read": "Published title and claim summary only; no full text asserted",
+        "method": "Semantic index comparison of object and implication",
+        "title": "Sharp Gaussian moment threshold for noisy Anderson extrapolation",
+        "trigger": "Closest indexed result for moments of a random extrapolation inverse"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "74b8267a-061a-4d4c-9cf5-f6e040d0e299",
+  "value": {
+    "rationale": "A mathematically natural, noninvariant OU quadratic observable gives a precise method-selection warning: finite-data Richardson polynomial order changes squared-risk integrability and sample complexity without making the empirical Gram singular. The exact m/8 versus m/4 tails quantify rare-event severity, and the SDMD-2 h=1 cancellation separates semigroup-Taylor from generator-polynomial schemes. The scope is explicit and the finding does not claim altered typical-case accuracy or general failure.",
+    "status": "PASS"
+  }
+}
