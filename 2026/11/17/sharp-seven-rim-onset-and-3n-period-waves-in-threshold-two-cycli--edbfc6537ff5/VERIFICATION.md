@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification methods and limits
+# Independent mathematical audit
 
-Run with standard Python 3 (no third-party packages):
+## correctness
 
-`python3 exhaustive_finite.py`
+PASS
 
-`python3 independent_checks.py`
+For fixed hub colour zero, at most one rim successor colour one is allowed, and a 2-to-0 rim adjacency is forbidden, yielding exactly n+2 fixed rim words, hence 3(n+2). The explicitly displayed three-step update of (hub 1, rim 0^(n-4)1122) advances the hub three times and rotates its rim by one for n>=7, hence least temporal period 3n since the rim word has no shorter rotational symmetry and hub phase requires a multiple of three. The full labelled functional graph of 3^(n+1) states was independently recomputed for each n=3..7 (not sampled): n<=6 only fixed recurrent states; n=7 has 27 fixed points, exactly two primitive period-21 cycles, and period-21 basin size 168. The finite census covers only those five sizes; no general spectrum theorem is claimed for n>7.
 
-The expected complete stdout files are `exhaustive_output.txt` and `independent_output.txt`. The first script builds the complete functional graph on every labelled three-colour state for rim sizes three through seven. The second checks the same eventual periods by an independently encoded transition and Floyd's cycle detection, as well as checking all fixed states through size nine and the constructive three-step wave through size 120. It also checks the exact return period directly through size 20.
+## originality
 
-**Verified finite conclusions:** no nontrivial cycles for rim sizes three through six; rim size seven has exactly 27 fixed points, two primitive 21-cycles, 168 initial states entering those cycles, and 6,393 entering fixed points. The full counts for each smaller state space are in the output files.
+PASS
 
-**Scope boundary:** finite checks do not prove the unbounded-period construction. The general proof is the symbolic three-step update calculation, cyclic-shift equivariance, and primitive rotational symmetry argument in `RESULT.md`. There is no independent expert proof, no complete large-size orbit classification, and no evidence for a universal transient bound.
+Threshold-one cyclic automata on wheel graphs previously have only fixed and primitive three-cycles and rapid stabilization, but a threshold-two cyclic rule (advance only with two successor-coloured neighbors) has a different transition graph. Threshold-two Greenberg-Hastings refractory wheel model has uniform extinction, but automatic refractory steps are fundamentally different from current CCA. Neither implies the exact n=7 onset, 21-cycle census or all-size 3n waves. Classical 2D-lattice CCA work motivates dynamics without a wheel enumeration.
+
+## value
+
+PASS
+
+A sharp minimum graph circumference where a natural deterministic contact rule becomes capable of nontrivial cycling, combined with an explicit infinite family of growing primitive temporal periods and an exact 6561-state first-bifurcation basin, is a motivated finite-graph dynamical classification. Finite n=7 census is complete, and the all-n wave is analytically constructed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
