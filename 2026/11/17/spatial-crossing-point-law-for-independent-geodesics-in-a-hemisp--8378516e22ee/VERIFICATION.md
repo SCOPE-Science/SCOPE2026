@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact analytic proof is given in `RESULT.md` and independently checked against the direct directional-flux integral and simulation in `check_crossing_density.py`. Run `python check_crossing_density.py` with dependencies in `requirements.txt` installed.
+## correctness
 
-In the executed checker, 2,400 midpoint angular grid values were used to test the sine-kernel Fourier identity at planar radial positions 0, 0.4, 1, 2. The radial normalization integral was evaluated up to radius 10,000 and compared with the closed \(1-8/\pi^2\) mass. Six-hundred-thousand independent hemispherical endpoint quadruples yielded crossing fraction 0.18871166666666667 versus exact 0.1894305308612978. The observed/truth crossing-radius subprobabilities were: radius 0.25: 0.011960/0.011919540; 0.5: 0.040358333/0.040502018; 1: 0.099986667/0.100763035; 2: 0.158113333/0.158551180; 4: 0.181835/0.182455686. All predeclared error thresholds passed.
+PASS
 
-Successful message: `HEMISPHERE_GEODESIC_CROSSING_LOCATION_LAW_OK 600000 tuples`.
+PASS: From the actual RESULT.md at Git blob 13e90da4717dc1f8c54bf43fda354c94375669cc, the gnomonic Jacobian yields f(u)=1/(2π(1+|u|²)^{3/2}) for each area-uniform hemisphere endpoint. Reconstructed ordered segment-line coarea: a line through w, direction alpha, has single-orientation flux J=1/(2π² sqrt(1+r²)(1+r² sin² alpha)); the two-line determinant contributes |sin(alpha-beta)| with factor four for endpoint orderings. The convergent anti-periodic Fourier expansion of the angular convolution yields h(w)=2 log(1+r²)/(π³r²(1+r²)^{3/2}), h(0)=2/π³; polar integration gives Pr(cross)=1-8/π². Independent pre-Fourier 700-by-700 angular quadrature at r=0,0.4,1,2 and direct radial quadrature through R=1000 reproduce these formulas to numerical tolerance; the proof, not quadrature, covers all locations. This is a subprobability density, independent four endpoint sample, not stationary line process.
 
-Finite sampling cannot prove a continuum density and numerical quadrature cannot certify a global analytic Fourier identity. Those are established by the direct calculations in the mathematical proof. No external mathematical or historical audit was undertaken.
+## originality
+
+PASS
+
+PASS, best of knowledge: 2015 hemispherical random convex-hull law covers the scalar 1-8/π² only. The separately examined published midpoint disintegration supplies exact one-arc coordinates but does not provide the two-arc intersection-location pushforward. The claimed closed h(w) is a nontrivial evaluated two-line coarea convolution; older equivalent random-line intensity is still a priority risk.
+
+## value
+
+PASS
+
+PASS: A scalar crossing probability cannot describe the nonuniform polar concentration of intersections. The explicit spatial subprobability density and m-arc first-moment crossing intensity binomial(m,2)h(w) answer a natural local stochastic-geometric question and give a reusable exact benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

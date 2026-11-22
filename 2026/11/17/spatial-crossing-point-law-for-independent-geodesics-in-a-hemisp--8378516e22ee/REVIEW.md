@@ -1,19 +1,21 @@
-# Scientific review of the crossing-location law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The hemisphere-to-plane gnomonic Jacobian gives an exact normalized Cauchy endpoint density. Direct half-line integration derives the one-segment directional flux, and the two-segment coarea formula contributes the absolute sine of the crossing angle. With the correct ordered-endpoint multiplicity, the Fourier convolution evaluates to the stated closed radial density; polar integration gives total mass \(1-8/\pi^2\). The north-pole limit and boundary behavior are covered. The standalone diagnostic independently checks the angular convolution and 600,000 sampled endpoint quadruples. These finite checks are corroborative; proof is analytic.
+PASS
 
-## Originality — PASS (historical priority provisional)
+PASS: From the actual RESULT.md at Git blob 13e90da4717dc1f8c54bf43fda354c94375669cc, the gnomonic Jacobian yields f(u)=1/(2π(1+|u|²)^{3/2}) for each area-uniform hemisphere endpoint. Reconstructed ordered segment-line coarea: a line through w, direction alpha, has single-orientation flux J=1/(2π² sqrt(1+r²)(1+r² sin² alpha)); the two-line determinant contributes |sin(alpha-beta)| with factor four for endpoint orderings. The convergent anti-periodic Fourier expansion of the angular convolution yields h(w)=2 log(1+r²)/(π³r²(1+r²)^{3/2}), h(0)=2/π³; polar integration gives Pr(cross)=1-8/π². Independent pre-Fourier 700-by-700 angular quadrature at r=0,0.4,1,2 and direct radial quadrature through R=1000 reproduce these formulas to numerical tolerance; the proof, not quadrature, covers all locations. This is a subprobability density, independent four endpoint sample, not stationary line process.
 
-Bárány–Hug–Reitzner–Schneider's 2015 halfsphere convex-hull analysis implies the unmarked crossing probability, which is expressly **not** a novelty claim. The closely related published one-arc hemisphere midpoint disintegration yields a different pushforward, not the crossing-location law of two independent segments. The inspected segment-intersection-angle and random-needle models use different observables or sampling measures. A full published-finding corpus semantic comparison under gnomonic, Cauchy-plane, spherical, crossing-density and intersection-location aliases yielded no evaluated matching spatial measure. Coleman (2002) or older integral-geometric work remains a residual historical-priority risk because its complete text was not inspected. See the structured audit for source-specific comparisons and limitations.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-An event probability cannot localize its crossing points. The evaluated nonconstant crossing-density profile explicitly quantifies where hemispherical geodesic intersections concentrate and yields a finite-network mean intersection-intensity law, with a sharp pole-to-equator distinction. The analytic convolution and normalization provide a concrete benchmark for stochastic-geometric simulation and model comparison.
+PASS, best of knowledge: 2015 hemispherical random convex-hull law covers the scalar 1-8/π² only. The separately examined published midpoint disintegration supplies exact one-arc coordinates but does not provide the two-arc intersection-location pushforward. The claimed closed h(w) is a nontrivial evaluated two-line coarea convolution; older equivalent random-line intensity is still a priority risk.
 
-## Verification and limitations
+## value
 
-The proof holds for independent uniform-area hemisphere endpoints joined by shorter arcs. It does not cover alternative line sampling, general spherical caps, joint independence of multiple crossing points, or independent historical authentication. The enclosed checker is executable with the listed open-source numerical dependencies and is not an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: A scalar crossing probability cannot describe the nonuniform polar concentration of intersections. The explicit spatial subprobability density and m-arc first-moment crossing intensity binomial(m,2)h(w) answer a natural local stochastic-geometric question and give a reusable exact benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
