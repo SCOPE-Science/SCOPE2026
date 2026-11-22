@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result is an exact optimization over two independent permutahedron coordinates and two possible diagonal-simplex indices. Strict rearrangement uniquely maximizes each base permutation difference, the additional coordinate perturbation has the independently sharp bound \(4(n-1)+2\) per block, and a single explicit family simultaneously achieves both bounds. When the two indices agree, the sharp bound is strictly smaller. A direct strict-convexity argument removes all nonvertex endpoints; the equality conditions determine a unique partner and yield the factorial exact count. The outer-shell proportion follows from direct squared-radius expansion and endpoint counting. The packaged finite checker checks all true vertices and all pairs for ranks 2 through 4 and explicit witnesses through rank 100. These tests corroborate, rather than establish, the all-rank proof.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-Ardila and Escobar's harmonic-polytope paper fixes the exact Minkowski-sum coordinates and classifies vertices and facets, but its relevant mathematical statements do not give an ambient Euclidean diameter or its maximizers. Ardila's bipermutahedron work treats a different polytope. The closest published same-object result classifies radial shells and outer-sphere contacts; it specifically does **not** determine a full pairwise-distance distribution. The present metric optimization is not implied by that one-point radial information: distinct antipodal geometry requires the simultaneous rearrangement and perturbation equality arguments. Other same-object reports treat inradius and one-skeleton degrees. Source and implication comparisons are recorded in the accompanying structured review. An independently rediscovered formula under alternate terminology remains the main priority risk.
+PASS
 
-## Mathematical value — PASS
-This is a complete natural Euclidean geometric invariant of an infinite, well-studied Minkowski-sum family, with a rigid classification of **every** farthest pair rather than only a diameter value. The diameter graph unexpectedly has degree at most one despite the polytope's large vertex count. Its sparse endpoint proportion, \(1/(n-1)\), gives a concrete asymptotic separation between support on a minimum-enclosing sphere and participation in diameter pairs. No general downstream theorem is asserted or required.
+The RESULT.md at Git blob 0945d7b7ed561b3da8588e5f7b71db02b69f8060 gives H=(Pi_n x Pi_n)+D_n, n>=2; strict rearrangement gives B_n=n(n²−1)/3 and equality only reversal complements. For distinct marked indices the two blockwise cross terms are bounded by 4(n−1); simultaneous equality requires both permutations attain n at i and 1 at j. Strict convexity of squared distance eliminates all nonvertex endpoints; exposed endpoints determine a unique partner. Independent exact generator-pair enumeration for n=2,3,4 yielded squared diameters 16,36,68 and unordered counts 1,3,24. This corroborates, not replaces, the all-n proof.
 
-## Limits
-The claim is realization-specific, relies on the classical permutation rearrangement inequality and the established harmonic-polytope model, and does not solve arbitrary pairwise-distance distributions. Full historical priority and independent mathematical validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: Ardila–Escobar established vertex structure, and the 2026 shell theorem established radial contacts, not maximizing PAIRS of points. The common last-label contact criterion alone does not imply the opposing common first-label condition or sparse diameter matching. No stronger diameter classification identified.
+
+## value
+
+PASS
+
+A complete exact ambient-metric diameter plus all extremal chords and matching is a natural polytope invariant, not a generic radius substitution; the vanishing contact fraction distinguishes global diameter and circumradius and can inform harmonic-polytope geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

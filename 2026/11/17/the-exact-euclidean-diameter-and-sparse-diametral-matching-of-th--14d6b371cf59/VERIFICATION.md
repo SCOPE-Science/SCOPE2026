@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-Run `python3 artifacts/verify_diameter.py` from the extracted package root (Python standard library only). Expected output:
+# Independent mathematical audit
 
-```
-HARMONIC_DIAMETER_PASS exhaustive=[(2, 6, 1, 16), (3, 66, 3, 36), (4, 1200, 24, 68)] witnesses_n=2..100 random_pairs_n5=120000
-```
+## correctness
 
-The program enumerates every fine-harmonic-triple vertex (not every Minkowski generator) and every unordered vertex pair in orders 2, 3, and 4, verifying exact integer squared distances, maximum values, and all equality cases. It verifies explicit maximizing witnesses through order 100 and a reproducible seeded finite sample of pairs in order 5. No part of that finite sampling is asserted to be an exhaustive proof for higher dimensions. The all-dimensional argument is the strict rearrangement identity, the sharp coordinate perturbation bound with simultaneous equality, and the strict convexity of squared Euclidean distance in each endpoint.
+PASS
 
-The primary definition and vertex criterion were checked in the published preprint arXiv:2006.03078, particularly Definition 2.1 and Propositions 3.5–3.6. The precise published radial-shell theorem was compared for possible stronger coverage. This document does not claim independent verification.
+The RESULT.md at Git blob 0945d7b7ed561b3da8588e5f7b71db02b69f8060 gives H=(Pi_n x Pi_n)+D_n, n>=2; strict rearrangement gives B_n=n(n²−1)/3 and equality only reversal complements. For distinct marked indices the two blockwise cross terms are bounded by 4(n−1); simultaneous equality requires both permutations attain n at i and 1 at j. Strict convexity of squared distance eliminates all nonvertex endpoints; exposed endpoints determine a unique partner. Independent exact generator-pair enumeration for n=2,3,4 yielded squared diameters 16,36,68 and unordered counts 1,3,24. This corroborates, not replaces, the all-n proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: Ardila–Escobar established vertex structure, and the 2026 shell theorem established radial contacts, not maximizing PAIRS of points. The common last-label contact criterion alone does not imply the opposing common first-label condition or sparse diameter matching. No stronger diameter classification identified.
+
+## value
+
+PASS
+
+A complete exact ambient-metric diameter plus all extremal chords and matching is a natural polytope invariant, not a generic radius substitution; the vanishing contact fraction distinguishes global diameter and circumradius and can inform harmonic-polytope geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
