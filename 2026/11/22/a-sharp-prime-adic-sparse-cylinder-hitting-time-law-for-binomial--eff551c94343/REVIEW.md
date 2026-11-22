@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The statement is exact for all finite fields and nonzero scalar coefficients. Surjectivity is proved by two-sided recursion on each residue class; any fiber is an affine translate of the kernel. The order-\(t\) recurrence has a \(t\)-dimensional space of two-sided solutions, with evaluation dual \(\mathbb F_q[z,z^{-1}]/(a+bz)^t\). The factorization \(z^h-\zeta^h=(z-\zeta)^v U(z-\zeta)\), where \(v=p^{\nu_p(h)}\) and \(U(0)\ne0\), proves the exact rank of a sampled progression. Splitting sample sites by residue modulo \(k\) establishes the total rank and its sharp threshold for every target and every pattern. A standalone recurrence calculation passed 4,326 finite rank comparisons. Those checks corroborate, but do not replace, the algebraic proof.
+
+## Originality — PASS within the checked record
+published-finding corpus searches for exact sparse preimage ranks, arithmetic-progressive cylinder hitting times, characteristic-\(p\) resonance and related aliases returned no covering finding. The closest finite-ring preimage and transient results concern different objects or boundary conditions. Full text of the relevant 2026 entropy paper, the 2019 strong-transitivity paper and the 2026-11-17 qualitative strong-transitivity paper was compared at the level of stated theorems. Their broad entropy or existence criteria do not state this exact sparse fixed-time rank law and do not yield the formula merely by substituting a parameter. The linear algebra is elementary once the sparse projection question is posed, so an unindexed earlier formula remains a priority risk; search absence alone is not a uniqueness claim.
+
+## Value — PASS
+The natural dynamical problem asks how long a prescribed finite observation can be embedded in a backward trajectory of **every** target configuration. A qualitative transitivity theorem only guarantees some hitting time; the present formula gives the entire attainable-pattern count at each time, including the sharp first full-surjectivity time. The effect is not a small constant improvement: for a fixed number of observed sites, increasing their spacing by a power of the characteristic prime produces unbounded delays, whereas spacings prime to the characteristic have constant threshold. This makes the exact statement useful as a benchmark for quantitative transitivity, finite-precision reconstruction, and algebraic influence propagation, without relying on speculative downstream theorems.
+
+## Closest literature and limitations
+The source defining the dated research direction is arXiv:2611.16746v1 (2026-11-12), whose computed invariant is space-time entropy; the 2019 strong-transitivity paper and the 2026-11-17 group-automaton paper furnish qualitative coverage but no observed sharp sparse rank. The November 17 paper is used strictly for overlap assessment. Extension to general linear rules or irregular sampling is unproved. Specialized earlier binomial-recurrence work not located by current searches is a residual originality risk.
+
+Self-review: passed. Independent audit: not yet performed.
