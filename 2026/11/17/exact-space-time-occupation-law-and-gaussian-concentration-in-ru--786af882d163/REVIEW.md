@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The period-three history graph is an exact finite presentation of all returning configurations at arbitrary ring lengths. Its 19-vertex weighted determinant and the fixed-point determinant are calculated symbolically. The claimed logarithmic-derivative enumerator follows from trace identities and the division by three; the independent simulator reproduces weighted counts through circumference 17. Strong connectivity, 3- and 4-cycles, positive-vector eigenvalue enclosure and derivative identities justify the stated Gaussian law, including strictly positive variance. Risks: the claim is about three-time orbit occupation, not single-phase fluctuations or random-trajectory basins.
+## correctness
 
-**Originality — PASS, qualified.** Sutner already records the entire existence spectrum and the initial unweighted orbit counts of Rule 73, and those are expressly excluded from novelty. Gorodkin–Sørensen–Winther and Wolfram discuss period-three magnetization but not the occupation-weighted orbit measure identified here. The checked published records and searchable mathematical research results do not supply the factorized two-variable law, its algebraic limiting occupation density, or its variance. Risks: as with any historical search, an unindexed weighted enumeration may exist; the complete relevant passages, rather than snippets, were checked where accessible.
+PASS
 
-**Value — PASS.** Magnetization is a specifically motivated observable for Rule 73 because of its historically documented three-step collective oscillation. Determining the *entire* occupation polynomial at arbitrary ring sizes and its concentration and fluctuations in a precise uniform temporal-orbit ensemble provides information absent from unweighted orbit counts and from random-initial-state simulations. This is not presented as a prediction of the latter ensemble.
+PASS: At each spatial column a three-bit time history, and local Rule-73 constraints, give an exact cyclic nearest-neighbor graph for configurations fixed by F^3; weight by all three time bits at each site. The 8^3 local triple search yields one recurrent 19-vertex 32-edge strongly connected component, for which I independently rebuilt the graph and symbolically reproduced det(I-z A_3)=Q_3. The all-fixed time-constant histories give Q_1, and division of the trace difference by exactly 3 counts primitive temporal orbits, with no spatial quotient. Independent direct finite simulation gives W_7(u)=7u^11, W_8(u)=8u^10+8u^12, W_9(u)=18u^11. Cycles of lengths 3 and 4 imply primitivity; unequal mean edge occupations on cycles imply strictly positive Perron pressure variance. Implicit differentiation of the unique dominant branch gives a=1.463056403005574 and b=0.343769801111864, hence a/3 and b/9. Perron spectral gap and analytic quasi-powers prove the CLT, rather than finite simulations. Domain n>=3 (formal n<3 allowed).
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS (qualified): Sutner Section 3.1 explicitly lists the n>=7 existence spectrum and first ten unweighted period-three counts for this exact Rule 73, so none of those counts/existence are new. Gorodkin–Sørensen–Winther and Wolfram discuss oscillations from random starts, a different probability measure. The checked Rule 73 temporal-two exact spatial zeta concerns F^2, and its one-step image series concerns im(F), not occupied three-phase primitive F^3-orbits. No accessible primary passage or Resultary comparable result states the full u-marked period-three polynomial or the algebraic uniform-temporal-orbit CLT. The possibility of an unindexed mark-weighted orbit formula remains.
+
+## value
+
+PASS
+
+PASS: Magnetization is intrinsically motivated for Rule 73 by its known period-three oscillations. The exact n-dependent full occupation law and the Gaussian mean/variance resolve a natural distribution under a precisely defined temporal-orbit ensemble, going beyond the known unweighted census; no inference about random-initial attraction basins is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

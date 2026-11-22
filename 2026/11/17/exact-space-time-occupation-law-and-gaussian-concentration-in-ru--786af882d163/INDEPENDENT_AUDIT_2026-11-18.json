@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T02:53:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: At each spatial column a three-bit time history, and local Rule-73 constraints, give an exact cyclic nearest-neighbor graph for configurations fixed by F^3; weight by all three time bits at each site. The 8^3 local triple search yields one recurrent 19-vertex 32-edge strongly connected component, for which I independently rebuilt the graph and symbolically reproduced det(I-z A_3)=Q_3. The all-fixed time-constant histories give Q_1, and division of the trace difference by exactly 3 counts primitive temporal orbits, with no spatial quotient. Independent direct finite simulation gives W_7(u)=7u^11, W_8(u)=8u^10+8u^12, W_9(u)=18u^11. Cycles of lengths 3 and 4 imply primitivity; unequal mean edge occupations on cycles imply strictly positive Perron pressure variance. Implicit differentiation of the unique dominant branch gives a=1.463056403005574 and b=0.343769801111864, hence a/3 and b/9. Perron spectral gap and analytic quasi-powers prove the CLT, rather than finite simulations. Domain n>=3 (formal n<3 allowed).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General temporal periodicity frameworks count existence or unweighted cycles. The u-marked transfer matrix includes a specific observable absent from the broad theorems inspected."
+        ],
+        "reasoning": "Generic finite-state computability makes the result derivable in principle, but does not provide the explicit Q_3/Q_1 or variance coefficient without the new exact determinant/analytic work.",
+        "searches": [
+          "Resultary query: Rule 73 elementary cellular automaton period three temporal cycles occupation weighted zeta central limit theorem transfer matrix",
+          "arXiv:1208.2770 Strictly Temporally Periodic Points in Cellular Automata",
+          "Klaus Sutner Linear Cellular Automata and Automaticity Section 3.1"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026 RESULT.md, verification/symbolic_transfer.py, direct_simulation.py, spectral_bound.py",
+        "https://www.cs.cmu.edu/~sutner/papers/sutner-ca-automaticity.pdf",
+        "https://content.wolfram.com/sites/13/2018/02/07-1-1.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-rule-73-exact-temporal-two-zeta-and-an-exponential-oscillation-e--91ecce9dc622/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-cyclic-one-step-image-series-of-elementary-cellular-automa--4412da3b7a44/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "F^2 and im(F) do not encode or algebraically determine the F^3 occupation-marked primitive-orbit distribution. Specializing the new W_n(u) to u=1 recovers known unweighted counts, not conversely."
+        ],
+        "reasoning": "No checked prior implication supplies all u-derivatives or the asymptotic Gaussian law; the actual new observation requires a new weighted 19-state computation.",
+        "searches": [
+          "Resultary query: Rule 73 elementary cellular automaton period three temporal cycles occupation weighted zeta central limit theorem transfer matrix",
+          "Sutner Section 3.1, https://www.cs.cmu.edu/~sutner/papers/sutner-ca-automaticity.pdf",
+          "Resultary 2026/11/17/SCOPE-rule-73-exact-temporal-two-zeta-and-an-exponential-oscillation-e--91ecce9dc622/RESULT.md",
+          "Resultary 2026/11/8/SCOPE-exact-cyclic-one-step-image-series-of-elementary-cellular-automa--4412da3b7a44/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Time-history graph is a three-layer subshift of finite type; zeta trace is the natural alias. Sutner gives unweighted F^3 orbit counts, not the u-marked K sum across three phases."
+        ],
+        "reasoning": "The same rule/period aliases and spatial zeta notation were compared; mere agreement after specializing u=1 does not cover the all-variable result.",
+        "searches": [
+          "Resultary query: Rule 73 elementary cellular automaton period three temporal cycles occupation weighted zeta central limit theorem transfer matrix",
+          "Klaus Sutner Linear Cellular Automata and Automaticity Section 3.1",
+          "Resultary 2026/11/17/SCOPE-rule-73-exact-temporal-two-zeta-and-an-exponential-oscillation-e--91ecce9dc622"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Sutner tabulates early unweighted primitive counts 7,16,18,20,44,...; the one-step image series tabulates image cardinalities 2,2,5,12,... . The current W_8(u)=8u^10+8u^12 refines the count 16 with occupation sectors."
+        ],
+        "reasoning": "No database/table uncovered the complete weighted polynomial at arbitrary n or the infinite-n central limit parameters; a matching n=7 count alone is insufficient.",
+        "searches": [
+          "Resultary query: Rule 73 elementary cellular automaton period three temporal cycles occupation weighted zeta central limit theorem transfer matrix",
+          "Sutner Section 3.1 page 16",
+          "Resultary 2026/11/8/SCOPE-exact-cyclic-one-step-image-series-of-elementary-cellular-automa--4412da3b7a44"
+        ]
+      },
+      "rationale": "PASS (qualified): Sutner Section 3.1 explicitly lists the n>=7 existence spectrum and first ten unweighted period-three counts for this exact Rule 73, so none of those counts/existence are new. Gorodkin–Sørensen–Winther and Wolfram discuss oscillations from random starts, a different probability measure. The checked Rule 73 temporal-two exact spatial zeta concerns F^2, and its one-step image series concerns im(F), not occupied three-phase primitive F^3-orbits. No accessible primary passage or Resultary comparable result states the full u-marked period-three polynomial or the algebraic uniform-temporal-orbit CLT. The possibility of an unindexed mark-weighted orbit formula remains.",
+      "residual_risks": [
+        "An older unindexed orbit occupation-marking transfer enumeration could imply the two-variable result, though the primary unweighted census inspected does not.",
+        "A uniformly selected temporal period-three orbit is not a uniformly random initial state or magnetization time series; changing measure would invalidate the stated CLT."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS unweighted early counts/existence, NOT_COVERING the occupation-weighted all-n law or uniform temporal-orbit CLT",
+          "evidence": "Page 16: Rule 73 spectrum 7+N and counts 7,16,18,20,44,68,65,119,250,368",
+          "identifier_or_url": "https://www.cs.cmu.edu/~sutner/papers/sutner-ca-automaticity.pdf",
+          "material_read": "Whole accessible paper context and Section 3.1 p.16 (PDF page 15 screenshot) with period-three spectrum and orbit table",
+          "method": "Full primary PDF text and page-image inspection",
+          "title": "Linear Cellular Automata and Automaticity (Klaus Sutner)",
+          "trigger": "Exact same rule and primitive period"
+        },
+        {
+          "assessment": "NOT_COVERING: it studies temporal period dividing 2 and unweighted two-cycles, not temporal-three marked occupation",
+          "evidence": "Temporal-two denominator (1-z)^2(1+z^2)^2(1-2z^2-z^3+z^4)",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-rule-73-exact-temporal-two-zeta-and-an-exponential-oscillation-e--91ecce9dc622/RESULT.md",
+          "material_read": "Full RESULT.md definitions, F and F^2 transfer, proof and limitations",
+          "method": "GitHub public published full text",
+          "title": "Rule 73: exact temporal-two zeta and exponential oscillation-equilibrium gap",
+          "trigger": "Same cellular rule / temporal orbit counting"
+        },
+        {
+          "assessment": "NOT_COVERING: counts distinct one-step outputs rather than temporally recurrent fixed-of-F^3 states and their occupation",
+          "evidence": "Image series a_n=|im F_n| and coefficients 2,2,5,12,...",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-cyclic-one-step-image-series-of-elementary-cellular-automa--4412da3b7a44/RESULT.md",
+          "material_read": "Full RESULT.md, automaton and Cayley–Hamilton proof",
+          "method": "GitHub public published full text",
+          "title": "Exact cyclic one-step image series of elementary CA Rule 73",
+          "trigger": "Same local rule with zeta-looking series"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Magnetization is intrinsically motivated for Rule 73 by its known period-three oscillations. The exact n-dependent full occupation law and the Gaussian mean/variance resolve a natural distribution under a precisely defined temporal-orbit ensemble, going beyond the known unweighted census; no inference about random-initial attraction basins is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE-Science/SCOPE2026 RESULT.md, verification/symbolic_transfer.py, direct_simulation.py, spectral_bound.py",
+    "https://www.cs.cmu.edu/~sutner/papers/sutner-ca-automaticity.pdf",
+    "https://content.wolfram.com/sites/13/2018/02/07-1-1.pdf",
+    "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-rule-73-exact-temporal-two-zeta-and-an-exponential-oscillation-e--91ecce9dc622/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-cyclic-one-step-image-series-of-elementary-cellular-automa--4412da3b7a44/RESULT.md"
+  ],
+  "disposition": "passed",
+  "final_claim": "For synchronous indexed elementary cellular automaton Rule 73, the complete temporal primitive three-cycle three-phase occupation generating series is -(z/3) d_z log(Q_3/Q_1) from the stated 19-state history determinant; uniformly sampled primitive temporal orbits have Gaussian fluctuations with mean occupied fraction 0.4876854676685245... and asymptotic variance coefficient 0.03819664456798536... .",
+  "limitations": [
+    "Temporal least period 3 on indexed synchronous rings and K summed over complete 3-step orbits only.",
+    "The weighted determinant is length-independent because of the proved transfer bijection; small n direct checks alone would not imply it."
+  ],
+  "residual_risks": [
+    "An older unindexed orbit occupation-marking transfer enumeration could imply the two-variable result, though the primary unweighted census inspected does not.",
+    "A uniformly selected temporal period-three orbit is not a uniformly random initial state or magnetization time series; changing measure would invalidate the stated CLT."
+  ],
+  "schema_version": 1
+}
