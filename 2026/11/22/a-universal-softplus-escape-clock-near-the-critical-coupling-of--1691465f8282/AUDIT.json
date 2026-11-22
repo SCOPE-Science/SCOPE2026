@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The invariant antidiagonal yields the exact increasing recurrence \\(u_{n+1}=u_n[1+2\\varepsilon+a(u_n-1)e^{-u_n}]^2\\). Centering at the unique large balance root, the scaled one-step increment converges uniformly on compact offsets to \\(1+e^{-w}\\), and its mesh tends to zero. A monotone comparison bounds pre-layer scaled time by \\(e^{1-L}\\). Sending the entrance cutoff \\(L\\) to infinity yields the softplus integral, then inversion gives the orbit profile. Root uniqueness, normalization and numerical consistency were checked, but the infinite theorem follows from analysis.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A sharp global boundedness interval and logarithmic critical escape in a coupled Gaussian map (2026), public finding f463338d3c52, complete RESULT.md establishes the all-plane global absorbing/escaping boundary and critical escape asymptotic.",
+        "Y. Soula, H. Jahanshahi, A. A. Al-Barakati and I. Moroz, Mathematics 11 (2023), 1517, DOI 10.3390/math11061517, Sections 2–5 covers parameter-dependent basin plots and synchronization but gives no theorem uniformly resolving a shrinking positive detuning."
+      ],
+      "reasoning": "The exact all-plane qualitative boundary theorem proves the existence of escaping orbits for each fixed \\(b>1/2\\), but not their detuning-dependent first-passage profile. The known logarithmic law is only at \\(b=1/2\\). The present restricted antidiagonal theorem contributes a quantitative two-scale transition not implied by stronger qualitative scope.",
+      "searches": [
+        "coupled bounded nonlinear maps symmetric diffusive coupling global boundedness escape at infinity exponential tail borderline coupling",
+        "near-critical escape crossover Gaussian diffusive 2D map first hitting times U_epsilon+t"
+      ]
+    },
+    "checked_sources": [
+      "Y. Soula, H. Jahanshahi, A. A. Al-Barakati and I. Moroz, Mathematics 11 (2023), 1517, DOI 10.3390/math11061517, Sections 2–5",
+      "A sharp global boundedness interval and logarithmic critical escape in a coupled Gaussian map (2026), public finding f463338d3c52, complete RESULT.md",
+      "Bistable coexistence and an exact antidiagonal basin separator in a coupled Gaussian map (2026), public finding 483979a4-5fcf-47cd-ac80-e1a8fb37478a, recoverable principal claim",
+      "MSC2020 37C35 classification: orbit growth, AMS classification registry"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A sharp global boundedness interval and logarithmic critical escape in a coupled Gaussian map (2026), public finding f463338d3c52, complete RESULT.md controls the singular endpoint epsilon=0, and its proof directly yields the antidiagonal recurrence at epsilon=0 but no uniform quantitative epsilon>0 Euler limit.",
+        "Bistable coexistence and an exact antidiagonal basin separator in a coupled Gaussian map (2026), public finding 483979a4-5fcf-47cd-ac80-e1a8fb37478a, recoverable principal claim already supplies the logarithmic growth of the outer stable two-cycle at negative detuning, which is expressly omitted from the new claim.",
+        "Y. Soula, H. Jahanshahi, A. A. Al-Barakati and I. Moroz, Mathematics 11 (2023), 1517, DOI 10.3390/math11061517, Sections 2–5 introduces the map, but neither its figures nor its formulas give the near-critical first-passage asymptotics."
+      ],
+      "reasoning": "The claim fixes \\(a>0\\) and \\(r_0>\\sqrt2\\), lets \\(b-1/2=\\varepsilon\\downarrow0\\), and proves the entire offset profile \\(\\log(1+e^t)\\) after rescaling first-passage time by \\(4\\varepsilon U_\\varepsilon\\). The earlier critical law is taken with \\(\\varepsilon=0\\) first, and the previously studied stable antipodal cycle instead exists at \\(b<1/2\\); neither entails the current joint limit.",
+      "searches": [
+        "Soula Jahanshahi Moroz 2023 symmetrically coupled map a x(1-x^2) exp(-x^2) escape infinity b=1/2 critical coupling",
+        "symmetric coupled map period two birth from infinity b approaching half threshold exponential Gaussian f, amplitude log 1/epsilon",
+        "coupled Gaussian cubic map detuning logarithmic escape first-passage time softplus b close one half",
+        "2023 coupled Gaussian cubic map Soula x'=a x(1-x^2) e^{-x^2}+b(y-x) near critical b=1/2 softplus crossover time logarithmic escape"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Y. Soula, H. Jahanshahi, A. A. Al-Barakati and I. Moroz, Mathematics 11 (2023), 1517, DOI 10.3390/math11061517, Sections 2–5 gives the planar map and ordinary bifurcation numerics, not detuning-dependent first-passage limits.",
+        "A sharp global boundedness interval and logarithmic critical escape in a coupled Gaussian map (2026), public finding f463338d3c52, complete RESULT.md proves fixed critical-coupling escape law at b=1/2, not passage times when b=1/2+epsilon.",
+        "Bistable coexistence and an exact antidiagonal basin separator in a coupled Gaussian map (2026), public finding 483979a4-5fcf-47cd-ac80-e1a8fb37478a, recoverable principal claim concerns b<1/2 and antipodal periodic orbits, not supercritical escape time."
+      ],
+      "reasoning": "The inverse formulation is \\(u_{\\lfloor\\tau/(4\\varepsilon U_\\varepsilon)\\rfloor}-U_\\varepsilon\\to\\log(e^\\tau-1)\\) for each \\(\\tau>0\\), exactly equivalent by monotone inversion. This form was searched. The static law at \\(b=1/2\\) cannot be substituted into the joint \\(\\varepsilon\\downarrow0\\), \\(n\\asymp(\\varepsilon\\log(1/\\varepsilon))^{-1}\\) regime because both drift terms contribute at the moving balance scale.",
+      "searches": [
+        "Soula Jahanshahi Moroz 2023 symmetrically coupled map a x(1-x^2) exp(-x^2) escape infinity b=1/2 critical coupling",
+        "softplus first-passage crossover coupled Gaussian cubic map 1/2 detuning 2023 Soula",
+        "u_{n+1}=u_n (1+2 epsilon+a(u_n-1)e^{-u_n})^2 first passage asymptotics log(1+exp(t))"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Multiple published-finding corpus semantic searches retrieved the 2026 global boundedness analysis as the closest same-map result, and unrelated crossovers in other maps; none returned this same-map function of the offset t.",
+        "Bistable coexistence and an exact antidiagonal basin separator in a coupled Gaussian map (2026), public finding 483979a4-5fcf-47cd-ac80-e1a8fb37478a, recoverable principal claim has the large-periodic-orbit radius log-scale only; that is not a table or exact first-passage-time function."
+      ],
+      "reasoning": "The theorem is an infinite-parameter analytic asymptotic, not a finite tabulation or a numerical invariant. No identical exact crossover profile was found in the searched indexed data; negative results are not by themselves proof of priority.",
+      "searches": [
+        "softplus first-passage crossover coupled Gaussian cubic map 1/2 detuning 2023 Soula",
+        "near-critical escape crossover Gaussian diffusive 2D map first hitting times U_epsilon+t",
+        "Gaussian map marginal escape to stable 2 cycle crossover epsilon log 1/epsilon softplus universal"
+      ]
+    },
+    "rationale": "The closest same-map theorem proves escape at the exact border \\(b=1/2\\) but not a positive-detuning joint first-passage limit. Another published claim already covers the subcritical antipodal two-cycles \\(b<1/2\\); that subject is expressly excluded. Full primary article and exact same-map prior proof were read and compared by quantifiers. The asymptotic \\(\\log(1+e^t)\\) depends on coupling approaching the border as observation time diverges, a regime not implied by fixed-coupling escape existence or the known critical law. Unindexed equivalents remain a risk.",
+    "residual_risks": [
+      "An unindexed or inaccessible general singular-perturbation first-passage theorem could imply this specific softplus limit.",
+      "General off-antidiagonal initial conditions are not treated; this deliberate restriction is a theorem scope, not an inferred full-plane conclusion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines precisely the Gaussian-cubic map; numerical bifurcations and synchronized chaotic basins do not supply the detuning-dependent first-passage profile",
+        "evidence": "Paper equation (2) and formula (3); Section 3 basin computations; Section 5 proposes further parameter analysis and mentions attractors at infinity.",
+        "identifier_or_url": "https://www.mdpi.com/2227-7390/11/6/1517",
+        "material_read": "Full public HTML text: Sections 2–5, including equations (2),(3), numerical basin discussions and conclusions",
+        "method": "Direct article text and formula-level comparison",
+        "title": "Dynamics and Global Bifurcations in Two Symmetrically Coupled Non-Invertible Maps",
+        "trigger": "Identical planar map and originating 2023 publication"
+      },
+      {
+        "assessment": "Proves critical \\(\\varepsilon=0\\) logarithmic escape and a qualitative global boundary, not the \\(\\varepsilon>0\\) first-passage crossover.",
+        "evidence": "At \\(b=1/2\\), the published theorem gives \\(u_n=\\log n+2\\log\\log n+\\log(2a)+o(1)\\); for \\(|b|>1/2\\) it gives open geometrically escaping sets.",
+        "identifier_or_url": "f463338d3c52; public mathematical finding dated 2026-11-02",
+        "material_read": "Entire RESULT.md including Finding, Assumptions, six proof steps, Relationship to prior work and Limitations",
+        "method": "Full mathematical proof and quantifier comparison, direct file retrieval",
+        "title": "A sharp global boundedness interval and logarithmic critical escape in a coupled Gaussian map",
+        "trigger": "Strongest same-map published exact result returned by semantic search"
+      },
+      {
+        "assessment": "Already proves subcritical two-cycle branch and its large-radius asymptotic; present claim omits it and studies opposite positive detuning",
+        "evidence": "Claim has b<1/2 and U=L+log L+O(log L/L), not time-dependent epsilon>0 escape.",
+        "identifier_or_url": "483979a4-5fcf-47cd-ac80-e1a8fb37478a",
+        "material_read": "Recoverable complete principal claim and bibliographic source IDs",
+        "method": "Claim-level mathematical comparison; full text was not necessary to exclude a cycle-birth rediscovery",
+        "title": "Bistable coexistence and an exact antidiagonal basin separator in a coupled Gaussian map",
+        "trigger": "Identical model and near-critical antipodal cycle at b<1/2"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1691465f-8282-4dad-9c4f-f2eead76507f",
+  "value": {
+    "rationale": "The published Gaussian map has a distinguished unbounded-orbit threshold at \\(b=1/2\\). Existing exact work gives the critical escape law and the opposite-side antipodal cycle, leaving the natural finite-horizon question when \\(b=1/2+\\varepsilon\\) and \\(\\varepsilon\\downarrow0\\). The complete softplus curve quantifies both competing escape mechanisms on the physical delay scale \\((\\varepsilon\\log(1/\\varepsilon))^{-1}\\), yielding a transferable benchmark for nearly critical transient observations. It is not a mere renaming, static threshold, or finite computation.",
+    "status": "PASS"
+  }
+}
