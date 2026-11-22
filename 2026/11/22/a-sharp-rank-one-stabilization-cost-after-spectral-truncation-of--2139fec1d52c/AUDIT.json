@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Direct CARE cancellation, uniform closed-loop eigenvalues, exact Sylvester uniqueness, strict rank-one stability condition y>1/K, and a complete Frobenius optimization over all PSD rank-one orientations prove the claim. The exact quadratic-field checker corroborates algebra, without substituting for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Massei--Saluzzi doi:10.1007/s00211-026-01572-0 equations (25)-(26) require checking stability, and assume A has left-half-plane numerical range",
+        "Benner et al doi:10.1007/s00211-017-0907-5 establishes general low-rank RADI methods; no exact rank-one constrained distance in examined sections"
+      ],
+      "reasoning": "General CARE convergence/stability results that require a separate stability guard are compatible with a large penalty for enforcing that guard and do not determine the sharp ratio. A theorem requiring A Hurwitz cannot directly cover this constructed A with eigenvalue +1.",
+      "searches": [
+        "Riccati positive semidefinite solution low rank eigenvalue truncation destroys closed loop stability despite small norm residual",
+        "mixed precision CARE low rank truncation positive eigenvalue residual small destabilizing controller threshold",
+        "PSD spectral truncation Riccati solution arbitrarily small residual loses stability uniform margin",
+        "web: low rank feedback stabilization truncate stabilizing Riccati solution rank one approximation stability"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.14742",
+      "doi:10.1007/s00211-026-01572-0",
+      "doi:10.1007/s00211-017-0907-5",
+      "doi:10.1002/rnc.1577",
+      "Published-index published record IDs listed in current finding prior checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zhang--Zhou arxiv:2607.14742 truncation and first-order residual analysis do not by themselves yield an exact rank-one stability-distance optimization",
+        "Massei--Saluzzi doi:10.1007/s00211-026-01572-0 imposes residual and stabilizing conditions separately, but does not quantify the optimal global Frobenius penalty",
+        "RADI doi:10.1007/s00211-017-0907-5 studies low-rank iterates, not the stated infimum"
+      ],
+      "reasoning": "Generic perturbation bounds can motivate stability tests but do not imply the exact nonattained rank-one infimum or unbounded ratio: the proof minimizes over all orientations using a rank-one norm identity, not merely an eigenvalue comparison. No stronger covering consequence located.",
+      "searches": [
+        "sharp rank one stability preserving Frobenius approximation Riccati stabilizing solution ratio unbounded truncated eigenvalues",
+        "two-dimensional Riccati stabilizing feedback low rank approximants exact Frobenius distance rank one",
+        "web: Riccati approximate solution small residual may be nonstabilizing Riccati stabilization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zhang--Zhou arxiv:2607.14742 Algorithms 1-2: PSD eigenfactor trimming, not constrained rank-one distance",
+        "Skaf--Boyd doi:10.1002/rnc.1577 abstract concerns controller coefficients and Lyapunov certificates",
+        "Published-index closest low-rank rank-one projected Euler-control record 2026/11/8/SCOPE-sharp-symmetry-breaking-in-one-step-rank-one-projected-euler-con--7e7474413cd3"
+      ],
+      "reasoning": "Searched equivalent problem formulations as stabilizing rank-one approximants, CARE solution eigenvalue truncation, controller truncation. The closest indexed results use different maps/objectives. A shared rank-one parameter alone does not imply the computed all-orientation Frobenius infimum; no exact equivalent was identified.",
+      "searches": [
+        "sharp rank one stability preserving Frobenius approximation Riccati stabilizing solution ratio unbounded truncated eigenvalues",
+        "two-dimensional Riccati stabilizing feedback low rank approximants exact Frobenius distance rank one",
+        "web: low rank Riccati stabilizing approximation rank constraint Frobenius optimal positive semidefinite truncation stability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-index searches produced records on Lyapunov cone loss, Riccati differential time-stepping and low-rank approximation, not the exact (6-4sqrt2)K+3-2sqrt2 ratio",
+        "No relevant numerical data table or benchmark in Zhang--Zhou arxiv:2607.14742 examined sections states this exact family"
+      ],
+      "reasoning": "The sharp ratio is an analytic function of the actuator strength, not a table lookup. Searches did not locate an identical parameterized Riccati benchmark; absence is only best-knowledge evidence.",
+      "searches": [
+        "sharp rank one stability preserving Frobenius approximation Riccati stabilizing solution ratio unbounded truncated eigenvalues",
+        "PSD spectral truncation Riccati solution arbitrarily small residual loses stability uniform margin",
+        "web: eigenvalue truncation positive semidefinite Riccati solution stability preservation spectral threshold"
+      ]
+    },
+    "rationale": "Closest accessible primary results concern PSD truncation and stability safeguards, rather than the present globally exact stabilizing rank-one Frobenius optimum and square-root growth. Published-index alias/implication searches found noncovering analogous low-rank/CARE records; old priority remains uncertain.",
+    "residual_risks": [
+      "Older equivalent control-theoretic rank-constrained stability approximation could be indexed under unfamiliar terms.",
+      "Skaf--Boyd full text was not materially available beyond abstract; its controller-coefficient objective appears distinct.",
+      "The construction uses unbounded actuator gain, and does not establish a fixed-data perturbation barrier."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Algorithm retains positive spectral factors and tracks truncation errors; no global optimum of stabilization-preserving rank-one PSD approximation or exact square-root gap is stated in examined relevant sections.",
+        "evidence": [
+          "arxiv:2607.14742, sections 1-2, Algorithm 2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.14742",
+        "material_read": "Full-text rendered sections 1 and 2, especially equations (1)-(4), Algorithms 1-2, positivity and truncation discussion",
+        "method": "arXiv open full text in HTML rendering",
+        "title": "Newton-Based Mixed Precision Iterative Refinement for Large-Scale Sparse Continuous-Time Algebraic Riccati Equations",
+        "trigger": "Exact matched construction: positive-eigenvalue truncation in CARE refinement"
+      },
+      {
+        "assessment": "Bandwidth truncation with separate Lyapunov stability tests, under numerical-range A in the left half-plane. This does not cover the stated family with an unstable eigenvalue of A, nor optimize unrestricted PSD rank-one distance.",
+        "evidence": [
+          "doi:10.1007/s00211-026-01572-0, section 3.1.2, equations (25)-(26)"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00211-026-01572-0",
+        "material_read": "Full accessible article introduction and section 3.1.2, Corollary 3.3 and inequalities (25)-(26)",
+        "method": "open-access publisher HTML",
+        "title": "On the data-sparsity of the solution of Riccati equations with applications to feedback control",
+        "trigger": "Strongest apparent related theorem explicitly ensures stability under a truncation rule"
+      },
+      {
+        "assessment": "Low-rank Riccati iteration equivalences and stabilizing solution definitions; no stated optimal stabilization-constrained rank-one Frobenius distance for this parameter family in material examined.",
+        "evidence": [
+          "doi:10.1007/s00211-017-0907-5, sections 1-2"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00211-017-0907-5",
+        "material_read": "Full accessible article introduction and low-rank algorithm overview (sections 1 and start of 2)",
+        "method": "open-access publisher HTML",
+        "title": "RADI: a low-rank ADI-type algorithm for large scale algebraic Riccati equations",
+        "trigger": "Foundational low-rank CARE approximation and stabilization theory"
+      },
+      {
+        "assessment": "Truncates controller coefficients with Lyapunov certificates, not PSD rank-one approximation of CARE solution; a literature overlap risk remains until full text compared.",
+        "evidence": [
+          "doi:10.1002/rnc.1577, abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rnc.1577",
+        "material_read": "Abstract and indexed description only; full text not verified",
+        "method": "publisher abstract and search index",
+        "title": "Controller coefficient truncation using Lyapunov performance certificate",
+        "trigger": "Control-preserving truncation may imply related stability guarantees"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2139fec1-d52c-4559-9e3d-96b4c58faf7f",
+  "value": {
+    "rationale": "The sharp closed-loop stability cost of rank-one pruning is a natural quantitative invariant for low-rank CARE computation: a vanishing residual and eigenvalue truncation error coexist with a sign flip in the closed-loop spectral abscissa, and the best stabilizing rank-one substitute has unbounded relative Frobenius price. The example diagnoses why closed-loop safeguards matter beyond ordinary numerical rank tests.",
+    "status": "PASS"
+  }
+}
