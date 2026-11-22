@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Exact Pareto integration gives the oracle H representation and covariance. The Hilbert Lindeberg condition holds since the largest summand H norm is bounded by sqrt(gamma/n), and covariance operators converge with integrable trace. Critical Poisson convergence follows by Pareto extremal point-process convergence and a <=2 epsilon small-jump H second-moment bound. Supercritical collapse follows from tightness of sample mean minus log n and an H-norm vanishing clipped-tail remainder. MLE substitution is controlled by direct log-Lipschitz bounds, with a faster normalization in the subcritical case. A Poisson fourth-cumulant calculation yields the exact variance increment. The embedded checker passed 68 formula and numerical assertions; finite checks are not treated as proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chakrabarty–Samorodnitsky (2012) accessible abstract identifies general soft/hard truncated-tail regimes, not a displayed statistic-specific formula",
+        "Tang–Han (2023 online/2024 journal) accessible abstract identifies classes of truncated-mean limits; detailed theorem comparisons remain unavailable"
+      ],
+      "reasoning": "General heavy-tail truncation results can motivate or prove components, especially finite-dimensional Gaussian/non-Gaussian limits. The present statement additionally concerns convergence of an exponentially weighted integrated square for all rates, preservation under support-and-shape MLE, and a closed critical fourth-cumulant slope. Abstract-only sources are not represented as conclusively NOT_COVERING; possible stronger coverage is a residual priority risk.",
+      "searches": [
+        "\"min characteristic function\" \"Poisson\" \"Gaussian\" goodness of fit",
+        "index one Pareto truncated sums Gaussian Poisson intermediate regime critical truncation theorem",
+        "doi:10.1080/15326349.2012.646551",
+        "doi:10.1080/03610926.2023.2209231"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2310.12348",
+      "https://doi.org/10.1016/j.csda.2024.107988",
+      "https://doi.org/10.1007/s13171-019-00184-1",
+      "https://doi.org/10.1080/15326349.2012.646551",
+      "https://doi.org/10.1080/03610926.2023.2209231"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source fixed-weight theorem uses a fixed positive integrable weight and estimates parameters before taking the sample-size limit",
+        "The present tail-weight scale forces the truncation cutoff gamma/u through n, changing finite-dimensional fluctuation from CLT to a point-process limit"
+      ],
+      "reasoning": "The fixed-weight source theorem cannot be substituted uniformly in its weighting parameter without separate estimates. The original MLE equivariance theorem is sufficient only for parameter invariance, not negligible fitted-versus-oracle fluctuations after new scaling. These missing implications are proved explicitly using the Pareto cross-moment, Hilbert Lindeberg condition, Poisson small-jump bound and MLE perturbation estimate.",
+      "searches": [
+        "\"min characteristic function\" Pareto limiting Poisson tuning parameter",
+        "\"min characteristic function\" Pareto increasing gamma goodness-of-fit asymptotic",
+        "arxiv:2310.12348 Theorems 5.5 and 5.8; Appendix 9"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2310.12348, equations (3.3), (4.1), (4.4), Theorem 5.5 and proof in Appendix 9",
+        "Falk–Stupfler, DOI 10.1007/s13171-019-00184-1, abstract describes minCF uniqueness and an empirical process"
+      ],
+      "reasoning": "The oracle representation is a truncated first moment of the unit-index Pareto law. Gaussian and Poisson endpoint processes are standard limiting objects, but the specific quadratic H-norm with fitted two-parameter Pareto input and exact variance slope are not stated in the inspected primary text. The source null theorem fixes the weight before n grows, so it is not an equivalent triangular-array assertion.",
+      "searches": [
+        "\"min-characteristic function\" Pareto increasing gamma goodness-of-fit asymptotic",
+        "\"minCF\" \"Pareto\" \"weight\" \"asymptotic\" gamma",
+        "arxiv:2310.12348 main sections 2–5 and Appendix 9"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Source paper tables are finite sample power simulations at fixed tuning values 0.5, 1 and 5; source text contains the fixed-parameter limit",
+        "Indexed records and available claim summaries did not yield the explicit Gaussian–Poisson variance slope"
+      ],
+      "reasoning": "Finite simulation and lookup tables at fixed weights cannot imply arbitrary-rate endpoint weak limits. No enumerated table or known numerical constant with the same exact H-functional and Poisson fourth-cumulant calculation was identified.",
+      "searches": [
+        "\"goodness-of-fit tests based on the min-characteristic function\" high tuning parameter",
+        "arxiv:2310.12348 tables 1–7 and Sections 4, 5, 8"
+      ]
+    },
+    "rationale": "The identified contribution is the three-regime increasing-weight null theorem for the actual MLE-standardized Pareto minCF quadratic statistic, together with the exact critical variance excess and supercritical normalization. Primary arXiv full text establishes fixed-weight asymptotics and MLE equivariance, not a triangular changing-weight theorem. Generic truncated-heavy-tail and minCF foundations are explicitly credited. No equivalent or stronger covering claim was found in the inspected material; priority remains uncertain because some related publications could be read only at abstract level.",
+    "residual_risks": [
+      "The complete 2024 journal printing was not independently inspected; its abstract matches the original preprint but unseen additions cannot be excluded.",
+      "The full text of generic truncation literature was not available; implication from a more general existing theorem remains possible.",
+      "Searches and mathematical-record deduplication do not establish unique publication priority or independent verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the source statistic, fitted-null invariance and fixed-positive-weight limits; no inspected theorem about gamma increasing with n or the critical Poisson quadratic fourth moment",
+        "evidence": [
+          "arxiv:2310.12348 §§3–5, §8, §9",
+          "2023-10-18 original public date"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.12348",
+        "material_read": "Accessible HTML full text, sections 1–5 and 8, Appendix 9 including the parameter-equivariance proof and the fixed-weight V-statistic proof",
+        "method": "Read mathematical definitions, source assumptions, Theorems 5.5 and 5.8, formulas (3.3), (4.1), (4.4) and Appendix 9",
+        "title": "Goodness-of-Fit Tests Based on the Min-Characteristic Function",
+        "trigger": "Exact named statistic, Pareto likelihood fitting, existing asymptotic theory"
+      },
+      {
+        "assessment": "Full journal version not independently inspected: possible unobserved added theorem is an acknowledged residual risk",
+        "evidence": [
+          "https://idus.us.es/items/d5488f2d-be18-4c5a-9ad0-9ad533936ea3",
+          "Journal volume 197, article 107988"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.csda.2024.107988",
+        "material_read": "Journal and lawful university-repository metadata and abstract; separate repository full text could not be opened",
+        "method": "Searched title/DOI and institutional open-access repository; compared its available abstract to full arXiv text",
+        "title": "Goodness-of-fit tests based on the min-characteristic function, journal printing",
+        "trigger": "Potentially stronger journal version of the same source"
+      },
+      {
+        "assessment": "Foundational minCF uniqueness and empirical process are explicitly prior; cannot rule out stronger hidden full-text implications",
+        "evidence": [
+          "Falk and Stupfler (2021), Sankhya A 83:254–282"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s13171-019-00184-1",
+        "material_read": "Public abstract and bibliographic summary only",
+        "method": "Search of title/DOI and accessible abstract",
+        "title": "The Min-characteristic Function: Characterizing Distributions by Their Min-linear Projections",
+        "trigger": "Origin of minCF and general empirical-process result"
+      },
+      {
+        "assessment": "Covers general truncation regimes; no full-text NOT_COVERING assertion made",
+        "evidence": [
+          "Chakrabarty and Samorodnitsky (2012), Stochastic Models 28:109–143"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/15326349.2012.646551",
+        "material_read": "Public abstract and publication metadata only",
+        "method": "Search and abstract-level scientific comparison",
+        "title": "Understanding Heavy Tails in a Bounded World or, is a Truncated Heavy Tail Heavy or Not?",
+        "trigger": "General Gaussian versus heavy-tail truncation methods"
+      },
+      {
+        "assessment": "Its broad truncated-mean trichotomy is acknowledged and cannot be excluded as a source of some pointwise reductions; integrated fitted minCF and exact critical variance not identified in available material",
+        "evidence": [
+          "Tang and Han (2023 online, 2024 journal), Communications in Statistics 53:5168–5185"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/03610926.2023.2209231",
+        "material_read": "Public abstract and bibliographic metadata only",
+        "method": "Search and abstract-level scientific comparison",
+        "title": "The asymptotic distribution of a truncated sample mean for the extremely heavy-tailed distributions",
+        "trigger": "Possible dominating generic truncated-mean theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e3850722-f1d5-45e9-9ef3-f06ca85d3bab",
+  "value": {
+    "rationale": "The tuning parameter in an existing Pareto goodness-of-fit test changes null calibration across three natural sample-size regimes. A new compensated-Poisson quadratic limit and exact positive linear critical variance excess identify a nontrivial failure of simply extending the fixed-weight Gaussian limit. The supercritical typical-value collapse has an explicit rate for every deterministic gamma/n->infinity. This is a motivated statistical boundary, not a routine sample-size tweak, and no unproved claims about rejection power are inferred.",
+    "status": "PASS"
+  }
+}
