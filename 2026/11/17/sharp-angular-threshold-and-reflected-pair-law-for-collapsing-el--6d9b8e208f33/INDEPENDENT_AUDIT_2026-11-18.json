@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T10:01:57.922050Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For three independent eccentric-anomaly parameters, the exact chord vector factorization gives absolute slope epsilon |cot((theta+phi)/2)|. If all three triangle angles are below fixed beta>pi/2, one chord must be steeper than tan((pi-beta)/2); away from O(epsilon^2) endpoint/overlap sets this localizes a unique reflected pair with theta_i+theta_j=2pi+epsilon h. On that band the short chord is epsilon sin(theta_i)(h,-2)+O(epsilon^2), the third chord is predominantly horizontal, and the limiting angle condition is |h|<2kappa with kappa=-cot(beta). The angular pair limit is {pi/2 +/- atan(h/2)}. Independent uniform parameter measure has Jacobian epsilon, giving per-pair 2kappa epsilon/pi and total 6kappa epsilon/pi. Dominated convergence of the band indicator, negligible overlaps, and Scheffe convergence after normalization imply the claimed independent pair/angle/uniform-h marked total-variation law for every fixed beta in (pi/2,pi). I separately implemented direct Euclidean-angle QMC with importance samples at beta=120 degrees: P(epsilon)/epsilon was 1.2247 at 0.025 and 1.1406 at 0.005, trending toward exact 2sqrt(3)/pi=1.10266 (finite-aspect deviation explicitly retained).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full published exact acuteness law gives P(angles<pi/2)=1/4-3Li2(tau^2)/(2pi²) and thin-epsilon order epsilon² log(1/epsilon).",
+          "Other indexed 120-degree result concerns spherical latitude circles with intrinsic spherical angles and quadratic rare-event scale."
+        ],
+        "reasoning": "A threshold at pi/2 is singular: the submitted theorem explicitly fixes beta>pi/2 and obtains a different order epsilon. The spherical theorem has different chords/angle metric and sampling, so neither source covers this reflected-pair linear law.",
+        "searches": [
+          "2026/11/2/SCOPE-sharp-dilogarithmic-acuteness-law-for-affine-uniform-ellipse-tri--a5911e351b92/RESULT.md",
+          "2026/11/17/SCOPE-the-120-degree-boundary-layer-for-random-spherical-latitude-tria--6b138f22d0d3"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-dilogarithmic-acuteness-law-for-affine-uniform-ellipse-tri--a5911e351b92/RESULT.md",
+        "https://arxiv.org/html/1501.03053v1",
+        "https://arxiv.org/abs/1304.7588"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A classical 120 degree Steiner condition determines whether a *given* triangle has an interior junction.",
+          "The earlier exact ellipse law is for acuteness <=90 degrees, not the event all angles <beta for a fixed beta in (90,180), nor the conditioned reflection mismatch."
+        ],
+        "reasoning": "The submitted linear probability law and TV marks are not logical corollaries of a single different-threshold scalar probability: near beta=pi/2 the asymptotic order changes, so a naive beta substitution is invalid.",
+        "searches": [
+          "sharp dilogarithmic acuteness law affine uniform ellipse triangles",
+          "random triangle shape Edelman Strang 2015",
+          "spherical 120 degree latitude probability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Edelman–Strang 2015 studies random Gaussian-coordinate triangle shape distributions on a hemisphere, not boundary-eccentric-anomaly sampling on a collapsing ellipse.",
+          "The Euclidean Steiner interior junction iff all angles <120 degrees is classical, without this sampling probability or conditional marks."
+        ],
+        "reasoning": "Gaussian shape space and equiaffine-uniform ellipse points induce inequivalent measures. The classical deterministic criterion cannot imply a sharp stochastic linear coefficient without boundary-layer analysis.",
+        "searches": [
+          "collapsing ellipse independent three eccentric anomaly uniform points Steiner triangle 120 angle reflected pair conditional probability",
+          "Edelman Strang Random Triangle Theory with Geometry and Applications 2015",
+          "Fermat Torricelli Steiner junction 120 degrees"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the current exact statement and ellipse acuteness/spherical threshold records but no earlier beta>pi/2 exact coefficient or the full four-mark distribution.",
+          "The 2026 exact acute table is a distinct beta endpoint."
+        ],
+        "reasoning": "No dominating exact table was found; historical priority against unindexed boundary-layer triangle probability calculations remains uncertain.",
+        "searches": [
+          "uniform eccentric anomaly collapsing ellipse Steiner probability fixed beta above 90",
+          "two random ellipse points reflected anomaly threshold angular triple table",
+          "2026 ellipse dilogarithmic acute triangle beta pi/2"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for fixed beta in (pi/2,pi) and its reflected-pair marked limit. The previously published exact ellipse acuteness law is at beta=pi/2, with different epsilon^2 log(1/epsilon) scaling and no fixed-obtuse-angle marked law. The 120-degree spherical latitude triangle result uses intrinsic spherical angles and a distinct geometry, while classic Fermat–Torricelli provides only the deterministic angle criterion.",
+      "residual_risks": [
+        "The full 2026 spherical-latitude result was not inspected beyond its indexed statement, though the geometry and angle metric are distinct.",
+        "An exact earlier fixed-beta ellipse-angle formula or marked-law derivation under another name may exist outside the searched literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_BETA_PI_OVER_TWO_ONLY",
+          "evidence": "Exact 90 degree law with epsilon² log(1/epsilon), not fixed beta>90 degree linear law or reflected-pair marks.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-dilogarithmic-acuteness-law-for-affine-uniform-ellipse-tri--a5911e351b92/RESULT.md",
+          "material_read": "Full RESULT.md including eccentric-anomaly convention, exact dilog formula, endpoint asymptotic, proof and limitations",
+          "method": "Read full prior source and compared angle thresholds, powers, and marked variables",
+          "title": "Sharp dilogarithmic acuteness law for affine-uniform ellipse triangles",
+          "trigger": "Same independent boundary sampling; possible threshold domination"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_MODEL",
+          "evidence": "Gaussian-coordinate random triangles and hemisphere shape-space law, not independent ellipse eccentric anomalies.",
+          "identifier_or_url": "https://arxiv.org/html/1501.03053v1",
+          "material_read": "Full public arxiv HTML abstract, introduction, random angle and Gaussian shape sections, section 3.3 probability context",
+          "method": "Read substantial actual mathematical body and checked sampling law",
+          "title": "Random Triangle Theory with Geometry and Applications",
+          "trigger": "Important primary random triangle shape/acute probabilities"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_GEOMETRY",
+          "evidence": "Intrinsic spherical angles on a latitude circle; no established equivalence to flattened Euclidean ellipse.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-the-120-degree-boundary-layer-for-random-spherical-latitude-tria--6b138f22d0d3/RESULT.md",
+          "material_read": "Resultary search summary and theorem statement only; full prior source not material-read",
+          "method": "Statement-level screening, explicitly no whole-document NOT_COVERING claim",
+          "title": "The 120-degree boundary layer for random spherical-latitude triangles",
+          "trigger": "Same nominal 120-degree threshold, possible dual geometric equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The appearance of an interior Steiner branching junction in three-terminal Euclidean networks is geometrically natural. Under severe ellipse anisotropy its probability decays linearly rather than at the previously studied acute-event epsilon² log scale. The reflected-pair localization and full conditional marks describe a genuine universal rare-event mechanism, supplying useful probabilistic structure beyond the classical deterministic 120-degree criterion or a copied threshold label.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-angular-threshold-and-reflected-pair-law-for-collapsing-el--6d9b8e208f33/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-dilogarithmic-acuteness-law-for-affine-uniform-ellipse-tri--a5911e351b92/RESULT.md",
+    "https://arxiv.org/html/1501.03053v1",
+    "https://arxiv.org/abs/1304.7588"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No finite-epsilon closed form, uniform-in-beta error or perimeter-uniform sampling conclusion is established. The QMC data do not prove convergence or a precise error rate.",
+    "The full 2026 spherical-latitude result was not inspected beyond its indexed statement, though the geometry and angle metric are distinct.",
+    "An exact earlier fixed-beta ellipse-angle formula or marked-law derivation under another name may exist outside the searched literature."
+  ],
+  "schema_version": 1
+}

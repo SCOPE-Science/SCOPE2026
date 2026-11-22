@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The proof is analytic and works for every fixed \(\beta\in(\pi/2,\pi)\), not merely a finite sample. The exact chord-direction identity forces any qualifying triangle into one of three \(O(\varepsilon)\) reflected-pair bands apart from \(O(\varepsilon^2)\) exceptional probability. Intersections of bands have the same smaller order. The localized coordinate Jacobian is exactly \(\varepsilon\); almost-everywhere convergence of the three angles gives the cutoff \(|h|<2(-\cot\beta)\), its coefficient, and \(L^1\) convergence of normalized densities. The checker independently evaluates Euclidean angles and tests the chord identity and leading constants at several aspect ratios. The quantitative error is stated only as \(o(\varepsilon)\), not as an unproved stronger bound.
+PASS
 
-## Originality: PASS, qualified by historical search limits
+For three independent eccentric-anomaly parameters, the exact chord vector factorization gives absolute slope epsilon |cot((theta+phi)/2)|. If all three triangle angles are below fixed beta>pi/2, one chord must be steeper than tan((pi-beta)/2); away from O(epsilon^2) endpoint/overlap sets this localizes a unique reflected pair with theta_i+theta_j=2pi+epsilon h. On that band the short chord is epsilon sin(theta_i)(h,-2)+O(epsilon^2), the third chord is predominantly horizontal, and the limiting angle condition is |h|<2kappa with kappa=-cot(beta). The angular pair limit is {pi/2 +/- atan(h/2)}. Independent uniform parameter measure has Jacobian epsilon, giving per-pair 2kappa epsilon/pi and total 6kappa epsilon/pi. Dominated convergence of the band indicator, negligible overlaps, and Scheffe convergence after normalization imply the claimed independent pair/angle/uniform-h marked total-variation law for every fixed beta in (pi/2,pi). I separately implemented direct Euclidean-angle QMC with importance samples at beta=120 degrees: P(epsilon)/epsilon was 1.2247 at 0.025 and 1.1406 at 0.005, trending toward exact 2sqrt(3)/pi=1.10266 (finite-aspect deviation explicitly retained).
 
-Primary texts on deterministic elliptical billiard triangle centers (Romaskevich 2013), Gaussian random triangle shape theory (Edelman–Strang 2015), and the Hausdorff-space Fermat–Steiner problem (Ivanov–Tropin–Tuzhilin 2016) have different hypotheses and conclusions. Indexed prior work on eccentric-anomaly ellipse acuteness gives the exact \(90^\circ\) endpoint law, which does not imply the new \(\beta>\pi/2\) linear coefficient or conditional marks. A Euclidean circle Steiner probability and a hyperbolic horocycle Steiner threshold likewise do not cover this collapsing-ellipse model. Searches for reflection-pair aliases and general angle caps found no covering theorem. This is a qualified best-knowledge claim, not certified uniqueness: some public indexed full texts were inaccessible and a comprehensive human priority search has not occurred.
+## originality
 
-## Value: PASS
+PASS
 
-The \(120^\circ\) specialization is the natural topology boundary between a planar three-terminal Steiner junction and a two-edge tree. The finding establishes a sharp inverse-aspect rarity law, valid for all fixed obtuse angle caps, and identifies an explicit universal rare-event geometry. It contrasts with the previously studied acute endpoint's much smaller logarithmic-quadratic scale, giving a genuine angular phase boundary rather than a cosmetic parameter change.
+Best-of-knowledge PASS for fixed beta in (pi/2,pi) and its reflected-pair marked limit. The previously published exact ellipse acuteness law is at beta=pi/2, with different epsilon^2 log(1/epsilon) scaling and no fixed-obtuse-angle marked law. The 120-degree spherical latitude triangle result uses intrinsic spherical angles and a distinct geometry, while classic Fermat–Torricelli provides only the deterministic angle criterion.
 
-## Limits
+## value
 
-This does not prove finite-aspect closed formulas, uniform asymptotics in a moving threshold, or a perimeter-uniform analogue. The independent mathematical audit remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The appearance of an interior Steiner branching junction in three-terminal Euclidean networks is geometrically natural. Under severe ellipse anisotropy its probability decays linearly rather than at the previously studied acute-event epsilon² log scale. The reflected-pair localization and full conditional marks describe a genuine universal rare-event mechanism, supplying useful probabilistic structure beyond the classical deterministic 120-degree criterion or a copied threshold label.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
