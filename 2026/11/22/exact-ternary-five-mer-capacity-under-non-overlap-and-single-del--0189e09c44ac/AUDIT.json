@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "The finite one-deletion and non-overlap conditions are fully quantified. The exact group-cover certificate gives 16|C|<=98 after a valid ternary normal-form reduction and an explicit six-word set attains it. Two separately implemented exact programs reconstruct the 72 optimal codebooks and seven complete symmetry orbits; the complete n=2..5 table is enumerated without Monte Carlo or floating-point decisions. Both executable checks returned VERIFY_OK and ALTERNATE_OK from supplied files.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The unrestricted ternary non-overlap maximum is 17, a superset bound and not a 6-word joint optimum",
+        "The binary ten-bit deletion-correcting result varies both alphabet and block length, with no q=3,n=5 parameter implication",
+        "Blackburn gives bounds and general non-overlap constructions without the extra deletion-shadow packing constraint",
+        "The unconstrained ternary length-five two-deletion capacity also equals 6, but the displayed six-word non-overlapping one-deletion code shares length-three descendants and therefore is not itself a two-deletion-correcting code."
+      ],
+      "reasoning": "Prior upper bounds on the larger non-overlap family do not give the stronger restricted optimum. A binary calculation cannot determine a ternary codebook census merely by inclusion or alphabet embedding; the direction of that implication is wrong. The separate Hamming detection maximum 9 is also only a weak upper bound for this class. An exact upper bound for correcting two deletions does not upper-bound the size of codes correcting only one deletion, so numerical equality of published two-deletion capacity 6 gives no implication.",
+      "searches": [
+        "published-finding corpus semantic query: non-overlapping codes length 5 ternary deletion error resistant codebook maximum 6",
+        "published-finding corpus record 2026/9/20, exact size and enumeration of maximum length-five non-overlapping codes, id e8e2fd1a9e7a",
+        "published-finding corpus record 2026/11/2, exact optimal ten-bit non-overlapping single-deletion codes, id 44988f32acda",
+        "Web full text: Blackburn arXiv:1303.1026 sections 1-5 and PDF pages 2 and 9",
+        "published-finding corpus 2026/10/12 ternary length-five two-deletion optimum and equality census id f262ebab78e2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1303.1026",
+      "doi:10.1109/TIT.2015.2456634",
+      "published-finding corpus:e8e2fd1a9e7a",
+      "published-finding corpus:d72ce427d800",
+      "published-finding corpus:44988f32acda",
+      "doi:10.1016/j.disc.2024.114236",
+      "published-finding corpus:f262ebab78e2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Blackburn section 4 concerns exact non-overlap at length at most 3 and fixed-n asymptotics in growing q, rather than joint deletion coding at q=3,n=5",
+        "The publicly visible Wang-Fang-Feng Section 4 explicitly defines correction using Hamming spheres; a deletion descendant is a different channel output",
+        "Hamming-one detection is implied by deletion correction, but not conversely: controlling distance-one substitutions does not rule out two source words with a length-four common subsequence",
+        "The seven symmetry classes are independently computed from pair-conflict constraints rather than derived from generic code-size bounds",
+        "The explicit six-codeword correcting set has common two-deletion outputs, such as 00001 and 00221 both yielding 001; a two-deletion classification thus cannot be substituted for this one-deletion classification."
+      ],
+      "reasoning": "Each previous result was compared by hypothesis and conclusion: domain, word length, alphabet, overlap ranges, and error model. No inspected theorem has hypotheses at least as weak and a conclusion forcing the exact ternary five-mer result. Access-limited closely related works remain a priority risk, not an assertion that their entire texts were excluded.",
+      "searches": [
+        "arXiv 1303.1026 complete 14-page manuscript: non-overlap, deletion, correcting and short-length theorem checks",
+        "Wang Fang Feng 2025 doi:10.1016/j.disc.2024.114236 Section 4 accessible preview",
+        "published-finding corpus exact ternary five-symbol non-overlap substitution detection id d72ce427d800",
+        "published-finding corpus exact binary ten-bit nonoverlap deletion correction id 44988f32acda"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Blackburn arXiv:1303.1026 defines non-overlap (including self-overlap) without deletion-shadow separation",
+        "Levenshtein insertion/deletion correction uses common length-four subsequences; the independent LCS verifier implements exactly this criterion",
+        "No returned specific source asserted the exact 6-word/72-optimum/7-orbit ternary length-five result"
+      ],
+      "reasoning": "Searches covered non-overlapping, cross-bifix-free, mutually uncorrelated, and self-synchronizing aliases together with single deletion and insertion correction. Self-overlap and deletion correction were jointly represented; an abstract involving Hamming detection alone is not equivalent to a deletion-correcting theorem.",
+      "searches": [
+        "published-finding corpus semantic query: non-overlapping cross-bifix-free code correcting a single deletion ternary length 4 5 exact maximum capacity",
+        "published-finding corpus semantic query: cross-bifix-free code with single-deletion correction ternary alphabet length five six codewords 72 optimal codes seven orbits",
+        "Web query: \"cross-bifix-free\" \"deletion-correcting\" ternary",
+        "Web query: \"ternary\" \"non-overlapping\" \"single-deletion-correcting\" code length five"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published exact ternary length-five non-overlap record id e8e2fd1a9e7a gives 17 with no deletion correction",
+        "Closest exact ternary length-five Hamming-detection non-overlap record id d72ce427d800 gives 9 and 24 optimizers for a different channel",
+        "Published ternary length-five unrestricted single-deletion optimum id 831d8cb03d53 equals 24 without the framing requirement",
+        "No directly matching 6-and-72 table was found in the available indexed research corpus",
+        "A two-deletion code table has the same numerical maximum 6 but enumerates 478 different unconstrained two-deletion codebooks; it is not the 72-code intersection claimed here."
+      ],
+      "reasoning": "A table for broader input words or a weaker channel cannot be repurposed as a table for the intersection. The exact seven-orbit equality census is not implied by known cardinality bounds; full appendices in some related records were not accessible, so a residual table-overlap risk is retained.",
+      "searches": [
+        "published-finding corpus semantic query: non-overlapping codes length 5 ternary deletion error resistant codebook maximum 6",
+        "published-finding corpus semantic query: cross-bifix-free code with single-deletion correction ternary alphabet length five six codewords 72 optimal codes seven orbits",
+        "published-finding corpus semantic query: self synchronizing insertion deletion correcting codes exact five mer capacity",
+        "Web query: single deletion correcting cross-bifix-free codes exact length five ternary"
+      ]
+    },
+    "rationale": "The closest sources treat unrestricted non-overlap, substitution detection, binary rather than ternary deletion correction, or general Hamming bounds. Their hypotheses and conclusions do not imply the six-word joint capacity or seven-orbit equality census. Search and source comparison completed subject to the documented full-text and indexing priority risks.",
+    "residual_risks": [
+      "The full text or appendices of a related ternary substitution-detection publication and a 2025 Hamming-based overlap-free article were not fully inspected; unreported deletion-specialized calculations could exist.",
+      "An equivalent result under an unindexed or historical alternate terminology may exist; negative indexed searches are not proof of global priority.",
+      "The result is finite and does not give higher-length coding rates or streaming error-propagation guarantees."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING simultaneous one-deletion correction: proofs concern non-overlap cardinalities; short-length exact results are for non-overlap alone",
+        "evidence": [
+          "arxiv:1303.1026 definition in section 1",
+          "sections 2-5 bound and construct non-overlapping codes, no single-deletion-shadow code capacity theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1303.1026",
+        "material_read": "14-page full text, definition and introductory comparison (pp.1-3), general bounds (pp.4-5), constructions and section 4 short lengths (pp.6-11), references; page-image visual checks at pages 2 and 9",
+        "method": "Accessible complete arXiv PDF parsed text with manual inspection of the relevant pages and keyword searches",
+        "title": "Non-overlapping codes",
+        "trigger": "Direct origin of the exact non-overlap hypothesis and its general bounds"
+      },
+      {
+        "assessment": "The material read concerns Hamming-based error correction of partially non-overlapping codes, not the exact deletion-shadow question. Unread remainder is a residual priority risk.",
+        "evidence": [
+          "Publisher introduction defines overlap classes",
+          "Section 4 explicitly defines Hamming sphere and constrained Gilbert-Varshamov bounds",
+          "Full manuscript unverified"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2024.114236",
+        "material_read": "Publisher abstract, introduction, accessible subsection summaries and Section 4 preview defining Hamming spheres; full article text not obtained",
+        "method": "Search for public preprint and OA full text, publisher page inspected; subsequent authorized document retrieval returned a different 2019 inversion-sequence article and was discarded",
+        "title": "q-ary (1,k)-overlap-free codes with given restrictions",
+        "trigger": "Title explicitly includes error-correcting overlap-restricted codes"
+      },
+      {
+        "assessment": "Visible claim concerns minimum Hamming distance two, which is weaker than deletion correction, and does not logically imply six-codeword optimum or 72 optima; source not fully excluded",
+        "evidence": [
+          "Reported cardinality 9 and 24 maxima for the weaker channel"
+        ],
+        "identifier_or_url": "published-finding corpus:d72ce427d800",
+        "material_read": "Published record title and substantive abstract reporting optimum 9 and 24 labeled optima; full repository content inaccessible",
+        "method": "Indexed research semantic search and attempted primary repository opening",
+        "title": "Exact ternary length-five non-overlapping codes detecting one substitution",
+        "trigger": "Same ternary alphabet, length and framing restriction with substitution detection"
+      },
+      {
+        "assessment": "An unrestricted maximum 17 does not supply the restricted maximum 6 or orbit census",
+        "evidence": [
+          "Published q=3 length=5 non-overlap optimum 17",
+          "Independent full source-only enumeration reproduces 17"
+        ],
+        "identifier_or_url": "published-finding corpus:e8e2fd1a9e7a",
+        "material_read": "Published record title and abstract reporting maximum 17; not full primary record",
+        "method": "Indexed research semantic search and independent exact non-overlap-only clique enumeration",
+        "title": "Exact size and enumeration of maximum length-five non-overlapping codes",
+        "trigger": "Exactly the ternary five-symbol framing alphabet without deletion correction"
+      },
+      {
+        "assessment": "Neither its binary capacities nor optimizer structure force the ternary five-symbol result",
+        "evidence": [
+          "Reported binary ten-bit optimum 9; no ternary n=5 parameter claim"
+        ],
+        "identifier_or_url": "published-finding corpus:44988f32acda",
+        "material_read": "Published record title and abstract for binary lengths two through ten",
+        "method": "Indexed research semantic search",
+        "title": "Exact optimal ten-bit non-overlapping single-deletion codes",
+        "trigger": "Same simultaneous pair of constraints, but on binary rather than ternary sources"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0189e09c-44ac-4016-800f-958c6844a988",
+  "value": {
+    "rationale": "Simultaneous comma-free synchronization and correction of one unknown lost symbol is a natural coding-design requirement. The sharp ternary length-five loss from 17 to 6, first four-message threshold, short exact conflict-clique certificate and full optimizer census give a motivated finite benchmark, not an arbitrary toy-word slice. No generalization or downstream guarantee is claimed.",
+    "status": "PASS"
+  }
+}
