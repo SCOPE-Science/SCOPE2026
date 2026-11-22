@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Direct run-count proof: N/4 runs per symbol and N/8 singleton runs per symbol follow from uniform length-2/3 de Bruijn factors; all mixed composition collisions correspond to one adjacent singleton-run slide, making a forest of exactly N/4 edges on (N/4)^2 run pairs; same-color outputs are C(N/4,2)+N/8. For n>=4, common untouched n-factor exists because 2^n-4n+2>0 and synchronizes cyclic output rotations; n=3 is exhausted. Full successor-table enumeration gives 2,16,2048 valid cycles at orders 3,4,5 and verifies every two-deletion output, plus 29 sampled order-six cycles.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sloane 2002, Theorem 5.1: |D_2(u)| = C(r(u)+1,2) - deficiency for a linear word u.",
+        "published-finding corpus record 2026/11/2/...8af4e5cf362e concerns general linear q-ary strings."
+      ],
+      "reasoning": "A general formula for linear outputs does not alone count distinct cyclic necklaces or resolve rotational collisions. The new proof uses unique de Bruijn n-factors to synchronize deletion alignments and calculates the cyclic composition refinement.",
+      "searches": [
+        "first variable two-deletion output distribution de Bruijn cycles",
+        "de Bruijn sequence cyclic deletion descendants two deletions overlap rotation",
+        "cyclic sequences two deletions distinct subsequences circular word number cyclic run"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0207197v1 Section 5 (full HTML read)",
+      "doi:10.1016/j.disc.2015.08.002 (publication abstract/preprint excerpt)",
+      "published-finding corpus 2026/10/26/...a3184d9feaf8 (indexed abstract only)",
+      "published-finding corpus 2026/11/2/...8af4e5cf362e (indexed abstract only)",
+      "published-finding corpus 2026/11/8/...2341722fce11 (indexed abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sloane 2002 gives linear two-deletion ball count via runs and deficiency.",
+        "Sawada–Williams–Wong 2015 preprint introduces a shift-rule construction for universal binary cycles.",
+        "published-finding corpus 2026/11/8 sharp one-deletion outdegree of binary necklaces gives a one-deletion extremal bound, not the two-deletion invariant."
+      ],
+      "reasoning": "The general linear theorem counts strings, not cyclic output orbits, and contains no de Bruijn-unique-factor synchronization. Standard de Bruijn factor uniformity supplies run counts but does not itself establish collision equivalence under rotation. No cited stronger result implies the full claim without the new argument.",
+      "searches": [
+        "random binary de Bruijn cycle cyclic autocorrelation run counts trace invariant",
+        "deletion reconstruction of set partitions one-read local windows",
+        "de Bruijn cycles all orders exact distinct circular two deletion descendants deleted zero one compositions necklace invariant N(N-2)/8 singleton run collision"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The circular two-deletion indexed result considers 0^a(10)^(k-1)1 rather than de Bruijn cycles (published-finding corpus id 2026/10/26/...a3184d9feaf8).",
+        "Sloane 2002 Section 5 Theorem 5.1 applies to linear descendants, not rotation classes."
+      ],
+      "reasoning": "The fixed deleted-composition spectrum for every order-n de Bruijn necklace is not equivalent to any identified source statement: the linear theorem does not quotient rotations and the circular example family does not have all length-n factors uniquely.",
+      "searches": [
+        "de Bruijn cycles all orders exact distinct circular two deletion descendants deleted zero one compositions necklace invariant N(N-2)/8 singleton run collision",
+        "two deletion trace spectrum de Bruijn cycles order 5 circular output necklaces counts",
+        "two-deletion shadow binary de Bruijn cycles exact dependence on chosen cycle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest circular two-deletion indexed formula is for a single elongated run (2026/10/26/...a3184d9feaf8).",
+        "published-finding corpus searches also returned order-five de Bruijn BWT/LZ and complexity censuses, not these deleted-composition counts."
+      ],
+      "reasoning": "No exact table of these source-independent two-deletion necklace spectra was identified in accessible indexed results. A database search alone is not proof of priority.",
+      "searches": [
+        "de Bruijn cycles all orders exact distinct circular two deletion descendants deleted zero one compositions necklace invariant N(N-2)/8 singleton run collision",
+        "two deletion trace spectrum de Bruijn cycles order 5 circular output necklaces counts",
+        "first variable two-deletion output distribution de Bruijn cycles"
+      ]
+    },
+    "rationale": "Sloane/Rains 2002 give all-binary-linear two-deletion descendant counts, but their theorem counts linearly ordered outputs and does not provide rotation-quotient composition counts for every de Bruijn cycle. The closest indexed public circular two-deletion result concerns one elongated-run source family, not a de Bruijn cycle. Existing one-deletion de Bruijn results are not stronger for this claim. Explicit title/statement/parameter searches located no equivalent result; novelty remains best-knowledge, not an exhaustive uniqueness certificate.",
+    "residual_risks": [
+      "An unindexed or inaccessible earlier paper may derive the same cyclic two-deletion invariant.",
+      "The closest indexed circular two-deletion statement was not available in full text; comparison uses its detailed abstract and explicitly restricted source family."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "LINEAR_ONLY_NOT_EQUIVALENT",
+        "evidence": [
+          "Section 5 Theorem 5.1 gives the linear second descendant cardinality in terms of run count and deficiency, without circular outputs or de Bruijn conditioning."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0207197v1",
+        "material_read": "HTML manuscript, definitions and Sections 1–5, especially the complete Section 5 theorem and proof sketch on linear two-deletion descendants",
+        "method": "Opened primary full-text HTML and inspected the theorem, definitions, and scope",
+        "title": "On Single-Deletion-Correcting Codes",
+        "trigger": "Closest general prior two-deletion descendant theorem"
+      },
+      {
+        "assessment": "NO_IDENTIFIED_CYCLIC_DELETION_RESULT_IN_READ_MATERIAL",
+        "evidence": [
+          "Construction of de Bruijn sequences by a shift-rule; no deletion-output enumeration in inspected abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2015.08.002",
+        "material_read": "Institutional publication metadata, abstract, and 2015 preprint excerpt; full manuscript not inspected",
+        "method": "Read metadata/abstract and dated public excerpt",
+        "title": "A surprisingly simple de Bruijn sequence construction",
+        "trigger": "Foundational de Bruijn construction and earliest dated 2015 antecedent"
+      },
+      {
+        "assessment": "NOT_COVERING_BY_STATED_DOMAIN; FULL_TEXT_UNREAD",
+        "evidence": [
+          "Stated source is 0^a(10)^(k-1)1, not a binary de Bruijn cycle; exact counts depend on k and a."
+        ],
+        "identifier_or_url": "published-research-index:2026/10/26/a3184d9feaf8",
+        "material_read": "Indexed statement and explicit source-family/output formulas; full text could not be retrieved",
+        "method": "Read indexed research abstract and attempted full-text opening (access failed)",
+        "title": "Exact two-deletion circular traces for a single elongated run",
+        "trigger": "Closest indexed circular two-deletion output count"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4a3900cf-c616-453f-b7d3-e8f2f8592f9d",
+  "value": {
+    "rationale": "Two deletions introduce both run-merging ambiguity and rotational source alignment; the theorem proves all de Bruijn universal cycles nevertheless have the same exact full deletion-output-composition spectrum. This gives a nontrivial source-invariant circular-channel coverage measure usable for benchmarking sequence-based deletion systems, and it is not merely a recomputation of a linear deletion count.",
+    "status": "PASS"
+  }
+}
