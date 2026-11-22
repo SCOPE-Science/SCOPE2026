@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The 12-block adjacency masks determine a symmetric connected simple graph. Every forcing set omits at most one vertex from a twin block; with at most one missing vertex per block, the quotient algorithm is equivalent to each permitted full-graph forcing move. Exhaustive evaluation of the 4096 quotient masks obtains 214,247,214 successful masks at three, four and five whites and corresponding exact weighted sums 680,678,690. For the expanded block of size 2+t the success indicator does not depend on t>=0; the exact slopes 112,64,68 give adjacent coefficients 690+68t,678+64t,680+112t and strict valleys 12+4t and 2+48t. An independently implemented full-vertex simulation exhausts 2^18 subsets and reproduces the complete polynomial, 105 edges and connectivity. No false inference about a global minimum is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Newton–Brimkov (arXiv:2611.11352v1), Theorem 1 and Conclusions, yields examples at 81/82 or larger and asks Question 2 for the smallest order.",
+        "AFTD 2026-11-11 gives 20 vertices and notes a 19-vertex example; it explicitly leaves lower-order existence unresolved."
+      ],
+      "reasoning": "An existence theorem for large orders and a specific example on 19 or 20 vertices do not imply one on 18 vertices: deleting vertices need not preserve nonunimodality. The new construction proves existence on 18 and exact affine counts on all larger orders. No inspected broad theorem forces these exact counts.",
+      "searches": [
+        "published-finding corpus: smallest graph order below twenty non-unimodal zero forcing polynomial true twin false twin blow-up graph",
+        "published-finding corpus: zero forcing polynomial non-unimodal chordal graph neighborhood diversity vertex duplication clique modular partition",
+        "Web: site:arxiv.org \"smallest\" \"non-unimodal\" \"zero forcing\" 18"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2611.11352v1 (first posted 2026-11-08 UTC)",
+      "https://rainwangphy.github.io/aftd-platform/blog/2026-11-11-op-1400/ (dated 2026-11-11)",
+      "https://doi.org/10.1016/j.dam.2018.11.033 (earlier standard invariant; bibliographic background, not full inspection)",
+      "published-finding corpus search: smallest graph order below twenty non-unimodal zero forcing polynomial true twin false twin blow-up graph",
+      "published-finding corpus search: 18 vertex non-unimodal zero forcing polynomial 690 678 680 twin blowup",
+      "Available current-week local ledger prefix for overlapping zero-forcing and graph-polynomial claims"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Newton–Brimkov has only prior general failure/unimodality counterexamples and the explicit smallest-order question.",
+        "The later AFTD note gives the strongest encountered finite upper bound 19 in its discussion, with no 18 result.",
+        "Independent direct-vertex and twin-quotient checks give the strict valley at n=18 and exact all-t formulas."
+      ],
+      "reasoning": "The claimed contribution is not the previously proved existence of any nonunimodal graph or any infinite family; it is a new lower order bound and a concrete smaller-order-starting structural family with exact coefficients. Neither cited source implies the finite graph, and a generic extrapolation of their families would not prove these values.",
+      "searches": [
+        "Web: \"Zero forcing is not unimodal\" Newton Brimkov construction",
+        "Web: \"18 vertices\" \"non-unimodal\" \"zero forcing polynomial\"",
+        "published-finding corpus: non-unimodality zero forcing polynomial infinite family 18 twin clique expansion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No exact published-finding corpus hit described the 18-vertex graph or its three consecutive counts; published-finding corpus nearest results concern distinct polynomials or standard zero-forcing on unrelated host families.",
+        "Newton–Brimkov defines standard vertex zero forcing and coefficient unimodality, matching the invariant here."
+      ],
+      "reasoning": "Graph-complement white-mask enumeration and standard initial-blue zero forcing are the same condition by definition. The new claim is not about connected/total forcing or general-position/ domination polynomials, despite shared words. The searched exact triplet and order did not occur in relevant hits.",
+      "searches": [
+        "published-finding corpus: 18 vertex non-unimodal zero forcing polynomial 690 678 680 twin blowup",
+        "Web: \"18 vertices\" \"non-unimodal\" \"zero forcing polynomial\"",
+        "Web: \"18-vertex\" \"zero forcing\" \"unimodal\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "AFTD public table: 20-vertex coefficients 420,932,909,939,180,20,1 and a mentioned 19-vertex triplet 780,754,780; neither equals the 18-vertex polynomial.",
+        "The actual published-finding corpus queries returned no zero-forcing polynomial 690,678,680 on 18 vertices."
+      ],
+      "reasoning": "AFTD exact counted object is a different 20-vertex graph; its 19-vertex note is an unformalized existence at another order. Our complete 18-vertex polynomial and quotient graph differ from both reports. Search coverage remains bounded.",
+      "searches": [
+        "published-finding corpus: eighteen vertex graph nonunimodal zero forcing polynomial coefficient valley order 18",
+        "published-finding corpus: 18 vertex non-unimodal zero forcing polynomial 690 678 680 twin blowup",
+        "Web: \"17 vertices\" \"nonunimodal\" \"zero forcing\" 2026"
+      ]
+    },
+    "rationale": "The inspected 2026-11-08 Newton–Brimkov paper proves general nonunimodality with a displayed 81-vertex example and an infinite family, without 18-vertex instances. The inspected 2026-11-11 public AFTD report gives a 20-vertex formal example and mentions an unformalized 19-vertex example, neither of which implies or states the new 18-vertex witness or exact family slopes. Searches for exact size, coefficient triplet and equivalent zero-forcing formulations did not find stronger existing coverage. Priority is provisional, not asserted exhaustive.",
+    "residual_risks": [
+      "Unindexed external work may contain an independent 18-vertex or smaller example; database nonhits do not establish global priority.",
+      "No assertion that all graphs of order <=17 have unimodal polynomials.",
+      "The new family does not establish nonunimodality for connected or total forcing polynomials; these are different invariants."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_18",
+        "evidence": [
+          "Theorem 1 has an explicit parameter t>=2 family with n=10+3t and Corollary 1 shows nonunimodality from t>=24 (82 vertices).",
+          "Section 3 cites a smaller 81-vertex example and asks what is the smallest graph with a non-unimodal zero forcing polynomial."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.11352v1",
+        "material_read": "Introduction, twin lemma, graph construction, full stated polynomial proof, corollaries, closing three questions and references, from available seven-page textual mirror; PDF screenshot of page five inspected",
+        "method": "Read mirror PDF pages as indexed text and visually inspect PDF page 5; compare exact order claims and implications",
+        "title": "Zero forcing is not unimodal",
+        "trigger": "direct primary introduction and nonunimodality constructions"
+      },
+      {
+        "assessment": "NOT_COVERING_18",
+        "evidence": [
+          "States 20-vertex complete polynomial and notes a 19-vertex unformalized counterexample with triplet 780,754,780.",
+          "Explicitly says smallest possible order remains open and no lower-order classification is proved."
+        ],
+        "identifier_or_url": "https://rainwangphy.github.io/aftd-platform/blog/2026-11-11-op-1400/",
+        "material_read": "Full accessible HTML note, including explicit 20-vertex nonedge list, counted polynomial, proof summary, discussion and 19-vertex mention",
+        "method": "Read sections 1-5 of full public text and compare complete statements and implications",
+        "title": "Existence of a Simple Graph of Order 20 with a Non-Unimodal Zero Forcing Polynomial",
+        "trigger": "more recent explicit finite bound, highly relevant possible coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8c1a5515-407e-4dad-a2c4-f101c81c9e56",
+  "value": {
+    "rationale": "A primary 2026 publication asks for the smallest order with nonunimodal ordinary zero-forcing polynomial. A subsequent explicit bound of 19 is improved to 18 with a complete self-contained graph and reproducible full polynomial. The new proof also establishes an infinite connected twin-expansion family, with exact affirmative coefficient-gap formulas at every size n>=18. This is a motivated improvement to an unknown natural minimum and a structural perpetuation mechanism, not an arbitrary polynomial calculation or reparameterization of the prior large-order family. It does not claim to settle the exact minimum.",
+    "status": "PASS"
+  }
+}
