@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Exact Fourier convolution gives the three-class decomposition (1); the displayed three-term sum-of-nonnegative-terms identity verifies the core sharp constant, magnitude and phase equality, including all zero-boundary cases. Cauchy–Schwarz proves the optimal energy-concentration coefficient. A direct computation shows all claimed sharpness cases and the transition at seven satellites. The included exact rational checker corroborates these identities on nine separated spectra; no finite experiment is treated as a universal proof.
+## correctness
 
-## Originality
-PASS relative to the checked material, not a claim of bibliographic exhaustiveness. The 2026 Bourgain \(\Lambda(p)\) selection paper establishes general existence of bounded systems, not the explicit sumset-separation fourth-moment deficit and its threshold, so far as its accessible abstract shows. Klemes's 1999 introduction and Theorem 6.2 give a nonsharp uniform fourth-moment inequality on forest-structured spectra. Related indexed exact-fourth-moment studies use linked-midpoint four-term or dyadic chains rather than the disjoint Sidon satellite setting. The largest limitation is that relevant broader general additive decoupling statements could imply this theorem without matching its formula, and the 2026 primary full text was inaccessible.
+PASS
 
-## Value
-PASS. This is an all-cardinality, sharp, uniform Fourier extension and stability theorem for a structural class of additive spectra. It identifies precisely when a cloud of well-separated coefficients competes with the resonant core in normalized fourth-moment deficit, with a discrete transition at seven satellite frequencies. The exact equality classifications clarify which perturbations are most damaging to the sharp inequality. The value is the complete sharp robustness profile, not merely the pre-existing fourth-moment convolution identity.
+With pairwise disjoint A+A,A+T,T+T, disjoint translates A+u and Sidon pair sums, Parseval of f^2 gives exact Q=Q_A+4sr+2r^2-sum|b_u|^4. A direct square completion for the 0,1,2 core proves Q_A<=15s^2/7, equality in the sqrt2:sqrt3:sqrt2 phase-aligned core. Expanding total deficit gives D=D_A+(2/7)sr+(1/7)r^2+sum|b|^4; Cauchy gives sum|b|^4>=r^2/m. Dividing by E R reveals a convex combination of 2/7 and 1/7+1/m, giving sharp delta_m and the m=7 extremal switch. Equality at m<7 only approached as R/E->0; at m>7 attained on equal-energy satellite-only; m=7 any optimized split. The hypotheses are used to exclude every additional convolution collision. The standalone exact rational checker matches these identities on separated T={10^j} for a range of m; general theorem follows algebraically.
 
-## Closest work and limitations
-The selected 2026 paper motivates the \(\Lambda(p)\) setting but does not, on the accessible record, supply the exact result. The 1999 Klemes theorem covers more elaborate forest families with a universal nonsharp bound, not the same sharp stability question. Other precise finite-spectrum results remain potential stronger antecedents; full-text verification was available only for portions of the latter paper. The pure three-term inequality and elementary Sidon convolution mechanism are not represented as new individually.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical Lambda(4)/Sidon theory and its exact Cauchy bound motivate the proof, and 15/7 for an isolated resonant triple is known. The combined sharp satellite-energy stability coefficient and exact change of minimizers at m=7 for separated T were not obtained from the inspected published statements. This is a modest synthesis with a real possibility of an unindexed general direct-sum deficit lemma.
+
+## value
+
+PASS
+
+Sharp stability of a natural resonant three-frequency anchor under controlled Sidon perturbations quantifies exactly how much remote frequency mass an optimizer can carry, with a genuine seven-satellite crossover and fully characterized attainment. It is a motivated extremal Fourier-inequality boundary; the elementary core algebra does not make its sharp global coefficient worthless.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
