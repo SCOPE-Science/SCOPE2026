@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Every distinct new one-type is an insertion-gap pair. Discrepancy two constrains the gaps to exactly \\(3(n-1)\\) candidate positions. Full saturation is equivalent to one outward crossing per initial cut and displacement at most two. The former forces a single spanning permutation cycle and, for \\(n\\ge4\\), no fixed points; the latter makes that cycle Hamiltonian in the square of a path. The square has a unique undirected Hamilton cycle by an explicit edge-expansion induction, and its two orientations attain the bound. Direct small cases \\(n=2,3\\) complete the classification. The standard-library verifier checked 409112 permutations and independent direct definitions for small sizes; finite checks are corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cameron (2002) classifies the homogeneous two-order structures; Linman–Pinsker (2015) classifies 39 reducts; both have broader structural settings but their inspected results do not entail a maximization of this exact one-point discrepancy statistic.",
+        "The generic double-order structure realizes all independent insertion gap pairs over a named finite base."
+      ],
+      "reasoning": "Structure-classification and reduct-classification theorems do not by themselves give the exact extremal statistic or classify all maximizing finite bases. The results are structurally relevant but do not state an implication covering the claim.",
+      "searches": [
+        "In the homogeneous two-order random permutation, insertion type disagreement count c2 equals at most 3(n-1); equality for only the two orientations of the zigzag Hamilton cycle of path square graph.",
+        "In the countable homogeneous two-order structure, a finite parameter permutation has a sharp bound c1(pi) <=2n on the number of nonalgebraic one-point insertion types disagreeing with exactly one named point, and equality iff disjoint adjacent swaps. Investigate c2 second disagreement layer.",
+        "Linman and Pinsker (2015), arXiv:1405.4297, homogeneous two-order reducts",
+        "Cameron (2000), oligomorphic permutation group orbit sequences"
+      ]
+    },
+    "checked_sources": [
+      "P. J. Cameron (2002), doi:10.37236/1674, official full-text PDF",
+      "J. Linman and M. Pinsker (2015), arXiv:1405.4297, official PDF",
+      "P. J. Cameron (2000), Journal of Integer Sequences article 00.1.5",
+      "Published mathematical-record semantic searches targeting second-disagreement prefix symmetric difference, Hamiltonian path-square, and extremal insertion gaps"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cameron explicitly identifies the same pair 2413/3142 under a finite adjacency property at size four.",
+        "The current claim additionally requires an exact upper bound for the number of complete one-point types at every n and equality classification for all \\(n\\ge4\\); no cited theorem yields those without a new cut and Hamilton-cycle argument.",
+        "An earlier related discrepancy-one result concerns a different level of the distribution and does not imply this extremal discrepancy-two classification."
+      ],
+      "reasoning": "The previously established size-four coincidence and the general structure/reduct results are known and respected. Neither the size-four characterization nor generic homogeneity alone logically implies the infinitely many sharp inequalities and rigidity cases. The explicit proof here supplies that implication. Literature coverage cannot be asserted beyond the checked sources.",
+      "searches": [
+        "In the homogeneous two-order random permutation, insertion type disagreement count c2 equals at most 3(n-1); equality for only the two orientations of the zigzag Hamilton cycle of path square graph.",
+        "In the countable homogeneous two-order structure, a finite parameter permutation has a sharp bound c1(pi) <=2n on the number of nonalgebraic one-point insertion types disagreeing with exactly one named point, and equality iff disjoint adjacent swaps. Investigate c2 second disagreement layer.",
+        "square of path graph uniquely Hamiltonian cycle P_n^2",
+        "P. J. Cameron, Homogeneous Permutations (2002), Section 4 and p. 5",
+        "J. Linman and M. Pinsker, Permutations on the random permutation (2015), introduction and structural sections"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cameron (2002), p. 5, identifies 2413 and 3142 as the only four-point patterns where every pair is adjacent in one of the orders; this overlaps the four-point equality list but is a different criterion and not an all-size theorem.",
+        "The new invariant is the number of insertion-gap pairs with cardinality-two prefix symmetric difference, equivalently the distance-two layer of complete unary types."
+      ],
+      "reasoning": "Checked the prefix symmetric difference, two-disagreement, insertion-rank, and zigzag aliases. The four-point patterns are credited as prior knowledge. The specific uniform sharp bound and all-size equality condition were not found, but absence of a search hit cannot prove historical uniqueness.",
+      "searches": [
+        "Permutation prefixes symmetric difference two; number of pairs (i,j) with |{1,...,i} delta {pi(1),...,pi(j)}|=2; maximum and extremizers.",
+        "Second-disagreement layer insertion-rank types finite permutations extremizers reverse zigzag P_n square Hamilton cycle",
+        "Cameron (2002), p. 5, doi:10.37236/1674"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "An exact size-four table of the two patterns is implicit in Cameron (2002), p. 5; it is explicitly excluded from the newly claimed priority.",
+        "A standalone exhaustive computation enumerates all permutations of sizes 2–9 and confirms the all-size theorem only at those finite sizes."
+      ],
+      "reasoning": "No published all-n table or database of the disagreement-two extremal type statistic was located in the checked material. Finite results generated for this finding are internal checks, not evidence of independent publication or priority.",
+      "searches": [
+        "Permutation prefixes symmetric difference two; number of pairs (i,j) with |{1,...,i} delta {pi(1),...,pi(j)}|=2; maximum and extremizers.",
+        "permutation prefix symmetric difference exactly two insertion gaps maximal count zigzag path square Hamiltonian",
+        "permutations near identity prefix discrepancy 2 extremal count 3(n-1)",
+        "P. J. Cameron (2002), size-four patterns 2413 and 3142"
+      ]
+    },
+    "rationale": "The all-size discrepancy-two insertion-type bound and rigid equality classification were compared against the foundational homogeneous-permutations construction, reduct classification, oligomorphic enumeration and current relevant mathematical-record searches. Cameron (2002) has the identical \\(n=4\\) equality patterns in a different adjacency theorem; we explicitly credit that endpoint and claim originality only for the general sharp type-count theorem and \\(n\\ge5\\) rigidity. An equivalent formulation in older literature remains possible.",
+    "residual_risks": [
+      "Historical priority for an equivalent prefix-set or nearly-diagonal permutation theorem is not conclusively settled.",
+      "The four-point equality patterns are previously published, so the endpoint by itself is not original.",
+      "The surveyed sources do not exhaust all permutation enumeration and Hamiltonicity literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the random two-order structure and preidentifies the two four-point patterns by a different adjacency property; inspected content does not state the all-size discrepancy-two type theorem",
+        "evidence": [
+          "Published 2002-10-31; p. 1 gives the two-order viewpoint; p. 3 defines the universal homogeneous double-order example; p. 5 singles out 2413 and 3142 under pair-adjacency condition."
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v9i2r2/pdf/",
+        "material_read": "Published PDF pp. 1–5, especially Sections 1–4 and p. 5 where 2413/3142 occur; relevant closing material also checked",
+        "method": "Official open-access PDF textual reading and page-image inspection",
+        "title": "Homogeneous Permutations",
+        "trigger": "Foundational homogeneous two-order construction and a close four-point equality-list coincidence"
+      },
+      {
+        "assessment": "Provides foundational homogeneous/reduct context and classification of closed automorphism supergroups, not the checked extremal discrepancy-two count",
+        "evidence": [
+          "First page identifies the random permutation as the Fraisse limit of finite structures with two linear orders and states its 39 reduct-group classification; inspected types section does not establish this bound."
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v22i2p54/pdf/",
+        "material_read": "Introduction and the random-permutation structure and canonical-type sections, plus results and source-targeted text searches",
+        "method": "Open-access full-text PDF inspection with section searches and page images",
+        "title": "Permutations on the Random Permutation",
+        "trigger": "Highly relevant primary article on symmetries and orbit/types in the same homogeneous double-order structure"
+      },
+      {
+        "assessment": "General orbit-profile framework does not cover the sharp dependence on finite named permutation patterns and exactly-two disagreement",
+        "evidence": [
+          "The published account treats oligomorphic group orbit sequences in general, not the claimed prefix symmetric-difference extremizers."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL3/groups.html",
+        "material_read": "Full available webpage, introductory and enumeration sections",
+        "method": "Read official journal HTML and compared orbit-count statements to the disagreement-filtered types",
+        "title": "Sequences Realized by Oligomorphic Permutation Groups",
+        "trigger": "General orbit-count framework might dominate the claimed type enumeration"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "30d779ca-875c-414a-9fe8-3554ede2d264",
+  "value": {
+    "rationale": "An intrinsically logical, discrete one-point-type filtration has a sharp maximal second-disagreement layer and a complete rigidity classification at every base size. The extremizers collapse to two inverse zigzag permutations for every n>=4, structurally different from the large disjoint-swap maximizing family at discrepancy one. The cut-to-Hamilton-cycle mechanism and unique Hamilton cycle induction explain and generalize the previously observed four-point pair; this is a motivated exact structural boundary, not a mere numerical increment.",
+    "status": "PASS"
+  }
+}

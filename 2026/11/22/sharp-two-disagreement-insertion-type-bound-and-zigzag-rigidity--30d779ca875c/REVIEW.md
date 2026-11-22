@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The exact type/discrepancy identification follows from homogeneity and the two insertion gaps. Parity and cardinality restrict discrepancy-two types to precisely \(3(n-1)\) candidate gap pairs. Simultaneous saturation implies one directed edge across every initial cut and displacement at most two. The cut argument forces a spanning permutation cycle and excludes fixed points from size four onwards; an explicit inductive edge-expansion proves uniqueness of the undirected Hamilton cycle of the squared path. The two orientations and the size-two/three exceptions complete necessity and sufficiency. The included verifier checks 409112 permutations and a separately implemented direct definition; these finite tests are not offered as a general proof.
+
+**Originality — PASS (provisional historical priority).** The exact four-point extremizers \(2413\) and \(3142\) appear already in Cameron's 2002 p. 5 under a different adjacency criterion; their four-point identification is credited and excluded from novelty. The new claim is the universal discrepancy-two insertion-type inequality and the all-size rigidity theorem. Comparisons with Cameron (2002), Linman–Pinsker (2015), Cameron (2000), and mathematical-record searches did not disclose this exact theorem or a dominating general result. Equivalent terminology or unpublished priority remains a substantive residual risk.
+
+**Mathematical value — PASS.** This classifies the complete set of maximizers of an intrinsically defined logical-type filtration in a canonical homogeneous structure. The sharp bound and all-size rigid two-pattern classification are stronger than a small computation or a routine next coefficient: the proof reveals a structural cut-to-Hamiltonicity mechanism. The sharp contrast with the one-disagreement layer supplies additional motivation but is not used as a novelty substitute.
+
+**Closest coverage and limitations.** Cameron (2002) already gives the exceptional four-point patterns; the present result does not claim that endpoint separately. It applies to one new distinct point over a finite pointwise-named base and to discrepancy exactly two. No independent mathematical audit or exhaustive historical priority search has been completed.
+
+Self-review: passed. Independent audit: not yet performed.
