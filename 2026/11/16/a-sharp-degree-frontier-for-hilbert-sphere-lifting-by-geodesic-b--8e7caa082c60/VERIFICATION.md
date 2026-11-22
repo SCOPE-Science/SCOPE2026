@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification evidence and limits
+# Independent mathematical audit
 
-Run `python3 check.py` from the extracted package directory. The checker requires Python 3 standard library only. It uses exact fractions to verify the low-degree Legendre evaluations, the integrated degree-eight Laplace majorant, the cubic arcsine coefficient-ratio identity through twenty-one terms, the cubic Bernstein expansion over fifty exact sample points, and the explicit negative witnesses.
+## correctness
 
-The actual packaged checker produced:
+PASS
 
-`CHECK_OK exact_legendre_low=8 integral_bound=1 asin_cubic_ratios=21 cubic_identity_grid=50 negative_witnesses=3`
+Restrict every S^d Gegenbauer kernel (d>=2) to S², obtaining a convex combination of same-parity Legendre polynomials. Direct low Legendre values at 1/2 plus Laplace integral absolute bound 10643/32768<1/3 for degree>=8 imply even p>=-1/3 and odd p<=1/2. Exact cubic angular Bernstein images in A(u)=arcsin(u) yield nonnegative coefficient families; the identity [u^{2k+1}]A³/[u^{2k+1}]A=6 sum_{j=1}^k(2j-1)^{-2}<3pi²/4 proves the odd case at all k; its first 16 ratios were independently checked exactly. Schoenberg then lifts all nonnegative basis mixtures to Psi_infty. Degree4 P6 midpoint value -17/256 was recomputed independently; degrees>=5 P2 yield (1-3 cos(pi/n)^n)/4<0; S1 B_n cos(2theta) midpoint negative for n>=3. Thus the dimension/degree boundaries and limits are proved analytically, not by the bounded script.
 
-The proof is not an extrapolation from these finite tests. The bound for all higher Legendre degrees follows from the integral with a pointwise monotonic power; the coefficient ratio at all orders follows from a differential-equation recurrence and an odd-square reciprocal series; the infinite families of negative witnesses follow from strict monotonicity of \(\cos(\pi/n)^n\). For all input dimensions the Gegenbauer-to-Legendre convexity reduction follows from restriction to an embedded sphere and uniqueness of Schoenberg coefficients. The exact boundary cases of each parameter are in `RESULT.md`.
+## originality
 
-The linked August 2026 motivating article was inspected in its full available HTML representation. Some other similar published research items were available only via short public summaries, so no whole-document noncoverage claim is made for them. Publication priority remains subject to independent literature assessment.
+PASS
+
+The 2026 Otten-Nguyen-Watts circle theorem proves Psi1->Psi1 (not Psi_infty), while published affine-Bernstein n<=d+1 Hilbert lift uses dot-product sampling rather than angle. Current degree3 geodesic lift and sharp different circle boundary are not implications of either.
+
+## value
+
+PASS
+
+A sharp distinction between preserving positivity in the source sphere and lifting it to every sphere for a natural geodesic-angle approximation operator, with an unexpected cubic positive frontier and explicit all-degree obstructions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,23 +1,21 @@
-# Scientific review: sharp geodesic Bernstein lifting frontier
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof makes a clean distinction between spherical positive definiteness and positivity of an ordinary power series. Its key reduction is justified by restricting each normalized Gegenbauer kernel from \(S^d\), \(d\ge2\), to an embedded \(S^2\), where its Legendre coefficients are nonnegative and sum to one. The required bounds at \(u=1/2\) are proved for *every* degree by eight exact low-degree values and the explicit Laplace-integral majorant \(10643/32768<1/3\) for all degrees at least eight. Cubic images then reduce exactly to a constant/quadratic arcsine expression for even degrees and to a linear/cubic arcsine expression for odd degrees. The cubic arcsine coefficient identity is derived from exact differential equations and controls every power coefficient; no finite calculation is substituted for the infinite coefficient inequality.
+PASS
 
-The degree-four counterexample computes \(\mathcal B_4P_6(\pi/2)=-17/256\). For every higher degree, the degree-two Legendre example is negative at the midpoint because \(\cos(\pi/n)^n\) increases strictly beyond \(1/3\) at degree five. The circle obstruction uses the explicit character \(\cos(2\theta)\). The scope is precise: these are counterexamples to universal *Hilbert-sphere lifting*, not assertions of loss of positivity on the source sphere. Exact-rational checker `check.py` passed all implemented checks from the package.
+Restrict every S^d Gegenbauer kernel (d>=2) to S², obtaining a convex combination of same-parity Legendre polynomials. Direct low Legendre values at 1/2 plus Laplace integral absolute bound 10643/32768<1/3 for degree>=8 imply even p>=-1/3 and odd p<=1/2. Exact cubic angular Bernstein images in A(u)=arcsin(u) yield nonnegative coefficient families; the identity [u^{2k+1}]A³/[u^{2k+1}]A=6 sum_{j=1}^k(2j-1)^{-2}<3pi²/4 proves the odd case at all k; its first 16 ratios were independently checked exactly. Schoenberg then lifts all nonnegative basis mixtures to Psi_infty. Degree4 P6 midpoint value -17/256 was recomputed independently; degrees>=5 P2 yield (1-3 cos(pi/n)^n)/4<0; S1 B_n cos(2theta) midpoint negative for n>=3. Thus the dimension/degree boundaries and limits are proved analytically, not by the bounded script.
 
-## Originality — PASS relative to checked evidence
+## originality
 
-The closest full primary text, Otten–Nguyen–Watts (2026), proves that geodesic-angle Bernstein operators preserve circle positive definiteness at every degree and describes a failure of **affine dot-product** Bernstein interpolation on \(S^2\); it does not assert a sharp threshold for the same geodesic-angle operator to lift \(S^2\) into the Hilbert-sphere cone. Two published affine-Bernstein frontier records have similar numerical degree boundaries but change the sampling points, the independent variable and the output. Neither statement directly contains the geodesic claim. Published circle node-flexibility results similarly do not imply the Hilbert-sphere coefficient inequalities. The new argument uses the specific bound on Legendre samples at one half and the coefficient ratios of the cubic arcsine, neither supplied by those recorded statements.
+PASS
 
-The check includes equivalent formulations (arcsine absolute monotonicity, nonnegative monomial coefficients, Hilbert-sphere kernel validity), broader affine-vs-angular coverage, exact tables, and implication comparisons. The accessible Otten–Nguyen–Watts article was read in full through its HTML text. Some linked research records were accessible only as published summary records; they were not falsely treated as inspected full texts. Remaining risk: an older approximation-theory paper may use a different name for exactly the angular sampling operation, or an uninspected published record may contain a hidden equivalence. This is originality relative to the checked material, not a claim of exhaustive priority.
+The 2026 Otten-Nguyen-Watts circle theorem proves Psi1->Psi1 (not Psi_infty), while published affine-Bernstein n<=d+1 Hilbert lift uses dot-product sampling rather than angle. Current degree3 geodesic lift and sharp different circle boundary are not implications of either.
 
-## Mathematical value — PASS
+## value
 
-The theorem resolves an exact, naturally motivated **dimension-lifting** question for a classical sampling operator across every degree and every sphere dimension, and identifies a genuine jump between input dimensions one and two. The positive conclusion is stronger than preserving the original sphere's cone: one finite-node approximation yields a kernel valid on *every* sphere. The negative half supplies explicit witnesses for all higher degrees, proving a sharp boundary rather than a small-case observation. The proof exposes a reusable mechanism coupling dimension restriction, Legendre sample bounds and arcsine coefficient domination. The scientific interest is directly related to covariance-safe approximation and the spherical extension question raised in the motivating article, without requiring an unrelated downstream theorem.
+PASS
 
-## Limits and closest material
+A sharp distinction between preserving positivity in the source sphere and lifting it to every sphere for a natural geodesic-angle approximation operator, with an unexpected cubic positive frontier and explicit all-degree obstructions.
 
-The theorem does not classify which higher Bernstein degrees preserve positivity in each fixed finite dimension, and does not cover nonuniform sampling nodes or noisy covariance data. Comparisons included the full August 2026 circle Bernstein paper, Schoenberg's classical coefficient criterion as presented in the literature, Gneiting's spherical covariance survey, the published affine-Bernstein frontier summaries and the cubic-circle-node summary. The self-contained proof and the exact checker are in `RESULT.md` and `check.py`.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
