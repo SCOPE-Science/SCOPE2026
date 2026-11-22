@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof uses the roots of the three-angle Chebyshev cubic to reduce all phase comparisons to the sign of an ordinary second divided difference, and checks the required derivative signs for exponential and log-detection functions. A common random effort mixture is handled by conditioning; it is not falsely treated as independent across species. The unique finite effort scale follows from a strictly decreasing hyperbolic equation. The embedded reproducible checker supplements the universal proof with 34,603 finite numerical assertions.
+
+**Originality — PASS on inspected evidence, with provisional priority.** Rounds et al. (2024), Takahara et al. (2019), and Bedwell and Goldberg (2020) were inspected in substantial open-access primary text. They establish biological seasonality and sampling motivation but not the exact symmetric three-target stochastic theorem. Published mathematical-result searches for three-phase harmonic and species-richness equivalences returned related but nonidentical accessible summaries; a few full-text comparisons remain unavailable. Standard divided-difference mathematics is cited as proof technique rather than a new standalone result. No claim of certified historical uniqueness is made.
+
+**Value — PASS.** The exact opposition between expected richness/all-three coverage and at-least-two coverage is a meaningful consequence of differing survey objectives, and the independence of any-positive coverage makes the contrast particularly sharp. Common-efficiency robustness and the uniquely optimal effort contrast provide a useful analytical benchmark for survey design. The stylized equidistant sinusoidal rates are not field-fitted, so no direct field management recommendation follows.
+
+Closest literature and limitations: Rounds et al., *Freshwater Biology* (2024), DOI https://doi.org/10.1111/fwb.14320; Takahara et al., *Freshwater Science* (2019), DOI https://doi.org/10.1086/707365; Bedwell and Goldberg, *Ecology and Evolution* (2020), DOI https://doi.org/10.1002/ece3.6014. See RESULT.md for explicit model assumptions, full proof, and limitations.
+
+Self-review: passed. Independent audit: not yet performed.
