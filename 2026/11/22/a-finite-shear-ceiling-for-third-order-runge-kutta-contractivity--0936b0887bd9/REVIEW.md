@@ -1,0 +1,19 @@
+# Scientific review: finite RK3 Jordan-shear contractivity ceiling
+
+## Correctness (PASS)
+
+For every \(h\ge0\) and \(\gamma\ge0\), the derivation uses the exact functional calculus of the nilpotent matrix \(N\): \(P_3(hA_\gamma)=r(h)I+\gamma hp(h)N\). The exact singular-value formula shows nonexpansion if and only if \(r(h)^2+\gamma hp(h)\le1\). A strictly decreasing scalar \(r\) limits admissible steps to \([0,\beta]\). The quotient \(G=(1-r^2)/(hp)\) has a derivative of fixed sign on either side of the single root of \(F\), because \(F'\) has an explicit globally positive sum-of-squares certificate. These algebraic facts prove the entire phase diagram and boundary equalities. The nondegenerate fold follows from the negative second derivative at the sole maximum. A standard-library verifier independently recomputes the rational identities and tests 525 exact matrices and 11,537 independent singular norms. Finite tests are corroboration, not the universal proof. Risk: none identified in the stated algebraic domain; operator-norm and exact-flow claims must not be confused with numerical accuracy.
+
+## Originality (PASS, qualified)
+
+Claim-to-claim comparison was made against the general strong-stability frameworks of Sun–Shu (arXiv:1811.10680, relevant introduction and methods), Sun–Wei–Wu (arXiv:2201.06501, introduction, analytical framework and examples), and Achleitner–Arnold–Jüngel (arXiv:2308.05689, introduction, main definitions and Jordan example). These establish general small-step stability for dissipative matrices or investigate different examples, not a sharp entire positive-step region for the non-dissipative \(\gamma>2\) cubic Jordan family. The closest published exact note, *A sharp false-contractivity island for classical fourth-order Runge–Kutta on planar Jordan shears* (2026, public RESULT.md inspected), treats the same matrix but \(P_4\), whose derivative has a zero; its all-shear island is not a theorem about \(P_3\). The new cubic finding gives a finite shear ceiling, singleton critical step, and fold scaling, rather than merely evaluating the older fourth-order constants. Searches did not establish that no other specialist work contains the cubic result. Residual risk: unlocated earlier exact analyses of RK3 contractivity for defective matrices. Priority remains provisional.
+
+## Value (PASS)
+
+The result determines an exact, natural finite-dimensional stability boundary for a standard third-order time integrator: a two-dimensional test with fixed eigenvalues can lose **every** positive Euclidean contractive step once its nonnormal shear exceeds a precisely defined finite value. The disconnected interval and its saddle-node collapse give a complete parameter-to-timestep classification; comparison to fourth-order RK identifies the derivative-zero mechanism behind a qualitative order-dependent difference. This is relevant to interpreting discrete energy contraction and spectral-only stability tests for nonnormal ODEs and semi-discretized PDEs. It is not a method-design or accuracy improvement claim, and its numerical excess above \(\gamma=2\) is small. The structural finite-versus-unbounded distinction, rather than that small excess alone, motivates its independent value.
+
+## Limitations and closest literature
+
+The claim is restricted to \(2\times2\) real Jordan systems, unweighted Euclidean one-step norms, and the cubic stability polynomial. It does not settle larger nonnormal systems, nonlinear stability, internal stages, or time-dependent coefficients. Related historical primary articles are listed in RESULT.md; the directly comparable public fourth-order note was read in full. A general published article could imply the result through a non-obvious specialization; this remains the main historical-priority risk.
+
+Self-review: passed. Independent audit: not yet performed.
