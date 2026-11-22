@@ -1,0 +1,11 @@
+# Review: integral critical group of the Fermat quintic line graph
+
+**Correctness — PASS.** Classical equations give exactly 75 complex lines. Eliminating defining linear equations yields a symmetric, 18-regular, 675-edge graph; the independent projective-span census over \(\mathbb F_{11}\) checks every pair. Exact integral matrix multiplication certifies the four adjacency eigenvalues and trace multiplicities. Kirchhoff's theorem determines the determinant, and modular unimodular Smith reductions with precision exceeding each total valuation determine all 74 invariant factors. Three distinct reduced Laplacians agree. The symbolic equations, not finite sampling, justify the complex graph. The complete reproducibility checker is included.
+
+**Originality — PASS, provisional.** The original Fermat line equations, Picard rank and line-lattice determinant are covered in Schütt–Shioda–van Luijk (arXiv:0812.2377) and Degtyarev (arXiv:1305.3073). The published all-degree graph-spectrum result already implies the 75-line tree count but explicitly does not determine its integral Smith form. The published 48-line Fermat-quartic graph critical group and the 325-line characteristic-two Hermitian-quintic intersection-lattice Smith form address different groups and matrices. Actual semantic searches for this graph, alias sandpile/chip-firing/Jacobian, numeric factors and possible stronger coverage gave no exact prior result. Earlier undocumented Smith tables remain a realistic residual risk.
+
+**Mathematical value — PASS.** The Fermat quintic is the lowest-degree smooth hypersurface of general type in \(\mathbb P^3\), with a canonical 75-line configuration generating its Picard lattice. The full graph critical group refines a previously computed complete graph spectrum by revealing 48 nontrivial invariant factors and strong 5-primary depth through exponent 7500; its exact integral decomposition cannot be read off the known spectral data. The invariant is explicitly the graph Jacobian, not the surface Picard group.
+
+The result is restricted to the complex 75-line configuration. Neither global historical priority nor independent mathematical validation is claimed. The accessible relevant original full texts and closest published mathematical records were compared at the claim level.
+
+Self-review: passed. Independent audit: not yet performed.
