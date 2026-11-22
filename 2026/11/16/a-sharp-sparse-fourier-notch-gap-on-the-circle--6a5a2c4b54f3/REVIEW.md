@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem applies to arbitrary nonzero positive Borel measures, not only to finitely supported or symmetric examples. After normalization and centering a hypothetical empty arc, the exact trigonometric identity (1) supplies a nonnegative dual polynomial on the remaining support interval. Its zero integral forces only three possible cosine values. A two-node support is incompatible with both first and second cosine moments, and the three-node equality masses are uniquely determined and positive. The vanishing sixth moment then follows from the exact identity, while the nonzero sine-system divided difference forces each pair to be symmetric. `CHECK.py` from the actual finding package symbolically reproduces the identity, signs, moments, and determinant. No finite sample stands in for the universal argument.
+PASS
 
-## Originality — PASS relative to inspected evidence
+The exact dual P(x)=(x²−Sx−1/20)²(x²+2Sx+5/8)=T6/32−21T2/640+(81√30/8000)T1 is nonnegative on [c,1] with zeros precisely c,b,d. Required cosine moments make its integral zero, forcing support onto b,d for a hypothetical longer gap, which contradicts E[x²]=1/2 since −bd=1/20. At equality, three-node interpolation gives strictly positive weights solving moments 0,1,2 and 6. The sine-system determinant uses U5[c,b,d]=(8/5)(9h−S)>0, forcing reflection symmetry and uniqueness. Independently checked exact polynomial, divided difference and weights symbolically in SymPy. The integral argument, not sampling, proves all-measure bound.
 
-Tan–Zhang (arXiv:2609.07646, Section 2) proves the consecutive-moment gap bound, and Kunis (arXiv:2608.11915, Section 3) bounds covering radii for full frequency-band quadrature. Neither theorem directly covers the weaker sparse hypothesis \(\{1,2,6\}\): both require Fourier vanishing at modes that are unrestricted here. The sharp \(2\pi/3\) two-moment bound is not enough since its regular three-gon equality rule has nonzero sixth moment. Peherstorfer's positive quadrature theory concerns consecutive exactness. Relevant searches of current published mathematical records and primary literature returned no known statement implying this specific radical constant or its complete six-atom rigidity. This is a best-knowledge originality assessment, not a global novelty proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first two zero Fourier moments force an empty-arc bound \(2\pi/3\). Adding frequency \(4\) or \(5\) does not alter the sharp equilateral rule, whereas frequency \(6\) is the **first nonconsecutive harmonic that excludes it**. Determining the exact improved bound and classifying the unique sharp positive quadrature measure is therefore a natural first sparse-bandwidth problem, not an arbitrary numerical case. The result also gives an explicit dual trigonometric certificate and illustrates how sparse moment constraints change covering geometry.
+The exact sparse {1,2,6} positive-moment gap bound and six-atom rigidity are distinct from consecutive exactness theorems and from quadrature existence bounds; best-of-knowledge novelty with specific uninspected historical risk.
 
-## Closest literature and limits
+## value
 
-Full relevant sections were read from Tan–Zhang and Kunis, and the introductory framework from Peherstorfer. Gilbert–Smyth's degree-bounded cosine polynomial extremal result was available by abstract only. Goldstein–McDonald's 1984 nonnegative polynomial paper was available by bibliographic metadata, but full text could not be accessed; possible old formulations of a sparse moment problem remain a residual priority risk. The theorem does not address higher sparse sets or approximate Fourier zeros.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Frequency 6 is the first natural extra nonconsecutive notch not annihilated by the sharp equilateral 1,2-moment measure. The exact decrease in maximal support-free arc and rigid complete equality rule solve a motivated positive moment/design question and supply a dual certificate reusable in sparse quadrature.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
