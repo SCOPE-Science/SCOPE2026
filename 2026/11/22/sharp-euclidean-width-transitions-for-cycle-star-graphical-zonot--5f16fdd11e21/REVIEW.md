@@ -1,0 +1,9 @@
+# Scientific assessment
+
+**Correctness (PASS).** The proof derives the precise metric normalization from the edge-segment definition, reduces continuous normals to centered cuts by coarea and strict Euclidean triangle equality, classifies all eligible cuts by two independent combinatorial improvements, and settles the closed form and boundary cases through an exact integer inequality. The standalone exact-rational checker corroborates all optimal cuts in 63 finite graph instances and the transition rule in 9800 parameter instances. It is not offered as an infinite proof.
+
+**Originality (PASS, provisional priority).** The general cut variational formulation is explicitly credited to the existing weighted-graphical-zonotope cut-expansion result and is not claimed as original. The primary full open-access Padrol–Pilaud–Poullot article develops the deformation cone and normal fan rather than this evaluated cycle–star width spectrum. The closest indexed public records on unicyclic zonotopes determine Euclidean surface areas, and a cyclohedron record treats a different body. No inspected source supplies the exact family-specific formula, all minimizing normals, and the three threshold regimes, but a full-text unavailable cut-expansion record creates a material residual priority risk.
+
+**Mathematical value (PASS).** The family is a natural controlled perturbation of a cycle by pendant bridges. The minimization has two geometrically different bottlenecks, separating one-edge bridge cuts from two-edge arcs. Their exact competition gives a sharp infinite-family metric classification, a universal fifteen-vertex resonance across seven cycle lengths, and two exceptional resonances at orders sixteen and twenty-one. The result is stronger than a restatement of the general variational characterization.
+
+Self-review: passed. Independent audit: not yet performed.
