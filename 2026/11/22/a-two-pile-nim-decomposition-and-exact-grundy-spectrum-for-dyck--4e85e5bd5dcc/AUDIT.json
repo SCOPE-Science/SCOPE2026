@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "A complete balance-path argument proves disjointness of maximal Dyck ends for each non-Dyck word, uniquely identifies a nonremovable core, and establishes an actual game-isomorphism with two Nim heaps; fully Dyck words are a one-heap case. Primitive Dyck decomposition gives p=z^2/(1-p); the all-word decomposition yields the core generating function; finite xor blocks give every stratum. Coefficient transfer at z=+1/2 yields the limiting geometric XOR law and the 4 sqrt(2)/(9 sqrt(pi n)) correction; z=-1/2 contributes lower order. Independent brute mex and series programs, replayed from the current package, checked 262143 words and coefficients through length 60. Computational evidence is supplementary to the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Inoue--Inazu Section 5.1 gives losing Dyck words for the different Timber rule S=Sigma* a, T=b Sigma*, and also an End-Nim encoding using b* a+ b* at both ends.",
+        "Albert--Nowakowski (2001) and Cairns--Ho (2011) concern End-Nim games where a removal may expose another positive heap, not a permanently unchanged central factor.",
+        "The new fixed-nimber generating functions involve primitive-Dyck enumeration and a two-geometric-variable xor law absent from inspected relevant material."
+      ],
+      "reasoning": "Neither the Timber characterization nor End-Nim winning positions imply the new state transition correspondence. Both share a general two-ended theme but have different legal prefixes and suffixes; standard two-heap Nim applies only after the nonoverlap and stability lemma proved here.",
+      "searches": [
+        "arXiv:2611.09157v1 Section 5.1 entire relevant two-sided discussion, https://arxiv.org/html/2611.09157v1",
+        "The Game of End-Nim Albert Nowakowski 2001 DOI 10.37236/1600",
+        "Some Remarks on End-Nim Cairns Ho 2011 DOI 10.1155/2011/824742",
+        "balanced prefix suffix word subtraction game Sprague Grundy two sided"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.09157v1",
+      "https://arxiv.org/abs/2611.09157",
+      "https://doi.org/10.37236/1600",
+      "https://doi.org/10.1155/2011/824742",
+      "Published scientific claim summaries concerning Dyck-suffix and balanced-suffix subtraction games, used only for comparison"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating paper explicitly defines two-sided word subtraction and provides different rule families, but does not assert every identical-Dyck-end position has a core and nimber k xor l.",
+        "Related one-sided exact formulas are inapplicable to simultaneous left and right moves; the nonregular losing language and limiting mass 1/3 are additional statements.",
+        "The present proof independently derives all claims from the precise move set and primitive-Dyck factorization."
+      ],
+      "reasoning": "The theorem is not a corollary of an existing Dyck P-position classification for a different subtraction language. The XOR reduction requires proving the two ends never overlap outside the Dyck language and remain independently removable. That hypothesis is false in generic End-Nim and arbitrary two-ended games.",
+      "searches": [
+        "arXiv:2611.09157v1 Section 1.3 Section 4.5 Section 5.1",
+        "word subtraction games boundary word two-sided suffix prefix Sprague Grundy automata",
+        "two sided prefix suffix Dyck word subtraction game Grundy nim xor Dyck blocks losing 1/3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full HTML of arXiv:2611.09157v1 Section 5.1 presents prefix/suffix word subtraction with Timber and End-Nim rules, not identical Dyck removal at both ends.",
+        "The closest retrieved scientific records addressed a Dyck-suffix-only subtraction game and an endpoint-constrained balanced-suffix game; no retrieved record stated the two-sided Dyck-core xor decomposition.",
+        "The searches produced no accessible exact game equivalence; failed search alone is not evidence of uniqueness."
+      ],
+      "reasoning": "Reversal of the one-sided Dyck-suffix rule still removes from only one end; it cannot generate the new two-sided option graph. The present rule has a stable central word and two independently reducible excursion piles, unlike the single-pile suffix game.",
+      "searches": [
+        "two sided prefix suffix Dyck word subtraction game Grundy nim xor Dyck blocks losing 1/3",
+        "Dyck prefix and suffix removal game two piles primitive Dyck excursions Sprague Grundy",
+        "web: \"Dyck\" \"prefix\" \"suffix\" \"Grundy\" game",
+        "web: \"Dyck word\" \"two-sided\" \"removal\" impartial games",
+        "web: two-sided word subtraction Dyck prefixes suffixes impartial game Grundy Nim xor"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact publicly indexed table identified the specified losing-language counts or full nimber formulas in the inspected search responses.",
+        "The first computed losing counts are 1, 2, 3, 4, 8, 16, 31, 60, 118, 232, verified directly by recursive mex through length 17 and by the generating function through length 60."
+      ],
+      "reasoning": "A short sequence match, even if found, would not establish a published all-length game theorem, but a full prior closed form would dominate the enumeration component; none was identified in the searched sources.",
+      "searches": [
+        "web: \"1, 2, 3, 4, 8, 16, 31, 60, 118, 232\" Catalan",
+        "web: \"Dyck\" \"1/3\" losing positions game word",
+        "game remove nonempty Dyck prefix Dyck suffix losing positions enumeration"
+      ]
+    },
+    "rationale": "The closest full primary text, arXiv:2611.09157v1, develops the two-sided game framework but analyzes different move sets; the documented equivalent-formulation and stronger-coverage comparisons found no exact identical-Dyck-end XOR theorem, its algebraic nimber spectra, or limiting 1/3 losing density. Earlier one-sided variants have incomparable move sets and do not imply this result. Remaining unindexed-priority risk is explicit.",
+    "residual_risks": [
+      "Some alternative historical presentation may state the same identical-Dyck-end game under different nomenclature, including an unindexed specialization of a more general game theorem.",
+      "The older End-Nim papers were only partially inspectable for this comparison; their mechanics are substantially different, but their full text was not exhaustively checked.",
+      "The computed losing-count sequence may occur in an unrelated database without explicit game interpretation; no such dominant theorem was found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIFFERENT_RULES_NOT_COVERING",
+        "evidence": "Section 5.1 associates Dyck losing positions with S=Sigma* a and T=b Sigma*, and End-Nim with S=T=b* a+ b*; neither has S=T=nonempty Dyck words nor the present nimber law.",
+        "identifier_or_url": "https://arxiv.org/html/2611.09157v1",
+        "material_read": "Full text of Section 5.1, opening definitions in Section 1.3, relevant context-free examples in Section 4.5 and research directions; specifically the Timber Dyck theorem and End-Nim rules",
+        "method": "Open public arXiv experimental HTML and inspect the actual relevant section statements and rule definitions",
+        "title": "Word Subtraction Games",
+        "trigger": "Same two-sided word-subtraction game framework and Dyck language in nearby results"
+      },
+      {
+        "assessment": "DIFFERENT_MOVE_SYSTEM; PARTIAL_TEXT_READ",
+        "evidence": "End-Nim permits removal of boxes from first or last pile of a sequence and exposes successive piles; no Dyck-word core is part of that game. Its full details were not inspected.",
+        "identifier_or_url": "https://doi.org/10.37236/1600",
+        "material_read": "Published abstract and opening introduction excerpt, not complete primary full text",
+        "method": "Consult journal source and accessible author-content excerpt",
+        "title": "The Game of End-Nim",
+        "trigger": "Potentially stronger two-ended Nim game solution"
+      },
+      {
+        "assessment": "DIFFERENT_MOVE_SYSTEM; PARTIAL_TEXT_READ",
+        "evidence": "The abstract addresses End-Nim, its misère/loop variants and partial higher Grundy results, without a matching Dyck prefix/suffix rule.",
+        "identifier_or_url": "https://doi.org/10.1155/2011/824742",
+        "material_read": "Publisher abstract and references, not full text",
+        "method": "Inspect journal page abstract and bibliography",
+        "title": "Some Remarks on End-Nim",
+        "trigger": "Higher Grundy value analysis for a related two-ended game"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4e85e5bd-5dcc-4d63-86ed-ac0774e9ceb9",
+  "value": {
+    "rationale": "The problem is a canonical simultaneous two-sided extension of Dyck-word subtraction from a recent formal-language game framework. A structural invariant yields a complete all-word nimber classification, exact algebraic generating functions at every prescribed nimber, an infinite nonregular losing language, and a sharp limiting geometric-xor distribution with its 1/sqrt(n) approach to 1/3. The result is neither a finite enumeration nor a routine one-sided corollary; it resolves a natural full context-free rule family and makes a falsifiable prediction at every length.",
+    "status": "PASS"
+  }
+}
