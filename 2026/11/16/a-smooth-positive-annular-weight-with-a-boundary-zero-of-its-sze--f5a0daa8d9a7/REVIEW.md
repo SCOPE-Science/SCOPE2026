@@ -1,15 +1,21 @@
-# Scientific review: explicit boundary zero for an annular weighted Szegő kernel
+# Independent mathematical audit
 
-## Correctness — PASS
-For the annulus with inner radius \(1/4\), the Laurent monomials are an orthogonal basis in the unweighted Hardy space, with squared norms \(1+(1/4)^{2n+1}\). Multiplication by \(z-2/3\) identifies the weighted space for boundary weight \(|z-2/3|^2\) isometrically with the codimension-one unweighted Hardy subspace vanishing at \(2/3\). Its reproducing kernel is therefore the exact rank-one compression displayed in `RESULT.md`. At outer boundary argument \(z=1\), its numerator is a real continuous function of real negative \(w\). The finite Laurent sums at \(w=-3/8\) and \(w=-3/4\) have opposite signs, certified by exact rational arithmetic in `CHECK.py`, and the stated uniform geometric-series remainder bounds are small enough to preserve both signs. The intermediate value theorem gives a genuine boundary-to-interior kernel zero; the weight and all divisors are strictly nonzero at the boundary and selected \(w\). Neither numerical root-search results nor an unproved sign assumption are needed.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-Jain–Verma, *Weighted Kernel Functions on Planar Domains* (arXiv:2508.14016), Remark 5.7(1), asks for an explicit smooth positive boundary weight giving a weighted Szegő or Garabedian kernel zero with one argument on the boundary and one inside. The earlier kernel-variation results there do not imply the existence or nonexistence of the present zero. Jain, *On the weighted Szegő kernel* (2026), Problem 2.1, repeats this exact existential question. The annular bilateral Szegő kernel and unweighted zero formula are classical and are not claimed as novel; Gafai–Murid–Wahid (2022) treat a radial family of boundary-component weights rather than the present positive nonradial factor containing a zero inside the annulus. Direct published-results and literature searches found no stronger covering statement. There remains ordinary historical-priority risk under other weighted-kernel or theta-determinant terminology; search absence by itself is not a proof of novelty.
+PASS
 
-## Value — PASS
-The statement answers a specifically published and still-repeated boundary-zero existence question using an explicit domain, an elementary positive analytic boundary weight, and a rigorous rational proof. The distinction between a zero-free holomorphic modulus factor and a factor with an interior zero reveals a concrete mechanism by which weighted Szegő kernels can lose their boundary-to-interior zero-freeness. No broad general theorem or classification is asserted or needed for this meaningful counterexample.
+The domain is exactly 1/4<|z|<1 with Euclidean boundary arclength and positive smooth nonradial phi=|z-2/3|^2. Multiplication by z-p is an isometry onto unweighted H^2 functions vanishing at p, and the rank-one compressed reproducing kernel has numerator D(w)=H(w)H(p²)-H(p)H(pw). The two selected negative test values and p²,p,pw fall in Laurent convergence annulus; exact Fraction evaluations give D32(-3/8)>19/100 and D32(-3/4)<-9/100. Explicit bilateral tails imply |D-D32|<24E32<1/125, so the intermediate value theorem gives genuine boundary-to-interior zero. The result asserts existence only, not uniqueness.
 
-## Scope and residual limitations
-The proof provides a certified interval, not uniqueness or a fully algebraic exact location of the zero. It does not answer the independent question of whether some positive boundary weights have no holomorphic modulus factor, and does not address arbitrary domains. Priority is assessed against the actual inspected sources and searchable records; independent mathematical and bibliographic audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The explicit nonradial positive weight yielding a boundary-to-interior weighted Szegő kernel zero directly supplies an example requested in Jain–Verma Remark 5.7(1). Their Example 5.3 assumes a holomorphic factor nonvanishing on the closed domain, whereas q=z-2/3 has an interior zero and forces a rank-one compression. The related published rotation-invariant annular family and derivative-zero theorems do not cover the same assertion. Best-of-knowledge PASS.
+
+## value
+
+PASS
+
+A concrete smooth strictly positive analytic boundary weight witnessing a formerly explicit boundary-to-interior Szegő zero question is a mathematically motivated counterexample. Its exact certified interval is reusable even without a full classification of weights and without a closed-form root.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
