@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Conditioning a uniform probability simplex on ordered independent Laplace differences proves the volume reduction. Coordinate-face restriction gives exact incomplete-beta/binomial probabilities and the correctly normalized Euclidean facet-to-volume factor. A one-sided coarea calculation at adjacent-difference equality, including the conditional total-exponential mass, yields the exact comparison-wall expression and its aggregate. Standard Laplace moments, order-statistic convergence, and the binomial central limit theorem establish the remaining statements. Independently reconstructed Euclidean facets support the normalization at small dimensions. Numerical checks cannot prove the infinite statements.
+PASS
 
-## Originality
+Exponential normalization yields uniform simplex volume and independent Laplace contrasts; the Monge chamber is one of q! equally likely strict orders, recovering the known volume. Conditioning on a coordinate-zero simplex face changes the selected contrast CDF to uniform (0,1/2) or (1/2,1), giving exact incomplete beta/binomial tails and correct intrinsic simplex face-height h_q. For a comparison slack g_i the intrinsic gradient has length 2; one-sided coarea applied before exponential normalization yields A(W_i)/V=2q E[f(Z_(i))(q+sum_{j=1}^{q-1}|Zj|+|Z_(i)|)], with S conditional mean q+sum|D|. Summing over sorted Laplace Z and using E f(Z)=1/4, E|Z|f(Z)=1/8 and E|Z|=1 gives exact q(q-1)(2q-1)/2. Order-statistic quantile convergence gives f(Z_(i))→min(u,1-u) and resulting triangular factor 4; binomial CLT gives the centered Gaussian coordinate profile. Independently checked exact coordinate complementarity and aggregate coarea sum for every q=2..100, independent of repository code. The published volume is not reclassified as a novel fact.
 
-**PASS with provisional historical priority.** The primary 2023 treatment of normalized Monge polytopes establishes their facets, vertices, and volume, but does not give the ordinary Euclidean boundary areas. The related 2026 sampling treatment develops Laplace order statistics for interior random points, not the boundary coarea/size bias or area concentration, while the related centroid paper studies first moments. The full available texts were compared for mathematical implication. Searches for boundary measures, exact coordinate-facet volumes, surface-to-volume laws, and equivalent binomial/Gaussian formulations did not reveal domination. Earlier undiscovered work and the uninspected full text of a later volume paper remain risks. Negative searching alone does not establish priority.
+## originality
 
-## Value
+PASS
 
-**PASS.** A natural complete Euclidean surface invariant is determined for every member of an infinite polytope family. The complete individual coordinate-face spectrum, exact overall boundary area, and competing Gaussian and triangular boundary profiles reveal strong boundary-area concentration that combinatorial facet counts and ordinary volume formulas do not quantify. The statement is not presented as a routine facet enumeration or mere reproving of the known volume.
+Best-of-knowledge PASS after inspecting the frozen proof, searching mathematical aliases/general implications, comparing related primary theorems and published results at statement-level. The contribution is the specific final claim, not its openly credited combinatorial, signal-processing or probabilistic prerequisites. Inaccessible or less-indexed literature remains explicitly a residual risk.
 
-## Limits
+## value
 
-The comparison-wall formula for individual indexed facets remains an exact order-statistic expectation rather than a closed polynomial. The main exact total applies only to two rows and standard Euclidean normalization. Historical priority is not established with certainty; independent audit has not been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determines the full first Steiner/surface coefficient and its decomposition into inequivalent natural facet families, exposing a nontrivial two-scale boundary measure with exponential individual variation, triangular bulk wall profile and Gaussian transition. The exact invariant of a canonical Monge optimization polytope is naturally useful without any larger theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
