@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The analytic proof uses the last possible excitation time and a first-front collision exclusion. The actual reproducibility programs are `verify_exhaustive.cpp` and `verify_structural.py`.
+## correctness
 
-Run the commands in the directory containing the two source files:
+PASS
 
-```
-g++ -std=c++17 -O3 -Wall -Wextra verify_exhaustive.cpp -o verify_exhaustive
-./verify_exhaustive
-python3 verify_structural.py
-```
+For q=n-1>=4 and n>=5 open paths, a time-t excited state has a backward nonbacktracking ancestry path, hence t<=n-1; each site returns to rest by q-1 additional steps, so tau<=2n-3. Attaining this requires an endpoint-to-endpoint wave with a0=1, interior a_i=0 or refractory c>=q-i+1, and the far-end initially excited/penultimate-zero collision is the sole veto. The two orientation sets are disjoint; multiplying interior factors and the far-end choices gives 2*prod_{j=0}^{n-4}(1+jz)*[(1+(n-3)z)^2+(n-3)zu] and count 2((n-1)!-(n-3)!). Independently evolved every labelled state for n=5,q=4 and n=6,q=5, finding 44=36+8 and 228=192+36 maximal one-source/two-source states. Those computations corroborate, but the nonbacktracking and local necessity/sufficiency establish the infinite family.
 
-The captured independent outputs are `checks/exhaustive.txt` and `checks/structural.txt`. The C++ program simulates all \(5,764,801\) labelled states in the largest tested instance, and the Python program compares both the extremal-state predicate and the full polynomial coefficients on smaller instances.
+## originality
 
-These experiments are finite and do not establish the infinitely many parameter cases. The general proof appears in `RESULT.md`. Historical-priority checks were limited to accessible sources; independent mathematical validation has not been performed.
+PASS
+
+The factorial unopposed-front factors follow older percolating-path structure, not claimed new. The quantified first q+1-site two-front collision exclusion and full refractory/second-initial-excitation bivariate shell are not implied by the read Fisch-Gravner infinite-line percolating-path theorem or the separately published fixed-q=3 path enumeration; qualified historical priority.
+
+## value
+
+PASS
+
+Exact first interaction correction at the refractory length boundary is a natural mechanistic transition in excitable media; the complete maximal-extinction-shell distribution is a motivated parameter-sensitive classification, not just a numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
