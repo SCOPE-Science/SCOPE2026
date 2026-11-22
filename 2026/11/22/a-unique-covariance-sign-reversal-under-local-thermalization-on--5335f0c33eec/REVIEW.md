@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The exact four-moment generator system is derived using the uniform-split second moments and exponential-reservoir second moments. Its determinant is strictly positive for every allowed size and rate. Symbolic elimination gives the two covariance polynomials; Descartes' rule, coefficient positivity and the scaled quartic prove the global sign diagram and its unique thermodynamic threshold. The included checker verifies identities symbolically and independently tests finite parameter settings. The unique invariant state and finite stationary moments follow from local refresh and exchange energy conservation.
+
+**Originality: PASS on the examined evidence, provisional.** Bertini et al. (2005) and Gilbert (2017) primarily study one-dimensional boundary-driven energy exchanges. De Masi et al. (2023) prove a general hidden-temperature representation on finite graphs, but the inspected original text does not state this complete-graph one-impurity quartic, its sole positive root, or its asymptotic threshold. The broad representation could support an alternative derivation, but no identified prior claim currently implies the full quantitative classification without additional work. The closest published-index records concern symmetric exclusion, closed biased energy exchange or a star with two bath temperatures rather than this model. Unlocated earlier specializations remain a residual originality risk.
+
+**Mathematical value: PASS.** Positive or negative spatial covariance is a basic signature of nonequilibrium energy transport. The result resolves an exact crossover between competing global redistribution and local reservoir refresh, including a sharp linear network-size scale, and proves a surprising coexistence of opposite signs across different natural pairs on the same symmetric network. The classification is for the entire infinite complete-graph family, not an arbitrary small configuration.
+
+**Scientific limitations:** Unit rate on every edge, exponential local baths, one temperature impurity, equal-time pair observables. Historical priority and possible generalizations remain open.
+
+Self-review: passed. Independent audit: not yet performed.
