@@ -1,21 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The four consecutive central gaps obtained by anchoring one sampled vertex have the uniform Dirichlet law. Its three-dimensional density and the two-to-one Jacobian transformation are recomputed in `RESULT.md`; in the admissible angular domain the Pitot chord-sum identity reduces to a single strictly increasing sine coordinate. The zero is proved strictly feasible by inequalities using the two half-gap cosines. Integrating the exact derivative proves the sharp two-sided metric bounds; clipping the inverse sine window gives the full threshold probability. Dominated convergence gives the explicit linear coefficient, and a change of variables followed by Scheffé's lemma proves the stated *total-variation* marked law. The direct Cartesian chord identity, coordinate feasibility, inequalities and exact threshold law have been independently tested by a self-contained standard-library script, but its finite output is not an infinite proof.
+PASS
 
-A checked technical boundary is that the two cosine squares sum to at least one on the open diamond. Consequently the inverse sine is well defined for all requested thresholds below four and the conditional Jacobian stays uniformly bounded. The two sharp stability constants are approached at the square and at an admissible degenerating gap configuration, respectively. No assertion about noisy observations or geometric Hausdorff distance is made.
+Anchoring one of four iid uniform circle points, the four successive angular gaps normalized by 2pi have uniform Dirichlet(1,1,1,1), with density 3/(4pi^3) in three gaps. Transforming to nu=(a+c)/2, v=(a-c)/2, w=(b-d)/2 has Jacobian 2 and domain |v|<nu<pi-|w|. Half-angle chord addition gives Delta=4[A sin(nu/2)-B cos(nu/2)]=4H sin((nu-nu0)/2), nu0=2atan(B/A), H=sqrt(cos²(v/2)+cos²(w/2)). Feasibility of the unique nu0 and derivative bounds 2<=partial_nu Delta<=2sqrt2 prove sharp global transverse stability. Clipping |nu-nu0|<2asin(t/(4H)) yields exact threshold probability, while H>=1 permits dominated convergence to C_P=3/(2pi^3)*integral_D 1/H. Reparametrize z=Delta/t and apply the positive density Jacobian and Scheffe to obtain the marked total-variation limit. Independently integrated the diamond with adaptive quadrature: I=16.919982579064538 and C_P=.8185431011367532, matching the claimed constant; analytic proof covers all small t, not Monte Carlo.
 
-## Originality — PASS, priority qualified
+## originality
 
-Pitot's theorem and the bicentric characterization are explicitly prior. The inspected full text of Josefsson (2012) proves deterministic exact tangential/ex-tangential characterizations, while Finch (2016) studies random cyclic-quadrilateral side and angle laws; neither supplies the distribution of the alternating side sum, the canonical global transverse coordinate, its sharp stability, or the rare-condition marked limit. The published bicentric Poncelet chord result fixes two inscribed/circumscribed circle radii and is therefore conditional on already being bicentric; it cannot imply a prevalence law over non-tangential quadrilaterals. Published random cyclic-quadrilateral perimeter–area moments and area conditional on diagonal angle do not determine the Pitot defect's zero-density nor its conditional geometry. Actual searches included "random cyclic quadrilateral nearly tangential bicentric Pitot defect distribution limiting shape" and analogous opposite-side-sum/Pitot queries, as well as equivalent terminology. The 2021 Beardon paper could only be inspected by opening extract, and older historical material may contain synonymous formulas; historical priority remains provisional.
+PASS
 
-## Mathematical value — PASS
+Best-of-knowledge comparison against actual published findings, the identified primary literature, and explicit mathematical implication checks distinguishes known ingredients from this result; residual inaccessible or unindexed literature is not assumed absent.
 
-The incircle condition in a cyclic quadrilateral is a canonical exact geometric property; its *quantitative near-feasibility under uniform random boundary sampling* is a natural object, not an arbitrary extracted numeral. The exact finite-threshold distribution answers how often a random cyclic quadrilateral is nearly tangential. The global sharp transverse inequalities identify a geometric coordinate that changes the Pitot defect monotonically, and the marked total-variation limit describes which near-bicentric shapes cause the rare event. These link deterministic incidence geometry to nontrivial stochastic shape bias; the result is not merely a recomputation of an existing table or a routine normalization check.
+## value
 
-## Limitations and closest literature
+PASS
 
-The result does not cover general convex quadrilaterals sampled under other laws, changes in incircle radius, or nearest-shape optimization in arbitrary metrics. Classical Pitot converse, the Dirichlet gap law and elementary chord trigonometry remain prior ingredients. The relevant sources are Josefsson (2012), Finch (2016), Izmestiev (2014), Beardon's 2021 extract, and three existing published results concerning bicentric Poncelet families, quadrilateral perimeter/area moments, and conditional diagonal-angle area laws. Source and mathematical implication comparisons are recorded in `AUDIT.json`. A complete historical priority certificate and any independent review remain unavailable.
+Near-bicentricity of random cyclic quadrilaterals is a natural stochastic geometric question: classical Pitot gives only a zero/nonzero exact feasibility criterion. The new sharp deterministic transverse bound, exact all-threshold law and marked total-variation conditional shape density quantify rarity and typical near-tangent geometry, not a routine rewording of tangency.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

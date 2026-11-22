@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T15:11:09.848645Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Anchoring one of four iid uniform circle points, the four successive angular gaps normalized by 2pi have uniform Dirichlet(1,1,1,1), with density 3/(4pi^3) in three gaps. Transforming to nu=(a+c)/2, v=(a-c)/2, w=(b-d)/2 has Jacobian 2 and domain |v|<nu<pi-|w|. Half-angle chord addition gives Delta=4[A sin(nu/2)-B cos(nu/2)]=4H sin((nu-nu0)/2), nu0=2atan(B/A), H=sqrt(cos²(v/2)+cos²(w/2)). Feasibility of the unique nu0 and derivative bounds 2<=partial_nu Delta<=2sqrt2 prove sharp global transverse stability. Clipping |nu-nu0|<2asin(t/(4H)) yields exact threshold probability, while H>=1 permits dominated convergence to C_P=3/(2pi^3)*integral_D 1/H. Reparametrize z=Delta/t and apply the positive density Jacobian and Scheffe to obtain the marked total-variation limit. Independently integrated the diamond with adaptive quadrature: I=16.919982579064538 and C_P=.8185431011367532, matching the claimed constant; analytic proof covers all small t, not Monte Carlo.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Coarea/smooth change-of-variable theorems imply generic linear small-defect behavior at regular zero sets but do not state the global chord-normal form, sharp uniform constants, exact 0<t<4 formula, or explicit marked shape density for Dirichlet cyclic gaps."
+        ],
+        "reasoning": "The general principle is acknowledged; the nontrivial geometric specialization and coefficient remain distinct.",
+        "searches": [
+          "Resultary semantic: Pitot defect random cyclic quadrilateral tangential quadrilateral conditional marked law",
+          "https://dynamicmathematicslearning.com/similar-metrics-tangential-extangential-quads-josefsson-FG2012.pdf",
+          "https://arxiv.org/abs/1610.00510",
+          "https://arxiv.org/abs/1408.2247",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-conditional-area-law-for-random-cyclic-quadrilaterals-at-a-fixed--e05b854129e9"
+        ]
+      },
+      "checked_sources": [
+        "https://dynamicmathematicslearning.com/similar-metrics-tangential-extangential-quads-josefsson-FG2012.pdf",
+        "https://arxiv.org/abs/1610.00510",
+        "https://arxiv.org/abs/1408.2247",
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-conditional-area-law-for-random-cyclic-quadrilaterals-at-a-fixed--e05b854129e9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pitot converse tells precisely Delta=0 iff tangent-incircle condition; it does not quantify how uniform angular gaps distribute near that locus. Finch side distribution without a joint four-gap Pitot defect calculation does not directly imply the asserted coefficient or shape law."
+        ],
+        "reasoning": "The explicit Jacobian/trigonometric normal form and limiting shape-density calculations are logically additional.",
+        "searches": [
+          "Resultary semantic: Pitot defect random cyclic quadrilateral tangential quadrilateral conditional marked law",
+          "https://dynamicmathematicslearning.com/similar-metrics-tangential-extangential-quads-josefsson-FG2012.pdf",
+          "https://arxiv.org/abs/1610.00510",
+          "https://arxiv.org/abs/1408.2247",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-conditional-area-law-for-random-cyclic-quadrilaterals-at-a-fixed--e05b854129e9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Josefsson 2012 metrically characterizes exact tangential and extangential quadrilaterals and uses the known Pitot side-sum condition. Finch 2016 studies random cyclic quadrilateral sides and angles, but the provided abstract does not claim the exact signed alternating Pitot defect conditional law."
+        ],
+        "reasoning": "Neither a deterministic equality criterion nor unrelated marginal side/angle distributions supplies the specific 2D clipped integral and joint marked total-variation limit.",
+        "searches": [
+          "Resultary semantic: Pitot defect random cyclic quadrilateral tangential quadrilateral conditional marked law",
+          "https://dynamicmathematicslearning.com/similar-metrics-tangential-extangential-quads-josefsson-FG2012.pdf",
+          "https://arxiv.org/abs/1610.00510",
+          "https://arxiv.org/abs/1408.2247",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-conditional-area-law-for-random-cyclic-quadrilaterals-at-a-fixed--e05b854129e9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact conditional cyclic quadrilateral area at fixed diagonal angle and perimeter-area moments concern different functionals, not Delta=l1+l3-l2-l4. No exact Pitot-defect distribution table was identified among the checked records."
+        ],
+        "reasoning": "This is an exact natural random variable and geometric locus, not recomputation of an existing area table.",
+        "searches": [
+          "Resultary semantic: Pitot defect random cyclic quadrilateral tangential quadrilateral conditional marked law",
+          "https://dynamicmathematicslearning.com/similar-metrics-tangential-extangential-quads-josefsson-FG2012.pdf",
+          "https://arxiv.org/abs/1610.00510",
+          "https://arxiv.org/abs/1408.2247",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-conditional-area-law-for-random-cyclic-quadrilaterals-at-a-fixed--e05b854129e9"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison against actual published findings, the identified primary literature, and explicit mathematical implication checks distinguishes known ingredients from this result; residual inaccessible or unindexed literature is not assumed absent.",
+      "residual_risks": [
+        "Beardon (2021) Pitot paper and Finch (2016) full manuscript not inspected in full; they could contain equivalent near-tangency parameterizations, despite accessible descriptions indicating other aims.",
+        "Probability threshold is for angular-uniform sampling on one unit circle and the chosen rooted cyclic ordering; signed defect is not Hausdorff/geometric displacement to nearest tangential quadrilateral."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides exact metric tangency criteria, not randomized angular Dirichlet Pitot-defect distribution or total-variation conditional limit",
+          "evidence": "Forum Geometricorum 12 (2012), pages 63-77, tangency metric characterization",
+          "identifier_or_url": "https://dynamicmathematicslearning.com/similar-metrics-tangential-extangential-quads-josefsson-FG2012.pdf",
+          "material_read": "Open 15-page original journal PDF, criterion definitions and propositions including four-side tangency conditions",
+          "method": "Read original primary PDF mathematical statements and proof sections",
+          "title": "Similar Metric Characterizations of Tangential and Extangential Quadrilaterals",
+          "trigger": "Highly relevant deterministic metric equivalent formulations of Pitot and bicentric geometry"
+        },
+        {
+          "assessment": "Known distributional study of random cyclic quadrilaterals; inaccessible full text may hide a directly implied Pitot functional",
+          "evidence": "arXiv:1610.00510 abstract and stated observables",
+          "identifier_or_url": "https://arxiv.org/abs/1610.00510",
+          "material_read": "Accessible abstract and bibliographic summary; complete paper unavailable in inspected routes",
+          "method": "Read public abstract only, no whole-document negative assertion",
+          "title": "Random Cyclic Quadrilaterals",
+          "trigger": "Identical four random points on a circle, potential joint distributions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Near-bicentricity of random cyclic quadrilaterals is a natural stochastic geometric question: classical Pitot gives only a zero/nonzero exact feasibility criterion. The new sharp deterministic transverse bound, exact all-threshold law and marked total-variation conditional shape density quantify rarity and typical near-tangent geometry, not a routine rewording of tangency.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Beardon (2021) Pitot paper and Finch (2016) full manuscript not inspected in full; they could contain equivalent near-tangency parameterizations, despite accessible descriptions indicating other aims.",
+    "Probability threshold is for angular-uniform sampling on one unit circle and the chosen rooted cyclic ordering; signed defect is not Hausdorff/geometric displacement to nearest tangential quadrilateral."
+  ],
+  "schema_version": 1
+}
