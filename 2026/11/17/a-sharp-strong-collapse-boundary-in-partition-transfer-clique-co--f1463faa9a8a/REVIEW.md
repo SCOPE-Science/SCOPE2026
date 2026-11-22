@@ -1,11 +1,21 @@
-# Scientific assessment: a strong-collapse boundary for short partitions
+# Independent mathematical audit
 
-**Correctness — PASS.** Each transfer in the length-three graph has at most three later neighbors in the order by increasing two largest parts; the explicit later vertex is adjacent to all of them. This yields a valid closed-neighborhood domination at every step for every positive size. The size-eight, four-part graph is completely enumerated, and nine explicit dominated-vertex deletions leave the six vertices of an octahedral graph. The complete finite certificate was replayed from the supplied verification code. Thus the scope is integral homotopy, not just numerical homology.
+## correctness
 
-**Originality — PASS, with risk.** The closest 2026 paper establishes the unrestricted two-sphere wedge theorem (and already records the full complex at size eight), while a companion local-morphology paper describes neighborhoods. Neither inspected statement supplies the length-three strong-collapse order or identifies the four-part induced octahedral core. Published positive sphere-count formulas for the unrestricted complex and an unrelated height filtration do not imply the length-filtration statement. Relevant text was compared by object, filtration parameter, and implication; unavailable full text for one broad synthesis and possible unindexed restricted-graph work remain residual risks. No independent novelty certification is claimed.
+PASS
 
-**Value — PASS.** The number of parts is a canonical complexity filtration on partitions. A uniform strong-collapse result is more informative than vanishing Betti numbers: it provides an explicit topological reduction for all sizes. The exact four-part octahedral survivor shows that three parts is a sharp structural cutoff, making this the first nontrivial length stratum at the initial nonzero full-complex size. This can guide analysis of length-filtered homology without claiming a full persistence theorem.
+Every partition with at most three parts admits an explicit higher lexicographic neighbor obtained by transferring one cell to its largest part. Later neighbors fall into three types U,V,W and all lie in the closed neighborhood of the chosen dominator within the surviving induced graph, establishing a strong collapse for every n, not just acyclicity. Independently built partition transfer adjacency by explicit one-cell moves for n=1..80 and verified the entire ordered domination sequence at each n. At n=8, k=4, independently enumerated all 15 partitions and checked nine successive closed-neighborhood dominations and that the six remaining vertices induce K6 minus a perfect matching; the flag complex is S0*S0*S0=S2 with f-vector (6,12,8). The all-n argument is the lex-neighbor proof, not the n<=80 replay.
 
-**Boundaries.** The unrestricted full-graph sphere rank is previously known. The contribution is only the induced length-filtration theorem and concrete sharp witness; no claim covers all four-part truncations. The results have not undergone independent mathematical validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical strong collapses and the unrestricted partition-graph wedge-of-spheres theorem are credited. A universal induced length≤3 strong collapse plus explicit n8 length4 core is a distinct filtration/topological statement: unrestricted wedge type and full-complex sphere rank do not determine length-stratified homotopy or domination.
+
+## value
+
+PASS
+
+The number-of-parts filtration is an intrinsic complexity parameter for partition transfer graphs. A sharp strong-collapse/sphere transition at length three/four is a motivated structural boundary, and the explicit octahedral survivor is meaningful homotopy, not just a textbook isolated graph test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
