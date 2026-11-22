@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The standard Gaussian Hermite diagonalization gives Gamma-density integrals. An explicit three-length-regime induction proves initial-window occupancy domination for all finite middle-third stages. Integration by parts bounds every translated exponential residual integral by lambda_0; convolution with Erlang(k) and the finite support bound yields lambda_k <= lambda_0 P(Gamma(k,1)<x)<lambda_0 with the claimed strict gap. Ternary digit factorization determines the displayed first-eigenvalue product. Independent finite arithmetic checks: 600064 occupancy, 28 products, 896 strict comparisons and 896 quantitative gap checks; these do not substitute for the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Knutsen II Theorem 3.1 and Corollary 3.1 give optimal Gaussian for left-justified alphabet {0,1} in base 3, not the middle-third alphabet {0,2}.",
+        "An indexed Cantor–Bergman vacuum theorem concerns unweighted Bergman localization and a restricted critical scaling, not the Gaussian STFT spectrum.",
+        "Knutsen 2022 Theorem 4.1 gives constant-factor radial Cantor FUP estimates at growing radius and does not supply the exact norm or eigenvector for each finite stage."
+      ],
+      "reasoning": "A source covering all alphabets, or all sliding-dominant masks, would subsume this result; no such statement was found in the inspected literature. Canonical-alphabet and Bergman-space results have non-equivalent support and normalization hypotheses.",
+      "searches": [
+        "arXiv:2104.10976 Theorem 3.1 canonical alphabet",
+        "Knutsen Daubechies general radial Cantor Gaussian operator largest eigenvalue all alphabets",
+        "Gaussian Hermite localization subadditive Cantor distribution yields exact operator norm lambda_0 unique Gaussian",
+        "indexed Cantor Bergman localization vacuum maximizer",
+        "arXiv:2204.03068 Theorem 4.1 radial Cantor upper bounds"
+      ]
+    },
+    "checked_sources": [
+      "H. Knutsen, arXiv:1907.00848v1; Springer OA DOI:10.1007/s00041-020-09751-9, §§2,4",
+      "H. Knutsen, arXiv:2104.10976v1, introduction, §§2–3",
+      "H. Knutsen, arXiv:2204.03068v1, §§1–4, Theorem 4.1",
+      "Public indexed claim: Critical Cantor–Bergman localization has a unique vacuum maximizer, 2026-11-08",
+      "Public indexed claim: Oscillating Hermite spectral tail for a periodic radial Gaussian localization mask, 2026-11-08",
+      "Public indexed claim: Exact Hermite-mode staircase and oscillatory norm correction for Gaussian annular localization, 2026-11-08"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The inequality norm <= 2 lambda_0 plus the known lower bound lambda_0 <= norm leaves a factor-two gap.",
+        "The 2021 sequel explicitly identifies the middle-third case as outside its proved Gaussian-optimality assertion.",
+        "Subadditivity of the Cantor CDF by itself does not appear with the Gamma convolution domination argument in those inspected sources."
+      ],
+      "reasoning": "The new proof uses the window-majorization property to show the translated exponential residual integral is at most lambda_0, then integrates it against an Erlang density. This provides the missing global k-wise comparison and an explicit strict gap, rather than merely specializing a stronger published inequality.",
+      "searches": [
+        "Knutsen I Theorem 4.1 Proposition 4.1",
+        "Knutsen II Corollary 3.1 Theorem 3.1",
+        "arXiv:1907.00848 middle-third subadditivity gamma coefficients",
+        "radial Cantor Daubechies norm equals first eigenvalue exactly all iterations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Knutsen I, Theorem 4.1, bounds the full norm by 2 times the Gaussian eigenvalue rather than determining its maximizing mode.",
+        "Knutsen II, introductory paragraph before §2, says the Gaussian maximizer had not been established for the middle-third alphabet."
+      ],
+      "reasoning": "Equivalent formulations include norm equality, Gaussian optimality, unique largest Hermite eigenvalue, and dominance of Gamma-integrated Cantor occupancies. The two directly matching primary works give weaker inequalities or a different Cantor alphabet; the new translated-residual exponential inequality is absent from those inspected results.",
+      "searches": [
+        "mid-third radial Cantor Gaussian localization Hermite ground state always top eigenvalue exact operator norm Knutsen first eigenvalue",
+        "radial Cantor Daubechies norm equals first eigenvalue exactly all iterations",
+        "Gaussian time-frequency localization middle-third Cantor maximal eigenvalue Hermite vacuum",
+        "arXiv:1907.00848 §§2,4",
+        "arXiv:2104.10976 §1,§3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Knutsen I, Proposition 4.1, lists the exact product for the first eigenvalue, not for the maximum over all Hermite degrees.",
+        "Indexed nearby spectral summaries concern annuli, periodic radial stripes or Cantor–Bergman symbols, not the exact all-iteration Gaussian STFT norm."
+      ],
+      "reasoning": "The previously tabulated Gaussian eigenvalue formula does not by itself determine which degree maximizes the operator; finding it in a table is not a coverage match without an all-degree dominance implication.",
+      "searches": [
+        "Gaussian Gabor Daubechies localization Cantor mid-third asymptotic log periodic modulation eigenvalue products",
+        "radial Cantor set Gaussian largest eigenvalue all n radii spectral optimizer exponential Gamma",
+        "indexed Gaussian radial localization middle-third Cantor Hermite eigenvalue exact operator norm",
+        "Knutsen I Proposition 4.1 spectral product"
+      ]
+    },
+    "rationale": "Knutsen I establishes the exact first eigenvalue but only the upper bound norm <= twice that eigenvalue (Theorem 4.1). Knutsen II, §1 and Theorem 3.1, proves a norm identity for the different left-justified canonical alphabet and specifically notes absence of this result for the middle-third alphabet. The new initial-window exponential-convolution comparison proves the all-radius norm identity, spectral simplicity and quantitative all-degree separation for the mid-third mask. A nearby Cantor–Bergman vacuum result does not imply a Gaussian STFT theorem because its Hilbert space and critical scaling differ. Searches cannot certify global novelty; specialist historical work remains a priority risk.",
+    "residual_risks": [
+      "The literature comparison is not a proof of historical priority; independent earlier exact-norm arguments may exist outside the inspected sources.",
+      "The closely related indexed Cantor–Bergman article could not be substantively inspected beyond title and summary, despite its different Hilbert space.",
+      "The quantitative strict spectral gap is not asserted optimal, and the structural theorem depends on initial-window domination."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Known first eigenvalue and factor-two upper bound; no exact norm equality or unique Gaussian optimizer asserted in inspected sections.",
+        "evidence": "Theorem 4.1 states norm <=2 lambda_0, Proposition 4.1 and (4.4) give lambda_0 product, and §4.2 says relative-area pointwise comparisons fail for some k.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00041-020-09751-9",
+        "material_read": "Full accessible HTML: introduction, operator diagonalization in §2, §4.1 theorem statements, relative-area discussion in §4.2, norm bound proof in §4.3, spectral product and asymptotic in §4.4, referenced Cantor subadditivity.",
+        "method": "Read HTML mathematical formulas and compare quantified norm assertions to all-degree dominance and gap.",
+        "title": "Daubechies’ Time–Frequency Localization Operator on Cantor Type Sets I",
+        "trigger": "Same exact Gaussian STFT operator, same middle-third Cantor regions, known eigenvalue product and upper bound."
+      },
+      {
+        "assessment": "Gaussian exact norm proved for canonical left-justified digit alphabets, not middle-third {0,2}; introduction explicitly notes the gap.",
+        "evidence": "Introduction says Gaussian optimality was not established for the mid-third; Theorem 3.1 gives equality only for canonical alphabet.",
+        "identifier_or_url": "https://arxiv.org/html/2104.10976v1",
+        "material_read": "Full accessible HTML introduction, definitions and §2 properties, §3.1 statements, canonical-alphabet inequalities, Corollaries 3.1–3.2 and discussion of proof strategy.",
+        "method": "Compared its hypotheses digit by digit and exact inequality implications.",
+        "title": "Daubechies’ Time-Frequency Localization Operator on Cantor Type Sets II",
+        "trigger": "General-alphabet sequel could contain a stronger theorem covering the middle-third case."
+      },
+      {
+        "assessment": "Theorem 4.1 supplies upper-bound estimates for radial Cantor localization at constrained growing radius; it does not identify the norming Hermite degree or the exact finite-iterate norm.",
+        "evidence": "Introduction says previous radial works furnished norm estimates, sometimes sharp asymptotics, while Theorem 4.1 is an upper-bound fractal uncertainty principle with a dimension-dependent constant.",
+        "identifier_or_url": "https://arxiv.org/html/2204.03068v1",
+        "material_read": "Accessible arXiv full-text HTML, introduction, section 2 localization definitions, §3 norm-estimate discussion, and §4 Theorem 4.1 and Cantor-density statements.",
+        "method": "Examined the theorem hypotheses and compared generic porous-set norm estimates against the exact finite-radius Hermite-mode dominance claim.",
+        "title": "A Fractal Uncertainty Principle for the Short-Time Fourier Transform and Gabor Multipliers",
+        "trigger": "Subsequent same-author generalization of Gaussian STFT localization and radial Cantor sets could imply exact norm."
+      },
+      {
+        "assessment": "Different unweighted Bergman Hilbert space and critical finite scaling; no direct implication for the present Gaussian STFT all-radius claim visible. Full paper access remains an explicit risk.",
+        "evidence": "Public summary identifies unweighted Bergman operator on critically dilated Cantor prefractals and m>=2.",
+        "identifier_or_url": "Critical Cantor–Bergman localization has a unique vacuum maximizer (public indexed mathematical abstract, 2026-11-08)",
+        "material_read": "Indexed public title and abstract/summary only; full text not accessible.",
+        "method": "Compared exposed objects and parameters without treating the abstract as full-text verification.",
+        "title": "Critical Cantor–Bergman localization has a unique vacuum maximizer",
+        "trigger": "Closely similar norming vacuum language and middle-third fractal support."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4db46e87-86d3-4ec9-a1be-6cfd81a42f74",
+  "value": {
+    "rationale": "The motivating author proved the explicit Gaussian eigenvalue but could bound the true operator norm only within a factor of two, and the sequel expressly left middle-third Gaussian optimality unsettled. This theorem closes that precise, motivated mathematical gap for every stage and positive radius, gives spectral simplicity and a strict explicit all-mode gap, and isolates an independently useful sliding-window criterion. The exact operator norm is needed for sharp fractal Gaussian concentration estimates; it is not merely a restatement of the known product.",
+    "status": "PASS"
+  }
+}
