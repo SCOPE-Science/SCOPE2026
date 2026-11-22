@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Exact cutwidth equals max(c,r-c). In the unique frozen-hub case the left-leaf set is an invariant and components are products of full adjacent-swap graphs. When h>=2, an allowed target inversion exists unless the target hub would have to cross the permitted rank interval boundary, contradiction. Therefore every Kendall unit can be decreased legally, proving all pairwise distances. Symmetric reversal yields the exact all-vertex eccentricity; direct edge counts finish the classification. Standalone code independently enumerates actual star cuts and BFS distances across 35 parameter cases, including up to 120,960 states, without using experiment as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "MFCS 2021 DOI 10.4230/LIPIcs.MFCS.2021.8, introduction and Theorem 3: an arbitrary pair of width-k orders can be reconfigured with width at most 2k, using O(n²) swaps; the text does not establish width-k star geodesics.",
+        "JGAA 2023 DOI 10.7155/jgaa.00628, Introduction and Theorem 1: same twofold width bound and polynomial-time construction. Search across its full searchable text finds no star-specific diameter or geodesic claim."
+      ],
+      "reasoning": "Allowing peak width 2k cannot imply reachability constrained to k, since the present even-star optimum-width example is disconnected. Even the published O(n²) length guarantee does not imply the exact Kendall lower bound is attained at fixed k.",
+      "searches": [
+        "Order Reconfiguration under Width Constraints Arrighi Fernau Oliveira Wolf MFCS 2021 10.4230/LIPIcs.MFCS.2021.8",
+        "Order Reconfiguration under Width Constraints JGAA 2023 10.7155/jgaa.00628",
+        "\"cutwidth\" \"star\" \"reconfiguration\" \"swaps\"",
+        "\"star graphs\" \"order reconfiguration\" \"cutwidth\"",
+        "published-finding corpus: Sharp cutwidth order reconfiguration on star graphs, connectivity threshold, components, diameter and Kendall-tau isometry"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.4230/LIPIcs.MFCS.2021.8 (primary proceedings full text relevant sections)",
+      "https://doi.org/10.7155/jgaa.00628 (later journal full text relevant sections)",
+      "2026/11/2/SCOPE-component-signatures-for-permutations-avoiding-selected-fixed-po--79c08e75f702 (indexed claim only)",
+      "2026/11/17/SCOPE-geodesic-rigidity-of-the-permutohedral-facet-in-partial-permutoh--7910cdad70d2 (indexed claim only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The forbidden-fixed-point result has component signatures determined by labels being left/right of home, not bounded hub rank; it permits a different subset of permutations and does not assert no-loss shortest paths.",
+        "The partial-permutohedral facet result concerns all facet-vertex distances in a different graph, not fixed cutwidth, and does not determine an even-star one-unit reconfiguration transition.",
+        "The 2021 and 2023 general order-reconfiguration results require twice the starting cutwidth, so their conclusion cannot cover the fixed-budget shortest-path theorem."
+      ],
+      "reasoning": "Neither same words nor related graph objects establish implication. The displayed prior theorems cover different feasibility domains or weaker budgets. The exact constrained metric and sharp parity boundary are additional statements, though an unlocated theorem on interval-position restricted permutations may subsume the key lemma.",
+      "searches": [
+        "published-finding corpus: 2026/11/2/SCOPE-component-signatures-for-permutations-avoiding-selected-fixed-po--79c08e75f702",
+        "published-finding corpus: 2026/11/17/SCOPE-geodesic-rigidity-of-the-permutohedral-facet-in-partial-permutoh--7910cdad70d2",
+        "published-finding corpus: Geodesic sorting with a bounded displacement distinguished element under adjacent swaps",
+        "MFCS 2021 Theorem 3 and JGAA 2023 Theorem 1, direct inspection"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus hit 2026/11/17/SCOPE-geodesic-rigidity-of-the-permutohedral-facet-in-partial-permutoh--7910cdad70d2 concerns a Euclidean edge-length metric on a facet of a different polytope, not a labelled star cutwidth-feasible induced subgraph.",
+        "The unrestricted adjacent-swap Kendall metric is standard; no retrieved named positional-interval theorem implied the exact feasibility-preserving geodesic claim."
+      ],
+      "reasoning": "The candidate is a fixed-cutwidth geodesic statement for arbitrary labelled star orders, equivalent to isometry of permutations with one distinguished label confined to the rank interval [r-k,k]. A theorem for the full permutahedron only provides a lower bound, not the existence of a shortest path entirely inside this induced state space. The related facet statement uses a different vertex set and edge geometry.",
+      "searches": [
+        "Permutations of n labels constrained to keep one distinguished label in a consecutive rank interval, adjacent transposition graph isometric to permutahedron",
+        "Geodesic sorting with a bounded displacement distinguished element under adjacent swaps",
+        "\"Kendall tau\" \"fixed position\" \"geodesic\" permutations",
+        "\"permutations\" \"distinguished element\" \"position\" \"interval\" \"adjacent transpositions\" \"isometric\"",
+        "published-finding corpus: 2026/11/17/SCOPE-geodesic-rigidity-of-the-permutohedral-facet-in-partial-permutoh--7910cdad70d2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Returned published-result identifiers concern other stars (spectral, geometric, matching) or other permutation restrictions; no indexed cutwidth-star component/diameter table appeared.",
+        "The examined main MFCS/JGAA papers address general bounds; they do not provide the per-parameter closed formulas h r!, binom(r,r/2), or binom(r+1,2) for this graph."
+      ],
+      "reasoning": "An exact enumerated table of star feasible orders would still not by itself imply the infinite-family Kendall-isometry proof. No directly matching published table was found; search absence is not a uniqueness proof.",
+      "searches": [
+        "published-finding corpus: Feasible star vertex orderings at cutwidth equal minimum r/2 split by chosen left-side leaves; above threshold connected with geodesic swap distances",
+        "published-finding corpus: Stars cutwidth reconfiguration of linear arrangements with optimal shortest paths",
+        "\"cutwidth\" \"star\" \"minimum\" orders reconfiguration",
+        "\"linear order reconfiguration\" \"stars\" \"optimal\""
+      ]
+    },
+    "rationale": "The guiding 2021/2023 order-reconfiguration results permit twice the original cutwidth; their statements do not imply within-budget star connectivity or exact Kendall geodesics. Comparable indexed permutation restrictions and facet rigidity address different induced subgraphs. No covering statement appeared in actual checks; equivalent unindexed theorems remain a qualified priority risk.",
+    "residual_risks": [
+      "Historical-priority risk: a general result on shortest adjacent-swap paths with one distinguished token constrained to a rank interval could imply the interval lemma even without mention of cutwidth or stars.",
+      "Linked indexed-result documents [3,4] were compared by their published summaries rather than independently read full text; they concern different objects. Search absence is not novelty proof.",
+      "The sources checked do not constitute exhaustive bibliographic coverage of every permutation-geometry or reconfiguration paper."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING according to inspected relevant statements: proves 2k width route and O(n²) length, not within-k star isometry",
+        "evidence": [
+          "Published 2021-08-18; DOI 10.4230/LIPIcs.MFCS.2021.8, page 1 abstract, intro, Theorem 3 and accompanying proof; no star/diameter occurrence in searchable PDF."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2021.8",
+        "material_read": "Abstract, Introduction, definition of cutwidth, main theorem and its width-doubling proof sections, search of full text for stars and diameter",
+        "method": "Lawfully open full-text proceedings PDF; inspect readable text and displayed pages",
+        "title": "Order Reconfiguration Under Width Constraints",
+        "trigger": "Guiding original work on the exact order-reconfiguration model"
+      },
+      {
+        "assessment": "NOT_COVERING in relevant theorem and searchable full text: width at most 2k and polynomial swaps rather than the exact metric at width k",
+        "evidence": [
+          "JGAA 27(6) 2023 pp. 409–431, DOI 10.7155/jgaa.00628, introduction and Theorem 1; manuscript states 2k allowed width."
+        ],
+        "identifier_or_url": "https://doi.org/10.7155/jgaa.00628",
+        "material_read": "Publication history, abstract, Introduction, Theorem 1 and related discussion, searchable full-text terms star, diameter, shortest path and geodesic",
+        "method": "Open-access full-text PDF and page image inspection",
+        "title": "Order Reconfiguration under Width Constraints",
+        "trigger": "Later comprehensive journal version of same guiding work"
+      },
+      {
+        "assessment": "RELATED_NOT_IMPLYING at indexed-claim level; stronger hidden details cannot be excluded by summary alone",
+        "evidence": [
+          "Index claim gives 2^{|F∩{2,...,n-1}|} components for forbidden fixed points, not a bound on hub position or cutwidth."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-component-signatures-for-permutations-avoiding-selected-fixed-po--79c08e75f702",
+        "material_read": "Published result title and full summary returned in semantic index",
+        "method": "Scientific comparison of indexed claim; linked full document not inspected",
+        "title": "Component signatures for permutations avoiding selected fixed points",
+        "trigger": "Closest indexed claim on feasible adjacent swaps and permutation components"
+      },
+      {
+        "assessment": "RELATED_NOT_IMPLYING at indexed-claim level; source is a facet of partial permutohedron",
+        "evidence": [
+          "Index claim is Euclidean edge-length geodesic rigidity in top facet, not hub-window cutwidth feasibility."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-geodesic-rigidity-of-the-permutohedral-facet-in-partial-permutoh--7910cdad70d2",
+        "material_read": "Published result title and full summary returned in semantic index",
+        "method": "Scientific comparison of indexed claim; linked full document not inspected",
+        "title": "Geodesic rigidity of the permutohedral facet in partial permutohedra",
+        "trigger": "Closest indexed geodesic-preservation statement for a permutohedral subgraph"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9f12c29d-9ece-454d-87b9-c377886901b3",
+  "value": {
+    "rationale": "Fixed-budget reachability is the motivating gap left open by the general 2k routing bound. The sharp optimum-width parity transition and exact geodesic recovery one budget unit above the even-star optimum distinguish a meaningful structural phenomenon, quantify all component and metric data and yield an optimal routing algorithm for every star size; it is not an arbitrary finite table or routine renaming of a known metric.",
+    "status": "PASS"
+  }
+}
