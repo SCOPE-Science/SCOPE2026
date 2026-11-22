@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "The exact state-jump integral yields two independently checked derivatives. For fixed last-row factor y, the second-row objective has one sign change and a unique maximizer X_E(y). The reduced derivative has sign E-F_E(y), where F_E is strictly increasing on the whole feasible interval, F_E(E)<E and F_E(1)=a(2-a). Thus there is a unique global maximum, including threshold equalities. The second branch transition follows from a strictly increasing equation, and two stationarity inequalities prove increasing gaps. The exact rational example is verified independently by arithmetic; the Python checker passed 83416 deterministic assertions. Finite computations are supplemental, not a universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Woodruff 1956, Journal of Forestry 54(2), USDA reprint 524.pdf, full paper: wind-tunnel comparisons of principal and supplemental belts, with practical spacing and thresholds.",
+        "Sun et al. 2022, DOI 10.1007/s11356-021-17272-1, open-access full article: network windbreak effectiveness, steady energy-balance model and empirical spacing recommendations.",
+        "Wang et al. 2024, DOI 10.3390/f15101760, full article: CFD of one/two belts and spacing-dependent protection."
+      ],
+      "reasoning": "The 1956, 2022, and 2024 sources cover broader real atmospheric effects or multiple shelterbelts but optimize different experimental measures, geometries, and threshold-design objectives, not this exact three-jump finite-horizon integral. Analytical exponential-recovery results in other application areas use different state laws or boundary conditions. A broad general theorem might nonetheless specialize to the claim, a residual risk.",
+      "searches": [
+        "\"multiple shelterbelts exponential model wind speed downstream recovery optimization spacing analytic\"",
+        "\"windbreak\" \"exponential\" \"multiplicative\" \"spacing\" shelterbelt",
+        "\"Horton infiltration finite wet pulses dry recovery exponential multiplicative decay strict concavity in spacing\"",
+        "\"multiple impulse optimization of exponential relaxation with multiplicative state contraction and integral cost\""
+      ]
+    },
+    "checked_sources": [
+      "Woodruff and Zingg 1953, Journal of Forestry 51(3), 173–178, DOI 10.1093/jof/51.3.173 (full lawful reprint inspected)",
+      "Woodruff 1956, Journal of Forestry 54(2), 115–122 (full lawful reprint inspected)",
+      "Zhu, Jiang and Matsuzaki 2002, DOI 10.1007/BF02857227 (publisher abstract and bibliography only)",
+      "Sun et al. 2022, DOI 10.1007/s11356-021-17272-1 (full OA text inspected)",
+      "Wang et al. 2024, DOI 10.3390/f15101760 (full OA text inspected)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Woodruff 1956, lawful full-text USDA reprint, compares unlike principal/supplemental belts in wind tunnel and design thresholds, not a universal exact three-identical barrier integral law.",
+        "Wang et al. 2024, DOI 10.3390/f15101760, one/two-canopy large eddy simulation, different PDE system and response objective.",
+        "Exponential drainage/rainfall models with storage clipping and periodic boundary conditions are mathematically distinct from the smooth deficit impulse sum with a fixed upwind row."
+      ],
+      "reasoning": "Woodruff 1956 does not imply the theorem merely because it studies three rows: its physical objects and constraints differ. Fixed-period clipped-storage rearrangements do not entail the stated derivative signs or two field-length transitions; conversely our proof gives no conclusions about storage. Stronger uninspected general control results may still dominate the claim.",
+      "searches": [
+        "\"The spacing interval for supplemental shelterbelt\" Woodruff 1956 pdf",
+        "\"windbreak\" \"exponential\" \"multiplicative\" \"spacing\" shelterbelt",
+        "\"windbreak\" \"integrated\" \"wind speed reduction\" \"spacing\" optimum three",
+        "\"Windbreak Effectiveness of Single and Double-Arranged Shelterbelts\" large eddy simulation",
+        "\"sharp storm ordering window saturation runoff periodic linear store\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Woodruff and Zingg 1953, DOI 10.1093/jof/51.3.173, pp.173–178, wind tunnel measurements and index of wind protection; article read as lawful USDA reprint.",
+        "Wang et al. 2024, DOI 10.3390/f15101760, full Results/Discussion: numerical comparison of one- and two-belt airflow and aerodynamic parameters, not a three-identical-impulse integral optimizer."
+      ],
+      "reasoning": "The physical field-averaged windspeed objective is related to the 1953 area-of-protection motivation. However those models have distributed flow/porous canopy effects instead of exactly the state jumps plus exponential relaxation, and neither primary statement yields the two symbolic transition thresholds and unique three-row maximum. The check does not establish priority over all historical mathematical literature.",
+      "searches": [
+        "\"windbreak\" \"integrated\" \"wind speed reduction\" \"spacing\" optimum three",
+        "\"three\" \"windbreak\" \"optimization\" \"spacing\" exponential decay",
+        "three identical exponential relaxation jumps fixed horizon optimal integrated wind deficit",
+        "Woodruff Zingg 1953 Wind Tunnel Studies of Shelterbelt Models DOI 10.1093/jof/51.3.173"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Zhu, Jiang, Matsuzaki 2002, DOI 10.1007/BF02857227, publisher abstract/bibliography: porosity, microclimate index and tree height determine target protection spacing, rather than a table of all three exact barriers.",
+        "Sun et al. 2022, DOI 10.1007/s11356-021-17272-1, field/wind-tunnel numerical spacing examples, not the pair of analytic thresholds."
+      ],
+      "reasoning": "The inspected tables and mathematical formulas summarize empirical spacing intervals and permeability-dependent protection. No exact lookup table or parameter-domain classification for the three impulse jumps and its global optimizer was observed. The unavailable full text of the 2002 work could contain a stronger equivalence not visible from the publisher abstract.",
+      "searches": [
+        "\"windbreak\" \"integrated\" \"wind speed reduction\" \"spacing\" optimum three",
+        "\"three\" \"windbreak\" \"optimization\" \"spacing\" exponential decay",
+        "\"Spacing interval between principal tree windbreaks\" Zhu Jiang Matsuzaki 2002",
+        "\"The optimal spacing interval between principal shelterbelts of the farm-shelter forest network\""
+      ]
+    },
+    "rationale": "An exact two-threshold classification and strict downstream gap ordering for a finite field with three identical multiplicative barriers were not found in the inspected classical wind-tunnel and modern analytical/CFD spacing sources. Earlier empirical or target-threshold spacing rules do not algebraically imply the unique optimizer for the present fixed integral functional. Historical priority remains provisional; a relevant 2002 article was examined only at abstract/bibliographic level, and general impulse-placement results may cover equivalent formulations.",
+    "residual_risks": [
+      "Full text of Zhu, Jiang and Matsuzaki (2002) could not be inspected, although its publisher abstract and references were reviewed.",
+      "General impulse-optimization results, older non-digitized windbreak literature, or a mathematically equivalent model under another name could contain a stronger covering theorem.",
+      "Verification is analytic and same-model, with no independent audit or empirical validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivates protection index and aerodynamic row structure but does not state a finite-field identical three-jump exponential optimizer.",
+        "evidence": [
+          "Woodruff and Zingg (1953), Journal of Forestry 51(3), 173–178, https://doi.org/10.1093/jof/51.3.173"
+        ],
+        "identifier_or_url": "https://infosys.ars.usda.gov/WindErosion/publications/Andrew_pdf/474.pdf",
+        "material_read": "Full six-page lawful reprint, including original figures/discussion",
+        "method": "PDF text and rendered-page inspection",
+        "title": "Wind Tunnel Studies of Shelterbelt Models",
+        "trigger": "Foundational windbreak area-protection objective and multirow wind-tunnel investigation"
+      },
+      {
+        "assessment": "Wind-tunnel findings and target protection spacing do not assert the optimizer, two boundaries, or strict increasing leeward gaps of this idealized model.",
+        "evidence": [
+          "Woodruff (1956), Journal of Forestry 54(2), 115–122"
+        ],
+        "identifier_or_url": "https://infosys.ars.usda.gov/WindErosion/publications/Andrew_pdf/524.pdf",
+        "material_read": "Lawful full reprint across the reported principal/supplemental configurations and conclusions",
+        "method": "PDF text and rendered-page inspection",
+        "title": "The Spacing Interval for Supplemental Shelterbelts",
+        "trigger": "Direct primary article on multiple windbreak rows and optimal gap spacing"
+      },
+      {
+        "assessment": "Abstract covers target reduction, porosity and tree-height spacing design; full-paper mathematical coverage unresolved.",
+        "evidence": [
+          "Zhu, Jiang and Matsuzaki (2002), Journal of Forestry Research 13(2), 83–90, DOI 10.1007/BF02857227"
+        ],
+        "identifier_or_url": "https://journal.hep.com.cn/jfr/EN/10.1007/BF02857227",
+        "material_read": "Publisher abstract, article metadata, references; full article unavailable",
+        "method": "Publisher HTML metadata and abstract review",
+        "title": "Spacing interval between principal tree windbreaks",
+        "trigger": "Plausibly covering title and explicit optimal windbreak spacing"
+      },
+      {
+        "assessment": "Empirical wind speed/damage threshold and energy-transfer model; no equivalent three impulse integrated-field exact thresholds.",
+        "evidence": [
+          "Sun et al. (2022), DOI 10.1007/s11356-021-17272-1"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8803805/",
+        "material_read": "Full open-access article including modelling, comparison and conclusions",
+        "method": "Primary full-text HTML section review",
+        "title": "The optimal spacing interval between principal shelterbelts of the farm-shelter forest network",
+        "trigger": "Modern full-length treatment of spacing in a multirow forest shelterbelt network"
+      },
+      {
+        "assessment": "Studies one or two finite-width porous canopies by CFD; neither three uniform jumps nor exact integrated-field optimizer is claimed.",
+        "evidence": [
+          "Wang et al. (2024), DOI 10.3390/f15101760"
+        ],
+        "identifier_or_url": "https://www.mdpi.com/1999-4907/15/10/1760",
+        "material_read": "Full open-access article including introduction, simulation model, results, discussion and conclusions",
+        "method": "Primary full-text HTML section review",
+        "title": "Windbreak Effectiveness of Single and Double-Arranged Shelterbelts: A Parametric Study Using Large Eddy Simulation",
+        "trigger": "Potentially broader two/multiple shelterbelt aerodynamic spacing analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Zero-width multiplicative barriers and exponential recovery are a surrogate model, not a fluid-mechanical law.",
+    "First barrier is pinned; plant-spacing and economic constraints are absent.",
+    "At certain horizons clustering is optimal, which may be inadmissible for physical distinct-row designs.",
+    "Historical originality remains provisional, and independent audit is not yet performed."
+  ],
+  "scope_run_id": "58285b23-d6fd-4fe1-9b64-3f4cfb14379b",
+  "value": {
+    "rationale": "The area-integrated wind protection measure has direct precedent in early windbreak experimental research. Three identical barriers have a complete and sharp classification over the two naturally adjustable dimensionless parameters, distinguishing clustering, partial separation, and full separation, with an exact boundary for each. The increasing downstream gaps and exact 3/14 benchmark quantify how naive placement can fail in a tractable surrogate. This yields a reusable exact comparison for physical simulations, while explicitly not asserting field-calibrated optimality.",
+    "status": "PASS"
+  }
+}
