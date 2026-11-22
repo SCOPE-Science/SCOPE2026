@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Every auxiliary interval hit set has a unique canonical pair (minimum marked right endpoint, maximum marked left endpoint), allowing at most 1+m+binom(m,2)-c intersection traces. Extremal right/left marked vertices duplicate two query traces, unless they coincide, in which case all m-1 other intervals contain that one; this yields B+m-2 for m>=3 and forces zero containments. Contiguous-block singleton realizability eliminates nonconsecutive overlap; all m-2 interior self-deleted profiles force neighboring overlaps, giving a path. Exact interval probes J_[i,j]=[4i+3,4j+3] prove attainability; duplicate m=3 endpoint profiles force nine vertices. Base cases 1,2 and VC consequences checked. Generic perturbations preserve finite interval intersection adjacency. verify.py exhausts abstract endpoint matchings m<=6 and constructs m<=10, not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dreier--Mählmann--Toruńczyk, arXiv:2611.08143 abstract: polynomially bounded fixed-rank types on monadically dependent classes, no interval-extremizer formula.",
+        "Beaudou et al., PDF pp. 1--4: definition N_r(v) includes distance zero and bounds concern excluded minors/treewidth/treelength, not open interval adjacency traces.",
+        "Dreier et al., arXiv:2607.10941 abstract: almost-linear neighborhood complexity in monadically dependent classes, not an interval-graph exact coefficient or path-rigidity result."
+      ],
+      "reasoning": "General asymptotic statements and different graph-class bounds do not logically imply a sharp quadratic exact formula with extremal structure. The 2025 N_r is closed, so even a sharp closed-case theorem would require a separate diagonal-deletion comparison.",
+      "searches": [
+        "interval intersection range space maximum number distinct neighborhoods against m query intervals, proper interval graphs equality classification",
+        "Interval graph open neighbourhood VC-density 2 exact m(m+3)/2 -1 extremal marked induced path and minimal graph order",
+        "https://arxiv.org/abs/2611.08143",
+        "https://perso.ens-lyon.fr/jean-florent.raymond/files/neighcplx.pdf",
+        "https://arxiv.org/abs/2607.10941"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.08143",
+      "arxiv:2501.08895",
+      "arxiv:2607.10941",
+      "Parreau:2013:IdentifyingCodesVC",
+      "published-finding corpus:2026/11/2/SCOPE-six-rank-three-theories-of-complete-discrete-interval-intersecti--7082ff1cf8a2",
+      "published-finding corpus:2026/11/8/SCOPE-negative-run-normal-form-and-exact-online-ranks-for-finite-inter--6bc451c76090",
+      "published-finding corpus:2026/11/8/SCOPE-exact-online-ranks-and-shattering-polynomials-of-fixed-width-int--8f87b8e9beef",
+      "published-finding corpus:2026/10/18/SCOPE-the-unique-first-orbit-refinement-failure-among-connected-interv--7eaadf182278"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Parreau 2013 slides pp. 5--8 explicitly use N[u] for identifying codes, whereas the new family uses N(u) and has a nontrivial self-incidence deletion.",
+        "published-finding corpus: 2026/11/8/SCOPE-exact-online-ranks-and-shattering-polynomials-of-fixed-width-int--8f87b8e9beef counts point-membership query histories for uniform intervals, not pairwise-intersection graph vertex neighborhoods.",
+        "published-finding corpus: 2026/10/18/SCOPE-the-unique-first-orbit-refinement-failure-among-connected-interv--7eaadf182278 identifies colour-refinement collisions and does not count all open adjacency profiles over marked sets."
+      ],
+      "reasoning": "An induced marked path with external interval witnesses yields all B contiguous blocks plus noncontiguous marked open profiles. This exact mechanism is absent from the compared published statements; therefore their implications do not cover the complete theorem.",
+      "searches": [
+        "interval graph neighborhoods sharp Sauer bound 1 + m(m+1)/2 extremal parameter interval family no containment no triple overlap trace count",
+        "interval graph neighborhood profile endpoint pair injectivity exact count via noncontainment and third-neighbor obstruction",
+        "Interval graph open neighbourhood VC-density 2 exact m(m+3)/2 -1 extremal marked induced path and minimal graph order",
+        "https://perso.liris.cnrs.fr/aline.parreau/Research/Slides/seminaireCombgraph13.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus: 2026/11/2/SCOPE-six-rank-three-theories-of-complete-discrete-interval-intersecti--7082ff1cf8a2 concerns rank-three theories of complete discrete-interval graphs, not an open one-variable parameter trace-growth function.",
+        "published-finding corpus: 2026/11/8/SCOPE-negative-run-normal-form-and-exact-online-ranks-for-finite-inter--6bc451c76090 concerns point-membership query histories and online dimension, with a different universe and quantification."
+      ],
+      "reasoning": "The canonical-pair plus diagonal-removal result is not equivalent to fixed-parameter online interval membership, FO rank-three theories of a particular interval graph family, or the closed-distance type counts in the inspected source.",
+      "searches": [
+        "interval graph neighborhoods sharp Sauer bound 1 + m(m+1)/2 extremal parameter interval family no containment no triple overlap trace count",
+        "interval intersection range space maximum number distinct neighborhoods against m query intervals, proper interval graphs equality classification",
+        "interval graph neighborhood profile endpoint pair injectivity exact count via noncontainment and third-neighbor obstruction",
+        "Exact open-neighborhood trace growth of interval graphs maximum (m^2+3m-2)/2 VC-dimension 3, path induced marked set equality case"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returns interval online-rank and finite first-order profile records, but no exact table with 2,4,8,13,19,26 or a (m^2+3m-2)/2 sequence for open interval-graph adjacency types.",
+        "The 2013 Parreau slides define identifying codes using N[v], so their interval VC bound is for closed neighborhoods; open three-point shattering does not contradict that statement."
+      ],
+      "reasoning": "Exact numerical profiles and the minimum-order exception were checked against relevant semantic nearest-neighbor records and primary text. An unindexed incidence enumeration could still cover the theorem.",
+      "searches": [
+        "interval graph neighborhoods sharp Sauer bound 1 + m(m+1)/2 extremal parameter interval family no containment no triple overlap trace count",
+        "Exact open-neighborhood trace growth of interval graphs maximum (m^2+3m-2)/2 VC-dimension 3, path induced marked set equality case",
+        "Interval graph open neighbourhood VC-density 2 exact m(m+3)/2 -1 extremal marked induced path and minimal graph order",
+        "open neighborhood complexity interval graphs exactly m(m+1)/2 +m -1",
+        "interval graphs open neighborhood shatter three points VC dimension 3"
+      ]
+    },
+    "rationale": "The checked published-finding corpus summaries and accessible primary mathematical text do not yield the exact sharp open-neighborhood interval-graph count or endpoint path-rigidity/minimum-order statement. Strongest relevant published structured-neighborhood result explicitly counts closed radius-one neighborhoods and addresses excluded-minor/tree parameters; its theorem does not imply this open variant. The 2026 monadic-dependence paper supplies broad finite-model type-counting context rather than an interval-graph sharp bound. Searches establish best-knowledge originality only, not historical uniqueness.",
+    "residual_risks": [
+      "The November 2026 motivating manuscript and July 2026 manuscript could not be read in full; any technical appendix on interval-graph specializations remains unchecked.",
+      "Unindexed earlier exact bounds for interval intersection set systems or open-neighborhood profiles might imply the formula by reduction.",
+      "The 2013 slide PDF screenshot timed out; its explicit closed-neighborhood definition and quoted VC claim were read in extracted text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related but not covering; definitions count closed distance-at-most-r neighborhoods and principal theorems focus on other graph classes",
+        "evidence": "Definition 1 p. 2 states N_r(v) comprises graph distances at most r; abstract identifies excluded-minor, bounded treewidth and treelength bounds.",
+        "identifier_or_url": "https://perso.ens-lyon.fr/jean-florent.raymond/files/neighcplx.pdf",
+        "material_read": "Full-text searchable PDF, pages 1--4 examined for definitions and theorems, document-search for interval-graph references, page 2 visually inspected",
+        "method": "PDF text extraction/search and direct page screenshot",
+        "title": "Profile and Neighbourhood Complexity of Graphs with Excluded Minors and Tree-Structured Graphs",
+        "trigger": "Exact neighborhood-complexity terminology, interval graphs mentioned in introduction"
+      },
+      {
+        "assessment": "Closed-versus-open distinction makes prior VC bound inapplicable to three-point open shattering",
+        "evidence": "Slides define identifying codes with N[u], with own vertex included; the new result counts N(u), which excludes it.",
+        "identifier_or_url": "https://perso.liris.cnrs.fr/aline.parreau/Research/Slides/seminaireCombgraph13.pdf",
+        "material_read": "Available text of relevant slides on identifying codes and the interval VC bound; visual page retrieval timed out",
+        "method": "PDF text search and reading displayed definition and relevant statement",
+        "title": "Identifying Codes and VC-Dimension",
+        "trigger": "Potential contradiction: interval graphs claimed VC dimension at most two"
+      },
+      {
+        "assessment": "Broad model-theoretic type counting motivation, not decisive prior coverage based on abstract alone",
+        "evidence": "arXiv record submitted November 5, 2026, states polynomially many bounded-quantifier-rank types in monadically dependent classes.",
+        "identifier_or_url": "https://arxiv.org/abs/2611.08143",
+        "material_read": "Official arXiv/alternate-index metadata and abstract; full manuscript inaccessible",
+        "method": "Search and arXiv abstract verification, unsuccessful full HTML retrieval",
+        "title": "First-Order Model Checking on Monadically Dependent Graph Classes",
+        "trigger": "Recent logical type counting and finite-model motivation"
+      },
+      {
+        "assessment": "General asymptotic class statement without this interval-graph extremal identity",
+        "evidence": "Abstract states an almost-linear neighborhood complexity conclusion for monadically dependent classes, not sharp interval-graph counts.",
+        "identifier_or_url": "https://arxiv.org/abs/2607.10941",
+        "material_read": "Public metadata and abstract only",
+        "method": "Indexed preprint abstract",
+        "title": "Neighborhood Complexity and Radius-1 Merge-Width in Monadically Dependent Graph Classes",
+        "trigger": "Direct modern neighborhood complexity theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9d6b84f2-96e4-4b59-ad19-106e0c26e45b",
+  "value": {
+    "rationale": "Quantifier-free adjacency types are the base layer of finite-model parameter counting. The sharp quadratic coefficient, exact path rigidity, and minimum-order exceptional case distinguish open from closed neighborhoods and supply smallest testing models for all realized unary trace profiles; m=3 versus m=4 identifies the exact shattering frontier. These are natural universal invariants with explicit constructions and a nontrivial diagonal correction, not a numerically arbitrary slice.",
+    "status": "PASS"
+  }
+}
