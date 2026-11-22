@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Exact differentiation yields the density \\(1-\\lambda D_m(x,y)B_\\theta(z)\\). The factor \\(B_\\theta\\) ranges over \\([-r_\\theta,1]\\); the factor \\(D_m\\) ranges over \\([-(m+1),m+1]\\) for odd \\(m\\), and \\([-M_m,m+1]\\) for even \\(m\\). Fixing \\(|x-y|\\) reduces the even minimum to a quadratic critical-point equation. Independence of the two factors yields the necessary-and-sufficient density intervals, including both endpoints. A logarithmic inequality proves \\(M_m/(m+1)>e^{-2}\\), and strict monotonicity of \\(r_\\theta\\) gives a unique transition. For \\(m=2,\\theta=1\\), the exact range is \\([-1/2,1/3]\\). The companion program passed 118 supporting assertions; numerical diagnostics do not replace the proof for all parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The same paper Proposition 3.1 uses a different second perturbation with independent parameters alpha,beta.",
+        "Classical trivariate FGM copula constructions use different density polynomials, not the general \\((x-y)^m z^\\theta(1-z)\\) perturbation in this family.",
+        "Public sharp-admissibility mathematical findings found for bivariate Legendre, rational and asymmetric-power copulas concerned different density factors."
+      ],
+      "reasoning": "A broader result optimizing the specific \\(D_m\\) and \\(B_\\theta\\) factors would cover this theorem, but the inspected relevant sources do not supply it. The generic criterion of nonnegative density alone is not the exact phase diagram.",
+      "searches": [
+        "sharp full parameter space copula polynomial power (x-y)^m z^theta (1-z) 2024",
+        "\"Three-Parameter\" \"Three-Dimensional\" \"Non-Exchangeable\" copulas bounds extension",
+        "Simplified pair copula constructions Limitations and extensions trivariate FGM"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.37256/cm.5120242507",
+      "https://ojs.wiserpub.com/index.php/CM/article/download/2507/1971/38771",
+      "https://doi.org/10.1016/j.jmva.2013.04.014",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-exact-admissibility-and-sharp-rank-correlation-ranges-for-the-tw--4829e3cb0e98",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-sharp-asymmetric-power-copula-simplex-and-opposing-tail-envelope--606841a3f58e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024 paper proves the sufficient inequality \\(|\\lambda|\\le[(\\theta+1)\\max\\{m(m-1),m+1\\}]^{-1}\\).",
+        "The new exact even-exponent condition is \\(-1/\\max\\{(m+1)r_\\theta,M_m\\}\\le\\lambda\\le1/(m+1)\\); odd exponents have the symmetric interval \\([-1/(m+1),1/(m+1)]\\).",
+        "The valid triple \\(m=2,\\theta=1,\\lambda=-2/5\\) is outside the previously sufficient interval."
+      ],
+      "reasoning": "An earlier sufficient inequality does not establish necessity. The new proof obtains exact extrema and excludes every further \\(\\lambda\\) from the copula region; it also proves the even-exponent transition.",
+      "searches": [
+        "Chesneau 2024 three dimensional non exchangeable copula xyz[1+lambda (x-y)^m z^theta (1-z)] exact sharp admissible lambda density positivity",
+        "Chesneau Proposition 2.1 nonseparable three dimensional copula optimal lambda bounds even odd exponents",
+        "doi:10.37256/cm.5120242507"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chesneau (2024), Proposition 2.1, introduces \\(C_{m,\\theta,\\lambda}(x,y,z)=xyz[1+\\lambda(x-y)^m z^\\theta(1-z)]\\) and proves a sufficient, not a necessary-and-sufficient, bound.",
+        "The mixed density is \\(1-\\lambda D_m(x,y)B_\\theta(z)\\); positivity is equivalent to the exact interval, not to the previously offered sufficient subinterval."
+      ],
+      "reasoning": "The original displayed factorization and general density-positivity criterion are logically weaker than a closed-form solution for the exact extrema. The old |lambda| condition implies validity but cannot imply exclusion outside it. Direct comparison on the same polynomial and all parameter quantifiers shows the displayed theorem is not an equivalent repackaging of Proposition 2.1.",
+      "searches": [
+        "Chesneau 2024 three dimensional non exchangeable copula xyz[1+lambda (x-y)^m z^theta (1-z)] exact sharp admissible lambda density positivity",
+        "Chesneau Proposition 2.1 nonseparable three dimensional copula optimal lambda bounds even odd exponents",
+        "\"(x-y)^m\" \"z\" \"copula\" \"sharp\" admissible",
+        "doi:10.37256/cm.5120242507"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The original paper Table 1 lists illustrative parameter examples under the sufficient Proposition 2.1 restriction, not the full sharp domain.",
+        "For \\(m=2,\\theta=1\\), the published sufficient interval is \\([-1/6,1/6]\\), whereas the sharp region is \\([-1/2,1/3]\\)."
+      ],
+      "reasoning": "No inspected table lists sharp endpoints for every positive integer \\(m\\) and all \\(\\theta\\ge0\\). The illustrative Table 1 does not imply the negative-domain enlargement or parity transition.",
+      "searches": [
+        "Chesneau 2024 three dimensional non exchangeable copula xyz[1+lambda (x-y)^m z^theta (1-z)] exact sharp admissible lambda density positivity",
+        "sharp full parameter space copula polynomial power (x-y)^m z^theta (1-z) 2024",
+        "\"On Two Simple\" \"admissible\" \"sharp\" Chesneau copula"
+      ]
+    },
+    "no_original_premise": true,
+    "rationale": "The exact 2024 first-family polynomial is acknowledged. Its Proposition 2.1 supplies only a sufficient symmetric restriction on \\(\\lambda\\), not a necessary-and-sufficient range. The sharp region, asymmetric lower boundary for even \\(m\\), and unique \\(\\theta\\)-transition require new global extrema. The valid instance \\(m=2,\\theta=1,\\lambda=-2/5\\) lies outside the older sufficient region. Comparisons with related admissibility and nonexchangeable copula results found no covering statement, but unindexed-literature risks remain.",
+    "residual_risks": [
+      "No claim of exhaustive historical priority: unindexed articles and technical theses may contain a stronger parameter-domain theorem.",
+      "Full text of the 2013 general copula paper was not read, so its entire scope cannot be ruled out from a bibliographic abstract.",
+      "The compared mathematical research-record items were searched through summaries, not full-text inspection; their different named model limits direct overlap inference.",
+      "No independent mathematical or external referee assessment has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The first-family constraint is stated and proved as sufficient. It does not supply the exact asymmetric, parity-dependent feasible interval or unique theta transition. The article second family has a different formula.",
+        "evidence": [
+          "Proposition 2.1 and Table 1 of 2024 article (pages 874–887)",
+          "The published first-family density factor is the starting point; its Proposition 2.1 does not compute the exact global extrema needed here."
+        ],
+        "identifier_or_url": "https://ojs.wiserpub.com/index.php/CM/article/download/2507/1971/38771",
+        "material_read": "Publicly accessible complete PDF extracted text, especially first-family definition and Proposition 2.1 proof; Table 1 and Remark 2.2; second-family Proposition 3.1; discussion, conclusions and references",
+        "method": "Read accessible primary article text and compared displayed density and allowed-parameter inequalities term by term",
+        "title": "On Two Simple, Three-Parameter, Three-Dimensional, Non-Exchangeable Copulas",
+        "trigger": "Identical model and parameter names; potentially covering primary source"
+      },
+      {
+        "assessment": "Related general copula background only; not sufficient to claim noncoverage of entire unseen document, so residual access risk is recorded",
+        "evidence": [
+          "2013 JMVA bibliographic description of trivariate FGM-based construction"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jmva.2013.04.014",
+        "material_read": "Bibliographic abstract and public search preview; publisher full text not inspected",
+        "method": "Compared stated classical FGM construction to the explicit perturbation and noted limit of available material",
+        "title": "Simplified pair copula constructions—Limitations and extensions",
+        "trigger": "Potentially broader three-dimensional FGM copula representation"
+      },
+      {
+        "assessment": "No same-object coverage in available summary; not a document-wide noncoverage determination",
+        "evidence": [
+          "Public record describes first two diagonal Legendre terms in a bivariate copula, unlike this three-dimensional nonexchangeable model"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-exact-admissibility-and-sharp-rank-correlation-ranges-for-the-tw--4829e3cb0e98",
+        "material_read": "Title and semantic result summary only; full article not read",
+        "method": "Compared the stated bivariate orthogonal-polynomial model against the explicit trivariate polynomial-power copula",
+        "title": "Exact admissibility and sharp rank-correlation ranges for the two-mode Legendre copula",
+        "trigger": "Close mathematical research-record result on sharp admissibility"
+      },
+      {
+        "assessment": "Different asymmetric Stingray-style bivariate construction; cannot assert full-text noncoverage from summary, but no matching theorem in described result",
+        "evidence": [
+          "The public description addresses reciprocal-power opposing-tail envelopes, not extrema of the \\((x-y)^m z^\\theta\\) family."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-sharp-asymmetric-power-copula-simplex-and-opposing-tail-envelope--606841a3f58e",
+        "material_read": "Title and semantic result summary only; full article not read",
+        "method": "Compared objects and parameter roles to the first-family trivariate model",
+        "title": "Sharp asymmetric power-copula simplex and opposing-tail envelope",
+        "trigger": "Close sharp parameter-domain research record for a power-type copula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b104948b-0933-495c-831e-8fc5accb79b9",
+  "value": {
+    "rationale": "The full validity region of a proposed three-dimensional distribution is a natural prerequisite for applying that model. The result substantially enlarges the earlier sufficient region, including the valid example \\(m=2,\\theta=1,\\lambda=-2/5\\), and exhibits a parity-dependent phase transition across every positive-integer shape. This is a structural all-parameter classification, not an arbitrary numerical slice or decimal refinement; no inference guarantees are asserted.",
+    "status": "PASS"
+  }
+}
