@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "Exact hypoexponential survival yields p_n=A u^n-B v^n and rational PGF with numerator 1+r z. The complete infinite logarithmic coefficient sequence is (u^n+v^n+(-1)^(n-1)r^n)/n. Its nonnegativity is exactly r<=u; r>u forces negative sufficiently large even coefficients. Reduction to F_q(t) and the strict inequality -log q>2(1-q)/(1+q) make F strictly convex with zeros at t=1 and t=2, giving b>=2a for unequal rates. Equal Erlang rates give r>u by a>2tanh(a/2). The discrete Bilal specialization and unique-root asymptotic are explicitly proved. The supplied checker reproduced 3,122 symbolic, exact-rational and high-precision supporting assertions; numerical checks are not treated as infinite proofs. C risk: no independent expert confirmation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hürlimann 2015 gives the general positive log-PGF coefficient method and already treats heterogeneous geometric convolutions.",
+        "The indexed zero-inflated NB finding concerns a distinct zero-inflation mechanism, not integer flooring of an exponential sum."
+      ],
+      "reasoning": "General theorems about compound-Poisson coefficient positivity are used as previously known tools and do not determine the new b/a threshold without the specific exact numerator factor and convexity proof. Other family-specific infinite-divisibility boundaries do not imply this one by parameter substitution, PGF equality or a stated reduction.",
+      "searches": [
+        "Sharp two-to-one exponential rate ratio threshold for infinite divisibility of integer part floor of sum of two independent exponentials hypoexponential distribution",
+        "https://doi.org/10.1155/2015/189596",
+        "https://doi.org/10.1155/2013/695623"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.57805/revstat.v20i4.384",
+      "https://arxiv.org/abs/2111.01943",
+      "https://doi.org/10.1155/2023/2779120",
+      "https://doi.org/10.1155/2015/189596",
+      "https://digitalcommons.pvamu.edu/aam/vol20/iss1/6/",
+      "https://doi.org/10.1155/2013/695623"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Eliwa et al. 2023 introduce and analyze Poisson–Bilal, while the geometric-sum PGF is a routine consequence of mixing with a two-exponential lifetime; it does not imply floor-bin nondivisibility.",
+        "Altun et al. describe the discrete Bilal mass and log concavity, but log concavity by itself entails neither infinite divisibility nor its failure.",
+        "Hürlimann 2015 covers the general geometric PGF factorization, not the sign of the new alternating factor after flooring."
+      ],
+      "reasoning": "The logical implication from prior general theory needs the new sharp sign analysis and convexity argument. The displayed 2023 mixing law is different from the 2022 binned law even when both derive from the same underlying survival function. Accordingly the geometric-convolution part is credited as a classical ingredient, while only the new factor-two classification, Bilal corollary, and delayed obstruction law are asserted as contribution.",
+      "searches": [
+        "Exact factor two b>=2a infinite divisibility for floor of sum of independent exponential lifetimes with rates a and b, two stage hypoexponential discretization",
+        "Discrete Bilal distribution all parameters fails compound Poisson infinite divisibility, negative log generating function coefficients",
+        "Poisson Bilal always compound Poisson while floor continuous Bilal never, first negative coefficient scales as 0.96685 divided by one minus p",
+        "https://doi.org/10.1155/2023/2779120",
+        "https://doi.org/10.1155/2015/189596"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The discrete Bilal pmf is the floor-discretized two-stage sum with rate ratio 3/2; equality verified from the two exponential survival functions and the publisher pmf equation (2.6).",
+        "Krishnakumari–George 2024 describes the generic binned hypoexponential object in its abstract, so this is a genuine same-object antecedent."
+      ],
+      "reasoning": "Parameter changes (p=e^{-1/beta}, rates 2/beta and 3/beta), mixture versus floor discretization and alternate labels of the generic two-rate family were compared at the distribution-generating-function level. The generic two-rate threshold is not implied by the one-parameter published mass formula alone; whether it appears inside inaccessible later same-object text is uncertain.",
+      "searches": [
+        "Exact factor two b>=2a infinite divisibility for floor of sum of independent exponential lifetimes with rates a and b, two stage hypoexponential discretization",
+        "Two-stage hypoexponential discretization floored Erlang 2 compound Poisson exact rates b >= 2a",
+        "Discrete Bilal distribution all parameters fails compound Poisson infinite divisibility, negative log generating function coefficients",
+        "https://doi.org/10.57805/revstat.v20i4.384",
+        "https://digitalcommons.pvamu.edu/aam/vol20/iss1/6/"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The indexed three-exponential threshold concerns increasing failure rate for the maximum of three lifetimes, not the compound-Poisson structure of the floored sum of two.",
+        "No matching infinite-divisibility coefficient table or special-parameter finite obstruction was returned from the actual searches."
+      ],
+      "reasoning": "The exact 2:1 ratio is independently derived in this proof, not imported from the same-number IFR result. A search non-hit does not establish uniqueness or priority. The unavailable full text of the generic 2024 distribution study remains a caveat.",
+      "searches": [
+        "Exact factor two b>=2a infinite divisibility for floor of sum of independent exponential lifetimes with rates a and b, two stage hypoexponential discretization",
+        "Discrete Bilal distribution all parameters fails compound Poisson infinite divisibility, negative log generating function coefficients",
+        "Poisson Bilal always compound Poisson while floor continuous Bilal never, first negative coefficient scales as 0.96685 divided by one minus p",
+        "https://digitalcommons.pvamu.edu/aam/vol20/iss1/6/"
+      ]
+    },
+    "rationale": "No direct covering statement found in accessible full texts or actual indexed result searches. The claim is a sharp general infinite-divisibility classification and its delayed obstruction for the binned two-exponential sum, not the original distribution or classical geometric-convolution/compound-Poisson criterion. Full text of the close 2024 discrete-hypoexponential paper was inaccessible, leaving a genuine historical priority risk; abstract alone is explicitly not used as evidence of whole-document noncoverage.",
+    "residual_risks": [
+      "Krishnakumari–George (2024) has the same two-parameter distribution; no readable full text was obtainable, so explicit priority on the b/a infinite-divisibility boundary is not established.",
+      "Original Altun work is described by secondary sources as publicly available in November 2020, while publisher issue is July 2022; an exact 2020 public-release day was not verified. The day-resolved 2021 arXiv antecedent is used only for dating, not to imply original model creation in 2021.",
+      "Mathematical novelty is not certified by a database search or by partition ownership; unindexed or unknown literature may contain an equivalent theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the distribution and rational generating function but no infinite-divisibility factor-two phase diagram or all-order alternating coefficient obstruction was found in inspected content.",
+        "evidence": [
+          "REVSTAT 20(4), pp. 501-528, equations (2.2)-(2.6), sections 2.1-2.3, DOI:10.57805/revstat.v20i4.384"
+        ],
+        "identifier_or_url": "https://doi.org/10.57805/revstat.v20i4.384",
+        "material_read": "Machine-readable full article text including distribution definition and survival/pmf formulas (2.2)-(2.6), generating function (2.14), structural properties, conclusions and references; graphical page rendering not available.",
+        "method": "Open-access publisher PDF text extraction, targeted equation/section inspection.",
+        "title": "A Study on Discrete Bilal Distribution with Properties and Applications on Integer-Valued Autoregressive Process",
+        "trigger": "Same one-parameter floor-discretized Bilal count and its rational probability generating function."
+      },
+      {
+        "assessment": "COVERS censored inference and the discrete Bilal distribution, not enough material to assert whole-document noncoverage of a particular divisibility property.",
+        "evidence": [
+          "arXiv:2111.01943v1; preprint publicly dated 2021-11-02; title and abstract describe censoring, parameter estimation and cures"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2111.01943",
+        "material_read": "Public abstract and publication metadata; cited preprint description and prior-distribution references.",
+        "method": "arXiv public abstract and related bibliographic entry.",
+        "title": "Discrete Bilal distribution with right-censored data",
+        "trigger": "Verifiable early public antecedent, dated 2021-11-02, reproducing the same Bilal count law."
+      },
+      {
+        "assessment": "COVERS the Poisson–Bilal construction; the fact that its mixture has a two-geometric decomposition is a routine consequence of the displayed exponential mixture, not claimed as new. No sharp binned-law threshold seen.",
+        "evidence": [
+          "Journal of Mathematics 2023, 2779120, first published 2023-02-13, DOI:10.1155/2023/2779120"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2023/2779120",
+        "material_read": "Full open-access HTML body, especially sections 2-4 and conclusions; construction, generating function, moments and applications.",
+        "method": "Publisher full-text HTML inspection and targeted search for infinite divisibility and geometric convolution.",
+        "title": "Discrete Extension of Poisson Distribution for Overdispersed Count Data: Theory and Applications",
+        "trigger": "Introduces Poisson–Bilal mixing model based on the same continuous Bilal lifetime."
+      },
+      {
+        "assessment": "COVERS general analytic techniques and geometric-sum infinite divisibility, but is not a theorem about floor-binned hypoexponential lifetimes or the new factor-two boundary.",
+        "evidence": [
+          "Hürlimann (2015), DOI:10.1155/2015/189596, distribution of convolution of geometric random variables discussed in Section 3"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2015/189596",
+        "material_read": "Full HTML sections on pseudo compound Poisson characterization, logarithmic coefficients, and the Newton distribution from heterogeneous geometric variables.",
+        "method": "Publisher open-access full-text HTML and inspection of explicit Newton/geometric convolution discussion.",
+        "title": "The Concepts of Pseudo Compound Poisson and Partition Representations in Discrete Probability",
+        "trigger": "Direct candidate for general logarithmic-PGF coefficient criterion and geometric-sum coverage."
+      },
+      {
+        "assessment": "Abstract COVERS the two-parameter discrete hypoexponential distribution and INAR application, but does not identify any infinite-divisibility threshold. Full-text noncoverage is NOT established; material residual priority risk is explicitly retained.",
+        "evidence": [
+          "Krishnakumari and George (listed 2024), Applications and Applied Mathematics 20(1), article 6, repository abstract"
+        ],
+        "identifier_or_url": "https://digitalcommons.pvamu.edu/aam/vol20/iss1/6/",
+        "material_read": "Complete accessible abstract, bibliographic citation, and source description only; linked complete article could not be retrieved.",
+        "method": "Publisher repository metadata and abstract; unsuccessful full-text retrieval attempts.",
+        "title": "(R2095) On Discrete Hypoexponential Distribution and Integer-valued Autoregressive Process",
+        "trigger": "Same two-rate binned hypoexponential object, most serious potential prior for the general phase diagram."
+      },
+      {
+        "assessment": "Supports the need to distinguish notions; positive atom at zero and nonnegative lattice support make the compound-Poisson criterion applicable here; does not cover the parameter theorem.",
+        "evidence": [
+          "Pakes and Satheesh (2013), DOI:10.1155/2013/695623, Definitions 1 and 2"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2013/695623",
+        "material_read": "Open-access publisher introduction and definition of ordinary and discrete infinite divisibility.",
+        "method": "Publisher HTML, introductory definitions and summary.",
+        "title": "A Note on the Gaps in the Support of Discretely Infinitely Divisible Laws",
+        "trigger": "Potential distinction of lattice infinite divisibility from real-line infinite divisibility."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1a03914e-9e98-4709-ba41-a1de899e7169",
+  "value": {
+    "rationale": "The 2:1 boundary is a natural, complete classification of the additive infinite-divisibility property for a two-stage lifetime under operationally common integer-time binning. An observed count can or cannot be interpreted as a compound-Poisson cluster sum depending on a sharp relative stage-rate cutoff. The one-parameter discrete Bilal family is universally excluded whereas Poisson sampling of exactly the same continuous lifetime produces a geometric convolution; this is a motivated structural contrast rather than a relabeling. The asymptotic first negative coefficient quantifies why low-order positivity checks can miss failure near the slow-time-scale limit. Finite experiments and novelty alone are not used as value arguments.",
+    "status": "PASS"
+  }
+}
