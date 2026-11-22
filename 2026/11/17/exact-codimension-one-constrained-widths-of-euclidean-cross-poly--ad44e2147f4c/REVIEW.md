@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof uses the vertex reduction for distance to a convex feasible set, maximum-magnitude normal coordinate, Cauchy–Schwarz, and an explicit signed zero-sum witness. Equality in the scalar inequalities forces equal absolute normal coefficients, giving the optimal-hyperplane classification. The full-rank spanning argument excludes lower-dimensional optimizers. The ordinary width follows directly from Euclidean orthogonal projection.
+PASS
 
-## Originality
+Convexity of distance to V∩K_m reduces the universal supremum to ±coordinate vertices. In a containing hyperplane choose a largest-|u_i| normal coordinate; balance and ℓ1≤1 force y_i≤1/2 and Σ_{j≠i}|y_j|≥y_i. Cauchy–Schwarz yields distance²≥(1−t)²+t²/(m−1)≥m/[4(m−1)]. Explicit signed-hyperplane vectors y_i=1/2, y_j=−ε_iε_j/[2(m−1)] attain equality, and equality forces |u_j| uniform. Their vertex approximants span rank m−1, ruling out smaller subspaces. Orthogonal distance to hyperplanes gives ordinary 1/√m. Independently checked exact rational witness identities for m=2..7; universal proof is algebraic. An initial displayed formula has a malformed TeX brace, but the mathematical identity is unambiguous throughout the proof.
 
-PASS, with publication-priority risk. The closest primary source, DeVore–Petrova–Siegel–Wojtaszczyk, arXiv:2606.28587, Lemma 4.8, treats the same constraint set but the \(\ell_\infty\) ambient norm and obtains only a half-unit lower bound. This does not imply the precise Euclidean constant, the classification of equality hyperplanes, or the exact Euclidean constrained/unconstrained gap. Targeted research-record and broader literature searches did not show a direct identical formula or a dominating theorem. Earlier relative-width theory remains a genuine source-risk and lack of a search match does not establish priority.
+## originality
 
-## Value
+PASS
 
-PASS. The exact constrained width of the simplest symmetric convex model class under a familiar Hilbert error norm, its full optimal-subspace rigidity, and the divergent \(\sqrt m\) constraint penalty give a concrete sharp illustration of the qualitative gap studied in the motivating paper. The natural object, invariant, dimension range and future comparison value are explicit.
+Best-of-knowledge PASS with classical relative-width priority risk: the 2026 DeVore–Petrova–Siegel–Wojtaszczyk paper introduces the same self-constrained framework and obtains a different ambient ℓ∞ lower bound 1/2, but accessible article metadata and bounded searches did not demonstrate the precise ℓ2 constant or optimizer rigidity. The closely related Resultary exact facial-distance spectrum computes face-versus-opposite-vertex geometry, not this minimax constrained approximation. No implication was found from the checked assertions, but an inaccessible full classical article remains a genuine risk.
 
-## Scope
+## value
 
-No assertions about other codimensions or general convex sets. Diagnostic checks are finite, with the all-dimension result proved algebraically.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The ℓ1 unit ball is the canonical convex test body for constrained widths, and Euclidean error is a natural distinct metric. Determining the exact all-dimension constrained optimum, the complete rigidity of all optimal hyperplanes, and a diverging √m/2 penalty quantifies when self-constraints genuinely worsen Hilbert approximation; not merely a known unconstrained width or an arbitrary finite example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
