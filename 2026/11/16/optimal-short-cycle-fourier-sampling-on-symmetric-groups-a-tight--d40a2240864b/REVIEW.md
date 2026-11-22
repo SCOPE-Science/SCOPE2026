@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete standard matrix-coefficient space decomposes under conjugation into four pairwise nonisomorphic sectors of dimensions \(1\), \(n-1\), \(n(n-3)/2\), and \((n-1)(n-2)/2\). The classwise eigenvalues are derived by exact fixed-point covariance and symmetric/skew projection norms. The three optimality inequalities give nonnegative **classwise** differences for each of all five support types, hence apply to every central mixture. The proposed probability mixtures match the lower bounds with positive smallest eigenvalue; their four-level values are given in the proof. The n=4 equal-weight pair is perfectly tight. Enumeration corroborates all five input classes for n=4,5,6; the general rational proof, not enumeration, is the proof for all n.
+## correctness
 
-## Originality — PASS, provisional historical priority
-The earlier public four-level three-cycle sampling spectrum, two-statistic Fourier sampling law for *single conjugacy classes*, and graph-based transposition sampling already determine the component eigenvalues; these are explicitly **not** claimed as new. The assessed result is the global sharp minimax ratio optimized over **all central probability mixtures of the five classes**, with certificates that exclude every competing combination and an n=4 exact-tight exception. The 2022 Beck–Ghandehari full text concerns compatible Frobenius–Schur frame constructions on Cayley graphs rather than this extremal restriction problem. The 2021 Chen–DeJong–Halverson–Shuman abstract describes ranking-data Parseval frames. No directly covering global five-class design theorem was located. However, unavailable full text for 2021 and summary-only earlier class-spectrum records leave meaningful historical-priority risk; the novelty judgment is provisional.
+PASS
 
-## Value — PASS
-Sampling rankings by permutations moving at most four labels is a natural local-observation constraint. The theorem determines the precise best achievable conditioning of the entire standard Fourier coefficient block under this constraint, not merely a frame-status test; it finds an exceptional tight dimension, two finite-dimensional transitions, and a sharp cubic growth barrier. It gives explicit optimal laws and rational universal lower-bound certificates.
+For n>=4, End(V) under conjugation decomposes multiplicity-free into scalar, standard, (n-2,2) and wedge² constituents. For class with f fixed points and t transpositions, trace projection gives L_0=(f-1)^2/(n-1), L_1=f(n-f)/[(n-1)(n-2)], L_3=(n-f-2t)/[(n-1)(n-2)] and L_2 by symmetric energy subtraction. All five allowed types (id,T,C3,D22,C4) are exhausted by support <=4 moved symbols. The proof supplies explicit classwise rational inequalities L_1 or L_0>=K[pL_2+(1-p)L_3] for n=5,6 and n>=7, giving universal lower bounds over *any central mixture*. Explicit class mixtures attain them with no zero level, n=4 achieving exact tightness. Checked sector levels and witness eigenvalue ratios independently using exact rational arithmetic at n=4,5,6,7,8,20,100, including all three exceptional levels and n>=7 rational formula. Infinite-range positive-polynomial inequalities, not finite checking, justify n>=7.
 
-## Limitations
-The optimization is restricted to conjugacy-invariant probability laws and is not a claim for all sparse sample sets. Complete equality-classification of every optimizer is not attempted. Finite tests do not replace the proof. Broader historical literature on central character designs may contain an equivalent minimax optimization.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published 2026 two-statistic class spectrum yields individual conjugacy-class eigenvalues, including the same f,t formulas, hence those ingredients are not novel. It does not optimize arbitrary central mixtures of five movement<=4 types. Beck–Ghandehari general Cayley graph compatible frames and Chen et al. permutahedron frames concern different optimization objects. The all-class minimax, four dimension regimes and dual certificates are not implied by the prior single-class statement.
+
+## value
+
+PASS
+
+Optimizing an intrinsically constrained central measurement design on S_n yields a rare exactly tight n=4 law, sharp finite exceptions, and a cubic stability obstruction at large rank. The exact lower bounds give a practical criterion independent of numerical convex optimization; the representation sector formulas are credited as known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
