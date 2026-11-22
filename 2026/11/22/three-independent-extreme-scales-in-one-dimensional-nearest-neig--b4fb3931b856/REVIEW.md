@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The proof reconstructs all finite nearest-neighbor geometries from consecutive gaps, uses the exact Dirichlet/exponential coupling, derives single-event rates by integration, and bounds every possible overlap type sufficiently sharply for a joint independent-Poisson limit. It separately treats interval endpoints and the random simplex denominator. Exhaustive finite orderings and integral checks corroborate, rather than replace, the proof. The claim is strictly the stated uniform one-dimensional weak limit.
+
+**Originality: PASS, qualified.** The full accessible original texts of Gupta–Iyer (arXiv:math/0604599, Sections 1–2) and Bahadır–Ceyhan (arXiv:1605.01940, Sections 1–5), along with records for Penrose's maximum-link study, address outgoing nearest-neighbor distances or reciprocal-neighbor **counts**, not the maximum reciprocal-edge length and its joint dependence on two other maxima. The closest overlapping work on longest uniform spacings and nearest-neighbor link dependence concerns two-scale statistics; it does not provide the third local-minimum extreme. Text, equivalence, and broader-coverage searches did not identify a theorem establishing the stated joint law. Classical Poisson-process and moving-window extreme-value theory is a genuine unexcluded route for a stronger historical result; absence from searches alone is not evidence of priority.
+
+**Value: PASS.** This is a natural exact asymptotic question about the three canonical lengths of a nearest-neighbor sample: longest sample gap, longest outgoing edge, and longest reciprocal edge. The explicit third scale and independent joint law give separate asymptotic calibrations for coverage, directed isolation, and reciprocal-cluster persistence. The reciprocal threshold cannot be read from the classical marginal longest-link law or the reciprocal-pair count CLT. No broader theorem is claimed.
+
+**Limits and risk.** Higher-dimensional, nonuniform, rate, and finite-sample independence claims are unproved. A general unlocated extremal marked-Poisson theorem may imply this special case; independent mathematical and historical review is still needed. The packaged finite checker is confirmatory, not an infinite certificate.
+
+Self-review: passed. Independent audit: not yet performed.
