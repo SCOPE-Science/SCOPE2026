@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The zero-sum quartic maximizer lemma is proved by Lagrange multipliers, the derivative-sign second-order test at the two outer cubic roots, a saddle direction for the remaining two-sparse candidate, and a negative-definite constrained Hessian at the one-outlier orbit. Uniform \(C^2\) Taylor expansion proves exact positive-level stability. Independently, the \(\ell_1\) extremizers and the global \(5\eta+\sqrt2\eta^2\) localization are derived by elementary inequalities. Orthogonal irreducible symmetry gives the unrestricted Löwner ball. A standalone finite verifier passed 5,436 consistency checks; these are not substituted for proof.
+## correctness
 
-**Originality — PASS, provisionally.** ArXiv:2610.11700v1 defines the transition functional and its two limits. Related published records cover a different octahedron, triangles, parallelotopes and the known quartic extremizer. Their published statements do not give both the exact small positive-level orbit and the universal quantitative large-level localization for regular simplices of arbitrary dimension. GitHub full-text access to plausible related records failed; that creates residual historical priority risk.
+PASS
 
-**Value — PASS.** This is a geometric, not merely algebraic, distinction between two disjoint symmetry orbits of extremal Löwner contact directions in every dimension at least three. The nonzero-level exactness and explicit inverse-level approximation quantify how a smooth Orlicz transition changes extremal structure. The work does not claim an exact unique critical level, and no intermediate-level classification has been proved.
+Reconstructed F_r on the zero-sum unit sphere and its exact Löwner-radius minimizer characterization from irreducible permutation symmetry. The zero-sum quartic constrained maximization has only signed one-outlier nondegenerate maxima: stationarity produces a cubic with at most three roots; repeated outer root gives a positive tangent second variation, and the only 3-root candidate is two-sparse and a saddle for N>=4. At the one-outlier orbit, the constrained quartic Hessian is -4(N-3)/(N-1) times the tangent norm squared. Uniform C2 Taylor perturbation of F_r=r^2/2-r^4 Q/12+O(r^6) and exact orbit stationarity give small-r minimizers. For r large, sum |u_i|>=sqrt(2) with equality only signed two-sparse points; positive/negative mass deficits and |t|-log2<=log cosh t<=|t| imply the stated quantitative distance. The small and large contact orbits are disjoint. Finite random tests do not establish the global quartic critical-point lemma.
 
-Closest literature: Haddad–Jiménez–Resende (arXiv:2610.11700v1) and the octahedral/triangular log-cosh research records described in RESULT.md. Independent priority verification remains necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded best-of-knowledge originality of the exact final claim, not of its credited general framework or existing endpoint computations. Full primary text was read where available; sources inaccessible in full are clearly identified and retained as priority risks.
+
+## value
+
+PASS
+
+The two distinct symmetry orbits describe a bona fide level-dependent structural transition in minimum-volume containing ellipsoid contacts for the whole dimension-indexed regular-simplex family, sharpening a general quadratic/L1 limit with an explicit finite-level rate. The threshold and intermediate strata remain unknown.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
