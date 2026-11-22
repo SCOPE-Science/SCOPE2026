@@ -1,0 +1,11 @@
+# Review of the transient three-counter information-timing theorem
+
+**Correctness: PASS.** The full independent-Poisson Fisher matrix is explicitly reduced via the symmetry of odd and even score columns, and the two-nuisance block is invertible for every positive spacing and time. The log-time Hessian is strictly negative everywhere. Boundary behavior forces a unique global optimum. Its implicit equation yields strictly ordered background limits and the sharp factor bound; an exact instance and an independent numerical checker provide supplementary tests.
+
+**Originality: PASS on the inspected record, not a guarantee of historical first discovery.** The closest mathematical record proves Gaussian-plume **spacing** optima with a constant width. The present optimization varies elapsed time, which simultaneously changes Gaussian width, peak amplitude, loss and background ratio. Chrapkiewicz and colleagues treat network sampling locations, Newman and colleagues Bayesian plume inference, and Pomareda and colleagues mobile concentration localization under background noise. Those materials do not state or imply the complete present timing theorem. The known nuisance-orthogonality mechanism is credited, not claimed as novel.
+
+**Value: PASS.** Choosing the best observation time for a transient contamination pulse despite unknown source strength and ambient counts is a motivated inverse-monitoring design problem. The strict uniqueness, exact monotone response to background, closed interval for the optimum, and sharp \(5/3\) maximum limiting delay jointly provide a finite, interpretable design rule; localization-optimal timing is materially earlier than concentration-peak timing.
+
+**Risks and scope.** Fisher-optimality is local to a zero-offset source and a fixed symmetric sensor trio; the assumed Gaussian transport, Poisson background, synchronized exposure and known transport parameters are idealizations. The closest full mathematical record was inspected for statement and implications, but specialized earlier sampling-design literature may contain equivalent transformations. No independent mathematical or empirical validation is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
