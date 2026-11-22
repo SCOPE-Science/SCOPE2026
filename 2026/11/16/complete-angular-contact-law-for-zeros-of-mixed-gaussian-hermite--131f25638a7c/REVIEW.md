@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim follows by computing the independent Hermite-coordinate jets of the mixed real window, applying a directional contact Kac–Rice identity, conditioning a four-coordinate proper Gaussian vector, and evaluating a fourth Gaussian moment. The conditional covariance is strictly positive for every parameter, and the finite-difference Gaussian regression argument is justified by smoothness, nondegeneracy, and moment domination. The explicit conditional second moment and normalization have been checked independently using Schur complements over 444 parameter-angle pairs, including pure-window boundaries; 649 total independent numerical assertions passed. The finite checks do not establish the infinite-separation limit; the analytic regression argument does.
+PASS
 
-## Originality — PASS relative to inspected literature
+The proper complex Gaussian STFT for g_s is equivalent up to a nonvanishing gauge to a first-order polyanalytic Bargmann field aG+b(G′−bar(z)G). Along any physical direction u, Kac–Rice for two nearby zeros and conditional Taylor regression gives the 1/4 p_(F,Fu)(0,0) expectation of (Im(conj Fuu Fv))². Explicit ξ0–ξ3 Gaussian jets satisfy Var(Fu|F)=πD_s(θ) with D=1+2s²+2s(1-s)cos2θ>0. Conditioning F=Fu=0 reduces Fv and Fuu to independent circular Gaussian R,Z terms. Wick fourth moments produce 32s³(1-s)P²/D²+24s^4/D in the appropriately π³-scaled conditional Jacobian variance, yielding the displayed angular formula with correct physical area normalization. The conditional Z contribution forces opposite-charge contact for s>0; direct s=0,1 evaluation and uniform D=1+O(s),P=cos3θ+O(s) prove endpoints and s^-3 uniform six-lobe asymptotic. This uses analytic Gaussian regression for the contact, not numerical interpolation.
 
-The closest published result, *Direction-dependent contact intensities of zeros for Gaussian–first-Hermite spectrograms*, provides only the translation- and modulation-axis contact values and explicitly excludes the arbitrary-angle profile. The new formula determines every angle and a uniform sixfold small-mixture asymptotic; two axis values do not imply this dependence. The full 2026 Hermite manuscript concerns pure-order radial windows, the full Abreu–Shirai paper concerns cross-correlations of separate pure orders, and the full 2022 Gaussian Weyl–Heisenberg paper does not state this special coherent-mixture angular result. The general Kac–Rice method and axis-only specializations are not claimed as new. Search non-detection is not a proof of absolute novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A complete angular contact invariant is natural for an anisotropic time-frequency zero process. The angular formula distinguishes genuine sixfold small-mixture clustering from an inference based only on orthogonal axis measurements, identifies a uniform nonradial limit, and explains how a vanishing first-Hermite admixture breaks rotational symmetry while all positive admixtures retain strictly positive opposite-charge contact. This is a structural classification with a qualitative harmonic pattern, not a renamed computation of a known axis value.
+Previously published axis-only mixed-window contact values are exactly recovered, and explicitly left arbitrary-angle dependence open. The present full θ family and uniform sixfold limit are not implied by those two measurements. General Kac–Rice methodology and pure-order Hermite zero theory are prior art; one recent pure-order paper was inaccessible at full text due to disconnected institutional VPN, a material priority limitation but not evidence of coverage.
 
-## Closest sources and limitations
+## value
 
-A. Haimi, G. Koliander and J. L. Romero (2022), https://doi.org/10.1007/s10955-022-02917-3 ; L. D. Abreu and T. Shirai (2026), https://arxiv.org/abs/2605.17296 ; C. Bellourak et al. (2026), https://arxiv.org/abs/2610.13531 ; and *Direction-dependent contact intensities of zeros for Gaussian–first-Hermite spectrograms* (public November 8, 2026), https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-direction-dependent-contact-intensities-of-zeros-for-gaussian-fi--3c31553cb312 . Residual risk: an unindexed earlier derivation may state the full angular formula under another Gaussian covariance parametrization. The result concerns ordered unsigned contact for real two-window combinations, not arbitrary complex phase or finite separation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Directional zero-pair contact is the natural local geometry of an anisotropic Gaussian time-frequency zero process. A complete continuous-angle law identifies a six-lobed leading small Hermite admixture, distinct from the two pre-existing axis formulas, and rigorously separates opposite-charge persistence from like-charge vanishing. The full angular invariant and uniform θ asymptotic provide a structural answer not derivable from two endpoint numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
