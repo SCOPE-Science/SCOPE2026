@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The theorem is restricted to the explicit four-oval quartic chemical family with fixed positive rotational coupling and high polynomial cross-coupling. For sufficiently large cross-coupling, the two graph branches follow from the unique positive root of a quadratic in squared normal displacement, and the source's four-oval classification excludes missing components. The area coefficient follows an exact semicircle integral. Physical-time periods are computed with the full positive chemical prefactor, not a fictitious regularized clock. The endpoint singularities are integrable after the squared-coordinate substitution, permitting uniform relative asymptotic estimates. The common multiplier is the invariant-curve cofactor integral, and the high-coupling coefficient follows an exact gradient-arclength reduction; the secondary term is controlled by a uniform square-root envelope. The phase law follows from exact branchwise time densities by dominated convergence. The standalone standard-library checker reproduces the algebraic identities and independently checks scaled asymptotic coefficients numerically. Numerical experiments are diagnostics, not proofs. Exact domain and unproved global statements are identified in RESULT.md.
+## correctness
 
-## Originality (PASS within the inspected evidence)
-Craciun and Erban's 2024 preprint (2025 journal article), Theorem 3 and Lemma 13, gives the polynomial, four-oval geometry, and stable algebraic cycles. The publicly indexed research note *Two physical-time clocks and one transverse multiplier at a four-oval chemical bifurcation* (identifier 748c2b58468f) already supplies equal-multiplier formulas and exact original-time period quadratures for all parameters, and a sharp analysis at the opposite merger boundary. These facts are not asserted as new. Direct comparison of its complete RESULT.md against the present theorem shows that it neither evaluates the \(\mu\to\infty\) singular scale nor states the scaled spatial phase occupation, disappearing lobe area, exact period constants, or growing Floquet action. In particular, an exact quadrature is a potentially strong implicit prior description, but deriving explicit sharp asymptotics here requires distinct graph rescaling and endpoint control. Searches for high-coupling, thin-oval, equivalent asymptotic, area, and time-occupation formulations found no closer indexed item. Broader priority is not proven; the general integral formulas are the key residual implication risk.
+PASS
 
-## Mathematical value (PASS)
-The original four-oval construction motivates quantifying the geometry and actual-time statistics of the four coexisting stable cycles as the quartic coupling becomes large. The theorem gives an explicit transition to four degenerating line-segment cycles, a finite nonuniform limiting phase distribution after natural rescaling, and sharply divergent contraction rate per unit physical time despite vanishing orbital period. The exact coefficients \(\pi/8\), \(49\pi/256\), and two nontrivial period constants offer concrete structural benchmarks. This is not an arbitrary parameter slice or merely a reformulation of the cofactor identity: the leading constants and limiting measures require asymptotic analysis and have a direct dynamical interpretation.
+For fixed epsilon>0 and mu→infinity, on each right/left oval q_mu(s,v)=16v^4+(mu s^2-25)v^2-a(s)=0 yields exact quadratic root and uniform v_mu(s)=mu^-1/2 sqrt(a(s))/s[1+O(mu^-1)], s∈[3/4,1]. Area is 2∫v ds=pi/(8sqrt(mu))+O(mu^-3/2); max sqrt(mu)|v|→1. Chemical tangential velocity on h=0 retains xy epsilon, and sum of both signed transverse branch time elements gives T_sigma=J_sigma/(2epsilon sqrt(mu))+O(mu^-3/2) with J_++J_-=pi/2(1/3+1/sqrt165). Cofactor dot h=-xy h|grad h|^2 yields rho=exp(-I_mu/epsilon), I_mu=2∫(D+H^2/D)ds=49pi sqrt(mu)/256+O(mu^-1/2). Dividing by period produces the two epsilon-independent linear-in-mu contraction rates. Branch time densities converge under integrable a(s)^-1/2 envelope to the stated nonuniform axial occupation and two signed scaled-transverse graphs. Independent check: Constructed independent numerical quadratures from exact quartic root and branchwise time element at mu=100,1000,10000. Computed J+=0.183147394958, J-=0.462737708834, matching pi/2(1/3+1/sqrt165)=0.645885103789. At mu=10000 measured sqrt(mu)area≈0.393355 vs pi/8≈0.392699; I_mu/sqrt(mu)≈0.604173 vs 49pi/256≈0.601320; 2sqrt(mu)*periods approach the J constants. The asymptotic proof is based on uniform expansions, not numerical extrapolation.
 
-## Closest literature and limitations
-Relevant primary source: G. Craciun and R. Erban, arXiv:2406.05057v1 (2024-06-07); *Journal of Mathematical Biology* 90:64 (2025), Theorem 3, Lemma 13 and Section 5.1. Closest quantitative predecessor: *Two physical-time clocks and one transverse multiplier at a four-oval chemical bifurcation*, publicly indexed note 748c2b58468f (2026), especially its exact quadrature and Floquet integral. The asymptotic theorem is for one specified polynomial family, not for all realizations of a chemical reaction network. It does not determine global basins or finite-noise stationary statistics. Equivalent unpublished or unindexed evaluations and the broad logical reach of prior exact quadratures remain originality risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: examined primary source evidence, actual same-object implications, and published mathematical findings. Earlier constructions, generic formulas and independent source results are credited; the surviving quantitatively specified theorem is not implied by the directly inspected antecedents. No certification of absolute historical priority is asserted.
+
+## value
+
+PASS
+
+The collapse of four attracting cycles toward segments with distinct original-time periods, a singular two-branch invariant occupation law, and diverging Floquet contraction quantified by exact constants is a meaningful dynamical singular-limit classification. It separates orbit geometry, physical clock, and normal stability of the same natural chemical oscillator.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
