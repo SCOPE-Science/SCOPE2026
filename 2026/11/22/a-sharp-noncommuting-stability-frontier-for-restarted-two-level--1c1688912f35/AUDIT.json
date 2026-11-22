@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Exact defect forward substitution gives V_j=F+sum Psi^k(F^2-F), converging by ||Psi||<1. Similarity via D=F(I-F)>0 makes V_infinity symmetric-similar with top eigenvalue below one. The Schur complement transforms its bottom-eigenvalue-above-minus-one condition into Psi < (I+F^2)(I+F)^-1, including exact equality and negative directions. The rational 2x2 trace/determinant and eigenvalues are independently checked. 9,800 exact finite endpoints and several algebraic identities passed in check.py; general proof is analytic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Southworth, arXiv:1810.07292v5, Sections 2, 4: F/FCF temporal approximation properties and convergence bounds for reducing the *inner space-time error* to the exact fine-grid trajectory, including noncommuting linear operators.",
+        "Jin–Lin–Zhou, arXiv:2311.15320, concerns designing Parareal coarse operators for its iterative error propagation."
+      ],
+      "reasoning": "The mathematical goal differs: power stability of the last-point operator reused as the initial value for successive fresh trajectories, not convergence of an inner MGRIT iteration on a fixed trajectory. General noncommuting MGRIT estimates deserve credit but are not a demonstrated implication of the sharp Loewner restart condition. A subtle specialization could remain unknown.",
+      "searches": [
+        "two level FCF reduction in time one sweep restarted long trajectory spectral stability SPD coarse propagator matrix Schur complement criterion",
+        "gradient descent parallel in iteration noncommuting proximal coarse model sharp stability matrix inequality",
+        "temporal approximation property noncommuting symmetric propagators MGRIT restarted endpoint Loewner stability",
+        "arXiv:1810.07292v5 Sections 2.2 and 4 general linear operators",
+        "arXiv:2311.15320 coarse propagator optimization"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2611.03621",
+      "https://arxiv.org/html/1810.07292v5",
+      "https://arxiv.org/abs/2311.15320"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Assumption 4.1 in arXiv:2611.03621v1 assumes the propagators are simultaneously unitarily diagonalizable; distinct rotated 2x2 SPD propagators violate the hypothesis.",
+        "The present theorem shows that strictly contractive SPD fine/coarse operators can have a last-point restart eigenvalue below -1, ruled neither in nor out by a commuting scalar-mode test.",
+        "The 2019 general TAP analysis studies repeated *MGRIT solves on one space-time problem* and does not state a stability theorem for repeatedly restarting one-sweep endpoint maps."
+      ],
+      "reasoning": "Equal titles or generic two-level convergence results are insufficient for coverage. The decisive logical difference is noncommuting F/Psi and the target operator V_infinity power stability; neither is shown to be implied by the stronger existing claims inspected. Residual risk remains for hidden functional-calculus formulations or specialist earlier work.",
+      "searches": [
+        "arXiv:2611.03621v1 Assumption 4.1 and Theorem 4.5",
+        "two level FCF reduction in time one sweep restarted long trajectory spectral stability SPD coarse propagator matrix Schur complement criterion",
+        "temporal approximation property noncommuting symmetric propagators MGRIT restarted endpoint Loewner stability",
+        "arXiv:1810.07292v5 FCF TAP necessary sufficient"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Araújo–Krzysik–De Sterck, arXiv:2611.03621v1, Sections 3.1, 4.1, 4.4 and 4.5: linear endpoint iteration is studied under simultaneous unitary diagonalization; Equation (4.5) one-sweep error operator itself is block-triangular.",
+        "Exact symmetric similarity of the new noncommuting endpoint map gives an all-dimensional Loewner inequality, which does not follow by treating distinct F and Psi as simultaneously diagonalizable."
+      ],
+      "reasoning": "Checked alternate descriptions: restarted FCF multigrid last-point iteration; Schur complement positivity; coarse-propagator eigenspace mismatch. Source introduces restarted algorithm and analyses the commuting case, but does not state the exact noncommuting SPD Loewner boundary or the rotation example.",
+      "searches": [
+        "restarted MGRIT optimization noncommuting SPD fine coarse propagators sharp Loewner order convergence criterion I plus F squared over I plus F",
+        "parallel in iteration restarted multigrid coarse space rotated Hessian eigenspaces noncommuting SPD endpoint eigenvalue -1 angle threshold",
+        "temporal approximation property noncommuting symmetric propagators MGRIT restarted endpoint Loewner stability",
+        "arXiv:2611.03621v1 equations (4.5),(4.15)-(4.19)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant research-record results concerned GMRES-two-grid parameter invariance, a rank-one reduced-basis preconditioner transient, noncommuting shifted VBP iteration, Floquet PDHG steps and two-step Parareal positivity; none states the same restarted endpoint or Loewner/angle classification.",
+        "A search for the exact angle value and stability inequality found no covering public table."
+      ],
+      "reasoning": "No precise database record or exact computed table of these restart criteria was found. Search failure alone does not establish novelty; the primary full-text implication comparison is the more material evidence.",
+      "searches": [
+        "restarted MGRIT optimization noncommuting SPD fine coarse propagators sharp Loewner order convergence criterion I plus F squared over I plus F",
+        "parallel in iteration restarted multigrid coarse space rotated Hessian eigenspaces noncommuting SPD endpoint eigenvalue -1 angle threshold",
+        "published finding searches for noncommuting FCF restart endpoint SPD Loewner Schur angle threshold",
+        "published literature exact 2/15 rotated fine coarse propagators"
+      ]
+    },
+    "rationale": "The cited 2026 paper imposes simultaneous diagonalizability where the exact rotated two-dimensional example violates it. Earlier noncommuting MGRIT TAP literature considers inner space-time solve convergence, not power stability of the restarted last-point operator. Targeted mathematically specific record and primary-literature searches did not find this all-dimensional criterion or angle threshold; potential unindexed or implicit coverage remains.",
+    "residual_risks": [
+      "Noncommuting coarse temporal approximation results might contain an implicit corollary not presented in the same formulation.",
+      "Unindexed or inaccessible literature could already contain an equivalent SPD generalized-eigenvalue criterion.",
+      "Physical coarse models with shared Hessian do commute: rotated fine/coarse Hessians require genuinely nonmatching surrogate models."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Sets up the endpoint iteration and establishes commuting-operator analysis; no noncommuting SPD Loewner all-start classification or rotation boundary established",
+        "evidence": [
+          "arXiv:2611.03621v1, Algorithm 3.1, Assumption 4.1, equation (4.5), Theorem 4.5"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.03621",
+        "material_read": "Full accessible manuscript: Sections 3.1, 4.1, 4.4, 4.5, equations for coarse-block error, Assumption 4.1, endpoint limit and numerical setup",
+        "method": "Read line-resolved open manuscript and the mathematical equations and assumptions",
+        "title": "Multi-Trajectory Parallel-in-Iteration Optimization",
+        "trigger": "Defines the exact restarted FCF optimization method and its long-trajectory endpoint"
+      },
+      {
+        "assessment": "General noncommuting temporal approximation properties bound inner MGRIT residual/error, not powers of reinitialized last-point maps; possible implicit reduction retained as priority risk",
+        "evidence": [
+          "arXiv:1810.07292v5, Definitions of F- and FCF-TAP, Sections 2, 4"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1810.07292v5",
+        "material_read": "Full HTML text: introduction and Sections 2.1–2.5, 3–5 method statements and inner-error operator formulation",
+        "method": "Read actual HTML full text and compared objective and operator domains",
+        "title": "Necessary Conditions and Tight Two-level Convergence Bounds for Parareal and Multigrid Reduction in Time",
+        "trigger": "Potential broad general noncommuting two-grid theorem"
+      },
+      {
+        "assessment": "Different convergence operator: Parareal iterates for one trajectory; full implication comparison cannot be certified without all detailed proofs",
+        "evidence": [
+          "arXiv:2311.15320 abstract and stated coarse-operator goal"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.15320",
+        "material_read": "Abstract and accessible premise/method exposition",
+        "method": "Read accessible paper abstract and relevant search metadata",
+        "title": "Optimizing Coarse Propagators in Parareal Algorithms",
+        "trigger": "Optimization of coarse propagator might cover spectral stability choices"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1c168891-2f35-4c75-870b-69fcdeb4a20f",
+  "value": {
+    "rationale": "Exact all-dimensional and necessary-and-sufficient condition addresses a natural coarse-model eigenspace mismatch for restarted optimization. A smallest-possible two-mode model exhibits a sharp rotation-dependent switch from stable to divergent last-point restarts although each individually SPD propagator contracts; this is not merely an isolated algebraic sign check.",
+    "status": "PASS"
+  }
+}
