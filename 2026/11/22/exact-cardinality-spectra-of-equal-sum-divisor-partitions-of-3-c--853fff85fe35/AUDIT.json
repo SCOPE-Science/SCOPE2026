@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Exact unique binary divisor encodings, carry states and boundary conditions prove P_m=qT^(m-1)e, rational GF and central binomial coefficient law; independent brute force m=1..12 checks all cardinalities; no extrapolation from finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026/9/21/SCOPE-zumkeller-two-prime-partition-count--8a0ca297bd59 supplies a total count and explicit indexing of all partitions for 2^a p; 2026/10/4/SCOPE-exact-zumkeller-partition-multiplicity-in-the-upper-two-prime-st--dee79b1d7481 counts a different exponent regime."
+      ],
+      "reasoning": "Total cardinalities and explicit partition indexing provide strong related context and potential implicit coverage but do not state a closed cardinality-weighted rational generating function. The full 2026/9/21 text was inaccessible; treat this as a material priority risk, not a uniqueness certificate.",
+      "searches": [
+        "published-finding corpus: count all Zumkeller partitions for number 2^alpha p two prime factors explicit floor formula",
+        "published-finding corpus: equipartition divisors 2^a p into two sets of equal sum and equal cardinality"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1016/j.jnt.2020.05.003",
+      "https://arxiv.org/abs/2310.14149",
+      "https://oeis.org/A347063",
+      "2026/9/21/SCOPE-zumkeller-two-prime-partition-count--8a0ca297bd59",
+      "2026/10/4/SCOPE-exact-zumkeller-partition-multiplicity-in-the-upper-two-prime-st--dee79b1d7481",
+      "2026/11/8/SCOPE-exact-joint-binary-weight-spectrum-under-multiplication-by-three--52bb9a159543"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mahanta–Saikia–Yaqubi theorem 2.2 gives an existence threshold for 2^a p.",
+        "Somu–Kukla–Tran 2023 abstract treats strings and additive bases.",
+        "Existing published 2026/9/21 record gives total partition counts floor((2^(a+1)-1+p)/(2p)), plus indexing."
+      ],
+      "reasoning": "Existence and total count are compatible with both zero and nonzero balanced cardinality counts and do not give the proved rational generating function. However the indexing is a stronger description of the underlying solutions and may imply this formula after an additional digit analysis; inaccessible full text leaves priority risk.",
+      "searches": [
+        "published-finding corpus: exact number of Zumkeller equal sum divisor partitions of 2^a p with p odd prime floor 2^a/p",
+        "web: Mahanta Saikia Yaqubi Some properties Zumkeller two prime factors Theorem 2.2",
+        "web: Somu Kukla Tran Some Results on Zumkeller Numbers 2310.14149"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A347063 defines double Zumkeller numbers, listing membership including 24, not counts per number."
+      ],
+      "reasoning": "Term double Zumkeller is standard; searched that alias and recognized current enumerator as a size-weighted refinement, not a renaming of the original Zumkeller property.",
+      "searches": [
+        "published-finding corpus: Zumkeller equal sum partitions balanced cardinality 2^a 3 exact count number of divisor subsets equal size",
+        "web: Zumkeller partition equal number of divisors on each side equal cardinality 2^a 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A347063 lists integers admitting one such split, not their multiplicities.",
+        "published-finding corpus returns no matching full cardinality-spectrum theorem among the examined highest-ranked results."
+      ],
+      "reasoning": "Membership lists and existence tables do not determine the number of distinct balanced splits; they agree with the initial test at 24.",
+      "searches": [
+        "web: OEIS A347063 Double Zumkeller numbers",
+        "published-finding corpus: number of size-balanced Zumkeller bipartitions of 3 times power of two"
+      ]
+    },
+    "rationale": "The new rational generating function records the entire cardinality distribution of equal-sum partitions of 3*2^(m-1), whereas inspected existing results concern unweighted counts, binary-weight support, or existence. An existing full unweighted parametrization may yield a nonobvious deduction, but its published summary does not contain the derived finite-state rational enumerator; complete text inaccessible is a material risk.",
+    "residual_risks": [
+      "The 2026/9/21 complete unweighted parametrization may encode an equivalent refined enumeration, and its full text could not be read; independent originality review needed.",
+      "Unindexed prior work on double Zumkeller multiplicities or digital transfer matrices may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Classifies Zumkeller membership but no size-refined enumeration in material read",
+        "evidence": [
+          "Theorem 2.2: 2^a p Zumkeller iff a at least highest binary exponent of p"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jnt.2020.05.003",
+        "material_read": "Publicly indexed body text describing Theorem 2.2 and proof, plus corollary 2.7 (not entire paper)",
+        "method": "Web textual excerpt",
+        "title": "Some properties of Zumkeller numbers and k-layered numbers",
+        "trigger": "Closest classification of 2^a p Zumkeller numbers"
+      },
+      {
+        "assessment": "Additive results about Zumkeller numbers; no displayed equal-size enumeration",
+        "evidence": [
+          "First public 2023-10-22; arbitrary consecutive Zumkeller strings, sums of two"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.14149",
+        "material_read": "ArXiv abstract and version metadata only; full HTML attempt failed",
+        "method": "ArXiv web listing",
+        "title": "Some Results on Zumkeller Numbers",
+        "trigger": "2023 same-topic number theory anchor"
+      },
+      {
+        "assessment": "Defines equal cardinality and sum; counts per member not provided in material read",
+        "evidence": [
+          "First sequence entry 24"
+        ],
+        "identifier_or_url": "https://oeis.org/A347063",
+        "material_read": "Definition, examples and available comments",
+        "method": "OEIS web text",
+        "title": "Double Zumkeller numbers, A347063",
+        "trigger": "Standard name and existing instance table"
+      },
+      {
+        "assessment": "Unweighted all-partition count and indexing; not conclusively excluded as an implicit source of cardinality profile",
+        "evidence": [
+          "Total counts floor((2^(a+1)-1+p)/(2p)); parameterized by odd r"
+        ],
+        "identifier_or_url": "2026/9/21/SCOPE-zumkeller-two-prime-partition-count--8a0ca297bd59",
+        "material_read": "published-finding corpus index summary only; GitHub full text/raw fetch blocked",
+        "method": "published-finding corpus semantic search plus attempted public source inspection",
+        "title": "Exact Zumkeller partition counts for the family 2^a p",
+        "trigger": "Potentially stronger published exact partition parametrization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "853fff85-fe35-47d7-8e11-3279dbc960a8",
+  "value": {
+    "rationale": "Double Zumkeller bipartitions require simultaneous equal sums and equal sizes; the complete cardinality spectrum is a distinct structural enumeration, and a positive binomial sum counts their multiplicities, not just Zumkeller existence.",
+    "status": "PASS"
+  }
+}
