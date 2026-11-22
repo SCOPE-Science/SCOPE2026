@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "The four-regular inactive subgraph undergoes deterministic leaf pruning, so percolation is equivalent to induced-forestness. The line-graph restriction is equivalent to a linear forest on cube edges. The 7-edge extremal case is Hamiltonian. Complete enumeration by independently formulated 12-vertex dynamics and 12-edge union-find methods agrees on all 4096 subsets; timing and orbit assertions independently reproduce.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://doi.org/10.1002/rsa.20158 studies general random-regular asymptotic thresholds",
+        "https://doi.org/10.1002/rsa.20818 states a universal size upper bound but no finite-time table",
+        "https://arxiv.org/abs/1407.7361 investigates minimum contagious sets of random regular graphs"
+      ],
+      "reasoning": "The named prior results concern random regular graphs, broad seed upper bounds, or large-system heuristics; their available results do not numerically determine the cuboctahedral 12-vertex joint-time coefficients. Full publisher text was not established in all cases, so this is not asserted as an exhaustive negative scan of their appendices.",
+      "searches": [
+        "\"bootstrap percolation\" \"random regular graph\" Balogh Pittel",
+        "\"degree proportional\" \"contagious sets\" Garbe Mycroft McDowell",
+        "\"three-neighbor\" percolation optimal seeds completion times"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1002/rsa.20158",
+      "https://doi.org/10.1002/rsa.20818",
+      "https://mathworld.wolfram.com/CuboctahedralGraph.html",
+      "https://houseofgraphs.org/graphs/1024",
+      "https://oeis.org/A091299",
+      "https://arxiv.org/abs/1407.7361"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Leaf pruning implies the total success probability from the linear-forest count, but not its synchronous completion-time refinement without further computation",
+        "https://onlinelibrary.wiley.com/doi/abs/10.1002/rsa.20660 concerns bootstrap percolation time in a general setting"
+      ],
+      "reasoning": "Known Hamiltonian path counts imply the 72 optimum complements once the reduction is made, but they do not imply all thirteen (seed size,time) entries. The new claim includes the complete joint law, with independently enumerated coefficients. An earlier full linear-forest or temporal table remains a residual possibility.",
+      "searches": [
+        "\"linear forest\" \"cuboctahedral graph\"",
+        "\"decycling number\" \"cuboctahedral\"",
+        "\"time of graph bootstrap percolation\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://mathworld.wolfram.com/CuboctahedralGraph.html identifies the graph as the line graph of the cube",
+        "https://oeis.org/A091299 counts part of the earlier Hamiltonian-path enumeration",
+        "The exact relation between linear forests of Q3 and successful activation sets is proved in RESULT.md"
+      ],
+      "reasoning": "The candidate is compared with degree-two core peeling, minimum feedback vertex sets, cube Hamiltonian paths, and the linear-forest generating polynomial. The individual Hamiltonian-path count is covered prior art, but it does not contain the full seed-size/completion-time table; no searched accessible statement supplies that distribution.",
+      "searches": [
+        "\"cuboctahedron\" \"3-neighbor\" bootstrap percolation",
+        "\"line graph cube\" induced forest threshold 3",
+        "\"cube graph linear forest polynomial\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://oeis.org/A091299 explicitly lists related cube Hamiltonian-path counts",
+        "https://mathworld.wolfram.com/CuboctahedralGraph.html lists structural graph invariants, not a contagious-time distribution",
+        "https://houseofgraphs.org/graphs/1024 provides adjacency data"
+      ],
+      "reasoning": "The known count of Hamiltonian cube paths is credited, not advertised as original. The exact joint coefficient table, including nonminimum seeds and their completion times, is not supplied by the checked database entries or direct exact-table searches.",
+      "searches": [
+        "\"cuboctahedral graph\" \"72\" \"300\" \"492\"",
+        "\"cuboctahedron\" \"bootstrap\" \"percolation polynomial\"",
+        "\"Hamiltonian paths\" \"cube\" \"72\""
+      ]
+    },
+    "rationale": "No exact earlier cuboctahedral seed-size/completion-time law was identified. Earlier 72-path enumerations are explicitly credited; the exact finite time-resolved distribution is distinct from and not implied by those path counts. Primary abstracts and relevant database/source pages were inspected, with access limitations recorded.",
+    "residual_risks": [
+      "Some relevant publisher full texts/appendices were not accessible; not asserted to be exhaustively excluded",
+      "An unindexed equivalent finite cuboctahedral linear-forest or time-resolved percolation table may exist",
+      "The known cube Hamiltonian-path count of 72 is not itself original"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Broad random regular phase transition; no exact fixed cuboctahedral joint-time law in accessed material",
+        "evidence": [
+          "Published 2006-12-13",
+          "Studies random d-regular graph and limiting percolation thresholds"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.20158",
+        "material_read": "Wiley hosted abstract and publication history, not full article",
+        "method": "web accessible article HTML",
+        "title": "Bootstrap percolation on the random regular graph",
+        "trigger": "same threshold bootstrap model on regular graphs"
+      },
+      {
+        "assessment": "General upper-bound results, not an accessible exact small-cuboctahedral time table; inaccessible full text is residual risk",
+        "evidence": [
+          "First published 2018-10-29",
+          "Statement h_rho(G)<2 rho n or h_rho(G)=1"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.20818",
+        "material_read": "Wiley hosted abstract and reference list; linked full text redirected to abstract",
+        "method": "web HTML",
+        "title": "Contagious sets in a degree-proportional bootstrap percolation process",
+        "trigger": "same 3-of-4 threshold as degree-proportional 3/4"
+      },
+      {
+        "assessment": "Provides graph invariants but no matching temporal percolation table",
+        "evidence": [
+          "12 nodes, 24 edges, automorphism group of order 48",
+          "L(Q3) identification"
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/CuboctahedralGraph.html",
+        "material_read": "Graph properties, line-graph identification, and automorphism group",
+        "method": "web page text",
+        "title": "Cuboctahedral Graph",
+        "trigger": "exact substrate and potential precomputed database"
+      },
+      {
+        "assessment": "Prior Hamiltonian-path enumeration is recognized; by itself does not furnish the complete bootstrap time law",
+        "evidence": [
+          "144 oriented cube paths, hence 72 unoriented, is previously tabulated"
+        ],
+        "identifier_or_url": "https://oeis.org/A091299",
+        "material_read": "OEIS A091299 list (144 oriented length-seven Hamiltonian paths in Q3), definition, counting convention and references",
+        "method": "web page text",
+        "title": "Number of (directed) Hamiltonian paths (or Gray codes) on the n-cube",
+        "trigger": "minimum-seed equivalence with cube Hamiltonian paths"
+      },
+      {
+        "assessment": "Grounds geometry and independent adjacency definition; does not show a joint cascade table",
+        "evidence": [
+          "12-vertex adjacency data"
+        ],
+        "identifier_or_url": "https://houseofgraphs.org/graphs/1024",
+        "material_read": "Graph identifier, adjacency list and recorded invariants/comments",
+        "method": "web page text",
+        "title": "House of Graphs: cuboctahedral graph",
+        "trigger": "exact graph table and adjacency"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "87c0ed93-8d26-464a-b5bf-6e3265bd0775",
+  "value": {
+    "rationale": "The canonical Archimedean 4-regular contact network with a natural strict-supermajority bootstrap rule has a complete, physically interpretable random-seed and activation-time benchmark. Exact joint counts and a uniform four-step minimum-seed wave distinguish this result from the pre-existing 72-path census.",
+    "status": "PASS"
+  }
+}
