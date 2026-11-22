@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-`check_wave.py` constructs finite projective planes of orders \(2,4,5\), then tests the incidence-square identity, calculates the exact wave matrix over \(\mathbb F_3\), computes its modular kernel dimensions at relevant times, and verifies its minimal global order. Run with `python3 check_wave.py` in a directory containing NumPy. Its observed exact nullities match the analytic formula: order \(2\) gives \((t,E)=(1,0),(4,4),(8,28)\); order \(4\) gives \((1,20),(2,40),(3,41),(6,82),(9,42),(18,84)\); order \(5\) gives \((1,0),(4,4),(8,124)\). Additional tested time points appear in `check_wave_output.txt`.
+## correctness
 
-`check_direct.py` uses only the Python standard library, constructs the incidence graphs with different finite-field arithmetic and coordinate charts, and performs neighbor-by-neighbor updates of individual labelled states. Run with `python3 check_direct.py`. It checked \(804\) fixed-seed configurations across orders \(2,4,5\) and observed no periods outside those proved, attaining the predicted exact maximum in all three cases. Its observations are recorded in `check_direct_output.txt`.
+PASS
 
-The tests do not enumerate every configuration in any of these state spaces and do not prove a universal formula. The mathematical proof uses the incidence identity and complete Jordan structure over every \(\mathbb F_{3^f}\). The unrestricted period and fixed-point claims do not rely on these samples.
+Verified the full finite-projective-plane incidence identity BB^T=B^TB=sI+J and reversibility of transfer T=(A −I;I 0). If s≡2 mod3, v≡1 and A vanishes on two constant shore vectors, A²=−I on the 2(v−1) complement, yielding T²=−I on its four-dimensional time lift and T⁴=−I on the other; global order8 and E(t)=4·1_(4|t)+4(v−1)·1_(8|t). If s≡1, v≡0 and J²=0 while B is invertible; each spatial sign ±1 has one Jordan size2 and v−2 size1. The temporal quadratic x²−λx+1=(x+λ)² and one-dimensional temporal eigenspaces lift these to one size4 and v−2 size2 blocks per sign, giving order18 and E(t)=(1+1_(2|t))[min(4,3^nu3(t))+(v−2)min(2,3^nu3(t))]. Finite-field fixed-space formula plus Möbius inversion yields all primitive populations. Independently constructed finite incidence matrices for plane orders2 and4 and checked exact mod3 nullities: order2 t=1,4,8 -> (0,4,28); order4 t=1,2,3,6,9,18 -> (20,40,41,82,42,84). General proof is algebraic for every plane, not an extrapolation from these checks.
+
+## originality
+
+PASS
+
+The same graph family was previously classified only in characteristic two, whereas the closest characteristic-three indexed result concerned complete bipartite graphs. The change in field characteristic and projective-plane incidence Jordan form is essential: the present 8/18 clocks and primitive-period formulas are not implied by the prior 6/12 or complete-bipartite formulas. General second-order reversibility is classical and not claimed as new.
+
+## value
+
+PASS
+
+A complete temporal-orbit classification for an entire natural family of incidence graphs, all projective planes (including non-Desarguesian ones) of two nonresonant congruence classes, and all F3 extensions. It exposes a sharp order-mod-three bifurcation (8 versus18) and exact orbit populations, which distinguish algebraic dynamics beyond generic reversibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
