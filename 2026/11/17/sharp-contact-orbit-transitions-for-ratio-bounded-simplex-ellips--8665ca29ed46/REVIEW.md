@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The all-parameter proof checks the exact affine-hyperplane normalization, completeness of the two-level vertex list, every facet distance, optimal ellipsoid uniqueness through permutation symmetry, and explicit isotropic John and Löwner contact certificates. The radial-shell comparison gives the exact thresholds and excludes nonadjacent or nonvertex ties. The logarithmic derivative of each active shell-to-inradius ratio has a strictly positive numerator on the full domain, and the endpoint limits use the correct fixed-index regimes. The standalone checker passed 35,495 rational, numerical, and independently extracted-vertex assertions. Finite checks are corroboration only.
+## correctness
 
-## Originality — PASS, with residual risk
-The June 2026 Kazakov primary source gives the trisection body and vertices; the published October 2026 ellipsoid result covers the ratio \(c=2\) only; and the November 2026 polar-volume result treats all real \(c>1\) but does not establish the entire optimal-ellipsoid contact phase diagram. Full relevant statements/proofs were compared, rather than only titles. No equivalent thresholds or global monotone ellipsoid ratio were identified in actual published-finding corpus and literature searches. There is a historical priority risk from unindexed works and terminology variants; no claim of absolute uniqueness is made.
+PASS
 
-## Mathematical value — PASS
-The central simplex family is a natural geometric interpolation between the barycentric point and the original simplex; the full sequence of contact-orbit changes reveals precisely how its extremal ellipsoid geometry reorganizes. The exact thresholds, tie counts, and strict global roundness interpolation provide invariant, all-dimensional information beyond the previously known single ratio and dual-volume formulas. This is a structural classification, not an arbitrary parameter slice.
+Uniqueness and permutation invariance of John/Löwner ellipsoids on irreducible sum-zero space force centered spheres. Ordered inequalities have normal Pi(e_i-c e_j), giving exact inradius; all are true facets. Every vertex has precisely two coordinate levels c/D_k and 1/D_k, including all nontrivial subsets (complete enumeration uses perturbation to exclude intermediate coordinates). Its norm squared is (c-1)^2 k(m-k)/(m(m+k(c-1))²). Writing q_k=(m-k)/k reduces the shell optimization to q_k/(c+q_k)²; pairwise equality occurs only at c=sqrt(q_i q_j), with adjacent geometric means decreasing, establishing no missed orbit/triple tie. Log derivatives of each candidate R_k/r have positive sign (m-2k)+(m-1-k)(c-1), establishing strict global ratio monotonicity. Independent shell-radii and geometric-mean transition checks in m=4,5,7,8 corroborated proof; end behavior and facet counts checked.
 
-## Limitations
-The intrinsic radii are specified only in the regular-coordinate simplex realization. The result does not imply Euclidean radius invariance under general affine deformations. The mathematical proof has not been independently audited, and a hidden prior equivalent formulation is possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality for the precisely scoped surviving final claim. Same-object prior and stronger formulations were compared by theorem implication, not titles; preexisting subclaims are credited rather than treated as novel.
+
+## value
+
+PASS
+
+A natural continuous deformation of the trisected-simplex central polytope exhibits all outer ellipsoid contact orbit transitions, a rigid structural invariant with exact thresholds and a strict radius distortion interpolation. This moves beyond the known c=2 residue classification or the unrestricted-c vertex enumeration; no general external theorem is required for mathematical value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
