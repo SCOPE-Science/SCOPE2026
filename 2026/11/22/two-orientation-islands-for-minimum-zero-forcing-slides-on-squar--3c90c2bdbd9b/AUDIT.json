@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For each n>=3 the white-edge bipartite graph characterization is proved from the ordinary forcing rule: no white cycles can break and a first force requires an isolate; equality in the edge bound yields exactly an isolated row/column and a spanning tree. Tree leaves provide the induction giving sufficiency. A slide shares a row/column of its removed and inserted white edges; a putative side switch necessarily shares a column and cannot create an isolated column. Repeated tree exchanges that add edges from a chosen active row to each column and then move other row leaves to a chosen column build a canonical double star without leaving the tree class. One move changes missing row using a third row for n>=3, and one non-slide jump trades a leaf column for the formerly missing row. n=2 treated separately. Two independently implemented exhaustive methods agree for n=2,3,4, but finite tests are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Benson et al. arXiv:1510.02421, Section 2.2, covers zero forcing of Cartesian products and cycles; the relevant theorem is not an all-minimum rook slide-component result.",
+        "Geneson–Haas–Hogben arXiv:2009.00220 introduces the reconfiguration-graph framework for zero forcing sets; inspected general results do not state this two-island theorem.",
+        "The 2026-10-12 exact rook forcing-polynomial theorem is strictly broader for which initial sets work and their counts, but does not by itself imply slide connectedness without a new tree-pivot theorem."
+      ],
+      "reasoning": "A broader description of feasible vertices of a configuration graph does not determine its edge connectivity without analyzing allowed moves. The new structural bridge and obstruction follow by additional all-parameter arguments; they are not an alternate derivation of the known count. No inspected broader token-slide theorem dominates this claim.",
+      "searches": [
+        "Zero forcing minimum configurations of square rook graphs K_n Cartesian K_n complements spanning trees K_{n-1,n}, two components under token sliding",
+        "Zero forcing spanning trees and token sliding on Cartesian products of cliques",
+        "All minimum zero forcing sets of square rook graphs H(2,n) split under token sliding into two connected components distinguished by an isolated row versus isolated column; token jumping joins both",
+        "\"zero forcing\" \"rook\" \"sliding\" reconfiguration"
+      ]
+    },
+    "checked_sources": [
+      "2026/10/12/SCOPE-zero-forcing-polynomials-of-rook-graphs-via-bipartite-forests--dd424d573692",
+      "arxiv:1510.02421",
+      "arxiv:2009.00220",
+      "doi:10.55016/ojs/cdm.v16i1.68557"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior 2026/10/12/SCOPE-zero-forcing-polynomials-of-rook-graphs-via-bipartite-forests--dd424d573692 gives the tree-support equivalence and n(n-1)^{n-1}n^{n-2} minima per orientation.",
+        "The new proof shows an orientation-crossing slide is impossible because deleting and inserting a shared-column white edge cannot isolate any column.",
+        "The new all-size double-star pivot, missing-row transfer and leaf-jump constructions prove each orientation connected for n>=3 and their union jump-connected."
+      ],
+      "reasoning": "The count and support characterization are logically insufficient on their own to force any particular number of connected components: admissible transition edges are additional data. The genuine contribution is the constructive pivot-connectivity theorem plus the orientation invariant, not a previously implied scalar or polynomial coefficient. A known general theorem that all relevant bipartite trees are connected by these restricted pivots would subsume part of the argument, but no such complete predecessor was found in inspected material.",
+      "searches": [
+        "Zero forcing minimum configurations of square rook graphs K_n Cartesian K_n complements spanning trees K_{n-1,n}, two components under token sliding",
+        "All minimum zero forcing sets of square rook graphs H(2,n) split under token sliding into two connected components distinguished by an isolated row versus isolated column; token jumping joins both",
+        "Reconfiguration of spanning trees of complete bipartite graphs by edge pivot shared endpoint with one isolated bipartition vertex, zero forcing sensor placement",
+        "\"spanning trees\" \"rook graph\" \"zero forcing\" \"reconfiguration\"",
+        "\"zero forcing\" \"rook graph\" \"two components\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The rook graph K_n Cartesian K_n is also Hamming H(2,n) and the line graph of K_{n,n}; sliding blue cells equals a shared-row/column exchange of white bipartite edges.",
+        "The accessible full RESULT.md for 2026/10/12/SCOPE-zero-forcing-polynomials-of-rook-graphs-via-bipartite-forests--dd424d573692 characterizes feasible forests and their extremal trees but does not discuss legal token slides."
+      ],
+      "reasoning": "The statement was searched under rook graphs, Hamming length-two graphs, zero-forcing reconfiguration, and bipartite tree pivots. The 2026 exact enumerator is a close structural antecedent but lacks a move-graph connectivity theorem. Title mismatch alone is not evidence of novelty; comparison uses the proven implication from tree classification to slide feasibility and the additional new double-star paths.",
+      "searches": [
+        "Zero forcing minimum configurations of square rook graphs K_n Cartesian K_n complements spanning trees K_{n-1,n}, two components under token sliding",
+        "Minimum zero forcing sets for Hamming graph H(2,n) spanning trees of K_{n-1,n}, count and recolouring sliding",
+        "Zero forcing spanning trees and token sliding on Cartesian products of cliques",
+        "Reconfiguration of spanning trees of complete bipartite graphs by edge pivot shared endpoint with one isolated bipartition vertex, zero forcing sensor placement",
+        "Reconfiguration graphs of zero forcing sets of Hamming graphs of dimension two"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published exact rook forcing polynomial includes the minimum coefficients but does not supply token-slide component counts.",
+        "Independent enumeration finds slide component sizes [36,36] at n=3 and [1728,1728] at n=4; these are not represented as new isolated counts but tests of the all-n classification."
+      ],
+      "reasoning": "The closest database note enumerates optimal sets rather than slide-graph components; no component table covering the target theorem was encountered. Search failure does not establish universal absence.",
+      "searches": [
+        "Zero forcing minimum configurations of square rook graphs K_n Cartesian K_n complements spanning trees K_{n-1,n}, two components under token sliding",
+        "Minimum zero forcing sets for Hamming graph H(2,n) spanning trees of K_{n-1,n}, count and recolouring sliding",
+        "\"zero forcing\" \"rook\" \"sliding\" reconfiguration",
+        "\"zero forcing\" \"K_n \\square K_n\" \"token sliding\""
+      ]
+    },
+    "rationale": "Full antecedent rook-polynomial work characterizes and counts all optimal supports, but does not state the new two-island token-slide result or prove a restricted edge-pivot path. The novel all-n proof gives orientation conservation, canonical double-star normalization, transfer of isolated labels and a cross-orientation jump. The literature comparison included equivalent graph names and a primary reconfiguration paper. Residual priority risk remains: unindexed bipartite-tree pivot results or token-slide theory may imply the new refinement; no global priority proof is asserted.",
+    "residual_risks": [
+      "General spanning-tree pivot exchange results under alternative terminology may imply the double-star connectivity lemma.",
+      "An inaccessible or unindexed exact minimum-rook slide result might subsume the component classification.",
+      "The earlier exact rook-polynomial note supplies the complete optimum-support enumeration; the original contribution is strictly the reconfiguration refinement.",
+      "Previous-week ledgers were only partially accessible; overlap comparison used recovered claims and published mathematical results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers optimum size and count and every feasible support; does not state the two token-slide components or give the shared-endpoint pivot connectivity argument. Strong antecedent is credited.",
+        "evidence": [
+          "The theorem states success iff the white support is a forest with an isolate opposite a leaf; the extremal support is an isolated row or column plus a spanning tree.",
+          "No token-slide edge or orientation-component theorem appears in the inspected RESULT.md."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-zero-forcing-polynomials-of-rook-graphs-via-bipartite-forests--dd424d573692",
+        "material_read": true,
+        "method": "Fetched and read full RESULTS.md theorem, proof, verification, prior-work and limitations, and compared full claim implications.",
+        "title": "Zero-forcing polynomials of rook graphs via bipartite forests",
+        "trigger": "Same precise graph family, feasibility predicate, and extremal spanning-tree parameterization."
+      },
+      {
+        "assessment": "Establishes graph-product and cycle-product theory, not the rook minimum token-slide component classification.",
+        "evidence": [
+          "Original arXiv posting 2015-10-08; Cartesian-product theorem 2.6 concerns cycles, not square-rook optimal token slides."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1510.02421",
+        "material_read": true,
+        "method": "Inspected original-date arXiv record and primary PDF, first-page screenshot and Cartesian-product section 2.2 including Theorem 2.6.",
+        "title": "Zero forcing and power domination for graph products",
+        "trigger": "Qualifying archival origin of graph-product zero-forcing questions and possible rook-graph implication."
+      },
+      {
+        "assessment": "General token-jump framework and other families; no exact square rook slide orientation result in relevant inspected sections.",
+        "evidence": [
+          "Defines zero forcing reconfiguration through exchange moves and studies connectedness for graph families; exact rook two-island slide result absent from inspected material."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2009.00220",
+        "material_read": true,
+        "method": "Inspected primary PDF first page, definitions and relevant results, with page screenshots; checked rook and sliding terminology.",
+        "title": "Reconfiguration graphs of zero forcing sets",
+        "trigger": "Named baseline framework for reconfiguration of zero forcing sets, possible stronger connectivity result."
+      },
+      {
+        "assessment": "Determines scalar minimum, not move-graph components.",
+        "evidence": [
+          "Theorem 2.1 at k=1 yields known rook-graph forcing number n^2-2n+2."
+        ],
+        "identifier_or_url": "https://doi.org/10.55016/ojs/cdm.v16i1.68557",
+        "material_read": true,
+        "method": "Compared cited Theorem 2.1 and its exact rook-number consequence; supported by the complete prior exact-enumerator discussion.",
+        "title": "k-Forcing number for Cartesian product of some graphs",
+        "trigger": "Previously known scalar optimum for Cartesian products of cliques."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3c90c2bd-bd9b-4401-8aca-6ea2741b088e",
+  "value": {
+    "rationale": "The exact structural obstruction to moving optimal zero-forcing placements by adjacent-token slides, in contrast with global single-token jumps, is a natural reconfiguration question not answered by known optimal cardinality or count. The nontrivial all-parameter double-star pivot argument supplies constructive connectivity within each orientation, and the sharp n=2 exception gives a meaningful family boundary. This is not a re-expression of the already published polynomial or an arbitrary tiny finite invariant.",
+    "status": "PASS"
+  }
+}
