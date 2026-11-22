@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Execute `python3 verify.py` with a Python 3 standard-library installation. The script directly forms the supporting lines and their products rather than calling the asserted radial factorization to compute the left-hand side. It verifies polynomial values, affine precision, the nonadjacent-line intersection property, and the exact vertex value for every integer \(3\le n\le35\) on 20 chosen test points per order. This execution produced `PASS: 2556 finite standard-library checks for n=3..35`.
+## correctness
 
-A separate supplemental mpmath 65-digit high-precision check over orders \(3\le n\le29\) passed 1164 assertions; the corresponding routine is not needed to reproduce the main package and is not part of the finite certificate. The general theorem, strict monotonicity, and limiting law follow from the symbolic proof, not the checks. Specific numerical tolerances bound roundoff and do not certify the polynomial identity for all points.
+PASS
 
-No independent audit has been performed.
+PASS: The all-plane polynomial identity follows from the affine-precision degree reduction, exact rotation invariance and exhaustive nonadjacent-support-intersection radii. The degree saturation forces *all* roots, not just sampled ones. Factor irreducibility supports generic pole claims, radial strict monotonicity applies only n>=5, and sine-product vertex normalization gives the stated max/min factor 2^n c_n^(n-2) sin²(pi/n)/n, ~pi²2^n/n³. The zero-radius empirical law and parity-sensitive largest radius follow by uniform k/n. Independent direct numerical product checks for n=3..17 at off-axis points agreed; finite points do not prove the universal identity.
+
+## originality
+
+PASS
+
+PASS (qualified): Classical Wachspress adjoints and residual line intersections explain the general vanishing mechanism, and an earlier all-convex-polygon theorem determines minimum denominator degree. Neither inspected prior statement supplies this explicit all-n radial factorization, complete pole-circle radii, first-pole distance and normalized denominator extrema/distribution; the additional exact metric geometry survives as a motivated specialization. Full primary polypol topology article remains a residual historical-priority risk, not evidence of coverage.
+
+## value
+
+PASS
+
+The regular polygon is the canonical symmetry test of Wachspress coordinates; the entire real pole locus and first analytic continuation barrier matter for rational barycentric continuation, and the exact normalized denominator range quantifies a concrete exponential numerical sensitivity. The finite-to-infinite pole-radius law yields a natural asymptotic classification. These are linked sharp invariants, not arbitrary parameter substitutions or a mere minimal-degree recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
