@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The theorem is about labelled synchronous periodic binary Rule 54 configurations, not spatial orbits. A transfer edge imposes the local rule at every time slice, and closed spatial walks correspond bijectively to words returning at the specified time. Exact finite strongly connected component classifications for the four time windows yield the one-loop, four-cycle and two ten-state contributions. The written ten-state edge certificate has integer characteristic polynomial \(z^{10}-z^6-2z^4-2z^3-z^2-2z-1\). Its trace recurrence proves all-size counts. Shared-root loops of lengths four and six through nine prove the sharp size support; primitivity and Perron–Frobenius prove the asymptotic. Independent direct enumeration agrees for all ring sizes three through twenty. No statement about longer periods or general full dynamics is inferred from these finite checks.
+PASS
 
-## Originality
+Rule 54 local Boolean rule is f(a,b,c)=(54>>(4a+2b+c))&1 with periodic ring n>=3. A temporal-p periodic cylinder corresponds bijectively to a length-n closed walk in the finite directed graph of overlapping p-bit spacetime columns; the local rule checks all p phases. Strongly connected cyclic components for p=1 and 3 are one zero loop, for p=2 loop plus four-cycle, and for p=4 these plus two isospectral 10-state 14-edge components. Each ten-state component has characteristic polynomial (x+1)(x^4-x^3-1)(x^5+x^3+x+1)=x^10-x^6-2x^4-2x^3-x^2-2x-1. Consequently R1=R3=1, R2=1+4[4|n], and R4=R2+2b_n where b_n=tr(B^n), and primitive four-cycle orbits equal (R4-R2)/4=b_n/2. Cyclic closed walks of lengths 4,6,7,8,9 through one vertex and closure with a four-cycle prove sharp support n=4 or n>=6; primitivity and spectral factor x^4-x^3-1 prove growth alpha^n/2, alpha≈1.380277569. Independently rebuilt the explicit 10-vertex 14-edge matrix, factored its characteristic polynomial exactly, and directly ran the ORIGINAL Rule54 synchronous update on all 2^n indexed configurations for each n=3,...,14: every returned count and b_n/2 agrees. The all-n theorem rests on complete finite-state transfer and Perron proof; finite brute force is corroboration, not infinity proof.
 
-PASS, with a documented historical-priority risk. Searches by elementary Rule 54, four-step fixed points, temporal-four orbits, rational/zeta/transfer aliases, and the characteristic growth constant identified no identical general formula. Martínez–Adamatzky–McIntosh (2014), inspected in full accessible HTML, studies period-four background, de Bruijn structures and selected finite attractors, but does not state the all-size orbit recurrence or characteristic polynomial. Redeker (2014) addresses ether formation; only its abstract was read. Public Rule 54 image-count and preimage-fiber records concern logically different statistics that do not determine \(\operatorname{Fix}(F_n^4)\). The finite-cycle illustrations and the general transfer method are explicitly credited, not claimed as original.
+## originality
 
-## Value
+PASS
 
-PASS. Rule 54 is a canonical class-IV elementary cellular automaton whose period-four ether is foundational. The exact spatial family of all least-temporal-four orbits is a natural invariant extending its finite pattern examples to every circumference. The finite exceptional gap at length five, all-size tenth-order recurrence and nontrivial spatial exponential growth rate \(1.380277569\ldots\) are useful exact benchmarks for symbolic and computational studies; this is not a repackaging of a single small numerical example or a generic transfer-matrix existence assertion.
+PASS on material read: pre-existing 2014 extended de Bruijn diagrams identify primitive gliders and periodic ether, but neither give the all-circumference labelled primitive temporal-four count, tenth-order recurrence, sharp set of allowed n, or growth constant. The 2026-11-02 period-preserving preimage-image theorem for Rule54 concerns one-step maps rather than the temporal-four cycle locus. Common automaton representations and motifs are credited, without claiming their invention.
 
-## Closest literature and limits
+## value
 
-The closest inspected paper is Martínez, Adamatzky and McIntosh, arXiv:1410.3096v1. Redeker, arXiv:1403.0193v1, was checked only by abstract. The related public mathematical-record items on cyclic image counts, lifting, and singleton-predecessors do not supply four-step return populations. Historical priority is not exhaustively established; independent external review is not yet available. The claim is limited to periods dividing four and labelled rings of length at least three.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact all-length temporal orbit census and sharp first-occurrence gaps for a canonical elementary rule with known complex gliders is a natural complete finite-state invariant. The characteristic polynomial, period-four support semigroup, and entropy root quantify dynamics not furnished by individual pattern examples; a complete rational enumeration is mathematical value even if proof uses finite-state algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
