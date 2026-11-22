@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "The stationary density matrix follows from a convergent Poisson-age integral with gamma>0. The full-rank equatorial Bloch SLD line element gives det Q exactly by a nonsingular Jacobian. The positive denominator in the derivative isolates a cubic with exactly one positive zero by Descartes and endpoint signs. Explicit bracket evaluations and an implicit-derivative inequality prove all parameter bounds and strict normalized monotonicity. The packaged symbolic checker passed and its independent two-level SLD diagonalization was compared at 60 nondegenerate parameter triples plus 12 root cases. Finite checking is not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Le, Nguyen and Ho, arxiv:2305.08289, Results/Methods: variational probe and measurement optimization for multiparameter magnetic fields with dephasing; no Poisson steady-state D-optimizing reset clock.",
+        "Vidrighin et al. (2014) gives a general qubit Fisher matrix and single-copy measurement trade-off, but does not optimize this rate-dependent physical model.",
+        "Li, Tong and Bao, arxiv:2610.31249v1 (2026-10-22), develop a general scalar reset-QFI response identity and frequency estimation; their Conclusion identifies multiparameter estimation as future work; no two-parameter stationary D-optimal reset cubic."
+      ],
+      "reasoning": "Generic QFI metric formulas and the reset renewal construction cover the ingredients. They do not alone state the all-frequency optimum or provide a prior global rate-optimization proof; a hidden stronger experiment-design theorem could cover the contribution and remains a risk.",
+      "searches": [
+        "\"multiparameter quantum estimation\" \"dephasing\" \"resetting\" optimal rate",
+        "\"D-optimal\" \"qubit\" \"resetting\" dephasing",
+        "arxiv:2305.08289 Results Methods full text",
+        "arxiv:2610.31249v1 full accessible text, sections Setup, Reset-enhanced steady-state metrology, Conclusion, End Matter"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1410.5353 full HTML",
+      "arxiv:2209.05643v1 full HTML",
+      "arxiv:2305.08289 full rendered HTML",
+      "published public single-parameter reset-QFI result (indexed summary)",
+      "published public reset-rate-QFI ceiling result (indexed summary)",
+      "targeted external searches for joint reset-QFIM determinant",
+      "arxiv:2610.31249v1 full rendered text; v2 public abstract (not full v2)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Generic phase diffusion gives a QFIM of the shrinking equatorial Bloch vector, and Poisson renewal gives the mixture state; their combination suffices for the determinant formula by substitution.",
+        "No inspected prior claim asserts a unique global maximizer over resetting rates for joint unknown frequency and dephasing, nor the sharp normalized band and strict detuning ordering.",
+        "The nearest pre-existing single-parameter stationary Poisson-qubit calculation optimizes frequency QFI alone; that objective is algebraically different from the determinant.",
+        "The 2026 scalar reset-QFI response formula can assess individual information entries but does not imply the determinant optimizer without a separate coupled derivative analysis."
+      ],
+      "reasoning": "The new theorem requires optimizing a coupled two-parameter information-volume objective and proving global uniqueness for all positive damping and real frequencies. Prior premises make this tractable but do not directly assert the rate theorem; the result is not presented as discovery of QFIM or the renewal map.",
+      "searches": [
+        "\"stochastic resetting\" \"qubit\" \"stationary\" \"Fisher information\" dephasing",
+        "arxiv:2209.05643 Eq. (17)-(27), Section 3",
+        "arxiv:1410.5353 Eq. (5)-(9)",
+        "arxiv:2305.08289 Results/Methods"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Vidrighin et al. 2014, arxiv:1410.5353, Eq. (5)-(6): every equatorial phase-diffusion qubit has a diagonal QFIM in polar coordinates. The current stationary state is a nontrivial parameter-dependent reparametrization of that class.",
+        "Sevilla and Valdés-Hernández, arxiv:2209.05643v1 Sections 2-3: quantum resetting gives a renewal density operator; no two-unknown-parameter optimal Fisher determinant result."
+      ],
+      "reasoning": "The underlying two-parameter information geometry is not new; substituting the Poisson stationarity map gives the determinant. However the cited texts do not supply the unique positive design root, its strict bracket and its detuning monotonicity. It is these implications, proved here globally, which form the assessed claim.",
+      "searches": [
+        "\"stationary qubit\" \"frequency\" \"dephasing\" \"reset\" \"Fisher\"",
+        "\"joint estimation\" \"phase\" \"phase diffusion\" qubit determinant optimal",
+        "arxiv:1410.5353 Sections Results and trade-off"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest public record: Unique optimal reset probability for stationary qubit phase information, published record 2026-11-02, https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-unique-optimal-reset-probability-for-stationary-qubit-phase-info--15941b8265f8 (discrete-time single-parameter phase QFI).",
+        "Closest public record: A finite quantum Fisher ceiling and phase-aliasing separation for globally reset Rabi spins, published record 2026-11-08, https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-finite-quantum-fisher-ceiling-and-phase-aliasing-separation-fo--16025b6b8bd8 (collective reset-rate QFI)."
+      ],
+      "reasoning": "Actual semantic searches returned no exact same-object same-parameters same-determinant global optimum in the checked public-index summaries. Summaries are not complete full-paper inspections; absence is not an originality proof.",
+      "searches": [
+        "simultaneous estimation dephasing rate and Hamiltonian frequency on stationary Poisson reset qubit quantum Fisher information matrix determinant optimal reset rate unique cubic",
+        "reset assisted quantum multiparameter D-optimal Fisher information determinant two parameters SLD qubit jointly estimate frequency and dephasing",
+        "joint estimation stationary Poisson reset dephased qubit det QFIM gamma omega r cubic"
+      ]
+    },
+    "rationale": "The novel assessed claim is the global D-optimal Poisson-repreparation rate for jointly unknown Hamiltonian frequency and pure-dephasing strength, its unique cubic root, sharp normalized range and asymptotic information volume. The familiar equatorial QFIM, generic renewal state and weak-commutativity condition are not claimed new. Full primary texts for quantum reset renewal (2022), generic joint qubit phase-noise information (2014), and variational multiparameter sensing with dephasing (2023) were examined for this exact physical design optimization. Published nearest research-result summaries concern one-parameter discrete-time qubit phase estimation or reset-rate sensing rather than the present determinant optimization. Exact priority remains qualified.",
+    "residual_risks": [
+      "Standard qubit QFIM plus quantum renewal readily yields the algebraic determinant; an unpublished or unindexed design optimization could have derived the same cubic.",
+      "The closest public database result was inspected through an indexed summary rather than its full repository text; this restricts any statement about complete noncoverage.",
+      "Generic optimal-design results for phase/diffusion parameter reparametrizations could imply the unique optimum without using reset terminology; the inspected literature does not establish such implication.",
+      "arxiv:2610.31249 changed materially in its 2026-11-15 revision; accessible v1 full text and v2 abstract were compared, but revised full text could supply other implications. The no-go for outperforming optimal transient sensing is not contradicted by this stationary D-optimal benchmark."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers generic qubit two-parameter metric and measurement tradeoffs but no stationary Poisson-repreparation rate optimum",
+        "evidence": [
+          "Equatorial qubit rho and information matrix Eq. (5)-(6); mean commutator vanishes; joint measurement bound Eq. (9)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1410.5353",
+        "material_read": "Full-text arXiv HTML, Results with Eqs. (4)-(9) and SLD compatibility and joint measurement discussion",
+        "method": "Read primary arXiv HTML and compare parameters and optimization objective",
+        "title": "Joint estimation of phase and phase diffusion for quantum metrology",
+        "trigger": "Exact equatorial mixed-qubit Fisher metric and phase-noise compatibility are possible broader coverage"
+      },
+      {
+        "assessment": "Covers renewal framework but not joint frequency/dephasing quantum Fisher rate design",
+        "evidence": [
+          "Exponential resetting Eq. (12); stationary quantum density-operator renewal Eq. (17)-(27); paper studies coherence, purity and fidelity rather than two-parameter D-optimization."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2209.05643v1",
+        "material_read": "Full-text HTML Sections 2, 3.1-3.3, especially renewal equation and exponential resetting Eq. (12)",
+        "method": "Read available arXiv HTML and inspect stationary state/coherence calculations",
+        "title": "Dynamics of closed quantum systems under stochastic resetting",
+        "trigger": "Exact qubit stationary renewal state as prior to the proposed design"
+      },
+      {
+        "assessment": "Develops general multiparameter dephasing sensing but no stationary full-qubit Poisson resetting optimization",
+        "evidence": [
+          "Results II.1 defines SLD QFIM and weak commutativity; Methods IV.2 gives a general computational formula; the focus is variational probe and POVM design."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2305.08289",
+        "material_read": "Full-text rendered arXiv HTML including Results II.1-2 and Methods IV.2, QFIM formulas and measurement compatibility",
+        "method": "Read primary text and distinguish variational magnetic-field sensing from reset rate design",
+        "title": "Variational quantum metrology for multiparameter estimation under dephasing noise",
+        "trigger": "Direct multiparameter dephasing sensing motivation and possible broader QFIM optimization"
+      },
+      {
+        "assessment": "Different discrete-time phase-only QFI objective and control variable; not evidence for complete noncoverage of full item",
+        "evidence": [
+          "Indexed statement specifies discrete-time Bernoulli resets and a single phase parameter."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-unique-optimal-reset-probability-for-stationary-qubit-phase-info--15941b8265f8",
+        "material_read": "Indexed published abstract/summary only, not repository full text",
+        "method": "Statement-level comparison of the retrieved indexed claim",
+        "title": "Unique optimal reset probability for stationary qubit phase information",
+        "trigger": "Closest public single-parameter resetting optimization"
+      },
+      {
+        "assessment": "A general single-parameter QFI response and frequency-sensing results, but no joint dephasing-frequency determinant optimization; 2026-11-15 v2 focuses on conditional protocols and its unseen full text remains a residual priority risk",
+        "evidence": [
+          "v1 Conclusion says multiparameter estimation is a future direction; Eq. (29) is derivative of a single scalar QFI.",
+          "v2 public arXiv abstract describes conditional-reset advantage and blind-reset no-go against optimal transient single-shot sensing, a distinct benchmark from the stationary joint-parameter determinant studied here."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.31249v1",
+        "material_read": "Accessible full rendered arXiv v1 text including Setup, steady-state QFI response, concluding discussion and End Matter derivative proof",
+        "method": "Compared parameter count, sensor model, optimization quantity and stated future work; checked v2 abstract and its changed title separately without claiming v2 full-text inspection",
+        "title": "Reset-Enhanced Dissipative Quantum Metrology (version 1)",
+        "trigger": "Recent full reset-enhanced qubit sensing result could dominate a stationary Fisher-design theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "88458f74-4413-4ed6-89ce-90ae573df5d2",
+  "value": {
+    "rationale": "Joint frequency and damping are natural coupled unknowns in qubit sensing; optimizing frequency-only QFI does not minimize joint error-area. The new exact information-volume formula, globally unique positive reset-rate optimum, sharp normalized window, strict detuning dependence, universal high-frequency limit and explicit collective-versus-single-shot distinction constitute a meaningful complete design classification. No downstream theorem, finite-sample protocol or experiment is claimed.",
+    "status": "PASS"
+  }
+}
