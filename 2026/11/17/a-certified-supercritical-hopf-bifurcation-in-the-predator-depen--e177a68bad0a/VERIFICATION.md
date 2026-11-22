@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-Run `python verify_hopf.py` with `requirements.txt` installed. The checker generates all first, second and third derivatives from the publicly displayed system, computes the equilibrium branch and full characteristic polynomial, then proves the root count of the eighth-degree Routh–Hurwitz polynomial by exact Sturm arithmetic. It verifies opposite exact signs at rational bracket endpoints.
+## correctness
 
-The interval arithmetic uses decimal precision 45 and outward-rounded interval operations. It verifies positivity over the full isolating bracket for the first three characteristic coefficients, the Routh–Hurwitz derivative, negative carrying-capacity derivative, and positive equilibrium coordinates. Normal-form contractions use interval Cramer's-rule matrix inversions and the spectral projector onto the eigendirection with first component one. The resulting strict enclosure is
-\[
--5.877089159<\ell_1<-5.877089130.
-\]
-The program reports `EXACT_STURM_OK`, `INTERVAL_LYAP_OK negative`, and `VERIFY_OK`. The interval bounds are certificates conditional on the exactness and outward rounding of the installed interval-arithmetic implementation, not an independent proof audit. None of the checks establish global periodic-orbit uniqueness or the stable cycle's basin size.
+PASS
+
+Re-derived the exact polynomial vector field, positive coexistence branch p=1/delta(x), y=(5x-1)/(3(2-x)), K=1/(delta(r-delta*y)) on 1/5<x<1. The 8th-degree Routh determinant Q from original RESULT matches independent symbolic Jacobian computation. Original inspected verify_hopf.py computes a rational Sturm count of exactly one physical root, isolates x in (3381326771974,3381326771975)/10^13, and uses interval arithmetic to enclose a1,a2,a3>0, d(a1a2−a3)/dx>0 and Kprime<0. Independently evaluated x≈0.338132677197410, K≈1.66170734735366, eigenvalues −1.43939008 and ±0.17272326i; contracted second/third derivatives and spectral projection reproduce first Lyapunov coefficient −5.877089144686, within claimed rigorous interval (−5.877089159,−5.877089130). Negative coefficient and positive transversality justify a local supercritical Hopf attracting positive periodic orbit, not any global uniqueness or basin statement. An independent floating-point evaluation supplements but does not replace the inspected rational/interval certificate.
+
+## originality
+
+PASS
+
+The Cruz–Neves original study describes numerical Hopf evidence for precisely this positive payoff scenario and explicitly leaves a rigorous periodic-orbit proof unestablished. The new rational isolating interval, transverse crossing and negative first Lyapunov sign prove existence/stability, which the numerical plots and generic Hopf theorem alone do not imply. Priority remains limited to searched sources.
+
+## value
+
+PASS
+
+Converts a numerically indicated positive-coexistence Hopf into a rigorous local theorem for a biologically motivated three-dimensional replicator flow: unique physical Hopf candidate, validated crossing direction, sharp threshold and attracting positive periodic onset. The exact nondegeneracy certificate resolves a specific documented open analytical gap rather than a routine restatement of the Hopf theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

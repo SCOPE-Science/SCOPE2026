@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The proof differentiates the explicitly stated polynomial vector field, parametrizes all positive equilibria by prey frequency, computes the cubic characteristic polynomial and proves by an exact Sturm count that there is one imaginary-pair candidate on that branch. Rational isolating brackets and outward-rounded interval calculations verify positive Routh coefficients, a transversal crossing, and a strictly negative first Lyapunov coefficient in its stated normalization. The attracting periodic orbit is a local consequence of the classical Hopf theorem, not of numerical integration. The standalone checker rederives and verifies the critical algebra rather than assuming precomputed eigenvalues.
+## correctness
 
-**Originality (O): PASS within inspected evidence.** Cruz–Neves (arXiv:2607.13281v1) report this parameter regime and numerical evidence of Hopf near carrying capacity \(1.66\), but explicitly leave rigorous existence of the periodic solution unproved. The new result is the certified, nondegenerate, supercritical Hopf theorem at an algebraically isolated threshold, not the underlying model, equilibrium branch, or classical Hopf machinery. Braga–Wardil's earlier general model and a published boundary-collision stability-exchange result were compared: neither supplies a cubic normal-form sign at this interior Hopf point. Searches of the original model, aliases and threshold did not locate a prior proof of the precise claim. Historical priority remains provisional, especially in broader Hopf/replicator literature.
+PASS
 
-**Value (V): PASS.** Stable oscillatory coexistence near the numerical transition is an explicit analytical question raised by the motivating paper. Establishing the sign of the first Lyapunov coefficient, rather than only the existence of imaginary eigenvalues, distinguishes the emergence of a stable periodic orbit from an unstable one. The result supplies a concrete rigorous benchmark for the model and an exact interval for the onset parameter.
+Re-derived the exact polynomial vector field, positive coexistence branch p=1/delta(x), y=(5x-1)/(3(2-x)), K=1/(delta(r-delta*y)) on 1/5<x<1. The 8th-degree Routh determinant Q from original RESULT matches independent symbolic Jacobian computation. Original inspected verify_hopf.py computes a rational Sturm count of exactly one physical root, isolates x in (3381326771974,3381326771975)/10^13, and uses interval arithmetic to enclose a1,a2,a3>0, d(a1a2−a3)/dx>0 and Kprime<0. Independently evaluated x≈0.338132677197410, K≈1.66170734735366, eigenvalues −1.43939008 and ±0.17272326i; contracted second/third derivatives and spectral projection reproduce first Lyapunov coefficient −5.877089144686, within claimed rigorous interval (−5.877089159,−5.877089130). Negative coefficient and positive transversality justify a local supercritical Hopf attracting positive periodic orbit, not any global uniqueness or basin statement. An independent floating-point evaluation supplements but does not replace the inspected rational/interval certificate.
 
-**Limits.** Local statement for the two specified positive-payoff matrices and \(\beta=2\), with carrying capacity near the unique critical value. No global attractivity, absence of remote cycles, full parameter classification, or independent certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Cruz–Neves original study describes numerical Hopf evidence for precisely this positive payoff scenario and explicitly leaves a rigorous periodic-orbit proof unestablished. The new rational isolating interval, transverse crossing and negative first Lyapunov sign prove existence/stability, which the numerical plots and generic Hopf theorem alone do not imply. Priority remains limited to searched sources.
+
+## value
+
+PASS
+
+Converts a numerically indicated positive-coexistence Hopf into a rigorous local theorem for a biologically motivated three-dimensional replicator flow: unique physical Hopf candidate, validated crossing direction, sharp threshold and attracting positive periodic onset. The exact nondegeneracy certificate resolves a specific documented open analytical gap rather than a routine restatement of the Hopf theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

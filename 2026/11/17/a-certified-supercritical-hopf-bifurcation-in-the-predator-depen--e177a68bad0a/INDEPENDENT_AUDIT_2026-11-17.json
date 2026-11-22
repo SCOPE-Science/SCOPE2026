@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T11:59:50.224183Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Re-derived the exact polynomial vector field, positive coexistence branch p=1/delta(x), y=(5x-1)/(3(2-x)), K=1/(delta(r-delta*y)) on 1/5<x<1. The 8th-degree Routh determinant Q from original RESULT matches independent symbolic Jacobian computation. Original inspected verify_hopf.py computes a rational Sturm count of exactly one physical root, isolates x in (3381326771974,3381326771975)/10^13, and uses interval arithmetic to enclose a1,a2,a3>0, d(a1a2−a3)/dx>0 and Kprime<0. Independently evaluated x≈0.338132677197410, K≈1.66170734735366, eigenvalues −1.43939008 and ±0.17272326i; contracted second/third derivatives and spectral projection reproduce first Lyapunov coefficient −5.877089144686, within claimed rigorous interval (−5.877089159,−5.877089130). Negative coefficient and positive transversality justify a local supercritical Hopf attracting positive periodic orbit, not any global uniqueness or basin statement. An independent floating-point evaluation supplements but does not replace the inspected rational/interval certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic predator-dependent replicator dynamics and classical Hopf theorems lack a validated Lyapunov coefficient for these positive payoffs."
+        ],
+        "reasoning": "A general theorem supplies a criterion conditional on hypotheses, not a proof that the specific model satisfies them. Other indexed predator–prey oscillations use different systems/maps.",
+        "searches": [
+          "predator-dependent replicator two prey one predator positive payoff Hopf bifurcation Lyapunov cycle 1.6617",
+          "https://doi.org/10.1088/1751-8121/ac40e4",
+          "https://arxiv.org/abs/2607.13281"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2607.13281",
+        "https://www.researchgate.net/publication/410160623_Predator-dependent_replicator_dynamics_or_a_predator-prey_model_with_two_prey_types_and_frequency_dependence",
+        "https://doi.org/10.1088/1751-8121/ac40e4",
+        "predator-dependent replicator two prey one predator positive payoff Hopf bifurcation Lyapunov cycle 1.6617"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cruz–Neves explicitly distinguish numerical period indication from a rigorous cycle theorem.",
+          "The cubic normal-form coefficient is negative in the certified computation."
+        ],
+        "reasoning": "Prior model equations and bifurcation plots do not logically force a stable positive cycle. The current result verifies the missing strict hypotheses and applies the classical local Hopf theorem.",
+        "searches": [
+          "https://www.researchgate.net/publication/410160623_Predator-dependent_replicator_dynamics_or_a_predator-prey_model_with_two_prey_types_and_frequency_dependence",
+          "https://doi.org/10.1088/1751-8121/ac40e4",
+          "predator-dependent replicator two prey one predator positive payoff Hopf bifurcation Lyapunov cycle 1.6617"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The motivating paper's Scenario8 reports an apparent Hopf at carrying capacity about1.66, but not a validated normal-form coefficient or periodic-orbit theorem."
+        ],
+        "reasoning": "A numerically observed eigenvalue transition is not equivalent to rigorous nondegenerate supercritical Hopf conditions; both transversality and coefficient sign need separate confirmation.",
+        "searches": [
+          "predator-dependent replicator two prey one predator positive payoff Hopf bifurcation Lyapunov cycle 1.6617",
+          "https://arxiv.org/abs/2607.13281"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original Scenario8 provides numerical transition evidence rather than the exact 8th-degree Sturm threshold and coefficient interval."
+        ],
+        "reasoning": "No previously inspected table supplies the rational bracket and rigorous coefficient; indexed absence is not absolute novelty proof.",
+        "searches": [
+          "predator-dependent replicator two prey one predator positive payoff Hopf bifurcation Lyapunov cycle 1.6617",
+          "https://www.researchgate.net/publication/410160623_Predator-dependent_replicator_dynamics_or_a_predator-prey_model_with_two_prey_types_and_frequency_dependence"
+        ]
+      },
+      "rationale": "The Cruz–Neves original study describes numerical Hopf evidence for precisely this positive payoff scenario and explicitly leaves a rigorous periodic-orbit proof unestablished. The new rational isolating interval, transverse crossing and negative first Lyapunov sign prove existence/stability, which the numerical plots and generic Hopf theorem alone do not imply. Priority remains limited to searched sources.",
+      "residual_risks": [
+        "Direct independent high-precision floating point does not itself certify the interval enclosure; checked original interval algorithm is relied upon.",
+        "Historical searches cannot exclude other independent proof; original source is the strongest identified.",
+        "The conclusion is local, not a unique global attracting cycle or complete parameter classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No exact first Lyapunov or rigorous locally stable cycle theorem in the inspected text.",
+          "evidence": [
+            "Scenario8 numerical Hopf discussion around K=1.66",
+            "Discussion explicitly leaves periodic coexistence proof incomplete"
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/410160623_Predator-dependent_replicator_dynamics_or_a_predator-prey_model_with_two_prey_types_and_frequency_dependence",
+          "material_read": "Accessible full research text sections covering numerical Scenario8 bifurcation and closing discussion of unproved periodic coexistence",
+          "method": "Read public full-text rendering and compared the precise model and 1.66 transition",
+          "title": "Predator-dependent replicator dynamics or a predator-prey model with two prey types and frequency dependence",
+          "trigger": "Exact source of Scenario8 payoffs and claimed open Hopf calculation"
+        },
+        {
+          "assessment": "Different general formulation; not evidence of this exact payoff-specific Hopf sign.",
+          "evidence": [
+            "DOI:10.1088/1751-8121/ac40e4"
+          ],
+          "identifier_or_url": "https://doi.org/10.1088/1751-8121/ac40e4",
+          "material_read": "Bibliographic metadata and descriptions of general model, not verified full paper",
+          "method": "Read available public bibliographic/source material",
+          "title": "The predator-dependent replicator dynamics",
+          "trigger": "Earlier general replicator formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Converts a numerically indicated positive-coexistence Hopf into a rigorous local theorem for a biologically motivated three-dimensional replicator flow: unique physical Hopf candidate, validated crossing direction, sharp threshold and attracting positive periodic onset. The exact nondegeneracy certificate resolves a specific documented open analytical gap rather than a routine restatement of the Hopf theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Interval proof is an inspected program/certificate; independent numerical replication alone is not interval verification.",
+    "No global cycle uniqueness or maximal branch continuation."
+  ],
+  "schema_version": 1
+}
