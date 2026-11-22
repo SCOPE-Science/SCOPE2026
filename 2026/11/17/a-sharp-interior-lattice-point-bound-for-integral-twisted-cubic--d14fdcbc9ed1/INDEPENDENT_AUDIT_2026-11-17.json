@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T16:06:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The claim applies to any finite T⊂Z with at least four distinct integer parameters, in the standard (t,t²,t³) monomial lattice Z³, span L=maxT−minT≥3. Integer translation is a triangular unimodular change of lattice coordinates. For four ordered vertices with positive integer gaps x,y,z, the Vandermonde tetrahedral volume is V=xyz(x+y)(y+z)(x+y+z)/6, and projected (t,t²) quadrilateral area is A=(x+y)(x+z)(y+z)/2. From Fu Liu’s established dimension-three integral cyclic-polytope Ehrhart coefficients E(m)=1+Lm+Am²+Vm³, reciprocity yields I=V−A+L−1. Direct independent SymPy reconstruction gives a 48-term nonnegative integer polynomial D=6[I−2*binom(L−1,3)] after x=u+1,y=v+1,z=w+1, with v-independent part uw(positive polynomial) and every coefficient of v¹,...,v⁴ strictly positive. Thus I≥2 binom(L−1,3) for all positive gaps and equality exactly y=1 and (x=1 or z=1). Taking any four vertices of arbitrary T containing both endpoints gives an inscribed tetrahedron, whose interior integer points are interior to C3(T), proving the all-cardinality lower bound; hollowness forces L=3 and four consecutive parameters. The checker’s exact barycentric enumeration for seven small tetrahedra supplements the global polynomial certificate, not substitutes for it. Equalities for >4 vertices are deliberately not classified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "All-dimensional coefficient formula covers the family algebraically, but has no displayed sharp fixed-span extremal theorem in inspected passages.",
+          "General maximal lattice-free polyhedra classification uses much larger object class and different containment maximality criterion."
+        ],
+        "reasoning": "A broader class of polytopes or more general Ehrhart formula only covers the new claim if it yields this exact number and equality cases; no such implication found in the read primary theorem.",
+        "searches": [
+          "Resultary: integral cyclic polytope twisted cubic moment curve integer parameter interior lattice points hollow four vertices fixed span Ehrhart Liu",
+          "https://arxiv.org/pdf/math/0409337",
+          "https://arxiv.org/abs/1010.1077"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/math/0409337",
+        "https://arxiv.org/abs/2609.28417",
+        "https://arxiv.org/abs/1010.1077",
+        "Resultary query: Resultary: integral cyclic polytope twisted cubic moment curve integer parameter interior lattice points hollow four vertices fixed span Ehrhart Liu",
+        "Actual Git RESULT.md 1be8c38496d54f1571af1d4b091cbc1b19db3505 and verify.py b4e6764833a4174bc07ca45c6c5dd4ce8fb46a54"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Liu’s formula implies I as a function of x,y,z.",
+          "Obtaining I≥2binom(L−1,3) with equality iff y=1 and x=1 or z=1 additionally requires the globally nonnegative polynomial D and equality-factor analysis."
+        ],
+        "reasoning": "The proposed result is a nontrivial extremal consequence of known coefficients, not an unqualified claim that the Ehrhart formula is new. The original coefficient identity does not logically state the minimization without this extra inequality.",
+        "searches": [
+          "Resultary: integral cyclic polytope twisted cubic moment curve integer parameter interior lattice points hollow four vertices fixed span Ehrhart Liu",
+          "https://arxiv.org/pdf/math/0409337"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu: general Ehrhart coefficient formula for arbitrary integral cyclic polytopes; coefficients include V,A,L but no minimum over positive integer gap triples.",
+          "Konoike: averages of zonotope Ehrhart polynomials; source abstract confirms coefficient-oriented result."
+        ],
+        "reasoning": "Translated established Ehrhart formula to I(T)=V−A+L−1 and compared this to the new constrained optimization over gaps; a coefficient identity alone does not establish the positive polynomial inequality or equality branches.",
+        "searches": [
+          "Resultary: integral cyclic polytope twisted cubic moment curve integer parameter interior lattice points hollow four vertices fixed span Ehrhart Liu",
+          "https://arxiv.org/pdf/math/0409337",
+          "https://arxiv.org/abs/2609.28417"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected published table enumerates I_min(L)=2*binom(L−1,3) for every span or classifies the equality gap types.",
+          "Exact positive-coefficient certificate has 48 nonzero monomials and gives infinite rather than tabulated enumeration."
+        ],
+        "reasoning": "Finite generated numerical tables could support a conjecture but not automatically yield sharp all-L proof. Unindexed tables remain a priority risk.",
+        "searches": [
+          "Resultary: integral cyclic polytope twisted cubic moment curve integer parameter interior lattice points hollow four vertices fixed span Ehrhart Liu",
+          "https://arxiv.org/pdf/math/0409337",
+          "https://arxiv.org/abs/2609.28417"
+        ]
+      },
+      "rationale": "Fu Liu’s exact Ehrhart coefficient formula is prior and expressly used, not rediscovered. Accessible original arXiv:math/0409337 Theorem 1.2 provides coefficient data and general integral moment-curve theory but not the fixed-span extremal minimization, two endpoint-cluster minimizers, or global hollow classification in the inspected result. Konoike’s 2026 zonotope averaging and general lattice-free polyhedron results have broader objects but do not provide a displayed implication of the exact fixed-span bound. Resultary semantic search located the assigned current record, not an earlier exact table. Original full-text access to Konoike beyond abstract was limited; a lawful arXiv full-text request was unavailable and subsequent authorized institutional retrieval reported VPN disconnected, with no bypass/retry. Material inspected and this residual priority risk are explicit.",
+      "residual_risks": [
+        "Konoike 2026 full article unavailable in this run after failed arXiv full-text retrieval and authorized institutional access reporting VPN disconnected; no retry or bypass was performed, and a priority-dominating corollary may be unexamined.",
+        "Possible unindexed classification for integer moment-curve lattice-free tetrahedra; this is a residual priority risk, not automatic scientific failure.",
+        "Four-vertex equality only; no claim of all-cardinality equality classification or higher dimensions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established coefficient theorem fully credited; no explicit fixed-span optimization/equality/hollow corollary found in read theorem",
+          "evidence": "Coefficients L,A,V are inputs to the independent positive-gap polynomial proof.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0409337",
+          "material_read": "Primary 2004 PDF introductory statements, dimension-three coefficient specialization, and Theorem 1.2 (available full source; inspected theorem/page image)",
+          "method": "Read primary paper PDF text and relevant page image",
+          "title": "Ehrhart polynomials of cyclic polytopes",
+          "trigger": "Same integer moment curve and exact Ehrhart polynomial needed for correctness and priority"
+        },
+        {
+          "assessment": "Provides independent context for Liu coefficient formula; cannot assert whole-document noncoverage",
+          "evidence": "Full primary paper could still contain an optimization corollary, retained as residual originality risk. Institutional full-text retrieval reported VPN disconnected, so no assertion of full-paper inspection is made.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.28417",
+          "material_read": "Accessible abstract and indexed text only; full text was not obtained on attempted arXiv HTML/PDF route",
+          "method": "Read abstract/search snippets, NOT full paper",
+          "title": "Ehrhart polynomials of cyclic polytopes as averages of zonotope Ehrhart polynomials",
+          "trigger": "2026 likely related paper on exactly the same integral cyclic polytopes"
+        },
+        {
+          "assessment": "Not the same special family or fixed integer parameter-span problem; no full-document noncoverage claim",
+          "evidence": "Maximality in ambient class differs from an empty interior in a fixed moment-curve family.",
+          "identifier_or_url": "https://arxiv.org/abs/1010.1077",
+          "material_read": "Abstract/metadata description of maximal lattice-free polyhedra; not full text",
+          "method": "Scope-level comparison only",
+          "title": "Maximal lattice-free polyhedra: finiteness and an explicit description in dimension three",
+          "trigger": "Potential broader lattice-free geometry that might imply hollowness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Interior lattice-point count and hollowness are canonical invariants of the integral cyclic three-polytope family. A sharp uniform lower bound at fixed parameter span with fully determined tetrahedral equality configurations and all-cardinality hollow classification solves a naturally motivated infinite discrete extremal problem; it is not merely a finite table or restatement of Ehrhart coefficients.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/math/0409337",
+    "https://arxiv.org/abs/2609.28417",
+    "https://arxiv.org/abs/1010.1077",
+    "Resultary query: Resultary: integral cyclic polytope twisted cubic moment curve integer parameter interior lattice points hollow four vertices fixed span Ehrhart Liu",
+    "Actual Git RESULT.md 1be8c38496d54f1571af1d4b091cbc1b19db3505 and verify.py b4e6764833a4174bc07ca45c6c5dd4ce8fb46a54"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Konoike 2026 full article unavailable in this run after failed arXiv full-text retrieval and authorized institutional access reporting VPN disconnected; no retry or bypass was performed, and a priority-dominating corollary may be unexamined.",
+    "Possible unindexed classification for integer moment-curve lattice-free tetrahedra; this is a residual priority risk, not automatic scientific failure.",
+    "Four-vertex equality only; no claim of all-cardinality equality classification or higher dimensions.",
+    "Best-of-knowledge literature priority, not external certification. Checked analytic infinite claims independently from finite diagnostic computations; no other records or old science silently validated.",
+    "Public package privacy unresolved; not_ready is a publication transport block, not a scientific FAIL."
+  ],
+  "schema_version": 1
+}
