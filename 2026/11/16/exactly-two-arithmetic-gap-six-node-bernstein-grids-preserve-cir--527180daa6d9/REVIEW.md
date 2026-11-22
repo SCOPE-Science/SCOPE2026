@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is an if-and-only-if classification over the whole real interval \(0<t<\pi/4\). The proof first expresses every output cosine coefficient in terms of three exact endpoint derivatives; it includes the zero Fourier mode, which is indispensable here. Irrational parameters are excluded by density of even-input phases; all but five reduced rational denominators are excluded by a forbidden root-of-unity arc; then two explicit third-harmonic witnesses eliminate the remaining non-survivors. Sufficiency for both survivor grids is reduced, using exact periodicity in the input degree and a concave quadratic in the squared output frequency, to a finite rational-interval certificate. The decoded `CHECK.py` covers all residue classes and checks exact strict signs using elementary algebraic intervals, not floating-point tests. The proof includes all input frequencies and all output frequencies, rather than extrapolating a finite enumeration.
+## correctness
 
-## Originality — PASS, provisionally
-Otten–Nguyen–Watts (2026) prove the uniform-grid result for every degree; this covers the \(\pi/5\) survivor but not the distinct \(\pi/6\) grid or completeness over all real center-gap parameters. The published lower-degree variable-node classification covers degrees two and three. A separate accessible degree-four claim concerns five nodes rather than this degree-five six-node family and does not imply it. Searches for sixth-node reflected arithmetic grids, positive-definite Bernstein knot deformations, degree-five Fourier coefficient positivity and the specific \(\pi/6\) grid yielded no statement with equivalent or dominating coverage. Residual risk: older approximation-theory or covariance-kernel literature could encode the same node family under different terminology; research searches are not a proof of publication priority.
+PASS
 
-## Mathematical value — PASS
-The natural one-parameter reflected arithmetic-gap deformation has a complete and unexpectedly discrete positivity-preservation set: one known uniform and one genuinely nonuniform member. This is not merely a routine additional example: the proof rules out *every other real gap*, including irrational gaps, by distinct arithmetic and harmonic obstructions, while certifying the exceptional survivor for every Fourier frequency. It sharpens understanding of how robust Bernstein positivity preservation is to geometrically natural node perturbations. No claim is made about arbitrary six-node grids.
+PASS: Tested basis functions cos(m theta) with nonnegative cosine coefficient necessity/sufficiency; reflection P_m(1-u)=(-1)^mP_m(u) enforces k parity. Integrated degree-five Bernstein polynomial by parts yielding coefficient -(4/X³)(p1 X²-p3 X+p5), X=(pi k)² with p1=5(a-1), p3=60[((-1)^m-3)b+3a-1], p5=240(-1+5a-10b) for odd m, zero for even. Independently expanded symbolic Bernstein basis to check endpoint derivatives; source CHECK.py is a genuine rational interval proof for all m mod 2q, q=5 or6 and all admissible k by concavity/monotone tail. For arbitrary irrational t even m=2h forces zero coefficient (2/3)(1+cos2ht+cos4ht), negative at cos2ht in (-1/2,0); dense rotations exclude. Rational reduced denominators p>=13 have root spacing strictly below forbidden arc pi/6; direct 7,10,11 exclusions and remaining 8,9,12 candidates removed via explicit k3 witnesses. These steps cover all t, not just finite sampled inputs.
 
-## Closest literature, checks, and limitations
-Primary source: M. Otten, N. Nguyen and T. W. Watts, *Preservation of Positive-Definiteness by Bernstein Operators on the Circle*, arXiv:2608.04836, 2026-08-05; full publicly accessible HTML-text reproduction inspected. Low-degree public mathematical record: *Quadratic rigidity and cubic node freedom for positive-definite Bernstein interpolation on the circle*, record b87f6c90a4aa, 2026-11-02; its public result summary covers only degree two and three. Exact-arithmetic certificate uses the real interval \(0<t<\pi/4\) and all Fourier modes, but the structural theorem is intentionally limited to this one-parameter family. Independent review has not been performed, and publication priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best-of-knowledge: targeted Resultary, relevant published research and primary mathematical comparisons did not show claim coverage; overlap and residual risks separately specified.
+
+## value
+
+PASS
+
+PASS: Exact continuum classification in a natural nonuniform degree-five Bernstein deformation exposes a second exceptional positive-definite-preserving grid (pi/6) absent from classical equispaced theorem; its root-of-unity obstruction explains rigidity and is useful in covariance-preserving interpolation design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

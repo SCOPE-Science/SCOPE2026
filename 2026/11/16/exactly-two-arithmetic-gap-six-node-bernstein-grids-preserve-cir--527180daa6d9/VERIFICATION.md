@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-Execute `python3 CHECK.py` with the Python 3 standard library. The checker performs **49 exact rational-interval sign assertions** (plus elementary algebraic interval and pi-bound assertions), prints an `EXACT_RATIONAL_INTERVAL_CHECK_OK` marker, and has no stochastic component or external dependencies. Its intervals for \(\sqrt3\), \(\sqrt5\), and \(\pi^2\) are enclosing rational intervals. The bound for \(\pi\) is derived by Machin's identity and alternating arctangent bounds.
+## correctness
 
-The finite signs cover all \(m\bmod 2q\) for both \(q=5\) and \(q=6\), the first and third odd Fourier modes, the derivative monotonicity that covers every larger odd frequency, the even-frequency monotonicity, the forbidden small-gap mode, and the exact remaining rational exception. They do **not** certify the general positive-type reduction, roots-of-unity exhaustiveness, or endpoint integration formula mechanically. Those steps are proved analytically in `RESULT.md` and were checked as mathematical arguments. Numerical checks alone would not prove an all-frequency statement.
+PASS
 
-The theorem does not classify all possible six-node grids or strictly positive-definite outputs. Novelty is relative to inspected scientific evidence; independent audit and external validation have not been performed.
+PASS: Tested basis functions cos(m theta) with nonnegative cosine coefficient necessity/sufficiency; reflection P_m(1-u)=(-1)^mP_m(u) enforces k parity. Integrated degree-five Bernstein polynomial by parts yielding coefficient -(4/X³)(p1 X²-p3 X+p5), X=(pi k)² with p1=5(a-1), p3=60[((-1)^m-3)b+3a-1], p5=240(-1+5a-10b) for odd m, zero for even. Independently expanded symbolic Bernstein basis to check endpoint derivatives; source CHECK.py is a genuine rational interval proof for all m mod 2q, q=5 or6 and all admissible k by concavity/monotone tail. For arbitrary irrational t even m=2h forces zero coefficient (2/3)(1+cos2ht+cos4ht), negative at cos2ht in (-1/2,0); dense rotations exclude. Rational reduced denominators p>=13 have root spacing strictly below forbidden arc pi/6; direct 7,10,11 exclusions and remaining 8,9,12 candidates removed via explicit k3 witnesses. These steps cover all t, not just finite sampled inputs.
+
+## originality
+
+PASS
+
+PASS, best-of-knowledge: targeted Resultary, relevant published research and primary mathematical comparisons did not show claim coverage; overlap and residual risks separately specified.
+
+## value
+
+PASS
+
+PASS: Exact continuum classification in a natural nonuniform degree-five Bernstein deformation exposes a second exceptional positive-definite-preserving grid (pi/6) absent from classical equispaced theorem; its root-of-unity obstruction explains rigidity and is useful in covariance-preserving interpolation design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
