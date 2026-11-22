@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The statement includes exact positive rates, leakage, single-input dynamics and all dimensions. The transfer-function partial-fraction representation and Cauchy determinant identity yield the exact Gramian determinant, including repeated rates by continuity. Boundary extension, rearrangement and first derivatives prove interior strict order. A uniform strong-damping expansion and a weak-damping compactness bound prove the two sharp limits. Log-sum-exp strict convexity gives uniqueness of the weak-damping limiting vector. The packaged pure-Python verifier reproduced 125 exact rational identities/exchanges; this is a check, not the proof of the infinite-family statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Summers–Cortesi–Lygeros arXiv:1404.7665 uses log determinant as a monotone submodular objective for selecting actuators at fixed network dynamics.",
+        "Becker et al. arXiv:1902.04195 optimizes network weights for different spectral Gramian constraints via bilinear relaxations.",
+        "Indexed public result: Horizon-universal spectral majorization for a damped cyclic actuator (2026): directed ring input placement, not edge allocation on a leaky directed path.",
+        "Indexed public result: Exact priced spectral-abscissa design on a one-way three-state cycle (2026): mixing spectral abscissa, not Gramian determinant."
+      ],
+      "reasoning": "The larger model class in the edge-design paper is algorithmic, not an analytic theorem dominating this all-dimension optimum; actuator-set and cyclic-chain results have different free variables or objective. No inspected result asserts the universal strict order or the small-leakage singular concentration law.",
+      "searches": [
+        "weak damping optimal upstream concentration w1 all budget downstream rates proportional damping D optimal controllability directed path",
+        "strong damping optimal edge rates directed cascade w_i proportional n minus i controllability Gramian determinant",
+        "feedforward chain controllability volume budget rate allocation",
+        "one directional mass transfer Markov chain Gramian volume edge rate budget optimization",
+        "arxiv:1404.7665",
+        "arxiv:1902.04195"
+      ]
+    },
+    "checked_sources": [
+      "Pasqualetti, Zampieri and Bullo, arXiv:1308.1201 (full PDF inspected)",
+      "Summers, Cortesi and Lygeros, arXiv:1404.7665 (full PDF inspected)",
+      "Becker, Pequito, Pappas and Preciado, arXiv:1902.04195 (full PDF inspected)",
+      "Published mathematical-index summaries: matched summaries for directed-ring controllability, cyclic spectral-abscissa rate design, causal-exponential Gram-volume, and fixed-chain mixing, with implication checks based on differing optimized objects",
+      "Accessible past mathematical finding claims, including a symmetric three-node star edge allocation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1308.1201 bounds network controllability energy under control-node choices, including symmetric-network limitations; it supplies no constrained feedforward log-volume optimum.",
+        "arXiv:1404.7665 addresses log-determinant objective when control actuator sets change, not rate allocations in the dynamics.",
+        "arXiv:1902.04195 evaluates edge-weight design under least-eigenvalue and inverse-trace conditions, without the claimed determinant budget concentration.",
+        "A preexisting three-node *undirected* Laplacian-star D-optimal conductance theorem solves a different symmetric dynamics with reversible links and a hub input; the new theorem concerns a one-way, leak-coupled feedforward chain in arbitrary dimension. The weak-damping rate constant even for three nodes differs, and the earlier statement cannot imply the stated all-dimensional scaling and strict upstream ordering."
+      ],
+      "reasoning": "The general Gramian setup and logdet criterion are older, but the cited theorems do not have hypotheses giving this maximization as a corollary. The closest rate-budget designs optimize different functions; in particular prior undirected 3-vertex star asymptotics cannot imply this directed all-n concentration. This supports best-evidence originality, not a guarantee about unindexed prior art.",
+      "searches": [
+        "exact determinant controllability Gramian directed leaky chain Cauchy product formula allocate edge weights sum budget logdet",
+        "directed path infinite horizon controllability Gramian determinant max fixed sum rates strong weak shift",
+        "feedforward chain controllability volume budget rate allocation",
+        "arxiv:1308.1201",
+        "arxiv:1404.7665",
+        "arxiv:1902.04195"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pasqualetti–Zampieri–Bullo arXiv:1308.1201 presents network controllability metrics, control-node selection and energy bounds.",
+        "Becker–Pequito–Pappas–Preciado arXiv:1902.04195 uses feasible edge-weight polytopes and Gramian eigenvalue/inverse-trace constraints, not this explicit log-determinant allocation law.",
+        "The Cauchy determinant and impulse-response expansion are classical and are expressly not claimed original."
+      ],
+      "reasoning": "Equivalent formulations examined included log-determinant reachability volume, one-input infinite-horizon Lyapunov design, directed birth/transport chains, and Cauchy-Gram determinant factorization. The matrix-identity step is standard algebra, but the fixed total-rate constrained optimum and its two asymptotic allocations do not follow from the cited general metrics, algorithmic feasible designs, or Cauchy formula alone.",
+      "searches": [
+        "exact determinant controllability Gramian directed leaky chain Cauchy product formula allocate edge weights sum budget logdet",
+        "directed path infinite horizon controllability Gramian determinant max fixed sum rates strong weak shift",
+        "\"controllability Gramian\" determinant \"directed path\" optimized rates weak damping budget every dimension",
+        "arxiv:1308.1201",
+        "arxiv:1902.04195"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A semantic search of published mathematical result summaries returned a causal exponential Cauchy-Gram volume theorem, but that item optimizes choices of contrasts for fixed time constants, not edge-rate budgets with upstream diagonal losses.",
+        "A published undirected three-vertex star controllability-volume allocation has a different symmetric generator and different small-leakage constant.",
+        "No searched mathematical records provided a table or formula for the \\(n\\)-stage feedforward optimal \\(c_i\\) vector."
+      ],
+      "reasoning": "The new coefficients form an intrinsic uniquely optimized limiting vector in every dimension, not a restatement of a database entry. Indexed absence is not used as a uniqueness or novelty proof; related search hits were checked by object and objective.",
+      "searches": [
+        "exact determinant controllability Gramian directed leaky chain Cauchy product formula allocate edge weights sum budget logdet",
+        "weak damping optimal upstream concentration w1 all budget downstream rates proportional damping D optimal controllability directed path",
+        "strong damping optimal edge rates directed cascade w_i proportional n minus i controllability Gramian determinant",
+        "three node directed cascade edge rate budget D optimal controllability Gramian determinant optimized feedforward system",
+        "positive stable feedforward lower bidiagonal dynamics controllability Gramian Cauchy determinant exponents rate allocation"
+      ]
+    },
+    "rationale": "Best-evidence comparison of the exact assertion against accessible past finding claims, semantic result queries and materially inspected primary literature found general Gramian criteria, actuator selection and alternative edge-weight objectives, but not the all-dimension D-volume rate allocation, its uniquely determined weak-damping constants or sharp power-law improvement. Classical Cauchy algebra is credited. The unindexed/partly inaccessible literature priority risk remains genuine.",
+    "residual_risks": [
+      "The exact Cauchy determinant factorization could occur in older control/linear-systems literature; originality concerns the solved rate-budget optimization, not the factorization alone.",
+      "A mathematically equivalent rate-allocation theorem could exist in unindexed dissertations or unsearched language variants.",
+      "Published result summaries for some recent mathematical comparisons were not full texts, so no whole-document non-coverage is asserted for those records.",
+      "No independent publication-priority assessment has been undertaken."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes background controllability metric, not exact constrained forward-chain edge-allocation theorem.",
+        "evidence": [
+          "arXiv:1308.1201, 2013, especially definitions and energy bounds in early sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1308.1201",
+        "material_read": "Open-access full-text PDF and its sections on the Gramian metric, control-node selection and symmetric networks; inspected page images and extracted mathematical passages.",
+        "method": "Primary PDF review of model, objectives and conclusions, with targeted searches in extracted text.",
+        "title": "Controllability Metrics, Limitations and Algorithms for Complex Networks",
+        "trigger": "Oldest directly relevant public source defining Gramian controllability metrics and network energy tradeoffs."
+      },
+      {
+        "assessment": "Optimizes actuator selection on fixed dynamics; does not cover tuning transition rates with a fixed sum.",
+        "evidence": [
+          "arXiv:1404.7665, logdet submodularity and actuator-set formulations"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1404.7665",
+        "material_read": "Open-access full-text PDF; inspected introduction, log-determinant objective and actuator-set submodularity propositions, with page images.",
+        "method": "Primary PDF inspection and objective-variable comparison.",
+        "title": "On Submodularity and Controllability in Complex Dynamical Networks",
+        "trigger": "Possible stronger log-determinant theorem for controllability volume."
+      },
+      {
+        "assessment": "Its main constraints are least Gramian eigenvalue and inverse-Gramian trace, treated through optimization relaxations; not an explicit D-optimal continuous-time chain law.",
+        "evidence": [
+          "arXiv:1902.04195, abstract and edge-design problem setup; no matching analytic volume-optimal feedforward result in the material inspected"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1902.04195",
+        "material_read": "Open-access full-text PDF; read abstract, introduction, design formulations, and searched for determinant/log-determinant; inspected page images.",
+        "method": "Primary full-text objective and theorem comparison.",
+        "title": "Network Design for Controllability Metrics",
+        "trigger": "Directly related edge-weight design for controllability measures."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "153d78b0-1575-48b4-abbb-67bdf3e1a327",
+  "value": {
+    "rationale": "A finite network-rate budget and single upstream control create a natural but nontrivial D-optimal network-design question. Exact upstream ordering for all damping levels, two incompatible asymptotic allocation profiles and a unique all-dimension leakage-scaled vector reveal a structural rate-concentration effect. The optimal determinant scales like leakage to power -(n-1), in contrast with power -1 for any fixed positive rates. This is a substantive all-dimensional design law, although maximizing determinant alone does not ensure favorable least-eigenvalue control energy or robustness.",
+    "status": "PASS"
+  }
+}
