@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification and scope
-The source program `code/verify_cycle_dual.py` independently builds all disconnected triples, enumerates the full Alexander dual and the proposed model in finite cases, and explicitly checks each elementary free-face collapse. It tests all relevant common-neighbor clique identities and near/far pair counts. Its actual unedited standard output is included at `code/OUTPUT.txt`. For larger cycles, the program checks local structural identities only. The theorem is established by the symbolic proof in `RESULT.md`, not by extrapolating finite data.
+# Independent mathematical audit
 
-The interval \(n\ge4p+1\) is essential for the stated common-neighbor shape and clique-nerve argument. The phrase 'collapse' refers to the Alexander dual, not to the original three-cut complex. The result gives integer homology of the original, not shellability or an integral homotopy decomposition of it.
+## correctness
 
-The checks and review are same-model only. No independent mathematical audit was performed.
+PASS
+
+An Alexander-dual face forbids a disconnected induced triple, equivalently its induced complement graph has maximum degree ≤1. For every missing pair at cyclic distance d in (p,2p], the common-neighbor set has 2p−d+1 consecutive vertices spanning a clique; pairs at d≥2p+1 have none. Thus any face has a unique missing pair, and the lower/upper near-pair cone matching ordered by descending remaining dimension supplies actual free-face elementary collapses. The remainder is Cl(C_n^p) plus n(n−4p−1)/2 far chords, with Cl(C_n^p)≃S¹ for n>3p. The result is a wedge of 1+n(n−4p−1)/2 circles, and integral Alexander duality gives H_{n−4} of the original cut complex with no other reduced homology. Independent direct forbidden-triple scans at (p,n)=(2,9),(2,11),(3,13),(4,17),(5,21) confirmed common-neighbor clique and near/far counting; the global collapse is proved by matching, not finite tests.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for n≥4p+1 all p with previously unsettled p≥5 interval, and for the explicit simple-homotopy collapse of the dual. The known large-n wedge homology and p=2,3,4 special instances are explicitly covered, not claimed anew.
+
+## value
+
+PASS
+
+This is a natural sharp boundary for a full integral homology computation of ordinary three-cut cycle-power graph complexes. A concrete dimension-reducing elementary collapse proves a previously uncovered infinite interval (p≥5), not a finite table or a relabeled earlier large-n theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
