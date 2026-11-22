@@ -1,0 +1,163 @@
+{
+  "correctness": {
+    "rationale": "Direct all-modulus proof: three-counter recurrences; parity invariant; generation of every admissible residue pair by (1,1),(2,4) even with strictly separated ones and either ending letter; zero-padding simulation by T0^m=id and finite inverse transformations; explicit accepted/rejected suffixes for unequal triples and last flags; one sink. Independent finite checker minimizes moduli 2..14 and checks direct triple positions for all binary inputs of length <=14. No finite experiment is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026-11-08 unrestricted scattered-010 output complexity: m^3/gcd(m,2), explicitly says it does not imply a Boolean single-residue language result.",
+        "Kovačević–Vukobratović arXiv:2105.04617 analyzes runlength sequence capacity, Hamming weights, run counts and applications, not exact modular DFA minimality.",
+        "Černý 2010 develops formal power-series and Parikh-map machinery; its text does not state the restricted modular state formula."
+      ],
+      "reasoning": "A generic product of an unrestricted counter machine with an adjacency flag gives an upper bound, not a Myhill–Nerode lower bound, nor preservation of the full orbit when 11 is forbidden. The new proof independently supplies both. The general Parikh-mapping construction gives representation mechanisms rather than this minimal Boolean count.",
+      "searches": [
+        "modular alternating triple output m^3 gcd parity zero target DFA",
+        "runlength limited binary words 010 scattered subsequence modular counter state count",
+        "https://arxiv.org/pdf/2105.04617",
+        "https://www.numdam.org/article/ITA_2010__44_2_209_0.pdf",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-output-state-complexity-for-modular-alternating-scattered--f8d46c1509db"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2105.04617 (2021-05-10); source and full text",
+      "arxiv:1804.11175 (2018), full PDF",
+      "Černý 2010 DOI:10.1051/ita/2009021, full PDF",
+      "public published-finding corpus record f8d46c1509db (2026-11-08), full RESULT.md",
+      "Alazemi–Černý 2011 DOI:10.1142/S0129054111008817 abstract only",
+      "arxiv:2610.06717 (2026-10-05) abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The inspected RESULT.md of the 2026 unrestricted Moore paper proves residue-output state count m^3/gcd(m,2) and explicitly excludes single-residue Boolean minimal-DFA claims.",
+        "Colbourn et al. 2018 count contiguous factor occurrences in equality/inequality languages, rather than modular scattered 010 subject to forbidden 11.",
+        "The 2011 trie-automaton paper abstract concerns a general NFA/matrix representation of scattered counts; its full text was inaccessible."
+      ],
+      "reasoning": "Even the stronger unrestricted Moore machine theorem does not logically give the Boolean zero-residue language under 11 avoidance: arbitrary Moore-distinguishing suffixes may not be legal and output difference need not distinguish membership in residue zero. The new safe-zero simulation and explicit zero-target suffixes establish exactly those missing statements. An inaccessible general NFA construction remains a residual risk, not evidence of coverage.",
+      "searches": [
+        "modular alternating triple output m^3 gcd parity zero target DFA",
+        "exact minimal DFA counting forbidden pattern overlaps modular m and no consecutive ones",
+        "Exact output-state complexity for modular alternating scattered triples",
+        "Counting Subwords and Regular Languages 1804.11175",
+        "Counting Subwords Using a Trie Automaton 2011"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Complementing binary letters maps 010 with no 11 to 101 with no 00, preserving subsequence occurrence multiplicities and state count.",
+        "The inspected unrestricted 010 Moore result also covers 101 by complementation, but does not add the local forbidden factor."
+      ],
+      "reasoning": "The letter-complement variant is an equivalent reformulation of this one claim, not a second contribution. Neither searched dual wording nor the directly inspected unconstrained Moore theorem provides the exact restricted Boolean quotient.",
+      "searches": [
+        "no consecutive ones modular scattered 010 101 state complexity",
+        "pattern 101 with forbidden 00 modulo m finite automaton",
+        "forbidden 11 modular scattered 010 exact minimal automaton m^3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual semantic matches included published unrestricted 010 output-state count, modular 0011 count, and scattered zero-power-one modular automata; none of the recovered summaries states the conjunction no 11 and target-zero 010 minimal DFA count.",
+        "Own accessible current-week ledger was compared by statement and parameters; closest local records concern 001 under a run cap and distinct-subsequence counting without 11, not the 010-count language."
+      ],
+      "reasoning": "No exact table or indexed claim returning 2m^3/gcd(m,2)+1 for this language was found. Lack of a table by itself is not proof of originality; the decisive source comparisons are stated in the other checks.",
+      "searches": [
+        "forbidden 11 modular scattered 010 exact minimal automaton m^3",
+        "no consecutive ones modular scattered 010 101 state complexity",
+        "runlength limited binary words 010 scattered subsequence modular counter state count",
+        "exact state complexity modular scattered 010 forbidden 11",
+        "no adjacent ones Parikh 010 modulo m automaton"
+      ]
+    },
+    "rationale": "The closest fully read published theorem yields a Moore output-state count for unrestricted scattered 010 but explicitly does not prove Boolean minimality. A 2021 constrained-sequence capacity paper and earlier Parikh-mapping works do not state the local-constraint modular quotient. The claim requires new safe simulation under no 11 and a zero-residue distinguishing lower bound. Historical-priority risk from inaccessible texts is recorded, not suppressed.",
+    "residual_risks": [
+      "Full text of Alazemi–Černý (2011) was unavailable, though its accessible abstract does not suggest exact modular minimal-state results.",
+      "Full text of Fazekas–Huang–Mercaş arXiv:2610.06717 could not be retrieved; available abstract addresses different subsequence universality objectives.",
+      "Unindexed equivalent or later published work may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Unrestricted Moore-output complexity established; restricted zero-residue Boolean minimal DFA not asserted",
+        "evidence": [
+          "Theorem computes m^3/gcd(m,2) distinct output-signatures; limitations explicitly disavow fixed Boolean residue minimality.",
+          "No forbidden-factor condition is present."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-output-state-complexity-for-modular-alternating-scattered--f8d46c1509db",
+        "material_read": "Complete public RESULT.md: statement, all proof steps, verification, relationship and limitations",
+        "method": "Public repository file read; comparison of right-congruence and output model",
+        "title": "Exact output-state complexity for modular alternating scattered triples",
+        "trigger": "Closest same scattered pattern and modular orbit cardinality"
+      },
+      {
+        "assessment": "Studies capacities and typicality of runlength-limited sequences; does not state minimal modular scattered-triple DFA result",
+        "evidence": [
+          "Abstract, Section I and Section II outline enumerate rate/weight/run-count questions.",
+          "No subsequence-counting automaton theorem in the examined material."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2105.04617",
+        "material_read": "Full-text page 1 introduction and abstract, page 2 definitions and main results, targeted full-text searches and paper section outline",
+        "method": "Lawful arXiv PDF reading, page-image inspection and text section search",
+        "title": "Asymptotic Behavior and Typicality Properties of Runlength-Limited Sequences",
+        "trigger": "Guiding source for physically constrained sequences and code systems"
+      },
+      {
+        "assessment": "General construction and ambiguity results, but no exact restricted-modular Boolean minimization identified",
+        "evidence": [
+          "Abstract: formal-power-series unification of Parikh mappings and binary amiability; theorem focus is matrix inversion.",
+          "No occurrence of a modular minimal-state theorem in targeted text search."
+        ],
+        "identifier_or_url": "https://www.numdam.org/article/ITA_2010__44_2_209_0.pdf",
+        "material_read": "Introduction and definitions; sections on algebraic inverse and factorial languages; Section 4 on ambiguity; targeted searches for modular/minimal automata",
+        "method": "Open-access full PDF text ranges and page images",
+        "title": "Generalizations of Parikh Mappings",
+        "trigger": "Foundational algebraic generalization directly involving scattered subword statistics"
+      },
+      {
+        "assessment": "Contiguous-factor count comparisons, not modular scattered 010 on no-11 words",
+        "evidence": [
+          "Definition |w|_y explicitly counts contiguous occurrences, possibly overlapping.",
+          "Main languages compare two such counts by equality or order."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1804.11175",
+        "material_read": "Full abstract/introduction, stated principal problems, automata construction and main theorem section; page images",
+        "method": "Open arXiv PDF inspected and searched by content",
+        "title": "Counting Subwords and Regular Languages",
+        "trigger": "Close title and automata/counting terminology"
+      },
+      {
+        "assessment": "A general counting NFA/matrix construction is described; full-text coverage comparison unresolved",
+        "evidence": [
+          "Abstract says each trie-automaton computation counts an occurrence of a subword from a prefix-closed language.",
+          "No minimal zero-residue DFA state count is asserted in accessible abstract, which is insufficient for whole-document noncoverage."
+        ],
+        "identifier_or_url": "https://doi.org/10.1142/S0129054111008817",
+        "material_read": "Publisher/university bibliographic page and abstract only; full text unavailable",
+        "method": "Public publisher and university abstracts plus search for an accessible preprint; full text not retrieved",
+        "title": "Counting Subwords Using a Trie Automaton",
+        "trigger": "Possible general framework for the exact scattered-count automaton"
+      },
+      {
+        "assessment": "Focus on universality of fixed three-statistic fibers and pattern containment probabilities; full-text priority risk remains",
+        "evidence": [
+          "Abstract explicitly states existential/universal subsequence universality and approximation algorithms.",
+          "No modular counter DFA claim in available abstract; not treated as full-text noncoverage."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.06717",
+        "material_read": "arXiv abstract, verified date, and accessible metadata; full PDF not retrieved",
+        "method": "Public arXiv entry and secondary abstract retrieval",
+        "title": "Subsequence Analysis Problems for Binary Parikh Matrices",
+        "trigger": "Recent work sharing binary Parikh/counting objects"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "721b1c01-a04c-404d-ab61-064a3b0e6d17",
+  "value": {
+    "rationale": "Exact natural all-modulus deterministic memory requirement under an important local run constraint and a global scattered-subsequence statistic. It proves the full modular counter orbit survives no-11 avoidance and that every orbit point has precisely two Boolean-distinguishable boundary classes, including a parity-sensitive factor-of-two reduction for even moduli. This structurally motivated infinite family goes beyond a product upper bound and has direct finite-state decoder relevance.",
+    "status": "PASS"
+  }
+}
