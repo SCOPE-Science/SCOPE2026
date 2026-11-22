@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For every finite pointed G-set, each transitive source orbit has exactly h_ij equivariant maps to a target orbit. A transitive G-map onto a different type strictly decreases orbit size, so a cycle must stay in one isotypic component. Nilpotence is equivalent to acyclicity of those components. Each component is a rooted labeled forest with R_i external exits and w_i choices per internal edge; the reduced directed Laplacian determinant R_i(R_i+m_i w_i)^(m_i-1) yields the claimed product. For same-type and distinct-type two-orbit probes the formulas 1+2w and 1+h_ij+h_ji follow. Strict size descent or equal-size no-map condition permits orientation recovery, hence the table of marks. The standalone checker independently enumerates point maps, iterates them to zero for C2,C3,C4,S3,V4, and reconstructs the S3 mark table; it is finite corroboration, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2503.03772 gives unrestricted |End_G(X)| and unit/elementary-collapse counts; restriction to acyclic functional orbit graphs is not evaluated.",
+        "arxiv:2503.14511 considers Green relation structure, not the count of maps powering to a basepoint.",
+        "Published and indexed homogeneous commuting-retraction results cover a different property, and do not supply the full mixed-type inverse theorem."
+      ],
+      "reasoning": "Explicitly tested whether broader monoid-cardinality or regularity/Green-class results imply an exact nilpotent subcount. They do not provide the cycle-avoidance weighting; specialization is not a direct corollary of an unrestricted total. General weighted forest theorems are acknowledged as a possible broader combinatorial umbrella, and are not claimed new.",
+      "searches": [
+        "finite group actions retractions centralizers and idempotent endomorphism monoid",
+        "number of nilpotent endomorphisms of finite pointed G-sets and orbit-type product",
+        "arxiv:2503.03772 Theorems 5, 7 and 9",
+        "arxiv:2503.14511 Green relations"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2203.12158v3",
+      "arxiv:2503.03772",
+      "arxiv:2503.14511",
+      "GAP Reference Manual Chapter 70",
+      "published-finding corpus: 2026/10/25/SCOPE-simultaneous-untwisting-of-commuting-retractions-on-homogeneous--19779e27b698",
+      "published-finding corpus: 2026/11/2/SCOPE-rank-enumeration-and-minimum-retraction-size-in-permutation-cent--46b24971b86b",
+      "own recoverable finding a33adbe2-597b-4624-94db-aa5ef466bbe6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 paper proves existence/count of equivariant orbit maps, but its main result is relative rank of a monoid.",
+        "The 2025 cardinality theorem product counts all equivariant maps; its factors include cyclic orbit maps and do not determine acyclic subcounts without a separate forest analysis.",
+        "published-finding corpus exact regular-element profile a33adbe2-597b-4624-94db-aa5ef466bbe6 is a different map subset and does not establish the two-orbit table-of-marks inverse."
+      ],
+      "reasoning": "The critical added steps are a precise global orbit-cycle equivalence, blockwise forest determinant, and orientation recovery for two-orbit probes. Each is stated and proved. No inspected source states a stronger result obviously implying all these steps. Historical priority is not certified.",
+      "searches": [
+        "arxiv:2203.12158v3 full paper Lemma 3 and Proposition 9",
+        "arxiv:2503.03772 full-text Theorem 5",
+        "arxiv:2503.14511 full text Green classes",
+        "published-finding corpus: nilpotent equivariant transformations G-sets, weighted Cayley trees orbit stabilizers"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Each pointed map is a colored orbit-functional graph, and nilpotence means every path reaches the distinguished basepoint. Its acyclic internal blocks are rooted directed forests with edge weights h_{ii} and exit weight R_i.",
+        "arxiv:2203.12158 identifies equivariant orbit restrictions but does not enumerate such colored rooted forests."
+      ],
+      "reasoning": "Compared the nilpotence condition with acyclic functional digraphs, rooted forests, wreath-product transformation structures, and stabilizer-quotient orders. No inspected exact theorem states the mixed-type R_i(R_i+m_i w_i)^(m_i-1) factor or the two-orbit inverse. Potential generic tree-enumeration implication remains a residual risk.",
+      "searches": [
+        "nilpotent equivariant transformations G-sets, weighted Cayley trees orbit stabilizers",
+        "nilpotent maps of wreath product of transformation monoid with group zero",
+        "web: \"nilpotent\" \"equivariant\" \"endomorphisms\" \"G-set\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "GAP Chapter 70 defines the marks |(G/K)^H| and supplies existing fixed-point tables.",
+        "The new assertion recovers each entry from labeled two-orbit nilpotent endomorphism counts; it does not claim new numerical marks of any particular group.",
+        "The full S3 table was recovered independently by 10 two-orbit probes with a direct point-map checker."
+      ],
+      "reasoning": "Checked whether a database already contains the same invariant: group tables of marks tabulate fixed-point numbers, not the nilpotent-map reconstruction principle or universal forest product. Recomputing known S3 marks is only a verification example, not the research claim.",
+      "searches": [
+        "web: \"table of marks\" \"nilpotent\" \"G-set\"",
+        "GAP Reference Manual Chapter 70 Tables of Marks",
+        "idempotent equivariant maps on finite G-sets: retraction ranks image distributions and weighted orbit-type posets"
+      ]
+    },
+    "rationale": "Primary full texts on the orbit structure (2022), unrestricted equivariant-map counts (2025), and Green relations (2025) were compared at the statement/implication level; none of the inspected results states or directly entails the mixed-isotypic nilpotent forest product together with inverse recovery of the table of marks. Prior indexed work on regular equivariant G-set maps and homogeneous commuting retractions addresses distinct subsets. Standard weighted matrix-tree and classical fixed-point tables are openly credited. Priority remains provisional due to possible implicit general forest or wreath-product coverage.",
+    "residual_risks": [
+      "The counting part is an instance of classical weighted rooted-forest enumeration. A general published forest theorem could subsume it as an application.",
+      "An older unindexed specialized theorem for nilpotents of transformation wreath products may imply the homogeneous case.",
+      "The inverse theorem assumes knowledge of the labels and sizes of transitive orbit types and does not distinguish all nonisomorphic finite groups.",
+      "Historical priority is provisional; relevant literature under different terminology may not be indexed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTS_STRUCTURE_NOT_COVERING_SPECIFIC_NILPOTENT_CENSUS",
+        "evidence": [
+          "Orbit-map descriptions underlie h_ij, but theorem concerns relative generator rank.",
+          "No asserted exact acyclic rooted-forest product or two-orbit marks reconstruction in inspected theorem statements."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2203.12158v3",
+        "material_read": "Full accessible HTML sections relevant to maps between transitive orbits, automorphisms, generating rank and wreath structure, including Lemma 3 and Proposition 9",
+        "method": "Read text, located relevant orbit-map and structural statements and compared conclusions and assumptions",
+        "title": "The relative rank of the endomorphism monoid of a finite G-set",
+        "trigger": "Primary full text giving equivariant orbit structure and possible nilpotent enumeration"
+      },
+      {
+        "assessment": "COVERS_SUPERSET_CARDINALITY_BUT_NOT_NILPOTENT_FIBERS",
+        "evidence": [
+          "Theorem 5 counts the unrestricted equivariant endomorphism monoid.",
+          "Those totals do not separate cycle-free functional orbit maps, nor imply inverse fixed-point marks from two-probe nilpotence."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2503.03772",
+        "material_read": "Full available article text and its theorems on all maps, units and elementary collapsings",
+        "method": "Compared unrestricted count and unit/elementary-collapse formulas with the nilpotent restriction",
+        "title": "Cardinalities in finite monoids of G-equivariant functions",
+        "trigger": "Plausibly stronger count of all endomorphisms"
+      },
+      {
+        "assessment": "NOT_COVERING_INSPECTED_CLAIM",
+        "evidence": [
+          "Main results study Green classes and elementary collapses.",
+          "No count of nilpotents to a distinguished fixed point or two-orbit fixed-point recovery located."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2503.14511",
+        "material_read": "Accessible complete text and primary Green-class results; searched for nilpotence and forest decompositions",
+        "method": "Read and compared relation characterizations with nilpotent subset definition",
+        "title": "Green relations over finite monoids of G-equivariant functions",
+        "trigger": "Possibly general structural classification of individual maps"
+      },
+      {
+        "assessment": "PRIOR_STANDARD_INVARIANT_NOT_NEW_RECONSTRUCTION",
+        "evidence": [
+          "The fixed-point marks and S3 table are classical; this is acknowledged explicitly.",
+          "New theorem is an inverse relationship to nilpotent endomorphism counts, not a newly calculated table."
+        ],
+        "identifier_or_url": "https://gap-system.github.io/gap/doc/ref/chap70.html",
+        "material_read": "Definition and interpretation of table entries as subgroup-fixed-point cardinalities",
+        "method": "Compared exact index convention with h_ij = |(G/H_j)^{H_i}|",
+        "title": "GAP Reference Manual: Tables of Marks",
+        "trigger": "Classical exact fixed-point table being reconstructed"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "eb027f1d-3458-48d2-897d-ae22229f3045",
+  "value": {
+    "rationale": "The new factorization classifies a natural nilpotent stratum of every finite pointed G-set endomorphism monoid uniformly for any finite group, including arbitrary stabilizer mixtures. The short two-orbit probe counts recover every subgroup fixed-point mark, a standard structural invariant of finite permutation representations, rather than merely recomputing known values. The nilpotency index is also controlled by the longest weighted stabilizer quotient chain. These are motivated all-family structural and inverse statements; no unproved downstream theorem is required.",
+    "status": "PASS"
+  }
+}
