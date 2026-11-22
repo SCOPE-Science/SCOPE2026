@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T00:50:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-facial-distance-spectrum-and-extremal-face-rigidity-of-ort--a446b0368e42/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-facial-distance-spectrum-and-extremal-face-rigidity-of-ort--a446b0368e42/verify_facial_distance.py",
+        "Git blob c1794c369635563c4b6ebd94f92ee68c376b16e1 (RESULT.md)",
+        "Git blob 999624acd8e20f8da5af5c29ec59ad45501be4b1 (verify_facial_distance.py)"
+      ],
+      "rationale": "The support function of the orthogonal free sum is max(||u||_1,||v||_1); its proper faces are precisely exclusive cube faces or mixed joins, with fixed-coordinate counts k,l. For an exclusive face, a normalized fixed-coordinate normal separates the face from its vertex complement by 1 (k=1) or 2/k (k>=2), attained by a face barycenter and either the origin in the other block or the barycenter of single-sign-flipped corners. For mixed faces, the normal equal to 1/k and 1/l on their fixed coordinates gives separation 2/max(k,l) in normal projection and distance 2/[max(k,l)sqrt(1/k+1/l)]; explicit convex combinations of a face barycenter and single-flip complementary vertices attain it. In k<=l sector its squared value is 4k/[l(k+l)], increasing in k and decreasing in l, so global minimizer is (k,l)=(1,q), with swapped (p,1) only if p=q. Exclusive faces are strictly larger. Counts 2p*2^q (or twice symmetric), diameter 2sqrt(q). Independently solved 38 finite-type convex-pair QPs for p,q=(2,2),(2,3),(3,4), obtaining maximum difference 2.4e-14; source checker additional cases. All-unbounded claims follow analytically, not from finite tests.",
+      "residual_risks": [
+        "Finite numerical or exhaustive small-parameter checks do not prove unbounded cases; only the reconstructed analytic argument supports universal claims."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Peña–Wirth full text covers exact cube/cross-polytope special cases and product calculus",
+          "Deza et al supplies a dimension-general bound, not each mixed-rank formula"
+        ],
+        "reasoning": "A universal inequality cannot imply exact K_{p,q} distances, nor all minimizing face multiplicities; a Cartesian product theorem applies to another polytope.",
+        "searches": [
+          "Peña Wirth Calculus of Facial Distance Theorem 3.1 free sum",
+          "Deza Martinez-Rubio Pena Wirth facial distance diameter bound"
+        ]
+      },
+      "checked_sources": [
+        "https://optimization-online.org/wp-content/uploads/2026/08/calculusoptonline.pdf",
+        "https://arxiv.org/abs/2609.32440",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-facial-distance-spectrum-and-extremal-face-rigidity-of-ort--a446b0368e42"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "p=q=2 agrees with the equal-semi-axes cross-polytope after isometry/scaling",
+          "Mixed k,l formula depends on both fixed-coordinate rank counts of two factor faces"
+        ],
+        "reasoning": "Knowing the unit cube, a cross-polytope special case, and a Cartesian-product rule does not entail the mixed two-block support/face barycenter argument or sharp p,q family.",
+        "searches": [
+          "Peña Wirth Example 6.2 cross polytope",
+          "Peña Wirth Theorem 3.1 Cartesian product",
+          "Resultary weighted crosspolytope and cubical joins"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K_{p,q} is an orthogonal l1-sum/free sum of cube balls, not their Cartesian product",
+          "Peña–Wirth Theorem 3.1 treats Cartesian products"
+        ],
+        "reasoning": "The geometric operation is convex hull/free sum, so the product theorem is not equivalent. Hanner synonyms were searched for potential alternative statements.",
+        "searches": [
+          "facial distance orthogonal free sum two cubes cubical joins minimizing face",
+          "facial distance of Hanner polytopes Euclidean two-cube join"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published hypersimplex tables concern a different combinatorial family",
+          "Regular four-dimensional cross-polytope instance at p=q=2 is known from Example 6.2"
+        ],
+        "reasoning": "Searches found no all-p,q cubical free-sum table. The one p=q=2 numerical instance is explicitly a previously covered specialization.",
+        "searches": [
+          "Resultary: facial distance orthogonal free sum two cubes cubical joins minimizing face",
+          "Hanner cube join pyramidal width table 2/sqrt(q(q+1))"
+        ]
+      },
+      "rationale": "Known cube and cross-polytope face distances, including p=q=2, are credited. The full unbounded two-cube *free sum* face-rank spectrum does not follow from Peña–Wirth's Cartesian product rule, nor from general linear-map inequalities and universal upper bounds. Resultary searches for Hanner/free-sum aliases found the current result and different invariants, but no broad exact covering theorem. Provisional PASS with clearly delimited priority risk.",
+      "residual_risks": [
+        "A differently indexed Hanner free-sum exact facial-distance result could predate this paper.",
+        "p=q=2 is covered by regular cross-polytope computations.",
+        "Finite quadratic programming is diagnostic; unbounded dimension rests on the supporting-normal proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact product theorem not a free sum; the known cross-polytope special case does not cover p,q arbitrary",
+          "evidence": [
+            "Theorem 3.1 (Cartesian products)",
+            "Example 6.2 cross-polytope"
+          ],
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2026/08/calculusoptonline.pdf",
+          "material_read": "Complete sixteen-page publicly available primary manuscript, especially Definition 2.1, Theorem 3.1, Corollary 5.2 and Example 6.2",
+          "method": "Primary full-text and rendered-page comparison",
+          "title": "Calculus of the Facial Distance",
+          "trigger": "Direct same invariant plus product and cube examples"
+        },
+        {
+          "assessment": "Cannot infer exact free-sum rank spectrum from a general upper bound",
+          "evidence": [
+            "arXiv:2609.32440 abstract"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.32440",
+          "material_read": "Accessible primary abstract and stated universal bound; no complete all-theorem proof inspected in this run",
+          "method": "Abstract-level scientific comparison",
+          "title": "Facial distance and diameter",
+          "trigger": "General dimension-dependent facial-distance/diameter comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-facial-distance-spectrum-and-extremal-face-rigidity-of-ort--a446b0368e42/RESULT.md",
+        "https://optimization-online.org/wp-content/uploads/2026/08/calculusoptonline.pdf",
+        "https://arxiv.org/abs/2609.32440",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-facial-distance-spectrum-and-extremal-face-rigidity-of-ort--a446b0368e42"
+      ],
+      "rationale": "A free sum of two cubes is a natural orthogonal Hanner polytope. The exact all-face Euclidean separation, full extremal-face classification, and the sharp q^{-3/2} normalized decay relative to a cube factor are meaningful sharp quantitative geometry, even without an algorithmic convergence theorem. This is distinct from a single low-dimensional instance or generic Cartesian product fact.",
+      "residual_risks": [
+        "No independent claim of external certification, application beyond proven hypotheses, or complete exclusion of unindexed literature."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A differently indexed Hanner free-sum exact facial-distance result could predate this paper.",
+    "p=q=2 is covered by regular cross-polytope computations.",
+    "Finite quadratic programming is diagnostic; unbounded dimension rests on the supporting-normal proof."
+  ],
+  "schema_version": 1
+}
