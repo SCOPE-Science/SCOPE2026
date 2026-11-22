@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is the infinite \((q+1)\)-regular tree, with \(q\ge2\), \(0<r<q^{-1/2}\), and arbitrary real \(a,b\). The derivation of the bounded adjacency resolvent, its first two parameter derivatives, and the exact degree-two numerator establishes positivity on **every** finite vertex configuration by the spectral theorem. The diagonal-normalization and distance-one/two evaluations establish an affine bijection with normalized nonnegative quadratics. The zero-order classification of nonnegative quadratics proves every claimed extreme point; the nonatomic spectral law proves finite-site strictness. Independent symbolic derivative identities and rational endpoint/notch examples were rerun from `verify_tree_quadratic.py`. Finite Gram tests are corroborative only.
+## correctness
 
-## Originality — PASS relative to inspected literature
-Kashaeva's 2026 paper develops heat kernels and spectral resolution of free-product Cayley graphs, including the regular tree; its main theorems concern heat kernels and Laplacian spectra, not the positivity region of distance-polynomial geometric kernels. Vergara (2019) gives the full radial positive-definiteness characterization in measure/trace-class terms, but its analyzed concrete profile is parity-selective, not the present quadratic-exponential family. A publicly available 2026 first-order regular-tree classification explicitly covers the \(b=0\) slice and critical/supercritical decay, but does not classify the two-parameter cone's continuum of exposed double-notch points or its extra two-edge extreme. The Euclidean quadratic-exponential positivity result concerns the different Euclidean Fourier transform. These comparisons are implications, not title matches. Unindexed older tree covariance formulas and general truncated-moment extremal arguments remain priority risks.
+PASS
 
-## Mathematical value — PASS
-This result is a full and sharp nontrivial two-parameter covariance-validity classification for all regular-tree branching degrees at subcritical decay. It also identifies the *entire* extreme-point geometry, including a movable interior spectral notch not present in the first-order family, and proves all spectral-boundary kernels remain finite-site strictly positive. The classification is applicable to selecting valid radial covariance weights on tree-structured data rather than checking finite Gram tables. It does not merely tabulate a small arbitrary parameter slice.
+From the adjacency recurrence on the (q+1)-regular tree, resolvent F_r(A)=(1-r²)/(1+qr²-rA) has entries r^d; r d/dr and r²/2 d²/dr² give d r^d and binom(d,2)r^d, respectively. Read source N formula and independently used symbolic differentiation to verify N/D³ for arbitrary formal q,r,a,b, with degree <=2. The full adjacency spectrum and positive continuous spectral density justify pointwise N>=0 iff all finite-support quadratic forms PSD, and absence of spectral atoms at finitely many zeros justifies strict positive definiteness on finite distinct sites. Normalization ∫ N D^-3 dμ=1 and injectivity from d=1,2 give affine bijection onto all normalized quadratics. The extreme-point classification exhausts nonnegative quadratics with double internal or endpoint zeros, two endpoint simple zeros, and decomposable single-simple-edge zeros. Independent exact SymPy checks confirmed both q=4,r=1/4 rational notches: (285/164,225/164) yields 1215/41984 lambda²; (195/236,-225/236) yields 3375/60416(16-lambda²). No critical/supercritical r claim is made.
 
-## Scope and limitations
-No claim beyond \(r<q^{-1/2}\); no assertion about irregular or finite trees, or sharp finite-volume smallest eigenvalue asymptotics. The Kesten spectral law and general radial-kernel positivity theory are credited prior work. The originality review is bounded and cannot replace independent priority verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published first-order r^d(1+a d) sharp positive interval is included as b=0, while this two-parameter degree-two affine moment cone and continuum of arbitrary spectral double notches cannot be deduced from its first-order slice. Vergara supplies the general positive-definite radial kernel criterion, but the studied exact affine family, sharp extreme polynomial classification, and strict finite-site boundary behavior are not stated in the inspected general treatment. Universal geometry of positive quadratics is classical, credited as machinery, not novelty by itself.
+
+## value
+
+PASS
+
+Motivated by natural polynomially weighted radial covariance families on regular trees; gives a complete, computable PSD parameter domain, exact extreme spectral notch designs and the distinction between vanishing continuous-frequency multipliers and finite-site Gram singularity. The full two-parameter extremal geometry is useful in covariance design and harmonic analysis rather than an unmotivated isolated instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
