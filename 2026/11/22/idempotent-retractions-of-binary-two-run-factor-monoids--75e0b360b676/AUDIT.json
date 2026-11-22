@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The minimal prefix DFA and all state transitions are explicitly defined. The proof partitions all nonidentity idempotents by initial letter run into disjoint killed-domain classes and proves both realizability and exhaustiveness, including separate r=1 and s=1 cases. It counts these classes by finite sums and proves the rank bound. Two independent standard-library enumerators each exhaust all transition monoids for 1<=r,s<=10; the second verifies exact set equality with the four-family retraction catalogue for every pair. Finite checks corroborate but are not substituted for the all-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/pdf/1304.3307, Theorem 1: general principal-ideal syntactic-semigroup size.",
+        "https://doi.org/10.1007/s00224-017-9803-8, Section 6: extremal two-sided ideal monoid with different witness.",
+        "https://proceedings.mlr.press/v217/dieck23a/dieck23a.pdf, Theorems 10–11: monoid inference from samples."
+      ],
+      "reasoning": "General upper bounds for ideal semigroup size do not determine the idempotent count of an arbitrary generated submonoid. The 2013 prefix/suffix-pair representation is the strongest close prior, but computing composition squares and the fixed-state range requires the new run-specific analysis; this is a material priority risk rather than a proved separation from all possible prior consequences.",
+      "searches": [
+        "syntactic complexity regular ideals idempotents monoids prefix suffix automata 2017 Brzozowski pdf",
+        "principal ideal syntactic semigroup idempotent elements exact counting zero run followed by one run"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1304.3307",
+      "https://doi.org/10.1007/s00224-017-9803-8",
+      "https://proceedings.mlr.press/v217/dieck23a.html",
+      "https://proceedings.mlr.press/v217/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2013 Theorem 1: a single total-cardinality function, with separate exception cases.",
+        "New proof: four disjoint types of killed-domain/fixed-output retractions, including all nonidentity idempotents and exact rank profiles.",
+        "2017 Section 6: maximal cardinality witnessed by a distinct six-letter automaton."
+      ],
+      "reasoning": "Knowing the size of a monoid does not logically determine how many elements satisfy t²=t. The prior prefix/suffix representation may provide tools to derive this new count; the inspected work stops before composition-idempotence classification. The contribution is therefore not a rephrasing of the old total-size formula, but historical priority cannot be certified without complete literature coverage.",
+      "searches": [
+        "principal ideal languages synchronizing automata Gusev Theorem 1 n squared inner factor syntactic semigroup",
+        "Syntactic Complexity of Regular Ideals Brzozowski Szykuła Ye 2017 two sided ideal idempotent"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2013 principal-ideal theorem already covers total cardinality, not composition-idempotent counts.",
+        "Syntactic monoids of the complementary factor-avoidance language use the identical transition transformations and therefore the same idempotent invariant.",
+        "Reversing and swapping symbols exchanges the two unit-run parameter boundaries via anti-isomorphism."
+      ],
+      "reasoning": "The result was compared under two-sided factor detection versus avoidance, monoid versus semigroup identity, word reversal, symbol complementation and rank-two retraction forms. None of the examined alternate statements established the idempotent formula or the rank assertion.",
+      "searches": [
+        "idempotent transformations in the syntactic monoid of the binary principal ideal language Sigma star 0^r 1^s Sigma star, exact number r(r-1)/2+s(s-1)/2+2rs+3",
+        "principal ideal syntactic semigroup idempotent elements exact counting zero run followed by one run",
+        "idempotents in syntactic monoids principal ideal languages Gusev Maslennikova Pribavkina"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed idempotent results concern Margolis–Rhodes path/double-star semigroups and full transformation monoid pair counts, not the binary two-run syntactic monoid.",
+        "No inspected exact table gives the parameterized formula; numerical checks here are independently reproduced and are not used as novelty proof."
+      ],
+      "reasoning": "The exact parameter terms, alternative language/monoid names and rank-retraction interpretation were searched. Indexed closest results are different semigroup constructions. Lack of database coverage is not interpreted as definitive priority evidence.",
+      "searches": [
+        "idempotent transformations in the syntactic monoid of the binary principal ideal language Sigma star 0^r 1^s Sigma star, exact number r(r-1)/2+s(s-1)/2+2rs+3",
+        "0^r1^s factor language idempotent density monoid transition maps stable word",
+        "monoid of pattern matching automata idempotents quadratic formula",
+        "idempotent count syntactic monoid principal ideal 0^r 1^s",
+        "idempotents syntactic monoid binary principal ideal 0^m1^n exact count"
+      ]
+    },
+    "rationale": "A direct same-object published theorem from 2013 already counts the whole syntactic semigroup, but its stated output and proof do not provide the idempotence law or explicit rank-two retractions. A 2017 broader semigroup extremal bound concerns other witness monoids, while the 2023 motivating work treats learning of monoids and not two-run factor-idempotent classification. Actual indexed-record and literature searches revealed no covering claim. An unindexed equivalent remains possible; absence of a search hit is not treated as a proof of novelty.",
+    "residual_risks": [
+      "An unindexed or poorly indexed earlier idempotent enumeration for this principal ideal may exist.",
+      "The 2013 general prefix/suffix classification provides relevant machinery; an overlooked published consequence could dominate the proposed structural count.",
+      "The 2023 motivating publication date is the first verified public release for that specific source, not a proof no earlier manuscript existed.",
+      "The all-parameter novelty review is not an independent priority adjudication."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 1 supplies the known total syntactic-semigroup count and prefix/suffix normal forms, but neither the stated theorem nor the inspected proof contains a classification/count of idempotent transformations. Its total cardinality does not fix the idempotent invariant.",
+        "evidence": [
+          "arXiv:1304.3307v1, Theorem 1, PDF page 12: syntactic semigroup size in terms of inner factors.",
+          "PDF pages 12–13: exceptional words with one run of length one; their total-size computation.",
+          "PDF page 15: conclusion advertises total syntactic complexity by inner factors, not idempotent enumeration."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1304.3307",
+        "material_read": "2013 arXiv v1 PDF: abstract, sections on minimal ideal automata and associated synchronization, Section 4 pp. 11–15, Theorem 1 proof pp. 12–13, exceptional two-run cases and references.",
+        "method": "Read extracted page text and inspected rendered page 12, including the original theorem and exceptional-case calculation.",
+        "title": "Principal ideal languages and synchronizing automata",
+        "trigger": "Directly studies syntactic semigroups of exactly the same class of single-factor ideal languages."
+      },
+      {
+        "assessment": "Determines broad maximal-cardinality bounds and unique extremal witnesses; its six-letter maximal witness is not the binary pattern automaton, and no exact two-run idempotent count is stated.",
+        "evidence": [
+          "2017 paper abstract and Section 6, Definition 3/Lemma 6: maximal two-sided ideal witness requires up to six generators and gives a different set of transformations.",
+          "The introduction explicitly distinguishes syntactic semigroup cardinality from other structural properties."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00224-017-9803-8",
+        "material_read": "Accessible open-access article: abstract, introduction and algebraic preliminaries, Section 6 two-sided-ideal witness and Lemma 6, conclusions/references.",
+        "method": "Read article full-text HTML sections, including the list of transformation types in the extremal witness.",
+        "title": "Syntactic Complexity of Regular Ideals",
+        "trigger": "Broader two-sided ideal syntactic-semigroup theorem that might subsume the proposed invariant."
+      },
+      {
+        "assessment": "Proves learning methodology via interfix graphs rather than classifying idempotents or calculating the syntactic monoid of the two-run binary principal ideal.",
+        "evidence": [
+          "PMLR 217, Definitions 4–5: syntactic monoids and their Cayley graphs.",
+          "Theorems 10–12: learning construction and complexity; Section 4: empirical comparison, no parameterized idempotent theorem.",
+          "PMLR volume 217 publication date shown as 2023-07-05."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v217/dieck23a/dieck23a.pdf",
+        "material_read": "2023 PMLR PDF: title, abstract/introduction, syntactic-monoid and Cayley-graph definitions, Theorems 10–12, empirical results and limitations.",
+        "method": "Read extracted PDF text and inspected rendered first page; compared theorems and experimental setting against the specific pattern-family invariant.",
+        "title": "Learning Syntactic Monoids from Samples by extending known Algorithms for learning State Machines",
+        "trigger": "Middle-period literature context for why explicit syntactic-monoid structure matters to inference."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "75e0b360-b676-49e7-b525-e468fdf461ff",
+  "value": {
+    "rationale": "Idempotents describe precisely the stable (one-repeat) transformations of a syntactic monoid. The family is a canonical binary two-run pattern-recognition language with a known total syntactic complexity, yet its idempotent retraction geometry is not supplied by total-size results. The exact count, nonidentity rank-two structure and asymptotic 1/2-versus-3/5 density contrast are intrinsic, fully classified semigroup invariants useful as transparent structural benchmarks. No unproved downstream learning-speed guarantee is asserted.",
+    "status": "PASS"
+  }
+}
