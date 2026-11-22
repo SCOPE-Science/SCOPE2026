@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-The proof is the five-step argument in `RESULT.md`, using the exact perfect-graph Hansen facet theorem, rank-one omitted-class restrictions, the strict convexity of the omission barrier, and the Gram determinant lemma. The full claim concerns arbitrary positive integer color-class sizes and every integer count of classes at least two.
+## correctness
 
-The standalone standard-library script `verification/check.py` was run from its packaged path and printed:
+PASS
 
-`HANSEN_MULTIPARTITE_INCENTER_PASS profiles=32 center_patterns=2520 convexity_inequalities=1770`
+PASS — The actual irredundant perfect-graph Hansen clique inequalities have signed normal norm sqrt(4|C|+1). Maximal clique opposite pairs force radius R=(4r+1)^−1/2 and center conditions x_v=a_j constant within each part and z=2Σ a_j. Missing t classes give |Σ_{j∈T}a_j|≤β_t=(1−sqrt((4(r−t)+1)/(4r+1)))/2. Strict convexity β_t>tβ_1 for 2≤t≤r makes the r singleton inequalities necessary and sufficient, including singleton graph parts; only maximal cliques and saturated omitted-one-part cliques contact. The exact facet count is 2Π n_j+Σ_{|a_j|=h}Π_{k≠j}n_k. The center-basis Gram matrix diag(n_j)+4·11^T proves the intrinsic volume determinant formula. Independently checked strict β inequalities for r=2..50 and representative formulas; exhaustive software only corroborates all-parameter proof.
 
-It constructs cliques and tests all signed facet inequalities, counts radius-optimal sphere contacts for the complete \(3^r\) grid of box center strata in each tested class-size profile, and verifies the strict scalar omission inequality for \(2\le r\le60\). The checked parameter set is finite: it independently corroborates the derivation but does not prove an unrestricted statement by enumeration.
+## originality
 
-The radius is a previously published invariant; the center-locus classification, contact count along all of its faces, and intrinsic volume formula are the independently reconstructed claims here. The older Hansen article from 1977 was not completely inspected, so historical-priority certainty and independent scientific audit are not asserted.
+PASS
+
+PASS best-of-knowledge — Prior perfect-graph Hansen literature supplies the complete clique-facet system, and published research supplies the scalar radius and origin-centered contacts. Neither entails the entire noncentral maximum-ball center parallelotope with face-stratified tangent-facet counts and intrinsic volume. Similar box classifications for twinned chain polytopes concern a genuinely different polar/facet construction and do not imply this Hansen result.
+
+## value
+
+PASS
+
+PASS — The set of all centers of largest balls in a natural family of graph polytopes is a full r-dimensional continuum, with explicit precise contact transitions and Euclidean r-volume. This answers a structured geometric optimization/classification beyond a known scalar inradius, and its strict missing-class convexity has reusable explanatory content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific comparison and self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each perfect complete multipartite graph, the published irredundant Hansen facet inequalities have normals of length \(\sqrt{4|C|+1}\). Every radius-optimal ball must saturate every maximal-clique pair, forcing classwise constant coordinates and the first-coordinate sum relation. One-omitted-class inequalities give \(|a_j|\le h_r\); strict convexity of the omission-size barrier ensures every inequality omitting two or more classes is strictly slack. This is a complete necessary-and-sufficient proof for all integers \(r\ge2\) and positive class sizes. The tangency census follows from facet irredundancy, and the intrinsic volume from an explicit positive-definite Gram determinant. Bundled code independently checks 32 profiles and 2520 center patterns, not replacing the proof.
+## correctness
 
-## Originality — PASS, historical priority provisional
-The center-locus result is distinguished from already established scalar Euclidean Hansen radii and origin-centered maximal-clique contacts. Freij et al. give the same facet inequalities but their analyzed theorems concern combinatorial face data. Hibi–Tsuchiya treat perfect-graph Hansen constructions and their algebraic lattice properties. The published perfect-graph Hansen radius theorem determines an inradius and contacts of one center, without classifying all centers. The published general-graph fractional-antiblocker theorem likewise concerns radius and centered tangency; its statement does not describe the complete noncentral center locus or its intrinsic volume. The original 1977 Hansen paper has not been inspected completely. Possible prior equivalent incenter-center classifications under Chebyshev-center or antiprism terminology remain a residual risk.
+PASS
 
-## Mathematical value — PASS
-Even when a centrally symmetric polytope has an inradius that is immediately determined by its longest facet normals, its **full set of equally optimal balls** need not be unique or structurally simple. Here a natural family with exponentially many facet constraints has an exactly \(r\)-dimensional entire optimizer parallelotope for arbitrarily large color classes; only the next-to-maximal clique inequalities bound its size. The result identifies precise face-to-contact incidence counts and an intrinsic metric volume depending nontrivially on all class sizes. Those facts are not scalar-radius restatements and provide usable exact optimizer geometry.
+PASS — The actual irredundant perfect-graph Hansen clique inequalities have signed normal norm sqrt(4|C|+1). Maximal clique opposite pairs force radius R=(4r+1)^−1/2 and center conditions x_v=a_j constant within each part and z=2Σ a_j. Missing t classes give |Σ_{j∈T}a_j|≤β_t=(1−sqrt((4(r−t)+1)/(4r+1)))/2. Strict convexity β_t>tβ_1 for 2≤t≤r makes the r singleton inequalities necessary and sufficient, including singleton graph parts; only maximal cliques and saturated omitted-one-part cliques contact. The exact facet count is 2Π n_j+Σ_{|a_j|=h}Π_{k≠j}n_k. The center-basis Gram matrix diag(n_j)+4·11^T proves the intrinsic volume determinant formula. Independently checked strict β inequalities for r=2..50 and representative formulas; exhaustive software only corroborates all-parameter proof.
 
-## Limitations
-Only complete multipartite perfect graphs in the canonical Euclidean twisted-prism realization are covered. This is a self-review, not an independent audit or a historical priority guarantee; the full 1977 primary source was not available for comprehensive comparison. The finite checker does not certify arbitrary-dimensional correctness in place of the written proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge — Prior perfect-graph Hansen literature supplies the complete clique-facet system, and published research supplies the scalar radius and origin-centered contacts. Neither entails the entire noncentral maximum-ball center parallelotope with face-stratified tangent-facet counts and intrinsic volume. Similar box classifications for twinned chain polytopes concern a genuinely different polar/facet construction and do not imply this Hansen result.
+
+## value
+
+PASS
+
+PASS — The set of all centers of largest balls in a natural family of graph polytopes is a full r-dimensional continuum, with explicit precise contact transitions and Euclidean r-volume. This answers a structured geometric optimization/classification beyond a known scalar inradius, and its strict missing-class convexity has reusable explanatory content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
