@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T11:06:15.553433Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Directly counted opposite nonzero signs for pairs of consecutive binary gradients: each of r 0->1 transitions conflicts with each of r 1->0 transitions, each inducing loss 2 min(theta,1-theta), so exact deficit is 2mu r^2. Since r>=1 and k(n-k)<=floor(n^2/4), balanced contiguous cuts attain the coefficient. Coarea/layer-cake plus pairwise subadditivity extends it to every real input; endpoints theta=0,1 are permutation/identity, while n=2,3 also fit. Independently tested 6078 exact (n,theta,cut) combinations for n=2..10 and theta=1/4,1/2,3/4. This is correctness PASS, not originality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-robustness-radius-for-heterogeneous-cyclic-two-tap-averagi--48b83036c829/RESULT.md complete theorem n>=4, epsilon cube, proof Steps1–4"
+        ],
+        "reasoning": "The published heterogeneous perturbation theorem includes epsilon=0 as special case and stronger uniform effects for epsilon>0. Its explicit cut deficit and sharp singleton/arc mechanisms cover all nontrivial content here.",
+        "searches": [
+          "cyclic two tap stochastic averaging complete pairwise Gini variation exact contraction",
+          "complete pair Gini variation cyclic two tap sharp cut deficit 1-2 min(theta,1-theta)/floor(n^2/4)",
+          "heterogeneous two tap robustness exact Gini radius"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-robustness-radius-for-heterogeneous-cyclic-two-tap-averagi--48b83036c829/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-gini-contraction-of-uniform-boxcar-averages-on-prime-cycle--c7bdace477b8/RESULT.md",
+        "https://arxiv.org/pdf/1302.5226",
+        "cyclic two tap stochastic averaging complete pairwise Gini variation exact contraction",
+        "complete pair Gini variation cyclic two tap sharp cut deficit 1-2 min(theta,1-theta)/floor(n^2/4)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-robustness-radius-for-heterogeneous-cyclic-two-tap-averagi--48b83036c829/RESULT.md eq(1) gives G(Ptheta 1_S)=k(n-k)-2mu r^2; epsilon=0 theorem gives >=2mu osc(f)",
+          "Coarea G(f)<=floor(n^2/4) osc(f) is exact on balanced binary arcs",
+          "https://arxiv.org/pdf/1302.5226 Hopf/Dobrushin metric is not the same Gini norm"
+        ],
+        "reasoning": "From the stronger result G(f)-G(Ptheta f)>=2mu osc(f)>=2mu G(f)/floor(n^2/4). Thus the coefficient <=1-2mu/floor(n^2/4), attained on balanced arcs by the same published eq(1). All assertions follow; no independent gain can be awarded.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-robustness-radius-for-heterogeneous-cyclic-two-tap-averagi--48b83036c829/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-gini-contraction-of-uniform-boxcar-averages-on-prime-cycle--c7bdace477b8/RESULT.md",
+          "https://arxiv.org/pdf/1302.5226"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-robustness-radius-for-heterogeneous-cyclic-two-tap-averagi--48b83036c829/RESULT.md equation (1) exact r^2 cut deficit",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-gini-contraction-of-uniform-boxcar-averages-on-prime-cycle--c7bdace477b8/RESULT.md width m=2 prime-cycle special case"
+        ],
+        "reasoning": "The homogeneous coefficient vectors a_i=theta in the heterogeneous theorem are exactly the assigned P_n,theta; the same Gini definition and transition sign convention yield the identical formula. This is mathematical equivalence, not title similarity.",
+        "searches": [
+          "cyclic two tap stochastic averaging complete pairwise Gini variation exact contraction",
+          "complete pair Gini variation cyclic two tap sharp cut deficit 1-2 min(theta,1-theta)/floor(n^2/4)",
+          "homogeneous case of independent site-dependent two tap Gini robustness"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-robustness-radius-for-heterogeneous-cyclic-two-tap-averagi--48b83036c829/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-gini-contraction-of-uniform-boxcar-averages-on-prime-cycle--c7bdace477b8/RESULT.md m=2 for prime p"
+        ],
+        "reasoning": "Exact published same-model result and prime table are positive database coverage evidence, not just failed novelty searches. They confirm the statement up to elementary low-dimensional/endpoint edge cases.",
+        "searches": [
+          "cyclic two tap stochastic averaging complete pairwise Gini variation exact contraction",
+          "complete pair Gini variation cyclic two tap sharp cut deficit 1-2 min(theta,1-theta)/floor(n^2/4)",
+          "Resultary cyclic 2tap Gini; same model heterogeneous robustness; prime cycle boxcar table"
+        ]
+      },
+      "rationale": "FAIL: a previously published same-model stronger heterogeneous-kernel theorem explicitly proves the IDENTICAL homogeneous two-tap cut formula (its equation (1)) for every n>=4 and theta in (0,1), and the exact perturbation defect with epsilon=0. Because G(x)<=floor(n^2/4) osc(x), that theorem gives the submitted operator norm bound; balanced single arcs realize equality via its equation (1). Endpoint theta and n=2,3 are elementary exceptions that do not rescue originality. Both records have date 2026-11-17; no within-day order claimed. A separate prime boxcar theorem also includes m=2 for prime n. Entire claimed finding is implied by already published same-object mathematical evidence.",
+      "residual_risks": [
+        "Earlier published same-day heterogeneous result explicitly refers to homogeneous calculation as already known; without time-of-day chronology do not infer historical first author or priority, but coverage of the unchanged claim is definite.",
+        "No proof error found; failure solely originality and consequent independent mathematical value."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE COVERAGE: includes same cut identity for n>=4, sharp homogeneous norm via simple osc comparison, and stronger heterogeneous robustness",
+          "evidence": [
+            "Equation (1): deficit 2mu r^2; theorem at eps=0; equation (6) singleton defect"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-robustness-radius-for-heterogeneous-cyclic-two-tap-averagi--48b83036c829/RESULT.md",
+          "material_read": "Read full published RESULT.md all sections, eq(1) exact cut deficit, eps=0 theorem, Steps 1–4",
+          "method": "Full GitHub primary result",
+          "title": "Sharp robustness radius for heterogeneous cyclic two-tap averaging",
+          "trigger": "Exact same operator/Gini norm appears as homogeneous center of stronger theorem"
+        },
+        {
+          "assessment": "Covers all odd prime n for theta=1/2, m=2 (another independent portion), not alone all theta/n",
+          "evidence": [
+            "Sharp prime boxcar formula d/m*(1-(d^2-1)/(3Q))"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-gini-contraction-of-uniform-boxcar-averages-on-prime-cycle--c7bdace477b8/RESULT.md",
+          "material_read": "Read full published RESULT.md through prime cyclic rearrangement and formula",
+          "method": "Full GitHub primary result",
+          "title": "Sharp Gini contraction of uniform boxcar averages on prime cycles",
+          "trigger": "Exact width-two boxcar subcase of same stochastic averaging"
+        },
+        {
+          "assessment": "Dobrushin/Hopf oscillation differs from Gini; NOT decisive coverage but explains the comparison",
+          "evidence": [
+            "Theorem 1.1 Hopf oscillation and dual total variation"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1302.5226",
+          "material_read": "Read full primary arXiv PDF text including Theorem 1.1; visually checked p3",
+          "method": "Full PDF text and screenshot",
+          "title": "Gaubert and Qu, Dobrushin ergodicity coefficient for Markov operators on cones, and beyond",
+          "trigger": "Potential domination by classical stochastic contraction theory"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL as an independent new contribution: the formula, cut identity, extremal geometry and oscillation contrast are correct but already part of the stronger heterogeneous-kernel bound (with trivial endpoint additions) and a prime boxcar exact table. No remaining new motivated invariant or sharp boundary survives the comparison; reproducing a known exact subcase does not meet V even when clearly proved.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Earlier published same-day heterogeneous result explicitly refers to homogeneous calculation as already known; without time-of-day chronology do not infer historical first author or priority, but coverage of the unchanged claim is definite.",
+    "No proof error found; failure solely originality and consequent independent mathematical value."
+  ],
+  "schema_version": 1
+}
