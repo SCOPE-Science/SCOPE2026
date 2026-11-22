@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness: PASS
+The explicit block formula for the weighted sampling matrix follows by substituting the positive diagonal functional calculus into the measurement map. The scalar envelope \(\phi(u)\le e^{-|u|/2}\), the two block Schur estimates, and the Neumann argument prove a bounded isomorphism onto the full coefficient space; the claim does not confuse injectivity with surjectivity. The exact geometric sum for the original integer-time Gramian proves its frame inequalities; the cluster count discrepancy is a direct threshold argument. The numerical checker validates finite sections only. Conditions and quantifiers cover all \(r\ge2\), all eligible irregular centers, offsets, and uniformly invertible sensor matrices. Both strict separation inequalities are attainable by increasing \(L\).
+
+## Originality: PASS, with bibliographic risk
+The source arXiv:2610.31278v1 supplies general multichannel counting and sparse frame results, not the particular invertible one-observation-per-cluster construction and explicit uniform frame/Riesz constants for variable, nearly colliding spectral blocks. The later arXiv:2611.20122v1 develops critical sampled Riesz bases for single-orbit systems, not this matrix-valued finite-channel statement. Cabrelli et al. (2017) characterize all integer iterates of finitely many sensors, rather than sparse real-time samples. Searches in the published mathematical findings registry and accessible prior claims found distinct topics, including finite Fourier sensors and continuous Laplace-chain Riesz spectra, but not an implication of this theorem. A more general older vector-valued interpolation result could subsume it; the accessible evidence does not establish global novelty by itself.
+
+## Mathematical value: PASS
+For a frame with rank-\(r\) sensors, an order-optimal sampling count does not itself imply an onto Riesz sampling isomorphism, particularly when eigenvalues in each cluster nearly coincide and sensor eigendirections vary. The theorem constructs a uniform, quantitatively controlled critical-count basis for arbitrarily irregular cluster spacings, explains why the original integer orbit is observable, and identifies a precise family that bridges abstract density obstructions and multichannel recovery. Its stability constants are explicit and independent of the number of clusters or their maximum separation.
+
+## Closest literature and limitations
+Wu (2026), *Optimal weighted sampling of positive and normal operator orbits*, Proposition 4.6 and Section 4; Cabrelli et al. (2017), *Dynamical sampling on finite index sets*, Theorem 2.3; Krishtal–Wu (2026), *Totally Positive Interpolation and Critical Sampling of Positive Operator Orbits*, Theorem 3.4. The claim needs substantial intercluster separation, does not solve optimal gap sizing or integer-time critical sampling, and may be implied by unlocated broader vector-valued interpolation results. Finite computation does not establish an infinite theorem.
+
+Self-review: passed. Independent audit: not yet performed.
