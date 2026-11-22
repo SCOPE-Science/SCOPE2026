@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T03:17:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Euclidean projection onto any oriented-tree isotonic cone is continuous, piecewise affine, with each active connected block replaced by the average of its input values. Every connected forest partition occurs on an open strict-complementarity KKT region since the oriented quotient of a tree is a DAG and the active incidence rows are independent. The edge-cut indicator functions form an exact l1 variation basis modulo constants; therefore a block-average map has TV norm equal to the largest image of a single cut. If the split edge lies in an active block S, its two sides of sizes a,b have output boundary jumps (b*p+a*q)/(a+b), and otherwise gain 1. This proves the global max formula and local attainment. Rooted side tree-knapsack obtains the exact rational maxima in polynomial time. Paths give 1; stars max(1,(m-1)/2); spine-plus-pendant cubic caterpillars yield k/2. Independently enumerated 19 families of finite trees with rational cut formulas, consistent with these sharp cases. Proof covers all finite oriented trees, not merely the samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen-Li-Su 2023 studies isotonic optimization including TV regularization; the Resultary BV stability theorem projects ONTO a total variation ball, not an isotonic cone."
+        ],
+        "reasoning": "The convex sets and varied quantities are different, so their sharp constants do not dominate the tree isotonic cone result.",
+        "searches": [
+          "https://arxiv.org/pdf/2304.00244",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-bounded-variation-stability-transition-for-projection-onto--43b65933e518"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2304.00244",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-rooted-tree-variation-sensitivity-of-euclidean-ball-projec--11350fe23281",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-bounded-variation-stability-transition-for-projection-onto--43b65933e518",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-tree-variation-sensitivity-of-isotonic-projection-and-unbo--8a180bae4c2f/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-tree-variation-sensitivity-of-isotonic-projection-and-unbo--8a180bae4c2f/verify_tree_isotonic_bv.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Different projectors and metric norms: Euclidean ball anchored variation and discrete TV ball path projection do not entail isotonic cone TV sharpness."
+        ],
+        "reasoning": "A reduction preserving active-block averages, cut-step norms and unweighted graphs would be required; none is given by inspected relevant published results.",
+        "searches": [
+          "https://arxiv.org/pdf/2304.00244",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-rooted-tree-variation-sensitivity-of-euclidean-ball-projec--11350fe23281"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weighted isotonic regression is projection onto a convex order cone; its piecewise averaging Jacobian can also be expressed via active-set partition faces."
+        ],
+        "reasoning": "A generic local Jacobian characterization does not itself give its exact global TV induced norm, the boundary cut max over connected subtrees, or exact cubic-caterpillar growth; nevertheless any matching active-set formula is a residual risk.",
+        "searches": [
+          "Resultary semantic query: isotonic cone projection tree total variation BV Lipschitz constant unbounded bounded degree cubic caterpillars",
+          "https://arxiv.org/pdf/2304.00244"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed tree results concern balls and root-trace optimization; no inspected table classifies arbitrary oriented tree isotonic projection TV sensitivity."
+        ],
+        "reasoning": "The theorem is a universal tree combinatorial formula, not a finite tabulated instance; nearby finite numerical data would not imply arbitrary-tree sharpness.",
+        "searches": [
+          "Resultary semantic query: isotonic cone projection tree total variation BV Lipschitz constant unbounded bounded degree cubic caterpillars",
+          "https://arxiv.org/pdf/2304.00244"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: isotonic projection and graph total variation are established objects, but located sources on convex isotonic fitting and TV denoising do not provide this unweighted Euclidean isotonic-projector two-input graph-TV operator norm, its all-tree cut-boundary sharpness formula, or the bounded-degree unbounded-amplification caterpillar. Related published BV estimates concern projections onto a total-variation ball or Euclidean ball, not the isotonic cone; one cannot substitute their inequalities. Implicit derivability from generalized projection/sensitivity theory remains a priority risk.",
+      "residual_risks": [
+        "An earlier generalized isotonic-projection Jacobian or induced-seminorm theorem could implicitly specialize to the max-cut expression.",
+        "Orientations and weights beyond unweighted tree ordinary Euclidean least squares are not covered.",
+        "Finite diagnostics corroborate but do not prove the all-tree identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_METHOD_NOT_COVERAGE",
+          "evidence": [
+            "Paper treats fitting algorithms / TV penalty objectives, not sharp induced TV Lipschitz amplification of the isotonic projection."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.00244",
+          "material_read": "PDF definitions of isotonic regression, tree/DAG optimization objectives and algorithmic sections relevant to total variation",
+          "method": "public arXiv PDF and page-image inspection",
+          "title": "An active-set based recursive approach for solving convex isotonic regression with generalized order restrictions",
+          "trigger": "same tree/DAG isotonic fitting objects"
+        },
+        {
+          "assessment": "DIFFERENT_PROJECTION",
+          "evidence": [
+            "Ball projection on a path with TV factor 1 or 2, not cone isotonic projection on arbitrary trees."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-bounded-variation-stability-transition-for-projection-onto--43b65933e518",
+          "material_read": "Resultary published theorem statement and indexed scope; full text not fetched",
+          "method": "semantic index summary",
+          "title": "Sharp bounded-variation stability transition for projection onto a discrete total-variation ball",
+          "trigger": "matching output-metric name"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Quantifies a genuinely non-Euclidean Lipschitz instability of a canonical projection, gives a sharp polynomial-time graph invariant and exhibits unbounded amplification on maximum-degree-three trees despite path nonexpansivity. The branching threshold of stars and complete cubic caterpillar asymptotics explain geometry relevant to tree isotonic data analysis.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2304.00244",
+    "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-rooted-tree-variation-sensitivity-of-euclidean-ball-projec--11350fe23281",
+    "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-bounded-variation-stability-transition-for-projection-onto--43b65933e518",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-tree-variation-sensitivity-of-isotonic-projection-and-unbo--8a180bae4c2f/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-tree-variation-sensitivity-of-isotonic-projection-and-unbo--8a180bae4c2f/verify_tree_isotonic_bv.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No weighted objectives, graph cycles or non-Euclidean projections.",
+    "Exact global maximum is established by finite active linear regions with strict KKT witnesses, not by sample enumeration."
+  ],
+  "residual_risks": [
+    "An earlier generalized isotonic-projection Jacobian or induced-seminorm theorem could implicitly specialize to the max-cut expression.",
+    "Orientations and weights beyond unweighted tree ordinary Euclidean least squares are not covered.",
+    "Finite diagnostics corroborate but do not prove the all-tree identity."
+  ],
+  "schema_version": 1
+}
