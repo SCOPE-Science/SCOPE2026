@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "The two-parameter objective is explicit; Gaussian rearrangement uniquely fixes the center. A strict single crossing of two exponential-moment elasticities determines the global width. A quantile-integral identity establishes strict convex order and thereby exact nonasymptotic cube-root coefficients. Small/large budget limits are derived from Taylor and essential-supremum Laplace laws. The proof covers every positive budget and Gaussian scale; 6,232 supplementary checker tests and high-precision boundary checks passed, without being treated as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lindh et al. 2016 optimize a distinct bang-bang flowering-onset control; doi:10.1111/nph.13706",
+        "Ishii/Sakai 2001 discuss optimal display qualitatively but do not solve fixed-budget Gaussian width; doi:10.1046/j.1365-2435.2001.00536.x",
+        "Blasi et al. 2022 uses dynamical bee foraging and visits-per-floral-resource models; doi:10.1002/ece3.9014"
+      ],
+      "reasoning": "Broader plant phenology, life-history control and bee-dynamics frameworks do not by themselves imply this claimed exact solution: their admissible controls, objectives or opportunity distributions are different. Stronger all-purpose allocation theorems remain a residual historical risk, not an observed covering result.",
+      "searches": [
+        "plant blooming duration flower display tradeoff pollination saturation length optimization fixed flowers",
+        "Gaussian error function exponential saturation flower duration optimal",
+        "optimal interval length Gaussian arrival exponential detection intensity total effort coverage model",
+        "\"erf\" \"1-exp\" \"optimal\" \"window\" Gaussian width",
+        "flowering duration optimal phenology saturating pollination resource allocation Gaussian fixed budget"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1111/nph.19994",
+      "https://doi.org/10.1002/ece3.9014",
+      "https://doi.org/10.1046/j.1365-2435.2001.00536.x",
+      "https://doi.org/10.1111/nph.13706",
+      "https://doi.org/10.1111/ele.13884"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Austin et al. 2024: 10th/90th quantile regression of flowering dates and overlap, not resource allocation; doi:10.1111/nph.19994",
+        "Blasi et al. 2022: explicit distinct floral-resource/visit saturation in eq (11); doi:10.1002/ece3.9014",
+        "Lindh et al. 2016: control variable is onset of growth allocation, not duration; doi:10.1111/nph.13706",
+        "Glaum et al. 2021: dynamic seasonal network and diet-specialization response; doi:10.1111/ele.13884"
+      ],
+      "reasoning": "The result requires simultaneous fixed-total display dilution, a free contiguous interval and a Gaussian encounter opportunity; none of the checked prior outcomes supplies the strict cubic inequality or proves it as a corollary of a stronger matching optimization. The mathematical tools used in the proof are standard and explicitly credited.",
+      "searches": [
+        "optimal flowering duration fixed resource investment pollinator availability gaussian bell shaped saturation model",
+        "plant blooming duration flower display tradeoff pollination saturation length optimization fixed flowers",
+        "Gaussian error function exponential saturation flower duration optimal",
+        "optimal interval length Gaussian arrival exponential detection intensity total effort coverage model",
+        "Phenology and flowering overlap drive specialization Glaum Wood pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Blasi et al. 2022 eq (11) has an exponential saturation factor but a distinct dependence on floral resources; doi:10.1002/ece3.9014",
+        "Glaum et al. 2021 uses temporal network overlap and adaptive foraging rather than one Gaussian encounter; doi:10.1111/ele.13884"
+      ],
+      "reasoning": "Searched for Gaussian-window, error-function-times-Poisson-saturation, optimal duration, fixed floral budget and equivalent aliases. No inspected equivalent score-plus-sharp-bounds formulation was found. The general convex-order component alone is not counted as novel.",
+      "searches": [
+        "optimal flowering duration fixed resource investment pollinator availability gaussian bell shaped saturation model",
+        "plant blooming duration flower display tradeoff pollination saturation length optimization fixed flowers",
+        "Gaussian error function exponential saturation flower duration optimal",
+        "optimal interval length Gaussian arrival exponential detection intensity total effort coverage model",
+        "\"erf\" \"1-exp\" \"optimal\" \"window\" Gaussian width"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The formula is a continuous implicit optimizer with proved sharp limiting constants, not a finite table lookup.",
+        "No exact numerical table or database output surfaced in targeted scientific searches."
+      ],
+      "reasoning": "No inspected table gives the optimizer, its proof or optimal cube-root constants; failure to locate a table is not proof that one does not exist.",
+      "searches": [
+        "\"erf\" \"1-exp\" \"optimal\" \"window\" Gaussian width",
+        "\"convex order\" \"1-U^2\" \"uniform\" \"4/3\"",
+        "Gaussian error function exponential saturation flower duration optimal"
+      ]
+    },
+    "rationale": "The closest inspected work studies ecological duration changes (Austin), numerical pollination saturation (Blasi), floral-display longevity (Ishii/Sakai), onset timing optimal control (Lindh) or seasonal resource network specialization (Glaum), not the stated one-window fixed-budget Gaussian optimization with both sharp universal width constants. Generic rearrangement and convex order are acknowledged prior techniques; targeted formula/alias searches and database similarity queries did not identify an equivalent or dominating claim. Priority is provisional.",
+    "residual_risks": [
+      "Untargeted mathematical scheduling/coverage literature might independently include the same objective, a reduction or an even broader theorem.",
+      "Exact model assumptions are simplified and not validated against field measurements; the result has no direct population-dynamics or causal fitness claim.",
+      "Primary-source access is sufficient for comparisons made, but no exhaustive historical priority check or independent specialist audit is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Empirical inference of shifts in 68 species with directional interspecific overlap, no budget-constrained choice of uniform display or unique duration/enclosure theorem.",
+        "evidence": [
+          "2024 first published 24 July; measured mean 11.5 day lengthening and increased co-flowering for 94% species.",
+          "Methods model start and end dates using 10th/90th quantile regressions, then compute pairwise overlaps."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/nph.19994",
+        "material_read": "Full HTML summary, introduction, Fig. 1 explanation, Methods flowering-data and duration/overlap quantile regression; dated full article",
+        "method": "publisher full HTML",
+        "title": "Climate change increases flowering duration, driving phenological reassembly and elevated co-flowering richness",
+        "trigger": "Duration/overlap of flowering seasons and Gaussian-benchmark motivation; verified first published 2024-07-24"
+      },
+      {
+        "assessment": "Uses pollination score F(t,i)[1-exp(-k visits/F(t,i))] in spatially explicit bee-population simulations. This response has resource abundance in the denominator and is not the same one-opportunity fixed-intensity-budget optimum; no global cube-root window bounds are implied by equation (11) without new hypotheses and analysis.",
+        "evidence": [
+          "Section 2.1.5 eq (11) and pollination-potential description.",
+          "Methods fix simulated habitat fractions and drought scenarios; Results emphasize landscape changes and pollination potential."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/ece3.9014",
+        "material_read": "Full HTML Model section 2.1.5 equation (11), output score and simulation/analysis sections; discussion on floral-resource dilution",
+        "method": "publisher full HTML",
+        "title": "A model of wild bee populations accounting for spatial heterogeneity and climate-induced temporal variability of food resources at the landscape level",
+        "trigger": "Potential coverage by saturated pollination function and temporal variation"
+      },
+      {
+        "assessment": "Describes physiological display-size tradeoff and prior qualitative optimal scheduling but no Gaussian opportunity time, uniform fixed budget, strict uniqueness, or sharp universal cube-root constants in inspected results.",
+        "evidence": [
+          "Discussion links display, floral longevity and schedule; field evidence for prolonged lower/middle flowers and pollinator attraction."
+        ],
+        "identifier_or_url": "https://doi.org/10.1046/j.1365-2435.2001.00536.x",
+        "material_read": "Full HTML abstract, empirical results and discussion, including explicit remarks on optimal blooming schedules and display/flower longevity",
+        "method": "publisher full HTML",
+        "title": "Effects of display size and position on individual floral longevity in racemes of Narthecium asiaticum",
+        "trigger": "Possible older optimization of floral display and longevity"
+      },
+      {
+        "assessment": "Optimizes onset of reproduction for exponential/logistic/allometric biomass accumulation within given season, not duration/placement of a uniform-display interval under exogenous Gaussian opportunity and Poisson success.",
+        "evidence": [
+          "Article describes bang-bang allocation with start-of-reproduction switching time and growth-dependent direction changes."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/nph.13706",
+        "material_read": "Full publisher HTML introduction/model equation descriptions and Results including bang-bang vegetative/reproductive switch, productivity and seasonal length analysis",
+        "method": "publisher full HTML",
+        "title": "Constrained growth flips the direction of optimal phenological responses among annual plants",
+        "trigger": "Optimal flowering-time primary result that may dominate scheduling claims"
+      },
+      {
+        "assessment": "Models adaptive foraging in multi-species networks with modified sinusoidal phenology and time-dependent floral reward pools. The displayed model and stated target of diet specialization differ from optimizing a one-event Gaussian display window. No result in reviewed text gives this exact objective or sharp cube-root enclosure.",
+        "evidence": [
+          "Main text model development describes network population dynamics and modified-sinusoidal seasonal functions.",
+          "Conclusions discuss flowering-season length in relation to network specialization rather than a fixed display budget optimum."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/ele.13884",
+        "material_read": "Publisher PDF extracted main text Introduction, Methods model development and conclusion; abstract and model equations summary; image screenshot request redirected to publisher HTML, not counted as full visual inspection",
+        "method": "publisher accessible PDF-text extraction and HTML",
+        "title": "Phenology and flowering overlap drive specialisation in plant–pollinator networks",
+        "trigger": "Primary plausible earlier theory of temporal floral availability and overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c531e751-48ae-452a-ac81-267a9adc56da",
+  "value": {
+    "rationale": "The exact width addresses a concrete ecological tradeoff: floral display intensity diminishes when a finite flower-production budget is distributed over longer phenological windows, while pollinator exposure rises. Unique optimal timing and sharply bounded cube-root scaling make an actionable analytic benchmark; the upper/lower bound factor is only (4/3)^(1/3), with both constants proved optimal. The result depends on the whole positive-parameter family, not an arbitrary numerical slice. Biological extrapolation is expressly withheld.",
+    "status": "PASS"
+  }
+}
