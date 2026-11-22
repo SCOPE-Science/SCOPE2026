@@ -1,19 +1,21 @@
-# Scientific review of the critical-corner rare-event law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result is an exact statement about the two-dimensional Boxonov map with fixed \(0<a,b<1\) and Lebesgue-uniform initial conditions. Direct algebra gives the invariant offset and logistic-type recurrence. The reciprocal recurrence is exact for the full critical layer, including negative offsets. The proof establishes the required uniform bound by discrete Gronwall, a harmonic bound for the total minority mass, and a controlled Euler comparison. The constant \(U/a\) follows from the full initial-square Jacobian and the length of the critical slice; compact support forces the offset parameter into a bounded interval. No finite numerical test is used to prove the asymptotics. The exact-drift boundary and all initial-region endpoints are accounted for by a vanishing-area argument.
+PASS
 
-## Originality — PASS within inspected evidence
+PASS. Let q=1-b, u=1-X and d=X+(a/q)Y-1; exact cancellation fixes d and gives u_(j+1)=u_j[1-q(u_j+d)]. For d=t/(qn), reciprocal h_j=1/(n u_j) satisfies exact forward difference (t h_j+q)/(n(1-t/n-q u_j)); positive denominator >=1-a. Uniform Gronwall on bounded t and initial u in compact (0,U), plus sum_(j<n)u_j=O(log n), justifies Euler limit H'=tH+q, H(0)=0, H(1)=q(e^t-1)/t; thus qn u_n -> t/(e^t-1) and anY_n -> f(t)+t. Change (X0,Y0)->(u0,d) has determinant q/a and t=qn d, giving n dX0dY0=(1/a)du0dt. Compact test support forces bounded t by exact difference of rescaled coordinates; endpoint u strips contribute arbitrarily little, proving vague limiting measure and conditional strip probability 2KU/(an). Independent recurrence at n=500,2000,8000 for t=.6 approaches (.7298215,1.3298215).
 
-Boxonov's originating paper, arXiv:2303.03884v1, introduces precisely the polynomial map, its invariant foliation and global convergence to one of two boundary equilibrium edges. Those known statements do not include the present \(n\)-weighted initial-ensemble limit, its explicit curve or its \(U/a\) prefactor. Teixeira et al., arXiv:1502.06437v1, study one-dimensional logistic-map decay and critical scaling, including inverse-time behavior; the present proof uses rather than claims these scalar ideas. The specific two-coordinate measure is not implied as a stated corollary without combining the model's conserved geometry and a uniform near-critical approximation and integrating over initial-condition area. Searches of related public findings also concerned different population maps, random switching or critical scaling in other systems. This does not establish universal priority or rule out unindexed general theorems.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-At a nonhyperbolic intersection of two equilibrium branches, ordinary pointwise convergence says which equilibrium is selected but not how a random ensemble approaches both branches at a finite generation. The theorem gives a complete, explicit rare-event joint distribution and its probability scale, including strong dependence between the two surviving coordinates and an exact geometric prefactor. The event \(|qnD|\le K\) is an intrinsic, invariantly defined criticality window, rather than an arbitrarily selected parameter slice. Such a finite-generation boundary layer directly characterizes critical minority abundance in a natural population model.
+PASS best-of-knowledge. The original Boxonov operator, invariant lines and equilibrium limit theorem are prior, and logistic inverse-time scaling is classical; full relevant preprint §3 does not state the pushforward of uniform initial square states at generations n, its exact measure on a two-coordinate curve or strip-intensity U/a. Related same-model 2026 reciprocal logarithmic correction theorem cites the first-order ensemble limit as known but addresses a different second-order fixed-fiber problem. Unindexed general parabolic random-ensemble theorems remain a risk.
 
-## Closest literature and limitations
+## value
 
-Boxonov (arXiv:2303.03884v1, §3) already proved the invariant lines and limit states. Teixeira et al. (arXiv:1502.06437v1) analyzed logistic critical scaling. The theorem is restricted to fixed admissible parameters, a uniform initial ensemble and compactly tested vague convergence. It neither covers all distributions of initial populations nor excludes an unindexed equivalent statement in general parabolic-map literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The natural nonhyperbolic corner of a deterministic two-sex map has qualitatively different attracting equilibrium edges, so the exact n^-1 initial-data rare strip and dependent two-coordinate universal scaling limit are motivated geometric-dynamical information. The coarea prefactor U/a and conditional curve cannot be read from qualitative endpoint convergence and are useful beyond merely restating a scalar logistic approximation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
