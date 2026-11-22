@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T20:59:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Independent offset Poisson processes give six independent Exp(lambda_i) nearest signed gaps. Since n1+n2+n3=0, each upper facet disappears precisely on E_i={A_i>B_j+B_k}, and each lower disappears on F_i={B_i>A_j+A_k}, equality events having probability zero. For each nonempty I, conditional Laplace integration over the B_j gives b_I; E_i with F_j for i≠j are mutually exclusive, whereas E_i and F_i use disjoint variables and contribute b_i² as the only mixed two-facet removal. Inclusion-exclusion yields the four displayed probabilities, N∈{3,4,5,6}, and E[N]=6-2u1. Independently recomputed exact equal-rate b_single=1/4, b_double=1/12, b_triple=1/27, s=3/16, resulting in (2/27,67/144,25/72,49/432) and mean 9/2. The geometric reason is exact; finite Monte Carlo in the inspected checks/verify.py is corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Heerten et al. 2023 gives all three-direction typical-cell sidedness probabilities as a function of rates.",
+          "Hilhorst–Calka 2008 studies the continuous-angle isotropic Crofton zero cell, not a three-atomic direction measure."
+        ],
+        "reasoning": "Typical-cell generality over three rates does not dominate the zero-cell law without the conditional cell areas, while an isotropic continuous-direction zero-cell result does not specialize to three atomic directions.",
+        "searches": [
+          "Resultary semantic: three directional Poisson line zero cell sidedness 4 5 6 area weighted",
+          "Resultary semantic: three directional Poisson line tessellation zero cell side number area weighted polygon 3 4 5 6 explicit probability",
+          "https://arxiv.org/abs/2309.12771",
+          "https://arxiv.org/abs/2209.14121",
+          "https://arxiv.org/abs/0802.1869"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2309.12771",
+        "https://arxiv.org/abs/2209.14121",
+        "https://arxiv.org/abs/0802.1869",
+        "Resultary geometric probability search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General stationary tessellation Palm relation P_zero(k)=P_typ(k) E[area|k]/E[area] requires extra unknown conditional area moments.",
+          "The submitted b_I Laplace integrals directly calculate joint facet redundancies E_i, F_i from six independent exponentials."
+        ],
+        "reasoning": "The zero-cell law is not an immediate numerical corollary of the known typical-cell distribution; it uses a different independent exponential-gap argument to supply the missing area weighting.",
+        "searches": [
+          "Resultary semantic: three directional Poisson line zero cell sidedness 4 5 6 area weighted",
+          "Resultary semantic: three directional Poisson line tessellation zero cell side number area weighted polygon 3 4 5 6 explicit probability",
+          "https://arxiv.org/abs/2309.12771",
+          "https://arxiv.org/abs/2209.14121",
+          "https://arxiv.org/abs/0802.1869"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Heerten–Hübner–Thäle 2023 explicitly defines the typical cell by counting cells by a fixed representative point and proves a four-type distribution, whereas the assignment fixes the deterministic origin and samples the area-biased zero cell.",
+          "At equal rates the typical-cell law (2/9,7/12,1/6,1/36) differs from the claimed zero-cell law (2/27,67/144,25/72,49/432)."
+        ],
+        "reasoning": "These probability distributions refer to different Palm measures; similarity of directions and possible side counts is not mathematical equivalence.",
+        "searches": [
+          "Resultary semantic: three directional Poisson line zero cell sidedness 4 5 6 area weighted",
+          "Resultary semantic: three directional Poisson line tessellation zero cell side number area weighted polygon 3 4 5 6 explicit probability",
+          "https://arxiv.org/abs/2309.12771",
+          "https://arxiv.org/abs/2209.14121",
+          "https://arxiv.org/abs/0802.1869"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic query returned this named zero-cell result, plus unrelated anisotropic Voronoi and polygonal invariants; no independent zero-cell four-type table for three discrete normal directions identified.",
+          "The actual prior 2023 table describes typical cells, not zero cells."
+        ],
+        "reasoning": "No found external table or lookup reproduces all four area-weighted probabilities or the arbitrary-rate b_I formula; absence of search hits alone is not novelty proof.",
+        "searches": [
+          "Resultary semantic: three directional Poisson line zero cell sidedness 4 5 6 area weighted",
+          "Resultary semantic: three directional Poisson line tessellation zero cell side number area weighted polygon 3 4 5 6 explicit probability",
+          "https://arxiv.org/abs/2309.12771",
+          "https://arxiv.org/abs/2209.14121",
+          "https://arxiv.org/abs/0802.1869"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the complete zero-cell four-type law for arbitrary three positive rates. The highly relevant Heerten–Hübner–Thäle theorem is for the typical cell; its probability weights cannot simply be reused for the area-weighted origin cell. The published isotropic Crofton zero-cell study is a different direction distribution.",
+      "residual_risks": [
+        "A specialized zero-cell table or conditional-area formula in less accessible stochastic-geometry literature could imply this result; no historical-priority certification claimed.",
+        "No general theorem for four or more directions is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Primary theorem is for uniformly selected typical cells, not the deterministic-origin area-biased zero cell",
+          "evidence": "arXiv:2309.12771; introductory typical-cell definition and main four-type probabilities",
+          "identifier_or_url": "https://arxiv.org/abs/2309.12771",
+          "material_read": "Accessible arXiv complete article/HTML rendition, Introduction and main vertex-number theorem, definition of typical cell, distribution formulas and discussion of weighting",
+          "method": "Read arXiv full-text rendering and distinguished its Palm sampling definition",
+          "title": "Vertex number of the typical cell in a tri-directional Poisson line tessellation",
+          "trigger": "Same three equally spread line directions and arbitrary weights"
+        },
+        {
+          "assessment": "Continuous-angle isotropic process and many-sided asymptotics are distinct from the discrete 3-direction 3..6 finite law",
+          "evidence": "arXiv:0802.1869; stated isotropic Crofton setup",
+          "identifier_or_url": "https://arxiv.org/abs/0802.1869",
+          "material_read": "Available abstract and article description only, no claim of complete proof reading",
+          "method": "arXiv bibliographic/abstract comparison",
+          "title": "Random line tessellations of the plane: statistical properties of many-sided cells",
+          "trigger": "Known Crofton zero-cell theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. A complete arbitrarily anisotropic four-point discrete distribution of a natural planar Poisson zero cell provides a substantive stochastic-geometry invariant. It distinguishes the area-biased zero-cell law from the independently well-studied typical-cell distribution, and the exact mixed facet-redundancy term is nontrivial. This is not simply a known-cell table recomputation or a tiny numerical gain.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Rates strictly positive and exactly three specified normal directions.",
+    "Equal-rate arithmetic and finite simulation corroborate but do not prove the arbitrary-rate law."
+  ],
+  "schema_version": 1
+}

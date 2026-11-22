@@ -1,15 +1,21 @@
-# Scientific assessment: three-direction Poisson zero-cell sidedness
+# Independent mathematical audit
 
-## Correctness — PASS
-The zero cell is the intersection of six nearest-offset halfplanes whose signed gaps are independent exponential random variables, a direct consequence of the independent Poisson construction. In coordinates \(y_1+y_2+y_3=0\), an upper or lower halfplane is redundant exactly when its gap exceeds the sum of the opposite gaps in the other two directions. Every possible redundant-facet pattern has been classified, including the simultaneous matched upper/lower patterns. Conditional exponential Laplace transforms yield the subset probabilities \(b_I\); inclusion-exclusion gives all four atom probabilities and their sum equals one. The equal-rate values follow by exact rational arithmetic. A separate deterministic vertex-intersection algorithm agreed with the redundancy count in 15,000 independently generated cells; simulation checked three intensity configurations. These checks supplement, but do not replace, the complete finite proof.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The closely related full-text study by Heerten, Hübner and Thäle (2023, arXiv:2309.12771) proves a complete **typical-cell** side-count law for the same three line orientations. Its equal-weight frequencies \((2/9,7/12,1/6,1/36)\) are not the zero-cell frequencies, and the paper does not state the zero-cell law. Its stochastic construction of the typical polygon includes shape parameters and could potentially support an alternative derivation after area weighting, but the full zero-cell calculation is not explicitly supplied. Heerten, Krecklenberg and Thäle (2022, arXiv:2209.14121) likewise consider the typical-cell triangle probability, not the zero cell. Hilhorst and Calka (2008, arXiv:0802.1869) study large-sided Crofton cells for continuous isotropic directions rather than the three-direction finite law. Hug and Schneider (2010, arXiv:1010.2333) concern large-cell limit shapes, not these finite probabilities. A search for the exact equal-rate fractions and the corresponding zero-cell statement found no equivalent published formula. An obscure older anisotropic zero-cell computation remains a priority risk.
+PASS
 
-## Value — PASS
-The zero cell is an area-biased canonical random polygon in stochastic and integral geometry, different from the usually tabulated typical cell. Its complete three-to-six side-count distribution is an invariant of a natural three-family random-line model; the general result gives an explicit rational parameter law for every positive directional intensity, not just a selected numerical case. The exact equal-rate law highlights a substantial size bias, including a fourfold increase in hexagon probability compared with the typical cell. This motivates explicit geometry-sensitive cell sampling statistics, beyond textbook expectations.
+PASS. Independent offset Poisson processes give six independent Exp(lambda_i) nearest signed gaps. Since n1+n2+n3=0, each upper facet disappears precisely on E_i={A_i>B_j+B_k}, and each lower disappears on F_i={B_i>A_j+A_k}, equality events having probability zero. For each nonempty I, conditional Laplace integration over the B_j gives b_I; E_i with F_j for i≠j are mutually exclusive, whereas E_i and F_i use disjoint variables and contribute b_i² as the only mixed two-facet removal. Inclusion-exclusion yields the four displayed probabilities, N∈{3,4,5,6}, and E[N]=6-2u1. Independently recomputed exact equal-rate b_single=1/4, b_double=1/12, b_triple=1/27, s=3/16, resulting in (2/27,67/144,25/72,49/432) and mean 9/2. The geometric reason is exact; finite Monte Carlo in the inspected checks/verify.py is corroboration only.
 
-## Scientific limitations and open comparisons
-The statement is restricted to three unoriented directions separated by \(60^\circ\), independent stationary Poisson offsets, positive rates and the containing-origin cell. It does not provide polygon areas, conditioning by side count or a result for continuously distributed directions. Published geometric parameterizations might imply the probabilities after nontrivial integration; absence of an exact expression in examined material is not a proof of global priority. The displayed checks do not constitute independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the complete zero-cell four-type law for arbitrary three positive rates. The highly relevant Heerten–Hübner–Thäle theorem is for the typical cell; its probability weights cannot simply be reused for the area-weighted origin cell. The published isotropic Crofton zero-cell study is a different direction distribution.
+
+## value
+
+PASS
+
+PASS. A complete arbitrarily anisotropic four-point discrete distribution of a natural planar Poisson zero cell provides a substantive stochastic-geometry invariant. It distinguishes the area-biased zero-cell law from the independently well-studied typical-cell distribution, and the exact mixed facet-redundancy term is nontrivial. This is not simply a known-cell table recomputation or a tiny numerical gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
