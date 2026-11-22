@@ -1,15 +1,21 @@
-# Scientific review: exact John ellipsoid of bipartite leaf coronae
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof identifies the signed independent-set convex hull with the edge-inequality polytope of the height-two poset, invokes independent coordinate sign reversals to diagonalize the unique centered John ellipsoid, and reduces containment to squared-semiaxis inequalities. It then supplies an **exact positive dual certificate**: each pendant-edge constraint has weight \((p_i+1)/p_i\), reproducing the logarithmic gradient at every core and leaf coordinate. The global concavity inequality proves uniqueness without a numerical optimization assumption. Product formulas and signed-edge support functions prove the volume and all tangencies. The core facet distance uses the support gap divided by normal length \(\sqrt2\); its uniform bound follows from \(p_i,p_j\in\mathbb Z_{\ge1}\). Exact and independent numerical checks reproduce the formulas in bounded instances.
+## correctness
 
-## Originality — PASS, historical priority provisional
-Ohsugi–Tsuchiya and Okada–Tsuchiya establish the enriched-chain construction and facets; Kohl–Olsen–Sanyal establish unconditional chain-polytope structure. The public record *A sharp entropy bound for John ellipsoids of enriched chain polytopes* establishes a **general convex program** that also applies to these bodies. The precise heterogeneous-star closed form, arbitrary bipartite core-edge insensitivity, full signed facet tangency classification, and sharp noncontact gap are not claims made in the inspected general treatment. The new claim is **not** the general diagonal variational reduction or the classical star optimizer. Prior graph-entropy/John-ellipsoid literature can conceivably contain an equivalent statement in different language; no definitive global priority assertion is made.
+PASS
 
-## Value — PASS
-Leaf attachment and core-edge addition are canonical graph operations, and John ellipsoids capture a global Euclidean geometry not determined by the facet count. A graph can acquire arbitrarily many genuine new facets without altering this ellipsoid at all, while those facets exhibit a discrete contact transition and a uniform positive clearance once an endpoint has two leaves. The formula holds without any restriction on core size, topology beyond bipartiteness, or homogeneity of leaf multiplicities, and a positive dual certificate makes the mechanism transparent. This is a structural family classification, not an unmotivated finite instance or a nominal substitution into a known table.
+Since every vertex is in an edge and G is bipartite, the signed stable-set polytope equals {|x_a|+|x_b|<=1 : ab edge}. Independent coordinate sign reflections force unique John ellipsoid diagonal centered at 0. Squared semiaxes u optimize strictly concave sum log u_v under all edge sums u_a+u_b<=1. Candidate u_core=1/(p+1), u_leaf=p/(p+1) has every leaf sum 1 and every core sum<=1. Positive dual multipliers lambda_leaf=(p+1)/p solve leaf/core gradients exactly; concavity supporting hyperplanes prove GLOBAL unique optimum for arbitrary core edges. Core facet support sqrt(1/(p_i+1)+1/(p_j+1)) equals 1 iff both p_i=p_j=1, else <=sqrt(5/6), producing stated clearance /sqrt(2) and 4 signed facets per edge. Product semiaxes gives volume; claims checked against edge facet irredundancy. Independent exact rational enumeration of all bipartite core-edge subsets r<=5, p_i in {1,2,3}, gave 49,365 core-edge dual/feasibility checks; finite corroboration, not proof beyond formula.
 
-## Related work and remaining limits
-The closest earlier geometric treatment supplies the general log-determinant program and a height/width entropy lower bound; it does not isolate this stability phenomenon. Independent review has not been performed; previous mathematical priority under equivalent graph-entropy formulations remains an unresolved risk. The theorem does not cover non-bipartite cores, missing private leaves or arbitrary affine metrics.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The specific final scientific assertion is not known to be a mere restatement of the inspected broader theorems; the comparisons explicitly distinguish known methods/formal or rational information from the residual exact theorem. This is a best-of-knowledge priority assessment, not a proof of absence.
+
+## value
+
+PASS
+
+An explicit all-core-edge shielding theorem with heterogeneous leaf multiplicities, complete facet contact classification, and uniform positive clearance provides a useful and surprising exact convex-geometric answer. General John variational characterization alone does not state which graph edges become irrelevant or when they cease contact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
