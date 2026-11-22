@@ -1,0 +1,164 @@
+{
+  "correctness": {
+    "rationale": "For the 9+9 bipartite incidence graph, a maximal matching leaves independent uncovered sets of equal sizes. Four chosen points meet at least six of nine selected lines, excluding cardinality below six. Exactly eighteen affine triangles leave three avoiding lines, and on each twelve-vertex complement three forced edges plus one six-cycle give exactly two perfect matchings. Exhaustive first-free-vertex recursion gives cardinality counts (36,567,648,42), and an independent LCF model verifies no four-by-four cocliques and all 36 minima. Both scripts exhaustively check 630 optimum pairs, the 126 three-swap edges, 36 BFS profiles (1,7,12,12,4), and finite affine symmetry transitivity. Finite enumeration is exhaustive and no infinite-generalization inference is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adriaensen–Mattheus–Spiro, 2023, DOI 10.1002/jcd.21925, introductory Lemma 2.1 and Sections 3–5, including a symmetric-design large-block theorem that assumes block size at least 36.",
+        "Dejter, arXiv:0904.1096, text concerning Pappus directed short-cycle geometry and self-dual configurations.",
+        "Bonamy et al. 2019, DOI 10.4230/LIPIcs.MFCS.2019.80, concerns flip moves of perfect matchings along alternating four-cycles."
+      ],
+      "reasoning": "The Pappus incidence structure has block size three, so the large-design completion theorem is inapplicable, and the general incidence-free lower bound only supplies a necessary optimum-size argument. The 2009 short-cycle reattachment problem and perfect-matching flip operations do not supply the stated nonperfect maximal-matching relocation graph. No inspected stronger theorem entails the full claim.",
+      "searches": [
+        "minimum maximal matchings of Pappus graph 18 vertices saturation edge domination exchange graph",
+        "minimum maximal matchings of Heawood Pappus Möbius Kantor graphs exact optimum relocation",
+        "\"Pappus graph\" \"edge dominating\" \"matching\" minimum",
+        "Incidence-free sets and edge domination in incidence graphs Pappus affine line small parameters"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/0904.1096",
+      "https://doi.org/10.1002/jcd.21925",
+      "https://doi.org/10.1137/0138030",
+      "https://doi.org/10.4230/LIPIcs.MFCS.2019.80",
+      "https://mathworld.wolfram.com/PappusGraph.html",
+      "https://reference.wolfram.com/language/ref/GraphData.html",
+      "https://passagemath.org/docs/10.6/html/en/reference/graphs/sage/graphs/matching.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A previously published result characterizes minimum maximal matching exchanges on the Heawood graph as a Coxeter line graph; it does not concern Pappus or provide a universal cubic-incidence transfer theorem.",
+        "The Pappus maximum induced matching records concern 27 size-five induced matchings, while the present 36 configurations are *minimal maximal* matchings of size six.",
+        "The Pappus perfect-matching reconfiguration record concerns 42 size-nine configurations and hexagon/octagon cycle flips.",
+        "A prior complete Pappus skew-zero-forcing polynomial has 5,184 minimum six-vertex sets and a product-Johnson reconfiguration graph; this is a different vertex-subset feasibility condition from 36 six-edge maximal matchings.",
+        "A Pappus secure-domination census has 1,755 optimum eight-vertex guards and a different token-relocation metric; a Pappus local perfect-matching forcing result concerns 42 perfect matchings and forcing triples, not 36 nonperfect maximal matchings."
+      ],
+      "reasoning": "Neither graph transfer nor predicate inclusion can identify the 36 maximal six-edge Pappus matchings with 27 maximum induced matchings or 42 perfect matchings. The prior Heawood Coxeter graph identification is not a universal theorem for cubic incidence graphs and does not imply these Pappus parameters. The new sharp three-edge threshold and 7-regular radius-four graph are logically additional. The existing Pappus skew-zero-forcing, secure-domination and perfect-matching forcing statements are about vertex placements or certificates for perfect matchings and do not imply a classification or the mobility of minimum maximal matchings.",
+      "searches": [
+        "minimum maximal matchings of Pappus graph 18 vertices saturation edge domination exchange graph",
+        "minimum maximal matchings of Heawood Pappus Möbius Kantor graphs exact optimum relocation",
+        "\"Pappus graph\" \"maximal matchings\" reconfiguration",
+        "Heawood graph saturation number minimum maximal matchings 42 optimal five-edge maximal matchings line graph Coxeter graph exchange reconfiguration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Indexed result on minimum maximal matching mobility in the Möbius–Kantor graph: 176 size-six configurations and one-edge exchanges, a different graph.",
+        "Indexed result on the Pappus graph addresses 27 maximum induced matchings of size five and simultaneous two-edge exchanges, not the 36 minimum maximal matchings.",
+        "Yannakakis–Gavril 1980 and Adriaensen–Mattheus–Spiro 2023 recognize minimum edge domination / minimum maximal matching as equivalent optimum values."
+      ],
+      "reasoning": "The synonym minimum independent edge dominating set is included in comparison; value equivalence does not imply optimum set enumeration or an exchange graph. Pappus maximum induced matchings and perfect matchings are different feasible families, so their reconfiguration conclusions are not statements about the present 36 states.",
+      "searches": [
+        "minimum maximal matchings of Pappus graph 18 vertices saturation edge domination exchange graph",
+        "minimum maximal matchings of Heawood Pappus Möbius Kantor graphs exact optimum relocation",
+        "\"Pappus graph\" \"maximal matchings\" reconfiguration",
+        "\"Pappus graph\" \"maximal matching\" \"36\" exchange"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published Wolfram GraphData documentation https://reference.wolfram.com/language/ref/GraphData.html lists `MaximalMatchingGeneratingPolynomial` and `LowerMatchingNumber`, and supplies generic graph examples.",
+        "Sage matching documentation at https://passagemath.org/docs/10.6/html/en/reference/graphs/sage/graphs/matching.html shows Pappus maximum matching size nine, a different invariant.",
+        "No retrieved source explicitly displayed the 36-state three-swap exchange graph or its all-pairs distance profile."
+      ],
+      "reasoning": "A database query may reproduce the numerical minimum and polynomial, and those numerical facts are not asserted to be independently novel. The main proposed contribution requires the affine-triangle geometric classification and the three-edge exchange graph, information not implied by merely having maximal-matching coefficients. Database uninspected entries are a residual risk.",
+      "searches": [
+        "\"PappusGraph\" \"MaximalMatchingGeneratingPolynomial\"",
+        "\"Pappus\" \"36\" \"567\" \"648\" maximal matching",
+        "\"Pappus\" \"maximal matching polynomial\"",
+        "Pappus graph minimum maximal matching saturation number exact counts"
+      ]
+    },
+    "rationale": "The final claim concerns the exact eighteen-affine-triangle classification and the sharp three-edge mobility graph of minimum maximal matchings on the Pappus incidence graph. Search comparisons distinguish it from previously indexed minimum-maximal matching mobility on the Heawood and Möbius–Kantor graphs, maximum induced matchings of Pappus, perfect-matching four-cycle flips, and general incidence-free edge-domination bounds. The exhaustive finite evidence establishes the statements independently of possible numeric matching tables; graph-software tables remain a priority risk for only the numerical coefficients. Search cannot prove priority and unindexed work remains a risk.",
+    "residual_risks": [
+      "A computer graph database may already contain the minimum size and full polynomial; those numbers are supporting rather than the primary originality claim.",
+      "The original 1980 journal full text and the 2019 reconfiguration full PDF were not read. The accessible abstracts and problem definitions do not resolve every possible historical implication.",
+      "Unindexed source tables or other historical articles might contain an equivalent geometric or exchange classification; no search result is proof of global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No covering assertion identified in the inspected text; focus is short-cycle orientations and ultrahomogeneous graph constructions",
+        "evidence": [
+          "arXiv 0904.1096 April 7 2009",
+          "Sections covering Pappus 18-vertex model and orientation reattachment"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0904.1096",
+        "material_read": "Full available HTML text including preliminaries, Pappus model, short-cycle reattachments, and Theorem 3",
+        "method": "Read arXiv HTML rendering and searched for matching and reconfiguration terminology",
+        "title": "Pappus-Desargues digraph confrontation",
+        "trigger": "Earliest public Pappus graph and geometrically plausible same-object study"
+      },
+      {
+        "assessment": "General edge-domination and incidence-free framework; no located Pappus optimum-exchange classification; small block size fails main completion hypothesis",
+        "evidence": [
+          "First published November 23 2023",
+          "Section 2 maximal matching equivalence",
+          "Theorem 5.8 assumes block size at least 36"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/jcd.21925",
+        "material_read": "Full accessible HTML text; Introduction; Lemmas 2.1–2.3; Sections 3 and 5 and the large-block-size condition",
+        "method": "Read open full-text scientific statements and checked Pappus/affine/reconfiguration terms",
+        "title": "Incidence-free sets and edge domination in incidence graphs",
+        "trigger": "Directly related edge domination on incidence graphs"
+      },
+      {
+        "assessment": "Not adjudicated as a whole-document noncoverage finding; full historical text inaccessible",
+        "evidence": [
+          "1980 abstract states edge dominating set complexity and minimum maximal matching connection"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0138030",
+        "material_read": "Abstract and publication metadata; complete article not accessible in this session",
+        "method": "Read journal bibliographic page and abstract",
+        "title": "Edge Dominating Sets in Graphs",
+        "trigger": "Foundational equivalent terminology and lower edge-domination invariant"
+      },
+      {
+        "assessment": "Its four-cycle perfect-matching flips differ from arbitrary three-edge replacements between minimum *maximal*, nonperfect matchings",
+        "evidence": [
+          "Published August 20 2019",
+          "Abstract specifies perfect matchings and alternating four-cycle flips"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2019.80",
+        "material_read": "Detailed proceedings page, abstract, and bibliography; PDF full text not inspected",
+        "method": "Read publisher HTML and exact problem statement",
+        "title": "The Perfect Matching Reconfiguration Problem",
+        "trigger": "Potentially stronger reconfiguration theorem"
+      },
+      {
+        "assessment": "Confirms independent graph presentation; no stated minimum-maximal matching exchange classification",
+        "evidence": [
+          "LCF [5,7,-7,7,-7,-5] repeated three times"
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/PappusGraph.html",
+        "material_read": "Graph description including 18 vertices, 27 edges, and LCF offsets",
+        "method": "Read graph reference HTML",
+        "title": "Pappus Graph",
+        "trigger": "Independent LCF presentation of same graph"
+      },
+      {
+        "assessment": "Potential prior coverage of polynomial coefficients; does not substantiate novelty of counts; exchange classification not a listed property",
+        "evidence": [
+          "Properties include LowerMatchingNumber and MaximalMatchingGeneratingPolynomial"
+        ],
+        "identifier_or_url": "https://reference.wolfram.com/language/ref/GraphData.html",
+        "material_read": "Property list and examples of maximal-matching polynomial, not a Pappus-specific evaluated entry",
+        "method": "Read mathematical software documentation HTML",
+        "title": "GraphData documentation",
+        "trigger": "Possible exact database coverage of numerical maximal matching counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c2babc0f-2d15-487e-8415-fae45f2e25fa",
+  "value": {
+    "rationale": "This natural highly symmetric incidence graph has 36 optimal independent edge-dominating placements characterized by 18 affine geometry cores, with precisely two matchings per core. One- and two-edge moves freeze every optimum, while three-edge moves connect all optima in a vertex-transitive seven-regular graph with sharp four-step diameter, distinguishing optimal sensor count from practical relocation flexibility. The exact geometric and exchange structure is not merely another numerical minimum or arbitrary slice; it is motivated by edge domination and optimal reconfiguration.",
+    "status": "PASS"
+  }
+}
