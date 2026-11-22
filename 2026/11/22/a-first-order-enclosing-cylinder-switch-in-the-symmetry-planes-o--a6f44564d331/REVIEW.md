@@ -1,0 +1,17 @@
+# Scientific review
+
+## Correctness — PASS
+The five pyramid vertices are sufficient because each enclosing cylinder is convex. For each permitted edge-midpoint reflection plane, orthogonal projection maps the problem to the smallest enclosing circle of the rectangle \((\pm a,\pm1)\) and one apex point \((h\sqrt{1-a^2},0)\). Reflection symmetry determines the center line, and equalizing its two binding distance expressions proves the two exact fixed-direction branches. The strictly concave function \(h\sqrt{1-a^2}+a\) reduces the full orientation optimization to two endpoints, and the polynomial identity \((h^2+1)^3-8h^4=(h^2-1)(h^4-4h^2-1)\) gives the switch exactly. A projected base diagonal imposes radius at least \(\sqrt2\) in each diagonal reflection plane, excluding them. The derivative sign gives the distinct local-minimum onset at \(\sqrt2\). The independent finite enclosing-circle checker passed 38,936 checks but is not substituted for the continuum proof.
+
+## Originality — PASS (best-knowledge, historical-priority risk)
+Schömer–Sellen–Teichmann–Yap (SoCG 1996; Algorithmica 2000) present the general smallest enclosing cylinder problem and algorithms, not the displayed all-height mirror-plane square-pyramid phase diagram. Petitjean (arXiv:1008.5259, first version August 31, 2010) gives algebraic methods for four and five points and an explicit symmetric trigonal bipyramid, a distinct object. Related indexed square-pyramid research concerns shadow areas, widths, visibility and sections, not exact optimal enclosing-cylinder radii in mirror planes. Their distinct topics and publicly available summaries are not substitutes for whole-document priority certification. The new claim is the explicit constrained **orientation landscape**, including the local metastable branch at \(\sqrt2\), coexistence at \(\sqrt{2+\sqrt5}\), contact configurations and derivative jump; it is not the general cylinder algorithm. Searches of relevant literature and the accessible prior-claim ledger did not identify the same assertion, but cannot establish absolute novelty.
+
+## Mathematical value — PASS
+Cylinder-fitting is a canonical, nonconvex geometric minimax problem with manufacturing and metrology motivations already documented in the primary literature. Restricting axis directions to the body's reflection planes is a natural symmetry-preserving orientation design, not a handpicked angular or numeric subinterval. For this entire permitted class, the explicit golden-radical contact switch and the distinct appearance of a non-global local minimum reveal metastability and a discontinuous optimal axis that standard smooth interpolation misses. The exact phase profile is a useful analytic benchmark for finite-cylinder fitting algorithms; no theorem about unrestricted orientations is inferred.
+
+## Closest literature and limitations
+- E. Schömer et al., *Smallest enclosing cylinders*, SoCG 1996, https://doi.org/10.1145/237218.237412 and Algorithmica 27 (2000), https://doi.org/10.1007/s004530010011.
+- M. Petitjean, *About the Algebraic Solutions of Smallest Enclosing Cylinders Problems*, https://arxiv.org/abs/1008.5259 (first public version 2010-08-31).
+- The theorem optimizes only the union of vertical reflection-plane directions. Independent historical-priority checking and independent mathematical auditing remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
