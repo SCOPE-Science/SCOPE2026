@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For every n in {2,3,4,5,6,7}, the induced cyclic-11-free graph is reconstructed directly. Identifying signatures are equivalent to hitting each nonempty closed neighborhood and each pairwise symmetric difference of closed neighborhoods. Since the property is upward closed, exhaustive exclusion at I_n-1 proves no smaller code exists; exhaustive counts at I_n prove exact minima and populations. At n=7 there are exactly C(29,10)=20,030,010 and C(29,11)=34,597,290 tested subsets; zero and 259 pass respectively. The dihedral group action is checked as a vertex permutation and all minimum codes are partitioned into complete orbits. Full-invariant codes are exhaustively enumerated as unions of dihedral vertex-orbits, giving unique 8-sensor n=6 layout and precisely three 14-sensor n=7 layouts. Two independently implemented C++17 algorithms, one testing exact hitting-mask constraints and one direct signatures, reproduced every row, including orbit-size multisets, and printed VERIFY_OK and ALTERNATE_OK. The exact witnesses in CENSUS.json and direct signature check agree. No claim beyond n=7 is inferred.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ashrafi et al., arXiv:1407.4962, gives the automorphism action and vertex/edge orbits for all Lucas dimensions, but does not enumerate identifying-code subsets.",
+        "General identifying-code polyhedral formulation in doi:10.1016/j.dam.2017.06.005 supplies a known covering criterion, not dimension-specific Lucas optima.",
+        "A separate small Fibonacci-cube census uses linear no-11 constraints; the present Lucas cubes also exclude simultaneous first and last ones."
+      ],
+      "reasoning": "A stronger all-n result on minima and all equality cases would subsume this claim, but the inspected general Lucas orbit and domination results provide neither identifying-code minima nor codes/orbit enumeration. The binary Fibonacci restriction is a different graph with a different vertex count and coordinate automorphism group, so its numerical classification does not imply Lucas counts.",
+      "searches": [
+        "\"Lucas cube\" \"identifying code\" \"minimum\" dihedral automorphism symmetry sensor placement census",
+        "Dihedral symmetry invariant identifying codes for Lucas cubes or Fibonacci cubes optimal sensors",
+        "Locating dominating codes in Lucas cube, complete small dimension classification",
+        "Fibonacci Lucas cubes domination identifying codes 2 packing distinguishing sensors"
+      ]
+    },
+    "checked_sources": [
+      "hal-00535686v1",
+      "arXiv:1407.4962v1",
+      "arXiv:2004.10198v1",
+      "doi:10.1016/j.dam.2017.06.005",
+      "doi:10.1016/S0012-365X(01)00387-9 (abstract/summary only)",
+      "MathWorld Lucas Cube Graph (definition and graph family)",
+      "accessible research-indexed finite identifying-code records (other graph families)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Castro–Klavžar–Mollard–Rho, hal-00535686v1, Lucas domination and 2-packing and automorphism group.",
+        "Ashrafi–Azarija–Fathalikhani–Klavžar–Petkovšek, arXiv:1407.4962v1, vertex and edge orbit classification.",
+        "Mollard, arXiv:2004.10198, impossibility of perfect ball-packing/covering codes on Lucas cubes of n>=4.",
+        "General identifying-code covering methodology is standard; novel work is the sharp finite restricted graph evaluations and complete equality cases."
+      ],
+      "reasoning": "Lucas domination gamma <= identifying-code number, but a lower domination bound cannot in general establish that identifying-code number is 7 at n6 and 11 at n7; packing equality/nonequality is also insufficient. Graph vertex-orbits determine allowable invariant unions, but not which identify all vertices. Lack of perfect error-correcting codes forbids a disjoint ball partition, not identification by overlapping signatures. The new computational exact results and 259-code enumeration require independent complete finite testing, not immediate corollaries of prior publications.",
+      "searches": [
+        "Castro Klavzar Mollard Rho Lucas domination packing hal-00535686",
+        "Ashrafi Azarija Fathalikhani Klavzar Petkovsek Lucas vertex edge orbits arXiv 1407.4962",
+        "Mollard perfect codes Lucas cubes arXiv 2004.10198",
+        "Polyhedra associated with identifying codes in graphs 10.1016/j.dam.2017.06.005"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Castro et al. hal-00535686v1 studies domination and 2-packing, different predicates on the same Lucas graphs.",
+        "The 2002 observability study of Dedò et al. uses proper edge colorings that distinguish incident color sets, not the vertex identifying-signature condition.",
+        "No equivalent result was found under closed-neighborhood identifying codes, distinguishing vertex sensors, or cyclic independent-set graphs in the accessible searches."
+      ],
+      "reasoning": "Identifying-code feasibility requires every radius-one vertex signature be nonempty AND pairwise distinct. A dominating set enforces only the first property; a 2-packing requires disjoint balls, not unique nonempty intersections. Edge-color observability is a different graph invariant. These related statements are not equivalent and do not fix the enumerated optimum placements.",
+      "searches": [
+        "\"identifying codes\" \"Lucas cube\" graph sensor",
+        "\"Lucas cubes\" \"identifying codes\"",
+        "identifying code closed neighborhood cyclic binary independent sets Lucas graph",
+        "Lucas cube identifying code minimum size 7 8 11 dimensions six seven undirected graph cyclic binary independent set"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches of indexed mathematical research records and numerical-sequence references located Lucas domination, total-domination and independence tables, rather than the stated identifying-code census.",
+        "The accessible primary 2010 source contains domination and 2-packing values for small Lucas graphs, not the identifying-code counts 259 and 3."
+      ],
+      "reasoning": "An identical or dominating numerical table of identifying-code minima and optimal placements would be prior coverage irrespective of wording. No such table was identified. Failure to locate one does not establish absolute historical novelty; an unindexed or unpublished computation is the principal residual risk.",
+      "searches": [
+        "Lucas cubes minimum identifying code exact enumeration n 6 7",
+        "Exact census of radius-one identifying codes in Lucas cube 6 and 7",
+        "Lucas cube identifying code 259 23 orbit 14 invariant",
+        "OEIS Lucas cube identifying codes minimum number table"
+      ]
+    },
+    "rationale": "The assessed advance is the exact identification-code and full-dihedral-invariance classification of Lucas cubes for n=2..7, with the first one-sensor dihedral penalty at six positions, three-sensor penalty at seven, and complete 259-placement/23-symmetry-class census at n=7. Closest sources establish other graph parameters, general identification formulations or vertex-orbit symmetries, none of which mathematically implies this particular minimum-and-equality classification. Direct and alias literature and indexed-record searches found no exact or stronger covering statement. Historical priority remains qualified because non-indexed computations might exist.",
+    "residual_risks": [
+      "Unindexed or uninspected historical numerical classifications of Lucas identifying codes may exist.",
+      "The 2010 open-source repository endpoint was blocked; a lawful manuscript mirror was read.",
+      "Some relevant generic identifying-code articles were not inspected in full; their abstracts and indexed scopes do not settle the narrow claim.",
+      "Finite domain ends at dimension seven; numerical patterns alone cannot justify higher-dimensional assertions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for exact identifying-code capacities or optimum-placement/orbit census, because its computed constraints concern domination and 2-packing, not identification.",
+        "evidence": "Reports gamma(Lambda_6)=5 and gamma(Lambda_7)=7 and 2-packing information; these differ from I_6=7 and I_7=11.",
+        "identifier_or_url": "hal-00535686v1; https://www.academia.edu/164533876/On_the_domination_number_and_the_2_packing_number_of_Fibonacci_cubes_and_Lucas_cubes",
+        "material_read": "Accessible manuscript text including abstract, definitions, small-dimension table, theorems and 2010 public-deposit banner.",
+        "method": "Read substantive accessible open manuscript text; repository endpoint itself blocked by access protection.",
+        "title": "On the domination number and the 2-packing number of Fibonacci cubes and Lucas cubes",
+        "trigger": "Same graph family, small-n domination/packing values and automorphism result."
+      },
+      {
+        "assessment": "NOT_COVERING identifying-code minima, counts and code-set orbit sizes; prior graph action and vertex orbit data are acknowledged and used.",
+        "evidence": "Classifies graph vertices/edges under automorphisms, not optimal identifying sensor subsets.",
+        "identifier_or_url": "arXiv:1407.4962v1; https://arxiv.org/pdf/1407.4962",
+        "material_read": "Original PDF definitions, introduction and theorem portions on Lucas graph automorphisms, vertices and edges, including the vertex-orbit theorem.",
+        "method": "Opened original full PDF and inspected relevant pages and visual page images.",
+        "title": "Vertex and edge orbits of Fibonacci and Lucas cubes",
+        "trigger": "Potential prior all-dimension dihedral symmetry and orbit classification."
+      },
+      {
+        "assessment": "NOT_COVERING identifying-code minima: perfect disjoint radius-one balls differ from distinct nonempty intersections with a chosen sensor set.",
+        "evidence": "States nonexistence of perfect Lucas codes for dimensions at least four, but finite identifying codes certainly exist there.",
+        "identifier_or_url": "arXiv:2004.10198v1; https://arxiv.org/pdf/2004.10198",
+        "material_read": "Original short PDF abstract, definitions and central nonexistence theorem/proof excerpts.",
+        "method": "Opened full PDF and inspected core statement plus page images.",
+        "title": "The (non-)existence of perfect codes in Lucas cubes",
+        "trigger": "Strong-sounding Lucas error-correcting code theorem could subsume a sensor property."
+      },
+      {
+        "assessment": "GENERAL_METHODOLOGY only; no evidence from inspected material of Lucas-graph values, and cannot claim whole-document noncoverage.",
+        "evidence": "General neighborhood and symmetric-difference covering viewpoint is acknowledged as antecedent.",
+        "identifier_or_url": "doi:10.1016/j.dam.2017.06.005; https://doi.org/10.1016/j.dam.2017.06.005",
+        "material_read": "Accessible article overview, scope and mathematical formulation; full paper not inspected.",
+        "method": "Inspected public text and scope; not a full-text negative conclusion.",
+        "title": "Polyhedra associated with identifying codes in graphs",
+        "trigger": "General graph identifying-code set-cover formulation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "927981eb-4c2a-47ce-9a43-59dc9a92edad",
+  "value": {
+    "rationale": "Full-coordinate rotation/reflection invariance is a natural network deployment constraint on cyclically defined Lucas graphs. The first dimension requiring an extra identifying sensor (6) and the three-extra-sensor requirement at dimension seven quantify nontrivial symmetry costs, not just a routine restatement of dominating sets. The exact population 259 and its twenty-three distinct dihedral symmetry types, together with three fully invariant fourteen-sensor equality cases, form a complete nontrivial and reproducible equality classification and benchmark. Graphs have up to 29 vertices so the finite exhaustive computation is genuinely self-contained. No unproved extrapolation or paper-sized downstream application is claimed.",
+    "status": "PASS"
+  }
+}
