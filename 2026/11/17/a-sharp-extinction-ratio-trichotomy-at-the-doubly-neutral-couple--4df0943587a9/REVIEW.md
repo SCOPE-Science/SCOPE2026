@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The positive rectangle is forward invariant. Exact ratio and predator-reciprocal identities, the divergent predator occupation sum, and Cesàro estimates prove all leading terms. The nonresonant ratio decay is summable for \(c>1\); at \(c=1\), a second bootstrap produces the universal \(d\log\log n\) correction with a convergent residual. The supplied symbolic and finite numerical checks support but do not replace the proof. Both population boundaries and larger-data behavior are outside scope.
+PASS
 
-## Originality — PASS (qualified by source availability)
+Explicit ε<min[1/(2(1+cd)),1/(2d),1/(2(1+d))] makes the positive rectangle invariant. For r=x/y and T=1/y, exact recurrences r_next−r = r*y[(1−c)−(1+d)r]/(1−y+dx), T_next−T=(1−dr)/(1−y+dx). x decreases by logistic comparison; y→0 by eventually weak predator forcing, but y_next≥y(1−y) implies Σy diverges. For c<1, r contracts toward r*=(1−c)/(1+d), yielding both n limits. For c≥1, r→0 and T/n→1. For c>1 a polynomial upper bound for r makes Σx finite and Σ|y−1/n| finite; log x_n+c log n converges, yielding L>0. For c=1 exact w=y/x satisfies w_next−w=(1+d)y/(1−x−y). First w~(1+d)log n, then reciprocal T=n−[d/(1+d)]n/log n+O(n loglog n/log² n), and the resulting summable difference correction gives w−(1+d)log n−d loglog n→C. Checked four defining rational identities by direct derivation from map; inspected symbolic checker, which tests finite trajectories but cannot prove infinite limits.
 
-The exact model is studied in Al-Kaff and collaborators (2024), whose origin stability theorem stops at nonhyperbolicity, and in the earlier numerical coupled-logistic paper by Satoh and Aihara (1990), equivalent after exchanging species. Indexed critical-extinction and logarithmic-correction results concern different population models, not a stronger theorem on this simultaneous-unit-growth problem. A 2018 coupled-logistic analytic study was checked at the abstract level; its full text was inaccessible. The available evidence does not establish priority conclusively.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The problem is motivated by the double-unit eigenvalue at extinction. The result resolves the asymptotic composition transition of the same two-species ecological map for every positive initial point in a natural neighborhood, including a sharp \((n\log n)^{-1}\) boundary and a universal second-order \(\log\log n\) coefficient. It is not merely another local eigenvalue or a numerical cutoff.
+The exact biological map, up to swapping species, was analyzed by Satoh–Aihara (1990) numerically and Al-Kaff et al. (2024) for fixed points and bifurcations. The accessible full 2024 analysis does not provide simultaneous unit-growth all-orbit asymptotic clocks or critical loglog coefficient. Earlier 1990 and 2018 primary full texts remain plausible priority risks, not automatic originality failure.
 
-## Scope and literature limits
+## value
 
-Local invariant rectangle only; \(c,d>0\) fixed, intrinsic multipliers exactly one. Full text of Satoh–Aihara (1990) and Elsadany–Yousef–Elsonbaty (2018) was not obtained. No claim of external or independent verification is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At simultaneous neutral growth multipliers a previously studied ecological map has a quantitative dynamical phase boundary and a second-order loglog extinction clock. The sharp dependence on coupling c and d in a natural nonhyperbolic boundary problem is useful for separating asymptotic population regimes, beyond routine Jacobian stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
