@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is in the inherited Euclidean metric on the zero-sum subspace, with the common normalization \(\|e_i-e_j\|^2=2\). The path roots give an injective basis matrix, identifying the path polytope with an \(\ell_1\)-unit ball in coefficient coordinates. Every exact projection is accompanied by a rational feasible point and all necessary and sufficient subgradient inequalities, not just a numerical objective value. The longest-root certificates establish the lower bounds; constructive bounds for every other omitted root prove the global Hausdorff maximum. A convexity/equality argument proves farthest-point uniqueness in the *whole* polytope. For the second vertex level, the potentially tied separation-four cases are excluded using a strict subgradient violation. The attached exact-arithmetic checker tests 10,659 root pairs through order 40 and the 38 independently optimized instances agree within \(3\times10^{-14}\). Finite computation is corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS, with historical-priority risk
+In canonical Euclidean zero-sum coordinates the path-root matrix B is injective and P_n={Ba:||a||_1<=1}. The KKT projection criterion g_k=(e_k-e_{k+1})·(v-Ba)=lambda sign(a_k) when active and |g_k|<=lambda otherwise is necessary and sufficient. For endpoint root e1-en: n=3,4,5 have listed rational certificates with squared distances 1/2,4/5,9/10; all n>=6 use a1=a_(n-1)=5/12,a2=a_(n-2)=1/12 and zeros elsewhere, lambda=1/4, residual 7/12,1/3,1/12 at opposite ends, giving 11/12. All separated roots j-i>=5 split into disjoint endpoint blocks; boundary contributes 11/24 squared norm, interior 3/8, giving 11/12,5/6,3/4. Shorter roots have explicitly feasible projections <11/12. A nonextreme point cannot tie, by convexity and strict extremal vertex set plus scaling toward origin. For the second largest root-vertex shell, separation-four potential ties are ruled out by inactive edge gradient 1/3>lambda=1/4; long roots with exactly one path endpoint count 4(n-6) for n>=7. Only vertex second shell claimed, not second level over a continuum.
 
-The complete-graph and path symmetric edge polytopes are standard objects, not a new construction. The primary 2019 treatment *Many faces of symmetric edge polytopes* gives the graph-root and finite-metric framework but does not determine Euclidean projection distances between these two bodies. The inspected 2021 facet-subgraph and 2022 gamma-vector papers address different invariants. The closest previously indexed path inball result gives the inradius, circumradius, and incenter family *of the path body itself*, which cannot imply the Hausdorff separation from the complete-root body or the three long-root shells. Indexed results about crown-graph Hausdorff losses involve a different polytope and deletion pattern. Searches included root-polytope aliases, path simple-root coordinates, crosspolytope projections, Hausdorff and nearest-point terminology. No statement with equivalent hypotheses or stronger implication was identified in examined sources. Historical priority remains provisional: a projection-theoretic formulation in the broader literature might not be indexed using these names.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is an exact, natural geometric comparison between the symmetric edge polytopes of a complete graph and a spanning path, with an initially surprising saturation phenomenon: removing an increasing fraction of root directions nevertheless gives a constant limiting Hausdorff loss. The exact localization shells distinguish internal and boundary roots and yield a complete sharp second-distance vertex level, not just an approximate asymptotic. The structural answer pertains to an infinite family and provides explicit nearest-point certificates. The underlying path inradius calculation is separate, and the result is neither a renaming of a known formula nor merely a finite table.
+Strong partial overlap: the separate published same-day cycle-vertex deletion result gives precisely the 1/2,4/5,9/10,11/12 plateau and a four-edge projection of one omitted root, but in a *different pair of polytopes* (deleting one oriented vertex of a cycle-edge polytope). Its certificate can reprove the longest path root distance because its contact point lies in the path hull; that numerical plateau by itself is NOT original here. The assessed package also classifies ALL complete-root vertices relative to the path hull, three long-root metric shells, unique continuous farthest points and exact second vertex shell. These latter assertions do not follow from a single deleted-cycle-vertex distance, and the separate cycle-root distance-shell theorem has distinct values and target body. Those independent nontrivial additions support best-of-knowledge originality of the full final claim despite overlap of the headline plateau.
 
-## Closest literature and limits
+## value
 
-D'Alì–Delucchi–Michałek (arXiv:1910.05193), Chen–Davis–Korchevskaia (arXiv:2107.12315), D'Alì–Juhnke-Kubitzke–Köhne–Venturello (arXiv:2201.09835), and the publicly accessible path-inball note were checked for stated implications. No claim extends to weighted trees or to the second-largest distance among all convex-body points. Historical priority is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete natural metric approximation of the type-A complete-root polytope by one of its spanning-tree path polytopes, including *all* distant-root shells and exact second vertex shell, remains a meaningful geometric invariant even though its farthest-root constant is separately known through cyclic vertex deletion. The distinction between boundary and interior root positions is geometrically motivated and not a mere reparametrization; it sharpens a single worst-case radius into a localized classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
