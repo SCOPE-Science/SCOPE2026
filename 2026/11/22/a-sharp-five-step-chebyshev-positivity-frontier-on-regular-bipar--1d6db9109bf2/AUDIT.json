@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For H=d(zI-P), the final Chebyshev inverse polynomial equals [T_m(z)-T_m(P)]/[d T_m(z)(zI-P)]. Exact divided differences have nonnegative coefficients for degrees 1..4 and for degree 5 if z>=sqrt(5)/2, i.e. kappa<=9+4sqrt(5). For any z in (1,sqrt(5)/2), the Q_d neighboring entry equals 16z/[d^2 T_5(z)](z^2-5/4+(3d-2)/d^2), and is negative for a finite sufficiently large d. Adding a small positive constant vector makes the right-hand side strictly positive while keeping that entry negative. A separate exact-rational program replayed 572 finite checks; the all-d proof is algebraic, not experimental.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The existing arbitrary-Stieltjes result has broader matrix class but only iteration three; its theorem does not cover iteration five.",
+        "The inverse-M-matrix paper arXiv:1812.06295 treats graph Laplacian solvers but not finite Chebyshev positivity."
+      ],
+      "reasoning": "A general-M-matrix degree-three cutoff of 3 cannot dominate a regular-bipartite degree-five cutoff of 9+4sqrt(5); the method order and family differ. Sources on hypercube heat integrators instead concern rational semigroup approximations, not Chebyshev polynomial inverse approximations.",
+      "searches": [
+        "Chebyshev inverse polynomial positive coefficients graph random walk degree 5 minimum positivity threshold",
+        "Chebyshev 5 steps negative approximate solution positive right hand side on hypercube shifted Laplacian",
+        "degree five Chebyshev semi iteration positive orthant regular bipartite networks",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-condition-three-is-the-sharp-positivity-frontier-for-the-degree--6e9af63df14e/RESULT.md"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1812.06295",
+      "https://arxiv.org/pdf/2109.04248",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-condition-three-is-the-sharp-positivity-frontier-for-the-degree--6e9af63df14e/RESULT.md",
+      "Gene H. Golub and Richard S. Varga (1961), Chebyshev Semi-Iterative Methods (foundational citation)",
+      "Gutknecht and Röllin (2002), The Chebyshev Iteration Revisited (foundational citation)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published degree-three Stieltjes theorem: arbitrary dimension, kappa<=3, degree-three final polynomial; limitation explicitly higher-degree unclassified.",
+        "Gribling et al. 2021: optimal Chebyshev residual polynomials and spectral accuracy, no coordinatewise positivity.",
+        "Jambulapati et al. 2018: graph Laplacian and inverse-M-matrix algorithms, not a fixed-step positivity threshold."
+      ],
+      "reasoning": "Our degree<=4 regular-graph positivity for all condition numbers does not follow from positivity at degree three for all Stieltjes matrices with kappa<=3. The graph-uniform necessary and sufficient degree-five threshold is also not a corollary of Chebyshev minimax spectral bounds or positivity of the exact inverse. The Q_d walk count supplies a new necessary direction.",
+      "searches": [
+        "Chebyshev semi iteration fifth degree positivity threshold shifted graph Laplacian M matrix inverse polynomial regular graphs hypercube",
+        "Chebyshev inverse polynomial positive coefficients graph random walk degree 5 minimum positivity threshold",
+        "Chebyshev fifth iterate graph laplacian inverse positivity 9+4sqrt5 condition number hypercube",
+        "Chebyshev polynomial inverse approximate positive matrix high condition number graph random walk sign"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full prior degree-three Chebyshev Stieltjes RESULT.md proves kappa<=3 for degree three and says higher-degree methods are not classified.",
+        "Gribling et al., arXiv:2109.04248, PDF pp. 2-3 gives classical Chebyshev inverse-polynomial construction but no entrywise graph positivity theorem."
+      ],
+      "reasoning": "The graph-specific fifth-iterate inverse polynomial is a distinct object from third-iterate general-Stieltjes guarantees and from Chebyshev spectral error convergence. A possible alias is nonnegative polynomial of the random-walk matrix; this follows from the divided-difference coefficients but is not found as an equivalent existing sharp graph theorem.",
+      "searches": [
+        "Chebyshev semi iteration fifth degree positivity threshold shifted graph Laplacian M matrix inverse polynomial regular graphs hypercube",
+        "Chebyshev fifth iterate graph laplacian inverse positivity 9+4sqrt5 condition number hypercube",
+        "Chebyshev polynomial inverse approximate positive matrix high condition number graph random walk sign",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-condition-three-is-the-sharp-positivity-frontier-for-the-degree--6e9af63df14e/RESULT.md"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact 9+4sqrt(5) Chebyshev-on-graph entrywise-positivity record identified among the returned results; closest mathematical result was the degree-three Stieltjes theorem."
+      ],
+      "reasoning": "No known numerical positivity table was used as a certificate. Negative hypercube entries are obtained from a closed form valid in all dimensions; the tested Q_32 value is a check and witness, not claimed as an unknown tabulated invariant.",
+      "searches": [
+        "Chebyshev fifth iterate graph laplacian inverse positivity 9+4sqrt5 condition number hypercube",
+        "Chebyshev semi iteration fifth degree positivity threshold shifted graph Laplacian M matrix inverse polynomial regular graphs hypercube",
+        "Chebyshev 5 steps negative approximate solution positive right hand side on hypercube shifted Laplacian"
+      ]
+    },
+    "rationale": "The closest published degree-three Chebyshev Stieltjes theorem is not a degree-five regular-bipartite graph frontier and does not imply it; the full published text explicitly treats higher degree as unclassified. Other inspected sources establish graph M-matrix and Chebyshev iteration foundations but not the graph-uniform fifth-step threshold. This assessment is conditional on the searched literature and no independent priority audit has occurred.",
+    "residual_risks": [
+      "Older classical monotonicity or positivity-preserving Chebyshev polynomial iteration work may contain an equivalent graph-specialized threshold under a different alias.",
+      "Search results and inspected selected full texts do not constitute an exhaustive priority proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different iteration degree and matrix domain; explicitly states higher degrees not classified",
+        "evidence": "At degree three universal Stieltjes threshold kappa=3; section Limitations says result specific to degree three.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-condition-three-is-the-sharp-positivity-frontier-for-the-degree--6e9af63df14e/RESULT.md",
+        "material_read": "Entire RESULT.md including Finding, Proof, Limitations and references",
+        "method": "Published GitHub repository file retrieved and read",
+        "title": "Condition three is the sharp positivity frontier for the degree-three Chebyshev semi-iterate",
+        "trigger": "Closest same-method published theorem"
+      },
+      {
+        "assessment": "Background algorithms and matrix class; no fixed-degree Chebyshev positivity result in inspected material",
+        "evidence": "2018-12-15 initial public date; discusses graph Laplacian equations and M-matrix inverse solvers.",
+        "identifier_or_url": "https://arxiv.org/abs/1812.06295",
+        "material_read": "Abstract and introduction with graph Laplacian, perturbed Laplacian and inverse M-matrix sections",
+        "method": "Open-access arXiv full HTML source examined",
+        "title": "Efficient Structured Matrix Recovery and Nearly-Linear Time Algorithms for Solving Inverse Symmetric M-Matrices",
+        "trigger": "Motivating graph Laplacian and inverse-M-matrix linear-system setting"
+      },
+      {
+        "assessment": "Establishes classical Chebyshev polynomial formula and approximation purpose but not the claimed entrywise graph-uniform threshold",
+        "evidence": "Eq. on page 2 expresses the Chebyshev inverse approximation in terms of T_t and spectral interval.",
+        "identifier_or_url": "https://arxiv.org/pdf/2109.04248",
+        "material_read": "PDF pp. 1-3 and Chebyshev iteration discussion; associated PDF page 2 screenshot examined",
+        "method": "Open-access arXiv PDF text and rendered page inspection",
+        "title": "Improving quantum linear system solvers via a gradient descent perspective",
+        "trigger": "Chebyshev semi-iterative polynomial and spectral minimax formulation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1d6db910-9bf2-4ef9-ab53-fd0ce485f36c",
+  "value": {
+    "rationale": "The first failing iteration degree and the sharp condition-number barrier are natural exact invariants of preserving a physical nonnegative solution cone under widely used Chebyshev inverse polynomial iteration. The result applies to an infinite graph family, gives a sufficient and necessary graph-uniform design condition, and constructs positive-data failures despite a positive exact solution. It is not a mere consequence of finite numerical tests or cosmetic renaming; its limitation to m<=5 is explicit.",
+    "status": "PASS"
+  }
+}
