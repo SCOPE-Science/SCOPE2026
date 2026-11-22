@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T03:05:30.644717Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every integer b>=2 the b full affine branches preserve Lebesgue measure. The observable f_b(x)=|T_b(x)-x| is coordinate-Euclidean and piecewise affine, not the shortest circle displacement. Direct branch integration yields mean (2b-1)/(6b) and lag-zero variance (2b^2-2b-1)/(36b^2). The Perron image of the centered f has a finite break-point piecewise-affine shape; its next image is exactly b^-2 times that centered shape. Integrating f*Pf supplies C_1=(b-4)(b-2)(b^2-b-1)/(180b^4), hence C_n=b^[-2(n-1)] C_1 for each positive lag. Stationary covariance summation gives variance (12b^4-24b^3+11b^2+6b-11)/(180b^2(b^2-1)), positive for b>=2. Summable Perron iterates give bounded Gordin coboundary and reverse-martingale difference, proving a nondegenerate CLT under stationary Lebesgue initial x. The initial endpoint conventions affect a null set only; zero covariance at b=2,4 does NOT assert stochastic independence. Independently integrated the product of exact affine branches at b=2..6 and lags 1,2 using rational three-interior-point quadratic quadrature, reproducing sign reversal b=3 and b>=5 and zeros b=2,4. These finite calculations corroborate, rather than replace, the general transfer identity and CLT argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jenkinson–Pollicott–Vytnova Section 4 gives general rigorous approximation and specific linear/polynomial doubling-map diffusion coefficients, not all b step-length covariances.",
+          "Daquin et al. use finite-orbit Euclidean arc-length descriptors for dynamical visualization, without exact all-lag stationary covariance and CLT for T_b."
+        ],
+        "reasoning": "The generic martingale and transfer-operator frameworks are credited; they do not supply the displayed integer-family factorization or sign boundary.",
+        "searches": [
+          "exact covariances step length |T_b(x)-x| b-fold expanding map positive-lag sign slopes 2 3 4",
+          "https://link.springer.com/article/10.1007/s10955-017-1930-8",
+          "https://arxiv.org/abs/2206.04467",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-two-mode-coordinate-memory-and-monotone-transport-variance--28206f693cd5/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s10955-017-1930-8",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-two-mode-coordinate-memory-and-monotone-transport-variance--28206f693cd5/RESULT.md",
+        "https://arxiv.org/abs/2206.04467",
+        "https://doi.org/10.1007/s10955-017-1930-8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier results give tools, not the integral of the absolute displacement against its transferred image; that missing nonsmooth observable calculation controls each positive lag.",
+          "The current formula at b=2 has C_n=0 for n>=1 but f_b is not Bernoulli-polynomial observable g in the cited example."
+        ],
+        "reasoning": "The specific all-integer-b sign trichotomy and rational CLT diffusion constant require a new exact integral/spectral reduction from existing general transfer theory.",
+        "searches": [
+          "exact covariances step length |T_b(x)-x| b-fold expanding map positive-lag sign slopes 2 3 4",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-two-mode-coordinate-memory-and-monotone-transport-variance--28206f693cd5/RESULT.md",
+          "https://link.springer.com/article/10.1007/s10955-017-1930-8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The quadratic-Parry paper measures Cov(X_0,X_n) for nonintegral beta_m and has two decay modes, whereas f_b=|T_bx-x| is a nondifferentiable one-step path length on integer maps.",
+          "The earlier doubling-map diffusion example g=2x-1, and Bernoulli-polynomial examples, are observables different from f_b."
+        ],
+        "reasoning": "No reparameterization of the cited coordinate covariance theorem gives the integer-slope step observable, so title-level overlap in expanding dynamics is not proof of coverage.",
+        "searches": [
+          "exact covariances step length |T_b(x)-x| b-fold expanding map positive-lag sign slopes 2 3 4",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-two-mode-coordinate-memory-and-monotone-transport-variance--28206f693cd5/RESULT.md",
+          "https://link.springer.com/article/10.1007/s10955-017-1930-8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected full Resultary quadratic beta-coordinate theorem has a different parameter and observable; no equal factor (b-4)(b-2)(b^2-b-1) or this sign table occurs in it.",
+          "The source full article Section 4 tabulates diffusion coefficients for g(x)=2x-1, x^2, and Bernoulli polynomials rather than f_b."
+        ],
+        "reasoning": "No exact database entry/table for the submitted length statistic was identified in targeted searches; this is not a proof against unindexed calculations.",
+        "searches": [
+          "exact covariances step length |T_b(x)-x| b-fold expanding map positive-lag sign slopes 2 3 4",
+          "https://link.springer.com/article/10.1007/s10955-017-1930-8",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-two-mode-coordinate-memory-and-monotone-transport-variance--28206f693cd5/RESULT.md"
+        ]
+      },
+      "rationale": "PASS, best of knowledge: exact full-lag length-observable covariance, sharp integer-slope sign reversal and its rational nonzero CLT variance were not found in the materially read literature. They are not the earlier beta-map COORDINATE correlations or the preexisting general diffusion algorithm.",
+      "residual_risks": [
+        "General CLT/martingale and exact piecewise-affine Perron techniques are classical; novelty is only the evaluated observable-specific law.",
+        "Broader physical-trajectory length literature and unindexed symbolic calculations not exhaustively read; best-of-knowledge O is not certified priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "General approximation algorithm and other observables; no abs(T_bx-x) integer-family all-lag covariances.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s10955-017-1930-8",
+          "material_read": "Full accessible HTML, especially §§2–4 and doubling-map test cases 4.1–4.2",
+          "method": "Read equations for g=2x-1, x^2, Bernoulli polynomials; compare observables and parameters",
+          "title": "Rigorous Computation of Diffusion Coefficients for Expanding Maps",
+          "trigger": "Expanding maps and exact diffusion constants; strongest general method"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Quadratic irrational beta map, stationary coordinate x rather than Euclidean step distance; two modes unlike one b^-2 mode.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-two-mode-coordinate-memory-and-monotone-transport-variance--28206f693cd5/RESULT.md",
+          "material_read": "Entire RESULT.md proof, assumptions and limitations",
+          "method": "Retrieved public raw scientific result; compared map slope/invariant density/observable",
+          "title": "Exact two-mode coordinate memory and monotone transport variance for quadratic beta maps",
+          "trigger": "Nearby indexed all-lag transfer-operator covariance theorem"
+        },
+        {
+          "assessment": "RISK_ONLY",
+          "evidence": "Arc-length motivation is prior; accessible abstract does not establish a covering all-lag covariance theorem; full paper priority not settled.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.04467",
+          "material_read": "Public abstract and bibliographic description; not complete primary full text",
+          "method": "Compared stated computational purpose and map class",
+          "title": "Global dynamics visualisation from Lagrangian Descriptors",
+          "trigger": "Euclidean orbit lengths and trajectory fluctuations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural path-length fluctuation statistic for a standard expanding dynamical family; the unexpected complete disappearance of all positive-lag memory at b=2 and b=4, negative memory at 3, and positive memory thereafter is a parameter boundary with an exact Green–Kubo calibration. The CLT supplies a meaningful trajectory-level consequence, not merely a symbolic substitution or low-order variance computation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://link.springer.com/article/10.1007/s10955-017-1930-8",
+    "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-two-mode-coordinate-memory-and-monotone-transport-variance--28206f693cd5/RESULT.md",
+    "https://arxiv.org/abs/2206.04467",
+    "https://doi.org/10.1007/s10955-017-1930-8"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only integer b>=2, stationary Lebesgue law and coordinate-Euclidean step length; does not treat circular geodesic or arbitrary initial distributions.",
+    "All-lag zero covariance for b in {2,4} is not independence; CLT requires the ergodic stationary expanding map."
+  ],
+  "schema_version": 1
+}
