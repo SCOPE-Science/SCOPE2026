@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "All distances are proved by intersection-orbit arguments; n=7 yields distinct-distance values 0,1,2,3 and bisector sizes 9,13,15. For n>=8, comparing three explicit orbit formulas isolates overlap two, whose minimum resolving-neighborhood cardinality is 2+2*C(n-4,2). For n=7 each of 21 switch pairs yields a unique largest failure with ten witness pairs; for n>=8 ground-point incidence frequencies 2, 1+C(n-4,2), 2(n-5) certify unique parametrization. Independent BFS and intersection-rule programs reproduce all values for n=7..11, but finite checks are not claimed to prove the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonato–Huggan–Marbach, Section 2 and Theorem 2.9, quantify minimum resolving sets and localization bounds for Kneser graphs, but do not quantify all landmark sets.",
+        "The closest published published-finding corpus summary provides a worst-case threshold for two-subset Kneser and triangular graphs, explicitly with rank two."
+      ],
+      "reasoning": "A bound or formula for the minimum size of some resolving set does not determine the largest nonresolving set, nor its obstruction multiplicities. Rank-two classification does not imply rank-three where distinct distance orbits arise.",
+      "searches": [
+        "published-finding corpus: 2026/11/2/SCOPE-maximum-nonresolving-landmark-families-of-triangular-and-two-sub--290a05e93094",
+        "metric dimension threshold Kneser KG(n,3) threshold rank three n=7 n>=8 bisectors exact maximal nonresolving sets",
+        "The localization number and metric dimension of graphs of diameter 2 Theorem 2.9"
+      ]
+    },
+    "checked_sources": [
+      "Korivand–Khashyarmanesh–Tavakoli 2022, https://doi.org/10.1155/2022/1838719 (full HTML)",
+      "Bonato–Huggan–Marbach, arXiv:2008.04896; https://cdm.ucalgary.ca/article/download/71209/56714/240642 (full PDF)",
+      "published-finding corpus semantic search metric dimension threshold Kneser KG(n,3) threshold rank three n=7 n>=8 bisectors exact maximal nonresolving sets (30 results; closest 2026/11/2/SCOPE-maximum-nonresolving-landmark-families-of-triangular-and-two-sub--290a05e93094)",
+      "published-finding corpus semantic search odd graph O_4 KG(7,3) resolving threshold bisectors 21 maximum nonresolving 15 vertices (30 results)",
+      "published-finding corpus semantic search distance equidistance witnesses in Kneser graphs KG(n,3) rank three metric threshold (30 results)",
+      "Web searches Kneser metric dimension threshold 3; resolving neighborhood KG(n,3); Kneser metric dimension threshold graph KG 7 3",
+      "Kratica–Čangalović–Kovačević-Vujčić 2026, arxiv:2605.06837 (abstract)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2022 paper defines the threshold and computes it for paths, cycles and Petersen graph (rank two); no triple-rank theorem is stated in its inspected main results.",
+        "2023 PDF Theorem 2.9 addresses asymptotic bounds for ordinary minimum metric dimension/localization on Kneser graphs, not guaranteed performance of every landmark subset.",
+        "Closest research record gives precise KG(n,2) extremal results, which apply to two-subsets rather than three-subsets."
+      ],
+      "reasoning": "The rank-three result cannot be obtained by applying a rank-two theorem, and minimum-basis estimates are logically insufficient to deduce the universal threshold or extremal bisectors.",
+      "searches": [
+        "Full article: https://doi.org/10.1155/2022/1838719",
+        "Full PDF: https://cdm.ucalgary.ca/article/download/71209/56714/240642",
+        "published-finding corpus: 2026/11/2/SCOPE-maximum-nonresolving-landmark-families-of-triangular-and-two-sub--290a05e93094"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact value for every rank-three graph requires minimization over pairwise distance-disagreement neighborhoods; other published minimum-basis values optimize over subsets in the opposite direction.",
+        "No direct triple-Kneser or odd-graph universal-threshold result surfaced in the targeted searches."
+      ],
+      "reasoning": "The equivalent bisector language, worst-case landmark formulation, and odd-graph alternative name were searched. The 21-versus-higher-order multiplicity is not an ordinary metric dimension or localization number.",
+      "searches": [
+        "metric dimension threshold Kneser KG(n,3) threshold rank three n=7 n>=8 bisectors exact maximal nonresolving sets",
+        "odd graph O_4 KG(7,3) resolving threshold bisectors 21 maximum nonresolving 15 vertices",
+        "resolving neighborhood KG(n,3)",
+        "metric dimension threshold Kneser graph KG 7 3",
+        "universal resolving threshold KG(n,3)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact KG(7,3) value 16 or maximum-bisector table with 21 classes, nor all-order rank-three formula, was identified.",
+        "Both provided checkers independently enumerate the exact n=7 through 11 distributions rather than reuse an existing table."
+      ],
+      "reasoning": "The query variants target the exceptional odd graph, the generic rank-three family and distance-bisector enumerators; failure to locate an indexed table is not treated as a proof of novelty.",
+      "searches": [
+        "odd graph O_4 KG(7,3) resolving threshold bisectors 21 maximum nonresolving 15 vertices",
+        "Kneser metric dimension threshold 3",
+        "resolving neighborhood KG(n,3)",
+        "KG(7,3) resolving set 15 21",
+        "rank-three Kneser largest nonresolving landmark subsets"
+      ]
+    },
+    "rationale": "Actual published-finding corpus semantic searches for triple-Kneser, odd-graph and rank-three bisectors produced no rank-three universal-threshold statement. The closest rank-two result classifies KG(n,2), a different vertex system. Full 2022 threshold paper covers Petersen but not KG(n,3). Full Kneser PDF by Bonato et al. treats minimum bases and localization bounds, which do not imply any upper guarantee over all landmark choices. Residual unindexed-source risk prevents historical certainty.",
+    "residual_risks": [
+      "published-finding corpus is similarity-indexed, not exhaustive; a missed equivalent name or prior calculation is possible.",
+      "Full public GitHub artifact for closest two-subset rank-two record was inaccessible; comparison uses its returned scientific summary, not purported full-text confirmation.",
+      "Some other related articles were checked via abstract only; historical priority remains provisional, not independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces invariant and a rank-two Petersen special case; no exact KG(n,3) family theorem identified.",
+        "evidence": [
+          "2022 publication date September 14; Theorem 3 states dim_th(Petersen)=5; Section 2 describes paths, cycles and Petersen as treated families."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2022/1838719",
+        "material_read": "Full 2022 HTML article: abstract, introduction, Section 2 including Theorem 3 on the Petersen graph and the remaining results/open problem.",
+        "method": "Read primary Wiley HTML in web text, including numbered lines 116–190 and further statements.",
+        "title": "Metric Dimension Threshold of Graphs",
+        "trigger": "Same threshold definition and closest original introduction"
+      },
+      {
+        "assessment": "Discusses ordinary minimum metric dimension and localization, not all-cardinality resolving threshold or maximum bisectors.",
+        "evidence": [
+          "Theorem 2.9 gives bounds/asymptotics for beta(K(k,n)) and zeta(K(k,n)), not universal dim_th.",
+          "Earliest arXiv preprint 2020-08-11, journal 2023-04-30."
+        ],
+        "identifier_or_url": "https://cdm.ucalgary.ca/article/download/71209/56714/240642",
+        "material_read": "Full searchable PDF including introduction, Kneser Section 2 and Theorem 2.9; page-image inspection of pages 4 and 15 in printed numbering (PDF indices 3 and 14).",
+        "method": "Primary journal PDF text search plus full-text section reads and PDF page screenshots.",
+        "title": "The localization number and metric dimension of graphs of diameter 2",
+        "trigger": "Primary Kneser-graph metric dimension literature, potential stronger coverage"
+      },
+      {
+        "assessment": "Explicitly covers KG(n,2) and J(n,2), not rank-three KG(n,3); full artifact inaccessible so omitted implications beyond the summary remain a residual risk.",
+        "evidence": [
+          "Record ID 2026/11/2/SCOPE-maximum-nonresolving-landmark-families-of-triangular-and-two-sub--290a05e93094",
+          "Summary gives two-subset threshold and nonresolving families; no rank-three statement."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-maximum-nonresolving-landmark-families-of-triangular-and-two-sub--290a05e93094",
+        "material_read": "published-finding corpus indexed title and semantic abstract only; public GitHub artifact fetch was unavailable.",
+        "method": "published-finding corpus semantic query, study of returned claim summary and scope; attempted public GitHub page.",
+        "title": "Maximum nonresolving landmark families of triangular and two-subset Kneser graphs",
+        "trigger": "Closest directly matching topic/invariant returned by published-finding corpus search"
+      },
+      {
+        "assessment": "Different strong/doubly metric dimensions and Johnson/Kneser rank two; no implied all-rank-three worst-case threshold from abstract.",
+        "evidence": [
+          "May 7 2026 abstract explicitly concerns strong metric dimension and doubly metric dimension, not universal resolving threshold."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.06837",
+        "material_read": "Public abstract and preprint summary only.",
+        "method": "Search and read arXiv abstract information.",
+        "title": "The strong and doubly metric dimensions of Johnson and Kneser graphs",
+        "trigger": "Recent primary paper on other metric resolving invariants for Kneser graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b7e691bf-ae67-4a01-99b4-3997928edcc5",
+  "value": {
+    "rationale": "An infinite natural graph family receives a complete worst-case distance-sensing threshold and exact largest-failure multiplicities, including an exceptional odd-graph collapse from 210 optimal vertex-pair witnesses to 21 distinct bisectors. These are not implied by ordinary best-case metric dimension and provide a concrete structural benchmark for adversarial landmark placement and higher-rank Kneser questions.",
+    "status": "PASS"
+  }
+}
