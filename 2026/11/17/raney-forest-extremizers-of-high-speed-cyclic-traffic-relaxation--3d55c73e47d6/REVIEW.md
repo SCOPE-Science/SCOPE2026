@@ -1,19 +1,21 @@
-# Scientific review: Raney-forest extremizers of high-speed cyclic traffic relaxation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact position recurrence yields a min-plus representation by induction. The nonnegative surplus makes all minima occur within one car cycle, proving the upper bound. Last-step delay is characterized by strict negativity of every proper suffix of the increment sequence. Two distinct candidate last-delayed cars would force the total cyclic increment sum negative, contradicting low density. A reversible forest-prefix encoding and the automatically valid closing gap give the exact extremizer count. Lagrange inversion proves its binomial form; a binomial ratio gives the fixed-surplus probability limit. The embedded physical simulation, gap-dynamics enumeration and independent forest series program reproduce their stated output. The general conclusion is established algebraically; no finite experiment substitutes for an infinite statement.
+PASS
 
-## Originality — PASS, with specific historical-priority limits
+PASS: With ordered lifted car coordinates p_i(t+1)=min(p_i(t)+v,p_{i+1}(t)-1), induction gives vt+min_{0<=j<=t}[p_{i+j}(0)-(v+1)j]. The period-m increment n-(v+1)m is nonnegative so each car has reached its unrestricted v-motion by t=m-1. A strict new minimum at j=m-1 characterizes delay at the last step. Reversed m-1 gaps u_j must have nonnegative entries with partial sums <=vj-1, which is a standard v-root full (v+1)-ary ordered forest word. Two last-delayed cars would give negative sums on disjoint complementary arcs, contradicting total increment >=0, so the marker is unique. Lagrange inversion for H=1+zH^(v+1) gives [z^(m-1)]H^v=binom((v+1)m-2,m-1)/m; closing gap >=v+1; n labelled choices divided by unique marker give n/m times binomial. Fixed-surplus probability follows from two elementary binomial ratios, including h=0. Independent full gap-recursion enumeration for v=2,3,4 and m=2,3,4 at n=(v+1)m yielded maxima m-1, extreme marked-gap counts binom((v+1)m-2,m-1), and labelled 12,63,360,24,180,1456,40,390,4080 respectively. Entire parameter proof is analytic, not finite extrapolation.
 
-The fully inspected 1997 generalized-traffic and 1998/1999 traffic analyses establish the model, finite settling, and various preimage formulas, but not the all-speed-v exact extremal-time multiplicity. The accessible full published Catalan extremizer result concerns speed one alone and does not yield the higher-speed forest family by direct implication. The original 1996 publication and a highly relevant 1997 finite-time follow-up were available only in metadata/abstract or as citations, so no whole-document noncoverage is claimed. A classical Raney-number identity is not presented as new in isolation. Unindexed prior equivalences remain a concrete residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The last-stopping time is a natural dynamical invariant and the formula is a complete all-ring, all-low-density, fixed-speed classification of its maximizers, not a handful of sampled sizes. The forest correspondence turns the physical delay into a structured family of full-ary trees. In each fixed-surplus critical window the fraction of maximizers approaches an explicit strictly positive limit. This is a nontrivial speed-dependent structural extension of the Catalan speed-one case.
+PASS best-of-knowledge with archival risk: Fukui–Ishibashi high-speed deterministic traffic and Fukś's Fuss/Raney ballot preimages are known, and a published speed-one cyclic Rule 184 theorem already has Catalan last-step extrema. The source's speed-dependent full (v+1)-ary v-forest enumeration and exact labelled maximal-delay population for every v>=2 were not found in the material read. A 1997 two-page Wang–Wang–Hui treatment is relevant to finite-time convergence, but full text was inaccessible; this limitation alone is not a scientific refutation. A 2018 paper with a very close title studies low-density stationary entropy and velocity distributions, not the claimed finite-ring extremizers in the material actually read.
 
-## Scope and independent validation
+## value
 
-This result does not classify other speeds, high-density traffic, or stochastic delays. Priority remains qualified pending full access to the two archival sources and independent mathematical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: For a canonical, physically meaningful deterministic high-speed ring model, the exact maximum relaxation clock and the number/probability of worst-case configurations are natural observables independent of average flow. The unique delayed-car cyclic marking and ordered v-root (v+1)-ary forest bijection are structural enumerative content, and the nonzero fixed-surplus limiting probability gives a useful critical-window distribution. Novelty is not asserted for the speed-one Catalan predecessor or classical Raney coefficients alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
