@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Unique KKT threshold defines a finite piecewise-affine map; each active-set Jacobian is an explicitly weighted-centering PSD matrix. Dual sign norms reduce to a quadratic sign maximum. The variational weighted-variance identity proves full-support dominance; at a full-support base point sufficiently small two-sided sign perturbations give exact finite attainment. PARTITION reduction and dynamic program are direct exact constructions. The standalone exact-rational checker passed 1080 supplementary checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blondel–Martins–Niculae 2020 §2–3 includes arbitrary strongly convex regularizers, Bregman projections and qualitative Lipschitz smoothness; it does not optimize the claimed heterogeneous cross norm.",
+        "published-finding corpus prior result on clique-windmill Lipschitz variance supplies a partition-discrepancy expression for a different metric-space inclusion operator."
+      ],
+      "reasoning": "Generic strongly-convex dual smoothness provides upper bounds, not this sharp endpoint norm, finite norm attainment and weak NP-completeness. A graph-Lipschitz variance is not a Jacobian or conjugate Hessian of the diagonal-quadratic simplex map, and no source-contained reduction implying the asserted result was found. Risk persists for an unknown generalized Jacobian induced-norm theorem.",
+      "searches": [
+        "published-finding corpus: Fenchel Young loss gradient sharp Lipschitz norm weighted sparsemax subset sum partition",
+        "web: Learning with Fenchel-Young losses full JMLR §2.4 §3 and smoothness",
+        "web: generalized sparsemax weighted quadratic diagonal regularizer"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1901.02324 first public 2019-01-08 / JMLR 2020 full text",
+      "arxiv:2009.02980 first public 2020-09-07, weighted simplex",
+      "PMLR 48 (2016) Martins–Astudillo full primary paper",
+      "published published-finding corpus search records on crown graphs and clique windmills"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The sparsemax formula explicitly includes the equal-weight active-set Jacobian, covering the equal-weight case of this result.",
+        "Perez et al. state the weighted-simplex projection formula used to derive the Jacobian but focus on linear-time evaluation.",
+        "The current proof needs full-support dominance of the cross norm and weighted-cut optimization; these are not stated in the inspected sources."
+      ],
+      "reasoning": "The earlier unweighted result implies the uniform-weight subcase; that subcase is acknowledged as known. The weighted threshold and generic convex-duality framework furnish premises but no checked source directly or via its stated stronger theorem gives the arbitrary-weight global norm and NP-complete decision boundary. Existing partition-invariant results concern different operators and do not subsume this claim.",
+      "searches": [
+        "published-finding corpus: weighted sparsemax Jacobian infinity to one Lipschitz coefficient partition balanced subset subset sum",
+        "published-finding corpus: sharp Lipschitz constant Huber loss proximal map operator different norms spectral norm sensitivity",
+        "web: From Softmax to Sparsemax PMLR §2.5 Eq.12",
+        "web: Perez et al. 2020 arXiv §2 Eq.12"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Martins–Astudillo 2016 §2.5 supplies unweighted \\(J=\\mathrm{diag}(s)-ss^\\mathsf{T}/|S|\\), not arbitrary diagonal weights.",
+        "Perez et al., arXiv:2009.02980 §2 treats weighted-simplex threshold formulas, but searched full text did not have a Lipschitz characterization."
+      ],
+      "reasoning": "The proposed map is a diagonally weighted quadratic regularized simplex predictor; via \\(u_i=p_i/\\sqrt{a_i}\\) it is equivalent to a Euclidean weighted-simplex projection with transformed scores. This equivalence was checked against weighted-projection literature. The nearest source establishes computation of the threshold, not the exact \\(\\ell_\\infty\\)-to-\\(\\ell_1\\) norm, its full-support extremizer, or PARTITION complexity. The uniform sparsemax specialization is known and excluded from novelty.",
+      "searches": [
+        "published-finding corpus: Jacobian norm ℓ infinity to ℓ one regularized simplex prediction partition problem diagonal quadratic weights",
+        "published-finding corpus: diagonally weighted sparsemax sensitivity operator norm NP complete",
+        "web: \"weighted sparsemax\" \"lipschitz\" jacobian",
+        "web: \"weighted simplex projection\" \"infinity to one\" norm"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No queried published-finding corpus title/summary/table reported the exact coefficient for a diagonal-curvature simplex prediction operator.",
+        "The well-known PARTITION and weighted-variance identities alone do not state the optimal sensitivity of a piecewise-affine simplex prediction map across all active supports."
+      ],
+      "reasoning": "No exact database/table entry matching the object and induced norm appeared in the actual searches; this is not a proof of absence, and the general weighted-variance equivalence was treated as a priority risk.",
+      "searches": [
+        "published-finding corpus: weighted quadratic simplex map cross-norm sensitivity total variation weighted projection",
+        "published-finding corpus: exact maximal weighted variance binary signs under probability weights simplex projection",
+        "web: sharp infinity to one Lipschitz constant weighted simplex projection diagonal matrix partition problem"
+      ]
+    },
+    "rationale": "The unweighted sparsemax Jacobian and generic Fenchel–Young regularized-prediction framework are established and explicitly excluded as new. The weighted-simplex projection literature supplies threshold algorithms, but inspected work does not state or imply through a stronger bound the arbitrary diagonal-curvature sharp endpoint norm plus finite attainment and weak NP-completeness. Published metric-graph partition invariants are different operators; historical-priority risk persists.",
+    "residual_risks": [
+      "Potential older proof under rank-one Schur complements, diagonal metric projection, weighted variance or quadratic knapsack sensitivity terminology.",
+      "Full text of the two closest graph-discrepancy records unavailable: reductions could not be conclusively excluded by title/summary alone.",
+      "Published source searches and database results cannot mathematically certify first discovery."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes general regularized prediction and qualitative Lipschitz behavior; no heterogeneous exact endpoint coefficient or complexity classification seen in inspected material",
+        "evidence": [
+          "JMLR 21 (2020) §2.4 Proposition 1, §3 Bregman formulation, §8 gradient of Fenchel–Young losses"
+        ],
+        "identifier_or_url": "https://www.jmlr.org/papers/volume21/19-021/19-021.pdf",
+        "material_read": "Targeted primary full-text passages in §§1–3 and §8, the smoothness proposition, terminology and reference list",
+        "method": "Authoritative open-access text and page-1 visual inspection",
+        "title": "Learning with Fenchel–Young Losses",
+        "trigger": "General regularized prediction and strong convexity may dominate the proposed statement"
+      },
+      {
+        "assessment": "The uniform-weight Jacobian and its subcase are known; arbitrary diagonal curvature, sharp cross norm and PARTITION complexity are not stated in inspected material",
+        "evidence": [
+          "PMLR 48 (2016), §2.5 Eq. (11)–(12), §3.2"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v48/martins16.pdf",
+        "material_read": "Primary paper §2.1–2.5 and §3.2, explicit Jacobian equations 9–12 and associated explanation",
+        "method": "Open-access primary text, with page screenshot inspection",
+        "title": "From Softmax to Sparsemax: A Sparse Model of Attention and Multi-Label Classification",
+        "trigger": "The unweighted sparsemax derivative could subsume an equal-curvature case"
+      },
+      {
+        "assessment": "Supplies weighted-simplex projection formula and computational algorithms; no exact global induced-cross-norm sensitivity in the examined passages",
+        "evidence": [
+          "arXiv:2009.02980v1, §2 Eqs. 10–12, §§5–6"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2009.02980",
+        "material_read": "Primary preprint §2 weighted simplex threshold equations, algorithms, and concluding claims",
+        "method": "Open-access Cornell-hosted primary PDF text and visual inspection of p.3",
+        "title": "Efficient Projection Algorithms onto the Weighted ℓ1 Ball",
+        "trigger": "Weighted-simplex coordinate transformation makes this particularly relevant"
+      },
+      {
+        "assessment": "Graph-Lipschitz variance is a different map with different norms; no direct implication from the available description, but detailed comparison unresolved",
+        "evidence": [
+          "Published record summary: Lipschitz inclusion and graph windmill partition discrepancy, not simplex predictor Jacobian"
+        ],
+        "identifier_or_url": "2026/11/8/SCOPE-partition-discrepancy-governs-sharp-lipschitz-variance-on-clique--37d4cd7096ca",
+        "material_read": "Published search-record title and summary only; full article unavailable",
+        "method": "Scientific search record comparison; full-text attempt unsuccessful",
+        "title": "Partition discrepancy governs sharp Lipschitz variance on clique windmills",
+        "trigger": "Same weighted two-way discrepancy may create a hidden implication"
+      },
+      {
+        "assessment": "Crown-graph centered-L2 inclusion norm is not the proposed \\(\\ell_\\infty\\)-to-\\(\\ell_1\\) predictor sensitivity; residual reduction uncertainty noted",
+        "evidence": [
+          "Published record summary: two partition discrepancies and matched-pair term, centered Lipschitz-to-L2 map"
+        ],
+        "identifier_or_url": "2026/11/8/SCOPE-exact-weighted-lipschitz-spread-on-crown-graphs-two-partition-di--4e3307d2e8c5",
+        "material_read": "Published search-record title and summary only; full article unavailable",
+        "method": "Scientific search record comparison; full-text attempt unsuccessful",
+        "title": "Exact weighted Lipschitz spread on crown graphs",
+        "trigger": "Related NP-completeness via weighted partition discrepancies"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b6094ff6-4b5e-448c-ae06-f74291f6a1f9",
+  "value": {
+    "rationale": "The result identifies the exact global total-variation robustness of naturally diagonally quadratic Fenchel–Young prediction; proves every worst-case perturbation can be realized within the smooth full-support regime; characterizes all fixed-total best and limiting configurations; and establishes weak NP-completeness of the exact sharp sensitivity despite easy individual prediction. This computational boundary makes the natural invariant mathematically useful beyond known unweighted Jacobian calculus.",
+    "status": "PASS"
+  }
+}
