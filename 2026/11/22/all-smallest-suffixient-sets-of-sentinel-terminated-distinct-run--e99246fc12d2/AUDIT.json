@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "In a period of distinct letter runs every nonunary factor has a unique cyclic phase; only the terminal marker creates mixed right branches. Classifying short unary branches and the two repeated-suffix extensions gives exactly \\(2q+1\\) distinct supermaximal extensions. Their ending sets are pairwise disjoint, the 2q-1 short sets have k positions apiece, and the two long sets are singletons. Suffix coverage and a pigeonhole lower bound give the complete minimum-set bijection and count \\(k^{2q-1}\\). Choosing the terminal and q first-period run boundaries gives the sharp string-attractor size q+1. The standalone literal right-extension enumeration reproduces all predictions for 246 parameter tuples and directly enumerates four minimum-set families; finite tests are supporting checks, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fujimaru et al. prove global bounds chi <= 2r and episturmian chi <= alphabet size plus 2; these are upper bounds, not the distinct-run class exact minimum count.",
+        "Cenzato et al. provide suffixient-array construction for general inputs, yielding a procedure rather than this symbolic SRE-family formula."
+      ],
+      "reasoning": "A general algorithm computes a particular optimum on each input but does not logically entail the complete count of all optima as a stated theorem. Generic bounds are compatible with, but neither imply nor contradict, the new sharp formula. The prescribed family is not episturmian in general.",
+      "searches": [
+        "suffixient array number of optimal sets of distinct cyclic run powers with terminal marker supermaximal extensions 2q+1 k^(2q-1)",
+        "supermaximal right extensions of periodic word powers P^k$ exact formula",
+        "arxiv:2506.05638v7 Section 6 general chi bounds; episturmian families",
+        "doi:10.1007/s00224-026-10287-6 suffixient arrays and constructions"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2604.27548v1",
+      "doi:10.4230/LIPIcs.MFCS.2026.86",
+      "arxiv:2506.05638v7",
+      "doi:10.1007/s00224-026-10287-6",
+      "2026/11/2/SCOPE-cyclic-bigram-certificates-and-all-minimum-attractors-of-distinc--7fb760d3d179",
+      "2026 CPM 2026 proceedings: Constructing Suffixient Arrays Revisited (abstract reviewed)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The cyclic-bigram paper counts all minimum string attractors of P^k without terminal symbol and gives cardinality q. The new theorem counts suffixient sets of P^k# and obtains cardinality 2q+1, plus an exact gamma(P^k#)=q+1 comparison.",
+        "Fujimaru et al. Lemma 16 classifies the two smallest suffixient sets on Fibonacci words, and Corollary 5 bounds episturmian factors, with no cyclic distinct-run power hypothesis."
+      ],
+      "reasoning": "Neither the q-attractor certificate nor the Fibonacci suffixient classification implies a 2q+1-element SRE list for marked distinct-run powers. The strict gap between the two sizes on the same marked word supplies a concrete non-reduction. The result is therefore not a corollary or parameter substitution of either inspected statement.",
+      "searches": [
+        "2026/11/2/SCOPE-cyclic-bigram-certificates-and-all-minimum-attractors-of-distinc--7fb760d3d179 RESULT.md full text",
+        "arxiv:2506.05638v7 Lemma 16 and Corollary 5",
+        "arxiv:2604.27548v1 general SRE maintenance",
+        "smallest suffixient sets SRE for periodic binary block words (0^a1^b)^k exact number placements"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fujimaru et al., arXiv:2506.05638v7 Sections 3 and 6.2 explicitly classify two smallest suffixient sets for Fibonacci words; neither period powers nor all run-length parameters are treated.",
+        "The new statement is equivalent to specifying all 2q+1 supermaximal extensions and proving their ending-position multiplicities (k,...,k,1,1)."
+      ],
+      "reasoning": "Alternative terminology includes maximal right extensions, suffixient arrays, right-special-factor extensions, and minimal suffixient position sets. These were checked against the full texts; the exact set-theoretic product for marked distinct-run powers was not covered by the analyzed different-family formulas.",
+      "searches": [
+        "smallest suffixient sets SRE for periodic binary block words (0^a1^b)^k exact number placements",
+        "For any alphabet with q pairwise distinct letters and every run length at least two, periodic word (a0^r0 a1^r1 ...)^k with sentinel has exactly 2q+1 supermaximal right extensions and k^(2q-1) smallest suffixient sets",
+        "\"suffixient sets\" \"number of smallest\" \"periodic\"",
+        "arxiv:2506.05638v7 searched full HTML for periodic; power; repetition",
+        "arxiv:2604.27548v1 suffixient-set definitions and right extensions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed closest published item 2026/11/2/SCOPE-cyclic-bigram-certificates-and-all-minimum-attractors-of-distinc--7fb760d3d179 gives 2k^(q-1)(k-1) smallest string attractors of the unmarked cycle, a different type of set."
+      ],
+      "reasoning": "No matching indexed table, publication or own claim was found in the actual checks. This is negative search evidence only, not a uniqueness proof; indexed attractor counts are not suffixient-set counts.",
+      "searches": [
+        "For any alphabet with q pairwise distinct letters and every run length at least two, periodic word (a0^r0 a1^r1 ...)^k with sentinel has exactly 2q+1 supermaximal right extensions and k^(2q-1) smallest suffixient sets",
+        "suffixient array number of optimal sets of distinct cyclic run powers with terminal marker supermaximal extensions 2q+1 k^(2q-1)",
+        "smallest suffixient set count for periodic words all non singleton runs terminal sentinel"
+      ]
+    },
+    "rationale": "Comparison of the precise marked distinct-run-period SRE list and minimum-set count with full primary texts, a published result on the same underlying period family but a different invariant, published indexed claims  did not identify a covering statement. The general algorithm and broad inequalities do not imply the closed-form all-parameter count without additional structural analysis.",
+    "residual_risks": [
+      "An unindexed or differently named exact SRE enumeration for the same marked periodic family may exist; searches cannot exclude this.",
+      "Published general algorithmic findings can produce the SREs on each concrete word but do not state the symbolic all-optimum count; undiscovered special-family corollaries are possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General maintenance algorithms and representation but no enumerative minimum-set theorem for marked distinct-run powers",
+        "evidence": [
+          "Köppl–Kucherov, MFCS 2026 article 86; arXiv:2604.27548v1 originally public 30 April 2026"
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol386-mfcs2026/html/LIPIcs.MFCS.2026.86/LIPIcs.MFCS.2026.86.html",
+        "material_read": "full-text HTML introduction, formal SRE definitions, algorithmic sections and stated theorems",
+        "method": "opened open-access HTML; inspected definitions and exact stated claims",
+        "title": "Smallest suffixient set maintenance in near-real-time",
+        "trigger": "Recent primary source on suffixient sets and right extensions"
+      },
+      {
+        "assessment": "General array construction, not the SRE exact spectrum and all optimum choices for this class",
+        "evidence": [
+          "Cenzato et al., Theory of Computing Systems 70 (2026), article 50"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00224-026-10287-6",
+        "material_read": "open full text introduction, structural results and construction arguments, with periodic-class terms searched",
+        "method": "inspected lawful full-text HTML",
+        "title": "Suffixient Arrays: A New Efficient Suffix Array Compression Technique",
+        "trigger": "Original suffixient-array structural construction"
+      },
+      {
+        "assessment": "Offers general chi bounds, episturmian bound and complete two-optimum Fibonacci classification; does not cover distinct-run periodic family or k^(2q-1) census",
+        "evidence": [
+          "Fujimaru–Navarro–Romana–Urbina, arXiv:2506.05638v7, originally public 5 June 2025; Lemma 16 and Corollary 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2506.05638v7",
+        "material_read": "ArXiv HTML abstract and materially relevant Sections 3, 4.1, 6.1–6.2, including the exact Fibonacci minimum-set result; full-document search for periodic, power and repetition terms",
+        "method": "Opened lawful arXiv HTML and read relevant exact definitions, inequalities, family theorems, and related-result discussions",
+        "title": "Smallest Suffixient Sets: Effectiveness, Resilience, and Calculation",
+        "trigger": "Closest plausible published full SSS classifications and repetitiveness comparisons"
+      },
+      {
+        "assessment": "Characterizes ordinary string attractors of unmarked P^k, not suffixient sets or the marked SRE family",
+        "evidence": [
+          "Same non-singleton regime gives 2k^(q-1)(k-1) smallest attractors, whereas the different suffixient-set invariant yields k^(2q-1) choices on P^k#."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-cyclic-bigram-certificates-and-all-minimum-attractors-of-distinc--7fb760d3d179/RESULT.md",
+        "material_read": "full published RESULT.md including theorem, four-step proof, enumeration formula and limitations",
+        "method": "fetched and read published primary statement and argument",
+        "title": "Cyclic bigram certificates and all minimum attractors of distinct-run powers",
+        "trigger": "Identical periodic underlying objects with plausible domination by an earlier result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e99246fc-12d2-4007-9cdb-c3cd975eb889",
+  "value": {
+    "rationale": "The measure counts positions needed for compressed pattern indexing. For a family with arbitrary alphabet size and independent run lengths, the theorem supplies the complete set of optimal suffixient position choices and exact product count, not only an optimum bound. The stable count despite arbitrary large runs quantifies redundant indexing choices, and the sharp \\(q\\)-position gap from string attractors shows a genuine structural difference on the same text. This is a motivated natural periodic-family classification, not a lone small parameter value.",
+    "status": "PASS"
+  }
+}
