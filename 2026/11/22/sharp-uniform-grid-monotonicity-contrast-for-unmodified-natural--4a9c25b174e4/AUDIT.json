@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For each finite natural spline, endpoint-reflection of its secants yields a periodic whole-line forcing whose unique bounded tridiagonal Green solution is odd at both boundary knots. The computed infinite convolution derivative operator has explicit coefficient L1 norm bounded by sqrt(3) on every cell. Constant reproduction plus centered secants proves the contrast sufficiency. On 2m cells alternating positive secants yield exact boundary derivative (a_m-R a_{m-1})/(a_m-a_{m-1}); quotient recurrence decreases to 2+sqrt(3), proving sharpness on finite grids. Signed alternation proves sharpness of the operator bound. The packaged symbolic identities and independent finite linear solves passed; numerical sampling is not treated as a proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "published-finding corpus: 2026/11/17/SCOPE-sharp-bounded-variation-norm-of-whole-line-c-2-cardinal-cubic-sp--12f2cdbed39e, full RESULT.md inspected, proves sharp BV gain 1.589... on a different boundary domain",
+        "Fritsch and Carlson, 1980, DOI:10.1137/0717021, gives local monotonicity tests and modified Hermite interpolation"
+      ],
+      "reasoning": "A sharp BV input/output seminorm and local first-derivative shape conditions do not dominate a uniform all-length natural-spline derivative L-infinity norm or exact contrast threshold; they involve different norms and/or spline end conditions.",
+      "searches": [
+        "published-finding corpus: sharp monotonicity guarantee natural spline positive bounded successive slopes ratio 3.732",
+        "published-finding corpus: uniform mesh natural cubic spline increasing data ratio sharp grid independent",
+        "web: monotonicity natural cubic spline finite knots uniform slope contrast bound increasing data"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2102.11564v1 full HTML Sections 1-3",
+      "Fritsch-Carlson 1980 publisher abstract and theorem cited in 2021 source",
+      "published-finding corpus whole-line cardinal spline BV full RESULT.md",
+      "published-finding corpus first coupled natural spline BV full RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published exact four-knot natural cubic variation gain concerns an independent finite-count seminorm, not this uniform all-grid secant-to-derivative norm.",
+        "Aràndiga et al. (2021), full-text sections 1-3 compare modified Hermite spline derivatives, not the natural boundary extension"
+      ],
+      "reasoning": "A finite four-knot variation theorem cannot be applied iteratively to an all-grid natural spline without changing endpoint conditions and curvature coupling. The whole-line BV variation theorem does not by itself imply a pointwise derivative norm. No strongest inspected source logically contains the displayed all-grid threshold.",
+      "searches": [
+        "published-finding corpus: sharp monotonicity guarantee natural spline positive bounded successive slopes ratio 3.732",
+        "published-finding corpus: natural cubic interpolant derivative Lebesgue constant sqrt 3 sharp",
+        "web: Monotone cubic spline interpolation for functions with a strong gradient arXiv 2102.11564"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2102.11564v1, Sections 1-3, treats modified Hermite spline slopes and their local monotonicity requirements; no all-grid natural secant contrast",
+        "published-finding corpus: 2026/11/17/SCOPE-sharp-total-variation-amplification-of-the-first-coupled-natural--287732549e93; four knots variation norm, not pointwise derivative bound"
+      ],
+      "reasoning": "The claim is equivalently the uniform derivative norm sqrt(3) plus affine reproduction, and sharpness is realized by long finite alternating slopes. Local Hermite shape tests require actual knot derivatives; they do not provide the sharp universal secant bound. Variation gains do not imply the precise L-infinity derivative norm.",
+      "searches": [
+        "published-finding corpus: natural cubic spline uniformly spaced monotone data bounded secant slope ratio 2+sqrt 3 universal threshold all knots",
+        "web: sharp derivative bound natural cubic spline monotonicity adjacent slope ratio finite uniform grid 2+sqrt3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest published items have finite 3- and 4-knot overshoot/variation constants or whole-line BV constants, not the numerical sqrt(3) derivative norm with reflected natural boundaries"
+      ],
+      "reasoning": "No exact database constant or table among the queried records was identified that covers the sup over every finite grid length; finite-grid and bi-infinite BV numbers are non-equivalent.",
+      "searches": [
+        "published-finding corpus: natural cubic interpolant derivative Lebesgue constant sqrt 3 sharp",
+        "published-finding corpus: natural cubic spline uniformly spaced monotone data bounded secant slope ratio 2+sqrt 3 universal threshold all knots"
+      ]
+    },
+    "rationale": "Claim-to-claim and full relevant published material comparisons reveal no all-grid sharp natural-spline secant-contrast threshold. The 2021 primary paper offers alternative nonlinear Hermite spline construction; the published-finding corpus finite four-knot result has a different parameter quantifier; published whole-line and four-knot spline findings prove variation bounds rather than this slope-to-derivative L-infinity norm. Classical equivalences remain a historical-priority risk.",
+    "residual_risks": [
+      "An inaccessible historical spline monograph or unindexed original analysis might have reported the sharp derivative operator norm or all-grid contrast before these records.",
+      "The 1980 original publisher full text was not obtained; its primary abstract and re-stated local theorem indicate a different claim but cannot exclude unseen appendices."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: studies modified Hermite derivative formulas and monotone constructions, not the sharp natural-boundary all-grid secant ratio",
+        "evidence": "arXiv:2102.11564v1, Sections 1-3, especially Eq. (4), Eq. (12) and non-linear derivation",
+        "identifier_or_url": "https://arxiv.org/html/2102.11564v1",
+        "material_read": "Full HTML article Sections 1-5, including Hermite monotonicity theorems, cubic recurrences, algorithms, numerical examples, conclusion and references",
+        "method": "primary open-access full-text HTML",
+        "title": "Monotone cubic spline interpolation for functions with a strong gradient",
+        "trigger": "Direct primary work on monotone cubic spline interpolation"
+      },
+      {
+        "assessment": "Not covering: sharp input-BV to interpolant-BV norm 1.589..., not secant L-infinity to derivative norm sqrt(3) or natural finite endpoint contrasts",
+        "evidence": "RESULT.md proof steps 1-4 and theorem, 2026/11/17 record",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-sharp-bounded-variation-norm-of-whole-line-c-2-cardinal-cubic-sp--12f2cdbed39e",
+        "material_read": "Complete RESULT.md including full proof and limitations",
+        "method": "public research repository full-file access",
+        "title": "Sharp bounded-variation norm of whole-line C2 cardinal cubic-spline interpolation",
+        "trigger": "Shared whole-line cardinal spline Green inversion and potential stronger bound"
+      },
+      {
+        "assessment": "Not covering: fixed four-knots and BV operator norm 1.513..., not uniform n threshold",
+        "evidence": "RESULT.md finding, assumptions and proof, 2026/11/17 record",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-sharp-total-variation-amplification-of-the-first-coupled-natural--287732549e93",
+        "material_read": "Complete RESULT.md including exact four-knot proof",
+        "method": "public research repository full-file access",
+        "title": "Sharp total-variation amplification of the first coupled natural cubic spline",
+        "trigger": "Natural cubic interpolation on finite uniform knots"
+      },
+      {
+        "assessment": "Not established as covering; full original publisher text was not obtained, so historical overlap risk remains",
+        "evidence": "Fritsch-Carlson 1980 abstract; Aràndiga et al. 2021 Theorem 1.2",
+        "identifier_or_url": "https://doi.org/10.1137/0717021",
+        "material_read": "Bibliographic record and abstract; monotone-cell theorem also stated in 2021 article",
+        "method": "publisher abstract and open-access contemporary primary citation",
+        "title": "Monotone Piecewise Cubic Interpolation",
+        "trigger": "Classic original cubic monotonicity work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4a9c25b1-74e4-46ec-a844-6a31bfe992dc",
+  "value": {
+    "rationale": "The sharp all-grid contrast ratio provides a directly usable quantitative decision rule for when an ordinary smooth natural interpolant can replace a nonlinear monotone scheme without introducing nonphysical turns. The exact derivative operator norm is a structural stability invariant and the long-grid alternating obstruction establishes necessity for the uniform guarantee. A previously treated four-knot ratio of 4 is insufficient for arbitrary grid length; the new constant 2+sqrt(3) is not a cosmetic reparameterization.",
+    "status": "PASS"
+  }
+}
