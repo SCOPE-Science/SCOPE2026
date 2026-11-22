@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T05:55:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Identify SU(2) with unit quaternions and take two independent Haar-uniform conjugacy-class samples. Their scalar convolution is exactly uniform on [a,1] with a=cos(2theta), L=1-a; the Haar scalar density is (2/pi)sqrt(1-t²). Radial conditional angular measures agree, so the full-group TV is the one-dimensional half-L1 distance. On L<=pi/2, F=H(a); otherwise F=H(a)+2/pi asin(b)-b/L with b=sqrt[1-pi²/(4L²)]. The interval [a,1] fully covers (-b,b) since L³(2-L)<=27/16<pi²/4. Differentiation gives the sign of 4L^7(2-L)-4pi²L²+pi⁴; its derivative is negative on [pi/2,2], and endpoints have opposite signs. Unique root gives the only minimizing scalar a and two supplementary theta; at theta=0,pi TV=1. Independent root and integration corroborate TV~0.102530046. The proof, not the sample grid, establishes global uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/math/0102205",
+          "SU2 L2 theorem minimum spectral factor 1/4 at cos(theta)=±1/4",
+          "Hemispherical walk with step density 2·1_{Re>0}"
+        ],
+        "reasoning": "A compact-group spectral gap or discrepancy convergence estimate does not dominate a finite-horizon TV minimization for a singular fixed conjugacy class; neither stronger SU2 result implies the unique degree-eight stationarity root.",
+        "searches": [
+          "Resultary semantic: SU(2) conjugacy class random walk two step total variation Haar optimum trace angle central measure",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-two-sharp-conjugacy-class-angles-for-fastest-mean-zero-fourier-m--365e58db4c1c",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-all-time-total-variation-for-a-hemispherical-walk-on-mathr--a79d77b97384"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/math/0102205",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-two-sharp-conjugacy-class-angles-for-fastest-mean-zero-fourier-m--365e58db4c1c",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-all-time-total-variation-for-a-hemispherical-walk-on-mathr--a79d77b97384",
+        "Resultary SU2 semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "SU2 fixed-class 2-step density uniform on [cos2theta,1]; current exact optimum theta~75.40337°",
+          "L² class optimum theta=arccos(±1/4) and hemisphere 2-step TV=1/4-1/pi²"
+        ],
+        "reasoning": "The spectral angle does not optimize the L1 variation, and the Haar-conditioned hemisphere is not a single class. These prior conclusions do not mathematically imply this class-optimal TV root.",
+        "searches": [
+          "Resultary semantic: SU(2) conjugacy class random walk two step total variation Haar optimum trace angle central measure",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-two-sharp-conjugacy-class-angles-for-fastest-mean-zero-fourier-m--365e58db4c1c",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-all-time-total-variation-for-a-hemispherical-walk-on-mathr--a79d77b97384"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/math/0102205",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-two-sharp-conjugacy-class-angles-for-fastest-mean-zero-fourier-m--365e58db4c1c",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-all-time-total-variation-for-a-hemispherical-walk-on-mathr--a79d77b97384"
+        ],
+        "reasoning": "SU(2) class measure is supported on a fixed-trace 2-sphere; the radial two-fold convolution uniform interval is geometrically related to spherical overlap. Existing SU2 L² class-walk and hemispherical-TV formulas concern different input measures/objectives.",
+        "searches": [
+          "Resultary semantic: SU(2) conjugacy class random walk two step total variation Haar optimum trace angle central measure",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-two-sharp-conjugacy-class-angles-for-fastest-mean-zero-fourier-m--365e58db4c1c",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-all-time-total-variation-for-a-hemispherical-walk-on-mathr--a79d77b97384"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-two-sharp-conjugacy-class-angles-for-fastest-mean-zero-fourier-m--365e58db4c1c",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-all-time-total-variation-for-a-hemispherical-walk-on-mathr--a79d77b97384",
+          "No matching earlier finite-step TV optimizer table among inspected results"
+        ],
+        "reasoning": "Related numerical values 1/4 and 1/4-1/pi² belong to different operators. No database establishes the 0.1025300... optimum; an unsuccessful search alone cannot certify novelty.",
+        "searches": [
+          "Resultary semantic: SU(2) conjugacy class random walk two step total variation Haar optimum trace angle central measure",
+          "Resultary SU2 conjugacy walk and total variation search"
+        ]
+      },
+      "rationale": "Bounded PASS: the two-step SU(2) conjugacy-class TV minimization is a different objective from one-step mean-zero L² class-walk tuning and from hemispherical absolutely continuous walks. Relevant primary sphere geodesic-walk theorems do not state the SU2 two-step L1 optimizer.",
+      "residual_risks": [
+        "Earlier specialized two-class radial convolution L1 table may contain same unique optimizer."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sphere discrepancy asymptotics, not the SU(2) Haar-radial total variation of two singular-class steps",
+          "evidence": "Statements use discrepancy and convergence rates rather than an exact two-step SU2 L1 minimization",
+          "identifier_or_url": "https://arxiv.org/abs/math/0102205",
+          "material_read": "Accessible full arXiv PDF including setup and discrepancy-rate theorem statements",
+          "method": "primary PDF text and first-page image",
+          "title": "Discrepancy Convergence for the Drunkard's Walk on the Sphere",
+          "trigger": "geodesic fixed-step discrepancy mixing"
+        },
+        {
+          "assessment": "Spectral operator minimum 1/4 at cos theta=±1/4, no finite-step TV optimizer",
+          "evidence": "One-step L² norm over all nonconstant irreps differs from L1 distance of mu_theta squared to Haar",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-two-sharp-conjugacy-class-angles-for-fastest-mean-zero-fourier-m--365e58db4c1c",
+          "material_read": "Complete published Resultary RESULT.md including theorem, proof and assumptions",
+          "method": "GitHub full result text",
+          "title": "Two sharp conjugacy-class angles for fastest mean-zero Fourier mixing on SU(2)",
+          "trigger": "identical fixed SU2 conjugacy-class kernel but L² norm"
+        },
+        {
+          "assessment": "Step law is Haar conditioned on hemisphere rather than uniform conjugacy class; no parameter tuning",
+          "evidence": "mu=2·1_H m, rather than singular class mu_theta",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-all-time-total-variation-for-a-hemispherical-walk-on-mathr--a79d77b97384",
+          "material_read": "Complete published Resultary RESULT.md: density, TV series, all-time optimum event",
+          "method": "GitHub full result text",
+          "title": "Exact all-time total variation for a hemispherical walk on SU(2)",
+          "trigger": "closely related SU2 Haar total variation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At one step every conjugacy-class law is singular to Haar (TV=1), so horizon two is the first nontrivial exact TV optimization. The result gives an exact globally unique optimal parameter and distinguishes TV from equatorial and spectral L² tunings. Natural finite-time Markov-mixing problem, not arbitrary optimization.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/math/0102205",
+    "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-two-sharp-conjugacy-class-angles-for-fastest-mean-zero-fourier-m--365e58db4c1c",
+    "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-all-time-total-variation-for-a-hemispherical-walk-on-mathr--a79d77b97384",
+    "Resultary SU2 semantic query"
+  ],
+  "disposition": "passed",
+  "limitations": "Only fixed conjugacy class squared and SU2; not arbitrary mixtures or later times. Exact algebraic equation involves pi and finite numerical integration is corroboration only.",
+  "residual_risks": [
+    "Earlier specialized two-class radial convolution L1 table may contain same unique optimizer."
+  ],
+  "schema_version": 1
+}

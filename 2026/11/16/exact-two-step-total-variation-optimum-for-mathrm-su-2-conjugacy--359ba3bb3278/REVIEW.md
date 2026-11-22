@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Two independent fixed-trace unit quaternions have uniformly distributed scalar product coordinate on the interval \([\cos2\theta,1]\). Haar's scalar coordinate has semicircular density. The scalar conditional distributions agree in their angular component; consequently the one-dimensional total-variation calculation is exact on the full group. Both density-crossing regimes and central endpoints are analyzed. The derivative comparison reduces uniqueness to an explicitly strictly decreasing degree-eight polynomial on its complete admissible interval. The standalone numerical checker agrees with the exact formula and root; finite checks are not used as a global proof.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-Su's inspected fixed-distance walk theorems give discrepancy-rate bounds on a different sphere, not the exact two-step total variation on \(\mathrm{SU}(2)\). Mangoubi and Smith's inspected geodesic-walk result concerns fixed-time walks and general Wasserstein bounds, not a finite-horizon sharp \(L^1\) angle. Schär and Stier's sampled-geodesic walk uses a different step distribution and addresses Wasserstein contraction. An earlier analysis of the same compact-group class walk gives an \(L^2\)-spectral optimum; its norm and objective do not imply this \(L^1\) result. The mathematical statements and the operators were compared, not merely paper titles. Undiscovered older orbital-convolution tables could change historical priority.
+PASS
 
-## Value — PASS
-At one step all noncentral class measures are singular against Haar, so two steps form the first meaningful total-variation horizon. The theorem resolves the exact sharp tuning of that first nontrivial \(L^1\) error, proves uniqueness, and exposes a threshold in the overlap geometry. Its optimizer is neither the naive equatorial class nor the separate asymptotic \(L^2\)-optimal class. This is a naturally defined exact finite-horizon invariant with potential use in class-random-walk design, not an arbitrary parameter slice.
+Identify SU(2) with unit quaternions and take two independent Haar-uniform conjugacy-class samples. Their scalar convolution is exactly uniform on [a,1] with a=cos(2theta), L=1-a; the Haar scalar density is (2/pi)sqrt(1-t²). Radial conditional angular measures agree, so the full-group TV is the one-dimensional half-L1 distance. On L<=pi/2, F=H(a); otherwise F=H(a)+2/pi asin(b)-b/L with b=sqrt[1-pi²/(4L²)]. The interval [a,1] fully covers (-b,b) since L³(2-L)<=27/16<pi²/4. Differentiation gives the sign of 4L^7(2-L)-4pi²L²+pi⁴; its derivative is negative on [pi/2,2], and endpoints have opposite signs. Unique root gives the only minimizing scalar a and two supplementary theta; at theta=0,pi TV=1. Independent root and integration corroborate TV~0.102530046. The proof, not the sample grid, establishes global uniqueness.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Bounded PASS: the two-step SU(2) conjugacy-class TV minimization is a different objective from one-step mean-zero L² class-walk tuning and from hemispherical absolutely continuous walks. Relevant primary sphere geodesic-walk theorems do not state the SU2 two-step L1 optimizer.
+
+## value
+
+PASS
+
+At one step every conjugacy-class law is singular to Haar (TV=1), so horizon two is the first nontrivial exact TV optimization. The result gives an exact globally unique optimal parameter and distinguishes TV from equatorial and spectral L² tunings. Natural finite-time Markov-mixing problem, not arbitrary optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
