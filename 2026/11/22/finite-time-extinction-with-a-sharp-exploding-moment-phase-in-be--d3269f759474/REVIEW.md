@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Under independent Bernoulli curvature and the stated exact initialization, an active draw resets the first state coordinate, two adjacent active draws absorb both coordinates, and intervening missed draws multiply the squared predecessor by an explicitly derived factor. A renewal decomposition yields the complete expected squared-error generating function. The positive aperiodic renewal kernel has a unique nearest simple pole, providing an actual exponential asymptotic equivalent. Exact symbolic algebra gives the \((1-p)\beta(1+2\beta)=1\) boundary. The standalone extracted checker confirms 227 rational claims; these checks do not establish the asymptotic theorem on their own.
+
+**Originality — PASS, qualified.** Li–Wang's deterministic strong-convexity theorem does not imply the stochastic moment pathology. Assran–Rabbat's finite-sum stochastic divergence Theorem 3 supplies a closely related failure result but not a finite-time-absorbed scalar Bernoulli process, its critical equality, or its exact renewal rate. Sharma et al.'s exact general second-moment stability result concerns the different outer-buffer momentum algorithm. The closest published random-dropout two-lag threshold concerns a positive averaging recursion, not the signed Nesterov extrapolation. Checked searches did not identify an equivalent result; priority remains conditional on the checked source coverage, especially classical random-coefficient linear recurrences.
+
+**Value — PASS.** The theorem provides an exact sampling–momentum safety boundary and an explicit divergence rate for a standard lookahead optimizer using unbiased, interpolating gradients and a conservative step. It sharply distinguishes finite-time pathwise success from failure of mean-square guarantees; at the critical line almost-sure extinction coexists with a nonzero limiting second moment. This exposes a risk not assessed by deterministic convergence rates or trajectory simulations alone.
+
+**Limits.** Only scalar zero/full-curvature Bernoulli sampling, exact arithmetic, and \(\eta=1/L\) are covered. Other momentum rules and noisy/multidimensional objectives are excluded. No independent validation was performed.
+
+Self-review: passed. Independent audit: not yet performed.

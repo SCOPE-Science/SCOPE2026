@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For beta in (0,1) an active curvature draw sets x_new=0; a positive miss run multiplies the preceding nonzero state by c_g>0, proving absorption iff two consecutive active draws. Renewal kernel k_m=p q^{m-1}c_{m-1}^2 leads to H(z)=1/[(1-qz)(1-K(z))]. Positivity with support at 2 and 3 gives a unique simple dominant pole r and a sharp asymptotic equivalent. Algebra K(1)-1=[q beta(1+2beta)-1]/[(1-beta q)(1-beta^2 q)] gives the complete three-way classification; exact rational checker verifies 227 finite identities but is not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sharma et al. Algorithm 1 uses u_t=beta u_{t-1}+P_t and theta_{t+1}=theta_t-alpha(beta u_t+P_t); Theorem 1 treats its second-moment map.",
+        "Assran and Rabbat Theorem 3 proves divergence of expected iterate error in a finite-sum construction with all component Hessians positive."
+      ],
+      "reasoning": "Outer buffer momentum and the standard extrapolate-then-gradient method are not the same algorithm. General random-matrix methods may supply a spectral test, but no checked broader theorem states the two-success absorption and exact phase law as a corollary. Assran's negative result has different assumptions and conclusions.",
+      "searches": [
+        "randomized Nesterov momentum interpolation strongly convex quadratic skipped gradient updates mean square stability threshold",
+        "arxiv:2610.22623v1 Theorem 1 Algorithm 1",
+        "arxiv:2002.12414 Theorem 3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.10205v1",
+      "PMLR 119 assran20a (2020)",
+      "arxiv:2610.22623v1",
+      "published-finding corpus published 31c71a26296d RESULT.md",
+      "published-finding corpus published 11f2caf45cc5 and 1361b2146e0b summaries",
+      "Accessible current-week own ledger claim IDs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Li–Wang establishes deterministic strong-convexity convergence for beta in [0,1), no sampled Bernoulli oracle.",
+        "Assran–Rabbat establishes possible divergence of expected error, but not almost sure finite-time exact extinction and a nonzero critical limiting second moment.",
+        "Sharma et al. analyze a different outer pseudo-gradient-buffer recurrence."
+      ],
+      "reasoning": "The simultaneous almost-sure absorption and exact second-moment trichotomy on the same scalar strongly convex population quadratic is not a direct special case or corollary of the checked statements. Its proof provides the explicit renewal law independently.",
+      "searches": [
+        "arxiv:2611.10205v1 equation (1.1) and Theorem 4.15",
+        "arxiv:2002.12414 Theorem 3",
+        "arxiv:2610.22623v1 Algorithm 1 and Theorem 1",
+        "Nesterov extrapolated gradient Bernoulli zero-curvature samples two consecutive successes finite-time extinction yet mean-square divergence threshold beta 1/2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus 31c71a26296d: Y_t=A_t(Y_{t-1}+Y_{t-2})/2; its kernel has positive two-lag averaging coefficients.",
+        "This claim: x_{t+1}=(1-B_t)((1+beta)x_t-beta x_{t-1}), a signed, lookahead-gradient recurrence."
+      ],
+      "reasoning": "The samplewise zero-pair mechanism matches but positive average and signed extrapolation have different gap multipliers and phase boundaries; two-step moment analyses cannot be identified by mere parameter renaming. Other published-finding corpus deadbeat control is also a different state operator.",
+      "searches": [
+        "Nesterov accelerated gradient Bernoulli sampled curvature scalar quadratic exact mean square stability constant momentum under intermittent stochastic gradient noise interpolation Bernoulli",
+        "Nesterov extrapolated gradient Bernoulli zero-curvature samples two consecutive successes finite-time extinction yet mean-square divergence threshold beta 1/2",
+        "published-finding corpus published 2026/11/2/31c71a26296d/RESULT.md"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest id 31c71a26296d, 11f2caf45cc5, 1361b2146e0b and other Nesterov moment searches; no exact formula (1-p)beta(1+2beta)=1 reported for the stated iteration.",
+        "Own accessible ledger finding claims were searched for Nesterov/Bernoulli/momentum overlap and none matched the present claim."
+      ],
+      "reasoning": "No checked published table supplies this exact optimizer-specific critical probability. Negative search cannot certify unique historical priority; compared actual theorem implications.",
+      "searches": [
+        "Nesterov momentum zero gradient with probability stochastic Hessian optimal learning rate stability exact third order moment",
+        "stochastic Nesterov acceleration Bernoulli interpolating gradient sample dropout mean-square spectral radius threshold p momentum",
+        "finite time extinction random Nesterov erased gradient almost surely divergent second moments",
+        "published-finding corpus exact title/claim/aliases against accessible own ledger claims"
+      ]
+    },
+    "rationale": "Actual published-finding corpus semantic searches (six targeted queries), accessible own-ledger claim comparison, and inspected primary sources separate the explicit Nesterov-Bernoulli renewal law from deterministic linear convergence, finite-sum divergence, outer-buffer pseudo-gradient stability, and prior positive two-lag dropout moments. The critical equality and exact convergence/divergence rate, together with almost-sure finite extinction, are not implied by those statements. Classical jump-linear and autoregressive theories remain historical-priority risks.",
+    "residual_risks": [
+      "Broader random-coefficient linear recursion and jump-linear literature may contain an algebraically equivalent special-case stability formula not identified here.",
+      "Published published-finding corpus nearest neighbors share the finite-time-extinction/moment-explosion phenomenon; novelty is restricted to the exact standard Nesterov recursion, phase curve, critical limit and renewal rate.",
+      "Same-model review only; independent priority and mathematical validation have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Deterministic theorem does not state stochastic sampled-gradient moments or absorption",
+        "evidence": [
+          "arxiv:2611.10205v1 PDF pp.1–3, equation (1.1), introduction, contribution (ii) and Theorem 4.15 synopsis; first public 2026-11-06"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.10205",
+        "material_read": "Full text introductory equations (1.1), smooth strongly convex setup, stated contribution and theorem 4.15 summary; arXiv v1 first-public submission record",
+        "method": "Read extracted PDF text and page screenshot",
+        "title": "Linear Convergence of Nesterov's Acceleration for All Momentum Parameter",
+        "trigger": "Fresh motivating deterministic constant-momentum result, same lookahead algorithm"
+      },
+      {
+        "assessment": "Shows broader stochastic failure but not the exact zero/full Bernoulli moment/absorption classification",
+        "evidence": [
+          "Assran–Rabbat (2020), equations (2)–(3), Theorem 3 and proof, section 4.2"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v119/assran20a/assran20a.pdf",
+        "material_read": "PDF sections 1.3, 2, 4.1 Theorem 3 and proof, 4.2 example, 4.3 guarantee",
+        "method": "Read full text relevant equations, proof and screenshot",
+        "title": "On the Convergence of Nesterov’s Accelerated Gradient Method in Stochastic Settings",
+        "trigger": "Same standard lookahead Nesterov algorithm, finite-sum counterexamples"
+      },
+      {
+        "assessment": "Outer pseudo-gradient-buffer momentum recurrence is materially different from standard Nesterov lookahead; general framework does not directly prove extinction and exact sampled threshold",
+        "evidence": [
+          "Sharma et al. (2026), Algorithm 1, Theorem 1, appendix E.2"
+        ],
+        "identifier_or_url": "https://pdfs.assets.alphaxiv.org/2610.22623v1.pdf",
+        "material_read": "PDF pp.1–6 Algorithm 1, setup, theorem 1 and pp.19–20 almost-sure implication",
+        "method": "Read accessible primary PDF with screenshot of Algorithm 1",
+        "title": "Understanding Stability of Outer Nesterov Momentum on Stochastic Pseudo-Gradients",
+        "trigger": "General exact random quadratic mean-square criterion could dominate a special case"
+      },
+      {
+        "assessment": "Positive dropout average is not standard Nesterov's signed lookahead recursion and does not supply this specific critical curve",
+        "evidence": [
+          "published-finding corpus published result 31c71a26296d, Finding and Proof"
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/published-finding corpus/2026/main/2026/11/2/SCOPE-all-order-moment-thresholds-despite-finite-time-extinction-in-dr--31c71a26296d/RESULT.md",
+        "material_read": "RESULT.md complete finding, proof of moment matrix, threshold hierarchy and relationship to prior work",
+        "method": "Read complete published result text",
+        "title": "All-order moment thresholds despite finite-time extinction in dropout-averaged iterations",
+        "trigger": "Closest published combination of finite-time absorption and exploding moments"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d3269f75-9474-4587-86ae-8550d08ac16d",
+  "value": {
+    "rationale": "A standard accelerated method on a strongly convex population objective with unbiased interpolating gradients and conservative step can be finitely terminating on every almost-sure sample path yet have exponentially exploding expected squared error. The exact sampling probability boundary, nonzero critical second moment, and exponential equivalent provide usable stability diagnostics beyond numerical trajectories and generic possibility-of-divergence results.",
+    "status": "PASS"
+  }
+}
