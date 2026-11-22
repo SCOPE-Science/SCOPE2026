@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Exact z-score identity, centered Cauchy Fourier covariance K(s,t), Hoeffding-degenerate off-diagonal decomposition, four-quadrant Laplace integral with explicit J(a), and almost-sure distinct-observation limit jointly prove the all-n, all-a variance and non-L2 boundary. Analytical polynomial expansion is checked independently with 402 exact rational assertions in checker.py; simulations are only secondary evidence. All hypotheses and limits are stated in RESULT.md.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ebner–Eid–Klar give the original Hilbert-space null limit with fitted nuisance parameters and an asymptotic covariance kernel; their main results do not state a finite-n variance for known parameters.",
+        "Matsui–Takemura (2005) and Gürtler–Henze (2000) concern distinct empirical-characteristic-function statistics."
+      ],
+      "reasoning": "A broad degeneracy formula reduces variance to a kernel norm, but does not imply its rational form or small-a constant unless that kernel norm is evaluated or bounded sharply. No inspected broader theorem already evaluates this kernel at the required normalization. This comparison cannot rule out all possible equivalent general theorems.",
+      "searches": [
+        "Stein Cauchy goodness of fit statistic exact variance known parameter exponent Laplace weight",
+        "Under known standard Cauchy null, Stein Fourier characterization goodness-of-fit statistic Ebner Eid Klar 2022: exact finite-n variance grows as bandwidth parameter a to zero, 3(n-1)/(n a^5), despite a(T-4/a^3) converging a.s. to bounded arcsine sample mean; nonuniform integrability"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2106.13073",
+      "doi:10.1007/s00362-022-01382-0",
+      "Matsui–Takemura, AISM 57 (2005) 183–199 (page 1 read)",
+      "Gürtler–Henze, AISM 52 (2000) 267–286 (abstract read)",
+      "Published research-record semantic searches for exact Cauchy Stein variance and small-a non-L2 behavior"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior: the integration-free statistic and the fixed-sample almost-sure endpoint; the null asymptotic law for fitted parameters via a Hilbert-space Gaussian process.",
+        "Here: \\(\\operatorname{Var}(T_{n,a})=1/(2na^2)+2(n-1)P(a)/(na^5(a+2)^6)\\) and \\(a^3\\operatorname{Var}(a(T-4/a^3))\to3(n-1)/n\\)."
+      ],
+      "reasoning": "A.s. convergence of the centered statistics says nothing about unbounded second moments; the previous endpoint result neither implies nor contradicts the inverse-cube blowup. Exact finite-n variance requires explicit evaluation of the covariance-kernel square integral, not furnished by the published asymptotic Hilbert-process result. Any future discovery of an evaluated equivalent double integral would supersede this priority judgment.",
+      "searches": [
+        "\"Cauchy or not Cauchy?\" \"variance\" \"finite sample\" Fourier Stein",
+        "https://doi.org/10.1007/s00362-022-01382-0",
+        "https://arxiv.org/abs/2106.13073"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ebner–Eid–Klar Theorem 2.1 contains the fixed-sample endpoint, with the statistic given in their equations (7)–(11); no all-a exact variance identity is stated in the inspected construction/asymptotics sections.",
+        "A finite-sample calculation for the known-null degenerate pair kernel would be equivalent to the present identity even if styled as an integrated spectral covariance."
+      ],
+      "reasoning": "The pointwise bandwidth endpoint is a known equivalent statement, explicitly excluded from novelty. The additional identity computes the exact all-bandwidth finite-sample second moment and proves lack of L2 convergence. General asymptotic kernel statements cannot be substituted for the evaluated rational double integral without doing the integration.",
+      "searches": [
+        "\"Cauchy or not Cauchy\" \"variance\" \"small\" \"a\" goodness fit Ebner Eid Klar",
+        "\"Cauchy or not Cauchy?\" \"variance\" \"finite sample\" Fourier Stein",
+        "Cauchy Stein goodness fit exact variance known parameter exponent Laplace weight",
+        "Finite-sample variance exact rational formula of Cauchy Fourier Stein test statistic T_{n,a} under known parameters, non-uniform L2 limit and a^-5 small bandwidth divergence for Ebner Eid Klar 2021"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest searched research record describes a different Gaussian-normality Stein statistic and its finite-sample mean.",
+        "Another nearby research record concerns the covariance of classical EDF goodness-of-fit statistics, not Cauchy Fourier–Stein."
+      ],
+      "reasoning": "No exact finite-n Cauchy Fourier–Stein variance or inverse-cube boundary was found in searches of research records and the primary paper. This is limited negative search evidence, not a proof of independence or world-first priority.",
+      "searches": [
+        "Known null Cauchy Stein test score finite sample exact variance leading divergent a^-3 of rescaled small-a endpoint",
+        "Small bandwidth variance blowup rare collisions of Cauchy Stein U-statistic with e^{-a|t|} weight, degeneracy, 1/a^5, fixed sample size"
+      ]
+    },
+    "rationale": "The pointwise endpoint and test are expressly credited to the original 2021 preprint. The inspected source does not state the evaluated all-n known-null variance or inverse-cube divergence; searches of related papers and record abstracts found no exact equivalent. Historical priority remains uncertain as general kernel-variance theory or inaccessible prior articles may cover the evaluated integral.",
+    "residual_risks": [
+      "Earlier equivalent expression for the exact same Cauchy kernel square integral under a general U-statistic framework may exist.",
+      "Matsui–Takemura was not read past the first page and Gürtler–Henze was assessed only at abstract level; no claim of exhaustive non-coverage.",
+      "Source literature includes a known pointwise limit, which must never be represented as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the statistic and almost-sure endpoint but does not state the rational finite-n known-null variance or its non-L2 divergence",
+        "evidence": [
+          "Article sections 2–3 including Theorem 2.1 and formulas (7)–(11)",
+          "Published online December 22, 2022; first preprint June 24, 2021"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00362-022-01382-0",
+        "material_read": "Full open publisher HTML: test construction and integration-free formula, fixed-sample parameter-endpoint theorem, null limit and covariance-kernel results, references; compared the exact normalization and known versus fitted parameters",
+        "method": "Read accessible publisher article HTML directly and compare displayed theorem/construction formulas",
+        "title": "Cauchy or not Cauchy? New goodness-of-fit tests for the Cauchy distribution",
+        "trigger": "Direct defining and potentially dominating paper"
+      },
+      {
+        "assessment": "First public version on June 24, 2021, MSC 62G10; no earlier publication date substituted",
+        "evidence": [
+          "arXiv v1 timestamp 2021-06-24 14:59:25 UTC",
+          "Preprint MSC 62G10, 62E10"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2106.13073",
+        "material_read": "ArXiv record including version history and primary MSC; open first preprint introductory and main-test material compared to open journal article",
+        "method": "ArXiv version record and accessible preprint text",
+        "title": "Cauchy or not Cauchy? New goodness-of-fit tests for the Cauchy distribution (first preprint)",
+        "trigger": "Verify earliest public date and primary mathematical ownership"
+      },
+      {
+        "assessment": "Different ECF statistic fitted by MLE/EISE; insufficient full-text inspection for a categorical no-covering claim",
+        "evidence": [
+          "AISM 57 (2005), pp. 183–199",
+          "Abstract and first-page objective/parameter estimation"
+        ],
+        "identifier_or_url": "https://www.ism.ac.jp/editsec/aism/57/183.pdf",
+        "material_read": "First page containing abstract and introductory test description, not complete proofs",
+        "method": "Original AISM open PDF, page-one visual inspection",
+        "title": "Empirical characteristic function approach to goodness-of-fit tests for the Cauchy distribution with parameters estimated by MLE or EISE",
+        "trigger": "Plausible earlier Cauchy ECF goodness-of-fit tests"
+      },
+      {
+        "assessment": "Earlier ECF-based test, potentially relevant broader theory; inaccessible complete details remain a residual priority risk",
+        "evidence": [
+          "AISM 52 (2000), pp. 267–286",
+          "Published empirical characteristic function goodness-of-fit setting"
+        ],
+        "identifier_or_url": "https://doi.org/10.1023/A:1004113805623",
+        "material_read": "Abstract and bibliographic description only, not full proofs",
+        "method": "Search and publisher abstract inspection",
+        "title": "Goodness-of-fit tests for the Cauchy distribution based on the empirical characteristic function",
+        "trigger": "Foundational prior Cauchy ECF test"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e2be92da-d8d0-4cb2-ac9a-a27009977ed0",
+  "value": {
+    "rationale": "For a natural named parametric goodness-of-fit test, the exact all-a finite-null variance is a usable non-asymptotic calibration input; the sharp inverse-cube second-moment explosion despite a bounded a.s. endpoint is a substantive limit-order phenomenon. It identifies a mathematically meaningful breakdown of moment-based calibration. No claim of power improvement or fitted-parameter extension.",
+    "status": "PASS"
+  }
+}
