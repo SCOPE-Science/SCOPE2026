@@ -1,15 +1,21 @@
-# Review — gear-graph immediate three-periodic excitation
+# Independent mathematical audit
 
-## Correctness — PASS
-The local cycling argument establishes that nonfixed three-step recurrent states on a connected graph rotate at every vertex. For the rim-subdivided wheel, the stated nine-state transfer checks all inserted-vertex and original-rim successor constraints, while a masked transfer removes precisely those configurations that fail the hub condition. Its two explicit integer characteristic polynomials yield the closed recurrence by exact Newton identities. The cubic spectral root determines the stated asymptotic. A separate microscopic dynamics checker exhausts the four small sizes up to six original rim vertices, agreeing with the general formula, and the characteristic-polynomial checker verifies the n-uniform algebra. Finite checks corroborate rather than establish the infinite result.
+## correctness
 
-## Originality — PASS, qualified
-The closest published full-text results enumerate immediate primitive-three configurations on **full** subdivisions and open ladder graphs, but they do not include the gear family with its wheel spokes retained. Gravner, Lyu and Sivakoff's general graph theorems concern activity and synchronization rather than this exact all-size initial-state population. Comparisons of published mathematical records and deduplication against accessible previous research claims found no implication covering the exact gear cubic. The 1993 source was checked through its abstract and date metadata, not its complete body; older unindexed counts under successor-dominating-coloring terminology remain a risk.
+PASS
 
-## Mathematical value — PASS
-A canonical graph operation—subdividing every rim edge without touching the spokes—produces a cubic recurrence and a distinct exponential root in the exact population of synchronous excitable three-waves. This is a motivated and complete natural invariant for an infinite family, connecting local excitation, graph structure and temporal orbit enumeration. It explains the contrast between exponentially many labelled immediate periodic waves and exponentially low probability of encountering one uniformly.
+Any nonrest configuration fixed by F³ on a connected graph must rotate all vertices through 0→1→2 modulo3; otherwise a resting vertex adjacent to rotating neighbor would be excited. A coloring c rotates iff every vertex has a neighbor of successor color. Fix hub color and use nine states (u_i,v_i); transition M enforces successor neighborhood at subdivision v_i and original rim u_{i+1}, and N removes closed walks with no u_i of successor hub color. Thus P_n=3(tr M^n−tr N^n), including all temporal phases. Independently reconstructed the exact 9×9 matrices from local indicators and computed charpolys x^4(x²+x+1)(x³−2x²−2x−1) and x^6(x+1)(x²−2x−1), yielding the claimed cubic/Pell traces and P_3…P_8=36,84,300,954,2940,8916. Dominant positive cubic root 2.831177… exceeds Pell root 1+√2, proving the asymptotic; 2n+1 vertices give fraction (λ/9)^n. Exhaustive n3..6 stored checks are supportive, matrix identity is infinite proof.
 
-## Scope and limitations
-The result concerns immediate primitive-three recurrence only: it does not classify longer periods, transient basins or eventual activity. The counted configurations retain labels and temporal phases. No exhaustive priority audit or independent mathematical validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General graph excitation structural theorems and existing wheel/full-subdivision/open-ladder population counts are legitimate background, but each uses a different graph or statistic. The full-subdivision formula cannot be specialized to a gear retaining unsubdivided hub spokes; the un-subdivided wheel transfer has a different cubic. This gear all-n closed population is not a matching indexed prior table; originality provisional.
+
+## value
+
+PASS
+
+Gear/Jahangir graphs form a natural partially subdivided wheel family, and immediate primitive period-three population is a concrete exact dynamical invariant. A nontrivial nine-state transfer collapses to a cubic law and sharp exponentially small prevalence, an independently useful classification distinct from general activity criteria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

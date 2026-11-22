@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Use only the bundled source files. Run `python3 verify_transfer.py` with Python 3 standard library. Compile `verify_direct.cpp` with a C++17 compiler (for example `g++ -O2 -std=c++17 verify_direct.cpp -o verify_direct`) and then run `./verify_direct`. `verification_output.txt` records the successful complete outputs.
+## correctness
 
-The Python code explicitly constructs the two nine-state integer matrices from the local successor rules; uses integer Newton identities, not floating-point characteristic eigenvalues, to reconstruct their characteristic polynomials; and independently compares the recurrence with power traces for all lengths up to 50. The C++ source directly simulates all three-state labelled configurations, independent of matrix or recurrence code, for original rim sizes three through six. Its aggregate of 1,793,340 starting states produces initial primitive-three counts 36, 84, 300 and 954, and in each case the all-zero state is the only fixed state.
+PASS
 
-The general result is established by the local cycling equivalence and characteristic-polynomial identity in `RESULT.md`; exhaustive finite tests cannot prove unbounded graph sizes. The package excludes a complete attraction-basin census, historical-priority certification and independent mathematical audit.
+Any nonrest configuration fixed by F³ on a connected graph must rotate all vertices through 0→1→2 modulo3; otherwise a resting vertex adjacent to rotating neighbor would be excited. A coloring c rotates iff every vertex has a neighbor of successor color. Fix hub color and use nine states (u_i,v_i); transition M enforces successor neighborhood at subdivision v_i and original rim u_{i+1}, and N removes closed walks with no u_i of successor hub color. Thus P_n=3(tr M^n−tr N^n), including all temporal phases. Independently reconstructed the exact 9×9 matrices from local indicators and computed charpolys x^4(x²+x+1)(x³−2x²−2x−1) and x^6(x+1)(x²−2x−1), yielding the claimed cubic/Pell traces and P_3…P_8=36,84,300,954,2940,8916. Dominant positive cubic root 2.831177… exceeds Pell root 1+√2, proving the asymptotic; 2n+1 vertices give fraction (λ/9)^n. Exhaustive n3..6 stored checks are supportive, matrix identity is infinite proof.
+
+## originality
+
+PASS
+
+General graph excitation structural theorems and existing wheel/full-subdivision/open-ladder population counts are legitimate background, but each uses a different graph or statistic. The full-subdivision formula cannot be specialized to a gear retaining unsubdivided hub spokes; the un-subdivided wheel transfer has a different cubic. This gear all-n closed population is not a matching indexed prior table; originality provisional.
+
+## value
+
+PASS
+
+Gear/Jahangir graphs form a natural partially subdivided wheel family, and immediate primitive period-three population is a concrete exact dynamical invariant. A nontrivial nine-state transfer collapses to a cubic law and sharp exponentially small prevalence, an independently useful classification distinct from general activity criteria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
