@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Every proper Abelian border corresponds to a zero of the inward-pair difference walk. The center bit for odd lengths is independent. A weight-preserving reflection at the first zero gives 2u([z^0]+[z^1])[(1+uz)(1+u/z)]^(m-1); binomial expansion gives every layer. The alternating binomial-product coefficients prove the exact log-concavity equality cases. Vandermonde gives the exact variance; uniform Stirling gives the interior-density asymptotic. Executed actual package files verify/bruteforce.py (n<=18, all 524286 words) and verify/path_dp.py (m<=40) passed; computation is only auxiliary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blanchet-Sadri–Chen–Hawes (2017) Theorems 1–3 give counts by shortest Abelian border and number of borders; proof invokes Narayana numbers for first returns",
+        "Rampersad–Rigo–Salimov (2013) proves u=1 unbordered counts"
+      ],
+      "reasoning": "A full multivariate weight-and-border generating theorem would subsume the formula, but the inspected statements are univariate in length/border statistic and do not preserve total ones. First-return fixed-content counts are not novel here; nonreturning fixed-content coefficient shape and density law are the claimed new parts. Closely related path methods limit originality to the refinement.",
+      "searches": [
+        "binary no abelian border fixed Parikh content composition shape log concavity equality alternating weight coefficients local density asymptotic",
+        "Narayana lattice pair reflections exact Hamming-weight distribution of Abelian unbordered words",
+        "Abelian unbordered words binary fixed weight distribution parity log concavity Hamming weight variance central limit",
+        "Dyck Words, Lattice Paths, and Abelian Borders 2017 Theorems 1–3",
+        "2013 On the Number of Abelian Bordered Words full PDF"
+      ]
+    },
+    "checked_sources": [
+      "https://orbi.uliege.be/bitstream/2268/144646/1/finalDLT2013.pdf",
+      "https://orbi.uliege.be/bitstream/2268/178701/1/numberAbelianBorder.pdf",
+      "https://arxiv.org/abs/1708.06461",
+      "https://doi.org/10.1016/j.tcs.2005.03.040",
+      "2026/10/26/SCOPE-the-four-marker-threshold-separating-ordinary-and-abelian-border--c794105bc5c8",
+      "2026/10/18/SCOPE-exact-ternary-abelian-border-array-census-and-reconstruction-amb--05628a83255c",
+      "2026/11/8/SCOPE-abelian-cube-diversity-at-the-first-nontrivial-binary-weight--d752afa4ea52"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The older formula U_2m(1)=binomial(2m,m) is strictly weaker than full U_2m(u) because evaluation at u=1 discards individual weight coefficients",
+        "2017 first-return border distribution is not the final number-of-ones distribution of nonreturning paths",
+        "2005 ordinary borders test equality of letters at ends, not Parikh equality"
+      ],
+      "reasoning": "Current claim implies the known unweighted total by u=1; converse false because a single polynomial evaluation cannot fix individual coefficients. The same path bijection provides a tool but not the fixed-weight theorem automatically as a published result. Ordinary-border enumerators do not cover Abelian borders. The exact parity equality set and density-dependent square-root prefactor are further new statements absent inspected primary claims.",
+      "searches": [
+        "On the Number of Abelian Bordered Words Theorem unbordered binomial count",
+        "Dyck Words Lattice Paths and Abelian Borders Theorem 1 number of words shortest abelian border k",
+        "Harju Nowotka Counting bordered primitive words fixed weight ordinary vs Abelian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2013 and 2014 primary papers count nonreturning paths only after all symbol compositions are summed; 2017 first-return formula counts border lengths rather than total Hamming weight",
+        "Published record 2026/10/26/SCOPE-the-four-marker-threshold-separating-ordinary-and-abelian-border--c794105bc5c8 treats an ordinary-vs-Abelian discrepancy with four ones, not all unbordered fixed-content counts"
+      ],
+      "reasoning": "An equivalent formulation would give the coefficient of u^k in the all-length Abelian-unbordered polynomial, or an explicit parity-resolved binomial-product formula. Total counts or first-return counts without final content do not imply those coefficients; none of the inspected main claims or semantic matches provided the full refinement. Search exhaustion is not proof of novelty.",
+      "searches": [
+        "exact fixed composition Hamming weight enumeration binary Abelian-unbordered words with binomial product coefficients",
+        "number Abelian unbordered binary words with k ones length n ballot reflection weight generating polynomial",
+        "Abelian-unbordered binary words of length 2m at fixed Hamming weight k have counts twice squared binomial coefficients at odd k and products of consecutive binomial coefficients at even k",
+        "\"Abelian unbordered\" \"fixed weight\"",
+        "\"abelian unbordered\" \"weight enumerator\"",
+        "\"number of abelian unbordered words\"",
+        "2013 nonreturning random walks, two-colored Motzkin paths, Dyck paths and Abelian unbordered fixed composition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published record 2026/10/18/SCOPE-exact-ternary-abelian-border-array-census-and-reconstruction-amb--05628a83255c enumerates ternary Abelian-border arrays, not weight-layer unbordered binary words",
+        "Published record 2026/11/8/SCOPE-abelian-cube-diversity-at-the-first-nontrivial-binary-weight--d752afa4ea52 enumerates Abelian cubes, a different forbidden pattern"
+      ],
+      "reasoning": "The exact table would require all n,k counts, or a stated generating polynomial that determines them. Nearby records enumerate different observations and do not specify these a_n,k. No such exact table was identified, but coverage is not disproved by index search.",
+      "searches": [
+        "binary Abelian border-free words exact fixed composition enumeration binomial square counts",
+        "log concavity and exact equality of coefficient sequence of abelian unbordered binary words",
+        "\"Abelian unbordered\" \"fixed weight\"",
+        "\"Abelian unbordered\" \"coefficient\" binomial"
+      ]
+    },
+    "rationale": "The same-object 2013/2014 unweighted theorems and 2017 shortest-border/Narayana results were compared at the statement and implication level. They cover the total counts and core nonreturning-walk technique, not the all-weight binary Abelian-unbordered polynomial or its parity-exact log-concavity and fixed-density asymptotic. Exact formula is a motivated composition refinement with residual historical-equivalence risk.",
+    "residual_risks": [
+      "An unpublished or differently titled multivariate enumeration using the classical nonreturning-walk bijection could be equivalent",
+      "The 2017 Narayana-based method may be reformulated to derive the polynomial with minimal additional effort even though no matching statement was located",
+      "The 2005 ordinary-border article was compared on the accessible abstract, not the entire full text"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the total counts U_2m(1)=binomial(2m,m) and U_2m+1(1)=2 binomial(2m,m); does not state a fixed-content polynomial, strict/equality coefficient log-concavity or composition-conditioned constant.",
+        "evidence": [
+          "Theorem on the total binary Abelian-unbordered count",
+          "Nonreturning lattice-walk path bijection independent of prescribed Hamming weight"
+        ],
+        "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/144646/1/finalDLT2013.pdf",
+        "material_read": "Introduction, statement and proof material for Abelian-unbordered enumeration and nonreturning lattice walks; viewed the PDF page image in addition to text",
+        "method": "Author repository PDF, direct text and visual inspection",
+        "title": "On the Number of Abelian Bordered Words (Rampersad, Rigo, Salimov)",
+        "trigger": "Foundational nonreturning-walk equivalence and all-length unweighted enumeration for the same Abelian-border predicate"
+      },
+      {
+        "assessment": "Provides unweighted counts and a path model; no matching coefficientwise composition theorem or shape/asymptotic claim identified.",
+        "evidence": [
+          "Binary all-weight counts and Motzkin/nonreturning-walk derivation"
+        ],
+        "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/178701/1/numberAbelianBorder.pdf",
+        "material_read": "Relevant unbordered-word and lattice-path counting sections in full author preprint; also inspected PDF page image",
+        "method": "Author repository PDF, direct text and visual inspection",
+        "title": "On the Number of Abelian Bordered Words (with an Example of Automatic Theorem-Proving) (Goč et al.)",
+        "trigger": "Longer treatment of the same unweighted binary problem and Motzkin paths"
+      },
+      {
+        "assessment": "Enumerates shortest border length and number of borders (summing over total ones), with Narayana first-return terms. Does not directly give the unbordered polynomial stratified by total Hamming weight; fixed-composition Narayana consequences are not claimed as new.",
+        "evidence": [
+          "Theorems 1–3 and use of first-return Narayana factor in proof"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1708.06461",
+        "material_read": "Accessible full arXiv preprint, especially Theorems 1–3 and adjacent lattice-path arguments, with PDF page images inspected",
+        "method": "ArXiv open preprint, text and visual inspection",
+        "title": "Dyck Words, Lattice Paths, and Abelian Borders (Blanchet-Sadri, Chen, Hawes)",
+        "trigger": "Strongest plausible related statement; Theorems 1–3 use Narayana numbers and first-return decomposition of Abelian borders"
+      },
+      {
+        "assessment": "Studies ordinary equality borders, not Abelian-equivalent prefix and suffix counts. Exact-title proximity therefore does not imply the claim; full-text absence is retained as a source limitation.",
+        "evidence": [
+          "Abstract explicitly describes ordinary bordered and primitive fixed-weight words"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2005.03.040",
+        "material_read": "Accessible abstract, citation and description only; publisher full text not obtained",
+        "method": "Public bibliographic/abstract inspection",
+        "title": "Counting bordered and primitive words with a fixed weight (Harju, Nowotka)",
+        "trigger": "Exact same descriptor fixed weight but different border predicate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0c0ce0d4-d33d-4f05-a8a4-ed02e33fbe9c",
+  "value": {
+    "rationale": "Full fixed-Hamming-weight enumeration naturally refines the earlier all-weight total for Abelian-border-free words, relevant to composition-constrained sources. The exact parity rigidity of log-concavity and the sharp 1/sqrt(m) conditional probability with density-dependent coefficient give a structural and quantitative boundary between balanced and imbalanced constraints. These are meaningful all-length statements, not an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
