@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness: PASS.** The nonempty last-letter subsequence recurrence is explicitly established and gives unimodular linear transitions. Every primitive modular pair and every primitive suffix-testing row is realized using coprime positive lifts and the subtractive Euclidean algorithm. The affine target \(1\) separates all primitive states; the homogeneous target \(0\) identifies precisely unit-proportional states. The unit action is free, giving the two exact totient formulas. A self-contained program checks 30 moduli and 8191 short words, without treating finite verification as an infinite proof.
+
+**Originality: PASS, qualified.** The most relevant inspected full text, Żak (2022), supplies the coprime-pair correspondence and integer-total enumeration, which are credited. It does not state either modular minimal-DFA formula, the complete projective right-quotient classification, or their totient-ratio separation. Other searched findings about modular counts of a **fixed** scattered pattern cannot imply a theorem about the **total number of distinct** subsequences merely by identifying parameters. The principal residual risk is an unindexed automata treatment of modular Stern–Brocot actions, and the related random-word paper was only checked at abstract level.
+
+**Value: PASS.** The two languages arise naturally from online computation of a global sequence statistic. Their exact deterministic memory costs differ by a multiplicative factor \(\varphi(m)\) because one acceptance condition is affine while the other is homogeneous. This gives a full all-modulus classification of two canonical predicates and an exact quotient description, not a narrow finite table or an isolated small improvement.
+
+Self-review: passed. Independent audit: not yet performed.
