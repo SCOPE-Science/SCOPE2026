@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "All-size k>=2, m>=0 moment formulas derive from exactly k additional faces per insertion, A count updates by k-1 and shared B count updates by k-2. The mixed and square-moment recurrences solve by finite products; R_j=mu_j^2/(M_j beta_j) starts >1 and grows because (M_j+k-1)^2-(M_j+k)(M_j+k-2)=1, so the covariance is strictly negative for every m>=1. Gamma-product asymptotics and summable strictly signed innovation series establish nonzero negative and positive scaling constants and the k=2 limiting correlation. Independently enumerated actual graph histories and exact rational tests passed 2645 assertions; no finite test is treated as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Panholzer–Seitz, arXiv:1003.0320, Section 1: the ordered growth model chooses existing faces proportionally to one plus prior children, unlike uniform face selection.",
+        "Peköz–Röllin–Ross, arXiv:1402.4686: preferential-attachment degree asymptotics in a distinct graph family.",
+        "Published comparison on random spanning-tree covariance concerns a uniform spanning-tree measure, not the clique-growth history measure."
+      ],
+      "reasoning": "Power-law degree and one-root limits do not imply negative joint seed covariance. The major alternative k-tree growth law uses unequal conditional face probabilities; random spanning-tree and recursive-tree covariances are also in different probability spaces. An abstract urn theorem with unspecified diagonal/offdiagonal initial increments could potentially give a broader specialization, so residual priority risk is disclosed.",
+      "searches": [
+        "uniform edge attachment growing 2 tree triangle seed negative degree correlation root vertices",
+        "clique urn random k tree mixed moments pair shared co-membership second moment degree",
+        "arxiv:1003.0320",
+        "arxiv:1402.4686"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/0808.0202",
+      "https://cmps-people.ok.ubc.ca/yongg/research/papers/random-ktree-draft.pdf",
+      "https://arxiv.org/abs/0910.3639",
+      "https://arxiv.org/html/1003.0320v1",
+      "https://arxiv.org/abs/1402.4686"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known one-root clique incidence relation A=k+(k-1)(D-k) is credited to Gao; it does not determine E[A_u A_v] without simultaneous clique incidence B.",
+        "Theorem 7 of arXiv:0910.3639 establishes a one-root marginal distribution and moment convergence, not the joint distribution of the two original vertices.",
+        "arXiv:1003.0320 explicitly distinguishes uniform versus child-weighted face selection."
+      ],
+      "reasoning": "The new assertion requires a mixed-moment recurrence with B and a strict ratio inequality. The established marginal formulas cannot determine covariance, even if both degrees have the same marginal. The same-process root-degree limit neither implies the negative finite sign nor the k=2 limiting correlation; the different-process preferential laws are inapplicable.",
+      "searches": [
+        "arxiv:0808.0202",
+        "arxiv:0910.3639",
+        "arxiv:1003.0320",
+        "Yong Gao 2008 uniform k clique k tree initial vertex degree negative covariance exact joint distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gao, arXiv:0808.0202, Section 2: uniform k-clique selection and one-vertex incidence count, not two-seed mixed moments.",
+        "Darrasse–Hwang–Bodini–Soria, arXiv:0910.3639, Sections 2 and 4: uniform increasing k-tree root degree marginal and connectivity-profile, no pair-seed joint law."
+      ],
+      "reasoning": "An equivalent formulation would be a bivariate seed-root degree generating function, a two-color shared-face urn mixed moment, or a two-root joint profile. The inspected sources treat one root or a scalar degree histogram; their stated theorems do not determine the mixed moment without a new shared-face variable B. No equivalent statement was identified in the compared published record.",
+      "searches": [
+        "random k-tree joint degrees degree covariance selected k clique simultaneous attachment initial nodes",
+        "face selected uniformly random k-tree two initial seed vertex pair degree correlation",
+        "arxiv:0910.3639",
+        "arxiv:0808.0202"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Gao, arXiv:0808.0202, Theorems 3.1–3.2 concern degree-count power laws/concentration, not a numerical seed-pair covariance table.",
+        "Darrasse et al., arXiv:0910.3639, root-degree distribution discussion has no table of two-root covariances."
+      ],
+      "reasoning": "The finding is a closed formula for an infinite two-parameter family and its strict all-size sign, not a finite table value. No searched published table was found containing the mixed moment or its limiting correlation.",
+      "searches": [
+        "Yong Gao 2008 uniform k clique k tree initial vertex degree negative covariance exact joint distribution",
+        "random 2-tree uniformly selecting an edge degree covariance original initial clique vertices exact formula negative correlation 3 minus pi"
+      ]
+    },
+    "rationale": "Full Gao and Darrasse et al. primary texts were compared at theorem/claim level; both concern the very same uniform process but report marginal degree, one-root limit, and profile phenomena, not the bivariate seed-degree formula, sharp universal strict sign, or persistent correlation. Different-process models and semantic database matches do not dominate the result. Best-knowledge originality is qualified by uncatalogued urn-theorem possibilities.",
+    "residual_risks": [
+      "A general multitype Pólya urn or clique-incidence moment theorem not found by the searches could imply this specialization; further historical checking may revise priority.",
+      "The source model can appear under the alternate name unordered increasing k-tree; searches included face and root aliases but cannot be exhaustive."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same growth process; one-vertex and degree-histogram results do not cover pair mixed moments or the stated sign",
+        "evidence": [
+          "Section 2, equations for total face count and one-vertex face incidence",
+          "Section 3 main degree-histogram theorems; concluding remarks Section 4"
+        ],
+        "identifier_or_url": "https://cmps-people.ok.ubc.ca/yongg/research/papers/random-ktree-draft.pdf",
+        "material_read": "Full accessible 15-page draft, introduction, model and face-count identity in Section 2, degree distribution theorems/proofs in Section 3, concluding remarks and references",
+        "method": "Direct full-text section reading and mathematical implication comparison",
+        "title": "The Degree Distribution of Random k-Trees",
+        "trigger": "Exact initial graph and uniform-face model"
+      },
+      {
+        "assessment": "Uniform increasing k-tree model shares the face-selection rule; gives one-root marginal/root degree limit, not a joint pair of seed-root degrees",
+        "evidence": [
+          "Introduction explicitly states all k-cliques equally likely",
+          "Section 4 Theorem 7 studies X_{n;d,j} for single profile roots; no two-root covariance or pairwise-degree theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0910.3639",
+        "material_read": "Entire accessible arXiv-rendered article text: introduction, combinatorial model, profile section and root-degree limit Theorem 7",
+        "method": "Read source directly and compare exact theorem hypotheses and quantities",
+        "title": "The connectivity-profile of random increasing k-trees",
+        "trigger": "Same-process root-degree limit and potential two-root coverage"
+      },
+      {
+        "assessment": "Does not cover: face selection probability is proportional to one plus number of prior children, not uniform across faces",
+        "evidence": [
+          "Section 1 states the child-weighted rule and explicitly contrasts it with Gao and Darrasse et al. uniform model"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1003.0320v1",
+        "material_read": "ArXiv HTML introduction, explicit growth definition, degree section and selected later results",
+        "method": "Direct paper text and definition-to-definition comparison",
+        "title": "Ordered increasing k-trees: introduction and analysis of a preferential attachment network model",
+        "trigger": "Plausible similar title and degree distribution results"
+      },
+      {
+        "assessment": "Different preferential attachment graph model; no conclusion about uniform k-face pairing",
+        "evidence": [
+          "Different graph growth edge selection rule and marginal degree-distribution focus"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1402.4686",
+        "material_read": "Title, abstract and introductory model/degree scope",
+        "method": "Read the available article introduction and compare sampling law",
+        "title": "Degree asymptotics with rates for preferential attachment random graphs",
+        "trigger": "Potential stronger preferential attachment theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9468cdaa-267d-4d24-b402-b6c32a15a512",
+  "value": {
+    "rationale": "Degree correlation of original clique vertices probes how early topology co-develops, distinct from the known one-vertex power law. Even though vertices can attach simultaneously and one history yields strictly positive conditional co-attachment covariance, all-size unconditional covariance is strictly negative; its nonvanishing macroscopic correlation quantifies structural dependence. The general all-k formula and sharp k=2 value are motivated stochastic-network phenomena rather than an arbitrary finite count.",
+    "status": "PASS"
+  }
+}
