@@ -1,0 +1,20 @@
+# Scientific assessment: rare annular marks and exposed-face defect
+
+## Correctness — PASS
+The proof specifies the invariant Crofton plane measure and rigorously converts a published fiber criterion into the exact conditional density (3). For arbitrary compact convex meridians the support-function directional derivative is the exposed top-face half-width. A uniform-in-mark expansion then gives the universal triangle density, the exact first-order total-variation coefficient, and the annulus probability scale. The zero-face case and the smooth second-order estimate are treated separately. For a circle, a uniform Taylor expansion and an explicit beta integral give the sharp second-order coefficient. A standalone numerical and symbolic checker passed 109 assertions, including independent quadrature for rectangular and elliptic meridians. Finite testing is supporting evidence, not a substitute for proof.
+
+## Originality — PASS against inspected sources
+Finch (arXiv:2611.15546v1, §§4–7) proves the unmarked circular disk probability and the slicing classification. A published convex-meridian Crofton theorem (published-finding corpus, 2026-10-18) already gives the exact unmarked three-topology law for this geometry, while a separate published central-section theorem treats area singularities. The earlier scalar laws and event criterion are acknowledged, not claimed. This result asks a different conditional question and identifies the sharp face-width coefficient in total variation for nonsmooth as well as smooth meridians, which the inspected statements do not present. Boukharfane (2015, pp. 177–178) was inspected in full; its inclination-weighted integral is a scalar probability result, not a conditional mark theorem. Search cannot establish absolute historical novelty: independent priority review and broader stereological literature remain outstanding.
+
+## Value — PASS
+Annular slices occur with probability of order \(R^{-3}\), so their conditional orientation is not captured by typical-plane or unmarked topology probabilities. The limiting \(\operatorname{Beta}(2,2)\) law supplies the natural shape of this rare-event conditioning for all convex symmetric meridians. More importantly, the sharp first-order rate recovers the exposed top-face half-width and makes a mathematically meaningful distinction between faceted and smooth meridians; the circular sharp second-order law exhibits the faster regime. This is a motivated structural boundary invariant rather than a numerical instance or a reformulation of the old scalar probabilities.
+
+## Closest literature and residual limits
+- Steven R. Finch, *Slicing a Doughnut at Random*, arXiv:2611.15546v1, first posted 2026-11-11. Full text examined, including the invariant measure, fiber criterion, main theorem and topology exercises.
+- *A three-topology Crofton law and inverse support tomography for convex-meridian toroids*, published 2026-10-18, https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-a-three-topology-crofton-law-and-inverse-support-tomography-for--8cf34e87984a . Complete RESULT.md examined. This is the closest geometric input and is explicitly credited.
+- R. Boukharfane, *Slicing a Torus*, *American Mathematical Monthly* 122 (2015), 177–178, DOI 10.4169/amer.math.monthly.122.02.175. Both pages examined.
+- *Logarithmic area cusp and Haar topology law at the Villarceau transition*, published 2026-11-01, https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-logarithmic-area-cusp-and-haar-topology-law-at-the-villarceau-tr--3f2e0b5e194a . Complete RESULT.md examined; its offset-zero area result does not determine the present affine conditional mark law.
+
+The proof is for the specified convex, doubly symmetric fixed meridian. It does not assert a uniform theorem for moving meridians, arbitrary nonsymmetric sections or topologies other than annuli. A vanishing exposed-face width alone does not imply the circular second-order coefficient. Historical priority has not been independently certified.
+
+Self-review: passed. Independent audit: not yet performed.
