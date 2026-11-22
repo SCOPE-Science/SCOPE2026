@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The complete classification of one-point patterns follows from the downset/upset constraints and the single missing comparison per index. For each of the three relations between an ordered pair, the stated family-by-family compatibility predicates are necessary and sufficient for transitivity. A disjoint table of family pairs sums to the exact formulas, and comparison of dominant bases proves the sharp leading constant and exponent. An independent augmented-relation closure checker confirms the formulas on finite instances; it does not replace the unrestricted argument.
+
+**Originality — PASS, provisional.** Actual semantic searches on generic-poset ordered pair types, standard-example parameters, missing matchings, and asymptotic comparable-type probabilities were compared with published primary material. The closest complete two-level result assumes all cross-comparabilities and proves a different exponential decay; its main statement cannot be specialized to the standard example. Antichain tuple-type counting and standard-example convex-set counting address different invariants. An earlier exact *one-point* count for missing-matching bases is credited rather than claimed as new. The \(n=2\) specialization is already covered by earlier disjoint-two-chain pair counts; the new result is the all-size classification and asymptotic. Equivalence under an unindexed historical formulation remains a residual risk.
+
+**Mathematical value — PASS.** Standard examples are canonical growing-dimension finite posets. This exact three-orientation enumeration exposes a nontrivial change in the sharp rarity exponent of comparable tuple types when a perfect matching of relations is removed from a complete height-two base. The full exponential-polynomial spectrum, not just a marginal count, is obtained.
+
+**Scope and limitations.** Only named standard-example bases and injective ordered pairs outside the parameters are covered. Neither higher arity nor arbitrary height-two incidence is claimed. Historical priority is provisional, and finite checker outputs are corroboration, not proof.
+
+Self-review: passed. Independent audit: not yet performed.
