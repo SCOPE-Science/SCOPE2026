@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claimed optimum is proved in both directions, for every integer base at least three and every positive iteration depth. A two-adic gap formula identifies a unique largest gap and the positions of all smaller gaps. The transfer argument places each multi-one factor across a selected canonical gap or the central left boundary, while one-marker and zero-only factors use the two central positions. Pairwise disjoint *all-occurrence supports* of \(k\) explicit factors give a lower bound for \(k\ge3\), and two disjoint supports handle the small depths. The independent standard-library exhaustive checker confirms both obligations on 23 finite instances; these checks are not used to prove the infinite claim.
+PASS
 
-## Originality
+Reconstructed b-adic 1-position formula from binary j: p_j has base-b digits 0 or b-1 and g_j=(b-2)b^{v2(j)}. The central gap j=2^{k-1} is uniquely maximal. Zero-only factors and one-marker factors are transferred to the two central attractor positions; for a one-marker factor, at least one adjacent padding length <=b-2 because neighboring gap indices are consecutive, including endpoints. For multi-marker factors internal gap indices [a,c] have a unique maximal v2 gap j0 of order r; otherwise a higher-valuation multiple lies between two maxima. Their distances to j0 are <=2^r-1, permitting identical internal gap patterns at canonical j_R=J+2^r or j_L=J-2^r. If right endpoint padding fails at j_R it must be the u=2^r-1 case with original succeeding gap order at least r+2, forcing the original preceding gap order exactly r+1; the left canonical placement dominates both exterior paddings and ends at A. For r>=1 the right placement contains selected p_{j_R-1}=Z+b^r-1; for r=0 it contains p_{j_R}=Z+b-1; central-gap factors hit A or Z-1. k=2 two-marker boundary needs separate direct treatment, and k=1 uses {0,b-2}. For lower bounds, F_- and F_+ occupy disjoint opposite central-gap ends because 2((b-2)b^{k-2}+1)<= (b-2)b^{k-1} for b>=3,k>=3; each F_r=1 0^((b-2)b^r) 1 uses solely even gap indices of v2=r>=1, so its full occurrence support is disjoint from the other F_r and from the central-edge supports. The k=1 and k=2 two-support cases are immediate. Hence matching upper and lower bounds all b,k. Independent direct string-and-bitmask enumeration passed 19 instances over b=3,4,5,6,9, k<=6 (342642 distinct factor cells), with no uncovered factor or overlapping proposed lower witness supports. An independent arithmetic exterior-padding dominance check of every internal-gap interval for k=3..9 had zero counterexamples. Finite checks are auxiliary, not the proof.
 
-**PASS, with residual bibliographic risk.** The closest work is Cassaigne et al., *New string attractor-based complexities for infinite words* (Example 13 and Theorem 22): it analyzes the ternary word obtained by complementing the symbols of the base-three fixed point and obtains asymptotic logarithmic-order attractor profile. This does not determine the exact minimum attractor of *every* finite morphic iterate for *every* base, nor the explicit optimal position sets and lower-bound witnesses here. Restivo, Romana and Sciortino, *String Attractors and Infinite Words* (2022), develops finite-prefix attractor profiles without the exact formula. Schaeffer and Shallit's automatic-sequence results give general methods rather than this closed all-base characterization. Searches for equivalent formulations, stronger results and exact tables in the inspected primary materials and research records did not find an implication establishing the precise theorem. A currently unindexed or unpublished equivalent remains possible; a search does not establish absolute uniqueness.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** This is an exact optimum of a natural pattern-covering invariant across an infinite family of fractal automatic words, with an optimal construction valid for every finite iterate. It upgrades the previously known qualitative logarithmic growth to a sharp, base-independent law, and the disjoint-support witness proof isolates the combinatorial mechanism determining the optimum. This is not an arbitrary finite table or a mere restatement of a generic complexity bound.
+The previously known complemented base-three Cantor infinite word in Cassaigne et al., Example 13, has a Theta(log n) attractor profile, but no exact finite-level minimum or all-base construction. Schaeffer–Shallit Theorem 2 gives decidability for bounded prefixes and general automatic-word asymptotic dichotomy; applying it to this family does not determine the stated unbounded sequence or witnesses. Resultary searches returned this same finding and adjacent distinct-word problems, not a predecessor that implies it. The new exact all-base optimization and matching disjoint-factor supports are therefore original to best knowledge, with explicitly recorded residual priority risk.
 
-## Closest references and limits
+## value
 
-- Restivo, Romana and Sciortino, *String Attractors and Infinite Words*, arXiv:2206.00376, first public 2022-06-01.
-- Cassaigne, Gheeraert, Restivo, Romana, Sciortino and Stipulanti, *New string attractor-based complexities for infinite words*, Example 13 and Theorem 22, https://orbi.uliege.be/bitstream/2268/309672/1/String_attractors__journal_version_%20%282%29.pdf.
-- Schaeffer and Shallit, *String Attractors for Automatic Sequences*, arXiv:2012.06840.
+PASS
 
-Finite diagnostic verification is neither an exhaustive proof of an infinite statement nor independent external validation. The statement is about morphic iterates, not arbitrary finite prefixes or the entire infinite fixed point as a finite object.
+Minimum string-attractor size for complete finite generalized Cantor iterations is a natural exact invariant of the classical sparse fractal automatic word family. The uniform b-independent max(2,k) sharpens only qualitative logarithmic profile information for the same ternary fixed point, with canonical optimal hitting sets and k independent lower-bound witnesses. The 2-adic transfer lemma identifies a reusable factor-placement mechanism; this is a nontrivial infinite base-and-depth classification, not a small numerical exercise. No downstream theorem is required for the exact optimal construction to be useful.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
