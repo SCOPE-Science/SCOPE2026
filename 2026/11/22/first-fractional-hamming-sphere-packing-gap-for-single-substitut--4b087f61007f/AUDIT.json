@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "The channel is defined on full binary Hamming-one outputs. Constant weight makes radius-one-ball disjointness equivalent to pairwise distance at least four. Exact rational primal and dual assignments, independently checked against every input/output constraint at each semilength one through six, establish all fractional optima; integer codes match the first five. At semilength six a complete GNU C++17 clique search using mathematically sound greedy-color upper pruning proves 22 optimal, and the explicit 22-word witness is independently verified; SciPy MILP corroborates but is not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yazdi–Kiah–Milenkovic, arxiv:1601.08176, uses Dyck constructions as building blocks for weakly mutually uncorrelated codes.",
+        "Mütze–Standke–Wiechert, arxiv:1603.02525, studies adjacent-change Gray generation.",
+        "Brouwer constant-weight-code bounds table, https://aeb.win.tue.nl/codes/Andw.html, row length 12 weight 6 distance 4 lists a lower bound of 132 unrestricted balanced codewords."
+      ],
+      "reasoning": "General distance/sphere-packing principles apply but do not specify the exact constrained 132-source optimum. The inspected WMU construction introduces extra framing/synchronization constraints, so is not a dominating theorem for all full Dyck-source codebooks. Gray ordering of adjacent bases concerns the opposite (nearby) pairs from error-correcting separation. The unrestricted constant-weight code parameter has a listed lower bound 132 and so its broad numerical bounds do not imply a Dyck-restricted upper bound 22; no dominating exact table for the Dyck subset was located.",
+      "searches": [
+        "Dyck paths error correcting codes single substitution Hamming distance 4",
+        "Catalan matroid basis packing code Hamming distance maximum independent set Catalan number",
+        "Dyck path codes length twelve 22 codewords Hamming distance four one substitution",
+        "constant-weight Catalan Dyck binary strings one-error-correcting codes",
+        "A(12,4,6) exact constant weight binary code"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0209354",
+      "arxiv:1505.06710",
+      "arxiv:1603.02525",
+      "arxiv:1601.08176",
+      "2026/11/8/SCOPE-dyck-restricted-two-read-deletion-graph-a-vertex-marked-bijectio--3635f93f657f",
+      "2026/11/2/SCOPE-first-fractional-deletion-packing-gaps-for-fibonacci-constrained--25a61255a325",
+      "2026/11/16/SCOPE-sharp-quadratic-and-cubic-walsh-sampling-spectra-at-the-first-ca--bd8b6ff286b5",
+      "2026/11/2/SCOPE-exact-run-two-balanced-binary-non-overlapping-code-sizes-through--098da1e94557",
+      "https://aeb.win.tue.nl/codes/Andw.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ardila: source-family equivalence only.",
+        "Mütze–Standke–Wiechert: local-transposition orderings, not independent-set extremals.",
+        "Indexed 2026/11/16/SCOPE-sharp-quadratic-and-cubic-walsh-sampling-spectra-at-the-first-ca--bd8b6ff286b5 examines low-degree Walsh sampling of Catalan bases, not the induced Johnson independent-set number.",
+        "Indexed 2026/11/2/SCOPE-exact-run-two-balanced-binary-non-overlapping-code-sizes-through--098da1e94557 treats nonoverlapping balanced words with a run bound, not single substitutions on all Dyck words."
+      ],
+      "reasoning": "Different channel models and objectives cannot be substituted merely because all use Dyck paths or balanced strings. The present integer bound comes from an explicit 132-vertex exhaustive compatibility graph, and the fractional result from primal/dual assignments for the full received alphabet. None of the inspected earlier statements yields these two numerical conclusions or a stronger bound implying them.",
+      "searches": [
+        "Dyck paths Hamming distance 4 maximum independent set Catalan matroid bases codes 132 22",
+        "Dyck paths error correcting codes single substitution Hamming distance 4",
+        "Catalan matroid bases Johnson graph maximum independent sets 132 bases distance 4",
+        "Dyck paths error correcting Hamming codes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ardila 2002, arxiv:math/0209354, Section 2 proves Dyck up-step sets are Catalan matroid bases.",
+        "Cohen–Tetali–Yeliussizov 2015, arxiv:1505.06710, studies the basis-exchange walk and mixing."
+      ],
+      "reasoning": "At constant weight the code is an independent set in the radius-one basis-exchange graph; that is an equivalent reformulation, not a known answer. The inspected basis and mixing theorems do not give the exact independent-set maximum 22 nor the fractional Hamming-ball packing value 26.",
+      "searches": [
+        "Dyck paths Hamming distance 4 maximum independent set Catalan matroid bases codes 132 22",
+        "Catalan matroid bases Johnson graph maximum independent sets 132 bases distance 4",
+        "Dyck words Catalan matroid single substitution Hamming distance code independent set exchange graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed search hit 2026/11/8/SCOPE-dyck-restricted-two-read-deletion-graph-a-vertex-marked-bijectio--3635f93f657f concerns a Dyck two-read deletion graph with a different confusability rule.",
+        "Indexed search hit 2026/11/2/SCOPE-first-fractional-deletion-packing-gaps-for-fibonacci-constrained--25a61255a325 concerns the Fibonacci binary constrained deletion channel."
+      ],
+      "reasoning": "Neither reported table computes all binary single-substitution balls over Dyck words nor reports both integer 22 and fractional 26 at semilength six. Searches are not comprehensive novelty proofs; no exact matching table was located.",
+      "searches": [
+        "on Dyck words of semilength six, one-substitution-correcting Hamming distance at least four maximum code size 22 and fractional ball-packing 26",
+        "fractional radius one Hamming packing Catalan lattice-path matroids integrality gap",
+        "Dyck paths Hamming distance 4 maximum independent set Catalan matroid bases codes 132 22"
+      ]
+    },
+    "rationale": "Comparison of statements/implications against the primary source texts and indexed records did not identify the exact full-Dyck-word Hamming-one packing pair at semilength six or its initial equality sequence. The classical matroid equivalence and local-exchange results do not imply the maximum distance-four code and rational packing optimum; novelty remains qualified by unindexed earlier calculations.",
+    "residual_risks": [
+      "An unindexed code table or thesis might already compute the 22/26 pair or imply it from a stronger theorem.",
+      "Full historical literature was not exhaustively available; source inspections describe only genuinely read portions.",
+      "One family of related prior research was discovered via short indexed summaries; coverage judgments for those records rely only on their stated claims."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes Catalan basis source family but not exact Hamming-distance-four code or radius-one packing LP",
+        "evidence": [
+          "Theorem 2.1 defines Dyck up-step sets as bases; no cited extremal packing sequence or primal/dual gap in inspected material."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0209354",
+        "material_read": "Introduction, basis theorem and proof in Section 2, associated rank and basis-exchange material across pages 1–5",
+        "method": "Accessible full PDF text and rendered page inspection",
+        "title": "The Catalan matroid",
+        "trigger": "Direct equivalent formulation via up-step sets as matroid bases"
+      },
+      {
+        "assessment": "Random-walk and negative-correlation results do not imply the independent-set size or Hamming sphere-packing LP",
+        "evidence": [
+          "The examined chain moves between adjacent bases, unlike selection of pairwise nonadjacent bases."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1505.06710",
+        "material_read": "Abstract, Introduction, Sections 2–3 on basis exchanges and mixing",
+        "method": "Accessible full PDF text and rendered page inspection",
+        "title": "Lattice Path Matroids: Negative Correlation and Fast Mixing",
+        "trigger": "Potential stronger basis-graph structural or independent-set result"
+      },
+      {
+        "assessment": "Generation/Gray-code results do not settle the packing maximum",
+        "evidence": [
+          "Theorems on successive local path transformations impose different requirements from code minimum distance."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1603.02525",
+        "material_read": "Abstract and introductory theorems on Gray ordering and local changes",
+        "method": "Accessible full PDF text and rendered page inspection",
+        "title": "A minimum-change version of the Chung-Feller theorem for Dyck paths",
+        "trigger": "Local symmetric exchanges potentially describing confusability"
+      },
+      {
+        "assessment": "Potentially related application, but inspected statements do not evaluate the full-Dyck-source semilength-six Hamming coding optimum or its LP relaxation",
+        "evidence": [
+          "Dyck sequences are used as ingredients for WMU constructions; no integer 22/fractional 26 pair appears in read sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1601.08176",
+        "material_read": "Abstract, introduction, Dyck construction and subsequent coding discussion on pages 0–3",
+        "method": "Accessible full PDF text and rendered page inspection",
+        "title": "Weakly Mutually Uncorrelated Codes",
+        "trigger": "Dyck-based construction explicitly targeting balanced error-correcting codes"
+      },
+      {
+        "assessment": "The table concerns unrestricted constant-weight words, with at least 132 words at distance four; it does not supply the constrained Dyck-source optimum or its fractional relaxation.",
+        "evidence": [
+          "For A(12,4,6), the table has a lower bound 132, not the exact Dyck-source maximum 22."
+        ],
+        "identifier_or_url": "https://aeb.win.tue.nl/codes/Andw.html",
+        "material_read": "A(n,4,w) table and its row for length 12, weight 6",
+        "method": "Public mathematical coding-theory table HTML",
+        "title": "Bounds for constant weight codes",
+        "trigger": "Potential broader exact-code table and dominating-parameter comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4b087f61-007f-462d-b2f6-dfe2fa894c6b",
+  "value": {
+    "rationale": "Dyck source words are a canonical constrained balanced source and the bases of the Catalan matroid; Hamming single-error correction and its fractional shadow relaxation are natural fundamental objects. Identifying the first strict gap after five exact small instances (22 versus 26) isolates a meaningful failure of linear-relaxation sharpness, with reproducible primal/dual certificates and exhaustive integer obstruction. The finite classification is useful without a downstream asymptotic theorem.",
+    "status": "PASS"
+  }
+}
