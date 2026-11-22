@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "All m>=4 and all three-block partitions. The simplex row-space representation yields the exact projection quadratic form. An orthogonal decomposition gives within-block contrast eigenvalues and the trace-one two-dimensional block-mean determinant. For two singleton blocks, two independent Rayleigh certificates give \\(t=m/(3m-2)\\), attained with unique probabilities. For one singleton, strict determinant monotonicity proves \\(t=(m+1)/(3m+1)\\) and uniqueness. With no singleton, contrast eigenvalues force <=1/3, attained uniformly. The inequalities are strict between size-profile classes. Standalone check.py executed successfully: 218 exact symbolic/rational assertions; finite checks only supplement the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Needell–Tropp obtains paving-based rate bounds under uniform block sampling, not the exact optimum of block sizes and probabilities.",
+        "Needell–Zhao–Zouzias studies inconsistent least squares block projection.",
+        "Gower–Richtarik provides universal random block sketch framework and optimizing probabilities over a fixed set of sampling matrices, not the simultaneous partition enumeration."
+      ],
+      "reasoning": "General methods include the model but provide no closed-form solution or dominating exact simplex three-block performance bound in the inspected material. The statement is a specific nontrivial sharp classification, not a reformulation of the general objective.",
+      "searches": [
+        "arxiv:1208.3805 Section 1.3-1.8 Theorem 1.2",
+        "arxiv:1403.4192 block Kaczmarz theorem",
+        "arxiv:1506.03296 Sections 3.5,5.1",
+        "max min eigen sum row-span orthogonal projections three partition regular simplex"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1208.3805",
+      "arxiv:1403.4192",
+      "arxiv:1506.03296",
+      "published-finding corpus indexed records 2026/10/12/...08c3cf76fd5b, 2026/11/8/...19551a189d65, 2026/10/13/...8cad78dc3e3a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published simplex-frame row-level cost result concerns singleton row actions, not a partition into three exact simultaneous blocks.",
+        "Published block-size noise amplification result concerns uniformly chosen block sizes and inconsistent/noisy behavior, not a three-block covering partition with optimized probabilities.",
+        "Published simplex reshuffling result concerns full epochs of sequential one-row projections.",
+        "Gower–Richtarik establishes the minimax eigenvalue optimization machinery, which is a common starting point rather than an implication of the closed-form optimizer."
+      ],
+      "reasoning": "The compared prior conclusions do not imply the explicit global value \\(m/(3m-2)\\), the unique singleton–singleton–large block shape, the probability assignments, or the precise intermediate class rate. The difference is in the quantified optimization domain and exact equality cases.",
+      "searches": [
+        "published-finding corpus simplex frame randomized block Kaczmarz optimal partitions paving",
+        "simplex frame grouping three blocks singleton versus non-singleton optimal probabilities",
+        "arxiv:1506.03296 Section 5.1",
+        "arxiv:1208.3805 uniform random"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gower and Richtarik 2015 Section 5.1 explicitly optimize minimum eigenvalue of expected projectors over probabilities; their Section 3.5 identifies randomized block Kaczmarz as a special case.",
+        "Needell and Tropp 2012 algorithm chooses uniform block; find search for simplex returned no match.",
+        "published-finding corpus exact targeted queries returned no matching three-block simplex partition classification among closest indexed results."
+      ],
+      "reasoning": "The spectral objective is a standard equivalent formulation, not a claimed novelty. The new result solves the joint combinatorial partition and distribution optimization on a regular-simplex frame; the inspected formulations do not give its shape classification, rates, or uniqueness. A general SDP description does not imply the closed-form classification without solving it.",
+      "searches": [
+        "regular simplex randomized block Kaczmarz optimal three-block partition one-step minimax worst-case projection",
+        "simplex frame grouping three blocks singleton versus non-singleton optimal probabilities",
+        "three-block Kaczmarz regular simplex exact joint partition probability optimizer m/(3m-2)",
+        "arxiv:1506.03296 Section 5.1 optimal probabilities",
+        "arxiv:1208.3805 simplex"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned simplex row sampling cost frontier 2026/10/12/...08c3cf76fd5b, block-size noise 2026/11/8/...19551a189d65, and reshuffling 2026/10/13/...8cad78dc3e3a as related results, with distinct summaries.",
+        "Comparisons against accessible earlier scientific claims found no identical three-block simplex projection optimizer."
+      ],
+      "reasoning": "No matching exact three-block partition/probability table was found in the actual indexed searches. The index is not exhaustive, and the limitation is included among residual risks.",
+      "searches": [
+        "three-block Kaczmarz regular simplex exact joint partition probability optimizer m/(3m-2)",
+        "block Kaczmarz simplex row grouping one block n-2 two singleton optimal eigenvalue",
+        "regular simplex block Kaczmarz optimal partition three blocks probabilities",
+        "regular simplex randomized block Kaczmarz optimal three-block partition one-step minimax worst-case projection"
+      ]
+    },
+    "rationale": "Originality is the fully explicit joint optimization over all three-block row partitions and all fixed block-selection probability vectors for the simplex frame, with all equality classes and exact constrained-profile optima. Needell–Tropp analyze uniform row paving; Gower–Richtarik formulate a general semidefinite probability optimization, which contains the mathematical objective but does not state the present special-family classification. Indexed prior related results have different actions/criteria. Residual risks are recorded.",
+    "residual_risks": [
+      "Unindexed or uninspected publications could contain an equivalent exact simplex three-block design.",
+      "Relevant published-finding corpus-hosted full texts could not be opened; summaries are not exhaustive exclusions.",
+      "The theorem does not compare per-computation efficiency or multiple-step rates."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides uniform block sampler and upper paving-based rates; not an explicit three-block simplex joint design solution in examined material.",
+        "evidence": [
+          "arXiv PDF pages 2-7: Algorithm 1.1, Theorem 1.2, row paving discussion; explicit uniform random block choice."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1208.3805",
+        "material_read": "Introduction and Sections 1.3-1.8, main rate theorem and proof in Section 2, selected numerical study and references",
+        "method": "Accessible full PDF text and visual inspection of pages 3 and 6",
+        "title": "Paved with Good Intentions: Analysis of a Randomized Block Kaczmarz Method",
+        "trigger": "Foundational primary block Kaczmarz and paving algorithm"
+      },
+      {
+        "assessment": "Treats inconsistent least-squares algorithms and convergence, not the regular-simplex three-block exact design classification in material inspected.",
+        "evidence": [
+          "arXiv PDF page 4: block update (5), row paving definition and bound (6)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1403.4192",
+        "material_read": "Abstract, introductory block projection and row-paving formulation, convergence setup",
+        "method": "Accessible primary PDF text and page-4 visual inspection",
+        "title": "Randomized Block Kaczmarz Method with Projection for Solving Least Squares",
+        "trigger": "Highly related follow-up block solver"
+      },
+      {
+        "assessment": "Establishes general spectral minimax formulation and SDP for probability optimization; specific joint three-block regular-simplex partition classification not found in inspected sections.",
+        "evidence": [
+          "Section 3.5: block Kaczmarz expected projector, Section 5.1: optimal discrete probability distributions."
+        ],
+        "identifier_or_url": "https://pages.stat.wisc.edu/~bwu62/771/gower2015.pdf",
+        "material_read": "Abstract and introduction, Sections 3.5 and 5.1 on block Kaczmarz and optimal probabilities",
+        "method": "Open-access PDF parsed and visual inspection of page 2",
+        "title": "Randomized Iterative Methods for Linear Systems",
+        "trigger": "Potentially broader theory optimizing row/block sampling"
+      },
+      {
+        "assessment": "Summary concerns uniformly changing block size and inconsistent-noise stationary error, not the present fully optimized exhaustive partition; full-text coverage unresolved.",
+        "evidence": [
+          "published-finding corpus record 2026/11/8/...19551a189d65, full text inaccessible to current source reader."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-block-size-noise-amplification-for-simplex-kaczmarz--19551a189d65",
+        "material_read": "published-finding corpus title and summary only; external full-text fetch failed",
+        "method": "Semantic record comparison, attempted full-text page open",
+        "title": "Exact block-size noise amplification for simplex Kaczmarz",
+        "trigger": "published-finding corpus relevant simplex block setting"
+      },
+      {
+        "assessment": "Summary concerns selecting individual rows by cost; nonoverlap by action class subject to full-text risk.",
+        "evidence": [
+          "published-finding corpus record 2026/10/12/...08c3cf76fd5b, full text inaccessible."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-a-quadratic-cost-frontier-for-minimax-randomized-kaczmarz-sampli--08c3cf76fd5b",
+        "material_read": "published-finding corpus title and summary only; external full-text fetch failed",
+        "method": "Semantic record comparison, attempted full-text page open",
+        "title": "A quadratic cost frontier for minimax randomized Kaczmarz sampling on simplex frames",
+        "trigger": "published-finding corpus matching simplex and minimax sampling"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8a9678d3-41fa-4e39-bb93-2bf412ca4a76",
+  "value": {
+    "rationale": "Sharp natural fixed-three-block minimax design over both a discrete partition and continuous sampling probabilities, all dimensions m>=4, all equality cases and constrained-profile optima. The structural optimizer is maximally unbalanced despite traditional paving motivation for balanced blocks. It is a quantitative benchmark for exact simultaneous row projections; small improvement and computational-cost caveats are explicit.",
+    "status": "PASS"
+  }
+}
