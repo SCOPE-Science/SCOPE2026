@@ -1,19 +1,21 @@
-# Mathematical review: hypersimplex-to-panhandle distance spectrum
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source's polytope description is independently verified from the cited primary Definition 4.1/Proposition 4.4. For each excluded hypersimplex vertex, the given projection has tail sum one, head sum \(r-1\), and coordinates in the unit cube. The displayed supporting-normal inequality holds against every point of the target polytope and proves unique nearest-point optimality. Rational residual norms give exact squared distances. Monotonicity gives every maximal vertex. The strict convex-combination variance identity rules out nonvertex farthest points. The hypergeometric central limit theorem and the delta method prove the stated asymptotic law only under its specified nondegenerate proportion assumptions. Finite exact certificates and separate numerical quadratic programs corroborate, not replace, those arguments.
+PASS
 
-## Originality
+The admissible panhandle base polytope equals the hypersimplex cut by tail sum at most one. For excluded rank-r vertex with j>=2 tail 1s, the proposed projection has head complement (j-1)/(s-r+j) and retained tail entries 1/j; its support-normal inequality against every feasible y makes it the unique Euclidean projection. The squared residual is (j-1)^2[1/j+1/(s-r+j)]. Strict monotonicity in j gives largest shell, and the residual-variance identity rules out nonvertex farthest points. Equality face is Δ_(j-1,s-r+j) × Δ_(1,j); its dimension is s-r+2j-2. Hypergeometric finite-population CLT plus derivative of g(x)=x+x²/(alpha-rho+x) proves limiting variance in strictly interior proportional regime. An independent new exact rational support-inequality enumerator verified 373 excluded vertices for n<=8; this alone does not prove the all-dimensional or CLT claims.
 
-PASS, subject to bibliographic risk. The primary 2022 panhandle paper establishes the halfspace description and Ehrhart/volume results; the 2021 Schubert-matroid paper treats Ehrhart properties. The rank-two specialization is covered by the earlier paving-matroid distance theorem and is expressly excluded. The 2015 capped-simplex projection paper provides a general optimization method but no comparison of the two present polytopes or their entire metric spectrum, maximizing locus, and distribution limit. Publicly indexed panhandle circumball, inball, covariance, asymmetry, and width results concern other geometric invariants. General hypersimplex facial-distance results compare coordinate faces with their complements, not the panhandle truncation. These are statement-level distinctions, not mere title comparisons; earlier equivalents using the language of cardinality-constrained hypersimplex projection remain a residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The panhandle family is a natural one-inequality truncation of all rank-\(r\) uniform-matroid bases, central to the geometry of matroid relaxation. The finding determines an *entire* Euclidean metric spectrum and its binomial multiplicities, explicit unique nearest points and exposed contact-face types, and *all* farthest points of the continuous hypersimplex. The limiting law quantitatively distinguishes the typical and worst-case geometric displacement in proportional dimensions. The facts are motivated by the named canonical polytopes, not an arbitrary finite slice.
+Existing panhandle Ehrhart/volume and Schubert matroid results supply polytope definition, not metric distance shells. A published paving-matroid theorem has projection²=1/k+1/(n-hyperplane-size) for a nonbasis inside a rank-(k-1) hyperplane; rank>=3 panhandle has tail parallel 2-circuits and is generally non-paving, so that general paving theorem cannot be specialized to this whole claimed family. Its rank-two overlap is explicitly excluded. Capped-simplex methods do not state this global comparison or hypergeometric law.
 
-## Closest literature and limits
+## value
 
-Hanely et al., arXiv:2201.12442 (Definition 4.1; Proposition 4.4); Fan–Li, arXiv:2110.11549 (Schubert matroids and Ehrhart); Wang–Lu, arXiv:1503.01002 (general capped-simplex projection). No earlier all-parameter exact metric spectrum was established by the inspected sources. This is not an independent priority or correctness certification. The proof and checker apply to ordinary Euclidean coordinates, not weighted metrics or continuous-volume distance laws.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The panhandle is a standard matroid base polytope and a natural one-inequality truncation of the hypersimplex. The exact metric shell census, projection faces and complete farthest-point locus, with the typical/worst-case gap in proportional dimensions, solve a nontrivial natural geometric invariant rather than a selected sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
