@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The Gaussian posterior risk identity is derived explicitly. For all integer p>=0, the exact binomial expression for I_p' has positive coefficients; its second-derivative sign polynomial has one positive constant coefficient and all subsequent coefficients nonpositive with a strictly negative last term. Thus I_p has exactly one inflection, H_p=I_p/I_p'-t first decreases then strictly increases from a negative minimum to infinity, giving one global optimum for all eta>0. Uniform endpoint expansions yield the sharp high-noise placement and regret constants. The standalone verifier checks exact identities for p=0..8 and numerical illustrations; the all-order proof does not depend on those samples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ji and Müller (2016) give an integrated prediction-error optimization criterion, but no p-fold mixed-observation analytic solution in the inspected text.",
+        "Schober, Duvenaud and Hennig (2014) analyze Runge–Kutta matching with derivative evaluations, not single-site posterior-integral error minimization."
+      ],
+      "reasoning": "Broad Gaussian-conditioning or optimal-design machinery contains the objective as a definable special case, but does not assert the specialized all-order curvature/uniqueness or noise asymptotics. A fully general theorem implying those details was not located in the accessible materials.",
+      "searches": [
+        "Optimal Designs for Longitudinal and Functional Data arXiv 1604.05375",
+        "Probabilistic ODE Solvers with Runge-Kutta Means arXiv 1406.2582",
+        "optimal design for integrated Wiener process observing Brownian motion velocity trajectories covariance"
+      ]
+    },
+    "checked_sources": [
+      "Schober, Duvenaud and Hennig (2014), arXiv:1406.2582 and proceedings PDF",
+      "Ji and Müller (2016), arXiv:1604.05375 and author OA PDF",
+      "Mukherjee, Purdue dissertation AAI3043760 catalog (abstract only)",
+      "Indexed mathematical records for integrated-Wiener sensor placement and Brownian kernel design"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Mukherjee dissertation catalog states product-form covariance design conditions for directly sampled stochastic processes, including Brownian, bridge and Ornstein–Uhlenbeck examples; its full text was unavailable.",
+        "The full-text excerpts from Schober et al. describe derivative observations for RK matching and from Ji and Müller describe directly sampled trajectory values."
+      ],
+      "reasoning": "The present result requires exact cross-covariance of W(t) with X_p(s), and a nontrivial sign formula uniform over all p. The compared claims do not state these ingredients. The inaccessible Mukherjee text remains a specific unresolved publication-priority risk, though its described direct-observation/product-covariance setting differs from this one.",
+      "searches": [
+        "Optimal designs for estimating the path of a stochastic process Mukherjee Purdue dissertation",
+        "single noisy Brownian velocity observation integrated Brownian path reconstruct optimal location",
+        "Optimal Designs for Longitudinal and Functional Data Ji Müller 2016 PDF"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The general Gaussian-posterior covariance update (Schober et al. 2014, section 2) is a tool, not the inflection or placement theorem.",
+        "The direct-observation formulation in Ji and Müller (2016, equations 5–10) has a different observation kernel."
+      ],
+      "reasoning": "Directly sampled X_p(t) and base-process-sampled W(t) have different covariance denominators and cross-covariance kernels; a generic conditioning formula does not imply the exact location law. The displayed derivative-channel theorem cannot be obtained by relabeling a direct observation.",
+      "searches": [
+        "integrated Wiener path reconstruction from single noisy derivative observation at freely chosen time optimal placement p-fold order eta asymptotics",
+        "optimal single velocity sensor integrated Wiener process Bayesian experimental design path recovery",
+        "Optimal derivative/velocity point sensors to recover repeatedly integrated Wiener process, asymptotic t=1-c eta^{-1/(p+1)}, excess integrated posterior risk"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed related records address stratified Brownian kernel quadrature, stochastic-process recovery and noisy dynamics, not a table of the all-order single base-process sensor locations.",
+        "The finite-order numerical values in verify.py are independently computed from the analytic polynomial."
+      ],
+      "reasoning": "No exact tabulation or claim covering all orders, positive noise levels and the stated observation modality was found. Failure to find a table is not proof of novelty.",
+      "searches": [
+        "posterior integrated squared error one noisy Brownian observation for integrated Wiener trajectories derivative sampling boundary layer",
+        "High-noise optimal sampling time of Brownian motion point observation to recover p-fold integrated Brownian trajectory: universal boundary layer exponent 1/(p+1)",
+        "optimal location one noisy Brownian motion measurement reconstruct integrated Brownian motion trajectory"
+      ]
+    },
+    "rationale": "The inspected foundational 2014 integrated-Wiener derivative-evaluation paper proves probabilistic Runge–Kutta correspondences, not a global one-noisy-derivative-site optimization law. The inspected 2016 longitudinal-design paper gives the generic trajectory error criterion for direct observations of the target process, not the mixed W(t)/X_p(s) covariance or the all-integer-order placement law. Previous directly observed integrated-Wiener results use a distinct sensor channel and do not imply the present rule. No inspected source contains the claimed exact all-noise uniqueness plus p-dependent boundary exponent; inaccessible historical and unindexed work leave genuine priority uncertainty.",
+    "residual_risks": [
+      "Mukherjee dissertation full text was inaccessible; it may contain a similar formulation beyond its catalog description.",
+      "Unindexed, differently named or substantially stronger historical work may imply the all-order result.",
+      "The complete 2024 integrated-Wiener smoothing paper was not inspected; its indexed abstract concerns approximation and derivative inference, not this exact design."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected theorems match Runge–Kutta posterior means; they neither optimize a noisy base-process observation time over integrated path risk nor provide the all-order high-noise exponent.",
+        "evidence": [
+          "PDF section 2 equations (3)-(5) on GP conditioning and derivative covariances; section 3.2–3.4 integrated Wiener constructions."
+        ],
+        "identifier_or_url": "https://proceedings.neurips.cc/paper_files/paper/2014/file/fa042d3ac049f0ae4b2550d956db4d3b-Paper.pdf",
+        "material_read": "Open-access PDF extracted introduction, GP posterior/derivative equations, sections 3.1–3.5 and theorems for integrated Wiener orders 1–3, with page images including page 3.",
+        "method": "Primary PDF full-text extraction and visual page inspection.",
+        "title": "Probabilistic ODE Solvers with Runge-Kutta Means",
+        "trigger": "Integrated-Wiener Gaussian priors and derivative observations are precisely the motivating model class."
+      },
+      {
+        "assessment": "Establishes generic conditional path-error design for observations X(t)+noise rather than W(t) observed against X_p(s); inspected material does not give the claimed exact mixed-channel all-order law.",
+        "evidence": [
+          "PDF equations (1), (5)–(10), with observation model U(t_j)=X(t_j)+e_j."
+        ],
+        "identifier_or_url": "https://anson.ucdavis.edu/~mueller/f-optdes23.pdf",
+        "material_read": "Primary author PDF introduction and sections 2–3 with equations (1)–(10), relevant headings and full-text searches for Brownian and derivative, plus page 5 visual inspection.",
+        "method": "Primary PDF text extraction, textual searching and page screenshot.",
+        "title": "Optimal Designs for Longitudinal and Functional Data",
+        "trigger": "Closest general integrated posterior trajectory-error design criterion."
+      },
+      {
+        "assessment": "Catalog summarizes directly sampled processes with product-type covariance; exact mixed-observation coverage cannot be resolved from catalog alone.",
+        "evidence": [
+          "Catalog abstract describes Brownian, bridge and OU examples and product-covariance exact designs."
+        ],
+        "identifier_or_url": "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+        "material_read": "Public dissertation catalog and its abstract only; original dissertation body was not accessible.",
+        "method": "Catalog inspection, not full-text examination.",
+        "title": "Optimal designs for estimating the path of a stochastic process",
+        "trigger": "Historical integrated path-error optimization and Brownian/OU design could subsume a special case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2fe7f897-a316-49cc-94e5-727b289ca3e7",
+  "value": {
+    "rationale": "One noisy derivative/base-process evaluation is a motivated resource constraint in integrated-Wiener Gaussian path reconstruction and probabilistic ODE work. The theorem solves the complete all-noise global time-placement problem for the entire integer hierarchy, gives monotonicity and unique optimizers, and identifies the sharp order-dependent high-noise boundary layer and terminal-placement regret; the claims are structural and not a routine finite table or arbitrarily chosen parameter slice.",
+    "status": "PASS"
+  }
+}
