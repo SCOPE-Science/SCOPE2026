@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The invariant metric reduction follows by finite-group averaging; the four distance-orbit triangle constraints are both necessary and sufficient. Optimizing the linear within-class contributions leaves a one-variable fractional-linear expression, with derivative sign \(4a-b-3\) on the first branch and strict decrease on the second. Two explicitly realized metrics attain the sharp values. The finite cut-cone argument, not a failed numerical search, proves strict \(L^1\) deficiency for \(a\ge3\) below threshold. Supplementary exact-arithmetic checker passed 4,550 orbit comparisons, 4,408 cut-count checks and 1,482 cut identities.
+## correctness
 
-## Originality — PASS, qualified
-Polavarapu's 2026 paper and Altschuler–Dodos–Tikhomirov–Tyros's 2025 paper prove general nonlinear Poincaré inequalities, not this exact unbalanced tripartite metric value. The closest full-text published K_{a,a,b} study computes an absolutely two-summing/free-lattice invariant and a different cutoff \(b\ge2a+2\). The full-text balanced multipartite \(L^1\) distortion study contains a related cut identity, but its objective does not imply the present unrestricted metric optimum. Targeted scholarly and research-record searches did not identify a covering statement; an equivalent older flow/cut formulation remains a priority risk.
+PASS
 
-## Mathematical value — PASS
-The theorem identifies a sharp target-class phase transition at \(b=4a-3\) on a natural two-parameter graph family. It distinguishes graph-distance extremizers from collapsed-star extremizers, supplies an exact Poincaré constant on both sides, and shows exactly when an \(L^1\) target can attain the full metric constant. This structural classification and target-space distinction are the substantive value, not merely the auxiliary cut identity.
+Automorphism averaging preserves both sums and yields invariant pseudometric parameters x,y,z,w with triangle bounds 0≤z≤2w, x≤2 min{z,w}, y≤2w. Scale w=1, maximize x,y, and reduce objective R(t) to one variable t=z. On [0,1] derivative sign is a²b(4a−b−3), on [1,2] derivative negative; exactly t=1 shortest-path or t=0 collapsed-star branches maximize, with equality segment at b=4a−3. For L1, each two-equal-part cut with u,v points obeys W−((a−1)/a)U=(u−v)²/a²≥0. This excludes shortest-path W=1,U=2 for a≥3, and compactness of finite cut cone plus invariant uniqueness makes the gap STRICT, not just unattained. For b≥threshold an explicit coordinate ℓ1 star attains collapsed branch. Fresh exact rational grid and all two-block count cuts a=3..8 corroborate signs/identity. Independently verify triangle constraint sufficiency includes all triangle orbit types.
 
-## Limits
-The result does not compute the exact subcritical \(L^1\) constant, extend to fully unbalanced triples, or classify all nonsymmetric extremizers. Finite tests are supplementary. Independent mathematical validation and exhaustive literature priority verification are not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS only for the genuinely additional TARGET-CLASS COINCIDENCE TRANSITION and its strict L1 obstruction. Crucial qualification: a broader published all-complete-multipartite Γ_met theorem explicitly includes and mathematically implies this exact metric-only branch, so that component is already covered and no originality is assigned to it. Equal-block L1 cut rigidity gives a related variance obstruction but not the optimized unbalanced K_{a,a,b} coincidence threshold; free Banach lattice screening studies a different nonmetric functional.
+
+## value
+
+PASS
+
+Whether target geometry changes a sharp nonlinear Poincaré constant is a natural functional-analytic question. An exact combinatorial threshold between metric and real-L1 extremizers, plus a rigidity-based strict gap rather than mere non-embeddability, provides a reusable structural example; not justified by the already-covered unrestricted formula alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
