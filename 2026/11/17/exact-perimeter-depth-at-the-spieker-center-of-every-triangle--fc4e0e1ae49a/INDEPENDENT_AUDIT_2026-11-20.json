@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-20",
+  "audited_at_utc": "2026-11-20T08:48:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read full RESULT.md and actual verify.py tree entry. The arclength centroid barycentric coordinates yield adjacent-edge intercepts X=c(a+c)/(2P), Y=b(a+b)/(2P). For each vertex the cut arc u+v is strictly convex under X/u+Y/v=1, with inner W-line minimizer (sqrt X+sqrt Y)^2 or the shorter-side endpoint. The feasibility inequality gives the stated Q switch. At fixed perimeter, monotone adjacent-side pair depth makes the vertex opposite the longest side optimal. The endpoint inequality is b+2c>a; the interior inequality follows by monotonicity in a, t=b/c<=2+sqrt(5) and exact factor -(t+1)^2(t^2-10t+1). Degenerate family (1,1,eps) tends to 1/3; equilateral gives 4/9. Independently evaluated 120 random valid triangles against numerical line-cut optimization with 1600 angular directions; finite tests corroborate the global proof, not replace it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Amadtohed et al 2022, DOI:10.1155/2022/2751666, classifies envelopes of prescribed perimeter split lines.",
+          "The centerpoint theorem ensures existence of a high-depth point for any planar measure but does not assert the Spieker point is one."
+        ],
+        "reasoning": "These frameworks are broader in geometry but weaker for this named center; extracting the branch formula and sharp universal bound requires the additional point-specific minimization.",
+        "searches": [
+          "Spieker point perimeter halfspace depth triangle depth 1/3 arclength centroid wireframe W line Winternitz",
+          "Dividing the Perimeter of a Triangle into Unequal Proportions 2022 envelope",
+          "centerpoint theorem perimeter measure Spieker point"
+        ]
+      },
+      "checked_sources": [
+        "Berele–Catoiu arXiv:2603.23653 (full accessible theorem-bearing HTML)",
+        "Amadtohed et al 2022 DOI:10.1155/2022/2751666 (relevant full HTML sections)",
+        "Resultary semantic Spieker/perimeter queries",
+        "Source RESULT.md and verify.py inventory; independent line optimization checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Berele–Catoiu statement bounds depth through area centroid, which differs in most triangles; worst area-centroid value 3/10.",
+          "Envelope paper describes lines meeting perimeter ratio constraints and does not directly identify a fixed canonical center satisfying 1/3 for every triangle."
+        ],
+        "reasoning": "Neither inspected result entails the current two-branch Spieker formula/shape-uniform sharp 1/3 by simple substitution.",
+        "searches": [
+          "Spieker point perimeter halfspace depth triangle depth 1/3 arclength centroid wireframe W line Winternitz",
+          "Berele Catoiu 2026 area centroid perimeter 3/10",
+          "Amadtohed Chaidee Racha-in Theerakarn 2022"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Berele–Catoiu 2026 arXiv:2603.23653 treats area centroid, with 3/10 infimum and W-line/cevian framework.",
+          "The Spieker point is the centroid of uniform boundary arclength, not the area centroid."
+        ],
+        "reasoning": "The two centers agree only for special symmetry and have genuinely distinct barycentric formulas. Existing W-line techniques are usable but do not state the specific exact Spieker profile.",
+        "searches": [
+          "Spieker point perimeter halfspace depth triangle depth 1/3 arclength centroid wireframe W line Winternitz",
+          "The Perimeter Winternitz Theorem in a Triangle Berele Catoiu 2026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns own finding plus distinct regular-polygon depth, Reuleaux-triangle, and trapezoid profiles, none the same all-triangle Spieker depth table.",
+          "Equilateral evaluation 4/9 derives from the formula and is not a purported previously unknown single table entry."
+        ],
+        "reasoning": "No exact all-triangle Spieker profile table identified; negative search is not novelty certification.",
+        "searches": [
+          "Spieker point perimeter halfspace depth triangle depth 1/3 arclength centroid wireframe W line Winternitz",
+          "triangle Spieker depth table perimeter depth 1/3 wire frame centroid"
+        ]
+      },
+      "rationale": "Best-of-knowledge explicit two-branch arclength-depth profile at the Spieker point and its sharp shape-independent 1/3 bound are not stated by the read area-centroid perimeter Winternitz theorem. Older 2022 perimeter-dividing envelope results provide a general geometric method and may implicitly enable derivation, but do not without further optimization establish this specific canonical-center minimax/constant. Classical centerpoint existence for some point does not identify the Spieker point. Priority may be implicit in archived envelope literature.",
+      "residual_risks": [
+        "The 2022 envelope article may contain an implicit equivalent derivation not surfaced by named-center searches; mathematical extraction would need separate detailed comparison.",
+        "Spieker exact profile is supported by displayed global proof; finite angular optimization does not exhaust all lines."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering the Spieker-specific result.",
+          "evidence": "The 3/10 extremal guarantee concerns area centroid; its general W-line lemma is acknowledged.",
+          "identifier_or_url": "https://arxiv.org/html/2603.23653",
+          "material_read": "Primary arXiv HTML: setup, W-line/cevian Lemmas 2–3, Theorem 4, sharp area-centroid discussion.",
+          "method": "Read primary theorem-bearing sections and compared center barycentric formulas and constants.",
+          "title": "The Perimeter Winternitz Theorem in a Triangle",
+          "trigger": "Same halfplane perimeter depth problem"
+        },
+        {
+          "assessment": "Plausible implicit method, not an explicit formula or dominance of the present point theorem.",
+          "evidence": "General equal/unequal arc-divider envelope is not an exact fixed-Spieker minimum profile.",
+          "identifier_or_url": "https://doi.org/10.1155/2022/2751666",
+          "material_read": "Accessible scholarly HTML: abstract, perimeter-dividing setup and envelope classifications across sections 3–6.",
+          "method": "Read relevant primary article sections on dividing lines/envelopes and compared optimized point.",
+          "title": "Dividing the Perimeter of a Triangle into Unequal Proportions",
+          "trigger": "Highly relevant general perimeter-chord envelopes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The boundary arclength centroid is a natural constructible triangle center; computing its exact minimum halfspace mass for every shape identifies a nontrivial fixed-center sharp 1/3 guarantee. Unlike the generic centerpoint existence result, the theorem names the same canonical point for each triangle and exhibits the depth transition and flattening extremizer. The comparison with area-centroid 3/10 has clear geometric meaning.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Berele–Catoiu arXiv:2603.23653 (full accessible theorem-bearing HTML)",
+    "Amadtohed et al 2022 DOI:10.1155/2022/2751666 (relevant full HTML sections)",
+    "Resultary semantic Spieker/perimeter queries",
+    "Source RESULT.md and verify.py inventory; independent line optimization checks"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every nondegenerate Euclidean triangle the Spieker arclength centroid has the stated two-branch exact perimeter halfspace depth, strictly greater than 1/3, with sharp unattained 1/3 infimum and equilateral value 4/9.",
+  "limitations": "Only boundary arclength of nondegenerate Euclidean triangles; neither globally deepest-point optimality nor all convex bodies or area measure.",
+  "residual_risks": [
+    "The 2022 envelope article may contain an implicit equivalent derivation not surfaced by named-center searches; mathematical extraction would need separate detailed comparison.",
+    "Spieker exact profile is supported by displayed global proof; finite angular optimization does not exhaust all lines."
+  ],
+  "schema_version": 1
+}
