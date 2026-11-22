@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "All even N and continuous jitter are established by the explicit 2x2 Fourier block determinant and trace, followed by convex transitive dihedral weight symmetrization, Vandermonde injectivity for strict Frobenius equality, determinant factorization and a scalar quadratic for unrestricted mass. The boundary rank and asymptotics follow directly. Local CHECK.py returned 846 supplementary assertions, not a substitute for infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wind-Andersen arXiv:2611.02379 Introduction/Discussion: first-order defect at an exact rule, not global weights on a fixed inexact grid.",
+        "Austin–Trefethen 2017 Theorems 1–2: convergence and Lebesgue constants for general odd-node perturbed grids.",
+        "Yu–Townsend arXiv:2202.04722 Sections 1, 2 and 4: universal NUDFT stability and quadrature-weight bounds rather than sharp two-coset extrema."
+      ],
+      "reasoning": "More general domains of perturbations in these sources do not logically imply the exact sharp constants and simultaneous global weight optima stated here. A polyphase theorem giving the full spectral singular values for arbitrary periodic nonuniform grids might contain the uniform-spectrum half, but does not by itself supply the optimization over all positive diagonal weights.",
+      "searches": [
+        "site:arxiv.org \"alternating\" \"perturbation\" \"Fourier\" \"density compensation\"",
+        "2026 \"Alias Geometry and Density Compensation\" \"alternating\"",
+        "periodic two-coset jitter Fourier sampling exact Gram spectrum and optimal weights",
+        "Austin Trefethen 2017 Trigonometric interpolation and quadrature in perturbed points full text PDF"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2611.02379",
+      "https://people.maths.ox.ac.uk/trefethen/perturbed.pdf",
+      "https://arxiv.org/abs/2202.04722",
+      "https://arxiv.org/abs/2610.36142",
+      "https://arxiv.org/abs/1612.04018"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2611.02379 Proposition 17 gives first-order orthogonality of node and weight tangents at an exact square rule; it does not forbid finite-amplitude improvements for a particular non-exact grid, so it does not imply this theorem.",
+        "arXiv:2202.04722 bounds perturbed interpolation without exact alternating even-node spectral constants.",
+        "arXiv:2610.36142 available abstract gives general polyphase reconstruction conditions but no explicit global weight optimizer."
+      ],
+      "reasoning": "First-order invariance and sufficient uniform stability estimates do not imply exact finite-amplitude uniform-weight optimality. The current analytic symmetry proof adds a global transitive convexity argument, strict Vandermonde equality and a determinant factorization. Conversely the present result is limited to alternating grids and cannot replace the broader literature.",
+      "searches": [
+        "site:arxiv.org/abs/2611 \"Fourier\" \"sampling\" \"harmonic analysis\"",
+        "2026 arxiv wavelet Fourier sampling aliasing nonuniform torus Fourier coefficients spectral analysis",
+        "Austin Trefethen 2017 Trigonometric interpolation and quadrature in perturbed points full text PDF"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The alternating nodes are equivalent to two equal-size shifted cyclic cosets. The classical polyphase decomposition yields two-by-two blocks but none of the inspected main results states the combined normalized and unnormalized all-positive-weight optimization.",
+        "arXiv:2611.02379, sections 1, 7 and 9, explicitly focuses on first-order compensation and excludes fixed-inexact-node spectral optimization."
+      ],
+      "reasoning": "The exact spectrum of the uniform design could be derived as a special case of known polyphase algebra; what is compared as a single claim here is the globally sharp optimization across arbitrary positive weights and several spectral losses, including strict normalized Frobenius and volume equality, for all even orders. An earlier direct two-coset calculation remains a residual risk.",
+      "searches": [
+        "periodic alternating jitter nonuniform DFT exact condition number equal weights two cosets sin gap",
+        "periodically nonuniform sampling two channels DFT matrix singular values alternating jitter phase",
+        "two-coset Fourier sampling exact Gram spectrum and optimal weights",
+        "For even N alternating phase-jittered equispaced nodes theta_j = 2pi j/N + (-1)^j delta, positive quadrature weight optimization exactly min Frobenius Gram defect N sin²(Ndelta/2), frame eigenvalues 1 ± sin, optimal spectral condition and determinant"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant mathematical discovery searches returned no exact table or formula for the normalized full-DFT alternating-jitter positive-weight optimum. The closest thematic results concern two-interval Fourier Riesz bases, two-coset Gabor systems and kernel Gram matrices, each with different domain or operator."
+      ],
+      "reasoning": "No numerical table or database entry was used to infer novelty. The proof is an analytic classification for every even sample count and continuum of jitter/weights, not finite-table interpolation. Non-identification by searching is only negative evidence.",
+      "searches": [
+        "For even N alternating phase-jittered equispaced nodes theta_j = 2pi j/N + (-1)^j delta, positive quadrature weight optimization exactly min Frobenius Gram defect N sin²(Ndelta/2), frame eigenvalues 1 ± sin, optimal spectral condition and determinant",
+        "Exact frame bounds and optimal density compensation for alternating perturbed uniform Fourier sampling grid, two interleaved shifted cosets, singular values sin(N delta/2)",
+        "periodic two-coset jitter Fourier sampling exact Gram spectrum and optimal weights"
+      ]
+    },
+    "rationale": "The closest 2026 source covers first-order density compensation and explicitly separates fixed-inexact-node spectral optimization. Earlier interpolation and NUDFT sources supply general estimates, not the exact even two-coset all-weight extrema. Published-record and primary-literature comparisons disclosed no equivalent or dominating claim; polyphase folklore and abstract-only sources remain acknowledged risks.",
+    "residual_risks": [
+      "An older two-coset/polyphase sampling text might give the uniform spectrum, possibly combined with optimal positive weighting.",
+      "Only the abstract of the 2026 multichannel shift-invariant paper was accessible, so complete stronger coverage is not excluded.",
+      "Search discovery is not a proof of worldwide novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the combined nonperturbative exact fixed-node spectral and all-positive-weight optimization; first-order compensation is the declared focus",
+        "evidence": [
+          "Introduction lines 18–22 and 62–64 expressly distinguish fixed-node optimization and spectral criteria",
+          "Proposition 17 in Section 7 applies to first derivatives at exact square rules",
+          "Discussion Section 9 does not state the two-coset exact global optimization"
+        ],
+        "identifier_or_url": "https://arxiv.cnoctave.top/pdf/2611.02379",
+        "material_read": "Full parsed PDF sections 1–2, 7 and 9, and targeted searches of the full text for alternating grids, two-coset formulas, nonlinear results and spectral objectives; page-one visual inspected",
+        "method": "primary manuscript PDF text with screenshot corroboration",
+        "title": "Alias Geometry and Density Compensation in Perturbed Fourier Sampling",
+        "trigger": "Same Fourier Gram defect and positive weight response under perturbed nodes"
+      },
+      {
+        "assessment": "NOT_COVERING the fixed even two-coset nonlinear positive-weight spectral optima; treats odd-node trigonometric interpolation and norm/convergence bounds",
+        "evidence": [
+          "Theorem 1 establishes convergence, and Theorem 2 bounds Lebesgue constants",
+          "Section 4 discusses the general Kadec threshold and sampling stability"
+        ],
+        "identifier_or_url": "https://people.maths.ox.ac.uk/trefethen/perturbed.pdf",
+        "material_read": "Primary PDF abstract, Sections 1–2, 4 and targeted full-document queries; first-page image inspected",
+        "method": "author-hosted primary PDF text and page screenshot",
+        "title": "Trigonometric Interpolation and Quadrature in Perturbed Points",
+        "trigger": "General perturbed NUDFT matrices and sharp stability thresholds"
+      },
+      {
+        "assessment": "NOT_COVERING the specified even periodic two-coset spectral identity and simultaneous normalized positive-weight global extrema",
+        "evidence": [
+          "Sections 1–2 state universal bounds for general perturbations",
+          "Section 4 alternating example is an odd-cardinality nonuniform grid with a distinguished center, not the exact even coset family"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.04722",
+        "material_read": "Accessible HTML full-document search, introduction, theorem statements and the alternating negative-quadrature example in Section 4",
+        "method": "full-text arXiv HTML rendered through textual retrieval",
+        "title": "On the Stability of Unevenly Spaced Samples for Interpolation and Quadrature",
+        "trigger": "NUDFT conditioning and positive quadrature on irregular grids"
+      },
+      {
+        "assessment": "UNRESOLVED_BIBLIOGRAPHIC_RISK: broad polyphase theory gives singular-value criteria but no exposed fixed-node weight-optimum theorem",
+        "evidence": [
+          "Abstract says stability characterized via uniform singular value bounds and polyphase matrices, but provides no relevant closed-form all-weight statement"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.36142",
+        "material_read": "Available dated arXiv abstract; full manuscript not retrieved",
+        "method": "abstract retrieval",
+        "title": "Multichannel Sampling and Reconstruction in Multidimensional Shift-Invariant Spaces",
+        "trigger": "Possible stronger general periodic polyphase covering the two-coset block"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "836b3df8-b0b2-4b63-a20d-c97a13a30ea8",
+  "value": {
+    "rationale": "A natural complete critical-sampling design has exact sharp frame bounds and mean-square defect for every even dimension, optimally weighted in the full positive simplex (not just classwise). The jitter fraction gives dimension-independent stability even beyond the conventional one-quarter sufficient perturbation range, plus a sharp quadratic collision blowup. The result provides an actionable no-compensation theorem and exact reconstruction-stability constants, not merely a finite numerical improvement.",
+    "status": "PASS"
+  }
+}
