@@ -1,15 +1,21 @@
-# Scientific review: two-ideal rigidity for damped monomial composition–adjoint products
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed domain is the standard complex Hardy space, for distinct integers \(m,n\ge2\), coprime reduced degrees \(M,N\), fixed known \(0<q<1\), and every fixed real \(p>0\) in the boundary law. Direct adjoint action proves \(Te_{Mj}=q^je_{Nj}\), while other positive input basis elements vanish. The two Gram operators are consequently diagonal and their overlap occurs exactly on the common multiples \(MN\ell\). Taking their difference proves every signed eigenvalue and both geometric-series norm formulas, with no unproved infinite classification. Since the trace is zero, the trace norm is twice the positive diagonal mass. The squared Hilbert–Schmidt norm is the two Gram square masses minus twice their common support overlap. Strict monotonicity of \(q^{2j}/(1-q^{2j})\) proves degree recovery. Exponentially dominated Riemann sums followed by an explicit beta substitution prove the all-\(p\) critical law, including quasi-norm exponents. `checker.py` returns `CHECKS_OK 438`; finite diagnostics are supplementary rather than proof of an infinite limit.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The primary motivating paper by Leng–Zhao (arXiv:2610.15472v1) proves Schatten membership and operator-product criteria. Its actual manuscript sections 3.2 and 3.3, and Theorems 3.17 and 3.24, do not give self-commutator inverse reconstruction or the beta-profile. A published unweighted monomial-product unitary classification determines qualitative shift/Jordan types, while a closely related radial mixed-adjoint commutator result studies \(C_\phi^*C_\psi-C_\psi C_\phi^*\), **not** \([T^*,T]\). Their specific objects, mathematical statements, and implications were checked, not just their titles. Historical single-symbol Dirichlet/Bergman self-commutators and linear-fractional automorphic mixed commutators do not directly imply the stated mixed damped Hardy result. No directly covering claim was identified from targeted research-record searches and the accessible primary materials. Some older full texts were not obtainable, so independent literature-priority validation remains a residual risk; absence of a match is not itself a proof of priority.
+PASS
 
-## Mathematical value — PASS
-The resulting operator family is canonical within the recent study of compact composition–adjoint products. For unweighted distinct coprime monomial products, many degrees are indistinguishable by unitary spectral type. Damping reveals a quantitative arithmetic invariant: exactly two ordinary ideal measurements recover the unordered reduced degrees. The exact all-\(p\) beta boundary law then distinguishes the loss of Schatten control as the maps approach the unit circle and includes quasi-Banach Schatten ideals without a separate case split. These are motivated exact inverse and boundary questions, not an arbitrary low-dimensional slice or numerical recomputation.
+Hardy monomial action gives T e_{Mj}=q^j e_{Nj}, including common-divisor reduction and zero constant commutator. The signed diagonal is the difference of two progression Gram diagonals, with shared indices M N ell. Independently checked exact finite rational series trace and squared Hilbert-Schmidt formulas for four reduced pairs; strict decay recovers max(M,N) and sum(M,N) from the two invariants. All-p limit is justified by Riemann sums and beta substitution, not finite truncations.
 
-## Limits and priorities
-Only fixed known damping and fixed integer degrees are considered. Original common divisors and orientation cannot be recovered. The direct coefficient rule and standard Riemann-sum machinery are established mathematics, not independently new. Full text of a 2015 single-symbol Bergman article and a 2012 linear-fractional commutator article was not accessible in this comparison; their available abstracts indicate distinct objects but publication-priority uncertainty remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier monomial papers analyze unweighted unitary types or different mixed-commutator operator; the self-commutator of damped T carries a new pair of inverse numerical invariants and full quasi-Schatten beta limit. Related full Leng/Zhao article was not available; preserve priority risk.
+
+## value
+
+PASS
+
+Exact signed spectrum, two-ideal inverse fingerprint for reduced degrees at fixed damping and beta limit across all p>0 are natural sharp spectral invariants beyond generic Schatten membership.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and limits
 
-The asserted result is proved by exact monomial-basis operator calculations and a controlled Riemann-sum limit. The complete monomial eigenvalue list includes all overlaps; no eigenvalues are inferred from a finite truncation. The trace and Hilbert–Schmidt formulas follow from absolutely convergent geometric sums, and the two-degree recovery relies only on strict monotonicity at known damping. The all-\(p\) limit uses uniform exponential tails and a beta-function substitution for every fixed exponent \(p>0\).
+# Independent mathematical audit
 
-## Reproduce finite diagnostics
+## correctness
 
-Run `python checker.py` using a standard Python 3 installation. Expected final output: `CHECKS_OK 438`. The program independently assembles finite input/output Gram diagonals for a weighted monomial partial permutation, compares them against the proposed spectral formula away from section boundaries, verifies exact ideal identities and trace cancellation over multiple degree pairs, and samples beta-limit convergence for four coprime pairs and five positive exponents.
+PASS
 
-No floating-point diagnostic is used as an infinite-dimensional proof or as a substitute for an exact sum; the script is supplementary. The literature comparison and mathematical correctness have not received independent external validation. The damping parameter must be known for the inverse classification; the original unreduced integer degrees cannot be recovered.
+Hardy monomial action gives T e_{Mj}=q^j e_{Nj}, including common-divisor reduction and zero constant commutator. The signed diagonal is the difference of two progression Gram diagonals, with shared indices M N ell. Independently checked exact finite rational series trace and squared Hilbert-Schmidt formulas for four reduced pairs; strict decay recovers max(M,N) and sum(M,N) from the two invariants. All-p limit is justified by Riemann sums and beta substitution, not finite truncations.
+
+## originality
+
+PASS
+
+Earlier monomial papers analyze unweighted unitary types or different mixed-commutator operator; the self-commutator of damped T carries a new pair of inverse numerical invariants and full quasi-Schatten beta limit. Related full Leng/Zhao article was not available; preserve priority risk.
+
+## value
+
+PASS
+
+Exact signed spectrum, two-ideal inverse fingerprint for reduced degrees at fixed damping and beta limit across all p>0 are natural sharp spectral invariants beyond generic Schatten membership.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
