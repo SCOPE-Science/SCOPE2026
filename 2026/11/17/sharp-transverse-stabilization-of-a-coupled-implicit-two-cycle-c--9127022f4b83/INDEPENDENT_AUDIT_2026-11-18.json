@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T13:55:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Substituting equal deviations delta_0=delta_1=t yields t(b+3t^2+t^4)=0, hence central and ±sqrt(z) with b=-3z-z^2. Explicit next-state matrices B0,B1 and current-state diagonal derivatives give M=B1^-1diag(1,1/3)B0^-1diag(1,1/2), tr M=N(z)/D(z), detM=1/D(z), where D=3(4z^2+5z-1)(8z^2+9z-2), N=(1-3z-4z^2)^2+9z+6. Independently recomputed the two rational identities and factorizations D-N+1=2z(2z+3)(20z^2+21z-10), D+N+1=2(56z^4+126z^3+44z^2-27z+7). Elementary Jury/Schur signs show stability iff z>z*=(sqrt(1241)-21)/40, equivalently b<b*, exclude D zero at z_±. At b=b* one multiplier +1, other 1/D in (0,1). Eliminating y variables yields B(m,d) and H(m,d)=0 for unequal deviations; verified H(sqrt(z*),0)=0 and H_d=6z*>0, H_m=-4z*(21+40z*) nonzero, so the implicit function theorem yields local crossing branches. Independent exact symbolic evaluation gives b*=-1.1936067079963324. No global basin or all-branch census is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A Resultary global-period-four result involves Oliveira alternating scalar implicit cubic dynamics, not the displayed coupled planar two-phase quintic model.",
+          "General Schur/Jury criteria apply to any 2x2 matrix but do not supply B0,B1 or solve this family."
+        ],
+        "reasoning": "Neither a distinct implicit map classification nor generic theory dominates the model-specific threshold and crossing construction.",
+        "searches": [
+          "Oliveira implicit coupled two phase period two cusp Floquet transverse stabilization equal deviations",
+          "Resultary global period-four alternating implicit cubic map"
+        ]
+      },
+      "checked_sources": [
+        "Frozen source RESULT.md, CHECK.py and metadata/review/verification files",
+        "Oliveira arXiv:2611.03336v1 full accessible Section 8.4 and general sections",
+        "Resultary search results for alternating implicit cusp/two-cycle dynamics"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Oliveira establishes local cusp near b=0 and a=0; source proof independently analyzes equal-deviation nonzero t and their two-step return away from the cusp.",
+          "The nonzero attraction transition requires determinant sign changes, Schur polynomial factorization and unequal-deviation IFT at z*."
+        ],
+        "reasoning": "Neither local Lyapunov–Schmidt reduction around the central orbit nor generic multipliers determines the asserted global-in-b stable three-orbit regime.",
+        "searches": [
+          "Oliveira implicit coupled two phase period two cusp Floquet transverse stabilization equal deviations",
+          "Oliveira Section 8.4 equations 106-114 cusp fold and monodromy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Oliveira equations (106)–(108) match the recurrence and (109) describes linearization at the origin at (a,b)=0.",
+          "Local cusp fold formula and simple multiplier +1 at the origin do not equal the separate nonzero amplitude z*=.35569574769 transition at b*=-1.1936067."
+        ],
+        "reasoning": "Model agreement is correctly credited, but original cusp bifurcation is not an equivalent statement of the nonlocal transverse stability threshold.",
+        "searches": [
+          "Oliveira implicit coupled two phase period two cusp Floquet transverse stabilization equal deviations",
+          "Oliveira 2611.03336v1 Section 8.4 equal deviation fold Floquet multiplier b*"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Neither inspected Oliveira §8.4 nor relevant Resultary summaries contain an exact table with z*, b*, and both exceptional z± for this system."
+        ],
+        "reasoning": "Absence of that algebraic number in a search is not proof of novelty; compare the actual equations and branches instead.",
+        "searches": [
+          "Oliveira implicit coupled two phase period two cusp Floquet transverse stabilization equal deviations",
+          "exact b* (419-39 sqrt1241)/800 implicit cusp Oliveira"
+        ]
+      },
+      "rationale": "Oliveira arXiv:2611.03336v1 Section 8.4 defines the exact alternating implicit model and derives local cusp reduction at (a,b)=(0,0), not the finite-amplitude b* transverse Floquet/Jury threshold nor the unequal-deviation branch at it. Published records of other implicit or two-cycle systems are not the same recurrence. The specified model is not new; its exact nonlocal stability classification is the claimed addition.",
+      "residual_risks": [
+        "Implicit relation need not be globally single-valued: proof only concerns local forward branches where next-state Jacobians are invertible.",
+        "No complete unequal-deviation or higher-period solution classification; one different-model published summary was not materially read as a full paper.",
+        "Unindexed analysis of Oliveira’s example could contain the exact nonlocal threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Originating model and local cusp are prior work, but b* and unequal-deviation branch at b* are not supplied in the inspected model analysis.",
+          "evidence": "Source eqs. (106)–(108) define N and F0,F1; eq. (109) gives central monodromy at (a,b)=(0,0) with multipliers 1,1/6.",
+          "identifier_or_url": "https://arxiv.org/html/2611.03336v1",
+          "material_read": "Full open HTML, especially Section 8.4 equations (106)–(114) and local reduced-equation analysis, along with general multiplier sections",
+          "method": "Read public preprint HTML",
+          "title": "Henrique M. Oliveira, Lyapunov–Schmidt reduction for periodic orbits of implicit discrete dynamical systems (arXiv:2611.03336v1)",
+          "trigger": "Exact source of model F0,F1 and possible overriding dynamical classification"
+        },
+        {
+          "assessment": "Different scalar alternating implicit cubic map; cannot claim whole-document noncoverage from summary alone.",
+          "evidence": "Summary describes period-four bistability and critical clock, without a demonstrated reduction to the coupled planar quintic equations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-global-period-four-coexistence-and-a-sharp-critical-clock-in-an--93d0cf91d4a9",
+          "material_read": "Semantic-search title and summary only; full published source not inspected",
+          "method": "Resultary search index contextual comparison",
+          "title": "Global period-four coexistence and a sharp critical clock in an alternating implicit cubic map (published 2026-11-17)",
+          "trigger": "Similar implicit period-two-four dynamics and Oliveira source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The mathematical gap from local cusp existence to exact forward-branch sink stability and multistability is natural and consequential for implicit recurrences. Sharp algebraic threshold and exceptional singular-step parameters give useful rigorous limits for applying conventional Floquet multipliers in multivalued dynamics.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen source RESULT.md, CHECK.py and metadata/review/verification files",
+    "Oliveira arXiv:2611.03336v1 full accessible Section 8.4 and general sections",
+    "Resultary search results for alternating implicit cusp/two-cycle dynamics"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the exact alternating planar implicit two-phase model of Oliveira (2026, Sec. 8.4), zero bias a=0 and b<0 yield three explicit equal-deviation period-two solutions; central is always a local sink, and both nonzero are sinks exactly for b<(419-39sqrt(1241))/800; at threshold a transverse +1 multiplier and unequal-deviation branches occur, aside from two isolated singular-forward-step parameters.",
+  "limitations": [
+    "Best-of-knowledge originality is qualified by specific identified sources and risks; the independent reading is not a universal absence-of-prior-work certificate.",
+    "Exact mathematical source claims and external Lean/expert channels are preserved without fabrication; the indicated publication status is transport/security not mathematical rejection."
+  ],
+  "residual_risks": [
+    "Implicit relation need not be globally single-valued: proof only concerns local forward branches where next-state Jacobians are invertible.",
+    "No complete unequal-deviation or higher-period solution classification; one different-model published summary was not materially read as a full paper.",
+    "Unindexed analysis of Oliveira’s example could contain the exact nonlocal threshold."
+  ],
+  "schema_version": 1
+}
