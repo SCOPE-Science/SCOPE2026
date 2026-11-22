@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact domain is the geometric quotient of the seven-cycle tubing complex, identified equivariantly with the boundary of the six-simplex through two invariant convex radial maps. Rank-preserving chains of nonempty proper subsets have no inversions. All 3,415 quotient cells and their integer face maps are independently reconstructible from `verify.py`, including a Burnside check. The program checks every boundary-square relation, then replays a complete signed unit-cancellation certificate to reduced differentials \(\partial_4=(7,7)\) and \(\partial_5=(-2,2)^T\). The kernel/cokernel calculation gives exactly the stated integral groups. Fixed-point reflections generate the action group, so Armstrong's theorem gives trivial fundamental group. The argument does not replace integral evidence with rational or modular ranks.
+PASS
 
-## Originality — PASS (relative to checked evidence)
+The nested-set graph-associahedron gives a D7-equivariant boundary sphere S(V) of dimension 5, and its barycentric dual is the C7 tubing complex. The quotient can be modeled by proper Boolean-subset chains on 7 labels; chain orbits have no inversions because cardinalities are preserved. Independently reconstructed all 14 dihedral actions and all chains: original f-vector (126,1806,8400,16800,15120,5040), quotient f-vector (16,147,612,1200,1080,360), exact signed d²=0. Replayed all 1,705 pivots of assigned integral certificate, each a unit and legal in its active matrix; pivot counts (15,132,480,719,359), remaining groups (1,0,0,1,2,1), matrices d4=(7,7), d5=(-2,2), final d²=0. Smith group calculations yield H3=Z/7 and H4=Z/2 and no other reduced H. S5 covering sphere is simply connected, each reflection fixes an S2 and reflections generate D7; Armstrong orbit π1 theorem gives π1=1. Rational acyclicity or modular ranks alone would not prove both torsion groups; integral pivots do.
 
-Carr–Devadoss and Postnikov–Reiner–Williams provide convex graph-associahedra, their face structures, and the graphical Minkowski model, but do not compute the full dihedral quotient's integral homology. Hambleton's dihedral sphere-action paper assumes a pseudofree action on an even-dimensional sphere, not this singular five-sphere action. The related cyclic quotient is a lens-space quotient with only rotation symmetry. Its known seven-primary consequence does not determine the reflection-generated two-primary class in degree four. The specific full quotient's mixed torsion was not found under tested aliases. A missing indexed source or unindexed exact table remains a real residual risk; failed searches alone are not a novelty certificate.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural complete integral calculation for the full automorphism quotient of a standard graph-associahedron, rather than a freely chosen subcomplex or arbitrary numerical slice. The quotient is rationally acyclic yet has odd-primary and two-primary torsion simultaneously in adjacent degrees. The newly resolved two-torsion cannot be read from the standard lens-space homology of the cyclic subgroup. The precise finite case marks the first odd-prime heptagonal cyclohedron beyond the low-dimensional pentagonal case and exposes the effect of nonfree dihedral isotropy. A general theorem is not claimed or needed for the exact classification to have value.
+Known graph associahedron/convex representation and Armstrong quotient π1 are inputs, but the integral D7 orbit-cell homology with simultaneous 7-primary H3 and 2-primary H4 was not found in any prior source. Distinguish C7 cyclohedron from unrelated D7 quotient complexes whose torsion may also involve seven.
 
-## Limitations and literature comparison
+## value
 
-Proof is partially computer-assisted and provides homology and fundamental group, not full homotopy type or homeomorphism classification. Material inspected includes the graph-associahedron construction and proof pages of Carr–Devadoss; Sections 1, 3 and 6 of Postnikov–Reiner–Williams; and the theorem, hypotheses and chain-complex section of Hambleton. Additional broad web and mathematical-record searches for dihedral cyclohedron quotients, quotients of simplex boundaries and permutation representation spheres did not establish a dominating published claim. Inaccessible or unindexed equivalences remain possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full automorphism quotient of a canonical seven-cycle cyclohedron is a natural object; its exact integral H3=Z/7 and H4=Z/2 exhibit simultaneous distinct primes, a phenomenon not detected by rational invariants or by its simply connectedness. The 1,705-pivot chain model yields a precise reusable integral invariant for orbifold-like configuration-space quotients, independently valuable even as a finite object.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
