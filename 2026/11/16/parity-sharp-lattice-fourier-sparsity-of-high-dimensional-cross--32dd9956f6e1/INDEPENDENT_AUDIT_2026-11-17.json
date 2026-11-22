@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T07:12:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/16/parity-sharp-lattice-fourier-sparsity-of-high-dimensional-cross--32dd9956f6e1/RESULT.md",
+        "2026/11/16/parity-sharp-lattice-fourier-sparsity-of-high-dimensional-cross--32dd9956f6e1/check.py"
+      ],
+      "rationale": "For fixed d>=5, the radius-Laplace integral factors exactly as 2^d s^(d-1)/prod_j(s^2+(2*pi*k_j)^2). Inversion gives entire confluent divided differences with odd f(y)=y^m sin(sqrt(y))/sqrt(y) and even g(y)=y^(m-1)(cos(sqrt(y))-1). At integer-frequency nodes odd f=0; even g=g' =0, including zero by the m>=3 restriction. The derivative at a positive duplicated odd node is y^(m-1)/2; at a positive tripled even node g''=-y^(m-2)/4. These residues force generic pair/triple nonvanishing, while other supports lie in higher-codimension intersections. Count generic positive-coordinate collisions by sign choices and choose(d,2) or choose(d,3); zero nodes and extra collisions contribute one lower N-power. Independent mpmath confluent-residue comparisons for d=5,6,7,8 matched isolated collision formulas at 20+ relative digits. The code checks finite samples only; the Hermite proof establishes all fixed d.",
+      "residual_risks": [
+        "The transform does not classify all complicated multicollision frequencies; none is required for the asymptotic leading terms.",
+        "Independent high-precision checks do not replace the analytic Laplace/confluent argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Robins develops arbitrary-dimensional polytope Fourier integral formulas; the inspected chapters treat general analytic expressions, not the arithmetic fixed-d N-asymptotics.",
+          "Diaz–Le–Robins develop general Fourier-transform methods for polytopes; no same parity collision-count theorem was established by the inspected material."
+        ],
+        "reasoning": "General transform methods are earlier, but extracting exact nodal derivative multiplicity and leading lattice sparsity is a separate nontrivial arithmetic consequence; this is a priority risk, not evidence of a prior identical theorem.",
+        "searches": [
+          "cross polytope ℓ1 ball lattice Fourier coefficients integer frequencies support parity collision divided differences in dimensions d>=5",
+          "https://arxiv.org/abs/2104.06407",
+          "https://arxiv.org/abs/1602.08593"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2104.06407",
+        "https://arxiv.org/abs/1602.08593",
+        "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-arithmetic-fourier-support-and-three-level-lattice-coverage-of-t--313db71ad1f7",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-octahedral-lattice-fourier-support-and-exact-three-level-coverin--a7565c44edcb",
+        "cross polytope ℓ1 ball lattice Fourier coefficients integer frequencies support parity collision divided differences in dimensions d>=5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 4D and 3D papers imply their individual support cases only.",
+          "The general transform identity needs a separate analysis of high-order confluent nodes and N-dimensional strata to derive the present conclusion."
+        ],
+        "reasoning": "The original theorem follows from its stated Hermite proof, not as a quoted corollary of any inspected prior document; arithmetic novelty remains best-of-knowledge.",
+        "searches": [
+          "https://arxiv.org/abs/2104.06407",
+          "https://arxiv.org/abs/1602.08593",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-arithmetic-fourier-support-and-three-level-lattice-coverage-of-t--313db71ad1f7",
+          "cross polytope ℓ1 ball lattice Fourier coefficients integer frequencies support parity collision divided differences in dimensions d>=5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lattice frequencies are characterized by equal squared nodes y_j=(2*pi*k_j)^2; vanishing is equivalent to confluent divided-difference cancellation.",
+          "Published octahedron d=3 and cross-polytope d=4 support formulas are one-dimension special cases with codimension one/two, respectively."
+        ],
+        "reasoning": "Both small-dimensional results are covered and not claimed novel. They neither establish the uniform d>=5 formulas nor all parity-dependent leading constants; the present theorem proves them by an all-dimensional Hermite argument.",
+        "searches": [
+          "cross polytope ℓ1 ball lattice Fourier coefficients integer frequencies support parity collision divided differences in dimensions d>=5",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-octahedral-lattice-fourier-support-and-exact-three-level-coverin--a7565c44edcb",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-arithmetic-fourier-support-and-three-level-lattice-coverage-of-t--313db71ad1f7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 4D exact support table includes 64N^2-8N+1, which equals the d=4 leading term 2^4*choose(4,3) N^2 but is outside the claim d>=5.",
+          "The 3D octahedral support table similarly treats only one fixed dimension."
+        ],
+        "reasoning": "No all-dimensional parity support/count table was located in the indexed results; an unindexed table remains possible.",
+        "searches": [
+          "cross polytope ℓ1 ball lattice Fourier coefficients integer frequencies support parity collision divided differences in dimensions d>=5",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-arithmetic-fourier-support-and-three-level-lattice-coverage-of-t--313db71ad1f7",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-octahedral-lattice-fourier-support-and-exact-three-level-coverin--a7565c44edcb"
+        ]
+      },
+      "rationale": "Best-of-knowledge: actual proof and cited primary/read indexed comparisons distinguish the specific result from older general tools and different objects; this is not a guarantee of priority.",
+      "residual_risks": [
+        "General polytope-transform literature might have an unindexed arithmetic parity corollary; only relevant accessible sections were read.",
+        "Cross-polytope dimensions 3,4 are known; novelty is limited to d>=5 uniform parity support law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General integral Fourier tools precede the claim, without an explicit all-d fixed-integer lattice support parity count in read material",
+          "evidence": [
+            "Sections 3.10 and 8 cover polytope Fourier methods and examples"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2104.06407",
+          "material_read": "Accessible arXiv full HTML: sections on polytope Fourier transforms and cross-polytope examples; inspected equations and exposition, not every section",
+          "method": "primary full-text page/section inspection",
+          "title": "A friendly introduction to Fourier analysis on polytopes",
+          "trigger": "General arbitrary-dimensional cross-polytope transform could dominate the claim"
+        },
+        {
+          "assessment": "Confirms d=4 triple collision and 64N^2 support; does not reach d>=5",
+          "evidence": [
+            "RESULT.md Section 2 residue calculation and Section 3 support count"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-arithmetic-fourier-support-and-three-level-lattice-coverage-of-t--313db71ad1f7",
+          "material_read": "Full published RESULT.md: finding, Laplace residue table, count and limitations",
+          "method": "full published mathematical RESULT.md",
+          "title": "Arithmetic Fourier support and three-level lattice coverage of the four-dimensional cross-polytope",
+          "trigger": "Exact same object in d=4"
+        },
+        {
+          "assessment": "Same ℓ1 object in one lower dimension only; excerpt not used to rule out general coverage",
+          "evidence": [
+            "Resultary summary explicitly states three-dimensional octahedron support on reflection planes"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-octahedral-lattice-fourier-support-and-exact-three-level-coverin--a7565c44edcb",
+          "material_read": "Published Resultary abstract and linked record identification; detailed full text not inspected",
+          "method": "semantic search result; explicitly limited to indexed summary",
+          "title": "Octahedral lattice Fourier support and exact three-level covering multiplicities",
+          "trigger": "d=3 special case and possible broader pattern"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/16/parity-sharp-lattice-fourier-sparsity-of-high-dimensional-cross--32dd9956f6e1/RESULT.md",
+        "https://arxiv.org/abs/2104.06407",
+        "https://arxiv.org/abs/1602.08593",
+        "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-arithmetic-fourier-support-and-three-level-lattice-coverage-of-t--313db71ad1f7",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-octahedral-lattice-fourier-support-and-exact-three-level-coverin--a7565c44edcb",
+        "cross polytope ℓ1 ball lattice Fourier coefficients integer frequencies support parity collision divided differences in dimensions d>=5"
+      ],
+      "rationale": "A canonical ℓ1 lattice polytope has unexpectedly sparse integer Fourier samples, with an exact parity-driven support-codimension change. The quantified high-d leading constants answer a natural Fourier-sparsity question relevant to lattice periodization and harmonic sampling; they are not just a named substitution of a textbook integral.",
+      "residual_risks": [
+        "No inverse, tiling or frame theorem is claimed; value is the exact asymptotic support structure itself."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The transform does not classify all complicated multicollision frequencies; none is required for the asymptotic leading terms.",
+    "Independent high-precision checks do not replace the analytic Laplace/confluent argument.",
+    "General polytope-transform literature might have an unindexed arithmetic parity corollary; only relevant accessible sections were read.",
+    "Cross-polytope dimensions 3,4 are known; novelty is limited to d>=5 uniform parity support law.",
+    "No inverse, tiling or frame theorem is claimed; value is the exact asymptotic support structure itself."
+  ],
+  "schema_version": 1
+}

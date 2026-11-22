@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The Laplace transform in the cross-polytope radius factorizes into one-dimensional integrals. Exact partial fraction inversion produces confluent divided differences; lattice nodes annihilate the appropriate interpolation data. Direct differentiated residues prove nonzero isolated double/triple collisions, and the remaining lower-dimensional strata contribute only to the stated remainder. The finite precision checker validates representative degrees 3–8 but is not the infinite-dimensional argument.
+## correctness
 
-## Originality
-**PASS with historical-priority risk.** General Fourier transforms of polytopes are standard in the 2016 work of Diaz–Le–Robins and the 2021 monograph of Robins. Explicit integer Fourier support of the octahedron and four-dimensional cross-polytope is also published, and those cases are excluded. Indexed mathematical searches did not locate the joint fixed-dimension, all-\(d\ge5\) parity-support law or its two sharp constants. General formulas may still imply it and two specialized primary full texts could not be obtained. Priority is therefore provisional, not certified.
+PASS
 
-## Value
-**PASS.** The support count answers a motivated Fourier-periodization sparsity question for a canonical polytope. The parity change between codimension-one and codimension-two integer-frequency support is a structural phenomenon across arbitrarily high dimensions. Its coefficients enable optimal leading-order lattice support estimates; no exact finite-box count is claimed.
+For fixed d>=5, the radius-Laplace integral factors exactly as 2^d s^(d-1)/prod_j(s^2+(2*pi*k_j)^2). Inversion gives entire confluent divided differences with odd f(y)=y^m sin(sqrt(y))/sqrt(y) and even g(y)=y^(m-1)(cos(sqrt(y))-1). At integer-frequency nodes odd f=0; even g=g' =0, including zero by the m>=3 restriction. The derivative at a positive duplicated odd node is y^(m-1)/2; at a positive tripled even node g''=-y^(m-2)/4. These residues force generic pair/triple nonvanishing, while other supports lie in higher-codimension intersections. Count generic positive-coordinate collisions by sign choices and choose(d,2) or choose(d,3); zero nodes and extra collisions contribute one lower N-power. Independent mpmath confluent-residue comparisons for d=5,6,7,8 matched isolated collision formulas at 20+ relative digits. The code checks finite samples only; the Hermite proof establishes all fixed d.
 
-## Closest literature and limitations
-See RESULT.md references. The theorem does not describe all multi-collision frequency values. No independent mathematical validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: actual proof and cited primary/read indexed comparisons distinguish the specific result from older general tools and different objects; this is not a guarantee of priority.
+
+## value
+
+PASS
+
+A canonical ℓ1 lattice polytope has unexpectedly sparse integer Fourier samples, with an exact parity-driven support-codimension change. The quantified high-d leading constants answer a natural Fourier-sparsity question relevant to lattice periodization and harmonic sampling; they are not just a named substitution of a textbook integral.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
