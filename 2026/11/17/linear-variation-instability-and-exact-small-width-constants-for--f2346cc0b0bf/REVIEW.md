@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claimed data-to-fit norm is well-defined because translation equivariance annihilates constant perturbations. Every linear Jacobian is arithmetic averaging over an active connected-block face; each acyclic quotient partition is genuinely realizable with strict fit gaps and positive active KKT multipliers. The finite enumeration is exhaustive by spanning-forest generation and directed-quotient acyclicity; the coarea reduction turns binary-cut enumeration into a rigorous norm computation. The packaged code checks all comparisons in integer arithmetic and finds exact attaining masks. Separately derived general-width upper and lower bounds establish genuine linear growth, not just a numerical pattern.
+## correctness
 
-**Originality — PASS, with qualified historical priority.** The closest published cycle-cover isotonic theorem includes the four-vertex square, so its coefficient one is prior coverage, not claimed original. It cannot cover the multi-cycle Hasse ladders of at least three columns. The all-poset \(\ell_p\) result addresses vertex-coordinate norms, not edge BV; the 2015 matrix-isotonic risk paper concerns statistical squared-error risk rather than two-input variation gain. Searches of claim aliases, finite tables, graph dual descriptions and related exact norms did not reveal a covering result. Older unindexed book literature remains a residual risk; negative searches alone are not a priority proof.
+PASS
 
-**Mathematical value — PASS.** The dimension-two-to-six profile and, more importantly, the all-width \(\Theta(k)\) law explain a natural amplification mechanism in the smallest nontrivial multi-cycle rectangular isotonic grid. Fixed Hilbert-space nonexpansivity does not supply graph-variation stability. Explicit pooling faces provide sharp small cases and show why the instability scales linearly with grid length; this is a motivated geometric classification, not an arbitrary numerical slice.
+Euclidean isotonic projection is continuous piecewise linear; every locally realizable active pattern pools connected tight blocks, and a block partition is feasible when its contracted directed quotient is acyclic, using positive relative-interior normal multipliers. This gives exact maximum over block-averaging Jacobians. The graph-variation coarea formula reduces each averaging-operator norm to binary cuts. Inspected actual verify_ladder.py and independently enumerated all feasible partitions/cuts with exact integer arithmetic: for k=2,3,4 there are respectively 10,52,272 partitions and 140,3224,69088 tests; for k=5,6 independently replayed 1424 and 7456 partitions, 1455328 and 30524864 cut tests, maxima respectively 19/10 and 9/4 with explicit equality masks. Combined constants are (1,4/3,3/2,19/10,9/4). For arbitrary k, top-row pooled local face with simultaneous binary step gives ratio 1/2+floor(k²/4)/k; order-preserving and translation-equivariant projection bounds each output edge difference by input oscillation and hence by graph variation, giving C_k≤3k−2. Therefore Θ(k), no exact k≥7 claimed.
 
-The exact finite constants are limited to widths two through six; the asymptotic result is order of growth only. The coefficient for a single square was already known from a cyclic-cover theorem, and the present novelty does not include it. Full-text comparisons were completed for closely matching accessible original publications, but unindexed historical variants remain possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality for the final precise statement, after a direct implication comparison of published SCOPE/Resultary records and primary literature; see four named checks and actual material read. Read full RESULT.md: sharp C2=1 is covered by its entire-Hasse-undirected-cycle case. Ladders with k≥3 contain multiple square cycles and do not have entire Hasse graph a cycle, so its contractivity theorem cannot imply the 4/3,3/2,19/10,9/4 or linear-width instability. The present result correctly includes but does not claim novelty for k=2.
+
+## value
+
+PASS
+
+The first strict loss of graph-edge variation nonexpansivity occurs in a minimal natural family of multidimensional isotonic grids, and the first five sharp coefficients plus explicit linear growth supply exact stability data beyond Euclidean nonexpansivity. This is a motivated finite natural classification and an infinite-width structural instability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
