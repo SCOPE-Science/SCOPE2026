@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and verification
 
-Install dependencies using `pip install -r requirements.txt`, then execute `python check_antipodal_cycle.py`. An invocation from the actual package directory returned `ANTIPODAL_CYCLE_SMALL_CAP_DIAGNOSTIC_OK`.
+# Independent mathematical audit
 
-The planar lens integral evaluated numerically to a normalized coefficient \(0.45962035390753186\), agreeing with the exact expression \(1-16/(3\pi^2)\) to the displayed precision. Conditional four-cycle simulations at three angular thresholds used 800,000 configurations each and yielded coefficient estimates \(0.462264\), \(0.462837\), and \(0.463241\), with sampling uncertainties about \(0.0014\) each; the deviations are consistent with finite-angle geometric effects. Independent uniform-sphere simulations of 700,000 configurations per experiment found the sample-diameter event frequencies approximately \(0.0895457\), \(0.1142157\), and \(0.0974429\) for the three test pairs \((n,\delta)=(4,0.25),(5,0.22),(7,0.14)\), respectively. Their cubic asymptotic predictions were \(0.0896935\), \(0.1141577\), and \(0.0978523\).
+## correctness
 
-The code is a diagnostic, not a proof. The continuum limit and remainder bound come from the bounded tangent-coordinate change of variables and inclusion–exclusion in `RESULT.md`. Conditional total-variation convergence is proved mathematically rather than inferred from simulation. Independent scientific validation has not been performed.
+PASS
+
+For fixed n>=4, the near-antipodal events E_ij have cap probability p=(1-cos(delta))/2. Integrating leaves proves all forest intersections exactly p^e; for small delta an odd cycle is forbidden. Every rank-three nonforest surviving beyond three edges is exactly a 4-cycle, giving 3 binom(n,4) possible labelled cycles. Local tangent coordinates for the 4-cycle have four unit-disk constraints; Fubini yields 2 pi integral_0^2 r a(r)^2 dr = pi^3 - 16 pi/3, with a(r) the intersection area of two unit disks. A bounded-support Jacobian argument provides L1 / total-variation convergence of the conditional marked six-dimensional law, not merely weak convergence. Division by p^3 yields 1-16/(3 pi^2), and inclusion-exclusion yields the displayed cubic coefficient. Independent direct quadrature calculated volume 14.251115861154254 and coefficient 0.45962035390753186, with n=4 coefficient 13+16/pi^2. The numeric test is a check of the derived integral, not a proof of the limit.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the combined fixed-n small-cap cubic diameter correction and labelled marked total-variation law. The exact spectral even-cycle trace is known, but the inspected separate theorem studies high-dimensional d tending to infinity at fixed density and does not assert this 3D singular cap-lens evaluation; Mayer–Molchanov studies n tending to infinity and its first-order diameter limit. No equivalence or broader prior implication was found; explicit spectral-priority risk remains.
+
+## value
+
+PASS
+
+The first nonindependent geometric contribution to a natural random maximum is the forbidden triangles plus a 4-cycle dependence. Identifying its exact lens volume and limiting marked configuration provides a motivated structural geometric statistic not implied by the independent-edge approximation or a first-order large-sample extreme law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

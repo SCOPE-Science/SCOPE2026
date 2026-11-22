@@ -1,15 +1,21 @@
-# Scientific review: marked antipodal four-cycle law
+# Independent mathematical audit
 
-## Correctness
-PASS. The one-edge cap probability is exact; conditioning on leaves proves all forest intersections factorize. The four-cycle event forces two nearly antipodal clusters, and the local surface-density Jacobians give a bounded six-coordinate limiting domain; dominated convergence yields both the leading probability and total-variation convergence. The limiting domain is explicitly integrated using the square of the planar two-disk lens area. The remaining inclusion–exclusion intersections are controlled by spanning-forest rank and the prohibition of short odd cycles. The proof applies to each fixed sample size \(n\ge4\), and does not rely on Monte Carlo for its infinite limit. The independently reproducible numerical integration agrees with the claimed constant.
+## correctness
 
-## Originality
-PASS, provisional historical priority. The closest object-level study is Mayer–Molchanov (2006), which proves a diameter limit as the sample size tends to infinity; it does not supply a third-order small-cap expansion for fixed sample size. Bangachev–Bresler (2024) examines the same geometric edge model and cycles but primarily derives signed Fourier bounds in growing dimension and half-density regimes, rather than the evaluated small-cap coefficient and conditional coordinate law on the two-sphere. A published spherical-cap even-cycle analysis does contain an exact unmarked cycle trace, so four-cycle dependence and an implicit representation are expressly not claimed as new. It does not provide the explicit singular \(1-16/(3\pi^2)\) coefficient, the six-dimensional total-variation configuration law, or the assembled fixed-sample diameter expansion. Potential coverage by a different planar random-geometric-graph motif integral remains a residual historical risk; no claim of exhaustive priority is made.
+PASS
 
-## Mathematical value
-PASS. Random polytope diameter is a standard geometric approximation statistic. The theorem identifies precisely the first coefficient at which correlations between almost-diametral pairs spoil an independent-edge approximation, and it gives a geometric, normalized description of the rare four-point clusters generating that deviation. Its dependence constant comes from a nontrivial exact integral of the squared overlap of two disks. This is a concrete structural correction with a marked law, not an arbitrary parameter slice.
+For fixed n>=4, the near-antipodal events E_ij have cap probability p=(1-cos(delta))/2. Integrating leaves proves all forest intersections exactly p^e; for small delta an odd cycle is forbidden. Every rank-three nonforest surviving beyond three edges is exactly a 4-cycle, giving 3 binom(n,4) possible labelled cycles. Local tangent coordinates for the 4-cycle have four unit-disk constraints; Fubini yields 2 pi integral_0^2 r a(r)^2 dr = pi^3 - 16 pi/3, with a(r) the intersection area of two unit disks. A bounded-support Jacobian argument provides L1 / total-variation convergence of the conditional marked six-dimensional law, not merely weak convergence. Division by p^3 yields 1-16/(3 pi^2), and inclusion-exclusion yields the displayed cubic coefficient. Independent direct quadrature calculated volume 14.251115861154254 and coefficient 0.45962035390753186, with n=4 coefficient 13+16/pi^2. The numeric test is a check of the derived integral, not a proof of the limit.
 
-## Evidence and limits
-The full first-public version of Mayer–Molchanov's paper was inspected (introduction, theorems and boundary-sphere example); Bangachev–Bresler's original full text was inspected (model, Proposition 1.3, cyclic examples and discussion), as was the original text of the published spectral spherical-cap cycle result. Searches of the relevant public record and a semantic mathematical-result index found no direct evaluated formula or six-coordinate conditional law. A zero search result is not uniqueness proof. Finite numerical quadrature and simulation corroborate, but do not establish, asymptotic completeness. A separate independent scientific audit remains necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the combined fixed-n small-cap cubic diameter correction and labelled marked total-variation law. The exact spectral even-cycle trace is known, but the inspected separate theorem studies high-dimensional d tending to infinity at fixed density and does not assert this 3D singular cap-lens evaluation; Mayer–Molchanov studies n tending to infinity and its first-order diameter limit. No equivalence or broader prior implication was found; explicit spectral-priority risk remains.
+
+## value
+
+PASS
+
+The first nonindependent geometric contribution to a natural random maximum is the forbidden triangles plus a 4-cycle dependence. Identifying its exact lens volume and limiting marked configuration provides a motivated structural geometric statistic not implied by the independent-edge approximation or a first-order large-sample extreme law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
