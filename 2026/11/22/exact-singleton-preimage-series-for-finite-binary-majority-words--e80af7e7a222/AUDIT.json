@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Each output word maps to a unique path-prefix counting vector in a four-state de Bruijn graph. Saturation at two preserves exactly the zero/one/multiple distinction, so the deterministic language accepts precisely singleton-predecessor outputs. The complete reachable saturated graph has thirty states and four accepting states. From that graph an exact integer whole-vector identity (T^9-T^8-T^7+T^6-2T^4-T^3-T-I)f=-2e0 and the fact Te0=0 imply the all-length recurrence. Ten directly evaluated coefficients fix the rational generating function. The standalone verify.py was executed from its actual final package path; its exact graph, identity and generating series checks passed, as did independent direct enumeration for output lengths 1 through 13. No infinite claim relies on those finite examples alone.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "First-image shift study (2026), complete result: https://github.com/published-finding corpus/2026/blob/main/2026/10/26/SCOPE-the-exact-first-image-subshift-and-entropy-of-binary-majority-ce--9a5867630f75/RESULT.md: its stated scope explicitly excludes preimage multiplicities.",
+        "Biehl and Witkowski (2021): https://doi.org/10.1155/2021/7501405: counts environment-induced transformation functions.",
+        "Salo (2022): https://arxiv.org/abs/2209.13373: generalized inverse of shift maps, not a finite singleton-output census."
+      ],
+      "reasoning": "The image shift counts all attainable outputs, which combines singleton and multiple-predecessor fibers, and therefore cannot recover the singleton series without additional information. The transformation-function and generalized-inverse invariants address different quantifiers and boundaries.",
+      "searches": [
+        "\"majority\" \"unique predecessor\" one dimensional cellular automata words",
+        "2026/10/26/SCOPE-the-exact-first-image-subshift-and-entropy-of-binary-majority-ce--9a5867630f75",
+        "rational generating function words with a unique preimage under cellular automata majority 232"
+      ]
+    },
+    "checked_sources": [
+      "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+      "https://doi.org/10.1155/2021/7501405",
+      "https://arxiv.org/abs/2209.13373",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/26/SCOPE-the-exact-first-image-subshift-and-entropy-of-binary-majority-ce--9a5867630f75/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-cyclic-image-counts-and-spectral-growth-for-elementary-maj--da4a182e6a5a/RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jen pp. 441–442 https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf permits calculation of a single N(S) via nonconstant-block recurrences.",
+        "Image-shift result https://github.com/published-finding corpus/2026/blob/main/2026/10/26/SCOPE-the-exact-first-image-subshift-and-entropy-of-binary-majority-ce--9a5867630f75/RESULT.md and cyclic result https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-cyclic-image-counts-and-spectral-growth-for-elementary-maj--da4a182e6a5a/RESULT.md explicitly omit inverse-multiplicity enumeration."
+      ],
+      "reasoning": "Applying an explicit formula for each fixed output in an exponential sum is algorithmically possible, but neither a direct evaluated closed recurrence nor the claimed rational generating function follows as a stated corollary of the inspected results. The finite saturated-count transfer graph plus global vector polynomial supplies the additional all-length summation theorem. The closest prior literature remains a meaningful originality risk rather than a claim of independence.",
+      "searches": [
+        "rule 232 preimage counts Jen 1989 equation 4.19",
+        "2026/11/8/SCOPE-exact-cyclic-image-counts-and-spectral-growth-for-elementary-maj--da4a182e6a5a",
+        "exact number of binary radius-one majority sliding-window outputs and uniquely invertible finite boundary words"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jen (1989), §4 Case e, pp. 441–442: https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf: pointwise preimage recurrence for any output string.",
+        "Cyclic image enumeration (2026), complete finding/proof: https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-cyclic-image-counts-and-spectral-growth-for-elementary-maj--da4a182e6a5a/RESULT.md: counts outputs having at least one periodic-ring predecessor, not singleton linear preimages."
+      ],
+      "reasoning": "Reversal or bit complementation preserves the singleton count but does not identify it with a known cyclic or output-image count. Jen's pointwise recurrence computes an arbitrary given fiber but does not evaluate the sum of equality-to-one indicators over all fixed-length outputs. The cyclic model imposes wraparound constraints absent from the claimed domain.",
+      "searches": [
+        "\"Rule 232\" \"unique preimage\" generating function finite output words",
+        "majority Rule 232 one-to-one preimage singleton output word count ordinary nonperiodic boundary exact 30 state",
+        "2026/11/8/SCOPE-exact-cyclic-image-counts-and-spectral-growth-for-elementary-maj--da4a182e6a5a"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Jen (1989), formula (4.19), https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf: handles individual target words; not an evaluated length-indexed singleton table.",
+        "First-image exact block counts (2026), https://github.com/published-finding corpus/2026/blob/main/2026/10/26/SCOPE-the-exact-first-image-subshift-and-entropy-of-binary-majority-ce--9a5867630f75/RESULT.md: counts are 1,2,4,8,16,28,... for image membership, not 0,0,2,8,8,... singletons."
+      ],
+      "reasoning": "The specific singleton sequence and rational series were not matched by the scientific exact-result searches. Finite output-word tables or pointwise N(S) functions, where available, do not provide the proved degree-nine recurrence over all output lengths.",
+      "searches": [
+        "\"Rule 232\" \"one preimage\" output count sequence",
+        "one predecessor finite binary majority cellular automaton 232 generating function 0 0 0 2 8 8 14 16",
+        "finite majority sliding map unique predecessor 2 8 8 14 16 24 42"
+      ]
+    },
+    "rationale": "The checked scientific literature establishes the local rule, pointwise preimage counting, and the obtainable-output images under linear and cyclic boundaries; it does not supply the global all-length number of finite noncyclic outputs with exactly one input. The new closed rational series requires a simultaneous thresholded census across all outputs, not merely evaluation of the pointwise formulas at a selected string. Residual risk of an unindexed equivalent aggregated calculation remains.",
+    "residual_risks": [
+      "Jen (1989) has pointwise preimage formulas that might support a previously unnoticed singleton-count corollary elsewhere in the literature.",
+      "The arXiv/HTML and public code search cannot exclude unindexed exact one-step majority predecessor-count tables.",
+      "Finite complete-path transfer computation has reproducible exact code but no independent human or formal-system audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Pointwise all-output preimage recurrence; no global singleton target generating series found in inspected material",
+        "evidence": "Rule table (4.16), recurrences (4.17)–(4.19), de Bruijn graph discussion on pp. 441–442",
+        "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+        "material_read": "Abstract, general §2 framework, §4 Case e and equation (4.19) on published pp. 441–442, inspected in rendered page images",
+        "method": "full primary PDF text plus page-image inspection",
+        "title": "Enumeration of Preimages in Cellular Automata",
+        "trigger": "Exact predecessor counts for the identical majority Rule 232"
+      },
+      {
+        "assessment": "Different transformation-function invariant; no singleton predecessor series",
+        "evidence": "First published 2021-06-29; rule 232 appears in the reported family of analyzed automata",
+        "identifier_or_url": "https://doi.org/10.1155/2021/7501405",
+        "material_read": "Research question, abstract, introduction §§1.1–1.2, methods and the Rule-232 classification in the accessible full-text article",
+        "method": "open-access primary HTML inspection",
+        "title": "Investigating Transformational Complexity: Counting Functions a Region Induces on Another in Elementary Cellular Automata",
+        "trigger": "Guiding 2021 work on finite-region information transformations"
+      },
+      {
+        "assessment": "Classifies weak generalized inverses of shift maps, not finite nonperiodic singleton-preimage counts",
+        "evidence": "arXiv first version dated 2022-09-27; §2 explicitly distinguishes bi-infinite shift maps from finite block representations",
+        "identifier_or_url": "https://arxiv.org/abs/2209.13373",
+        "material_read": "Abstract, introduction and §2 definitions/de Bruijn framework; Rule 232 exact spectrum not identified",
+        "method": "arXiv full-text HTML section inspection",
+        "title": "On von Neumann regularity of cellular automata",
+        "trigger": "Related generalized-inverse notion that might dominate finite reconstruction"
+      },
+      {
+        "assessment": "Covers all attainable noncyclic blocks but expressly not their predecessor multiplicities",
+        "evidence": "Assumptions and scope explicitly excludes number of preimages; exact first-image rational block-count series given",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/26/SCOPE-the-exact-first-image-subshift-and-entropy-of-binary-majority-ce--9a5867630f75/RESULT.md",
+        "material_read": "Entire published RESULT.md, including finding, assumptions, proof, verification, prior work, limitations and references",
+        "method": "public primary full-text file inspection",
+        "title": "The exact first-image subshift and entropy of binary majority cellular automaton",
+        "trigger": "Identical local rule, strongest nearby known output-language classification"
+      },
+      {
+        "assessment": "Counts distinct cyclic image labels, not finite open-boundary singleton fibers",
+        "evidence": "Limitations expressly exclude distribution of inverse-fiber sizes",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-cyclic-image-counts-and-spectral-growth-for-elementary-maj--da4a182e6a5a/RESULT.md",
+        "material_read": "Entire published RESULT.md, including boundary conditions, full proof and limitations",
+        "method": "public primary full-text file inspection",
+        "title": "Exact cyclic image counts and spectral growth for elementary majority cellular automaton Rule 232",
+        "trigger": "Identical local rule under periodic boundaries"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e80af7e7-a222-4223-9361-074dd47ee273",
+  "value": {
+    "rationale": "A finite output with one predecessor is an intrinsically motivated exact reconstruction event, not an arbitrary slice of a table. The theorem gives the full all-length singleton population of the well-studied nonlinear binary majority local rule, including a degree-nine rational series and recurrence and a concise reproducible thirty-state mechanism. Attainable-output counts in earlier image studies do not answer this more discriminating invertibility question; the exact spectrum makes a natural addition to finite preimage and zero-error sensor reconstruction theory. It is not asserted to be a new general preimage-count algorithm.",
+    "status": "PASS"
+  }
+}

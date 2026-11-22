@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** For the exact finite noncyclic majority map, the predecessor dynamic program counts all length-\(m+2\) input words. Saturation at two preserves whether the count is exactly one. The attached Python program reconstructs thirty reachable saturated states, four accepting states, and verifies \((T^9-T^8-T^7+T^6-2T^4-T^3-T-I)f=-2e_0\) by exact integer arithmetic, with no return into the initial state. Thus the recurrence and rational series hold at every positive output length; brute-force checks for lengths one through thirteen provide a separate finite check. A weakness is the absence of an independent human proof review of the computer-enumerated matrix identity.
+
+**Originality: PASS, qualified.** Jen's 1989 full text supplies predecessor recurrences for each Rule-232 target, but the inspected sections do not sum the indicator of exactly one predecessor over all length-\(m\) targets. The 2026 first-image and cyclic-image studies count targets with at least one predecessor under their respective boundary conditions, not the singleton target count. The 2021 transformation-complexity and 2022 generalized-inverse studies ask different questions. The new closed rational spectrum is not an immediate corollary of those evaluated formulas. Unindexed equivalent counting results remain possible; pointwise preimage formulas furnish relevant prior general machinery.
+
+**Value: PASS.** Unique inversion of an observed finite output is a natural one-step reconstruction property, distinct from mere attainability. An exact nine-term recurrence, a rational series, and a finite-state recognition mechanism give the complete count for every length, rather than a table of examples. This quantifies the distribution of uniquely reversible outputs for the majority local rule and complements known image-language results.
+
+**Closest literature and limitations.** Jen (1989, pp. 441–442), Biehl–Witkowski (2021), Salo (2022), and the two 2026 majority-image studies are the closest inspected sources. The theorem assumes free linear boundaries, not cyclic rings. It is about one update and singleton inverse fibers only. Priority is not independently certified.
+
+Self-review: passed. Independent audit: not yet performed.
