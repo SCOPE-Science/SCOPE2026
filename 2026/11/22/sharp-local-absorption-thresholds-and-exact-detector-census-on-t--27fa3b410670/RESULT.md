@@ -1,0 +1,41 @@
+# Sharp local-absorption thresholds and exact detector census on the Heawood quantum network
+
+## Finding
+The coherent continuous-time quantum walk on the fourteen-vertex Heawood graph, with any nonempty set of strictly positive local absorbing losses, has an exact absorption rank controlled by a seven-dimensional Fano incidence test. Six detectors are necessary and sufficient for complete eventual absorption from **every** initial state, but **nine** detectors are necessary and sufficient for *every placement* of that many detectors to work. Exactly \(1,890\) of the \(\binom{14}{6}=3,003\) six-detector placements give complete capture. Exactly \(42\) of the \(\binom{14}{8}=3,003\) eight-detector placements fail, each because its unmonitored complement supports a two-point or two-line dipole. The absorption results are independent of the positive loss strengths.
+
+## Assumptions and scope
+Label Fano points and lines by \(\mathbb Z_7\), with lines \(L_j=\{j,j+1,j+3\}\pmod 7\). Put \(B_{pj}=1\) for \(p\in L_j\), otherwise zero. The real symmetric Heawood adjacency is \(A=\begin{psmallmatrix}0&B\\B^{\mathsf T}&0\end{psmallmatrix}\), acting on the complex Hilbert space of seven point and seven line sites. For every nonempty subset \(S\) of these sites and arbitrary independent loss rates \(\kappa_s>0\), let \(H=A-i\sum_{s\in S}\kappa_s|s\rangle\langle s|\). Absorption probability means the total norm lost as \(t\to\infty\) under \(e^{-itH}\), and 'complete capture' means that this probability is one for every unit initial vector. Define \(P=S\cap\{\text{points}\}\) and \(Q=S\cap\{\text{lines}\}\), and form the \(7\)-row matrix \(M(S)=[\mathbf1_7\mid(e_p)_{p\in P}\mid (Be_j)_{j\in Q}]\). All claims below concern arbitrary \(S\) and strictly positive losses, with exact census numbers for labelled placement sets.
+
+## Proof
+**Spectral reduction.** Fano incidence has \(BB^{\mathsf T}=B^{\mathsf T}B=2I+J\) and \(B\mathbf1=3\mathbf1\). Thus the adjacency eigenvalues are \(\pm3\), each simple, and \(\pm\sqrt2\), each of multiplicity six. For each \(x\perp\mathbf1\), the vectors \((x,\pm B^{\mathsf T}x/\sqrt2)\) are in the corresponding \(\pm\sqrt2\) eigenspaces. They vanish on every detector precisely when \(x_p=0\) for selected point sites and \((B^{\mathsf T}x)_j=0\) for selected line sites. The \(\pm3\) eigenvectors are nonzero at every site. Therefore both lower eigenspaces have detector-dark dimension \(7-\operatorname{rank}M(S)\), and the exact bright dimension and completely mixed capture fraction are
+\[
+\dim\mathcal B(S)=2\operatorname{rank}M(S),\qquad \Pr_{I/14}(\text{capture})=\frac{\operatorname{rank}M(S)}7.
+\]
+The loss-independent characterization follows from \(\frac d{dt}\|\psi_t\|^2=-2\sum_{s\in S}\kappa_s|\psi_t(s)|^2\): any nondecaying eigenvector of the dissipative finite matrix must vanish at all positive-rate detectors, so must be an undamped adjacency eigenvector. The Hermitian orthogonal complement of the maximal dark invariant space decays completely. Hence no nonzero detector-dark direction exists exactly when \(\operatorname{rank}M(S)=7\).
+
+**Six versus nine.** Since the \(+\sqrt2\) eigenspace has dimension six, fewer than six scalar detector conditions cannot eliminate it. Six detected point sites produce seven linearly independent columns with \(\mathbf1\), establishing attainability. For the universal threshold let \(x\ne0\) with \(\mathbf1^{\mathsf T}x=0\), and write \(y=B^{\mathsf T}x\). Because \(B\) is invertible and \(\mathbf1^{\mathsf T}y=0\), each of \(x,y\) has at least two nonzero coordinates. If \(x\) has support two, then \(x=c(e_a-e_b)\), and the two distinct Fano points are distinguished by exactly four lines, so \(y\) has support four. If \(x\) has support three, the three points are either collinear (six affected lines) or noncollinear (three pair lines and three singleton lines), and in either case \(y\) has support at least three. If \(x\) has support four, support of \(y\) is at least two; equality forces \(y=c(e_j-e_k)\) and \(x=\frac c2 B(e_j-e_k)\), whose point support is exactly four. If support of \(x\) is five or more, the sum of supports is at least seven. Consequently
+\[
+|\operatorname{supp}(x)|+|\operatorname{supp}(B^{\mathsf T}x)|\ge6,
+\]
+with equality only for the \(21\) point differences and \(21\) line differences, up to nonzero scaling. Every dark eigenvector consequently needs at least six unmonitored sites. All nine-detector placements (five unmonitored) therefore absorb completely. At eight detectors, exactly \(42\) complements of six-support differences fail. Their pairwise distinctness follows from their different distinguished same-part pairs.
+
+**Exact six-detector classification.** The finite six-site rank test \(M(S)\) is exhaustive and reproducible by the companion `verify_heawood.py`. For each number \(k\in\{0,1,2,3,4,5,6\}\) of selected point detectors, the counts with ranks \(5,6,7\) respectively are
+\[
+(0,0,7),(0,63,84),(0,315,420),(21,336,868),
+(0,315,420),(0,63,84),(0,0,7).
+\]
+These yield \(21\) ten-bright-dimensional, \(1,092\) twelve-bright-dimensional, and \(1,890\) fourteen-bright-dimensional configurations. Each of the \(21\) rank-five arrangements consists of three selected collinear points and the pencil of all three lines through one of those points. For \(7\) detectors, rank six and seven occur \(336\) and \(3,096\) times; for \(8\), \(42\) and \(2,961\); all \(2,002\) nine-detector placements have rank seven. The exact finite calculation proves the claimed six-site counts; it is not being used to extrapolate to unbounded graph families.
+
+## Verification
+Run `python3 verify_heawood.py` using Python 3 standard library, with the script supplied alongside this document. The script constructs all \(\binom{14}{6}=3,003\) six-site subsets, calculates each rank independently by exact rational elimination and finite-field elimination, checks the complete three-rank census and the \(21\) special flag placements, then examines all seven-, eight-, and nine-site placement sets and the \(42\) predicted dipole complements. The finite-field check is rigorous: every square minor is bounded in absolute value by \(\sqrt7(\sqrt3)^6<101\) via Hadamard's inequality, so reduction modulo \(101\) cannot conceal a nonzero rational determinant. The program reports `HEAWOOD_EXACT_CENSUS_PASSED` and `HEAWOOD_SHARP_UNIVERSAL_NINE_THRESHOLD_AND_42_DIPOLES_PASSED`.
+
+## Relationship to prior work
+The connection between dark adjacency eigenvectors, sink losses, and quantum-walk transport is established background. Varbanov, Krovi and Brun (2008) develop continuous quantum-walk detection; Caruso and collaborators (2009) study quantum transport and dark-state effects; and Razzoli, Paris and Bordone (2021) describe single-target continuous-time quantum-walk transport efficiency and its spectral/Krylov reduction. The finding here is the Heawood/Fano-specific exact detector placement and robustness classification, not the general absorption principle. Investigations of affine-plane incidence-network sinks, Heawood zero-forcing codes, and Heawood locating-dominating codes address different objects or predicates and are not sufficient to imply these exact quantum absorption counts.
+
+## Limitations
+All quantum dynamics are coherent continuous-time adjacency walks with diagonal irreversible losses. Loss rates must be strictly positive, and all site labels are distinct. This is a finite graph classification; it does not imply a universal nine-detector threshold for general finite projective-plane incidence networks or arbitrary graph Hamiltonians. No optimal absorption-time or finite-time claim is made. Comprehensive historical-priority verification and independent scientific validation remain outstanding.
+
+## References
+- Varbanov, Krovi and Brun, *Hitting time for the continuous quantum walk*, first posted 2008-03-24, https://arxiv.org/abs/0803.3446 .
+- Caruso and collaborators, *Highly efficient energy excitation transfer in light-harvesting complexes: The fundamental role of noise-assisted transport*, first posted 2009-01-28, https://arxiv.org/abs/0901.4454 .
+- Razzoli, Paris and Bordone, *Transport Efficiency of Continuous-Time Quantum Walks on Graphs*, Entropy 23 (2021), 85, https://doi.org/10.3390/e23010085 .
