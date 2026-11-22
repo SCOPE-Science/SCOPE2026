@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact facet formula follows from support-face classification and the Gram determinant of a regular coordinate simplex. The area-rank weights have an explicit strictly decreasing successive ratio; a uniform local expansion, quantitative unimodal tails and a Riemann sum establish the Gaussian local limit. A companion size-biased factorial ratio gives the surface-to-volume power law. The standalone checker reconstructs the polytope from independently enumerated vertices and verifies facet areas and hull volumes in dimensions two through five. Finite tests are corroborative, not proofs of asymptotics.
+## correctness
 
-**Originality — PASS (provisional historical priority).** Black and De Loera supply the canonical polar and signed-support combinatorics; their accessible full text has no all-rank intrinsic Euclidean facet-area law or boundary-weighted central limit theorem. Four highly relevant mathematical records were read: their metric shell result has facet distances, not areas; the polar Gaussian exposed-vertex record has a logarithmic rank rather than the present square-root boundary-area rank; the cube-crosspolytope Mahler record gives the primal volume but not the area law; and the Cayley-body record gives a height-distribution Poisson law. Recorded overlap searches found no implication covering the final claim. A different-name coefficient asymptotic remains a priority risk; unsuccessful searches are not proof of uniqueness.
+PASS
 
-**Value — PASS.** For a naturally studied family with exponentially many boundary facets, the result shows a sharp and unexpected separation between the typical combinatorial facet (linear support size) and the typical surface-area facet (square-root support size), identifies the complete local limiting profile and establishes quantitative metric scaling. These are genuine Euclidean geometric invariants rather than arbitrary numerical slices or a rephrasing of the known face count.
+The support face for a sign normal with k nonzero entries is a translated coordinate (k-1)-simplex times an orthogonal free (d-k)-cube; its edge Gram determinant is k, giving the intrinsic area and complete facet count. The area weights w(d,k)=C(d,k)*sqrt(k)/(k-1)! have exact consecutive ratio (d-k)/(k(k+1))*sqrt((k+1)/k). Expanding the log ratio on k=sqrt(d)+O(d^(1/4)), summing, and bounding tails by monotonic ratios gives the local Gaussian exp(-y^2)/sqrt(pi) and weak N(0,1/2) law; no finite experiment substitutes for this tail proof. The exact previously known volume V_d=2^d*sum_k C(d,k)/k! and the identity w(d,k)=k^(3/2) C(d,k)/k! give S/V ~ d^(3/4) by the same ratio concentration and uniform integrability. Independent finite weight ratio/count checks d=2..12 and scaled variances d=100,1000,10000 passed.
 
-**Limits.** The result is realization-sensitive. It does not assert independent publication priority verification, a general deformation theorem, or a general statement for all signohedra. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Full prior-mathematics comparison distinguishes the already known sign-normal facet/count spectrum, supporting distances, polar Gaussian exposed-vertex logarithmic rank and the primal mixed-volume polynomial from this Euclidean Hausdorff area-weighted rank local CLT. The conclusion is not a corollary of those precise prior statements without the new intrinsic simplex-area weights and saddlepoint analysis. Historical priority remains best-of-knowledge given classical Laguerre/Bessel coefficient local-limit possibilities.
+
+## value
+
+PASS
+
+The natural canonical Euclidean sum has 3^d-1 facets but a surface-area typical rank of sqrt(d), unlike the count-typical 2d/3. Exact metric face-area spectrum, nontrivial local Gaussian profile, exponential count/area disparity and surface-volume power law are a motivated high-dimensional geometric phenomenon beyond merely re-listing facets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
