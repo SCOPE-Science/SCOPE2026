@@ -1,0 +1,15 @@
+# Scientific review: Poisson–xgamma thinning boundary
+
+## Correctness — PASS
+The exact Gamma-mixture representation produces the stated rational probability-generating function. Complex-conjugate factorization yields positive compound-Poisson intensities for every positive rate. The 1979 canonical-coefficient characterization reduces binomial-thinning self-decomposability to nonincrease of \(b_n\). The first difference is a rational multiple of a strictly concave quartic with one relevant root; every higher difference is strictly positive on the candidate interval by a uniform modulus bound certified at exact rational endpoints. The monotone-mass counterexample is valid for every integer count, not just a finite range. The executable checker provides  finite exact-rational diagnostics, not an infinite certificate. Risk: applicability of the cited classical criterion depends on its exact nonnegative-integer notion of binomial thinning, explicitly adopted in the result.
+
+## Originality — PASS (with historical-priority risk)
+The original 2020 Poisson–xgamma article derives the count family and standard characteristics, but the accessible text does not contain the thinning self-decomposability phase boundary. The 2021/2022 open-access article provides an overlapping one-parameter count family and an INAR model **with Poisson–xgamma innovations**; its relevant sections do not assert the stationary marginal criterion derived here. Steutel and van Harn's classical result establishes the general coefficient condition and is fully acknowledged; it leaves the model-specific quartic threshold and uniform higher-coefficient inequality uncomputed. Closest accessible published mathematical records concerning *other* compound-Poisson and thinning phase diagrams do not imply this theorem. Partial access to later generalizations, unindexed prior literature, and the possibility of an equivalent formulation in broader mixture theory remain priority risks. No independent novelty certification is asserted.
+
+## Value — PASS
+The classification yields a nontrivial sharp boundary between two recognized decomposition structures for a published, applied count distribution. It gives usable exact jump intensities and an all-thinning decomposition criterion; the explicit strictly decreasing-mass counterexample demonstrates why elementary shape diagnostics do not settle time-series marginal decomposability. It is not a numerical-precision upgrade or a finite table lookup. The result does not claim universal statistical-model superiority or parametric closure under thinning.
+
+## Limitations and reproducibility
+The proof is analytic for all positive rates and all positive canonical indices. Only the supportive finite algebra is checked by \(\texttt{checker.py}\); no confidence claim about unseen mathematical literature is built into that test. Direct application to model fitting or time-series estimation is not established.
+
+Self-review: passed. Independent audit: not yet performed.
