@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "Gaussian conditioning reduces integrated posterior risk to 1/6-I/(V+eta); exact three-piece covariance integrals give I=A+Bz+z^2/3 and V=V0-z. The derivative numerator of I/(M-z) has strictly positive derivative 2(M-z)/3, hence no asymmetric interior global maxima exist. The exact boundary gain comparator factors into a positive factor times h(35h-14h^2-20)-60eta(1+2h-2h^2), yielding every strict and tie case. The standalone script independently checks identities, threshold, two rational gains, and direct-kernel quadrature.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nguyen and Peraire treat Gaussian functionals and posterior covariance in a PDE setting but do not state this particular global design law in inspected sections.",
+        "The accessible Purdue dissertation catalog describes exact design of finite point samples for process trajectories, not moving interval averages; its inaccessible full content is a residual risk."
+      ],
+      "reasoning": "The nearest general frameworks contain the conditioning criterion or point-sampling theory, but their inspected statements do not dominate the moving-window theorem. A plausible inaccessible historical source is explicitly retained as a risk instead of being declared excluded by a snippet.",
+      "searches": [
+        "Functional Gaussian processes for regression with linear PDE models arxiv:1405.7569v1 linear functional observations",
+        "Optimal designs for estimating the path of a stochastic process Bhramar Mukherjee Purdue dissertation",
+        "Brownian bridge Gaussian process optimal design interval average observation fixed window integrated mean square prediction error noise"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1405.7569",
+      "https://arxiv.org/pdf/1604.05375",
+      "published-finding corpus:1c7b05ec88c4",
+      "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+      "https://doi.org/10.1007/s40314-015-0250-3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General Gaussian conditioning implies the first expression for risk but does not determine its dependence on the translated averaging window.",
+        "The two-node kernel-quadrature theorem minimizes expected posterior variance of a single scalar path integral under a sampling distribution; the new theorem minimizes integrated pointwise path variance for one noisy integral-functional observation."
+      ],
+      "reasoning": "The prior results share covariance machinery but do not imply the exact three-candidate reduction, critical width, or discontinuous transition; these require the separate four-degree covariance-gain calculation and sign argument.",
+      "searches": [
+        "arxiv:1604.05375v1 Section 2, trajectory-recovery equation (10)",
+        "arxiv:1405.7569v1 Sections 2-5, observation functionals and covariance regression",
+        "published-finding corpus record 1c7b05ec88c4 (published RESULT.md)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ji and Müller derive a general integrated-variance optimality criterion for noisy point observations of a trajectory.",
+        "A translated window-average observation is a linear functional, not a single point evaluation; changing the bridge covariance to a Brownian-motion covariance also changes the optimizer set."
+      ],
+      "reasoning": "No inspected equivalent formulation supplies the exact width/noise phase boundary and absence of asymmetric optimal window locations. A generic conditioning formula does not itself entail the derived extremal calculation.",
+      "searches": [
+        "Brownian bridge integral-averaging single fixed-width noisy observation minimises path integrated posterior variance center versus endpoint optimal placement symmetry breaking exposure width",
+        "Brownian bridge time average sensor optimal design centered versus boundary intervals",
+        "Ji and Müller 2016 arxiv:1604.05375v1, equations (6), (8), (10)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The checked published search results returned no exact width, noise curve, rational example, or interval-averaging phase table.",
+        "The closest published Brownian-bridge two-node kernel quadrature result optimizes a random noiseless two-point integral estimator with a nonuniform node law, not a fixed-width noisy trajectory-averaging sensor."
+      ],
+      "reasoning": "The mathematical invariant is a complete global placement phase diagram, not a known database entry. Lack of a matching indexed record is supporting context only, not a proof of novelty.",
+      "searches": [
+        "Brownian bridge window-average sensor critical width 0.8840374726443 and noise 779/87600 endpoint center",
+        "14 h^2 - 35 h + 20 Brownian bridge integrated posterior variance window observation",
+        "Finite-exposure Brownian bridge interval average observation sharp noise threshold center edge interval placement IMSE"
+      ]
+    },
+    "rationale": "Reviewed relevant published general Gaussian-functional regression, noisy trajectory-design, and Brownian-bridge kernel-quadrature sources, and performed exact/alias published-finding corpus queries. No inspected statement implies the one-window center/endpoint phase classification; point-observation and integral-estimation results have different domains and objective functionals. The inaccessible historical dissertation and unindexed work remain explicit priority risks.",
+    "residual_risks": [
+      "Mukherjee dissertation full text was not accessible; its abstract alone cannot rule out unmentioned functional-observation material.",
+      "Specialist articles without indexed full text or unindexed equivalent results could affect publication priority.",
+      "No independent scholarly audit or exhaustive literature census has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General linear-functional Gaussian inference, not an explicit Brownian-bridge window-location optimum",
+        "evidence": [
+          "The abstract explicitly says observations can be linear functionals.",
+          "The inspected example at pp. 14-16 uses point measurements at fixed Chebyshev nodes rather than an optimized moving uniform average."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1405.7569",
+        "material_read": "Original 24-page arXiv v1 PDF: abstract and introduction, problem statement (pp. 2-4), observation-functionals material and example specification (pp. 14-16); indexed full-text term search for Brownian",
+        "method": "Open full PDF, inspect relevant source passages and original page image",
+        "title": "Functional Gaussian processes for regression with linear PDE models",
+        "trigger": "Linear functional Gaussian observations with noise are the methodological setting"
+      },
+      {
+        "assessment": "General point-measurement design framework; no matching moving-window Brownian-bridge phase diagram in inspected sections",
+        "evidence": [
+          "Equation (1) specifies point observations X(t_j) plus noise.",
+          "Equations (6), (8) and (10) optimize integrated trajectory-recovery error from those point observations."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1604.05375",
+        "material_read": "Original 36-page arXiv v1 PDF: abstract/introduction and Section 2 (pp. 4-6), equations (6)-(10); inspected PDF page image and indexed full-text term searches for Brownian and average",
+        "method": "Read mathematically relevant full-text equations and accompanying explanation",
+        "title": "Optimal Designs for Longitudinal and Functional Data",
+        "trigger": "Integrated prediction-error design and observation noise"
+      },
+      {
+        "assessment": "Different target and sensor model; no dominance by implication",
+        "evidence": [
+          "It chooses a probability law for two iid noiseless point nodes.",
+          "Its criterion is expected posterior variance of the scalar path integral, not integrated posterior uncertainty of the path conditional on one noisy window average."
+        ],
+        "identifier_or_url": "published-finding corpus:1c7b05ec88c4",
+        "material_read": "Complete publicly available RESULT.md: finding, assumptions, proof, verification, prior work and limitations",
+        "method": "Read source through public repository file interface",
+        "title": "Unique optimal i.i.d. two-node design for Brownian-bridge kernel quadrature",
+        "trigger": "Identical Brownian-bridge kernel and a design objective"
+      },
+      {
+        "assessment": "Plausible broader work; no definitive whole-document noncoverage finding",
+        "evidence": [
+          "The catalog describes sampling at finitely many design points and exact designs for Brownian motion, Brownian bridge and OU models.",
+          "Interval-average observations are not stated in the accessible description."
+        ],
+        "identifier_or_url": "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+        "material_read": "Public thesis catalog abstract only; dissertation full text not accessible in the searched open sources",
+        "method": "Catalog examination and search for lawful full text",
+        "title": "Optimal designs for estimating the path of a stochastic process",
+        "trigger": "Historical exact optimal design for Brownian-bridge trajectories"
+      },
+      {
+        "assessment": "Its time-integrated marginal spatial occupancy density is distinct from a Gaussian path-average sensor, but full-text priority is not adjudicated",
+        "evidence": [
+          "The stated target is the time-average of Brownian-bridge marginal probability densities for animal movement.",
+          "No conditional trajectory-reconstruction design is stated in the accessible abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s40314-015-0250-3",
+        "material_read": "Institutional bibliography and publication abstract; full article unavailable",
+        "method": "Compare mathematical objects stated in abstract",
+        "title": "An analytical description of the time-integrated Brownian bridge",
+        "trigger": "Potentially overlapping wording: time-integrated Brownian bridge"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6157f252-e954-489d-b618-3f2c569fa3c4",
+  "value": {
+    "rationale": "Fixed-duration time averaging is a natural physical sensor model. The result completely classifies global optimum placement for all positive noise and all nondegenerate window widths, exhibits a discontinuous transition and an exact triple tie, and distinguishes endpoint-pinned from free-end stochastic trajectories. It is not an arbitrary finite table, a renaming, or an unsupported general engineering improvement.",
+    "status": "PASS"
+  }
+}
