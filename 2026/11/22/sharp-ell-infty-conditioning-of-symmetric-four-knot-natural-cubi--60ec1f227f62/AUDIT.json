@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "For r>0 the natural spline curvature system has determinant (r+2)(3r+2)>0. Explicit cardinal function formulas establish exact sign patterns on each cell; the outer and central maxima are O(r) and C(r), respectively. O strictly decreases and C strictly increases; they meet uniquely at 9 sqrt(3) r^3=8(r+1). The exact sympy verifier checks cardinal expressions, derivatives, crossing, and 456 rational reconstructions. It does not replace the analytic proof. The range-escape factor follows algebraically from constant reproduction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Beatson–Chacko 1990/1992 open preprint, Sections 1.1, 2.2–2.4 and 3.2: natural cubic is Method E; they numerically evaluate operator norms on random and uniform meshes and give a general extreme-point approach, without the claimed symbolic minimax root.",
+        "Rack–Vajda 2015 characterizes minimax Lebesgue nodes for degree-three polynomial Lagrange interpolation, a different operator: a general four-node natural cubic interpolant has nonzero third-derivative jumps.",
+        "Amat–Levin–Ruiz-Álvarez–Trillo–Yáñez 2022 full text, Sections 1–3 and 6–8: nonlinear quasi-interpolating C2 reconstruction controlling Gibbs oscillations, not the fixed natural cubic operator norm."
+      ],
+      "reasoning": "A stronger general natural-spline mesh-placement theorem would subsume this result, but the closest wide-ranging norm study reports computed norms rather than exact minimax over the symmetric four-node family. Polynomial and quasi-interpolating variants do not subsume the fixed natural-spline operator. The full text of one indexed closest result is unavailable, yielding a residual bibliographic risk but no explicit dominating theorem in accessible evidence.",
+      "searches": [
+        "Web: Which Cubic Spline Should One Use 1992 exact operator norm natural spline nonuniform knots pdf",
+        "Web: 2021 2022 2023 natural cubic spline interpolation stability Lebesgue constant conditioning arbitrary knots journal",
+        "published-finding corpus: node optimality sharp uniform stability norm of natural cubic interpolation small knot configuration"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1155/2021/5925163",
+      "https://doi.org/10.1007/s11075-022-01254-6",
+      "https://files01.core.ac.uk/download/pdf/35472972.pdf",
+      "https://studia.reviste.ubbcluj.ro/index.php/subbmathematica/article/view/5710",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-unique-variation-optimal-symmetric-four-knot-natural-cubic-inter--a68c76ffcd7c",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-sharp-total-variation-amplification-of-the-first-coupled-natural--287732549e93",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-sharp-three-knot-positivity-defect-for-natural-cubic-interpola--0b51d8330304"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Present claim is uniquely min_r max{1+4(r+1)/(3sqrt(3)r(3r+2)),1+3r^2/(2(3r+2))}; the source identities and signs make it an exact statement for every positive r.",
+        "The indexed published-finding corpus variation-optimal natural four-knot record states a total-variation minimax with r≈1.42882553, whereas the same ratio has L-infinity norm 1.48712717 here; there is no implication of equal sharp constants or optimizers across the two incompatible norm pairs.",
+        "The published polynomial cubic Lagrange node optimization concerns a globally polynomial interpolant and includes asymmetric optimal grids, which are not the natural-C2 four-knot interpolating splines considered here.",
+        "The 2021 constrained Hermite paper adjusts slopes by inequality constraints; a constrained nonlinear operator cannot imply the norm of the unmodified natural linear interpolant."
+      ],
+      "reasoning": "The strongest plausible prior statements were compared at the operator level, including input/output norms and interpolant boundary conditions. General exact-norm computation routines are methods to derive this theorem, not statements that already classify its mesh extremum. The principal unclosed historical risk is an older specialized four-knot natural-spline note not indexed or accessible.",
+      "searches": [
+        "published-finding corpus: four knot natural cubic spline interpolation Lebesgue constant optimal symmetric mesh gap ratio exact",
+        "published-finding corpus: natural four knot C2 interpolation worst-case nodal noise amplification equality balance outer and inner extremizer",
+        "Web: optimal cubic Lagrange interpolation extremal node systems minimal Lebesgue 2015",
+        "Web: natural cubic spline four knots symmetric Lebesgue constant optimal mesh minimax Lebesgue four point"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The present interpolation norm is sup_x sum_j |ell_j(x)|; by constant reproduction, worst [0,1] overshoot is half its excess over 1.",
+        "The related three-knot natural cubic record concerns three sites, where only one interior curvature exists; it has a different exact defect and does not characterize the two-interior-curvature four-knot envelope.",
+        "The published four-knot natural cubic record at 2026/11/17/...a68c76ffcd7c optimizes the seminorm TV(Sy)/TV_discrete(y), with reported optimizer r=1.428825530629..., not the ell-infinity operator norm; the present exact norm at that ratio is 1.487127176997..., versus 1.304408188547... at its own optimizer."
+      ],
+      "reasoning": "Worst arbitrary nodal range-escape and the Lebesgue norm are equivalent for a fixed constant-reproducing interpolation operator, so the comparison explicitly covered both wordings. The variation norm uses input increments and a different output functional; its optimizer and theorem do not force the present maximum absolute-row-sum envelope. The three-knot theorem concerns a different cardinal system. No equivalent four-knot natural-spline result was identified in the inspected primary literature or indexed findings; absence from search alone is not asserted as a proof.",
+      "searches": [
+        "published-finding corpus: natural cubic spline four nodes with outer mesh equal and central mesh variable sharp Lebesgue constant max norm minimizer 1.010483",
+        "published-finding corpus: natural four knot C2 interpolation worst-case nodal noise amplification equality balance outer and inner extremizer",
+        "Web: natural cubic spline four knots symmetric Lebesgue constant optimal mesh minimax Lebesgue four point"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Beatson–Chacko Tables 3 and 4 list operator norm values for uniform 8,12,16,20-cell spline meshes, not four-node symmetric ratio optimization.",
+        "Searches surfaced natural-spline Lebesgue estimates for many-node equal meshes and a 2017 local cubic spline Lebesgue constant 11/9; the latter uses local polynomial-preserving splines rather than the present globally C2 natural spline.",
+        "No accessible exact table listed r=1.01048320579748 or the two-branch formula O(r), C(r) for this particular operator."
+      ],
+      "reasoning": "Both numerical tables and equivalently stated range-escape invariants were compared. The numerical multi-interval tables are not exact databases of the four-node continuum and do not imply the unique balancing root. Missing matches alone are not treated as originality certification.",
+      "searches": [
+        "published-finding corpus: minimax Lebesgue constant symmetric four knot natural cubic interpolation algebraic root 9 sqrt 3 r cube 8 r plus 8",
+        "Web: Lebesgue constant natural cubic spline interpolation 4 points mesh ratio optimal",
+        "Web: Which Cubic Spline should One Use 1992 full pdf interpolation operator norms mesh random natural"
+      ]
+    },
+    "rationale": "A new exact L-infinity-to-L-infinity natural-spline operator norm and unique mesh optimum were compared with real published-finding corpus matches, accessible own scientific claims, and published primary studies. Beatson–Chacko gives numerically evaluated norm methods but not this closed-form symmetric four-node sharp balancing root; the closest indexed result optimizes the inequivalent total-variation norm. No accessible stronger or equivalent theorem was found. Full text for a closely related indexed research record is unavailable, so priority is qualified and independent validation unperformed.",
+    "residual_risks": [
+      "Published mathematical record on variation-optimal four-knot natural splines could only be examined through its indexed claim summary, not primary full text.",
+      "The Beatson–Chacko preprint text was available, but external screenshot rendering for its PDF returned a permission error; figures and any OCR-omitted details were not checked visually.",
+      "Older specialized natural-cubic interpolation note or unindexed exact table could precede this result; lack of search matches is not novelty proof.",
+      "The optimization is only over reflection-symmetric knots, and the gain over equal spacing is small."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different Hermite interpolation with adjustable nodal slopes and inequality constraints; it does not state fixed natural-C2 spline Lebesgue norm or the four-node symmetric mesh optimum.",
+        "evidence": [
+          "Publication online 2021-08-31, Section 1 range constraints and Sections 2–5 slope/linear-program construction."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2021/5925163",
+        "material_read": "Full open HTML article: abstract, problem framing, construction Sections 2–3 and later constrained-interpolation/optimization discussion",
+        "method": "Open-access HTML primary full text",
+        "title": "A New Approach of Constrained Interpolation Based on Cubic Hermite Splines",
+        "trigger": "Earliest verified public motivating source (2021-08-31); constrained cubic interpolation and range preservation"
+      },
+      {
+        "assessment": "Provides a nonlinear quasi-interpolating C2 construction for discontinuities, not an optimal linear natural-spline interpolation norm over the four-knot symmetric family.",
+        "evidence": [
+          "Published online 2022-02-25; Section 2 describes C2 cubic equations and boundary conditions, Sections 3–7 address nonlinear modifications."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11075-022-01254-6",
+        "material_read": "Full open HTML Sections 1–3 including natural spline matching equations, plus stated results/scope and approximation/Gibbs comparison",
+        "method": "Open-access publisher HTML full text",
+        "title": "A class of C2 quasi-interpolating splines free of Gibbs phenomenon",
+        "trigger": "Natural cubic interpolation, nonuniform meshes and shape distortions; primary 2022 work"
+      },
+      {
+        "assessment": "Uses extreme-point numerical norm evaluation over random/multicell meshes; no exact closed-form four-knot symmetric minimax/equality ratio appears in reviewed material. Possible unindexed supplementary material remains a residual risk.",
+        "evidence": [
+          "1990 preprint pp. 2–4, 6–12, 14–15; Method E, Sections 2.3 and 3.2 and Tables 3–4."
+        ],
+        "identifier_or_url": "https://files01.core.ac.uk/download/pdf/35472972.pdf",
+        "material_read": "Open indexed full-text preprint: Method E natural condition, introduction and Sections 2.2–2.4, Tables 2–4, Section 3.2 operator norms, references",
+        "method": "Lawful open preprint PDF extracted text; visual screenshot access unavailable (HTTP 403), indexed text used for the specified sections",
+        "title": "Which Cubic Spline Should One Use?",
+        "trigger": "Highly relevant broad published treatment of exact spline operator norms including natural boundary conditions"
+      },
+      {
+        "assessment": "Cubic Lagrange **polynomial** interpolation is not natural cubic spline interpolation. Operator mismatch alone rules out direct implication; no whole-document priority assertion is made.",
+        "evidence": [
+          "2015 abstract specifies degree-3 polynomial Lagrange interpolation and fully variable four interpolation nodes."
+        ],
+        "identifier_or_url": "https://studia.reviste.ubbcluj.ro/index.php/subbmathematica/article/view/5710",
+        "material_read": "Publisher article page with full abstract, mathematical scope and references; linked PDF not read",
+        "method": "Public publisher bibliographic page and article abstract",
+        "title": "Optimal cubic Lagrange interpolation: Extremal node systems with minimal Lebesgue constant",
+        "trigger": "Exact four-node optimal Lebesgue constant; potential stronger coverage"
+      },
+      {
+        "assessment": "Claims sharp total-variation amplification and an optimizer near 1.428825530629; not shown to cover or imply the present unweighted nodal-noise Lebesgue minimax. Full text could contain further statements, a residual priority risk.",
+        "evidence": [
+          "published-finding corpus ID 2026/11/17/SCOPE-unique-variation-optimal-symmetric-four-knot-natural-cubic-inter--a68c76ffcd7c; summary explicitly states the total-variation norm and 1.4288255... optimal gap ratio."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-unique-variation-optimal-symmetric-four-knot-natural-cubic-inter--a68c76ffcd7c",
+        "material_read": "Indexed title and mathematical claim summary returned by published-finding corpus search; linked full text could not be accessed",
+        "method": "Public indexed result summary; not full-text inspection",
+        "title": "Unique variation-optimal symmetric four-knot natural cubic interpolation",
+        "trigger": "Same natural four-knot symmetric object but different norm; closest indexed mathematical record"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "60ec1f22-7f62-430f-b75e-e6e608e21e0f",
+  "value": {
+    "rationale": "The four-node natural cubic is the first C2 cubic with two coupled interior curvatures. The sharp Lebesgue constant is a directly motivated nodal-noise stability quantity and determines exact [0,1]-range overshoot. A unique near-uniform minimax grid balances two independent spatial worst cases, and the variation-optimal symmetric natural-spline grid from published work has a substantially worse uniform noise norm (1.4871 versus 1.3044). The roughly 0.27% improvement over exact equal spacing is modest; exact structural separation of metrics and complete minimax within the symmetric class provide the substantive motivation, without claiming impact on arbitrary stencils.",
+    "status": "PASS"
+  }
+}
