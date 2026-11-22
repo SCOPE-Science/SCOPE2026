@@ -1,0 +1,21 @@
+# Scientific review: weighted multipartite blockade zero modes
+
+## Correctness — PASS
+
+For each part, all allowed excitations with the vacuum form a weighted Boolean hypercube, with eigenvalues equal to the signed sums of local spin-flip amplitudes. The local zero-mode multiplicity \(d_i\) and vacuum spectral fraction \(a_i=d_i/2^{m_i}\) follow from the tensor Walsh basis, with every eigenvector having squared root amplitude \(2^{-m_i}\). Global kernel vectors satisfy root-source gluing equations \(H_i v_i=\alpha_i|0_i\rangle\), \(\sum_i\alpha_i=0\). For locally invertible cubes the root inverse Green function is zero by chiral symmetry, and for singular cubes the local root evaluation is nonzero. This gives the two exact nullity branches. Minimizing the squared norm subject to a common root amplitude one proves the reciprocal-sum formula for the vacuum zero-energy spectral projection. The finite-dimensional spectral theorem gives the return-*amplitude* Cesàro limit; it is not a statement about return probability. The homogeneous formula uses exact central-binomial counts and Stirling. The tuned three-part example is independently checked by exact rational linear algebra.
+
+The package contains two standalone reproducibility programs. `verify_kernel.py` passed 17 exact full-matrix nullity/projector tests. `verify_resolvent.py`, independently enumerating the physical configuration basis, passed 24 exact rational Green-function comparisons, including resonant and nonresonant cases. Finite checks support but do not establish the proof for all dimensions or real amplitudes.
+
+## Originality — PASS on the examined evidence
+
+The literature comparison was statement-based, including the alternative formulations of zero-mode multiplicity, zero-energy spectral projection, local signed-subset partition, parity-induced roots, and graph vertex coalescence. Lesanovsky's arXiv:1010.2349 provides a one-dimensional constrained Rydberg model; the full accessible article does not state multipartite weighted-amplitude zero modes. Windt and Pichler's arXiv:2112.07754 covers the uniform-drive, equal-size complete *bipartite* model, focusing on scar dynamics and a scattering approximation; its inspected full text does not provide the arbitrary-weight, \(r\ge3\) projector/nullity formulas. Buijsman's arXiv:2203.09264 analyzes zero modes of open and periodic *chains*, not the weighted multipartite theorem. The 2016 DOI:10.1155/2016/5906801 studies spectral coalescence of complete graphs; graph coalescence itself is known and is not claimed as new. A published indexed summary on anisotropically weighted hypercube uniform mixing already uses signed-sum eigenvalues; its full text was not accessible, so the local signed-sum step is expressly treated as known and the unavailable full text remains a comparison risk. Relevant published records on absorbing hypercubes and weighted bipartite transport have different Hilbert spaces and observables. None of the inspected comparable claims directly implies the complete new statement. Unindexed equivalent formulas and general graph coalescence specialization remain priority risks.
+
+## Mathematical value — PASS
+
+The natural no-adjacent-excitation Rydberg model on a complete multipartite physical interaction network has a physically measurable zero-frequency spectral component. The explicit answer shows an arithmetic all-parts necessary and sufficient condition, generalizes the ordinary even/odd homogeneous partition rule, gives exact spectral multiplicity, and supplies an odd-part resonance that can be destroyed by arbitrarily small strictly positive drive perturbations. This distinguishes a sharp zero-frequency atom from smooth finite-time dynamics and gives a benchmark for many-body constrained coherent transport for infinitely many network sizes and noncommensurate positive drives.
+
+## Closest literature and limits
+
+The four specific primary sources are identified in `RESULT.md`; site-dependent complete multipartite PXP zero-projector formulas were not found in the inspected material. The finding is not asserted to have undergone independent audit or an exhaustive global priority check. Physical losses, onsite detunings, imperfect blockade and finite-time discontinuities are outside its scope.
+
+Self-review: passed. Independent audit: not yet performed.
