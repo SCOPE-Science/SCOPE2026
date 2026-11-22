@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The CDF directly gives the sampled survival. Differentiation yields the generalized-polynomial E with at most three positive roots counting multiplicity and two at y=1; hence the continuous hazard has the required monotone or single-minimum shape. Moving one-interval integrated hazards retain at most one trough. The sign identity is exact, and H(lambda) has one derivative sign crossing with limit log(alpha/theta), implying a unique p threshold precisely when theta<alpha<1. Analytical proof covers every parameter and infinitely many steps; 378 numerical grid cases and 2,584 exact rational sign identities were additional checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ristic and Kundu (2015), full-text Section 3, pp. 8-9, classifies four continuous hazard shapes and the continuous threshold (1+alpha)/(2alpha).",
+        "Kundu and Nekoukhou (2018), full-text Sections 2-3, states the UGDGE model, discrete hazard relationship and flooring representation but no exact p-dependent one-step global hazard phase boundary.",
+        "The 2015 discretization survey discusses sampling survival functions but no UGDGE-specific single resolution transition."
+      ],
+      "reasoning": "The closest literature supplies strong premises. Its continuous hazard theorem combined with the discrete construction does not itself provide the all-integer no-extra-turning result, the exact initial hazard discriminator, or the uniqueness of a p crossover for theta<alpha. The proof adds the integrated-hazard lemma and a separate one-crossing result for H(lambda). This is a nontrivial but closely related refinement, not an unrelated new model.",
+      "searches": [
+        "\"Marshall Olkin generalized exponential\" \"bathtub\" hazard shape threshold",
+        "\"geometric discrete generalized exponential\" \"failure rate\" \"bathtub\"",
+        "2015 Ristic and Kundu DOI 10.1007/s40300-014-0056-x Section 3",
+        "2018 Kundu and Nekoukhou arXiv:1802.06715 Sections 2-3"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1802.06715",
+      "https://doi.org/10.1080/15598608.2018.1441082",
+      "https://home.iitk.ac.in/~kundu/moged-rev-3.pdf",
+      "https://doi.org/10.1007/s40300-014-0056-x",
+      "https://link.springer.com/article/10.1186/s40488-015-0028-6",
+      "https://doi.org/10.2991/jsta.d.190306.005"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2015 continuous result: fixed normalized coordinate continuous hazard can be decreasing, increasing, or single-turn; no spacing parameter p is part of its qualitative phase.",
+        "2018 discrete result: formula for h_X(x) and floor representation; no statement that theta<alpha admits a unique p threshold separating strictly increasing from bathtub discrete hazards.",
+        "New comparison H(lambda)=log(S(lambda)^2/S(2lambda)) uses H prime=2[r(2lambda)-r(lambda)] and limit log(alpha/theta), deriving a unique p boundary not contained in either statement."
+      ],
+      "reasoning": "This is the principal implication test: the earlier results are sufficient background inputs but neither states the claimed sharp transition nor supplies its integer-step proof. A standard interpolation/flooring identity alone is not the requested classification. General structural discreteness results could still provide indirect prior coverage and remain an acknowledged residual risk.",
+      "searches": [
+        "\"UGDGE\" \"hazard\" bathtub increasing decreasing",
+        "\"floor\" \"Marshall Olkin\" \"hazard\" \"bin\" threshold",
+        "2015 Ristic and Kundu Section 3; 2018 Kundu and Nekoukhou Section 3, Theorem 2",
+        "discretization of bathtub hazard retains one turning point floor continuous survival single crossing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kundu and Nekoukhou (arxiv:1802.06715), Eq. (10), gives the geometric-maximum discrete CDF and Theorem 2 identifies it as flooring an underlying continuous geometric-maximum lifetime.",
+        "Ristic and Kundu (2015), Section 3, supplies the continuous Marshall-Olkin GE hazard under reciprocal geometric-maximum parameter theta-prime=1/theta."
+      ],
+      "reasoning": "The candidate is invariant under the reciprocal Marshall-Olkin reparameterization. That reveals known continuous-hazard phases, which are explicitly excluded from the new contribution. The candidate concerns the integer-sampled hazard and, especially, the unique critical resolution p*(alpha,theta); these are not equivalent to merely asserting a continuous bathtub.",
+      "searches": [
+        "integer sampling floor Marshall Olkin generalized exponential geometric maximum exact discrete hazard unimodal bathtub p threshold",
+        "univariate geometric discrete generalized exponential UGDGE hazard h(x) shape threshold p alpha theta",
+        "\"geometric discrete generalized exponential\" \"bathtub\" hazard",
+        "\"GDGE\" \"hazard rate\" \"threshold\" discrete"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A closest published record about MOPHL hazard phases concerns a distinct MOPHL continuous lifetime model, not UGDGE.",
+        "Other published research records concern geometric sample maxima infinite divisibility or unrelated hazard functions, rather than UGDGE integer hazard shape.",
+        "Published mathematical research records reviewed were not found to contain this UGDGE-specific phase classification."
+      ],
+      "reasoning": "The inspected published research matches are related methods but not an exact UGDGE resolution table. The negative searches do not establish uniqueness or eliminate unindexed literature; search coverage was bounded.",
+      "searches": [
+        "geometric discrete generalized exponential GDGE max geometric sample hazard rate bathtub IFR DFR monotonicity shape alpha theta threshold",
+        "integer sampling floor Marshall Olkin generalized exponential geometric maximum exact discrete hazard unimodal bathtub p threshold",
+        "UGDGE geometric maximum discrete hazard bathtub sampling resolution"
+      ]
+    },
+    "rationale": "The original discrete UGDGE law and earlier continuous Marshall-Olkin hazard classification are explicitly acknowledged. The sharp integer-sampling resolution threshold and complete resulting discrete sequence phase do not appear in inspected relevant primary full text or published mathematical records. The result is a close extension with known-input premises and an acknowledged indirect-coverage risk, not a claim that its continuous hazard classification was unknown.",
+    "residual_risks": [
+      "The 2015 continuous hazard result plus standard flooring identities are close antecedents; future exhaustive literature inspection could reveal an equivalent discrete sampling corollary.",
+      "The journal final version of the 2018 paper was checked through metadata and the arXiv full text, not every publisher-hosted page.",
+      "Published research searches and additional overlap comparisons are non-exhaustive and cannot certify global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines distribution and has simple hazard transformation; no explicit global discrete hazard resolution phase or unique p threshold found in inspected relevant sections",
+        "evidence": "Original Eqs. (4), (7)-(12), (15), and Theorem 2; arXiv original date 2018-02-16.",
+        "identifier_or_url": "https://arxiv.org/abs/1802.06715",
+        "material_read": "Full-text rendered paper, introduction, Sections 2-3, model, CDF, hazard formulas, Theorem 2 on flooring and Theorem 3 on closure",
+        "method": "Accessible arXiv full-text HTML reading, lines around Sections 2-3",
+        "title": "Univariate and Bivariate Geometric Discrete Generalized Exponential Distributions",
+        "trigger": "Identical distributional object and geometric-maximum construction"
+      },
+      {
+        "assessment": "Continuous four-shape hazard classification explicitly known; distinct from discrete bin-width transition, but strongest related prior and core premise",
+        "evidence": "Ristic and Kundu, METRON 73 (2015), 317-333, DOI 10.1007/s40300-014-0056-x; Section 3, continuous threshold (1+alpha)/(2alpha).",
+        "identifier_or_url": "https://home.iitk.ac.in/~kundu/moged-rev-3.pdf",
+        "material_read": "Full text pp. 1-9, especially Section 3 on hazard sign function and threshold; page 8 screenshot inspected",
+        "method": "Author-hosted lawful full-text PDF parsed and visually inspected with PDF screenshot",
+        "title": "Marshall-Olkin generalized exponential distribution",
+        "trigger": "Same underlying continuous lifetime up to reciprocal Marshall-Olkin parameter"
+      },
+      {
+        "assessment": "Provides general construction contexts and examples but no UGDGE-specific uniqueness p equation in reviewed material",
+        "evidence": "Discrete exponential, Weibull, geometric Weibull and normal constructions reviewed.",
+        "identifier_or_url": "https://link.springer.com/article/10.1186/s40488-015-0028-6",
+        "material_read": "Accessible HTML discussion of discrete analogue construction and survival sampling, Sections 2.4.1-2.4.4",
+        "method": "Search-result full text excerpt and relevant HTML sections",
+        "title": "Generating discrete analogues of continuous probability distributions: A survey of methods and constructions",
+        "trigger": "Possible generic discretization theorem subsuming the sampled hazard statement"
+      },
+      {
+        "assessment": "Publisher abstract consistent with preprint; possible later section revisions are residual risk",
+        "evidence": "Journal of Statistical Theory and Practice 12 (2018), 595-614, online 2018-03-19.",
+        "identifier_or_url": "https://doi.org/10.1080/15598608.2018.1441082",
+        "material_read": "Journal abstract, keywords, classification and publication metadata, alongside full arXiv manuscript",
+        "method": "Publisher landing page and arXiv manuscript",
+        "title": "Univariate and bivariate geometric discrete generalized exponential distributions (journal version)",
+        "trigger": "Potential updated journal version of the 2018 primary preprint"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0ec06373-21b6-4728-93cf-4a11e8ec7313",
+  "value": {
+    "rationale": "A unique, explicit p-resolution boundary tells when discretely observed reliability data must conceal an underlying bathtub-shaped failure rate. The result classifies all admissible parameter values of a published geometric-maximum count model, with an infinite-sequence no-extra-turn theorem and a practical one-step algebraic discriminator. It is neither a routine moments calculation nor an arbitrary unmotivated numerical slice.",
+    "status": "PASS"
+  }
+}
