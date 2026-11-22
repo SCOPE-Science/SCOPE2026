@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Birkhoff face argument transfers the classical single-cycle criterion without introducing new edges, and each cycle exchanging \(k\) matched pairs gives squared Frobenius distance \(2k\). The two forbidden derangement conditions combine into a \(2k\)-cycle rook board and an outside matching, giving the exact formula with the obligatory factor \(1/2\). Exact direct enumeration through dimension seven and separate cyclic-rook enumeration agree. For each fixed length deficit, a bounded-degree forbidden board has asymptotic avoidance probability \(e^{-2}\); factorial moments and a factorial tail bound justify summation and the Poisson edge law. A separate factorial-moment calculation gives the matching Poisson vertex-pair law. Pointwise convergence with common limit on a countable state space yields total-variation convergence. Checks do not assume finite enumeration proves asymptotics.
+## correctness
 
-## Originality — PASS, provisional historical priority
-Relevant primary text was compared for mathematical implication, not only terminology. Behrend (2013) and Ito et al. (2019) establish single-cycle adjacency; Torres (2023) establishes matching-polytope descriptions and normality. None of the inspected relevant sections provides the crown-graph two-forbidden-diagonal cycle rook polynomial, the edge-length multiplicity spectrum, or the comparison with independent vertex-pair distances. Accessible prior mathematical findings on the same derangement face concern distance *to* the face, rather than its interior edge spectrum. Searches in published research records, mathematical literature and exact-sequence wording found no dominating statement. General adjacency theory does provide a critical known input. An unindexed earlier alternating-cycle enumeration could still anticipate the finite formula.
+PASS
 
-## Mathematical value — PASS
-The theorem computes an entire canonical Euclidean one-skeleton spectrum in a natural infinite family of assignment polytopes. The substantive phenomenon is that an event of probability asymptotic to \(e/n\)—polytope adjacency—does not change the limiting discrete Euclidean distance distribution at the exact lattice-scale deficit, in total variation. The two forbidden perfect-matching constraints require the cyclic-rook evaluation, not a simple substitution in the unrestricted Birkhoff edge count. This is an intrinsic metric/combinatorial comparison, not a renamed adjacency criterion.
+The zero-diagonal permutation polytope is a Birkhoff face, so an edge corresponds to a single relative k-cycle, k>=2, and Frobenius squared length equals 2k. For fixed support S the simultaneous fixed-point prohibitions for pi and pi∘tau form a forbidden 2k-cycle together with n-k isolated rook cells. Inclusion-exclusion with c_{k,t}=2k/(2k-t) binom(2k-t,t) counts allowed derangements, and ordered endpoints are divided by exactly two. For fixed deficit j=n-k, forbidden hits converge in factorial moments to Poisson(2), giving a_n,n-j/n!→e^-2, while factorial tails justify summing over j. The separate two-derangement agreement count tends to Poisson(1), and countable-state truncation gives total variation. Independently enumerated each unordered vertex pair and checked exact rook-polynomial E_n,k classes for n=3,4,5,6, obtaining total edges 1,30,706,20770. The asymptotics are proved by bounds, not by enumeration.
 
-## Scope and residual risks
-The statement does not compute per-vertex degree variation, generalize to arbitrary forbidden boards, or provide a rate of total-variation convergence. Exact finite checks run only through dimension seven; infinite results are proved with factorial moments. Primary papers do not offer an exhaustive historical-priority guarantee. Equivalently formulated work on crown graph alternating cycles and sequence databases is a residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The single alternating-cycle adjacency criterion and rook count of a generic cycle are classical; the claimed new results are their combination with two derangement constraints to obtain every length multiplicity, followed by distribution and total-variation asymptotics.
+
+## value
+
+PASS
+
+The one-skeleton metric length census of the natural crown-graph perfect-matching face is an exact enumerative invariant, and the limit contrast is mathematically striking: almost every random vertex pair is nonadjacent (probability ~e/n) while its distance deficit is asymptotically indistinguishable in total variation from a random edge deficit. Both the full finite distribution and this natural comparison can support graph-polytope metric and sampling research.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
