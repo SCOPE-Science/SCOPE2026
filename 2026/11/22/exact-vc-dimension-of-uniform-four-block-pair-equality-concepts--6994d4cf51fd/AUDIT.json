@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "The all-positive trace places queried edges inside exactly m fours; cycle obstructions force at most three edges per four, and at least m-1 saturated fours at size 3m-1 lock the remaining four, preventing one negative answer. An explicit 3m-2 support is shattered: binary positive cores need s_i tokens, each negative local token avoids its own bin, and two spare leaves are unrestricted. Hall holds whenever 2s_i <= sum(s_j)+epsilon_i; the only failures are (a) one full-star capacity 3 and both deficient capacities 1, or (b) one deficient capacity 3 and the other 1. Their explicit replacement blocks realize all constraints. Program independently replays all 2^13 labels at m=5 and direct partitions at m=2,3; finite checks are corroboration, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "published-finding corpus 8b7b35 full text permits any block size <=4 and gives VC=3m; exact size-four family is a restricted subfamily so its strict 3m-2 rank is not implied.",
+        "published-finding corpus 2203ea full text proves VC rank for refinement-closed classes; exact uniform four-block class is not refinement closed.",
+        "published-finding corpus e71e3de full text is restricted to exactly two blocks."
+      ],
+      "reasoning": "The broader variable-sized theorem gives only an upper bound 3m, not the sharp smaller rank; the fixed-two-block theorem covers only m=2. These differences are substantive, not title discrepancies.",
+      "searches": [
+        "perfect 4-uniform set partitions shattering 4m points pairwise co membership",
+        "VC dimension equivalence relation with equal size blocks 4-sets fixed block capacity",
+        "uniform set partitions fixed block size 4 full VC dimension equivalence relation class"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1905.11902v1 / HTML v3 primary",
+      "PMLR COLT 2022 Liu-Mukherjee abstract",
+      "published-finding corpus full texts 165fac9,e71e3de,8b7b35,2203ea",
+      "published-finding corpus semantic searches: uniform four-element block partitions pair same cluster query VC dimension 3m minus 2, all partitions into quadruples or uniform 4 blocks equality queries VC dimension, perfect 4-uniform set partitions shattering 4m points pairwise co membership, VC dimension equivalence relation with equal size blocks 4-sets fixed block capacity, exact VC dimension pair equality uniform quadruple partitions size four 4m labeled objects 3m-2 stars, balanced partition same cluster shattering Hall deficient groups minimum cardinality four, uniform set partitions fixed block size 4 full VC dimension equivalence relation class"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "published-finding corpus 165fac9 proof uses split pair-singleton routing for block size three and states no formula for four-vertex blocks.",
+        "published-finding corpus 8b7b35 asserts all forests of component size <=r shattered only because varying block sizes are allowed, which is false as a sufficiency criterion for exactly four.",
+        "Bressan et al. 2019 Section 1: no a priori cluster-size limits; Liu-Mukherjee COLT 2022: identification query complexity, not VC dimension."
+      ],
+      "reasoning": "The m>=3 exact four-block claim is not a corollary of any inspected primary statement; its lower bound needs a specific exact-capacity Hall packing and two explicit exception repairs.",
+      "searches": [
+        "all partitions into quadruples or uniform 4 blocks equality queries VC dimension",
+        "balanced partition same cluster shattering Hall deficient groups minimum cardinality four",
+        "uniform set partitions fixed block size 4 full VC dimension equivalence relation class"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Search results return exact triple-block and two-block papers; their full hypotheses differ from exact 4-block families with unbounded m.",
+        "Bressan et al. arXiv:1905.11902 HTML Section 1 explicitly permits partitions without any cluster-size bound."
+      ],
+      "reasoning": "Pair same-cluster and pair equality are equivalent query conventions; complementing response labels does not alter VC dimension. This formulation was included in synonym searches. No exact unbounded-m quadruple statement was found.",
+      "searches": [
+        "uniform four-element block partitions pair same cluster query VC dimension 3m minus 2",
+        "all partitions into quadruples or uniform 4 blocks equality queries VC dimension",
+        "VC dimension equivalence relation with equal size blocks 4-sets fixed block capacity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest exact label: uniform triple partitions 165fac9, VC=2m-2, size three.",
+        "Closest two-block result e71e3de; exact m=2 case acknowledged as previously covered.",
+        "Independent exhaustive enumeration of 35 and 5775 uniform-four partitions agrees with m=2 and m=3 support sizes, but this is new computation, not a novelty database."
+      ],
+      "reasoning": "No database table with the exact all-m size-four dimension was found in the searched published-finding corpus index; historical uniqueness cannot be proven from searches.",
+      "searches": [
+        "uniform four-element block partitions pair same cluster query VC dimension 3m minus 2",
+        "exact VC dimension pair equality uniform quadruple partitions size four 4m labeled objects 3m-2 stars",
+        "uniform set partitions fixed block size 4 full VC dimension equivalence relation class"
+      ]
+    },
+    "rationale": "The mathematical predicate is same-block equality with every block required to have size EXACTLY four and number of blocks unbounded. Full-text comparisons: unrestricted clustering (Bressan et al.), all-uniform triple partitions (published-finding corpus 165fac9), exact two-block partitions (published-finding corpus e71e3de), size-capped partitions (published-finding corpus 8b7b35), and refinement-closed partitions (published-finding corpus 2203ea). None implies the all-m size-four VC formula; two-block m=2 is acknowledged covered. Multiple specific published-finding corpus and primary searches found no exact all-m statement, but unindexed prior results remain possible.",
+    "residual_risks": [
+      "Unindexed or inaccessible literature on exact equipartition pair-query VC dimension could prove an equivalent formula.",
+      "The Liu-Mukherjee conference paper was compared at abstract-level only; its formal objective is identification complexity, so a whole-document exclusion is not asserted.",
+      "Same-method proof and finite checks are not independent certification; exact m=2 base case already implied by existing two-block result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING size four: theorem quantifies exact size-three blocks; does not entail size-four claim",
+        "evidence": [
+          "States exact VC=2m-2 for triple blocks; constructions explicitly use pair-singleton units."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-a-sharp-static-online-gap-for-uniform-triple-partitions--165fac9eb392/RESULT.md",
+        "material_read": "All RESULT.md sections including proof, verification, relation to prior work and limitations",
+        "method": "Full GitHub repository file read and pointwise comparison of exact block size and proof structure",
+        "title": "A sharp static–online gap for uniform triple partitions",
+        "trigger": "Same-block predicate with exact uniform cluster size, strongest close comparator"
+      },
+      {
+        "assessment": "PARTIALLY_COVERING: handles exactly two blocks, hence present m=2 boundary, but not m>=3",
+        "evidence": [
+          "Theorem fixes blocks A and V\\A with cardinalities a and n-a."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-forest-size-profiles-determine-shattering-by-fixed-cardinality-c--e71e3de9534e/RESULT.md",
+        "material_read": "All RESULT.md sections including general theorem and two-block examples",
+        "method": "Full GitHub repository file read",
+        "title": "Forest size profiles determine shattering by fixed-cardinality cuts",
+        "trigger": "Potentially covers exact-size partition constraints"
+      },
+      {
+        "assessment": "NOT_COVERING exact four blocks: variable block sizes <=4 entail different shattering and VC dimension",
+        "evidence": [
+          "Permits all blocks size at most r and obtains VC=n-ceil(n/r)."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-shattering-complexes-and-maximal-face-spectra-of-size-capped-equ--8b7b35a2f27d/RESULT.md",
+        "material_read": "All RESULT.md sections including full proof and limitations",
+        "method": "Full GitHub repository file read",
+        "title": "Shattering complexes and maximal-face spectra of size-capped equivalence relations",
+        "trigger": "Potential general block-cap bound"
+      },
+      {
+        "assessment": "NOT_COVERING: exact four-block family is not refinement closed",
+        "evidence": [
+          "Definition assumes closure under all refinements; discussion explicitly excludes exact fixed block counts."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-refinement-closed-partition-concepts-exact-shattering-supports-o--2203ea0ddc4a/RESULT.md",
+        "material_read": "All RESULT.md sections including proof, limitations and related work",
+        "method": "Full GitHub repository file read",
+        "title": "Refinement-closed partition concepts: exact shattering supports, online dimension, and coloring quotients",
+        "trigger": "General partition concept theorem potentially subsuming exact cardinality case"
+      },
+      {
+        "assessment": "NOT_COVERING exact-size restriction",
+        "evidence": [
+          "Section 1 explicitly: no a priori limitation on numbers or sizes of clusters."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1905.11902v3",
+        "material_read": "Full HTML accessible; read introduction, contributions, relevant related-work text and Section 5 abstract/structure",
+        "method": "HTML full-text search and reading primary manuscript",
+        "title": "Correlation Clustering with Adaptive Similarity Queries",
+        "trigger": "Primary 2019 source using VC dimension of clustering pair labels"
+      },
+      {
+        "assessment": "NOT_DECISIVE_AS_COMPLETE_SOURCE; published abstract concerns number of queries to recover a partition, not VC dimension; residual full-text priority risk noted",
+        "evidence": [
+          "Abstract provides an identification-query lower bound (k-1)n-binom(k,2)."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v178/liu22a.html",
+        "material_read": "Author abstract, statement of main guarantee, conference bibliographic metadata",
+        "method": "Primary proceedings HTML landing and abstract; full paper not inspected",
+        "title": "Tight query complexity bounds for learning graph partitions",
+        "trigger": "Closest named pair same-component query setting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6994d4cf-51fd-4c9e-a2b4-3922633ebfed",
+  "value": {
+    "rationale": "Uniform block-size constraints obstruct the standard forest sufficiency argument. This theorem gives a sharp all-order capacity measure for pair-equality concepts when blocks all have size four; the positive construction uses an explicit Hall matching with precisely two structural exceptions. It fills a natural gap between the previously solved triple-uniform case and the weaker variable-size partition class, without claiming a general block-size theorem.",
+    "status": "PASS"
+  }
+}
