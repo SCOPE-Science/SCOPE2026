@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Rearrangement identifies every exposed face of a strict permutahedron with an ordered partition whose tangent space consists of independent zero-sum blocks. The weighted KKT equality on a block B gives Jacobian entries delta_ij-a_i/sum_B a with a_i=1/w_i. Direct absolute row summation is 1+(|B|-2)a_i/sum_B a for |B|>=2; singleton rows are zero. Finite polyhedral affine cells cover the projection and all ordered partitions occur, so the global maximum equals the maximum block-row expression and is attained by distinct points in an open cell. Replacing the pivot by the global maximum inverse weight and the remaining coordinates by the smallest ones proves the sorted-prefix formula. Minimax and sharp-supremum conclusions follow by the full-block term and positivity. The standalone exact-rational checker verified 600 exhaustive block comparisons and two 120-vertex weighted-projection optimality witnesses, including finite ratio 303/103. These finite checks are not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://proceedings.mlr.press/v51/lim16.pdf (explicit uniform-separability condition)",
+        "https://arxiv.org/abs/2106.11943 (Theorems 4 and 5)",
+        "https://doi.org/10.1007/s00454-023-00586-x (Section 2.3 and the braid-fan face partition)",
+        "2026/10/26/SCOPE-exact-coordinatewise-stability-of-weighted-two-row-supermodular--9895722cef5e (two-row supermodular regression, rather than the permutahedron)"
+      ],
+      "reasoning": "General polyhedral projection and ordered-partition face results supply ingredients, but their statements do not quantify nonuniform weighted block-centering row norms or select optimal inverse weights and proper faces. The closest recorded weighted two-row supermodular sensitivity formula has different constraints and does not imply this result.",
+      "searches": [
+        "weighted Euclidean projection onto permutahedron diagonal metric 2020 2021 2023",
+        "Anisotropic metric projection onto generalized permutahedron active-face sensitivity sorted inverse weights, finite pair sharpness",
+        "generalized permutahedron Euclidean projection 2 - 2/n infinity Lipschitz constant"
+      ]
+    },
+    "checked_sources": [
+      "https://proceedings.mlr.press/v51/lim16.pdf",
+      "https://arxiv.org/abs/2106.11943",
+      "https://doi.org/10.1007/s00454-023-00586-x",
+      "https://proceedings.mlr.press/v139/axiotis21a.html",
+      "2026/10/11/SCOPE-exact-lipschitz-stability-and-contractivity-threshold-for-weight--c92b6dad1bd0",
+      "2026/10/26/SCOPE-exact-coordinatewise-stability-of-weighted-two-row-supermodular--9895722cef5e",
+      "2026/11/2/SCOPE-small-order-endpoint-stability-and-a-regular-face-obstruction-fo--94c6886725b7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://proceedings.mlr.press/v51/lim16.pdf (uniform separable restriction, including the derivation)",
+        "https://arxiv.org/abs/2106.11943 (Euclidean polyhedral perturbation theorem 4 and uniform mirror theorem 5)",
+        "https://doi.org/10.1007/s00454-023-00586-x (ordered-partition geometry)",
+        "2026/11/2/SCOPE-small-order-endpoint-stability-and-a-regular-face-obstruction-fo--94c6886725b7 (Birkhoff matrix projection)"
+      ],
+      "reasoning": "The 2016 and 2021 results do imply the unweighted ranking-projection framework and basic face reductions, and the 2023 result gives the ordered partitions. Their conjunction still does not state or simply specialize to diagonally nonuniform weighted metric sensitivity: weighted KKT row norms, the global choice of an arbitrary proper block, and the metric optimization require an additional argument. Birkhoff projection is a matrix polytope and its face incidence is different.",
+      "searches": [
+        "Exact global maximum-norm Lipschitz constant of diagonal weighted least squares projection onto strict permutahedron: maximum over block rows 1+(s-2) a_i / sum a_j, sharp proper face and optimal uniform metric",
+        "https://proceedings.mlr.press/v51/lim16.pdf",
+        "https://arxiv.org/abs/2106.11943"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://proceedings.mlr.press/v51/lim16.pdf (sections 1-3: the same univariate divergence at every coordinate is required)",
+        "https://arxiv.org/abs/2106.11943 (sections 3-4: face stability and uniform-separable algorithms)",
+        "2026/10/11/SCOPE-exact-lipschitz-stability-and-contractivity-threshold-for-weight--c92b6dad1bd0 (weighted cross-polytope projector in ambient l_p geometry)"
+      ],
+      "reasoning": "This coefficient is invariant under the generating rank values but depends on metric weights. Rewriting the diagonal metric as a nonuniform separable Bregman objective does not satisfy the uniform-separability assumptions in the closest permutahedral algorithms. The weighted cross-polytope result changes the set geometry and ambient norm, not merely notation.",
+      "searches": [
+        "Diagonal Mahalanobis metric projection onto permutahedron exact sharp coordinatewise maximum norm Lipschitz factor largest inverse weight plus smallest other weights",
+        "Weighted quadratic nearest point projection ranking permutahedron sharp infinity norm stability active block 1+(k-2)a_i/sum a_j",
+        "weighted Mahalanobis projection permutahedron sensitivity max norm Lipschitz"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-record searches returned no summary giving the sorted-prefix coefficient or its proper-face maximizing block.",
+        "2026/10/11/SCOPE-exact-lipschitz-stability-and-contractivity-threshold-for-weight--c92b6dad1bd0",
+        "2026/10/26/SCOPE-exact-coordinatewise-stability-of-weighted-two-row-supermodular--9895722cef5e",
+        "2026/11/2/SCOPE-small-order-endpoint-stability-and-a-regular-face-obstruction-fo--94c6886725b7"
+      ],
+      "reasoning": "The checked ranking-polytope, weighted regression, and geometric projection records have no matching exact table or coefficient; this negative search is evidence of incomplete coverage only, never a uniqueness proof.",
+      "searches": [
+        "Diagonal Mahalanobis metric projection onto permutahedron exact sharp coordinatewise maximum norm Lipschitz factor largest inverse weight plus smallest other weights",
+        "Weighted quadratic nearest point projection ranking permutahedron sharp infinity norm stability active block 1+(k-2)a_i/sum a_j",
+        "Anisotropic metric projection onto generalized permutahedron active-face sensitivity sorted inverse weights, finite pair sharpness",
+        "Exact global maximum-norm Lipschitz constant of diagonal weighted least squares projection onto strict permutahedron: maximum over block rows 1+(s-2) a_i / sum a_j, sharp proper face and optimal uniform metric",
+        "weighted Mahalanobis projection permutahedron sensitivity max norm Lipschitz"
+      ]
+    },
+    "rationale": "The source literature provides the permutahedral combinatorial geometry and algorithms for uniformly separable Bregman or unweighted Euclidean projections, but the available primary material does not give the nonuniform diagonal-metric maximum-error coefficient, its sorted-prefix global optimizer, the proper-face dominance example, or the unique uniform-weight minimizer. Accessible prior claims involving soft rank, simplex regularization, weighted cross-polytopes, or bistochastic projection concern mathematically different operators. Historical priority remains a risk, especially separable convex polymatroid literature.",
+    "residual_risks": [
+      "An earlier nonuniform separable convex minimization or weighted normal-fan result could imply the same coefficient without matching terminology.",
+      "Search and targeted material inspection do not establish global mathematical priority or independent acceptance.",
+      "The theorem excludes repeated generating entries, which have fewer faces and may have a smaller sharp constant."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers uniformly separable objectives, not distinct positive diagonal quadratic weights; no sharp input/output maximum-norm constant found in the inspected full text.",
+        "evidence": [
+          "https://proceedings.mlr.press/v51/lim16.pdf pages 1205-1207, especially uniform-separability definition and Section 3"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v51/lim16.pdf",
+        "material_read": "Relevant passages in the main paper introduction, preliminaries and Sections 3, 5, 6, including the explicit uniform-separability hypothesis; first and third PDF pages visually inspected.",
+        "method": "Direct primary full-text PDF review and page images",
+        "title": "Efficient Bregman Projections onto the Permutahedron and Related Polytopes",
+        "trigger": "Exact same polytope and possible Bregman generalization"
+      },
+      {
+        "assessment": "Face perturbation and uniform-mirror algorithms are established, but no diagonal-anisotropy endpoint stability formula or proper-face metric optimization is stated.",
+        "evidence": [
+          "https://arxiv.org/abs/2106.11943 Sections 3-4, Theorems 4-5, Appendix B"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2106.11943",
+        "material_read": "Relevant passages from the complete available arXiv HTML text: Sections 1, 3, 4 and Appendix B, including Theorems 4 and 5.",
+        "method": "Primary arXiv text review",
+        "title": "Reusing Combinatorial Structure: Faster Iterative Projections over Submodular Base Polytopes",
+        "trigger": "Motivating current-period paper about projecting onto ranking/submodular polytopes"
+      },
+      {
+        "assessment": "Provides the ordered-partition face lattice underlying the geometric proof; does not analyze diagonally weighted metric projector norms.",
+        "evidence": [
+          "https://link.springer.com/article/10.1007/s00454-023-00586-x, Section 2.3, Proposition 1.4 and Example 1.5"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00454-023-00586-x",
+        "material_read": "Relevant passages of open-access article HTML Sections 2.3 and the complete-graph example, including Proposition 1.4.",
+        "method": "Primary open-access article review",
+        "title": "Deformed Graphical Zonotopes",
+        "trigger": "Ordered-partition face structure of the strict permutahedron"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e26fdc3c-ebd8-4d42-a8d1-bf764db22e9b",
+  "value": {
+    "rationale": "Anisotropic least-squares ranking projection is a motivated natural object: perturbations can be highly nonuniform although Euclidean contraction remains true in the metric itself. The theorem gives the exact ordinary coordinate-error budget for all strict permutation polytopes, a sorting-time formula, the proper-face-versus-global-affine instability mechanism, and a unique robust-weight optimality classification. These are structural, operationally interpretable facts beyond routine norm equivalence and independent of the generating ranks.",
+    "status": "PASS"
+  }
+}
