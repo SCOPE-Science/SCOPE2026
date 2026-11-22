@@ -1,0 +1,15 @@
+# Review of the circular-bicone brightness classification
+
+## Correctness — PASS
+The definition fixes a three-dimensional Euclidean double cone with positive equatorial radius and half-height, and uniform plane normal. The projected filled disk is an ellipse and the projected apices are an antipodal pair; elementary tangent-triangle subtraction gives the exact complete shadow-area profile. The derivative has the sign of a strictly increasing scalar function \(H(t)-k^2\), proving the full equality and inverse-branch classifications. Taylor expansions at the side-on, interior-minimum and axial latitudes yield all sharp endpoint coefficients, while a cubic tangent-gap expansion proves the \(3/2\)-contact singularity. The mean projected area agrees exactly with Cauchy's surface-area formula. A standalone independent polygonal-hull checker passed 432 deterministic diagnostics, including 228 hull comparisons, 40 Cauchy integral checks, 71 global extremal checks, 84 derivatives, and 9 singularity/bifurcation checks. Numerical evidence is corroborative, not a continuum proof.
+
+## Originality — PASS (historical risk disclosed)
+The published Vickers–Brown (2001) full-text treatment of projected area concerns one-base right circular cones, not the symmetric double cone. The full accessible bicone-perimeter research record concerns perimeter rather than area and explicitly excludes area optimization. The full accessible one-cone brightness research record has an unequal, single-apex projected area formula and distinct global threshold. Finch's 2012 cone/cylinder intrinsic-volume paper does not address bicone area distribution. Actual indexed searches for bicone aliases, projected-area distributions, silhouette contacts, and both threshold values retrieved these nearest works but not the present complete two-transition classification, anomalous quarter-power minimum, or full bicone CDF. A failed search is not a proof of historical priority, and unidentified earlier bicone papers remain a residual risk.
+
+## Mathematical value — PASS
+The question is the complete uniformly oriented brightness distribution of an elementary, centrally symmetric curved convex body, a natural refinement of the classical mean-shadow invariant. The classification has two *different* optimizers and geometric change-points at exact natural aspect ratios; the resulting quartic contact creates a rare-event exponent \(1/4\) not visible from mean projected area or from the related perimeter problem. The exact CDF, critical conditional law, and silhouette-tangency singularity are a unified structural answer, not a numerical curiosity or arbitrary parameter slice.
+
+## Comparison limits
+The full text of Vickers and Brown (2001) available as an HTML transcription specifically says only the circular *single* cone and tetrahedron are treated in its cone class. The published bicone-perimeter record and one-cone brightness record were read in full. Other remote sources cannot be guaranteed exhaustively indexed or accessible. Numerical diagnostics do not certify global mathematical claims independently.
+
+Self-review: passed. Independent audit: not yet performed.
