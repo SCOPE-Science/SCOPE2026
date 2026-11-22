@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof writes every scalar-fixing algebra endomorphism in linear-plus-quadratic coordinates and verifies that composition-square-root condition is exactly a square-zero matrix and a module-intertwiner equation. The symmetric-square image has rank \(\binom{r+1}{2}\) even in characteristic two. A homology-quotient map gives every rank fiber, and the union of its intervals gives the precise rank gaps. The checker independently establishes all 54 canonical quadratic-fiber nullities (one for each combination of generator count, linear rank and three tested primes), exhausts \(d=2\) over prime fields of orders two and three, and tests gaps to generator dimension sixteen. The proof, not these bounded experiments, establishes the universal statements.
+
+**Originality — PASS (best-knowledge assessment).** The closest same-object literature handles idempotent endomorphisms instead of composition-square-root endomorphisms. The closest same-equation record handles noncommutative tensor-square algebras and has different quadratic fibers and rank supports; its intertwiner approach is credited. Lipyanski's archival work handles automorphisms of endomorphism semigroups, not this rank-distributed subset. Thus the precise symmetric-square quotient theorem and gap law are not logical corollaries of the checked statements. The residual priority risk is an implicit count under an unsearched presentation or a more general module-Hom theorem specialized to this quadratic functor.
+
+**Value — PASS.** Composition powers and their ranks are natural invariants of the endomorphism monoid of a free short local algebra. The exact rank support has an infinite staircase of missing intervals that first appears in dimension six and has unboundedly many gaps, while the random collapsing map concentrates superexponentially at zero first-order part. These are structural phenomena rather than arbitrary finite-table slices. The result gives the complete labeled distribution, not merely a cheap existence obstruction.
+
+The precise original claim is restricted to cubic jets and is not an independent or externally certified result.
+
+Self-review: passed. Independent audit: not yet performed.
