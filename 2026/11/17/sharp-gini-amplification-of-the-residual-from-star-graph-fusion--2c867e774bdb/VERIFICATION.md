@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 check_star_residual.py` from the directory containing the embedded script. Only the Python standard library is required. The package's script was executed on its actual path with the following output:
+## correctness
 
-```
-EXACT_ALL_BLOCK_BINARY_CUTS_AND_OPTIMAL_INTEGER_SIZES_PASSED 6477
-EXACT_STRICT_COMPLEMENTARITY_SHARP_TWO_INPUT_WITNESSES_PASSED
-EXACT_RANDOM_ACTUAL_NONLINEAR_TWO_INPUT_CHECKS_PASSED 1500
-SHARP_FIRST_AMPLIFICATION_DIMENSION_FOUR_PASSED
-ALL_STAR_FUSION_RESIDUAL_CHECKS_PASSED
-```
+PASS
 
-The first test considers every binary cut count for each permissible pooled block of sizes two through the current dimension, for all dimensions from two through 18, and verifies the closed formula exactly with rational arithmetic. The second tests actual data perturbations, using a separate exact solution of the star proximal KKT equation. The third checks 1500 arbitrary exact-rational pairs with varied positive penalties; these are diagnostics and do not prove the uniform theorem. Infinite-dimensional or unrestricted finite-dimensional claims come only from the mathematical proof in `RESULT.md`. No external validation or independent certification is asserted.
+Proximal stationarity gives a unique fused-hub scalar root and finitely many strict complementarity regimes. On a regime with m active vertices including the hub the residual differential is the one-block centering Q_S=I-P_S; its exact Gini norm follows from binary-level coarea, with j active ones and t outside ones, and equals (m-1)(2n-m)/[m(n-1)]. Maximizing the forward difference 2n/[m(m+1)]-1 gives m(m-1)<=2n<=m(m+1). Strictly feasible KKT active sets for any positive penalties and a single fused-leaf perturbation attain every local norm. The fitted block projector P_S is doubly stochastic and Gini-contractive. This proves finite n>=2, sharp n=4 onset and asymptotic 2-2sqrt(2/n)+O(1/n); a finite cut check alone would not.
+
+## originality
+
+PASS
+
+Graph-fusion active group projections and one-datum convex minimality are known, but the complementary residual two-input sharp complete-pair Gini modulus and its optimizing block size are genuinely different. No inspected broader result logically supplies the exact expression. Historical priority remains qualified.
+
+## value
+
+PASS
+
+Separates stability of an optimization fit from instability of its data residual; quantifies all star sizes and positive penalties with a natural sharp n=4 boundary and pooled-size sqrt(n) law. This is a structural stability theorem not a code-only exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
