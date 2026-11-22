@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limitations
+# Independent mathematical audit
 
-Run `python check_path_ball.py` using Python 3.9+ and only the standard library. The script directly reconstructs the full path Laplacian matrix, proposed optimal barycentric weights, centers and distances in exact rational arithmetic for 78 graph orders, all integers from 3 to 80. It checks the three-vertex exception, the sharp four-vertex contact tie, strict endpoint screening afterward, and the exact clearance and center formula.
+## correctness
 
-A second integer recurrence check verifies the quartic finite-difference identity and Vandermonde normalization in 997 graph orders from 4 through 1000, involving 498,500 recurrence positions. Expected status: `PATH_LAPLACIAN_BALL_EXACT_PASS`.
+PASS
 
-Those finite tests do not prove statements for every order. The analytical proof uses a monic quartic finite-difference identity, a binomial convolution and the weighted-distance optimality certificate, all explicitly given in RESULT.md. These algebraic steps establish the theorem for every integer in its scope. The original graph is unweighted and the Euclidean embedding fixed; no assertion about other embeddings or independent validation is made.
+In the canonical Euclidean embedding Q_n=conv{L_ne_i}, the interior Gram principal block (L_n^2)_{2..n-1} is Toeplitz with bands 6,-4,+1. Positive coefficients w_i=binom(i,2)binom(n-i+1,2)/B, B=binom(n+2,5), sum to one by Vandermonde. The fourth finite difference of quartic F(j)=j(j+1)(m+1-j)(m+2-j) is 24, including boundary rows because F vanishes at j=-1,0,m+1,m+2. Hence K w=(6/B)1, c=Lw, and each interior column lies at distance squared 6-6/B. The two endpoints are at 2+6(n-1)/B, giving clearance 4-6n/B, exactly zero at n=4 and strictly positive for n>=5. The weighted squared-distance identity R^2+||y-c||^2 forces a unique smallest ball for ALL y in the affine hyperplane, not just a vertex circumcircle. The center is the negative second difference of w and equals the displayed quadratic formula; the n=3 positive weights (7,13,7)/27 and R3^2=98/27 were checked separately. Exact independent rational reconstruction of full L columns for 3<=n<=23 passed. No proof of arbitrary trees or of any other Euclidean embedding is asserted.
+
+## originality
+
+PASS
+
+PASS, qualified: the path-specific minimum enclosing sphere, positive quartic supporting measure, and n=4 endpoint screening are not implied by the inspected lattice tree-equivalence, inradius or complete-bipartite ball results. Same path objects are compared, not just title keywords.
+
+## value
+
+PASS
+
+PASS: the canonical Euclidean path Laplacian simplex is a natural metric incarnation of a standard lattice polytope, and its exact unique minimum enclosing ball and contact transition are not determined by lattice equivalence. The quartic nonnegative contact certificate and n=4 sharp threshold give useful geometric structure beyond routine generic enclosing-ball duality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
