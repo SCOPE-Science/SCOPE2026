@@ -1,15 +1,21 @@
-# Review of the curvature classification
+# Independent mathematical audit
 
-## Correctness
-PASS in self-review. The monomial beta moments determine the center curvature and its parameter derivative; the implicit-function theorem gives a local small zero-curvature circle. Boundary asymptotics force a sign change at every parameter above the central threshold. For integer weights 0 through 3, exact polynomial signs prove global negativity. For weight 4, the reciprocal degree-12 numerator has exactly two positive roots, reciprocals of each other, and therefore precisely one zero-curvature circle inside the unit disk. The standalone symbolic checker reconstructs the critical identities from their definitions. Numerical root isolation is not treated as a proof of uniqueness.
+## correctness
 
-## Originality
-PASS relative to checked sources. The same Euclidean-distance disk kernel and its Lu Qi-Keng zero set were published previously; neither is claimed as new here. Its full published proof was inspected and contains no corresponding curvature-sign or all-radius zero-circle classification. The closest full curvature analogue concerns a meromorphic punctured disk with origin-power weight and is mathematically inapplicable to the present ordinary analytic disk. The abstract of the motivating boundary-distance parameter-regularity study describes analytic dependence, not curvature signs. Search comparisons included Bergman metric, Gaussian curvature, Kähler, weighted disk, central positive curvature, and exact algebraic root variants. Unavailable full text and older literature pose a residual priority risk.
+PASS
 
-## Mathematical value
-PASS. Positivity of Gaussian curvature in a canonical weighted Bergman metric and its precise first onset are intrinsic geometric phenomena. The theorem identifies the exact parameter threshold, proves birth of a local positive-curvature core, and solves globally the first integer case with its unique sign-change circle. This is a finite but natural complete curvature classification, not a routine check of kernel zeros.
+PASS: Independent symbolic reconstruction from beta moments of F_t(s) and log coefficients c1,c2,c3 gives the exact central formula, transverse derivatives (-24/7 and (32sqrt61-244)/45) and small-circle slope (56sqrt61-427)/270. For fixed t, the binomial-difference kernel yields g~(t+2)/(1-s)^2 and curvature limit -2/(t+2); continuity proves existence but NOT uniqueness for general t. Integer cases 0..4 were independently recomputed as rational curvatures. For t=4, N(s) has coefficient sign pattern +,-,...,-,+, N(0)>0>N(1) and reciprocity s^12 N(1/s)=N(s), proving exactly one simple interior root, without relying on floating root-finding. All claims are within the stated norms/domain.
 
-## Scope and limitations
-Global uniqueness is established at exponent four only. For arbitrary noninteger exponents above the central threshold, the theorem proves existence of a sign-change circle but not uniqueness. The exact reproducing kernel is a published input. Full-text priority comparison with the motivating contemporary manuscript remains incomplete, and no independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for the metric curvature classification; exact weighted disk kernel and its off-diagonal zeros are established prior work and explicitly credited. Full earlier same-kernel finding and full punctured-disk curvature finding were read and compared by analytic object/weight/metric; neither states or implies the present zero-circle theorem without additional curvature analysis. Contemporary parameter-regularity full text not accessible; priority risk remains.
+
+## value
+
+PASS
+
+PASS: Curvature sign in a canonical Bergman metric is geometrically intrinsic; a positive-curvature emergence threshold and sharp first integer all-radius classification fill a meaningful metric-geometry gap distinct from off-diagonal kernel zero counts. The exact first integer positive-curvature core and its unique algebraic boundary are useful independent results despite not classifying all real t.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
