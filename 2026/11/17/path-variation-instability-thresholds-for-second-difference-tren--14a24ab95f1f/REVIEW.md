@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The continuous piecewise-affine proximal representation follows from finite-dimensional KKT and strict convexity. All curvature row subsets are attained as open cells. The quotient variation norm reduces to one-jump test vectors. Exact rational face/cut enumeration establishes coefficients through eight sites; the four-site dual certificate is fully explicit. A distinct analytic affine-projection computation proves the all-dimensional lower bound and limiting lower bound.
+## correctness
 
-**Originality — PASS, with limitations.** The original 2009 trend-filter paper establishes the estimator, its primal/dual formulation and sparse-representation geometry, but the inspected results do not give the two-input adjacent-variation coefficient. Tibshirani (2014) describes known active sets and rates; the present affine active-set representation is not itself new. Searches of the published mathematical record and accessible prior material found non-implying statements concerning quadratic smoothing, convex projections and running medians. An unindexed earlier result remains possible.
+PASS
 
-**Mathematical value — PASS.** The threshold at four samples, penalty-strength invariance, exact natural small-sample constants, and all-dimensional persistence of strict BV amplification quantify a genuine, previously unaddressed cross-norm defect in a widely used denoising operator. This is a precise stability fact, not merely a reformulation of Euclidean nonexpansivity.
+Strongly convex objective has KKT multipliers and continuous piecewise-affine proximal map. Because second-difference D is surjective, every zero-curvature active-row subset F occurs on an open strictly complementary stratum (choose z0 with prescribed zero/nonzero D z0, multipliers 0 on F and sign 1 elsewhere). Jacobian is the constant-preserving orthogonal projector P_F. Any input difference decomposes into a constant plus one-jump vectors; the V seminorm operator norm of P_F is max_j V(P_F c^j). Integrate local derivatives along line segments to bound globally and realize each maximizing norm locally, proving equality for all n and lambda>0. Rational exhaustive enumeration for all faces and jumps at n=2..8 reproduced independently in a SymPy implementation, including 4-site exact 6/5 KKT witness; affine least-squares step slope 6j(n-j)/(n(n^2-1)) analytically gives universal bound and asymptotic >=3/2.
 
-The coefficients above eight sites are not solved in closed form. Unequal spacing and nonuniform weights are not treated. Bibliography and checks are included in the associated result and verification package.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the known generalized-lasso active-set geometry is not claimed as new. The sharp induced two-input adjacent variation modulus, threshold 4, exact fractions and all-n amplification are distinct from prior l2 nonexpansivity and statistical spline/rate theory.
+
+## value
+
+PASS
+
+Sharp failure of a natural perturbation stability property at the minimum feasible path length n=4, complete low-n constants, and an exact all-length active-face formula have clear numerical-analysis relevance. A global >=1.5 limiting lower amplification shows this is not a negligible toy counterexample; unknown general exact coefficients are openly limited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

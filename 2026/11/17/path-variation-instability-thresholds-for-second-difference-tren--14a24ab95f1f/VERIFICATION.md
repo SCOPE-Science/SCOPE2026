@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 check_trend_bv.py` from the extracted files with Python 3. The code uses only the standard library and exact `fractions.Fraction` arithmetic; it does not call an external optimizer. For every \(2\le n\le8\), it enumerates \(2^{n-2}\) subsets of zero-curvature rows, computes exact orthogonal projector matrices with rational Gaussian elimination, and tests every single-jump indicator cut. The exhaustive algorithm relies on the mathematically proved face/cut reduction in `RESULT.md`.
+## correctness
 
-Expected rational constants in order: \(1,1,6/5,4/3,7/5,28/19,11/7\). It also checks that each projector fixes constants, explicitly verifies the four-site primal-dual witness, and tests the analytically derived all-length lower-bound identity for \(4\le n\le25\). The latter finite range is not an infinite proof; the analytic argument proves the formula for all \(n\ge4\).
+PASS
 
-The self-review documents correctness, prior-work comparison and value. No independent audit was performed. No assertion is made that searches establish absolute historical priority.
+Strongly convex objective has KKT multipliers and continuous piecewise-affine proximal map. Because second-difference D is surjective, every zero-curvature active-row subset F occurs on an open strictly complementary stratum (choose z0 with prescribed zero/nonzero D z0, multipliers 0 on F and sign 1 elsewhere). Jacobian is the constant-preserving orthogonal projector P_F. Any input difference decomposes into a constant plus one-jump vectors; the V seminorm operator norm of P_F is max_j V(P_F c^j). Integrate local derivatives along line segments to bound globally and realize each maximizing norm locally, proving equality for all n and lambda>0. Rational exhaustive enumeration for all faces and jumps at n=2..8 reproduced independently in a SymPy implementation, including 4-site exact 6/5 KKT witness; affine least-squares step slope 6j(n-j)/(n(n^2-1)) analytically gives universal bound and asymptotic >=3/2.
+
+## originality
+
+PASS
+
+Best-of-knowledge: the known generalized-lasso active-set geometry is not claimed as new. The sharp induced two-input adjacent variation modulus, threshold 4, exact fractions and all-n amplification are distinct from prior l2 nonexpansivity and statistical spline/rate theory.
+
+## value
+
+PASS
+
+Sharp failure of a natural perturbation stability property at the minimum feasible path length n=4, complete low-n constants, and an exact all-length active-face formula have clear numerical-analysis relevance. A global >=1.5 limiting lower amplification shows this is not a negligible toy counterexample; unknown general exact coefficients are openly limited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

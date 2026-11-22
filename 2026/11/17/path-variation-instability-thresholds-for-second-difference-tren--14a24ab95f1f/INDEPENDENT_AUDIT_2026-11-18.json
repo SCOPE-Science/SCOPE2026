@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T07:55:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Strongly convex objective has KKT multipliers and continuous piecewise-affine proximal map. Because second-difference D is surjective, every zero-curvature active-row subset F occurs on an open strictly complementary stratum (choose z0 with prescribed zero/nonzero D z0, multipliers 0 on F and sign 1 elsewhere). Jacobian is the constant-preserving orthogonal projector P_F. Any input difference decomposes into a constant plus one-jump vectors; the V seminorm operator norm of P_F is max_j V(P_F c^j). Integrate local derivatives along line segments to bound globally and realize each maximizing norm locally, proving equality for all n and lambda>0. Rational exhaustive enumeration for all faces and jumps at n=2..8 reproduced independently in a SymPy implementation, including 4-site exact 6/5 KKT witness; affine least-squares step slope 6j(n-j)/(n(n^2-1)) analytically gives universal bound and asymptotic >=3/2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tibshirani (2014) Section 1.1 gives statistical and generalized-lasso representations; Kim et al. (2009) treats optimization and trends, not exact BV two-input moduli.",
+          "Resultary published Whittaker smoothing with squared second differences and variation ball Euclidean projection concern distinct maps."
+        ],
+        "reasoning": "No inspected broader theorem identifies this BV sharp factor or the first 4-sample failure of nonexpansivity for the l1 trend-filter proximal map; similar norms/operators do not imply it.",
+        "searches": [
+          "second difference l1 trend filtering adjacent total variation two input Lipschitz coefficients active face projector",
+          "trend filtering total variation contraction nonexpansive generalized lasso"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1137/070690274",
+        "https://doi.org/10.1214/13-AOS1189",
+        "https://web.stanford.edu/~boyd/papers/pdf/l1_trend_filter.pdf",
+        "https://www.stat.cmu.edu/~ryantibs/papers/trendfilter-aos.pdf",
+        "second difference l1 trend filtering adjacent total variation two input Lipschitz coefficients active face projector"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kim et al. 2009 proximal map is Euclidean nonexpansive; its proof does not imply BV norm contraction.",
+          "Published Whittaker smoothing is quadratic penalty, while candidate is l1 second-curvature penalty with piecewise affine Jacobians."
+        ],
+        "reasoning": "Neither l2 Lipschitz modulus <=1 nor Whittaker quadratic variation gain determines the present max_F,j formula or thresholds. The candidate adds an exact answer to a natural stability question.",
+        "searches": [
+          "second difference l1 trend filtering adjacent total variation two input Lipschitz coefficients active face projector",
+          "quadratic Whittaker smoothing total variation four samples"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kim et al. (2009) uses the identical 0.5||z-a||_2^2+lambda||D z||_1 operator; Tibshirani (2014) discusses its active sets and piecewise-linear spline structure."
+        ],
+        "reasoning": "The operator is standard, but the measured input/output seminorm is variation of T(a)-T(b), not variation of an individual signal or l2 distance. Existing l2 contraction says nothing about this quotient BV modulus.",
+        "searches": [
+          "second difference l1 trend filtering adjacent total variation two input Lipschitz coefficients active face projector",
+          "generalized lasso solution path active sets total variation operator norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The seven exact fractions are obtained from all 2^(n-2)(n-1) face-cut pairs at n<=8; publications inspected give algorithmic matrix geometry but not these evaluated induced BV constants."
+        ],
+        "reasoning": "The exact table is not a generic output of an existing table or a renaming of known generalized-lasso path breakpoints; a dedicated induced-norm optimization is required.",
+        "searches": [
+          "second difference l1 trend filtering adjacent total variation two input Lipschitz coefficients active face projector",
+          "trend filtering total variation operator norms 6/5 4/3 7/5 28/19 11/7"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the known generalized-lasso active-set geometry is not claimed as new. The sharp induced two-input adjacent variation modulus, threshold 4, exact fractions and all-n amplification are distinct from prior l2 nonexpansivity and statistical spline/rate theory.",
+      "residual_risks": [
+        "Historical priority remains provisional: a specialized BV perturbation result outside the indexed articles may exist.",
+        "Exact evaluated coefficients only for n<=8; unlimited n has exact finite optimization and lower bound but no closed evaluated Lambda_n.",
+        "The four-site example is a two-input difference (one input zero), not an assertion that all output variations increase."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_FOUND_IN_INSPECTED_MATERIAL",
+          "evidence": "Defines l1 second-difference penalty and sparsity of kinks, not the two-input BV sharp modulus; no claim about uninspected pages.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/l1_trend_filter.pdf",
+          "material_read": "Open full manuscript PDF, problem definition, piecewise linearity, regularization/dual methods and optimization discussion; original page 344 inspected as PDF screenshot",
+          "method": "Public PDF text and actual page screenshot",
+          "title": "l1 Trend Filtering (Kim, Koh, Boyd, Gorinevsky, 2009)",
+          "trigger": "Exact same optimization functional and potential older stability analysis"
+        },
+        {
+          "assessment": "NOT_FOUND_IN_INSPECTED_MATERIAL",
+          "evidence": "Gives piecewise polynomial/spline representation and risk results rather than exact V(P_F c_j) perturbation constants.",
+          "identifier_or_url": "https://www.stat.cmu.edu/~ryantibs/papers/trendfilter-aos.pdf",
+          "material_read": "Full accessible PDF text; introduction/Section 1.1 around generalized-lasso degrees and trend-filtering rates; sampled PDF page screenshot",
+          "method": "Open PDF text and screenshot",
+          "title": "Adaptive Piecewise Polynomial Estimation via Trend Filtering (Tibshirani, 2014)",
+          "trigger": "Highly relevant generalized lasso active set and asymptotic rates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp failure of a natural perturbation stability property at the minimum feasible path length n=4, complete low-n constants, and an exact all-length active-face formula have clear numerical-analysis relevance. A global >=1.5 limiting lower amplification shows this is not a negligible toy counterexample; unknown general exact coefficients are openly limited.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For l1 second-difference trend filtering on n>=2 equally spaced real path points, the sharp global two-input adjacent-total-variation perturbation factor is exactly max_{F,j} V_n(P_F c^(j)), independent of all lambda>0. Constants n=2..8 are 1,1,6/5,4/3,7/5,28/19,11/7; for all n>=4 Lambda_n >=6 floor(n^2/4)/(n(n+1)) >1 and liminf >=3/2.",
+  "limitations": [
+    "Historical priority remains provisional: a specialized BV perturbation result outside the indexed articles may exist.",
+    "Exact evaluated coefficients only for n<=8; unlimited n has exact finite optimization and lower bound but no closed evaluated Lambda_n.",
+    "The four-site example is a two-input difference (one input zero), not an assertion that all output variations increase."
+  ],
+  "schema_version": 1
+}
