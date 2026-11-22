@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For all n>=3, minimum solutions have gaps <=3 and global defect 3ceil(n/3)-n in {0,1,2}. Any all-positive query support imposes modular lower bounds on defects of its arcs; adjacent zero-defect arcs force forbidden middle labels. A lone alternating four-gap configuration is excluded by the unique length-two step on the complementary arc. For sufficiency, the C4/C5/C7 witnesses lift by 3-subdivisions of arbitrary edges, preserving all original traces. Stars-and-bars on cyclic gaps yields every coefficient, and independent exhaustive checks cover n=3..22 and 1,420 edge lifts. No finite extrapolation is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://doi.org/10.3390/sym12122053 full Section 2.1.2, classifications and orbit counts",
+        "https://arxiv.org/html/2303.08190v1 Section 3, optimal independent dominating set reconfiguration",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-periodic-shattering-law-for-minimum-independent-dominating-set--ab94895bb7a2 RESULT.md: independent domination restricted to paths"
+      ],
+      "reasoning": "The general classifications of gamma-sets and i-sets cover solution objects but do not prove all Boolean traces; the i-set restriction differs from gamma-sets especially in the one-mod-three family. The available published-finding corpus results address adjacent questions and no broader shattering theorem containing this exact polynomial was identified.",
+      "searches": [
+        "minimum dominating sets of cycles vertex membership complete shattered support polynomial VC dimension n mod 3",
+        "cyclic perfect code covering sequence domination binary trace shatter 3 defects",
+        "minimum dominating sets of cycles vertex membership complete shattered support polynomial VC dimension n mod 3"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.3390/sym12122053",
+      "https://arxiv.org/html/2303.08190v1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-the-first-minimal-domination-cycle-gap-complete-five-query-trace--84ef6ec729bc",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-periodic-shattering-law-for-minimum-independent-dominating-set--ab94895bb7a2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://doi.org/10.3390/sym12122053 Section 2.1.2 exhibits the gamma-sets, but has no VC/shattering statement",
+        "https://arxiv.org/html/2303.08190v1 Section 3 classifies independent domination i-graphs, not vertex-trace shattering",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-the-first-minimal-domination-cycle-gap-complete-five-query-trace--84ef6ec729bc exact dimensions finite C11 for inclusion-minimal class",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-periodic-shattering-law-for-minimum-independent-dominating-set--ab94895bb7a2 exact polynomial for minimum independent domination paths"
+      ],
+      "reasoning": "Knowing every minimum solution does not automatically state the VC support criterion, which requires resolving every positive/negative prescribed trace and proving a uniform obstruction for four queries. The 2020 results may be used as inputs but neither they nor adjacent published claims logically give the particular trace conclusion without new arguments. The finite C11 finding cannot establish all n or transfer to a smaller concept class.",
+      "searches": [
+        "minimum domination cycle shattering dimension odd 3k+1 3k+2",
+        "gamma-sets cycles trace VC shattering of minimum dominating sets 2020",
+        "published-finding corpus id 2026/11/8/SCOPE-a-periodic-shattering-law-for-minimum-independent-dominating-set--ab94895bb7a2",
+        "published-finding corpus id 2026/11/2/SCOPE-the-first-minimal-domination-cycle-gap-complete-five-query-trace--84ef6ec729bc"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://doi.org/10.3390/sym12122053 Section 2.1.2, Lemmas 4–6: minimum gamma-set classification by closed-neighborhood overlaps, not traces",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-the-first-minimal-domination-cycle-gap-complete-five-query-trace--84ef6ec729bc RESULT.md: inclusion-minimal dominating sets of C11 and their five-query trace spectrum"
+      ],
+      "reasoning": "The same cycle minimum sets are also called gamma-sets or optimal domination solutions. Existing complete minimum-set descriptions determine concepts, but their displayed theorems do not directly state shattering of all fixed vertex supports or the three-residue support classification. Inclusion-minimal concept classes are strictly larger, so their C11 VC facts do not imply the optimal-class formula.",
+      "searches": [
+        "minimum cardinality dominating set cycles vertex incidence VC dimension 1 2 3",
+        "minimum domination cycle shattering dimension odd 3k+1 3k+2",
+        "gamma-sets cycles trace VC shattering of minimum dominating sets 2020",
+        "gamma-set hypergraph cycle shattering supports exact face polynomial n mod 3 cyclic gaps",
+        "published-finding corpus:2026/11/2/SCOPE-the-first-minimal-domination-cycle-gap-complete-five-query-trace--84ef6ec729bc"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://doi.org/10.3390/sym12122053 Lemmas 4–6 and Proposition 4 supply solution counts, not shattered-support counts",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-the-first-minimal-domination-cycle-gap-complete-five-query-trace--84ef6ec729bc finite five-query trace distribution on C11 concerns a different concept class"
+      ],
+      "reasoning": "Published gamma-set and orbit counts are counts of hypotheses rather than query-support faces. The present coefficients such as (3k+1)binom(k,2) count shattered triples rather than gamma-sets. The finite 2026 C11 trace table cannot determine the all-order optimum-class face polynomial.",
+      "searches": [
+        "minimum cardinality dominating set cycles vertex incidence VC dimension 1 2 3",
+        "minimum dominating sets of cycles vertex membership complete shattered support polynomial VC dimension n mod 3",
+        "gamma-set hypergraph cycle shattering supports exact face polynomial n mod 3 cyclic gaps"
+      ]
+    },
+    "rationale": "The 2020 full description of minimum dominating sets is prior and credited, but no inspected paper or published-finding corpus finding states a coordinate-shattering test, the three-residue face polynomial, or the defect-exhaustion obstruction. The nearest published-finding corpus cycle study uses inclusion-minimal (not minimum-cardinality) domination; the nearest minimum-independent study is on paths. Searches cannot prove absolute priority, and the possibility of an indexed-or-unindexed equivalent remains a stated residual risk.",
+    "residual_risks": [
+      "An equivalent all-order trace classification could be implicit in later unindexed combinatorics/learning-theory literature or appear under gamma-set hypergraph terminology.",
+      "The optimal-set descriptions published in 2020 are strong inputs; priority is confined to explicit Boolean trace/shattering classification and proof, not the configuration or hypothesis census.",
+      "published-finding corpus and accessible sources are not exhaustive of all historical literature or inaccessible sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS optimal set classification and total counts; NOT_COVERING the binary-coordinate shattering polynomial as a stated result",
+        "evidence": "Lemmas 4–6 classify all minimum dominating sets according to neighborhood overlap; Proposition 4 counts special configurations. Article states action and orbits, not coordinate Boolean trace faces.",
+        "identifier_or_url": "https://doi.org/10.3390/sym12122053",
+        "material_read": "Article abstract, Section 2.1.2 Lemmas 4–6, Proposition 4, orbit theorem and references",
+        "method": "Direct reading of accessible full-text HTML with searches for VC dimension and shattering terminology",
+        "title": "Transitivity on Minimum Dominating Sets of Paths and Cycles",
+        "trigger": "Identical optimal cycle objects and public source-date anchor"
+      },
+      {
+        "assessment": "NOT_COVERING the stated full gamma-set vertex-trace theorem; i-set reconfiguration is a different object",
+        "evidence": "Theorem 3.7 classifies i-graphs (reconfiguration graphs) by n mod 3, not shattering polynomials; independent minimum sets need not equal all minimum dominating sets.",
+        "identifier_or_url": "https://arxiv.org/html/2303.08190v1",
+        "material_read": "Full accessible arXiv HTML, abstract, Sections 2–3, especially Section 3 and Theorem 3.7",
+        "method": "Read full-text HTML and inspect shatter/VC terminology",
+        "title": "The i-Graphs of Paths and Cycles",
+        "trigger": "Plausible strongest source on minimum independent dominating cycle solutions"
+      },
+      {
+        "assessment": "NOT_COVERING; concepts are inclusion-minimal dominating sets (not necessarily minimum cardinality), and only small-cycle adaptive results are asserted",
+        "evidence": "C11 all inclusion-minimal sets count 44, VC=4, Ldim=5; explicitly disclaims all-order formula.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-the-first-minimal-domination-cycle-gap-complete-five-query-trace--84ef6ec729bc",
+        "material_read": "Full RESULT.md including Finding, Proof, Relationship and Limitations",
+        "method": "Read published GitHub source record and compare exact concept definitions and quantifiers",
+        "title": "The first minimal-domination cycle gap: complete five-query traces and a vertex-transitive amplification",
+        "trigger": "Closest published-finding corpus concept/graph/query match"
+      },
+      {
+        "assessment": "NOT_COVERING; paths and minimum independent dominating sets differ from all minimum dominating sets of cycles",
+        "evidence": "Its complete path polynomial has degree at most two and different piecewise structure; no all-cycle gamma-set assertion.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-periodic-shattering-law-for-minimum-independent-dominating-set--ab94895bb7a2",
+        "material_read": "Full RESULT.md including complete path proof and limitations",
+        "method": "Read published GitHub source record and compare graph, independent constraint and query space",
+        "title": "A periodic shattering law for minimum independent dominating sets of paths",
+        "trigger": "Exact trace terminology and optimality match with a nearby graph family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "49796f81-cbd6-4577-a02a-7c3d0287c667",
+  "value": {
+    "rationale": "The minimum domination number and enumeration of gamma-sets do not determine which arbitrarily prescribed membership labels can coexist. The new all-size residue-only shattering tests and face polynomial describe the complete simplicial shattering structure of a classical optimizing family, with genuine n mod 3 changes in VC dimension and maximum support size. This is a natural invariant driven by optimal domination, not an arbitrary finite calculation.",
+    "status": "PASS"
+  }
+}
