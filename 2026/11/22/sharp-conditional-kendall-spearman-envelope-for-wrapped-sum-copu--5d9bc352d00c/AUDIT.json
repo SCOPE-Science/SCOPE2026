@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary Lebesgue generators, reconstruct the published exact rho/tau identities and the derived CDF variance expression tau=1-8q-4J at fixed q. Negative rho: sharp Cauchy lower bound, continuous endpoint strictness, exact-rho approximating mixture. Nonnegative rho: centered-uniform CDF, fixed-moment sign obstacle, equality by centered L2 positivity. Boundaries/quantifiers covered, with exact rational verification from attached script.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schreyer–Paulin–Trutschnig arXiv:1502.04620 Theorem 3.5 concerns all bivariate copulas and has a different, much wider attainable set.",
+        "Kamnitui–Genest–Jaworski–Trutschnig (2019) explicitly restrict to extreme-value copulas, not arbitrary wrapped-sum generator densities.",
+        "Lalancette–Zimmerman (2025) Proposition 6 covers a global maximum only (tau<=1/6); Corollary 2 covers xi>=0, neither fixes rho."
+      ],
+      "reasoning": "A theorem for a larger class implies this result only if its bound matches the sharp subclass envelope; neither the universal rho-tau region nor 2025 unconditional bounds implies the exact conditional two-branch formula, fixed-rho attainment and nonattainment.",
+      "searches": [
+        "On the exact region determined by Kendall tau and Spearman rho Schreyer Paulin Trutschnig arxiv 1502.04620",
+        "On the size of the class of bivariate extreme-value copulas with fixed value of Spearman rho or Kendall tau Kamnitui Genest",
+        "copula rotational wrapped-sum Chatterjee xi conditional Spearman rho lower bound 2rho -3tau positive branch"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2204.04336",
+      "https://arxiv.org/html/2509.26635v1",
+      "https://arxiv.org/abs/1502.04620",
+      "https://doi.org/10.1016/j.jmaa.2018.11.057",
+      "Sharp negative concordance envelope for the asymmetric quadratic copula scheme (different family)",
+      "Exact admissibility and sharp rank-correlation ranges for the two-mode Legendre copula (different family)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2025 paper Proposition 4: rho=6E[X(1-X)]-1; Proposition 5: tau=4E[X(1-X)]+2E|X-Xprime|-4Var(X)-1; Proposition 6: tau max 1/6 at uniform on [1/4,3/4]; Corollary 2: xi=2rho-3tau >=0.",
+        "The new statement supplies exactly (2rho-rho^2)/3 for negative rho and (2/3)(sqrt(1-2rho)-(1-2rho)) for positive rho, both strictly below the established 2rho/3 bound unless rho=0.",
+        "Independent CDF projection and fixed-moment optimizer proof establishes both sharp attainment regimes, not inferred from separate formula titles."
+      ],
+      "reasoning": "The 2025 displayed moment formulas are relied on explicitly as input, not treated as novel. Optimizing them at each prescribed rho is a new substantive conditional variational result; the earlier unconditional optimizer solves only one rho value and cannot determine the other rho-conditional extrema. The 2025 zero-rho sign implication is acknowledged as prior.",
+      "searches": [
+        "Lalancette Zimmerman 2025 proposition 4 proposition 5 proposition 6 corollary 2 rank rho tau xi",
+        "rank concordance tau versus rho in additive circular copula exact joint region τ <= (2 rho - rho squared)/3",
+        "exact-admissibility and sharp-rank correlation ranges two-mode Legendre copula",
+        "sharp negative concordance envelope asymmetric quadratic copula scheme"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2025 arXiv:2509.26635 Section 2.2.2 derives separate rho and tau generator identities; no joint fixed-rho envelope is stated in the inspected propositions, proofs or concordance discussion.",
+        "The family identity xi=2rho-3tau establishes a nonsharp tau<=2rho/3 relation; for every nonzero rho the present expression is strictly smaller."
+      ],
+      "reasoning": "The dual formulation is the sharp minimum of the directional rank-dependence coefficient xi at fixed Spearman rho; it is equivalent to the newly proved conditional bound, not to the known nonnegative xi or separate unconditional tau/rho ranges.",
+      "searches": [
+        "Lalancette Zimmerman 2022 2025 sharp fixed Spearman rho Kendall tau dependence region c_f(u,v)=f((u+v) mod 1) equality uniform on center interval and endpoint atom limit",
+        "copula rotational dependence fixed Spearman Kendall tau bound generator measure",
+        "wrapped-sum copula Kendall Spearman bounds conditional"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Most similar accessible research records concern asymmetric quadratic-section copulas, two-mode Legendre copulas, or general rank constraints; their formulas/objects are different.",
+        "The inspected 2025 original already contains the known global tau maximum 1/6, correctly recognized as covered, not the conditional two-branch bound."
+      ],
+      "reasoning": "No searched exact table or database of sharp fixed-Spearman conditional Kendall envelopes for this wrapped-sum family was located. Absence of search hits is a residual priority risk, not an originality proof.",
+      "searches": [
+        "Exact sharp conditional Kendall tau versus Spearman rho envelope for Lalancette Zimmerman wrapped-sum copulas, two regimes uniform centered support and endpoint-atom mixtures, tau <= (2rho-rho squared)/3 for rho negative",
+        "sharp upper Kendall tau conditional on fixed Spearman rho in wrapped-sum copulas density f((u+v) mod 1); piecewise rho sqrt 1-2rho",
+        "Lalancette Zimmerman 2022 sum modulo one copula Kendall tau sharp one sixth density 2 on [1/4,3/4]"
+      ]
+    },
+    "rationale": "2022 defining source and 2025 relevant successor inspected, including 2025 moment identities, unconditional max, and xi=2rho-3tau; these are acknowledged prior. The fixed-rho sharp two-branch upper envelope, its negative nonattainment and positive unique attainment require an additional constrained variational argument and are not implied by the identified antecedents. Closest research records address different copula classes; unindexed equivalent priority remains uncertain.",
+    "residual_risks": [
+      "An unindexed paper or differently named equivalent conditional-concordance envelope may exist.",
+      "The global tau maximum and the xi nonnegativity implication are 2025 prior results, explicitly excluded from the new contribution.",
+      "Independent literature-priority review has not been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes family construction, not the present fixed-rho Kendall boundary",
+        "evidence": [
+          "Equation (4), Proposition 1 and Section 2; arXiv original submission 2022-04-09"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.04336",
+        "material_read": "Full online text, introduction, Section 2.1 construction, properties and rank-concordance discussion",
+        "method": "Accessible arXiv HTML text, inspected formula and scope",
+        "title": "A new family of smooth copulas with arbitrarily irregular densities",
+        "trigger": "Original defining wrapped-sum copula and public date"
+      },
+      {
+        "assessment": "Direct antecedent; proves separate coefficient formulas, unconditional Kendall cap, and xi>=0 but not the new fixed-rho sharp envelope",
+        "evidence": [
+          "Propositions 4–5 lines 263–311; Proposition 6 and proof lines 379–442; xi relation and Corollary 2 lines 470–477"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2509.26635v1",
+        "material_read": "Full online text in Section 2.1, Section 2.2.2 Propositions 4–7, Corollary 2, proofs including global Kendall maximum and xi relation",
+        "method": "Read arXiv accessible original HTML full relevant sections and proof steps",
+        "title": "A Tractable Family of Smooth Copulas with Rotational Dependence: Properties, Inference, and Application",
+        "trigger": "Highly relevant follow-up with rho/tau formula and extremal theorem"
+      },
+      {
+        "assessment": "Unrestricted copula region is not the specialized sharp wrapped-sum conditional envelope",
+        "evidence": [
+          "Abstract; introduction equation (1.6), statements describing all bivariate copulas"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1502.04620",
+        "material_read": "Online manuscript introduction and statements of unrestricted attainable-region results",
+        "method": "Read accessible arXiv full-text presentation, compared class and quantifiers",
+        "title": "On the exact region determined by Kendall's tau and Spearman's rho",
+        "trigger": "Plausible broad exact-region theorem covering all copulas"
+      },
+      {
+        "assessment": "Addresses Pickands-function extreme-value copulas, not the wrapped-sum family; not covering",
+        "evidence": [
+          "Abstract explicitly specifies bivariate extreme-value copulas and Pickands dependence functions"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2018.11.057",
+        "material_read": "Accessible abstract and opening introduction (not claimed to be inspected in full)",
+        "method": "Read publisher open webpage excerpts and compared model objects",
+        "title": "On the size of the class of bivariate extreme-value copulas with a fixed value of Spearman's rho or Kendall's tau",
+        "trigger": "Fixed-rho paper with plausible title"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5d9bc352-d00c-4f35-8a6b-26659e7ebf7d",
+  "value": {
+    "rationale": "A natural model-calibration problem asks how large Kendall concordance can be at an observed Spearman value. Sharp fixed-rho limits, exact extremizers and a nonattainment regime deliver structural information for an established infinite-dimensional copula family; the strict gap from known xi>=0 is nontrivial and the negative regime requires a moment-preserving singular limit.",
+    "status": "PASS"
+  }
+}
