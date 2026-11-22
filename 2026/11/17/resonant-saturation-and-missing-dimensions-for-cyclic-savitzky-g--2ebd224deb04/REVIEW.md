@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement has unambiguous real-domain quantifiers: every integer window radius \(m\ge2\), every nonaliasing cycle length \(n\ge2m+1\), ordinary unweighted quadratic center fitting, and sharp variation norm of arbitrary two-input differences. The center weights are reconstructed from the even normal equations and checked against the exact polynomial moments. Cyclic differences identify the quotient by constants with the zero-sum subspace; positive–negative mass pairing proves the two-column formula and binary-block sharpness. Full kernel-mass equality is precisely disjointness of corresponding positive and negative supports. Their integer difference sets give the stated complete saturation intervals, including the exceptional zero weights. The finite exact-rational checker corroborates the proof on a substantial but finite range; it is not an infinite certificate. The all-radius limit follows from the sign threshold and Riemann sums.
+## correctness
 
-## Originality — PASS, with residual risk
-The quadratic Savitzky–Golay weights and their polynomial reproduction are from Savitzky and Golay (1964). The sharp full kernel \(\ell^1\) mass and its asymptotic limit are previously determined in *Seven points maximize the positivity defect of quadratic Savitzky–Golay smoothing* (2026). The two-column difference coefficient is a standard Dobrushin–Deutsch–Zenger-type construction (Kirkland and Neumann, 2009). None of these predecessors gives the new all-radius **finite cyclic lengths** at which the two-input adjacent-variation coefficient actually attains the full kernel mass. In particular, the five-tap coefficient first reaches that mass at six sites, falls at seven, and returns at eight; the pre-existing kernel norm alone cannot determine this dimension behavior. A distinct result about complete-pair Gini variation uses another seminorm and does not imply the adjacent-edge phase diagram. Marchand and Marmet (1983) report filter overshoot but their full text was not retrievable in the available access paths; earlier unindexed filter literature remains a priority risk.
+PASS
 
-## Mathematical value — PASS
-The new claim is a natural complete characterization of when a classical family of local least-squares smoothers achieves its worst-case amplification on finite periodic signals. It exhibits a strict nonmonotonic cycle-length resonance, an interval of forbidden saturation dimensions, eventual permanent saturation and arithmetic enlargement of the first resonance when coefficients vanish. Exact optimal inputs are explicit, so the criterion is directly relevant to worst-case preservation of adjacent variation. The scope is substantial for a finite-size robustness invariant, without claiming new negative-mass formulas, new statistical risk bounds or a broader smoothing theorem.
+From the pinned centered least-squares normal equations, the even quadratic kernel is w_j=3(3m²+3m−1−5j²)/((2m+1)(4m²+4m−3)); its constant and quadratic moments are respectively one and zero. Cyclic forward differences range over precisely the zero-sum subspace; pairing positive and negative masses into e_i−e_j proves its convolution ℓ1 norm is (1/2)max_{s≠0}Σ_i|c_i−c_{i−s}|, attained by integrating e_0−e_s to a binary arc. Equality with Σ|c| is coordinatewise equivalent to no positive-positive or negative-negative overlap. Positives form length P=2a+1 arc and negative-shift distances are [1,m−b]∪[2b,2m]. Since P>m−b, both shift distances must lie in [P,2b−1]∪[2m+1,∞); integer sums yield exactly the claimed finite resonance and eventual half-line. Zero coefficients give b=a+2 rather than a+1. Verified independently exact rational radius-two values 1,47/35,44/35,47/35 and representative sign-support shifts at radii 2,3,6,10; these checks do not replace the all-m interval-sum argument. The m→∞ thresholds follow by floor asymptotics and a Riemann sum.
 
-## Residual limitations
-The intermediate sharp norm has a finite maximization formula, not one closed form for every length. The finding does not cover nonperiodic endpoints, weighted/irregular fits, different polynomial degrees or repeated smoothing. The relevant 1983 source was checked at abstract level only because verified full text was not recovered; hence priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The signed kernel, its full ℓ1 mass and limiting gain are known from the October 4 result; the present theorem classifies precisely when the cyclic zero-sum variation operator reaches that bound. The distinction is mathematically real: at five taps n=7 has strict deficit 44/35 although the kernel mass is 47/35. A targeted published-record and literature search plus the earlier full published proof did not reveal the support-arithmetic exact cycle-length classification. This is a qualified best-of-knowledge result; 1983 smoothing-pitfalls full text remained inaccessible.
+
+## value
+
+PASS
+
+Sharp dimension-selective robustness is an independently motivated exact operator norm question for a standard smoothing filter. The isolated saturation, strict intermediate loss and permanent recovery are counterintuitive and specify precise cycle lengths needed by numerical analysts. The signed-support arithmetic is neither a renamed coefficient table nor a routine consequence of negative mass.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
