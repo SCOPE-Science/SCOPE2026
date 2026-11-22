@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For every trace on an antichain, the ideal interval has both parities unless it is a singleton; this is proved from a minimal free element. The maximum antichain edge-count equality forces one consecutive block of chosen maxima. The complete rigid-trace test reduces to covering internal minima and excluding all external maxima; its unique ideal has size (r+1)+|E|+|T|. These facts prove the exact parity classification, VC dimensions, and exceptional binomial counts. Top homology follows by eliminating extra top-facet coefficients, with explicit m=1,2 graph cases. Direct independent bitmask enumeration checks 328 size-m antichain/parity comparisons for m<=8 and top boundary ranks for m<=5. All infinite assertions are proof-based.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Related work on online ranks of finite order-ideal classes (record 68248a42b6fd) studies unrestricted ideal-class online dimensions and bounded-width algorithms, not parity-filtered shattering.",
+        "Related work on maximal rooted-tree antichain shattering (record c25578c2d178) uses maximal-antichain concepts on rooted trees, not cardinality-parity ideals of the incidence path."
+      ],
+      "reasoning": "The general unrestricted-ideal criterion (supports are antichains) is credited as a basic fact; it implies only an upper bound, while the parity-specific rigid-trace obstruction and homology do not follow from it alone. The inspected broader results concern different concept classes.",
+      "searches": [
+        "VC dimension antichains and order ideal classes modulo two cardinality support",
+        "order ideal parity filtered antichain VC width characteristic sample pattern",
+        "fence poset order ideals parity shattering VC dimension"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2112.00518, first publicly posted 2021-12-01",
+      "arxiv:2201.03044, first publicly posted 2022-01-09",
+      "Related work: online ranks of finite order-ideal classes (record 68248a42b6fd)",
+      "Related work: rooted-tree maximal-antichain shattering (record c25578c2d178)",
+      "Related claim 5128d782-fbe4-471c-9d35-d956decd42c5 (disjoint-chain parity ideals)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Closest comparison claim is parity-constrained ideals of a disjoint union of equal-length chains with transversal shattered supports and rank-sensitive homology.",
+        "The present family is one connected alternating height-two fence with path incidence: comparabilities overlap and maximal antichains have consecutive-edge rigidity.",
+        "The published rank-polynomial assertions concern ideal cardinalities and cannot produce the fixed-support trace classification merely by summing ranks."
+      ],
+      "reasoning": "Neither the disjoint-chain theorem nor the stated fence-rank results covers this connected incidence-poset parity trace system as a special case. The disjoint-chain formula has different extrema and topology. The current proof derives the new claim without using those as an unproved lemma.",
+      "searches": [
+        "related disjoint-chain claim 5128d782-fbe4-471c-9d35-d956decd42c5",
+        "parity-constrained ideals on disjoint chains exact shattering and integral homology rank-width",
+        "arxiv:2112.00518",
+        "arxiv:2201.03044"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2021 fence rank-polynomial article states unimodality/interlacing of the number of ideals of each cardinality; its full-text search for shatter and VC dimension gave no hits.",
+        "The 2022 article concerns partial symmetry between ideal and filter rank numbers, with no shattering theorem in the inspected sections.",
+        "The semantic searches returned no semantically equivalent odd-fence parity top-support result in these searches."
+      ],
+      "reasoning": "A rank generating function of ideals aggregated by cardinality does not encode traces at particular fixed coordinates. The proposed binomial defect counts shattered supports, not ideals, so there is no direct equivalent formulation in the cited rank-sequence results. Search absence is not proof of priority.",
+      "searches": [
+        "parity-restricted lower order ideals of alternating fence posets odd 2m+1 VC dimension m, shattered antichain support counts binomial 1 3 3 1",
+        "fence poset ideal parity trace shattering maximum independent antichains deletion of minima exact top face counts",
+        "\"parity\" \"fence\" \"shattering\" \"order ideals\"",
+        "arxiv:2112.00518",
+        "arxiv:2201.03044"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest inspected published tables are rank sequences of ideals, not lists of parity-shattered support sets.",
+        "Direct new enumeration returns extra odd maximum supports 1,3,3,1,0,..., but this finite pattern alone is not a novelty certificate."
+      ],
+      "reasoning": "Even if the same numerical sequence appears as a known binomial row or database sequence, the exact mapping to maximum support sets and the all-order classification have independent mathematical content. No exact trace-table coverage was identified; database coverage is not asserted exhaustive.",
+      "searches": [
+        "\"fence\" \"shattered sets\" \"ideals\"",
+        "\"VC dimension\" \"fence posets\" \"order ideals\"",
+        "parity-restricted lower order ideals of alternating fence posets odd 2m+1 VC dimension m, shattered antichain support counts binomial 1 3 3 1"
+      ]
+    },
+    "rationale": "The claimed new contribution is the exact parity-conditioned maximum-support shattering and integral top-homology classification of connected odd fences. Inspected fence papers concern lattice rank polynomials and their symmetries, which do not determine traces on a selected antichain. The closest accessible recorded parity-ideal work concerns disjoint chains and has a different comparability graph and trace obstruction. No inspected comparison statement implies the present claim. Searches cannot establish absolute priority; possible unindexed equivalent work remains a risk.",
+    "residual_risks": [
+      "Priority cannot be guaranteed against unindexed equivalently worded work on parity subfamilies of distributive lattices or incidence posets.",
+      "Only portions of primary full texts most relevant to rank and trace implication were substantively read; absence of a phrase in a document is not an exhaustive semantic noncoverage proof.",
+      "Unindexed and unpublished mathematical comparisons could include equivalent arguments or conclusions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "rank-unimodality and interlacing, not a Boolean trace/top-shattering theorem in inspected material",
+        "evidence": "Theorem 1.2 states rank polynomial unimodality; Theorem 1.3 states interlacing properties. Document search for shatter and VC dimension returned no hit.",
+        "identifier_or_url": "https://arxiv.org/pdf/2112.00518",
+        "material_read": "PDF introduction pp.1-3, theorem statements and setup; closing discussion pp.19-21; full-text term searches for shatter and VC dimension",
+        "method": "primary arXiv PDF text and page-image review",
+        "title": "Rank Polynomials of Fence Posets are Unimodal",
+        "trigger": "same fence posets and same cardinality distribution used for parity splitting"
+      },
+      {
+        "assessment": "rank partial symmetry and filter-bijection scope, not a parity-conditioned shattering classification in inspected sections",
+        "evidence": "Theorem 1.3 compares numbers of ideals and filters of each rank; document text search for shatter returned no hit.",
+        "identifier_or_url": "https://arxiv.org/abs/2201.03044",
+        "material_read": "primary full-text HTML introduction, definitions, Theorems 1.2 and 1.3, rank-symmetry context, document search for shatter",
+        "method": "open-access primary article HTML inspection",
+        "title": "Partial Rank Symmetry of Distributive Lattices for Fences",
+        "trigger": "same ideal lattice, possible stronger rank refinement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f1afe408-d239-4751-a50f-aba9f04bd80b",
+  "value": {
+    "rationale": "The odd fence is a standard family of distributive lattices with established rank-enumeration theory. The new parity-refined Boolean trace invariant distinguishes two natural halves of that lattice. An all-order maximum-face classification yields a one-unit VC-dimension loss and an unexpectedly short binomial defect (1,3,3,1). The exact top integral homology proves a persistent boundary-sphere cycle for all m and isolates the only additional top cycles. These are motivated structural, not arbitrarily selected finite benchmark computations; no downstream theorem is required for their value.",
+    "status": "PASS"
+  }
+}
