@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "Exact i.i.d. exchangeable covariance transfer is derived from the marginal and pair-inclusion probabilities. Its nonnegative two-mode matrix satisfies \\(\\det(I-T_\\eta)=p\\eta^2(1-c)[1+(n-1)c]\\{4p-2[p+q(1+(n-2)c)]\\eta+q(1-c)[1+(n-1)c]\\eta^2\\}\\). A small-step Lyapunov contraction proves stability; the first positive determinant root is sharp, and the quadratic Lyapunov scaling identity excludes reentry after the larger algebraic root. Permutation symmetrization gives the if-and-only-if statement for every deterministic initial vector. The integer product \\((B-m)(B-m-1)\\ge0\\) proves the sharp unique batch-size law. The expected-objective threshold follows from the exact sampled-Hessian second moment. A standalone verifier passed 2241 assertions including exact symbolic factorization and rational enumeration of all masks for three small dimensions. Edge cases of zero or complete pair activation and integral or nonintegral mean batch size were explicitly included. Finite checks corroborate, but do not prove, the infinite-parameter claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hanzely–Richtárik 2018 HTML §2 eqs. (5)–(9) and Appendix B.1–B.2 eqs. (36)–(38) provide arbitrary-sampling ESO sufficient iteration-complexity bounds, including uniform fixed-size and independent minibatches.",
+        "Gower et al. 2019 PMLR §3.1 Theorem 3.1 gives an expected-smoothness-based sufficient stepsize with contraction-plus-noise bound; §3.3 discusses independent and uniform-size sampling.",
+        "published-finding corpus hit 2026/10/12/SCOPE-exact-coupling-invariant-euclidean-risk-and-state-dependent-batc--da850d87df4f covers four-coordinate balanced minibatch coupling at fixed size, not arbitrary n and random sizes.",
+        "Richtárik–Takáč, On optimal probabilities in stochastic coordinate descent methods (2015), Theorem 3, proves a sufficient ESO-based complexity estimate for identical synchronous subset-gradient algorithms and discusses probability optimization, without asserting a sharp mean-square stability boundary."
+      ],
+      "reasoning": "General sampling and expected-smoothness theorems might apply as sufficient convergence bounds, but their conclusions do not provide necessity or a sharp mean-square spectral radius on this model. Their regularized/accelerated methods and objectives also differ where indicated. The new exact 2×2 transfer and closed-form maximal stepsize strengthen those bounds, and the adjacent-batch-size uniqueness is not implied by those published statements.",
+      "searches": [
+        "Without-replacement fixed-size minibatch versus independent Bernoulli parallel coordinate descent exact critical step size equicorrelated Hessian optimal batch-size variance",
+        "Balanced random subset size versus independent Bernoulli activation exact maximal mean square stable learning rate equicorrelated quadratic parallel coordinate gradient simultaneous update",
+        "partial participation optimal negatively correlated coordinate sampling fixed expected batch size maximum mean square stable step size quadratic",
+        "2019 expected smoothness arbitrary sampling minibatch probability matrix pairwise inclusion coordinate descent",
+        "2018 2019 arbitrary minibatch sampling without replacement coordinate descent exact convergence stepsize pairwise probabilities stochastic gradients"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1809.09354v1 and public HTML v2",
+      "https://proceedings.mlr.press/v97/qian19b/qian19b.pdf",
+      "published-finding corpus: 2026/10/12/SCOPE-exact-coupling-invariant-euclidean-risk-and-state-dependent-batc--da850d87df4f",
+      "prior specialized claim: ca6b551f-e80d-464d-b46e-ba6184a0bcfd",
+      "published-finding corpus searches on mean-square stability, exchangeable minibatching and pair-inclusion moments",
+      "https://link.springer.com/article/10.1007/s11590-015-0916-1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior claim ca6b551f-e80d-464d-b46e-ba6184a0bcfd fixes \\(q=p^2\\) and therefore does not quantify over exchangeable q or solve the distributional optimization at fixed p.",
+        "The Hanzely–Richtárik ESO criterion constrains a separable-overapproximation stepsize; for this Hessian the exact one-step expected-descent ceiling is \\(2p/[p+(n-1)cq]\\), while the derived true mean-square-stability ceiling can be strictly larger.",
+        "The 2019 Gower et al. sufficient stepsize condition is not an equivalence for this covariance dynamics.",
+        "The published-finding corpus 2026/10/12/SCOPE-exact-coupling-invariant-euclidean-risk-and-state-dependent-batc--da850d87df4f summary optimizes a four-coordinate state-dependent finite-horizon objective over balanced fixed-size pair couplings, not the universal asymptotic stability ceiling over all exchangeable sampling laws.",
+        "Richtárik–Takáč NSync is an algorithmic superset but its proven theorem is a sufficient complexity guarantee; the new claim is a sharper iff statement for an explicit Hessian and a different optimization target, so algorithm inclusion alone does not imply statement coverage."
+      ],
+      "reasoning": "Compare implications rather than topic labels: prior Bernoulli work establishes only one interior q, and broad coordinate-descent literature gives rate guarantees but not sharp necessity. The four-variable fixed-size result may subsume a special numerical example but cannot establish the all-dimensional variable-size optimizer from its available statement. The new claim deliberately excludes novelty for these covered components.",
+      "searches": [
+        "Exact mean-square stability threshold for equicorrelated quadratic simultaneous randomized coordinate descent under arbitrary exchangeable minibatch sampling; optimal fixed-size or adjacent-size batches and off-diagonal activation correlation",
+        "Balanced random subset size versus independent Bernoulli activation exact maximal mean square stable learning rate equicorrelated quadratic parallel coordinate gradient simultaneous update",
+        "2019 expected smoothness arbitrary sampling minibatch probability matrix pairwise inclusion coordinate descent",
+        "2018 2019 arbitrary minibatch sampling without replacement coordinate descent exact convergence stepsize pairwise probabilities stochastic gradients"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Previous specialized statement ca6b551f-e80d-464d-b46e-ba6184a0bcfd gives the independent-mask case with \\(q=p^2\\), exactly recovered from the new formula by substitution.",
+        "The covariance matrix of an exchangeable mask is determined by the marginal probability p and pair probability q, a probability-matrix reduction used by Hanzely–Richtárik (2018), §2 and Appendix B.",
+        "The closest published-finding corpus hit 2026/10/12/SCOPE-exact-coupling-invariant-euclidean-risk-and-state-dependent-batc--da850d87df4f concerns a four-coordinate fixed-size-two Euclidean-risk invariance and state-dependent objective optimization, not a full exchangeable all-batch-size stepsize-optimal law."
+      ],
+      "reasoning": "Checked equivalent formulations via the mask pair-inclusion matrix, rank-one equicorrelation Hessian, symmetrized covariance transfer, uniform fixed-size minibatches and random batch-size mixtures. The Bernoulli special case and pairwise-probability formalism are established, but neither implies the sharp maximization of the true mean-square-stability interval over all exchangeable laws at fixed expected work. The available four-coordinate summary has a different objective and restricted batch model; inaccessible full text remains a risk.",
+      "searches": [
+        "Exact mean-square stability threshold for equicorrelated quadratic simultaneous randomized coordinate descent under arbitrary exchangeable minibatch sampling; optimal fixed-size or adjacent-size batches and off-diagonal activation correlation",
+        "Spectral radius covariance transfer matrix exchangeable coordinate activation probability p and pairwise inclusion q for quadratic SGD mean square stability",
+        "exchangeable fixed cardinality minibatch stochastic gradient descent spectral stability stepsize equicorrelation pairwise inclusion random subset optimizer",
+        "\"mean-square\" \"fixed size\" \"exchangeable\" \"coordinate descent\" \"stability\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest retrieved published mathematical records describe specific four-coordinate or two-component quadratics and random reshuffling, rather than an exact all-n exchangeable coordinate-mask threshold table.",
+        "The full Hanzely–Richtárik appendix tabulates bounding rate parameters for two canonical samplings, not exact mean-square threshold values or an extremal arbitrary-size law."
+      ],
+      "reasoning": "Queried the exact combination of exchangeable pairwise inclusion, equicorrelation, mean-square threshold, balanced batch sizes, and comparison with Bernoulli activations. No retrieved exact database or table provides the proposed general formula. This is not a proof of absence; unindexed tables and unpublished calculations remain possible.",
+      "searches": [
+        "Exact mean-square stability threshold for equicorrelated quadratic simultaneous randomized coordinate descent under arbitrary exchangeable minibatch sampling; optimal fixed-size or adjacent-size batches and off-diagonal activation correlation",
+        "Without-replacement fixed-size minibatch versus independent Bernoulli parallel coordinate descent exact critical step size equicorrelated Hessian optimal batch-size variance",
+        "Spectral radius covariance transfer matrix exchangeable coordinate activation probability p and pairwise inclusion q for quadratic SGD mean square stability",
+        "\"mean-square\" \"fixed size\" \"exchangeable\" \"coordinate descent\" \"stability\"",
+        "\"pairwise inclusion\" \"mean square stability\" \"coordinate descent\" minibatch",
+        "\"Exact coupling-invariant Euclidean risk and state-dependent batch-optimal objective\" \"four-coordinate\""
+      ]
+    },
+    "rationale": "The original mathematical content is not the known arbitrary-sampling probability matrix, the known independent Bernoulli special case, or a generic sufficient rate. It is the complete fixed-expected-work optimization of an exact necessary-and-sufficient mean-square stability threshold over all exchangeable random-subset laws, including the unique adjacent-size optimizer, all-pair-inclusion monotonicity and strict gain over independent activation. Primary full-text comparisons support this distinction; priority remains provisional due to one inaccessible close publication and the ordinary limits of retrieval. The original NSync arbitrary-subset synchronous coordinate method (Richtárik–Takáč, first preprint 2013) was independently compared; it supplies algorithmic precedent and sufficient convergence-rate probability design, not the claimed exact optimizer of the necessary-and-sufficient mean-square stability interval.",
+    "residual_risks": [
+      "Full text of the highly relevant October 12, 2026 four-coordinate fixed-size coupling publication could not be accessed, so a hidden general theorem cannot be ruled out.",
+      "Broad arbitrary-sampling literature may contain an equivalent special-case stability reduction not found in the searched sources; indexing and synonyms are incomplete.",
+      "No independent historical-priority or mathematical expert review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers probability-matrix formalism and sufficient convergence-rate bounds, not a sharp all-initialization mean-square threshold or the unique exchangeable sampling law maximizing that threshold for arbitrary mean batch size.",
+        "evidence": [
+          "HTML eq (5) updates active coordinates using pre-step gradients; eq (7) is ESO inequality; Appendix B states sufficient rate parameter c(S,M)=\\(\\lambda_{\\max}(P^{\\prime\\prime}\\circ M)\\).",
+          "Earliest public arXiv submission September 25, 2018 (v1); latest inspected HTML is v2."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1809.09354v2",
+        "material_read": "Full accessible HTML: introduction, §2 including equations (5)–(9), §5 expected-size setting, and Appendix B.1–B.2 including equations (36)–(38) and uniform versus independent fixed-size samplings.",
+        "method": "Read original public arXiv HTML, compare algorithm definition, quantifiers, objectives and sufficient versus necessary stepsize implications; additionally inspected official PDF page 3.",
+        "title": "Accelerated Coordinate Descent with Arbitrary Sampling and Best Rates for Minibatches",
+        "trigger": "Identical simultaneous random-subset coordinate-gradient update and full arbitrary-sampling probability matrix."
+      },
+      {
+        "assessment": "This older work explicitly includes the generic synchronous arbitrary-subset algorithm and optimizes sampling probabilities for sufficient ESO-based iteration bounds. Its theorem does not assert the exact geometric mean-square stability frontier or the unique adjacent-size exchangeable optimizer for maximizing the true stable step at fixed expected work.",
+        "evidence": [
+          "Open HTML Theorem 3 (Section 2.2) states a sufficient probabilistic iteration-complexity bound under ESO and strong convexity.",
+          "The article identifies an arXiv first public version in October 2013; older contextual literature is not treated as the motivating primary paper for the present middle-period direction."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11590-015-0916-1",
+        "material_read": "Complete open HTML article, particularly Algorithm 1 and Sections 1.1, 2.1–2.2, 3 (arbitrary sampling, nonuniform ESO and optimization of complexity bounds).",
+        "method": "Compared the precise synchronous update, probability-law feasible set, stepsize choice and the sufficient complexity theorem against the proposed necessary-and-sufficient mean-square stability and optimal-step-size problem.",
+        "title": "On optimal probabilities in stochastic coordinate descent methods",
+        "trigger": "Identical synchronous random-coordinate-subset iteration with unrestricted subset selection and sampling-probability optimization."
+      },
+      {
+        "assessment": "The exact expressions refer to the sampling-dependent sufficient step-size/rate choice for its SGD framework, not the sharp all-initialization mean-square-stability boundary of the synchronous coordinate-mask iteration or its optimizer over exchangeable laws.",
+        "evidence": [
+          "Theorem 3.1 assumes gamma<=1/(2L_expected) and gives upper bound with stochastic gradient noise, rather than an iff spectral-radius result.",
+          "Paper published in PMLR 2019; no earlier preprint date asserted here."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v97/qian19b/qian19b.pdf",
+        "material_read": "Official ten-page PDF: abstract/introduction, §2 expected smoothness, §3.1 Theorem 3.1 and its condition, §3.3 sampling comparison and rate formulas, supplemented by PDF page-image inspection.",
+        "method": "Inspected official publisher PDF text and a page screenshot; compared the sufficient expected-smoothness condition to the claimed necessary-and-sufficient mean-square stability criterion.",
+        "title": "SGD: General Analysis and Improved Rates",
+        "trigger": "Arbitrary sampling, independent and uniform minibatches, and claimed exact stepsize expressions."
+      },
+      {
+        "assessment": "The available abstract describes a four-coordinate fixed-size-two law and invariance of expected Euclidean risk, not the all-dimensional exchangeable random-batch-size maximal stability theorem. Because full text was inaccessible, potential additional results remain a named residual risk.",
+        "evidence": [
+          "published-finding corpus identifier 2026/10/12/SCOPE-exact-coupling-invariant-euclidean-risk-and-state-dependent-batc--da850d87df4f",
+          "Summary: every balanced fixed-size-two minibatch law gives the same Euclidean squared error, but state-dependent objective differs; no all-n exchangeable stability optimizer reported in summary."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-exact-coupling-invariant-euclidean-risk-and-state-dependent-batc--da850d87df4f",
+        "material_read": "Published title and published-finding corpus semantic-search abstract/summary; full page fetch was unavailable. No full-text NOT_COVERING assertion is made.",
+        "method": "Checked published-finding corpus summary in multiple semantically varied searches and attempted the source URL; compared exact finite-horizon objective and fixed-size scope to the new asymptotic stability-maximization claim.",
+        "title": "Exact coupling-invariant Euclidean risk and state-dependent batch-optimal objective in four-coordinate descent",
+        "trigger": "Same class of equicorrelated coordinate-descent/minibatch coupling problems and apparently sharper finite-horizon conclusions."
+      },
+      {
+        "assessment": "Previously establishes the Bernoulli special case and descent gap. The new assertion adds all exchangeable pair incidences and a unique optimizer over all batch-size distributions with the same expected cost. Bernoulli substitution is explicitly acknowledged, not asserted original.",
+        "evidence": [
+          "Prior statement restricts all diagonal masks to independent Bernoulli(p).",
+          "Substituting \\(q=p^2\\) into the new algebraic formula recovers the previous exact threshold identically."
+        ],
+        "identifier_or_url": "ca6b551f-e80d-464d-b46e-ba6184a0bcfd",
+        "material_read": "Recoverable original claim and title for deduplication; no old validation or correction work performed.",
+        "method": "Compared equations and quantifiers of the prior specialized claim to q=p² substitution of the current all-exchangeable statement.",
+        "title": "Sharp mean-square stability beyond expected descent for Bernoulli parallel coordinate updates",
+        "trigger": "Precisely the same equicorrelated quadratic and synchronous mask update with independent Bernoulli masks."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9551f778-b77b-47ef-b6e4-991852890ac0",
+  "value": {
+    "rationale": "For the natural resource constraint of a prescribed expected number of simultaneous coordinate updates, the theorem completely solves which exchangeable batch-size distribution maximizes the actual geometric mean-square stability region. The unique adjacent-size policy is constructive and is strictly safer than iid independent activations at identical expected work. A natural near-rank-one family exhibits a sharp gain approaching a factor of two. The strict gap between one-step expected descent and true asymptotic stability distinguishes rate calibration from monotone surrogate design. The conclusion is neither merely a known sufficient step bound nor an arbitrary unmotivated parameter slice; it solves a complete optimization question over a broad sampling class. No claim of best convergence rate or practical throughput is made.",
+    "status": "PASS"
+  }
+}
