@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Conditional on a sampled box B of independent side lengths, containment of each other box has probability Vol(B)^2; binomial expansion and the exact triangular length moments give the finite sum. The product-length density has coefficient 2^d/(d-1)! at the logarithmic singularity, and Gaussian scaling gives sqrt(pi)/(d-1)! times sqrt(n)(log n)^(d-1). For d=2 the exact density 4[(1+z)log(1/z)-2(1-z)] yields the explicit Euler-constant second term with O(log n) remainder. Any finite family is pierced precisely when its inclusion-minimal subfamily is pierced. The independent standard-library checker passed 255 finite exact/integral assertions; the all-size argument does not depend on them.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Coffman, Lueker, Spencer, Winkler, Packing Random Rectangles, DOI 10.1007/PL00008793, inspected abstract and author-hosted bibliographic link https://www.cs.columbia.edu/~coffman/publications.php",
+        "Tran 2010 full text Theorem 1.2 bounds hitting/piercing number, a distinct minimum over point sets",
+        "Own accessible one-dimensional interval claim c5186720 gives exact mean for inclusion-minimal intervals, but does not cover random rectangles"
+      ],
+      "reasoning": "The 1D result is a boundary specialization, not an all-dimension covering theorem. Pairwise-disjoint maximum packings and optimal piercing cardinalities are different invariants: they can be much smaller than the number of inclusion-minimal boxes. No stronger statement deriving the expectation was identified; Coffman full-text inaccessibility remains a residual risk.",
+      "searches": [
+        "web: random rectangles skyline no other rectangle inside expected number of essential rectangles",
+        "web: random geometric box poset number of minimal elements inclusion length random",
+        "web: Packing Random Rectangles Coffman Lueker Spencer Winkler 2001",
+        "published-finding corpus: sample iid random boxes containment-hasse poset expected number of minimal vertices"
+      ]
+    },
+    "checked_sources": [
+      "Tran (2010), DOI 10.1002/rsa.20321, full accessible text",
+      "Chao–Hwang–Liang (1998), DOI 10.1239/jap/1032192865, full accessible author manuscript",
+      "Coffman–Lueker–Spencer–Winkler (2001), DOI 10.1007/PL00008793, abstract only",
+      "Justicz–Scheinerman–Winkler (1990), DOI 10.1080/00029890.1990.11995679, abstract only",
+      "Previously documented one-dimensional inclusion-minimal interval result",
+      "published-finding corpus query results on box/rectangle containment, shattering, related geometric extrema"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chao et al. give an integral for expected union area involving 4xy(1-x)(1-y), rather than a random-box-to-box containment probability Vol(B)^2",
+        "Tran full text sections 1–6 establish stabbing bounds and canonical-box decomposition, without an inclusion-minimal subfamily census",
+        "The known one-dimensional inclusion-minimal interval calculation has sqrt(pi n) leading order and does not address multi-coordinate box containment"
+      ],
+      "reasoning": "New count is indexed by sampled boxes whose pairwise containment sets are empty. Expected union area integrates uncovered spatial points; optimal piercing number minimizes over stabbing point sets. Neither determines the number of inclusion-minimal boxes. The d=1 expression is consistent with but does not directly imply d>=2 sharp leading coefficients and planar second term.",
+      "searches": [
+        "web: Expected measure of union of random rectangles Chao Hwang Liang 1998 full text",
+        "web: Piercing random boxes Linh Tran 2010 published online date",
+        "Previously documented one-dimensional inclusion-minimal interval formula, theorem comparison"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tran 2010 DOI 10.1002/rsa.20321, full accessible text through https://www.academia.edu/49583769/Piercing_random_boxes, discusses piercing, canonical boxes, and packing",
+        "Chao et al. 1998 DOI 10.1239/jap/1032192865, full readable text through https://www.researchgate.net/publication/38350343_Expected_measure_of_the_union_of_random_rectangles, computes union area",
+        "published-finding corpus nearest topical hits include 2026/11/8/SCOPE-exact-finite-grid-orthant-shattering-profiles-and-an-alphabet-de--5eb83aecf933 (discrete grid shattering), which concerns a different discrete classification"
+      ],
+      "reasoning": "Containment-minimality is a random geometric partial-order statistic; piercing number, union volume, and shattering count do not imply its expectation without an additional containment-probability analysis. No exact two-dimensional formula or all-dimensional logarithmic asymptotic was recovered.",
+      "searches": [
+        "web: random rectangles minimal containment expected count stochastic geometry",
+        "web: random boxes inclusion minimal under containment expected number",
+        "published-finding corpus: random rectangles containment poset minimal elements square root n log n asymptotic exact expectation",
+        "published-finding corpus: inclusion-minimal axis-parallel random rectangles piercing preprocessing n^(1/2) log n expected"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus query hits 2026/10/25/SCOPE-sharp-catalan-and-cube-bounds-for-comparable-random-points-of-or--de03dacfde51 concern order-polytope random point comparability, not random interval-coordinate boxes",
+        "published-finding corpus query hits 2026/11/8/SCOPE-all-dimensional-shattering-census-for-discrete-axis-parallel-box--83eb70554249 concern discrete VC shattering, not containment-minimal expectation",
+        "No retrieved data table or record listed the exact moment sum or the sqrt(n)(log n)^(d-1) minimal-box formula"
+      ],
+      "reasoning": "A numerical table of expectations for this geometric poset would constitute coverage even without identical wording; no such record surfaced in targeted searches. Search incompleteness and unindexed sources remain possible.",
+      "searches": [
+        "published-finding corpus: random boxes generated by independent uniform pairs each coordinate expected number inclusion-minimal boxes n square root logarithm power dimension",
+        "published-finding corpus: random hyperrectangle antichain minimal under geometric containment sharp expected cardinality",
+        "published-finding corpus: random axis aligned boxes componentwise containment minima product beta variables Mellin asymptotics",
+        "published-finding corpus: expected number of minimal boxes in random rectangle inclusion order"
+      ]
+    },
+    "rationale": "The primary full-text random-box piercing paper studies the optimal hitting-set cardinality, not containment-minimal subfamilies. The original full-text union-of-rectangles calculation treats covered Lebesgue measure, not containment. The box-packing paper treats disjoint packing, but its complete postscript was not retrieved. The separately documented one-dimensional interval result is neither a general-box formula nor a sharp logarithmic dimension law. Targeted published-result searches for random box inclusion minima returned no covering or directly equivalent finding. Residual historical-priority risk is acknowledged; lack of hits is not a uniqueness certificate.",
+    "residual_risks": [
+      "The full 2001 Coffman et al. packing manuscript was not accessible; auxiliary containment lemmas could cover part of the result.",
+      "Older computational-geometry literature on removal of redundant rectangles may have a formula not indexed by these searches.",
+      "Semantic search failure is not a proof of global historical novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for inclusion-minimal box count; proves piercing number order bounds, not this random poset statistic",
+        "evidence": "Theorem 1.2 estimates tau_d(n) between sqrt(n)(log n)^(d/2-1) and the same times log log n; sections 2–6 construct and pierce canonical random boxes.",
+        "identifier_or_url": "https://www.academia.edu/49583769/Piercing_random_boxes; DOI 10.1002/rsa.20321",
+        "material_read": "Full web-extracted manuscript, including introduction, model reduction, theorems, canonical boxes, proofs, appendices, and references",
+        "method": "Web full-text material read; checked explicit subject, statistics and stated theorems",
+        "title": "Piercing Random Boxes",
+        "trigger": "Same sampled axis-parallel random-box model and piercing motivation"
+      },
+      {
+        "assessment": "NOT_COVERING for minimal-subfamily size: union measure is an additive spatial functional, not a containment poset statistic",
+        "evidence": "Paper evaluates expected area of union using integrand (1-4xy(1-x)(1-y))^n and states d-dimensional union-measure expansion.",
+        "identifier_or_url": "https://www.researchgate.net/publication/38350343_Expected_measure_of_the_union_of_random_rectangles; DOI 10.1239/jap/1032192865",
+        "material_read": "Full public author manuscript text including introduction, exact union-area integral, Mellin method, theorem and fixed-dimensional extension",
+        "method": "Web readable full-text, searched terms minimal, containment and inclusion",
+        "title": "Expected Measure of the Union of Random Rectangles",
+        "trigger": "Identical diagonal-corner model and similar finite-difference/Mellin asymptotics"
+      },
+      {
+        "assessment": "UNRESOLVED_AUXILIARY_RISK: the published objective is maximum disjoint packing, but auxiliary contents were not read",
+        "evidence": "Abstract explicitly describes asymptotic number of rectangles in a maximum pairwise-disjoint subfamily.",
+        "identifier_or_url": "https://www.cs.columbia.edu/~coffman/publications.php; DOI 10.1007/PL00008793",
+        "material_read": "Publisher/technical-report abstract and original author-hosted bibliographic link; full postscript unavailable",
+        "method": "Web abstract and official publication link; attempted to follow author postscript, fetch unsupported",
+        "title": "Packing Random Rectangles",
+        "trigger": "Exactly the random rectangle model, potential preprocessing via inclusions"
+      },
+      {
+        "assessment": "One-dimensional interval packing and universal intersection; not known to state a higher-dimensional minimal-box count",
+        "evidence": "Abstract explicitly describes largest pairwise-disjoint subcollection and probability of a universally intersecting interval.",
+        "identifier_or_url": "https://www.tandfonline.com/doi/abs/10.1080/00029890.1990.11995679",
+        "material_read": "Public abstract and scope description, not full text",
+        "method": "Web abstract",
+        "title": "Random Intervals",
+        "trigger": "Classical uniform interval model underlying coordinate samples"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bbb64232-ed9a-44a6-b101-85743be511a3",
+  "value": {
+    "rationale": "Containment pruning is a lossless reduction of random-box piercing instances, and the surviving cardinality is a natural quantitative preprocessing invariant. A sharp dimension-dependent sqrt(n)(log n)^(d-1) expected size, exact all-n combinatorial expression, and planar second-order coefficient quantify the effect of independent aspect ratios. This is not merely a known union-area or optimal piercing-number estimate. The result is mathematically and algorithmically interpretable without claiming a new piercing optimum.",
+    "status": "PASS"
+  }
+}
