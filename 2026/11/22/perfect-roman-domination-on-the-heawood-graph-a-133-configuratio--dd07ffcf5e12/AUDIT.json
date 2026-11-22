@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md, sections Proof 1–4",
+      "verify_support.py",
+      "verify_direct.cpp"
+    ],
+    "rationale": "The bijection for fixed two-support T yields P_H(z) as a 16,384-term sum exactly; the Fano-plane one-incidence counts and incidence-degree correction classify all minimum supports and show gamma_R^p(H)=10, with 133 optima. Python exact support enumeration and an independently structured C++ exhaustive loop over all 4,782,969 ternary functions reproduce each of the 19 coefficients and optimum class counts; executable sources are embedded. Finite enumeration is exhaustive on the fourteen-vertex specified graph only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Henning–Klostermeyer 2018, Theorem 7: all cubic graphs on n vertices satisfy gamma_R^p <= 3n/4, giving gamma_R^p(H) <= 10 but no reverse inequality.",
+        "Fernau–Mann 2023 concerns output-sensitive enumeration and complexity, not an explicit formula for the fixed incidence graph.",
+        "The 2018 paper discusses Petersen and small cubic extremal examples, with no Heawood-specific statement in the searchable full text."
+      ],
+      "reasoning": "The broader regular-graph result covers only the one-sided numerical bound. It does not imply attainment of that bound, the exact polynomial, or any geometric equality case. General-purpose enumeration algorithms can generate inputs but do not themselves give these coefficients.",
+      "searches": [
+        "cubic graphs perfect Roman dominating function degree three sharp 3n/4 Heawood graph",
+        "\"perfect Roman domination\" \"projective planes\" incidence graphs",
+        "\"Heawood\" \"perfect Roman dominating\"",
+        "\"perfect Roman domination\" \"cubic graphs\" Heawood"
+      ]
+    },
+    "checked_sources": [
+      {
+        "identifier": "doi:10.2298/AADM1801143H",
+        "scope": "Primary same-invariant regular-graph upper bound, viewed theorem/proof."
+      },
+      {
+        "identifier": "arXiv:2309.07018v1",
+        "scope": "Primary motivating preprint, selected relevant original sections and complete text term search."
+      },
+      {
+        "identifier": "https://mathworld.wolfram.com/HeawoodGraph.html",
+        "scope": "Graph identity: fourteen vertices, cubic graph, Fano Levi representation."
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new lower bound excludes weights below ten and reaches the cubic upper bound after integer rounding.",
+        "The new defender-set identity and Fano incidence equality analysis distinguish 28+42+42+21 minimum configurations and give the 19-term polynomial.",
+        "The 2018 upper bound, the 2023 algorithmic paper, and the unrelated Heawood set-census records do not imply the exact optimizers or polynomial."
+      ],
+      "reasoning": "Comparison was made by logical consequence: a universal one-sided bound and the existence of generic enumeration algorithms do not determine the Heawood lower bound or its full enumerator. Other graph parameters are not equivalent by definition.",
+      "searches": [
+        "Fano plane incidence graph Heawood perfect Roman domination number ten 133 minimum assignments",
+        "cubic graphs perfect Roman dominating function degree three sharp 3n/4 Heawood graph",
+        "Fano incidence perfect Roman graph 10 minimum solutions",
+        "\"Heawood graph\" \"perfect Roman domination\" \"10\"",
+        "\"Heawood\" \"perfect Roman dominating\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Perfect Roman requires every zero to have exactly one two-neighbor (Fernau–Mann 2023, section 1.2; Henning–Klostermeyer 2018, introduction).",
+        "Unique-response Roman domination additionally constrains nonzero vertices, and total perfect Roman domination additionally constrains the positive induced subgraph; neither is equivalent to the unqualified invariant.",
+        "The present PRDF polynomial counts all ternary functions, rather than only pointwise-minimal solutions, ordinary Roman defenders, or perfect dominating vertex sets."
+      ],
+      "reasoning": "Definition-level comparisons separate the claim from similarly named stronger and weaker restrictions. Searching exact graph name, Fano incidence aliases and the distinctive optimum counts found no equivalent reported result.",
+      "searches": [
+        "Fano plane incidence graph Heawood perfect Roman domination number ten 133 minimum assignments",
+        "perfect Roman polynomial Heawood incidence graph weights degree 3 Fano points lines",
+        "Fano plane point line nonincident Roman 28 42 21 minimum 133 assignments",
+        "\"perfect Roman domination\" \"projective planes\" incidence graphs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact searches using the first four nonzero coefficients and all four minimum-family counts returned no direct matching table among checked accessible mathematical records.",
+        "The closest Heawood counting records describe locating-domination, secure domination, total domination, and unrelated graph invariants."
+      ],
+      "reasoning": "No accessible exact polynomial or 133-optimum census was identified; this is evidence of non-detection rather than proof of global priority. Finite unindexed tables remain a risk.",
+      "searches": [
+        "133 1064 4578 12530 perfect Roman polynomial Heawood 14 graph",
+        "Fano plane point line nonincident Roman 28 42 21 minimum 133 assignments",
+        "perfect Roman Heawood 10 weight polynomial complete census",
+        "\"Heawood\" \"perfect Roman\" \"polynomial\""
+      ]
+    },
+    "rationale": "The closest inspected primary cubic result is a one-sided rounded upper bound; the motivating algorithmic paper addresses enumerating minimal functions without the Heawood-specific census. Actual mathematical index, aliases, coefficient and literature queries did not identify a result implying the joint exact polynomial plus Fano-plane optimum classification; possible unindexed prior computations remain acknowledged.",
+    "residual_risks": [
+      "No claim of absolute priority over unindexed tables, theses or private computational records.",
+      "No independent mathematical audit or third-party formal proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives universal upper bound only, not the specific Heawood lower bound, polynomial or optimizer census.",
+        "evidence": [
+          "2018 Theorem 7: gamma_R^p(G) <= 3n/4 for cubic G",
+          "No Heawood-specific occurrence found in searchable PDF text."
+        ],
+        "identifier_or_url": "https://doi.org/10.2298/AADM1801143H",
+        "material_read": "Public PDF, abstract and introduction, definitions and cubic Theorem 7 with proof (pages 143–148); document text searched for Heawood and Petersen.",
+        "method": "Rendered PDF page plus full-text theorem and term inspection.",
+        "title": "Perfect Roman Domination in Regular Graphs",
+        "trigger": "Same exact invariant and all cubic graphs include the Heawood graph."
+      },
+      {
+        "assessment": "Defines perfect and unique-response Roman variants and algorithms; no identified numerical result or explicit Heawood/Fano classification.",
+        "evidence": [
+          "Definition requires exactly one two-neighbor at each zero (section 1.2).",
+          "No Heawood or Fano occurrences found in full-text search."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2309.07018",
+        "material_read": "Original 2023-09-13 arXiv v1 PDF: abstract, sections 1, 2.2–2.3, 3.4 and closing discussion; searched all extracted PDF text for Heawood, Fano and incidence. Other unrelated technical sections were not read in full.",
+        "method": "Rendered PDF pages 2 and 5, searched text across the full 33-page PDF and inspected relevant passages.",
+        "title": "Perfect Roman Domination and Unique Response Roman Domination",
+        "trigger": "The verified first-public-date source, studying this precise invariant and enumeration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dd07ffcf-5e12-421b-b368-32ff72fdc5a3",
+  "value": {
+    "evidence": [
+      "RESULT.md: four nonincidence families and full weight polynomial",
+      "Henning–Klostermeyer 2018: cubic upper bound",
+      "Fernau–Mann 2023: algorithmic motivation for enumerating such functions"
+    ],
+    "rationale": "The Heawood graph is a canonical (3,6)-cage and Fano incidence object. Proving equality at the integer-rounded cubic upper bound and classifying 133 optimum assignments by four incidence-geometric types explains an extremal fact, while the complete nineteen-coefficient weight polynomial gives a substantive finite benchmark for the existing perfect Roman enumeration theory. The result has a clear mathematical object and natural invariant, not an arbitrary sliced parameter.",
+    "status": "PASS"
+  }
+}
