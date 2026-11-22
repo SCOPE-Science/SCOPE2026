@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "A 3-limited packing is exactly a cyclic binary word of length n>=5 whose every five-consecutive-bit sum is <=3. The 16-state four-bit de Bruijn transfer matrix gives a bijection to all closed walks and weighs each by the total window deficit 3n-5k. The exact polynomial identity det(I-tM)=1-tu^3-t^2u-t^4u^2-2t^5+t^7u+t^10 is rigorously certified by 833 integer evaluations and explicit bidegree interpolation bounds, checked by the embedded standalone program. Logarithmic differentiation yields the stated N/D generating function. The first five deficit coefficients are calculated symbolically in RESULT.md, proving all five optimizer counts and sharp size floor(3n/5). Direct C++ enumeration (n=5..18) and independent Python recurrence (n=5..80) agree and test boundaries including n=5. No infinite assertion rests solely on finite sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2024 arXiv:2405.03237v1 full text studies total-limited packing inequalities, trees and capacity-two products, not capacity-three packing enumeration on cycle powers.",
+        "The 2023 arXiv:2308.16837v1 full text focuses on limited-packing partitions, tuple domatic duality and capacity-two bounds; it gives neither the exact family nor a stronger covering polynomial."
+      ],
+      "reasoning": "The two central sources provide related definitions, methods and other graph families or inequalities. Neither their theorems nor the known general transfer-matrix formalism supplies the present explicit denominator, all-size counts, and five-residue coefficients without an additional family-specific computation and proof.",
+      "searches": [
+        "\"limited packing\" \"power of cycles\" 3",
+        "\"three-limited packing\" \"cycle power\"",
+        "3-limited packing polynomial square of a cycle C_n^2 exact coefficient recurrence maximum",
+        "arXiv:2405.03237 sections 2-4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2308.16837v1 (2023-08-31; accessible full text)",
+      "arXiv:2405.03237v1 (2024-05-06; full arXiv HTML)",
+      "Gallant et al., Limited packing in graphs (2010; original definition and ordinary cycle examples, via scholarly accessible excerpt)",
+      "Limited Packing vs. Tuple Domination in Graphs (2017; bibliographic entry/abstract)",
+      "Published research record on (a,b)-regular sets of squared cycles (2026-11-08; abstract)",
+      "Published research record on P3-convexity polynomials of cycle powers (2026-11-08; abstract)",
+      "Published research records on open packing/double total domination in circular ladders (different host/invariant; summaries)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2010 work introduced limited packing and discussed paths and ordinary cycles; these are not the second power with capacity three and full enumeration.",
+        "A general regularity upper bound can imply the scalar size inequality 5k<=3n, but cannot imply every coefficient or the exact optimizer multiplicities.",
+        "The cited works do not give the displayed determinant identity or its deficit-variable extraction."
+      ],
+      "reasoning": "The nontrivial assertion is not merely the bound: it is the full rational coefficient law and exact, positive, residue-sensitive optimum counts. The searched prior inequalities and related exact invariants do not imply these enumeration statements under a proved reduction.",
+      "searches": [
+        "arXiv:2308.16837v1 limited packing partition and tuple domatic sections",
+        "arXiv:2405.03237v1 full HTML results on capacity-two graph products",
+        "Gallant et al. Limited packing in graphs 2010 definitions and elementary examples",
+        "double domination square of cycles C_n^2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "On a 4-regular squared cycle, the complement of an at-most-three set in a closed five-neighborhood is a set meeting every such neighborhood at least twice; this is precisely double or 2-tuple domination.",
+        "Related double-domination hits focused on cycles, inflated graphs, products, or subdivisions, not a full squared-cycle size distribution."
+      ],
+      "reasoning": "A covering double-domination polynomial on the exact host would imply the stated packing polynomial by reversing selected cardinality. No such formula was identified in the retrieved primary and research-record material. This mathematically exact equivalence was explicitly checked, leaving an unindexed-priority risk.",
+      "searches": [
+        "\"2-tuple domination\" \"square of cycle\" exact counting polynomial",
+        "\"double domination\" \"square of a cycle\" enumerating",
+        "double domination polynomial of squared cycle C_n^2 size distribution minimum sets",
+        "2 tuple domination square of cycles C_n^2 exact number of minimum dominating sets"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published regular-set result fixes exact selected/unselected neighborhood degrees, whereas capacity-three packing allows every local count zero through three.",
+        "The cycle-power convexity polynomial requires large pairwise separations and is a different set family.",
+        "The 2017 limited packing versus tuple domination article gives general relationships and bounds, not the five-window enumerator."
+      ],
+      "reasoning": "No exact published table or sequence matching the rational census and five optimizer formulas was located. Unindexed tables, program repositories, and generalized restricted-circular-word formulas remain specific historical risks.",
+      "searches": [
+        "cyclic window weight at most three in five bits enumerator",
+        "2-fold covering cyclic radius two neighborhoods five consecutive entries at least two exact count",
+        "complete regular-set orbit classification for squares of cycles",
+        "complete P3-convexity polynomial of cycle powers"
+      ]
+    },
+    "rationale": "The claim is an explicit entire cardinality enumerator and five residue-class maximum-set census for closed-neighborhood capacity-three packings of squared cycles. The 2023 motivating limited-packing partition paper addresses different invariants and predominantly capacity two, while the 2024 product/total-limited paper treats predominantly open-neighborhood and capacity-two product cases. Full-text checks of the relevant statements, complement-to-double-domination searches, and published research-record comparisons located no result implying the exact rational denominator or five optimizer multiplicities. Priority remains provisional; the absence of indexed coverage alone is not a proof of originality.",
+    "residual_risks": [
+      "Some exact double-domination or cyclic-word enumeration may be unindexed or inaccessible under the searched terminology.",
+      "Two mathematically adjacent published records were only available as short result summaries, not inspected in full.",
+      "Formal transfer-matrix methods are standard; only the family-specific compact rational identity and resulting multiplicities are claimed as additional mathematics.",
+      "No independent specialist priority or correctness audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: develops partition and duality methods, primarily capacity two; no full counting law for capacity-three squared cycles",
+        "evidence": [
+          "arXiv v1 date 2023-08-31; full-text definitions and results, including §1 and §4, concern distinct invariant or host."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.16837",
+        "material_read": "Accessible full preprint text, definitions and sections on vertex partitions, tuple domatic duality, total limited packing and cited prior results",
+        "method": "Read accessible author-shared full-text transcript, inspect theorem statements and seek squared-cycle, graph-power and capacity-three enumerator mentions",
+        "title": "Limited packings: related vertex partitions and duality issues",
+        "trigger": "First-public 2023 capacity-limited packing and vertex-partition motivation; strongest title-level same-invariant match"
+      },
+      {
+        "assessment": "NOT_COVERING: chiefly capacity-two total variants and product inequalities, no claimed full squared-cycle capacity-three polynomial",
+        "evidence": [
+          "First-public 2024-05-06; §3 is explicitly 2-(total) limited packing of graph products; §4 partition bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2405.03237v1",
+        "material_read": "Full arXiv HTML, abstract, introduction, sections 2-4 and conclusion/result headings",
+        "method": "Inspect exact theorem statements for limited versus total limited packing, product graphs and cycle powers",
+        "title": "On k-(total) limited packing in graphs",
+        "trigger": "Follow-up with similar vocabulary and explicit graph-product results"
+      },
+      {
+        "assessment": "DIFFERENT_PREDICATE: equality of local selected/unselected degrees does not classify all bounded-window packings; residual full-text risk retained",
+        "evidence": [
+          "Result classifies eleven primitive binary words for (a,b)-regular subsets; no full inequality-family enumeration in available summary."
+        ],
+        "identifier_or_url": "Public mathematical research record dated 2026-11-08",
+        "material_read": "Returned mathematical abstract and result summary only; full underlying manuscript not retrieved",
+        "method": "Compare exact neighborhood regularity premise with at-most-three local occupancy",
+        "title": "Complete regular-set orbit classification for squares of cycles",
+        "trigger": "Exactly the same graph family, possible algebraic characterization overlap"
+      },
+      {
+        "assessment": "DIFFERENT_PREDICATE: the class of pairwise-distant placements is a proper subfamily and its polynomial does not cover the current class",
+        "evidence": [
+          "The listed theorem demands pairwise separation at least 2r+1 for power r, not local occupancy at most three."
+        ],
+        "identifier_or_url": "Public mathematical research record dated 2026-11-08",
+        "material_read": "Returned mathematical abstract and result summary only; full underlying manuscript not retrieved",
+        "method": "Compare pairwise distance-five spacing with a local five-window at-most-three condition",
+        "title": "Complete P3-convexity polynomial of cycle powers",
+        "trigger": "Cycle powers with a full cardinality polynomial"
+      },
+      {
+        "assessment": "COMPARISON_LIMITED: abstract offers general inequalities and connections, with no named exact cycle-power enumeration; plausible uninspected details remain a historical risk",
+        "evidence": [
+          "Ars Combinatoria 133 (2017), 155–161; abstract concerns bounds and duality."
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/ars-articles/",
+        "material_read": "Bibliographic entry and abstract; full paper not obtained",
+        "method": "Check advertised scope and stated types of results",
+        "title": "Limited Packing vs. Tuple Domination in Graphs",
+        "trigger": "Complement duality could have appeared in older literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "485e379a-3ef1-47c8-bc75-fa80952505ef",
+  "value": {
+    "rationale": "This solves an exact infinite-family local-capacity placement problem on a natural highly symmetric graph, refining a scalar LP bound into all labelled cardinality coefficients and a distinctive five-class optimal-multiplicity law. The degree-ten rational denominator, the constant ten max-set count at n divisible by five and the polynomial counts in other congruence classes give compact reproducible structural benchmarks for both 3-limited packing and its double-domination complement. It is not a generic renaming of a standard exercise, a fixed-order census or a routine single-parameter increment.",
+    "status": "PASS"
+  }
+}
