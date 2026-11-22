@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python verify_endpoint.py` with SymPy, NumPy, and SciPy installed. The checker reconstructs from the Bloch--Wigner differential identity the homogeneous Taylor terms up to order four, differentiates the complete source density including both logarithmic terms, and simplifies the angular coefficient exactly. It verifies the closed form against independent quadrature of the original positive simplex integral, and confirms the two-term probability law numerically for three finite deficits.
+## correctness
 
-The symbolic calculations are local finite identities. The proof of the global maximizer, the reduction to two local caps, and the analytic \(O(\varepsilon^3)\) remainder are mathematical arguments in RESULT.md, not claims inferred from finite tests. The source supplies the density; it does not independently certify this asymptotic claim. Independent mathematical audit has not been performed.
+PASS
+
+PASS: Maximizers of unsigned ideal-tetrahedron volume are exactly conjugate cross-ratio equilateral shapes. The Marshall-Martin normalized cross-ratio density includes two log terms and Bloch-Wigner contribution; differentiating the Bloch-Wigner differential identity reproduces the Hessian -sqrt(3)I/2, the cubic v(3u^2+7v^2)/12 and quartic sqrt(3)(u^4+18u^2 v^2-15v^4)/48. Independently evaluated its density 0,1,2 jets and angular trigonometric moments in symbolic/high-precision calculations, confirming C1=(64v3-32sqrt(3))/9 and C2=32(104sqrt(3)v3-183)/243, negative. Real-analytic Morse straightening eliminates odd half-integer cap powers and yields O(epsilon^3) remainder. Smooth positive density gives two equally likely conjugate caps and uniform disk radius 2/3^(1/4) for cross-ratio displacement/sqrt(epsilon). No full CDF asserted.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Marshall-Martin 2026 gives normalized full cross-ratio density and mean random ideal volume, but inspected sections do not give the maximal-volume tail or second derivative coefficient. Kabluchko-Schange gives expected hyperbolic random polytope volumes, not a near-v3 endpoint distribution. The earlier deterministic regular ideal tetrahedron angle-variance profile does not impose the probability law of four uniform spherical endpoints.
+
+## value
+
+PASS
+
+PASS: The natural random ideal tetrahedron has a canonical geometric maximum; the probability and two-term frequency of being nearly regular requires nontrivial sampling-density curvature, and the conditional cross-ratio disk describes actual two-dimensional shapes. This second coefficient cannot be obtained from known expected volume or max-value geometry alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
