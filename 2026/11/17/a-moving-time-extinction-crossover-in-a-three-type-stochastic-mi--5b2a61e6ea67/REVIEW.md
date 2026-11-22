@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact operator is reproduced from the published three-type mixture at \(2b=1\). Expanding the coordinates and using the simplex constraint yields the two-term recurrence \(s_{n+1}=s_n^2+rB(s_{n-1})s_n\) with \(5/8\le B\le1\). At zero mixing this proves exact repeated squaring. At every fixed interior mixing weight, the geometric majorant for \(s_n\) makes the multiplicative correction absolutely summable and gives a strictly positive renormalized limit. Under the joint parameter-time scaling, the logarithmic difference from repeated squaring is bounded by \(r_N2^{N-1}/s_1^{2^{N-2}}\to0\); the post-critical coefficient follows from a two-term recurrence and induction. The limiting coefficient is strictly positive. The standalone checker independently verifies exact identities and finite high-precision examples, which do not constitute infinite-time proof. No boundary or growing-offset statement is made.
+## correctness
 
-## Originality — PASS within inspected evidence
-The full originating article (Jamilov et al. 2024, Example 3.9, equation (3.10)) studies this exact mixture and proves only convergence to its fixed point in the applicable cases, not a nonuniform moving-time crossover. Relevant model definitions and convergence passages in accessible full-text 2022 and 2025 articles on convex mixtures by Jamilov and collaborators involve different component operators. A particularly close 2026 published record studies a *five-phase* stochastic operator whose invariant edge has a scalar quadratic return and a moving-time crossover: this is an antecedent for the proof technique and sharply limits any methodological novelty claim. Its theorem concerns a different map and a constant-coefficient scalar recurrence, not the coupled state-dependent two-step recurrence of this three-type operator, and so does not imply the displayed coefficient without additional analysis. A separate 2026 permutation-operator record has two clocks and Poisson windows but no equivalent claim. Focused searches by source DOI, exact formulas, aliases, endpoint perturbations and crossover parameters yielded no direct covering statement. An unindexed general quadratic perturbation theorem, or an undiscovered paper about this exact operator, remains a genuine publication-priority risk.
+PASS
 
-## Mathematical value — PASS
-The exact source family has a singular endpoint: fixed positive mixing leads to geometric extinction while the zero-mixing map has repeated squaring. Its singularly tuned critical generation is not controlled by the fixed-parameter convergence theorem, and the third-coordinate recurrence retains a dynamically coupled factor rather than an autonomous scalar perturbation. The quantitative, initial-data-scaled universal crossover profile provides an exact transition law for an explicit population-genetics stochastic map, including a nontrivial nonlinear contribution to the first postcritical coefficient. This is an object-motivated nonuniform asymptotic, not a free substitution of a parameter into the source's convergence bound. The elementary logarithmic estimate is not claimed as a novel generic method.
+The actual three-coordinate stochastic map at 2b=1 preserves unit sum and yields s_{n+1}=s_n^2+r(1-(3/2)s_{n-1}(1-s_{n-1}))s_n, r=2alpha(1-alpha), B in [5/8,1]. At alpha=0 it squares exactly; for fixed 0<alpha<1, u_n<=max(alpha,1-alpha) and the product (s_{n+1}/(r s_n)) has summable deviations and strictly positive finite limit. With r_N=cq^{2^{N-1}}, log(s_N/s_1^{2^{N-1}}) is squeezed by r_N 2^{N-1}/s_1^{2^{N-2}} ->0 (q=a0a2<1/4). Since s_1=q+O(r_N), s_N/r_N->1/c; recurrence then gives (1+c)/c² at offset 1 and all fixed higher offsets by induction. Independently rederived exact scalar recurrence and iterated original map at 100-digit precision with c=1.7 and N=4,5,6, matching limits.
 
-## Closest literature and limits
-The 2026 five-phase edge-cycle result is the closest known proof analogue, but its underlying scalar iteration and parameter clock are not those of this three-type mixture. The source paper is explicitly credited with the operator and qualitative convergence. Priority beyond inspected literature is not certified; a general perturbation result could encompass the formula. The theorem requires fixed interior initial state, \(b=1/2\), a tuned parameter sequence, and fixed postcritical offset. It does not resolve the joint limit over unrestricted initial conditions or growing offsets.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original Example 3.9 provides fixed-parameter dynamics, not a simultaneously N-dependent mixing weight and N-dependent observation time. A published 2026 five-phase edge-cycle result proves an analogous scalar quadratic crossover with coefficient c+c², imposing substantial method priority, but its invariant one-dimensional map and 5-iteration clock are different from this coupled three-species recurrence with the state-dependent B(s_{n-1}). No direct stronger implication located. This is originality of application and exact coefficient, not of the generic quadratic mechanism.
+
+## value
+
+PASS
+
+The 2024 source model has two fundamentally distinct endpoint and interior extinction rates; the exact crossover profile identifies how and when the rate changes in the natural singular perturbation scaling. The state-dependent two-step coupling makes the explicit coefficient nontrivial and potentially useful in nearby stochastic-mixture analyses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
