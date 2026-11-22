@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T08:03:03Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a two-cycle x<->y on an even-degree graph, each flipping vertex v must have strictly more than half its neighbors opposite at both phases. Partition flipping neighbors into initially opposite p_v and same q_v, and fixed neighbors into h0,h1; adding two majority inequalities gives p_v-q_v>=2, so p_v>=2. The graph induced by opposite-colored flipping edges is bipartite and has minimum degree>=2, hence contains an even cycle; contradiction. Generic symmetric threshold theorem bounds eventual period to <=2, giving fixation. For T_n, encode disagreements b_i on cut vertices: blocks of three ones impossible; two-run cannot touch boundaries; internal singleton one-run has two ear assignments, boundary singleton one, strict internal length-two one-run one. Weighted state transfer M=[[1,1,0],[2,0,1],[1,0,0]] yields T generating function (1+z)/(1-z-2z^2-z^3) and Q_n=2(T_(n-1)+T_(n-2)), hence claimed rational function, recurrence and PF asymptotic. Independently brute-enumerated all 2^(2n+1) states for n=1..7 and matched fixed and two-step-return Q=2,6,12,26,56,120,258. The unrestricted statement follows from the even-cycle obstruction plus period theorem, not finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goles–Olivos symmetric threshold theorem says eventual period 1 or 2 on any symmetric graph, not absence of 2-cycles on special even-degree odd cactus; chain census absent."
+        ],
+        "reasoning": "Additional graph-structural obstruction plus exact transfer count is not implied by a general upper bound of 2 on eventual periods.",
+        "searches": [
+          "synchronous binary strict majority even degree graph no even cycles no 2 cycle triangular cactus fixed point counts",
+          "https://doi.org/10.1016/0012-365X(80)90121-1"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-four-step-majority-dynamics-and-exact-oscillation-basins-on-tria--bfe9315b1ab6/RESULT.md",
+        "https://doi.org/10.1016/0012-365X(80)90121-1",
+        "https://arxiv.org/abs/2202.01580"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "No even-cycle and even-degree imply p_v>=2 bipartite flipping-edge subgraph obstruction; the general 1980 period theorem then supplies fixation."
+        ],
+        "reasoning": "Correctly uses old period theorem as a premise, not a novel result; neither windmill nor tree case logically yields chain equilibrium cubic law.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-four-step-majority-dynamics-and-exact-oscillation-basins-on-tria--bfe9315b1ab6/RESULT.md",
+          "https://arxiv.org/abs/2202.01580",
+          "https://doi.org/10.1016/0012-365X(80)90121-1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Open-neighbor synchronous tie-retaining majority is the same update convention in windmill work, but its graph is K1 join rK3 rather than a chain of overlapping K3 blocks."
+        ],
+        "reasoning": "Shared word “triangular” does not make graph families isomorphic; chain cut vertices have degrees 2,4, while windmill outer nodes degree 3 and one hub degree 3r. Tree theorems lack cycles.",
+        "searches": [
+          "synchronous binary strict majority even degree graph no even cycles no 2 cycle triangular cactus fixed point counts",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-four-step-majority-dynamics-and-exact-oscillation-basins-on-tria--bfe9315b1ab6/RESULT.md",
+          "https://arxiv.org/abs/2202.01580"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Windmill f_r and c_r involve binomial sums for a different graph; source transfer matrix for this chain generates 2,6,12,26,56,120,258,554."
+        ],
+        "reasoning": "Existing numerical graph-dynamics tables for different topologies do not entail this all-n rational generating function or universal even-cycle prohibition.",
+        "searches": [
+          "synchronous binary strict majority even degree graph no even cycles no 2 cycle triangular cactus fixed point counts",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-four-step-majority-dynamics-and-exact-oscillation-basins-on-tria--bfe9315b1ab6/RESULT.md"
+        ]
+      },
+      "rationale": "General symmetric-threshold period-at-most-two theorem is known Goles–Olivos 1980; it cannot exclude 2-cycles only on even-degree no-even-cycle graphs. Turau tree dynamics excludes cyclic chains. Exact Resultary triangular clique windmills are K1 join rK3, different topology and degree parity from vertex-glued triangular chains; a separate same-chain three-state excitation count uses a different update alphabet. No earlier all-n Q_n cubic recurrence or even-cycle obstruction found. Primary Goles full text access unavailable, acknowledged separately rather than automatic O failure.",
+      "residual_risks": [
+        "Institutional Oxford publisher full-text request for 1980 Goles–Olivos returned vpn_disconnected; no human authorization bypass attempted; inspect full source later for exact threshold conventions.",
+        "Older unindexed graph-dynamics or statistical-mechanics enumeration could contain equivalent odd-cactus recurrences."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_GRAPH_NOT_COVERING",
+          "evidence": "The graph has one shared hub and 3r degree-three outer vertices, not degree-2/4 vertex-glued K3 chain; dynamics and formulas differ.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-four-step-majority-dynamics-and-exact-oscillation-basins-on-tria--bfe9315b1ab6/RESULT.md",
+          "material_read": "Entire published RESULT.md graph definitions, state transition classifications, f_r and two-cycle formula",
+          "method": "GitHub fetch_file full text",
+          "title": "Four-step majority dynamics and exact oscillation basins on triangular clique windmills",
+          "trigger": "Related strict-majority graph construction"
+        },
+        {
+          "assessment": "BACKGROUND_WITH_ACCESS_RISK",
+          "evidence": "General 1980 period bound accepted as classical premise; source not claimed fully inspected and exact proof hypothesis matching deserves residual caveat.",
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+          "material_read": "Bibliographic/abstract content and theorem attribution only; original publisher full text not obtained",
+          "method": "Lawful public search then Oxford institutional request (VPN disconnected), not full article",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "General eventual period<=2 theorem essential premise"
+        },
+        {
+          "assessment": "NOT_DECISIVE_FOR_CYCLIC_CHAIN",
+          "evidence": "Tree theorem lacks odd cactus triangles; no universal claim of full-text noncoverage.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.01580",
+          "material_read": "Abstract and cited scope of tree-only results; full paper was not materially read",
+          "method": "ArXiv abstract/bibliography",
+          "title": "Fixed Points and 2-Cycles of Synchronous Dynamic Coloring Processes on Trees",
+          "trigger": "Related graph-majority fixed and 2-cycle conditions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The parity plus even-cycle obstruction gives a graph-structural sufficient condition for true fixed convergence beyond trees, and the natural 2n+1-vertex triangular cactus family has a closed, nontrivial cubic recurrence and exact equilibrium rarity. Independently useful exact enumeration and qualitative convergence criterion; not a routine restatement of period<=2.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Even-degree hypothesis essential; bridges to odd-cycle blocks may spoil it, and even cycles can admit oscillations.",
+    "Cubic Q_n formula specific to a labelled open triangular chain; no attraction-basin or universal stabilization-time bound."
+  ],
+  "schema_version": 1
+}

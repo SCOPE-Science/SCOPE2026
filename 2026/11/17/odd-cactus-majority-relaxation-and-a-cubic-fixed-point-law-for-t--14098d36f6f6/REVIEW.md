@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The explicit flipping-vertex inequality forces an opposite-phase flipping-edge subgraph of minimum degree at least two, hence an even cycle. The graph forbids that cycle, and the classical finite symmetric-threshold theorem then makes all eventual orbits fixed. On the specified triangular chain, the ear and cut-vertex constraints are fully necessary and sufficient; the weighted word transfer has the displayed matrix, termination weights, and rational generating function. An independently implemented microscopic majority evaluator exhaustively verified all \(174{,}760\) chain states at lengths one through eight. A second dynamic program matched the word transfer through length eighty; six odd-cactus bouquets gave further exhaustive checks. Finite tests are supporting evidence, not the infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-The closest exact same-graph source concerns Greenberg–Hastings three-color excitation and three-wave enumeration, not binary majority equilibria. The closest majority source on triangular clique windmills uses copies of \(K_4\) joined at a hub rather than chain-glued triangles. Both full public research statements were read and compared by mathematical implication. General Goles–Olivos period-at-most-two does not prohibit two-cycles; the later majority voting-time literature, a tree-specific census, cylindrical triangular strips and square bouquets do not imply this cubic chain formula. Direct searches of relevant research records and the accessible existing claim ledger found no same statement. Risk remains of unindexed equivalent graph-majority or statistical-mechanics results, and the 1980 publisher full text was not accessed.
+PASS
 
-## Value — PASS
-The general oscillation-obstruction lemma uses a natural graph property and identifies a structurally meaningful class where every majority trajectory actually freezes. The companion exact fixed-state law on a basic odd cactus gives the complete count and exponential growth of the only possible attractors at every length. This answers a motivated infinite-family dynamical question, not only a finite enumeration. The finding does not determine basin sizes or worst-case convergence times.
+For a two-cycle x<->y on an even-degree graph, each flipping vertex v must have strictly more than half its neighbors opposite at both phases. Partition flipping neighbors into initially opposite p_v and same q_v, and fixed neighbors into h0,h1; adding two majority inequalities gives p_v-q_v>=2, so p_v>=2. The graph induced by opposite-colored flipping edges is bipartite and has minimum degree>=2, hence contains an even cycle; contradiction. Generic symmetric threshold theorem bounds eventual period to <=2, giving fixation. For T_n, encode disagreements b_i on cut vertices: blocks of three ones impossible; two-run cannot touch boundaries; internal singleton one-run has two ear assignments, boundary singleton one, strict internal length-two one-run one. Weighted state transfer M=[[1,1,0],[2,0,1],[1,0,0]] yields T generating function (1+z)/(1-z-2z^2-z^3) and Q_n=2(T_(n-1)+T_(n-2)), hence claimed rational function, recurrence and PF asymptotic. Independently brute-enumerated all 2^(2n+1) states for n=1..7 and matched fixed and two-step-return Q=2,6,12,26,56,120,258. The unrestricted statement follows from the even-cycle obstruction plus period theorem, not finite enumeration.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+General symmetric-threshold period-at-most-two theorem is known Goles–Olivos 1980; it cannot exclude 2-cycles only on even-degree no-even-cycle graphs. Turau tree dynamics excludes cyclic chains. Exact Resultary triangular clique windmills are K1 join rK3, different topology and degree parity from vertex-glued triangular chains; a separate same-chain three-state excitation count uses a different update alphabet. No earlier all-n Q_n cubic recurrence or even-cycle obstruction found. Primary Goles full text access unavailable, acknowledged separately rather than automatic O failure.
+
+## value
+
+PASS
+
+The parity plus even-cycle obstruction gives a graph-structural sufficient condition for true fixed convergence beyond trees, and the natural 2n+1-vertex triangular cactus family has a closed, nontrivial cubic recurrence and exact equilibrium rarity. Independently useful exact enumeration and qualitative convergence criterion; not a routine restatement of period<=2.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
