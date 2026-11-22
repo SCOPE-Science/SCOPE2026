@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The complete proof is in RESULT.md. The checker `verify.py` has no non-standard dependencies. It ran successfully as packaged and reported five PASS lines: exact rational zero counts (252 test cases); coefficient zero criteria (20,519 tests); independent triangular-integral quadrature (12 tests); unit-cell coverage approximations (four apertures); truncated Parseval sums (two apertures). Finite tests cannot verify the infinite rationality dichotomy or all cutoffs; those follow respectively from trigonometric arithmetic, inclusion-exclusion, and exact polygonal geometry as shown in the analytical proof. No independent audit has occurred.
+## correctness
+
+PASS
+
+The octagon is [-1,1]² minus four right corner triangles of legs a; for every nonzero integer frequency the square contribution vanishes. Summing four triangle integrals gives -4 ∫_0^a∫_0^(a-u) cos(2πm u)cos(2πn v)dvdu. Elementary integration yields the displayed off-diagonal quotient, with a separate derivative/continuous limit for m=±n. Cosine equality gives a(m±n) integer; diagonal sine zero requires 2am integer. Hence irrational a has no nonzero integer zeros; rational p/q has exactly the stated congruence lines with diagonal exceptions. Residue-class inclusion–exclusion yields the exact finite count and limiting nonzero density. Unit-cell periodization removes four triangles of area a²/2; their only positive-area intersections are four adjacent pairs of area (a-1/2)_+², no triple intersections. Coverage probabilities follow from first two moments and W=4−X, and torus Parseval gives the energy as Var(X). Independently checked rational congruence zeros over q=2..15, m,n from -7..7 and midpoint coverage at multiple apertures; these sample checks do not replace the all-frequency integration/proof.
+
+## originality
+
+PASS
+
+Generic polytope Stokes/integration formulas and translation tiling theory are old, as is Parseval. The stated novelty is a complete arithmetic zero-set/cutoff/density analysis together with the explicit one-parameter octagon coverage distribution and second-derivative energy transition at a=1/2. The broader cited results give general calculational infrastructure, not a table of these parameter-dependent formulas. An equivalent earlier octagonal diffraction or covariogram table remains a residual priority risk.
+
+## value
+
+PASS
+
+This continuously varying natural clipped-square family exhibits an exact rational-versus-irrational integer-Fourier orthogonality dichotomy and sharp geometric overlap onset with computable Parseval energy; both are substantive exact harmonic/lattice-geometric facts beyond one isolated Fourier integral.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
