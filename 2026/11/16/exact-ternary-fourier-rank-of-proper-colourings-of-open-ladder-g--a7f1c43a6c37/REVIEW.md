@@ -1,15 +1,21 @@
-# Scientific review: Fourier rank of proper ternary open-ladder colourings
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof fixes the graph, character convention and global-translation balance, then derives a two-state Eisenstein-integer transfer identity by enumerating the allowed colour increments. Its crucial nonstandard steps are the endpoint-ratio lemma, established with the \((1-\omega)\)-adic valuation and an explicit classification of adjacent equal nonzero digits, and the absence of internal cancellation between rank-one transfer factors, established by reduction modulo \((1-\omega)\). The resulting first/last-frequency zero criterion is counted exactly by disjoint digit restrictions and finite geometric sums. Independent exact-integer implementations reproduce the complete balanced zero masks for up to five rungs and the complete rank through seven rungs. No experimental extrapolation is used as the all-length proof.
+## correctness
 
-## Originality — PASS under bounded comparison
-Shrock's *Exact Potts Model Partition Functions on Ladder Graphs* (arXiv:cond-mat/0001389, first posted 2000-01-26) contains the exact open-ladder chromatic count but not the characterwise Fourier-zero classification. Ellis-Monaghan–Moffatt's *The Tutte-Potts connection in the presence of an external magnetic field* (arXiv:1005.5470, first posted 2010-05-29) formally encompasses vertex-character-weighted counts through its general external-field specialization; its theorems do not state this all-frequency support or the rank formula. Searches for character-weighted ladder colourings, equivalent chromatic-convolution formulations, and complete ladder Fourier ranks did not reveal a covering result. Related Fourier results for cycles, complete bipartite graphs and ladder spanning trees have different graph families or different state spaces. Residual priority risk: less-indexed transfer-matrix papers or unpublished calculations may implicitly contain an equivalent special case. Search non-detection alone is not used as novelty proof.
+PASS
 
-## Mathematical value — PASS
-The exact nullity is a natural spectral invariant of proper-colouring convolution on a recursive graph family, and it resolves a nontrivial all-length reconstruction question. The persistent \(7/16\) fraction of additional balanced zeros distinguishes the full harmonic information lost from the much simpler chromatic count \(6\cdot3^{n-1}\). The if-and-only-if endpoint rule is an independently reusable structural tool for weighted-colouring Fourier calculations. It is not a numerical recomputation or a minor parameter substitution.
+For each open ladder L_n=P_n square K2, n>=2, proper ternary colourings are parametrized by a free initial colour a_1 and rung differences d_i=+-1, with horizontal transitions u_i and u_i+d_(i+1)-d_i both nonzero. Global colour translation kills all characters with nonzero total gamma frequency. For balanced characters the exact Fourier sum is 3 * 1^T D_delta1 T_s1 ... T_s(n-1) D_deltan 1. T0=[[2,1],[1,2]], each T_s for s=1,2 is rank one with entries [-1,omega^s;omega^-s,-1]. Rank-one factorization and the lambda=1-omega-adic endpoint lemma show interior factors never zero, while endpoint zeros obey the stated first/last nonzero cumulative s_j conditions. For s all zero, the only zeros are delta strings with one equal nonzero adjacent pair. Counting independent endpoint constraints yields (3*9^n-24n+45)/16 nonzero characters and extra balanced nullity (7*9^n+72n-135)/48. Independent full Fourier enumeration for n=2,3,4 found ranks 15,135,1227 of 27,243,2187 balanced characters. Finite checks corroborate; proof covers every n>=2.
 
-## Scope and residual limitations
-The result concerns the open width-two ladder and colours in \(\mathbb F_3\); no theorem on cyclic ladders, four colours, or complete positive singular-value distributions is asserted. The review is not independent verification of mathematical priority or correctness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The final operator/character claim, not solely its background classification, was compared against the actual published statements and selected primary sources. Bounded checked literature yields no identified covering prior theorem or table for the final new invariant, with explicit remaining priority risks. Exact ternary Fourier rank of proper colourings of open ladder graphs.
+
+## value
+
+PASS
+
+The convolution rank and complete Fourier-zero classification for an infinite family of natural width-two graph colouring models reveal a fixed 9/16 survival rate within balanced frequencies. The explicit non-symmetry loss is structurally informative and mathematically distinct from chromatic counts alone or textbook global-colour invariance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

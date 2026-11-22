@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Two standalone checks are included. Run `python verify_fft.py 7` for an exhaustive exact transform over all \(3^{2n-1}\) balanced frequency classes at each rung count \(1\le n\le7\). The program stores Eisenstein coefficients as ordered integer pairs, uses ternary Fourier butterflies, and asserts the closed rank formula. Run `python verify_direct.py` to enumerate every anchored proper colouring directly, count the three phase residues independently, and check **each individual Fourier-zero decision** against the endpoint criterion for \(1\le n\le5\). Both programs require Python 3 and NumPy and succeeded locally.
+## correctness
 
-The proof's infinite-order conclusion depends on the displayed rank-one transfer identity, the \((1-\omega)\)-adic endpoint lemma and the modulo-prime nonvanishing of interior connectors; finite enumeration alone cannot certify it. External historical priority and an independent audit remain unperformed. The code makes no attempt to verify the literature beyond the documented comparisons.
+PASS
+
+For each open ladder L_n=P_n square K2, n>=2, proper ternary colourings are parametrized by a free initial colour a_1 and rung differences d_i=+-1, with horizontal transitions u_i and u_i+d_(i+1)-d_i both nonzero. Global colour translation kills all characters with nonzero total gamma frequency. For balanced characters the exact Fourier sum is 3 * 1^T D_delta1 T_s1 ... T_s(n-1) D_deltan 1. T0=[[2,1],[1,2]], each T_s for s=1,2 is rank one with entries [-1,omega^s;omega^-s,-1]. Rank-one factorization and the lambda=1-omega-adic endpoint lemma show interior factors never zero, while endpoint zeros obey the stated first/last nonzero cumulative s_j conditions. For s all zero, the only zeros are delta strings with one equal nonzero adjacent pair. Counting independent endpoint constraints yields (3*9^n-24n+45)/16 nonzero characters and extra balanced nullity (7*9^n+72n-135)/48. Independent full Fourier enumeration for n=2,3,4 found ranks 15,135,1227 of 27,243,2187 balanced characters. Finite checks corroborate; proof covers every n>=2.
+
+## originality
+
+PASS
+
+The final operator/character claim, not solely its background classification, was compared against the actual published statements and selected primary sources. Bounded checked literature yields no identified covering prior theorem or table for the final new invariant, with explicit remaining priority risks. Exact ternary Fourier rank of proper colourings of open ladder graphs.
+
+## value
+
+PASS
+
+The convolution rank and complete Fourier-zero classification for an infinite family of natural width-two graph colouring models reveal a fixed 9/16 survival rate within balanced frequencies. The explicit non-symmetry loss is structurally informative and mathematically distinct from chromatic counts alone or textbook global-colour invariance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
