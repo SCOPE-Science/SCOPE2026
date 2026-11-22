@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Direct conditioning on the Poisson predictor distinguishes N=0 and N>=1; the Poisson pgf yields the survival identity. The absorbed-downward chain gives exact n-step survival. A first-order exponential limit and a completed-square identity prove the continuum mismatch and sharp 3/4 floor, with an exact original-method comparator. A standalone check independently evaluates the finite Poisson sum and matrix transition kernel.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Scott--McCallum--Foster arXiv:2611.16975v1 Theorem 2 and Appendix A: local-error bounds under stated degeneracy, not the closed survival function.",
+        "Hu--Li--Min DOI:10.1063/1.3609119: large-volume scaling and baseline weak order."
+      ],
+      "reasoning": "Theorem 2 may imply first-order generator mismatch at the single-molecule boundary, so that narrower statement is not claimed as novel. Neither theorem directly supplies a global all-step 3/4 survival floor or identity comparing the two methods for every step length.",
+      "searches": [
+        "tau leaping binomial correction weak consistency one molecule pure death finite particle",
+        "Hu Li Min 2011 weak second order theta trapezoidal tau leaping numerical methods systems reactions full text pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2611.16975",
+      "https://doi.org/10.1063/1.3609119",
+      "https://escholarship.org/uc/item/04x399h1",
+      "https://link.springer.com/article/10.1186/1752-0509-6-85"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Scott--McCallum--Foster, Appendix A Eq. (A4): O(h) weak local generator error in a degenerate reaction.",
+        "Scott--McCallum--Foster, Definition 2: ordinary theta-trapezoidal Poisson corrector; Definition 3: dependent binomial replacement."
+      ],
+      "reasoning": "The general local-error coefficient supports skepticism about weak consistency and can motivate that conclusion; the exact all-step survival function requires evaluating the dependent binomial law, and the exact baseline survival plus the unique large-step 3/4 floor do not follow merely from an O(h) estimate. Their derivation is provided rather than inferred from absence of similar titles.",
+      "searches": [
+        "arxiv 2611.16975 binomial-adjusted trapezoidal tau-leaping pure death one particle survival one step three quarters",
+        "backtracking Poisson predictor Binomial rejected deaths baseline tau trapezoidal exact extinction",
+        "binomial thinning tau leaping backtracking nonconvergence fixed-time weak limit pure death"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2611.16975v1, Definition 3 and Appendix A, pp. 2-7: binomial adjustment and conditional local weak-error terms; no finite-step one-molecule survival identity in the inspected text.",
+        "Hu--Li--Min (2011), article abstract: large-volume weak second-order tau-leaping rather than this correction."
+      ],
+      "reasoning": "Searches targeting the exact one-particle model, alternative names for binomial backtracking, and the numerical floor yielded no prior matching full-law formula. The source first-order generator bias is related and acknowledged, but it does not state the finite-step semigroup or unique sharp global minimum.",
+      "searches": [
+        "arxiv 2611.16975 binomial-adjusted trapezoidal tau-leaping pure death one particle survival one step three quarters",
+        "binomial adjusted tau-leaping three-quarter survival floor one reactant theta half consistency",
+        "binomial adjusted theta trapezoidal tau leaping linear immigration death stationary variance positivity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2611.16975v1 Figures 1-2, Theorem 3 and Appendix A: tested kinetics and molecular-count thresholds; no exact survival table for the one-molecule death model.",
+        "Cao--Gillespie--Petzold 2005: a separate method for preventing negative Poisson tau-leap populations."
+      ],
+      "reasoning": "The exact 3/4 constant is the minimum of a derived finite-step transition probability, not a published table value or a numerical fit; related numerical comparisons do not tabulate the stated survival profile.",
+      "searches": [
+        "binomial adjusted tau-leaping three-quarter survival floor one reactant theta half consistency",
+        "binomial adjusted theta tau leap single reactant survival worst case retention extinction"
+      ]
+    },
+    "rationale": "The exact all-step one-particle survival law, its unique sharp midpoint floor, and the exact baseline contrast were not present in the read primary source, which instead supplies an O(h) weak local-error coefficient for degenerate reactions (Appendix A) and a count threshold (Theorem 3). The theorem deliberately credits that preexisting local observation. Public literature checks returned related but noncovering methods; older unindexed coverage remains a residual risk.",
+    "residual_risks": [
+      "The source already gives an O(h) local generator discrepancy at degenerate counts; novelty is specifically the exact global transition law, sharp survival floor and contrast with unadjusted scheme, not generic inconsistency.",
+      "Full text of the older Hu--Li--Min article was not accessible in the current inspection; older or unindexed equivalent exact formula may exist.",
+      "The absorbing negative-state convention is explicit and necessary for the given numerical chain to be fully specified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related degenerate-event local-error bound already exists; no identical full one-particle survival law or exact midpoint floor stated.",
+        "evidence": [
+          "Definition 2 Eq. (3)-(6), Definition 3 Eq. (7)-(9), Appendix A Eq. (A3)-(A5), Theorem 3."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.16975",
+        "material_read": "Full accessible preprint: method Definitions 2-3, error analysis Section IV, proofs in Appendix A, low-count Theorem 3 and figures",
+        "method": "Read available complete PDF text and inspect a rendered PDF page to verify algorithm branch and coefficients",
+        "title": "A binomial-adjusted theta-trapezoidal tau-leaping method for chemical kinetic systems",
+        "trigger": "Defines the exact algorithm and nearest potential coverage"
+      },
+      {
+        "assessment": "Does not decide priority for one-particle binomial adjustment introduced later.",
+        "evidence": [
+          "Journal of Chemical Physics 135, 024113 (2011), abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1063/1.3609119",
+        "material_read": "Publisher article landing page and abstract; complete full text not retrieved",
+        "method": "Compared described large-volume scaling and algorithm provenance",
+        "title": "A weak second order tau-leaping method for chemical kinetic systems",
+        "trigger": "Baseline theta-trapezoidal predecessor"
+      },
+      {
+        "assessment": "Different Poisson modification and purpose; does not provide this theta-adjusted finite-step law in material read.",
+        "evidence": [
+          "Cao, Gillespie, Petzold (2005), abstract and introduction."
+        ],
+        "identifier_or_url": "https://escholarship.org/uc/item/04x399h1",
+        "material_read": "Open-access abstract and introductory discussion",
+        "method": "Compared stated avoidance of negative populations against modified theta-trapezoidal backtracking",
+        "title": "Avoiding negative populations in explicit Poisson tau-leaping",
+        "trigger": "Possible prior binomial death correction and critical-count boundary"
+      },
+      {
+        "assessment": "Provides the original scheme but no source-specific binomial-adjusted survival profile.",
+        "evidence": [
+          "Székely et al. (2012), Algorithm 4 and surrounding description."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1186/1752-0509-6-85",
+        "material_read": "Open HTML abstract and theta-trapezoidal method description",
+        "method": "Compared Algorithm 4 to first-predictor/Poisson-corrector formula",
+        "title": "A higher-order numerical framework for stochastic simulation of chemical reaction systems",
+        "trigger": "Independent presentation of baseline theta-trapezoidal algorithm"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2a23090a-8b96-4cdd-b527-e43a5d32d7c5",
+  "value": {
+    "rationale": "The adjustment is designed to repair degenerate (low-count) channels. Its unexpected exact 3/4 survival floor for the common midpoint setting, compared to exact exponential survival in the unadjusted scheme, is an explicit predictive failure with sharp step and a wrong zero-step limit. It motivates special handling of near-extinction reactions and prevents mistaking local large-count accuracy for survival reliability.",
+    "status": "PASS"
+  }
+}
