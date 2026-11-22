@@ -1,0 +1,15 @@
+# Scientific review: two-scale harmonic-trinomial zeros
+
+## Correctness — PASS
+Fix coprime integers \(n>k\ge1\), \(n\ge3\). The proof exhausts every zero of \(z^n+c\overline z^{\,k}-1\) for sufficiently large positive \(c\) by a dichotomy between an inner \(c^{-1/k}\) scale and an outer \(c^{1/(n-k)}\) scale. Both rescaled limiting equations have finitely many simple roots with Jacobians of signs \(-k^2\) and \(n^2-k^2\); compactness and implicit-function uniqueness exclude additional roots. The first-order expansions are obtained by explicitly linearizing these equations. Triangle equality proves the sharp nearest modulus at every coefficient; outer phases and a modular-arithmetic comparison of finitely many angular coefficients prove the parity transition and sharp asymptotic defect. The provided checker passed 39 finite parameter diagnostics, supplementary to the proof.
+
+## Originality — PASS, qualified by priority risk
+Brilleslyper–Brooks–Dorff–Howell–Schaubroeck (2020), https://doi.org/10.1090/bproc/51, already give the parameter-dependent **number of zeros**, including the \(n+2k\) large-parameter total; that count is credited. Geleta–Alemu (2022), https://doi.org/10.1155/2022/4886522, bound annular inclusion regions. Gao–Gao–Liu (2022/2023), https://doi.org/10.1007/s40840-022-01416-8, give root inclusion sectors. Barrera–Barrera–Navarrete (2024), https://doi.org/10.1007/s10474-024-01403-4, classify configurations up to symmetry and root-modulus constraints; the full text was checked, but it does not give the two-scale first-order expansion or sharp parity-defect. Harrat (2025), https://doi.org/10.5269/bspm.66200, was checked in full and develops root-count trichotomy. Exact triangle-equality extremizers are elementary and are not presented as the novel core. The focused, all-pair asymptotic constellation and odd-parity sharp defect were not located in the inspected literature or compared published result records. Melman (2025) may discuss overlapping geometric angular localization but full text remained inaccessible despite preprint/open-access attempts and a permitted institutional route; priority must be independently checked.
+
+## Value — PASS
+The 2020 starting paper explicitly asks for the *locations* of its roots. Previous bounds give annuli or sectors without a complete label-by-label first correction. This theorem resolves a natural large-coefficient regime with a complete inner/outer polygon census; the parity-dependent outer deficit replaces a nonattained radius bound by an exact leading-order modulus gap. Both the localization and the parity effect are meaningful because they distinguish uniquely extremal roots from the other regular-polygon branches and quantify the accuracy of the standard inclusion radius.
+
+## Limitations and validation
+The theorem does not classify finite transition coefficients, does not give an effective threshold for the large-coefficient regime, and does not prove historical priority. Finite tests are diagnostics only. Equivalent angular expansions in inaccessible literature are a residual originality risk.
+
+Self-review: passed. Independent audit: not yet performed.
