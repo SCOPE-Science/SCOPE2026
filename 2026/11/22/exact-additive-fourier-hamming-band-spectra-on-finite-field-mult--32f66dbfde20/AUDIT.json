@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The entire row-Gram generating kernel equals the product of local additive-character sums \\(q\\mathbf1_{\\{x_i=y_i\\}}-1\\). The multiplicative-character Fourier transform on the product-one torus gives exactly \\(Q^{-1}\\sum_\\gamma(qz)^{d-m_\\gamma}(Q+z)^{m_\\gamma}\\), simultaneously for every degree; formal coefficient extraction produces both shell and band spectra. Positive coefficients prove precise rank and the shell-band range equality. For the last band the omitted top shell has eigenvalue Q^{-1}sum_gamma q^{d-m_gamma}; strict convexity classifies its unique maximum (trivial character) and balanced minimum, with exact orbit multiplicities. Every parameter and normalization is stated, including q=2. The actual bundled numerical checker passed 148 full direct spectral comparisons and 6 nonidentity-product cosets over prime and extension fields, maximum eigenvalue absolute error 1.9327e-12. The quantified conclusions follow from algebra, not from finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fraser–Rakhmonov, Lemma 5.3/Corollary 5.5: https://pure.st-andrews.ac.uk/ws/portalfiles/portal/336282202/Fraser_2026_PAMS_Improved-L2-restriction-finite-fields_AAM_CCBY.pdf computes decay exponents and extension range, not a sparse-band sampling singular spectrum.",
+        "All-degree q-ary Hamming observation shell theorem: https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-an-all-degree-spectral-law-for-fourier-sampling-on-q-ary-hamming--f3d01cadaa90.",
+        "Heterogeneous coordinate-hyperplane low-degree restriction theorem: https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-poisson-binomial-conditioning-for-heterogeneous-fourier-sa--b286e6b4e2c8."
+      ],
+      "reasoning": "The original H_j work bounds Fourier transforms and extension norms, and neither supplies all exact Hamming-degree row-Gram multipliers. The q-ary Hamming sphere result observes points by additive Hamming weight, whereas H_j fixes a multiplicative product of NONZERO coordinates. The coordinate-hyperplane result observes a union of coordinate slices. These broader frameworks use distinct sampling masks and do not state a theorem subsuming the new exact product-one weighted spectrum.",
+      "searches": [
+        "Fourier restriction to nonzero multiplicative hypersurface product one finite fields additive Hamming degree spectral formula",
+        "Fourier concentration restriction Hamming frequency ball to multiplicative hypersurface x_1...x_d=1 q-ary complete rank threshold",
+        "low-degree additive Fourier characters restricted to multiplicative torus finite field Hamming ball singular values eigenvalues"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2505.09293",
+      "https://pure.st-andrews.ac.uk/ws/portalfiles/portal/336282202/Fraser_2026_PAMS_Improved-L2-restriction-finite-fields_AAM_CCBY.pdf",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-alias-spectra-and-the-binary-nyquist-boundary-for-parity-c--75b261de521c",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-an-all-degree-spectral-law-for-fourier-sampling-on-q-ary-hamming--f3d01cadaa90",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-poisson-binomial-conditioning-for-heterogeneous-fourier-sa--b286e6b4e2c8",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-the-exact-fourier-sampling-defect-on-reciprocal-hyperbolas-over--a873211dce1c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full parity-check manuscript: https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-alias-spectra-and-the-binary-nyquist-boundary-for-parity-c--75b261de521c; its t(gamma) is the number of diagonal character shifts falling in a ball, so it covers rank and gives unit-weight orbit eigenvalues only.",
+        "Full Fraser–Rakhmonov manuscript: https://pure.st-andrews.ac.uk/ws/portalfiles/portal/336282202/Fraser_2026_PAMS_Improved-L2-restriction-finite-fields_AAM_CCBY.pdf; no diagonalized row Gram for finite additive frequency bands.",
+        "Full Hamming sphere and coordinate-hyperplane studies: https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-an-all-degree-spectral-law-for-fourier-sampling-on-q-ary-hamming--f3d01cadaa90, https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-poisson-binomial-conditioning-for-heterogeneous-fourier-sa--b286e6b4e2c8."
+      ],
+      "reasoning": "The already known rank formula is acknowledged and not offered as independent novelty. Unlike character-restriction orbit counts, the new eigenpolynomial incorporates the Fourier Gram of all q additive characters on \\(\\mathbb F_q^\\times\\) (local response \\(Q(1-z)\\) for trivial multiplicative mode versus \\(qz\\) for every mode). This weighting cannot be recovered by merely rescaling the published integer spectral values; five distinct levels occur in a 4-symbol example where the unweighted theorem has at most four. The new sharp final-band stability ratio and balanced multiplicity require a separate convexity computation absent from prior statements.",
+      "searches": [
+        "single parity check code q-ary low degree Fourier characters restricted to group code spectral Krawtchouk Gram spectrum rank covering radius",
+        "Fourier restriction to nonzero multiplicative hypersurface product one finite fields additive Hamming degree spectral formula",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-alias-spectra-and-the-binary-nyquist-boundary-for-parity-c--75b261de521c/RESULT.md",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-an-all-degree-spectral-law-for-fourier-sampling-on-q-ary-hamming--f3d01cadaa90/RESULT.md",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-poisson-binomial-conditioning-for-heterogeneous-fourier-sa--b286e6b4e2c8/RESULT.md"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fraser–Rakhmonov Section 5.2: https://pure.st-andrews.ac.uk/ws/portalfiles/portal/336282202/Fraser_2026_PAMS_Improved-L2-restriction-finite-fields_AAM_CCBY.pdf defines H_j and its additive Fourier decay.",
+        "Checksum-character restricted Fourier matrix full statement: https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-alias-spectra-and-the-binary-nyquist-boundary-for-parity-c--75b261de521c.",
+        "Reciprocal hyperbola character matrix: https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-the-exact-fourier-sampling-defect-on-reciprocal-hyperbolas-over--a873211dce1c."
+      ],
+      "reasoning": "The product-one variety is a coset of a multiplicative checksum subgroup. However the frequencies here are ADDITIVE Fourier characters indexed by vectors with a chosen number of nonzero F_q coordinates, whereas the checksum theorem uses multiplicative characters of F_q^×. Their local Gram blocks differ: the present eigenpolynomial is a weighted convolution with factors (\\(qz\\)) and \\((Q+z)\\). A reciprocal hyperbola matrix uses frequencies from another reciprocal curve, not a Hamming shell/ball. No reparameterization of those specific statements yields our complete additive spectrum without a new Gram evaluation.",
+      "searches": [
+        "additive Fourier low interaction restriction singular spectrum multiplicative Hamming variety H_j product coordinates nonzero",
+        "discrete Fourier sampling on multiplicative torus affine hyperbola character matrix low Hamming frequencies",
+        "exact singular spectrum additive Fourier monomial low-degree Hamming band restricted to multiplicative torus product one finite field hypersurface H_j; group characters and highest multiplicity",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-alias-spectra-and-the-binary-nyquist-boundary-for-parity-c--75b261de521c/RESULT.md"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Rank/occupancy-covered reference (published): https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-alias-spectra-and-the-binary-nyquist-boundary-for-parity-c--75b261de521c; exact spectrum levels for unweighted multiplicative-character system are 1 through min(Q,floor(d/(d-k))).",
+        "For \\((q,d,k)=(5,4,3)\\), direct Gram and the new formula yield five distinct levels \\(156,280,300,400,500\\); the corresponding multiplicative-character system with alphabet order \\(Q=4\\) has at most four levels.",
+        "Other full-text exact-band theorem on Hamming observation spheres: https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-an-all-degree-spectral-law-for-fourier-sampling-on-q-ary-hamming--f3d01cadaa90."
+      ],
+      "reasoning": "Published indexed records and exact manuscript statements overlap on the rank threshold but not on the five-level additive example or the all-parameter polynomial eigenvalue formula. The example is a diagnostic of nonequivalence, not the claimed finding in isolation. Failure to find a matching table is not a proof of historical priority.",
+      "searches": [
+        "finite-field Hamming variety exact restricted Fourier frame Gram eigenvalues sparse frequencies coordinate additive chars",
+        "additive Fourier low interaction restriction singular spectrum multiplicative Hamming variety H_j product coordinates nonzero",
+        "single parity check code q-ary low degree Fourier characters restricted to group code spectral Krawtchouk Gram spectrum rank covering radius",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-alias-spectra-and-the-binary-nyquist-boundary-for-parity-c--75b261de521c/RESULT.md",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-an-all-degree-spectral-law-for-fourier-sampling-on-q-ary-hamming--f3d01cadaa90/RESULT.md"
+      ]
+    },
+    "rationale": "Full primary sources were compared by mathematical implication rather than titles: Fraser-Rakhmonov treats the identical multiplicative Hamming variety but Fourier decay/Lp extension, not the additive low-interaction row-Gram spectrum. The published checksum-character result gives the rank occupancy threshold, which is expressly excluded from the novelty claim, and an unweighted integer character-band spectrum, not the weighted additive F-polynomial nor its optimal final-band eigenvalues. Results on observation Hamming shells, coordinate hyperplanes, and reciprocal frequency copies are different operators. The complete additive degree-family spectral polynomial and sharp last-band extrema remain uncovered by inspected statements; older implicit weighted harmonic analysis is a residual priority risk.",
+    "residual_risks": [
+      "A historical MacWilliams, Hecke-algebra or weighted-code harmonic-analysis identity might give this additive occupancy polynomial under a different name; bounded searches cannot certify global priority.",
+      "The rank/surjectivity threshold is already covered by published multiplicative-character checksum sampling and must not be presented alone as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the complete additive Hamming-frequency shell/band singular spectrum or near-complete sharp frame bounds",
+        "evidence": "The section computes Fourier-coefficient behavior and L²-to-L^p extension bounds; it has neither occupancy polynomial F nor complete row-Gram eigenvalues.",
+        "identifier_or_url": "https://pure.st-andrews.ac.uk/ws/portalfiles/portal/336282202/Fraser_2026_PAMS_Improved-L2-restriction-finite-fields_AAM_CCBY.pdf",
+        "material_read": "Full paper abstract/contents and primary definitions; Section 5.2, pp. 11-12, including Lemma 5.3, Proposition 5.4 and Corollary 5.5",
+        "method": "Open-access full PDF parsed text and page-image inspection of pages 11 and 12",
+        "title": "An improved L² restriction theorem in finite fields",
+        "trigger": "Introduces exactly the Hamming variety H_j whose sparse additive-frequency sampling is studied here"
+      },
+      {
+        "assessment": "COVERS the occupancy rank threshold under multiplicative-character Fourier sampling; DOES NOT COVER additive-frequency weighted spectral polynomial or final-band sharp condition number",
+        "evidence": "Character restriction gives an all-ones Gram block of size t per diagonal orbit, hence positive integer levels 1,..,J; present additive system has nonuniform occupancy polynomial and a distinct five-level \\((q,d,k)=(5,4,3)\\) spectrum.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-alias-spectra-and-the-binary-nyquist-boundary-for-parity-c--75b261de521c",
+        "material_read": "Entire RESULT.md, including assumptions, full proof, verification, limitations and references",
+        "method": "Published primary manuscript full-text read via repository file",
+        "title": "Exact alias spectra and the binary Nyquist boundary for parity-check Fourier sampling",
+        "trigger": "Same product-one group after multiplicative-character identification and same frequency interaction-degree indexing"
+      },
+      {
+        "assessment": "NOT_COVERING product-one multiplicative observation varieties",
+        "evidence": "Observation set is a fixed additive Hamming-weight shell and proof uses Boolean slice harmonics, not the product constraint and multiplicative character coset.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-an-all-degree-spectral-law-for-fourier-sampling-on-q-ary-hamming--f3d01cadaa90",
+        "material_read": "Entire RESULT.md theorem, proof, relationship and limitations",
+        "method": "Published primary manuscript full-text read via repository file",
+        "title": "An all-degree spectral law for Fourier sampling on q-ary Hamming spheres",
+        "trigger": "Complete singular spectra for all low Fourier degrees with weight constraints"
+      },
+      {
+        "assessment": "NOT_COVERING product-one varieties",
+        "evidence": "Observation set is the complement of a rectangular puncture (union of coordinate hyperplanes), with Bernoulli tail spectral levels.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-poisson-binomial-conditioning-for-heterogeneous-fourier-sa--b286e6b4e2c8",
+        "material_read": "Entire RESULT.md including complete spectral formula and proof",
+        "method": "Published primary manuscript full-text read via repository file",
+        "title": "Exact Poisson-binomial conditioning for heterogeneous Fourier sampling on coordinate hyperplanes",
+        "trigger": "All-degree restricted Fourier bands and sharp conditioning"
+      },
+      {
+        "assessment": "NOT_COVERING full Hamming additive-frequency shells or all-degree spectra",
+        "evidence": "Both the observation and frequency sets are reciprocal curves of the same size, and the result classifies only matrix rank for them; no Hamming band Gram law.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-the-exact-fourier-sampling-defect-on-reciprocal-hyperbolas-over--a873211dce1c",
+        "material_read": "Entire RESULT.md, including full character diagonalization and limitations",
+        "method": "Published primary manuscript full-text read via repository file",
+        "title": "The exact Fourier sampling defect on reciprocal hyperbolas over prime fields",
+        "trigger": "Same 2D product-one hyperbola with additive Fourier sampling"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "32f66dbf-de20-4ddc-b24a-88bc1b94d4c8",
+  "value": {
+    "rationale": "The finite-field multiplicative variety H_j is a natural model for restriction when uniform Fourier decay fails (Fraser–Rakhmonov, 2025). For this same object, the new theorem classifies all additive Fourier-frequency Hamming-shell and band singular values in every degree, rather than arbitrarily selected small instances. In addition to a complete nonnegative polynomial spectral law with exact multiplicities, it yields exact sharp last-band condition numbers and both endpoint eigenspace types for every field and dimension. Such information directly quantifies stable sampling and recovery on a natural group-coset variety, is not merely the previously known rank threshold, and supplies complete spectral invariant data usable in further Fourier sampling work.",
+    "status": "PASS"
+  }
+}
