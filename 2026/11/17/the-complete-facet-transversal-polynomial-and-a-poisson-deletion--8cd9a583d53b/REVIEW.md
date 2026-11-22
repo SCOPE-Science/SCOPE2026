@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The equivalence of even-cyclic facets with size-\(k\) matchings in the cyclic adjacency graph is checked against the complete Gale evenness criterion. With at least one retained vertex, the complement decomposes into disjoint paths, giving the exact obstruction \(\sum_i\lfloor g_i/2\rfloor\ge k\). Composition-and-parity enumeration, with a necessary \(n/s\) marked-vertex factor, yields the finite sum for each \(s\). The empty-transversal boundary is handled separately, as is the simplex case \(n=2k+1\). The random theorem is proved by factorial moments of adjacent deleted pairs, a vanishing three-vertex-overlap probability and, above the critical scale, a matching of fixed disjoint edges. These steps cover all fixed \(k\ge1\). The standard-library verifier checks actual Gale facets for 295 finite coefficient cases and independently tests 1,368 induced-matching obstructions. Finite checks are corroboration, not evidence of asymptotic or infinite completeness.
+PASS
 
-## Originality — PASS (historical priority provisional)
+Gale evenness identifies facets with k-edge cycle matchings; the omitted vertices in gaps g_i contribute matching rank Σfloor(g_i/2). Circular marked-gap compositions yield the exact coefficient n/s times binomial sum, including empty and simplex boundaries. For fixed k, overlapping adjacent-deletion edge selections vanish in factorial moments at scale q≈n^-1/2, yielding Poisson(c²); lower and upper tails proved by union bound and disjoint-edge binomial domination. Independently enumerated Gale facets, all 2^n candidate transversals and size counts for every admissible k with n=3..10; matched coefficients. Actual verify.py inspected.
 
-The closest primary mathematical text is Briggs–Dobbins–Lee (arXiv:2111.06560v3, §3.3), whose Proposition 3.6 proves the **minimum** transversal cardinality, not the entire polynomial. The previously established classification and number of minimum transversals is also expressly excluded from the new contribution. Novik–Zheng (arXiv:2407.19693, relevant §§1–2, 4) establishes new transversal bounds and cyclic-polytope sibling constructions, also without full cardinality coefficients. Dobbins–Lee (arXiv:2603.16298v1, §§1–2) studies a different high-ratio construction and quotes the known minimum for cyclic polytopes. The new polynomial enumerates every cardinality and therefore gives the complete exact Bernoulli-retention probability, while the critical Poisson law describes a different random-vs-optimal separation. The \(k=1\) specialization is the classical cycle vertex-cover polynomial; Gale's criterion and classical rare-pattern Poisson approximation are credited. Actual literature and semantic mathematical-record searches checked all-size vertex transversals, induced-cycle matching-number subsets, and stochastic vertex deletion; the closest records discussed other cyclic-polytope invariants or unrelated graph transversal problems. Residual risk: a preexisting enumeration of vertex subsets of cycles with bounded induced matching number, perhaps under alternate graph terminology, might imply the formula without mentioning polytopes.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The minimum possible hitting-set size, a single integer, cannot determine the complete number of hits at each size. The new expression supplies the complete cardinality distribution for a canonical neighborly-polytope family and therefore answers all fixed-size and Bernoulli random-transversal probability questions exactly. Its critical limit exposes a striking separation: a selected transversal can retain roughly half the vertices, but an independent random one requires all but order \(\sqrt n\) vertices. Both the complete spectrum and a sharp threshold are structurally meaningful, not an arbitrary parameter slice.
+The full facet-hitting size enumerator for all n>=2k+1 and fixed-k Poisson deletion window go beyond the well-known minimal transversal number and count. Geometric facet-to-cycle-matching correspondence, circular gaps and factorial-moment proof establish a useful new distribution. Prior generic Poisson approximation is credited rather than treated as new.
 
-## Limits and closest related sources
+## value
 
-Scope is even-dimensional cyclic polytopes with all integer \(n\ge2k+1\). The probability law fixes \(k\) as \(n\to\infty\). Historical-priority claims remain provisional and independent confirmation is still needed. Sources: Briggs–Dobbins–Lee, *Transversals and colorings of simplicial spheres* (2021), §3.3; Dobbins–Lee, *Polytopes with large transversal ratio* (2026), §§1–2; Novik–Zheng, *Transversal numbers of simplicial polytopes, spheres, and pure complexes* (2024 preprint), relevant §§1–2, 4; and the known minimum-layer counting theorem, here explicitly credited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete size distribution for facet-hitting sets is a natural strengthening of minimum transversal numbers, and the sharp random-deletion survival window contrasts random versus optimum hitting sets. The exact enumerator and Poisson limit are structurally motivated, not arbitrary finite slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

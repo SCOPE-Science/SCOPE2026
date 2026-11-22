@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T16:07:54.600907Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/the-complete-facet-transversal-polynomial-and-a-poisson-deletion--8cd9a583d53b/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/the-complete-facet-transversal-polynomial-and-a-poisson-deletion--8cd9a583d53b/verify.py"
+      ],
+      "rationale": "Gale evenness identifies facets with k-edge cycle matchings; the omitted vertices in gaps g_i contribute matching rank Σfloor(g_i/2). Circular marked-gap compositions yield the exact coefficient n/s times binomial sum, including empty and simplex boundaries. For fixed k, overlapping adjacent-deletion edge selections vanish in factorial moments at scale q≈n^-1/2, yielding Poisson(c²); lower and upper tails proved by union bound and disjoint-edge binomial domination. Independently enumerated Gale facets, all 2^n candidate transversals and size counts for every admissible k with n=3..10; matched coefficients. Actual verify.py inspected.",
+      "residual_risks": [
+        "Asymptotic assumes k fixed; no uniform growing-dimension statement.",
+        "Older cyclic-run or matching-number enumeration may already imply the full polynomial."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Briggs–Dobbins–Lee Proposition 3.6 gives τ(C(n,2k))=ceil((n-2k)/2)+1, not all H(n,k,s).",
+          "Novik–Zheng 2024 and Dobbins–Lee 2026 address transversal bounds and related extremal polytopes."
+        ],
+        "reasoning": "A smallest-cardinality result cannot recover the full all-size generating polynomial or percolation-window limiting law.",
+        "searches": [
+          "Resultary query: cyclic polytope all facet transversal enumeration size matching Poisson deletion",
+          "https://arxiv.org/pdf/2111.06560",
+          "https://arxiv.org/abs/2407.19693",
+          "https://arxiv.org/abs/2603.16298"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2111.06560",
+        "https://arxiv.org/abs/2407.19693",
+        "https://arxiv.org/abs/2603.16298",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-parity-sensitive-enumeration-of-minimum-facet-transversals-of-ev--4644f2ff9adb",
+        "frozen RESULT.md/verify.py",
+        "independent exhaustive Gale-evenness checks n=3..10"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Actual Proposition 3.6 and proof read: only minimum transversal bound in even dimension.",
+          "Proof of H(n,k,s) uses sum floor(g_i/2) and marked gap compositions, not derivable solely from τ."
+        ],
+        "reasoning": "The complete distribution and Poisson sharp window are not corollaries of the minimum-cardinality result; novelty relative to generic runs counting remains qualified.",
+        "searches": [
+          "Resultary query: cyclic polytope all facet transversal enumeration size matching Poisson deletion",
+          "https://arxiv.org/pdf/2111.06560",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-parity-sensitive-enumeration-of-minimum-facet-transversals-of-ev--4644f2ff9adb"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gale evenness for 2k-cyclic polytope facets is equivalent to selecting k disjoint cycle edges; a transversal T is equivalent to a complement with induced cyclic matching number <k.",
+          "The formula counts cyclic binary strings constrained by total matching number via gaps."
+        ],
+        "reasoning": "This representation could appear as a known cyclic binary-run enumerator; searched primary transversal literature does not directly state the same size enumerator, residual risk recorded.",
+        "searches": [
+          "Resultary query: cyclic polytope all facet transversal enumeration size matching Poisson deletion",
+          "https://arxiv.org/pdf/2111.06560",
+          "https://arxiv.org/abs/2407.19693"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026-11-17 gives parity-sensitive counts of the minimum-size layer only.",
+          "Submitted formula specializes correctly to that layer but supplies every higher coefficient and random retention probability."
+        ],
+        "reasoning": "Known minimum-layer database does not cover all sizes. Uniform cyclic-gap counting may be a classical combinatorial formula, named as priority risk.",
+        "searches": [
+          "Resultary query: cyclic polytope all facet transversal enumeration size matching Poisson deletion",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-parity-sensitive-enumeration-of-minimum-facet-transversals-of-ev--4644f2ff9adb",
+          "https://arxiv.org/pdf/2111.06560"
+        ]
+      },
+      "rationale": "The full facet-hitting size enumerator for all n>=2k+1 and fixed-k Poisson deletion window go beyond the well-known minimal transversal number and count. Geometric facet-to-cycle-matching correspondence, circular gaps and factorial-moment proof establish a useful new distribution. Prior generic Poisson approximation is credited rather than treated as new.",
+      "residual_risks": [
+        "A generic cyclic matching-run distribution in the combinatorics literature might specialize to the same polynomial, not ruled out.",
+        "Relevant Novik–Zheng and Dobbins–Lee manuscripts not inspected completely in this execution.",
+        "Poisson limit assumes fixed k, no growing dimension uniformity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes Gale evenness and exact minimal transversal size; does not in inspected part state all-size polynomial or Poisson model",
+          "evidence": "Proposition 3.6: τ(C_d(n))=ceil((n-d)/2)+1 for even d.",
+          "identifier_or_url": "https://arxiv.org/pdf/2111.06560",
+          "material_read": "Full §3.3, Theorem 3.5, Proposition 3.6 and surrounding proof; scanned indexed table of contents/keywords",
+          "method": "arXiv PDF extracted text and rendered screenshot p7",
+          "title": "Transversals and colorings of simplicial spheres",
+          "trigger": "Most relevant original cyclic-polytope transversal result"
+        },
+        {
+          "assessment": "Broader minimum bounds may overlap but their full implication was not independently checked, risk retained",
+          "evidence": "General simplicial-complex transversal number focus.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.19693",
+          "material_read": "Bibliographic and research-result summaries; not whole primary text",
+          "method": "Published-index and citation comparison",
+          "title": "Transversal numbers of simplicial polytopes, spheres, and pure complexes",
+          "trigger": "Related broad transversal results"
+        },
+        {
+          "assessment": "Only minimum coefficient is covered, not full polynomial",
+          "evidence": "Even/odd minimum coefficient formulas.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-parity-sensitive-enumeration-of-minimum-facet-transversals-of-ev--4644f2ff9adb",
+          "material_read": "Resultary complete title and mathematical summary",
+          "method": "Semantic Resultary search",
+          "title": "Parity-sensitive enumeration of minimum facet transversals",
+          "trigger": "Direct matching exact minimum coefficient precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2111.06560",
+        "https://arxiv.org/abs/2407.19693",
+        "https://arxiv.org/abs/2603.16298",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-parity-sensitive-enumeration-of-minimum-facet-transversals-of-ev--4644f2ff9adb",
+        "frozen RESULT.md/verify.py",
+        "independent exhaustive Gale-evenness checks n=3..10"
+      ],
+      "rationale": "A complete size distribution for facet-hitting sets is a natural strengthening of minimum transversal numbers, and the sharp random-deletion survival window contrasts random versus optimum hitting sets. The exact enumerator and Poisson limit are structurally motivated, not arbitrary finite slices.",
+      "residual_risks": [
+        "Asymptotic assumes k fixed; no uniform growing-dimension statement.",
+        "Older cyclic-run or matching-number enumeration may already imply the full polynomial."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Asymptotic assumes k fixed; no uniform growing-dimension statement.",
+    "Older cyclic-run or matching-number enumeration may already imply the full polynomial."
+  ],
+  "schema_version": 1
+}
