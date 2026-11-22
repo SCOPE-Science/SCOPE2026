@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "For each rational beta and integer m the proposed matrix dimensions and probe count are integral; exact residual counts give strict Frobenius and log-variance pilot inequalities. The logarithmic inequalities follow from log(1+x) between x/(1+x) and x, with a<=1/4. Two-eigenvalue preconditioned matrices make m>=2 Lanczos exact; independent Gaussian fourth moments yield precise full-budget risks and an exact regret ratio diverging with rank. The packaged standard-library checker passes 27,860 finite supplementary assertions; no finite test is used for an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2109.10659 develops near-optimal adaptive Hutch++ for a different stochastic trace/low-rank oracle",
+        "arXiv:2207.06342 derives randomized leave-one-out and jackknife diagnostic guarantees",
+        "arXiv:2601.05778 notes that its two-rank check is heuristic"
+      ],
+      "reasoning": "General adaptive trace-estimation guarantees use different estimators, stopping rules, and access assumptions; they do not bound the indicated deterministic rank extrapolation or contradict its explicit counterexample.",
+      "searches": [
+        "Gaussian one-probe log determinant trace Nyström preconditioning adaptive budget allocation failure",
+        "Spectral-tail lookahead heuristic failure Gaussian logdet variance under budget rank-allocation two scale spectrum slow tail",
+        "Improved variants of the Hutch++ algorithm for trace estimation adaptive budget optimal"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2601.05778",
+      "https://doi.org/10.1002/nla.70106",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-single-crossing-optimality-of-gaussian-probe-allocation-after-id--63138f0a4092",
+      "https://arxiv.org/abs/2109.10659",
+      "https://arxiv.org/abs/2207.06342"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cortinovis–Toni Eq. (35),(37) supplies only the short-rank predictor; Eq. (11),(14) supplies the exact risks at any specified rank",
+        "Their Remark 4.1 identifies a Frobenius approximation bias; Figure 6 examples show occasional incorrect strategy choice",
+        "Previously published single-crossing theorem identifies a test at the full allocation ranks rather than the reduced pilot ranks"
+      ],
+      "reasoning": "Substitution into the source formulas is necessary for the proof, but the new implication is different: an exact-log and exact-Frobenius pilot both choose one while the other option has arbitrarily lower full-budget risk, even with condition number approaching one. Prior empirical failures or bias remarks alone do not imply this universal unbounded construction.",
+      "searches": [
+        "arxiv:2601.05778",
+        "doi:10.1002/nla.70106",
+        "Cortinovis Toni equation 35 37 one-sample lookahead unbounded worst case regret exact logarithmic oracle",
+        "adaptive log-det-ective compares squared Frobenius residual spectrum with squared logarithm, wrong allocation due to spectral dynamic range, competitive loss",
+        "detector selects single probe versus multi probe by squared eigenvalue tail rather than log eigenvalue tail, exact sharp worst-case misclassification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2601.05778, Sections 2 and 4.3, Eq. (11),(14),(35)-(37) in the journal version: pointwise risk and reduced-rank decision",
+        "Published full-budget single-crossing allocation theorem: first-two-probes optimality using true full-budget spectral tails"
+      ],
+      "reasoning": "Rephrasing the finding as a failure of rank extrapolation, a Gaussian variance budget regret, or a two-plateau exact-log tail test does not make it follow from either source. The single-crossing theorem uses the true full-rank tail and does not imply the short-look-ahead test is reliable.",
+      "searches": [
+        "Cortinovis Toni equation 35 37 one-sample lookahead unbounded worst case regret exact logarithmic oracle",
+        "Preconditioned log determinant log-det-ective beta squared rank short lookahead falsely accepts one probe although many probes optimal; unbounded competitive ratio, two plateau spectrum",
+        "log-det-ective beta squared rank predictor false one sample"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical result: Single-crossing optimality of Gaussian probe allocation after ideal spectral deflation, Oct. 13, 2026",
+        "Other nearby records on Gaussian Nyström log-determinant moments and look-ahead stopping were compared by their stated matrices, risks and decisions"
+      ],
+      "reasoning": "The nearest exact allocation entry has a distinct decision rule using full-budget tail data; its full result was read. No matching two-rank misallocation table, ratio family or dominating general theorem was found; this is a best-knowledge search outcome, not a uniqueness proof.",
+      "searches": [
+        "Preconditioned log determinant log-det-ective beta squared rank short lookahead falsely accepts one probe although many probes optimal; unbounded competitive ratio, two plateau spectrum",
+        "sharp unbounded regret of Frobenius-spectral tail detector for budget split Gaussian log determinant one-probe versus many probes even arbitrarily small eigenvalues",
+        "misclassification logdet one sample strategy spectrally flat tiny tail, squared Frobenius comparison"
+      ]
+    },
+    "rationale": "The motivating preprint (arXiv:2601.05778, Sections 2 and 4) provides exact per-allocation Gaussian variance formulas and a two-rank decision heuristic, and even acknowledges occasional wrong decisions. It does not prove a two-plateau, every-rational-fraction, arbitrarily-near-identity family with unbounded full-budget regret while both exact oracle tests prefer one sample. A closely related published ideal allocation theorem was read in full and compares full-budget allocations, not the reduced-rank predictor. Source inspection plus mathematical implications support provisional non-coverage; unindexed equivalent constructions remain possible.",
+    "residual_risks": [
+      "The nearest previous full-budget allocation theorem may be combined with the original pilot formulas to derive variants of this example, even though it does not itself state the two-rank failure.",
+      "Unindexed pilot-based stochastic trace allocation literature or textbooks may contain an equivalent adversarial two-plateau example.",
+      "The conclusion is for the deterministic ideal diagnostic and is not a probability statement about the implemented random Nyström diagnostic."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the exact Gaussian trace variance and reduced-rank diagnostics; does not establish the constructed unbounded regret claim",
+        "evidence": [
+          "arXiv first public posting January 9, 2026",
+          "Preprint Section 4.3 two-rank pilot and Section 5.4 incorrect selections"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2601.05778",
+        "material_read": "Accessible full preprint HTML, especially Sections 2 and 4.1-4.4 and Section 5.4; checked abstract and initial posted date",
+        "method": "Full-text HTML examination of displayed formulas, assumptions, decision sign, remarks and examples",
+        "title": "Preconditioned log-determinant approximation: one Gaussian probe vector is almost always enough",
+        "trigger": "Earliest public version and same exact two-rank heuristic"
+      },
+      {
+        "assessment": "Credits pointwise variance and selection formulas; the new family is an unbounded quantitative separation for the oracle diagnostic, not a claim about the random implementation",
+        "evidence": [
+          "First journal publication July 2, 2026",
+          "Section 4.3 exact-log vs Frobenius pilot selection; Remark 4.1 notes bias"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/nla.70106",
+        "material_read": "Open-access HTML Sections 1-6, especially 2, 3.3, 4.1-4.4, 5.4 and conclusions",
+        "method": "Read mathematical expressions Eq. (11),(14),(15),(32),(34)-(37), Remark 4.1 and narrative of numerical cases",
+        "title": "Detecting When One Probe Vector is Enough for Preconditioned Log-Determinant Approximation",
+        "trigger": "Primary journal full text and final numbered equations"
+      },
+      {
+        "assessment": "Gives a global optimum test using true allocation tails and a geometric-spectrum formula, neither of which covers a reduced-rank look-ahead counterexample",
+        "evidence": [
+          "Full-budget comparison uses one and two probes and full rank tails",
+          "No pilot-rank predictor decision or unbounded regret bound"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-single-crossing-optimality-of-gaussian-probe-allocation-after-id--63138f0a4092",
+        "material_read": "Full public RESULT.md including Finding, assumptions, proof, limitations and references",
+        "method": "Fetched original result text; compared full-budget two-probe criterion against reduced-rank look-ahead",
+        "title": "Single-crossing optimality of Gaussian probe allocation after ideal spectral deflation",
+        "trigger": "Closest mathematical statement about allocation with the same ideal spectral preconditioner"
+      },
+      {
+        "assessment": "Controls an adaptive stochastic trace estimator with a different access and tolerance design, not the deterministic reduced-rank pilot decision",
+        "evidence": [
+          "Adaptive Hutch++ is stated to choose sample budgets near-optimally for its own trace-estimation estimator and tolerance"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2109.10659",
+        "material_read": "Accessible full preprint HTML introduction, algorithms and adaptive method discussion",
+        "method": "Read estimator definitions, error objective and adaptive constraints",
+        "title": "Improved variants of the Hutch++ algorithm for trace estimation",
+        "trigger": "Potentially broader adaptive low-rank/probe allocation coverage"
+      },
+      {
+        "assessment": "Provides random low-rank diagnostics, not a deterministic logarithmic budget-regret theorem",
+        "evidence": [
+          "Derives a posterior leave-one-out error estimator and jackknife variability proxy for randomized approximations"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2207.06342",
+        "material_read": "Accessible full preprint HTML introductory definitions, jackknife/leave-one-out methodology and algorithmic scope",
+        "method": "Read diagnostic objects and guarantees, compared with the deterministic exact-spectral decision rule",
+        "title": "Efficient error and variance estimation for randomized matrix computations",
+        "trigger": "Source cited for leave-one-out and variance diagnostics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "98b88ae5-17dd-447a-9a84-46fd55ac3d52",
+  "value": {
+    "rationale": "The question is motivated by a published adaptive log-determinant allocation rule, not by arbitrary spectrum fitting. The exact construction separates spectral-proxy error from more fundamental rank-extrapolation error, covers every fixed rational pilot fraction and the published recommended choice, keeps matrices positive definite and arbitrarily near identity, and isolates the effect from Lanczos quadrature error. These properties make a useful substantive counterexample for designing robust selection safeguards without asserting practical implementation failure.",
+    "status": "PASS"
+  }
+}
