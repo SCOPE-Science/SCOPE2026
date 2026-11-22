@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T07:58:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md frozen blob e5b972924ba60b8d16e7779b3e686ab3fce52cd8; independent_checks.py MAJORITY; check_direct.cpp and check_symbolic.py inspected"
+      ],
+      "rationale": "Open-neighbor majority with tie retention makes clique-group updates homogeneous or bitwise complement at integer half thresholds. Even m=2q: A is homogeneous in periodic states; only alternating A/h phases at total clique weight q survive, yielding binom(2q−r,q) cycles for r≤q. Odd m=2q+1: B homogeneous; two families give binom(r,q+1), plus the near-complete r=2q spike binom(2q,q); r=m complete graph agrees. Fixed states are only unanimous. The standard symmetric sign-bilinear Lyapunov quantity is strictly increasing unless x_{t+2}=x_t, ruling out periods over 2. Casewise inverse-image equations show each primitive-two state has one incoming phase (the companion), no external basin. Independent full microscopic graph update enumeration over all 2^(m+1) states for 63 (m,r) pairs m=3..11 reproduced every count and zero external entries.",
+      "residual_risks": [
+        "Universal no-incoming conclusion depends on exact threshold case analysis; finite enumeration only corroborates cases through m=11. General threshold period-at-most-two theorem is acknowledged as prior."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goles–Olivos proves a general period ≤2 theorem for symmetric threshold networks; Kaaser–Mallmann-Trenn–Natale gives voting-time/module bounds but not a primitive-period binomial census."
+        ],
+        "reasoning": "Period restriction or time bound is strictly weaker than exact labelled orbit counts and unique predecessor structure for every degree r.",
+        "searches": [
+          "https://doi.org/10.1016/0012-365X(80)90121-1",
+          "https://arxiv.org/abs/1508.03519",
+          "Resultary: partially attached clique majority"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact majority clique degree r search",
+        "Resultary 2026/11/1 6ca03ef32ff2",
+        "arXiv:1508.03519 available main theorems",
+        "Goles–Olivos DOI abstract; Oxford job 7fd1a16b8e45a69708043618c6510a6a vpn_disconnected"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Previously published leaf formula corresponds to r=1, and complete graph r=m has balanced flips. At r=m−1 odd m there is an additional binom(m−1,(m−1)/2) orbit family absent from both endpoint theorems."
+        ],
+        "reasoning": "The submitted formula is not a parameter substitution into the general threshold theorem; it resolves intermediate partial-attachment counts and proves strong dynamical isolation.",
+        "searches": [
+          "Resultary published 6ca03ef32ff2 RESULT (leaf r=1)",
+          "https://arxiv.org/abs/1508.03519",
+          "https://doi.org/10.1016/0012-365X(80)90121-1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The family is K_m plus one vertex of degree r; equivalently a complete graph with (m−r) edges deleted from one star. The Resultary one-leaf r=1 record is one strict slice."
+        ],
+        "reasoning": "Different graph descriptions were compared; the known endpoint leaf formula does not control r=2..m−1.",
+        "searches": [
+          "Resultary: majority synchronous dynamics clique with attached vertex degree r primitive two-cycle number isolation",
+          "near-complete graph complement a star majority exact period-two census",
+          "arXiv:1508.03519"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known central binomial coefficients appear at r=m−1, but the sequence table does not attach them to the one-edge-from-completion graph dynamics."
+        ],
+        "reasoning": "The numbers alone are familiar; their all-r graph-dynamics distribution and isolation are the natural invariant; no covering (m,r) table found in checked sources.",
+        "searches": [
+          "Resultary: majority synchronous dynamics clique with attached vertex degree r primitive two-cycle number isolation",
+          "Resultary: central-binomial parity switch clique with one leaf",
+          "OEIS A000984 central binomial"
+        ]
+      },
+      "rationale": "Generic symmetric deterministic threshold processes are already known to have eventual periods at most two. The published one-pendant-leaf graph gives r=1 boundary, and K_{m+1} gives r=m. Neither implies the exact intermediate-degree binomial census, parity-reversed onset/extinction, one-missing-edge spike, or that every oscillation is isolated. Best-of-knowledge with inaccessible original 1980 full text.",
+      "residual_risks": [
+        "Original Goles–Olivos paper only accessible by abstract; institutional retrieval disconnected, so an uninspected appendix or separate equivalent work remains possible.",
+        "No claim of complete time-to-consensus census for all transient states."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN general eventual periods ≤2; cannot infer absence of graph-specific formula from unread body",
+          "evidence": "Original title/abstract states generalized symmetric threshold period behavior, not an accessible K_m+one vertex count.",
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+          "material_read": "Original abstract and citation bibliographic metadata, not complete 1980 paper",
+          "method": "Lawful OA and open search then authorized Oxford job 7fd1a16b8e45a69708043618c6510a6a (vpn_disconnected)",
+          "title": "Goles and Olivos, Periodic behaviour of generalized threshold functions",
+          "trigger": "Potentially general stronger period theorem"
+        },
+        {
+          "assessment": "Voting time bound and clique modules, no inspected exact degree-dependent orbit populations",
+          "evidence": "A generic upper bound on stabilization is weaker than exact periodic orbit number/isolated basin.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.03519",
+          "material_read": "Accessible introduction, main theorems and module-reduction section description",
+          "method": "arXiv primary paper accessible materials",
+          "title": "Kaaser, Mallmann-Trenn and Natale, On the Voting Time of the Deterministic Majority Process",
+          "trigger": "General upper bound and possible clique module reduction"
+        },
+        {
+          "assessment": "Covers only pendant one-leaf case, strict subcase",
+          "evidence": "At r>1 the extra vertex has multiple neighbors, and new odd near-completion spike does not follow from leaf result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-a-central-binomial-parity-switch-in-majority-dynamics-on-a-cliqu--6ca03ef32ff2",
+          "material_read": "Published source scope and complete result description plus indexed semantic comparison",
+          "method": "Resultary published scientific record search",
+          "title": "A central-binomial parity switch in majority dynamics on a clique with one leaf",
+          "trigger": "Almost identical graph at endpoint r=1"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md all-parameter count and preimage proof; fresh microscopic enumeration"
+      ],
+      "rationale": "A degree-r interpolation between one pendant leaf and a complete graph is a canonical one-defect majority family. Exact counts for every degree, sharp parity-reversed appearance/disappearance and isolated period-two basins are mathematical structure not delivered by the generic period bound or endpoint results. The one-edge-off-complete spike is a motivated nontrivial boundary phenomenon.",
+      "residual_risks": [
+        "Does not classify time-to-consensus of all remaining transient states."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Graph has exactly one extra vertex partially adjacent to K_m; majority strictly of open neighbors with current-bit tie retention.",
+    "Original general threshold work inaccessible in full, historical priority qualification retained."
+  ],
+  "schema_version": 1
+}

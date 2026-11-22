@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For each even and odd clique order, the exact open-neighborhood majority inequalities are evaluated separately for the two clique vertex classes and the added vertex. The proof classifies *bitwise* phase transitions, not just the aggregate group counts, including the critical ties and the complete-graph endpoint. The fixed states, all two-cycle forms, their binomial multiplicities, and uniqueness of the backward neighbor for each two-cycle are derived explicitly. A symmetric sign-matrix monotonicity argument rules out periods above two on every finite graph. The direct exhaustive checker agrees on 117 graphs (1,834,992 labelled configurations); an independently written group-weighted implementation agrees on 1,827 parameter pairs. The computations are corroboration rather than the infinite proof. Risk: manual errors in the written case splits remain a possibility until an external proof review.
+## correctness
 
-**Originality — PASS, qualified.** A previously published note explicitly settles the special case with one leaf (attached degree \(r=1\)); therefore no novelty is asserted for that parameter alone. Classical complete-graph oscillations also cover the \(r=m\) endpoint. The new assertion is the exact simultaneous all-degree interpolation, including an opposite-parity oscillation onset, a near-completion central-binomial spike, and isolation of every two-cycle for all intermediate degrees. The general finite-threshold theorem of Goles–Olivos controls maximum period but not the orbit count. The full text of Benjamini et al. (arXiv:1405.2486v1) discusses random and unimodular networks; Kaaser et al. (arXiv:1508.03519v1) treats voting times via modules, not this binomial census. Searches by the graph description, complement-star formulation, period-two aliases, and formula parameters did not identify equivalent broader coverage. Risk: the 1980 original full text could not be obtained, and an unindexed historical classification of one-vertex clique extensions cannot be excluded.
+PASS
 
-**Value — PASS.** Exact orbit counts across all degrees of a single structural perturbation give an infinite natural graph-family invariant. The parity switch is substantial: for even clique order oscillations vanish at a sharp half-degree threshold, whereas for odd clique order they appear at a half-degree threshold and undergo a separate exponentially sized near-completion jump. The fact that every cycle has a two-state basin is an independently useful dynamical-accessibility distinction. This is not a mere relabelling of the one-leaf or complete-graph boundary case. No general attraction-time distribution is claimed.
+Open-neighbor majority with tie retention makes clique-group updates homogeneous or bitwise complement at integer half thresholds. Even m=2q: A is homogeneous in periodic states; only alternating A/h phases at total clique weight q survive, yielding binom(2q−r,q) cycles for r≤q. Odd m=2q+1: B homogeneous; two families give binom(r,q+1), plus the near-complete r=2q spike binom(2q,q); r=m complete graph agrees. Fixed states are only unanimous. The standard symmetric sign-bilinear Lyapunov quantity is strictly increasing unless x_{t+2}=x_t, ruling out periods over 2. Casewise inverse-image equations show each primitive-two state has one incoming phase (the companion), no external basin. Independent full microscopic graph update enumeration over all 2^(m+1) states for 63 (m,r) pairs m=3..11 reproduced every count and zero external entries.
 
-The most closely related published exact result covers a single leaf; general threshold and voting-time papers cover different quantities. The absence of the complete original Goles–Olivos text leaves residual historical-priority uncertainty. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Generic symmetric deterministic threshold processes are already known to have eventual periods at most two. The published one-pendant-leaf graph gives r=1 boundary, and K_{m+1} gives r=m. Neither implies the exact intermediate-degree binomial census, parity-reversed onset/extinction, one-missing-edge spike, or that every oscillation is isolated. Best-of-knowledge with inaccessible original 1980 full text.
+
+## value
+
+PASS
+
+A degree-r interpolation between one pendant leaf and a complete graph is a canonical one-defect majority family. Exact counts for every degree, sharp parity-reversed appearance/disappearance and isolated period-two basins are mathematical structure not delivered by the generic period bound or endpoint results. The one-edge-off-complete spike is a motivated nontrivial boundary phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
