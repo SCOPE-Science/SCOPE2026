@@ -1,0 +1,96 @@
+{
+  "correctness": {
+    "rationale": "Exact equivariant stage formulas yield the claimed fourth/sixth-degree Taylor coefficients; N=T/h scalar telescoping gives the stated global h^3 and exceptional h^5 limits. The packaged symbolic and high-precision checker passed. Limits are restricted to fixed T and sufficiently small h.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2024 source analyzes the base scheme for spherical ODEs generally but does not provide a full modified equation or latitude drift.",
+        "The 2026 source provides general state convergence, which bounds errors but does not determine signed leading errors of a particular first integral."
+      ],
+      "reasoning": "An order-two global position estimate allows O(h^3) invariant errors but cannot imply their nonzero values, the sign transition, or fifth-order exceptional ring.",
+      "searches": [
+        "STVDRK2 rigid axis rotation sphere latitude first order convergence z drift spherical geodesic forward Euler",
+        "SLERP TVDRK2 spherical Runge Kutta second order fails rigid body precession latitude O(h) global",
+        "spherical TVDRK2 axisymmetric vector field exp map latitude drift exact numerical first-order contradiction"
+      ]
+    },
+    "checked_sources": [
+      "https://link.springer.com/article/10.1007/s10915-026-03318-4",
+      "https://link.springer.com/article/10.1007/s10915-024-02702-2",
+      "https://arxiv.org/abs/2410.10420"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026: SLERP extrapolation of SFE with factor 2, order 2; no invariant coefficient.",
+        "2024: original STVDRK2 definition; rigid rotation discussed in stability introduction, not exact height drift."
+      ],
+      "reasoning": "The definitions plus generic order guarantees provide premises to derive the theorem, but the stated results do not explicitly or immediately imply the exact signs, sharp maximum or exceptional high-order ring without the new algebraic analysis.",
+      "searches": [
+        "SRKRE [1,2] spherical forward Euler Richardson numerical rigid axis rotation exact latitude drift order three leading coefficient",
+        "STVDRK2 rigid axis rotation sphere latitude first order convergence z drift spherical geodesic forward Euler",
+        "spherical TVDRK2 axisymmetric vector field exp map latitude drift exact numerical first-order contradiction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Springer 2026 Sects. 3.2 and 4 contain general state-order/numerical evaluation, no latitude-height modified equation.",
+        "Springer 2024 Sects. 3.2, 3.5 discuss STVDRK and rotations without invariant-height coefficients."
+      ],
+      "reasoning": "The new limits are equivariant scalar modified-equation first-integral drift laws; none of the inspected general order statements imply their coefficients or sign reversals.",
+      "searches": [
+        "SRKRE [1,2] spherical forward Euler Richardson numerical rigid axis rotation exact latitude drift order three leading coefficient",
+        "spherical linear extrapolation one coarse two fine rotating sphere zonal invariant polar drift third order",
+        "spherical Runge Kutta SRKRE[1,2] superconvergence latitude poleward drift 1/8 cos^3 theta sin^2 theta"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public mathematical record results for spherical harmonics, geodesic interpolation and random planar rotation have different algorithms and observables.",
+        "The accessible own claim history contains no matching SRKRE latitude-height result."
+      ],
+      "reasoning": "No exact coefficient in the inspected mathematical record/table matches the claim; searches are evidence, not an exhaustive uniqueness proof.",
+      "searches": [
+        "spherical linear extrapolation one coarse two fine rotating sphere zonal invariant polar drift third order",
+        "spherical Runge Kutta SRKRE[1,2] superconvergence latitude poleward drift 1/8 cos^3 theta sin^2 theta"
+      ]
+    },
+    "rationale": "The 2026 work defines SRKRE[1,2] but does not compute the rigid-rotation latitude error or its sharp extremum; the 2024 STVDRK2 paper defines the comparator and mentions rigid rotation but not the sign-changing invariant-height coefficient or fifth-order exceptional ring. Multiple actual mathematical-record searches identified no covering implication. An equivalent geometric modified-equation analysis may still exist.",
+    "residual_risks": [
+      "Other geometric-integration backward-error analyses might encode the same coefficient under different terminology.",
+      "Existing general symmetric-space integrator expansions could subsume parts of the Taylor calculation without stating this explicit comparative height invariant."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines SRKRE but not the claimed first-integral drift asymptotics",
+        "evidence": "Section 3.2 defines q1, q21, q2 and factor 2; Sections 2.1 and 3 discuss convergence, not axial-height drift.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10915-026-03318-4",
+        "material_read": "Full accessible HTML: Sections 1, 2.1, 3.1, 3.2, 3.3, numerical results and conclusion; formulas for SFE, STVDRK2, SLERP and Richardson",
+        "method": "Read article HTML and searched for latitude and rotation; compared theorem and algorithms",
+        "title": "High-Order Spherical Runge-Kutta Schemes Based on Spherical Linear Extrapolation",
+        "trigger": "Method-specific primary with new SRKRE [1,2] definitions"
+      },
+      {
+        "assessment": "Rigid rotation occurs as a generic linear example; no signed invariant-height asymptotic or comparison with 2026 extrapolated method",
+        "evidence": "Section 3.2 defines STVDRK2; section 3.5 reduces skew linear dynamics to rigid-axis rotation; no latitude-height asymptotic.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10915-024-02702-2",
+        "material_read": "Full accessible HTML: method sections 3.1–3.5 and related stability/rotation and introduction; searched latitude and rotation",
+        "method": "Read article HTML and compare exact statements, especially sections 3.2 and 3.5",
+        "title": "SLERP-TVDRK (STVDRK) Methods for Ordinary Differential Equations on Spheres",
+        "trigger": "Original base-method and rigid-rotation analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e7d5153f-fb35-4ef6-bf91-09dc62a7c317",
+  "value": {
+    "rationale": "The rigid-axis latitude is a natural exact first integral. The precise drift direction, sharp worst-latitude coefficient and exceptional fifth-order preservation ring distinguish standard geometric numerical integrators where sphere constraint preservation alone cannot control such invariant error.",
+    "status": "PASS"
+  }
+}
