@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T06:07:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At N=2m the full even-modulation subgroup sums to m times the congruence condition j≡k mod m. The resulting 2-by-2 coordinate blocks Q_j have determinant D=r^(2m-2)(1-r²)²>0 and endpoint-maximal trace T=(1+r²)(1+r^(2m-2)), so their extremal eigenvalues are exactly the claimed sharp frame bounds. Independently assembled full complex Gabor synthesis/frame matrices for nine (m,r) settings and checked both extremal eigenvalues. Algebra gives T/sqrt(D)=2 coth(s) cosh((m-1)s), and log derivative (m-1)tanh((m-1)s)-2/sinh(2s) crosses zero once. Monotone root comparison implies (m-1)s→z* solving z*tanh z=1, with sharp condition coefficient 4/(z*²-1). m=2 yields r=√2-1 and κ=(2+√3)². Finite sample checks are supplemental to the general block argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Asipchuk et al. Theorem 1.1 guarantees block structure for subgroup sampling, not the optimal r; Faulhuber–Shafkulovska use continuous lattice models."
+        ],
+        "reasoning": "The broad structural theorem leaves the window-specific eigenvalue and optimization computations open; one-sided cyclic geometric windows are not circular radial windows.",
+        "searches": [
+          "https://arxiv.org/html/2605.16139v2",
+          "https://arxiv.org/abs/2204.02917",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-geometric-cyclic-gabor-windows-exact-translation-mask-rank-spect--92fb6f3665eb"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2605.16139v2",
+        "https://arxiv.org/abs/2204.02917",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-geometric-cyclic-gabor-windows-exact-translation-mask-rank-spect--92fb6f3665eb",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-parity-rigidity-and-volume-optimal-placement-for-radial-cyclic-g--5f4b85ff7867",
+        "Resultary: finite cyclic Gabor Riesz basis two translations even frequency modulations circular exponential window optimal condition number"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known block-equivalence permits decomposing but does not identify T_max or optimize the circular exponential frame bound ratio.",
+          "Geometric one-sided optimization and radial determinant placement do not imply the symmetric window condition-number law as stated."
+        ],
+        "reasoning": "The exact trace ordering and hyperbolic global minimization are additional deductions; an older closed-form polyphase optimization remains a possible precursor.",
+        "searches": [
+          "https://arxiv.org/html/2605.16139v2",
+          "https://arxiv.org/abs/2204.02917",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-geometric-cyclic-gabor-windows-exact-translation-mask-rank-spect--92fb6f3665eb",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-parity-rigidity-and-volume-optimal-placement-for-radial-cyclic-g--5f4b85ff7867"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frame-operator condition number is the square of synthesis-matrix condition number, and the subgroup modulation produces standard polyphase blocks."
+        ],
+        "reasoning": "Potential variants under frame vs synthesis normalization were checked; the squared condition and endpoint-maximal block distinguish the precise theorem.",
+        "searches": [
+          "Resultary: finite cyclic Gabor Riesz basis two translations even frequency modulations circular exponential window optimal condition number",
+          "https://arxiv.org/html/2605.16139v2",
+          "Resultary: two translation cyclic Gabor geometric positive taper conditioning unique optimal window"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closest same-period entries treat geometric one-sided windows and radial volume-optimal translation distance, distinct from the exact condition-number taper."
+        ],
+        "reasoning": "No published table found for the present s_m root and sharp quadratic constant; similar results were checked by scope rather than title alone.",
+        "searches": [
+          "Resultary: finite cyclic Gabor Riesz basis two translations even frequency modulations circular exponential window optimal condition number",
+          "Resultary: two translation cyclic Gabor geometric positive taper conditioning unique optimal window",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-geometric-cyclic-gabor-windows-exact-translation-mask-rank-spect--92fb6f3665eb",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-parity-rigidity-and-volume-optimal-placement-for-radial-cyclic-g--5f4b85ff7867"
+        ]
+      },
+      "rationale": "Asipchuk–De Carli–Rodriguez (2026) prove finite Gabor block equivalence whenever a sampling set is a subgroup, precisely the structural input used here, but not the explicit circular graph-distance exponential profile, maximally ill-conditioned block or global unique taper asymptotic. Faulhuber–Shafkulovska study continuous oversampled exponential Gabor frames rather than the critical finite cycle. Resultary geometric cyclic one-sided exponential and radial placement results are close but use respectively g(j)=rho^j and determinant/placement optimization, not this exact symmetric profile and condition number. Older polyphase formulas may cover parts.",
+      "residual_risks": [
+        "Prior finite polyphase/symmetric-exponential taper optimizers might implicitly include this result.",
+        "Some similar same-week indexed papers have not been read in full; publication priority not absolute."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broad block decomposition covers structural step but not present window-specific taper optimum.",
+          "evidence": "Subgroup modulation/translation implies block-equivalent finite frame operator.",
+          "identifier_or_url": "https://arxiv.org/html/2605.16139v2",
+          "material_read": "Full accessible arXiv HTML relevant Theorem 1.1, Corollary 5.1 and structural development Sections 3–5.",
+          "method": "ArXiv v2 open HTML, theorem statements and relevant derivations.",
+          "title": "Block-equivalent finite Gabor frames",
+          "trigger": "Same finite subgroup-modulation geometry"
+        },
+        {
+          "assessment": "Continuous two-sided exponential and lattice redundancy differ from this critical finite circular basis.",
+          "evidence": "Continuum lattice parameterization is not a direct specialization to graph-distance cyclic window.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.02917",
+          "material_read": "ArXiv abstract and introduction/relevant Section 9 material, not whole-document exclusion.",
+          "method": "ArXiv/open descriptions and targeted mathematical comparison.",
+          "title": "Gabor frame bound optimizations",
+          "trigger": "Related exponential-window condition optimization"
+        },
+        {
+          "assessment": "Window is one-sided rho^j and masks vary; no demonstrated coverage of circular symmetric r^distance.",
+          "evidence": "Indexed summary identifies one-sided geometric g_rho(j)=rho^j, not r^min(j,N-j).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-geometric-cyclic-gabor-windows-exact-translation-mask-rank-spect--92fb6f3665eb",
+          "material_read": "Resultary title and claim summary, not primary full RESULT.md.",
+          "method": "Indexed published claim.",
+          "title": "Geometric cyclic Gabor windows: exact translation-mask rank, spectral rigidity, and optimal taper",
+          "trigger": "Very similar same-week finite cyclic taper result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Positive circular exponential windows are natural localization profiles for discrete Gabor reconstruction. The theorem gives sharp all-N stability and identifies a unique conditioning optimum, proving both endpoint failure and unavoidable quadratic optimal condition deterioration. The exact growth constant is useful without claiming a new general block theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2605.16139v2",
+    "https://arxiv.org/abs/2204.02917",
+    "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-geometric-cyclic-gabor-windows-exact-translation-mask-rank-spect--92fb6f3665eb",
+    "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-parity-rigidity-and-volume-optimal-placement-for-radial-cyclic-g--5f4b85ff7867",
+    "Resultary: finite cyclic Gabor Riesz basis two translations even frequency modulations circular exponential window optimal condition number"
+  ],
+  "disposition": "passed",
+  "final_claim": "Exact optimal taper and quadratic conditioning for a cyclic exponential Gabor basis",
+  "limitations": [
+    "Prior finite polyphase/symmetric-exponential taper optimizers might implicitly include this result.",
+    "Some similar same-week indexed papers have not been read in full; publication priority not absolute."
+  ],
+  "residual_risks": [
+    "Prior finite polyphase/symmetric-exponential taper optimizers might implicitly include this result.",
+    "Some similar same-week indexed papers have not been read in full; publication priority not absolute."
+  ],
+  "schema_version": 1
+}
