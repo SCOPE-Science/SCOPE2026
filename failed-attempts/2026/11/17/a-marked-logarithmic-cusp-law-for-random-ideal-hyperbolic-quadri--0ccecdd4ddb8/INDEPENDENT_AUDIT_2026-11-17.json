@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T14:07:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For cyclic angular gaps x,y,z,w summing 2pi, the Ptolemy identity sin((x+y)/2)sin((y+z)/2)=sin(x/2)sin(z/2)+sin(y/2)sin(w/2) gives Q=sin(x/2)sin(z/2)/[sin(x/2)sin(z/2)+sin(y/2)sin(w/2)]. The monotone relation z -> Q at fixed x,y has derivative B sin(y/2)/[2sin^2((y+z)/2)]>0, and its inverse gives a Jacobian ~4 epsilon log(1/epsilon)sin^2(y/2) at x=epsilon^u, q=epsilon v for interior 0<u,v<1. Combined with the EXACT Dirichlet gap density 3/(4pi^3), the unnormalized marked density is (3/pi^3)epsilon log(1/epsilon)sin^2(y/2). The established Martin cross-ratio marginal has P(Q<epsilon)~(3/pi^2)epsilon log(1/epsilon); after normalization the interior limit density is sin^2(y/2)/pi. The u>1 boundary pointwise density is negligible; Scheffé yields total variation, not just weak convergence. Root angle Phi is independent and uniform by rotational symmetry. Independently checked Ptolemy numerical equality for positive gaps; evaluated normalization int_0^{2pi}sin^2(y/2)/pi dy=1. The source proof establishes the final claim despite being covered by other published work.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published chord theorem gives conditional TV of (log x_fraction/log t, U/t, y_fraction) -> independent Uniform(0,1)^2 and 2sin²(pi y_fraction)dy_fraction.",
+          "Under y_radians=2pi y_fraction, this is exactly sin²(y_radians/2)/pi dy_radians.",
+          "Its arclength-uniform circle sampling and cyclic order match the quadrilateral sampling law after the exchange of gap coordinates."
+        ],
+        "reasoning": "The prior theorem on the same four iid boundary points is sufficient, not merely related; it dominates the entire nontrivial marked conclusion. Martin alone only gives the unmarked marginal, but the stronger chord result closes the comparison.",
+        "searches": [
+          "random ideal hyperbolic quadrilateral four uniform circle points cross ratio marked near cusp conditional logarithmic angular gaps",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-logarithmic-endpoint-cusp-and-marked-limit-for-random-crossing--15b6bd723f0c/RESULT.md",
+          "Dirichlet product cusp logarithmic angle split total variation"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-marked-logarithmic-cusp-law-for-random-ideal-hyperbolic-quadri--0ccecdd4ddb8/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-marked-logarithmic-cusp-law-for-random-ideal-hyperbolic-quadri--0ccecdd4ddb8/verify.py",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-logarithmic-endpoint-cusp-and-marked-limit-for-random-crossing--15b6bd723f0c/RESULT.md",
+        "https://arxiv.org/abs/1807.06202",
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-marked-simultaneous-cusp-law-for-two-overlapping-random-ideal--ac36757db69c/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For all x+y+z+w=2pi, sin((x+y)/2)sin((y+z)/2)=sin(x/2)sin(z/2)+sin(y/2)sin(w/2); swapping z,w makes the prior chord ratio exactly equal Q.",
+          "Dirichlet(1,1,1,1) is invariant under swapping z and w, so the conditional joint law of (X,Y,log X/log epsilon,Q/epsilon) follows from published chord theorem.",
+          "The root angle Phi is independent Uniform(0,2pi) under iid uniform circle points; adding that factor requires no additional rare-event analysis."
+        ],
+        "reasoning": "Every nontrivial mathematical feature—logarithmic exponent, rescaled rare observable, biased macroscopic angular gap, total variation factorization—follows from the prior chord marked theorem; scalar cusp is also previously known.",
+        "searches": [
+          "random ideal hyperbolic quadrilateral four uniform circle points cross ratio marked near cusp conditional logarithmic angular gaps",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-logarithmic-endpoint-cusp-and-marked-limit-for-random-crossing--15b6bd723f0c/RESULT.md",
+          "Ptolemy opposite gap swap sine sum identity",
+          "arxiv:1807.06202 cross ratio density"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact Ptolemy identity expresses Q=sin(x/2)sin(z/2)/(sin(x/2)sin(z/2)+sin(y/2)sin(w/2)).",
+          "Published chord result, for cyclic gaps x,y,z,w, sets U=sin(x/2)sin(w/2)/(sin(x/2)sin(w/2)+sin(y/2)sin(z/2)).",
+          "Exchanging z and w yields Q(x,y,z,w)=U(x,y,w,z) identically; the Dirichlet gaps are exchangeable.",
+          "The chord mark uses arc fraction x/(2pi), so log X_radians/log epsilon differs by deterministic log(2pi)/log epsilon->0; this translation preserves the stated TV limit."
+        ],
+        "reasoning": "Identical joint marked statistics under an exact relabelling of two exchangeable angular gaps and a vanishing deterministic log-coordinate shift. The hyperbolic description adds no distinct invariant.",
+        "searches": [
+          "random ideal hyperbolic quadrilateral four uniform circle points cross ratio marked near cusp conditional logarithmic angular gaps",
+          "cross-ratio four circle points conditional angular spacings logarithmic uniform split Martin",
+          "random crossing chords near endpoint split fraction marked limit total variation sin squared separation",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-logarithmic-endpoint-cusp-and-marked-limit-for-random-crossing--15b6bd723f0c/RESULT.md",
+          "Martin arxiv:1807.06202 Theorem 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Martin 2018 unmarked cross-ratio probability is known and credited.",
+          "The published chord theorem gives the same 3/pi² rare-event coefficient and fully marked factorization; its exact formulas already recover all four marked coordinates after adjoining an independent rotation."
+        ],
+        "reasoning": "An exact previously published probabilistic invariant, not just a table of moments, covers the proposed marked law; different geometric labels are not new data.",
+        "searches": [
+          "random ideal hyperbolic quadrilateral four uniform circle points cross ratio marked near cusp conditional logarithmic angular gaps",
+          "random crossing chords near endpoint split fraction marked limit total variation sin squared separation",
+          "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-logarithmic-endpoint-cusp-and-marked-limit-for-random-crossing--15b6bd723f0c/RESULT.md",
+          "random chord crossing fraction endpoint probability 3/pi^2 t log t"
+        ]
+      },
+      "rationale": "Decisive distributional equivalence to a published same-day Resultary theorem on random crossing chords. Under the Dirichlet(1,1,1,1) angular gaps, swap the third and fourth gaps: the exact quadrilateral Ptolemy ratio Q(x,y,z,w) becomes the chord intersection fraction U(x,y,w,z) of the published theorem. The swap preserves the JOINT law of X and Y, as well as the Dirichlet sampling law, so its marked total-variation theorem gives exactly the claimed U_epsilon=log X/log epsilon, V=Q/epsilon and sine-square Y law. The extra independent root phase is automatic by rotational invariance. This is the same mathematical distribution under an explicit measure-preserving relabelling, not a distinct original result.",
+      "residual_risks": [
+        "Relative first-publication TIMES of the two findings dated Nov 17 were not established, but the already published accessible result covers the same mathematical proposition at assessment time; the reviewer does not claim a strict earlier clock time.",
+        "Different geometric interpretation alone does not create a new stochastic statement. A genuinely new quantitative rate or more marks would be a different substantive theorem and was not supplied."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVELY COVERING via swap z<->w of exchangeable Dirichlet gaps; prior U is exactly quadrilateral Q under that permutation.",
+          "evidence": "Formula (1): U=sin(pi x)sin(pi w)/(sin(pi x)sin(pi w)+sin(pi y)sin(pi z)); marked law density 2sin²(pi y)dy.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-logarithmic-endpoint-cusp-and-marked-limit-for-random-crossing--15b6bd723f0c/RESULT.md",
+          "material_read": "FULL Resultary RESULT.md Finding, exact intersecting-chord sine formula (1), endpoint cutoff proof, marked TV proof (Step4), sampling assumptions and references.",
+          "method": "Direct GitHub full-text read",
+          "title": "A logarithmic endpoint cusp and marked limit for random crossing chords",
+          "trigger": "SAME four iid circle points and suspicious identical cusp constant, two uniform marks, sine-square angle density"
+        },
+        {
+          "assessment": "Confirms scalar cusp but does not itself supply marked distribution; stronger chord theorem supplies exactly it.",
+          "evidence": "Theorem 4.1, cyclic conditioning factor 3.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.06202",
+          "material_read": "Original 2018 open-access primary PDF Theorem 4.1 / relevant displayed density and background.",
+          "method": "Primary arXiv PDF page and theorem inspection",
+          "title": "Random Ideal Hyperbolic Quadrilaterals, the Cross Ratio Distribution and Punctured Tori",
+          "trigger": "Known unmarked scalar cross-ratio PDF used for normalizing rare event"
+        },
+        {
+          "assessment": "Five labelled points and two simultaneous ratios; different event, not the decisive coverage source.",
+          "evidence": "Five-point shared-denominator tail K/t vs four-point epsilon log epsilon.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-marked-simultaneous-cusp-law-for-two-overlapping-random-ideal--ac36757db69c/RESULT.md",
+          "material_read": "Full published RESULT.md statement, Cauchy reduction, proof and scope.",
+          "method": "Direct GitHub full-text read",
+          "title": "A marked simultaneous-cusp law for two overlapping random ideal-quadrilateral cross ratios",
+          "trigger": "Similar phrase marked cross ratio and total variation, possible stronger result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The conditional marked law is mathematically interesting as an object, but the assigned four-variable statement is a measure-preserving reparametrization of the already published random crossing-chord marked theorem. The same independence, angular sine-square bias and two uniform marks follow without new estimation; adjoining the uniform root angle and changing units are automatic. Thus this unchanged submission has no independent mathematical value despite its correct analytic proof.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-marked-logarithmic-cusp-law-for-random-ideal-hyperbolic-quadri--0ccecdd4ddb8/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-logarithmic-endpoint-cusp-and-marked-limit-for-random-crossing--15b6bd723f0c/RESULT.md",
+    "https://arxiv.org/abs/1807.06202"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Same-day publication order not resolved; coverage at audit time is decisive for distinct originality, not a claim of earlier authorship.",
+    "Scientific finding is independent of mechanical publication import; source public metadata requires sanitization.",
+    "No formal Lean or expert attestation is inferred from numerical or exact finite checks."
+  ],
+  "schema_version": 1
+}
