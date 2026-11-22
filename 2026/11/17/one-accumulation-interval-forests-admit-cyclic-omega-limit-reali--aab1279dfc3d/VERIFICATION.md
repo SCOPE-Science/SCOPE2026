@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof was checked by following the source and target indices without truncating either infinite sequence. For each component at merged target position t, source interval t+1 surjects onto it. For any forward transition from source interval k to target interval j, j is at most k−1; singleton components are sent to the distinguished point. Every backward lift to an interval increases its interval index by at least one, forcing arbitrarily deep preimages into arbitrarily small neighborhoods of the distinguished phase point. These facts give epsilon-chains by one jump plus exact orbit segments and establish the hypotheses of the cited realization theorem.
+## correctness
 
-The proof is analytical. No numerical enumeration, independent theorem prover, or external auditor was used. Priority relative to the cited but unavailable companion preprint remains a scientific limitation.
+PASS
+
+On each compact phase section, enumerate all nondistinguished components C_t tending to p. Map the interval I_k for k>=2 continuously and onto C_(k-1) in the next phase, and I_1/isolated singletons/p to its distinguished point. An interval-to-interval forward step strictly decreases index, so every exact orbit reaches the distinguished m-cycle. Conversely arbitrary backward depth is available through increasing source interval indices; preimages approach distinguished points. One epsilon-jump from that cycle to a deep predecessor yields chains between any two points, with exact phase congruence. Theorem A of Garcia Guirao transfers the continuous chain-transitive cyclic map to a triangular omega-limit realization. Continuity at p follows from all components outside a finite prefix converging to p; isolated components have no other continuity obstacles. The proof establishes the infinite case directly, not via finite sampling.
+
+## originality
+
+PASS
+
+The known cyclic chain-transitivity criterion is explicitly credited; the independent construction supplies a broad countably infinite interval-component family in the remaining class with independently variable isolated singleton counts. No inspected indexed result establishes that precise sufficient condition. This is best-of-knowledge, conditional on companion-preprint overlap risk.
+
+## value
+
+PASS
+
+The construction settles a substantive family within an explicitly recognized remaining realization class for triangular-map omega limits. It explains how chain transitivity coexists with pointwise eventual periodicity and nonhomeomorphic cyclic fibers despite infinitely many interval components, a useful structural existence result rather than an arbitrary isolated example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

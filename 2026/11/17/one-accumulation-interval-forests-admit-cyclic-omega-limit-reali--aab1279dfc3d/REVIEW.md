@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof gives a component-by-component continuous surjection, verifies continuity at the sole component-accumulation points, and proves strict descent of interval indices along every nonterminal orbit. Its backward lift has strictly increasing interval indices, so deep preimages converge toward the distinguished periodic cycle. The epsilon-chain argument then establishes chain transitivity, and the cited full-text Theorem A supplies the ambient triangular realization. The proof is not based on a finite experiment.
+## correctness
 
-## Originality — PASS within accessible evidence
-The general equivalence between realization and chain-transitive cyclic surjections belongs to García Guirao (2026), Theorem A. Its explicit sufficient cases do not include countably many components with infinitely many nondegenerate ones. The component-index construction here provides a definite new sufficient family in that unresolved category, including singleton components isolated away from every interval. Searches of related published mathematical records found no covering claim. A cited companion preprint on the remaining category could not be inspected; priority therefore remains provisional.
+PASS
 
-## Value — PASS
-A natural open classification problem is reduced to explicit realizations for a broad, easily recognized family with freely varying isolated component counts across phases. The exceptional coexistence of pointwise finite-time capture with chain transitivity supplies a reusable mechanism for constructing omega-limit sections; it is not a parameter substitution or a finite census.
+On each compact phase section, enumerate all nondistinguished components C_t tending to p. Map the interval I_k for k>=2 continuously and onto C_(k-1) in the next phase, and I_1/isolated singletons/p to its distinguished point. An interval-to-interval forward step strictly decreases index, so every exact orbit reaches the distinguished m-cycle. Conversely arbitrary backward depth is available through increasing source interval indices; preimages approach distinguished points. One epsilon-jump from that cycle to a deep predecessor yields chains between any two points, with exact phase congruence. Theorem A of Garcia Guirao transfers the continuous chain-transitive cyclic map to a triangular omega-limit realization. Continuity at p follows from all components outside a finite prefix converging to p; isolated components have no other continuity obstacles. The proof establishes the infinite case directly, not via finite sampling.
 
-## Closest literature and limitations
-García Guirao, arXiv:2611.06889v1, Theorem A and the accompanying remaining-class discussion, is the principal source. Kolyada–Snoha supplies the classical one-fiber theory. This theorem does not solve all cases with infinitely many interval components; the unavailable companion paper poses the main priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known cyclic chain-transitivity criterion is explicitly credited; the independent construction supplies a broad countably infinite interval-component family in the remaining class with independently variable isolated singleton counts. No inspected indexed result establishes that precise sufficient condition. This is best-of-knowledge, conditional on companion-preprint overlap risk.
+
+## value
+
+PASS
+
+The construction settles a substantive family within an explicitly recognized remaining realization class for triangular-map omega limits. It explains how chain transitivity coexists with pointwise eventual periodicity and nonhomeomorphic cyclic fibers despite infinitely many interval components, a useful structural existence result rather than an arbitrary isolated example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
