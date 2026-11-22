@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "For any positive m and 1<=j<=7, Legendre gives valuation s2(jm)+s2((8-j)m)-s2(m); all valuations are invariant under m -> 2m. For odd part o, the four odd columns each have at least three forced carries, the j=2,6 columns have exactly s2(3o), and j=4 has s2(o). Their failure indicators yield E=7-2I[s2(3o)<=2]-I[s2(o)<=2]. All <=2 digit-weight cases and the precise overlap o=1,3 are solved, giving disjoint four-level classification. Counting odd cores and 2-adic rays proves the exact and 3/4(log2X)^2 asymptotic exception laws. At prime p>8 the identity k*C(8p,k)=8p*C(8p-1,k-1) forces p|k for gcd exactly 8, and Lucas makes the binomial p-unit for j in 1..7. Explicit checks of integer calculations and boundaries run successfully from check.py; infinite proof independent of them.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wu Theorems 1–4 and sections 1–3: proportional row-wide common factors and Mersenne-prime characterization, not a count for each fixed 8-adic threshold.",
+        "Cui–Yang Corollary 6.3: A_d(dp)=d−1 for all but O_d(X^(1−eta_d)) primes; no explicit structure of exceptional primes for d=8.",
+        "published-finding corpus 2026/11/8/SCOPE-exact-logarithmic-row-counts-for-restricted-binomial-gcds--339a752cfdc3 treats which rows have divisible restricted gcd, a different operation from counting individual columns."
+      ],
+      "reasoning": "The studied general gcd and large-scale asymptotic results are not statements that imply the exact all-m four-value spectrum or the sharp parameterization of rare prime exceptions. General Kummer and Lucas theorems imply ingredients but require the present case-specific carry and Diophantine classification.",
+      "searches": [
+        "Complete prime exceptional distributions for A_d(dp) in binomial coefficient greatest common divisor, d=8, prime p",
+        "Distribution of greatest common divisors of binomial coefficients and upper indices, fixed gcd d, Lucas digit formulas, semiprime row exact classifications",
+        "arXiv:2611.25794v1 Theorem 1.1 Corollary 6.3",
+        "arXiv:2606.20940v1 Theorems 1-4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2606.20940 (Wu, sections 1–3)",
+      "https://arxiv.org/html/2611.25794v1 (Cui–Yang, relevant exact GCD statistic and prime application)",
+      "https://oeis.org/A001045 (Jacobsthal sequence formula)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-exact-minimum-valuation-multiplicities-in-restricted-two-digit-b--5bfb1fd719eb (abstract-level)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-logarithmic-row-counts-for-restricted-binomial-gcds--339a752cfdc3 (abstract-level)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Knowing row-wide gcd determines a minimum over all proportional columns, not which of seven entries meet v2>=3.",
+        "Cui–Yang Corollary 6.3 allows as many as O(X^(1−eta)) exceptional primes; the new result identifies their only possible forms and yields O(log X).",
+        "Earlier published mathematical record on g(3,n) concerns a different global gcd invariant."
+      ],
+      "reasoning": "The prime corollary refines a known asymptotic but is not implied by its exceptional set size. The independent all-positive-m classification has no row-GCD counterpart from these papers, and the overlap with the classical v2 digit formula is an explicitly acknowledged proof ingredient.",
+      "searches": [
+        "arXiv:2606.20940v1 Theorem 1 (row gcd minimum)",
+        "arXiv:2611.25794v1 Lemma 2.1 and Corollary 6.3",
+        "For odd m classify exact count of j=1,...,7 with 8 divides binomial(8m,jm): E(m)=7-2*1[s_2(3m)<=2]-1[s_2(m)<=2]; 4 for m=1,3, 5 for Jacobsthal (2^odd+1)/3, 6 for Fermat form 2^a+1, 7 otherwise. Exact A_8(8p) for all primes p>8."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Legendre exact valuation formulation: s2(jm)+s2((8-j)m)-s2(m), with j odd forced >=3; j=2,6 exactly s2(3m), j=4 exactly s2(m).",
+        "arXiv:2611.25794v1 sec.6.3 frames the prime specialization as A_d(dp); no exceptional Fermat/Jacobsthal description stated.",
+        "OEIS A001045 identifies Jacobsthal numbers (2^b+1)/3 for odd b but does not tabulate the proposed binomial-threshold statistic."
+      ],
+      "reasoning": "The exact prime A_8(8p), seven-column saturation E(m), and digit-weight dichotomy are mathematically equivalent presentations of the proposed claim in the stated scopes. Searches targeted all three and did not identify a covering statement; the mere absence of hits is not priority proof.",
+      "searches": [
+        "For odd m classify exact count of j=1,...,7 with 8 divides binomial(8m,jm): E(m)=7-2*1[s_2(3m)<=2]-1[s_2(m)<=2]; 4 for m=1,3, 5 for Jacobsthal (2^odd+1)/3, 6 for Fermat form 2^a+1, 7 otherwise. Exact A_8(8p) for all primes p>8.",
+        "Binary digit sum valuations binomial coefficient (8p choose jp) for prime p, exceptional p=2^a+1 Fermat and p=(2^odd+1)/3; fixed row gcd counts",
+        "\"binomial(8p\" \"Jacobsthal\"",
+        "\"binomial(8n,2n)\" \"s_2(3n)\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A001045 is the established Jacobsthal sequence table, not an E(m) or A_8(8p) table.",
+        "arXiv:2611.25794v1 has an asymptotic formula and no exact d=8 exceptional table.",
+        "No matching record appeared in the inspected public findings list; closest titles concerned different binomial valuation arrays."
+      ],
+      "reasoning": "An existing table of Jacobsthal integers alone is not the proposed binomial-row classification; a table mapping all m to exact E(m) or all p>8 to A_8(8p) would cover, but was not located in the checked sources. Source-index completeness is not assumed.",
+      "searches": [
+        "Exact classification A_8(8p) = # k between 0 and 8p with gcd(8p,binomial(8p,k))=8 for primes p>8; exceptional Fermat primes and (2^odd+1)/3 Jacobsthal primes",
+        "\"binomial(8p\" \"Jacobsthal\"",
+        "OEIS A001045 Jacobsthal number divisibility binomial row eight threshold",
+        "published-finding corpus search first 45 hits exact E(m) binomial(8m,jm)"
+      ]
+    },
+    "rationale": "The fully compared closest primary paper (Cui–Yang) gives generic prime asymptotics and a power-saving exceptional bound for A_d(dp), without exact d=8 prime exceptions or all-multipliers profile. Wu gives row-wide GCD, not counts of separate column divisibilities. Public mathematical-record and older-own-claim comparisons show distinct invariants. Classical carry formulas are recognized as prior tools; claim is complete derived classification. Non-indexed or implicit prior equivalence remains an explicit residual priority risk.",
+    "residual_risks": [
+      "Earlier unindexed binomial-divisibility census or an implicitly equivalent special case of a general fixed-prime-power coefficient-distribution theorem may exist.",
+      "The closest public findings beyond the two primary papers were compared from search summaries only; such summaries do not certify the full texts as noncovering.",
+      "The novelty is a short exact specialization of classical digit-sum identities, not the discovery of a new general valuation theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not directly covering. Studies gcd over an entire proportional row, not eightfold-divisible column counts.",
+        "evidence": [
+          "Theorem 1 computes the prime-adic valuation of a row-wide gcd when multiplier is a prime power.",
+          "Theorems 2–4 treat gcd formulas and Mersenne prime relations; no spectrum of seven columns at modulus eight appears."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.20940",
+        "material_read": "ArXiv-rendered sections 1–3 including Theorems 1–4, proofs, and reference list (147 displayed lines).",
+        "method": "Read full available paper text in the arXiv abstract display and compare quantified theorem statements.",
+        "title": "Computing the Greatest Common Divisor of Binomial Coefficients",
+        "trigger": "Same proportional binomial coefficients, motivates studying another statistic."
+      },
+      {
+        "assessment": "Closest primary comparator; proves approximate generic prime count but not exact exceptional prime forms at d=8, nor four-level odd-part profiles.",
+        "evidence": [
+          "Sec.6.3 Corollary 6.3: A_d(dp)=d−1 outside O_d(X^(1−eta)) prime exceptions.",
+          "Remark 6.4 gives an exact identity for d=2 only; no corresponding d=8 exact classification is stated."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.25794v1",
+        "material_read": "Abstract, introduction, Lemma 2.1, Theorems 1.1–1.2, section 6.3 Corollary 6.3 and proof, Remark 6.4, bibliography.",
+        "method": "Full-text HTML focused mathematical-claim inspection and argument comparison.",
+        "title": "The distribution of greatest common divisors of binomial coefficients and their upper indices",
+        "trigger": "Exact same A_d(n) invariant and prime-index application."
+      },
+      {
+        "assessment": "Establishes the sequence identification only; not evidence of exact binomial-count coverage.",
+        "evidence": [
+          "Odd-index terms J_b=(2^b+1)/3 are the stated special cores."
+        ],
+        "identifier_or_url": "https://oeis.org/A001045",
+        "material_read": "Sequence definition, first values, closed formula.",
+        "method": "Direct OEIS sequence record inspection.",
+        "title": "Jacobsthal numbers",
+        "trigger": "The binary condition 3o=2^b+1 corresponds to a named classical integer sequence."
+      },
+      {
+        "assessment": "The described claim concerns minima for two occupied base-p positions, unlike counting 8-divisible entries in seven proportional columns.",
+        "evidence": [
+          "Published abstract describes restricted two-digit rows and minimum p-adic valuations."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-exact-minimum-valuation-multiplicities-in-restricted-two-digit-b--5bfb1fd719eb",
+        "material_read": "Published title and search abstract only; full text not inspected.",
+        "method": "Search abstract-level implication comparison.",
+        "title": "Exact minimum-valuation multiplicities in restricted two-digit binomial rows",
+        "trigger": "Same binomial-carry keyword and exact valuation counts."
+      },
+      {
+        "assessment": "Describes logarithmic numbers of rows with a divisible GCD, not counts of individual columns in each row.",
+        "evidence": [
+          "Published abstract gives leading (log_p X)^m for row GCD divisibility; not E(m)."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-logarithmic-row-counts-for-restricted-binomial-gcds--339a752cfdc3",
+        "material_read": "Published title and search abstract only; full text not inspected.",
+        "method": "Mathematical statement and variable comparison from searchable abstract.",
+        "title": "Exact logarithmic row counts for restricted binomial GCDs",
+        "trigger": "Potential prior row-count theorem involving restricted binomial gcds."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c91035a3-d380-42cd-aeae-a772cc3e54c2",
+  "value": {
+    "rationale": "The local eightfold threshold on natural proportional binomial rows gives a complete four-level classification over every positive multiplier, including two unbounded lacunary exceptional odd-core families and a sharp quadratic-logarithmic exception count. For the primary literature's natural prime GCD invariant A_8(8p), the exact classification cuts generic power-saving possible exceptions to explicit Jacobsthal/Fermat prime forms with O(log X) upper count. This answers a motivated gap left by an actual published related theorem and is not merely a known table or isolated numerical instance; it makes no claim about existence of infinitely many exceptional primes.",
+    "status": "PASS"
+  }
+}

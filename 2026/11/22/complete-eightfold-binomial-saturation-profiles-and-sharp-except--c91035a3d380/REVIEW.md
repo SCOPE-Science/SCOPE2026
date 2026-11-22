@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The exact valuation identity follows from Legendre's factorial formula. Binary carries in the bottom three positions for the four odd columns prove they are all divisible by eight. The other three columns have valuations \(s_2(3o),s_2(o),s_2(3o)\), so the two indicator corrections and their multiplicities are exact. The only overlap of the two two-bit conditions occurs at odd parts 1 and 3, checked using the two-adic valuation of \(3(2^a+1)-1\). Counting the two infinite families proves the odd cutoff formula, and decomposition by \(\nu_2(m)\) proves both unrestricted counting formulas. The prime-row corollary follows from the elementary binomial identity and Lucas's theorem for primes greater than eight. The finite checker independently verifies 180 rows, 50 prime GCD cases, 15 cutoff counts, and 100,000 multiplier profiles. Finite checks are not the proof.
+
+## Originality — PASS (qualified)
+The strongest close comparator is Cui–Yang, *The distribution of greatest common divisors of binomial coefficients and their upper indices* (arXiv:2611.25794v1), especially Lemma 2.1 and Corollary 6.3: they prove a general asymptotic and a power-saving bound for exceptional primes, but no explicit classification of those primes at eightfold modulus or of the all-multiplier binomial threshold spectrum. Wu, *Computing the Greatest Common Divisor of Binomial Coefficients* (arXiv:2606.20940v1), instead determines row-wide common divisors, not the number of columns satisfying a given local threshold. Searches of the named formulas, equivalent binary-weight conditions, public mathematical finding indexes, and the Jacobsthal table produced no directly dominating theorem. The constituent digit identities are classical, and undiscovered or implicit earlier coverage remains a genuine priority risk.
+
+## Mathematical value — PASS
+The full four-level census concerns an intrinsic binomial-row statistic, not an arbitrary isolated coefficient. For prime upper-index quotients it exactly identifies all rare failures of the generic count at \(d=8\), replaces a power-saving exceptional-set estimate by an explicit logarithmic one, and gives the precise exceptional families. On unrestricted multipliers it yields a sharp quadratic-logarithmic law from the unique dyadic rays. The restriction to eightfold divisibility is natural: it is the first dyadic threshold in this proportional family where two distinct unbounded exceptional odd-core families coexist. The result is modest in technique but provides a complete natural classification rather than a known-table recomputation.
+
+## Scientific boundaries and checked literature
+The result does not assert infinitude of special-form primes or classify every composite-multiplier GCD, and it does not establish independent priority. Primary references examined include Wu's theorem/proof text, Cui–Yang's relevant theorem, reduction, and prime-application proof, and the classical Kummer/Lucas statements; the Jacobsthal OEIS table was used only for identification, not as a novelty substitute.
+
+Self-review: passed. Independent audit: not yet performed.
