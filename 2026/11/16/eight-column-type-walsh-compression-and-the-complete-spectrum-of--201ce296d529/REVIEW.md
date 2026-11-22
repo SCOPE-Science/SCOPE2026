@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The object is the labelled balanced binary \(4\times 2n\) matrix set. A column gauge flip changes the exponent by its fixed column sum \(2\), giving exactly eight effective frequency types. Columns are exchangeable, so the multiset of types is complete; each class has multiplicity \(2^{2n}(2n)!/\prod_vc_v!\). Expanding the signed quadratic column polynomials and tracking three row degrees proves the exact coefficient recurrence. The script recomputes all 1716 classes for \(n=3\), matches the published numeric table only on unsigned orientation cardinality, reproduces the signed histogram, verifies Parseval, and crosschecks 256 frequencies by independent row-mask character summation. Thus the 29-level census is exhaustive; it is not an extrapolation from a sample. The spectral conclusions follow from Walsh diagonalization. Risk: execution and proof are subject to the limits of self-review; no independent audit.
+## correctness
 
-## Originality (O): PASS, bounded comparison
-The closest actual primary material is Nester (1994), which explicitly counts 1860 Eulerian orientations of \(K_{4,6}\) and gives their unsigned enumeration, not the complete signed Walsh spectrum or Fourier deconvolution gap. Barvinok (2008) estimates unsigned binary contingency tables, while Beluhov (2025) studies two-adic divisibility of unsigned balanced counts. Checked published-finding corpus records concern perfect-matching Walsh spectra, Fourier-minor classifications, and different bipartite spanning-tree transforms; no claim implies this precise 29-level histogram. The eight-type reduction follows from standard symmetries, so its elementary ingredients are not priority claims. Residual risk: an earlier complete character-weighted enumeration of four-row binary contingency tables might subsume the result; indexed searching is not a proof of uniqueness.
+PASS
 
-## Mathematical value (V): PASS
-This is a complete exact Fourier spectral classification of a canonical finite Eulerian-orientation support at the first non-square four-row case, where the scalar unsigned count of 1860 cannot determine the 28 nonzero signed multiplier levels. It supplies sharp deconvolution stability \(1/4\) and condition number \(465\), and the orbit argument produces an exact polynomial-time full-spectrum algorithm for the entire infinite four-row family. Thus the exact finite cutoff is motivated by a natural operator and an all-width structural method, not an arbitrary sampled graph or a textbook deduction of rank from parity.
+Complementing all four frequency bits in one column does not change a character on a column of X with exactly two ones. Thus only three relative bits per column matter: eight types, and column permutations reduce the 2^24 n=3 frequencies to 1716 histograms, each with exact multiplicity 2^(2n)(2n)!/prod(c_v!). Selecting the six possible row pairs per column gives coefficient [z_1^n...z_4^n]prod_v P_v(z)^c_v. Dynamic programming storing three row counts (fourth determined by 2t) has O(n^3) states, 2n steps and six transitions, O(n^4) per histogram, O(n^11) overall; coefficients have O(n) bit length. An independently written integer DP enumerated all 1716 n=3 type histograms, reproduced all 29 signed levels and multiplicities, 8388608 zeros and Parseval 2^24*1860. Inspection of the pinned verify_eulerian_k46.py and its source CSV blob confirms it recomputes every orbit coefficient and does 256 auxiliary direct signed sums, rather than claiming sampled frequencies exhaustive. Exactly half frequencies are odd weight and vanish by complement symmetry; the exact census shows none of the even-weight ones vanish, giving range equal to complement-even functions and norm-one projection. Minimum nonzero 4 and maximum1860 give condition465.
 
-## Constraints and residual risk
-The exact 4-by-6 table was checked by a reproducible finite certificate, not independently validated. The general polynomial algorithm is proved but does not produce a closed all-width spectral distribution or a nonvanishing theorem for every width. Published-source comparisons are bounded and do not confer historical-priority certainty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Nester already established 1860 unsigned Eulerian orientations of K_{4,6}; that count is explicitly excluded from novelty. The assessed contributions are the all-frequency signed eight-type compression with a polynomial-time enumeration scheme and the complete 4x6 signed 29-level Fourier census and recovery gap, not standard orbit-counting or Fourier diagonalization alone.
+
+## value
+
+PASS
+
+This is the first non-square four-row Eulerian-orientation grid K_{4,6}, where the signed spectral census answers exactly how much information convolution loses and its optimal L² recovery stability. Eight-type compression gives an all-width polynomial-time exact method replacing 2^(8n) direct characters. The 29-level spectrum, half-rank and sharp gap are independently useful invariants of a natural balanced-table family, not an arbitrary tiny slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

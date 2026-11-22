@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T05:03:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Complementing all four frequency bits in one column does not change a character on a column of X with exactly two ones. Thus only three relative bits per column matter: eight types, and column permutations reduce the 2^24 n=3 frequencies to 1716 histograms, each with exact multiplicity 2^(2n)(2n)!/prod(c_v!). Selecting the six possible row pairs per column gives coefficient [z_1^n...z_4^n]prod_v P_v(z)^c_v. Dynamic programming storing three row counts (fourth determined by 2t) has O(n^3) states, 2n steps and six transitions, O(n^4) per histogram, O(n^11) overall; coefficients have O(n) bit length. An independently written integer DP enumerated all 1716 n=3 type histograms, reproduced all 29 signed levels and multiplicities, 8388608 zeros and Parseval 2^24*1860. Inspection of the pinned verify_eulerian_k46.py and its source CSV blob confirms it recomputes every orbit coefficient and does 256 auxiliary direct signed sums, rather than claiming sampled frequencies exhaustive. Exactly half frequencies are odd weight and vanish by complement symmetry; the exact census shows none of the even-weight ones vanish, giving range equal to complement-even functions and norm-one projection. Minimum nonzero 4 and maximum1860 give condition465.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published 6x6 balanced-grid Fourier result involves different dimensions and row/column sums; Beluhov studies 2-adic valuations of unsigned balanced colourings."
+        ],
+        "reasoning": "Neither claims the 4x6 29-level signed histogram. The 6x6 result has a different finite orbit and smallest nonzero magnitude 16 instead of 4.",
+        "searches": [
+          "4 by 6 binary contingency matrix row sum 3 column sum 2 signed Fourier Walsh histogram Eulerian orientations K4,6",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-complement-even-walsh-recovery-for-six-by-six-balanced-bin--bca369fa8ce2",
+          "https://doi.org/10.54550/ECA2026V6S1R3"
+        ]
+      },
+      "checked_sources": [
+        "https://combinatorialpress.com/article/jcmcc/Volume%2016/vol-16-paper%201.pdf",
+        "https://arxiv.org/abs/0806.1480",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-complement-even-walsh-recovery-for-six-by-six-balanced-bin--bca369fa8ce2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nester Lemma 6 supplies n=3 total orientation count 1860; Barvinok develops counts and estimates for fixed margins, and Beluhov 2-adic valuations of unsigned balanced grids."
+        ],
+        "reasoning": "These weaker unsigned results are consistent with and inputs to the signed calculation, but they do not imply the distribution of every signed character coefficient.",
+        "searches": [
+          "https://combinatorialpress.com/article/jcmcc/Volume%2016/vol-16-paper%201.pdf",
+          "https://arxiv.org/abs/0806.1480",
+          "https://doi.org/10.54550/ECA2026V6S1R3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nester Lemma 6 counts Eulerian orientations using partitions of n and derives 1860 for K_{4,6}. The present coefficient formula retains one sign per row-pair-column choice and yields a 29-level signed frequency histogram."
+        ],
+        "reasoning": "Unsigned orientation enumeration is the zero-frequency special case. It does not automatically give the multiplicities of all 2^24 signed Fourier values.",
+        "searches": [
+          "4 by 6 binary contingency matrix row sum 3 column sum 2 signed Fourier Walsh histogram Eulerian orientations K4,6",
+          "https://combinatorialpress.com/article/jcmcc/Volume%2016/vol-16-paper%201.pdf",
+          "https://arxiv.org/abs/0806.1480"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The submitted 1716-row exact CSV comprises 8-type class representatives, signed coefficients, and frequency multiplicities; independent DP reconstruction gives 29 levels, including 14 positive, 14 negative and zero. Nester gives 1860 unsigned supports."
+        ],
+        "reasoning": "The searched exact-source table is an orientation-count table, not a signed Fourier-frequency census. Absence of an unknown earlier Fourier table remains a priority risk.",
+        "searches": [
+          "4 by 6 binary contingency matrix row sum 3 column sum 2 signed Fourier Walsh histogram Eulerian orientations K4,6",
+          "https://combinatorialpress.com/article/jcmcc/Volume%2016/vol-16-paper%201.pdf"
+        ]
+      },
+      "rationale": "Nester already established 1860 unsigned Eulerian orientations of K_{4,6}; that count is explicitly excluded from novelty. The assessed contributions are the all-frequency signed eight-type compression with a polynomial-time enumeration scheme and the complete 4x6 signed 29-level Fourier census and recovery gap, not standard orbit-counting or Fourier diagonalization alone.",
+      "residual_risks": [
+        "A hidden multivariate Krawtchouk or signed contingency-table distribution could give equivalent eight-type formulas; full Barvinok and Beluhov texts not inspected. The O(n^11) bound counts arithmetic operations, not bit complexity; no assertion of all-width gap nonvanishing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_UNSIGNED_COUNT_ONLY",
+          "evidence": "Lemma 6 sums 3-partitions to count 1860 Eulerian orientations of K4,6; does not present a 29-level character spectrum.",
+          "identifier_or_url": "https://combinatorialpress.com/article/jcmcc/Volume%2016/vol-16-paper%201.pdf",
+          "material_read": "Fifteen-page publisher PDF, pages 1,5,7–10 and 15 inspected visually, including page 9 Lemma 6 and explicit 1860 computation",
+          "method": "Publisher PDF page screenshots",
+          "title": "Eulerian orientations and circuits of complete bipartite graphs",
+          "trigger": "Same graph K_{4,6} and unsigned count"
+        },
+        {
+          "assessment": "NOT_CONCLUSIVE_WHOLE_TEXT",
+          "evidence": "Studies estimation and probability for cardinalities, not an inspected all-frequency signed table.",
+          "identifier_or_url": "https://arxiv.org/abs/0806.1480",
+          "material_read": "Title/abstract and research objective, not the complete article",
+          "method": "arXiv indexed abstract",
+          "title": "On the number of matrices and a random matrix with prescribed row and column sums",
+          "trigger": "Same fixed-margin binary matrix family"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_DIMENSIONS",
+          "evidence": "6x6 with sums3 differs from 4x6 with col2; no natural restriction reduces the current full spectrum to the cited one.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-complement-even-walsh-recovery-for-six-by-six-balanced-bin--bca369fa8ce2",
+          "material_read": "Resultary published summary, problem dimensions and spectral statement",
+          "method": "Resultary search",
+          "title": "Exact complement-even Walsh recovery for six-by-six balanced binary tables",
+          "trigger": "Close published Fourier result for related balanced tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the first non-square four-row Eulerian-orientation grid K_{4,6}, where the signed spectral census answers exactly how much information convolution loses and its optimal L² recovery stability. Eight-type compression gives an all-width polynomial-time exact method replacing 2^(8n) direct characters. The 29-level spectrum, half-rank and sharp gap are independently useful invariants of a natural balanced-table family, not an arbitrary tiny slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://combinatorialpress.com/article/jcmcc/Volume%2016/vol-16-paper%201.pdf",
+    "https://arxiv.org/abs/0806.1480",
+    "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-complement-even-walsh-recovery-for-six-by-six-balanced-bin--bca369fa8ce2"
+  ],
+  "disposition": "passed",
+  "final_claim": "For balanced binary 4x2n matrices with row sums n and column sums2, all unnormalized Walsh coefficients admit an eight-column-type coefficient formula and complete signed-spectrum enumeration in O(n^11) exact arithmetic operations; in 4x6, the full 29-level spectrum has 8388608 zero frequencies, minimum nonzero magnitude4 and max1860, so convolution rank 2^23 and recoverable-space condition number465.",
+  "limitations": [
+    "The 29-level finite spectrum and half-rank proof apply specifically at 4x6; no assertion that all larger widths have half-rank or min nonzero4. The 1716-orbit computation is exhaustive because of the proved multiplicity partition, not because 256 random direct tests are exhaustive."
+  ],
+  "residual_risks": [
+    "A hidden multivariate Krawtchouk or signed contingency-table distribution could give equivalent eight-type formulas; full Barvinok and Beluhov texts not inspected. The O(n^11) bound counts arithmetic operations, not bit complexity; no assertion of all-width gap nonvanishing."
+  ],
+  "schema_version": 1
+}
