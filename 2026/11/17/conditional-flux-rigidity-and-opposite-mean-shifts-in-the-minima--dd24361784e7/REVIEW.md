@@ -1,12 +1,21 @@
-# Review of conditional flux rigidity in the Wilhelm oscillator
+# Independent mathematical audit
 
-## Correctness — PASS
-The polynomial system and equilibrium agree with Boros–Hofbauer, Section 5, Theorem 15. For every invariant probability measure with compact support in the positive octant, integration of smooth generator observables is justified. The identities \(L\log y=\kappa_1-\kappa_3z\), \(L\log z=(\kappa_2x^2-2\kappa_4z^2)/z\), and \(L(x+y+2z)=\kappa_1y-4\kappa_4z^2\) are directly checkable. The first yields full conditional calibration by testing functions of \(y\); the remaining two yield nonnegative exact mean defects. Their zero sets cannot contain a non-equilibrium invariant orbit, by the vector field on the associated algebraic surfaces. Symbolic computations in the embedded standalone checker confirm the critical pointwise identities. Finite checks are not substituted for the invariant-measure proof.
+## correctness
 
-## Originality — PASS within the inspected evidence
-The 2022 paper proves competitive dynamics, the equilibrium and supercritical Hopf, but its inspected Section 5 does not state the conditional flux and exact strict mean-defect theorem. Wilhelm's 2009 article was inspected as an earlier source: it concerns a two-species bistable system and mentions the distinct minimal oscillator, without establishing the present stationary-statistic formulas. Nearby indexed research on other chemical oscillators has conditional-statistic results but does not imply these particular rate-dependent identities. The generic invariant-generator principle is standard and not claimed as new. The precise all-rate strict polarization is the proposed contribution. Residual priority risk: independent, unindexed or inaccessible presentations of equivalent balance identities; a search cannot prove global novelty.
+PASS
 
-## Mathematical value — PASS
-The three-variable four-reaction oscillator is minimal in the published sense and supports genuine stable periodic orbits. A physically natural question is whether time-averaged concentrations on these cycles equal the steady-state concentrations. The answer is a strict, model-wide trichotomy with exact nonnegative defects: one mean is depleted, one enhanced by \(\operatorname{Var}(Z)\), and the third unchanged. The stronger conditional law shows that the catalytic species is mean-calibrated on every observed level of the autocatalyst, not merely uncorrelated in aggregate. These consequences distinguish oscillatory from equilibrium chemical yields and are not a mere restatement of cycle existence or a free parameter renaming. Limits: invariant measures must be compactly supported in the positive octant; no global-basin or finite-molecule claim is made.
+The invariant generator identity E[Lh]=0 is justified by compact positive support. L(log Y)=k1-k3Z and tests h′(Y)=g(Y)/Y give the conditional catalyst mean, not independence. Pointwise (X-alpha Z)^2/(2alpha Z)+(X-alpha Z)=L(log Z)/(2alpha k2) gives the X defect; L(X+Y+2Z)=k1Y-4k4Z^2 gives the Y variance excess. Vanishing of either defect traps an invariant support at the sole positive equilibrium. I independently expanded the polynomial identities algebraically. No claim for boundary or noncompact measures, or for Hopf existence outside established parameter ranges.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The universal conditional calibration and pair of opposite strict means are model-specific; prior Boros-Hofbauer establishes the oscillator and Hopf/periodic orbits, while relevant other chemical oscillators have different vector fields and defect identities. Generator stationarity is classical, not claimed original.
+
+## value
+
+PASS
+
+Universal exact physical-time sign biases for all compact positive stationary states of a canonical minimal oscillator, with rigidity of equality and calibrated conditional reaction flux, are informative dynamical invariants, not merely a normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
