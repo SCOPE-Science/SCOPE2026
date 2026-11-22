@@ -1,15 +1,21 @@
-# Scientific assessment: sharp small-excess perimeter laws
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For a fixed strictly acute parent, the Fagnano minimizer is unique and interior; the locally smooth perimeter has the explicit positive-definite Hessian derived from the three chord second variations. Its determinant is \(4\sin^2A\sin^2B\sin^2C/(abc\cos A\cos B\cos C)\). The exact Jacobian and three-ball volume yield the sharp \(3/2\) exponent and the normalized ellipsoid law. For a fixed right parent, the unique minimizing configuration in the closure has two coincident vertices and an interior altitude foot, so smooth Morse scaling is invalid. Separately retaining the square-root chord \(\sqrt{x^2+y^2}\) yields the anisotropic scaling \(u,r\asymp\sqrt t\), \(\varphi-\varphi_0\asymp t^{1/4}\) and the integrable \(R^{1/2}\) Jacobian. The weighted half-ball integral equals \(8\pi/21\), giving the sharp \(7/4\) exponent. The two compactness/localization arguments justify limiting indicator densities and their total-variation convergence. The independent numerical implementation verifies the Hessian determinant and convergence of both coefficients on two acute and one right shapes; these computations are not substituted for proof.
+## correctness
 
-## Originality
-**PASS, subject to independent historical priority review.** Classical Fagnano theory and Holland's full 2007 text already establish the exact minimum and the right-angle infimum. A published geometric research finding (`a7228c2d2631`) provides an exact nonnegative perimeter remainder and global quadratic stability in acute triangles. Those are prior results, not part of the originality assertion. No inspected source supplies the **sharp probability coefficients**, the **joint total-variation laws**, or the **singular right-angle \(7/4\) transition**. The acute coefficient is a nontrivial evaluation of the determinant of the exact second variation. The right case requires a separate nonsmooth boundary-layer analysis; it does not follow by inserting a right angle in the acute formula. The strongest remaining risk is an undiscovered near-optimal random-billiard calculation or a differently named small-excess theorem.
+PASS
 
-## Mathematical value
-**PASS.** The research question asks how likely randomly chosen side contacts are to realize an almost-shortest triangular path, a natural quantitative refinement of the Fagnano billiard extremal principle. The strict change from a smooth three-dimensional ellipsoid rare event to a singular half-ball with fractional angular scaling is structural, not a parameter renaming. Explicit leading constants and conditional laws determine how geometric near-minimizers are distributed, including the sharp change from \(\operatorname{Beta}(3/2,1)\) to \(\operatorname{Beta}(7/4,1)\) for normalized excess. This provides a rigorous benchmark for rare-contact sampling and clarifies the nonuniform right-angle boundary. No claim is made about obtuse triangles or a joint near-right crossover.
+For a fixed acute triangle, Fagnano's unique interior orthic minimum has a positive-definite three-dimensional Hessian H, whose three rank-one chord contributions give det(H)=4∏sin²(angle)/(abc∏cos(angle)). The ellipsoid sublevel volume (2t)^{3/2}(4π/3)/(abc√detH) gives the stated sharp t^{3/2} coefficient and uniform-ball total variation law. At a fixed right triangle, direct local expansion about (X0,A,A) yields u²/h+r(φ−φ0)²/2+κ²r²/h and Jacobian √2 h^{5/4}κ^{-3/2}t^{7/4}R^{1/2}, whose half-ball integral 8π/21 gives the stated t^{7/4} coefficient and marked total-variation limit. Compactness/localization covers remainder and boundaries; limits are pointwise in parent shape, not uniform through the right angle. Independent direct-chord Hessians give K=3.224532203083055 for equilateral and 0.4261909611973396 for the inspected acute scalene example, while right small-scale ratios approach the predicted quadratic form; finite numbers are diagnostics, not asymptotic proofs.
 
-## Closest literature and remaining limitations
-Holland (2007) gives sharp deterministic Fagnano bounds and right/obtuse limiting configurations. Alkoumi and Schlenk (2014) establish billiard orbit context and use Fagnano uniqueness; their main problem is shortest periodic trajectories, not random side-contact sublevels. The published exact-remainder record (`a7228c2d2631`) is the strongest direct comparison because it already contains a pointwise identity and an acute stability estimate. The new probability laws and right-angle singular limit are not conclusions of that record as inspected; unindexed independent derivations remain possible. Numerical checks are diagnostics only, and independent review is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for evaluated stochastic sharp constants and total-variation marked laws, not for the classical minimizer or the known deterministic exact remainder; direct statement/implication comparison identifies neither an equivalent stochastic theorem nor a stronger covering one in inspected primary sources.
+
+## value
+
+PASS
+
+The random side-inscribed triangle is a canonical natural geometric sample; its rare small-perimeter event changes from an ordinary Morse exponent 3/2 to a non-Morse boundary exponent 7/4. Both sharp constants and the conditional shape laws provide reusable benchmarks beyond the classical deterministic Fagnano minimizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

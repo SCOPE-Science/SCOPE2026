@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,32 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-The scientific proof is in `RESULT.md`. The program `verify_fagnano.py` independently evaluates the chord-distance Hessian, checks its determinant against the closed formula, and integrates small-excess events by scrambled Sobol cubature in coordinates adapted to the two local geometries.
+# Independent mathematical audit
 
-Run with Python 3, NumPy, and SciPy:
+## correctness
 
-```sh
-python -m pip install -r requirements.txt
-python verify_fagnano.py
-```
+PASS
 
-Observed output on the reviewed package:
+For a fixed acute triangle, Fagnano's unique interior orthic minimum has a positive-definite three-dimensional Hessian H, whose three rank-one chord contributions give det(H)=4∏sin²(angle)/(abc∏cos(angle)). The ellipsoid sublevel volume (2t)^{3/2}(4π/3)/(abc√detH) gives the stated sharp t^{3/2} coefficient and uniform-ball total variation law. At a fixed right triangle, direct local expansion about (X0,A,A) yields u²/h+r(φ−φ0)²/2+κ²r²/h and Jacobian √2 h^{5/4}κ^{-3/2}t^{7/4}R^{1/2}, whose half-ball integral 8π/21 gives the stated t^{7/4} coefficient and marked total-variation limit. Compactness/localization covers remainder and boundaries; limits are pointwise in parent shape, not uniform through the right angle. Independent direct-chord Hessians give K=3.224532203083055 for equilateral and 0.4261909611973396 for the inspected acute scalene example, while right small-scale ratios approach the predicted quadratic form; finite numbers are diagnostics, not asymptotic proofs.
 
-```text
-equilateral det(H) 13.5 p0 1.5
-  t 0.01 empirical_coefficient 3.2406218 predicted 3.2245322
-  t 0.002 empirical_coefficient 3.2277898 predicted 3.2245322
-  t 0.0004 empirical_coefficient 3.2251569 predicted 3.2245322
-scalene acute det(H) 0.2683281573 p0 5.366563146
-  t 0.01 empirical_coefficient 0.4264695 predicted 0.426191
-  t 0.002 empirical_coefficient 0.4261575 predicted 0.426191
-  t 0.0004 empirical_coefficient 0.4261695 predicted 0.426191
-right t 0.004 empirical_coefficient 2.0907604 predicted 2.1949357 limit_integral 1.1967972
-right t 0.001 empirical_coefficient 2.1462368 predicted 2.1949357 limit_integral 1.1967972
-right t 0.0002 empirical_coefficient 2.1737848 predicted 2.1949357 limit_integral 1.1967972
-FAGNANO_ACUTE_RIGHT_SMALL_EXCESS_DIAGNOSTIC_OK
-```
+## originality
 
-Acute geometry: the independently calculated Hessian has strictly positive eigenvalues and the exact determinant identity; cubature uses \(2^{18}\) points per threshold. Right geometry: cubature uses \(2^{19}\) points per threshold in the singular rescaled coordinates. The finite-threshold values have truncation and numerical quadrature error; the program is not a symbolic proof of the \(t\downarrow0\) limit, is not exhaustive over triangles, and does not establish historical novelty or independent validation.
+PASS
+
+Best-of-knowledge PASS for evaluated stochastic sharp constants and total-variation marked laws, not for the classical minimizer or the known deterministic exact remainder; direct statement/implication comparison identifies neither an equivalent stochastic theorem nor a stronger covering one in inspected primary sources.
+
+## value
+
+PASS
+
+The random side-inscribed triangle is a canonical natural geometric sample; its rare small-perimeter event changes from an ordinary Morse exponent 3/2 to a non-Morse boundary exponent 7/4. Both sharp constants and the conditional shape laws provide reusable benchmarks beyond the classical deterministic Fagnano minimizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
