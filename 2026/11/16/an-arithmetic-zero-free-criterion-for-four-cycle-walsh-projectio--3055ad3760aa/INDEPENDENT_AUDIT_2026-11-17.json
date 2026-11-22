@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T03:49:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each column of the signed K_{3,n} edge matrix maps two-to-one onto one of four row-pair sign patterns. Summing the signed product over two columns and three row pairs yields W=1/2(S1²+S2²+S3²-3n); Hadamard orthogonality reduces it to 2 sum t_a² - n(n+3)/2. The multinomial count times 2^n accounts for every original signing and implies rank/nullity by character diagonalization. Zeros require three squares S1²+S2²+S3²=3n. The inverse Hadamard map to integer nonnegative counts forces n odd to be 1 mod8, and n even to be 0 mod8. Conversely Legendre’s three-square theorem plus congruence sign choices and Cauchy–Schwarz nonnegativity produce counts for every permitted n; the n=8 case has the explicit witness (1,1,2). The three-square obstruction 4^a(8b+7) is cited as classical, not rediscovered. Independent complete enumeration of 2^(3n) signings for n=2,3,4 matched every predicted Walsh level; no finite enumeration proves the all-n criterion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goodall 2007 presents general Fourier methods for graph colouring/graphical applications; the available chapter abstract makes no claim to exact K3n four-cycle cancellation.",
+          "Classical three-square theorem characterizes 6k representability but contains no 4-cycle Walsh transform or multinomial sign lifting."
+        ],
+        "reasoning": "General Walsh analysis machinery and Legendre’s arithmetic theorem are premises that do not directly state the graph-specific rank/nullity classification.",
+        "searches": [
+          "K3n 4-cycles signed cycle Walsh Fourier zero invertibility three squares bipartite graph",
+          "Goodall Fourier analysis graphical applications even cycle subgraphs",
+          "signed complete bipartite graph C4 product eigenvalues full Walsh"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1093/acprof:oso/9780198571278.003.0007",
+        "https://arxiv.org/abs/2111.07262",
+        "https://arxiv.org/abs/0812.0540",
+        "Resultary semantic search: K3n 4-cycles signed cycle Walsh Fourier zero invertibility three squares bipartite graph"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Goodall 2007 is a technique for graphical Fourier calculation.",
+          "Pirzada et al. have a signed adjacency eigenvalue problem, not convolution on 2^(3n) signing space.",
+          "Legendre gives nonrepresentability iff 4^a(8b+7), only after the exact Hadamard reduction here."
+        ],
+        "reasoning": "The new claim combines a graph-specific exact character polynomial with arithmetic inversion; prior theory alone does not display or dominate the exact full Walsh spectrum.",
+        "searches": [
+          "https://doi.org/10.1093/acprof:oso/9780198571278.003.0007",
+          "https://arxiv.org/abs/2111.07262",
+          "Legendre three-square theorem graph application"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The natural equivalent object is the signed sum of all 2×2 minors as products of four signs; pairing the rows yields a 4-category Hadamard Fourier statistic.",
+          "Pirzada–Shamsher–Bhat arXiv:2111.07262 concerns eigenvalues of signed adjacency matrices, a different operator."
+        ],
+        "reasoning": "The Fourier coefficient and XOR-convolution formulation are mathematically equivalent by Walsh diagonalization, whereas signed adjacency eigenvalues do not encode cancellation of all 4-cycle products for arbitrary signings.",
+        "searches": [
+          "K3n 4-cycles signed cycle Walsh Fourier zero invertibility three squares bipartite graph",
+          "signed 4-cycle count Fourier coefficient on K3,n Hadamard graph Boolean",
+          "zero signed C4 cycle polynomial four-column sign patterns"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned target itself and related graph Fourier/Walsh claims with different objects.",
+          "Independent full sign distributions matched the proposed four-cell multinomial formula for n=2,3,4, not historical originality."
+        ],
+        "reasoning": "No existing exact match identified; absence is not definitive, and database rows addressing other Walsh orbits do not imply this distribution.",
+        "searches": [
+          "K3n 4-cycles signed cycle Walsh Fourier zero invertibility three squares bipartite graph",
+          "Resultary search K3n four cycle Walsh zero n=8k three squares",
+          "web search signed K3,n four cycle products exact spectral multiplicities"
+        ]
+      },
+      "rationale": "Goodall’s graphical harmonic-analysis framework provides generic character/Fourier methods but does not give this exact arithmetic cancellation set. Pirzada–Shamsher–Bhat study eigenvalues of *signed adjacency matrices* on bipartite graphs, not the scalar sum of four-cycle sign products across arbitrary signings and its XOR convolution. Classical Legendre three-square theorem supplies the arithmetic input, not the graph-theoretic Fourier classification. The exact all-signing 4-cycle Walsh-zero set and multiplicity distribution have not been established as corollaries of inspected sources. Broader graph character-polynomial literature remains a plausible unindexed prior formulation.",
+      "residual_risks": [
+        "Full Goodall graphical Fourier chapter and signed-graph specialist literature not exhaustively inspected; hidden general graph-character polynomial specialization remains possible.",
+        "The proof relies on Legendre’s established three-square theorem.",
+        "Higher bipartite left-side size and cycles longer than four remain outside scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND_ACCESS_LIMITED",
+          "evidence": "General Fourier methods could be specialized, but abstract does not establish exact K3n cancellation classification; uninspected full chapter residual risk.",
+          "identifier_or_url": "https://doi.org/10.1093/acprof:oso/9780198571278.003.0007",
+          "material_read": "Publisher chapter abstract and bibliographic scope only; full chapter not accessible",
+          "method": "read publisher abstract; no whole-document no-coverage assertion",
+          "title": "Fourier Analysis on Finite Abelian Groups: Some Graphical Applications",
+          "trigger": "graphical Fourier prior framework"
+        },
+        {
+          "assessment": "DIFFERENT_OPERATOR",
+          "evidence": "Signed adjacency eigenvalues do not equal Walsh transform on the signing group of all 4-cycle indicator vectors.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.07262",
+          "material_read": "ArXiv abstract and description of signed adjacency spectrum",
+          "method": "read abstract; operator-level mathematical comparison",
+          "title": "On the eigenvalues of signed complete bipartite graphs",
+          "trigger": "same graph family but possibly dominating signed spectral theory"
+        },
+        {
+          "assessment": "PREMISE_ONLY",
+          "evidence": "The three-square obstruction is a standard established theorem, used after a distinct graphical Fourier identity.",
+          "identifier_or_url": "https://arxiv.org/abs/0812.0540",
+          "material_read": "Abstract and classical three-square theorem statement",
+          "method": "arXiv summary and independent arithmetic derivation",
+          "title": "On sums of three squares",
+          "trigger": "classical arithmetic input for zero locus"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "All 4-cycles form the natural minimum cycle orbit of K_{3,n}; invertibility of their group-convolution operator is a sharply posed invariant. The exact spectrum and a nonperiodic dimension obstruction with n=8 zero but n=80 zero-free give an unexpected graph-to-number-theory connection for every n, beyond a small computational table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1093/acprof:oso/9780198571278.003.0007",
+    "https://arxiv.org/abs/2111.07262",
+    "https://arxiv.org/abs/0812.0540",
+    "Resultary semantic search: K3n 4-cycles signed cycle Walsh Fourier zero invertibility three squares bipartite graph"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the F2^{3n}-Walsh transform of the complete four-cycle indicator family of K_{3,n}, every coefficient value and multiplicity follows a four-cell multinomial quadratic W=2 sum t_a²-n(n+3)/2 with 2^n sign lifts; a zero exists exactly when n=8k+1, k>=1, or n=8k with 6k representable by three integer squares, and the corresponding XOR convolution is invertible exactly in the complementary n.",
+  "limitations": [
+    "Full Goodall graphical Fourier chapter and signed-graph specialist literature not exhaustively inspected; hidden general graph-character polynomial specialization remains possible.",
+    "The proof relies on Legendre’s established three-square theorem.",
+    "Higher bipartite left-side size and cycles longer than four remain outside scope."
+  ],
+  "residual_risks": [
+    "Full Goodall graphical Fourier chapter and signed-graph specialist literature not exhaustively inspected; hidden general graph-character polynomial specialization remains possible.",
+    "The proof relies on Legendre’s established three-square theorem.",
+    "Higher bipartite left-side size and cycles longer than four remain outside scope."
+  ],
+  "schema_version": 1
+}
