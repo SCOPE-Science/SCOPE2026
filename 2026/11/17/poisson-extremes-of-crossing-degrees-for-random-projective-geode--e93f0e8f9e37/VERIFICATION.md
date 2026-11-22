@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The standalone `verify.py` was run with Python, NumPy and SciPy. It terminated successfully with markers `PROJECTIVE_EXTREME_DEGREE_CHECKS_OK` and `POWER_LAW_EXTREMES_CHECKS_OK`.
+# Independent mathematical audit
 
-Checks include direct three-dimensional projective-arc crossing calculations, comparisons between measured conditional degrees and their geometric binomial expectations, exact integration of the Haar endpoint length distribution, quadrature of the fixed-degree mixture and its asymptotic coefficients, tests for additional power-law length distributions, and exact finite-sample shortest-length survival versus the asymptotic minimum-degree law.
+## correctness
 
-The infinite point-process statement is established analytically by the conditional crossing identity, rare-length Poisson convergence, concentration of local degrees and a Chernoff union bound excluding remote arcs. The numerical tests neither prove historical originality nor amount to independent validation. The model assumes independently sampled isotropic projective arcs and the stated short-length tail.
+PASS
+
+For round RP^2, supporting projective geodesics have period pi; a second random line intersects a fixed one at a uniform phase, and independent arc-phase inclusion gives crossing kernel ell*s/pi^2. Thus degree conditional on fixed length ell is exactly Bin(n-1,mu*ell/pi^2), despite cross-vertex dependency. Short iid lengths with F(t)~ct^alpha give a PPP of n^(1/alpha)L at zero. For alpha>1, b_n=n^(1-1/alpha)->infinity; binomial variances for O(b_n) short degrees yield joint o_P(b_n) errors among tight-many short arcs, and a Chernoff+union bound excludes long arcs from every bounded scaled-degree interval. Continuous mapping yields stated PPP and order-statistic survival. Binomial-mixture Stieltjes regular variation at scale n^-1 yields alpha c Gamma(k+alpha)/k!*(pi^2/(mu*n))^alpha, for every fixed k. Haar-projective endpoints give |u dot v| uniform, F=1-cos t, mu=1 and specialized pi^4 constants. Independently evaluated k=0,1,3 exact binomial mixtures at n=20000; observed ratios ~0.99995 to predicted constants, only finite numerical corroboration.
+
+## originality
+
+PASS
+
+Acan analyzes uniformly matched circle chords and degree distribution, not independent isotropic projective geodesic arcs with regularly varying lengths. Bonamy–Mohar–Wesolek treat graphon/edge/triangle densities in spherical drawings of complete bipartite graphs with shared endpoints, not short-arc degree extremes on RP². The published geodesic-needle record gives conditional binomial degrees and variance on the sphere; the present theorem uses this idea but establishes a projective length-to-degree PPP and exact fixed-degree lower tail for alpha>1. The projective factor pi^-2 and dependent-degree global minimum analysis are additional exact objects.
+
+## value
+
+PASS
+
+Extreme-degree process is a natural global network invariant; its precise scaling and coefficients reflect rare shortest arcs while crossing edges have strong dependence. Proving a full Poisson point-process limit and fixed-k rare-degree probabilities for arbitrary regularly varying short tails is a structural probabilistic result beyond a single conditional expectation or simulation. The failure of the method at alpha<=1 gives a mathematically meaningful regime boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
