@@ -1,19 +1,21 @@
-# Scientific assessment: covariance sign geometry of permutation X-rays
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The covariance of permutation indicators is reconstructed from the four cases for cell coincidences and summed over anti-diagonals. On one side of the center the row intervals are nested and the off-diagonal numerator is strictly negative; across the center the overlap is the explicit positive part of \(a+b-k\), so the correlation threshold reduces exactly to \((2k-a)(2k-b)=2k^2\). Each positive cross pair is counted by a strict integer threshold, yielding the ceiling sum. Its Riemann limit proves the claimed \(1-\log2\) density. The kernel proof uses all adjacent two-row, two-column permutation swaps, and the trace follows from exact sums of anti-diagonal lengths. An independent finite enumerator passed 662674 exact checks; the infinite conclusions rest on proof, not enumeration.
+PASS
 
-## Originality
+PASS: Reconstructed the permutation-cell indicator covariance (delta_row-1/k)(delta_col-1/k)/(k-1) and summed it over anti-diagonal row intervals to obtain [k^2 m_t 1_{s=t}-2k h_st+m_s m_t]/[k^2(k-1)]. Nested same-side row intervals force strictly negative off-diagonal numerators; for opposite-side intervals h=max(0,a+b-k), yielding N=ab-2k max(0,a+b-k) and exact hyperbola sign criterion in both a+b regimes. Positive b counts are ceil(2k(k-a)/(2k-a))-1 per left a; bounded ceiling error permits the Riemann integral 2-2 log2 divided by 2 asymptotic unordered pairs. At most one b per a gives zero. Variance kernel: the zero-variance linear statistic is constant across permutations; swapping two rows and two columns enforces all second differences zero, so only span{1,t}, with k=2 included. Trace follows from sum m_t^2=(2k^3+k)/3. Direct independent exhaustive permutation enumeration k=2..6 confirmed rational covariances/signs/trace; finite enumeration is not an all-k proof.
 
-**PASS, provisionally.** The closest source [1] establishes the X-ray polytope and its affine hull and studies facets; the complete X-ray sign kernel and correlation-pair density are not among its statements. The foundational X-ray-permutation source [2] concerns enumeration, and the published diameter finding [5] concerns pairwise distances, not probability-weighted covariance of permutation images. The general permutation-indicator covariance identity is known and credited. The new classification requires identifying anti-diagonal row overlaps, their opposite-side sign boundary, and a complete counting limit, not merely relabeling a previously classified distribution. The older Hankel/Toeplitz paper [4] was not accessible in full, so exhaustive historical priority is not asserted.
+## originality
 
-## Value
+PASS
 
-**PASS.** The natural canonical distribution on the newly investigated X-ray polytope is induced by uniformly sampled Birkhoff vertices. Its coordinates are constrained by two affine conservation laws, yet their mutual dependence is not uniformly negative: a curved region of positive correlations survives between opposite tails, occupying asymptotically exactly \(1-\log2\) of all unordered coordinate pairs. This provides a complete, order-uniform dependence classification and a nontrivial quantitative limit for a natural polytope representation, beyond its facet and diameter data. The result is sensitive to the sampling convention, which is expressly stated.
+PASS qualified: The underlying Birkhoff anti-diagonal X-ray polytope, affine hull and facet structure are established; the result concerns a distinct canonical pushforward *probability law* (multiplicity retained), not uniform interior volume or distinct X-rays. Classic permutation X-ray enumerations and modern facet/diameter theorems do not directly entail the complete dependence-sign geometry and logarithmic limiting fraction. Historical Brualdi–Fritscher Hankel/Toeplitz full text remained inaccessible; matching a general covariance identity alone is not coverage of the exact new classification.
 
-## Scope and remaining risk
+## value
 
-The proof covers all integer orders at least two and no uniform-volume interpretation. The full text of [4] and some unindexed discrete-tomography literature remain possible historical-priority risks. The closest modern paper's full accessible HTML and the older arXiv X-ray paper were inspected in their relevant sections; publication priority is therefore provisional.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The source measure on Birkhoff vertices produces a natural stochastic statistic for a well-studied projected polytope. Despite two conservation laws, the sign diagram has a curved positive-correlation region occupying a nontrivial universal density 1-log2, separating same-side anticorrelation and opposite-side mixed signs. The complete all-k exact sign/count limit is useful beyond facet or diameter geometry; no arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
