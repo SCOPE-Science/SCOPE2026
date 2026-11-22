@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "For every 0<p,q<1, max(0,p+q-1)<=r<=min(p,q), T>0 and x in [0,1], the empty-cycle probability h=1-p-q+r satisfies 0<=h<1. The conditional next-event recurrence V=(1-x)+(1-p)x+hV has the unique finite solution V=(1-px)/(p+q-r). On phase (0,x), the forward wait is x-t+(1-q)V; on phase (x,1), it is 1-t+(1-p)x+hV. Integration gives W/T=[2pq*x^2-2r*x+2-p-q+r]/[2(p+q-r)], whose strictly positive second derivative 2pq/(p+q-r) yields unique optimum min(1,r/(2pq)) including endpoints. The example p=q=r=2/5 gives optimal x=1 and exact waits 7T/5 versus 8T/5. The included verifier independently reproduces the result using rational forward recurrences, global-grid checks and supplementary random squared-headway simulations; finite checks are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Van Oort et al. 2012 Secs. 2-5 optimize scheduled trip-time percentile and holding points under continuous travel-time deviations; https://doi.org/10.1007/s12469-012-0054-4.",
+        "Schmöcker et al. 2016 Secs. 3-8 derive bus dwell/trajectory equations on shared two-line corridors, with overtaking and boarding dynamics; https://doi.org/10.1016/j.trb.2016.07.005.",
+        "An earlier independent-cyclic-departure theorem assumes at least four departure opportunities, mutually independent operations, and a guaranteed operating trip; none holds here."
+      ],
+      "reasoning": "Broader transit control and waiting-time frameworks do not supply the claimed phase law under arbitrary binary within-cycle dependence. The independent-departure result cannot imply a correlated two-opportunity case because its hypotheses exclude both two opportunities and non-independent outcomes; generic renewal-reward identities require evaluating the different point process.",
+      "searches": [
+        "\"scheduled departures\" \"correlated\" \"wait\" \"joint\" \"headway\"",
+        "two unreliable bus routes optimum spacing cancellation joint probability stationary passenger waiting",
+        "transit timetable stochastic departure loss correlation optimal half-headway versus co-timing",
+        "alternating independent route cancellations mean residual waiting time two buses cyclic timetable"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1287/trsc.1060.0170 (publisher abstract; full text not inspected)",
+      "https://doi.org/10.1007/s12469-012-0054-4 (substantial HTML full text)",
+      "https://doi.org/10.1155/2014/468563 (substantial HTML full text)",
+      "https://doi.org/10.1016/j.trc.2015.05.020 (HTML manuscript transcription)",
+      "https://doi.org/10.1016/j.trb.2016.07.005 (HTML manuscript transcription)",
+      "https://www.academia.edu/125502012/Holding_decisions_for_correlated_vehicle_arrivals_at_intermodal_freight_transfer_terminals (HTML thesis transcription)",
+      "https://doi.org/10.1111/ecin.12188 (search-indexed full-text excerpt; direct page inaccessible)",
+      "https://onlinepubs.trb.org/Onlinepubs/trr/1995/1493/1493-021.pdf (search-indexed text excerpt only; not inspected as full PDF)",
+      "Published 2026 finding on a sixteen-phase Markov-modulated Poisson arrival process (semantic record, different model)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ma et al. 2014 sec. 2 states that equally spaced high-frequency service minimizes aggregated waits; this presupposes regular realized service and does not cover correlated missing trips, https://doi.org/10.1155/2014/468563.",
+        "Sun 2016 thesis models correlated continuous-time freight-vehicle arrivals and a mean-variance holding decision; its stated mean holding cost is correlation-neutral, a distinct objective from mean forward waiting after cancellations, https://www.academia.edu/125502012/Holding_decisions_for_correlated_vehicle_arrivals_at_intermodal_freight_transfer_terminals.",
+        "An independent-operation cyclic timetable formula with at least one guaranteed trip does not satisfy the present model hypotheses and cannot yield the covariance sensitivity."
+      ],
+      "reasoning": "Known equal-spacing statements do not contradict the theorem because their service-time or independence assumptions differ. The present theorem reduces to half-spacing when r=pq and supplies a counterexample when r!=pq. Nothing inspected has hypotheses that imply the full joint-probability phase trichotomy.",
+      "searches": [
+        "\"bus\" \"cancellation\" \"optimal offset\" waiting \"correlation\"",
+        "\"correlated\" \"bus\" \"cancellations\" \"waiting time\" schedule",
+        "time-uniform passenger expected residual waiting for a pair of periodic departure opportunities with within-period correlated Bernoulli cancellations and optimized relative phase"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The residual forward-wait formula for random transit headways is standard; see https://doi.org/10.1111/ecin.12188 and https://doi.org/10.1155/2014/468563.",
+        "The examined Fonzone et al. 2015 text derives stochastic departure-time and passenger-arrival models, with risk-averse nonuniform arrivals rather than iid cycle-paired all-or-none cancellations; https://doi.org/10.1016/j.trc.2015.05.020.",
+        "Semantic search nearest examples addressed other waiting processes rather than this paired-cancellation optimization: published finding 2026/10/26/SCOPE-a-sixteen-phase-cyclic-mmpp-reverses-the-conjectured-stationary--70cc415990d7."
+      ],
+      "reasoning": "The known second-moment waiting identity can be used as a method, but no inspected source provides a matching closed-form headway second moment with cyclic pair dependence or its unique phase optimum. Fonzone models uncertain departure *time*, not the present fixed-time Bernoulli cancellation states; the MMPP result concerns nonperiodic Markov-modulated arrivals. No mathematical implication of the exact optimum from their stated theorems was found.",
+      "searches": [
+        "\"departure failures\" \"passenger waiting\" \"phase\" \"correlation\"",
+        "\"dependent Bernoulli\" \"periodic\" \"bus\" waiting",
+        "optimal phase shift dependent thinning of periodic service streams with correlated binomial operations waiting time squared headway",
+        "time-uniform passenger expected residual waiting for a pair of periodic departure opportunities with within-period correlated Bernoulli cancellations and optimized relative phase"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results included an older multi-route wait-time integration framework, https://onlinepubs.trb.org/Onlinepubs/trr/1995/1493/1493-021.pdf, but not a table of joint-Bernoulli optimal offsets.",
+        "The inspected Ma et al. 2014 full text works with empirical Gaussian-mixture travel time states, not an exact table of within-cycle joint run probabilities and optimal phases.",
+        "Search results did not identify an exact equivalent numerical table or database entry."
+      ],
+      "reasoning": "A failed text search is not proof that an exact table does not exist. The checked published sources use different parameterizations; none inspected contains the sharp coincidence threshold r=2pq or the example p=q=r=2/5. Unindexed or inaccessible tables remain possible.",
+      "searches": [
+        "\"optimal\" \"timetable\" \"correlated cancellations\" phase",
+        "\"joint probability\" \"bus\" \"arrival\" \"headway\" expected wait optimal",
+        "two periodic transit routes correlated cancellations joint bus operation probability expected passenger wait optimal phase offset r/(2pq) shared disruption"
+      ]
+    },
+    "rationale": "The inspected mathematical and transport literature addresses deterministic and stochastic headway costs, trip-time uncertainty, behavioral arrival patterns, and paired-route bus bunching, but not the exact labeled-cycle Bernoulli cancellation law with arbitrary within-cycle joint probability r, its covariance-dependent optimal phase and boundary regime r>=2pq. The fundamental residual waiting/renewal-reward principle is standard and is not claimed as new. Originality is conditional on the cited inspected evidence and has residual historical-priority risk.",
+    "residual_risks": [
+      "Historical priority is not certified. The 2006 Zhao et al. full text was not accessed; only its publisher abstract was checked.",
+      "A more general queueing or discrete-time reliability theorem may subsume the exact result despite no matching claim in retrieved indexes.",
+      "Search-indexed excerpts and inaccessible full documents cannot establish whole-document non-coverage.",
+      "The result assumes a cycle-labeled joint survival law not determined by physical-time weather correlation; real-world dependence may vary as schedules shift.",
+      "An independently conducted expert novelty review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different objective: optimize trip-time schedule/holding under real-valued travel-time deviations; no per-cycle correlated cancellation parameter or joint-probability phase theorem",
+        "evidence": [
+          "Section 3.1 calculates additional travel time from departure-time deviations; Sections 4-5 analyze trip-time percentiles and holding."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s12469-012-0054-4",
+        "material_read": "Open-access HTML sections 1-5 including calculation model 3.1 and results on trip-time percentile and holding-point selection",
+        "method": "Read source article HTML at https://link.springer.com/article/10.1007/s12469-012-0054-4",
+        "title": "The impact of scheduling on service reliability: trip-time determination and holding points in long-headway services",
+        "trigger": "Direct timetabling and wait minimization overlap"
+      },
+      {
+        "assessment": "Measures and estimates reliability; does not classify the best phase of correlated complete-trip cancellations",
+        "evidence": [
+          "Section 2.1 describes even headways for regular high-frequency service; Section 4 introduces Gaussian-mixture travel-time reliability measures."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2014/468563",
+        "material_read": "Open-access HTML abstract, sections 1-2, 4-5, equations and empirical-mixture comparisons",
+        "method": "Read https://onlinelibrary.wiley.com/doi/10.1155/2014/468563",
+        "title": "Measuring Service Reliability Using Automatic Vehicle Location Data",
+        "trigger": "Classical equal-spacing principle and stochastic service reliability"
+      },
+      {
+        "assessment": "Models passenger arrival choice and variable departure times, not paired Bernoulli all-or-none service with independent cycles",
+        "evidence": [
+          "Section 4 uses continuous-logit passenger arrivals and perceived departure-time distributions; sections 5-7 study bus propagation and bunching."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.trc.2015.05.020",
+        "material_read": "Accessible accepted-version HTML transcription: abstract, model assumptions in section 4, numerical results and conclusions",
+        "method": "Read https://www.academia.edu/80903418/A_model_of_bus_bunching_under_reliability_based_passenger_arrival_patterns",
+        "title": "A model of bus bunching under reliability-based passenger arrival patterns",
+        "trigger": "Plausible stronger stochastic passenger-wait analysis with missed departures"
+      },
+      {
+        "assessment": "Uses multi-stop dwell-time dynamics under deterministic departure schedules and exogenous delays; no independent labeled-cycle joint-Bernoulli cancellation optimization",
+        "evidence": [
+          "Section 4 equations (13)-(18) propagate buses through stops; section 7 compares common-line stopping and overtaking configurations."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.trb.2016.07.005",
+        "material_read": "Accessible HTML full-text transcription sections 1-8, particularly bus propagation equations in section 4, overtaking in section 5 and case study in section 7",
+        "method": "Read https://www.academia.edu/72805288/Bus_bunching_along_a_corridor_served_by_two_lines",
+        "title": "Bus bunching along a corridor served by two lines",
+        "trigger": "Two-route synchronized service and waiting-time cost"
+      },
+      {
+        "assessment": "Different continuous-time incoming freight connection/holding problem; it reports correlation effects on variance of cost, whereas present mean passenger residual waiting depends on joint operation probability",
+        "evidence": [
+          "Abstract identifies mean-standard deviation freight holding optimization; sections 2-3 discuss correlated vehicle arrival distributions."
+        ],
+        "identifier_or_url": "https://www.academia.edu/125502012/Holding_decisions_for_correlated_vehicle_arrivals_at_intermodal_freight_transfer_terminals",
+        "material_read": "HTML thesis transcription abstract, literature review, assumptions and sections on holding costs and correlated arrivals",
+        "method": "Read public thesis transcription",
+        "title": "Holding decisions for correlated vehicle arrivals at intermodal freight transfer terminals",
+        "trigger": "Strongest named correlated-service alternative"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5690be0c-1bb0-4d68-ad4d-4e4598ea12cf",
+  "value": {
+    "rationale": "The precise and motivated objective is mean wait to the next usable service in a common-line corridor under shared disruptions. When within-cycle trip survival is not independent, half-spacing of the two nominal trips need not minimize the average waiting time. The exact covariance-controlled continuous optimum and high-correlation coincidence boundary identify a structure hidden by marginal reliability alone: with p=q=r=2/5, changing just the offset from half a cycle to a full cycle saves exactly T/5 expected waiting. The result is not presented as a calibrated transit planning policy and does not extend without proof to temporally correlated weather, continuously distributed delays, or capacity constraints.",
+    "status": "PASS"
+  }
+}
