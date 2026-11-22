@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Explicit thirty-vertex conflict graph construction exactly encodes a third edge joining chosen endpoints. A standard independent-set recursion gives coefficient vectors (1,30,225,530,330) for L(P) and (1,30,235,580,415) for L(C5 square K2), with zero coefficient for sizes >=5. A second independent graph realization and direct enumeration of all candidates through size five reproduce those vectors. The S5 coordinate action enumerates and partitions all 330 optimum sets into 30,60,120,120. Proof and reproducible programs are embedded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "published-finding corpus 2026/10/12/SCOPE-edge-open-packing-polynomial-of-triangular-graphs-via-disjoint-s--e45121c4da2e: exact edge open packing of triangular graphs L(K_m), but original K_m is a complete graph, not P or the pentagonal prism.",
+        "published-finding corpus 2026/10/26/SCOPE-exact-mod-six-edge-open-packing-and-optimal-set-counts-for-cycli--762a2f7ed7f0: edge open packing in the prism C_n square K2 itself; our graph is the line graph of C5 square K2.",
+        "2024 primary paper generalizes structural bounds and gives a tree algorithm, not the two line-graph enumerators."
+      ],
+      "reasoning": "Passing to a line graph changes the edge set being packed; neither the prism formula nor the Petersen base-graph EOP number implies either target polynomial. General upper bounds do not determine exact coefficients or orbits.",
+      "searches": [
+        "published-finding corpus: edge open packing of Kneser graph K(6,2) matching graph and spectra",
+        "published-finding corpus: edge open packing line graph of Petersen graph 2022 exact maximum and orbit counts",
+        "Web: \"edge open packing\" \"line graph\" formula counting",
+        "Web: \"edge open packing\" \"line graph\" 2024"
+      ]
+    },
+    "checked_sources": [
+      "https://www.numdam.org/item/10.1051/ro/2022171.pdf",
+      "https://arxiv.org/pdf/2403.00750",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-edge-open-packing-polynomial-of-triangular-graphs-via-disjoint-s--e45121c4da2e",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-petersen-edge-location-domination-ten-complete-bipartite-obstruc--5291df073dcf",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-exact-mod-six-edge-open-packing-and-optimal-set-counts-for-cycli--762a2f7ed7f0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2022 Chelladurai-Kalimuthu-Soundararajan, Edge open packing sets in graphs, Proposition 2.5 determines EOP(P) = 3, not EOP(L(P)).",
+        "2024 Brešar-Samadi, Edge open packing: complexity, algorithmic aspects, and bounds, Sections 2-4 contain complexity, tree algorithm, extremal bound and deletion analyses, not the two exact line-graph enumerators.",
+        "Published exact EOP polynomial of triangular graphs L(K_m) is for line graphs of complete graphs, whereas neither Petersen nor the pentagonal prism is complete."
+      ],
+      "reasoning": "The 2022 calculation EOP(P)=3 is not a statement about L(P). The 2024 general bounds and algorithms can compute instances but do not assert the resulting coefficients. L(K_m) is not isomorphic to L(P) or L(C5 square K2). The 246 locating-dominating codes use a vertex-identification condition, not edge-open packing. No cited statement logically covers the final claim.",
+      "searches": [
+        "Primary: https://www.numdam.org/item/10.1051/ro/2022171.pdf sections 2-4 and Proposition 2.5",
+        "Primary: https://arxiv.org/pdf/2403.00750 introduction, sections 2,3,4",
+        "published-finding corpus: 2026/10/12/SCOPE-edge-open-packing-polynomial-of-triangular-graphs-via-disjoint-s--e45121c4da2e",
+        "published-finding corpus: 2026/11/2/SCOPE-petersen-edge-location-domination-ten-complete-bipartite-obstruc--5291df073dcf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The edge open packing condition is equivalent to one injective-edge-color class, not the whole coloring number (2024 preprint Introduction).",
+        "No exact polynomial or four-orbit classification emerged for the specifically named line graph."
+      ],
+      "reasoning": "Neither injective edge-chromatic index nor ordinary vertex open packing on the line graph provides the full EOP cardinality distribution; the latter uses a different common-neighbor constraint.",
+      "searches": [
+        "published-finding corpus: edge open packing polynomial line graph Petersen 15 vertices 30 edges 330 optimal",
+        "published-finding corpus: injective edge independent set enumeration Petersen line graph 330 415",
+        "Web: \"line graph of the Petersen graph\" \"edge open packing\"",
+        "Web: \"line graph\" \"Petersen\" \"injective\" \"edge\" \"packing\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/11/2/SCOPE-petersen-edge-location-domination-ten-complete-bipartite-obstruc--5291df073dcf: counts locating-dominating codes in Petersen line graph; that is a different predicate and does not enumerate EOPs.",
+        "No accessible exact table with (225,530,330) or comparator (235,580,415) was identified."
+      ],
+      "reasoning": "Checked closest graph-invariant tables for actual predicate and coefficients, rather than comparing titles. Such searches cannot exclude unindexed computational archives.",
+      "searches": [
+        "published-finding corpus: edge-open packing line graphs cubic girth five Petersen triangular prism difference polynomial",
+        "published-finding corpus: line graph Petersen edge open packing maximal 4 minimum 330",
+        "Web: \"Petersen\" \"line graph\" \"packing\" 2023",
+        "Web: \"edge open packing\" \"Petersen line graph\""
+      ]
+    },
+    "rationale": "Primary full-text source comparisons and published research-record searches found no statement covering either complete line-graph polynomial or the Petersen optimal-set orbit classification. The foundational 2022 Petersen EOP result is on P itself, and the complete-graph line-graph result treats L(K_m), not L(P). The conclusion is conditional on the accessible literature; there remains a risk from unindexed tables.",
+    "residual_risks": [
+      "Unindexed computational tables or independent manuscripts might already record the polynomial or orbit sizes.",
+      "General injective edge coloring literature may contain an equivalent result under different terminology that eluded available searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the line-graph polynomial or orbit census; explicitly treats the original Petersen graph.",
+        "evidence": [
+          "Proposition 2.5 gives the scalar EOP number of Petersen graph P as 3.",
+          "Section 2 enumerates paths, cycles, multipartite graphs, wheels, and Petersen; line graphs not studied."
+        ],
+        "identifier_or_url": "https://www.numdam.org/item/10.1051/ro/2022171.pdf",
+        "material_read": "Abstract, Definition 1.1, Section 2 including Proposition 2.5, targeted results and statements in Sections 3-4 and references.",
+        "method": "Full-text PDF section reading and targeted Petersen/line-graph searches; inspected page image.",
+        "title": "Edge open packing sets in graphs",
+        "trigger": "Foundational definition and explicit Petersen proposition could subsume a derived claim."
+      },
+      {
+        "assessment": "NOT_COVERING the exact Petersen/prism line-graph polynomials; no such graph-specific census is given.",
+        "evidence": [
+          "Section 2 proves complexity; Section 3 describes a tree algorithm; Section 4 gives an extremal equality characterization and deletion bounds.",
+          "No named Petersen/line-graph result in the inspected source."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2403.00750",
+        "material_read": "Abstract and introduction; Sections 2-4 (complexity reductions, exact tree algorithm, upper-bound equality characterization and edge removal), relevant pages/sections and reference list.",
+        "method": "arXiv full-text PDF reading across sections with targeted line-graph/Petersen searches and screenshot inspection.",
+        "title": "Edge open packing: complexity, algorithmic aspects, and bounds",
+        "trigger": "Primary later development might contain a stronger general classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a5f035f6-34d1-40ba-bc59-57226c2b4b04",
+  "value": {
+    "rationale": "The result computes complete canonical edge-interference enumerators for two naturally comparable line graphs of ten-vertex cubic graphs. Their equality of maximum four but differing all other nontrivial counts is a graph-structural distinction, while the four S5-orbit classification of the Petersen optimum sets explains nontrivial optimizer multiplicity. It is a finite motivated classification, not a routine bound substitution.",
+    "status": "PASS"
+  }
+}
