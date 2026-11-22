@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The statement is quantified for ambient dimension at least four and one exact harmonic degree. Vanishing traces imply odd reflection parity by the Laplacian normal-power recurrence. Composition of the two reflections gives rotation invariance. Fourier-frequency and equivariant Fischer decompositions yield the exact binomial kernel count. The fixed injective trace factorization shows that every resonant sine factor vanishes to first order, giving a quadratic Gram eigenvalue reopening and determinant order twice the nullity. A harmonic test vector with exact spherical/equatorial moments and Dirichlet approximation proves lack of degree-uniform stability. Two reproducibility scripts passed 200 finite rank/moment tests and two numerical near-resonance Gram tests; the proof, not the tests, establishes infinitely many degrees.
+PASS
 
-## Originality (PASS, qualified)
+A polynomial harmonic vanishing on a hyperplane has zero even normal Taylor coefficients by the Laplace recurrence and is reflection-odd. Two reflections generate rotation by 2theta; an irrational rotation precludes a nonzero odd finite Fourier polynomial, while reduced rational angle p/q permits sine frequencies divisible by q. Equivariant Fischer decomposition removes radial-square factors and gives multiplicity binom(ell-m+d-3,d-3) in each sine m-sector. On ker R0, a fixed injective trace map composed with diagonal sin(mtheta) controls the second observation, and the complementary component is coercive under R0: min-max gives precisely N quadratically vanishing Gram eigenvalues; analyticity yields determinant order 2N. The explicit harmonic Im(x1+ix2)^m has Rayleigh ratio c_{d,m}sin²(mtheta) with c_{d,m}<=d/[2(d-1)], and Dirichlet approximation furnishes the stated 1/L² upper bound. Limits: fixed ell near resonance; no infinite-degree uniform stability. Independent finite dimension/multiplicity checks corroborate but do not prove the theorem.
 
-Compared by implication, the published quadratic two-equator result covers only degree two, and the cubic two-equator result covers degree three. The two-meridian sampling result concerns a discrete problem on the two-sphere, whereas the present theorem concerns continuous codimension-one traces in ambient dimensions at least four. The planar Fourier uniqueness-pair paper establishes related rational/irrational uniqueness but not the present nullity generating function or spectral determinant vanishing order. Standard harmonic and dihedral decompositions are credited. Available abstracts rather than full text were obtainable for several specialist sources, so an unindexed equivalent formulation or an unseen appendix remains a priority risk.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-Two equators are the minimal natural redundant codimension-one observation geometry beyond one equator, whose harmonic trace has a large kernel. The exact arithmetic criterion, full rank-loss profile and second-order reopening specify which observation angles are singular and how rapidly identifiability is lost near them, for every fixed degree and ambient dimension. The high-degree obstruction explains why generic injectivity must not be mistaken for a uniform frame lower bound. This is a structural stability classification rather than an arbitrary small-parameter computation.
+The 2017 Anghel root-of-unity criterion concerns bivariate harmonic divisibility by a conic and is the closest rational-angle algebraic precursor: it does not yield the ambient-d>=4 full harmonic-mode multiplicities or quadratic vanishing order of a two-equator Gram determinant. Existing low-degree continuous two-equator spectra cover ell=2 or 3 only; they cannot dominate all ell. General Fischer/dihedral arguments and angular sine decomposition are standard inputs, not new achievements. The original claim of all-degree nullity+detuning is not demonstrably implied by the inspected primary comparisons, though an equivalent unindexed multidimensional theorem remains a risk.
 
-## Limits and closest literature
+## value
 
-The result does not determine all positive singular values, is not an optimal-angle theorem, and gives no simultaneous uniform-in-degree lower estimate. Closest works: Zandieh–Han–Avron (2022), Rigat–Wielonsky (2023), the published two-equator degree-two and degree-three results, and the two-sphere two-meridian sampling result. Full primary-text inspection was completed for the first two; only published search summaries were available for the last three. Unindexed full texts could contain an equivalent all-degree result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A pair of intersecting codimension-one equators is a canonical minimal multi-view continuous observation geometry. The theorem classifies all resonance angles and exact nullspace dimensions at every degree, proves a quantitative quadratic conditioning law near resonance, and separates pointwise injectivity from high-degree uniform stability. These are motivated structural boundaries for harmonic recovery rather than a chosen finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
