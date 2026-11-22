@@ -1,21 +1,21 @@
-# Mathematical review: rational two-channel Zak curvature
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is the **unnormalized** squared norm of the two Zak channels of the stated odd rational window at density one-half, not a global frame bound. The positive/negative spatial and imaginary frequency derivatives are evaluated independently from (i) a Fourier sine expansion and (ii) integer and half-integer partial fractions. Their squared norms give a positive-definite diagonal Hessian. The unique isotropy scale is a consequence of an exact rational expression for the ratio and of an explicit degree-nine polynomial strictly positive on the unit interval. The small- and large-scale coefficients and the fixed-parameter small-sublevel area follow by elementary asymptotics and ellipse comparison. The extracted standalone checker reports 136 finite consistency checks, including direct truncated Zak sums; it is corroborative rather than proof of infinitely many parameter values. Scientific limit: the stated local energy is not the globally minimized Gabor-frame symbol.
+## correctness
 
-## Originality — PASS, with qualified priority risk
-The closest same-window analysis is *Two-coset Gabor frame classification and sharp half-shift instability for an odd rational window* (2026), whose publicly accessible full `RESULT.md` was read. It classifies a different deformation: moving the second frequency coset while keeping the lattice and window fixed, and derives a one-parameter spectral gap near the exceptional half shift. Its evaluation of some derivatives at the unscaled window is a special case of individual ingredients here, but neither its statements nor its arguments determine the **all-scale** two-dimensional Zak Hessian, strict monotonicity of the curvature ratio, unique isotropy, or the opposite asymptotic regimes. The similarly detailed *Sharp local spectral geometry at the half-density first-Hermite Gabor obstruction* (2026) has a Gaussian-derivative window; its theta-function Fourier duality does not imply any of the rational-window coefficients or monotonicity law. The motivating full text of Ghosh, arXiv:2608.10568 (2026-08-11), was inspected in its mathematical sections, including the Zak and rank representations; its assertions concern frame-set rank classifications rather than this local asymptotic shape. Older works on odd-window obstructions are explicitly prior to the forced-zero statement. Exhaustive priority against unindexed or unpublished rational-Zak computations cannot be proved from accessible records.
+PASS
 
-## Value — PASS
-At density one-half the odd-window symmetry obstruction is universal, but non-frame status alone says nothing about how near-zero Zak fibers occupy phase space or which direction of the two-dimensional fiber is poorly conditioned. The exact local ellipse and small-energy area give intrinsic quantitative measurements for that *specific, historically studied* rational window. A unique soft-direction exchange across the window scale is not a direct restatement of oddness, and its proof requires a nontrivial global sign certificate. The asymptotic aspect ratios diverge with distinct algebraic and exponential scales, showing that different lattice shapes concentrate the failure in opposite directions. The result remains local: no global frame or all-zero-set classification is inferred.
+The window has cubic decay and its first Zak derivatives converge absolutely; oddness pairs integer and half-integer samples to force the common zero. Real spatial and imaginary frequency derivatives make the cross Hessian vanish. The four derivative coefficients are evaluated through Fourier sine and Mittag–Leffler sums, with a0>0, a1<0 and b0,b1>0; their squares yield positive A,B. Setting u=tanh²(piβ), the claimed B/A=64β² H(u) was independently checked numerically and H prime independently differentiated symbolically in SymPy; P(u)>0 by grouping 284u^7−51u^8+17u^9>=233u^7 and 188u^3−50u^4>=138u^3 on (0,1), so H and β² increase. Leading hyperbolic expansions yield the claimed opposite small/large β anisotropy and local ellipse measure. Independent ratio values at β=.1,.3,.300316196879881,.6,1 corroborate a unique crossing only; the algebra establishes all β.
 
-## Closest evidence and limitations
-- R. Ghosh, *Gabor Frames for Rational Windows with Symmetric Poles*, arXiv:2608.10568, original public appearance 2026-08-11. Full mathematical web text inspected; different quantified statements.
-- *Two-coset Gabor frame classification and sharp half-shift instability for an odd rational window* (2026), publicly available full scientific statement and proof, identifier ending `4b04938a33b6`. Same window but different perturbation and no scale-wide curvature theorem.
-- *Sharp local spectral geometry at the half-density first-Hermite Gabor obstruction* (2026), full scientific statement and proof, identifier ending `09539b6b7ada`. Same two-channel geometry, different window and asymptotics.
-- M. Faulhuber, *A Short Note on the Frame Set of Odd Functions*, arXiv:1710.00753; older universal forced-zero obstruction, not a quantitative claim about the Hessian.
-- A. J. E. M. Janssen, *On generating tight Gabor frames at critical density* (2003), available abstract only; different windows and setting.
+## originality
 
-The finite checks verify identities at tested inputs, not the complete theorem. Historical and unindexed priority cannot be independently certified. No outside validation is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact Hessian ratio and full scale monotonicity for this very rational window is an additional local quantitative statement beyond known parity nonframe and two-coset perturbation results; no directly covering mathematical result was identified from the actual full-text comparisons. Ghosh full article unavailable, so retain priority risk rather than treating the access obstacle as a failure.
+
+## value
+
+PASS
+
+Quantifies the local two-dimensional geometry of a natural symmetry-forced Gabor nonframe obstruction, including which direction is soft, the one isotropy scale, and how sublevel area depends on β. Neither the existence of the obstruction nor the known half-coset frame collapse computes these β-dependent local invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
