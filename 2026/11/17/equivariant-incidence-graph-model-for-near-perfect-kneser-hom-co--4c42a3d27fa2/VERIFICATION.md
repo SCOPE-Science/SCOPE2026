@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The standalone command `python3 verify_nearperfect_hom.py` enumerated all ordered near-perfect pairings and all triangle support patterns for \(r=2,3,4\) from the defining disjointness rule. It asserted the predicted factorial node counts, uniqueness of every edge's containing triangle, connectivity of the bipartite incidence graph, the integral graph-homology ranks, the correct source-color quotient orbit counts, and preservation by adjacent-transposition generators of ground-point and source-color symmetry for \(r=2,3\). It also checked that source-color transpositions have no fixed maximal triangles.
+## correctness
 
-Observed values, all exact:
+PASS
 
-| \(r\) | Ground points | Zero cells | Triangles | Spokes | \(\beta_1(X_r)\) | \(\beta_1(X_r/S_r)\) |
-| ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 2 | 5 | 30 | 20 | 60 | 11 | 6 |
-| 3 | 7 | 630 | 630 | 1890 | 631 | 106 |
-| 4 | 9 | 22680 | 30240 | 90720 | 37801 | 1576 |
+For n=2r+1, disjoint nonempty color supports of 2-subsets force either r supports each of size 2 or one support of size 3 and r-1 of size 2. The latter produces an entire 2-simplex with three corners; every boundary edge is unique to that triangle, so its barycentric subdivision collapses G_r-equivariantly to a three-spoke incidence tree, yielding a connected graph (via swaps of unused point). Graph incidence exact sequence gives integral free H1 and all conjugacy-class traces. Counts V=(2r+1)!/2^r, T=r(2r+1)!/(6*2^(r-1)), I=3T give beta1=1+(2r-3)(2r+1)!/(3*2^r). The source-color group acts freely on nodes and edges, giving Q plus q regular modules with q=(2r-3)(2r+1)!!/3 and quotient rank q+1. Ground-point orbits have one V node and r triangle types, giving a star quotient and contractibility. This proves all r>=2, not merely enumerated r<=4.
 
-The program completed with `NEAR_PERFECT_KNESER_HOM_EXACT_PASS`. Its recorded stdout appears in `verification_nearperfect_hom.txt`.
+## originality
 
-**Logical boundary:** The all-parameter proof is the support-size classification, equivariant triangle collapse and permutation-lattice exact sequence in RESULT.md. The enumerations are finite controls. No claim is made for \(r=1\), for ground cardinalities other than \(2r+1\), or for higher pair sizes. Publication priority remains uncertain pending an independent literature audit.
+PASS
+
+Osztényi already proves the nonequivariant wedge-of-circles for n=2r+1 and r source vertices; nonequivariant homotopy and even r=2 rational ground-action components are not original. The simultaneous all-r G=S_(2r+1) x S_r incidence-graph model, integral permutation-kernel module and striking unequal quotient homotopy types supply additional specific mathematical content not obtained from the prior nonequivariant sphere theorem.
+
+## value
+
+PASS
+
+The integral exact permutation-lattice model gives all symmetric-group character values simultaneously for an infinite parameter family; the contrasting quotient ranks q+1 versus zero identify genuinely new equivariant structure invisible to ordinary circle-wedge classification. Such an explicit whole-group homology description is a useful representation-theoretic invariant independent of a Specht decomposition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
