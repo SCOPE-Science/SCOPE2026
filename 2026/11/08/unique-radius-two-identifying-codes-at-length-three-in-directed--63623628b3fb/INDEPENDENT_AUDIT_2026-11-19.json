@@ -1,0 +1,186 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T22:45:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md and exact checks/*.py inspected at pinned Git blobs",
+        "Independent local test /mnt/data/scope06_selfcheck_2234.py: q=2..7 plus exact binary 256 subsets",
+        "Boutin–Goliber–Pelto (2019), Section 3 Figure 2 and Theorem 3.5"
+      ],
+      "rationale": "For every q>=3 the complete outgoing closed radius-two ball is {abc} union {bcz:z in A} union {cuv:u,v in A}; for a!=c, comparing abc and cbc gives singleton symmetric difference {abc}, forcing all q^2(q-1) endpoint-unequal words. For differing final symbols q(q-1)>q witnesses in Q_c; for same final but differing middle symbols q-1>=2 witnesses in R_{b,c} with <=1 potential collision; for same middle/final but different first symbols the forced self-word separates. q=2 additional differences force 010,101 and one of 000,111; direct exhaustive eight-vertex enumeration establishes exactly two size-seven optima. Reversing triples gives incoming-ball equivalence. Independently written enumeration reconstructed forward balls via two-step BFS and reverse balls via predecessor formulas for 2<=q<=7 and checked all forced singleton differences, all signatures and all 256 binary subsets; finite checks corroborate, not replace the all-q proof.",
+      "residual_risks": [
+        "All-q proof is ordinary finite-word combinatorics, not a Lean/formal certificate; q<=7 computation does not prove infinite family."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boutin–Goliber–Pelto, Theorem 3.5: all identifying codes require >= q^(n-1)(q-1).",
+          "Their Theorems 3.6 and 3.7 cover radius-two cases with n>=4; Theorem 3.9 explicitly requires n=2t-1>=5.",
+          "Their Theorem 3.11 is a radius-one result; Figure 2 reports the exceptional binary q=2,n=3,t=2 optima.",
+          "The later four-parameter critical-radius result establishes (q,t)=(3,3),(4,3),(3,4),(4,4), at n=5,7, not t=2,n=3.",
+          "The binary five-word result is t=3,n=5,q=2; the ternary Kautz result concerns no-repeat words."
+        ],
+        "reasoning": "The known universal lower bound does not imply that it can be attained at n=3,t=2; previously constructed sharp examples use other length/radius or a different graph. No inspected stronger theorem subsumes the claimed q>=3 length-three radius-two classification.",
+        "searches": [
+          "Boutin Goliber Pelto directed de Bruijn radius two length three Theorems 3.5–3.11",
+          "Resultary: four sharp critical-radius identifying codes in directed de Bruijn graphs, 2026/11/8",
+          "Resultary: four sharp radius-three identifying codes on binary five-word de Bruijn digraph, 2026/11/8",
+          "Resultary: optimal two-step identification of ternary Kautz shift networks, 2026/11/8"
+        ]
+      },
+      "checked_sources": [
+        "Boutin–Goliber–Pelto (2019), complete lawful author-hosted manuscript https://people.hamilton.edu/documents/26BoutinGoliberPelto.pdf; arXiv:1412.5842 (first 2014-12-18)",
+        "Published Resultary exact critical-radius theorem https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-four-sharp-critical-radius-identifying-codes-in-directed-de-brui--408284ecac06",
+        "Published Resultary binary five-word radius-three classification https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-four-sharp-radius-three-identifying-codes-on-the-binary-five-wor--7fc1e6ec2106",
+        "Published Resultary ternary Kautz two-step theorem https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-optimal-two-step-identification-of-ternary-kautz-shift-networks--01b53250f084",
+        "Victoria Horan (2015) undirected arXiv:1508.00403, abstract (full text inaccessible)",
+        "Horan–Adachi–Bak (2016), DOI:10.1007/s11128-016-1240-0, abstract (full text unread)",
+        "Resultary semantic searches for q>=3 directed radius-two length-three and critical n=2t-1 codes, retrieved 30 hits per query; no covering result among inspected relevant hits",
+        "External web searches: B(3,3) 2-identifying code 18; B(4,3) 2-identifying code 48; directed de Bruijn length three radius two uniqueness."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.5 only forces at least q-1 selections per prefix class and is weaker than the submitted pointwise forced-vertex statement.",
+          "Theorem 3.11 supplies endpoint-difference optimality only at radius one, and the published binary radius-two counterexample prevents any automatic implication.",
+          "The published n>=2t and n=2t-1>=5 constructions omit n=3,t=2."
+        ],
+        "reasoning": "The submitted singleton symmetric-difference comparison (abc,cbc), a!=c, forces precisely C_q, while its q>=3 separation argument establishes the previously missing sufficiency and therefore labeled uniqueness. This is not deducible from the earlier size bound alone.",
+        "searches": [
+          "Boutin–Goliber–Pelto (2019), full Theorem 3.5, Theorems 3.6–3.11 and Figure 2",
+          "Horan (2015), arXiv:1508.00403, undirected t-identification, abstract",
+          "Resultary: directed de Bruijn and Kautz radius-two codes, 2026/11/8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Word reversal maps each outgoing radius-two ball to an incoming radius-two ball and preserves the endpoint-unequal code C_q.",
+          "Theorem 3.11 of Boutin–Goliber–Pelto constructs the same endpoint-unequal vertex set at radius ONE, not radius two.",
+          "Horan (2015) works in an undirected de Bruijn graph obtained by symmetrizing adjacency; Kautz graphs forbid equal neighboring letters."
+        ],
+        "reasoning": "Outgoing/incoming identification is equivalent by reversing all word labels and arcs; a code for radius one is not automatically identifying for radius two because enlarged balls can merge signatures (the binary n=3 example explicitly does). Undirected and Kautz neighborhood systems are different and do not give a direct covering implication.",
+        "searches": [
+          "Resultary semantic query: directed de Bruijn length three radius two identifying code minimum unique q>=3 endpoint different triples",
+          "Resultary semantic query: identifying codes n=2t-1 directed de Bruijn graph radius 2 length 3 code separation",
+          "Boutin, Goliber and Pelto (2019), Definitions 3.1-3.4, Theorem 3.11, https://people.hamilton.edu/documents/26BoutinGoliberPelto.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Boutin–Goliber–Pelto Figure 2 records q=2,n=3,t=2 two size-seven codes, not a table for all nonbinary q.",
+          "The primary 2019 manuscript explicitly states the n=2t-1 optimal size is an open question in its Section 3 discussion.",
+          "The 2016 comparison paper’s accessible abstract describes optimization methods but supplies no q>=3,n=3,t=2 table; its full text was not read and its possible finite tables remain a risk."
+        ],
+        "reasoning": "No checked accessible source supplies a complete nonbinary length-three radius-two optimum or uniqueness table. The q=2 case and lower bound are prior art; failure to locate an obscure table is not a priority guarantee.",
+        "searches": [
+          "\"B(3,3)\" \"2-identifying\" code 18",
+          "\"B(4,3)\" \"2-identifying\" code 48",
+          "\"directed\" \"de Bruijn\" \"2-identifying\" \"n=3\"",
+          "Boutin–Goliber–Pelto Figure 2 and Section 3, 2019 full text",
+          "Horan–Adachi–Bak (2016) minimum identifying codes graphs computational comparison, DOI:10.1007/s11128-016-1240-0"
+        ]
+      },
+      "rationale": "The primary 2019 full manuscript proves the lower bound, binary q=2 exception and radius-one endpoint code, but its radius-two sharpness constructions exclude n=3 and its critical n=2t-1 construction starts at n>=5. Other full relevant published SCOPE results have t=3/4 or the no-repeat Kautz graph. Searches did not find a theorem implying the complete nonbinary q>=3,n=3,t=2 sharp uniqueness; conclusion is best-of-knowledge with explicit unread-source risks.",
+      "residual_risks": [
+        "Unindexed, unpublished or not digitally searchable exact q>=3,n=3,t=2 results may exist; search absence is not a novelty proof.",
+        "The full 2015 undirected Horan paper was inaccessible through arXiv/OA in this run; Oxford access reported VPN disconnected; its distinct undirected setting does not itself imply directed coverage.",
+        "The full Horan–Adachi–Bak 2016 computational paper was not read; unknown finite tables might include a small q=3 comparison but would not alone establish the all-q theorem.",
+        "No independent publisher-production comparison was made beyond the lawful complete 2019 author-hosted manuscript and accessible bibliographic information."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves general lower bound, sharp constructions n>=4, and n>=5 critical-length construction; documents binary exception and radius-one endpoint code, but omits q>=3, n=3, t=2 sharpness and uniqueness.",
+          "evidence": [
+            "2019 full text pp.8,15–16, Theorem 3.5/Figure 2/Theorems 3.9 and 3.11; https://people.hamilton.edu/documents/26BoutinGoliberPelto.pdf"
+          ],
+          "identifier_or_url": "https://people.hamilton.edu/documents/26BoutinGoliberPelto.pdf",
+          "material_read": "2019 lawful full author-hosted PDF, Introduction, Definitions, Section 3 theorems and proofs 3.5–3.11, Figure 2, Section 4 objective distinctions; screenshots of printed pp. 8, 15, 16.",
+          "method": "Inspected parsed full paper and rendered PDF pages; compared actual hypotheses, directed in-ball definition, size and uniqueness claims.",
+          "title": "Identifying Codes on Directed De Bruijn Graphs",
+          "trigger": "Same directed graph, same identification radius and critical length; highest-priority possible covering theorem."
+        },
+        {
+          "assessment": "Only (q,t)=(3,3),(4,3),(3,4),(4,4), so cannot imply all q>=3,t=2,n=3.",
+          "evidence": [
+            "The result theorem explicitly lists four pairs with t=3 or 4, n=5 or 7."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-four-sharp-critical-radius-identifying-codes-in-directed-de-brui--408284ecac06",
+          "material_read": "Complete RESULT.md, including statement, checksum construction, proof, verification scope and limitations.",
+          "method": "Read the pinned published mathematical text and compared q,t,n parameters and mechanism.",
+          "title": "Four sharp critical-radius identifying codes in directed de Bruijn graphs",
+          "trigger": "Published exact critical-length directed t-identification results might imply general all-q boundary."
+        },
+        {
+          "assessment": "The theorem concerns only q=2,t=3,n=5, not the nonbinary length-three case.",
+          "evidence": [
+            "Its finding and scope explicitly state q=2, n=5, t=3 and four optima."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-four-sharp-radius-three-identifying-codes-on-the-binary-five-wor--7fc1e6ec2106",
+          "material_read": "Complete RESULT.md and 16-prefix forcing proof, exact binary five-word classification.",
+          "method": "Compared graph order/radius/alphabet and theorems.",
+          "title": "Four sharp radius-three identifying codes on the binary five-word de Bruijn digraph",
+          "trigger": "Possible stronger critical-radius identification classification."
+        },
+        {
+          "assessment": "The no-repeat Kautz graph has different vertex set and adjacency and is not the unrestricted de Bruijn graph.",
+          "evidence": [
+            "The result defines only words with successive letters unequal and minimum size 3*2^(n-2)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-optimal-two-step-identification-of-ternary-kautz-shift-networks--01b53250f084",
+          "material_read": "Complete RESULT.md theorem, graph definition, proof, and limitations.",
+          "method": "Compared forbidden equal-adjacent-letter Kautz vertices with unrestricted de Bruijn words.",
+          "title": "Optimal two-step identification of ternary Kautz shift networks",
+          "trigger": "Same radius two and ternary alphabet, but possibly equivalent shift graph."
+        },
+        {
+          "assessment": "The reported theorem is for UNDIRECTED de Bruijn balls and existence, so does not directly imply directed optimal size or unique code; unread full text remains a source-access limitation.",
+          "evidence": [
+            "arXiv:1508.00403 abstract states undirected model and existence results; no exact directed classification in accessible abstract."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1508.00403",
+          "material_read": "Primary arXiv abstract only; full PDF/HTML retrieval blocked; institutionally authorized retrieval reported VPN disconnected.",
+          "method": "Compared reported symmetrized graph and existence-only scope; no whole-document noncoverage assertion.",
+          "title": "On the Existence of t-Identifying Codes in Undirected De Bruijn Graphs",
+          "trigger": "Potential q>=3,n=3,t=2 earlier coverage."
+        },
+        {
+          "assessment": "Abstract describes general computational methods, with no named directed-de-Bruijn table; no whole-document noncoverage inference.",
+          "evidence": [
+            "Stony Brook publication metadata, https://researchconnect.stonybrook.edu/en/publications/a-comparison-of-approaches-for-finding-minimum-identifying-codes-/"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11128-016-1240-0",
+          "material_read": "Authoritative bibliographic abstract and metadata; full text not inspected.",
+          "method": "Compared stated computational method/topic; retained exact-table priority risk.",
+          "title": "A comparison of approaches for finding minimum identifying codes on graphs",
+          "trigger": "Computer-assisted small-code comparisons might have q=3,n=3,t=2 exact table."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Boutin–Goliber–Pelto (2019), Theorem 3.9 and ensuing explicit open critical-length challenge",
+        "Assigned RESULT.md forcing and separation theorem",
+        "Published Resultary other-critical-radius results delimit nearby questions"
+      ],
+      "rationale": "The length-three radius-two case is the first natural n=2t-1 boundary excluded from established sharp directed de Bruijn constructions. The result settles an infinite family of alphabets, exhibits a sharp q=2 to q>=3 optimum-size transition, and uniquely classifies labeled optimal sensor configurations; neither a mere textbook deduction from the lower bound nor an arbitrary finite slice. It does not claim higher-radius or longer critical-length cases.",
+      "residual_risks": [
+        "Priority not fully guaranteed; natural value relies on an exact first critical-boundary case, not a general higher-radius theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For each finite alphabet of q>=3 symbols, in the labeled directed de Bruijn graph B(q,3) with closed outgoing radius-two balls, the unique minimum identifying code is C_q={abc: a!=c} with exactly q^2(q-1) words. For q=2 the minimum is seven, attained by exactly the two complements of constant words 000 and 111; reversal gives the same statements for incoming radius-two balls.",
+  "limitations": [
+    "Unindexed, unpublished or not digitally searchable exact q>=3,n=3,t=2 results may exist; search absence is not a novelty proof.",
+    "The full 2015 undirected Horan paper was inaccessible through arXiv/OA in this run; Oxford access reported VPN disconnected; its distinct undirected setting does not itself imply directed coverage.",
+    "The full Horan–Adachi–Bak 2016 computational paper was not read; unknown finite tables might include a small q=3 comparison but would not alone establish the all-q theorem.",
+    "No independent publisher-production comparison was made beyond the lawful complete 2019 author-hosted manuscript and accessible bibliographic information.",
+    "The Pappus/other historical record judgments were not imported as proof and old ledger defects remain untouched.",
+    "No GitHub modifications or external scientific certification."
+  ],
+  "schema_version": 1
+}
