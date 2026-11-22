@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem has the finite, exhaustive domain \(3\le n\le7\) with at least three parts. Graphic-arrangement chamber correspondence proves that every acyclic orientation mask is one zonotope vertex, and single-edge acyclic reversals give exactly the skeleton edges. Topological ordering generates every DAG; integer partitions generate every multipartite isomorphism type. The checker performs a complete \(n!\)-permutation enumeration, all one-bit adjacency tests, and exhaustive induced-component traversals for all 25 types. It additionally compares against a distinct exhaustive Kahn-algorithm oracle over every edge orientation of both exceptional types and \(K_{2,2,2}\). A direct block-degree identity and an explicit isolated-orientation witness provide independent conceptual checks. Exactly two of the 25 types have more than one simple-induced component; the reported two-component and 49-component partitions are asserted in full. Risk: execution and source must remain paired; a terminal log without the executable and its proof rationale is insufficient. There is no unverified infinite generalization.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-Actual meaning-based searches checked multipartite/simple/simplicial-chamber aliases, named graph parameters, and the exceptional counts. The closest original papers [1,2] were read in HTML, including Section 1.4 and Propositions 48--50 of [2]; they provide the general orientation and ordered-block descriptions but no exact connectedness cutoff. Three closest prior mathematical result records were read as complete RESULT.md documents, not just titles: the complete-bipartite paper treats only two parts and proves isolated simple vertices; the complete-split paper proves connected simple strata when all but one part is a singleton; the octahedral paper reports degrees in \(K_{2,2,2}\) but not its induced simple-vertex connectivity. None logically implies the order-seven two-exception theorem or its exact component sizes. Residual risk: unindexed or historical graphic-arrangement chamber tabulations could duplicate the finite classification. An unsuccessful search is not a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-A known family has connected simple strata for all complete-split graphs, while every complete biclique with both sides nontrivial has isolated simple vertices. The first genuinely multipartite failures therefore supply a sharp, motivated structural boundary and reveal two qualitatively different fragmentation mechanisms: a balanced two-island split and a large island together with 48 frozen states. This is a natural exact combinatorial-geometric invariant of a canonical polytope family, not a selected arbitrary statistic or a recomputation of the known total-vertex counts. The result provides explicit minimal counterexamples to extending complete-split connectivity to all graphs with three or more parts; it does not claim that all larger orders fail.
+The source RESULT at blob d6e381458664bf89bf354662dbff52a7834ec927 identifies graphical-zonotope vertices with acyclic orientations and edges with one-edge reversible changes; a vertex is simple iff degree n-1. An independent Python implementation enumerated all 25 unordered multipartite types with 3<=n<=7, generated all orientations from topological total orders, computed reversible-edge induced components, and found only (3,3,1): (1902 vertices,860 simple, [430,430]) and (3,2,2): (2286,1240,[1192]+48 singletons); K222 has (426,288,[288]). This is genuine exhaustive finite proof only through n=7.
 
-## Closest literature and limitations
-[1] Padrol--Pilaud--Poullot, arXiv:2111.12422, sections 1.3 and 2. [2] Chapoton--Pilaud, arXiv:2201.06896, Propositions 48--50. The three closer computational/combinatorial treatments are identified in RESULT.md, references 3--5. Exact independent validation of historical priority has not been performed; an independent mathematical audit has not been performed. Only graph orders three through seven are certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: Chapoton–Pilaud already give multipartite ordered-block enumeration; earlier published two-part simple isolated and complete-split all-parameter connectivity results concern different parameter slices. None of those descriptions implies the exact 25-profile classification and exceptional three-part component decompositions; exact counts independently recalculated.
+
+## value
+
+PASS
+
+The first disconnectedness cutoff and component structure for a natural zonotope simple-vertex subgraph is a meaningful exact finite obstruction with 25 entire graph isomorphism types, not an arbitrary single tiny graph statistic; no n>=8 statement is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

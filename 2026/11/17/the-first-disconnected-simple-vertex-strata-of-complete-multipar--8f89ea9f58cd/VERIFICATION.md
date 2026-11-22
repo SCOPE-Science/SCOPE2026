@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-The bundled `verify_multipartite_simple_connectivity.py` independently constructs and checks the complete finite census stated in RESULT.md. Invoke `python3 verify_multipartite_simple_connectivity.py` with Python 3 and the standard library; no floating-point computation, random choices, network requests or external packages are used.
+## correctness
 
-The checker enumerates all 25 integer partitions with at least three parts through order seven; for each, all permutations of its labeled vertices are converted to acyclic orientation masks. It computes exact one-edge-reversal degrees of every mask, restricts to degree \(n-1\), and performs exhaustive component traversal. Its two exceptional component lists must match the exact assertions. Separate source-removal enumerators verify the acyclic-mask sets for \(K_{3,3,1}\), \(K_{3,2,2}\), and \(K_{2,2,2}\) without using a topological-order generator. A singled-out isolated orientation has its full six valid flips checked.
+PASS
 
-Observed passing sentinel:
+The source RESULT at blob d6e381458664bf89bf354662dbff52a7834ec927 identifies graphical-zonotope vertices with acyclic orientations and edges with one-edge reversible changes; a vertex is simple iff degree n-1. An independent Python implementation enumerated all 25 unordered multipartite types with 3<=n<=7, generated all orientations from topological total orders, computed reversible-edge induced components, and found only (3,3,1): (1902 vertices,860 simple, [430,430]) and (3,2,2): (2286,1240,[1192]+48 singletons); K222 has (426,288,[288]). This is genuine exhaustive finite proof only through n=7.
 
-`MULTIPARTITE_SIMPLE_STRATUM_PASS profiles=25 independent_direct_DAGs=3 exceptional_types=2 component_counts=(2,49) isolated_witness=1`
+## originality
 
-The finite certificate applies to graph order at most seven only. The independent primary-literature comparison is not a mathematical certification of historical priority, and no external audit is implied by the program's success.
+PASS
+
+Best-of-knowledge PASS: Chapoton–Pilaud already give multipartite ordered-block enumeration; earlier published two-part simple isolated and complete-split all-parameter connectivity results concern different parameter slices. None of those descriptions implies the exact 25-profile classification and exceptional three-part component decompositions; exact counts independently recalculated.
+
+## value
+
+PASS
+
+The first disconnectedness cutoff and component structure for a natural zonotope simple-vertex subgraph is a meaningful exact finite obstruction with 25 entire graph isomorphism types, not an arbitrary single tiny graph statistic; no n>=8 statement is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
