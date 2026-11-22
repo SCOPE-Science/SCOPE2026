@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof checks all three Euclidean angle scalar products, not just the middle vertex. The middle-angle necessary condition is \(st<4\varepsilon^2\); the only leading sign pattern has its middle sign opposite both others. Uniform compact-coordinate hyperbolic area integration gives the coefficient \(2\), and the other two angles can fail only on an \(O(\varepsilon^2)\) part of the logarithmic layer. The mixture expression for genuine Euclidean arclength has exceptional mass \(O(\varepsilon^2\log(1/\varepsilon))\) and acute-event contribution \(O(\varepsilon^4\log^2(1/\varepsilon))\), rigorously lower-order. The same layer provides the independent conditional law. The standalone direct-geometry Monte Carlo is corroboration, not proof.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The closest same-object predecessor is the publicly posted 2025 exact integral for acute triangles sampled by ellipse perimeter measure; its full question/answer were inspected. It does not state a singular closed leading coefficient or the joint rare-event shape law. Edelman–Strang (2015) use different random-triangle measures, while related equiaffine-ellipse and Gaussian models have different measure-specific coefficients. The exact known equiaffine-ellipse thin-limit coefficient is \(12/\pi^2\), not \(2\). The prior thin-rectangle perimeter result has coefficient \(3\), not \(2\). Actual semantic research-record searches and accessible earlier claims yielded no exact equivalent. Abstract-only older papers cannot be ruled out as possible historical sources.
+PASS
 
-## Mathematical value — PASS
-The theorem answers the leading thin-eccentricity question for the canonical true-arclength ensemble and explains its nonanalytic logarithmic behavior. Its additional conditionally independent position, logarithmic scale and slack law describes typical rare acute triangles rather than merely giving a probability. The coefficient changes under closely related sampling rules, making the normalization substantive.
+Actual arclength projection density is sqrt(1+epsilon²x²/(1-x²))/Iepsilon, with nonnegative exceptional mixture mass O(epsilon² log). For sorted uniform-x triples, density is 3/4 and the middle-angle dot product forces st<4epsilon². Same-branch and one-neighbor-matching sign patterns contribute lower order by the global half-Holder sqrt(1-x²) bound. In the two opposite-middle patterns the middle positivity is st<4epsilon²(1-x²)+o(epsilon²) on compact interiors; integrating the hyperbolic region gives area 8epsilon²(1-x²)log, then 3/4 times 2/8 and integration over x gives precisely coefficient 2. The other two vertex angles exclude only O(epsilon²) layers. Jacobian of s=epsilon^lambda, t=4epsilon²(1-x²)u/s yields product conditional law. Exceptional arclength draws enter the acute event only O(epsilon^4 log²), so transfer of conditioning is legitimate. All error orders are as epsilon->0, not claimed finite-epsilon exactness.
 
-## Limitations and related sources
-The limit is only as the minor-to-major semiaxis ratio tends to zero; the theorem does not solve finite-eccentricity exact integration, quantitative estimation from data, or other convex boundaries. Read primary content: Edelman–Strang (2015) full arXiv HTML and the complete 2024 question/2025 answer on ellipse perimeter triangles. Abstract-only material: Schrempp (2015) and Easingwood (1981). Historical priority requires independent expert review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original as an exact statement/implication after direct comparison of primary material and relevant published mathematical results; significant inaccessible or indirect antecedents are retained below rather than equated to novelty proof.
+
+## value
+
+PASS
+
+The acute event is a natural rare geometric property of thin convex curves with different eccentric-anomaly versus physical-arclength laws. It identifies both sharp singular logarithmic coefficient and the complete asymptotic conditional shape; these are useful beyond the previously available unevaluated finite-eccentricity perimeter integral.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

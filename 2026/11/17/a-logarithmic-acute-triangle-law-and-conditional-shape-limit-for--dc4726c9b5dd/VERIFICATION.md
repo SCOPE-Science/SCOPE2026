@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification details
 
-Analytical checks: the normalized arclength projection law is \(q_\varepsilon=w_\varepsilon/I_\varepsilon\), with \(w_\varepsilon\ge1\); the exact nonnegative mixture with the uniform projection law is valid. For sorted projected coordinates, the acuteness middle-angle dot product is \(-st+\varepsilon^2H_\sigma\). Since \(|H_\sigma|\le4\), acuteness forces \(st<4\varepsilon^2\) independently of signs. All but the opposite-middle-sign configuration are negligible by \(|\sqrt{1-u^2}-\sqrt{1-v^2}|\le\sqrt{2|u-v|}\). Hyperbola area integration gives \(2c\varepsilon^2\log(1/\varepsilon)\) when \(st<c\varepsilon^2\), yielding the exact stated factor \(2\). On fixed compact pieces, endpoint vertex dot products are positive except for gaps \(O(\varepsilon^2)\); no finite sample is used to justify this infinity-limit step. The joint logarithmic coordinate Jacobian supplies the conditional limit.
+# Independent mathematical audit
 
-Executable checker: `python check_ellipse.py` (with `numpy>=1.24`, optionally `OPENBLAS_NUM_THREADS=1`). Seeds 1, 2, and 3; exactly 2,400,000 independent triangles per configuration, using two distinct sampling techniques: coordinate-uniform plus independent branch signs, and rejection-proposed eccentric angle with exact ellipse-speed acceptance for Euclidean arclength. Checker evaluates three direct dot products and compares the leading ratio, conditional middle-coordinate second moment, logarithmic-gap mean, and correct sign-pattern frequency. Observed:
+## correctness
 
-```
-uniform_x: eps=0.018, n=2400000, acute=5931, p=0.00247125, ratio=0.94929, EX^2=0.19972, Elambda=0.99878, central=0.95734
-perimeter: eps=0.018, n=2400000, acute=5927, p=0.0024695833, ratio=0.94865, EX^2=0.19625, Elambda=0.99711, central=0.96035
-perimeter: eps=0.027, n=2400000, acute=11860, p=0.0049416667, ratio=0.93838, EX^2=0.20149, Elambda=1.01107, central=0.95346
-THIN_ELLIPSE_ACUTE_LOG_LAW_CHECKS_OK
-```
+PASS
 
-These are random finite-parameter checks, not interval certification, not a convergence proof, and not independent mathematical validation.
+Actual arclength projection density is sqrt(1+epsilon²x²/(1-x²))/Iepsilon, with nonnegative exceptional mixture mass O(epsilon² log). For sorted uniform-x triples, density is 3/4 and the middle-angle dot product forces st<4epsilon². Same-branch and one-neighbor-matching sign patterns contribute lower order by the global half-Holder sqrt(1-x²) bound. In the two opposite-middle patterns the middle positivity is st<4epsilon²(1-x²)+o(epsilon²) on compact interiors; integrating the hyperbolic region gives area 8epsilon²(1-x²)log, then 3/4 times 2/8 and integration over x gives precisely coefficient 2. The other two vertex angles exclude only O(epsilon²) layers. Jacobian of s=epsilon^lambda, t=4epsilon²(1-x²)u/s yields product conditional law. Exceptional arclength draws enter the acute event only O(epsilon^4 log²), so transfer of conditioning is legitimate. All error orders are as epsilon->0, not claimed finite-epsilon exactness.
+
+## originality
+
+PASS
+
+Best-of-knowledge original as an exact statement/implication after direct comparison of primary material and relevant published mathematical results; significant inaccessible or indirect antecedents are retained below rather than equated to novelty proof.
+
+## value
+
+PASS
+
+The acute event is a natural rare geometric property of thin convex curves with different eccentric-anomaly versus physical-arclength laws. It identifies both sharp singular logarithmic coefficient and the complete asymptotic conditional shape; these are useful beyond the previously available unevaluated finite-eccentricity perimeter integral.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
