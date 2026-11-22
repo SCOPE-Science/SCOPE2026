@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The absorbing-diffusion scale and tail identities give \\(q(x)=A\\alpha x^{\\alpha-1}\\) and \\(H(x)=x^{2-\\alpha}/[A\\alpha(2-\\alpha)]\\), proving the prescribed mean. The killed-diffusion Green/Kac second-moment recursion and integration by parts give \\(V\\prime(x)=2q(x)e^{H(x)}\\int_x^\\infty q(z)e^{-H(z)}\\,dz\\) (where \\(V\\prime\\) denotes the derivative of variance), without an arbitrary boundary solution. Two substitutions produce the incomplete-Gamma integral; its integrand behaves as \\(u^{2p-2}\\), so \\(p=1/2\\), equivalently \\(\\alpha=2/3\\), is the exact integrability threshold. Integration yields the sharp constants and subcritical remainder, while positive Fubini and a Beta integral evaluate the plateau. Spatial hitting-time convolution yields a bounded \\(L^2\\) centered martingale below the threshold. The standalone checker passed 198 symbolic/numerical assertions; finite tests are not proofs of the infinite limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bansaye et al., arxiv:1711.08603, Proposition 1.1 requires \\(\\sup_x\\mathbb E[T_x]<\\infty\\); here \\(\\mathbb E[T_x]=A x^\\alpha\\) is unbounded, excluding their entrance-from-infinity moment/CLT assertions.",
+        "Radice, arxiv:2307.12699, Sections I--III and VI: pure logarithmic potentials and related heterogeneous-diffusion functionals, not the stretched-exponential-plus-logarithm potential with \\(0<\\alpha<2\\).",
+        "Published studies of first-passage variance for run-and-tumble log traps concern divergence at fixed initial position, a different quantifier and dynamics."
+      ],
+      "reasoning": "Neither a fixed-start moment-divergence threshold nor a bounded-mean entrance-from-infinity theorem implies the present x-to-infinity absolute-variance saturation with a diverging mean. The Radice pure-logarithm case is a different endpoint class and the temporal/functional mapping does not directly establish the exact designed-landscape variance transition.",
+      "searches": [
+        "entrance from infinity diffusion coming down from infinity hitting time fluctuations central limit theorem subcritical integrability",
+        "Mattia Radice 2023 first-passage functionals Brownian logarithmic potentials arxiv",
+        "first passage time variance saturation at large initial positions strong power law trapping potential, mean x^alpha",
+        "arxiv:1711.08603v1",
+        "arxiv:2307.12699v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.03831v1 (full main and appendix statements)",
+      "arxiv:1711.08603v1 (full-text main hypotheses and moment formula)",
+      "arxiv:2307.12699v1 (full-text power functional case and transform)",
+      "arxiv:1007.4588v1 (model and boundary context)",
+      "Search comparisons of published mathematical result summaries under forward-potential, first-passage variance, and spatial-coupling aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Keidar--Reuveni--Sokolov derive U=(alpha-1)log x+\\(x^{2-\\alpha}\\)/[A alpha(2-alpha)] and the first-moment uniqueness result, but the inspected main text and appendices do not give a second-moment variance theorem or \\(\\alpha=2/3\\) threshold.",
+        "Bansaye et al. Eq. (2.2) is a general first-passage moment recurrence under bounded-mean assumptions; this work evaluates the variance outside that regime using a direct valid Green recursion.",
+        "Martin--Behn--Germano, arxiv:1007.4588, treat Bessel-like 1/x drift, corresponding only to logarithmic-potential behavior, not the strict \\(0<\\alpha<2\\) family."
+      ],
+      "reasoning": "The new theorem is not a restatement of the prior inverse potential or general moment identity. The nontrivial Gamma--Beta evaluation and its exact integrability boundary produce a new spatial limit theorem; the existing broader formulas may make the calculation approachable, and that derivability is recorded as a residual publication-priority risk.",
+      "searches": [
+        "arxiv:2611.03831v1 (full text, searched for variance and moment)",
+        "arxiv:1711.08603v1 (full-text Section 2 moment recursion)",
+        "arxiv:2307.12699v1 (full-text Section VI and Appendix)",
+        "arxiv:1007.4588v1 (abstract and primary model)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Keidar--Reuveni--Sokolov, arxiv:2611.03831v1, Eq. (6) and text following it: fixed mean profile determines a unique potential; for power-law means the potential equals the one used here.",
+        "The independent second-moment recursion is general but not an evaluated asymptotic for this prescribed-mean family."
+      ],
+      "reasoning": "The inverse-potential identity is the same prior starting landscape, not a competing first-passage variance result. Substituting it into the Green second-moment recursion is necessary but does not by itself report the threshold \\(\\alpha=2/3\\), all three asymptotic amplitudes, the Gamma--Beta finite plateau, or the centered spatial L2 law. Exponent, constant and limit-law comparisons were carried out, not merely title matching.",
+      "searches": [
+        "power law prescribed mean first hitting time x^alpha inverse potential exp(x^{2-alpha}) variance spatial integrability threshold at 2/3",
+        "inverse mean first passage time power law profile Brownian variance fluctuations asymptotics 2/3 2026",
+        "arxiv:2611.03831v1 (full text, Eq. (6), power-law example, Appendix B)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed result, sharp second-passage-moment threshold for a run-and-tumble particle in a logarithmic trap, has different stochastic dynamics and a fixed-position finiteness criterion.",
+        "Closest indexed diffusion result, sharp small-tempering trichotomy for Weibull-tailed Langevin diffusions, concerns a weak-tempering limit of a worst-case mean, not second-moment variation with starting position.",
+        "No matching evaluated coefficient \\(\\Gamma(2p)B(p,1-2p)\\), \\(\\alpha=2/3\\) spatial threshold, or equivalent table was identified in the searches actually performed."
+      ],
+      "reasoning": "The identified database records have different generators, limiting procedures and observables, not a covering table or exact formula for these parameters. This is a bounded comparison, not a universal uniqueness certificate.",
+      "searches": [
+        "power law prescribed mean first hitting time x^alpha inverse potential exp(x^{2-alpha}) variance spatial integrability threshold at 2/3",
+        "variance of first-passage times in potential landscape constructed to have mean first-passage time tau(x)=A x^alpha, change at alpha=2/3, logarithmic variance, bounded variance",
+        "first passage variance asymptotic starting position drift x power law potential variance saturation",
+        "Weibull tail Langevin diffusion hitting time to zero starting point x with steep exponential potential and positive power mean variance asymptotic"
+      ]
+    },
+    "rationale": "The initiating public paper proves the inverse mean-potential landscape but does not evaluate its first-passage variance. The broader moment formulas, Bessel-like and log-potential studies, and related indexed findings checked do not state or imply the evaluated \\(\\alpha=2/3\\) spatial variance threshold and Gamma--Beta amplitude under the same hypotheses. An equivalent derivation may be implicit in classical Green recursions; this publication-priority risk is expressly retained.",
+    "residual_risks": [
+      "A previously published implicit special-function evaluation or a general spatial-increment theorem might cover the same threshold despite no direct match in inspected sources.",
+      "The original inverse-mean design together with standard Kac recursion does mathematically determine every variance; publication priority concerns whether the evaluated sharp phase boundary and centered limit have previously been stated.",
+      "No independent expert or full-corpus uniqueness certification has been obtained."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers first-moment profile and inverse potential, not the asserted evaluated variance threshold or centered spatial limit.",
+        "evidence": "Equations (2), (3), (5), (6), power-law paragraph, and Appendix B; no variance or second-moment theorem in inspected full text.",
+        "identifier_or_url": "https://arxiv.org/html/2611.03831v1",
+        "material_read": "Full main theorem, the power-law example, admissibility discussion, all end-matter appendix theorem statements and derivations, and searches for variance/second moment.",
+        "method": "Public arXiv full HTML, including end matter.",
+        "title": "The Inverse Mean First-Passage Time Problem",
+        "trigger": "Same exact designed power-law mean profile and same potential; decisive direct-overlap candidate."
+      },
+      {
+        "assessment": "Uniform boundedness of starting-point mean is a substantive hypothesis absent in the new family.",
+        "evidence": "Proposition 1.1(ii) and equation (2.2), contrasted with \\(\\mathbb E[T_x]=Ax^\\alpha\\to\\infty\\).",
+        "identifier_or_url": "https://arxiv.org/abs/1711.08603",
+        "material_read": "Full exposed introduction, Proposition 1.1, Theorems 1.2--1.5, and Section 2 moment recurrence.",
+        "method": "Public arXiv full-text view.",
+        "title": "Diffusions from Infinity",
+        "trigger": "Broad hitting-time fluctuation and moment-recurrence theory for half-line diffusions."
+      },
+      {
+        "assessment": "The generator has pure logarithmic drift or mapped spatial diffusivity, not the additional positive stretched-power drift of the exact inverse-mean family.",
+        "evidence": "Sections I--III and VI; functional F(x)=x^(gamma-2), logarithmic potential V0 log x and mapping to D(x)=D x^(2 theta).",
+        "identifier_or_url": "https://arxiv.org/abs/2307.12699",
+        "material_read": "Full-text introduction, backward Fokker--Planck setup, summarized results, positive-half-line case, heterogeneous-diffusion mapping and conclusion.",
+        "method": "Public arXiv full-text view and section search.",
+        "title": "First-passage functionals of Brownian motion in logarithmic potentials and heterogeneous diffusion",
+        "trigger": "Plausible stronger exact full-distribution result for logarithmic potentials and a power-functional reduction."
+      },
+      {
+        "assessment": "Treats only Bessel-like n/x drift; the claimed interval excludes the logarithmic-only endpoint.",
+        "evidence": "Model equation dX=(nD/X)dt+sqrt(2D)dW and boundary classification.",
+        "identifier_or_url": "https://arxiv.org/abs/1007.4588",
+        "material_read": "Abstract, first-passage process specification and the available first-passage/exit presentation.",
+        "method": "Public arXiv abstract and accessible PDF pages.",
+        "title": "First-passage and first-exit times of a Bessel-like stochastic process",
+        "trigger": "Potential endpoint alpha=2 and singular 1/x drift boundary issue."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e8d55c99-7878-4d2e-8108-d0eaae608bb9",
+  "value": {
+    "rationale": "In a prescribed-mean landscape with \\(\\mathbb E[T_x]=A x^\\alpha\\to\\infty\\), absolute timing variance nevertheless remains bounded at arbitrarily large initial distance exactly for \\(0<\\alpha<2/3\\). The logarithmic marginal case, sharp polynomial coefficient, nonzero finite plateau and nondegenerate centered spatial limit delimit a meaningful timing-reliability design boundary beyond specifying mean arrival times. This is an evaluated natural invariant and complete three-regime classification, not a bare substitution or numeric table.",
+    "status": "PASS"
+  }
+}
