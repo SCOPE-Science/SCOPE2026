@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "The exact four-branch weighted PAV center rule gives a cyclic tridiagonal stochastic Jacobian. In edge coordinates, each input-edge column has absolute sum max(1,2(alpha_right+gamma_left)-1), bounded by K. Segment integration supplies the universal inequality. Two decreasing edges separated by four positions force maximal adjacent pooling with disjoint difference packets, and exact finite perturbations attain K for every n>=8 and all positive weights. The decoded checker ran 5,000 exact-rational inequalities, 30 exact attainment tests, four branch tests. No finite search is substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Harten 1983 Lemma 2.2 supplies a positive incremental-form sufficient TVD criterion; the proof here computes the exact induced seminorm even when a mixed coefficient is negative.",
+        "Tadmor 1988 abstract describes local positivity TVD conditions for numerical flux schemes.",
+        "Published sharp mass-aware concavity law concerns one weighted least-squares isotonic projection on a chain, not overlapping local-center outputs on a cycle."
+      ],
+      "reasoning": "General incremental inequalities can bound the stable phase but do not specify this operator-specific global sharp constant or attainability beyond the threshold. The chain theorem has a different map and cannot be applied unchanged to the overlapping cyclic map.",
+      "searches": [
+        "web: Harten lemma TVD nonlinear three point scheme coefficient 1 - C - D total variation diminishing",
+        "web: isotonic regression local polynomial smooth filter monotone regression sliding window",
+        "sharp weighted isotonic moving-window nonlinear filter variation gain 2(a+c)-1",
+        "cyclic sliding local isotonic regression middle fitted value two-input BV Lipschitz"
+      ]
+    },
+    "checked_sources": [
+      "Kearsley 2006 DOI 10.6028/jres.111.011, public full text relevant sections read",
+      "Dubois arXiv:1006.3921, introduction and selected §3 text read",
+      "Tadmor 1988 DOI 10.1137/0725057, publisher abstract only",
+      "Harten 1983 DOI 10.1016/0021-9991(83)90136-5, known incremental TVD lemma via cited secondary exposition",
+      "Published indexed mathematical research summaries, mass-aware weighted isotonic chain theorem and three-point median theorem",
+      "Targeted mathematical literature searches for moving/local isotonic variation stability"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kearsley 2006 establishes the pooling algorithm and weighted means but does not claim the two-input variation operator norm of a repeated local projection filter.",
+        "Dubois 2010 §3 studies a conservative time evolution with interpolation/flux; our static filtering operation is generally not such a scheme.",
+        "Harten-type variation upper bounds do not yield sharp lower witnesses for this piecewise-defined weighted PAV operator without the active-window construction."
+      ],
+      "reasoning": "Known general tools explain the method of proof but do not logically determine the joint threshold b²>=ac and exact gain for overlapping, locally order-constrained regression; unlike a simple substitution into a quoted norm theorem, the result requires identifying attainable adjacent active sets and disjoint sharp packets.",
+      "searches": [
+        "web: Convenient Total Variation Diminishing Conditions for Nonlinear Difference Schemes Tadmor 1988",
+        "web: Nonlinear Interpolation and Total Variation Diminishing Schemes Dubois 2010",
+        "three sample moving weighted isotonic least squares center filter log-concave weights geometric mean total variation stability threshold sharp",
+        "sharp weighted isotonic moving-window nonlinear filter variation gain 2(a+c)-1",
+        "cyclic sliding local isotonic regression middle fitted value two-input BV Lipschitz",
+        "Harten nonnegative incremental coefficients exact sharp gain weighted local PAV filter"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kearsley 2006 §1-2: weighted isotonic fit is a single globally ordered projection with PAV pooling, rather than the middle output of independent overlapping three-point fits.",
+        "Dubois arxiv:1006.3921, pp.1-6 and §3: nonlinear interpolation operators for conservation-law schemes, not weighted local PAV center maps.",
+        "Exact PAV branch Jacobians in this result have conditional left/right coefficients; their cross-window interaction controls two-input variation."
+      ],
+      "reasoning": "Duality/relabeling of one globally ordered isotonic fit does not reproduce overlapping cyclic local projections; total-variation diminution of one signal does not imply the claimed variation bound for differences of two outputs. No equivalent statement appeared in these actual searches.",
+      "searches": [
+        "three sample moving weighted isotonic least squares center filter log-concave weights geometric mean total variation stability threshold sharp",
+        "sharp weighted isotonic moving-window nonlinear filter variation gain 2(a+c)-1",
+        "cyclic sliding local isotonic regression middle fitted value two-input BV Lipschitz",
+        "web: \"sliding\" \"isotonic\" \"total variation\" filter three point weights",
+        "web: \"moving\" \"isotonic regression\" \"variation\" stability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published indexed mathematical finding: A sharp three-quarter mean-weight threshold for cyclic median blends (2026-11-17): median/mean blend, not isotonic projection.",
+        "Published indexed mathematical finding: Sharp mass-aware concavity law for variation stability of weighted isotonic regression (2026-11-17): full-chain map, not moving three-site center outputs.",
+        "Published indexed mathematical finding: Sharp two-input variation sensitivity of three-point median smoothing (2026-11-01): rank selection rather than weighted PAV."
+      ],
+      "reasoning": "Searches locate related but nonidentical sharp filtering stability constants; no matching exact weighted PAV moving-center formula or table was located. The absence of a matching result is not treated as a proof of historical uniqueness.",
+      "searches": [
+        "three sample moving weighted isotonic least squares center filter log-concave weights geometric mean total variation stability threshold sharp",
+        "sharp weighted isotonic moving-window nonlinear filter variation gain 2(a+c)-1",
+        "cyclic sliding local isotonic regression middle fitted value two-input BV Lipschitz",
+        "Harten nonnegative incremental coefficients exact sharp gain weighted local PAV filter",
+        "web: \"three point\" \"isotonic regression\" filter",
+        "web: \"isotonic regression\" \"log-concave\" \"weights\" \"total variation\""
+      ]
+    },
+    "rationale": "Actual indexed research-record and primary-literature statement comparisons yielded no covering two-input exact local-filter norm. Classical PAV pooling supplies local formulas; Harten/Tadmor incremental TVD theory supplies related sufficient mechanisms, but not the exact weighted amplification and finite sharp examples. Closest published chain-isotonic and moving-median results involve distinct input-output maps. Historical priority remains qualified due to incomplete access to some general theory and the possibility of unindexed equivalents.",
+    "residual_risks": [
+      "Original Harten (1983) and Tadmor (1988) full texts not inspected; their published general TVD criteria may contain an unrecognized implication.",
+      "Full-text links for closest published findings not available in full text; conclusions distinguished using the available indexed claim summaries.",
+      "Unindexed, non-English, or differently named overlapping local-regression results might exist; novelty is best-knowledge, not independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "global weighted isotonic projection and parallel PAV; no overlapping middle-coordinate cyclic two-input BV norm in inspected material",
+        "evidence": [
+          "2006 pp.121-123: weighted isotonic quadratic program and PAV pooling; main result is composition of global PAV blocks"
+        ],
+        "identifier_or_url": "https://nvlpubs.nist.gov/nistpubs/jres/111/2/V111.N02.A07.pdf",
+        "material_read": "2006 paper pp.121-125; problem formulation, PAV example, convex minorant decomposition and applications, with first and third pages visually checked",
+        "method": "public full-text PDF with parsed text and page images",
+        "title": "Projections Onto Order Simplexes and Isotonic Regression",
+        "trigger": "classical weighted PAV source for same local optimization objective"
+      },
+      {
+        "assessment": "interpolation/finite-volume evolution and TVD sufficient conditions, not weighted isotonic center filter exact two-input norm",
+        "evidence": [
+          "arXiv:1006.3921 introduction eqs.(1.10)-(1.17) and §3 local TVD estimates"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1006.3921",
+        "material_read": "2010 arXiv full text pp.1-6 and selected section 3 formulas/arguments at p.16; rest not claimed inspected",
+        "method": "arXiv legal full-text PDF, parsed text plus page screenshots",
+        "title": "Nonlinear Interpolation and Total Variation Diminishing Schemes",
+        "trigger": "adjacent-difference TVD mechanisms for nonlinear local three-point maps"
+      },
+      {
+        "assessment": "general TVD sufficient conditions; possible broader conceptual coverage, exact moving-isotonic norm not verified",
+        "evidence": [
+          "1988 published abstract describes nonlinear scheme flux positivity at local extrema"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0725057",
+        "material_read": "publisher abstract, metadata and references; article body inaccessible",
+        "method": "publisher HTML accessible abstract, not a full-text inspection",
+        "title": "Convenient Total Variation Diminishing Conditions for Nonlinear Difference Schemes",
+        "trigger": "potential dominating TVD positivity theorem"
+      },
+      {
+        "assessment": "single global isotonic regression on chains, whereas the present map is overlapping cyclic local regression",
+        "evidence": [
+          "indexed claim describes mass-coordinate least concave majorant and global chain projection"
+        ],
+        "identifier_or_url": "2026-11-17 published mathematical research record",
+        "material_read": "indexed scientific title and claim summary; linked underlying full text not accessible",
+        "method": "semantic research-record search and public-link access attempt",
+        "title": "Sharp mass-aware concavity law for variation stability of weighted isotonic regression",
+        "trigger": "closest weighted isotonic stability claim"
+      },
+      {
+        "assessment": "median rank-selector, not weighted isotonic regression; different Jacobian support and constants",
+        "evidence": [
+          "indexed result gives weighted finite-path median sensitivity"
+        ],
+        "identifier_or_url": "2026-11-01 published mathematical research record",
+        "material_read": "indexed scientific title and claim summary; linked underlying full text not accessible",
+        "method": "semantic research-record search and public-link access attempt",
+        "title": "Sharp two-input variation sensitivity of three-point median smoothing",
+        "trigger": "closest three-point nonlinear filter"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2caf55bd-42d7-44b3-bf3a-acf7e47361b7",
+  "value": {
+    "rationale": "A natural sliding weighted order-constrained smoother has an exact robust/nonrobust phase transition precisely at center weight b=sqrt(ac). The theorem determines the full quantitative gain and finite extremizers above that boundary, solving an exact input-difference stability question not supplied by ordinary PAV algorithms or one-input TVD bounds. This provides motivated, interpretable guidance for local weighting without requiring a larger downstream theorem.",
+    "status": "PASS"
+  }
+}
