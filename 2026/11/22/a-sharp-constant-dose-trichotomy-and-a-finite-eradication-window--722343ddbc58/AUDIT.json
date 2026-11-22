@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The positive Perron eigenvalue is simple; the implicit characteristic derivative is exact. When sensitive growth exceeds tolerant growth its derivative is strictly negative. Otherwise \\(q=(t-\\sigma)/(\\nu-(t-\\sigma))\\) uniquely solves t-s=nu*q/(1+q)+(mu0+mc)q. At a stationary crossing \\(F=q-k/[m(1+c)^2]\\) has strictly positive derivative, and F>0 at large dose, proving a unique sign change when permitted. Endpoint comparison yields the exact zero-dose cutoff. The singular law follows by asymptotic inversion, and an exact rational determinant/trace verifies the two extinction roots. Standalone numerical checks corroborate but do not establish the all-parameter theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gunnarsson et al Supplement S1.2.3 Theorem 1 proves optimum bounded-dose schedule is at a constant dose minimizing sigma, without classifying uniqueness/thresholds across all parameter ratios",
+        "Fischer–Blüthgen abstract describes analytic optimal control but does not establish whether their different treatment-resistance equations imply this special case"
+      ],
+      "reasoning": "Stronger scheduling optimality in the initiating paper is granted as prior, but it delegates the strict global dose minimizer to an unspecified one-dimensional optimization. General optimal-control results can only dominate if they assert this quantitative parameter classification; no verified source did. The Fischer full text was unavailable, so it remains a residual risk.",
+      "searches": [
+        "Gunnarsson 2024 arXiv:2412.16391v1 Supplement S1.2.3 Theorem 1",
+        "Fischer Blüthgen 2023 doi:10.1016/j.jtbi.2023.111716 tumor optimal control",
+        "published-finding corpus: unbounded optimal dose critical kill saturation threshold r0 minus r1 drug tolerant resistant population switch Michaelis Menten"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2412.16391v1 (20 December 2024; main and supplementary theorems)",
+      "DOI 10.1103/mh5v-lcyw (2025; primary article and appendix)",
+      "DOI 10.1016/j.jtbi.2023.111716 (abstract only)",
+      "Named mathematically relevant published published-finding corpus findings"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gunnarsson et al prove a globally optimal constant dose exists on a fixed compact interval and present examples of optimal low dosing, which do not logically imply exactly one interior minimum at arbitrary strictly positive parameters or its singular divergence at the unbounded boundary",
+        "Corigliano et al use saturating induced switch and treatment-specific reverse transitions, so their optimal cyclic-dose results cannot directly imply the linear-unbounded induction trichotomy"
+      ],
+      "reasoning": "A prior existence/minimization theorem is weaker than a strict classification with sharp dose/no-dose/unattained boundaries. The present witness additionally certifies that increasing concentration eventually reverses linear tumor clearance; a qualitative drug-tolerance warning is not equivalent to the two exact decay thresholds.",
+      "searches": [
+        "arXiv:2412.16391v1 Sections 2.1 and S1.2.3",
+        "Corigliano et al 2025 doi:10.1103/mh5v-lcyw full article and appendix",
+        "published-finding corpus: drug-induced resistance constant dose 2x2 Metzler eigenvalue monotonic in dose linear affine generator rank one stationary phenotype composition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gunnarsson–Magnússon–Foo 2024 Section 4.5 and Supplement S1.2.1 supply equivalent forward Perron-growth form but not full parameter trichotomy",
+        "published-finding corpus closest 2026/11/8/SCOPE-sharp-phenotype-loss-thresholds-along-two-published-tumor-game-e--ae547ad29046 is a four-phenotype replicator rather than the concentration-dependent two-type Metzler matrix"
+      ],
+      "reasoning": "Compared equivalent coordinates (positive eigenvalue, sensitive–tolerant ratio, stationary concentration). The original forward eigenvalue is known; the universal one-turn structure and singular asymptotic require additional global reasoning.",
+      "searches": [
+        "published-finding corpus: linear cytotoxic killing and linearly induced drug tolerant switching two compartment tumor dominant eigenvalue monotone constant dose drug concentration no interior optimal dose",
+        "published-finding corpus: drug induced resistance constant dose 2x2 Metzler eigenvalue monotonic in dose linear affine generator rank one stationary phenotype composition",
+        "web: drug-induced plasticity high dose low dose reentrant tumor"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/11/2/SCOPE-a-complete-active-target-staircase-for-independent-hill-inhibiti--a81be9bbd6bd concerns allocating dose across independent Hill-inhibition targets",
+        "published-finding corpus 2026/10/12/SCOPE-a-sharp-constant-therapy-eradication-threshold-for-the-weak-alle--31185b52574c concerns a scalar nonlinear weak-Allee model"
+      ],
+      "reasoning": "No exact dose interval table or trichotomy for this 2x2 plasticity model was retrieved; the rational extinction witness is freshly calculated from its explicit determinant. Searches alone do not establish global priority.",
+      "searches": [
+        "published-finding corpus: sharp phase diagram unique constant-dose minimizer two phenotype drug induced plasticity Michaelis Menten sensitivity linear tolerance induction bounded dose",
+        "published-finding corpus: drug-sensitive drug-tolerant linear switching positive Metzler rate dose-response minimum concentration one turning point and efficacy threshold"
+      ]
+    },
+    "rationale": "The originating 2024 preprint gives this two-state model and Perron formula and already proves bounded-dose constant treatment is optimal; those are not asserted novel. Its full mathematical and supplementary results do not state the exact all-parameter strict minimizer trichotomy, reciprocal singular optimum, quadratic efficacy advantage or rational two-threshold extinction window. The other inspected persister article uses saturation in induction and treatment-specific reverse switching. Published-database matches concern distinct dynamics; inaccessible earlier optimal-control full text limits priority certainty.",
+    "residual_risks": [
+      "Fischer–Blüthgen 2023/2024 full text could not be inspected; earlier full-text equivalence remains possible.",
+      "A numerical optimizer appearing in prior source does not prove this trichotomy was not informally known; historical priority is literature-bounded.",
+      "An idealized unbounded linear induction rate is biologically extrapolative; this is a mathematical phase diagram, not a clinical rule."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers constant-dose reduction and forward Perron expression, but not strict complete phase trichotomy and critical divergence for all positive parameters",
+        "evidence": [
+          "Sections 2.1, 4.5 and Supplement S1.2.3 Theorem 1 (arXiv:2412.16391v1)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2412.16391v1",
+        "material_read": "Full main text, Methods 4.1–4.8, Supplement S1.2.1–S1.2.3 and later support sections, with explicit comparison to Eq. 1 and Theorem 1.",
+        "method": "read open arXiv HTML including supplementary text, inspected hypotheses and implications",
+        "title": "Optimal dosing of anti-cancer treatment under drug-induced plasticity",
+        "trigger": "Identical model, primary forward expression and existing long-run optimization theorem"
+      },
+      {
+        "assessment": "Related but different saturating induction and on-drug reversal assumptions; does not supply the present exact global dose phase diagram",
+        "evidence": [
+          "Treatment-stage persister and switching equations and appendix; PRX Life 2025"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/mh5v-lcyw",
+        "material_read": "Open access PDF main theoretical equations, findings, and appendix of 23-page paper",
+        "method": "read full PDF text and inspect relevant rendered pages",
+        "title": "Optimal Treatment for Drug-Induced Cancer Persisters Involves Release Periods and Intermediate Drug Doses",
+        "trigger": "Exact nearby question of intermediate drug concentration versus treatment release"
+      },
+      {
+        "assessment": "Potential priority risk not decisively resolved, no claim of whole-document noncoverage",
+        "evidence": [
+          "PubMed PMID:38135033; abstract mentions analytic models of genetic and epigenetic resistance"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jtbi.2023.111716",
+        "material_read": "Abstract and bibliographic description only, not primary full text",
+        "method": "PubMed and bibliographic OA searches; full text access unavailable",
+        "title": "On minimising tumoural growth under treatment resistance",
+        "trigger": "Potential earlier broad analytic optimization of growth under epigenetic drug resistance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "722343dd-bc58-4261-a9bc-25352f402c33",
+  "value": {
+    "rationale": "The model addresses a nontrivial natural plasticity-versus-killing tradeoff studied in cancer mathematical biology; an exhaustive analytic classification with a rigorous unique interior optimum, an explicit critical transition, and a singular quadratic degradation of optimal suppression is useful for reasoning about model robustness. The independent rational full extinction-window example demonstrates a substantive, nonobvious failure of maximal-dose intuition. The theorem is neither a routine parameter substitution nor a finite numerical table; it gives exact all-parameter infinite statements, without claiming real-world treatment advice.",
+    "status": "PASS"
+  }
+}
