@@ -1,19 +1,21 @@
-# Scientific review of the Pappus third non-matching calculation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The twenty-seven-edge graph is fixed by both an explicit edge list and the canonical Pappus LCF representation. A bipartite maximum-matching condition is equivalent by König's theorem to a two-vertex cover, yielding an exhaustive face enumeration. The deterministic verifier constructs 4,087 augmented faces, 2,011 Morse pairs and visits every one of the 15,390 directed Hasse covers in an acyclicity topological sort. Removing the unique empty-simplex pair yields an ordinary acyclic matching with a critical base vertex. The five-by-sixty signed integral Morse differential has a determinant-one five-column minor: all five degree-two classes are killed primitively by degree-three cells, leaving fifty-five third-homology generators and the claimed wedge of three-spheres. A complete independently generated enumeration of 216 automorphisms and an integer signed Lefschetz sum establish all character entries and the two-dimensional fixed subspace. Computations apply to the precisely stated finite object, not to an unproved family.
+PASS
 
-## Originality — PASS, with residual priority risk
+Kőnig bipartite matching-cover duality exactly converts the forbidden 3-edge matching condition into edge stars coverable by ≤2 graph vertices. Independently reconstructed all 4087 augmented faces, f_{-1..5}=(1,27,351,1206,1593,783,126), complete Random(0) edge-sweep acyclic Morse matching (2011 augmented pairs, 5 critical two-cells, 60 critical three-cells, plus ordinary critical vertex), and topologically sorted ALL 4087 directed face-poset nodes. Independently recomputed signed gradient-path 5x60 integer boundary, rank 5 and Smith invariant factors 1,1,1,1,1, with 28 nonzeros, giving wedge of 60-5=55 S³ by Hurewicz/attaching degree classification and cancellation. Independently enumerated all 216 graph automorphisms, evaluated signed fixed-face Lefschetz contributions and eleven trace-profile rows; character sum 432 yields dim invariants 2. All checks exhaustive for this finite graph, though none claim an infinite-family theorem or integral representation decomposition.
 
-The first public September 2, 2026 paper of Shan–Wang proves top-homology persistence under bipartite edge addition, not the precise Pappus homotopy or character. Holmsen–Lee gives a dimension bound. The closely related known Heawood and Möbius–Kantor non-matching complexes concern nonisomorphic graphs; the prior Pappus ordinary matching complex imposes a different (disjoint-edges) face condition. The robust-clique theorem for bipartite input graphs does not cover this claim, since the equivalent robust-clique object is on the triangular line graph of Pappus, not on the bipartite Pappus graph itself. The full sparse-graph symmetry character is not implied by complete-bipartite hook-tensor formulas. Keyword, alias and implication comparisons did not identify an equivalent Pappus \(\operatorname{NM}_3\) theorem. Unindexed or inaccessible prior work remains possible and is not excluded merely by an unsuccessful search.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Pappus incidence graph is a canonical highly symmetric cubic bipartite graph with eighteen vertices and 216 automorphisms. Its exact degree-three homotopy type is a natural topological landmark for the non-matching-complex theory motivated by 2026 persistence results. Besides resolving the integral wedge type, the full symmetry character distinguishes several involution classes and shows a two-dimensional invariant subspace. This is a substantive finite homotopy and equivariant-homology classification, not a numerical Betti-rank reprint or a routine restatement of a general theorem.
+General bipartite NM3 vanishing/persistence bounds and Heawood sparse-graph NM3=36S³ do not imply the Pappus integral attaching differential or full 216-automorphism character. Ordinary Pappus MATCHING and induced-matching complexes reverse the edge-face condition. The same-graph exact target did not appear independently among actual Resultary results, but source Shan–Wang full text was inaccessible and remains priority risk.
 
-## Limits and comparison risk
+## value
 
-The result concerns only one graph and threshold three. The automorphism character is rational; an integral representation decomposition is not claimed. No independent mathematical audit has yet occurred. Published-index coverage is incomplete, so novelty is assessed relative to the inspected sources, not asserted as absolute priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact integral non-matching topology and complete equivariant rational character of a canonical finite symmetric incidence graph are natural, reproducible classification facts; the two global invariant classes have genuine representation-theoretic meaning beyond a rank-only computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
