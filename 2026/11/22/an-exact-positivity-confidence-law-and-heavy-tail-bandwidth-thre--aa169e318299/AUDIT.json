@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "For all integer d>=1 and h>0, derive q_i by Gaussian convolution, invert the SPD 2x2 Gram matrix, and obtain exact nodewise sign inequality. Orthogonal transformation of the iid standard Gaussian nodes gives U,V independent; conditional on V the normalized inner product is an independent N(0,1). A standard independent chi-square ratio produces the Beta(1/2,d/2) confidence and threshold distribution. Explicit incomplete-beta asymptotics prove sharp t^{-d} tail and exact moment cutoff; monotone chi-square coupling yields the six-dimensional 95% boundary. The standalone checker ran 6,163 finite numerical tests of distinct algebraic and probabilistic formulas, not treating finite tests as proof. Singular h=0 handled only by limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The positive-weight theorem of arxiv:1812.08509 assumes total positivity and locally variance-minimizing point locations, unlike iid Gaussian nodes; §3.9 expressly uses Monte Carlo in d=4.",
+        "arxiv:1504.05994 supplies weights for Gaussian-process quadrature but no random-location positivity coverage."
+      ],
+      "reasoning": "General nonnegative-weight results with optimization, tensor structures, or alternative constraints do not imply the probability of simultaneous positivity for unmodified iid two-point weights.",
+      "searches": [
+        "arxiv:1812.08509 Theorem 3.1 and Corollary 1; §3.9",
+        "arxiv:1504.05994 §IV",
+        "Gaussian kernel quadrature two random Gaussian nodes positive weights dimension probability",
+        "Gaussian-process cubature two independent normal locations squared-exponential kernel both weights positive closed form"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1204.1664",
+      "arxiv:1504.05994",
+      "arxiv:1812.08509",
+      "2026/11/2/SCOPE-a-one-crossing-positivity-diagram-for-symmetric-three-node-gauss--bf59562e8e52",
+      "2026/11/2/SCOPE-a-roughness-threshold-and-exact-noise-tails-for-colliding-node-k--841cfe0433d1",
+      "2026/11/2/SCOPE-a-density-universal-collision-law-and-exact-gaussian-positivity--c97a80bc1618",
+      "2026/10/25/SCOPE-sharp-density-dependent-reversal-between-two-node-randomly-pivot--1bcc2f1e810d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The generic formula w=K^{-1}q from the 2012 paper is an input to the present proof, not already the distributional theorem.",
+        "The 2018 random Gaussian experiment has no explicit n=2 beta confidence and no bandwidth-tail moment frontier.",
+        "published-finding corpus 2026/11/2/SCOPE-a-roughness-threshold-and-exact-noise-tails-for-colliding-node-k--841cfe0433d1 concerns tails of noise-amplified quadrature error under uniform nodes and a different kernel."
+      ],
+      "reasoning": "The novelty is the exact distribution, sharp tail and critical dimensional reliability, not the generic two-by-two matrix inversion or known existence of negative weights; none of the inspected mathematically stronger results specializes to the same sampling hypotheses and claimed distribution.",
+      "searches": [
+        "arxiv:1204.1664 §3.1.1",
+        "arxiv:1504.05994 §§III–IV",
+        "arxiv:1812.08509 §§3.5,3.9",
+        "published-finding corpus 2026/11/2/SCOPE-a-one-crossing-positivity-diagram-for-symmetric-three-node-gauss--bf59562e8e52",
+        "published-finding corpus 2026/11/2/SCOPE-a-roughness-threshold-and-exact-noise-tails-for-colliding-node-k--841cfe0433d1",
+        "published-finding corpus 2026/11/2/SCOPE-a-density-universal-collision-law-and-exact-gaussian-positivity--c97a80bc1618"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The derived positive-weight event is equivalent to the Gaussian ratio |Z|/chi_d < 1+2h and then to a Beta(1/2,d/2) threshold; arxiv:1812.08509 §3.9 reports only Gaussian-node numerical tests, not this ratio law.",
+        "published-finding corpus 2026/11/2/SCOPE-a-one-crossing-positivity-diagram-for-symmetric-three-node-gauss--bf59562e8e52 has a different three-node fixed-design shape transition."
+      ],
+      "reasoning": "Exact Gaussian ratio and Student-t aliases searched and compared; the special functions arise from random two-node geometry, not an imported theorem already applying to Bayesian quadrature positivity.",
+      "searches": [
+        "two node Gaussian kernel quadrature Gaussian measure positivity exact probability iid nodes beta chi beta distribution",
+        "Gaussian kernel quadrature two random Gaussian nodes positive weights dimension probability",
+        "two-point Bayesian quadrature negative weights Gaussian distribution squared norm radial",
+        "Gaussian Gaussian-process quadrature two iid Gaussian nodes critical inverse bandwidth positivity heavy tail moment d",
+        "two node squared exponential Bayesian quadrature sign threshold distribution F Student t",
+        "Gaussian kernel quadrature random two point positivity shape threshold Pareto dimension tail",
+        "arxiv:1812.08509 §3.9",
+        "arxiv:1504.05994 §IV-A"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic retrieval returned 2026/11/2/SCOPE-a-density-universal-collision-law-and-exact-gaussian-positivity--c97a80bc1618 for random Gaussian affine-exact polynomial quadrature and 2026/11/2/SCOPE-a-one-crossing-positivity-diagram-for-symmetric-three-node-gauss--bf59562e8e52 for Gaussian-kernel deterministic 3-point signs; neither uses two-point Gaussian iid kernel quadrature."
+      ],
+      "reasoning": "Targeted exact-parameter and formula synonym searches identified no known table of the beta confidence probability or critical-shape law; absence of a search hit alone is not novelty proof.",
+      "searches": [
+        "two node Gaussian kernel quadrature Gaussian measure positivity exact probability iid nodes beta chi beta distribution",
+        "two node squared exponential Bayesian quadrature sign threshold distribution F Student t",
+        "Bayesian quadrature two iid Gaussian abscissae kernel weights positivity beta regularized Student t tail",
+        "critical lengthscale Gaussian kernel quadrature nonnegative coefficients random Gaussian nodes",
+        "two point Gaussian kernel quadrature positive weights random Gaussian nodes",
+        "positive Bayesian quadrature weights Gaussian kernel iid nodes dimensions probability exact closed form 2 node"
+      ]
+    },
+    "rationale": "Primary full-text comparison plus actual published-finding corpus searches and read-only direct inspections of closest published mathematical results found no statement covering the exact two-iid-Gaussian-node incomplete-beta positivity probability, per-pair kernel-shape threshold distribution, tail moment frontier, and six-dimensional 95% boundary. Closest primary work treats randomized Gaussian-node positivity experimentally; negative weights and generic kernel matrix formulas are acknowledged prior art. Unindexed equivalent results remain a residual priority risk.",
+    "residual_risks": [
+      "Unindexed or non-English equivalent formulations of two-Gaussian-node positivity may exist; search does not certify absolute novelty.",
+      "The exact confidence is for unconstrained weights, not an error-optimal bandwidth or a numerical floating-point condition bound.",
+      "The primary 2018 full text was inspected, but no independent outside priority or mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes general formula and possibility of negative weights, no Gaussian iid two-node positive-weight confidence or shape tail",
+        "evidence": [
+          "arxiv:1204.1664 §3.1.1 explicitly says optimal weights need not be positive",
+          "arxiv:1204.1664 equations (16)–(20) present inverse kernel-matrix weights"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1204.1664",
+        "material_read": "arXiv full text, §3.1 and §3.1.1, equations (15)–(20), negative-weight figure and commentary",
+        "method": "arxiv HTML full-text read and lawful OA conference-PDF preview",
+        "title": "Optimally-Weighted Herding is Bayesian Quadrature",
+        "trigger": "General unconstrained Bayesian quadrature inverse-Gram weight formula and sign issues"
+      },
+      {
+        "assessment": "Gives underlying Gaussian-kernel quadrature constructions, but does not give two-point sampled-node positivity probability or critical-shape law",
+        "evidence": [
+          "arxiv:1504.05994 §III–IV formulate quadrature weights and Gaussian-measure kernel integrals",
+          "arxiv:1504.05994 §IV discusses point selection rather than a two-point beta positivity confidence distribution"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1504.05994",
+        "material_read": "Full-text §III-A and §IV-A/IV-E covering Gaussian-process quadrature weights, squared-exponential Gaussian kernel, selected and random point designs",
+        "method": "arxiv full-text HTML, sectional and formula inspection",
+        "title": "On the relation between Gaussian process quadratures and sigma-point methods",
+        "trigger": "Multivariate Gaussian integration with Gaussian-process quadrature kernels"
+      },
+      {
+        "assessment": "§3.9 acknowledges no general multivariate total positivity theory and presents Monte Carlo experiments for random Gaussian nodes in d=4; does not state the exact n=2 incomplete-beta confidence law or shape distribution. Positive theorems use locally optimal nodes or tensor products rather than iid Gaussian nodes",
+        "evidence": [
+          "arxiv:1812.08509 §3.9 describes d=4 Gaussian iid-node trials with n=2..1000 and observed positive-weight proportions",
+          "arxiv:1812.08509 §3.5 positivity is conditioned on local optimization of node locations, unlike iid nodes"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1812.08509",
+        "material_read": "Full text §2, §3.1, §3.4–3.5, §3.7–3.9, and §4 beginning; especially §3.9 random point experiment and Figure 3",
+        "method": "arxiv full-text HTML; examined statements, proof-scope restrictions, random Gaussian point experiment and numerical evidence",
+        "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+        "trigger": "Strong plausible prior publication specifically studying Bayesian quadrature weight positivity and random Gaussian nodes"
+      },
+      {
+        "assessment": "Its nodes are fixed (-a,0,a), integration measure is uniform on [-1,1], and the target is sign of the central weight as a function of shape; it does not imply a distribution over independent Gaussian nodes, a beta law, or critical-shape moment cutoff",
+        "evidence": [
+          "published-finding corpus 2026/11/2/SCOPE-a-one-crossing-positivity-diagram-for-symmetric-three-node-gauss--bf59562e8e52 Finding fixes 3 symmetric nodes and uniform bounded measure",
+          "published-finding corpus 2026/11/2/SCOPE-a-one-crossing-positivity-diagram-for-symmetric-three-node-gauss--bf59562e8e52 Proof derives central-weight sign from one-dimensional hyperbolic integrals, not randomized Gaussian geometry"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-a-one-crossing-positivity-diagram-for-symmetric-three-node-gauss--bf59562e8e52/RESULT.md",
+        "material_read": "Public RESULT.md lines 1–180, including complete Finding, Assumptions and scope, Proof, Relationship to prior work and References sections",
+        "method": "Read GitHub repository file via read-only connector and compared exact interpolation objects, distributions and implications",
+        "title": "A one-crossing positivity diagram for symmetric three-node Gaussian kernel quadrature",
+        "trigger": "Very close same-kernel positivity and shape threshold topic"
+      },
+      {
+        "assessment": "Uniform nodes on [0,1] and exp(-lambda|x-y|^alpha), noise tails and nugget moment threshold alpha=3/2; unlike present Gaussian sampling, Gaussian covariance metric, and tail of positive-weight critical h",
+        "evidence": [
+          "published-finding corpus 2026/11/2/SCOPE-a-roughness-threshold-and-exact-noise-tails-for-colliding-node-k--841cfe0433d1 defines noisy quadrature error and power-exponential kernel",
+          "published-finding corpus 2026/11/2/SCOPE-a-roughness-threshold-and-exact-noise-tails-for-colliding-node-k--841cfe0433d1 states tail exponent 1/(alpha-1) for error, not d for random critical shape"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-a-roughness-threshold-and-exact-noise-tails-for-colliding-node-k--841cfe0433d1/RESULT.md",
+        "material_read": "Public RESULT.md lines 1–180 including Finding, Assumptions and scope, Proof and prior-work discussion",
+        "method": "Read GitHub repository file via read-only connector and compare target random variables and assumptions",
+        "title": "A roughness threshold and exact noise tails for colliding-node kernel quadrature",
+        "trigger": "Closest two-random-node kernel-quadrature tail result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "aa169e31-8299-4b2a-bb23-7471fc0c017c",
+  "value": {
+    "rationale": "Positive unconstrained weights determine whether kernel quadrature preserves nonnegative node data, a key reliability issue documented by Huszar-Duvenaud and Karvonen-Kanagawa-Sarkka. The result supplies an exact reliability-versus-bandwidth/dimension law for iid Gaussian designs, a nontrivial smallest 95%-safe dimension six, and a sharp heavy-tail moment criterion for the naturally defined critical shape. These quantities are motivated before computation and quantify rare unstable geometries, extending beyond routine two-by-two inversion. No broader approximation-error theorem is claimed or required.",
+    "status": "PASS"
+  }
+}
