@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "For all m,n>=3 and 0<=t<=min(m,n), every vertex-cover complement is a one-shore subset or a single missing matched pair. Full edge-distance comparisons prove that a one-shore omitted set is resolving precisely when it contains no more than one unmatched vertex. Each mixed pair is resolving by distinct selected-endpoint intersections. Enumerating these exhaustive disjoint cases (with empty-set correction) yields H=(1+z)^t(2+(m+n-2t)z)-1+t z^2. Inclusion maximal omissions yield M and the exact minimum. All distances (1,2,3) are valid even at m=n=3. The BFS exact-subset program checked 71 cases with m+n<=11; independent pair-witness C++ checked 108 cases with m+n<=12. No finite extrapolation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tavakoli et al., accessible OA full text Theorem 2.1 (biclique scalar) and Theorems 3.1–3.5 (graph operations)",
+        "Kelenc–Tratnik–Yero, arXiv:1602.00291v1, Section 2, different edim condition"
+      ],
+      "reasoning": "The general graph-operation formulas apply to corona, edge-corona, and joins. For t>0, a matching-deleted biclique is not a graph join (its complement is connected), nor a corona or edge-corona in the stated constructions. No stronger statement on all selected vertex-cover edge resolving sets is supplied.",
+      "searches": [
+        "Tavakoli Korivand Erfanian Abrishami Baskoro dominant edge metric dimension matched edges removal",
+        "\"dominant edge metric dimension\" \"complete bipartite\" theorem",
+        "dominant edge metric dimension of crown graph compared complete bipartite"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.5614/ejgta.2023.11.1.16",
+      "arxiv:1602.00291",
+      "arxiv:2211.09327",
+      "Full published scientific result: Resolving polynomials and the upper-dimension transition in matching-deleted bicliques (record 01c06d3fb257; vertex metric only)",
+      "Full published scientific result: Edge metric bases of crown graphs (record b5b3c45f23e8; no vertex cover)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tavakoli et al. Theorem 2.1: Ddim_e(K_mn)=m+n-1; the new t=0 endpoint reproduces it",
+        "Ikhlaq et al. Theorem 9: gamma_emd(K_mn)=m+n-2 for vertex-edge-dominating edge resolution, confirming non-equivalence of conditions",
+        "For fully deleted balanced matching, the present generator minimum has size n and exactly two shore bases, a consequence of the new independent-omission argument"
+      ],
+      "reasoning": "The 2023 theorem implies exactly one boundary value and none of the matching-defect coefficients or facet classes. The 2022 theorem uses a weaker domination requirement and cannot imply the vertex-cover counts. The full omission structure and M polynomial are new statement components, not rephrasings of these scalars.",
+      "searches": [
+        "dominant edge metric dimension of complete bipartite graph K_{m,n} minus one edge exact bases",
+        "dominant edge metric dimension of crown graph K n n minus perfect matching every minimum basis",
+        "\"dominant edge metric dimension\" \"one edge\" \"complete bipartite\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tavakoli et al. DOI:10.5614/ejgta.2023.11.1.16, definition of an edge-resolving vertex cover",
+        "Kelenc et al. arXiv:1602.00291 defines edge metric resolution without any cover constraint",
+        "Ikhlaq et al. arXiv:2211.09327 defines a different vertex-edge domination condition"
+      ],
+      "reasoning": "Checked alternative names dominant edge-metric generator, dominant edge metric dimension, edge-resolving vertex cover, and the vertex-edge dominant edge-metric variant. The last is not equivalent: vertex-edge domination does not require covering every edge by an endpoint.",
+      "searches": [
+        "dominant edge metric dimension and all dominant edge metric generators for complete bipartite graphs with a matching deleted",
+        "\"dominant edge metric\" \"deleted matching\"",
+        "\"dominant edge metric generator\" \"deleted\" \"matching\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The known t=0 scalar in DOI:10.5614/ejgta.2023.11.1.16 is covered and credited",
+        "Full published RESULT.md of Resolving polynomials and the upper-dimension transition in matching-deleted bicliques (record 01c06d3fb257) concerns vertex pairs, not edge pairs or covers",
+        "Full published RESULT.md of Edge metric bases of crown graphs (record b5b3c45f23e8) gives edge metric dimension without the vertex cover requirement"
+      ],
+      "reasoning": "No full matched-deletion dominant edge-metric cardinality polynomial or inclusion-minimal table was located in the checked sources; this is evidence of a search gap only, not a proof of global novelty. The highly similar resolving-polynomial summary does not imply H because its tested objects are vertex pairs rather than edge pairs and it lacks the cover constraint.",
+      "searches": [
+        "vertex-cover edge-resolving sets counting polynomial of matching-deleted bicliques K_mn minus t matching",
+        "dominant edge metric bases defect interpolation K_mn crown graphs",
+        "\"dominant edge metric\" \"matching\" \"bipartite\" 2023"
+      ]
+    },
+    "rationale": "The directly motivating 2023 source gives only Ddim_e(K_mn)=m+n-1 (the t=0 endpoint). Matching-deleted graphs with t>0 are not graph joins and cannot be obtained from that source’s join formula. The other most similar results concern vertex resolving polynomials, edge metric dimension without a cover, or the distinct vertex-edge domination condition. Actual literature and published-record searches showed no exact H/M expression or implication of it; historical uniqueness remains provisional.",
+    "residual_risks": [
+      "Unindexed or inaccessible literature may contain equivalent statements; priority remains provisional.",
+      "The inspected scientific records employ distinct conditions; this implication comparison does not prove global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIALLY_COVERING: t=0 scalar only; does not enumerate matched-deleted graphs",
+        "evidence": [
+          "Definition requires vertex cover plus edge metric resolving",
+          "Theorem 2.1(ii) states Ddim_e(K_mn)=m+n-1",
+          "Theorem 3.5 concerns joins, inapplicable when deleted matching nonempty"
+        ],
+        "identifier_or_url": "doi:10.5614/ejgta.2023.11.1.16",
+        "material_read": "Open-access twelve-page PDF text, definition, Theorem 2.1, graph-operation Theorems 3.1–3.5, later complexity/open-problem results; images of opening page and page containing Theorem 2.1",
+        "method": "Full paper accessed through OA PDF with text and page inspection",
+        "title": "The dominant edge metric dimension of graphs",
+        "trigger": "Exact invariant and closest original complete-bipartite result"
+      },
+      {
+        "assessment": "NOT_COVERING the combined invariant because no vertex-cover requirement",
+        "evidence": [
+          "Remark 2 gives edim(K_mn)=m+n-2, not the dominant edge metric dimension",
+          "The paper defines an edge metric generator without covering edges"
+        ],
+        "identifier_or_url": "arxiv:1602.00291v1",
+        "material_read": "Open arXiv HTML, abstract, Sections 1–2 and complete-bipartite formula with proof; table of contents and main claims",
+        "method": "Direct primary arXiv HTML inspection",
+        "title": "Uniquely identifying the edges of a graph: the edge metric dimension",
+        "trigger": "Foundational edge-distance definition and potentially stronger edge-resolution formulas"
+      },
+      {
+        "assessment": "NOT_COVERING: weaker vertex-edge domination is not a vertex cover",
+        "evidence": [
+          "Theorem 9 gives its different invariant m+n-2 for K_mn",
+          "Vertex-edge domination is not endpoint vertex-cover domination"
+        ],
+        "identifier_or_url": "arxiv:2211.09327",
+        "material_read": "Open arXiv HTML abstract, definitions and Theorem 9 on complete bipartite graphs",
+        "method": "Direct primary arXiv HTML inspection",
+        "title": "Unique identification and domination of edges in a graph: The vertex-edge dominant edge metric dimension",
+        "trigger": "Plausible naming and invariant equivalence"
+      },
+      {
+        "assessment": "NOT_COVERING the present edge metric and vertex-cover combined invariant",
+        "evidence": [
+          "The condition there resolves pairs of vertices; the present condition resolves pairs of edges AND requires a vertex cover",
+          "Its full polynomial Q(z)^t A_p(z)A_q(z)+tQ(z)^{t-1}z^{p+q} does not imply H, with different coefficients and defining property"
+        ],
+        "identifier_or_url": "published-scientific-record:01c06d3fb257",
+        "material_read": "Full RESULT.md, including exact vertex-resolution criterion, two counting polynomials, proof, and discussion of chain-graph endpoint coverage",
+        "method": "Read full published research result via repository file-access connector",
+        "title": "Resolving polynomials and the upper-dimension transition in matching-deleted bicliques",
+        "trigger": "Identical graph family and both complete all-set and inclusion-minimal polynomials"
+      },
+      {
+        "assessment": "NOT_COVERING combined dominant edge metric generator polynomial",
+        "evidence": [
+          "Ordinary edge metric bases on the balanced crown graph have size n-1 and omit one entire deleted pair, while a vertex cover must select at least n vertices",
+          "Their classified bases are not vertex covers and their theorem supplies no all-generator or inclusion-minimal polynomial"
+        ],
+        "identifier_or_url": "published-scientific-record:b5b3c45f23e8",
+        "material_read": "Full RESULT.md, complete edge metric distance proof, minimum-basis classification, and references",
+        "method": "Read full published research result via repository file-access connector",
+        "title": "Edge metric bases of crown graphs",
+        "trigger": "Same edge distance definition and the fully deleted matching boundary"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "998815ed-22bd-4f72-84e4-302762202c0c",
+  "value": {
+    "rationale": "This is a complete, natural two-parameter matched-edge-deletion response law for a combined identification/coverage invariant, not a single routine decrement. It classifies all feasible and inclusion-minimal sensor sets, identifies exactly when and how the biclique result changes, and shows an unbounded separation between the two inclusion-minimal sizes as the matching length increases. It also treats the balanced full matching endpoint with a distinct dimension plateau. The exact H polynomial permits future reliability and optimization calculations without recomputing the graph-specific edge-distance constraints.",
+    "status": "PASS"
+  }
+}
