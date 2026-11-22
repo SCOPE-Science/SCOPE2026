@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Reproducibility
-Extract the three files under `verification/` into their relative paths alongside the documents. Run `python3 verification/verify_gp_m2.py` and `python3 verification/verify_gp_m2.py --reverse`; each prints one JSON line. Compare the output with `verification/forward.json` and `verification/reverse.json`, respectively. Each mode exhaustively constructs graph edges, enumerates all valid faces for all three indices, verifies incidence and gradient acyclicity, and recomputes integer Morse attaching data where an adjacent-dimensional critical pair occurs. No external libraries or network are needed.
+# Independent mathematical audit
 
-The forward mode visits 34,704, 223,819, and 1,436,990 matching pairs. The reversed mode visits 34,705, 223,818, and 1,436,989 matching pairs. All computations use exact integer arithmetic. For the first graph the forward signed integral differential is a three-by-two unit-rank matrix; reversed modes have a single primitive attaching vector or row. These facts support integral homotopy types because the only nontrivial attaching maps in these CW models are in the first positive cell dimension and are detected by degrees. The software checks finite instances only; it does not prove a claim for other graph parameters, establish absolute novelty, or constitute independent audit.
+## correctness
+
+PASS
+
+The frozen RESULT.md supplies distinct simple cubic GP(n,2) edges (outer rim, spokes, 2-step inner), complete include/omit face enumeration, complete per-vertex toggle Morse matching and a full directed-gradient acyclicity test. Critical CW cells: n=6 one 0-cell, three 8-cells and two 9-cells; n=7 one 0-cell and one 10-cell; n=8 one 0-cell and one 12-cell. The n=6 signed integral differential [[0,-1],[-1,-1],[0,-1]] has Smith unit rank 2 and the 8-skeleton is 7-connected; Hurewicz makes the two attaching homotopy classes integral degree vectors, so cancelling the primitive pairs leaves S^8 rather than merely its homology. The alternate reverse matching also has primitive unit matrices. The case n>=9 is unproved. Independent edge-cover inclusion/exclusion counts were independently computed: 69,415 / 447,641 / 2,873,983 augmented faces. The inspected source verifier checks gradient acyclicity and integer Morse elimination; these are complete finite exact cases, not extrapolations.
+
+## originality
+
+PASS
+
+No inspected broader two-matching theorem covers these three edge-complexes. The same-complex earlier Petersen graph n=5 has four 7-spheres, not any n=6,7,8 sphere; graph-vertex higher-independence complexes are a distinct simplicial construction. Exact assigned finding appears in the index, but not a separate preceding same-parameter determination. Priority is best-of-knowledge subject to unindexed finite-complex tables.
+
+## value
+
+PASS
+
+These are three consecutive natural cubic generalized Petersen graphs just beyond the classical Petersen boundary, with different integral sphere multiplicities from the n=5 case. Complete integral homotopy types rather than mod-field Betti ranks are exact natural invariants; their contrasting dimensions and lone-sphere outcome make a mathematically motivated finite boundary/classification, without claiming a general n-formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
