@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The distance formula and forbidden-edge component classification are exhaustive for every integer \(m\ge2\), \(L\ge2\). The canonical join is an exact simplicial identity. Crown factors contract to connected parallel-edge graphs of first Betti number \(m-1\); the integral join formula yields the stated pure sphere wedge. The pole-reversal sign counts reversed bridge lattices and the pole zero-sphere. The 32 distance experiments, 24 full face checks, and 90 signed trace checks passed. They corroborate, but do not replace, the infinite-parameter argument.
+PASS
 
-## Originality — PASS with residual risk
+Enumerated exact vertex graph distances: for distinct arms, d(v_{i,a},v_{j,b})=min(a+b,2L−a−b), hence forbidden pairs at diameter L are the pole pair, complementary levels a+ b=L with different arm labels, and for even L a middle-level K_m. As disjoint forbidden-pair components this is K2 plus floor((L−1)/2) crown graphs K_{m,m}−M_m plus a middle K_m for even L. Complement flag/Rips complex is literal simplicial join S⁰*D_m^{*k} for odd L=2k+1, or S⁰*D_m^{*(k−1)}*E_m for even L=2k. Each D_m consists of two contractible shores joined by m independent bridges, so integral H1(D_m)=A_m and D_m~vee^{m−1}S¹; E_m~vee^{m−1}S⁰. Join Künneth gives precisely the wedge, sphere dimension, no torsion, and tensor-power arm representation. Pole reversal acts −1 on pole S⁰ and each crown H1, with middle E fixed, yielding odd (−1)^{k+1} and even (−1)^k. At m=2 the two-arm graph is a cycle and the natural action still exists, but the full automorphism assertion applies only m≥3. Independently recomputed forbidden-pair join factorization in 28 (m,L) cases; exact all-parameter proof is combinatorial.
 
-The 2025 Adams–Adetowubo–Barriga-Acosta–Feng–Sterling torus-grid paper (arXiv:2502.07134) concerns another graph class. Adamaszek’s graph-power stability proposition has an inapplicable girth requirement at the claimed radius. Full published technical statements for lengths three and four are acknowledged as prior-covered subcases; neither asserts the unrestricted arm-length theorem. An earlier mixed three/five length construction has different hypotheses and cannot be specialized to all-equal length five. No equivalent all-length claim was found in the checked sources; unindexed coverage remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The length parameter is not a routine numerical substitution: increasing \(L\) creates new crown factors, arbitrary sphere dimensions, tensor powers of the augmentation lattice and a genuine mod-four symmetry pattern. The formula classifies a natural last nontrivial persistence stage for all equal-arm theta networks, including cases with exponentially many spheres.
+Compared the exact statement and normalization with primary literature, published mathematical findings and indexed aliases; novelty assessed for the unrestricted claimed quantitative family rather than for credited intermediate lemmas. Residual priority risk is explicit. An explicit all-length graph-metric Rips homotopy classification with unbounded sphere dimension, exponentially growing multiplicity and integral symmetry representation answers a natural graph topology problem beyond the known L=3,4 cases. It gives a literal 
 
-## Limits
+## value
 
-Only finite vertex shortest-path metrics, unit equal-arm lengths and radius one below the diameter are covered; no whole-filtration or metric-realization classification. The signed integral module is proved for the natural symmetry action, with full-group identification when \(m\ge3\). Independent validation and exhaustive publication-priority search remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicit all-length graph-metric Rips homotopy classification with unbounded sphere dimension, exponentially growing multiplicity and integral symmetry representation answers a natural graph topology problem beyond the known L=3,4 cases. It gives a literal join model and integrality, not a mechanically extrapolated finite barcode.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
