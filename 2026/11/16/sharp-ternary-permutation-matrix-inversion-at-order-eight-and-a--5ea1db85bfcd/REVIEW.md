@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Fourier diagonalization is valid for unnormalized counting convolution on the finite abelian group. The partial-matching permanent expansion has exact coefficients \((8-k)!\). The \((1-\omega)\)-valuation of \(8!\) is four, whereas every positive-degree correction has valuation at least five. The resulting nonzero permanent is divisible by nine and has modulus at least nine; the displayed exponent matrix attains nine with directly verified residue counts. Complete exact-integer enumeration of the 6,561 circulant phase words yields minimum squared modulus 1296 in exactly 48 cases and 59 distinct squared levels. Two programs use separately implemented recurrences, and the full witness also has an independent 40,320-permutation replay.
+## correctness
 
-**Originality — PASS, bounded comparison.** The 2003 and 2016 prime-root permanent theorems already establish nonvanishing at order eight; neither nonvanishing nor the valuation strategy is presented as new. The inspected 2016 primary full text establishes this general criterion but does not provide the order-eight sharp absolute minimum and circulant-frequency census. Searches for sharp least nonzero cubic-root permanents and order-eight circulant permanent values did not identify an exact dominating table. The 2015 Akbari–Ariannejad–Tajfirouz article is a material residual risk: its accessible abstract emphasizes maximal permanent estimates, while its full text was unavailable. Other closely titled 2023 work addresses zero-free orders. Related binary power-of-two circulant congruences imply no cubic-root order-eight minimizer or word count. The accessible comparison supports but does not certify historical priority.
+PASS
 
-**Mathematical value — PASS.** The Fourier characters of the permutation-incidence code are precisely cubic-root matrix permanents; their minimum absolute magnitude is the sharp deconvolution stability constant. The cyclic subspace is naturally dictated by simultaneous cyclic relabelling of rows and columns, not an arbitrary numerical slice. Its fourfold exact stability advantage and 48 minimizers distinguish symmetry-constrained from unrestricted recovery. An explicit global extremizer is needed because the known zero-free theorem alone does not yield sharp quantitative conditioning.
+For any 8×8 matrix A of cubic roots, write A=J+Delta, all Delta entries divisible by pi=1-omega in Eisenstein integers. Expanding permanent over partial row-column matchings gives sum_k (8-k)! times size-k products Delta. The k=0 term has pi-valuation 2v3(8!)=4, whereas k=1..8 terms have lower valuations 5,6,5,6,7,6,7,8, so cancellation of the leading 8! term is impossible: per(A) is a nonzero multiple of 9 with modulus≥9. The displayed exponent matrix yields permutation residue counts (13446,13437,13437), hence exact permanent 9. For circulant exponent words a∈F3^8, integer-pair Eisenstein subset DP enumerates all 3^8=6561 cases, minimum squared modulus 1296 (so 36), precisely 48 minimizers and 59 distinct squared-modulus levels. I independently compiled and executed a separate exact C++/integer-pair implementation: minimum 1296, 48, 59, global witness 9. Finite 6561 enumeration IS exhaustive for the stated cyclic class, not for full 3^64 space (handled by valuation + witness).
 
-**Closest sources and limitations.** Akbari–Fanaï–Mahmoudian (2003) and Fanaï (2016) provide the existing zero-free foundation. Akbari–Ariannejad–Tajfirouz (online 2015) and Fanaï (2023) remain abstract-only comparisons. No all-order claim, unrestricted spectral histogram, or independent external audit is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The infinite order-(p^a-1) nonvanishing of cubic-root permanents is known, and is not claimed novel. Distinct exact order-eight sharp global minimum with attaining witness, the natural cyclic Fourier-frequency minimum 36 and 48/59 census are bounded new quantitative claims. The highly relevant 2015-2016 maximum-permanent literature is not fully readable; record an explicit priority risk, not fabricated full-text noncoverage.
+
+## value
+
+PASS
+
+The natural 8=3²−1 boundary case is the first useful larger prime-power-minus-one example for zero-free cubic-root permanents. An exact global inverse norm and an independently exhaustive cyclic symmetric subspace spectrum with fourfold enhanced gap, count and 59-level distribution quantify stability beyond the known yes/no nonvanishing theorem; not a decorative tiny enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

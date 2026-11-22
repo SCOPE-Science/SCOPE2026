@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical verification
+# Independent mathematical audit
 
-The exact determinant-free permanent recurrence uses Eisenstein coordinates \((u,v)\) meaning \(u+v\omega\), multiplication \((u,v)(s,t)=(us-vt,ut+vs-vt)\), and squared modulus \(u^2-uv+v^2\). Integer-only evaluation has no rounding thresholds. The supplied C++17 and Python programs separately enumerate all 6,561 cyclic exponent words and both assert the least squared modulus 1296, minimum multiplicity 48 and exactly 59 squared-level values.
+## correctness
 
-The Python checker independently verifies that the explicit unrestricted character has permanent \(9\) using a subset recurrence and separately by enumerating all \(8!=40,320\) permutation products; residue counts are \((13446,13437,13437)\). The C++ checker directly checks cyclic attaining word \((1,1,0,1,1,0,0,0)\) has permanent \(36\omega\).
+PASS
 
-**Proof rather than experiment:** For each size-\(k\) partial-matching correction, the minimal \((1-\omega)\)-valuation is \((5,6,5,6,7,6,7,8)\) for \(k=1,\ldots,8\); the base permanent \(8!\) has valuation four. Thus every unrestricted coefficient has valuation four and modulus at least nine. This step covers every one of the \(3^{64}\) characters without brute-force enumeration. Computational exhaustion is used only for the 6,561 cyclic frequencies and the two explicit witnesses.
+For any 8×8 matrix A of cubic roots, write A=J+Delta, all Delta entries divisible by pi=1-omega in Eisenstein integers. Expanding permanent over partial row-column matchings gives sum_k (8-k)! times size-k products Delta. The k=0 term has pi-valuation 2v3(8!)=4, whereas k=1..8 terms have lower valuations 5,6,5,6,7,6,7,8, so cancellation of the leading 8! term is impossible: per(A) is a nonzero multiple of 9 with modulus≥9. The displayed exponent matrix yields permutation residue counts (13446,13437,13437), hence exact permanent 9. For circulant exponent words a∈F3^8, integer-pair Eisenstein subset DP enumerates all 3^8=6561 cases, minimum squared modulus 1296 (so 36), precisely 48 minimizers and 59 distinct squared-modulus levels. I independently compiled and executed a separate exact C++/integer-pair implementation: minimum 1296, 48, 59, global witness 9. Finite 6561 enumeration IS exhaustive for the stated cyclic class, not for full 3^64 space (handled by valuation + witness).
 
-**Known limits:** No all-order stability theorem, unrestricted full spectrum, classification of cyclic equivalence classes or independent mathematical review is asserted. The 2015 closely titled literature could not be inspected in full; historical originality remains a bounded comparison.
+## originality
+
+PASS
+
+The infinite order-(p^a-1) nonvanishing of cubic-root permanents is known, and is not claimed novel. Distinct exact order-eight sharp global minimum with attaining witness, the natural cyclic Fourier-frequency minimum 36 and 48/59 census are bounded new quantitative claims. The highly relevant 2015-2016 maximum-permanent literature is not fully readable; record an explicit priority risk, not fabricated full-text noncoverage.
+
+## value
+
+PASS
+
+The natural 8=3²−1 boundary case is the first useful larger prime-power-minus-one example for zero-free cubic-root permanents. An exact global inverse norm and an independently exhaustive cyclic symmetric subspace spectrum with fourfold enhanced gap, count and 59-level distribution quantify stability beyond the known yes/no nonvanishing theorem; not a decorative tiny enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

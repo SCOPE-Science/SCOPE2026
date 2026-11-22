@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T09:07:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any 8×8 matrix A of cubic roots, write A=J+Delta, all Delta entries divisible by pi=1-omega in Eisenstein integers. Expanding permanent over partial row-column matchings gives sum_k (8-k)! times size-k products Delta. The k=0 term has pi-valuation 2v3(8!)=4, whereas k=1..8 terms have lower valuations 5,6,5,6,7,6,7,8, so cancellation of the leading 8! term is impossible: per(A) is a nonzero multiple of 9 with modulus≥9. The displayed exponent matrix yields permutation residue counts (13446,13437,13437), hence exact permanent 9. For circulant exponent words a∈F3^8, integer-pair Eisenstein subset DP enumerates all 3^8=6561 cases, minimum squared modulus 1296 (so 36), precisely 48 minimizers and 59 distinct squared-modulus levels. I independently compiled and executed a separate exact C++/integer-pair implementation: minimum 1296, 48, 59, global witness 9. Finite 6561 enumeration IS exhaustive for the stated cyclic class, not for full 3^64 space (handled by valuation + witness).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fanaï 2016 Theorem 1 includes the 8=3²−1 zero-free family but not a sharp minimum/circulant subclass in inspected full text",
+          "2015/2016 Akbari–Ariannejad–Tajfirouz abstract discusses extremal permanent magnitudes and is a plausible comparison, but the paper could not be inspected fully; Oxford authorized access returned vpn_disconnected"
+        ],
+        "reasoning": "The broader zero-free theorem covers only one component (invertibility) of the assigned package. If the inaccessible extremal-permanent paper evaluates the same sharp minimum, an originality comparison would need revisiting; bounded best-of-knowledge judgment flags this without claiming it did not.",
+        "searches": [
+          "Akbari Fanaï Mahmoudian 2003 roots of unity constant determinant permanent nonzero",
+          "Fanaï Ars Combinatoria 126 2016 theorem 1",
+          "Akbari Ariannejad Tajfirouz 2016 Permanents of matrices over roots of unity doi 10.1080/03081087.2015.1120264"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md blob 90ca85c98b565a946c47899b61c61859b248f138",
+        "Assigned circulant_check.cpp blob 04c8b1b4c9e8c597a1a2ccf382b9eddb82f8acf0",
+        "Assigned independent_check.py blob f31c11173967335e5a0f28dcfcd7ba259874ef75",
+        "Fanaï 2016 full primary short PDF",
+        "Akbari–Ariannejad–Tajfirouz DOI abstract only, full access blocked",
+        "Resultary signed-permutation ternary full RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Inspected full signed-permutation Resultary RESULT.md evaluates per(3Z-J), an integer multiplier for 2^n n! signed matrices; assigned per(omega^{Kij}) is a complex Eisenstein multiplier for n! unsigned permutations, so no direct reduction",
+          "Fanaï zero-free theorem implies no character is zero but not min|per|=9, fourfold restricted gap and exact number of cyclic minimizers"
+        ],
+        "reasoning": "Different orbit/codebook and valuation results do not mechanically fix the sharp attained norm and cyclic census; the uninspected extremal literature remains possible overlap.",
+        "searches": [
+          "Resultary ternary Fourier rigidity and rank three resonance signed permutation matrices",
+          "Fanaï 2016 roots unity nonzero permanent theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fanaï 2016 Theorem 1 proves nonvanishing for n=p^a-1; the full inspected three-page paper does not present the evaluated sharp |per|=9 witness or all-6561 circulant spectra",
+          "This claim evaluates sharp global and cyclic numerical optima for cubic-root permanents, not just nonzero determinants"
+        ],
+        "reasoning": "The known nonvanishing equivalence is explicitly credited; valuation ≥9 and exact cyclic census require additional quantitative work. The valuation is a refinement of the same technique, not an unrelated discovery.",
+        "searches": [
+          "Resultary semantic: permanent cube root unity order 8 permutation matrices ternary Fourier minimum 9 cyclic circulant 36 48",
+          "Fanaï 2016 On Matrices over Roots of Unity with Vanishing Permanent"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The submitted independently verified 6561-word exact exhaustive integer-pair census gives minimum norm² 1296, count 48 and 59 levels; related Resultary order-five binary-permutation and ternary signed-permutation tables concern different alphabets/codebooks",
+          "No pre-existing table for the same 8×8 cubic-root circulant subgroup was located in the bounded search; comparable other-alphabet or signed-support tables do not supply these values."
+        ],
+        "reasoning": "The census is exhaustive only for the natural cyclic class; no prior identical table was identified. This bounded search is not a proof of absence.",
+        "searches": [
+          "Resultary ternary order eight permutation Fourier circulant 6561 permanent minimum levels",
+          "cubic roots of unity circulant permanent 8-by-8 48 minimizers 59 levels"
+        ]
+      },
+      "rationale": "The infinite order-(p^a-1) nonvanishing of cubic-root permanents is known, and is not claimed novel. Distinct exact order-eight sharp global minimum with attaining witness, the natural cyclic Fourier-frequency minimum 36 and 48/59 census are bounded new quantitative claims. The highly relevant 2015-2016 maximum-permanent literature is not fully readable; record an explicit priority risk, not fabricated full-text noncoverage.",
+      "residual_risks": [
+        "Potential exact global-minimum overlap with Akbari–Ariannejad–Tajfirouz (2015 online/2016 print) not resolved: authorized Oxford VPN disconnected, no full text read. This inaccessible plausible source alone is not evidence of coverage or automatic FAIL.",
+        "Exhaustiveness covers only 6561 cyclic phase words. The entire 3^64 unrestricted frequency spectrum beyond global minimum is not enumerated or classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers zero-free family but not sharp minimum/circulant census in full inspected paper",
+          "evidence": "Theorem 1: for prime p, permanent of (p^k-1)-order pth-root matrices never zero, via p-adic divisibility",
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20126/volume-126-paper-10.pdf",
+          "material_read": "full short 3-page primary PDF including Theorem 1 and proof",
+          "method": "PDF pages visually checked",
+          "title": "On Matrices over Roots of Unity with Vanishing Permanent",
+          "trigger": "same prime-root permanent zero-free order 8"
+        },
+        {
+          "assessment": "cannot confidently rule out a same-order sharp-minimum theorem",
+          "evidence": "abstract describes permanent magnitude/extremal bounds; no full theorem inspected",
+          "identifier_or_url": "https://doi.org/10.1080/03081087.2015.1120264",
+          "material_read": "publisher abstract/metadata only; no primary full-text content",
+          "method": "open web/OA attempts then authorized institutional access, returned vpn_disconnected; no bypass",
+          "title": "Permanents of matrices over roots of unity",
+          "trigger": "highly relevant extrema of root-of-unity permanents"
+        },
+        {
+          "assessment": "different 2^n n! signed orbit and integer permanent(3Z-J), no direct evaluated cubic-root unsigned-permutation census",
+          "evidence": "character multiplier W_n(K)=per(3Z(K)-J_n), unlike per(omega^K)",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-ternary-fourier-rigidity-and-a-rank-three-resonance-for-signed-p--3bbb992f26ba/RESULT.md",
+          "material_read": "entire RESULT.md claim/proof/limitations",
+          "method": "GitHub public read-only primary file",
+          "title": "Ternary Fourier rigidity and a rank-three resonance for signed permutation matrices",
+          "trigger": "same ternary matrix ambient space but signed-permutation orbit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural 8=3²−1 boundary case is the first useful larger prime-power-minus-one example for zero-free cubic-root permanents. An exact global inverse norm and an independently exhaustive cyclic symmetric subspace spectrum with fourfold enhanced gap, count and 59-level distribution quantify stability beyond the known yes/no nonvanishing theorem; not a decorative tiny enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No full classification of all 3^64 unrestricted multipliers, only their sharp minimum.",
+    "Historical priority risk from the inaccessible 2015/2016 extremal-permanent primary article."
+  ],
+  "schema_version": 1
+}
