@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Sonine identity fixes the Fourier normalization, the uniform Bessel asymptotic reduces the absolute spectral integral to the positive mean \(2/\pi\) of \(|\cos|\), and a bounded-primitive integration-by-parts argument gives the uniform \(O(1)\) remainder. An independent Fourier-uniqueness and Cauchy–Schwarz argument proves the exact one-frequency second-moment bound. The 62 numerical checks corroborate constants and finite instances but are not used as infinite proofs.
+## correctness
 
-**Originality — PASS relative to inspected evidence, with a material access risk.** The motivating August 29, 2026 work states the signed Fourier-feature method and its integrability premise, not the claimed sharp critical-window residue in its accessible abstract. Its full manuscript could not be inspected, so the comparison is incomplete. A 2022 paper on Fourier transforms of ball orthogonal polynomials and NIST's classical Bessel asymptotics supply known ingredients, not the combined absolute-variation and sampling-cost classification. The closest accessible database summary concerns a different mollified-ball \(L^p\) problem. This is a best-knowledge judgment, not a proof of priority.
+PASS
 
-**Value — PASS.** The sharp admissibility boundary, explicit dimensional constant, full critical-cutoff crossover and unavoidable squared conditioning blowup quantify an algorithmic limitation of the signed-spectral sampler specifically introduced for compactly supported kernels. The result is motivated by a genuine integrability prerequisite, not an arbitrary radial integral. It is restricted to the one-frequency unbiased class and does not assess alternative approximation schemes.
+The Sonine radial Fourier identity gives a Bessel J_{d/2+beta} tail whose L1 radial exponent is r^{-1-(beta-beta_c)}. Fixed-order large-r Bessel asymptotics uniform in a compact beta-neighborhood, periodic |cos| average 2/pi with bounded primitive, and an integrable r^{-2-epsilon} remainder yield the exact residue and uniform logarithmic window; local r=0 power is integrable. Independently checked the prefactor and numerical cutoff slopes at beta_c: d=2 0.6387808 versus A2=0.6366198; d=3 0.8082687 versus A3=0.8105695; d=4 0.9582345 versus A4=0.9549297. For finite TV, Cauchy–Schwarz applied to a signed spectral measure gives E|w|^2>=||mu||_TV^2 and sampling proportional to |rho| attains equality. At infinite TV, uniqueness of Fourier transforms of finite measures precludes any finite-variance unbiased all-displacement single-frequency representation. Scope expressly excludes other estimator families.
 
-**Closest literature and risks.** Wang–Langrené–Chen (arXiv:2608.29265), Lekesiz–Aktaş–Area (Axioms 11 (2022) 558), NIST DLMF §10.17, and a distinct published analysis of the critical \(L^p\) Fourier norm of a mollified ball were compared within their accessible material. The motivating article's full text and potential older equivalent oscillatory-integral residue calculations remain uninspected priority risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The standard ball-power Bessel transform and average |cos| are established inputs; the inspected relevant Wang–Langrené–Chen (2026) abstract introduces signed random Fourier features and integrable-spectrum requirement but does not exhibit the sharp d-dependent beta threshold, residue, uniform cutoff crossover, or optimal single-frequency cost. Its FULL manuscript could not be read (arXiv and OA failed; Oxford access reports VPN disconnected), which is a material priority risk, but alone is not a scientific failure. Older critical Lp physical-space ball kernel results concern a different norm/parameter.
+
+## value
+
+PASS
+
+The spectral integrability threshold pinpoints when unbiased signed random Fourier features have finite second moment, and the residue/critical window quantifies exactly the blow-up and finite cutoff tradeoff. It addresses a motivated meaningful boundary of a widely used compact radial kernel family rather than merely renaming a textbook Bessel identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

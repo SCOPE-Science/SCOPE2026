@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 check.py` using Python 3 with NumPy and SciPy. The script performs 62 finite tests: 48 independent Fourier-versus-Hankel integral comparisons, four exact constant-normalization checks to machine precision, four critical-cutoff slope checks, and six critical-window spot checks. The run produced `PASS 62 independent radial integration, normalization, critical slope, and window checks`.
+## correctness
 
-The verified analytic steps are the Sonine transform identity, the fixed-order Bessel error estimate in NIST DLMF 10.17, the bounded-primitive integration-by-parts estimate uniform in phase and nearby parameters, the exact limiting gamma coefficient, and Fourier uniqueness for finite measures followed by Cauchy–Schwarz. Finite numerical tests do not certify these infinite statements and do not establish publication priority.
+PASS
 
-The most relevant recent paper's abstract was accessible but its complete manuscript was not. No independent mathematical audit has been performed.
+The Sonine radial Fourier identity gives a Bessel J_{d/2+beta} tail whose L1 radial exponent is r^{-1-(beta-beta_c)}. Fixed-order large-r Bessel asymptotics uniform in a compact beta-neighborhood, periodic |cos| average 2/pi with bounded primitive, and an integrable r^{-2-epsilon} remainder yield the exact residue and uniform logarithmic window; local r=0 power is integrable. Independently checked the prefactor and numerical cutoff slopes at beta_c: d=2 0.6387808 versus A2=0.6366198; d=3 0.8082687 versus A3=0.8105695; d=4 0.9582345 versus A4=0.9549297. For finite TV, Cauchy–Schwarz applied to a signed spectral measure gives E|w|^2>=||mu||_TV^2 and sampling proportional to |rho| attains equality. At infinite TV, uniqueness of Fourier transforms of finite measures precludes any finite-variance unbiased all-displacement single-frequency representation. Scope expressly excludes other estimator families.
+
+## originality
+
+PASS
+
+The standard ball-power Bessel transform and average |cos| are established inputs; the inspected relevant Wang–Langrené–Chen (2026) abstract introduces signed random Fourier features and integrable-spectrum requirement but does not exhibit the sharp d-dependent beta threshold, residue, uniform cutoff crossover, or optimal single-frequency cost. Its FULL manuscript could not be read (arXiv and OA failed; Oxford access reports VPN disconnected), which is a material priority risk, but alone is not a scientific failure. Older critical Lp physical-space ball kernel results concern a different norm/parameter.
+
+## value
+
+PASS
+
+The spectral integrability threshold pinpoints when unbiased signed random Fourier features have finite second moment, and the residue/critical window quantifies exactly the blow-up and finite cutoff tradeoff. It addresses a motivated meaningful boundary of a widely used compact radial kernel family rather than merely renaming a textbook Bessel identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
