@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Every extension is determined by signed affine coefficients; this includes all real-linear maps on basepoint-zero Lipschitz functions. The test potentials \(d(i,\cdot)-d(i,x_0)\) yield \(K\ge\max_j(1-\beta_jw_j)\ge D\). The positive harmonic coefficients reach \(D\) by the metric triangle inequality, while equalities in the averaged test-potential bounds force all coefficients and establish uniqueness. A continuity argument handles the strictly supercritical norm-one family. The endpoint \(R=1/2\), singleton clusters and \(t_j=1\) satisfy the hypotheses. Exact spanning-tree enumeration independently checks finite cases; it is not used as the proof.
+## correctness
 
-## Originality
-**PASS with residual historical-priority risk.** Cúth–Doucha's projections associated to group actions are general invariant-subspace results, not this asymmetric one-point minimax or rigidity formula. Basso's projection/linear-programming framework is algorithmic at the level compared. The regular-polygon extension theorem relies on full transitivity; unequal clusters are not transitive. The clustered fluctuation projection constant addresses a different subspace, while the earlier complete-multipartite one-point theorem assumes *long* same-part distances and a different admissible apex regime. The equilateral-leaf star extension constant \(2-2/n\) at the Banach endpoint is acknowledged as a known subcase; the heterogeneous reciprocal-deficit and rigidity law is not stated there. A transport-theoretic equivalent may nevertheless exist in sources not located during the search; the evidence establishes the statement is not implied by the inspected comparable claims, not absolute global novelty.
+PASS
 
-## Mathematical value
-**PASS.** The result solves an all-parameter linear minimax problem for a natural heterogeneous ultrametric family, gives a closed harmonic deficit and unique optimal coefficients despite allowing all signed linear operators, and pinpoints a nonexpansivity/uniqueness transition. This yields a quantitative obstruction to simultaneous linear norm-preserving extensions even where ordinary single-function extensions are norm-preserving. The distinction between full projection and cluster-fluctuation projection has a concrete Banach-space interpretation.
+The signed coefficient parameterization on Lip_0(X) is complete (the basepoint coefficient fixes the affine sum). For i in cluster j, the 1-Lipschitz distance potential yields A_ji=1-w_j+t_j(w_j-c_i); its cluster average is 1-beta_j*w_j, so K(c)>=max_j(1-beta_j*w_j)>=D=1-1/H. The positive weights c_i=1/(H beta_j m_j) attain K=D by the triangle inequality. If K=D, each beta_j*w_j=1/H and all A_ji equal their upper bound, forcing every c_i=w_j/m_j since t_j>0. This proves rigidity among arbitrary signed operators, not just symmetric ones. For R<=D the full norm optimum is unique; R>D has a relatively open affine family K<R. Includes singleton clusters, t_j=1, R=1/2. Independent small exact profiles and inspected signed-spanning-tree checker are finite corroboration only.
 
-## Scope and risks
-The proof is finite-dimensional and scalar-real. It does not address arbitrary nonuniform attachment distances, vector-valued targets, or the complete polytope of supercritical optimizers. Independence and exhaustive historical priority have not been established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general closed norm formula, common-radius weights and nonexpansive threshold are ALREADY implied by the broader 2026-10-18 heterogeneous-cluster result; they are not original in isolation. The surviving mathematically nontrivial claim is rigidity of the minimizing extension among all unrestricted signed point coefficients, and the precise all-radius uniqueness/continuum classification; the earlier full theorem proves uniqueness only in the cluster-invariant subclass and explicitly disclaims unrestricted uniqueness. This is a qualified PASS for that surviving novelty; a hidden general uniqueness result remains a priority risk.
+
+## value
+
+PASS
+
+The broad norm computation and inverse-deficit weights alone would be a routine specialization of the 2026-10-18 general theorem and are NOT credited as new value. The additional complete equality-case classification of all signed linear operators is a genuinely motivated minimizer-rigidity question: it excludes hidden asymmetric signed minimizers, identifies the exact R=D transition to a positive-dimensional optimizer polytope, and resolves a natural structural gap left expressly open in that earlier theorem. The infinite parametric result is not an arbitrary finite example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
