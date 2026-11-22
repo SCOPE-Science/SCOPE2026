@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "A fixed-coordinate subset is completable exactly when it is independent in its new-stratum collision graph. Since each new stratum has width less than each old stratum, each coordinate contributes a matching. Componentwise maximum independent sets provide the exact O(n) optimum. Independent Bernoulli shifts produce adjacent 1-to-0 collisions, exact full-retention probability, and 1/6 collision density per axis. Uniform coordinate permutation converts the union into two independent partial matchings conditional on sizes. Alternating paths have geometrically decaying length tails at incidence p=1/3; finite neighborhood and two-root limits give odd-path density p(1-p)/(2(1+p)) for each colour. The exact matching-number identity gives deletion p/(1+p)=1/4. Checker passed 46,948 deterministic/exact assertions and a separately labeled simulation tolerance; finite checks are not used to infer infinite limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yang–Liu–Li (2017), DOI 10.1080/00949655.2017.1368080, accessible abstract discusses graph decomposition and bounds.",
+        "Liu–Li–Yang (2015) general formulation applies beyond two dimensions but does not supply a specialized exact planar and random asymptotic result."
+      ],
+      "reasoning": "A more general optimization framework does not imply the explicit two-coordinate structural decomposition, sharp asymptotic retention or full-retention probability. The 2017 paper may contain uninspected relevant special cases; no whole-document negative coverage assertion is made.",
+      "searches": [
+        "\"fast general extension algorithm\" \"Latin hypercube\" 2017",
+        "doi:10.1080/00949655.2017.1368080",
+        "\"extension\" \"Latin hypercube\" random matching asymptotic"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1155/2015/450492",
+      "doi:10.1080/00949655.2017.1368080",
+      "doi:10.1002/rsa.20072",
+      "https://digital.library.unt.edu/ark:/67531/metadc885396/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Liu–Li–Yang, first available 2015-07-29, full §§2–5: generic MIS and greedy methods.",
+        "Gamarnik–Nowicki–Świrszcz 2006 DOI 10.1002/rsa.20072: sparse random graphs from different graph ensembles.",
+        "Hora–Helton–Sallaberry 2006 describes extension of sample sizes in multiplicative schemes."
+      ],
+      "reasoning": "General MIS hardness/algorithm statements do not give a linear exact procedure for the union of two matchings. Results for sparse Erdős–Rényi or regular graphs do not directly give the prescribed two-colour partial-matchings limit. Multiplicative extension is not the fixed-coordinate minimal n+1 re-stratification. The random law follows from a new model-specific collision calculation and component limit.",
+      "searches": [
+        "\"two general extension algorithms of Latin hypercube sampling\" full text 2015",
+        "\"Maximum weight independent sets and matchings in sparse random graphs\"",
+        "\"Extension of Latin Hypercube Samples With Correlated Variables\" 2006"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Liu–Li–Yang (2015), DOI 10.1155/2015/450492, §§2–4 explicitly defines an independence graph and general/greedy independent-set methods.",
+        "The present claim specifies a union of two partial matchings, exact planar MIS in linear time, and a random deletion fraction."
+      ],
+      "reasoning": "The standard independent-set reformulation is already known and is not claimed new; the planar two-matchings structural reduction and specific random-law specialization are additional statements, not merely alternate notation for MIS.",
+      "searches": [
+        "\"Latin hypercube\" \"extension\" \"maximum independent set\" \"two dimensions\"",
+        "\"Latin hypercube sampling\" re-stratification preserve old points optimal matching",
+        "doi:10.1155/2015/450492"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publicly inspected 2015 source gives algorithmic examples and general objective, not an all-n random planar retention table or explicit 3/4 theorem.",
+        "Exact small n values were independently generated using the standalone checker, not attributed to any pre-existing database."
+      ],
+      "reasoning": "No identified formula/table produces the exact fixed-coordinate n to n+1 full-retention probability or 3/4 asymptotic; search incompleteness and possible uninspected tables remain residual risks.",
+      "searches": [
+        "\"optimal extension\" Latin hypercube \"3/4\"",
+        "\"Latin hypercube\" extension \"three-quarter\"",
+        "Latin hypercube extension survival fraction one-point increase exact probability"
+      ]
+    },
+    "rationale": "The 2015 public primary source explicitly formulates non-integral Latin-hypercube extension as maximum independent set, but the inspected complete article does not state that in two dimensions its conflict graph is a union of matchings, admits an exact linear algorithm, or has retention fraction 3/4 at one-point increase for independent-jitter planar Latin hypercubes. Separate random graph literature has other graph ensembles. A 2017 faster extension paper is materially relevant and accessible only as an abstract, so historical priority risk is recorded without treating absence of text as proof of absence.",
+    "residual_risks": [
+      "The 2017 paper on faster Latin-hypercube extension was only inspectable in abstract, and may discuss a closely related two-dimensional exact algorithm.",
+      "Older design-of-experiments or random partial-matching papers could contain equivalent model-specific laws under other terminology.",
+      "Novelty is best-knowledge same-model assessment, not a claim of independent priority verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "A general graph formulation and exhaustive/greedy approaches, but no planar union-of-two-matchings exact method and no one-point random retention asymptotic in inspected text",
+        "evidence": [
+          "Direct exposition of the conflict graph and independent-set preservation objective in §§2–4",
+          "Publication shown as 2015-07-29"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2015/450492",
+        "material_read": "Complete open-access HTML: introduction, §§2–5 and algorithm examples/conclusion",
+        "method": "Read full online article and compared independent-set construction, exact algorithms and probabilistic claims",
+        "title": "Two General Extension Algorithms of Latin Hypercube Sampling",
+        "trigger": "Same original extension optimization and maximum-independent-set model"
+      },
+      {
+        "assessment": "Plausible priority risk for the algorithmic specialization, but no specific 3/4 random law apparent in available abstract; no claim that its uninspected full text lacks coverage",
+        "evidence": [
+          "Abstract mentions faster extension, graph decomposition and bounds",
+          "Full text inaccessible: material comparison limited"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/00949655.2017.1368080",
+        "material_read": "Accessible abstract/bibliographic description; complete article not retrieved",
+        "method": "Searched preprint and open-access versions; authorized institutional retrieval attempt was unavailable due to disconnected institutional access",
+        "title": "A fast general extension algorithm of Latin hypercube sampling",
+        "trigger": "Later work claims faster graph decomposition for the same extension problem"
+      },
+      {
+        "assessment": "Studies sparse random graph matching limits rather than randomly re-stratified Latin hypercubes and exact one-point preservation",
+        "evidence": [
+          "Different random graph ensembles and optimization objectives"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.20072",
+        "material_read": "Accessible abstract and scholarly bibliographic summary",
+        "method": "Compared graph ensembles and theorem targets",
+        "title": "Maximum weight independent sets and matchings in sparse random graphs: Exact results using the local weak convergence method",
+        "trigger": "Possible broader result covering the random two-matchings analysis"
+      },
+      {
+        "assessment": "Discusses extension schemes with correlated variables rather than the n-to-(n+1) fixed-position optimal retention theorem",
+        "evidence": [
+          "Extension construction is not the two-coordinate graph/3/4 law"
+        ],
+        "identifier_or_url": "https://digital.library.unt.edu/ark:/67531/metadc885396/",
+        "material_read": "Accessible online description and document summary",
+        "method": "Compared fixed target size and extension mechanism",
+        "title": "Extension of Latin Hypercube Samples With Correlated Variables",
+        "trigger": "Earlier historical treatment of Latin-hypercube extension"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "be8753d6-1c85-4fbd-b2ad-3b803f104109",
+  "value": {
+    "rationale": "Fixed-point preservation is motivated by avoiding re-evaluation of expensive experiments after increasing a two-dimensional Latin-hypercube design. A generic exponential-time maximum-independent-set method is replaced by an exact linear-time procedure using two coordinate orders. For randomly jittered designs, the new target size n+1 requires discarding about n/4 old evaluations even under optimal retention, while no-change preservation is exponentially rare with a specified exact formula. These are substantive computational and design-cost statements about the motivating natural extension objective.",
+    "status": "PASS"
+  }
+}
