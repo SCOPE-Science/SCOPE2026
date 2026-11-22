@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T00:57:46.690441Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 1≤p<∞, α>0, 0<ε<1 and n^α B^n, select k return times n_1<...<n_k. Decomposing first coordinate from tail gives |n_i^α x_{n_i}−1|^p+n_i^{αp}S_{i+1}<ε^p. Maximizing t/(u^p+t) subject to |u−1|^p+t≤ε^p yields ρ=ε/(1+ε) for p=1, or ρ=δ^{p−1}/[δ^{p−1}+(1−δ)^{p−1}] with δ=ε^{p/(p−1)}. Thus S_{i+1}≤ρ S_i and endpoint norm bounds imply k≤αp log N/log(1/ρ)+O(1). The constructive witness x_{m_j}=c m_j^{−α}, m_j=ceil(ρ^{−j/(αp)}(j+1)^2), c=1−δ (or 1 for p=1), has strict return errors due to m_{j+h}>Q^h m_j and return count (log N)/(log Q)+o(log N). Independently optimized the one-step loss for 24 (p,ε) pairs, checked the sharp algebraic witness identity, and verified p=2 simplifies to α/log(1/ε). Complex case follows ||a|−1|≤|a−1|. A fixed-ball supremum is proved, not frequent hypercyclicity or universal dense orbit of the witness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Ruan–Yang Theorem 1.1/3.1 addresses weighted hypercyclicity and scalar sequence criteria, not exact fixed-ball maximization",
+          "Ernst–Mouze abstract concerns frequent hypercyclicity criterion and other weighted frequencies"
+        ],
+        "reasoning": "Generic hypercyclicity results are not stronger exact formulas for this norm-specific return count. Earlier directly same model has weaker finite-ε bounds.",
+        "searches": [
+          "Li Ruan Yang weighted orbits hypercyclic F-spaces 2611.04629",
+          "Ernst Mouze quantitative frequent hypercyclicity criterion",
+          "Resultary sharp return packing unilateral shifts"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-logarithmic-return-packing-for-polynomially-rescaled-unila--0913cc168580/RESULT.md",
+        "https://arxiv.org/html/2611.04629v1",
+        "https://www.cambridge.org/core/journals/ergodic-theory-and-dynamical-systems/article/abs/quantitative-interpretation-of-the-frequent-hypercyclicity-criterion/CD71C15170150A9484404EA6F3267159",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-logarithmic-return-frequency-constants-for-polynomially-re--e6e5dc1dd0d1",
+        "Resultary published-finding semantic searches on the exact theorem keywords"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior ℓᵖ bounds: αp/log(1+ε^(−p)) ≤ C ≤ α/log((1−ε)/ε), with no exact finite-radius equality",
+          "New upper chain ρ_p and constructed sparse witness force C=αp/log(1/ρ_p)"
+        ],
+        "reasoning": "The new value can be strictly between prior bounds (e.g. p=2, ε=1/4 gives α/log 4), so prior theorem cannot imply it without new norm-optimized tail packing.",
+        "searches": [
+          "Resultary 2026/11/17 Sharp logarithmic return packing polynomially rescaled unilateral shifts",
+          "Li Ruan Yang weighted orbits Section 3",
+          "new mass loss rho p"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier matching Resultary theorem defines exactly C_{ℓᵖ,α}(ε) and gives bounds, not equality",
+          "New extremal ρ_p from one-step norm loss sharpens old coordinate-only multiplicative separation"
+        ],
+        "reasoning": "Same operator sequence and invariant were matched, unlike superficial word overlap. p=1 exact finite-radius and p>1 exact finite-radius are genuine refinements of the same natural statistic.",
+        "searches": [
+          "Resultary polynomially rescaled unilateral shifts sharp logarithmic return packing",
+          "fixed target n^alpha B^n log N visits to l^p ball",
+          "weighted orbit Furstenberg recurrence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier exact c₀ formula and asymptotic α are known, credited",
+          "No exact all-p finite-radius table located in published semantic search"
+        ],
+        "reasoning": "An exact natural recurrence constant remains beyond previous bracket tables; lack of alternative database hit is not conclusive priority.",
+        "searches": [
+          "exact C_l p alpha epsilon logarithmic visit constant for scaled backward shift",
+          "rho p epsilon mass loss geometric sharp ratio",
+          "Resultary shift recurrence table"
+        ]
+      },
+      "rationale": "BEST-OF-KNOWLEDGE PASS for the full finite-ε, p-dependent exact supremum coefficient. The directly earlier Resultary sharp logarithmic packing theorem proves uniform count bounds, exact c₀ coefficient, lower/upper ℓᵖ brackets and the common ε→0 limit; it explicitly leaves finite-p exact constants unsettled. The new extremal mass-loss optimization and matching sparse witness resolve this identified quantitative gap.",
+      "residual_risks": [
+        "A classical result under weighted frequency or sparse-return terminology may contain this sharp ρ_p, not found in sampled literature.",
+        "The 2017 Ernst–Mouze paper was not inspected in full; retain that risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS sharp order and small-ε coefficient; explicitly leaves finite-p exact constants as bounds",
+          "evidence": [
+            "Prior theorem states only two-sided ℓᵖ bounds and exact c₀ coefficient"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-logarithmic-return-packing-for-polynomially-rescaled-unila--0913cc168580/RESULT.md",
+          "material_read": "Entire public RESULT.md: theorem, packing, lower bound, limitations and references",
+          "method": "Read public primary mathematical record",
+          "title": "Sharp logarithmic return packing for polynomially rescaled unilateral shifts",
+          "trigger": "Same non-autonomous n^α B^n and same fixed-ball optimal count"
+        },
+        {
+          "assessment": "NOT_COVERING: orbit density and scalar weights, not this maximized logarithmic fixed-ball count",
+          "evidence": [
+            "Abstract and Theorem A concern weight removal hypercyclicity and Furstenberg families"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.04629v1",
+          "material_read": "Full open HTML table of contents and article Sections 1–3, main theorem and product-space coding",
+          "method": "Read primary arXiv HTML",
+          "title": "Weighted orbits of hypercyclic vectors on F-spaces",
+          "trigger": "Qualitatively broader weighted operator sequence setting"
+        },
+        {
+          "assessment": "UNRESOLVED_FULL_TEXT; no same finite-radius formula in material seen",
+          "evidence": [
+            "Abstract treats weighted frequencies of frequent hypercyclicity rather than fixed-target log packing"
+          ],
+          "identifier_or_url": "https://www.cambridge.org/core/journals/ergodic-theory-and-dynamical-systems/article/abs/quantitative-interpretation-of-the-frequent-hypercyclicity-criterion/CD71C15170150A9484404EA6F3267159",
+          "material_read": "Publisher abstract only; no full paper read",
+          "method": "Publisher abstract",
+          "title": "A quantitative interpretation of the frequent hypercyclicity criterion",
+          "trigger": "Quantitative recurrence in shifts might use equivalent density"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The maximal logarithmic return coefficient is a natural quantitative refinement of non-autonomous shift recurrence. Its exact dependence on Banach exponent p and ball radius resolves a real interval left by a directly matching prior theorem and produces sharp witnesses, even though it does not claim frequent hypercyclicity or a global operator classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No formal Lean proof or expert attestation was inferred from an analytic derivation or finite check.",
+    "Scientific originality is a best-of-knowledge priority assessment with the explicit residual risks above.",
+    "The five separately assigned public packages were read at the frozen tree/blob IDs; no GitHub write or dispatcher closeout was undertaken."
+  ],
+  "schema_version": 1
+}
