@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is the ordinary orbit space of all nonempty multiplicity-free subsets of the unit circle with cardinality bounded by an arbitrary integer \(k\ge1\). The proof reconstructs the finite-isotropy condition, the finite gap-stratification dimensional bound, Tuffley's source theorem \(\exp_k(S^1)\simeq S^{2\lceil k/2\rceil-1}\), the unique nonzero Serre transgression forced by bounded orbit-space dimension, and the inversion action on the degree-two circle characteristic class. Taking reflection invariants is valid in characteristic zero or odd characteristic \(p>k\). The resulting ring and naturality are algebraically exact. The large-prime torsion consequence follows from universal coefficients and finite generation. The independent exact dihedral Euler-count computation corroborates the ranks for 100 cardinality bounds and agrees with an all-integer closed-form proof. Numerical checks are not treated as infinite proof.
+PASS
 
-## Originality — PASS relative to inspected sources
+For each k>=1, Tuffley’s exp_k(S1) integral sphere homotopy type S^(2ceil(k/2)-1), almost-free rotation action, and finite isotropy of order <=2k give the mod-p/characteristic-zero Borel-to-orbit comparison for Q and odd p>k. The Serre transgression d_(2m)(xi)=c*u^m is nonzero by finite-dimensionality; its truncated F[u] ring and inversion u->-u under reflection give F[u^2]/((u^2)^ceil(k/4)). Transfer for the reflection is permissible since 2 invertible. Universal coefficient and agreement of Fp/Q ranks rule out p-primary torsion for p>k, not all small-prime torsion. Independent dihedral index enumerator checked j=1..20; Euler stratum chi_c=1 when j=1(mod4), zero otherwise, consistent with cumulative ceil(k/4). The finite checks corroborate, not prove, the all-k spectral argument.
 
-Tuffley (2002) gives the necessary nonequivariant sphere homotopy types, and identifies the three-point Seifert circle action; Mostovoy (1999) gives the three-point lattice model with rotation equivariance. Tuffley (2003) addresses homology of unquotiented graph and surface finite-subset spaces. Their inspected claims and proof scopes do not assert the infinite-family full-orthogonal orbit cohomology algebra, the compatible characteristic class, or the large-prime torsion bound. General Borel, Gysin, and finite-group transfer methods are classical and not claimed as innovations. A possibly related Ageev–Usimov (2013) paper was located, but not inspected beyond catalog information; it is a residual risk, as are unindexed exact equivalents.
+## originality
 
-## Value — PASS
+PASS
 
-The problem is the complete rational cohomology algebra, not an arbitrary numerical slice, of a canonical sequence of compact moduli spaces of unlabeled point sets on a circle up to all isometries. The result locates the first essential four-dimensional class at five allowed points, its subsequent powers at nine, thirteen, and later cardinalities, and identifies a compatible geometric characteristic class. Its large-prime torsion exclusion gives integral information beyond rational Betti numbers, while the gap-stratum count provides an independent geometric explanation of the mod-four pattern. The broad family and exact ring answer make the result useful independently of any downstream theorem.
+Best-of-knowledge PASS for this geometric ordinary full-isometry shape quotient and its compatible degree-four ring generator, distinct from known unquotiented sphere filtration and reflection-fixed loci. Standard Borel transfer and transgression are not themselves novel; a relevant 2013 universal finite-orbit action paper remains an uninspected priority risk.
 
-## Limits and closest comparisons
+## value
 
-No integral homotopy classification, no small-prime torsion calculation, and no manifold identification is claimed. The source papers establish ambient topology or small-dimensional equivariance, not the stated isometry-quotient algebra. General circle-action theory could supply an alternative route, and an inaccessible plausible 2013 paper creates residual literature risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural compact filtration of unlabeled circle point-shapes has a uniform exactly computed multiplicative cohomology ring, stable characteristic class, first nontrivial stage and a sharp large-prime torsion exclusion. This is a reusable geometric-moduli invariant, not simply renaming Tuffley’s nonequivariant sphere ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
