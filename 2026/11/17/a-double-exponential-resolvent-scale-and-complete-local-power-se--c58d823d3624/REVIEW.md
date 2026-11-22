@@ -1,11 +1,21 @@
-# Scientific assessment of the logarithmic-weight power-set theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** For positive decreasing backward-shift weights the exact \(k\)-th power norm is the product of the first \(k\) weights. A discrete Laplace saddle has maximizing degree \(\exp(t-a+o(1))\) and sharp maximal log size \(e^{t-a}/t\). The resolvent is bounded above by the sum of power norms and below by a single basis-vector coordinate. For the exhibited vector, its tail norm differs from its leading coordinate by only a polylogarithmic factor; the positive-real-resolvent zeroth coordinate establishes the matching lower bound. Explicit endpoints give all exponents. The included finite diagnostic passed; it is not used as a proof of the infinite limit.
+## correctness
 
-**Originality — PASS, with residual risk.** The motivating Ignatev theorem as reported in its publicly available abstract assumes weights summable to some finite positive power. The logarithmic weights violate every such condition. The earlier Hu--Ji paper only identifies a class of backward shifts in its available abstract, not this exact critical class; broader coverage cannot be ruled out without its complete full text. The Ji--Zhang power-set structural theorem and the closest accessible records on cyclic companion roots, weighted-shift resolvent spectra, and slow logarithmic Cesàro behavior do not imply this explicit calculation. Full-text access to the closest papers was unsuccessful, and re-expression through a general max-term lemma is a genuine priority risk. No search is taken as proof of novelty.
+PASS
 
-**Mathematical value — PASS.** Power sets are a natural resolvent-growth invariant related to hyperinvariant-subspace filtrations. The sharp non-summable logarithmic example crosses the explicit summability hypothesis of the recent theorem and supplies an exact full-interval classification, concrete witnesses at every exponent, and a doubly exponential global scale. The computation distinguishes strong operator-level growth from the whole continuum of local growth rates. The result is restricted to one specific weight family, not a universal theorem for all nonsummable shifts.
+For B e_j=(log(j+e))^-1 e_(j-1) on complex l^p (1<=p<infty) or c0, decreasing weights imply exact ||B^k||=P_k=exp(-F(k)); F(k)/k->infinity gives compactness and spectral radius zero. Maximizing k log t-F(k)-a k/log(k+e) places log k=t-a+o(1) and yields H_a(t)~e^(t-a)/t, by summation/integration of loglog and logarithmic-integral residual. Max-term versus sum has at most O(t) logarithmic overhead using cut K=e^(2t), negligible on this scale. Neumann expansion gives the uniform-in-argument global upper, and the e_k zeroth coordinate lower gives log||R||~e^t/t. For x^a_j=e^(-a j/log(j+e)), positive real lambda gives lower via zeroth output and l^p/c0 tails give matching upper, hence exponent e^-a. e0 gives 0, y_j=e^(-j/log^2(j+e)) gives 1, and the universal norm bounds confine exponents to [0,1]. The bundled finite saddle diagnostic was read; the asymptotic follows from the infinite saddle argument rather than finite sampled t.
 
-Closest literature: Ignatev (2026, arXiv:2607.16743), Hu--Ji (2023, arXiv:2306.00387), and Ji--Zhang (2023, arXiv:2305.09963). Inaccessible full texts leave publication-priority uncertainty. The finding has not received external independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Powers and local resolvent exponents are standard, and Ignatev has a full-power-set result under an explicit some-finite-l^q weight hypothesis. Here weights 1/log(j+e) are in no finite l^q, so that stated condition does not cover this example. The additional exact e^t/t and e^(t-a)/t logarithmic growth also are not derived from the abstract theorem. Full text of the closest recent paper inaccessible; this is a qualified best-of-knowledge PASS, not a claim of global historical priority.
+
+## value
+
+PASS
+
+The exact local spectral exponent set in a natural just-nonsummable compact shift is a motivated boundary of summability-based results; the explicit doubly exponential resolvent growth and tunable concrete tail witnesses are directly useful in local spectral theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
