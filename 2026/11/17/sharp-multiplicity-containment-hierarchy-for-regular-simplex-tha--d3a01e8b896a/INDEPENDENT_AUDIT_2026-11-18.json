@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T12:06:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing x=ru, each Thales-ball constraint is r<=u.v_i. The simplex gauge equals d*r*(-min_i u.v_i). With I the m largest inner products and k the smallest, s_I=average v_i has norm sqrt((d+1-m)/(dm)), t_k=-v_k has norm 1 and s_I.t_k=1/d. The maximal product of two linear forms on the sphere is (||s_I||||t_k||+s_I.t_k)/2, yielding precisely the formula. Its unique positive top eigendirection aligns equal top m values, a unique bottom k, and exact m ball contacts, proving equality count and sharp lower-m condition. Sum v_i=0 implies U_(d+1)={0}. Direct source checker constructs all equality points for dimensions 2..11; reviewed its entire source and used analytic rank-two calculation for all d.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pavlík theorem is broad in arbitrary polytope but narrow in union coverage only.",
+          "Polyanskii addresses existence of matchings and intersections."
+        ],
+        "reasoning": "More general class of polytopes or graphs does not entail quantitative multi-cover gauge or full extremal counts.",
+        "searches": [
+          "https://arxiv.org/abs/2611.14277",
+          "https://arxiv.org/abs/2506.13451"
+        ]
+      },
+      "checked_sources": [
+        "Thales’s theorem in higher dimensions — https://arxiv.org/abs/2611.14277",
+        "No-dimensional Tverberg-type problems — https://arxiv.org/abs/2506.13451",
+        "Intersecting diametral balls induced by a geometric graph — https://arxiv.org/abs/2108.09795"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Onefold union coverage gives inclusion P subset U_1, whereas current result bounds U_m subset Lambda P in the opposite direction.",
+          "Matching intersection does not bound exterior extent of m-fold overlap for fixed centroid star."
+        ],
+        "reasoning": "Neither implication yields m=d threshold, exact Lambda or contact count; small planar special case does not generalize to d>=3.",
+        "searches": [
+          "https://arxiv.org/abs/2611.14277",
+          "https://arxiv.org/abs/2108.09795"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Radial membership r<=a_[m] and gauge d*r*(-a_min) convert the target to an order-statistic rank-two bilinear extremum.",
+          "Pavlík covers a union or onefold family, not optimizing each m-th order statistic."
+        ],
+        "reasoning": "The exact rank-two order-statistic invariant has a different logical strength than existing convex coverage.",
+        "searches": [
+          "Resultary: regular simplex Thales balls centroid vertex diameter overlap multiplicity radial gauge containment sharp dilation",
+          "https://arxiv.org/abs/2611.14277"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearby published records have separate radial facet-overlap volume thresholds and homothetic-simplex Hausdorff gaps, not Thales m-cover dilation."
+        ],
+        "reasoning": "No matching table identified; non-hit alone is not novelty proof, primary geometric statement differences are controlling.",
+        "searches": [
+          "Resultary: regular simplex Thales balls centroid vertex diameter overlap multiplicity radial gauge containment sharp dilation",
+          "Resultary: complete facet-overlap onset spectrum for radial volume of a regular simplex",
+          "Resultary: sharp Hausdorff gap for vertex-thickened regular simplices"
+        ]
+      },
+      "rationale": "PASS best knowledge: multiplicity-superlevel external radial gauge with all equality points is not provided by earlier onefold diameter-ball covering, diameter-ball matching intersection, or simplex radial-facet overlaps. Related planar d=2,m=2 containment was already known and is not claimed in isolation.",
+      "residual_risks": [
+        "Full primary text of Pavlík 2026 and Polyanskii 2025 not fully re-read in this execution; an overlooked stronger multiplicity theorem is possible.",
+        "Low dimensional planar m=2 d=2 case has prior coverage, but is not the all-dimensional contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Onefold union covers the polytope, but this alone has no implication about external m-fold depth; full-text risk retained",
+          "evidence": [
+            "Theorem 5.1 and Corollary 5.3 reported for diameter-ball covering; not represented as personally read in full"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.14277",
+          "material_read": "ArXiv bibliographic abstract/online theorem descriptions of onefold cover; full Section 5 not obtained independently this run",
+          "method": "ArXiv/OA abstract and targeted search; did not infer whole-document noncoverage",
+          "title": "Thales’s theorem in higher dimensions",
+          "trigger": "Same endpoint-to-vertex diameter balls on polytopes"
+        },
+        {
+          "assessment": "Graph-matching common intersection addresses different ball selection, not centroid spoke multiplicity radius",
+          "evidence": [
+            "Section 4, Problem 13, intersection existence"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2506.13451",
+          "material_read": "ArXiv abstract and indexed Section 4 statements; full article not re-inspected in this run",
+          "method": "ArXiv primary bibliographic text and theorem search",
+          "title": "No-dimensional Tverberg-type problems",
+          "trigger": "Diametral balls and regular-simplex geometry"
+        },
+        {
+          "assessment": "Intersection existence for graph edges, not sharp regular-simplex radial overlap shell",
+          "evidence": [
+            "Abstract and Theorems 1–4 indexed"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.09795",
+          "material_read": "Abstract and indexed Theorems 1–4; full primary PDF not re-read",
+          "method": "ArXiv primary abstract and indexed theorem descriptions",
+          "title": "Intersecting diametral balls induced by a geometric graph",
+          "trigger": "Same class of diametral-ball objects"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: m-fold depth of a natural centroid-to-vertex diametral-ball arrangement, its sharp containment threshold and exact extremal contact classification provide a complete dimension-dependent geometric invariant, not a routine onefold-covering restatement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For centroid-to-vertex diameter balls of a regular d-simplex d>=2, max simplex gauge on the m-fold overlap superlevel U_m equals [1+sqrt(d(d+1-m)/m)]/2 for 1<=m<=d, with exactly (d+1)binom(d,m) contact points, U_m subset simplex iff m>=d, and U_{d+1}={0}.",
+  "limitations": [
+    "Full primary text of Pavlík 2026 and Polyanskii 2025 not fully re-read in this execution; an overlooked stronger multiplicity theorem is possible.",
+    "Low dimensional planar m=2 d=2 case has prior coverage, but is not the all-dimensional contribution.",
+    "No external Lean or expert attestation is asserted. No GitHub writes or modifications; scientific source package remains unchanged."
+  ],
+  "schema_version": 1
+}

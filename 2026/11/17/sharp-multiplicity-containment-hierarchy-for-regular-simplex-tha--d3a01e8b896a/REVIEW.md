@@ -1,15 +1,21 @@
-# Scientific review: sharp multiplicity containment hierarchy
+# Independent mathematical audit
 
-## Correctness — PASS
-For each ray the ball membership test reduces exactly to a sorted inner-product threshold. The regular-simplex facet description turns the problem into optimizing a product of the positive \(m\)-th order statistic and the negative minimum. The top-\(m\) mean, regular-simplex Gram matrix, and exact largest eigenvalue of a symmetric rank-two form supply a global bound. Its unique positive eigendirections achieve the sharp constant and yield exactly \((d+1)\binom{d}{m}\) distinct points. Direct finite checks passed 284683 assertions across dimensions 2–11. The proof—not numerical sampling—establishes all dimensions and ranks.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-Polyanskii (arXiv:2506.13451, Section 4) and Pirahmad–Polyanskii–Vasilevskii (arXiv:2108.09795) study nonempty intersections of diametral balls induced by graph matchings. Pavlík (arXiv:2611.14277, Theorem 5.1) proves onefold coverage and a subordinate power-diagram tiling, but not the location of every multiple-overlap layer. An existing planar regular-polygon overlap classification contains the \(d=2,m=2\) special case, so that case is not separately claimed. Published-record comparisons found similarly named results on simplex radial distributions and vertex-thickening, but their objects and implications do not supply this hierarchy. Remaining risks: unindexed priority and limited access to full text of two adjacent recorded results.
+PASS
 
-## Mathematical value — PASS
-The question concerns the precise spatial redundancy of a natural family of diameter balls, not merely whether they cover. The whole discrete multiplicity spectrum has exact optimal homothetic factors, a sharp containment threshold, growing exterior leakage in dimension, and complete contact-point counts. This answers a structurally motivated geometric gap left by onefold covering statements.
+Writing x=ru, each Thales-ball constraint is r<=u.v_i. The simplex gauge equals d*r*(-min_i u.v_i). With I the m largest inner products and k the smallest, s_I=average v_i has norm sqrt((d+1-m)/(dm)), t_k=-v_k has norm 1 and s_I.t_k=1/d. The maximal product of two linear forms on the sphere is (||s_I||||t_k||+s_I.t_k)/2, yielding precisely the formula. Its unique positive top eigendirection aligns equal top m values, a unique bottom k, and exact m ball contacts, proving equality count and sharp lower-m condition. Sum v_i=0 implies U_(d+1)={0}. Direct source checker constructs all equality points for dimensions 2..11; reviewed its entire source and used analytic rank-two calculation for all d.
 
-## Limitations
-Regular simplices and central diameter balls only; no classification of arbitrary sources, nonregular simplices, or overlap volumes. No independent mathematical review has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best knowledge: multiplicity-superlevel external radial gauge with all equality points is not provided by earlier onefold diameter-ball covering, diameter-ball matching intersection, or simplex radial-facet overlaps. Related planar d=2,m=2 containment was already known and is not claimed in isolation.
+
+## value
+
+PASS
+
+PASS: m-fold depth of a natural centroid-to-vertex diametral-ball arrangement, its sharp containment threshold and exact extremal contact classification provide a complete dimension-dependent geometric invariant, not a routine onefold-covering restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
