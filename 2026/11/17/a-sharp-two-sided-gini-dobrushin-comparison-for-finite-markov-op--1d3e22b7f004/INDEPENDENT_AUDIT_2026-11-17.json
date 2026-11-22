@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T17:09:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md, check_gini_dobrushin.py, VERIFICATION.md",
+        "independent exact rational cut implementation and both 4×4 Laplacian operator matrices"
+      ],
+      "rationale": "For every nonconstant real vector x, sorting or nested layer-cake cuts gives sharp (n−1)D(x)≤G(x)≤floor(n²/4)D(x), with singleton and balanced binary cuts saturating. Both induced operator inequalities immediately follow for row-stochastic P on the constant quotient. The Dobrushin row-L1/2 formula holds by optimizing over [0,1]^n. Rank-one P=J+(4n)^{-1}uv^T with zero-sum u,v is strictly positive bistochastic, and its exact δ and γ factor into primal/dual cut seminorms; two explicit choices independently attain c_n and 1/c_n for all n≥2. Independent exact rational binary-cut tests for n=2..8 confirm both families; n4 symmetric positive-semidefinite Laplacian perturbations give γ(B+)=10/3 vs δ(B+)=3 and γ(B−)=7/2 vs δ(B−)=4, yielding both strict orderings, while c_n=1 for n2,3. Finite tests corroborate the all-n proof rather than extrapolate it.",
+      "residual_risks": [
+        "Saturated constants not claimed best among symmetric/reversible subset; one-step, real, complete-pair unweighted Gini only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For all n, (n−1)D≤G≤floor(n²/4)D is general elementary norm equivalence; Gaubert–Qu establishes δ for Markov operators.",
+          "Induced norm comparison follows abstractly, but simultaneous saturation in strictly positive bistochastic matrices and n4 symmetric PSD sign reversal require the explicit U,V witnesses."
+        ],
+        "reasoning": "The bound is a straightforward consequence of old seminorm geometry. The combined sharpness under strong stochastic hypotheses and reversible opposing examples are the distinctive concrete results; a prior abstract norm comparison without extremizers would not cover all assertions.",
+        "searches": [
+          "Gini pairwise dispersion versus Dobrushin Markov operator contraction coefficient sharp both directions",
+          "arxiv:1302.5226 Section 4",
+          "Gini variation ergodicity coefficient norm comparison stochastic  n dimension"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1302.5226",
+        "doi:10.1016/0024-3795(93)90331-H",
+        "Resultary Gini stochastic operator family records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Positive bistochastic rank-one P=J+εu v^T gives δ=εD(u)TV(v), γ=εG(u)G*(v); balanced and singleton cuts independently attain c_n and 1/c_n.",
+          "At n4 positive symmetric PSD examples have δ=3/32,γ=5/48 and δ=1/8,γ=7/64."
+        ],
+        "reasoning": "The prior Dobrushin formula supplies one ingredient, not these particular sharp pairwise-dispersion distortion ratios or reversible opposite-ordering examples. A broad older comparison may still exist unindexed.",
+        "searches": [
+          "Gini pairwise dispersion versus Dobrushin Markov operator contraction coefficient sharp both directions",
+          "arxiv:1302.5226",
+          "doi:10.1016/0024-3795(93)90331-H",
+          "Resultary 2026/11/17 Gini Markov operators"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gaubert–Qu studies Hopf-oscillation induced operator norm and total-variation dual, not complete-pair Gini of a single signal.",
+          "Cohen et al. studies relative phi-divergence contraction between probability laws, distinct from G(Px)/G(x)."
+        ],
+        "reasoning": "Gini complete-pair seminorm is not total variation between rows or relative entropy of two laws. Two-sided constants allowing γ>δ and γ<δ cannot be inferred from a one-sided entropy contraction statement.",
+        "searches": [
+          "Gini pairwise dispersion versus Dobrushin Markov operator contraction coefficient sharp both directions",
+          "arxiv:1302.5226 Hopf oscillation Dobrushin",
+          "Cohen Iwasa Rautu Ruskai Seneta Zbaganu 1993 relative entropy mappings stochastic matrices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related Resultary records compute Gini norms for special maps, not the all-n optimal comparison constants c_n for every row-stochastic matrix.",
+          "No exact older Gini-vs-Dobrushin ratio table identified."
+        ],
+        "reasoning": "The coefficient c_n is a natural dimension-indexed exact invariant. Earlier edge-Gini or special-operator tables cannot dominate the universal comparison without showing the same extremal ratio.",
+        "searches": [
+          "Gini pairwise dispersion versus Dobrushin Markov operator contraction coefficient sharp both directions",
+          "Resultary sharp gini stability two-cell conditional expectations",
+          "Resultary cyclic two tap gini averaging Markov"
+        ]
+      },
+      "rationale": "Bounded PASS for the dimension-sharp two-sided comparison and constructive saturation under positive doubly stochastic matrices, with opposite rankings within symmetric positive-semidefinite four-state kernels. Dobrushin identity and elementary seminorm equivalence are old; no newness attributed to those premises.",
+      "residual_risks": [
+        "The comparison factor can be viewed as a classical Banach-space norm-equivalence estimate and may be recorded in older ergodicity-coefficient literature without Gini terminology.",
+        "No best constant asserted for *symmetric* subclass, only examples of both orderings."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains δ as Hopf oscillation and row-TV dual; does not state the complete-pair Gini comparison or saturation",
+          "evidence": "Section 4 Dobrushin row total-variation formula and general cone theorem",
+          "identifier_or_url": "https://arxiv.org/html/1302.5226v2",
+          "material_read": "Accessible original arXiv full HTML (especially stochastic matrix Section 4) and PDF representative page inspected visually",
+          "method": "Primary full text read/section comparisons",
+          "title": "Dobrushin ergodicity coefficient for Markov operators on cones, and beyond",
+          "trigger": "Classical operator coefficient theory potentially subsumes theorem"
+        },
+        {
+          "assessment": "Functional is divergence of probability laws, not dispersion of scalar signal over all pairs; cannot imply both directions directly",
+          "evidence": "Definitions 2.2–2.3 and contraction theorems",
+          "identifier_or_url": "https://lab.rockefeller.edu/cohenje/assets/file/205CohenIwasaRautuRuskaiSenetaZbaganuRelativeEntropyMappingsStochasticMatricesLAA1993.pdf",
+          "material_read": "Relevant original full paper: relative phi-entropy definitions and Theorems 3.1,4.1,4.2, selected PDF pages inspected",
+          "method": "Original primary PDF text and page inspection",
+          "title": "Relative Entropy Under Mappings by Stochastic Matrices",
+          "trigger": "Prior stochastic matrix contraction comparison may dominate"
+        },
+        {
+          "assessment": "Restricted projection operators and mass-imbalance polytope, not universal Markov Gini/Dobrushin comparison",
+          "evidence": "Summary concerns conditional expectations and potential Gini amplification",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-gini-stability-polytope-for-weighted-two-cell-conditional--db1b2a253b74",
+          "material_read": "Resultary indexed title and summary; no full text inspected",
+          "method": "Indexed semantic summary only",
+          "title": "Sharp Gini stability polytope for weighted two-cell conditional expectations",
+          "trigger": "Same Gini seminorm in Markov-like averaging"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Dobrushin/Hopf oscillation literature",
+        "two rank-one extremal families and reversible n4 witnesses"
+      ],
+      "rationale": "Sharp equivalence between two natural finite-state Markov contraction metrics matters because Gini measures all-pair signal disagreement while Dobrushin measures worst-pair spread. The sharp loss grows linearly with states despite strictly positive bistochastic mixing, and even reversible PSD Markov chains reverse which coefficient is larger at the first possible size. This structural difference and extremal witnesses provide meaningful dimension-dependent insight beyond copying a textbook seminorm inequality.",
+      "residual_risks": [
+        "Main inequality alone is elementary norm equivalence; the distinctive substantive finding is strong-class sharpness and reversed reversible rankings, subject to older-norm literature priority risk."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge scientific assessment, not external peer certification; originality residual risks preserved.",
+    "Only checked listed source files and relevant primary material, not every file in recursive package. No GitHub write or dispatcher completion call made."
+  ],
+  "schema_version": 1
+}
