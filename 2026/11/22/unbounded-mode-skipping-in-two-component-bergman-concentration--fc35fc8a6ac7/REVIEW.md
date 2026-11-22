@@ -1,0 +1,15 @@
+# Scientific review: Unbounded mode skipping in two-component Bergman concentration
+
+## Correctness — PASS
+The normalized monomial basis gives the exact diagonal eigenvalue identity \(\lambda_n=a^{n+1}+c^{n+1}-b^{n+1}\). For the rational annulus, adjacent-difference signs make degree four the sole outer-shell maximum; exact rational inequalities eliminate degrees one through three, and geometric monotonicity eliminates degrees at least five. The unique switching parameter is the isolated root of \(a-a^5=4935/32768\). For the general construction, the outer-shell maximum is exactly degree \(M\), both adjacent gaps are asymptotic to \(h_M^2/4\), and the separate small-index/large-index bounds strictly eliminate **every** other degree. The derivative at the tie proves genuine local mode switching. The standalone script passes exact rational checks and high-precision examples; the infinite assertion relies on the proof, not those examples.
+
+## Originality — PASS, with residual priority risk
+The 2022 Rozenblum–Vasilevski spectral-theorem article (arXiv:2203.04170) describes radial Toeplitz diagonalization but not the two-component exact top eigenspace or arbitrarily distant jumps. The full inspected mathematical finding *Gamma spectral crossover for hyperbolic annulus localization* addresses a single connected weighted Bergman annulus and allows only adjacent maximizers. The full inspected finding *A two-component radial Gaussian localization mask with a nonadjacent top-mode crossing* proves a degree-zero-to-two switch in **Gaussian Fock**, not analytic Bergman space; the Fock shell-count paper concerns peak number, not arbitrary-distance global transitions in Bergman space. Statement and implication comparisons were made, including the common moment reduction. The 2008 Suárez paper on radial Toeplitz eigenvalue sequences was accessible only at the abstract level, and unindexed historical equivalents remain possible; absence of a search hit alone was not regarded as proof of priority.
+
+## Mathematical value — PASS
+The two-component disk-plus-annulus mask is an elementary, geometrically motivated observation model for analytic polynomial concentration. Knowing **which** polynomial degree is most observable determines the sharp concentration bound and the optimizer; disconnected observation can induce abrupt, nonadjacent changes even while the mask expands monotonically. The rational example gives a complete exact threshold rather than a numerical witness; the second theorem shows that the degree skip is unbounded with two observation components, a structural distinction from connected-annulus adjacent-index behavior. No broad multi-annulus classification is asserted.
+
+## Limitations and independence
+Only the unweighted analytic Bergman disk is treated. The general large-degree statement is eventual and no least admissible degree is claimed. Historical-priority uncertainty remains, particularly in older radial-moment literature; the paper of Suárez was not fully inspected. The algorithmic examples are finite confirmation only.
+
+Self-review: passed. Independent audit: not yet performed.
