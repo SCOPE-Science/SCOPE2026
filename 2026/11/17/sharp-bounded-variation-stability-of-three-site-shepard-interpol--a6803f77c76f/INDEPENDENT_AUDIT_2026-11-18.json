@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T09:16:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-bounded-variation-stability-of-three-site-shepard-interpol--a6803f77c76f/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-bounded-variation-stability-of-three-site-shepard-interpol--a6803f77c76f/checker.py"
+      ],
+      "rationale": "Positive normalized Shepard weights sum to 1, so all data triples decompose into a constant and two unit steps; the operator BV seminorm equals the larger variation of the two step responses. The opposite-cell weight has one strict interior maximum, obtained by differentiating its denominator and solving ((a+b-x)/(x-a))^(p+1)=(a+b)/a. Evaluating the maximum and reflecting produces the stated r,c coefficient. Monotonicity in mesh ratio follows from positive derivative of s(1+c_s) and monotonic c_s^-p; limits p down to 0, p up to infinity, r down to 0 and pr→tau follow explicit power asymptotics, including tau=0. Independently evaluated several unequal meshes, p values and the nodal/extremum formula with numerical agreement; inspected checker.py; finite tests supplement the fully analytic claim.",
+      "residual_risks": [
+        "Singular mesh-power double limit needs careful pr→0 bound; supplied p^(1/(p+1))(pr)^(p/(p+1)) control was checked and excludes unproven many-site behavior."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Anastassiou–Gal 2001 is bivariate partial shape preservation; Gal 2005 monograph includes univariate partial shape-preservation chapters inaccessible beyond preview."
+        ],
+        "reasoning": "Broad shape-preservation techniques might contain an equivalent step-extremum identity; current accessible material does not establish coverage, so flag residual risk.",
+        "searches": [
+          "sharp three site Shepard interpolation inverse distance weighted three nodes bounded variation mesh power 1+2/(1+exp(2tau))",
+          "https://doi.org/10.1016/S0898-1221(01)00129-8",
+          "https://doi.org/10.1007/0-8176-4401-6_2"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-bounded-variation-stability-of-three-site-shepard-interpol--a6803f77c76f/RESULT.md",
+        "https://doi.org/10.1145/800186.810616",
+        "https://doi.org/10.1016/S0898-1221(01)00129-8",
+        "https://doi.org/10.1007/0-8176-4401-6_2",
+        "https://doi.org/10.1186/s13660-018-1823-7",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-inverse-regularization-data-sensitivity-of-compact-multino--59c1f83030a1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Constant reproduction, positivity and range preservation do not force Var(S_p y)<=Var_d(y); explicitly the gain exceeds one for all positive finite p and meshes."
+        ],
+        "reasoning": "The logistic boundary layer pr→tau is a new asymptotic question not implied by standard positivity or convergence of weights at fixed mesh.",
+        "searches": [
+          "sharp three site Shepard interpolation inverse distance weighted three nodes bounded variation mesh power 1+2/(1+exp(2tau))",
+          "https://doi.org/10.1145/800186.810616",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-inverse-regularization-data-sensitivity-of-compact-multino--59c1f83030a1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shepard 1968 defines the normalized inverse-power interpolation weights; its operator definition is shared but the new assertion is exact data-to-function adjacent BV norm for three sites."
+        ],
+        "reasoning": "A positive partition of unity yields uniform norm contraction, which is insufficient to determine total variation amplification.",
+        "searches": [
+          "sharp three site Shepard interpolation inverse distance weighted three nodes bounded variation mesh power 1+2/(1+exp(2tau))",
+          "https://doi.org/10.1145/800186.810616"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed related compact multinode Shepard work uses residual-indicator modification and perturbation/regularization sensitivity, not three-site inverse-power BV gain."
+        ],
+        "reasoning": "No exact three-node mesh-contrast norm or logistic high-power limit was recovered from the database results; this is not proof of novelty.",
+        "searches": [
+          "sharp three site Shepard interpolation inverse distance weighted three nodes bounded variation mesh power 1+2/(1+exp(2tau))",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-inverse-regularization-data-sensitivity-of-compact-multino--59c1f83030a1"
+        ]
+      },
+      "rationale": "The underlying positive inverse-distance Shepard formula is classical. Available relevant partial shape-preservation studies did not explicitly cover the exact 3-site full-interval total-variation gain or the mesh–power logistic boundary layer. Gal’s especially relevant monograph chapter was inaccessible in full; retain its substantive priority risk without treating inaccessibility as scientific falsity.",
+      "residual_risks": [
+        "Gal (2005) univariate monograph chapter remains uninspected; Oxford institutional channel returned vpn_disconnected; possible unstated equivalent norm/shape lemma remains."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes classical interpolation operator but not three-site exact BV formula",
+          "evidence": [
+            "Normalized inverse-distance positive weights, 1968."
+          ],
+          "identifier_or_url": "https://doi.org/10.1145/800186.810616",
+          "material_read": "Bibliographical and accessible historical summary of weight construction; not full verified original text",
+          "method": "DOI metadata and indexed textual material",
+          "title": "A two-dimensional interpolation function for irregularly-spaced data",
+          "trigger": "Original normalized inverse-distance Shepard operator"
+        },
+        {
+          "assessment": "Bivariate partial shape results; cannot infer full exclusion of a one-dimensional corollary",
+          "evidence": [
+            "2001 paper focuses bivariate partial shape preservation."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0898-1221(01)00129-8",
+          "material_read": "Abstract and bibliographic description, not complete primary PDF",
+          "method": "Journal abstract search",
+          "title": "Partial shape preserving approximations by bivariate Shepard operators",
+          "trigger": "Closest title relating Shepard and variation/shape"
+        },
+        {
+          "assessment": "Inaccessible plausible source retained as exact priority risk; NOT_COVERING not asserted for whole chapter",
+          "evidence": [
+            "Relevant univariate partial shape preservation chapter; full scientific contents not verified."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/0-8176-4401-6_2",
+          "material_read": "Chapter preview/contents only; no full text via lawful OA or authorized institutional channel",
+          "method": "Publisher preview; authorized institutional request returned vpn_disconnected",
+          "title": "Global Smoothness and Shape Preserving Interpolation by Classical Operators, univariate chapter",
+          "trigger": "Highly plausible univariate prior coverage"
+        },
+        {
+          "assessment": "Six-node regularized data-sensitivity problem is not the same three-site BV norm",
+          "evidence": [
+            "Different residual-indicator kernel and epsilon sensitivity."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-inverse-regularization-data-sensitivity-of-compact-multino--59c1f83030a1",
+          "material_read": "Published theorem summary",
+          "method": "Resultary semantic search",
+          "title": "Sharp inverse-regularization data sensitivity of compact multinode Shepard interpolation",
+          "trigger": "Indexed current result involving Shepard stability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-bounded-variation-stability-of-three-site-shepard-interpol--a6803f77c76f/RESULT.md",
+        "https://doi.org/10.1145/800186.810616"
+      ],
+      "rationale": "A sharp exact norm for a foundational positive interpolant is useful for understanding monotonicity defects, nonuniform meshes and whether high inverse-distance powers improve edge stability. The noncommuting limits produce a nontrivial quantitative logistic boundary layer; this is not mere substitution in a standard convergence theorem.",
+      "residual_risks": [
+        "Three-site-only result; no multivariate or arbitrary-nodal stability classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Singular mesh-power double limit needs careful pr→0 bound; supplied p^(1/(p+1))(pr)^(p/(p+1)) control was checked and excludes unproven many-site behavior.",
+    "Gal (2005) univariate monograph chapter remains uninspected; Oxford institutional channel returned vpn_disconnected; possible unstated equivalent norm/shape lemma remains.",
+    "Three-site-only result; no multivariate or arbitrary-nodal stability classification."
+  ],
+  "schema_version": 1
+}
