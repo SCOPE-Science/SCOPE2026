@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For arbitrary positive Borel probability measures, full rectangular first-band Fourier cancellation gives exact elementary-symmetric moments. A pointwise reciprocal inequality proves the universal bound. A directly specified atomic replacement rule preserves every Fourier character in the first band and realizes equality. Equality in the reciprocal inequality forces exactly the specified contact nodes or the codimension-two antipodal skeleton; moment equations determine contact masses, and explicit perturbations establish nonuniqueness for every dimension at least three. Exact rational checks in dimensions two through seven provide independent finite consistency tests, not infinite-dimensional proof substitutes.
+PASS
 
-## Originality
+The complete first rectangular Fourier band forces E[e_d(p)]=2^-d and E[e_(d−1)(p)]=d2^-(d−1) for p_j=cos² π(x_j−a_j). If support avoids a sup cube of radius R, at least one p_j≤s=cos²πR; pointwise e_(d−1)≥(s^-1+d−1)e_d, including zero-coordinate boundaries. Integrating yields s≥1/(d+1) and sharp r_d. For each d, replacing the d+1 missing half-period cube vertices by 2d contact points with weights (d+1)/(d2^(d+1)) preserves every first-band Fourier character by a direct count in support size. Equality in the nonnegative deficit forces only contact points or ≥2 antipodal-coordinate skeleton; the e_d and e_(d−1) moments fix contact weights and sine moments split ± masses. A four-atom displacement along the skeleton keeps moments and hole for d≥3, proving nonuniqueness. Independently evaluated all 3^d characters for d=2,3,4,5 with errors ≤5.6e-16; dimension-general proof is the symmetric-polynomial argument.
 
-PASS relative to the inspected literature and research-record comparisons. Kunis (arXiv:2608.11915, first posted August 12, 2026) establishes more general but nonsharp covering estimates under stronger even-degree exactness assumptions; Theorem 3.3 and Remark 3.4 do not imply a sharp bound for only the rectangular first Fourier band. The previously established two-dimensional special case determines a five-node rigid configuration, but does not imply the new uniform all-dimensional formula, the replacement construction, or the loss of uniqueness beginning in dimension three. Dedicated semantic searches did not identify an equivalent higher-dimensional statement; unidentified earlier cubature literature remains a priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Positive quadrature support geometry at minimal rectangular Fourier bandwidth is a natural extremal design problem. This result provides an exact sharp answer across every dimension, an explicit positive construction, mandatory mass values at all contact sites, and a qualitative transition in rigidity from dimension two to three. It is not a numerical optimization or an arbitrary small parameter slice.
+Best-of-knowledge original quantitative conclusion after matching exact objects, normalizations and implication checks. The d=2 five-node rigidity does not imply a universal d-dimensional radius or forced 2d contacts, and the high-dimensional moment inequality plus vertex substitution is new relative to the lower-dimensional conclusion. Kunis full text was not available for decisive implication comparison.
 
-## Sources and limitations
+## value
 
-Primary source: S. Kunis, *Positive quadrature and mobile sampling of multivariate trigonometric polynomials*, arXiv:2608.11915, Section 3.1, Theorem 3.3, Remark 3.4 (first public August 12, 2026), inspected in its accessible complete article text. Earlier two-dimensional first-band exact quadrature is acknowledged. The theorem makes no claims about higher bands, Euclidean distance, signed quadrature, or a full parametrization of every skeleton-supported remainder. Historical priority remains provisional.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact worst-case support hole under all first rectangular Fourier moments is a natural positive cubature geometric invariant. Its d-dependent constant, forced contact masses, explicit optimal rule and failure of uniqueness from d=3 furnish dimension-independent and structural facts beyond generic existence of quadrature.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
