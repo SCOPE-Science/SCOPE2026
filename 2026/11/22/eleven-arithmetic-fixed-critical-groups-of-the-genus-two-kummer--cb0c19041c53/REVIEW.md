@@ -1,0 +1,19 @@
+# Review of the arithmetic Kummer critical-group classification
+
+## Correctness — PASS
+
+The claim concerns \(K(\Gamma)^{\sigma}\) for an odd-characteristic smooth sextic genus-two curve. The geometric node and trope labels, their exact incidence and the Frobenius permutation on six root indices follow from the genus-two Kummer formulas in Kumar §5.5 and Malmendier §2.2. The explicit degree-zero-divisor action is correctly \(U_{ij}=\mathbf1_{p(j)=i}-\mathbf1_{p(v)=i}\) after deleting sink vertex \(v\). Coinvariants therefore have the full integral presentation \([M\mid U-I]\). The canonical perfect graph monodromy pairing is preserved by Frobenius and identifies the fixed subgroup's abstract invariant factors with those of the coinvariants. All eleven positive Smith diagonals and divisibility chains were verified by 9,275 individual replayable unimodular transformations on eleven independently reconstructed \(31\times62\) presentation matrices. The identity group has order \(3\cdot2^{72}\), agreeing with the graph's independently known spectrum and Kirchhoff's theorem. The theorem is conditional on the Galois factorization type; existence of every type over every fixed field is not claimed.
+
+## Originality — PASS, provisional historical priority
+
+The geometric Kummer graph's entire critical-group structure is an earlier established result. Its repeated statement is background, not this claim. The earlier Frobenius action on sixty Göpel tetrads concerns finite-set cycle counts, not invariant subgroups of the 32-vertex graph Jacobian. Kumar and Malmendier state the underlying node–trope formulas and do not state eleven rectangular integral Smith decompositions; document searches for Smith, Laplacian, and the graph group did not identify them. Targeted searches for Kummer graph sandpiles, folded six-cubes, Galois invariants, coinvariants and Frobenius fixed groups did not identify covering arithmetic results. Related published integral coinvariant computations concern other configurations. The all-eleven fixed-group table, particularly distinct groups of equal order, is not implied by the total group structure. Remaining risk: unindexed graph critical-group literature or historic arithmetic Kummer tables may contain an equivalent calculation. No independent priority audit has occurred.
+
+## Mathematical value — PASS
+
+The Kummer node–trope configuration is a canonical rational-curve incidence structure tied directly to the six branch points of a genus-two curve. Its arithmetic graph Jacobian fixed groups describe Galois-invariant chip-firing divisor classes, rather than a mere numerical count or a chosen subgraph. Complete integral classification across all eleven root factorization types is a natural exact arithmetic refinement of the classical geometric configuration. Equal-order Frobenius types yield nonisomorphic fixed groups, demonstrating that the result contains information invisible in the known geometric group order, graph spectrum, and standard Frobenius point counts. It provides a reusable invariant for arithmetic graph-divisor descent without asserting an unsupported identification with surface Picard torsion.
+
+## Sources, limitations, and remaining risks
+
+The two inspected primary documents provide the exact node, trope and incidence labels; both differ in topic from the integral graph-critical-group fixed subgroups. Their relevant passages are in Kumar's thesis §5.5 pp. 52–53 (May 2006), and Malmendier §2.2 p. 6 (arXiv first posted December 24, 2009). The old literature and search index cannot certify historical uniqueness. The certificate covers all eleven permutations and all separable degree-six hyperelliptic models in odd characteristic by purely integral graph arguments; it is not a computation of Jacobian arithmetic groups or Kummer surface cohomology. Realizability and nonodd characteristics remain outside scope.
+
+Self-review: passed. Independent audit: not yet performed.
