@@ -1,0 +1,198 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T21:50:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fresh reconstruction from RESULT.md at exact source-tree 732c0ccf30d82dab62a0ba9951f0fc0d57859b10: center independent edges Y_e=X_e-p and use orthogonality E[Y_TY_S]=delta_{T,S}[p(1-p)]^|T|. For each fixed four-vertex set, expanding its 4 labeled claw or 12 labeled P4 indicator configurations gives explicit support class c2,c3,c4. Independently implemented pattern generation and rational Fourier coefficients (not executing repository verifier); verified all 39 projection values at 13 distinct p=i/12, which establishes degree<=12 polynomial identities, and independently exhaustively enumerated 2^6,2^10,2^15 whole graphs for n=4,5,6 at p=1/3,1/2,2/3 with identical exact covariance. At midpoint c2=c3=0 and c4=-3/256, giving -3/256 binom(n,4). For p=1/2+lambda/n the n^6 c2, n^5 c3, n^4 c4 contributions are (3lambda^2/512,-lambda/256,-1/2048)n^4, yielding (12lambda^2-8lambda-1)/2048. Quadratic roots (2±sqrt7)/6 are simple; analytic compact convergence plus implicit-function theorem gives exactly two local roots with O(n^-2) p corrections and signs. At midpoint, three-vertex support variance coefficients are 1/256 (claw, triangle) and 3/256 (path, three wedges), giving n^5/1536 and n^5/512 and micro n*Corr=sqrt(3)/4*(12lambda^2-8lambda-1). Finite checks are only certificates of finite polynomials; asymptotics and local root statements follow algebraically. Scope limited to n>=4, 0<p<1 and fixed real lambda in compact moving windows; no global all-p zero classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sah–Sawhney 2022 Introduction expressly studies fixed p (not p_n), and Section 4.2 and Theorem 4.4 supply induced-count graph factors and local limits away from problematic densities, not this exact pair covariance: https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/jlms.12523",
+          "Sah–Sawhney–Zhu 2024 Theorem 1.2 gives joint graph-factor point-probability approximations for bounded-away p and does not state finite claw/P4 covariance or its n^(-1) roots: https://arxiv.org/pdf/2412.09535",
+          "The component/motif Palm theorem treats covariance of counts of isolated H-components with X_F, not two unconstrained induced motif counts: https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-connected-motif-palm-cancellation-and-sharp-tree-shape-covarianc--836854b5c1ce/RESULT.md",
+          "Janson–Nowicki 1991 abstract gives a general projection theorem and asymptotic statistics for fixed kernels, not a verified explicit claw/P4 moving-density formula: https://doi.org/10.1007/BF01193750"
+        ],
+        "reasoning": "General graph-factor and moment frameworks can in principle be specialized to compute any fixed motif-pair covariance, but neither the inspected general theorem statements nor the separate connected-component covariance formula supplies this specific exact n-dependent polynomial or the two crossing constants as a consequence without separate local coefficient calculation. The inaccessible 1990 Janson and 1979 Frank full texts leave a genuine priority risk; no whole-document noncoverage claim is made for them.",
+        "searches": [
+          "Janson A functional limit theorem random graphs induced subgraphs 1990 full text OA search DOI 10.1002/rsa.3240010103",
+          "Janson Nowicki 1991 generalized U statistics induced graph counts (web)",
+          "Sah Sawhney 2022 local limit induced graph factors full text Section 4.2",
+          "Sah Sawhney Zhu 2024 local limit theorem joint subgraph counts arxiv 2412.09535 main theorem and Section 2",
+          "Connected-motif Palm cancellation and sharp-tree-shape covariance phases Resultary (2026-11-02)"
+        ]
+      },
+      "checked_sources": [
+        "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/jlms.12523",
+        "https://arxiv.org/pdf/2412.09535",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-critical-window-correlation-reversal-between-triangles-and-induc--b10420f97c39/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-connected-motif-palm-cancellation-and-sharp-tree-shape-covarianc--836854b5c1ce/RESULT.md",
+        "https://doi.org/10.1002/rsa.3240010103",
+        "https://doi.org/10.1111/j.1749-6632.1979.tb32791.x",
+        "https://doi.org/10.1007/BF01193750",
+        "https://arxiv.org/abs/1405.7348",
+        "https://arxiv.org/abs/1601.06834",
+        "Resultary semantic search, four query variants about claw/K1,3/P4 exact covariance and microscopic n^-1 root window",
+        "Web searches on graphlet count covariance tables and older subgraph moments"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier triangle-induced-C4 example has a single zero, a different pair of motifs, a 2/3 critical density, and n^(-1/2) nontrivial correlation scale: https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-critical-window-correlation-reversal-between-triangles-and-induc--b10420f97c39/RESULT.md",
+          "The submitted direct covariance polynomial has c2=12p^5(1-p)^5(2p-1)^2, c3=-6p^4(1-p)^5(2p-1)(8p^2-4p+1), c4=24p^4(1-p)^5(6p^3-6p^2+3p-1). Balancing n^6, n^5 and n^4 supports at p=1/2+lambda/n gives (12lambda^2-8lambda-1)/2048.",
+          "Janson 1990 abstract explicitly covers induced subgraph fluctuations but lacks accessible complete statement to assess pairwise second-order implications: https://doi.org/10.1002/rsa.3240010103"
+        ],
+        "reasoning": "The known triangle/induced-hole covariance does not imply the two-crossing claw/P4 polynomial by motif renaming: local support types, exceptional density, sign polynomial degree and window scales differ. The broad joint distribution approximation describes leading-order laws rather than this n^(-1) normalized correlation coefficient and exact finite mixed covariance; applying a general decomposition still requires the independent pair-specific combinatorics. A decisive older general corollary cannot be excluded without full text.",
+        "searches": [
+          "A finite-size covariance phase boundary for triangles and induced holes in random graphs Resultary 2026-10-18",
+          "Critical-window correlation reversal between triangles and induced four-cycles Resultary 2026-11-08 full RESULT.md",
+          "Local limit theorem for joint subgraph counts Sah Sawhney Zhu 2024 arxiv 2412.09535",
+          "Janson functional limit induced subgraph counts 1990 publisher abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The centered-edge coefficient identity is an instance of standard graph-factor/Hoeffding decomposition, not a new decomposition theorem: Sah–Sawhney 2022 equation (4.5), Section 4.2, https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/jlms.12523",
+          "The closest prior same-family Resultary example computes triangle vs induced C4, with one covariance sign root near 2/3 and n^(-1/2) correlation window, not claw versus P4 or two 1/n roots: https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-critical-window-correlation-reversal-between-triangles-and-induc--b10420f97c39/RESULT.md"
+        ],
+        "reasoning": "Queried aliases claw=K_{1,3}=three-star and four-path=P_4, and orthogonal graph-factor/projection representations. No inspected prior claim has the same two induced observables and same exact mixed covariance profile. The general projection representation is explicitly treated as prior technology; the exact cancellations and two distinct moving-density sign roots require pair-specific computation.",
+        "searches": [
+          "induced claw K1,3 and induced P4 path random graph covariance balanced p 1/2 microscopic two crossing n inverse (Resultary search)",
+          "induced 4 vertex subgraph counts claw 3-star P4 exact covariance covariance zeros (Resultary search)",
+          "\"claw\" \"P4\" \"covariance\" random graphs induced (web)",
+          "Sah–Sawhney 2022 Section 4.2 induced graph-factor expansion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Hočevar–Demšar (2016/2017), Combinatorial algorithm for counting small induced graphs and orbits, concerns graphlet count computation and recurrence, not an exact joint moment table: https://arxiv.org/abs/1601.06834",
+          "Yaveroğlu et al. graphlet-network modeling shows standard graphlet nomenclature and significance but no matching covariance table in read abstract: https://arxiv.org/abs/1405.7348",
+          "Actual Resultary searches return the current self-record and related but different motif-covariance theorems, not a separate preexisting exact claw/P4 entry."
+        ],
+        "reasoning": "Explicit searches for tabulated induced 4-node pairwise covariances and exact K1,3-P4 formulas revealed no directly covering table in inspected results. The absence of a search hit is not evidence of historical priority; a table in older network-statistics literature could still encode the exact polynomial.",
+        "searches": [
+          "induced graphlet count covariance formula 4 vertex motifs random graph (web)",
+          "graphlet covariance matrix random graph four vertices P4 K1 3 exact (web)",
+          "\"graphlet\" \"covariance matrix\" Erdos Renyi analytical (web)",
+          "induced four vertex graphlets path star covariance critical density Fourier projection (Resultary search)"
+        ]
+      },
+      "rationale": "Best-of-knowledge after actual Resultary queries, related published SCOPE primary results and primary literature. Orthogonal graph-factor decomposition and general induced-subgraph fluctuation tools are prior. The surviving specific contribution is the fully evaluated mixed induced K1,3-P4 covariance and distinct two-root 1/n covariance sign window with explicit second-order correlation. Inspected exact primary statements concern different motif pairs, component versus motif covariances, fixed-p induced count local limits or joint graph-factor limit laws; none mathematically implies the exact pair-specific coefficients and two root constants without further nontrivial local support computation. Inaccessible older full texts remain named priority risks, not proof of coverage or novelty.",
+      "residual_risks": [
+        "Janson 1990 full paper could contain pair-specific or broadly dominating second-order formulas; public abstract alone cannot rule it out. Authorized institutional access reported VPN disconnected, not bypassed.",
+        "Frank 1979 provides general covariance formulas; full text was not readable via the attempted OA link; an implicit specialization remains possible.",
+        "Janson–Nowicki 1991 full paper and Janson 1994 monograph were not read; general projector machinery could have tabled pair-specific constants in uninspected material.",
+        "Searches over indexed literature and Resultary are not exhaustive historical-priority proofs.",
+        "2017 counting algorithm, 2014 modeling paper and graphon fluctuations were examined primarily from summaries rather than fully for all possible links."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes prior general decomposition, not this mixed finite coefficient or two-root microscopic profile; fixed-p regime explicitly stated",
+          "evidence": [
+            "Introduction: paper exclusively focuses on p fixed and not varying with n",
+            "Section 4.2 Eq. (4.5) expands induced counts in graph factors and Theorem 4.4 separates problematic densities"
+          ],
+          "identifier_or_url": "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/jlms.12523",
+          "material_read": "Full public HTML article, introduction, Theorems 1.1/1.2/4.4 and Section 4.2 induced subgraph expansion, especially Eq. (4.5) and fixed-p caveats",
+          "method": "Open-access publisher full text, section/theorem inspection",
+          "title": "Local limit theorems for subgraph counts",
+          "trigger": "Closest explicit induced subgraph graph-factor expansion and exceptional p warning"
+        },
+        {
+          "assessment": "Gives a joint local limit framework but not inspected pair-specific exact n^4 covariance and two local roots; no claim about whole document outside inspected theorem/sections",
+          "evidence": [
+            "Theorem 1.2 bounds joint factor point probabilities for p separated from endpoints",
+            "Introduction pages 1-3 explains induced counts as polynomial combinations of connected graph-factor counts"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2412.09535",
+          "material_read": "Full text pages 1-3 for motivation, Theorem 1.2, assumptions and induced-count applicability; searched whole text for induced and covariance occurrences, inspected relevant locations",
+          "method": "Lawful arXiv PDF text and original page screenshot",
+          "title": "Local limit theorem for joint subgraph counts",
+          "trigger": "Potential stronger multivariate graph-factor coverage including induced counts"
+        },
+        {
+          "assessment": "Different observables and single 2/3-density root with n^(-1/2) correlation transition, no implication of claw/P4 double 1/n sign reversal",
+          "evidence": [
+            "Exact covariance is linear in p with unique crossing p*=2(n-4)/(3n-10)",
+            "Limit Corr at p=2/3+lambda/sqrt(n) equals -lambda/sqrt(lambda^2+10/27)"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-critical-window-correlation-reversal-between-triangles-and-induc--b10420f97c39/RESULT.md",
+          "material_read": "Entire RESULT.md: statement, exact overlap proof, variances, critical correlation and scope",
+          "method": "Published Resultary GitHub primary source file",
+          "title": "Critical-window correlation reversal between triangles and induced four-cycles",
+          "trigger": "Closest published SCOPE two-motif cancellation phenomenon"
+        },
+        {
+          "assessment": "Requires one observable to count isolated connected components; does not cover ordinary induced claw and P4 counts",
+          "evidence": [
+            "Exact formula Cov(C_H,X_F)=E[C_H](t_F(H)-Q_F(n,h)p^e(1-p)^s)"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-connected-motif-palm-cancellation-and-sharp-tree-shape-covarianc--836854b5c1ce/RESULT.md",
+          "material_read": "Entire RESULT.md, including exact C_H versus X_F conditioning and induced tree path specializations",
+          "method": "Published Resultary GitHub primary source file",
+          "title": "Connected-motif Palm cancellation and sharp tree-shape covariance phases",
+          "trigger": "Two-switch motif covariance precedent that might dominate"
+        },
+        {
+          "assessment": "Potential prior stronger implicit coverage cannot be ruled out; no whole-document NOT_COVERING judgment",
+          "evidence": [
+            "1990 abstract explicitly includes induced subgraph counts and exceptional non-normal cases"
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240010103",
+          "material_read": "Publisher bibliographic page, abstract and references only; full paper inaccessible by lawful preprint/OA search and authorized institutional access",
+          "method": "Public 1990 abstract plus OA/preprint searches; institutional access reported disconnected VPN",
+          "title": "A functional limit theorem for random graphs with applications to subgraph count statistics",
+          "trigger": "Highly relevant 1990 older induced-statistics and exceptional-law general theory"
+        },
+        {
+          "assessment": "General projection framework certainly prior; direct pair-specific microscopic theorem not evidenced by the abstract",
+          "evidence": [
+            "Summary describes graph-indexed finite projection terms and induced-copy applications, with leading nonzero small support controlling limits"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF01193750",
+          "material_read": "Publisher abstract, mathematical model and summary of applications; whole article not retrieved",
+          "method": "Springer public metadata and abstract",
+          "title": "The asymptotic distributions of generalized U-statistics with applications to random graphs",
+          "trigger": "Older graph-indexed orthogonal decomposition of induced motif counts"
+        },
+        {
+          "assessment": "Important residual priority risk: general covariance identities might specialize; cannot make a whole-document exclusion",
+          "evidence": [
+            "Abstract says general formulas to derive means, variances and covariances; worked examples focus on dyads/triads"
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/j.1749-6632.1979.tb32791.x",
+          "material_read": "Publisher summary, reference list, publication metadata; full paper not accessible via PDF-direct link, which redirected to abstract",
+          "method": "Public Wiley article abstract and web full-text searches",
+          "title": "Moment Properties of Subgraph Counts in Stochastic Graphs",
+          "trigger": "1979 general covariance formulas might encode an exact pairwise graphlet table"
+        },
+        {
+          "assessment": "Documents use of induced graphlets as network descriptors; no claim of exhaustive prior covariance analysis",
+          "evidence": [
+            "Abstract presents graphlet statistics for network modeling"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1405.7348",
+          "material_read": "arXiv abstract and bibliographic record, not full paper",
+          "method": "arXiv abstract inspection",
+          "title": "ergm.graphlets: A Package for ERG Modeling Based on Graphlet Statistics",
+          "trigger": "Motivation for natural connected induced four-node graphlets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two counts are canonical connected four-vertex induced graphlets used in motif statistics, so their covariance and correlation have direct natural meaning. The degree-three projection overlap vanishes at p=1/2 despite nonzero individual leading n^5 variances, exposing a truly second-order n^4 covariance from three distinct support sizes. Their competition yields a nontrivial asymmetric pair of n^-1 density sign crossings, unlike routine first-order motif covariance laws or a known graphlet table. The exact all-n moment formula and sharp microscopic sign structure can benchmark rare dependence effects in finite-network motif analysis; no unsupported joint CLT or full-density classification is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For G(n,p), n>=4, the mixed induced-claw K1,3 versus induced-path P4 covariance has the explicit 3-support polynomial in RESULT.md; at p=1/2+lambda/n, n^-4 Cov tends to (12lambda^2-8lambda-1)/2048 with exactly two local zero branches (2±sqrt7)/(6n)+1/2+O(n^-2); n*Corr tends to sqrt(3)/4 times the same quadratic.",
+  "limitations": [
+    "No claim of complete all-density covariance zero classification, joint independence or new general subgraph factor theory.",
+    "The first roots are local in any fixed compact n(p-1/2) interval containing both simple roots; outside this window unexamined.",
+    "The 1990 and 1979 older full papers were not accessible; explicit priority risk, without automatic O failure.",
+    "The finite checks do not themselves verify infinite n or asymptotic uniformity; analytical exact formulas and ordinary IFT do.",
+    "No external Lean/expert attestation; existing independent audit was not performed before this review."
+  ],
+  "schema_version": 1
+}

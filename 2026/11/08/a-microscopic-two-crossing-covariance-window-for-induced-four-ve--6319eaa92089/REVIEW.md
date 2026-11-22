@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact covariance follows from the orthogonal centered-edge expansion of the two induced graphlet indicators. The local coefficient formula is proved directly by expanding the four-vertex indicators, and the three support-class polynomials are checked by an exhaustive finite polynomial certificate. Independent full-graph enumeration for graph orders four through six at three rational densities agrees exactly. The variance constants arise from distinct three-vertex projections and are derived separately. A uniform compact-set expansion and the simple-root implicit-function argument justify the two microscopic zeros. No finite experiments are used in place of the analytic asymptotics.
+PASS
 
-## Originality — PASS, qualified
+Fresh reconstruction from RESULT.md at exact source-tree 732c0ccf30d82dab62a0ba9951f0fc0d57859b10: center independent edges Y_e=X_e-p and use orthogonality E[Y_TY_S]=delta_{T,S}[p(1-p)]^|T|. For each fixed four-vertex set, expanding its 4 labeled claw or 12 labeled P4 indicator configurations gives explicit support class c2,c3,c4. Independently implemented pattern generation and rational Fourier coefficients (not executing repository verifier); verified all 39 projection values at 13 distinct p=i/12, which establishes degree<=12 polynomial identities, and independently exhaustively enumerated 2^6,2^10,2^15 whole graphs for n=4,5,6 at p=1/3,1/2,2/3 with identical exact covariance. At midpoint c2=c3=0 and c4=-3/256, giving -3/256 binom(n,4). For p=1/2+lambda/n the n^6 c2, n^5 c3, n^4 c4 contributions are (3lambda^2/512,-lambda/256,-1/2048)n^4, yielding (12lambda^2-8lambda-1)/2048. Quadratic roots (2±sqrt7)/6 are simple; analytic compact convergence plus implicit-function theorem gives exactly two local roots with O(n^-2) p corrections and signs. At midpoint, three-vertex support variance coefficients are 1/256 (claw, triangle) and 3/256 (path, three wedges), giving n^5/1536 and n^5/512 and micro n*Corr=sqrt(3)/4*(12lambda^2-8lambda-1). Finite checks are only certificates of finite polynomials; asymptotics and local root statements follow algebraically. Scope limited to n>=4, 0<p<1 and fixed real lambda in compact moving windows; no global all-p zero classification.
 
-The nearest general coverage is Janson's earlier induced-subgraph fluctuation framework and the graph-factor decomposition of Sah and Sawhney. The latter's publicly accessible full text, especially its induced-count expansion and its restriction away from exceptional densities, was examined. The previously available general machinery allows one to *formulate* such calculations but does not state the mixed claw–path exact covariance or its asymmetric two-crossing order-\(n^{-1}\) behavior. Other relevant source material establishes graphlet-count motivation and more general limit theorems, not this precise microscopic pairwise sign law. The 1990 Janson paper's available abstract addresses induced-subgraph fluctuations; its full text was inaccessible, so possible earlier implicit coverage remains the principal priority risk. This assessment does not claim a literature-wide proof of priority.
+## originality
 
-## Value — PASS
+PASS
 
-The problem concerns two canonical, widely used connected four-vertex induced graphlets, not an arbitrary parameter slice. Their individual variances remain of order \(n^5\), yet the mixed covariance is only order \(n^4\) exactly at the balanced density because their leading three-vertex projection types are orthogonal. Three competing support sizes create a microscopic covariance sign reversal at two distinct density offsets. The explicit exact identity and asymmetric phase profile distinguish the dependence effects hidden by leading-order fluctuation approximations and offer a precise second-order benchmark for network-motif covariance calculations.
+Best-of-knowledge after actual Resultary queries, related published SCOPE primary results and primary literature. Orthogonal graph-factor decomposition and general induced-subgraph fluctuation tools are prior. The surviving specific contribution is the fully evaluated mixed induced K1,3-P4 covariance and distinct two-root 1/n covariance sign window with explicit second-order correlation. Inspected exact primary statements concern different motif pairs, component versus motif covariances, fixed-p induced count local limits or joint graph-factor limit laws; none mathematically implies the exact pair-specific coefficients and two root constants without further nontrivial local support computation. Inaccessible older full texts remain named priority risks, not proof of coverage or novelty.
 
-## Literature and limitations
+## value
 
-Relevant sources: Janson (1990), DOI 10.1002/rsa.3240010103; Yaveroğlu et al. (2014), arXiv:1405.7348; Sah–Sawhney (2020/2022), arXiv:2006.11369; Bhattacharya–Chatterjee–Janson (2021/2022), arXiv:2104.07259. Only Sah–Sawhney was inspected in full pertinent sections. The 1990 abstract was inspected, not its unavailable full text; the arXiv abstract records for the other sources are narrower evidence than complete-text exclusion. The statement is for independent-edge random graphs only. It gives no full-density sign classification, independence theorem, or joint distributional limit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two counts are canonical connected four-vertex induced graphlets used in motif statistics, so their covariance and correlation have direct natural meaning. The degree-three projection overlap vanishes at p=1/2 despite nonzero individual leading n^5 variances, exposing a truly second-order n^4 covariance from three distinct support sizes. Their competition yields a nontrivial asymmetric pair of n^-1 density sign crossings, unlike routine first-order motif covariance laws or a known graphlet table. The exact all-n moment formula and sharp microscopic sign structure can benchmark rare dependence effects in finite-network motif analysis; no unsupported joint CLT or full-density classification is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
