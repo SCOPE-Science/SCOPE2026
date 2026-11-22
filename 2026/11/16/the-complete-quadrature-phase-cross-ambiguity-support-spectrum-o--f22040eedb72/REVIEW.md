@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem is finite with an explicitly stated complete domain. Independent global phase normalization has a unique representative. The `checker.py` program exhausts all 4096 quaternary and 64 binary normalized pairs using Gaussian integer arithmetic, verifies a direct STFT computation against a separately factored four-point Fourier identity, and asserts the complete scalar and row-profile distributions. No numerical or partial search is used. The exact definitions and the unnormalized Fourier convention are fixed in RESULT.md.
+## correctness
 
-**Originality — PASS (best available evidence, residual historical risk).** The 2022 original preprint of Nicola was read through its main theorem and relevant introduction: it establishes the minimal support and all arbitrary-complex extremizers, but not the six-valued quaternary support distribution or profile multiplicities. Semantic database searches for quaternary four-cycle cross ambiguity, phase-only STFT support spectra, and equivalent formulations retrieved nearby Gabor frame, support-uncertainty and small Fourier-sequence results but no statement implying this complete census. The specialist 1989 quadriphase radar paper was accessible only by abstract and could not be excluded as a source of related historical computations; it concerns particular longer radar codes, with no explicit covering claim identified. Novelty is a provisional self-review, not proof of first discovery.
+PASS
 
-**Value — PASS.** This is a natural complete zero-pattern classification at the first composite cyclic length for the standard four-phase waveform alphabet, rather than an arbitrary partial enumeration. The exact absence of seven support levels, the isolated odd value 11, two distinct shift-row geometries at that value, and the complete binary/quaternary comparison furnish reproducible constraints for phase-coded time-frequency null design. No general large-length result is claimed.
+With f(0)=g(0)=1 the two independent global μ4 actions give exactly 4^6=4096 normalized pairs and 2^6=64 binary pairs. Exact Gaussian-integer Fourier sums on all 16 bins per pair reproduce support counts 4:32,6:64,8:32,11:768,12:1024,16:2176 and eight sorted row profiles. Independently implemented complete enumeration in /tmp/scope08_independent.py confirmed all tables, and inspected checker.py computes both direct and factored four-point Fourier formulas. No rounding, partial search or infinite extrapolation.
 
-Closest sources and scope limits are recorded in RESULT.md and AUDIT.json. Scientific limitations include finite length, finite alphabets and uncertainty about specialist code tables. The proof is fully finite and exact, not an infinite-family claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novel complete alphabet-restricted codebook census, not a new general uncertainty bound. The minimum support 4 and equality families are prior; the higher support histogram, isolated 11 and row-profile multiplicities have not been shown to follow from inspected work.
+
+## value
+
+PASS
+
+Full μ4 phase coding of the smallest composite cyclic group is a standard time-frequency setting. Complete support and per-shift cancellation restrictions including odd support 11, seven forbidden levels and BPSK contrast are concrete waveform-design invariants; this is a natural complete classification, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
