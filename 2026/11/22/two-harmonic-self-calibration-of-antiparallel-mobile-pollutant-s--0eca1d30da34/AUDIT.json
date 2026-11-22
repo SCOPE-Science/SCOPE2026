@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "For every smooth positive periodic source with first two Fourier modes nonzero, a shared positive response length, two positive gains and arbitrary offsets/registration, the Fourier ODE yields the exact complex ratio; the invariant phase is strictly decreasing with exact range (-pi,0), giving a bijection and a monotone cubic recovery. Necessity, two-ratio sufficiency via a positive constructed field, one-harmonic nonidentifiability, and both endpoint expansions are proved. Numeric tests and exact rational witness supplement the complete argument without certifying experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Buehler et al., 2021, doi:10.5194/amt-14-995-2021, §3.3: e-folding response from a controlled gas change and instrument calibration.",
+        "Hofman et al., 2024, doi:10.3390/s24175653, abstract: laboratory/field calibration and mobile GPS accuracy, not an exact blind parameter-recovery theorem."
+      ],
+      "reasoning": "The broad practical monitoring studies assume calibrating against known reference data; they do not prove all-ratio realization, uniform uniqueness or the one-harmonic obstruction under a fully unobserved spatial profile. Mathematical two-wavenumber wave tomography studies different dispersion measurements and do not contain this inverse filter statement.",
+      "searches": [
+        "mobile air quality sensor forward backward passes estimate sensor response time constant lag no reference same spatial transect",
+        "first order sensor reverse scan self calibration lag bidirectional scans"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.5194/amt-7-2967-2014",
+      "doi:10.5194/amt-14-995-2021",
+      "doi:10.20944/preprints202406.1513.v1",
+      "doi:10.3390/s24175653"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hübner et al. identify spatial relocation in opposite travel directions (2014, p. 2976) and correct using separately known laboratory constants (2014, §3.1).",
+        "The new statement needs only two nonzero complex harmonics, permits different unknown gains and arbitrary registration shift, and gives exact necessary and sufficient realization for the observed ratios."
+      ],
+      "reasoning": "Knowing correction with a separately measured response time does not imply identifying that time from opposite-direction data with unknown registration and an unknown field. Similarly phase-only climate transfer and bidirectional gravity-wave tomography records solve structurally different inverse equations. No consulted prior theorem dominates the current claim by specialization.",
+      "searches": [
+        "bidirectional transect first order sensor response self calibration time constant unknown concentration",
+        "first order sensor reverse scan self calibration lag bidirectional scans"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hübner et al., 2014, doi:10.5194/amt-7-2967-2014, Eq. (1) and §§2.2,3.1–3.2: a known first-order lag model and laboratory response correction.",
+        "The identified problem permits unknown input concentration Fourier phases, unknown map alignment and independent positive gains; the phase-curvature invariant removes these together."
+      ],
+      "reasoning": "The classical first-order transfer equation alone supplies per-harmonic factors but no blind two-harmonic inverse when the relative spatial shift is also unknown. A matched-harmonic forward/reverse ratio removes the input; the second harmonic removes shift. No inspected source states their global injective phase map with feasible range.",
+      "searches": [
+        "\"forward\" \"reverse\" scans first order sensor lag estimate time constant spatial profile",
+        "\"bidirectional\" \"sensor\" \"response time\" \"transect\" calibration",
+        "identify time constant and time delay from two sine-wave phase measurements 1st order transfer function"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches did not retrieve an exact tabulation for the two-ratio complex invariant and its open lower-semicircle feasibility region.",
+        "Independent hand algebra yields the polynomial \\(14\\ell^3-3\\ell^2-1\\) for the rational witness, not a known sensor-calibration table."
+      ],
+      "reasoning": "The theorem concerns a continuum of admissible complex ratio data and a global inversion, not lookup of a standard instrument constant. An unsuccessful search is not a novelty proof and no absence from every database is inferred.",
+      "searches": [
+        "first-order low-pass reverse scans shift gain two Fourier ratios calibration exact feasibility",
+        "mobile air quality monitor unknown response time unknown GPS registration sensor frequency ratio benchmark"
+      ]
+    },
+    "rationale": "Search and examination of the most relevant primary measurement sources found known sensor lag and directional spatial corrections and classical first-order filtering, but no coverage of the complete two-complex-ratio unknown-field, unknown-shift identifiability theorem, necessary/sufficient data region, sharp minimality and both endpoint conditioning laws. Historical priority is provisional because the mathematical blind-identification literature is broader.",
+    "residual_risks": [
+      "A classical blind-system-identification or navigation phase-calibration theorem in uninspected literature could dominate the combined inverse statement; priority remains provisional.",
+      "The motivating preprint full text could not be read; the matched journal abstract and older full relevant methods were inspected.",
+      "A PDF figure rendering service timed out; comparison used primary page-indexed text, not inaccessible figures.",
+      "Model mismatch (finite scans, drift, unequal response, GPS warping or noise) is not addressed by the exact theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers first-order lag and bidirectional correction with separately calibrated time constants, not blind two-harmonic response and registration recovery",
+        "evidence": [
+          "Equation (1) and text on p. 2973 introduce a first-order time constant.",
+          "Section 3.1 determines it using separately imposed laboratory step changes.",
+          "Section 3.2 removes back-and-forth zigzag with those constants and defined gradients."
+        ],
+        "identifier_or_url": "https://doi.org/10.5194/amt-7-2967-2014",
+        "material_read": "Full searchable primary article PDF, including pages 1, 6–9 and response and correction sections; exact response model and lab calibration passage",
+        "method": "Read article PDF text and compare governing equation, inputs, calibration assumptions and conclusion; a PDF page-render attempt timed out",
+        "title": "A horizontal mobile measuring system for atmospheric quantities",
+        "trigger": "Same first-order lag equation, moving sensor, and reverse-direction spatial profiles"
+      },
+      {
+        "assessment": "Different known-input calibration protocol; does not contain blind reverse-scan harmonic inverse",
+        "evidence": [
+          "Section 3.3 reports empirical sensor e-folding times and calibration step responses."
+        ],
+        "identifier_or_url": "https://doi.org/10.5194/amt-14-995-2021",
+        "material_read": "Full public HTML, abstract, §3.3 Sensor response time, online calibration description",
+        "method": "Read section explaining e-folding-time measurement under controlled concentration steps",
+        "title": "Stationary and portable multipollutant monitors for high-spatiotemporal-resolution air quality studies including online calibration",
+        "trigger": "Modern mobile environmental sensing response-time estimation"
+      },
+      {
+        "assessment": "Motivates practical issue but accessible material does not imply mathematical calibration result; unavailable full text remains a historical-priority uncertainty",
+        "evidence": [
+          "Preprint posted 21 June 2024; journal version published 30 August 2024.",
+          "Abstract reports lab/field calibration and GPS tests rather than a two-harmonic reverse-scan inversion."
+        ],
+        "identifier_or_url": "https://doi.org/10.20944/preprints202406.1513.v1 ; https://doi.org/10.3390/s24175653",
+        "material_read": "Public preprint posting date and abstract; published article title, date and complete web-accessible abstract",
+        "method": "Compared available preprint record and journal abstract, calibration aims and GPS description; full preprint reader inaccessible",
+        "title": "Portable Sensors for Dynamic Exposure Assessments in Urban Environments: State of the Science",
+        "trigger": "Motivating 2024 mobile sensor calibration and positioning uncertainty"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0eca1d30-da34-46c9-b82f-9160f0fea801",
+  "value": {
+    "rationale": "Dynamic environmental monitors can have severe spatial lag, GPS misregistration and unknown gain; unknown raw pollutant profiles rule out direct calibration. The theorem identifies an exact field-free, registration- and gain-invariant calibration statistic, classifies all admissible two-harmonic data, proves sharp data minimality, and quantifies ill-conditioning. These are a mathematically complete natural inverse measurement problem, not a renamed time-constant identity; no claim of field implementation or downstream prediction is needed.",
+    "status": "PASS"
+  }
+}
