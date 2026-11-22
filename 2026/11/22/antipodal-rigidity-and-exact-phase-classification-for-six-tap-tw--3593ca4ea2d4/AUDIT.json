@@ -1,0 +1,178 @@
+{
+  "correctness": {
+    "rationale": "Complete analytic proof: Fourier diagonalization and absence of lag aliasing for N>=12 give exact equations (1+chi^s) r_s=0. r_5 nonzero restricts chi to order 2 or 10. In the order-ten case r1=r3=r4=0 forces three equilateral unit quotients; r3 requires equal moduli sqrt(3) and 1, impossible. For order 2 the two even correlation equations yield exactly (a,b,ax,epsilon i bx,-ax^2,bx^2), without missing branches. Trace fixes bound 12. Phase alphabet closure proves q divisible by four iff and 2q^3 count. Actual standalone exact Gaussian-integer checker enumerates all 4096 quadriphase six-tap windows and excludes tenth-order cancellation; separate float checker performs exhaustive normalized small alphabet tests and full Gram sums. Finite checks are corroboration, not proofs of universal quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Magsino, arXiv:1611.00818 (2016), Theorem 2.8 gives a necessary-and-sufficient general ambiguity-function sparsity criterion; https://arxiv.org/html/1611.00818v2",
+        "Krahmer–Pfander–Rashkov, arXiv:math/0611493 (2006), Sect. 5 discusses finite Gabor frame applications, https://arxiv.org/abs/math/0611493",
+        "Published three-tap full-translation two-modulation frame potential/rigidity theorem: https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-phase-frequency-design-and-tightness-transition-for-three--9d47ac973e0f/RESULT.md",
+        "Published three-translation/half-modulation phase-alphabet theorem: https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-arithmetic-existence-and-exact-phase-alphabet-counts-for-three-t--9778d67573d4/RESULT.md"
+      ],
+      "reasoning": "General Gabor frame criteria have broader operator scope, but do not assert an explicit six-consecutive-unimodular-tap classification: specialization still requires a nonstandard obstruction excluding a tenth-order modulation character and solves coupled aperiodic correlation equations. The three-tap result covers shorter windows with quarter-cycle channel gap. The three-translation result fixes a different Gabor lattice and a full-support window. Neither result entails this theorem by simply substituting its parameters.",
+      "searches": [
+        "published-finding corpus: all translations two modulation channels boxcar length four cyclic Gabor frame exact spectrum optimal conditioning",
+        "published-finding corpus: six-tap full-translation two-channel Gabor tightness sixth order modulation order ten obstruction",
+        "published-finding corpus: two channel cyclic Gabor tight frames five point support complementary sequence",
+        "Web: Gabor systems full translations two modulations six taps Golay length three tight frames"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1016/S0012-365X(01)00162-5",
+      "https://doi.org/10.1002/0471219282.eot367",
+      "https://arxiv.org/abs/math/0611493",
+      "https://arxiv.org/abs/1611.00818",
+      "https://arxiv.org/html/1611.00818v2",
+      "https://uwaterloo.ca/mathcheck/download/complex-golay-pairs",
+      "https://uwaterloo.ca/mathcheck/sites/default/files/uploads/documents/issac-cgolay_0.pdf",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-phase-frequency-design-and-tightness-transition-for-three--9d47ac973e0f/RESULT.md",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-arithmetic-existence-and-exact-phase-alphabet-counts-for-three-t--9778d67573d4/RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known general criterion Magsino 2016 Theorem 2.8 yields lag equations but no explicit six-site solutions.",
+        "Known finite Golay classifications imply the q=4 special count; do not imply a statement for arbitrary q or generic complex phases without an independent proof.",
+        "Published three-tap exact frame potential theorem has support length 3 and requires 4|N for tightness, unlike the new length 6 antipodal condition which allows every even N>=12."
+      ],
+      "reasoning": "The target is not a rearranged q=4 catalogue entry: a priori a fifth-power character condition permits both order 2 and order 10, and only the newly proved unimodular equilateral-triple contradiction removes the latter. The surviving order 2 case has a continuous exact moduli space and a sharp all-q arithmetic threshold. The historical finite-alphabet enumeration is fully acknowledged as implied coverage; any suggestion that it alone is new is expressly excluded.",
+      "searches": [
+        "published-finding corpus: six-tap full-translation two-channel Gabor tightness sixth order modulation order ten obstruction",
+        "published-finding corpus: three-site complex Golay complementary pair full continuum classification torus phase group order four",
+        "Web: finite Gabor 2 modulations all translations Golay complementary sequences even odd polyphase tight frame"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Craigen–Holzmann–Kharaghani, Discrete Math 252 (2002), §4.3: exactly 128 fourth-root length-three Golay pairs in one equivalence class, https://doi.org/10.1016/S0012-365X(01)00162-5",
+        "Bright et al., ISSAC 2018, Definition 2.2 and Table 1: quadriphase length-three count 128, https://uwaterloo.ca/mathcheck/sites/default/files/uploads/documents/issac-cgolay_0.pdf",
+        "Unimodular continuous coefficients and arbitrary phase alphabets are not the finite fourth-root setting of these censuses."
+      ],
+      "reasoning": "The antipodal special case is equivalent to a length-three Golay complementary pair after separating the six even/odd taps; this equivalence is explicitly acknowledged, not presented as new. A count of 128 for q=4 is already known, and any restatement of only that would fail originality. Neither checked finite count establishes the order-ten impossibility for every N, the full three-torus continuous parametrization, or the exact q-th root count for all q. The new claim distinguishes these extra universal conclusions from the known equivalent subproblem.",
+      "searches": [
+        "published-finding corpus: six consecutive unimodular taps two modulation cyclic Gabor frame tight antipodal Golay phase 2q^3",
+        "published-finding corpus: three-site complex Golay complementary pair full continuum classification torus phase group order four",
+        "Web: complex unimodular Golay complementary pairs length 3 classified continuous phases exactly",
+        "Web: phase alphabet q Golay complementary pairs length 3 iff 4 divides q"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "University of Waterloo MathCheck Complex Golay pairs table explicitly has n=3: total pairs 128, https://uwaterloo.ca/mathcheck/download/complex-golay-pairs",
+        "Craigen–Holzmann–Kharaghani 2002 §4.3 already has one equivalence class with 128 pairs.",
+        "No checked table was found resolving both unrestricted complex phases and all q-th-root phase alphabets for the specified six-tap Gabor family."
+      ],
+      "reasoning": "The known n=3, q=4 datum is old and is explicitly credited. It does not by itself certify uniqueness of the two continuous solution tori, force the modulation gap to N/2 across arbitrary N, or give the q-divisibility/count for arbitrary q. Absence of a matching table is only limited evidence and not independently a proof of novelty.",
+      "searches": [
+        "Web: complex Golay pairs length 3 128 one equivalence class Waterloo MathCheck",
+        "Web: Enumeration of Complex Golay Pairs via Programmatic SAT length three",
+        "published-finding corpus: six consecutive unimodular taps two modulation cyclic Gabor frame tight antipodal Golay phase 2q^3"
+      ]
+    },
+    "rationale": "The known 128-pair quaternary Golay census is expressly prior art. Craigen–Holzmann–Kharaghani 2002 §4.3, Parker–Paterson–Tellambura 2003, and Bright et al. 2018 cover that finite slice, not the full complex-phase two-modulation frame theorem. Magsino 2016 supplies a general tightness criterion, not the resulting continuous six-tap classification. Full-text comparison with the published three-tap full-translation Gabor study and a three-translation half-modulation study confirms neither subsumes six unimodular taps with arbitrary two-channel frequency gap. The new assertion includes a nontrivial exclusion of all order-ten gaps, exact parametrization as two three-tori, and a phase-alphabet iff/count for every integer q. Searches were bounded; hidden equivalents remain a risk.",
+    "residual_risks": [
+      "An unindexed older continuous-phase classification of all length-three unimodular Golay pairs may exist; its combination with a general Gabor criterion could overlap substantially.",
+      "The q=4 count 128 is definitively prior art, not an independent original component.",
+      "The primary papers and database were compared for stated claims, but not every reference or appendix of the wider polyphase sequence literature has been exhaustively checked.",
+      "No external independent mathematical audit has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS quaternary length-three pair count of 128; does not state a continuous all-phase two-modulation six-tap frame classification",
+        "evidence": [
+          "Section 4.3 gives one equivalence class containing 128 pairs.",
+          "Sections 3–4 explicitly restrict complex Golay entries to fourth roots."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0012-365X(01)00162-5",
+        "material_read": "Article full-text transcription, particularly sections 3–5, Table in section 4.3 and equivalence operations E1–E5",
+        "method": "Open-access scientific transcription with direct section and claim comparison",
+        "title": "Complex Golay sequences: structure and applications",
+        "trigger": "First historically close classification for length-three quadriphase Golay pairs"
+      },
+      {
+        "assessment": "COVERS primitive quadriphase length-three Golay existence; no all-order six-tap Gabor claim identified in inspected material",
+        "evidence": [
+          "Publisher states first published 15 April 2003.",
+          "Manuscript identifies a primitive length-three quadriphase pair."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/0471219282.eot367",
+        "material_read": "Publisher publication-date record and accessible manuscript material discussing primitive length-three pair and general complementary sequences",
+        "method": "Publisher bibliographic date cross-check, relevant manuscript section text reading",
+        "title": "Golay Complementary Sequences",
+        "trigger": "Earliest dated archival background on a primitive quadriphase length-three pair"
+      },
+      {
+        "assessment": "Foundational finite Gabor/uncertainty results; no same six-consecutive-tap all-phase tightness classification identified",
+        "evidence": [
+          "Submitted 16 November 2006.",
+          "Section 5 covers Gabor-frame applications and tight frame constructions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0611493",
+        "material_read": "Full HTML sections 1–2 and coverage of applications in section 5 and paper structure",
+        "method": "Open arXiv HTML full text and inspect Gabor definitions/applications",
+        "title": "Uncertainty in time–frequency representations on finite Abelian groups and applications",
+        "trigger": "Foundational finite Gabor frames and time–frequency structure"
+      },
+      {
+        "assessment": "Theorem 2.8 generalizes the analytic criterion but does not explicitly solve six consecutive unimodular taps; possible overlooked special-case corollary remains a bounded risk",
+        "evidence": [
+          "arXiv v1 public 2 November 2016.",
+          "Theorem 2.8 is iff ambiguity-function sparsity, and examples target CAZAC sequences rather than six-tap windows."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1611.00818v2",
+        "material_read": "HTML sections 1–3, Theorems 2.4 and 2.8, discussion of CAZAC constructions and table of contents for examples",
+        "method": "Open arXiv HTML, inspect theorem and search for six-tap or Golay examples",
+        "title": "Constructing Tight Gabor Frames Using CAZAC Sequences",
+        "trigger": "Plausibly dominating general finite Gabor tightness theorem"
+      },
+      {
+        "assessment": "COVERS the 128 length-three quaternary pair count; not continuous all-phase or arbitrary-q Gabor condition",
+        "evidence": [
+          "Definition 2.2 fixes alphabet {±1,±i}.",
+          "University of Waterloo published table gives 128 ordered length-three pairs and one equivalence class."
+        ],
+        "identifier_or_url": "https://uwaterloo.ca/mathcheck/sites/default/files/uploads/documents/issac-cgolay_0.pdf",
+        "material_read": "PDF page 1 screenshot, sections 1–2 and length-three table from linked University of Waterloo database",
+        "method": "Read primary publisher-author PDF and linked table; visually inspected PDF title page",
+        "title": "Enumeration of Complex Golay Pairs via Programmatic SAT",
+        "trigger": "Exact database covering quaternary length-three Golay pairs"
+      },
+      {
+        "assessment": "Three taps and quarter-cycle gap, not this six-tap order-ten obstruction and antipodal classification",
+        "evidence": [
+          "Theorem states N>=5, three positive-magnitude taps and tightness requiring 4|N.",
+          "Limitations explicitly exclude higher tap counts."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-phase-frequency-design-and-tightness-transition-for-three--9d47ac973e0f/RESULT.md",
+        "material_read": "Complete published RESULT.md, including assumptions, detailed proof, limitations, and prior work",
+        "method": "Read public source from repository; compare support size and phase/modulation conditions",
+        "title": "Exact phase–frequency design and tightness transition for three-tap cyclic Gabor frames",
+        "trigger": "Same full-translation two-modulation sampling architecture"
+      },
+      {
+        "assessment": "Three translations with even modulation subgroup and full-support flat windows, not two frequencies and all translations",
+        "evidence": [
+          "Three-translate lattice K={0,s,2s} and all even modulations.",
+          "Arithmetic condition 3|q comes from different geometry."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-arithmetic-existence-and-exact-phase-alphabet-counts-for-three-t--9778d67573d4/RESULT.md",
+        "material_read": "Published RESULT.md finding, assumptions and proof steps for spectral reduction and arithmetic cycle rigidity",
+        "method": "Read public source and compare time-frequency sampling lattice and support hypotheses",
+        "title": "Arithmetic existence and exact phase-alphabet counts for three-translate cyclic Gabor tight frames",
+        "trigger": "Similar phase-alphabet enumeration in a cyclic Gabor family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3593ca4e-a2d4-4a0e-ad40-874c2516844c",
+  "value": {
+    "rationale": "Natural time-frequency design question at the first nontrivial length-three interlaced Golay complementarity, beyond shorter two-modulation three-tap work. For every even cyclic length >=12, the theorem fully specifies which channel separation can yield a tight constant-envelope six-sample window, excludes the natural order-ten possibility by a structural unit-triangle obstruction, and gives the complete torus geometry and phase-quantization counts. This can guide two-channel finite tight-frame design without an unmotivated finite slice or an unsupported downstream application. The previously known q=4 pair count is excluded from claimed novelty.",
+    "status": "PASS"
+  }
+}
