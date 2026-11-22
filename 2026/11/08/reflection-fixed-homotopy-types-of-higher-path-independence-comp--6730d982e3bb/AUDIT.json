@@ -1,126 +1,165 @@
 {
+  "audited_at_utc": "2026-11-19T15:48:56.848413Z",
   "correctness": {
-    "rationale": "Exact orbit barycenter homeomorphism, mirror-seam run limits, recursive matching and acyclicity proof for augmented complete face poset, complete base cases, and standard discrete Morse sphere/contractible conclusions. Code separately compared 189 original-face instances, complete oriented Hasse acyclicity and critical-face counts; finite verification does not replace unrestricted proof.",
+    "evidence": [
+      "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/reflection-fixed-homotopy-types-of-higher-path-independence-comp--6730d982e3bb/RESULT.md",
+      "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/reflection-fixed-homotopy-types-of-higher-path-independence-comp--6730d982e3bb/verification/reflection_path_verifier.py",
+      "independent_checks.json: 240 original-orbit/model/matching/DAG cases; 150 mod-two homology cases; exact Git tree SHA re-encoding"
+    ],
+    "rationale": "Exact claim is the integral geometric reflection-fixed homotopy type of Ind_r(P_n) for all integers n,r>=1, not fixed vertices or equivariant homotopy of the ambient. Barycentric fixed coordinates are constant on two-element reversal orbits and the central singleton, identifying the fixed locus PL with K(m;r,floor(r/2)) for n=2m and Y=K(m;r,r) union c*K(m;r,floor((r-1)/2)) for n=2m+1. The bound at the seam follows from doubling a terminal occupied run, or doubling plus one with center selected. In both orbit-face families, toggling the first paired coordinate matches a downward-closed subposet; directed cross-boundary Hasse edges cannot form a cycle, and unmatched faces contain r forced following vertices and omit the separator r+2, leaving the same smaller model, lifting critical dimensions by r. Base cases 0<=m<=r+1 yield a unique augmented critical face at the two stated remainders, otherwise no augmented critical face. With the augmented empty-face convention this proves sphere/contractible homotopy integrally, including r=1,n=2 empty S^-1, S^0 two points, and n=1 point; it is not an extrapolation from experiments. Independently reconstructed Git root and verification subtree SHAs from actual tree entries, read all seven source blobs and verification script/log. Independent finite checks constructed original-orbit admissible face sets, computed model faces, recursive matching, full directed Hasse acyclicity for 240 pairs n=1..24,r=1..10, and reduced F2 homology for 150 pairs n=1..15,r=1..10, all agreeing. These are corroboration, not the infinite proof. No substantive logical gap found.",
+    "risks": [
+      "Discrepancy cannot be ruled out outside all tested finite ranges solely from tests; the unrestricted result depends on the explicitly examined matching induction and standard augmented acyclic matching theorem."
+    ],
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Ehrenborg–Hetyei, Theorem 4.4, gives a pre-existing sphere-or-point dichotomy for every interval family.",
-        "Sawant, Theorem 3.6, proves vertex decomposability of ordinary tree higher independence complexes."
+        "https://www.ms.uky.edu/~jrge/Papers/Independence.pdf: Theorem 4.4, p.912, interval-family independence complexes constrictive (sphere or contractible); p.912-913 induction contracts interval edges",
+        "https://arxiv.org/pdf/2001.05448: Theorem 4.2 and Proposition 4.3 p.9, explicit ordinary path Ind_{d-2} sphere/point matching, no action",
+        "https://arxiv.org/pdf/2605.25150: Theorem 3.6 p.15 all-tree r-independence vertex decomposability"
       ],
-      "reasoning": "Theorem 4.4 dominates the qualitative homotopy dichotomy; this has been expressly excluded from novelty. Neither broader theorem calculates the reflection-specific congruence classes and dimensions. Vertex decomposability of the ambient complex does not imply fixed-point homotopy type.",
+      "reasoning": "Theorem 4.4 implies the qualitative topology of every terminal interval-avoidance orbit model, but alone does not evaluate whether each model is sphere or contractible or give its sphere dimension by m,r. Deshpande-Singh treats the ambient unreflected path, and an involution fixed locus need not be determined by the ambient homotopy equivalence. Sawant treats a broader graph class structurally but likewise does not compute the requested fixed-space invariant.",
       "searches": [
-        "r independence complex of path with bounded run terminal shorter homotopy type",
-        "independence complex of consecutive interval hypergraph with shorter terminal forbidden interval and fixed odd central vertex",
-        "doi:10.1016/j.ejc.2005.04.010",
-        "arXiv:2605.25150v1"
+        "web: Ehrenborg Hetyei topology independence complex 2006 interval families Theorem 4.4 full pdf",
+        "web: Deshpande Singh higher independence complexes graphs homotopy types path Theorem 4.2 2001.05448",
+        "web: reflection fixed point space r independence complex path exact sphere higher independence homotopy",
+        "Resultary: higher independence paths reflection fixed sphere all integer d>=3 exact dimensions terminal-run complex"
       ]
     },
     "checked_sources": [
-      "arXiv:2605.25150v1",
-      "arXiv:2001.05448v2",
-      "doi:10.1016/j.ejc.2005.04.010",
-      "Path reversal has a mod-eight orientation character on strong Morse matching complexes (published mathematical record)",
-      "Dihedral orientation characters of bounded-independence spheres on cycles (published mathematical record)",
-      "Reflection characters of linear hexagonal-chain independence complexes (published mathematical record)",
-      "Complete dihedral and layer-swap homology representations of circular ladders (published mathematical record)"
+      "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-reflection-fixed-spheres-in-two-independence-complexes-of-paths--3f23feebe7f9/RESULT.md",
+      "https://www.ms.uky.edu/~jrge/Papers/Independence.pdf",
+      "https://arxiv.org/pdf/2001.05448",
+      "https://arxiv.org/pdf/2605.25150",
+      "https://mathoverflow.net/questions/156364/fixed-simplicial-complex-under-group-action",
+      "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-reflection-fixed-homotopy-types-of-higher-path-independence-comp--6730d982e3bb",
+      "Resultary semantic published-record searches for reflected paths, terminal-run complexes, and general r>=3; executed 2026-11-19 UTC"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "An ambient nonequivariant equivalence does not determine a geometric fixed-point set of the reflection.",
-        "The interval-hypergraph theorem does imply each orbit complex is sphere-or-contractible; the new claim is the precise residue/dimension evaluation and its canonical identification with the fixed space."
+        "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-reflection-fixed-spheres-in-two-independence-complexes-of-paths--3f23feebe7f9/RESULT.md: r=2 fixed sphere at n=4k-1,4k, same dimension k-1; full match",
+        "https://www.ms.uky.edu/~jrge/Papers/Independence.pdf: qualitative interval-complex result holds for every interval family",
+        "https://arxiv.org/pdf/2001.05448: nonequivariant ambient path homotopy for all r"
       ],
-      "reasoning": "Compare implications rather than titles. The exact new parameter-wise formulas cannot be obtained by simply restating any cited theorem; they require calculating the special mirrored-run constraints and solving a recurrence. This is an explicit refinement, not a new qualitative sphere-or-point theorem.",
+      "reasoning": "Substitute r=2 into the present s=1,t=0 formulas: even n=4k and odd n=4k-1 yield S^{k-1}, exactly the prior theorem; no novelty for that slice. But r>=3 adds a variable terminal-run bound and period r+2 with two parity-specific residue classes. Neither the r=2 result nor the broad qualitative interval theorem formally states those numerical values or gives them as a parameter substitution without new matching analysis. A general algorithm can in principle compute them instance by instance, which remains an overlap risk, but no exact all-parameter implication from an inspected earlier theorem was established.",
       "searches": [
-        "arXiv:2001.05448v2",
-        "arXiv:2605.25150v1",
-        "doi:10.1016/j.ejc.2005.04.010",
-        "reflection fixed-point homotopy of r-independence complexes of path graphs runs consecutive vertex involution",
-        "reflection invariant subsets of path P_n whose consecutive occupied runs have length at most r; homotopy fixed set empty sphere contractible periodic n modulo 2(r+2)"
+        "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-reflection-fixed-spheres-in-two-independence-complexes-of-paths--3f23feebe7f9/RESULT.md",
+        "https://www.ms.uky.edu/~jrge/Papers/Independence.pdf",
+        "https://arxiv.org/pdf/2001.05448",
+        "https://arxiv.org/pdf/2605.25150",
+        "Resultary: reflection fixed points geometric realization higher r independence complex of path P_n involution; bounded consecutive runs terminal seam; all n and r sphere dimensions",
+        "Resultary: ordinary independence complex of path under reversal geometric fixed points n modulo six sphere"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "The closest published-finding corpus path reversal result concerns strong discrete Morse matching complexes, not r-independence complexes.",
-        "The dihedral-orientation result concerns bounded-independence on cycles, with a rational orientation character but not geometric fixed point homotopy on paths."
+        "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-reflection-fixed-spheres-in-two-independence-complexes-of-paths--3f23feebe7f9/RESULT.md: exact PL reflected-orbit model E_m and S^{k-1} for r=2 at n=4k-1,4k; contractible otherwise",
+        "https://mathoverflow.net/questions/156364/fixed-simplicial-complex-under-group-action: geometric fixed-point orbit triangulation is standard",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-reflection-fixed-homotopy-types-of-higher-path-independence-comp--6730d982e3bb: reviewed result itself, not independent earlier evidence"
       ],
-      "reasoning": "The fixed simplicial orbit complex is a terminal-run interval-hypergraph avoidance complex. Searching by both equivariant and interval-avoidance aliases returned no claim with exact same orbit model and all-parameter sphere dimensions.",
+      "reasoning": "The family of reflected-orbit simplices is a terminal-run interval-avoidance complex, so searched both equivariant geometric-fixed and interval-hypergraph aliases. For r=2, the earlier E_m is equivalent by reversal of orbit order to this K/Y model, and its dimension formulas agree exactly. It does not cover r>=3, where terminal constraints depend on independent r and parity. Orbital PL reduction is a known general mechanism, not independently novel.",
       "searches": [
-        "geometric fixed points of r-independence complexes of trees under automorphism groups vertex decomposable 2026",
-        "reflection fixed-point homotopy of r-independence complexes of path graphs runs consecutive vertex involution",
-        "r independence complex of path with bounded run terminal shorter homotopy type",
-        "reflection-fixed subspace of r-independence complex Ind_r(P_n) for path reversal, sphere periodic modulo r+2, exact sphere dimensions",
-        "equivariant homotopy type of higher independence complex of path with reversal involution, geometric fixed points",
-        "independence complex of consecutive interval hypergraph with shorter terminal forbidden interval and fixed odd central vertex",
-        "reflection invariant subsets of path P_n whose consecutive occupied runs have length at most r; homotopy fixed set empty sphere contractible periodic n modulo 2(r+2)"
+        "Resultary: reflection fixed points geometric realization higher r independence complex of path P_n involution; bounded consecutive runs terminal seam; all n and r sphere dimensions",
+        "Resultary: interval hypergraph matching complexes terminal run constraint K(m;r,s) homotopy periodic modulo r+2; fixed reversal path",
+        "Resultary: ordinary independence complex of path under reversal geometric fixed points n modulo six sphere",
+        "web: reflection fixed higher independence complex path r-independence Pn involution sphere homotopy periodic",
+        "https://mathoverflow.net/questions/156364/fixed-simplicial-complex-under-group-action"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "No exact enumerated tables or database classification for these geometric fixed spaces arose in the checked published-finding corpus hits.",
-        "The closest fixed-point related records concern hexagonal chain independence and circular ladder symmetry representations."
+        "Resultary all-r query matched the reviewed record itself, the r=2 predecessor, and other graph-complex symmetry results, but no independent all-r>=3 exact residue/dimension table.",
+        "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-reflection-fixed-spheres-in-two-independence-complexes-of-paths--3f23feebe7f9/RESULT.md: exact special-case r=2 classification is a prior table covering that slice"
       ],
-      "reasoning": "Checked returned abstracts and parameter ranges; no result for every n and every r of reflected path higher-independence complex. Negative search is not a uniqueness certificate.",
+      "reasoning": "The prior r=2 result is a real exact special-case classification and must be credited. The submitted r>=3 values are all-parameter symbolic results rather than an isolated small finite table. No independently published general r>=3 table was located, but absence from search is not historical proof.",
       "searches": [
-        "reflection-fixed subspace of r-independence complex Ind_r(P_n) for path reversal, sphere periodic modulo r+2, exact sphere dimensions",
-        "reflection invariant subsets of path P_n whose consecutive occupied runs have length at most r; homotopy fixed set empty sphere contractible periodic n modulo 2(r+2)"
+        "Resultary: reflection fixed points geometric realization higher r independence complex of path P_n involution; bounded consecutive runs terminal seam; all n and r sphere dimensions",
+        "Resultary: higher independence paths reflection fixed sphere all integer d>=3 exact dimensions terminal-run complex",
+        "web: terminal run bounded r length simplicial complex homotopy type path fixed reflection independence",
+        "Resultary: interval hypergraph matching complexes terminal run constraint K(m;r,s) homotopy periodic modulo r+2; fixed reversal path"
       ]
     },
-    "rationale": "Prior interval-family theorem already provides the qualitative sphere-or-point statement; the claimed contribution is only the exact reflection-fixed homotopy classification for every path length and r, including both parity-dependent residue patterns and dimensions. Source full-text comparisons and available record searches did not find this specific all-parameter result. Unindexed equivalent reductions remain a risk.",
+    "rationale": "Qualified best-of-knowledge PASS for the uniform all-r (particularly r>=3) geometric reflection-fixed two-parameter dimension and residue formulas. The previously published two-independence reflected-path result gives the ENTIRE r=2 subfamily verbatim after re-indexing the reflected orbits, so no independent novelty is attributed to r=2. Ehrenborg-Hetyei Theorem 4.4 implies the pre-existing qualitative sphere-or-contractible alternative for interval hypergraph independence complexes, but not the two-parameter dimension/residue classification; this qualitative part is explicitly excluded from novelty. Deshpande-Singh Theorem 4.2 and Prop 4.3 give the ambient path Ind_r homotopy and not geometric reflection fixed spaces, which are not determined by ambient homotopy. Sawant Theorem 3.6 concerns tree vertex decomposability, not fixed geometric loci. Full relevant primary passages and the earlier r=2 RESULT were read; no retrieved prior theorem determines all r>=3 exact fixed-space types. Negative searches are not novelty proof; unindexed classification and specialization of broader interval methods remain real priority risks.",
     "residual_risks": [
-      "The general 2006 interval-independence theorem covers the qualitative sphere-or-point assertion; only explicit fixed-space arithmetic is claimed as new.",
-      "An unindexed later application may have calculated the same terminal-run two-parameter formulas.",
-      "No independent literature audit or proof referee has validated the finding."
+      "Complete r=2 geometric fixed-point dimension classification predates the reviewed result and must not be credited as newly discovered.",
+      "2006 interval-family theorem covers all qualitative sphere/point cases and provides a general algorithm; unexamined applications may have computed the same parameter-dependent dimensions.",
+      "An unindexed or later preprint may contain an all-r>=3 exact classification; searches provide bounded evidence, not priority certification."
     ],
     "source_inspections": [
       {
-        "assessment": "Establishes vertex decomposability for all trees; no reflection-fixed-space classification or congruence formula.",
+        "assessment": "DEFINITIVELY covers the r=2 subcase, but asserts no results for r>=3",
         "evidence": [
-          "Theorem 3.6: for every tree and every \\(r\\ge1\\) its r-independence complex is vertex decomposable.",
-          "Theorem discusses nonequivariant complexes; paper full-text search found no reflection or automorphism theorem."
+          "Finding n=4k-1 or 4k => S^{k-1}, otherwise point",
+          "Proof section 2 forbidden central pair, section 3 acyclic recurrence for E_m"
         ],
-        "identifier_or_url": "arXiv:2605.25150v1",
-        "material_read": "Title, abstract, introductory definition and results, Theorem 3.6 and its proof (pages 1 and 15 of 16).",
-        "method": "Lawful arXiv PDF opened, searchable text and pages visually inspected.",
-        "title": "On the Vertex Decomposability of r-Independence Complexes of Trees",
-        "trigger": "Current verified recent source studying exactly the same higher independence complexes on trees."
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-reflection-fixed-spheres-in-two-independence-complexes-of-paths--3f23feebe7f9/RESULT.md",
+        "material_read": "Full RESULT.md including theorem, PL orbit-face proof, recursive matching and n-mod-4 dimension classification",
+        "method": "Connected GitHub raw primary source full text",
+        "title": "Reflection-fixed spheres in two-independence complexes of paths",
+        "trigger": "Same path reversal geometric fixed-point object with r=2"
       },
       {
-        "assessment": "Ambient path complexes classified by perfect acyclic matching; the reflection orbit fixed subspaces are different complexes, not inferred by ambient homotopy type.",
+        "assessment": "Qualitative sphere-or-contractible coverage of every interval-family orbit complex; exact two-parameter fixed-space formulas not stated in inspected proof",
         "evidence": [
-          "Theorem 4.2 and Proposition 4.3 give ordinary higher independence complex of a path a sphere or point, with a matching.",
-          "No path-reversal geometric-fixed classification in inspected relevant arguments."
+          "Theorem 4.4 p.912 independent complex of an interval family is constrictive",
+          "Theorem 4.4 proof contracts interval edges without listing parity-specific r-dependent sphere dimensions"
         ],
-        "identifier_or_url": "arXiv:2001.05448v2",
-        "material_read": "Abstract, introductory results, section 4 around Theorem 4.2 and Proposition 4.3, pages including p.9.",
-        "method": "Lawful arXiv PDF, text and relevant page image inspected.",
-        "title": "Higher Independence Complexes of graphs and their homotopy types",
-        "trigger": "Earlier explicit homotopy formulas for the ordinary path higher independence complexes."
-      },
-      {
-        "assessment": "Theorem 4.4 already implies sphere-or-contractible existence for *all* interval families, hence qualitative coverage. It does not state exact reflection-fixed two-parameter residue/dimension formulas; retain full credit and residual overlap risk.",
-        "evidence": [
-          "Theorem 4.4: an independence complex of any family of intervals is constrictive, hence homotopy sphere or contractible.",
-          "Its proof reduces arbitrary interval antichains by contractions, no parametric reflection-specific formula stated in Theorem 4.4."
-        ],
-        "identifier_or_url": "doi:10.1016/j.ejc.2005.04.010",
-        "material_read": "Full introduction, Theorem 4.4 and proof on pp.912–913 and path result in §6 (around p.11).",
-        "method": "Author-hosted lawful full text https://www.ms.uky.edu/~jrge/Papers/Independence.pdf; page images and text examined.",
+        "identifier_or_url": "https://www.ms.uky.edu/~jrge/Papers/Independence.pdf",
+        "material_read": "Introduction and Theorem 4.4 plus proof on printed page 912, as well as discussion of Section 6 path algorithm; original published PDF examined with page screenshot",
+        "method": "Open-access author PDF, extracted lines and screenshot of printed p.912",
         "title": "The topology of the independence complex",
-        "trigger": "Potential stronger existing theorem covering the fixed orbit models as interval-hypergraph independence complexes."
+        "trigger": "Stronger theorem on interval-family avoidance complexes including terminal-run models"
+      },
+      {
+        "assessment": "Ordinary higher path independence complex formulas and perfect acyclic matching, not a geometric reflection-fixed classification",
+        "evidence": [
+          "Theorem 4.2 p.9 ordinary Ind_{d-2}(P_n) sphere when n=dk or dk-1",
+          "Prop. 4.3 p.9 explicit ordinary perfect matching"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2001.05448",
+        "material_read": "Abstract, introductory discussion of path results, Section 4 p.9 Theorem 4.2 and Proposition 4.3, including visual page screenshot",
+        "method": "arXiv v2 PDF full-text index and p.9 visual inspection",
+        "title": "Higher Independence Complexes of graphs and their homotopy types",
+        "trigger": "Earlier exact Ind_r(P_n) ambient path homotopy"
+      },
+      {
+        "assessment": "All-tree vertex decomposability is not the symmetry-fixed homotopy type",
+        "evidence": [
+          "Theorem 3.6 p.15 every tree T and r>=1 gives vertex decomposable Ind_r(T)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2605.25150",
+        "material_read": "Abstract, introduction, Theorem 3.6 and proof p.15, checked as a visual PDF page",
+        "method": "arXiv v1 PDF page inspection",
+        "title": "On the Vertex Decomposability of r-Independence Complexes of Trees",
+        "trigger": "Same r-independence graph class with trees including paths"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
+  "prior_scientific_evidence": {
+    "correctness": "The original scientific review reconstructed the barycenter-orbit model, seam bounds, recursively reduced augmented acyclic matching, all boundary bases and critical-face dimensions, and separately reported finite Hasse and orbit checks.",
+    "originality": "The original scientific review credited the general Ehrenborg-Hetyei interval-family sphere-or-point theorem and the ambient path results. This independent comparison additionally identifies the exact r=2 predecessor; only the all-r extension, especially r>=3, is evaluated as distinct.",
+    "value": "The exact dimension and residue classification of geometric reflection fixed spaces is a natural two-parameter invariant beyond ambient nonequivariant topology."
+  },
+  "review_type": "independent_audit",
   "schema_version": 1,
-  "scope_run_id": "6730d982-e3bb-4f90-a514-43936dcd4550",
+  "scientific_disposition": "passed",
+  "status_note": "Completed scientific assessment. Publication and any status changes require guarded downstream intake; this record does not independently certify that intake occurred.",
   "value": {
-    "rationale": "Determines the actual geometric fixed-point integral homotopy type for the canonical reversal symmetry of every path at every higher-independence threshold, including exact parity-residue criteria and sphere dimensions. This resolves a natural two-parameter invariant not determined by the known ordinary tree vertex decomposability, ordinary path sphere formulas, or qualitative interval-family dichotomy. No arbitrary finite choice is imposed.",
+    "evidence": [
+      "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-reflection-fixed-spheres-in-two-independence-complexes-of-paths--3f23feebe7f9/RESULT.md: demonstrates the natural previously studied reflected-path subfamily at r=2",
+      "https://www.ms.uky.edu/~jrge/Papers/Independence.pdf: establishes broader qualitative context but not numerical all-r types",
+      "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/reflection-fixed-homotopy-types-of-higher-path-independence-comp--6730d982e3bb/RESULT.md: explicit all-r classification with geometric fixed model and uniform matching"
+    ],
+    "rationale": "The reversal involution is canonical on every finite path, and geometric fixed-point topology is not determined by the ambient r-independence homotopy or by the older qualitative sphere-or-contractible theorem. Explicit residues and integral sphere dimensions for all r>=3 are a natural infinite two-parameter classification, including the nontrivial even/odd seam constraints and sharp empty/S^0 boundary cases. This is not merely the earlier r=2 formula, a finite slice, a renamed parameter, or a generic qualitative restatement. Future equivariant topological calculations can require the exact dimensions and noncontractible residue classes. No higher-order general tree action or equivariant equivalence is claimed.",
+    "risks": [
+      "Value is restricted to the exact reflected path classification, not a broad new framework for all trees or equivariant representation spheres."
+    ],
     "status": "PASS"
   }
 }
