@@ -1,15 +1,21 @@
-# Scientific review: the four-by-four cylinder matching complex
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact object is the ordinary matching complex of the simple graph \(P_4\square C_4\). There are 16 graph vertices, 28 graph edges, and exactly 21,497 simplicial faces with the empty face included. The executable enumerates every matching, forms 10,723 disjoint face-poset matching pairs, and verifies acyclicity of all 107,288 Hasse cover incidences on 21,496 nonempty faces. Its critical-cell inventory is exactly one vertex, 12 four-cells and 37 five-cells. The complete integral boundary \(A\) is regenerated from signed gradient paths, not read as an unexplained table. Two exact annihilating rows and a determinant-\(-1\) ten-by-ten minor prove that \(A\) has ten unit Smith factors and no others; SymPy independently evaluates the Smith form. Because the four-skeleton is a 3-connected wedge of four-spheres, the integer attaching degrees classify all five-cell attaching maps, and ten cellular cancellations give \(\bigvee^2S^4\vee\bigvee^{27}S^5\). Original unreduced mod-two ranks agree. This is an exact finite proof, not extrapolation from a sample.
+## correctness
 
-## Originality — PASS subject to stated residual risks
-The 2026 motivating study treats three-row open rectangular grids. Matsushita's inspected 2019 article treats two-row rectangular grids and generalized line graphs. The 2021 three-row paper is retracted and is not relied upon for its theorem; its inspected graph definitions still describe open rectangles. A published four-by-four square-grid homotopy result concerns \(P_4\square P_4\) rather than \(P_4\square C_4\); the known three-row pentagonal cylinder, the four-cut complex of a square cylinder, and the perfect-matching complex of the four-cube are different objects. Neither their statements nor the available 2026 abstract implies the present integer attaching-matrix classification. Searches also considered the aliases square cylinder, circular square grid, and line-graph independence complex. Residual risks include the inaccessible full text of the 2026 study and possible unindexed historical computations; search failure is not proof of uniqueness.
+PASS
 
-## Mathematical value — PASS
-Periodic closure is a natural boundary change from the already characterized open four-by-four grid. The previously published open rectangular grid yields six degree-four and two degree-five sphere summands, whereas the cylindrical graph yields two and 27, respectively. The computation settles an exact integral homotopy type, not just a numerical homology table, and supplies a complete and rerunnable primitive attaching-matrix certificate. The smallest four-row square cylinder is a meaningful benchmark for future structural or transfer-matrix work on cylinders. The narrow finite scope is stated explicitly; no general theorem or downstream application is claimed.
+For G=P4 Cartesian C4 (open four rows, periodic four columns), 16 vertices and 28 distinct edges, an independent Python reconstruction generated exactly 21,497 matchings including empty, with face counts 28,306,1672,4863,7416,5470,1620,121 by dimension 0..7. The first-available-edge greedy matching has 10,723 matched face pairs and exactly 1 critical vertex, 12 critical 4-cells and 37 critical 5-cells. Independently built the complete oriented nonempty Hasse incidence graph (107,288 incidences), and topological sorting visited all 21,496 vertices, establishing true acyclicity. Recalculated each signed gradient-path Morse boundary from the actual attached verify.py algorithm and boundary.json: 12x37 matrix, 108 nonzero entries, rank exactly ten, two explicit independent left annihilating rows and a determinant-minus-one 10x10 minor, Smith factors ten 1s. Because the 4-skeleton is a wedge of 4-spheres and pi4->H4 is an isomorphism there, these unit integral attaching columns cancel homotopy-theoretically, leaving 2 S4 and 27 S5. Mod-two homology alone would not exclude integral torsion. The full certificate for this one finite graph was independently replayed; no all-cylinders assertion is inferred.
 
-## Closest literature and limitations
-References and source-specific inspections appear in `RESULT.md` and `AUDIT.json`. No result from the retracted 2021 paper is used as a premise. The motivating 2026 full text could not be read; only abstract, scope and metadata were available. The exact homotopy proof is internally reproducible but has not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: P4xC4 is a four-row square cylinder and is not the open P4xP4 square grid (known 6 S4 + 2 S5), the 3-row pentagonal cylinder P3xC5 (known 24 S4 + 3 S5), or the five-column four-row cylinder. Primary open-grid results treat different graph families. No matching full integral homotopy classification for this exact boundary identification was found.
+
+## value
+
+PASS
+
+Closing the four columns of the smallest nontrivial four-row rectangular grid changes the matching complex into a new mixed-dimensional integral wedge with a nonzero 4/5 cellular attaching map; exact torsion-free homotopy classification of this geometrically natural benchmark is a worthwhile finite invariant, independent of general recurrences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
