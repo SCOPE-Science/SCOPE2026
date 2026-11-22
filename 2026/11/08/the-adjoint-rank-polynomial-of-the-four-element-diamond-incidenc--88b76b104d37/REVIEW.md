@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The five displayed commutator rows follow by direct matrix-unit multiplication. The exact case split on the endpoint diagonal equality is exhaustive; the three subcases within the equal-endpoint stratum are exhaustive. The only nontrivial rank assertions are certified by private arrow-input pivots and the graphic rank of a supported four-cycle. All case multiplicities are nonnegative; their sum is \(q^9\), and full direct enumeration over \(\mathbb F_2\) and \(\mathbb F_3\) agrees with the complete rank distribution. Neither small-field enumeration nor normalization is treated as a proof over all finite fields.
+## correctness
 
-**Originality: PASS relative to currently accessible evidence.** The nearest primary result, Krylov–Tuganbaev (arXiv:2305.02984, §§14–19), gives structural derivation modules, but no element-indexed adjoint-rank distribution for the four-element diamond. The other close prior class comprises height-two incidence algebras with square-zero radical and graphic-matroid formulas, which do not imply the present counts because the diamond has two nonzero products of radical arrows feeding its long interval. Publicly accessible mathematical records and overlapping prior statements were compared under aliases for adjoint rank, centralizer dimensions, commuting probability, and this poset, with no exact covering result identified. Residual risk: an unlocated general structural-matrix centralizer-enumerator could specialize to the same polynomial.
+PASS
 
-**Value: PASS.** The diamond is not an arbitrary sliced example: it is the smallest poset with two distinct length-two paths between comparable endpoints and the minimal incidence-algebra obstruction to the radical-square-zero matroid approach. Its complete all-field polynomial measures the first additional rank stratum, and it offers a fixed exact benchmark for any future height-three classification. No general height-three theorem is claimed, and the numerical ease of small cases alone is not the value argument.
+Starting from matrix-unit multiplication e_ij e_jk=e_ik, the commutator has precisely five independent output coordinates. When d0!=d3, the 03 input is a private pivot and the two two-edge chains have independent rank polynomials F_q; when d0=d3, k=0,1,2 active middle chains yield exactly P_0,P_1,P_2 by forest-incidence rank, private short-arrow pivots and one affine scalar condition. Distinct strata partition all diagonal and arrow assignments. Independent SymPy expansion of qP0+2q(q-1)P1+q(q-1)^2P2+q^2(q-1)T F_q^2 matches all six stated coefficients and symbolically R_q(1)=q^9. A separate nine-basis multiplication-table implementation exhaustively enumerated all 512 elements over F2 and 19683 over F3 (not a replay of the supplied commutator-row verifier), obtaining (2,2,32,104,244,128) and (3,6,180,1080,7236,11178). The algebraic pivot proof applies to every finite field including characteristic two and extension fields; finite experiments alone are not used as proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge rank-frequency novelty for the element-indexed inner adjoint of the four-element diamond: the inspected full related results compute derivation-module structure, unit-conjugacy class totals, zero-product counts, idempotent commutation, different three-vertex path algebras, or radical-square-zero cases. None supplies this exact six-coefficient distribution or implies it by mere specialization. A broad hidden centralizer-enumerator remains a genuine priority risk.
+
+## value
+
+PASS
+
+The four-element diamond is the smallest branching two-path incidence algebra with nonzero J², so its all-q adjoint rank spectrum isolates the first failure of the radical-square-zero graphic-matroid regime. The six exact centralizer strata and full rank-five locus are a natural complete invariant that can test future generalizations to height-three incidence rings and detect two-step interval interactions. This is a bounded, self-contained canonical exact fact and not a claim of a broad general theorem; the finite verification alone is not its significance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
