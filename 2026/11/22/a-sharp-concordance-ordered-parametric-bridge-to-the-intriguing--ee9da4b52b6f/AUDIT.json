@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For x in (0,1), y in [0,1], write s=1-x, t=1-xy, b=gamma*s/x, q=gamma+(1-gamma)x. The mixed derivative is D1+D2 with D1=s^b(s-q-gamma*s*log(s)/x), D2=t^b[gamma+2(1-gamma)x+(gamma*q/x)*(-log(t)-s*(1-t)/t)]. Since (-log(t)-s*(1-t)/t) decreases from a nonnegative value to zero on t in [s,1], for 0<=gamma<=1 one obtains c>=s^b[1-gamma*x-gamma*s*log(s)/x]>0. Boundary and margin limits are exact. For gamma>1, c(x,0)->1-gamma<0 as x->1; for gamma<0, c(x,y)->1-gamma-gamma*log(1-y), which is negative for y sufficiently close to one. A strictly increasing h_a(u)=u^a(-log u)/(1-u) for a>=1 proves strict parameter order. The full analytic proof is in RESULT.md. A reproducible 60-digit checker passed 3614 finite supporting checks; finite tests are not the basis of the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chesneau, Theoretical Validation of New Two-Dimensional One-Variable-Power Copulas, Axioms 12(4), 392 (2023), https://doi.org/10.3390/axioms12040392; Theorem 1 and Lemma 1 analyze C=x*y^f(x), not the x[1+y(1-x)^f-(1-xy)^f] construction.",
+        "The original Proposition 6 proves only the gamma=1 case and notes the missing parameter flexibility.",
+        "Chesneau, A Collection of Two-Dimensional Copulas Based on an Original Parametric Ratio Scheme, Symmetry 15(5), 977 (2023), https://doi.org/10.3390/sym15050977; its families are C=(b+1)xy/[b+phi(x,y)].",
+        "Chesneau, Theoretical Advancements on a Few New Dependence Models Based on Copulas with an Original Ratio Form, Modelling 4(2), 102-132 (2023), https://doi.org/10.3390/modelling4020008; its five families are ratio-polynomial, sine, arctangent and logarithmic functions."
+      ],
+      "reasoning": "Even a theorem covering all x*y^f copulas does not imply positivity for a different power-chord function, as its density contains both x-dependent exponent derivatives and two distinct power terms. The two ratio families do not subsume this analytic expression or its one-parameter sharp boundary.",
+      "searches": [
+        "2023 new copula distribution family power copula density asymmetric parameter paper open access",
+        "\"Theoretical Validation of New Two-Dimensional One-Variable-Power Copulas\" \"intriguing 1\" generalization",
+        "copula based on Jensen gap power functions convex chord 2023 2024"
+      ]
+    },
+    "checked_sources": [
+      "Chesneau, Theoretical Validation of New Two-Dimensional One-Variable-Power Copulas, Axioms 12(4), 392 (2023), https://doi.org/10.3390/axioms12040392",
+      "Chesneau, A Collection of Two-Dimensional Copulas Based on an Original Parametric Ratio Scheme, Symmetry 15(5), 977 (2023), https://doi.org/10.3390/sym15050977",
+      "Chesneau, Theoretical Advancements on a Few New Dependence Models Based on Copulas with an Original Ratio Form, Modelling 4(2), 102-132 (2023), https://doi.org/10.3390/modelling4020008",
+      "MSC2020 code 62H05 is the copula characterization and structure-theory class, AMS classification page https://mathscinet.ams.org/msc/msc2020.html?btn=Current&t=62-08"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chesneau, Theoretical Validation of New Two-Dimensional One-Variable-Power Copulas, Axioms 12(4), 392 (2023), https://doi.org/10.3390/axioms12040392; The published no-parameter Proposition 6 establishes exactly C_1.",
+        "The paper explicitly says absence of tuning parameters limits practical flexibility and parameter addition is left open.",
+        "The distinct x*y^a inverse-power family uses the same exponent but provides no statement about the derivative of the candidate C_gamma."
+      ],
+      "reasoning": "C_1 validity and x*y^a validity cannot imply C_gamma positivity for every gamma; neither excludes gamma<0 or gamma>1. The new sharp forbidden-side density limits and strict concordance order are genuinely additional statements, subject to historical-priority uncertainty.",
+      "searches": [
+        "\"intriguing 1\" copula parameter extension Chesneau",
+        "Chesneau Int1 copula a(x)=1+theta(1/x-1) valid iff 0<=theta<=1 and copulas increasing in concordance order",
+        "2023 2024 new copula family sufficient parameter condition density nonnegative open problem characterization pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chesneau, Theoretical Validation of New Two-Dimensional One-Variable-Power Copulas, Axioms 12(4), 392 (2023), https://doi.org/10.3390/axioms12040392; Section 4.1 gives C(x,y)=x[1+y(1-x)^(1/x)-(1-xy)^(1/x)], with no parameter.",
+        "The proposed exponent a_gamma(x)=1+gamma(1-x)/x appears in a different one-variable-power copula x*y^a in the paper's Lemma 1, Function 5."
+      ],
+      "reasoning": "Flipping a copula or using the x*y^a power copula cannot directly produce the nonseparable power-chord difference and its full classification. The proposed formula agrees with the published Int1 only at gamma=1 and with independence at gamma=0; at intermediate gamma it is not an affine endpoint mixture. No equivalent formula with the same mixed density was found.",
+      "searches": [
+        "\"intriguing 1\" copula parameter extension Chesneau",
+        "\"Int1 copula\" \"new\" \"parameter\" 2024 2025 2026",
+        "copula \"1+y(1-x)\" \"1-xy\" exponent parameter"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Chesneau, Theoretical Validation of New Two-Dimensional One-Variable-Power Copulas, Axioms 12(4), 392 (2023), https://doi.org/10.3390/axioms12040392; Section 4.1 reports the nonparametric Int1 model and its endpoint medial correlation/Spearman rho but no all-real gamma table.",
+        "The candidate family is a continuous all-parameter validity theorem, not a finite table entry."
+      ],
+      "reasoning": "The inspected original tables and sections do not give the exact parameter-domain/ordering result. Search retrieval has finite coverage and cannot certify absence from all databases or papers.",
+      "searches": [
+        "\"intriguing 1\" \"copula\" \"parameter\" 2024 OR 2025 OR 2026",
+        "\"Int1\" copula \"parameter\" \"(1-xy)\"",
+        "one-variable-power Int1 copula parametric family C(x,y) x[1+y(1-x)^(1+gamma(1-x)/x)-(1-xy)^(1+gamma(1-x)/x)]"
+      ]
+    },
+    "rationale": "The directly relevant primary paper proves only the parameter-free Int1 endpoint (Proposition 6) and states explicitly that the absence of a tuning parameter limits its use; its parametric inverse-power Lemma 1 instead treats C(x,y)=x*y**f(x), a different copula. New exact all-real-parameter two-increasingness, both converse obstructions and strict pointwise ordering do not follow from that theorem. Adjacent 2023 original ratio-form copulas have different rational constructions. Formula- and implication-directed searches and accessible published comparisons did not find a dominating exact result, with the residual historical-priority risk specified below.",
+    "residual_risks": [
+      "Unindexed literature, later unpublished materials or studies using a different name could contain an equivalent theorem; the documented searches do not prove absolute historical novelty.",
+      "The statement does not establish statistical power, applications or fitted-data advantages."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the gamma=1 endpoint and different x*y^f family, does not give the interpolation or sharp all-real parameter classification",
+        "evidence": [
+          "Proposition 6: parameter-free Int1 exponent 1/x",
+          "Section 4.1 closing remarks: no tuning parameters; extensions possible but not developed",
+          "Lemma 1 Function 5: same exponent used for different C=x*y^f copulas"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/axioms12040392",
+        "material_read": "Publisher full HTML: publication metadata, general C=x*y^f theory and inverse-power table, Section 4.1 Proposition 6 full formula/proof and remarks, and Section 4.2 alternative Int2",
+        "method": "Direct examination of the primary open-access mathematical text and formula comparisons",
+        "title": "Theoretical Validation of New Two-Dimensional One-Variable-Power Copulas",
+        "trigger": "Exact same Int1 endpoint and proposed parametric extension"
+      },
+      {
+        "assessment": "The general rational C=(b+1)xy/(b+phi) scheme and its examples are distinct from the power-chord family",
+        "evidence": [
+          "General ratio scheme in Section 1",
+          "Table of original ratio families, no power-chord formula"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/sym15050977",
+        "material_read": "Publisher full HTML introduction, general scheme and seven-family table",
+        "method": "Direct mathematical text and formula comparison",
+        "title": "A Collection of Two-Dimensional Copulas Based on an Original Parametric Ratio Scheme",
+        "trigger": "Same author, close publication window and parametric copula constructions"
+      },
+      {
+        "assessment": "Ratio-polynomial, ratio-sine, ratio-arctangent and ratio-logarithmic copulas have a different functional form and do not imply the present classification",
+        "evidence": [
+          "Abstract: five one-parameter ratio copulas",
+          "Sections 2-6 list the families studied"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/modelling4020008",
+        "material_read": "Publisher full HTML abstract, introduction, ratio-form setup and section list of original constructions",
+        "method": "Direct comparison of the displayed master formula and studied families",
+        "title": "Theoretical Advancements on a Few New Dependence Models Based on Copulas with an Original Ratio Form",
+        "trigger": "Another close source with potentially broader single-parameter copulas"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ee9da4b5-2b6f-4f02-b42e-68c31f303d3f",
+  "value": {
+    "rationale": "The source expressly says the Int1 copula is parameter-free and suffers from lack of flexibility, while suggesting parameter additions without developing them. This exact, natural exponent interpolation bridges independence and Int1; the proof determines both sharp forbidden parameter sides rather than imposing a conservative sufficient interval. Strict pointwise concordance ordering makes the parameter interpretable as dependence strength and ensures continuously varying Spearman association. The finite difference power formula is not an affine endpoint mixture. This gives a complete, motivated new model class; no empirical superiority is inferred.",
+    "status": "PASS"
+  }
+}
