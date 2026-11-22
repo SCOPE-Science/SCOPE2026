@@ -1,144 +1,149 @@
 {
   "correctness": {
-    "rationale": "Exhaustive two-route simplex enumeration yields 1037 nonempty faces. An explicit acyclic 506-pair discrete matching leaves cells in degrees 0,3,4 with multiplicities 1,23,1. A chain reduction with 506 integral unit pivots has primitive four-to-three boundary, yielding an integral wedge of 22 three-spheres; the homotopy step uses \\(\\pi_3(\bigvee^{23}S^3)=\\mathbb Z^{23}\\). Exhaustive 12-automorphism enumeration and signed Lefschetz fixed-simplex traces yield the rational character. Actual files verify.py and verification_output.txt checked.",
+    "rationale": "The final claim is the D6 rational homology character of M(GP(6,2)); the already published 22-sphere homotopy type supplies the homology concentration. Direct signed Lefschetz fixed-simplex enumeration of 1037 faces for each of 12 automorphisms gives rotation traces (22,0,-2,6,-2,0) and zero reflection traces. Exact character inner products yield multiplicities (2,2,1,1,3,5), with two invariant directions. An independent 506-pair acyclic Morse reduction with primitive integral top boundary corroborates the previously published homotopy premise.",
     "status": "PASS"
   },
   "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Marietti–Testa Theorem 4.11 explicitly assumes a forest.",
-        "Bayer et al. Theorem 2 explicitly assumes outerplanarity.",
-        "The Dürer graph is cubic and 3-connected with triangles; it is neither a forest nor outerplanar."
+        "The October 18 same-object predecessor proves the full integral homotopy type, so that part is covered: https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-shortest-octahedral-carriers-and-integral-orbit-obstructions-in--2058dcbfce11/RESULT.md.",
+        "Marietti–Testa Theorem 4.11 assumes a forest; Bayer–Jelić Milutinović–Vega Theorem 2 assumes outerplanarity.",
+        "Bayer–Goeckner–Jelić Milutinović classify manifold matching complexes; the 1037-face Dürer matching complex is nonpure and not such a manifold."
       ],
-      "reasoning": "The broad published sphere-wedge theorems do not imply the result, as their hypotheses exclude GP(6,2); none determines the exact number of sphere summands or its D6 representation. No applicable stronger statement was located.",
+      "reasoning": "Broader sphere-wedge theorems are inapplicable to the graph. The earlier same-object result does dominate the homotopy part, but does not explicitly state the D6 rational character. Its unsigned orbit sizes and rational ranks do not determine orientation-sensitive signed traces.",
       "searches": [
-        "arXiv:0705.1461v1 §4.4 matching complexes of forests",
-        "arXiv:2411.04601v2 Theorem 2 and proof",
-        "web: \"matching complex\" \"generalized Petersen graphs\" topology homotopy"
+        "generalized Petersen graphs matching complexes homology Durer GP(6,2)",
+        "arXiv:0705.1461v1 Theorem 4.11",
+        "arXiv:2411.04601v2 Theorem 2",
+        "arXiv:1906.03328v3 classification"
       ]
     },
     "checked_sources": [
+      "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-shortest-octahedral-carriers-and-integral-orbit-obstructions-in--2058dcbfce11/RESULT.md",
       "arXiv:0705.1461v1",
       "arXiv:2411.04601v2",
-      "Forman, Adv. Math. 134 (1998)",
-      "SageMath DurerGraph reference",
-      "MathWorld Dürer Graph",
-      "published-finding corpus: 2026/10/11/SCOPE-mixed-dimensional-sphere-wedge-for-the-goldner-harary-matching-c--6d479c6a7ad8"
+      "arXiv:1906.03328v3",
+      "arXiv:2611.22021v1"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "published-finding corpus 2026/10/11/SCOPE-mixed-dimensional-sphere-wedge-for-the-goldner-harary-matching-c--6d479c6a7ad8 concerns a different eleven-vertex polyhedral graph.",
-        "The accessible prior same-graph two-independence result has simplices consisting of vertex sets with bounded induced degree, not pairwise disjoint edges.",
-        "Forman establishes Morse-to-CW machinery, not a computed result for GP(6,2)."
+        "The October 18 published claim explicitly states M(GP(6,2)) is a wedge of 22 S3 and calculates its signed carrier cycles and orbit-lattice ranks: https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-shortest-octahedral-carriers-and-integral-orbit-obstructions-in--2058dcbfce11/RESULT.md.",
+        "Its statement does not give χ(r^k) or χ(r^k s), while signed fixed-simplex Lefschetz enumeration here yields (22,0,-2,6,-2,0), all reflections zero.",
+        "The complete D6 decomposition yields a 2-dimensional invariant subspace not inferable from the Betti rank alone."
       ],
-      "reasoning": "Even if methods can be reapplied to the Dürer graph, the prior statements do not logically imply its exact integral homotopy or the orientation-sensitive D6 character. A matching-complex result for another graph is not a dominating family theorem.",
+      "reasoning": "The original combined claim is partly covered and has been substantively narrowed to the surviving exact rational character. Its proof uses new orientation-sensitive group-element trace calculations rather than recasting the already known sphere count as a new theorem. A future discovery of an older full character would defeat this originality assessment.",
       "searches": [
-        "published-finding corpus: matching complex of Dürer graph GP(6,2) wedge spheres integral homotopy representation",
-        "published-finding corpus: Durer graph ordinary matching complex dihedral character automorphism group homology",
-        "arXiv:0705.1461v1 §4.4",
-        "arXiv:2411.04601v2 §§2–3",
-        "Forman 1998 original article introduction and critical-cell theorem"
+        "published theorem: Shortest octahedral carriers and integral orbit obstructions in the Dürer matching complex full RESULT",
+        "arXiv:2611.22021v1 Theorem 4.6",
+        "arXiv:2411.04601v2 Theorem 2",
+        "Dürer graph matching complex homology dihedral representation 22 spheres"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "Bayer–Jelić Milutinović–Vega, arXiv:2411.04601v2, Proposition 4: matching complex is the independence complex of the line graph.",
-        "DürerGraph appears as GP(6,2) in SageMath and MathWorld; the Rips and 2-independence complexes in related records use different simplices."
+        "October 18 published theorem https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-shortest-octahedral-carriers-and-integral-orbit-obstructions-in--2058dcbfce11/RESULT.md studies exactly the ordinary matching complex of GP(6,2) and establishes its 22-sphere homotopy type.",
+        "arXiv:2411.04601v2 Proposition 4 identifies matching complexes with independence complexes of line graphs.",
+        "arXiv:2611.22021v1 Theorem 4.6 studies vertex independence of GP(n,2), not matching or line-graph independence."
       ],
-      "reasoning": "Exact equivalences searched include ordinary edge matching, independence of the line graph, the generalized Petersen label and the polyhedron name. Searches retrieved only differently defined complexes, none supplying this integral homotopy plus character.",
+      "reasoning": "The equivalent object descriptions identify a decisive predecessor for the wedge of spheres; the adjusted final claim concerns the full signed D6 action on H3. Neither a vertex-independence complex of GP(6,2) nor a different matching complex gives these twelve character values.",
       "searches": [
-        "published-finding corpus: matching complex of Dürer graph GP(6,2) wedge spheres integral homotopy representation",
-        "published-finding corpus: generalized Petersen graph (6,2) edge matching complex independence line graph",
-        "web: \"Durer graph\" \"independence complex\" line graph",
-        "web: \"GP(6,2)\" \"matching complex\" homology"
+        "Dürer graph GP(6,2) edge matching complex independence complex line graph homotopy 22 spheres dihedral character",
+        "\"GP(6,2)\" \"matching complex\" homology",
+        "arXiv:2411.04601v2 Proposition 4"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "published-finding corpus returns the different dodecahedral, Pappus and Goldner–Harary matching-complex records, not an exact Dürer result.",
-        "SageMath DurerGraph() and MathWorld Dürer Graph list graph structure and automorphisms, not this matching-complex homology."
+        "The October 18 result contains exact tables of 93 octahedral homology carriers and 11 orbit sizes/ranks: https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-shortest-octahedral-carriers-and-integral-orbit-obstructions-in--2058dcbfce11/RESULT.md.",
+        "The earlier theorem gives carrier-orbit lattice obstructions but no table of all 12 signed trace values, nor irreducible multiplicities."
       ],
-      "reasoning": "Matched data must concern the ordinary edge-matching complex of exactly GP(6,2), not other graph complexes. No inspected table contains its 22-sphere classification or dihedral character; negative searches cannot exclude all unpublished tables.",
+      "reasoning": "Existing same-object tables are acknowledged as earlier facts; exact carrier-orbit counts and integral generation by carrier cycles do not themselves provide the full rational representation character. An unindexed equivariant character table remains a genuine priority risk.",
       "searches": [
-        "published-finding corpus: matching complex of Dürer graph GP(6,2) wedge spheres integral homotopy representation",
-        "published-finding corpus: Durer graph ordinary matching complex dihedral character automorphism group homology",
-        "web: \"matching complexes\" \"Dürer\" graph",
-        "web: \"GP(6,2)\" \"matching complex\" homology"
+        "Dürer graph GP(6,2) edge matching complex independence complex line graph homotopy 22 spheres dihedral character",
+        "matching complexes cubic polyhedral graphs Durer graph dihedral action character",
+        "\"Durer\" \"matching complex\" character homology"
       ]
     },
-    "rationale": "Closest applicable primary sources concern forests or outerplanar graphs and do not cover the cubic 3-connected Dürer graph. published-finding corpus queries for GP(6,2), Dürer, line-graph independence and dihedral homology found different graph objects/complexes, not this exact statement. Remaining unindexed coverage is expressly a risk.",
+    "rationale": "The original statement was partly covered by a fully read October 18 same-object published theorem. The final repaired result excludes any claim to novelty for the wedge and asserts only the signed full D6 rational character, not stated or logically fixed by the published carrier-orbit sizes/ranks. This remains a best-of-knowledge assessment.",
     "residual_risks": [
-      "An unindexed database table or preprint may contain the same twelve-vertex edge-matching complex and its group character.",
-      "A presently unidentified general theorem about matching complexes of generalized Petersen graphs could subsume this particular calculation.",
-      "The literature search does not establish priority or independent correctness."
+      "An unindexed older character calculation or equivariant table for the ordinary Dürer matching complex could cover the final result.",
+      "The previous published result includes signed carrier cycle data; a further derivation from its full verification code might recover the present character without a novel theorem-level statement.",
+      "Historical priority cannot be proved by a negative literature search."
     ],
     "source_inspections": [
       {
-        "assessment": "NOT_COVERING: its matching-complex theorem requires a forest",
+        "assessment": "COVERS prior homotopy claim exactly, but not the signed D6 character decomposition",
         "evidence": [
-          "§4.4 states matching complexes are independence complexes of line graphs and Theorem 4.11 assumes a forest."
+          "Its Finding says K ≃ wedge of 22 S3 and gives 93 octahedral carriers, 11 orbit sizes and rational/integral lattice ranks.",
+          "Its Full symmetry and orbit obstructions section lists orbit ranks and Smith invariants, not signed Lefschetz traces or D6 irreducible multiplicities."
         ],
-        "identifier_or_url": "arXiv:0705.1461v1, https://arxiv.org/pdf/0705.1461",
-        "material_read": "Title, introduction, §4.4 including definition and Theorem 4.11, and summary table",
-        "method": "primary full PDF text and visual page inspection",
-        "title": "A Simple Uniform Approach to Complexes Arising from Forests",
-        "trigger": "earliest exactly dated relevant archived matching-complex paper"
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-shortest-octahedral-carriers-and-integral-orbit-obstructions-in--2058dcbfce11/RESULT.md",
+        "material_read": "Entire public RESULT.md: finding, assumptions, four proof stages, verification, relationship to prior work and limitations",
+        "method": "Primary published result full text",
+        "title": "Shortest octahedral carriers and integral orbit obstructions in the Dürer matching complex",
+        "trigger": "Exact same object, graph and 22-sphere result"
       },
       {
-        "assessment": "NOT_COVERING by its outerplanarity hypothesis; no Dürer-specific result in inspected material",
+        "assessment": "NOT_COVERING of Dürer character: theorem applies to outerplanar graphs only",
         "evidence": [
-          "Theorem 2 assumes nonempty outerplanar graph; Proposition 4 gives the line-graph equivalence."
+          "Theorem 2 assumes outerplanarity.",
+          "Proposition 4 identifies M(G)=Ind(L(G))."
         ],
         "identifier_or_url": "arXiv:2411.04601v2, https://arxiv.org/pdf/2411.04601",
-        "material_read": "Abstract, §1, Theorem 2, Proposition 4, and induction in §§2–3 (pages 1–6)",
-        "method": "primary full PDF text and visual screenshot of page 3",
+        "material_read": "Abstract, introduction, Theorem 2, Proposition 4 and surrounding proof setup in §§2–3; visual inspection of PDF page 2",
+        "method": "Primary arXiv full text and PDF visual inspection",
         "title": "Matching Complexes of Outerplanar Graphs",
-        "trigger": "closest general sphere-wedge classification for planar graph matching complexes"
+        "trigger": "Closest general wedge theorem and line-graph dual formulation"
       },
       {
-        "assessment": "METHOD_SOURCE only, no graph-specific matching complex",
+        "assessment": "NOT_COVERING; matching-complex theorem assumes a forest",
         "evidence": [
-          "Corollary in introduction gives a CW complex with exactly one cell per critical simplex."
+          "Theorem 4.11 begins “Let F=(V,E) be a forest.”"
         ],
-        "identifier_or_url": "Robin Forman, 1998, doi:10.1006/aima.1997.1650, https://webhomes.maths.ed.ac.uk/~v1ranick/papers/forman5.pdf",
-        "material_read": "Introduction including the critical-cell CW corollary and Morse differential definition",
-        "method": "primary full article text from lawful author-hosted PDF",
-        "title": "Morse Theory for Cell Complexes",
-        "trigger": "foundational theorem supporting reduction from acyclic matched simplices to CW complex"
+        "identifier_or_url": "arXiv:0705.1461v1, https://arxiv.org/pdf/0705.1461",
+        "material_read": "PDF introduction, definitions and §4.4, especially Theorem 4.11; visual page 9 inspected",
+        "method": "Primary arXiv PDF text and visual inspection",
+        "title": "A Simple Uniform Approach to Complexes Arising from Forests",
+        "trigger": "General matching-complex wedge theorem"
       },
       {
-        "assessment": "GRAPH_SOURCE only; no matching-complex homology in inspected page",
+        "assessment": "NOT_COVERING; only matching complexes that are homology manifolds",
         "evidence": [
-          "Identifies Dürer graph with GP(6,2)."
+          "Theorem 4.3 characterizes dimension-at-least-three homology-manifold cases as disjoint unions of small components."
         ],
-        "identifier_or_url": "https://mathworld.wolfram.com/DuererGraph.html",
-        "material_read": "Entry definition and references",
-        "method": "official online graph reference",
-        "title": "Dürer Graph",
-        "trigger": "graph identification as generalized Petersen graph"
+        "identifier_or_url": "arXiv:1906.03328v3, https://arxiv.org/pdf/1906.03328",
+        "material_read": "PDF abstract, introduction, definitions and classification theorem statements including Theorem 4.3",
+        "method": "Primary arXiv full-text search and page-1 visual inspection",
+        "title": "Manifold Matching Complexes",
+        "trigger": "Potential broad classification of matching complexes"
       },
       {
-        "assessment": "GRAPH_SOURCE only",
+        "assessment": "NOT_COVERING; its GP(n,2) theorem is for vertex independence, not ordinary edge matching",
         "evidence": [
-          "Lists 12 vertices, 18 edges, dihedral group D6."
+          "Theorem 4.6 states Ind(GP(n,2)) ≃ a periodic sphere wedge; matching complex M(G) is defined separately from Ind(G)."
         ],
-        "identifier_or_url": "https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/generators/smallgraphs.html",
-        "material_read": "DurerGraph examples: vertex/edge counts, planarity, dihedral automorphism group",
-        "method": "online reference text",
-        "title": "DurerGraph graph generator",
-        "trigger": "independent structural check and name equivalence"
+        "identifier_or_url": "arXiv:2611.22021v1, https://arxiv.org/pdf/2611.22021",
+        "material_read": "Abstract, introduction and definitions; Theorem 4.6 and surrounding proof lines; visual inspection of PDF page 2",
+        "method": "Primary arXiv full text and page screenshot",
+        "title": "Perfect matching complexes of antiprism graphs and independence complexes of generalized Petersen graphs GP(n,2)",
+        "trigger": "Exactly GP(n,2) in a recent paper"
       }
     ],
     "status": "PASS"
   },
+  "previous_review_evidence": {
+    "status": "historical_prior_assessment",
+    "summary": "Earlier scientific evidence recorded exact face counts, 506 Morse pairs, a primitive integral boundary, and literature on forests, outerplanar graphs and line-graph independence, but omitted an October 18 same-object classification. This result acknowledges the earlier wedge and narrows the contribution to the rational dihedral character."
+  },
+  "previously_published_pending_reaudit": false,
   "review_type": "same_model_review",
   "same_model_review_status": "passed",
   "schema_version": 1,
-  "scope_run_id": "29af2a08-78b2-4713-a1ca-d995b2df359d",
   "value": {
-    "rationale": "This exact natural invariant concerns one of only four well-covered cubic polyhedral graphs, a canonical Renaissance polyhedron. The integral sphere-wedge and nontrivial full dihedral character are unavailable from prior graph classification, vertex-independence purity, or ordinary Betti-number information. In particular the invariant third-homology subspace has dimension two. No family theorem is claimed.",
+    "rationale": "The full group character is a natural invariant of a canonical cubic polyhedral graph, refining a known 22-dimensional homology rank by distinguishing six irreducible constituent multiplicities and a two-dimensional invariant subspace. This precise orientation-sensitive action is useful for further equivariant topology; no family theorem is claimed.",
     "status": "PASS"
   }
 }
