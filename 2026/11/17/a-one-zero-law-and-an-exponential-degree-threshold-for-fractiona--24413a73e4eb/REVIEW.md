@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalized Bergman monomial coefficients admit an exact positive Hausdorff-moment representation for every \(0<\epsilon<1\). Multiplying the kernel by \(1-u\) gives a Pick-type integral whose imaginary part has the same strict sign as \(\operatorname{Im}u\). Therefore every zero lies on the negative real axis; strict monotonicity yields precisely one when the boundary integral exceeds one and none otherwise. The strict monotone real-degree extension establishes the unique threshold; bounded division and cyclic boundary factors establish the precise wandering-generation statement. Uniform gamma-ratio asymptotics and the Dirichlet eta expansion prove the exponential prefactor. The analytic argument handles every degree and boundary equality. The finite checker corroborates but does not prove infinite statements.
+## correctness
 
-## Originality — PASS, with bibliographic risk
-Xu and Yu, arXiv:2610.37035v1, Lemma 11 and Theorem 12 (full relevant text inspected), give an eventual existence result for high-degree canonical Blaschke multipliers but neither a zero-count bound nor a sharp minimal degree/prefactor as the negative Bergman weight approaches its endpoint. The published degree-two kernel and degree-two minimality results concern fixed degree or positive weights; they do not imply the general degree threshold. Gallardo-Gutiérrez, Partington and Seco (arXiv:1904.02974) cover equivalent renormings and monomial multipliers, not the canonical Blaschke phase in the original norm. Semantically comparable published-finding corpus records and accessible local claims were checked for broader implication, not merely matching titles. A possibly unindexed older multisection-kernel zero theorem is a remaining publication-priority risk.
+PASS
 
-## Mathematical value — PASS
-The original paper's unspecified sufficiently-large-degree obstruction is made quantitative by a sharp, explicit exponential law with a universal prefactor. The exact one-zero classification simultaneously explains the mechanism and all multiplier parameters, including the boundary case. This is a natural obstruction-scale invariant for the canonical finite Blaschke construction, not an arbitrary finite table or a routine restatement.
+Normalized monomial reciprocal norms are gamma ratios b_j. Their increments have the positive Hausdorff-moment representation; D(u)=(1-u)F(u)=1+∫u/(1-t^k u)dμ. Strict positive imaginary-part sign off real axis and strict D prime>0 on (-1,0) exclude nonreal and multiple roots, with D(-1)=1-J. J(k) increases continuously from J(1)=1-2^-eps to infinity, giving unique real kappa and exact boundary convention. On induced E_k space, division by w-a identifies one-dimensional wandering kernel F(a w), while invertible multipliers and boundary (1+w) cyclic approximation give a<=r and strict a>r noncyclic via point evaluations. Differentiated gamma-ratio control and Abel eta series yield J=2k^eps eta(-eps)/Gamma(1+eps)-1+O(k^(eps-1)), uniformly near eps=0; monotonic bracketing gives prefactor pi e^-gamma/2. Independently integrated J at eps=.25,.5,.8 and k=1,2,3,5,12,64 (monotone and k=1 identity); all are finite checks of the analytic proof.
 
-## Scope and limitations
-The canonical threshold is not the global minimum over all finite Blaschke products/invariant subspaces. Its asymptotic is only as \(\epsilon\downarrow0\); no external or independent validation is claimed. Checked numerical assertions are supplementary to the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Xu and Yu arXiv:2610.37035 full relevant Lemma 11 and Theorem 12 provide cyclic E_k and eventual nonwandering for sufficiently large k at each weight, not exact negative-weight first degree, full zero classification or sharp near-eps=0 exponential prefactor. Published k=2 exact Bergman kernel result covers only degree two and proves no failure in negative weights; does NOT imply general k transition. A separate fractional meromorphic Bergman hypergeometric zero-fibre theorem has an analogous Pick/Stieltjes technique but a different weighted punctured-disk scalar kernel and origin exponent b, not this powers-of-shift subspace. General techniques are known; their new combination here yields a genuine undetermined degree law.
+
+## value
+
+PASS
+
+The natural canonical cyclic invariant subspace of a Möbius-transformed weighted Bergman shift has a complete one-zero phase diagram, exact multiplier transition and an explicitly calibrated exponential least-witness-degree scale near the Hardy boundary. This is motivated by the Beurling-type wandering-property obstruction and sharpens prior qualitative sufficiently-large k existence; not a mechanical low-degree sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
