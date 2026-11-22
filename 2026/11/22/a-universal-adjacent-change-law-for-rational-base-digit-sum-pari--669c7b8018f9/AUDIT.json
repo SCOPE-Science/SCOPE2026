@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The Euclidean digit recurrence is standard and was checked against the primary rational-base definition. Floor increments over each radix block have values 0 or 1 and exactly a jumps; opposite-parity phase changes give C(bN)=tN-C(aN). The count enumerates all aN input edges without duplication, and iterating the exact identity yields the logarithmic error. When both parameters are odd, strong induction proves alternation. Independent recursive and direct-digit finite computations match for 149 coprime bases and six long prefixes; finite tests do not substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rigo–Stipulanti Corollary 21 gives generalized block-substitution representations but no explicit adjacent-change count in its claim.",
+        "Dekking Theorem 13 gives stability under arithmetic subsampling of block-substitution fixed points, not an all-rational-radix transition frequency.",
+        "The later base 3/2 frequency paper explicitly frames other rational bases and factor frequencies as further questions."
+      ],
+      "reasoning": "Existence of a block substitution does not by itself compute an exact all-prefix edge count. The general morphological results are broader in formal language but do not dominate this arithmetic statistic; the later frequency work is narrower in radix.",
+      "searches": [
+        "The Thue Morse sequence in base 3/2 Dekking 2023 conjecture 7 frequencies 01 2/5 4/10 adjacent transitions word frequencies",
+        "For every odd q>=3 parity digit sum in rational base q/2: asymptotic adjacent flips frequency (q+1)/(q+2), logarithmic discrepancy, paired symbol transitions",
+        "General p/q (p>q) Thue-Morse parity digit sums universal adjacent pair frequencies even numerator denominator over sum logarithmic discrepancy",
+        "arXiv:2102.10828, Corollary 21, Section 4",
+        "arXiv:2301.13563, Theorem 13",
+        "arXiv:2602.21895, §4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2102.10828",
+      "arXiv:2301.13563",
+      "arXiv:2602.21895",
+      "All-order rational run statistics and the exact five-state run-transition law for the base-3/2 Thue-Morse word (published mathematical record, 2026-11-08)",
+      "Sharp logarithmic discrepancy constants for Thue-Morse 01 occurrences (published mathematical record, 2026-10-12)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The defining division rule and the special base 3/2 word appear in Rigo–Stipulanti.",
+        "Dekking supplies special base 3/2 recurrences, not the all-parameter t/(a+b) law.",
+        "Cassaigne et al. reports empirical 3/2-specific two-letter frequencies, and identifies general rational bases as a separate topic."
+      ],
+      "reasoning": "The prior special case alone cannot logically establish equations for b/a=5/2, 4/3, 7/4, etc. The finite identity requires a new proof counting the floor increments h(r+1)-h(r) across every output block. It is possible that a previously unstated consequence of elementary digit recurrences has been independently observed.",
+      "searches": [
+        "arXiv:2102.10828 §2.3 and Corollary 21",
+        "arXiv:2301.13563 Theorems 12–13",
+        "arXiv:2602.21895 §4 pp.34–35",
+        "Rational base b/a digit-sum parity binary word consecutive unequal frequency equal even(a,b)/(a+b), exact equation C(bN)+C(aN)=even(a,b)N"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 paper reports numerical evidence for the base 3/2 pair probabilities Pr(01)=Pr(10)=1/5, agreeing with the parameter specialization a=2,b=3; it discusses other rational bases as further directions.",
+        "The indexed five-state run law refers specifically to a base 3/2 variant, not arbitrary reduced b/a."
+      ],
+      "reasoning": "The change-count formulation is equivalent to the aggregate off-diagonal two-letter frequency, not to the individual zero/one densities. The classical binary case a=1,b=2 and base 3/2 case a=2,b=3 are special cases and are not claimed new; no checked source gives the all-parameter equality C(bN)+C(aN)=tN.",
+      "searches": [
+        "Rational base b/a digit-sum parity binary word consecutive unequal frequency equal even(a,b)/(a+b), exact equation C(bN)+C(aN)=even(a,b)N",
+        "General p/q (p>q) Thue-Morse parity digit sums universal adjacent pair frequencies even numerator denominator over sum logarithmic discrepancy",
+        "Consecutive rational-base sum-of-digits mod 2 generalized 5/2 4/3 7/4 adjacent transition asymptotic",
+        "arXiv:2602.21895, conclusions §§4, pp.34–35",
+        "all-order rational run statistics in the base-3/2 Thue–Morse word (published mathematical record)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published indexed record on all-order run transitions of the base 3/2 word is confined to that base.",
+        "Published indexed record on sharp Thue–Morse 01 discrepancy pertains to integer base two and not arbitrary rational bases.",
+        "Accessible recent scientific claims in the local number-theory research ledger were compared for overlap; no matching all-base exact identity was found."
+      ],
+      "reasoning": "Neither a returned published record nor a known table encoded the family indexed by both coprime parameters; failure to retrieve one is not a uniqueness proof.",
+      "searches": [
+        "Binary rational base 3/2 digit sum parity sequence frequency 01 00 11 recurrence substitution pair difference density",
+        "2-3 block substitution 00 to 010 01 to 010 10 to 101 11 to 101 frequency changes",
+        "Rational base q/2 Thue Morse word adjacent digit parity correlation q+1 over q+2, q-2 block substitution",
+        "Generalized rational base numeration parity sum-of-digits word adjacent run density odd numerator and denominator two",
+        "Rational base b/a digit-sum parity binary word consecutive unequal frequency equal even(a,b)/(a+b), exact equation C(bN)+C(aN)=even(a,b)N",
+        "General p/q (p>q) Thue-Morse parity digit sums universal adjacent pair frequencies even numerator denominator over sum logarithmic discrepancy",
+        "Consecutive rational-base sum-of-digits mod 2 generalized 5/2 4/3 7/4 adjacent transition asymptotic",
+        "all-order rational run statistics (base 3/2)",
+        "sharp logarithmic discrepancy for classical Thue–Morse 01 occurrences"
+      ]
+    },
+    "rationale": "A general all-coprime-rational-radix exact edge-count identity and logarithmic discrepancy follow from a new floor-jump parity argument. Rigo–Stipulanti characterizes rational-base automaticity and Dekking treats base 3/2 substitutions; the numerically reported 3/2 bigram law in Cassaigne et al. and a related indexed 3/2 variant run law are acknowledged. Actual semantic record and primary-source comparisons did not find the general quantified identity, although unindexed equivalents are possible.",
+    "residual_risks": [
+      "An unindexed proof of the general floor-jump identity may exist in literature on rational-base digit sums or block substitutions.",
+      "The full exhaustive bibliography of adjacent statistics in all rational bases was not available; the literature search is nonexhaustive.",
+      "Individual frequencies of 00 and 11 in arbitrary rational bases are outside this claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes exact definition and general morphic characterization but the read theorem does not give adjacent transition counts for all rational bases",
+        "evidence": [
+          "Section 2.3 uses b n = a n_next + digit in conventional notation",
+          "Corollary 21: q-block substitution with fixed image length p; no frequency in its stated conclusion"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2102.10828",
+        "material_read": "Definition of rational-base Euclidean digits and the 3/2 example, PDF pp.4–7; Theorem 20 and Corollary 21, PDF pp.12–13; abstract, introduction and section organization",
+        "method": "Full-text PDF navigation, reading relevant definitions/theorem/proof and page-image inspection",
+        "title": "Automatic sequences: from rational bases to trees",
+        "trigger": "General rational-base digit representations and automaticity may subsume the proposed law"
+      },
+      {
+        "assessment": "Only the single 3/2 radix and a general block-substitution closure theorem; does not state universal rational-base change law",
+        "evidence": [
+          "Its Theorem 13 concerns subsequences x(rN) of block-substitution fixed points",
+          "Its subject example is the parity sequence for b/a=3/2"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Dekking/dek25.pdf",
+        "material_read": "Six-page primary article, introduction and digit-recursion table, base 3/2 block substitution Theorems 12–13 and concluding references",
+        "method": "Primary PDF text and page-image inspection",
+        "title": "The Thue-Morse sequence in base 3/2",
+        "trigger": "Direct 2023 motivating sequence might contain the claimed pair law or its generalization"
+      },
+      {
+        "assessment": "Anticipates the 3/2 specialization with numerical evidence; explicitly leaves other rational-base extensions as a direction, so neither establishes nor disproves universal exact two-scale identity",
+        "evidence": [
+          "§4 reports experimentally 3/2 pair-frequency values 3/10 for 00/11 and 2/10 for 01/10",
+          "§4 says one can change the numeration system to other rational bases and asks factor-frequency questions"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2602.21895",
+        "material_read": "Introduction and definitions; concluding §4 and pair-window discussion on PDF pp.34–35; relevant derivations and claims",
+        "method": "Primary PDF text with page-image inspection of p.35",
+        "title": "Symbols frequencies in the Thue--Morse word in base 3/2 and related conjectures",
+        "trigger": "Possible decisive stronger results on 3/2 pair frequencies and other bases"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "669c7b80-18f9-4a3d-a8cb-5431c836acb4",
+  "value": {
+    "rationale": "A complete, exact natural two-point invariant simultaneously for all coprime rational bases extends the hard individual 3/2 work. It exhibits the structural even-parameter/(a+b) universality, a distinct all-odd alternating branch, and a rigorous O(log N) discrepancy. This is an infinite family theorem, rather than an arbitrary finite enumeration or routine restatement of an individual frequency.",
+    "status": "PASS"
+  }
+}
