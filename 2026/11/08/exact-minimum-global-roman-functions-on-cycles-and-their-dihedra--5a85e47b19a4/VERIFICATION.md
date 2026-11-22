@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-19.md",
+      "INDEPENDENT_AUDIT_2026-11-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The symbolic proof and exhaustive finite checks are separate evidence types. The verifier `artifacts/verify.py` depends only on Python's standard library. Run `python3 artifacts/verify.py` to check that, for every integer \(3\le n\le12\), independent ternary-word enumeration finds the stated global Roman minimum weight and the precise numbers of labelled and dihedral minima. The verifier additionally constructs the stated cyclic-gap templates for every \(6\le n\le80\), checks the two defining adjacency requirements directly, and compares both enumeration formulas. A successful run ends in `VERIFY_OK`.
+# Independent mathematical audit
 
-The proof uses all positive integer lengths through explicit inequalities and gap classification. Numerical checks alone cannot establish assertions for unbounded \(n\), and they are not presented as an independent mathematical audit. Inaccessible earlier literature remains a bibliographic risk.
+## correctness
+
+PASS
+
+Exhaustive proof reconstruction: z<=2t, saturation and exact defender-count alternatives, all cyclic gap words, complement feasibility for >=6, dihedral shorter separation and exceptional 3..5. Independent exhaustive ternary enumeration for n=3..12 checks weights, labelled minimizers, orbit canonization and equality of ordinary/global minimizing sets for >=6.
+
+## originality
+
+PASS
+
+The original labelled count is covered, not rescued by relabelling 'global'. The surviving repaired claim adds automorphism-orbit structure and the precise comparison of simultaneous/complementary optimizer sets; prior numerical and general counting results do not logically determine this structure. The natural complete quotient classification is narrow but nontrivial. Labelled counts in original claim are covered by 2021 source; the repaired priority claim is only the gap/dihedral classification, qualified by residual literature risk.
+
+## value
+
+PASS
+
+Exact dihedral equivalence-class taxonomy of natural minimum graph/complement Roman cycle defenses, including growing n=3m+2 types indexed by circular exceptional-gap separation; cannot infer symmetry decomposition from previously published labelled numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

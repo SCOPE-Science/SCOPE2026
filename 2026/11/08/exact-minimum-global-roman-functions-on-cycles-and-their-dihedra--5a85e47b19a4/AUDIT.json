@@ -1,137 +1,180 @@
 {
   "correctness": {
-    "rationale": "The proof establishes the uniform lower bound from z<=2t, exhausts equality-label counts for every residue, classifies all cyclic gaps using saturation, proves each candidate satisfies the complement requirement, and gives bijective labelled and dihedral counts. Special cycles 3,4,5 are separate finite cases, and a direct fully enumerative verifier handles n=3..12 plus constructive checks for n=6..80. Finite tests corroborate but do not prove the unrestricted theorem.",
+    "rationale": "z<=2t forces all equality label counts; saturation gives the four complete gap types; global feasibility holds at n>=6; n3..5 are explicit; D_n orbit classification counts exceptional gap separations. Direct exhaustive ternary enumeration n3..12 corroborates.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "limitations": [
+    "Original source's 2021-priority omission corrected",
+    "Finite enumeration is not proof for unbounded n",
+    "No claim of exhaustive literature priority or expert certification"
+  ],
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Shi–Koh arXiv:1403.1019 give general exponential-time algorithms for counting minimum ordinary Roman functions, not a closed formula/orbit description.",
-        "Reddy et al. arXiv:2601.09167 give complexity and a cograph algorithm, not a cycle classification."
+        "Deepak et al. Theorems 2.3–2.4 compute all ordinary cycle Roman polynomial coefficients, a broader counting invariant than the old minimum labelled count, but not the automorphism orbit decomposition.",
+        "Shi–Koh (2014) gives general exact exponential count algorithms for minimum ordinary RDFs, not closed dihedral types.",
+        "Published Resultary cycle pointwise-minimal and independent-Roman theorems use mathematically different admissibility/minimality predicates."
       ],
-      "reasoning": "A general counting algorithm can evaluate instances but cannot be treated as a published explicit cycle enumeration and dihedral classification. The well-known ordinary Roman minimum value of cycles is a strictly weaker numerical statement than enumerating/characterizing all minimum global Roman functions.",
+      "reasoning": "Full ordinary Roman polynomial coverage dominates numerical minimum counts. A coefficient formula alone does not imply how the stabilizers split those configurations into dihedral orbits; the repaired gap theorem directly analyzes those stabilizers. Neither pointwise-minimal nor independent-Roman restrictions subsume the global optimizer orbit family.",
       "searches": [
-        "cyclic global Roman dominating configurations minimum count",
-        "minimum Roman dominating functions of cycle enumeration gap lengths",
-        "minimum global Roman dominating functions of cycles 3m plus two",
-        "arXiv:1403.1019; abstract general counting algorithms",
-        "Panda and Goyal 2023 global Roman domination hardness abstract"
+        "Deepak G., A. Alwardi, M. H. Indiramma, Roman Domination Polynomial of Cycles, Int. J. Math. Combin. 2021(3) 86-97, Theorem 2.4(ii)-(iv), https://fs.unm.edu/IJMC/Roman_Domination_Polynomial_of_Cycles.pdf",
+        "Shi, Koh, arXiv:1403.1019, https://arxiv.org/pdf/1403.1019",
+        "Abu-Khzam, Fernau, Mann, Roman Census, arXiv:2208.05261, https://arxiv.org/pdf/2208.05261",
+        "Resultary, 2026/11/8/SCOPE-exact-weight-census-of-pointwise-minimal-roman-domination-on-cyc--ca1e0cc36d93/RESULT.md",
+        "Resultary, 2026/10/13/SCOPE-independent-roman-weight-enumerator-of-cycles--46324718e498/RESULT.md",
+        "minimum global Roman function cycle up to graph automorphism symmetry classes [web search]"
       ]
     },
     "checked_sources": [
-      "arXiv:2601.09167 (HTML full text)",
-      "arXiv:2208.05261 (HTML full text)",
-      "arXiv:1403.1019 (accessible abstract)",
-      "DOI:10.1016/j.dam.2023.08.020 (abstract and secondary reference only)",
-      "Semantic searches and cited source comparisons listed in originality checks"
+      "Deepak G., A. Alwardi, M. H. Indiramma, Roman Domination Polynomial of Cycles, Int. J. Math. Combin. 2021(3) 86-97, Theorem 2.4(ii)-(iv), https://fs.unm.edu/IJMC/Roman_Domination_Polynomial_of_Cycles.pdf",
+      "Reddy et al., arXiv:2601.09167, Sections 1-4, https://arxiv.org/pdf/2601.09167",
+      "Abu-Khzam, Fernau, Mann, Roman Census, arXiv:2208.05261, https://arxiv.org/pdf/2208.05261",
+      "Shi, Koh, arXiv:1403.1019, https://arxiv.org/pdf/1403.1019",
+      "Resultary, 2026/11/8/SCOPE-exact-weight-census-of-pointwise-minimal-roman-domination-on-cyc--ca1e0cc36d93/RESULT.md",
+      "Resultary, 2026/10/13/SCOPE-independent-roman-weight-enumerator-of-cycles--46324718e498/RESULT.md",
+      "Panda–Goyal DOI:10.1016/j.dam.2023.08.020, abstract/citations only",
+      "Searches: Roman domination cycle dihedral; global Roman minima orbits/bracelets; published Resultary cycle variants"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Classical value \\(\\gamma_R(C_n)=\\lceil2n/3\rceil\\) is used as background and reproved as a lower bound; it leaves multiplicity/dihedral structure undetermined.",
-        "Computational complexity results for global Roman domination do not imply the present closed form for all minimizers."
+        "Proven mathematical implication: r(C_n,gamma_R(C_n))=N_n for n>=6 since the complete minimum RDF sets are equal under global and ordinary definitions; the published 2021 r values exactly reproduce N_n.",
+        "The repaired orbit count for n=3m+2 is 2+floor(m/2), obtained by classifying two distinguished length-four gaps by their smaller circular separation, a statistic not fixed by the total N_n.",
+        "The n<=5 global cases differ from ordinary counts, and are finite exceptional cases explicitly checked."
       ],
-      "reasoning": "Even when the numerical minimum agrees with ordinary Roman domination, one needs to classify the equality cases and count their distinct dihedral orbits. The known parameter equality alone is neither equivalent nor dominating coverage of this result.",
+      "reasoning": "The original labelled count is covered, not rescued by relabelling 'global'. The surviving repaired claim adds automorphism-orbit structure and the precise comparison of simultaneous/complementary optimizer sets; prior numerical and general counting results do not logically determine this structure. The natural complete quotient classification is narrow but nontrivial.",
       "searches": [
-        "global Roman domination of cycles C_n number minimum functions mod 3",
-        "global Roman domination of cycles exact classification up to rotations reflection",
-        "arXiv:2601.09167 Sections 1–4",
-        "arXiv:2208.05261 Sections 1 and path counting",
-        "arXiv:1403.1019 abstract"
+        "Deepak G., A. Alwardi, M. H. Indiramma, Roman Domination Polynomial of Cycles, Int. J. Math. Combin. 2021(3) 86-97, Theorem 2.4(ii)-(iv), https://fs.unm.edu/IJMC/Roman_Domination_Polynomial_of_Cycles.pdf",
+        "Reddy et al., arXiv:2601.09167, Sections 1-4, https://arxiv.org/pdf/2601.09167",
+        "Shi, Koh, arXiv:1403.1019, https://arxiv.org/pdf/1403.1019",
+        "Abu-Khzam, Fernau, Mann, Roman Census, arXiv:2208.05261, https://arxiv.org/pdf/2208.05261",
+        "Resultary, 2026/11/8/SCOPE-exact-weight-census-of-pointwise-minimal-roman-domination-on-cyc--ca1e0cc36d93/RESULT.md",
+        "Resultary, 2026/10/13/SCOPE-independent-roman-weight-enumerator-of-cycles--46324718e498/RESULT.md"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "Global Roman means Roman on both a graph and its complement (Reddy et al., arXiv:2601.09167, Introduction).",
-        "Abu-Khzam–Fernau–Mann arXiv:2208.05261 counts pointwise-minimal ordinary Roman functions, not global minimum-weight cycles."
+        "2021 Theorem 2.4(ii)-(iv) gives exact counts r(C_3m,2m)=3, r(C_3m+1,2m+1)=3m+1, r(C_3m+2,2m+2)=(3m+2)(m+3)/2.",
+        "The cyclic-gap proof shows for n>=6 that every ordinary cycle RDF minimizer is global, so the old counts apply to the audited global variant regardless of its name.",
+        "In 2021 paper, Table 1 and Theorem 2.4 are ordinary labelled counts; no class-by-class dihedral orbit statement appears in the inspected text."
       ],
-      "reasoning": "A target Roman minimum enumeration may be disguised under gamma_gR functions, Roman guards on a circular network or complement-simultaneous functions. Literal and conceptual queries produced no equivalent complete labelled/dihedral cycle classification. Pointwise minimality does not imply weight minimality, and ordinary Roman does not generally imply global Roman; the proof shows the coincidence only for optimal cycles of length at least six.",
+      "reasoning": "The original labelled-count assertion is demonstrably covered under ordinary Roman terminology, because the sets of optimizers coincide on cycles n>=6. The repaired theorem excludes priority for those counts and isolates the distinct symmetry quotient and gap-type classification, not inferable from counts alone. Global Roman in Reddy et al. agrees with the simultaneous graph/complement predicate.",
       "searches": [
-        "global Roman domination of cycles C_n number minimum functions mod 3",
-        "global Roman domination spectrum of cycles and polynomial",
-        "global Roman domination cycle C_n exact number of minimum weight functions dihedral orbits",
-        "global Roman domination of cycles exact classification up to rotations reflection",
-        "arXiv:2601.09167; full text sections 1–4, cyclic graph terms",
-        "arXiv:2208.05261; full text counting and minimality definitions"
+        "global Roman domination cycle graphs minimum global Roman dominating functions count dihedral symmetry orbit bracelet enumeration [Resultary semantic search]",
+        "Roman domination cycle dihedral minimum functions orbits [web search 2026-11-19]",
+        "Deepak G., A. Alwardi, M. H. Indiramma, Roman Domination Polynomial of Cycles, Int. J. Math. Combin. 2021(3) 86-97, Theorem 2.4(ii)-(iv), https://fs.unm.edu/IJMC/Roman_Domination_Polynomial_of_Cycles.pdf",
+        "Reddy et al., arXiv:2601.09167, Sections 1-4, https://arxiv.org/pdf/2601.09167"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "Searches for the exact \\(n(m+3)/2\\) and \\(n(n+7)/6\\) specializations did not surface a published cycle global Roman exact table.",
-        "ArXiv:2208.05261 treats pointwise-minimal functions on paths rather than the claimed invariant."
+        "Deepak et al., 2021 Table 1 lists minimum ordinary RDF coefficients at n=6,7,8,9,10 as 3,7,20,3,10; Theorem 2.4 gives the all-n formulas.",
+        "A published Resultary 2026 pointwise-minimal cycle polynomial and a separate independent Roman cycle weight enumerator have different scopes and do not give the global dihedral orbit vector."
       ],
-      "reasoning": "No inspected exact cycle global Roman minimizer count or dihedral orbit table covered these values; this negative search is not a uniqueness proof, and older unindexed tables are a residual priority risk.",
+      "reasoning": "The old minimum-count values are definitively present in published source and are excluded from novelty. No inspected exact database/table contained the surviving full dihedral orbit counts; absence from searches alone is not positive proof of priority.",
       "searches": [
-        "global Roman domination labeled cycle minimizing functions 3m+2 n(n+7)/6",
-        "minimum Roman dominating functions of cycle enumeration gap lengths",
-        "global Roman domination of cycles C_n number minimum functions mod 3",
-        "Roman Census path count in arXiv:2208.05261"
+        "Deepak G., A. Alwardi, M. H. Indiramma, Roman Domination Polynomial of Cycles, Int. J. Math. Combin. 2021(3) 86-97, Theorem 2.4(ii)-(iv), https://fs.unm.edu/IJMC/Roman_Domination_Polynomial_of_Cycles.pdf",
+        "Resultary, 2026/11/8/SCOPE-exact-weight-census-of-pointwise-minimal-roman-domination-on-cyc--ca1e0cc36d93/RESULT.md",
+        "Resultary, 2026/10/13/SCOPE-independent-roman-weight-enumerator-of-cycles--46324718e498/RESULT.md",
+        "Roman domination polynomial cycles Table 1 2021 optimal coefficient",
+        "global Roman cycle dihedral bracelet orbit counts exact table [web search]"
       ]
     },
-    "rationale": "Statement-level research searches and direct primary sources found no equal or stronger claim determining labelled global Roman minimizers of all cycles and their dihedral orbit numbers. Ordinary cycle Roman weight is known but does not count extremizers. The cited generic counting algorithms, minimal-versus-minimum Roman enumeration and global complexity classifications do not subsume this infinite-family exact orbit classification. Priority remains provisional owing to general counting literature and inaccessible older source.",
+    "rationale": "Earlier 2021 Roman Domination Polynomial of Cycles Theorem 2.4 covers all headline labelled count formulas for n>=6 via equality of ordinary/global minimizers; these are explicitly removed from the novelty claim. The remaining complete dihedral orbit classification and strict global small-cycle cases were not found in read primary sources; historical priority remains qualified.",
     "residual_risks": [
-      "An older unindexed paper or data table may already count optimum ordinary Roman functions on cycles or a equivalent bracelet classification.",
-      "The complete text of Shi–Koh (2014) was not inspected.",
-      "The complete text of Panda–Goyal (2023) was inaccessible; no exclusion is inferred from abstract-level evidence.",
-      "No independent historical-priority adjudication has been performed."
+      "Unindexed past cycle/bracelet orbit studies may independently contain the same class count.",
+      "Panda–Goyal 2023 full text was unavailable, with authorized institutional VPN disconnected; its plausible content remains unverified.",
+      "The 2021 paper was thoroughly read via complete extracted PDF text, but page-image retrieval returned HTTP 403; exact displayed theorem statements are clear in parsed text."
     ],
     "source_inspections": [
       {
-        "assessment": "NOT_COVERING for exact labelled and dihedral counts on cycles",
+        "assessment": "COVERS all n>=6 labelled minimum counts via equality of ordinary/global minimizer sets; no inspected complete dihedral orbit classification",
         "evidence": [
-          "Definition of global Roman dominating functions and minimum weight in Introduction",
-          "Sections 3–4 concern complexity separations, hard classes, and cographs; no cycle extremizer count"
+          "Theorem 2.4(ii)-(iv), 2021 pp.90–91: r(C_3k,2k)=3, r(C_3k+1,2k+1)=3k+1, r(C_3k+2,2k+2)=(3k+2)(k+3)/2",
+          "Theorem 2.3 recurrence, Table 1, proof pp.91–97"
         ],
-        "identifier_or_url": "arXiv:2601.09167; https://arxiv.org/abs/2601.09167",
-        "material_read": "Full-text Introduction, Preliminaries, complexity-difference constructions, section 4 restricted classes, and cograph treatment; examined text for cycle enumeration and counting",
-        "method": "Open-access HTML full-text examination and targeted term search",
+        "identifier_or_url": "https://fs.unm.edu/IJMC/Roman_Domination_Polynomial_of_Cycles.pdf",
+        "material_read": "Complete twelve-page parsed PDF including definitions, Theorems 2.3–2.4, Table 1, induction proofs, and references; rendered screenshot attempt HTTP 403",
+        "method": "Full PDF text reading and theorem/corollary comparison; targeted searches of parsed text",
+        "title": "Roman Domination Polynomial of Cycles",
+        "trigger": "Same cycle and Roman minimum function counts under an equivalent weaker constraint; nearest exact prior theorem"
+      },
+      {
+        "assessment": "Defines global Roman correctly; not a closed cycle orbit classification",
+        "evidence": [
+          "Abstract and Section 1 define simultaneous Roman defense of G and complement; main theorems focus on NP-completeness and cographs"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2601.09167",
+        "material_read": "Full 27-page PDF, definition and main complexity/algorithm sections; targeted searches for cycles and extremizer orbit counts",
+        "method": "Read open arXiv PDF complete text plus page-image check",
         "title": "On the complexity of global Roman domination problem in graphs",
-        "trigger": "Newest direct definition/algorithm paper, potential theorem on global Roman cycles"
+        "trigger": "Primary simultaneous cycle/complement Roman definition and potential cycle theorem"
       },
       {
-        "assessment": "NOT_COVERING: enumerates pointwise-minimal ordinary Roman functions, including paths, not weight-minimum global Roman cycles",
+        "assessment": "Pointwise-minimal ordinary functions and path formulas; not minimum global Roman cycle dihedral orbits",
         "evidence": [
-          "Abstract and introductory distinctions of pointwise-minimal Roman functions",
-          "Path-specific counts do not imply cyclic global-minimum dihedral enumeration"
+          "Abstract defines enumeration target as minimal Roman dominating functions; special-family enumerations include paths"
         ],
-        "identifier_or_url": "arXiv:2208.05261; https://arxiv.org/abs/2208.05261",
-        "material_read": "Full-text abstract, Introduction, graph-class enumeration descriptions and path-count discussions; searched cycle and minimum",
-        "method": "Open-access HTML reading and text location",
+        "identifier_or_url": "https://arxiv.org/pdf/2208.05261",
+        "material_read": "Full 36-page PDF including definitions, graph classes, path enumeration and conclusion",
+        "method": "Read open arXiv PDF complete text plus image check",
         "title": "Roman Census: Enumerating and Counting Roman Dominating Functions on Graph Classes",
-        "trigger": "Nearest generic enumeration of Roman functions and special-class counts"
+        "trigger": "Potential more general enumeration of cycle Roman optimizers"
       },
       {
-        "assessment": "Unresolved full-text breadth; abstract describes exponential graph-general counting algorithms and no cycle closed form",
+        "assessment": "General counting algorithms; not a cycle-specific symmetry classification",
         "evidence": [
-          "General counting time bound \\(O(1.5673^n)\\) is algorithmic, not a stated cycle orbit count"
+          "Section 3 algorithms for graph-general numbers of minimum RDFs in O(1.5673^n) and O(1.5014^n)"
         ],
-        "identifier_or_url": "arXiv:1403.1019; https://arxiv.org/abs/1403.1019",
-        "material_read": "Abstract and available bibliographic statement; complete manuscript not inspected",
-        "method": "Abstract and accessible source metadata",
+        "identifier_or_url": "https://arxiv.org/pdf/1403.1019",
+        "material_read": "Complete six-page arXiv manuscript, definitions and algorithms",
+        "method": "Read full arXiv text plus rendered first page",
         "title": "Counting the Number of Minimum Roman Dominating Functions of a Graph",
-        "trigger": "Strongest general count-of-optima predecessor"
+        "trigger": "Potential general exact count theorem implying cycle case"
       },
       {
-        "assessment": "UNRESOLVED full-text, historical priority risk; stated scope is hardness and approximation, not cyclic minimizer count",
+        "assessment": "Different pointwise-minimality predicate; acknowledges 2021 polynomial as prior numerical count source",
         "evidence": [
-          "Cited in arXiv:2601.09167 Introduction as establishing NP-completeness and approximation bounds"
+          "The theorem counts minimal under pointwise order, not necessarily minimum weight; its references discuss 2021 Roman Domination Polynomial of Cycles"
         ],
-        "identifier_or_url": "DOI:10.1016/j.dam.2023.08.020",
-        "material_read": "Abstract-level information and 2026 paper discussion only; inaccessible full text",
-        "method": "Public discovery and direct-paper citation analysis",
+        "identifier_or_url": "Resultary, 2026/11/8/SCOPE-exact-weight-census-of-pointwise-minimal-roman-domination-on-cyc--ca1e0cc36d93/RESULT.md",
+        "material_read": "Full RESULT.md including definitions, cycle polynomial, proof, prior-art discussion",
+        "method": "Read published primary mathematical package",
+        "title": "Exact weight census of pointwise-minimal Roman domination on cycles",
+        "trigger": "Same object and full cycle weight distribution in published record"
+      },
+      {
+        "assessment": "Independent-positive-support condition gives different optimum families and counts; not dihedral global orbit theorem",
+        "evidence": [
+          "For n=3m+2 its IRDF minimum count n(n+1)/6, versus earlier ordinary/global n(m+3)/2"
+        ],
+        "identifier_or_url": "Resultary, 2026/10/13/SCOPE-independent-roman-weight-enumerator-of-cycles--46324718e498/RESULT.md",
+        "material_read": "Full RESULT.md, proof, extremal count and scope",
+        "method": "Read published mathematical package",
+        "title": "Independent Roman weight enumerator of cycles",
+        "trigger": "Same graph and forced-gap methods for Roman variants"
+      },
+      {
+        "assessment": "UNRESOLVED primary-text comparison, not grounds by itself for scientific rejection",
+        "evidence": [
+          "Reddy et al. cite its hardness/approximation results; nothing inspected establishes or refutes the repaired dihedral theorem"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2023.08.020",
+        "material_read": "Public abstract and citations only; complete text unavailable through arXiv/open-access searches and authorized institutional access",
+        "method": "OA-first search, then authorized institutional request; VPN disconnected; no bypass",
         "title": "Hardness results of global roman domination in graphs",
-        "trigger": "Prior global Roman study cited by direct 2026 source"
+        "trigger": "Earlier direct global Roman paper cited by Reddy et al."
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
   "schema_version": 1,
-  "scope_run_id": "5a85e47b-19a4-40ce-a701-2e1a0c48489d",
+  "scientific_assessment": "Complete three-axis reassessment of the narrowed dihedral claim; numerical count priority corrected.",
+  "title": "Dihedral classification of minimum global Roman functions on cycles",
   "value": {
-    "rationale": "The primary motivating global Roman literature studies complexity rather than explicit extremizer enumeration. A natural, complete infinite-family classification of the minimum configurations and their symmetry classes answers a more refined exact question than the classical numerical minimum. Its n=3m+2 branch has polynomially increasing labelled multiplicity but only floor(m/2)+2 dihedral types, explaining the asymmetry of exact optimal configurations. These are intrinsic natural invariants rather than arbitrary finite slices.",
+    "rationale": "The full automorphism-orbit classification of natural optimal graph-and-complement cycle defenses is a specific useful exact invariant and complete structural taxonomy, not the previously published labelled count. Gap-separation s indexes the nontrivial growing family of symmetry types.",
     "status": "PASS"
   }
 }

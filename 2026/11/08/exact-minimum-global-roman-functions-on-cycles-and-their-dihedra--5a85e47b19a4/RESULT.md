@@ -1,58 +1,68 @@
-# Exact minimum global Roman functions on cycles and their dihedral orbit counts
+# Dihedral classification of minimum global Roman functions on cycles
 
-## Finding
+## Finding: exact symmetry classes
 
-For every labelled simple cycle \(C_n\), \(n\ge3\), the minimum weight and **all** weight-minimum global Roman dominating functions are given by the formulas and cyclic-gap classification below. In particular, for \(m\ge2\), the number of labelled minimum functions at length \(n=3m+2\) is \(n(m+3)/2\); modulo rotation and reflection, there are exactly \(2+\lfloor m/2\rfloor\) classes. These counts refine the classical numerical Roman-domination value and are not counts of all inclusion-minimal functions.
+Let \(C_n\) be the simple cycle on named vertices \(v_i\), indexed by \(\mathbb Z/n\mathbb Z\), and let \(n\ge3\). A *global Roman dominating function* assigns \(f(v_i)\in\{0,1,2\}\) such that each zero has a neighbor labeled two **both** in \(C_n\) and in its simple complement. Let \(\mathcal M_n\) be the functions of minimum total weight \(w(f)=\sum_i f(v_i)\). Let \(D_n\) act on \(\mathcal M_n\) by rotations and reflections.
+
+**Theorem (complete optimizer shapes and symmetry orbits).** Every optimizer is, up to dihedral symmetry, one of the cyclic gap configurations below. In particular its number of dihedral orbits is
 
 \[
-\gamma_{gR}(C_n)=\begin{cases}n,&3\le n\le5,\\\lceil 2n/3\rceil,&n\ge6,\end{cases}
-\]
-\[
-(N_n,O_n)=\begin{cases}
-(1,1),&n=3,\\ (5,2),&n=4,\\(11,3),&n=5,\\
-(3,1),&n=3m,\ m\ge2,\\
-(n,1),&n=3m+1,\ m\ge2,\\
-\left(n(m+3)/2,\ 2+\lfloor m/2\rfloor\right),&n=3m+2,\ m\ge2.
-\end{cases}
+\boxed{|\mathcal M_n/D_n|=\begin{cases}
+1,&n=3,\\2,&n=4,\\3,&n=5,\\
+1,&n=3m\ (m\ge2),\\
+1,&n=3m+1\ (m\ge2),\\
+2+\lfloor m/2\rfloor,&n=3m+2\ (m\ge2).
+\end{cases}}
 \]
 
-## Assumptions and scope
+For \(n\ge6\), read the twos cyclically and write \(d_1,\dots,d_t\) for the **edge distances** between consecutive twos. The following list is exhaustive and disjoint:
 
-All graphs are finite simple undirected graphs. The cycle vertices are individually labelled \(v_i\) for \(i\in\mathbb Z/n\mathbb Z\); its edges join consecutive indices. A global Roman dominating function \(f:V\to\{0,1,2\}\) must label each zero vertex so that it sees a label \(2\) both in the graph and its complement. In the cycle this means that each zero vertex sees a label \(2\) at a cyclic neighbour, and **another** label \(2\) at a distinct vertex that is not a cyclic neighbour. The weight is \(\sum_v f(v)\). The integer \(N_n\) counts functions on the named vertex set; \(O_n\) counts the orbits of these functions under all \(2n\) dihedral automorphisms, including reflections. Statements for small cycles use the ordinary complement of the simple cycle, without loops.
+1. \(n=3m\): all \(m\) gaps have length three, with gap word \(2,0,0\).
+2. \(n=3m+1\): exactly one gap has length four, word \(2,0,1,0\); all other gaps have length three.
+3. \(n=3m+2\): one of (a) \(m+1\) twos, with one length-two gap \(2,0\), all remaining length three; (b) \(m\) twos, with one length-five gap \(2,0,1,1,0\), all remaining length three; (c) \(m\) twos, with exactly two length-four gaps, all remaining length three. In case (c) the smaller cyclic number of gap positions separating the exceptional gaps is \(s\in\{1,\dots,\lfloor m/2\rfloor\}\); these are precisely the distinct dihedral types.
+
+The small cases \(C_3,C_4,C_5\) have respectively the following types: all ones; all ones or a pair of adjacent twos with zeros elsewhere; and all ones, or adjacent twos with one remaining necessary one, or nonadjacent twos with one remaining necessary one. In \(C_4\) and \(C_5\), each nontrivial type is a single dihedral orbit.
+
+**Priority boundary.** The minimum ordinary Roman domination weight \(\lceil2n/3\rceil\), and **all three labelled minimum counts for ordinary cycles**, including \((3m+2)(m+3)/2\), are earlier published results of Deepak G., Alwardi and Indiramma (2021), Theorem 2.4(ii)–(iv). They are not novelty claims here. The theorem above concerns the complete *dihedral classification* and its gap-structure proof, including why ordinary minimizers satisfy the additional complementary constraint at \(n\ge6\).
 
 ## Proof
 
-**Lower bound.** Let \(t,o,z\) count respectively vertices labelled \(2,1,0\). Every zero requires a cyclic neighbour labelled \(2\). Since a vertex of a cycle has only two neighbours, \(z\le2t\), hence \(n=t+o+z\le3t+o\). The weight \(w=2t+o\) therefore satisfies \(n\le w+t\le3w/2\), proving \(w\ge\lceil2n/3\rceil\) for every global Roman function. Equality is attained for all \(n\ge6\) by the explicit gap words constructed below; their global condition is checked at the end.
+Let \(t,o,z\) respectively denote the numbers of twos, ones and zeros. As every zero has a cyclic two-neighbor and each two has only two cyclic neighbors, \(z\le2t\). Hence \(n=t+o+z\le3t+o\). If \(w=2t+o\), then \(n\le w+t\le3w/2\); so every global Roman function has \(w\ge\lceil2n/3\rceil\). The gap patterns in the statement meet this weight for every \(n\ge6\), as verified below.
 
-**Exhaustion by gaps.** Fix \(n\ge6\), set \(w=\lceil2n/3\rceil\), and use both \(n\le w+t\) and \(t\le\lfloor w/2\rfloor\). If \(n=3m\), these inequalities force \(t=m\), \(o=0\), \(z=2m=2t\). If \(n=3m+1\), they force \(t=m\), \(o=1\), \(z=2m=2t\). If \(n=3m+2\), there are only two possibilities: \((t,o,z)=(m+1,0,2m)\) or \((m,2,2m)\).
+Fix \(n\ge6\) and \(w=\lceil2n/3\rceil\). The inequalities \(n-w\le t\le\lfloor w/2\rfloor\) determine the possible defender counts. If \(n=3m\), then \((t,o,z)=(m,0,2m)\). If \(n=3m+1\), then \((t,o,z)=(m,1,2m)\). If \(n=3m+2\), the only possibilities are \((m+1,0,2m)\) and \((m,2,2m)\). These alternatives exhaust all possible label counts at minimum weight.
 
-When \(z=2t\), every labelled \(2\) must have two distinct zero neighbours, and each zero must be adjacent to precisely one labelled \(2\). Thus the cyclic distance between successive twos is at least \(3\), each gap has a zero immediately after its first two and a zero immediately before its second, and every other intervening vertex must be a one. With respectively zero, one, or two ones, the gaps are all of distance \(3\), have one gap of distance \(4\), or have one distance-\(5\) gap or two distance-\(4\) gaps. This proves the three gap types with \(z=2t\).
+Whenever \(z=2t\), equality in the neighbor bound means that each two has two distinct zero-neighbors and no zero is adjacent to two different twos. Thus consecutive twos are separated by at least three edges. The first and last internal vertices of each gap are zeros, while any extra internal vertices have no two-neighbor and must be ones. There can therefore be only length-three gaps and, using at most two ones, at most one length-four gap, one length-five gap, or two length-four gaps. Total length distinguishes the cases exactly as above.
 
-For the remaining case \((t,o,z)=(m+1,0,2m)\), no one-labelled vertex occurs. Cyclic domination forces each gap between twos to be of distance at most \(3\). There are \(m+1\) gaps and their total distances add to \(3m+2=3(m+1)-1\), so exactly one gap has distance \(2\) and the others distance \(3\) (distance \(1\) would cause a deficit of at least \(2\)). All configurations described above therefore exhaust every function at the lower-bound weight.
+For \((t,o,z)=(m+1,0,2m)\), every vertex not labeled two is a zero with a two-neighbor. Every inter-two gap has length at most three. As \(\sum_i d_i=3m+2=3(m+1)-1\), relative to \(m+1\) gaps of length three the total deficit is one; hence precisely one gap has length two and the remainder have length three. In particular, no distance-one gap can occur.
 
-**Global feasibility.** For any of these words, each zero is cyclically adjacent to a two. In words containing only two twos (possible only at lengths \(6,7,8\)), each zero is adjacent to at most one two because all relevant gaps have distance at least \(3\); the other two is therefore a distinct non-neighbour. In words with at least three twos, every zero has at most two cyclic neighbours, so at least one two is a non-neighbour. Thus every candidate is globally Roman. In particular, all functions attaining the ordinary Roman lower bound at \(n\ge6\) satisfy the complementary requirement.
+All the displayed words are globally feasible. They are Roman on the cycle by the local gap description. If there are at least three twos, a zero has at most two cyclic neighbors, so at least one two is a non-neighbor and supplies complement defense. If there are exactly two twos, the only such cases here are \(n=6,7,8\), and their gaps have distance at least three; each zero sees at most one two cyclically, so its other two-defender is a non-neighbor. Therefore ordinary cycle minima of length \(n\ge6\) **coincide as a set** with global cycle minima, because every ordinary minimum must satisfy the same inequalities and exhaustive gaps, and every listed word is globally feasible.
 
-**Labelled enumeration.** The all-distance-\(3\) word has exactly three rotations. For \(n=3m+1\), the sole distance-\(4\) gap determines one of the \(n\) possible initial positions. For \(n=3m+2\), the distance-\(2\) family and the distance-\(5\) family contribute \(n\) functions each. The two-distance-\(4\) family has \(\binom m2\) choices of two special positions among \(m\) cyclic gaps; marking an initial two yields \(n\binom m2\) descriptions, and each resulting labelled word is described exactly \(m\) times, giving \(n(m-1)/2\). Hence \(N_n=n+n+n(m-1)/2=n(m+3)/2\) in this residue class.
+The dihedral group acts on the cyclic list of gap lengths by cyclic permutation and reversal. The all-three list and each unique-exception list form one orbit. In the two-length-four family, the two identical exceptional positions lie in a cyclic list of \(m\) gaps. Two such choices are dihedrally equivalent if and only if their shorter cyclic separation is equal. Thus \(s=1,2,\ldots,\lfloor m/2\rfloor\) labels all orbits, with no identifications between the three different defender/gap families. This proves the formula for \(n\ge6\).
 
-**Dihedral orbits.** Cyclic shifts and reversal act on the cyclic list of inter-two gap lengths. A unique exceptional gap is one orbit for each family with one such gap. The two-distance-\(4\) family is classified under these actions by the smaller circular separation \(s\) between its two special gaps, with \(1\le s\le\lfloor m/2\rfloor\). Each \(s\) occurs and two different \(s\) cannot be dihedrally equivalent. This gives exactly \(\lfloor m/2\rfloor\) additional orbits and proves \(O_n=2+\lfloor m/2\rfloor\).
+For the remaining small cycles, the complement of \(C_3\) has no edges, so zeros are impossible and all ones gives the unique minimum of weight three. For \(C_4\), a zero must see separate twos across the cycle and complement neighborhoods. No weight below four is feasible; all ones and the four placements of adjacent twos with two zeros are the five weight-four functions, in two orbits. For \(C_5\), any configuration of weight at most four would need exactly two twos and no ones. If the twos are adjacent, the opposite vertex has no cyclic two-neighbor; if nonadjacent, their common neighbor has no complementary two-neighbor. Thus the minimum is five. It is achieved by all ones and by the five rotations of each of two two-defender types, with the necessary single one at the unique vertex not otherwise defended. These form three dihedral orbits. The theorem follows.
 
-**Small cycles.** For \(C_3\), the complement has no edges, so no zero is permitted; all ones is the unique optimum. For \(C_4\), the complement consists of two edges. An admissible zero requires two distinct twos, one at each of its two corresponding neighbourhoods. Consequently no weight below \(4\) is possible; at weight \(4\), all ones and the four configurations with an adjacent two-pair and two zeros are exactly the possibilities, yielding two dihedral orbits. For \(C_5\), the complement is again a five-cycle. A function of weight at most \(4\) would have two twos and no ones (a single two cannot satisfy both global conditions for a zero). If the two twos are adjacent, the unique vertex not adjacent to either is undominated; if they are nonadjacent, the vertex adjacent to both has no two in the complement. Thus weight \(5\) is necessary. At weight \(5\), the all-one function is feasible, as are precisely the five adjacent-two-pair placements with a one at the sole other undominated vertex and the five nonadjacent-two-pair placements with a one at their shared cyclic neighbour. Every other placement fails at least one required zero condition. The two ten-function types are separate five-element dihedral orbits, and all ones is a third orbit.
+## Previously known labelled counts (not a new result)
 
-## Verification
+For context, the ordinary-cycle result of Deepak G., Alwardi and Indiramma (2021), Theorem 2.4(ii)–(iv), combined with the equality of ordinary and global minimum sets proved above, yields for \(n\ge6\)
 
-The standalone `artifacts/verify.py` checks the global predicate directly on every ternary word for each length \(3\le n\le12\), determines the actual minimum, counts labelled minimizers and dihedral orbits, then compares with the closed formulas. It also constructs all cyclic-gap patterns for \(6\le n\le80\), checks each is globally admissible with the predicted weight, and verifies the exact labelled and dihedral counts. Run with `python3 artifacts/verify.py` after extracting this file. The script has no nonstandard Python dependencies. The unrestricted statements follow from the proof, not from finite enumeration.
+\[
+|\mathcal M_n|=\begin{cases}
+3,&n=3m,\\n,&n=3m+1,\\n(m+3)/2,&n=3m+2.
+\end{cases}
+\]
 
-## Relationship to prior work
+The small global cases have \(|\mathcal M_3|=1\), \(|\mathcal M_4|=5\), and \(|\mathcal M_5|=11\). These formulas are included to distinguish labelled counts from the symmetry quotient, not to reassert priority for the earlier numbers.
 
-Reddy, Das, Kare and Reddy (2026) formulate global Roman domination and establish algorithms and complexity classifications for several graph classes, not the present cycle minimizer enumeration. The ordinary Roman domination value on cycles is classical; the numerical lower bound is not presented here as novel. Abu-Khzam, Fernau and Mann study pointwise-minimal Roman functions and give counts for paths, which differ both in the type of minimality and in the global complement condition. Shi and Koh give graph-general counting algorithms for minimum ordinary Roman functions; an algorithm for arbitrary graphs does not state the present cyclic structural and dihedral classification. Related older algorithmic treatments may contain equivalent specializations; historical priority is provisional.
+## Verification and limitations
 
-## Limitations
+Fresh direct enumeration of every ternary labeling for \(3\le n\le12\) checks both the cycle and complement requirements, optimizes weight, and computes the dihedral orbits from all rotations and reflections. The resulting triples \((\gamma_{gR},|\mathcal M_n|,|\mathcal M_n/D_n|)\) match the theorem in every tested case. At \(n\ge6\), the independently enumerated ordinary and global minimum sets coincide. These finite calculations test small orders; the all-length assertions are proved by the inequalities and gap argument above.
 
-This classification concerns only simple labelled cycles, minimum *weight* global Roman functions, and the natural dihedral action. It does not enumerate higher-weight functions, general unicyclic graphs, or generic global Roman solutions on arbitrary graphs. The proof and computation provide same-author verification; independent mathematical validation and exhaustive bibliographic priority review have not been performed.
+The contribution is limited to simple cycles, their minimum-weight configurations, and the natural dihedral action. Neither the ordinary Roman domination number, the 2021 labelled counts, nor the general idea of counting Roman labelings is claimed as new. Standard orbit-counting on two exceptional gap positions is elementary, but gives a complete exact symmetry classification for this natural extremal configuration family. Unindexed equivalent dihedral classifications may exist; bibliographic searches cannot certify absolute priority. No assertion is made about higher weights or other graph families.
 
 ## References
 
-- S. B. Reddy, A. K. Das, A. S. Kare and I. V. Reddy, *On the complexity of global Roman domination problem in graphs* (first public preprint January 14, 2026), arXiv:2601.09167, https://arxiv.org/abs/2601.09167 .
-- F. N. Abu-Khzam, H. Fernau and K. Mann, *Roman Census: Enumerating and Counting Roman Dominating Functions on Graph Classes* (first public preprint August 10, 2022), arXiv:2208.05261, https://arxiv.org/abs/2208.05261 .
-- Z. Shi and K. M. Koh, *Counting the Number of Minimum Roman Dominating Functions of a Graph* (2014), arXiv:1403.1019, https://arxiv.org/abs/1403.1019 .
-- S. Panda and A. Goyal, *Hardness results of global roman domination in graphs* (2023), Discrete Applied Mathematics, DOI:10.1016/j.dam.2023.08.020 .
+1. Deepak G., A. Alwardi and M. H. Indiramma, *Roman Domination Polynomial of Cycles*, International Journal of Mathematics and Combinatorics 2021(3), 86–97, Theorem 2.4(ii)–(iv). https://fs.unm.edu/IJMC/Roman_Domination_Polynomial_of_Cycles.pdf
+2. S. B. Reddy, A. K. Das, A. S. Kare and I. V. Reddy, *On the complexity of global Roman domination problem in graphs* (2026), arXiv:2601.09167. https://arxiv.org/abs/2601.09167
+3. F. N. Abu-Khzam, H. Fernau and K. Mann, *Roman Census: Enumerating and Counting Roman Dominating Functions on Graph Classes* (2022), arXiv:2208.05261. https://arxiv.org/abs/2208.05261
+4. Z. Shi and K. M. Koh, *Counting the Number of Minimum Roman Dominating Functions of a Graph* (2014), arXiv:1403.1019. https://arxiv.org/abs/1403.1019
+5. S. Panda and A. Goyal, *Hardness results of global roman domination in graphs* (2023), Discrete Applied Mathematics, DOI:10.1016/j.dam.2023.08.020. Access to the complete article was unavailable during this comparison; no negative conclusion is drawn from its absence.
