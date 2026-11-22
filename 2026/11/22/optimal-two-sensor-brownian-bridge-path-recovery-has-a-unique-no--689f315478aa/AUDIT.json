@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Complete derivation from Brownian conditional bridges and Gaussian noise covariance. Short-gap comparison reduces to a polynomial positive by endpoint sign certificates; large gaps are excluded by an exact concave quadratic certificate; Descartes sign-variation across all positive noise variances gives exactly one optimal gap. Exact symbolic checker verifies polynomial identities and asymptotics (60 checks). Conditional formulas extend continuously to coincident/endpoints, so no hidden domain exclusion. No finite numerical sampling is used as universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guestrin–Krause–Singh (2005) ICML abstract and Krause–Singh–Guestrin (2008) full JMLR pp.235–284: mutual-information sensor sets and general approximation algorithms, not exact continuous two-bridge-site A-optimal design",
+        "Tzoumas–Jadbabaie–Pappas arXiv:1509.08146 full available preprint: noisy Kalman sensor selection, no Brownian-bridge path-spacing result",
+        "Santin arXiv:2210.15959 full text §4, Theorem 5: maximum interpolation power function for noise-free kernel interpolation and varying kernel operator parameter"
+      ],
+      "reasoning": "General sensor-selection and greedy bounds cannot yield the exact unique zero of the stated stationary polynomial without specialized evaluation, uniqueness and boundary comparisons. Santin’s interpolation-kernel parameter does not represent independent observation noise; max-pointwise power function differs from time-integrated posterior variance. Neither a stronger criterion nor an implication covering this assertion was found in inspected results.",
+      "searches": [
+        "published-finding corpus: Brownian bridge equal noise observation optimal design two locations coalescence small noise large noise",
+        "web: Gaussian process sensor placement integrated variance Brownian bridge noise early 2015",
+        "published-finding corpus: Gaussian process Bayesian quadrature Brownian bridge noisy landmarks IMSE optimal two points closed form"
+      ]
+    },
+    "checked_sources": [
+      "https://jmlr.csail.mit.edu/papers/volume9/krause08a/krause08a.pdf",
+      "https://arxiv.org/pdf/2210.15959",
+      "https://arxiv.org/pdf/1509.08146",
+      "https://doi.org/10.1007/s00184-023-00893-6",
+      "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+      "https://doi.org/10.1145/1102351.1102385"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mukherjee thesis abstract describes noiseless random-process sampling and BLUE; exact complete thesis unavailable from accessible catalog",
+        "Tsirpitzi, Miller, Burman (2023) Theorem 4.1 uses straight-line regression plus Brownian bridge and noise-free limit; Section 4.7.1 cites Mukherjee error-free no-regression solution",
+        "Santin (2022) Theorem 5 optimizes maximum power function and proves equispaced nodes for a kernel interpolant, not finite-nugget L2 posterior risk"
+      ],
+      "reasoning": "The claimed theorem requires a two-dimensional global comparison under positive measurement noise. Neither optimality of a different statistical functional, noiseless equispaced design nor general-purpose set selection implies the unique positive-noise site pair and 1/(8η) high-noise separation. The historical abstract is not sufficient to rule out all possible older appendices, so residual priority risk is retained.",
+      "searches": [
+        "published-finding corpus: Brownian bridge 2002 Mukherjee optimal designs estimating path BLUE continuous Gaussian process observation noise",
+        "web: robust optimal designs using a model misspecification term Brownian bridge exact theorem 2023",
+        "web: near optimal sensor placements Gaussian processes Guestrin Singh 2005 paper"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mukherjee dissertation catalog: sample-path BLUE/IMSE design; full text requires institutional ProQuest (https://docs.lib.purdue.edu/dissertations/AAI3043760/)",
+        "Tsirpitzi–Miller–Burman (2023), Section 4.7.1 and Theorem 4.1: explicitly distinguishes Brownian-bridge without regression in older **error-free** design, while its own main optimization retains regression (https://doi.org/10.1007/s00184-023-00893-6)"
+      ],
+      "reasoning": "The noiseless fixed-site IMSE formula and predictor have a common kernel, but adding independent measurement noise changes the inverse covariance and the objective. The current claim concerns unrestricted equal-noise two-measurement locations, including duplicates, with a unique interior polynomial root and no finite-noise collision. The inspected full 2023 article states the older no-regression bridge case was error-free and does not furnish this noisy theorem; inaccessible older dissertation creates a specific residual risk.",
+      "searches": [
+        "published-finding corpus: exact global minimizer integrated posterior variance Brownian bridge two noisy measurements independent observation variance optimal spacing midpoint reflection",
+        "published-finding corpus: Brownian bridge noisy kriging two measurement locations global integrated mean square prediction error optimal design",
+        "web: Brownian bridge optimal two observation times measurement noise integrated posterior variance design noisy kernel"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus published record 2026/11/2/SCOPE-unique-optimal-i-i-d-two-node-design-for-brownian-bridge-kernel--1c7b05ec88c4 concerns expected posterior **integral** uncertainty with randomly drawn nodes, not entire path IMSE and freely optimized deterministic nodes",
+        "Closest published-finding corpus 2026/11/2/SCOPE-exact-two-landmark-design-for-a-cosine-kernel-a-noise-independen--98c56c92dae5 concerns a finite-rank cosine kernel on a circle, not the Brownian bridge",
+        "Own accessible prior-ledger claims include a Gaussian/OU two-landmark Nyström trace-ratio result but no exact Brownian-bridge two-noisy-sensor path IMSE global site theorem"
+      ],
+      "reasoning": "The published claims share high-level Gaussian design terminology but have different kernels, objective functionals, stochastic versus deterministic site selection, or number of sensors. Numerical grids are not used to assert novelty. No exact table or database statement giving the current all-noise root or collision law was identified.",
+      "searches": [
+        "published-finding corpus: Brownian bridge noisy measurements optimal design two points integrated conditional variance",
+        "published-finding corpus: exact global minimizer integrated posterior variance Brownian bridge two noisy measurements independent observation variance optimal spacing midpoint reflection",
+        "web: Brownian bridge noisy measurements optimal design location two symmetric sensors integrated variance"
+      ]
+    },
+    "rationale": "Compared continuous two-noisy-point integrated path-variance theorem against actual published-finding corpus searches, accessible prior claims, and focused full-text primary literature. Closest results concern noiseless IMSE, kernel interpolation maximum error, GP mutual-information selection, Kalman sensor subsets, or regression-plus-bridge rather than this root, uniqueness and positive-noise collision law. Inaccessible older dissertation and unindexed duplicates remain priority risks.",
+    "residual_risks": [
+      "Potential prior coverage in unavailable full historical Brownian-bridge design dissertation or related appendices",
+      "Original 2005 ICML PDF unavailable through temporary signed media redirect; 2008 extended primary full paper was read instead",
+      "Unknown unindexed equivalent stochastic-process design results",
+      "Older dissertation catalog year predates earliest exact-day verified online publication date; its precise initial public day is unverified"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not establish a bridge-specific exact two-noisy-site integrated posterior variance optimum; main criterion mutual information and general approximation",
+        "evidence": "PDF pages 1–3 specify objective mutual information, combinatorial site selection, and comparison to A-optimal criteria; full-text Brownian term search has no occurrence",
+        "identifier_or_url": "https://jmlr.csail.mit.edu/papers/volume9/krause08a/krause08a.pdf",
+        "material_read": "Full PDF introduction and contribution statements, and full-document keyword search for Brownian and observation noise",
+        "method": "Full-text PDF and page image inspection; text search",
+        "title": "Near-Optimal Sensor Placements in Gaussian Processes: Theory, Efficient Algorithms and Empirical Studies",
+        "trigger": "General Gaussian-process sensor placement could dominate a special two-sensor design"
+      },
+      {
+        "assessment": "No independent measurement noise; max-norm power function and modified kernel differ from the integrated noisy posterior variance claim",
+        "evidence": "Theorem 5 minimizes ||P||∞, with sites i/(N+1); Section 2 defines ε as kernel differential-operator parameter",
+        "identifier_or_url": "https://arxiv.org/pdf/2210.15959",
+        "material_read": "Full seven-page PDF, especially Sections 2 and 4 and Theorem 5 on page 5",
+        "method": "PDF text plus page screenshot; checked kernel formula and exact theorem statement",
+        "title": "Equally spaced points are optimal for Brownian Bridge kernel interpolation",
+        "trigger": "Same underlying Brownian-bridge kernel and optimal interpolation-site positions"
+      },
+      {
+        "assessment": "Finite-state dynamic Kalman sensor-set design and approximation, no Brownian-bridge two continuous site theorem",
+        "evidence": "Title, abstract and introduction define a noisy linear dynamical system and combinatorial sensor-set selection; Brownian search returned no matches",
+        "identifier_or_url": "https://arxiv.org/pdf/1509.08146",
+        "material_read": "Available PDF abstract and introduction on first page; whole-document Brownian keyword search",
+        "method": "PDF full text and first-page image inspection",
+        "title": "Sensor Placement for Optimal Kalman Filtering: Fundamental Limits, Submodularity, and Algorithms",
+        "trigger": "Measurement-noisy estimation and sensor placement at first glance plausible broader coverage"
+      },
+      {
+        "assessment": "Combined unknown regression and bridge, with a limiting/noiseless theorem and numerical experimental designs, does not contain the current fixed-zero-mean all-positive-noise two-site global law",
+        "evidence": "Theorem 4.1 assumes f=(1,x) and N→∞ or σ²→0; its text explicitly says Mukherjee no-regression bridge design was error-free",
+        "identifier_or_url": "https://doi.org/10.1007/s00184-023-00893-6",
+        "material_read": "Full open-access HTML Sections 2–4, especially 4.7.1, Theorem 4.1 and reference discussion",
+        "method": "Read model equations and theorem and distinction from no-regression error-free Brownian bridge",
+        "title": "Robust optimal designs using a model misspecification term",
+        "trigger": "Same Brownian-bridge IMSE design and noisy observations; a high-priority closer comparison"
+      },
+      {
+        "assessment": "Unresolved older full-text risk; accessible abstract describes BLUE and error-free process-site observations, does not explicitly establish finite independent measurement-noise optimum",
+        "evidence": "Catalog abstract states Brownian-bridge IMSE and BLUE; access link routes to ProQuest authentication",
+        "identifier_or_url": "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+        "material_read": "Full public catalog abstract; dissertation full text not accessible without ProQuest login",
+        "method": "Examined catalog abstract and found external login requirement",
+        "title": "Optimal designs for estimating the path of a stochastic process",
+        "trigger": "Original exact IMSE Brownian-bridge path design, plausible historical equivalence"
+      },
+      {
+        "assessment": "Abstract addresses mutual-information approximation, not exact bridge path-risk optimum; full original not directly inspected",
+        "evidence": "ICML 2005 publicly dated 2005-08-07; abstract proposes submodular criterion and algorithms",
+        "identifier_or_url": "https://doi.org/10.1145/1102351.1102385",
+        "material_read": "Public abstract and publisher date; PDF retrieval failed at signed media redirect",
+        "method": "Read bibliographic record and abstract, plus expanded 2008 follow-up full text",
+        "title": "Near-optimal sensor placements in Gaussian processes",
+        "trigger": "Archive anchor and original Gaussian-process sensor-placement priority"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "689f3154-78aa-4397-a4e8-76471f30be1f",
+  "value": {
+    "rationale": "The exact all-noise global optimum of a canonical two-sensor Gaussian-process recovery problem provides a noise-calibrated design with provably unique midreflection and a nontrivial inverse-noise collision law. It identifies that independent noisy repeated midpoint measurements are never optimal at finite noise, while fixed trisection is only optimal in the zero-noise limit; the precise spacing controls full-path reconstruction under real sensor noise, beyond an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
