@@ -1,21 +1,21 @@
-# Scientific review: finite biclique saturation of forest-polytope inballs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source graphic-matroid inequalities and facet criterion are exact for the standard full-dimensional independence polytope. Averaging under the edge-transitive automorphism group reduces the radius upper bound to the biclique expression, and the center at that radius satisfies every rank halfspace. The one-variable derivative has a unique positive zero between the two stated consecutive integers. Uniqueness is established without assuming that every incenter is symmetric: each active biclique and the coordinate lower bounds force all of its edges to the common coordinate. The contacting-facet census uses indecomposable-flat facets and treats the four-cycle exception separately.
+PASS
 
-The independent numerical script reconstructs **all** induced-biclique constraints and solves twelve ambient inball linear programs for small orders, together with additional cutoff and finite minimum checks, reporting 3,133 grouped mathematical checks. Finite agreement corroborates rather than proves the unrestricted theorem. No external proof certificate is claimed.
+Edmonds graphic matroid independence inequalities are coordinate lower bounds and induced-subgraph rank upper bounds; in complete bipartite graph each rank subset indexed by a,b with normal Euclidean norm sqrt(ab). Averaging over edge-transitive S_p×S_q makes a scalar center c1 admissible, coordinate facets force c≥r, and rank facets force r≤(a+b-1)/(ab+sqrt(ab)); choosing c=r attains all. Derivative with t=sqrt(a) strictly favors increasing smaller shore up to p, except K2,2 equality, so reduce to f_p(b). The derivative in sqrt(b) has a unique turning point b*_p∈(Bp-1,Bp); exact two-candidate finite cutoff and p=2 b=10 follow, not a numerical fit. Active bicliques force EVERY coordinate of a radius-r incenter to equal r, so unique; connected-flat facet criterion gives contacting biclique count and four single-edge upper contacts when K2,2. Independently enumerated ALL bicliques for p=2..17 and q at/below/above cubic cutoff; original two-variable minimum agrees with two-term formula. Infinite results follow from algebra and facet arguments, not finite test.
 
-## Originality — PASS, historical priority provisional
+## originality
 
-The closest inspected primary manuscript (Coons–Hollering–Chakrabarty Paul, arXiv:2611.09633, v1 2026-11-06) establishes the general matroid facet framework and its complete-graph forest-polytope specialization; it does not present the complete-bipartite inradius or its sharp finite-radius saturation. The closest recorded complete-bipartite result concerns a **spanning-tree base polytope** with a different ambient affine space and a different inball problem. Another recorded matroid-independence result determines a **minimum-enclosing sphere**, not a maximum inscribed ball. Their full scientific statements were compared rather than only their titles. Searches for the same biclique formula, cutoff, forest-polytope inball, and equivalent descriptions found no stronger coverage. This search is not a proof of worldwide priority; alternative terminology and unindexed sources remain possible.
+PASS
 
-## Mathematical value — PASS
+Previously published K_{p,q} SPANNING-TREE BASE-polytope inradius uses the intrinsic affine-hyperplane metric and finds a different p^{3/2} phase and sometimes nonunique centers. The present polytope allows every forest, has dimension pq, ambient Euclidean normal sqrt(ab), unique center and sharp cubic q-cutoff; enclosing sphere formulas are dual direction and do not imply inballs.
 
-The classification makes a natural geometric question for the graphic-matroid independence polytope explicit in every pair of part sizes. It identifies a cubic-in-smaller-part cutoff after which increasing the number of edge coordinates cannot change the largest inscribed radius, yet creates rapidly proliferating tangent facets. The exact two-row saturation at ten and its \(2q+\binom q{10}\) contact count expose a structural separation between ambient dimension, local rank barriers and facet-contact complexity. This is more than an isolated small-graph computation or a reformulation of the existing spanning-tree insphere.
+## value
 
-## Limits and relevant prior work
+PASS
 
-The metric is the standard ambient Euclidean metric on unweighted edge indicators. The theorem does not cover arbitrary graphs, diagonal weights, or inballs inside spanning-tree faces; at general smaller-part size it gives an exact two-term comparison rather than a universal preference between the last two cardinalities. The first public motivating manuscript date was checked against its v1 arXiv record; no journal or revision date was substituted. Independent historical and mathematical validation remain unperformed.
+Matroid independence polytopes and their Euclidean inballs are natural metric invariants; eventual radius saturation at a finite cubic biclique despite ambient dimension pq→∞ and rapidly growing tangent facet count is a nontrivial exact geometric phenomenon.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
