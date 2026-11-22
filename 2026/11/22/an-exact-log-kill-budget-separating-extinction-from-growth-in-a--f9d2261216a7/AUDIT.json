@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "For all irreducible two-stage Metzler A and tau>0, E=exp(tau A) is positive with positive determinant. Under s1*s2=q the determinant of diag(s)E is fixed, its Perron root strictly increases with the trace, and the latter is strictly convex in s1 on [q,1], proving the unique clipped square-root optimizer. For the positive-mortality two-stage example A=[[-3/2,15/4],[1,-1/2]], A^2+2A-3I=0, so exp((log 2)A)=(15A+49I)/32 and all displayed rational values follow exactly. The sharp q crossing is the smaller root of 64 q^2-3887 q+1024 with q in the interior-optimal range; strict monotonicity in q rules out other crossings. The equal-treatment multiplier is 2 sqrt(q). With q=13/50 a rational targeted split gives det=13/200<1 and characteristic polynomial at 1 equal to 59/9600>0, implying rho<1, while equal treatment gives sqrt(26)/5>1. The density-independent eco-evolutionary fate uses the cited resistance-fixation result and direct positive-matrix comparisons; no conclusion is made at equality. The standalone checker establishes exact instances and supplementary tests, but the infinite theorem relies on the written proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Patel and De Leenheer (2023/2024), Section 2, explicitly fix the disturbance diagonal D and optimize the period tau, whereas here the period is fixed and D varies at prescribed product.",
+        "The convex-optimization text provides general Perron-eigenvalue optimization by geometric programming; it does not supply an analytical control threshold for this stage-structured eco-evolutionary model.",
+        "Nussbaum (1986) and Friedland (1981) cover log-convexity and sometimes strictness but do not, in the material examined, report the constructed two-stage extinction interval."
+      ],
+      "reasoning": "General optimization frameworks are stronger with respect to solvability but have not been found to explicitly include the analytic phase boundary, rational witness, and eco-evolutionary consequence. The numerical fixed-budget problem is solvable by standard algorithms; an algorithmic possibility alone is not an explicit statement of these exact quantities. This is a residual scope risk, not a claim that the general theory is new.",
+      "searches": [
+        "published-finding corpus: stage-structured eco-evolutionary model Long Adjei Patel 2609.10581 optimization stage pulse mortality resistance and control",
+        "Web: spectral radius diagonal scaling fixed product positive matrix minimize Perron root treatment allocation",
+        "https://arxiv.org/abs/2310.07616",
+        "https://web.cvxr.com/cvx/examples/cvxbook/Ch04_cvx_opt_probs/html/min_spec_rad_ppl_dynamics.html",
+        "https://doi.org/10.1016/0024-3795(86)90233-8"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.10581",
+      "https://arxiv.org/abs/2310.07616",
+      "https://doi.org/10.1080/03081088108817381",
+      "https://web.cvxr.com/cvx/examples/cvxbook/Ch04_cvx_opt_probs/html/min_spec_rad_ppl_dynamics.html",
+      "https://doi.org/10.1016/0024-3795(86)90233-8",
+      "published-finding corpus scientific index (search queries and closest IDs enumerated above)",
+      "Own accessible finding claims in current cumulative ledger, 42 items"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Long–Adjei–Patel 2026, model equations (9)–(10) and Theorems 5–7: resistance fixation and population decline/growth are classified by rho(D_22 exp(tau A)) relative to one; the survival diagonal is a given model parameter.",
+        "Patel–De Leenheer 2023/2024, Section 2 and Theorem 1: tau-convexity at fixed D, not fixed-product optimization over D.",
+        "Friedland and Nussbaum supply the broader matrix-scaling convexity context; no precise budget interval or corresponding ecological crossing is reported in the material inspected."
+      ],
+      "reasoning": "The original 2026 ecological theorem permits the final step from a calculated spectral sign to asymptotic fate, and therefore that final implication is credited to prior work. What remains is the new precise controlled spectral comparison with a fixed common log-kill budget, including necessary/sufficient model-specific budget threshold, exact optimal allocation, and strict separation of two policies. No inspected prior statement directly entails those numerical and structural conclusions without a separate analysis.",
+      "searches": [
+        "https://arxiv.org/abs/2609.10581",
+        "https://arxiv.org/abs/2310.07616",
+        "https://doi.org/10.1080/03081088108817381",
+        "https://web.cvxr.com/cvx/examples/cvxbook/Ch04_cvx_opt_probs/html/min_spec_rad_ppl_dynamics.html",
+        "published-finding corpus: stage-structured eco-evolutionary model Long Adjei Patel 2609.10581 optimization stage pulse mortality resistance and control"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Friedland 1981 proves a general log-convexity framework for positive matrix spectral radii under logarithmic diagonal scaling.",
+        "The concrete claim is a unique closed allocation under fixed survival product, plus an exact biological growth/extinction budget crossing rather than convexity alone.",
+        "The indexed nearest pulsed-population findings concern phase ordering or pulse timing, not adjustment of two fully-resistant stage survivals with their product fixed."
+      ],
+      "reasoning": "Logarithmic diagonal scaling is the main equivalent mathematical formulation. General log-convexity is prior, and makes tractability plausible, but does not itself state the exact two-stage clipping optimizer, model-specific critical product, or strict same-budget demographic fate reversal. The new proof explicitly derives these through the determinant-preserving trace reduction. A textbook two-by-two reduction remains a plausible historical-priority risk.",
+      "searches": [
+        "published-finding corpus: two-stage stage-structured pest population optimal allocation of stage survival under multiplicative budget product s1 s2=q minimization Floquet spectral radius trace balance",
+        "published-finding corpus: matrix exponential pulsed ecological model two stages optimal resistant pulse kill rate allocate fixed log-suppression budget stages targeted versus uniform extinction threshold",
+        "Web: pulsed stage structured population mortality two stages optimize fixed total log survival weighted trace minimize spectral radius",
+        "https://doi.org/10.1080/03081088108817381"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed 2026/11/2/SCOPE-sharp-phase-law-for-independent-culling-of-two-exchanging-pest-p--61cfe5d6932c treats timing of two independent fixed-strength culls in two exchanging patches.",
+        "Indexed 2026/10/12/SCOPE-a-determinant-sign-phase-law-for-balanced-six-season-stage-speci--e0435dfadf65 treats ordering of a fixed multiset of stage-specific seasonal interventions, not amplitude allocation.",
+        "Indexed 2026/11/8/SCOPE-sharp-stage-specific-scheduling-reversals-in-a-four-season-popul--a441cfed4a72 treats four-season order reversal; indexed 2026/10/25/SCOPE-a-unique-survival-threshold-reverses-the-advantage-of-environmen--21d96ab3451f treats environmental block order.",
+        "The one accessible own finding mentioning two life stages concerns swapping fast-turnover species and community stability; its hypotheses and conclusion do not entail pulse survival budget optimization.",
+        "No exact table or database entry for the asserted general two-stage clipping formula or the displayed critical product was identified in these actual results."
+      ],
+      "reasoning": "A mismatch of terminology is not sufficient for novelty. Comparing inputs and outputs, the nearest indexed items have fixed pulse strengths and optimize temporal phases/orders or ecological species transitions, while this result holds the period fixed, varies two stage-specific survival factors subject to a product constraint, and optimizes the resistant Floquet multiplier. Database absence alone does not establish originality.",
+      "searches": [
+        "published-finding corpus: two-stage stage-structured pest population optimal allocation of stage survival under multiplicative budget product s1 s2=q minimization Floquet spectral radius trace balance",
+        "published-finding corpus: pulse frequency split stage targeted insecticide treatment geometric mean budget Perron eigenvalue 2x2",
+        "2026/11/2/SCOPE-sharp-phase-law-for-independent-culling-of-two-exchanging-pest-p--61cfe5d6932c",
+        "2026/10/12/SCOPE-a-determinant-sign-phase-law-for-balanced-six-season-stage-speci--e0435dfadf65",
+        "2026/11/8/SCOPE-sharp-stage-specific-scheduling-reversals-in-a-four-season-popul--a441cfed4a72",
+        "2026/10/25/SCOPE-a-unique-survival-threshold-reverses-the-advantage-of-environmen--21d96ab3451f",
+        "Own accessible science ledger, recoverable finding claims and source identifiers (42 items; prior claim on two-life-stage species turnover compared for implications)"
+      ]
+    },
+    "rationale": "Bounded literature and published-finding corpus comparisons show the 2026 source fixes stage-specific survival and proves the already-known spectral criterion, the 2023/2024 source fixes survival and varies pulse period, and earlier convex-spectral literature supplies broad optimization tools but no checked explicit same-budget demographic separation for this two-stage system. The new assertion is the complete analytical fixed-product allocation classification and exact critical extinction window, not the general Perron or resistance results. This is a best-knowledge same-model assessment, with residual risk from elementary matrix scaling and unexamined older literature.",
+    "residual_risks": [
+      "The complete Friedland 1981 and Nussbaum 1986 original texts were not fully inspected; an analytic special case may have been explicitly published in earlier diagonal-scaling literature.",
+      "The budget is fixed logarithmic stage survival, while a field pesticide expenditure could be nonlinear and stage dependent.",
+      "Other unindexed or inaccessible theoretical work may contain the same two-stage balance rule.",
+      "Similarity search and 42 accessible own items are not a completeness or global priority proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the ecological resistance-fixation and spectral sign-to-fate consequences; DOES NOT STATE the fixed-product allocation or its exact crossing.",
+        "evidence": [
+          "Model equations (9)–(10), Theorem 6 on extinction when full-resistant rho<1 and Theorem 7 on growth when full-resistant rho>1.",
+          "Case study and Discussion vary named insecticides but do not optimize the fully resistant stage-survival diagonal subject to constant total log reduction."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.10581",
+        "material_read": "Full accessible article text: Section 2 model and pulse definitions, 3.1.2 spectral threshold, 3.3.2 Theorems 5–7 and proofs, case-study interpretation, Discussion.",
+        "method": "Read arXiv article text and directly compared fixed versus variable parameters, the hypotheses, and theorems.",
+        "title": "On the formulation and analysis of a stage-structured eco-evolutionary model with pulsed disturbances",
+        "trigger": "Same two-stage model, exact matching full-resistant pulse matrices, possible domination of the proposed claim"
+      },
+      {
+        "assessment": "COVERS spectral-radius and period convexity at fixed D; DOES NOT COVER optimization in D under the survival-product constraint.",
+        "evidence": [
+          "Section 2 explicitly states: matrix D is fixed and only period tau is variable.",
+          "Theorem 1 is convexity in tau, not in stage-specific survival allocation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.07616",
+        "material_read": "Full accessible article text: Introduction; Section 2 Setting, especially discussion of fixed D; Section 3 Theorem 1 and its proof; Section 4 period optimization and applications.",
+        "method": "Read arXiv article text and compared which quantity is optimized.",
+        "title": "On the spectral radius properties of a key matrix in periodic impulse control",
+        "trigger": "Same D exp(tau A) Floquet matrix and a directly relevant possible broad optimization theorem"
+      },
+      {
+        "assessment": "General diagonal log-convexity is acknowledged as prior; exact optimized pulse-budget threshold not checked in full original text, so coverage risk remains.",
+        "evidence": [
+          "Published general log-convexity of rho(exp(D)A) with a nonnegative matrix A, reported in Patel–De Leenheer Section 1."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/03081088108817381",
+        "material_read": "Publisher abstract and independent accessible citations/exposition of the positive-matrix log-convexity theorem; original complete text not independently verified.",
+        "method": "Compared abstract-level statements and precise theorem description cited by Patel–De Leenheer and later matrix literature.",
+        "title": "Convex Spectral Functions",
+        "trigger": "Potentially stronger general matrix-scaling convexity and equivalent formulation"
+      },
+      {
+        "assessment": "General numerical geometric-programming framework is prior; the explicit closed two-stage budget formula and exact reversal are not displayed there.",
+        "evidence": [
+          "The example minimizes the Perron eigenvalue of an elementwise-nonnegative population matrix under posynomial constraints."
+        ],
+        "identifier_or_url": "https://web.cvxr.com/cvx/examples/cvxbook/Ch04_cvx_opt_probs/html/min_spec_rad_ppl_dynamics.html",
+        "material_read": "Accessible example description and its geometric-programming formulation for Perron eigenvalue minimization in population dynamics.",
+        "method": "Compared decision variables, constraints, and output form.",
+        "title": "Convex Optimization, positive-system spectral-radius example",
+        "trigger": "General optimization method might already dominate the specific allocation task"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f9d22612-16a7-48ad-a65e-bf424728d4e1",
+  "value": {
+    "rationale": "Stage-targeting under a fixed treatment burden is a motivated control question in the emerging eco-evolutionary pulse model, whose authors explicitly identify selection and stage-specific effects. The theorem determines the globally optimal stage split for every fixed log-survival product rather than a simulated candidate, and the exact interval (1/4,q_c) shows a qualitative persistence/extinction reversal with identical total treatment efficacy. This is a natural complete critical-budget classification, not a table recomputation, arbitrary finite slice, or claim of a new convexity theorem. Its limitation to an idealized cost and density-independent model is explicit.",
+    "status": "PASS"
+  }
+}
