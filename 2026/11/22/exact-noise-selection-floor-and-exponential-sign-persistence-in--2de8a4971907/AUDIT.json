@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "The full proof explicitly determines eligibility for nonzero iterates, derives conditional binomial second moments for sampled cached observations, proves fresh-query independence, and maintains nonzero iterates by odd h and s. The all-row sign chain is exactly the lower-binomial-tail Markov transition; the finite-m formula, the q=1/2 limiting floor via bounded convergence, and the rare-event exponent via Stirling all follow with complete quantifiers. A standalone exact-fraction checker passed 867 assertions after replay from the actual package work path; finite checks are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cai--Chen--Ma--Wu (arxiv:2507.15185v1) prove quantile subsampling guarantees for fixed sparse corrupted b over finite T; not a fresh independent query model with two distinct second-stage rules.",
+        "Shvaiko--Rebrova (arxiv:2611.21926v1) obtain bounds for independent requery noise and discuss cached selection bias, but bounds are not an exact full-screened identical-row scalar floor or transition exponent.",
+        "Coria--Haddock--Pacheco (arxiv:2403.19874) cover time-varying corruption/noise but do not state the exact two-stage binomial construction or all-row sign chain."
+      ],
+      "reasoning": "Even general-purpose noise-floor bounds or mean-square convergence do not, without an additional reduction, determine the new finite m,h,s equality, its sharp limit F(q), or its binomial sign-run exponent. Some older algorithms assume an oracle with fixed b, while the new construction resamples screening measurements at every call.",
+      "searches": [
+        "two-state Markov sign dynamics residual quantile screening Rademacher symmetric noise reused vs re-queried randomized Kaczmarz stationary variance closed formula",
+        "averaged quantile randomized Kaczmarz AQRK selection reuse fresh sharp mean square error exact",
+        "arxiv:2507.15185v1 Theorem 1, arxiv:2611.21926v1 Theorem 1 and Corollaries 3--4",
+        "arxiv:2403.19874 time varying noise corruption"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2507.15185v1 (full source, 2025-07-21)",
+      "arxiv:2206.12554v3 (full source)",
+      "arxiv:2403.19874 (full source)",
+      "arxiv:2611.21926v1 (full source, after eligibility anchor)",
+      "2026-10-25 public mathematical record Exact two-state dynamics and a sharp rare-corruption horizon for small-sample quantile Kaczmarz (summary compared)",
+      "2026-10-18 public mathematical record Sharp one-step minimax mean-square risk of scalar streaming quantile Kaczmarz under Massart corruption (summary compared)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The paper arxiv:2611.21926v1 already argues that filtering creates selection bias and new independent observations remove it; this part of the motivation is not claimed as a result.",
+        "Our all-row sign chain specifically requires odd h and resampled symmetric two-point noise, not fixed error or a general-dimensional filtered update.",
+        "The prior two-state small-sample result uses an equality-to-quantile update on a fixed two-level scalar system, not the present accepted-set resampling and fresh-vs-reused comparison."
+      ],
+      "reasoning": "No inspected general error bound is sharp enough to imply positive exact limiting risk F(q) for every fixed q<1 or a sign-flip lower-binomial tail with exponential run length. Conversely our highly specialized scalar claim implies no general guarantees of those papers. A general elementary conditional-variance identity is shared background, not claimed novel by itself.",
+      "searches": [
+        "averaged quantile randomized Kaczmarz selected rows re-query filtering bias residual quantile noisy linear system nonzero equilibrium phase threshold",
+        "two-state Markov sign dynamics residual quantile screening Rademacher symmetric noise reused vs re-queried randomized Kaczmarz stationary variance closed formula",
+        "Averaged quantile randomized Kaczmarz AQRK reuse cached Rademacher noise two-stage selecting h smallest residuals identical scalar rows exact MSE binomial min(J,h) sign metastability exponential mixing quantile q half threshold",
+        "arxiv:2206.12554 Algorithm 1",
+        "arxiv:2611.21926 equations (5) and (6)",
+        "arxiv:2507.15185v1 Algorithm 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Shvaiko--Rebrova (arxiv:2611.21926v1), equations (5)--(6), describe independently re-queried or cached second-stage observations and clarify that sampled s=h is not all-row averaging.",
+        "Cheng et al. (arxiv:2206.12554v3), Algorithm 1, defines all-row cached averaging with fixed b and theorems for sparse fixed corruptions.",
+        "The exact signed Rademacher binomial mode and all-row sign transition have not been identified in their stated claims."
+      ],
+      "reasoning": "A noise-selection bias warning is equivalent only to the qualitative possibility of distortion, not to an exact formula for every m,h,s or to an exponentially small sign-flip probability. Existing algorithm definitions are directly reused and explicitly not claimed original. Literature and mathematical-record searches were compared by assumptions and logical implication, not by matching title. No inspected theorem states the three exact claims together; exhaustive priority is not thereby proved.",
+      "searches": [
+        "averaged quantile randomized Kaczmarz selected rows re-query filtering bias residual quantile noisy linear system nonzero equilibrium phase threshold",
+        "Averaged quantile randomized Kaczmarz AQRK reuse cached Rademacher noise two-stage selecting h smallest residuals identical scalar rows exact MSE binomial min(J,h) sign metastability exponential mixing quantile q half threshold",
+        "\"quantile\" \"Kaczmarz\" \"metastability\" binary noise",
+        "arxiv:2611.21926v1 sections 2.2, 3, 4, 5",
+        "arxiv:2206.12554v3 section 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public mathematical-record semantic matches with signed two-state dynamics concern fixed two-level corruptions, not fresh independently queried residuals: Exact two-state dynamics and a sharp rare-corruption horizon for small-sample quantile Kaczmarz (2026-10-25).",
+        "Searches of the complete Shvaiko--Rebrova preprint find no Rademacher, binomial, or two-state claim; its numerical experiments use uniform query noise."
+      ],
+      "reasoning": "No exact entry for the conditional second-stage variance or flip probability was found, but non-detection is not proof of absence. The closest two-state record treats sample rank under static two-level corruption and hypergeometric selection, which is a different stochastic model.",
+      "searches": [
+        "Averaged quantile randomized Kaczmarz AQRK reuse cached Rademacher noise two-stage selecting h smallest residuals identical scalar rows exact MSE binomial min(J,h) sign metastability exponential mixing quantile q half threshold",
+        "\"Rademacher\" \"quantile\" \"Kaczmarz\" \"re-query\" bias",
+        "averaged quantile Kaczmarz two point noise sign flip binomial error floor",
+        "exact binomial quantile Kaczmarz Rademacher sign switching",
+        "arxiv:2611.21926v1 Rademacher/binomial/two-state sections"
+      ]
+    },
+    "rationale": "Qualitative selection bias and the benefit of independent requerying are explicitly prior insights, especially in Shvaiko and Rebrova (2026). The additional claim is the explicit Rademacher scalar exact finite-sample risk for two-stage sampled-with-replacement updates, a screening-fraction half-threshold for positive asymptotic error, and an exponentially long sign-dwell law for the all-eligible-row cached update. The precise antecedents examined do not imply these exact statements under their hypotheses. This is a qualified best-knowledge novelty assessment; a simpler previously published equivalent calculation remains possible.",
+    "residual_risks": [
+      "Unindexed, unpublished, or non-English sources may derive an equivalent exact binary scalar model.",
+      "Qualitative fresh/reused noise-bias contrast and algorithm definitions are known, so only the exact scalar phase and persistence classification is asserted new.",
+      "Several mathematical-record comparisons relied on published abstracts/summaries rather than full individual records; they do not establish negative coverage.",
+      "Sharp asymptotic sampling-cost conclusions apply only to fixed q<1 and a one-dimensional identical-row system."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FIXED sparse corruption and quantile subsampling; no independent requery/cached second-stage risk or binary sign metastability stated",
+        "evidence": [
+          "arXiv v1 UTC 2025-07-21 02:06:39; paper quantile sample size D scales with log(T)/log(1/beta).",
+          "arXiv primary MSC 65F10 and finite-horizon subsampled QRK analysis."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2507.15185",
+        "material_read": "Abstract and dated v1 metadata; arXiv full paper, algorithm and principal subsampling theorem including assumptions and limits",
+        "method": "Source page and lawful full-text PDF page inspection",
+        "title": "On the Subsample Size of Quantile-Based Randomized Kaczmarz",
+        "trigger": "Eligible recent primary source with matching subject and published primary MSC 65F10"
+      },
+      {
+        "assessment": "COVERING the algorithm idea and quantile-averaging definition, but not the fresh independent Rademacher selection/testbed theorem",
+        "evidence": [
+          "Algorithm 1 takes q-quantile, accepts rows and averages cached single-row steps.",
+          "Theorems target fixed corruption and convergence."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2206.12554v3",
+        "material_read": "Full-text sections 1--2, Algorithm 1, main results and noise discussion",
+        "method": "Lawful arXiv full-text HTML inspection",
+        "title": "On Block Accelerations of Quantile Randomized Kaczmarz for Corrupted Systems of Linear Equations",
+        "trigger": "Originating full cached eligible-rows averaged algorithm; possible broad coverage"
+      },
+      {
+        "assessment": "General noisy/corrupted QRK estimates; no same exact accepted-set-with-replacement and all-row sign-chain statement identified",
+        "evidence": [
+          "Time-varying noisy quantile randomized Kaczmarz; does not provide a closed binomial risk and sign-persistence classification for three updates."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2403.19874",
+        "material_read": "Article full text, setup and principal noise model/results",
+        "method": "Lawful open full text inspection",
+        "title": "On Quantile Randomized Kaczmarz for Linear Systems with Time-Varying Noise and Corruption",
+        "trigger": "Potential prior analysis with fresh time-varying measurement errors"
+      },
+      {
+        "assessment": "Qualitative cached selection bias and requery improvement already established; original contribution restricted to exact discrete scalar binomial law and exponential sign persistence. Later publication date not used for primary eligibility.",
+        "evidence": [
+          "Equations (5)--(6) and section 2.2 distinguish sampled-with-replacement and all-eligible updates.",
+          "Theorem 1 and Corollaries 3--4 give general requery error bounds; numerical examples use uniform additive noise rather than the exact binary sign process."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.21926v1",
+        "material_read": "Full HTML sections 1--5, explicit Algorithm 1 and update (6), main theorem and selected experimental section",
+        "method": "Lawful full-text HTML inspection including algorithm, relevant proofs and experimental description",
+        "title": "Beyond the error horizon: averaged quantile Kaczmarz methods for corrupted and noisy linear systems",
+        "trigger": "Closest same-algorithm comparison for noisy reused/fresh two-stage updates, though posted after the current eligibility anchor"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2de8a497-1907-49dc-9676-c2d07083a797",
+  "value": {
+    "rationale": "Provides an exact quantitative boundary for when more averaging fails to overcome reuse of screening observations, even with perfectly conditioned, uncorrupted underlying equations. The strict positive q<1 floor and exponentially long sign persistence despite symmetric fresh noise are independently interpretable stress tests and sharpen the prior qualitative selection-bias warning. No general matrix significance or computational superiority is asserted.",
+    "status": "PASS"
+  }
+}
