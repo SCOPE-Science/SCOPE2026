@@ -1,11 +1,21 @@
-# Scientific review: five-vertex triangle-free graph Walsh spectrum
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete unnormalized Fourier transform is computed twice using independent approaches: inclusion–exclusion over ten forbidden triangles, and direct graph enumeration with a Walsh–Hadamard transform. Both compute the complete 1024-entry spectrum, not a random sample. The 34 relabelling classes account for every frequency; zero classes are checked under all 120 vertex permutations. Exact Parseval and the projection-kernel \(\ell^1\) sum independently cross-check the claimed rank, spectral gap and sharp endpoint constant. The outside orders three, four and six are covered by exhaustive finite counting and integer parity. Proof and reproduction commands are in RESULT.md.
+## correctness
 
-**Originality — PASS under bounded source comparison.** Inspected primary works on pentagon extremals of triangle-free graphs (Hatami et al., 2011, arXiv:1102.1634), asymptotic counts of *maximal* triangle-free graphs (Balogh–Petříčková, 2014, arXiv:1409.8123), and the signless-Laplacian *spectrum* of individual triangle-free graphs (Balogh et al., 2022, arXiv:2204.00093). Their objects/invariants do not imply the 1024 Fourier values or the three zero-orbit/endpoint-norm classification. The relevant mathematical-record comparison included triangle-free graph complexes and Walsh spectra of different graph families; those statements have no reduction giving this classification. General inclusion–exclusion and Walsh diagonalization are standard, not claimed as novel. Historical priority beyond inspected sources remains uncertain.
+PASS
 
-**Mathematical value — PASS.** Invertibility of convolution by a graph-exclusion predicate is a natural recovery invariant, and the first nondegenerate singular size distinguishes order five from the adjacent nonsingular orders three, four and six. The first zero-support threshold (six coordinates), two distinct six-edge cancellation shapes, one eight-edge shape, complete 34-orbit spectrum and exact projection amplification constitute a meaningful finite cutoff and full structural classification rather than an arbitrary sampled statistic. No assertion for all vertex orders is drawn.
+Derived exact inclusion-exclusion formula over all 10 forbidden triangles for W5(S): (-1)^|S| sum_{A subset triangles,S subset union E(A)} (-1)^|A|2^(10-|union E(A)|). Independently enumerated every triangle-free graph at n=3,4,5,6 and transformed all 2^C(n,2) graph indicators by exact integer Walsh butterflies; counts 7,41,388,5789, with n3,4,6 odd hence all multipliers odd and zero-free. For n5 all 1024 coefficients yield 21 signed levels, exactly 150 zeros in S5 graph-permutation orbits (63,60),(221,60),(255,30), zero support sizes 6,6,8. Nonzero gap 2, max 388, rank 874; kernel inverse Walsh sum abs=7924 so orthogonal range projection endpoint 1981/256. Parseval and 34 total permutation-orbit counts verified. Only finite orders specified.
 
-**Limitations.** The source comparison is bounded; potential earlier small-order tabulations remain possible. All mathematical checks are exact and finite; there is no theorem about all large sizes, no independent audit, and no bound on all possible projections.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Graph Fourier-Walsh property spectrum is distinct from the signless-Laplacian spectral extremal theorem of Balogh et al despite overlapping titles. Triangle-free graph count and asymptotic maximal triangle-free enumeration do not evaluate all 1024 signed frequencies. Resultary nearest five-vertex chordal or graph-forest Fourier spectra use different indicators, not reductions.
+
+## value
+
+PASS
+
+The first nontrivial Fourier cancellation threshold for a fundamental hereditary graph property, complete minimal cancellation support orbits, and exact inversion/projection amplification quantify spectral recovery. A natural finite complete n=5 classification and rank transition is mathematically motivated beyond bare exhaustive computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

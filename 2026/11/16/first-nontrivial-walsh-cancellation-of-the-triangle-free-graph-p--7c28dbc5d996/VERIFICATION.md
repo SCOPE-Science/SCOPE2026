@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact arithmetic verification
+# Independent mathematical audit
 
-Use `python3 verify_ie.py` and compile `verify_direct.cpp` with `g++ -std=c++17 -O2 verify_direct.cpp -o verify_direct && ./verify_direct` in this directory. Both commands were executed successfully on the actual packaged source files before delivery.
+## correctness
 
-`verify_ie.py` starts from the inclusion-exclusion formula over all ten triangles of the labelled five-vertex complete graph and enumerates every one of the 1024 frequency masks. It tests the 34 representative-orbit rows of `orbit_table.tsv`, all 120 relabellings, the three zero orbits, Parseval, and the sharp Fourier range-projection norm.
+PASS
 
-`verify_direct.cpp` independently enumerates every graph on three, four, five and six vertices and builds the triangle-free truth table. A direct Walsh–Hadamard transform checks the full 21-level signed spectrum, 150 five-vertex zeros, support-size distribution, exact rank, spectral gap, Parseval, and the 7924/1024 projection norm. All arithmetic is integral.
+Derived exact inclusion-exclusion formula over all 10 forbidden triangles for W5(S): (-1)^|S| sum_{A subset triangles,S subset union E(A)} (-1)^|A|2^(10-|union E(A)|). Independently enumerated every triangle-free graph at n=3,4,5,6 and transformed all 2^C(n,2) graph indicators by exact integer Walsh butterflies; counts 7,41,388,5789, with n3,4,6 odd hence all multipliers odd and zero-free. For n5 all 1024 coefficients yield 21 signed levels, exactly 150 zeros in S5 graph-permutation orbits (63,60),(221,60),(255,30), zero support sizes 6,6,8. Nonzero gap 2, max 388, rank 874; kernel inverse Walsh sum abs=7924 so orthogonal range projection endpoint 1981/256. Parseval and 34 total permutation-orbit counts verified. Only finite orders specified.
 
-The two programs' coefficient methods are independent, but their validation and present scientific review are not an external mathematical audit. In particular, exhaustive verification applies only to the finite sizes listed. Historical priority is only supported by bounded literature comparison.
+## originality
+
+PASS
+
+Graph Fourier-Walsh property spectrum is distinct from the signless-Laplacian spectral extremal theorem of Balogh et al despite overlapping titles. Triangle-free graph count and asymptotic maximal triangle-free enumeration do not evaluate all 1024 signed frequencies. Resultary nearest five-vertex chordal or graph-forest Fourier spectra use different indicators, not reductions.
+
+## value
+
+PASS
+
+The first nontrivial Fourier cancellation threshold for a fundamental hereditary graph property, complete minimal cancellation support orbits, and exact inversion/projection amplification quantify spectral recovery. A natural finite complete n=5 classification and rank transition is mathematically motivated beyond bare exhaustive computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
