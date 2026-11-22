@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The exact reduction from the physical directed-coupling equations is algebraically verified. The proper energy \(H=\tfrac12D^2+\varepsilon a\log\cosh q\) has \(\dot H=-\varepsilon D^2\), proving global boundedness and convergence. Integral balance yields the stated physical asymmetry budget without unproved averaging assumptions. The logarithmic first-entrance law follows by explicit convolution bounds on the damping term, a uniform negative-velocity bound outside the fixed core, and integration of \(1-\tanh q\). The sharp local discriminant is exact. Finite numerical checks only confirm formulas on sampled trajectories; they are not used to establish the global theorem.
+PASS
 
-## Originality (PASS, within checked sources)
+At beta=alpha=pi/2 and omega=0 the original Jüttner–Martens directed system becomes phi_dot=D cos(phi), D_dot=-eps(D+a sin(phi)), S_dot=eps(1-S). Each cos-sign semicircle is invariant; q=artanh(sin phi) gives qdot=D and qddot+eps qdot+eps a tanh(q)=0. Coercive H=D²/2+eps a log cosh(q), Hdot=-eps D² and LaSalle imply global locking and exact integrated asymmetry dissipation D0²/(2eps)-a log|cos phi0|. Variation of constants until q hits a fixed R gives T_R=|q0|/a+O(1), uniformly when D0 is bounded. Linear discriminant eps(eps-4a) gives oscillatory-to-real eigenvalue change. Independent solve_ivp check at a=.8,eps=1.3,q0=8,D0=.4 reached q=1 around t=10.009 and conserved energy budget to numerical tolerance; this finite check does not prove all basins.
 
-The originating Jüttner–Martens paper (arXiv:2209.10514) was read in relevant equation, classification and appendix sections. Its Section III.3.2 treats the same asymmetric learning shift with different phase-interaction lags; its local analysis does not state or entail the exact all-initial-coupling basin split, \(L^2\) asymmetry budget or sharp logarithmic first-entrance estimate. The inertial Hebbian and continuum adaptive Kuramoto papers have materially different equations and scope. Closest indexed discrete clock studies do not cover continuous directed coupling adaptation. An equivalent theorem outside the inspected literature remains a priority risk.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The quadrature interaction/learning slice is a natural limiting phase-lag regime, not an arbitrary numerical instance. It transforms an otherwise non-gradient directed-adaptation problem into an exactly damped-gradient system. The resulting global separation geometry, exact transient coupling-asymmetry cost, and sharp parameter-universal logarithmic delay give substantive dynamical information not available from a local stability table. The focus-to-node switch at \(\varepsilon=4a\) characterizes what type of convergence occurs inside each basin.
+Jüttner–Martens publisher full text §III B.2 gives the exact adaptive beta=pi/2 reduced equations and other alpha slices, with local bifurcation analysis; alpha=pi/2 zero detuning global phase basin, exact dissipation budget and sharp logarithmic entrance are not stated there. Other Resultary logarithmic separatrices concern distinct systems and do not imply this phase-selective global partition. Best-of-knowledge PASS with residual alias risk.
 
-## Limitations and closest work
+## value
 
-The result requires zero detuning and both lags at quadrature. Its delay uniformity requires bounded initial coupling asymmetry, and no claim is made for initial data exactly on an invariant boundary. Priority is qualified by possible unindexed or differently formulated equivalents. Key comparisons: Jüttner–Martens, arXiv:2209.10514; Ruangkriengsin–Porter, arXiv:2203.12090; Cestnik–Martens, arXiv:2407.03433.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The global exact basins independent of directed initial couplings and parameter-independent leading delay coefficient yield a useful separatrix classification of a natural adaptive oscillator model rather than a general damped-pendulum restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
