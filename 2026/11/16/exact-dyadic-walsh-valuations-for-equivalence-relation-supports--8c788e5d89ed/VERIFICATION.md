@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify_equivalence_walsh.py` (standard-library Python 3.9+). This script:
+## correctness
 
-1. Reconstructs the modulo-eight Stirling residue-state transition and verifies \(M^{24}e_0-e_0=4(e_0+e_4)\), the closed six-step difference orbit, the 24 Bell residues and the class table.
-2. Independently lists all set partitions for each \(2\le n\le7\); forms binary equivalence-relation edge vectors; performs integer Walsh butterflies over all \(2^{\binom n2}\) frequency graphs; checks each modular prediction and the rank conditions. The aggregate is 2,131,018 exact Fourier coefficients.
-3. Computes 1,026 additional signed sums at \(n=8\) via a separate first-block signed-partition recurrence without enumerating those partitions or using Walsh butterflies.
+PASS
 
-Observed verification marker: `EQUIVALENCE_PARTITION_FOURIER_MOD8_PASS coefficients= 2131018 independent_n8_samples= 1026`.
+For set partitions of [n], n>=2, and any simple frequency graph H with m edges, expand each Walsh character as product_{e in H}(1-2 I_e) to obtain W(H)=sum_{F subset H}(-2)^|F| B_{c(F)}. Two distinct simple edges always reduce the n component count by two, giving W=B_n-2m B_{n-1}+4 binom(m,2)B_{n-2} modulo 8. Stirling residue classes modulo 8 obey the eight-state recurrence M; the check M^24 e0-e0=4(e0+e4) and its six-step mod-2 even-weight orbit proves Bell B_{n+24}=B_n mod8 for ALL n. The 24 initial Bell values determine each parity-dependent valuation (classes 0,1,3,4,6,7,9,10 odd; 5,8,11 valuations 1 or 2; class 2 even m valuation 1, odd m unclassified). Rank/invertibility follow from nonzero diagonal Walsh entries, and the exceptional n=2 rank-one case is explicit. Independent exhaustive integer Walsh transforms for n=2..6 and modular-state period checks matched the congruence and zero counts. n≡2 mod12 odd-m nonvanishing is NOT proved.
 
-The finite checks do not constitute proof of the infinite classification. The proof is the exact component-collapse expansion and eight-state modular-matrix argument recorded in `RESULT.md`. In particular no numerical experiments are used to claim anything about the unresolved odd-frequency multipliers when \(n\equiv2\pmod{12}\).
+## originality
+
+PASS
+
+PASS bounded comparison: Bell residues modulo eight and graphical Bell counts are prior. The new asserted shape-independent signed all-edge-character congruence, exact valuations, and invertibility class are not supplied by inspected unsigned graphical Bell/deletion-contraction results; source access for historical Bell congruences is a priority risk, not science failure.
+
+## value
+
+PASS
+
+The set-partition equivalence supports give a canonical Boolean edge-space signal with many combinatorial realizations. A uniform shape-independent mod-eight law and all-dimensional invertibility across eleven residue classes (with a sharply stated exceptional class) are motivated exact spectral information, not merely the already-known Bell period. They can constrain convolution recovery and potential exceptional dimensions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
