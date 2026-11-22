@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The formula is reconstructed algebraically from an exact unitary m-DFT polyphase decomposition into m identical 3x3 Fourier Vandermonde blocks. Explicit gauge diagonalization gives one odd and two symmetric eigenlevels. a>0, a-b>0 and a+b=2a cos(theta) rigorously establish the unique epsilon=1/4 band crossing and strict lower-band ordering. The expansions lambda_min=theta^4/27+O(theta^6), lambda_odd=4theta^2/3+O(theta^4), lambda_max=3+O(theta^2) yield sigma_min coefficient 4pi^2/(27sqrt3) and condition number coefficient 81/(4pi^2). Rank at epsilon=1 is exactly m. Complete-matrix standard-library checker passed 88 cases comparing moments one through three, with separate threshold and collision checks; those diagnostics are not a universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen--Lin--Zhang 2026 Theorem 1.2 requires measurement count at least four times sample count; here the Fourier matrix is square.",
+        "Its perturbed-grid Theorems 1.4--1.5 provide bounds for a general family, not the claimed complete spectrum or prefactor.",
+        "Strohmer--Tanner develops broader reconstruction procedures but does not evaluate the specific three-point collapsed family."
+      ],
+      "reasoning": "General numerical stability bounds and algorithms apply to broader configurations but do not imply the exact eigenvalue crossing and sharp constant without a separate explicit computation; these are compared by conclusion and hypotheses, not title.",
+      "searches": [
+        "arxiv:2608.21960 full pdf Theorem 1.2 Theorem 1.4 Theorem 1.5",
+        "doi:10.1137/040609586 periodic nonuniform sampling",
+        "three-interleaved jittered trigonometric sampling exact sharp two-norm condition number independent size, triple collision second order"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.21960 full manuscript (author preprint v4, originally first public 2026-08-22)",
+      "doi:10.1137/040609586 full author-accessible manuscript",
+      "doi:10.1016/j.cam.2019.112502 available preview and Section 3.1",
+      "published indexed comparison: alternately jittered periodic cubic-spline collocation (2026-11-16)",
+      "published indexed comparison: symmetric pair-collision Fourier quadrature (2026-11-16)",
+      "published indexed comparison: near-consecutive Fourier triples on finite cycles (2026-10-11)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Two-periodic jitter exact bounds concern two interleaved nodes per cell and a pairwise collision, unlike three-cell quadratically ill-conditioned sampling.",
+        "The 2020 multichannel preview treats two recurrent banks; three-bank exact upper-mode switching is not in accessible text.",
+        "Known finite Fourier diagonalization and Vandermonde structure supply the proof method but not the exact already-stated three-branch classification."
+      ],
+      "reasoning": "A two-channel result does not imply a three-channel exact spectrum: number of modes and coalescence multiplicity differ. Existing general estimates yield at most qualitative/bounded stability, not equality or spectral transition. Residual risk: complete three-channel filterbank calculations could imply the precise formula without corresponding searchable wording.",
+      "searches": [
+        "three-interleaved jittered trigonometric sampling exact sharp two-norm condition number independent size, triple collision second order",
+        "doi:10.1016/j.cam.2019.112502 Section 3.1 recurrent sampling",
+        "arxiv:2608.21960 Appendix and Theorem 1.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Strohmer--Tanner 2006 gives generic shifted-bank reconstruction and matrix-condition discussion, but not a matching three-band eigenvalue identity.",
+        "Classical polyphase block Fourier transform gives a structural reduction; direct evaluation of the symmetric 3x3 Gram block and unique quarter-step crossing is the additional claim."
+      ],
+      "reasoning": "Equating the original N-dimensional problem to a 3-by-3 fiber is standard, so structural decomposition alone is not new. The exact closed spectral formula, exceptional degeneracy, and collision asymptotics are not the same as generic polyphase invertibility. An earlier special three-channel formula remains a possible equivalence risk.",
+      "searches": [
+        "Three-periodic symmetric nonuniform Fourier sampling grid x_(3j+r)=(3j+r+epsilon,0,-epsilon)/(3m), complete three-band eigenvalues, 1/4 upper eigenvalue crossover, smallest singular value quadratic at triple collision, condition number 81/(4 pi^2)",
+        "\"three-periodic\" \"Fourier\" \"jitter\" \"singular values\" sampling",
+        "\"periodic nonuniform sampling\" \"three\" \"eigenvalues\" Fourier matrix",
+        "doi:10.1137/040609586"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed closest comparison on alternately jittered periodic cubic splines concerns a spline collocation Gram spectrum of two bands, not trigonometric interpolation with three periodic spatial nodes.",
+        "Indexed pair-collision Fourier sampling result gives a linear singular-value collapse for a single adjacent pair, not the present quadratic triple collision."
+      ],
+      "reasoning": "The checked records do not tabulate these three analytic eigenvalues or the exact quarter-threshold. These searched records cannot prove global absence from unpublished or unindexed tables.",
+      "searches": [
+        "Three-periodic symmetric nonuniform Fourier sampling grid x_(3j+r)=(3j+r+epsilon,0,-epsilon)/(3m), complete three-band eigenvalues, 1/4 upper eigenvalue crossover, smallest singular value quadratic at triple collision, condition number 81/(4 pi^2)",
+        "period-three Fourier sampling interpolation three coalescing nodes exact Gram spectrum lambda=(1+b/2 plus minus sqrt(b²/4+2a²)), Kadec quarter threshold",
+        "\"alternating\" \"three\" \"perturbed\" Fourier nodes singular values"
+      ]
+    },
+    "rationale": "Distinct new evaluated statement: all sizes N=3m have the same three exact squared singular values under symmetric coupled period-three jitter, the maximal eigenmode changes uniquely at epsilon=1/4, and the triple-collision singular-value coefficient and condition-number coefficient are sharp. General periodic sampling methods, nonuniform Fourier bounds, accessible indexed claims, and own historical two-periodic jitter results do not assert an equivalently evaluated all-size three-band theorem. Exact uniqueness of the statement in all world literature is not certified.",
+    "residual_risks": [
+      "A classical three-bank polyphase filterbank analysis might evaluate the identical 3x3 matrix without having a searchable title or abstract.",
+      "Only the 2020 multichannel article preview, not its entire full text, was available.",
+      "The current analysis does not certify worldwide bibliographic completeness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General singular-value estimates do not provide the exact three identical spectral bands, unique quarter-step upper-eigenvalue crossing or sharp triple-collision prefactor. Cluster theorem M>=4s does not apply to square matrices of this claim.",
+        "evidence": [
+          "Theorem 1.2 applies to M>=4s separated clusters and states a lower bound rather than complete eigenvalues.",
+          "Theorems 1.4 and 1.5 treat general perturbations with 1/4<=L<1/2 and near-optimal bounds; the symmetric three-periodic pattern and exact 3x3 spectrum are not stated.",
+          "Concluding remarks characterize work as estimates and interpolation-matrix reductions."
+        ],
+        "identifier_or_url": "https://pdfs.assets.alphaxiv.org/2608.21960v4.pdf",
+        "material_read": "Retrieved the complete 43-page manuscript; directly inspected the introduction, formulations and Theorems 1.2, 1.4, 1.5, the relevant proof overview, final remarks and reference list; checked the claims against the matrix dimensions and regimes.",
+        "method": "Accessible author paper PDF with text and page review.",
+        "title": "Smallest Singular Value Estimates for Nonuniform Fourier Matrices via Periodic Nonuniform Sampling",
+        "trigger": "2026 motivating work on nonuniform Fourier singular values, periodic sampling, clustered nodes and equispaced perturbations."
+      },
+      {
+        "assessment": "Develops general reconstruction and robustness for periodic interleaving, but does not state a sharp complete symmetric three-grid finite Fourier spectrum, quarter-step crossing, or quadratic collapse coefficient. The polyphase/shifted-bank technique is recognized as prior methodology.",
+        "evidence": [
+          "Section 4 sets up generic interleaved sampling and inverse matrices; condition-number estimation is discussed without this exact parameterized 3x3 Gram spectrum.",
+          "Numerical three-channel examples are for arbitrary shifts, not the symmetric coupled perturbation path or all-size spectral theorem."
+        ],
+        "identifier_or_url": "https://people.maths.ox.ac.uk/tanner/papers/nonuniform_strohmer_tanner_SIAM.pdf",
+        "material_read": "Retrieved the accessible full 22-page article; directly inspected its sampling setup, multishift inverse matrix in Section 4, condition-number discussion, three-channel examples and conclusions.",
+        "method": "Open-access author-hosted paper, parsed full text and page image.",
+        "title": "Fast Reconstruction Methods for Bandlimited Functions from Periodic Nonuniform Sampling",
+        "trigger": "Classical general periodic nonuniform sampling and interleaved-grid reconstruction, a possible dominating construction."
+      },
+      {
+        "assessment": "Provides general multichannel interpolation and explicit two-channel recurrent formulas; accessible material does not resolve the exact three-band symmetric triple-collision case. Since complete article unavailable, equivalent general formulas remain possible.",
+        "evidence": [
+          "Section 3.1 displays a two-channel recurrent sampling model and associated interpolants.",
+          "No exact coupled three-channel spectral crossover is present in the accessible material."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.cam.2019.112502",
+        "material_read": "Accessible article text including abstract, Highlights, MSC and representative Section 3.1 two-interleaved-bank reconstruction formulas; complete full paper not available.",
+        "method": "Public article preview/text; no unsupported claim of exhaustive full-document comparison.",
+        "title": "Multichannel interpolation of nonuniform samples with application to image recovery",
+        "trigger": "Recurrent or multichannel nonuniform trigonometric interpolation may imply structured fiber reduction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6c690548-86a3-4163-a3a5-585829aa0b87",
+  "value": {
+    "rationale": "Fourier interpolation on recurrent nonuniform grids is a motivated sampling-stability setting. The result is a complete all-N singular spectrum for a natural symmetric three-channel family, with one sharp quarter-grid upper-mode degeneracy and an explicit triple-collision second-order singularity (distinct from known pair-collision first-order behavior). The exact constant controls coefficient and noise amplification and is not merely a generic rank or sign check. No arbitrary parameter slice or unmotivated finite census is required.",
+    "status": "PASS"
+  }
+}
