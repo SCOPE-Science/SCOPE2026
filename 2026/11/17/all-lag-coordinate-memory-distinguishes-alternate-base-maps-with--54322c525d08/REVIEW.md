@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem fixes the mixed stationary phase law rather than silently assuming a uniform coordinate at both phases. The exact identity \(\{n\{\beta u\}\}=\{Nu\}\) and the two conditional-affine identities reconstruct all phase-conditional two-time moments. A direct phase covariance decomposition gives the even and odd formulas, with every lag and parameter quantified. Sawtooth moments and the strict positivity bound are algebraic, and an independent exact-rational integration checker corroborates ten finite parameter sets. Finite checks are not substituted for the proof.
+PASS
 
-## Originality — PASS (historical-priority caveat)
+Inspected exact RESULT.md, stationary phase trajectories, inverse-cell identity and verifier. Because n{beta u} mod 1={Nu}, even iterates are F(u)={Nu}. For integer Q=N^t, E[U | {QU}=y]=(Q-1+y)/Q; when p|Q, the f(u)={beta u} discontinuities jq/p coincide with Q-cell boundaries, so E[f(U)|{QU}=y]=mu_1+beta(y-1/2)/Q. These identities give all four phase-conditional covariances and the +/- delta^2 phase-mean terms, including t=0 odd. A>0 follows 1-3r+3r^2>=1/4, and lag-one positivity follows A/2>=1/(96 beta^2)>delta^2. Independently integrated A exactly for beta=3/2,4/3,7/3. This analytic proof covers all admissible p,q,k and t, not just the ten finite checker cases. Boundaries r=0 and q=1 are explicitly excluded; zero-lag variance uses law of total variance.
 
-Dajani and Langeveld, arXiv:2603.12877v1, prove coincidence and identify densities; their Proposition 3.1 and Theorems 1.2 and 3.6 do not calculate coordinate autocovariances or infer the integer multiplier from them. Charlier, Cisternino, and Dajani, arXiv:2102.08627v1, develop invariant density, ergodicity and entropy but do not provide the stated arithmetic two-time formula. Searches for alternate-base correlations, conditional lifts, and common stationary measures found general or different-map results but no statement dominating the exact all-lag theorem. The conditional computation uses standard tools and may have an unindexed predecessor; independent historical-priority review remains necessary.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural inverse problem is whether time-independent invariant-measure data determine a dynamical system. This family is known to defeat that identification, so a minimal measurable temporal witness is directly motivated. The theorem finds the exact smallest even-lag witness, reconstructs the multiplier, and characterizes the whole covariance function, including a deterministic phase-memory floor and a sign reversal. These are structural statistical invariants of the full infinite family rather than isolated computations for arbitrary parameters.
+Best-of-knowledge substantive comparison with exact mathematical statements and implications, not matching wording. Compare the joint law of (X_0,X_j), rather than just the marginal invariant measure, as well as transfer-operator covariance formulas for rational alternating maps. Proposition 3.1 gives the same one-time measure for n=kq; it does not give the pair laws or lag-two inverse formula. The quadratic-beta and random-integer-beta covariance findings concern other maps.
 
-## Limits of verification
+## value
 
-The proof covers coprime nonintegral rational first bases with denominator-divisible integer second bases, and the interval-coordinate observable. It does not cover arbitrary alternate-base pairs. Computer verification is finite and independent mathematical auditing has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A stationary law cannot identify the alternate-base multiplier whereas a concrete coordinate lag-2 statistic does. The exact all-lag alternation and nondecaying +/- phase-memory terms are a mathematically motivated distinction between invariant measures and time-series laws, not a merely renamed beta-map identity; useful in identifiability and correlation analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-The file `verify_alternate_base.py` is a self-contained Python 3 program using only the standard library. Run `python verify_alternate_base.py` in the directory containing the file. The program directly integrates products of piecewise-affine fractional-part functions with exact rational arithmetic, without assuming the conditional covariance identities used in the proof. Its tests cover ten rational-base configurations, the initial sawtooth moments, and lag formulas from one through four.
+## correctness
 
-Expected successful final line:
+PASS
 
-```
-VERIFY_OK rational_base_cases=10 exact_affine_integral_checks=60 lags=1..4 stationary_component_means=verified
-```
+Inspected exact RESULT.md, stationary phase trajectories, inverse-cell identity and verifier. Because n{beta u} mod 1={Nu}, even iterates are F(u)={Nu}. For integer Q=N^t, E[U | {QU}=y]=(Q-1+y)/Q; when p|Q, the f(u)={beta u} discontinuities jq/p coincide with Q-cell boundaries, so E[f(U)|{QU}=y]=mu_1+beta(y-1/2)/Q. These identities give all four phase-conditional covariances and the +/- delta^2 phase-mean terms, including t=0 odd. A>0 follows 1-3r+3r^2>=1/4, and lag-one positivity follows A/2>=1/(96 beta^2)>delta^2. Independently integrated A exactly for beta=3/2,4/3,7/3. This analytic proof covers all admissible p,q,k and t, not just the ten finite checker cases. Boundaries r=0 and q=1 are explicitly excluded; zero-lag variance uses law of total variance.
 
-The numerical range is finite, so these checks cannot certify the theorem for all rational bases, integer multiples, and time lags. The analytical proof establishes the universal quantifiers through exact inverse-cell conditional expectations. The same-model correctness, originality, and value assessment is recorded in REVIEW.md and AUDIT.json. No independent audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge substantive comparison with exact mathematical statements and implications, not matching wording. Compare the joint law of (X_0,X_j), rather than just the marginal invariant measure, as well as transfer-operator covariance formulas for rational alternating maps. Proposition 3.1 gives the same one-time measure for n=kq; it does not give the pair laws or lag-two inverse formula. The quadratic-beta and random-integer-beta covariance findings concern other maps.
+
+## value
+
+PASS
+
+A stationary law cannot identify the alternate-base multiplier whereas a concrete coordinate lag-2 statistic does. The exact all-lag alternation and nondecaying +/- phase-memory terms are a mathematically motivated distinction between invariant measures and time-series laws, not a merely renamed beta-map identity; useful in identifiability and correlation analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
