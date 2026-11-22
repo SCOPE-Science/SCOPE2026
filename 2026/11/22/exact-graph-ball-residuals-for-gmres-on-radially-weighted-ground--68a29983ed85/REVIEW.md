@@ -1,0 +1,15 @@
+# Scientific review: exact graph-ball GMRES residuals
+
+## Correctness — PASS
+The weighted grounded Laplacian is SPD because positive leaf killing removes its constant nullspace. Each rooted shell enters the root Krylov sequence for the first time with a nonzero product of positive interlevel weights, so the first \(k\) Krylov vectors span the first \(k\) shell indicators. The graph-ball indicator is harmonic on every earlier level and hence orthogonal to the image of that Krylov subspace. Dimension counting fixes the unique residual projection and its normalizing scalar. The radial subspace is invariant and invertible, proving exact termination one iteration after the final shell enters. The condition-number lower bound follows from two independent Rayleigh quotients. The included exact-rational script passed 10,602 independent vector and norm assertions on 879 examples; finite tests are not used in place of the all-parameter argument.
+
+## Originality — PASS with residual priority risk
+The 1986 GMRES paper establishes residual minimization but does not solve this graph family. The 2013 paper on right-hand-side-sensitive GMRES bounds studies weighted spectral bounds, not exact rooted-ball profiles. The 2007 Li–Zhang tridiagonal Toeplitz report provides explicit endpoint-vector analyses, which are acknowledged and excluded as an independent contribution. The full published *Exact GMRES boundary-layer profiles for discrete-affine Poisson data* result was inspected: its right-hand side is a discrete-affine harmonic interpolant on an unweighted one-dimensional Dirichlet path, whereas this work treats a point source on arbitrary radially weighted branching trees and proves universal conductance independence. The full published rooted-tree Green-operator result treats centered inverse-norm asymptotics rather than finite-step Krylov residuals. Searches for MINRES, radial trees, balls and exact root-source residuals did not reveal an implication covering the complete claim. A general Krylov or Jacobi-operator theorem might still encode the statement implicitly; no comprehensive archival absence assertion is made.
+
+## Value — PASS
+The exact residual vector, its reciprocal-ball-volume norm, the conductance-invariance phenomenon and exact termination step form a natural structural benchmark for symmetric tree Poisson problems with localized forcing. It connects graph volume growth directly with solver convergence, distinguishing algebraic and exponential early residual decay; the same residual history survives an arbitrarily divergent spectral condition number. This is stronger than a small parameter improvement or an isolated numerical instance. It does not claim improved practical floating-point solver performance.
+
+## Remaining limitations
+The statement assumes radial branching and edge conductances, uniform positive leaf killing, a root point source, Euclidean exact unrestarted GMRES and no preconditioner. Independent audit and comprehensive historical priority review are not performed.
+
+Self-review: passed. Independent audit: not yet performed.

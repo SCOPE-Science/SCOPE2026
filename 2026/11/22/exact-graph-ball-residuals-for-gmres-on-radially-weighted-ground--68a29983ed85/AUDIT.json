@@ -1,0 +1,166 @@
+{
+  "correctness": {
+    "rationale": "Positive terminal killing makes the weighted tree Laplacian SPD. Radial symmetry and nonzero adjacent-shell coupling make root Krylov k-space exactly the first k shells; image under A has k dimensions. Indicator of the first k+1 shells is harmonic on the earlier k shells, hence orthogonal to that image and uniquely spans its complement in the k+1 dimensional support. Projection of root delta onto this vector equals the uniform reciprocal-ball indicator. Radial invariance proves termination at H+1. Simple Rayleigh quotients prove diverging condition number as killing tends to zero. Reproduction: 10,602 exact rational assertions across 879 weighted trees using actual full matrices; finite checks are not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Titley-Peloquin, Pestana and Wathen DOI 10.1093/imanum/drt025, inspected accepted manuscript, derives spectral-weighted least-squares and rank-one bounds for general matrices, but does not state this family-specific residual vector.",
+        "Li–Zhang 2007 technical report, sections 2 and 4, provides Toeplitz endpoint-specific bounds/formulas; its fixed tridiagonal coefficients and data do not entail the arbitrary branching-weighted tree family without additional analysis."
+      ],
+      "reasoning": "General spectral/Galerkin methods are broader algorithmically, but the exact all-weight and all-branch ball-volume identity is not an asserted corollary in the inspected material; these precedents cannot be treated as proving the specific values without a new graph-radial argument.",
+      "searches": [
+        "Exact GMRES residual uniform over graph distance ball from point source on rooted finite spherically symmetric tree Dirichlet graph Laplacian, residual squared norm reciprocal graph ball volume, all branching profiles",
+        "GMRES on Dirichlet regular rooted tree graph Laplacian central point source residual exact ball volume local Krylov finite propagation sphere uniform regular tree",
+        "GMRES convergence bounds that depend on the right-hand-side vector"
+      ]
+    },
+    "checked_sources": [
+      {
+        "assessment": "General minimum residual method; no graph-tree specialization established in material inspected",
+        "identifier_or_url": "doi:10.1137/0907058",
+        "title": "GMRES: A Generalized Minimal Residual Algorithm for Solving Nonsymmetric Linear Systems"
+      },
+      {
+        "assessment": "General spectral weighted-polynomial bounds and rank-one reformulation; no exact root-ball-volume statement or rooted-tree example in inspected sections",
+        "identifier_or_url": "https://ora.ox.ac.uk/objects/uuid%3A682cdddf-e26c-4540-bb82-37ab23d09648/files/me53bb59389f8a1a073c0cbe7a68ac0ce",
+        "title": "GMRES convergence bounds that depend on the right-hand-side vector"
+      },
+      {
+        "assessment": "Canonical endpoint-vector Toeplitz results are prior and excluded as new; no positive radially varying weighted branching tree formula in inspected material",
+        "identifier_or_url": "https://cdn.prod.web.uta.edu/-/media/project/website/science/mathematics/documents/preprint/2007/rep2007_12.pdf",
+        "title": "The Rate of Convergence of GMRES on a Tridiagonal Toeplitz Linear System"
+      },
+      {
+        "assessment": "Fixed 1D Dirichlet Toeplitz matrix, harmonic-affine right-hand side: distinct from a root delta source and arbitrary radial tree conductances",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-gmres-boundary-layer-profiles-for-discrete-affine-poisson--1e34f70ca04d",
+        "title": "Exact GMRES boundary-layer profiles for discrete-affine Poisson data"
+      },
+      {
+        "assessment": "Unweighted combinatorial-Laplacian pseudoinverse endpoint norms, not grounded root-source GMRES residuals",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-sharp-endpoint-growth-and-depth-profile-of-green-operators-on-co--0277c139a872",
+        "title": "Sharp endpoint growth and depth profile of Green operators on complete branching trees"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full published result Exact GMRES boundary-layer profiles for discrete-affine Poisson data: right-hand sides are b_j=L+(R-L)j/(n+1) and the matrix is fixed Dirichlet tridiagonal.",
+        "Full published result Sharp endpoint growth and depth profile of Green operators on complete branching trees: goal is induced l1/linfty norms of the centered Moore–Penrose inverse of a singular tree Laplacian.",
+        "Saad–Schultz 1986 Krylov optimality framework; Titley-Peloquin et al. 2013 RHS-dependent spectral bounds."
+      ],
+      "reasoning": "An affine forcing path theorem does not include point-source arbitrary branching; a centered Green inverse norm does not determine the Krylov projection sequence; and general minimum-residual characterizations do not alone state the ball-volume identity. Direct implications require additional special-structure proofs (given in RESULT.md). The possible discovery of historical equivalent Jacobi formulas remains a priority risk.",
+      "searches": [
+        "Exact GMRES residual uniform over graph distance ball from point source on rooted finite spherically symmetric tree Dirichlet graph Laplacian, residual squared norm reciprocal graph ball volume, all branching profiles",
+        "GMRES on Dirichlet regular rooted tree graph Laplacian central point source residual exact ball volume local Krylov finite propagation sphere uniform regular tree",
+        "GMRES one dimensional Dirichlet Poisson endpoint delta impulse e1 residual norm 6/[(k+1)(k+2)(2k+3)] center impulse norm 1/(2k+1)",
+        "GMRES localized source right hand side endpoint versus center Dirichlet tridiagonal Laplacian cubic versus linear residual decay",
+        "MINRES root forcing weighted graph tree Laplacian residual ball volume"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "GMRES and MINRES are equivalent residual-minimization objectives on the SPD setting; Saad–Schultz DOI 10.1137/0907058 describes the Krylov minimum-residual characterization.",
+        "Li and Zhang (February 2007) Section 4 analyzes canonical endpoint vectors for tridiagonal Toeplitz matrices, not arbitrarily radially weighted branching trees.",
+        "No indexed equivalent root-ball residual law surfaced from the stated searches."
+      ],
+      "reasoning": "The claimed vector identity implies the identical MINRES residual on this SPD family. Generic minimum-residual orthogonality gives the optimization problem, not its specific exact solution; determining that solution requires both radial Krylov shell generation and the graph-ball harmonicity argument.",
+      "searches": [
+        "Exact GMRES residual uniform over graph distance ball from point source on rooted finite spherically symmetric tree Dirichlet graph Laplacian, residual squared norm reciprocal graph ball volume, all branching profiles",
+        "MINRES root forcing weighted graph tree Laplacian residual ball volume",
+        "Lanczos minimal residual tree radial Green function exact equal residual on ball"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published exact GMRES discrete-affine Poisson report presents explicit path formulas for harmonic boundary forcing rather than root delta forcing.",
+        "The published branching-tree Green operator result presents group inverse row-sum asymptotics, not GMRES residual tables.",
+        "No exact tree-ball residual table was located in the searched records."
+      ],
+      "reasoning": "The closest indexed finite-exact reports concern distinct right-hand sides or the inverse-Laplacian operator norm; none provides a table or symbolic formula that directly determines the asserted arbitrary-weight root ball residuals. Failure to locate a table is not proof of global priority.",
+      "searches": [
+        "Exact GMRES residual uniform over graph distance ball from point source on rooted finite spherically symmetric tree Dirichlet graph Laplacian, residual squared norm reciprocal graph ball volume, all branching profiles",
+        "GMRES on Dirichlet regular rooted tree graph Laplacian central point source residual exact ball volume local Krylov finite propagation sphere uniform regular tree",
+        "GMRES one dimensional Dirichlet Poisson endpoint delta impulse e1 residual norm 6/[(k+1)(k+2)(2k+3)] center impulse norm 1/(2k+1)",
+        "GMRES localized source right hand side endpoint versus center Dirichlet tridiagonal Laplacian cubic versus linear residual decay"
+      ]
+    },
+    "rationale": "Compared exact rooted-ball vector, arbitrary levelwise positive conductances, branching and complete residual history against general GMRES formulations, 2013 RHS bounds, 2007 Toeplitz endpoint formulas, a published Poisson-affine GMRES classification, and published tree inverse norm results. The inspected conclusions do not imply the all-branching all-conductance statement without the new radial/harmonic projection argument; undiscovered Jacobi/MINRES equivalences remain possible.",
+    "residual_risks": [
+      "Historical exact-residual variants under radial Jacobi, birth–death chain or MINRES terminology may exist but were not located.",
+      "Liesen–Strakoš 2004 tridiagonal GMRES work was identified by bibliographic abstract, not fully inspected; its scope is Toeplitz rather than arbitrary rooted trees.",
+      "Searching indexed records and the inspected papers does not establish worldwide priority, and independent literature review is outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General minimum residual method; no graph-tree specialization established in material inspected",
+        "evidence": [
+          "https://epubs.siam.org/doi/10.1137/0907058"
+        ],
+        "identifier_or_url": "doi:10.1137/0907058",
+        "material_read": "Publisher abstract and original algorithm characterization",
+        "method": "Primary publisher page",
+        "title": "GMRES: A Generalized Minimal Residual Algorithm for Solving Nonsymmetric Linear Systems",
+        "trigger": "Original algorithm and exact residual-orthogonality principle"
+      },
+      {
+        "assessment": "General spectral weighted-polynomial bounds and rank-one reformulation; no exact root-ball-volume statement or rooted-tree example in inspected sections",
+        "evidence": [
+          "https://doi.org/10.1093/imanum/drt025",
+          "https://www.maths.ox.ac.uk/node/23167",
+          "https://ora.ox.ac.uk/objects/uuid%3A682cdddf-e26c-4540-bb82-37ab23d09648/files/me53bb59389f8a1a073c0cbe7a68ac0ce"
+        ],
+        "identifier_or_url": "https://ora.ox.ac.uk/objects/uuid%3A682cdddf-e26c-4540-bb82-37ab23d09648/files/me53bb59389f8a1a073c0cbe7a68ac0ce",
+        "material_read": "Accepted-manuscript introduction and main theorems in Sections 2 and 3, PDE numerical examples in Section 4 and Section 5 conclusion; text search for graph, tree, Poisson",
+        "method": "Lawful Oxford repository PDF text extraction and section inspections; PDF screenshot request was denied by source (403)",
+        "title": "GMRES convergence bounds that depend on the right-hand-side vector",
+        "trigger": "Most relevant RHS-sensitive spectral GMRES framework, exact archive date 2013-07-25"
+      },
+      {
+        "assessment": "Canonical endpoint-vector Toeplitz results are prior and excluded as new; no positive radially varying weighted branching tree formula in inspected material",
+        "evidence": [
+          "https://cdn.prod.web.uta.edu/-/media/project/website/science/mathematics/documents/preprint/2007/rep2007_12.pdf",
+          "https://doi.org/10.1007/s00211-008-0206-2"
+        ],
+        "identifier_or_url": "https://cdn.prod.web.uta.edu/-/media/project/website/science/mathematics/documents/preprint/2007/rep2007_12.pdf",
+        "material_read": "Technical report abstract, Sections 2.1/2.2, especially Theorems 2.3/2.4 and Section 4 description of exact endpoint residuals",
+        "method": "Public full preprint PDF text and cover-page image inspection",
+        "title": "The Rate of Convergence of GMRES on a Tridiagonal Toeplitz Linear System",
+        "trigger": "Possible endpoint or line graph special cases and exact GMRES residuals"
+      },
+      {
+        "assessment": "Fixed 1D Dirichlet Toeplitz matrix, harmonic-affine right-hand side: distinct from a root delta source and arbitrary radial tree conductances",
+        "evidence": [
+          "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-gmres-boundary-layer-profiles-for-discrete-affine-poisson--1e34f70ca04d"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-gmres-boundary-layer-profiles-for-discrete-affine-poisson--1e34f70ca04d",
+        "material_read": "Entire publicly available RESULT.md including Finding, assumptions, proof, comparisons and limitations",
+        "method": "Public repository raw file read",
+        "title": "Exact GMRES boundary-layer profiles for discrete-affine Poisson data",
+        "trigger": "Highest-overlap indexed exact Poisson GMRES result"
+      },
+      {
+        "assessment": "Unweighted combinatorial-Laplacian pseudoinverse endpoint norms, not grounded root-source GMRES residuals",
+        "evidence": [
+          "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-sharp-endpoint-growth-and-depth-profile-of-green-operators-on-co--0277c139a872"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-sharp-endpoint-growth-and-depth-profile-of-green-operators-on-co--0277c139a872",
+        "material_read": "Entire publicly available RESULT.md, including exact Green kernel, norm asymptotics, proof and limitations",
+        "method": "Public repository raw file read",
+        "title": "Sharp endpoint growth and depth profile of Green operators on complete branching trees",
+        "trigger": "Closest published rooted-tree Poisson-related result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "68a29983-ed85-4f01-8d19-73451dad38c5",
+  "value": {
+    "rationale": "A natural point-source Poisson benchmark is solved exactly for an infinite family with arbitrary radial branching and positive real layer weights. It yields the complete GMRES residual vector and terminating step, a reciprocal volume-growth law, algebraic-versus-exponential geometry distinction, and exact invariance despite arbitrarily bad spectral conditioning. These are substantive natural structural conclusions, rather than routine tuning or recomputation of a known table.",
+    "status": "PASS"
+  }
+}
