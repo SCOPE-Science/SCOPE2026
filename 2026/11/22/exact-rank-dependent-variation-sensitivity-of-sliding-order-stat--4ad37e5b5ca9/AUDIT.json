@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary strict input rank chambers, the order-statistic operator is a coordinate selector. Decomposing perturbations into path indicator cuts reduces the seminorm to transitions of selected indices across a cut. Within a cut-crossing sliding window, deleting only left observations and adding only right ones makes the number of right samples among the q smallest nondecreasing. For each fixed count k, the left and right kth-order thresholds move in opposite directions, giving at most one within-count switch; total switches at most 2q-1. Reflection of value order yields 2(w-q)+1. An explicit permutation at n=w+1 has exactly 2min(q-1,w-q)+1 switches, and a dyadic epsilon=1/4 single-jump perturbation attains equality without changing selectors. Endpoint extension achieves all n≥w+1. Exact witness tests r=1..64, exhaustive small selector permutations and random two-input checks all passed; finite tests supplement the all-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The Maragos–Schafer paper covers all OS ranks at the representation level but inspected statements concern max/min morphology and thresholds rather than sharp adjacent-difference sensitivity",
+        "published-finding corpus all-radius median gives only central rank and min/max gives only extremal ranks"
+      ],
+      "reasoning": "The full all-rank theorem logically contains the known min/max and median formulas as proper parameter subfamilies, but none of these earlier bounded cases, taken separately, implies sensitivity at intermediate ranks.",
+      "searches": [
+        "exact sharp finite-path adjacent variation Lipschitz norm sliding kth order statistic rank filter every window size 2r+1, clamped endpoints, 2 min(k-1,2r+1-k)+1",
+        "order statistic sliding window two dataset BV perturbation induced total variation Lipschitz rank min max median",
+        "web: 1987 Maragos Schafer Morphological Filters Part II full pdf",
+        "web: rank order filter variation perturbations"
+      ]
+    },
+    "checked_sources": [
+      "https://robotics.ntua.gr/wp-content/uploads/publications/1987_MaragosSchafer_MorphologicFilters-part2_ieeetASSP_%2Bcorrections1989.pdf",
+      "https://doi.org/10.1109/78.286974",
+      "https://doi.org/10.1109/29.21690",
+      "Published finding: Finite-window morphology and sharp two-input variation",
+      "Published finding: Three-point running-median variation sensitivity"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior central median constant w is exactly the present q=r+1 substitution; prior endpoint rank constant 1 is exactly the present q=1 or q=w substitution",
+        "One-input TV smoothing cannot control V(Qx-Qy) because the nonlinear operator does not commute with differences",
+        "OS max-min representation is compatible with the formula but does not state its best Lipschitz factor"
+      ],
+      "reasoning": "The new result subsumes documented special cases; it is neither a restatement of the central median case nor a corollary of single-input variation diminution. Its intermediate-rank exact constants and explicit rank-dependent extremizers are the non-implied content.",
+      "searches": [
+        "exact sharp finite-path adjacent variation Lipschitz norm sliding kth order statistic rank filter every window size 2r+1, clamped endpoints, 2 min(k-1,2r+1-k)+1",
+        "order statistic sliding window two dataset BV perturbation induced total variation Lipschitz rank min max median",
+        "Maragos Schafer DOI:10.1109/TASSP.1987.1165254",
+        "Restrepo Chacon DOI:10.1109/78.286974"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus min/max and median special-case IDs recorded in closest_results",
+        "Maragos–Schafer 1987 defines order-statistic filters and maximum-of-minima representations; no same two-input TV norm found in inspected material",
+        "Targeted web searches returned classical filtering and unrelated BV results, not the stated all-rank coefficient"
+      ],
+      "reasoning": "An equivalent formulation would quantify the induced edge-variation Lipschitz norm of sliding rank-q sorting, not only binary threshold compatibility, one-input variation decrease or sup-norm nonexpansivity. Related representations alone do not imply the exact worst-case alternating selector pattern.",
+      "searches": [
+        "exact sharp finite-path adjacent variation Lipschitz norm sliding kth order statistic rank filter every window size 2r+1, clamped endpoints, 2 min(k-1,2r+1-k)+1",
+        "order statistic sliding window two dataset BV perturbation induced total variation Lipschitz rank min max median",
+        "ranked-order stack filter variational stability under small perturbations sharp jump sensitivities",
+        "Maragos Schafer Restrepo Chacon rank order median variation norm two input full rank",
+        "web: \"sliding order statistic\" \"variation\" \"Lipschitz\" signal",
+        "web: \"order statistic filters\" \"total variation\" stability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returns related filter-stability records but no returned title, abstract or exact parameter statement containing the rank ladder 2 min(q-1,w-q)+1",
+        "Historical own ledger contains central median and end-rank results but no all-rank result in recovered titles and claims"
+      ],
+      "reasoning": "Database absence is not proof of uniqueness; this is a record-level comparison of the identified exact coefficient and all ranks with available entries, not a generic no-hit claim.",
+      "searches": [
+        "exact sharp finite-path adjacent variation Lipschitz norm sliding kth order statistic rank filter every window size 2r+1, clamped endpoints, 2 min(k-1,2r+1-k)+1",
+        "order statistic sliding window two dataset BV perturbation induced total variation Lipschitz rank min max median",
+        "ranked-order stack filter variational stability under small perturbations sharp jump sensitivities",
+        "web: \"running quantile\" \"variation\" sensitivity filters"
+      ]
+    },
+    "rationale": "Compared sharp induced two-input unweighted path-variation norm against general OS morphological representations, classical one-input median smoothing, and published/accessible finite path min-max and median special cases. Those special cases are subsumed but do not imply intermediate ranks; primary historical full-text ambiguity is explicitly preserved.",
+    "residual_risks": [
+      "Unindexed early signal-processing publications could contain an equivalent sharp sensitivity bound not located by indexing.",
+      "Full Restrepo–Chacón and Longbotham–Bovik manuscripts were unavailable in the inspected sources; no claim of whole-document exclusion.",
+      "The earliest public day of older reports and papers is not independently reconstructed, so the day-verified archival source eligibility uses the 2015 manuscript upload listing."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Found order-statistic max-min and threshold representation, not quantitative sharp two-input adjacent-difference seminorm bound in examined material",
+        "evidence": [
+          "Article lines 0-40 describe order-statistic max-min representations, median roots, and stack filters",
+          "Article lines 70-155 outline the six sections; neither variation norm nor sharp two-input rank coefficient appears in the inspected account",
+          "PDF targeted find variation and Lipschitz returned no text matches; absence of text matches alone cannot certify whole-document noncoverage"
+        ],
+        "identifier_or_url": "https://robotics.ntua.gr/wp-content/uploads/publications/1987_MaragosSchafer_MorphologicFilters-part2_ieeetASSP_%2Bcorrections1989.pdf",
+        "material_read": "Full searchable abstract and introduction; relevant selected sections of report plus mathematical statements on order-statistic properties, max-min/threshold representation; page 1 PDF screenshot (article page 1170); PDF text searches for variation and Lipschitz",
+        "method": "Primary PDF opened and section text inspected; visual first page verified with rendered screenshot; targeted term searches",
+        "title": "Morphological Filters—Part II: Their Relations to Median, Order-Statistic, and Stack Filters",
+        "trigger": "Most relevant foundational paper covering every order-statistic rank and its morphological equivalences"
+      },
+      {
+        "assessment": "One-input smoothing claim differs from two-input variation sensitivity of order-statistic rank q; limitation: full paper unavailable",
+        "evidence": [
+          "1994 title and available abstract explicitly concern median-filter smoothing of each individual signal",
+          "Public manuscript listing explicitly dates upload 2015-10-08, used only for source date eligibility"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/78.286974",
+        "material_read": "Indexed abstract, publication metadata, and available manuscript listing; PDF full text was not obtained",
+        "method": "Publisher bibliographic and publicly listed manuscript excerpt; full manuscript retrieval attempted but inaccessible",
+        "title": "A smoothing property of the median filter",
+        "trigger": "Classical one-input total variation smoothing theorem for running median"
+      },
+      {
+        "assessment": "Focuses order-statistic filter/FIR relationship; no direct implication established from accessible abstract; unresolved historical priority remains",
+        "evidence": [
+          "1989 publisher bibliographic entry identifies different primary analytical goal; not sufficient for full-document noncoverage"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/29.21690",
+        "material_read": "Indexed abstract/metadata only; full paper not accessible",
+        "method": "Online bibliographic lookup and abstract reading",
+        "title": "Theory of order statistic filters and their relationship to linear FIR filters",
+        "trigger": "Original 1989 order-statistic theory, possibly broader rank control"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4ad37e5b-5ca9-47bc-a284-7fab0e6ed058",
+  "value": {
+    "rationale": "Completes the natural all-rank variation-sensitivity classification of fixed-width order-statistic smoothers, interpolating the known extremal and median cases. It identifies a sharp and nontrivial rank ladder, notably rank two always has factor three even for arbitrarily wide filters while the center has the entire window-width factor. Constructive extremizers clarify two-input instability despite single-input smoothing, with meaningful implications for designing robust rank filters.",
+    "status": "PASS"
+  }
+}
