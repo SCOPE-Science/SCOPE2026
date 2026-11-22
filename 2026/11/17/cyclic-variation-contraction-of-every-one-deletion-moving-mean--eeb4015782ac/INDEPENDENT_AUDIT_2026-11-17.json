@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T21:55:39.315200Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every n≥w≥2 and deleted rank r∈{1,…,w}, F_{n,w,r} averages the w−1 remaining order statistics in each cyclic w-window. On each strict input-order chamber, the spatially ordered retained index selections of consecutive windows interlace coordinatewise: a_{i,k}≤b_{i,k}. Cumulative threshold differences q_{i,j}=(count selected left in earlier window−count in later)/(w−1) are nonnegative. Summing q_{i,j} over windows i=j−w+1,…,j telescopes to exactly 1, even with periodic wraparound. Thus each piecewise-linear chamber derivative acts on cyclic differences via a nonnegative column-stochastic matrix and has ℓ¹ norm ≤1. Integrating chamber derivatives along any x-to-y line segment proves the global two-input TV(Fx−Fy)≤TV(x−y), including tie cases via continuity. For n=w output is spatially constant (coefficient 0); arc indicator of width w attains coefficient 1 for n≥2w; special w=3,r=2, n=4,5 explicit rational pairs also attain 1. Independently checked 119,700 seeded pair/window/rank tests n=3..16, exact ratio-one examples for n=4,5, and inspected source checker which exhausts 925,164 chamber/arc combinations. No claim of all intermediate sharp constants for w<n<2w except midrange.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Previously published cyclic median result has sharp two-input amplification 3 for long cycles; a median deletes multiple ranks rather than averaging all but one.",
+          "Maragos–Schafer treat general combinations of rank selectors but not the explicit positive column-stochastic interlacing factor for this family."
+        ],
+        "reasoning": "An arbitrary morphological filter theorem would need the exact two-input stability claim; the inspected primary materials do not imply that every order-statistic combination is contractive, as median gives counterexamples.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-bv-perturbation-threshold-for-cyclic-three-point-medians--59530ef626eb",
+          "https://drum.lib.umd.edu/bitstreams/154a294b-2b9b-4c93-871a-8c68ed6834ff/download",
+          "https://www.mia.uni-saarland.de/Publications/welk-habil09.pdf"
+        ]
+      },
+      "checked_sources": [
+        "Assigned frozen RESULT.md, check.py, METADATA.json, AUDIT.json, REVIEW.md, VERIFICATION.md, SLOGAN.txt",
+        "https://drum.lib.umd.edu/bitstreams/154a294b-2b9b-4c93-871a-8c68ed6834ff/download",
+        "https://www.mia.uni-saarland.de/Publications/welk-habil09.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-bv-perturbation-threshold-for-cyclic-three-point-medians--59530ef626eb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A linear combination of order statistics is not automatically a nonnegative gradient map on differences.",
+          "Coordinatewise monotonicity and shift-invariance alone do not imply edge-TV contraction of pairwise differences; interlacing and exact unit column sums are extra."
+        ],
+        "reasoning": "The new proof supplies precisely the rank-independent spatial interlacing and telescoping column normalization not implied by generic LOS structure or midrange minimax characterization.",
+        "searches": [
+          "https://drum.lib.umd.edu/bitstreams/154a294b-2b9b-4c93-871a-8c68ed6834ff/download",
+          "https://www.mia.uni-saarland.de/Publications/welk-habil09.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-bv-perturbation-threshold-for-cyclic-three-point-medians--59530ef626eb"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Averaging all but one rank is a linear combination of order statistics (LOS), including the midrange case when w=3,r=2.",
+          "The Lipschitz seminorm on differences is edge-TV on cyclic signals, stronger than TV(Fx)≤TV(x)."
+        ],
+        "reasoning": "Classical morphology/LOS terminology refers to the same filters but does not establish the two-input BV estimate simply by its name or by one-input smoothing.",
+        "searches": [
+          "Resultary: one deleted order statistic cyclic moving mean total variation contraction rank deletion",
+          "https://drum.lib.umd.edu/bitstreams/154a294b-2b9b-4c93-871a-8c68ed6834ff/download",
+          "https://www.mia.uni-saarland.de/Publications/welk-habil09.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known numerical median amplification constants 0,2,3 differ from the rank-deletion mean coefficient 0/1; no exact all-(n,w,r) two-input theorem appears in retrieved records."
+        ],
+        "reasoning": "Specific short-cycle midrange thresholds are backed by direct exact witnesses; failure of search to find prior values is not novelty proof.",
+        "searches": [
+          "Resultary: one deleted order statistic cyclic moving mean total variation contraction rank deletion",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-bv-perturbation-threshold-for-cyclic-three-point-medians--59530ef626eb"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after actual statement-level comparison: new scope not logically covered by primary work or published stronger indexed analogues; prior constituent lemmas and any exact known special cases are explicitly acknowledged.",
+      "residual_risks": [
+        "Historical cyclic order-statistic nonexpansivity literature may contain a buried special-case theorem; only material inspected in classical primary sources supports current best-of-knowledge comparison.",
+        "Exact short-cycle coefficients for w<n<2w beyond the three-site midrange remain unclassified, and finite randomized checks do not establish universal nonexpansivity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical rank-filter structural framework; no all-window deleted-rank cyclic two-input BV contraction identified in material read",
+          "evidence": "Technical report discusses LOS and stack/morphological decompositions; not an edge-gradient column-stochastic condition",
+          "identifier_or_url": "https://drum.lib.umd.edu/bitstreams/154a294b-2b9b-4c93-871a-8c68ed6834ff/download",
+          "material_read": "Accessible PDF, front matter, sections defining linear combinations of order statistics, selected technical theorems and concluding discussion; inspected page images including 4, 12, 17, 23, 32",
+          "method": "Opened paper and inspected screenshot pages (not merely metadata snippets)",
+          "title": "Morphological Filters—Part II: Their Relations to Median, Order-Statistic, and Stack Filters",
+          "trigger": "Same family of order-statistic combinations, potential theorem antecedent"
+        },
+        {
+          "assessment": "Midrange/Chebyshev characterization does not by itself supply multi-rank two-input cyclic BV theorem; full section coverage not claimed",
+          "evidence": "Thesis §3.3 describes scalar midrange family, a premise not the present Lipschitz estimate",
+          "identifier_or_url": "https://www.mia.uni-saarland.de/Publications/welk-habil09.pdf",
+          "material_read": "Accessible thesis table of contents and identified §3.3.1–3.3.3 on scalar midrange; section not completely inspected",
+          "method": "Opened thesis, reviewed section index and compared cited midrange scope",
+          "title": "Dynamic and Geometric Contributions to Digital Image Processing",
+          "trigger": "Classical midrange and geometric median comparison"
+        },
+        {
+          "assessment": "Different rank selection: 3-point median amplifies up to factor 3; one-deletion mean contracts",
+          "evidence": "Prior established sharp 0/2/3 median coefficients unlike new midrange 0/1",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-bv-perturbation-threshold-for-cyclic-three-point-medians--59530ef626eb",
+          "material_read": "Complete Resultary indexed mathematical statement, not full source file",
+          "method": "Compared exact filter definitions, boundary conditions and coefficients",
+          "title": "Sharp BV perturbation threshold for cyclic three-point medians",
+          "trigger": "Nearest published exact BV two-input theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniform nonlinear two-input edge-TV nonexpansivity across every deletion rank and every window size, with a transparent positive-gradient mechanism and nontrivial sharp boundary (zero when n=w, one when n≥2w; midrange for all n). Directly separates robust deleted-rank means from amplified running medians, giving structural signal-processing stability beyond one-input smoothing.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Historical cyclic order-statistic nonexpansivity literature may contain a buried special-case theorem; only material inspected in classical primary sources supports current best-of-knowledge comparison.",
+    "Exact short-cycle coefficients for w<n<2w beyond the three-site midrange remain unclassified, and finite randomized checks do not establish universal nonexpansivity."
+  ],
+  "schema_version": 1
+}
