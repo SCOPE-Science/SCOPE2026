@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every active Haar mask is realized in a full-dimensional soft-threshold chamber for any positive threshold. The step-vector decomposition reduces the entire quotient seminorm to one-jump inputs. The signs and endpoint bounds for the wavelet detail of a step eliminate the absolute value at the child interface, yielding the exact nine-state recurrence for all depths. The disjoint-scale construction uses only dyadic intervals strictly interior to the path, and proves a linear-in-depth lower bound. The upper bound follows from one nonzero wavelet per scale and an explicit one-wavelet variation estimate. The bundled exact checker corroborates the dynamic program and the construction, but is not used as proof of the unrestricted statements.
+## correctness
 
-## Originality — PASS, qualified
-Donoho's 1995 source introduces coefficientwise soft thresholding, and Cohen et al. (2003) study the BV limitations of wavelet unconditionality. The latter gives broader qualitative context but neither supplies the finite two-input path-variation modulus nor the proposed nine-state exact computation. Steidl et al. (2004) prove multiscale Haar shrinkage/TV-diffusion representation equivalences but do not give exact global two-input path-variation coefficients or their growth. Osękowski (2013) develops restricted weak-type Haar-projection estimates in a different norm. The nearby indexed finite Haar endpoint results concern \(L^\infty\) signed multipliers rather than the path-variation norm of zero-one detail projections. Available material gives no identified prior implication of the current exact recurrence and its quantitative bounds. Historical priority remains uncertain, including inaccessible full texts or differently indexed work.
+PASS
 
-## Mathematical value — PASS
-The exact sharp computation supplies a practical all-depth assessment of deterministic perturbation sensitivity for a standard nonlinear denoiser, replacing a search over exponentially many active sets by linear-size integer computation. The quantitative logarithmic divergence demonstrates a genuine and unavoidable stability discrepancy between Euclidean loss and adjacent total variation, relevant to edge-sensitive signal reconstruction. Neither correctness nor efficient computation alone motivates the result; the natural link to classical BV wavelet unconditionality and the sharp computed finite norms provide its mathematical significance.
+At any fixed lambda>0 each Haar detail is either active or inactive on an open soft-threshold chamber, and all 0/1 masks occur. Piecewise-affine segment integration reduces the sharp two-input path-variation Lipschitz norm to the maximum norm of the corresponding Haar subprojections. Constants are fixed and the path seminorm unit ball reduces exactly to one-jump vectors. For each cut only its dyadic ancestor wavelets contribute, and their left/right endpoint signs permit an exact nine-state recursion R_n^(p,q)(k) with p,q in {-1,0,1}; root center/left/right cases were checked. Disjoint dyadic support gradients at levels 0,3,6,... give the all-depth logarithmic lower bound and each scale contributes ≤2 for upper bound. Independently enumerated direct Haar projection masks and cut inputs for d=1..6: sharp values 1,3/2,2,21/8,3,117/32 matched recursive values to numerical precision; finite enumeration corroborates but does not establish all-depth recurrence and growth.
 
-## Closest work and limitations
-The 2003 BV paper supplies qualitative non-unconditionality but not a finite formula; the statistical soft-thresholding papers investigate different errors. The result concerns real one-dimensional nonperiodic dyadic Haar soft-thresholding with identical positive thresholds, not other boundaries, wavelets, statistical risk, or an elementary closed form. Independent review and exhaustive historical priority checks are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after actual mathematical implication comparisons with primary literature and published Resultary corpus; no located stronger theorem implies the entire exact final claim. Distinct known antecedents and historical risks are documented.
+
+## value
+
+PASS
+
+The exact sharp two-input path-BV stability constant of a standard nonlinear multiscale denoiser, computable by nine states rather than all active Haar masks, is a motivated quantitative invariant. Proved divergence of order log N despite L2 nonexpansivity explains a concrete sharp stability failure; the finite-depth classification and general growth result can be used directly in denoising analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
