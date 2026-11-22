@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary convolution is unique because all three decay rates are positive. The binary-chain covariance decays exponentially at the total switching rate; integrating the two time orderings yields all nine covariance entries. The exact determinant identity and its derivative were independently re-evaluated symbolically; Descartes' one-positive-root count and the endpoint signs establish the unique global maximum. The support is characterized by moment coordinates of the common binary history, and the fixed-mass, fixed-first-moment quadratic rearrangement yields both sharp third-moment bounds. Positivity of every finite switching-history probability supplies the reverse support inclusion. The section area integrates exactly to volume \(1/30\). A packaged checker verifies the algebra, while the reachability and maximization quantifiers follow from the written proof.
+PASS
 
-## Originality — PASS with residual publication-priority risk
+Read complete fixed-tree RESULT.md and inspected actual check_covariance.py entry. The stable filter representation X_j=j gamma integral exp(-j gamma s)S(t-s) ds gives the stated covariance; independently recomputed the full 3x3 determinant and its differentiated quartic with exact SymPy, matching the displayed rational expression. A one-sign-change Descartes argument plus Q(0)<0<Q(infinity) establishes the unique positive kappa critical point. For support, binary controls dense in [0,1]-valued moment controls, positive finite-switch path probabilities give both input-mode supports, rearrangement/bathtub inequalities give sharp lower and upper quadratic moment bounds and convex interpolation, and the exact section integral gives Beta(3,3)=1/30. These infinite claims rest on those arguments, not on sampled rates.
 
-The exact model appears in Benaïm–Bichard, arXiv:2406.17891, Example 1.5; Proposition 2.1 establishes stationary-law uniqueness and an implicitly defined reachable support, while Theorem 2.2 treats regularity. Bakhtin et al., arXiv:2009.01299, already describe the planar support by two switching-flow arcs. Those results are credited and not presented as new. No statement in the inspected texts gives the explicit \(1:2:3\) three-dimensional support inequalities, its volume \(1/30\), or the unique covariance-determinant optimizer \(\kappa_*\). General formulas for moments of telegraph-driven filters are known, and Pawula's 1987 abstract explicitly announces such formulas; the elementary covariance entry formula alone is not new. The substantive assessed addition is the coupled three-dimensional support/volume and strict rate-resonance classification, not the general filtering technique. An exact equivalent in older signal-processing or moment-body literature remains a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact support geometry makes the accessible set concrete for a natural three-dimensional nonelliptic switching model previously given only abstractly. In particular, its volume is independent of both Markov transition rates, while the determinant measuring stationary dispersion has a strict *interior* maximum at one universal normalized switching rate; both very slow and very fast switching lose generalized variance. This resolves a motivated parameter-design question on this canonical three-mode example rather than reporting a numerical peak or an arbitrary selected slice. The novelty/value conclusion is restricted to this natural fixed spectral ratio.
+Best-of-knowledge PASS for combined three-moment explicit stationary support and sharp unique covariance-volume rate maximum, not for classical telegraph covariance formulas or existence of support. Benaim-Bichard gives general accessible-support identity and density regularity but not explicit trivariate bounds, volume or determinant optimizer; Bakhtin et al is planar. Actual Resultary comparison did not show a dominating 1:2:3 sharp optimization. Classical moment-space literature may contain the support body, but no located result covers the combined precise new optimizer.
 
-## Scope and limitations
+## value
 
-No assertion is made for arbitrary contraction spectra, non-Markov signals, the smoothness of the invariant density, or general information-theoretic optimality. The support calculation uses classical moment rearrangements. The algebra was replayed with SymPy, but the finite numerical cases do not establish the infinite-dimensional reachable-set claim; that claim is proved separately by chattering and positive-probability cylinder events. Two relevant preprints were materially inspected; the older Pawula article's abstract, not full text, was inspected and remains a priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Rate-independent reachable volume versus a unique rate-dependent generalized-variance optimum is a motivated structural distinction in a nonelliptic stochastic-switching family; an explicit three-moment body and sharp universal optimum are more than repeated two-point correlations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
