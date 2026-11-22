@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T02:46:43.063978Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With m=n-f even and m>=4, cardinality N(n,f)=n!/(f!2^(m/2)(m/2)!). A one-descent involution swaps two adjacent blocks of length m/2 and fixes the other f positions; there are f+1 such involutions. The published fixed-f single-ascent formula alternatively yields P(local descent)=(n²-f²)/(2n(n-1)) and mean (n²-f²)/(2n). Consequently the exact lower-tail ratio for f versus f+2 is m/((f+2)(f+3)), while the f-stratum has strictly greater mean. If m>(f+2)(f+3), the CDF at one descent reverses and the strict mean excludes dominance the other way. For f=0 the ratio exceeds one exactly when even n>=8; n=2,4,6 CDFs are explicitly checked and show domination. Independently reimplemented recursive involution generation to n=12, exact histograms/CDFs and mean/f+1 checks, plus symbolic rational threshold checks through n=100: 4,949 passed assertions. Independently recomputed all seven listed Git blob entries into the source tree SHA 8a899cd9e19852c0df367e5c9558a634954e86a2, exactly matching assigned tree. Finite enumeration is corroboration; the unrestricted result follows from the class count, structural one-descent classification, mean and ratio.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gessel–Zhuang Theorem 5.1 enumerates simultaneously peaks, descents and fixed points, a strictly dominating parameter set; Corollary 5.5 enumerates precisely every finite-n conditional descent distribution at each f.",
+          "The published 2026-10-26 Resultary result provides the exact single-site ascent probability with fixed f and thereby the conditional mean."
+        ],
+        "reasoning": "The dominating source yields every cumulative probability for D_{n,f}; the mean follows from an already published elementary specialization. The claimed stochastic-order crossing can be obtained by taking one coefficient, one derivative/expectation and a rational quotient. A theorem that is an immediate consequence of such exact coverage is covered even if the authors did not write the final inequality.",
+        "searches": [
+          "Gessel–Zhuang 2020 Section 5.1 Theorem 5.1, Corollary 5.5 and Theorem 5.6",
+          "https://people.brandeis.edu/~gessel/homepage/papers/plethystic.pdf",
+          "Chow 2008 Section 3 Theorem 3",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-mesoscopic-sign-transition-for-disjoint-descent-indicators-in-ra--9ab17c6b0ef5/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://people.brandeis.edu/~gessel/homepage/papers/plethystic.pdf",
+        "https://www.kurims.kyoto-u.ac.jp/EMIS/journals/EJC/Volume_15/PDF/v15i1r71.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-mesoscopic-sign-transition-for-disjoint-descent-indicators-in-ra--9ab17c6b0ef5/RESULT.md",
+        "https://arxiv.org/abs/1710.03896",
+        "https://arxiv.org/abs/math/0412222",
+        "https://arxiv.org/abs/2001.00654",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-stochastic-order-obstruction-for-fixed-point-strata-of-r--c9d15029dba5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the published joint law, P(D_{n,f}<=1)=(f+1)/N(n,f), for n-f>=2.",
+          "From the published local-ascent expression, E[D_{n,f}]=(n²-f²)/(2n).",
+          "N(n,f+2)/N(n,f)=(n-f)/((f+1)(f+2)), hence P_f(D<=1)/P_{f+2}(D<=1)=(n-f)/((f+2)(f+3)); strict ratio>1 and strict reversed mean exclude both stochastic dominance directions.",
+          "For f=0, ratio>1 iff n>6; n=2,4,6 remaining cases are small exact CDF checks from the prior joint law."
+        ],
+        "reasoning": "Every asserted theorem branch is a short direct corollary of prior statements with identical probabilistic objects and parameters, not an unrelated specialization. Thus the original as a standalone mathematical discovery is covered; a historical exact-wording search does not rescue it.",
+        "searches": [
+          "Gessel–Zhuang 2020 Corollary 5.5 exact coefficient fixed-point descents",
+          "https://people.brandeis.edu/~gessel/homepage/papers/plethystic.pdf",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-mesoscopic-sign-transition-for-disjoint-descent-indicators-in-ra--9ab17c6b0ef5/RESULT.md",
+          "stochastic order fixed point involution descents n=8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gessel–Zhuang Corollary 5.5: sum_n x^n I_n^{(des,fix)}(t,z)/(1-t)^(n+1) = sum_k t^k/((1-zx)^k (1-x²)^binom(k,2)), plus 1/(1-t) for n=0.",
+          "Coefficient [x^n z^f t²] of the already-known generating series is f+1 whenever n-f>=2; it counts exactly the one-descent involutions in the submitted argument.",
+          "Chow (2008) Theorem 3 expresses each fixed-point-refined descent composition by Schur-shape/Kostka numbers; fixing all descents and fixed points is already enumerable."
+        ],
+        "reasoning": "The original f+1 coefficient is a literal special coefficient of prior exact (des,fix) generating functions. The submitted CDF tail is this known coefficient divided by the elementary known class size; there is no independent new counting theorem.",
+        "searches": [
+          "stochastic ordering descents fixed point free involutions exactly two fixed points probability distribution",
+          "involution fixed point refined descent generating function stochastic dominance monotonicity",
+          "https://people.brandeis.edu/~gessel/homepage/papers/plethystic.pdf",
+          "https://www.kurims.kyoto-u.ac.jp/EMIS/journals/EJC/Volume_15/PDF/v15i1r71.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The manuscript’s small histograms for n=2,4,6 agree with independent exhaustive involutions through n=12.",
+          "Gessel–Zhuang exact joint generating function determines all n=8 and all larger (fixed points,descent) coefficients and therefore is stronger than a static table.",
+          "No separately published explicit table was needed to settle the all-even n=8 cutoff once the one-descent ratio and class mean are inserted."
+        ],
+        "reasoning": "This is not an independent unknown census: the exact finite tables and every higher-n coefficient are mechanically computable from the literature. Historical table indexing is not required for the decisive mathematical implication.",
+        "searches": [
+          "Guo Zeng involution descent table first six ranks",
+          "Chow 2008 involution descent polynomial n6 n8",
+          "https://people.brandeis.edu/~gessel/homepage/papers/plethystic.pdf",
+          "Resultary search random involutions fixed points descents order"
+        ]
+      },
+      "rationale": "The new words \"stochastic incomparability\" do not isolate a new unknown distributional fact. The all-size, all-f, all-descent-count probability law is already given by Gessel–Zhuang (2020) Corollary 5.5, itself equivalent to older Désarménien–Foata/Gessel–Reutenauer formulas. Extracting the t² coefficient immediately gives the f+1 one-descent count. The earlier published fixed-f descent-indicator result gives the mean (n²-f²)/(2n). Their class-size quotient then yields the submitted quadratic reversal and the exact f=0 versus 2 n=8 onset after trivial n=2,4,6 CDF evaluation. This is direct mathematical implication by stronger exact coverage, not merely a title mismatch. Although no prior source explicitly titles the same stochastic-order obstruction, the claimed new theorem is an elementary corollary of those earlier exact facts; originality FAIL under corollary/stronger-coverage rule.",
+      "residual_risks": [
+        "The direct source is a formula rather than a separately named stochastic-order result; the rejection is based on mathematical implication, not an assertion that the same words or exact n=8 sentence were printed in 2020.",
+        "More refined earlier involution enumerations may have explicitly stated the comparison, but that is not necessary for the prior-coverage conclusion.",
+        "Full-text access for every older reference was not exhausted; the decisive 2020 published generating function and earlier exact first-moment formula were read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT COVERAGE: full joint fixed-point/descent distribution yields the alleged one-descent coefficient and every finite small CDF; theorem stronger in distributional parameters",
+          "evidence": [
+            "Corollary 5.5 exact joint generating function at p32, [turn940918view0] lines 1914-1924",
+            "Theorem 5.1 at p30, [turn475208view0] lines 1759-1789",
+            "Theorem 5.6(b) further coefficient formulas [turn940918view1] lines 1946-1957"
+          ],
+          "identifier_or_url": "https://people.brandeis.edu/~gessel/homepage/papers/plethystic.pdf",
+          "material_read": "Author-hosted published 2020 PDF text: introduction, section 5.1, Theorem 5.1, Corollary 5.5 and Theorem 5.6 (approximately pages 30-34); visual screenshot attempted but site returned 502",
+          "method": "Read the actual extracted primary formulas and perform coefficient extraction and cross-class implication algebra; inspect web PDF text lines 1759-1924",
+          "title": "Plethystic formulas for permutation enumeration",
+          "trigger": "Same involution classes, exact joint parameters n,f and descents; potentially dominating generating function"
+        },
+        {
+          "assessment": "Broad exact coverage of the same refined descent coefficients; not independently required because Corollary 5.5 already directly dominates the claim",
+          "evidence": [
+            "Theorem 3 in [turn549384view0] lines 209-269",
+            "Désarménien–Foata fixed-point/descent enumerator noted [turn400943view0] lines 17-27"
+          ],
+          "identifier_or_url": "https://www.kurims.kyoto-u.ac.jp/EMIS/journals/EJC/Volume_15/PDF/v15i1r71.pdf",
+          "material_read": "Primary publisher-archive PDF parsed text of introduction, Section 3 and Theorem 3 on pages 1-5, with Section 7 theorem output; screenshot attempt returned access error 403",
+          "method": "Inspect fixed-point weighting in quasisymmetric formula and Schur/Kostka theorem with descent-composition scope",
+          "title": "On the Eulerian Enumeration of Involutions",
+          "trigger": "Earlier exact descent-set and fixed-point-refined enumeration on identical involutions"
+        },
+        {
+          "assessment": "Directly provides the previously known one-site mean needed for the claimed reversal; pair-covariance phase theorem is different but supplies the input with no novel calculation",
+          "evidence": [
+            "Published full RESULT.md gives A2=(I_{n,f}-I_{n-2,f}+I_{n-2,f-2})/2 and computes class-size ratios; this implies E[D]=(n²-f²)/(2n)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-mesoscopic-sign-transition-for-disjoint-descent-indicators-in-ra--9ab17c6b0ef5/RESULT.md",
+          "material_read": "Full published Resultary RESULT.md, including A2 Burnside count, symbolic formula and limitation section",
+          "method": "Read complete proof and specialize its single-ascent formula to unconditional expectation",
+          "title": "Mesoscopic sign transition for disjoint descent indicators in random involutions",
+          "trigger": "Published earlier analysis under exact fixed-f involution law, potential derivation of conditional mean"
+        },
+        {
+          "assessment": "Relevant historical-priority risk; its matching descent distributions may give further direct explicit representations",
+          "evidence": [
+            "arXiv:1710.03896 abstract describes fixed-point-free descent symmetry, generating functions and normal limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1710.03896",
+          "material_read": "Article abstract and mathematical context identified through arXiv listing; full text not read",
+          "method": "Abstract-level scope comparison only; not used to conclude whole-document noncoverage",
+          "title": "Distribution of descents in matchings",
+          "trigger": "Primary paper on exactly fixed-point-free involution descent distributions, n even"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The question of whether adding two fixed points stochastically reduces the descent count is natural and the n=8 first reversal is a clear illustration. But this submitted contribution does not supply a new structural probabilistic law or unknown exact invariant: all conditional distributions and the relevant first moments are already determined by earlier papers with the same objects and parameters. The quadratic threshold is the sign of a one-line rational quotient of already known inputs, and the small n comparisons are known-enumerator evaluation. This is an instructive consequence but, as a standalone mathematical finding, falls on the routine specialization/known-data deduction side of the same value standard. Neither correctness nor reproducibility alone establishes new value.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://people.brandeis.edu/~gessel/homepage/papers/plethystic.pdf",
+    "https://www.kurims.kyoto-u.ac.jp/EMIS/journals/EJC/Volume_15/PDF/v15i1r71.pdf",
+    "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-mesoscopic-sign-transition-for-disjoint-descent-indicators-in-ra--9ab17c6b0ef5/RESULT.md",
+    "https://arxiv.org/abs/1710.03896",
+    "https://arxiv.org/abs/math/0412222",
+    "https://arxiv.org/abs/2001.00654",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-stochastic-order-obstruction-for-fixed-point-strata-of-r--c9d15029dba5"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Sufficient region m>(f+2)(f+3) is not asserted necessary for arbitrary f.",
+    "Complete classification only of f=0 versus f=2 at n even, not all strata.",
+    "Independent finite enumerations through n=12 do not prove unrestricted formulas.",
+    "Screen-rendering of primary PDFs failed at the host despite primary full extracted mathematical text being available for relevant theorems.",
+    "Publication withheld: unmodified public METADATA.json includes scope_run_id and a false first_public_date set to antecedent work, and AUDIT.json includes run identifier, so privacy-safe guarded replacements are required before any public propagation."
+  ],
+  "residual_risks": [
+    "The direct source is a formula rather than a separately named stochastic-order result; the rejection is based on mathematical implication, not an assertion that the same words or exact n=8 sentence were printed in 2020.",
+    "More refined earlier involution enumerations may have explicitly stated the comparison, but that is not necessary for the prior-coverage conclusion.",
+    "Full-text access for every older reference was not exhausted; the decisive 2020 published generating function and earlier exact first-moment formula were read."
+  ],
+  "schema_version": 1
+}
