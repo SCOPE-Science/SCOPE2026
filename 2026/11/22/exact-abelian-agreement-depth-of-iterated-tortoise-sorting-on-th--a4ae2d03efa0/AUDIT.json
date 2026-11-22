@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For any binary factor with at most k ones, k tortoise passes fully sort it. Thue–Morse complementary pairs force this for lengths below 2k and force every exceptional weight-(k+1) factor at length 2k to end in one, so it too sorts. At length 2k+1 only weights k and k+1 occur; a weight-(k+1) factor ends in either one or exactly one trailing zero, giving exactly two distinct high-weight outputs. The digit-sum witness i=2^r-k with r congruent to s_2(k-1) modulo two realizes both high outputs; a low-weight factor realizes the third. All quantifiers and the empty factor are covered. Direct map versus closed form was checked on 49,150 word/iterate cases, and complete morphic factor sets were checked for k<=128; finite checks are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Campbell–Rampersad Theorem 6 determines first-iterate complexity at lengths at least ten, not the initial equality depth for every iterate.",
+        "Published two-iterate result 2026/11/2/...d15dd17f32d1 proves a deficit convolution at n at least eighteen, not the all-iterate cutoff.",
+        "Published maximal-two-fiber result 2026/11/2/...5c1539333494 bounds fiber sizes for precisely two iterations and does not imply the three-image first divergence for arbitrary k.",
+        "The Sturmian all-iterate result concerns factor languages of complexity n+1, unlike Thue–Morse."
+      ],
+      "reasoning": "The strongest inspected results vary the factor length with a fixed number of iterations (one or two), whereas the new quantifier is all k and the sharp length 2k+1. The cited exact long-length theorems leave the diagonal all-iterate statement open and do not directly dominate it.",
+      "searches": [
+        "published-finding corpus: Thue Morse k-fold tortoise abelian agreement threshold 2k-1",
+        "published-finding corpus: Thue Morse abel_x(k) 2k-1 iterated tortoise complexity",
+        "arxiv:2604.25811v3 Theorems 4–6 and Conclusion",
+        "published-finding corpus: Thue Morse exact abelian agreement cutoff iterated tortoise 2k"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2604.25811v3",
+      "https://arxiv.org/abs/2604.25811",
+      "https://arxiv.org/abs/1809.09158",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-two-tortoise-complexity-of-the-thue-morse-word-from-length--d15dd17f32d1/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-maximal-two-tortoise-fiber-spectrum-of-thue-morse-factors--5c1539333494/RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Defant–Kravitz defines tortoise, not the Thue–Morse factor statistic.",
+        "Campbell–Rampersad proves the one-step Thue–Morse complexity and asks about the Abelian agreement sequence for the same type of construction.",
+        "The two published fixed-two-pass results quantify two-pass fibers or deficits, which are logically different from the first equality cutoff for every iterate.",
+        "The proof uses the additional complementary-pair identities of Thue–Morse and an explicit digit-sum witness to establish both images of the high-weight class at the sharp boundary."
+      ],
+      "reasoning": "One-pass and two-pass statements are insufficient by themselves to infer the all-k formula. Standard elementary substitution facts plus a new cutoff argument do yield the claim; because it is short and elementary, implicit prior derivability is a residual priority risk rather than a false claim of uniqueness.",
+      "searches": [
+        "Campbell–Rampersad arxiv:2604.25811v3 Sections 3,6,7",
+        "Defant–Kravitz arxiv:1809.09158, definition/abstract",
+        "published-finding corpus full RESULTS: 2026/11/2/...d15dd17f32d1 and ...5c1539333494",
+        "published-finding corpus: Thue Morse exact abelian agreement cutoff iterated tortoise 2k"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Campbell–Rampersad Section 7 explicitly asks analogous agreement-depth questions for the Thue–Morse word, after displaying initial paperfolding values.",
+        "published-finding corpus nearest matched all-iterate theorem for Sturmian words, 2026/10/25/...0fc96ab6c467; Sturmian and Thue–Morse languages are not the same.",
+        "Published indexed findings using the tortoise operation address other equivalence classes or word families, not the stated all-iterate Thue–Morse initial cutoff."
+      ],
+      "reasoning": "The exact equivalence is the last initial length of equality of k-tortoise and Abelian complexities, or the first divergence at 2k+1. No checked full result or indexed claim stated this Thue–Morse all-k identity. Search absence is not novelty proof.",
+      "searches": [
+        "published-finding corpus: Thue Morse k-fold tortoise abelian agreement threshold 2k-1",
+        "published-finding corpus: Thue Morse abel_x(k) 2k-1 iterated tortoise complexity",
+        "published-finding corpus: Thue Morse exact abelian agreement cutoff iterated tortoise 2k",
+        "web: \"Thue-Morse\" \"abel\" \"tortoise\" \"2k\"",
+        "arxiv:2604.25811v3, Definition 2 and Section 7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The full Campbell–Rampersad text gives a paperfolding initial sequence but poses the analogous Thue–Morse question rather than reporting an all-k table or formula.",
+        "Four-block finite factor tests reconstructed image counts for each k from one through 128; these are checks of the new claim, not external prior tables.",
+        "Related published findings on tortoise inverse-class structures and sparse-support words do not report the all-iterate Thue–Morse cutoff."
+      ],
+      "reasoning": "No exact database value or complete all-k table establishing this natural agreement-depth invariant was located. The source asks for it, but incomplete coverage of the broader literature remains an originality risk.",
+      "searches": [
+        "published-finding corpus: \"abel\" \"Thue\" \"2k\" tortoise",
+        "published-finding corpus: \"abel_t\" \"Thue-Morse\"",
+        "published-finding corpus: two k first differing length abelian complexity thue morse tortoise",
+        "web: \"Campbell\" \"Rampersad\" \"abel_t\" \"Thue\" 2026"
+      ]
+    },
+    "rationale": "The leading 2026 paper explicitly introduces the Abelian-agreement length and invites evaluation for the Thue–Morse word; inspection of its relevant full text did not reveal the all-iterate answer. Two highly relevant published results with two iterations address long-length deficit formulas and maximum fibers, neither the first-disagreement invariant at all iteration counts. Four implication-based checks and the accessible own-ledger claim comparison found no equivalent or stronger statement. Elementary derivability and any unindexed equivalent remain explicit residual risks.",
+    "residual_risks": [
+      "An unindexed or implicit derivation using classical Thue–Morse pair decompositions may predate the specific all-iterate formula.",
+      "Original 2018 Defant–Kravitz full text was not successfully read; no inference that its entire document lacks a consequence is made.",
+      "This is an elementary solution of a natural numerical cutoff; the all-iteration result may be implicit in a different unpublished or unindexed study."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the notion and computes the one-pass case; does not report the proposed all-k diagonal cutoff",
+        "evidence": "arXiv:2604.25811v3, Definition 2, Theorem 6, Section 7, first submission 2026-04-28",
+        "identifier_or_url": "https://arxiv.org/html/2604.25811v3",
+        "material_read": "Full accessible HTML in relevant Sections 2, 3, 6 and 7, including the definition and all Thue–Morse results and conclusion",
+        "method": "Primary arXiv HTML text, bibliography and submission history compared",
+        "title": "Subword enumeration up to stack-sorting equivalence",
+        "trigger": "Defines the statistic and raises the precise analogue as a question"
+      },
+      {
+        "assessment": "Establishes the tortoise operation but full original text was not accessible in checked HTML; no whole-document noncoverage conclusion is made",
+        "evidence": "arxiv:1809.09158, abstract; arxiv:2604.25811v3, Section 2",
+        "identifier_or_url": "https://arxiv.org/abs/1809.09158",
+        "material_read": "Primary abstract and bibliographic history; operator definition independently verified from the full 2026 exposition",
+        "method": "Authoritative arXiv abstract plus direct definition comparison",
+        "title": "Stack-sorting for Words",
+        "trigger": "Original operator definition"
+      },
+      {
+        "assessment": "Addresses n>=18 with exactly two passes, not all positive iteration counts or their first Abelian-agreement boundary",
+        "evidence": "2026/11/2/...d15dd17f32d1, RESULT.md Theorem and Relationship to prior work",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-two-tortoise-complexity-of-the-thue-morse-word-from-length--d15dd17f32d1",
+        "material_read": "Complete published RESULT.md, including theorem, proof, scope, references and limitations",
+        "method": "Public repository file content read",
+        "title": "Exact two-tortoise complexity of the Thue–Morse word from length eighteen",
+        "trigger": "Closest exact two-pass result"
+      },
+      {
+        "assessment": "Determines maximum fiber size for two passes; no all-iteration initial abelian-agreement formula",
+        "evidence": "2026/11/2/...5c1539333494, RESULT.md Finding and Proof",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-maximal-two-tortoise-fiber-spectrum-of-thue-morse-factors--5c1539333494",
+        "material_read": "Complete published RESULT.md, including theorem, proof, and limitations",
+        "method": "Public repository file content read",
+        "title": "Exact maximal two-tortoise fiber spectrum of Thue–Morse factors",
+        "trigger": "Potential strong general fiber coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a4ae2d03-efa0-4d96-abb0-a1d006b49175",
+  "value": {
+    "rationale": "The 2026 introductory paper isolates Abelian-agreement depth as a natural statistic of repeated partial sorting and expressly invites studying it for Thue–Morse. This theorem completely determines that exact function for every positive iteration count and identifies the first failure with a three-image classification and explicit witnesses. The numerical cutoff measures how many iterations are sufficient to erase positional information from all factors up to a given length; it is not an arbitrary finite slice or a restatement of the one-step formula.",
+    "status": "PASS"
+  }
+}
