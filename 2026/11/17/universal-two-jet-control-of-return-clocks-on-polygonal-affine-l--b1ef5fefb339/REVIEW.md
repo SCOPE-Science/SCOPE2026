@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact two-dimensional sector flow gives a locally unique analytic first-exit equation. The chosen gain makes the prescribed edge time an exact root independent of section displacement. Its first and second Taylor coefficients yield an explicit \(2\times N\) gain Jacobian; the inequalities \(z/(1-e^{-z})>1>z/(e^z-1)\) for positive \(z\) prove all its ordered two-column minors positive. The implicit- and inverse-function theorems apply at transverse cycle crossings. The standalone checker independently evaluates the original affine-flow endpoints and verifies finite differences for a triangle and an inhomogeneous pentagon. Its finite tests are not the infinite proof.
+## correctness
 
-**Originality — PASS, provisional priority.** Kai (2026) supplies the original model, period and stability, not the second-order return-clock sensitivity theorem. The closest published polygon-shape-conjugacy note was read in full and concerns a different calibration with a global radial reduction; it does not establish all-minor gain controllability. The closest full-text regular-polygon Lambert-map note treats a single gain, equal geometry/parameters, nonnegative gains, and a near-center phenomenon, not the universal two-jet rank. Piecewise-smooth infinitesimal phase-response theory has a different scope. Targeted semantic searches did not return a statement implying the universal gain-minor result. Inaccessible older synthesis papers and unindexed higher-order phase-sensitivity work leave a real priority risk; a failed search is not a uniqueness certificate.
+PASS
 
-**Mathematical value — PASS.** Second-order return-clock coefficients quantify two distinct, natural timing responses to near-orbit perturbations. Proving strict controllability of both with *any pair* of shear knobs, for arbitrary origin-star-shaped polygon and heterogeneous positive edge rates, is a parameter-robust design principle that leaves geometry, basic period, and transverse stability fixed. This is not a mere re-expression of the model's known tangential freedom, nor a numerical gain choice.
+Integrating each affine sector yields exact ωt−1=s[(b+1)e^(−kt)−b], b=α−μΔ/k, and s_next=s e^(−kt). At μ*=k(α−q/(1−q))/Δ the selected local flight time is 1/ω for every sufficiently small incoming displacement, all N sectors calibrated. Taylor expansion gives ∂μ_i G=Q_i B_i and ∂μ_i H=−Q_i B_i R_i with R_i=Q_i c_i q_i/(1−q_i). As c/(1−e^−c)>1>c/(e^c−1), R_i>R_(i+1), and every ordered two-column determinant Q_i B_i Q_j B_j(R_i−R_j)>0; inverse-function theorem gives local independent control. Dynamics and Floquet multiplier unchanged. Independent symbolic/numeric equal-c triangle determinant 1/(16 log 2) checks algebra, not arbitrary polygons.
 
-The conclusion is local in both section displacement and gain perturbations; it does not control global hybrid continuation, full nonlinear response waveforms, or arbitrary large target coefficients. Historical priority and independent mathematical validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level novelty after actual Resultary semantic search, frozen source-package comparison and identified relevant primary mathematics. No inspected stronger claim was shown to imply this final theorem; acknowledged access/priority risks remain, not a claim of global uniqueness.
+
+## value
+
+PASS
+
+A robust local two-dimensional timing-response design law for arbitrary star-shaped polygon geometry and heterogeneous speeds/decays: any two tangential shears control first derivative and quadratic curvature while preserving period and stability. Not merely choosing gains or restating existing cycle existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
