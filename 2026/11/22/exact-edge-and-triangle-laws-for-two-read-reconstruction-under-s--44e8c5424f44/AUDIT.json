@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For every n>=0 and each listed forbidden triple, the Type-A edge normal form uniquely identifies the alternating difference interval; both phases avoid 001 exactly when a common prefix is empty or ends in 1 and a common suffix does not start 01. Their length series are P=1/(1-z-z^2) and S=(1+z)/(1-z-z^2). Every possible long-edge triangle cut has exactly one admissible splice, yielding E=P*S*z^2/(1-z), T=P*S*z^4/(1-z)^2. The factor orbit under reversal/complement covers all four triples. Both independent programs passed direct deck computations through n=12, explicit interval enumeration through n=10, and exact rational coefficient checks through n=32. Finite checks corroborate the structural proof and are not treated as an all-length proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Proposition 9 establishes an edge normal form for arbitrary alphabets, but not induced-graph counts under pattern avoidance.",
+        "The unrestricted triangle normal form has two splices per legal cut; under 001 avoidance precisely one is legal, and context sequences change from binary powers to Fibonacci factors."
+      ],
+      "reasoning": "These sources give indispensable stronger structural premises but not stronger enumerative statements. The induced-graph generating functions and exact cumulative edge–triangle relation require the independent local boundary analysis in the proof.",
+      "searches": [
+        "published-finding corpus: two reads single deletion confusability graph binary words avoiding 001 edge generating function exact",
+        "published-finding corpus: two reads single deletion avoid 001 sparse directed shift cycles triangle graph",
+        "full published source: Exact triangle spectrum of the two-read deletion-confusability graph",
+        "arxiv:2001.01376 Proposition 9",
+        "doi:10.1109/TIT.2022.3184868 Lemma 28"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2001.01376, Definition 8 and Proposition 9",
+      "doi:10.1109/TIT.2022.3184868, Lemma 28 and accompanying section",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-triangle-spectrum-of-the-two-read-deletion-confusability-g--e753c7b5bfd6, full RESULT.md",
+      "published-finding corpus:2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91, search abstract only",
+      "doi:10.1006/jcta.2000.3081, bibliographic/abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The unrestricted triangle theorem counts both splice types and arbitrary contexts: its generating series is 2z^4/((1-2z)^2(1-z)^2) in the binary case.",
+        "The restricted language forbids exactly one of two splice choices at every cut and imposes explicit asymmetric prefix/suffix constraints, giving z^4(1+z)/((1-z)^2(1-z-z^2)^2).",
+        "The source-specific nontrivial cumulative identity T_n = sum_{j=2}^{n-2} E_j is not asserted in the compared unrestricted works."
+      ],
+      "reasoning": "A theorem on the full graph does not numerically imply its induced subgraph count without an independent evaluation of boundary/motif effects. Conversely the prior edge and triangle structure does imply a general procedure, so no credit is claimed for the underlying interval classification or for a new abstract graph theorem.",
+      "searches": [
+        "published-finding corpus published: 2026/11/2/SCOPE-exact-triangle-spectrum-of-the-two-read-deletion-confusability-g--e753c7b5bfd6",
+        "published-finding corpus published: 2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+        "published-finding corpus: two reads single deletion confusability graph binary words avoiding 001 edge generating function exact",
+        "own ledger: exact two-read deletion ambiguity for 010-free binary words and bounded-run sources"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Binary forbidden factors 001, 100, 110, 011 form a reversal/complement orbit, distinct from 010 orbit.",
+        "Closest two-read graph results are unrestricted; known 010-avoidance result addresses different forbidden-factor orbit."
+      ],
+      "reasoning": "Reversal and bit complement preserve the deletion graph; this equivalence expands the result to four restrictions, but does not reduce it to 010 avoidance or a simultaneous bounded-run source. Searched for equivalent forbidden-triple settings.",
+      "searches": [
+        "published-finding corpus: 001 avoiding binary words two-read single deletion confusability edges triangles Fibonacci generating function",
+        "published-finding corpus: two-read deletion graph induced by 001 avoidance triangles edges rational generating functions",
+        "published-finding corpus: avoiding 100 or 001 2-confusable words graph",
+        "own ledger: 010-avoiding two-read deletion graph; bounded homopolymer ambiguity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact database or indexed table containing the 001-avoidance induced edge and triangle sequences was recovered.",
+        "Earlier finite and general edge/triangle enumerations in the accessible record do not specify the restricted sequences 1,4,11,26 or 0,0,1,5."
+      ],
+      "reasoning": "The actual searches did not reveal the same table, but absence from searched indexes alone is not uniqueness evidence; the novelty judgment rests on comparison to statements of identified close work. Residual risk of an unindexed motif-specific table remains.",
+      "searches": [
+        "published-finding corpus: 001 avoiding binary words two-read single deletion confusability edges triangles Fibonacci generating function",
+        "published-finding corpus: two-read deletion graph induced by 001 avoidance triangles edges rational generating functions",
+        "own ledger: all accessible 2026-11_week3 part 0001 prior finding claims and identifiers",
+        "web: two-read single deletion forbidden 001 Fibonacci triangles generating function"
+      ]
+    },
+    "rationale": "Qualified originality: read the entire closest published unrestricted triangle proof and material of the two primary deletion-reconstruction lemmas. The old edge/triangle normal forms do not provide the new source-constrained prefix/suffix Fibonacci enumerations or the one-legal-splice mechanism. published-finding corpus and accessible ledger phrase/alias searches did not uncover the same restricted edge or triangle generating series. This does not certify historical priority; see the material-read scope and residual risks.",
+    "residual_risks": [
+      "Unindexed older special-language (pattern 001) formula or equivalent constrained induced-graph sequence.",
+      "The full 2001 foundational paper and the full 2022 journal article were not read end-to-end; the actual relevant 2022 lemma section was examined.",
+      "Search coverage cannot demonstrate uniqueness; an unexamined specialized coding-theory source could imply the restricted formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers unrestricted triangle normal form and counts; does not impose 001 avoidance or evaluate induced-subgraph enumerators. Applied as a published premise, not re-claimed.",
+        "evidence": [
+          "Unique long interval and two shorter adjacent difference intervals; two splice orientations per cut.",
+          "Unrestricted rational series q(q-1)z^4/((1-qz)^2(1-z)^2)."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-triangle-spectrum-of-the-two-read-deletion-confusability-g--e753c7b5bfd6",
+        "material_read": "Entire RESULT.md, including definition, edge lemma, interval geometry proof, enumeration, and stated limitations",
+        "method": "Full public repository file fetched and read",
+        "title": "Exact triangle spectrum of the two-read deletion-confusability graph",
+        "trigger": "Closest exact triangle census and possibility of broad coverage"
+      },
+      {
+        "assessment": "Supports the common-deletion edge characterization used in proof; no 001-specific edge/triangle census found in examined material.",
+        "evidence": [
+          "Type-A confusability equivalent to opposite alternating phases on one disagreement interval."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2001.01376",
+        "material_read": "Definition 8, Proposition 9 and adjacent statement on Type-A confusable words",
+        "method": "Primary arXiv paper inspected at relevant page 6 (PDF image) and text",
+        "title": "Coding for Sequence Reconstruction for Single Edits",
+        "trigger": "Exact two-read Type-A edge equivalence"
+      },
+      {
+        "assessment": "Overlapping alternating-interval language and clique-cover context, no explicit induced graph counts for 001 omission in inspected section.",
+        "evidence": [
+          "Lemma 28 treats two-read deletion confusability structure."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TIT.2022.3184868",
+        "material_read": "Relevant Lemma 28 and adjacent deletion-reconstruction graph discussion on page 13",
+        "method": "Primary paper PDF page image inspected",
+        "title": "Correcting Deletions With Multiple Reads",
+        "trigger": "Potential stronger overlap theorem and alternate formulation"
+      },
+      {
+        "assessment": "Foundational reconstruction model; no assertion about restricted three-pattern graph. Limited material access.",
+        "evidence": [
+          "Public bibliographic date February 1, 2001; JCTA 93 (2001), 310–332."
+        ],
+        "identifier_or_url": "https://doi.org/10.1006/jcta.2000.3081",
+        "material_read": "Publication metadata and abstract, not full text",
+        "method": "Journal bibliographic metadata and publicly visible abstract",
+        "title": "Efficient Reconstruction of Sequences from Their Subsequences or Supersequences",
+        "trigger": "Original dated deletion-reconstruction problem and archival eligibility"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "44e8c542-4f44-46b7-b25c-ee53bf3deb82",
+  "value": {
+    "rationale": "The two-read reconstruction graph is a natural finite-blocklength ambiguity invariant. Exact all-length counts of competing source pairs and mutual ambiguity triples for an asymmetric, minimal-length forbidden local motif explain one-splice survival, yield a Fibonacci-modulated density, and establish a cumulative edge–triangle law with limiting mean three triangles per edge. This measures a structural channel-reconstruction gap rather than merely recomputing a familiar unrestricted count; no code-capacity claim is made.",
+    "status": "PASS"
+  }
+}
