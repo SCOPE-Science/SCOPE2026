@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T06:14:21.878848Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: At Delta_(4,7)/A4, orbits of increasing-column rook faces give 7,21,70,70 cells. The quotient boundary matrices from parity of omitted row have Smith ranks 6,15,55 and factors d3: 49 ones, five threes and one six; both consecutive compositions vanish. A separate original Python/SymPy implementation reconstructed these precise matrices independently and reproduced all Smith factors. The 2-skeleton contains a full 2-skeleton of a simplex, hence is simply connected; 3-cells preserve pi1. Since any simply connected 2-dimensional CW complex is a wedge of S2, the degree matrix gives a wedge of M(Z/6,2), 5 M(Z/3,2) and 15 S3. Arithmetic Euler and H2 agree; no appeal to mod-prime data alone.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published November 17 theorem covers ALL widths n>=7 and gives explicit row-A4 quotient cell complex, integral H2 and H3, 3-dimensionality and pi1=1."
+        ],
+        "reasoning": "The all-width prior theorem strictly dominates n=7. Combined with standard simply connected 2-CW wedge/attaching Smith reduction, it forces the claimed homotopy as a corollary.",
+        "searches": [
+          "Resultary query: chessboard complex 4x7 A4 row alternating group quotient Moore spaces torsion 2 3",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/17/SCOPE-unbounded-three-primary-torsion-in-alternating-row-quotients-of--87743fa8b568/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/17/SCOPE-unbounded-three-primary-torsion-in-alternating-row-quotients-of--87743fa8b568/RESULT.md",
+        "Resultary query: chessboard complex 4x7 A4 row alternating group quotient Moore spaces torsion 2 3",
+        "https://arxiv.org/abs/0709.3144",
+        "2026/11/17/mixed-primary-moore-summands-in-the-alternating-row-quotient-of--c8ca1fea68ea/RESULT.md",
+        "2026/11/17/mixed-primary-moore-summands-in-the-alternating-row-quotient-of--c8ca1fea68ea/verification/verify_orbits.py",
+        "2026/11/17/mixed-primary-moore-summands-in-the-alternating-row-quotient-of--c8ca1fea68ea/verification/verify_parity.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier theorem computes c0=n, c1=choose(n,2), c2=2choose(n,3), c3=2choose(n,4); 2-skeleton has full simplex triangles and pi1=1. Its H2, H3 determine Smith invariant data in dimension 3."
+        ],
+        "reasoning": "For a connected simply connected finite 3-CW complex, the 2-skeleton is simply connected (3-cells cannot alter pi1) and hence homotopy equivalent to a wedge of S2. Attach three-cells through π2=H2 with integer degrees. Its Smith form is fixed by H2 torsion and free H3; hence the claimed Moore/S3 wedge follows, leaving no original homotopy claim.",
+        "searches": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/17/SCOPE-unbounded-three-primary-torsion-in-alternating-row-quotients-of--87743fa8b568/RESULT.md",
+          "Source result: 4x7 orbit cellular ∂ matrices",
+          "Standard cellular Whitehead/Hurewicz and integer Smith reduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For n=7, Q_7 of the earlier theorem is exactly Delta_(4,7)/A4; earlier H2=Z/6+(Z/3)^5, rank H3=15 and pi1=1."
+        ],
+        "reasoning": "The earlier result uses an inclusion-matrix presentation, an equivalent CW quotient with no change in group/action. Its n=7 specialization is the same natural invariant, not just similar primes.",
+        "searches": [
+          "Resultary query: chessboard complex 4x7 A4 row alternating group quotient Moore spaces torsion 2 3",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/17/SCOPE-unbounded-three-primary-torsion-in-alternating-row-quotients-of--87743fa8b568/RESULT.md",
+          "Wilson incidence matrix W_(2,4)(n-1) in alternating-row quotient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior complete formula at n=7 gives the exact six nonunit Smith factors (3,3,3,3,3,6) and H3 rank 15; independent current computation matches."
+        ],
+        "reasoning": "The exact integer torsion and free-rank table was already available at this width; this is not a previously unknown finite value.",
+        "searches": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/17/SCOPE-unbounded-three-primary-torsion-in-alternating-row-quotients-of--87743fa8b568/RESULT.md",
+          "Resultary query: 4x7 row A4 Moore factors"
+        ]
+      },
+      "rationale": "FAIL: The earlier already-published all-width theorem Unbounded three-primary torsion in alternating-row quotients of four-row chessboard complexes gives for every n>=7 the SAME geometric quotient, pi1=1, H2=Z/6+(Z/3)^(n-2), H3=Z^r_n, and exact three-dimensional CW orbit structure. At n=7 this is exactly H2=Z/6+(Z/3)^5, H3=Z^15. Its cell description shows the 2-skeleton is simply connected. Any such three-dimensional simply connected CW complex has a wedge-S2 two-skeleton and 3-cell degree attaching maps; the existing integral homology/Smith invariants give the exact claimed Moore/sphere homotopy splitting by the standard CW/Smith reduction. Thus the final claim is implied by the stronger earlier published result plus routine elementary topology, despite the prior paper not explicitly spelling out the wedge notation.",
+      "residual_risks": [
+        "The earlier theorem states homology rather than an explicit homotopy wedge, but under its simply connected 3-dimensional CW hypotheses, a canonical standard Smith homotopy reconstruction supplies exactly the stated wedge; this is a mathematical implication, not title matching.",
+        "No revision narrowing to a genuinely new fact was supplied; the scientific source package must remain unchanged on failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisively covers n=7 integral invariants and CW inputs, implies present homotopy by standard reduction",
+          "evidence": "For n=7: Z/6+(Z/3)^5, H3=Z^15, π1=1; orbit cells in dimensions 0..3",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/17/SCOPE-unbounded-three-primary-torsion-in-alternating-row-quotients-of--87743fa8b568/RESULT.md",
+          "material_read": "Complete published RESULT.md: theorem, 3D orbit-cell model, explicit δ_abc and w_0ijk generators, W_(2,4)(n-1) presentation, Wilson diagonal-form application, H3 formula",
+          "method": "full primary result text via authorized GitHub read",
+          "title": "Unbounded three-primary torsion in alternating-row quotients of four-row chessboard complexes",
+          "trigger": "Exact same alternating-row quotient; stronger n>=7 theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: The first stable-width quotient is a mathematically natural finite instance, but the exact claimed homotopy is mechanically implied by a prior every-n>=7 integral cellular classification and standard 3-dimensional simply connected CW reduction. As submitted there is no unknown invariant, new structural lemma, boundary phenomenon or independent useful remainder. Independent recomputation of a known special case and presenting its implied Moore notation do not establish new scientific value.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The earlier theorem states homology rather than an explicit homotopy wedge, but under its simply connected 3-dimensional CW hypotheses, a canonical standard Smith homotopy reconstruction supplies exactly the stated wedge; this is a mathematical implication, not title matching.",
+    "No revision narrowing to a genuinely new fact was supplied; the scientific source package must remain unchanged on failure."
+  ],
+  "schema_version": 1
+}
