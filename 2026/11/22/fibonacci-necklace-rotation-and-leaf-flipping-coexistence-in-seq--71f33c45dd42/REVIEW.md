@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The precise domain is the labelled \(n\ge3\) sunlet, closed-neighborhood two-threshold (up one, down three), and permutation-sequential update order (rim, then leaves). The coding map duplicates the first site pair at the final rim position and is injective through its leaf bits. A rim-by-rim induction establishes \(a_i'=a_{i+1\bmod(n-1)}\), including the special final rim whose two neighbors have already changed. The pendant update then gives \(b_i'=s_{i+1\bmod(n-1)}\). Separately the all-one rim is preserved and its leaves complement. Lucas trace counting, inclusion-exclusion at the two alternating words, and Möbius inversion yield the stated exact counts **only within the constructed subsystem**. Verification scripts executed successfully; finite complete-system enumeration is not promoted to an infinite completeness proof.
+
+## Originality — PASS with residual priority risk
+Kuhlman et al. (arXiv:1108.2974, 2011), Proposition 3.6 and Section 4, exhibit one long orbit on a bare cycle and general graph constructions but not this decorated-graph invariant encoding. The closest later published research-record abstract, *Binary-necklace attractors and triangular-run basins for sequential bi-threshold cycles*, treats the bare cycle and all its binary necklaces, not dynamic private leaves or a golden-mean restriction. Existing sunlet calculations found in the record use synchronous majority or neighbor-parity maps, with different transition rules. The new statement supplies a concrete conjugacy and exact orbit counts not implied by those results alone. The closest 2026 full text was inaccessible, so an uninspected stronger theorem or unindexed equivalent could affect priority.
+
+## Value — PASS
+The minimal operation of attaching one private leaf to every cycle vertex changes the phenomenon from a documented single long-period construction to a geometrically motivated *exponential family* of rigorously constructed orbits, with an explicit hard-core symbolic dynamical system and exact divisor-by-divisor periods. An independent leaf-memory component produces \(2^{n-1}\) two-cycles, and the intersection has a sharp parity correction. These are natural orbit invariants for a canonical graph corona and hysteretic asynchronous updating, not an arbitrary finite parameter slice. No claim of complete global attractor classification, basin probabilities or relaxation bounds is necessary or made.
+
+## Closest literature and limitations
+The full 2011 open text was inspected, including its definitions, Proposition 3.6 and Section 4. The indexed 2026 bare-cycle result is the main unresolved full-text priority risk because its full file could not be accessed; the abstract describes no pendant-leaf reduction. Other contemporary sunlet records concern distinct update rules. The complete recurrent state equality observed in finite experiments through \(n=9\) remains unproved for arbitrary \(n\) and is not part of the accepted claim. Independent external validation has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
