@@ -1,19 +1,21 @@
-# Review of the global exclusion and recovery theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof uses an invariant prey strip, exact monotonicity of the predator-free prey map, and the nonincreasing predator multiplier at and below the invasion boundary. At equality, assuming a positive limiting predator population gives a contradiction via the accumulated prey deficit and the negative limiting prey exponent. An asymptotically autonomous scalar monotone map then confines every prey limit to three actual equilibria. For recovering orbits, a contracting ratio recurrence rigorously justifies the inverse-time asymptotics. The separate claims of an open recovery region and positive equilibria immediately above threshold follow from explicit inequalities and substitution. Exact-rational algebra and three long forward trajectories supplement the analytic argument but do not substitute for proof.
+PASS
 
-## Originality
+Correctness PASS. For 0<s<1, w, alpha, theta>0 and 0<x0<=1, y0>0, G(x)=(x-s)(1-x)/(x+w) satisfies G(x)<1-x on (0,1), so the prey strip remains invariant; g=x exp(G) has 1+xG'>0. Predator exponent is at most beta/(1+alpha)-theta and at equality equals -theta(1-x)/(1+alpha*x). A hypothetical positive predator limit at equality forces x->1 then strictly negative prey log-drift, contradiction. The asymptotically autonomous monotone prey map has liminf/limsup fixed among 0,s,1; lower barriers and the x<=s one-way region force one limit. For x->1 set u=1-x,v=y; the local recurrence u_next=(1-a)u+bv+O((u+v)^2), log(v_next/v)=-ku+O(u^2), with a=(1-s)/(1+w), b=1/(1+alpha), k=theta/(1+alpha). The ratio u/v is bounded by a contracting affine inequality then tends to b/a; reciprocal v increments tend to k*b/a, yielding the two asserted n-scaled amplitudes. f_eta(t)>t gives a nonempty open recovery wedge, and above-threshold explicit (x*,y*) is positive for small delta. Numerically checked three critical examples at n=200000 and exactly differentiated G; no finite sampling is offered as proof.
 
-**PASS within inspected evidence.** Patra–Maitra (2024, arXiv:2403.13316v1), sections 2–5 and conclusion, provide the precise map, local fixed-point analysis, Neimark–Sacker results, and extinction simulations; the inspected text does not cover the all-orbit predator-exclusion conclusion, global prey-limit trichotomy, and exact critical coefficients. Xia–Li (2022, DOI:10.3934/mmc.2022027) analyze a different map and do not dominate the theorem. The later journal issue has a closely matching abstract but the full revised article is subscription-restricted; general center-manifold asymptotics and unindexed overlapping results remain priority risks. Originality here does not rest on a proof of uniqueness from database partitioning.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Local invasion multipliers alone cannot decide all orbits in a strongly Allee-dependent map admitting extinction and coexistence under different conditions. The theorem upgrades a known local threshold to a global exclusion result and computes a parameter-sharp inverse-time relaxation profile on an open surviving set. Its prey coefficient surprisingly eliminates both Allee parameters, giving a meaningful quantitative prediction at an ecologically motivated boundary. The result is not merely a reformulated local stability inequality.
+Originality PASS, best of knowledge. Patra–Maitra introduced precisely this exponential Holling-II strong double-Allee map and derived local equilibria/Neimark–Sacker analysis; its accessible 2024 preprint and the 2026 journal abstract do not establish every-orbit extinction at beta_c, prey-limit trichotomy, or the exact pair of critical amplitudes. Other critical predator papers found by Resultary concern altered prey/predator equations and hence do not imply these map-specific constants. The 2026 subscription journal full text could not be inspected because authorized Oxford retrieval returned vpn_disconnected; priority remains bounded and uncertain, not rejected solely for access.
 
-## Scope and caveats
+## value
 
-This analysis is confined to the invariant prey strip and fixed positive strong-Allee parameters. Critical inverse-time limits are conditional on prey recovery, which is independently shown to occur on a nonempty open set. It does not claim universal prey survival or stability of the above-threshold positive equilibrium. The 2026 subscription-restricted journal version could not be inspected beyond its abstract.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Value PASS. A globally sharp invasion/exclusion boundary with all-orbit prey endpoint classification and universal critical constants, conditional on an explicitly nonempty recovery basin, is a substantive qualitative and quantitative result for a named ecological difference equation. The critical 1/n amplitudes require nonlinear coupling analysis and are not a routine equilibrium linearization; an above-threshold existence witness sharpens the biological boundary without claiming stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
