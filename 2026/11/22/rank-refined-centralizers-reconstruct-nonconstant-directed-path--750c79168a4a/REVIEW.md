@@ -1,0 +1,19 @@
+# Scientific review: rank-refined centralizers of finite directed-path clamps
+
+## Correctness — PASS
+
+All parameters and map domains are specified for every integer \(n\ge1\). The commuting criterion is necessary and sufficient on the interior and both tails. Binary increments are counted with image-rank weights, giving a polynomial valid at both endpoints and for constant clamps. Its degree-zero and degree-two coefficients independently determine the central gap and the product of endpoint gaps, reconstructing each nonconstant clamp up to reversal. Summing three independent gap lengths gives the rational multivariate series; setting the interval-length marker to one gives the factored aggregate series. Singularity analysis at its unique dominant double pole for \(z\) near one establishes the conditional central limit theorem. A standalone checker directly enumerated all maps and centralizers for \(1\le n\le11\), including characteristic-free boundary cases, and checked the aggregate finite series and reconstruction. Finite enumeration is corroboration, not proof of the infinite statements.
+
+## Originality — PASS against the inspected prior statements, with residual priority risk
+
+Fernandes–Paulista (arXiv:2112.13427v1, public 2021-12-26) and Fernandes (arXiv:2407.05084v1) establish the precise monoid and its elementary cardinalities. The two published centralizer results *Centralizer profiles and a quadratic limit law for idempotent finite-chain contractions* (2026-10-25) and *Idempotent centralizers and commuting semilattices in a finite directed-path monoid* (2026-11-02) already determine exactly the same **unrefined** centralizer counts. Their full result statements and proofs were compared; those counts, as well as the known unrefined commuting-pair totals, are explicitly excluded from the present novelty claim. These sources do not state the complete rank-by-rank polynomials, the two-coefficient reconstruction, the joint rational rank series, or the uniform-commuting-pair Gaussian law. *Eventual-image fibers and independent geometric–Gaussian limits in directed-path weak endomorphisms* (2026-11-01) stratifies all maps by eventual fixed intervals and rank, not by commutation with another chosen clamp. Older semigroup enumeration may implicitly subsume portions, so worldwide novelty is not guaranteed.
+
+## Value — PASS
+
+Image rank is an intrinsic and widely useful transformation-semigroup invariant. It is not determined by the known unrefined centralizer cardinalities: for chain length four, the centralizer of a constant clamp and the centralizer of the clamp to the middle two points both have size eight, yet their rank polynomials differ. The first and third coefficients alone recover the geometric position of every nonconstant clamp modulo reflection. The same refinement produces an exact, positive-coefficient rational census for all ordered commuting pairs and a Gaussian rank law under the natural uniform-pair sampling convention. These results provide substantive structure beyond unweighted enumeration rather than a change of notation or arbitrary isolated finite data.
+
+## Primary literature, risk and boundaries
+
+The two original monoid papers were read in accessible full-text form, as were the full published result statements and proofs of both earlier exact centralizer formulas. The eventual-image comparison was also read. Catalan-monoid centralizers address a different, decreasing-maps monoid. The rank-refined result is not claimed for centralizers of nonidempotents, and the constant-clamp positional failure is explicit. Literature comparisons cannot prove global priority; any general preexisting rank-weighted centralizer theorem could cover the claim after specialization and remains a residual historical risk.
+
+Self-review: passed. Independent audit: not yet performed.
