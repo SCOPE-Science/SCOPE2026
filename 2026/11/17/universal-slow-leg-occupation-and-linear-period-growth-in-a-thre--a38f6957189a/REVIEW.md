@@ -1,19 +1,21 @@
-# Assessment of a high-energy three-species Lotka–Volterra theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For fixed strictly positive \(a,d,K\), differentiation gives \(BD/C=K\), and the positive leaf has the canonical Hamiltonian \(F_K=e^p+e^q+K^{-1}e^{p+q}-dp-aq\) in \(p=\log B\), \(q=\log D\). The Hessian is strictly positive and the Hamiltonian proper. Thus each nonminimum energy level is a simple periodic orbit. The coarea identity identifies its original-time period with the derivative of canonical enclosed area. Convex sublevels and the Brunn–Minkowski inequality make the square root of area concave; its linear asymptotic is read off from a limiting triangle, and concavity independently justifies differentiating the leading area law. This yields the exact coefficient \(1/(ad)\). Away from both ends of the limiting triangle's hypotenuse the lower energy branch has \(\dot p=-a+o(1)\); its trajectory consumes asymptotically the whole period and samples the normalized logarithms uniformly on the stated segment. Symbolic differentiation checks the Casimir, Hamiltonian vector field and conservation. Numerical quadrature approaches the predicted period slope in independent parameter examples; it does not replace the proof.
+PASS
 
-## Originality — PASS within inspected coverage
+For fixed positive a,d,K the conserved K=BD/C reduces the full flow exactly to a canonical two-variable convex Hamiltonian F=e^p+e^q+e^(p+q)/K-dp-aq. Hessian determinant is e^(p+q)+K^(-1)e^(p+q)(e^p+e^q)>0 and F is proper, yielding one critical point and simple closed positive levels. Original time obeys T(E)=A'(E) by coarea. E-scaled sublevel sets converge in bounded support to the negative-quadrant triangle of area 1/(2ad), while Brunn–Minkowski concavity of sqrt(A) justifies differentiating the area asymptotic; therefore T(E)/E→1/(ad). On the lower q branch with -dp/E in [δ,1-δ], q=-(E+dp)/a+o(1) and dot p=-a+o(1); its flight consumes limiting proportion 1-2δ, yielding uniform joint scaled negative-log samples after δ↓0. Independent SymPy verified Casimir, Hamiltonian equations, Hessian algebra; not a numerical proof of E→∞.
 
-Van der Kamp–McLaren–Quispel, arXiv:2408.14720, contains the exact three-block inhomogeneous Lotka–Volterra family and its Poisson and Lambert-W integrability. Their Introduction, sections on Hamiltonians and solvability, summary, and appendix on two- and three-dimensional solutions were inspected in full-text HTML. These give no high-energy original-time period slope or time-uniform three-log-population limit. The 2019 Kobayashi–Suzuki–Yamada periodic-orbit classification concerns existence, whereas the new claim quantifies the period and entire time-sampled distribution on one fixed three-component leaf. Waldvogel's 1983 two-species period law and subsequent separable period-energy analyses do not contain this mixed-exponential three-species asymptotic. A 2024 skew-Lotka–Volterra metapopulation article was read in accessible introductory and model sections, showing a migration-focused problem, not a stated implication. Available records concerning unrelated cubic global centers and Kolmogorov period functions have different Hamiltonians and limiting regimes and do not imply this claim from the inspected material. Broad 1998 periodic-orbit literature remained inaccessible in full text: the publisher abstract and accessible excerpt were checked; the complete text could not be obtained through accessible lawful sources. General-purpose convex or tropical Hamiltonian theorems that could subsume this exact application cannot be ruled out. Lack of a search match is not proof of absolute novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The original paper's integrability classification does not give the asymptotic physical-time speed of an orbit at large energy. Here, a fixed positive leaf contains periodic trajectories spending almost all physical time in states with exponentially small populations, and the theorem computes their linear-in-energy period *and* the limiting joint log-abundance law. The universality with respect to the Casimir \(K\) isolates a robust dynamical mechanism and supplies a concrete quantitative observable that distinguishes orbit existence from time sampling. The combined law is a nontrivial structural result, not a restatement of solvability or a small numerical improvement.
+Best-of-knowledge statement-level novelty after actual Resultary semantic search, frozen source-package comparison and identified relevant primary mathematics. No inspected stronger claim was shown to imply this final theorem; acknowledged access/priority risks remain, not a claim of global uniqueness.
 
-## Limitations and closest evidence
+## value
 
-No uniformity when \(a,d,K\) vary; only bounded-continuous-test weak convergence; no optimal rate or second period term. Full-text access to the Plank 1998 article was not established. Some additional older literature was checked only at the abstract/excerpt level. Broader general-period asymptotic theorems remain a priority risk. These risks do not amount to a known implication of the exact combined claim in inspected evidence.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Original-time high-energy orbit occupation and leaf-independent period coefficient for a natural integrable three-species interaction provide interpretable dynamical invariants beyond mere integrability or periodicity. The full limiting joint law distinguishes typical small-abundance configurations from fast excursions, and could support tropical/large-energy asymptotic comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

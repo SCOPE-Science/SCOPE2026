@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the high-energy three-population theorem
+# Independent mathematical audit
 
-The proof uses the conserved Casimir \(BD/C\) and an exactly canonical two-dimensional Hamiltonian. Its Hessian determinant is \(e^{p+q}+K^{-1}e^{p+q}(e^p+e^q)>0\). Properness and strict convexity give one periodic orbit at every energy above the minimum. The coarea identity exactly matches the period and canonical enclosed-area derivative; convexity and Brunn–Minkowski justify derivative asymptotics from the triangular scaling limit. The controlled interior negative-logarithm branch consumes asymptotically full orbital time and yields the uniform segment measure. All constants are for fixed positive \(a,d,K\).
+## correctness
 
-The included `check.py` requires Python 3, NumPy, SciPy and SymPy. It checks symbolic conservation/field identities and finite-energy quadrature at two independent parameter sets, obtaining period/energy ratios approaching the proven limit. The computations are not an infinite-energy proof. No result is claimed for vanishing or varying parameters, total-variation convergence, or an error-rate estimate. Sources inaccessible in full text are indicated in REVIEW.md and AUDIT.json.
+PASS
 
-No external independent mathematical validation has been performed.
+For fixed positive a,d,K the conserved K=BD/C reduces the full flow exactly to a canonical two-variable convex Hamiltonian F=e^p+e^q+e^(p+q)/K-dp-aq. Hessian determinant is e^(p+q)+K^(-1)e^(p+q)(e^p+e^q)>0 and F is proper, yielding one critical point and simple closed positive levels. Original time obeys T(E)=A'(E) by coarea. E-scaled sublevel sets converge in bounded support to the negative-quadrant triangle of area 1/(2ad), while Brunn–Minkowski concavity of sqrt(A) justifies differentiating the area asymptotic; therefore T(E)/E→1/(ad). On the lower q branch with -dp/E in [δ,1-δ], q=-(E+dp)/a+o(1) and dot p=-a+o(1); its flight consumes limiting proportion 1-2δ, yielding uniform joint scaled negative-log samples after δ↓0. Independent SymPy verified Casimir, Hamiltonian equations, Hessian algebra; not a numerical proof of E→∞.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement-level novelty after actual Resultary semantic search, frozen source-package comparison and identified relevant primary mathematics. No inspected stronger claim was shown to imply this final theorem; acknowledged access/priority risks remain, not a claim of global uniqueness.
+
+## value
+
+PASS
+
+Original-time high-energy orbit occupation and leaf-independent period coefficient for a natural integrable three-species interaction provide interpretable dynamical invariants beyond mere integrability or periodicity. The full limiting joint law distinguishes typical small-abundance configurations from fast excursions, and could support tropical/large-energy asymptotic comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
