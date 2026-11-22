@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T02:47:59Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-sobolev-widths-from-discontinuous-affine-splines-and-a-sha--620798593d20/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-sobolev-widths-from-discontinuous-affine-splines-and-a-sha--620798593d20/check.py",
+        "Private finite Neumann spectral Gram calculations /mnt/data/scope06_20261118T0234Z_work/independent_math_checks.py"
+      ],
+      "rationale": "For H1(0,1) Neumann cosine coefficients a_n, projection away from constants and normalized affine ell(t)=sqrt(12)(t-1/2) has squared residual sum|a_n|²-|sum v_n a_n|², with v_n=0 for even n, |v_n|²=96/(n^4 pi^4) for odd n. The derivative energy is pi²sum n²|a_n|². For even sector n=2 alone saturates 1/(4pi²); for odd sector q=96/pi^4>27/32 and C=sum_{odd n>=3}|v_n|²/(n²/4-1)<=4(1-q)/5 prove strict suboptimality via Cauchy-Schwarz. Scaling gives each cell h_j/(2pi), and the global sharp seminorm norm H/(2pi) with precisely endpoint-matched cos(2pi cycle)-1 contributions on longest cells. For uniform N cells, cos(2pi Nx) is orthogonal to both affine basis functions on each cell and reaches full H1 constant 1/sqrt(1+(2pi N)^2), matching the known singular value of H1->L2 at index 2N; the projection-zero equality condition forces a global cosine. I independently diagonalized truncated cosine Gram error operators K=4,20,100,500 with maximum squared eigenvalue 1/(4pi²), and checked algebraic equalities. Infinite H1 assertion rests on Fourier energy/completeness and strict odd-mode gap, not finite truncation.",
+      "residual_risks": [
+        "The largest-cell seminorm constant applies arbitrary meshes; full-norm exact width optimality and unique scalar global cosine are claimed only for uniform mesh.",
+        "A nonuniform-mesh full-norm strictness vs its own upper envelope is not a full mesh minimization theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical Kolmogorov n-width values of H1 ball are known; a general optimal subspace from Neumann eigenfunctions is not equal to the concrete broken-affine V_pi a priori."
+        ],
+        "reasoning": "Known optimal spaces exist, but the precise chosen spline class achieving the width for every N is extra and is not covered in inspected full Yang–Zhang.",
+        "searches": [
+          "discontinuous linear splines degree 1 Sobolev H1 L2 Kolmogorov n widths uniform grids optimal 1/(2pi)",
+          "Floater Sande 2017 optimal spline spaces prescribed boundary conditions",
+          "Yang Zhang 2026 pdf Theorem A/B"
+        ]
+      },
+      "checked_sources": [
+        "discontinuous linear splines degree 1 Sobolev H1 L2 Kolmogorov n widths uniform grids optimal 1/(2pi)",
+        "https://borowiecki.dev/pdf/2611.10371",
+        "https://arxiv.org/abs/1709.02710",
+        "https://doi.org/10.1007/BF01890021"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Asymptotic ratio Λ_n→1 does not imply Λ_{2N}=1 at each finite N. Sharp singular values of unrestricted H1 embedding alone give d_{2N}, not that V_pi exactly attains it."
+        ],
+        "reasoning": "No source statement inspected entails the exact finite uniform spline rate plus full equality family.",
+        "searches": [
+          "Yang Zhang 2026 Theorem A B and Sec 5",
+          "discontinuous linear splines degree 1 Sobolev H1 L2 Kolmogorov n widths uniform grids optimal 1/(2pi)",
+          "Floater Sande arxiv:1709.02710"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026 paper defines exactly the same discontinuous degree-one spline class; its Theorems A/B and Sec 5 give asymptotic bounds/numerics. Melkman-Micchelli optimal spline spaces generally involve different prescribed knot/boundary spaces."
+        ],
+        "reasoning": "Same n-width objective, but different assertion strength and exact affine space; finite optimality does not follow immediately from asymptotic comparison.",
+        "searches": [
+          "discontinuous linear splines degree 1 Sobolev H1 L2 Kolmogorov n widths uniform grids optimal 1/(2pi)",
+          "Yang Zhang arxiv:2611.10371v1 k=1 mu=-1 s=1",
+          "Melkman Micchelli 1978 Spline spaces optimal for L2 n-width"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Yang–Zhang numerical cases include nu=2 borderline, but no finite identity for N=1,2,... and complete arbitrary mesh equality classification; other Resultary spline results concern L∞ projection stability, not H1-to-L2 best approximation."
+        ],
+        "reasoning": "No exact table directly covers the all-N equality and supported-cosine extremizer family, though classical book sections might.",
+        "searches": [
+          "discontinuous linear splines degree 1 Sobolev H1 L2 Kolmogorov n widths uniform grids optimal 1/(2pi)",
+          "Yang Zhang 2026 tables 2–4",
+          "Pinkus 1985 n widths Sobolev spaces",
+          "Resultary spline projection norms"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact nonasymptotic 2N-dimensional uniform broken-affine spline width and arbitrary-mesh complete seminorm equality family. Yang–Zhang 2026 compares the same k=1,mu=-1,s=1 exceptional regime but states asymptotic A/B bounds and numerical studies, not the exact finite-N identity or all-mesh extremizers. Classic n-width singular values and Poincaré Fourier methods are prior tools but do not themselves assert this specific spline optimality.",
+      "residual_risks": [
+        "Older Pinkus/Melkman–Micchelli exact optimal subspace characterizations were not fully inspected, and could hide the same discontinuous affine case.",
+        "Yang–Zhang source is hosted by a third-party PDF mirror of arXiv 2611.10371; pages visibly inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Paper provides asymptotic and numerical comparisons; no exact every-N broken affine optimality or arbitrary mesh extremizer theorem appears in inspected sections",
+          "evidence": [
+            "Theorem A,B p4; Theorem4.5 p24; Table2 p34, ν=2 borderline"
+          ],
+          "identifier_or_url": "https://borowiecki.dev/pdf/2611.10371",
+          "material_read": "Full 37-page PDF, relevant pages 1, 4, 24, 34 visually inspected plus HTML-extracted Theorems A/B, Sec 4 and 5 numerical tables and definitions",
+          "method": "PDF extracted-text reading plus explicit PDF page screenshots",
+          "title": "How good are spline spaces for the Kolmogorov n-width of a Sobolev ball?",
+          "trigger": "Same discontinuous linear spline space and Sobolev n-width optimization"
+        },
+        {
+          "assessment": "Boundary-conditioned setting materially different; full text not inspected so residual risk",
+          "evidence": [
+            "Spline spaces with boundary conditions"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1709.02710",
+          "material_read": "Abstract and bibliographic metadata, not full proof",
+          "method": "Abstract only",
+          "title": "Optimal spline spaces for L2 n-width problems with boundary conditions",
+          "trigger": "General spline optimality can potentially dominate"
+        },
+        {
+          "assessment": "Potential priority; no claim made of whole-paper noncoverage",
+          "evidence": [
+            "Classical optimal spline spaces, possibly nonuniform knots or boundary data"
+          ],
+          "identifier_or_url": "https://projecteuclid.org/journals/illinois-journal-of-mathematics/volume-22/issue-3/Spline-spaces-are-optimal-for-L2-n-width/10.1215/ijm/1256048735.full",
+          "material_read": "Title and bibliographic secondary context, no full reading",
+          "method": "Title and metadata only",
+          "title": "Spline spaces are optimal for L2 n-width",
+          "trigger": "Classical optimal spline result may contain covered finite case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-sobolev-widths-from-discontinuous-affine-splines-and-a-sha--620798593d20/RESULT.md",
+        "https://borowiecki.dev/pdf/2611.10371"
+      ],
+      "rationale": "This establishes a rare exact optimality of an elementary finite-element subspace at every even dimension, not merely asymptotic approximation order, together with sharp nonuniform cell-size error and a full equality classification. Those precise constants and extremizers are useful for sharp interpolation/approximation and benchmark discretization studies.",
+      "residual_risks": [
+        "Applies specifically to H1 input and discontinuous degree-one splines; no general higher-smoothness spline result follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The largest-cell seminorm constant applies arbitrary meshes; full-norm exact width optimality and unique scalar global cosine are claimed only for uniform mesh.",
+    "A nonuniform-mesh full-norm strictness vs its own upper envelope is not a full mesh minimization theorem.",
+    "Older Pinkus/Melkman–Micchelli exact optimal subspace characterizations were not fully inspected, and could hide the same discontinuous affine case.",
+    "Yang–Zhang source is hosted by a third-party PDF mirror of arXiv 2611.10371; pages visibly inspected.",
+    "Applies specifically to H1 input and discontinuous degree-one splines; no general higher-smoothness spline result follows."
+  ],
+  "schema_version": 1
+}
