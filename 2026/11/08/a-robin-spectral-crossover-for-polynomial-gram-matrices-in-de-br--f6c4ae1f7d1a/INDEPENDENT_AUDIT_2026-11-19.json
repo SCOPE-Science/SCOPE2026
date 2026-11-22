@@ -1,0 +1,176 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T00:06:04.379739Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-robin-spectral-crossover-for-polynomial-gram-matrices-in-de-br--f6c4ae1f7d1a/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-robin-spectral-crossover-for-polynomial-gram-matrices-in-de-br--f6c4ae1f7d1a/CHECK.py",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-robin-spectral-crossover-for-polynomial-gram-matrices-in-de-br--f6c4ae1f7d1a/VERIFICATION.md",
+        "E. Dellepiane and D. Seco, Orthogonal polynomials in de Branges–Rovnyak spaces, arXiv:2603.03093v1, §§2–4 and Theorem 3.3, https://arxiv.org/html/2603.03093v1",
+        "A. Daniluk, On Some Approximations of Integrals of the Stochastic Processes and Their Applications to Various Financial Problems, 2010 doctoral thesis, Chapter 6 Theorem 6.6, https://ruj.uj.edu.pl/bitstreams/22f0a50d-78ef-4855-8261-0f509483c429/download"
+      ],
+      "rationale": "From the actual eight Git blobs the canonical Pythagorean mate a_c=(1+sqrt(1-c²))(1-qz)/2 and phi=b/a=sqrt(q)(1+z)/(1-qz) give the finite coefficient-sum Gram identity; the reflected AR(1) closed form and q=1 limit follow. For lower bidiagonal D with -q subdiagonal, D G D^*=diag(1+q,(1+q)²,...), so det=(1+q)^(2n+1) and the tridiagonal inverse has the stated boundary entries. Canonical norm gives λmin≥1; an alternating interior vector yields inverse Rayleigh ≥1−1/[2(n−1)], hence uniform λmin→1. If n(1−q_n)→τ, uniform step-kernel convergence to 4 times the Dirichlet–Robin Green kernel implies all fixed-index λ_j(G_n)/n² limits with roots omega cos omega+τ sin omega=0, including τ=0. For n(1−q_n)→∞, Hardy multiplier norm gives λmax≤((1+q)/(1−q))²; a last-half constant vector controls the finite-block Toeplitz defect and reflected correction, giving matching asymptotics. The q→0 small-symbol case and q=1 endpoint do not invalidate the bounds. These are analytic arguments; independent finite checks only corroborate their algebra/numerics.",
+      "residual_risks": [
+        "Continuum Green-eigenvalue theorem is classical, but the claimed finite-section joint-limit transfer is directly justified by uniform step-kernel convergence.",
+        "Verification is analytical/numerical independent review, not machine-formal Lean or an external expert attestation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "An exact Toeplitz band for every boundary-pole de Branges–Rovnyak Gram matrix, Resultary 2026/11/1, https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-an-exact-toeplitz-band-for-every-boundary-pole-de-branges-rovnya--6c180207a945",
+          "E. Dellepiane and D. Seco, Orthogonal polynomials in de Branges–Rovnyak spaces, arXiv:2603.03093v1, §§2–4 and Theorem 3.3, https://arxiv.org/html/2603.03093v1",
+          "A. Daniluk, On Some Approximations of Integrals of the Stochastic Processes and Their Applications to Various Financial Problems, 2010 doctoral thesis, Chapter 6 Theorem 6.6, https://ruj.uj.edu.pl/bitstreams/22f0a50d-78ef-4855-8261-0f509483c429/download"
+        ],
+        "reasoning": "The 2026/11/1 theorem has very broad arbitrary polynomial P/Q but REQUIRES all zeros of Q on the unit circle. For the present symbol phi_c=sqrt(q)(1+z)/(1-qz), Q=1-qz has a zero 1/q>1 for 0<q<1 and meets that assumption only at q=1. At that endpoint the theorem gives transformed Toeplitz bands, not a joint-n and c-dependent condition-number limit. Dellepiane–Seco treat the boundary c=1 orthogonal polynomials and general norm identity but not the stated near-boundary finite-section spectral crossover. OU spectral theory dominates the continuum eigenvalues yet not, without an additional model-specific identification and convergence theorem, the full current canonical H(b) result.",
+        "searches": [
+          "de Branges Rovnyak monomial Gram matrix b(z)=c(1+z)/2 Robin boundary spectrum condition number eigenvalue crossover 1-c2",
+          "de Branges Rovnyak canonical monomial Gram matrix determinant tridiagonal inverse sharp spectrum",
+          "Resultary published 2026/11/1 arbitrary boundary-pole de Branges–Rovnyak Toeplitz band theorem",
+          "arXiv 2603.03093 Dellepiane Seco sections 3–4"
+        ]
+      },
+      "checked_sources": [
+        "E. Dellepiane and D. Seco, Orthogonal polynomials in de Branges–Rovnyak spaces, arXiv:2603.03093v1, §§2–4 and Theorem 3.3, https://arxiv.org/html/2603.03093v1",
+        "A. Bourget, A. Alvarez Loya, T. McMillen, Spectral Asymptotics for Kac–Murdock–Szegő Matrices, arXiv:1610.00084, https://ar5iv.labs.arxiv.org/html/1610.00084",
+        "N. J. Higham, What Is the Kac–Murdock–Szegő Matrix?, 2021, https://nhigham.com/2021/07/06/what-is-the-kac-murdock-szego-matrix/",
+        "B. Łanucha and M. T. Nowak, Examples of de Branges–Rovnyak spaces generated by nonextreme functions, arXiv:1807.04347, https://ar5iv.labs.arxiv.org/html/1807.04347",
+        "An exact Toeplitz band for every boundary-pole de Branges–Rovnyak Gram matrix, Resultary 2026/11/1, https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-an-exact-toeplitz-band-for-every-boundary-pole-de-branges-rovnya--6c180207a945",
+        "A. Daniluk, On Some Approximations of Integrals of the Stochastic Processes and Their Applications to Various Financial Problems, 2010 doctoral thesis, Chapter 6 Theorem 6.6, https://ruj.uj.edu.pl/bitstreams/22f0a50d-78ef-4855-8261-0f509483c429/download",
+        "All-order fixed-DCT rank-one factorization of the AR(1) Karhunen–Loève transform, Resultary 2026/9/18, https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-all-order-ar1-klt-fixed-dct-factorization--120f5c07b3b8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A. Daniluk, On Some Approximations of Integrals of the Stochastic Processes and Their Applications to Various Financial Problems, 2010 doctoral thesis, Chapter 6 Theorem 6.6, https://ruj.uj.edu.pl/bitstreams/22f0a50d-78ef-4855-8261-0f509483c429/download",
+          "E. Dellepiane and D. Seco, Orthogonal polynomials in de Branges–Rovnyak spaces, arXiv:2603.03093v1, §§2–4 and Theorem 3.3, https://arxiv.org/html/2603.03093v1",
+          "A. Bourget, A. Alvarez Loya, T. McMillen, Spectral Asymptotics for Kac–Murdock–Szegő Matrices, arXiv:1610.00084, https://ar5iv.labs.arxiv.org/html/1610.00084",
+          "An exact Toeplitz band for every boundary-pole de Branges–Rovnyak Gram matrix, Resultary 2026/11/1, https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-an-exact-toeplitz-band-for-every-boundary-pole-de-branges-rovnya--6c180207a945"
+        ],
+        "reasoning": "The exact continuum eigenvalue/root constant is a direct specialization of Daniluk OU KL formula (tau=b,T=1), so it is covered. Norm identity of Dellepiane–Seco gives the Gram representation by further finite algebra; standard quadrature/operator-convergence techniques can then transfer known OU eigenvalues, but none of the inspected named prior theorems states or automatically implies the full claim about this canonical H(b_c) family and matching smallest/maximum eigenvalue asymptotics for arbitrary q_n. Prior stationary KMS symbol theorems focus on eigenvalue distribution for fixed symbols; they do not imply this double-scaling fixed-index law without new uniform comparisons. The original contribution is the combined quantitative Hilbert-space identification and sharp spectral-conditioning crossover, not any individual classical tool or continuum root.",
+        "searches": [
+          "polynomial Gram matrices H(b) de Branges Rovnyak reflected Kac Murdock Szego Green operator local to unity",
+          "local to unity AR(1) covariance eigenvalues Dirichlet Robin finite sample n(1-rho) transition",
+          "reflected AR(1) covariance q^|i-j|-q^(i+j+1) eigenvalues robin local to unit root",
+          "local to unity zero-start OU kernel Robin eigenvalues + H(b) norm identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A. Daniluk, On Some Approximations of Integrals of the Stochastic Processes and Their Applications to Various Financial Problems, 2010 doctoral thesis, Chapter 6 Theorem 6.6, https://ruj.uj.edu.pl/bitstreams/22f0a50d-78ef-4855-8261-0f509483c429/download",
+          "N. J. Higham, What Is the Kac–Murdock–Szegő Matrix?, 2021, https://nhigham.com/2021/07/06/what-is-the-kac-murdock-szego-matrix/",
+          "A. Bourget, A. Alvarez Loya, T. McMillen, Spectral Asymptotics for Kac–Murdock–Szegő Matrices, arXiv:1610.00084, https://ar5iv.labs.arxiv.org/html/1610.00084",
+          "All-order fixed-DCT rank-one factorization of the AR(1) Karhunen–Loève transform, Resultary 2026/9/18, https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-all-order-ar1-klt-fixed-dct-factorization--120f5c07b3b8"
+        ],
+        "reasoning": "The scaled kernel is four times the covariance Green kernel of an OU process started at zero: K_tau(u,v)=(2/tau)(exp(-tau|u-v|)-exp(-tau(u+v)))=4 Cov(X_u,X_v) when dX=-tau X dt+dW. Daniluk Theorem 6.6 already has eigenvalues 1/(tau²+omega_j²) with omega_j cos omega_j+tau sin omega_j=0, so this continuum spectral formula is KNOWN, not a claimed first computation. A stationary Kac–Murdock–Szegő matrix q^|i-j| is not our exact half-line reflected matrix because it omits -q^(i+j+1) and has distinct edge conditions. Its limiting OU operator is an equivalent component, but none of the inspected sources simultaneously states/proves the canonical H(b_c) finite-degree conditioning transition.",
+        "searches": [
+          "polynomial Gram matrices H(b) de Branges Rovnyak reflected Kac Murdock Szego Green operator local to unity",
+          "local to unity AR(1) covariance eigenvalues Dirichlet Robin finite sample n(1-rho) transition",
+          "reflected AR(1) covariance q^|i-j|-q^(i+j+1) eigenvalues robin local to unit root",
+          "Daniluk 2010 Chapter 6 Theorem 6.6 zero-start Ornstein–Uhlenbeck Karhunen–Loève spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "N. J. Higham, What Is the Kac–Murdock–Szegő Matrix?, 2021, https://nhigham.com/2021/07/06/what-is-the-kac-murdock-szego-matrix/",
+          "A. Bourget, A. Alvarez Loya, T. McMillen, Spectral Asymptotics for Kac–Murdock–Szegő Matrices, arXiv:1610.00084, https://ar5iv.labs.arxiv.org/html/1610.00084",
+          "An exact Toeplitz band for every boundary-pole de Branges–Rovnyak Gram matrix, Resultary 2026/11/1, https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-an-exact-toeplitz-band-for-every-boundary-pole-de-branges-rovnya--6c180207a945"
+        ],
+        "reasoning": "Known exact AR(1) covariance matrices, their inverse Jacobi form, and OU continuum root tables are recognized as earlier calculations. The inspected comparisons do not provide a preexisting table of all n,c for canonical monomial Gram H(c(1+z)/2) including the det=(1+q)^(2n+1), uniform smallest eigenvalue, and joint-scaling full fixed-index asymptotics. Lack of a found table is not itself novelty proof; the separate model and implication analysis is controlling.",
+        "searches": [
+          "de Branges Rovnyak monomial Gram matrix b(z)=c(1+z)/2 Robin boundary spectrum condition number eigenvalue crossover 1-c2",
+          "finite-section spectrum of H(b) de Branges Rovnyak spaces c(1+z)/2 polynomial monomials condition number and determinant",
+          "de Branges Rovnyak canonical monomial Gram matrix determinant tridiagonal inverse sharp spectrum",
+          "Kac Murdock Szego matrix finite sample tridiagonal eigenvalue table"
+        ]
+      },
+      "rationale": "A best-of-knowledge new *application-level quantitative result* is the exact canonical H(b_c) finite-section Gram representation and uniform monomial-conditioning crossover as c approaches its boundary value with degree, including full fixed-index limiting spectrum and sharp separated regime. Classical zero-start OU KL theory ALREADY gives the continuum Dirichlet–Robin eigenvalue equation, and known de Branges–Rovnyak norm identities supply the starting Gram coefficients; those ingredients are explicitly NOT new. The inspected earlier H(b) work and boundary-pole Toeplitz-band theorem do not supply the c-dependent finite Gram family, the n(1-q) passage, or its conditioning. No distinct indexed earlier claim with the same full conclusion was established; residual priority risk remains from classical near-unit-root AR(1) asymptotics. The same Resultary publication of this very assigned claim is its current public representation, not an independent earlier theorem.",
+      "residual_risks": [
+        "Classical near-unit-root/nonstationary zero-start AR(1) KL literature may already combine exact discrete reflected covariance with double-scaling spectral estimates under alternative terminology; a fully exhaustive priority search was not demonstrated.",
+        "The continuum Robin eigenvalue formula is definitely previously known (Daniluk 2010), and should not be claimed independent novelty; the assessed remaining mathematical novelty is the H(b_c) realization and quantitative finite-section transition.",
+        "One highly relevant 2010 thesis theorem was checked in extracted PDF text, but its pages were not visually verified after PDF screenshot attempt timed out.",
+        "Same exact subject publication in Resultary on November 8 is the audited finding itself, not independent earlier coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Starting nonextreme canonical norm and c=1 Hilbert-space computation preexisting. No c_n degree-dependent Robin finite-section spectral limit identified in inspected portions; not evidence that all possibly related methods are new.",
+          "evidence": "Sections 2–4, Theorem 3.3 and boundary specialization at §§3–4, as cited in the reviewed RESULT.md.",
+          "identifier_or_url": "arXiv:2603.03093v1; https://arxiv.org/html/2603.03093v1",
+          "material_read": "HTML full sections 2–4 with focus on Theorem 3.3, boundary b=(1+z)/2 orthogonal polynomial model and §4 norm formulas",
+          "method": "Read full accessible arXiv HTML, equations and surrounding proof sections",
+          "title": "Orthogonal polynomials in de Branges–Rovnyak spaces",
+          "trigger": "Same function space, same linear boundary Schur symbol, original paper directly cited in finding"
+        },
+        {
+          "assessment": "Its all-poles-on-unit-circle hypothesis fails for q<1 because Q=1-qz vanishes at 1/q>1. Only c=1 boundary potentially applies and result lacks target double-scaling spectrum.",
+          "evidence": "Finding and Assumptions require Q roots on unit circle; proof uses Q#=kappa Q; near-extreme Q is not self-inversive.",
+          "identifier_or_url": "An exact Toeplitz band for every boundary-pole de Branges–Rovnyak Gram matrix, Resultary 2026/11/1, https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-an-exact-toeplitz-band-for-every-boundary-pole-de-branges-rovnya--6c180207a945",
+          "material_read": "Entire RESULT.md including hypotheses, proof, exact cancellation W and limitations",
+          "method": "Fetched complete published source through GitHub at Resultary/2026, Git blob 4dee86ee0691679fa6628c757b4a7937068107e8",
+          "title": "An exact Toeplitz band for every boundary-pole de Branges–Rovnyak Gram matrix",
+          "trigger": "Published stronger polynomial-denominator Gram theorem and possible direct coverage"
+        },
+        {
+          "assessment": "Generalized KMS asymptotic symbol theory uses Toeplitz-like covariance and fixed-symbol spectral distributions; neither reflection boundary nor this n(1-q_n) fixed-index upper spectrum directly proved.",
+          "evidence": "Spectral limit distribution and eigenvalue asymptotics in Sections 2.1, 2.4 and 3.",
+          "identifier_or_url": "arXiv:1610.00084; https://ar5iv.labs.arxiv.org/html/1610.00084",
+          "material_read": "Full accessible HTML introduction and main Sections 2–3, limiting empirical spectral statements",
+          "method": "Read original ar5iv rendered paper, compare quantifiers and boundary structure to reviewed claim",
+          "title": "Spectral Asymptotics for Kac–Murdock–Szegő Matrices",
+          "trigger": "Stationary Toeplitz AR(1) matrix is the nearest matrix class and may dominate finite-section spectral claims"
+        },
+        {
+          "assessment": "Decisively covers continuum Robin spectrum (factor-four rescaling with b=tau and T=1); does not identify canonical H(b_c) Gram family or prove its finite double-scaling and uniform conditioning.",
+          "evidence": "Chapter 6 Theorem 6.6: OU KL eigenvalues 1/(b²+omega_n²), omega_n cot(omega_n T)=-b.",
+          "identifier_or_url": "2010 thesis, Chapter 6 Theorem 6.6; https://ruj.uj.edu.pl/bitstreams/22f0a50d-78ef-4855-8261-0f509483c429/download",
+          "material_read": "Text-extracted Chapter 6 OU Karhunen–Loève section, Theorem 6.6 and characteristic-equation statement (not all pages visually confirmed; PDF screenshot attempt timed out)",
+          "method": "Inspected openly accessible PDF parsed text at the indicated theorem and compared continuous covariance kernels algebraically",
+          "title": "On Some Approximations of Integrals of the Stochastic Processes and Their Applications to Various Financial Problems",
+          "trigger": "Very close zero-start Ornstein–Uhlenbeck covariance kernel that may make Robin eigenvalues known"
+        },
+        {
+          "assessment": "Stationary covariance differs; KMS techniques are ingredients, not a theorem about the current canonical H(b_c) crossover.",
+          "evidence": "Displays stationary AR(1) KMS matrix and its inverse; no reflected -q^(j+k+1) term.",
+          "identifier_or_url": "https://nhigham.com/2021/07/06/what-is-the-kac-murdock-szego-matrix/",
+          "material_read": "Whole accessible educational article describing rho^|j-k|, inverse Jacobi form, determinant",
+          "method": "Direct text reading, compared initial/boundary diagonals and reflection term",
+          "title": "What Is the Kac–Murdock–Szegő Matrix?",
+          "trigger": "Explicit stationary AR(1) inverse-tridiagonal benchmark"
+        },
+        {
+          "assessment": "Canonical norm identities already known; selected examples and theorems do not state the indexed parameter-dependent Gram-conditioning crossover.",
+          "evidence": "Theorem 1.1 and second section examples for phi=(1-z)^(-alpha).",
+          "identifier_or_url": "arXiv:1807.04347; https://ar5iv.labs.arxiv.org/html/1807.04347",
+          "material_read": "Accessible full HTML, Theorem 1.1 canonical norm and §2 examples of phi with boundary singularities",
+          "method": "Read mathematical statements/proofs directly in ar5iv representation",
+          "title": "Examples of de Branges–Rovnyak spaces generated by nonextreme functions",
+          "trigger": "Early primary source on same nonextreme canonical norms and equivalent formulations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-robin-spectral-crossover-for-polynomial-gram-matrices-in-de-br--f6c4ae1f7d1a/RESULT.md",
+        "E. Dellepiane and D. Seco, Orthogonal polynomials in de Branges–Rovnyak spaces, arXiv:2603.03093v1, §§2–4 and Theorem 3.3, https://arxiv.org/html/2603.03093v1",
+        "A. Daniluk, On Some Approximations of Integrals of the Stochastic Processes and Their Applications to Various Financial Problems, 2010 doctoral thesis, Chapter 6 Theorem 6.6, https://ruj.uj.edu.pl/bitstreams/22f0a50d-78ef-4855-8261-0f509483c429/download",
+        "An exact Toeplitz band for every boundary-pole de Branges–Rovnyak Gram matrix, Resultary 2026/11/1, https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-an-exact-toeplitz-band-for-every-boundary-pole-de-branges-rovnya--6c180207a945"
+      ],
+      "rationale": "The canonical monomial basis of H(b_c) is a natural computationally important Hilbert-space sequence, with a concrete conditioning obstruction as the Schur symbol approaches the boundary. It is not an arbitrary finite table: the degree-vs-parameter scaling 1−c_n²≈n⁻² is a sharp phase boundary; the result yields sharp constants, all fixed-index upper eigenvalue limits, and a uniform small-eigenvalue estimate. These quantitative spectral facts have plausible utility for stable polynomial approximation and regularization. The Dirichlet–Robin eigenproblem and AR(1) calculations are known tools, and significance rests specifically on the nontrivial canonical-space crossover, not on renaming an OU eigenvalue formula.",
+      "residual_risks": [
+        "The application is deliberately restricted to the one-parameter real linear Schur-symbol family; no general polynomial-symbol assertion follows.",
+        "Continuum Robin equation is preexisting; new value depends on verified original finite-section model-specific synthesis."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All fixed-index spectral limits are for each fixed j, not uniform in j; the model is only the real linear b_c(z)=c(1+z)/2 family.",
+    "Exact OU Dirichlet–Robin continuum eigenvalue law pre-dates this finding; model-specific finite-section identification/crossover remains the assessed contribution.",
+    "Results are not externally formally verified, nor are primary literature searches exhaustive.",
+    "Public package contains an operational run identifier in METADATA.json and AUDIT.json and potentially problematic provenance date, so scientific PASS must not be interpreted as publication clearance."
+  ],
+  "schema_version": 1
+}
