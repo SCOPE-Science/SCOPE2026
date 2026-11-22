@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The determinant-to-intrinsic-volume normalization includes the factor \(\sqrt n/[2(n-1)!]\). De Loera–Sturmfels–Thomas (1995), Lemma 2.4, supplies the correct necessary-and-sufficient odd-unicyclic component criterion and integer determinant. Since the column sum is two, determinant multiaffinity carries the vertex optimum to arbitrary points, with equality requiring same-sign maximal contributions. When \(n\) is divisible by three every maximizing vertex graph is a triangle factor; such two graphs cannot differ in a single edge, proving all maximizers rigid. For the other two residues, cofactor expansions at one and two distinct leaf rows certify that the entire triangle and triangle-product parameter sets attain equality, with dimensions two and four. Label counts use \(U_3=1,U_4=12,U_5=162\) and symmetry classes are distinguished by cycle length and leaf attachment type. An exact 121,553-case checker corroborates small dimensions. Risk: the proof does not claim exhaustion of the flexible nonvertex families.
+## correctness
 
-## Originality — PASS, with explicit strong prior coverage
-The **numerical simplex-volume formula and vertex determinant characterisation are not novel**: they are consequences of the stronger primary 1995 Lemma 2.4. The incremental claim assessed is the exact periodic rigidity criterion for unrestricted **nonvertex** equality points and explicitly attained two-/four-dimensional movable optimizer sets, plus labeled and unlabeled extremal configurations. Inspected full primary text of the 1995 paper (Lemma 2.4, Sections 2–3) addresses vertex-defined simplices and triangulation, not full equality configurations with continuously moving vertices. Inspected the 2021 arXiv paper's Sections 1, 7, 10, 11 for its tiling and positroid scope. Public-result searches returned hypersimplex hyperplane-section, convexification, and other maximal-simplex results but no equivalent nonvertex optimizer criterion. Historical priority is not proven; an older geometric equality argument might cover it. An implication from the old determinant lemma is short but still requires the additional equality-sensitive one-edge-exchange obstruction and explicit multi-apex construction; this limits but does not nullify the mathematical contribution.
+PASS
 
-## Mathematical value — PASS
-The second hypersimplex is a canonical and deeply studied family, and maximal contained simplices are a natural extremal geometric invariant. The new effect is a sharp dimension congruence governing whether *all* maximal simplices are isolated vertex configurations or whether a continuum of maximizers exists; the latter contains two-dimensional and four-dimensional parameter products in the two nonzero residues. This is a geometric equality/rigidity classification, not a mere recomputation of the old numeric determinant formula. Counts and orbit types also identify exactly how many isolated vertex configurations coexist with the movable families. Risk: these consequences are elementary after the 1995 determinant theorem and no downstream application is established.
+For an n-by-n signless incidence matrix of n pair-sum vertices, the affine coordinate-normal Euclidean scaling is Vol = sqrt(n)|det B|/[2(n-1)!]. De Loera–Sturmfels–Thomas Lemma 2.4 gives |det B|=2^c exactly when each graph component is odd-unicyclic; therefore c<=floor(n/3), maximum 2^floor(n/3). Absolute determinant convex multilinearity extends upper bound to arbitrary points of Δ(2,n). When n=3k, all maximizing graphs are disjoint triangles, and distinct maximum graphs cannot share n-1 columns; equality in signed convex averaging precludes a nonvertex simplex apex. When n=3k+1, a remaining labeled leaf d has arbitrary apex in triangle conv(e_d+e_a,e_d+e_b,e_d+e_c) with constant signed determinant; when n=3k+2, independent free leaves d,f give a four-dimensional product of these triangles. The component graph types and labeled counts follow from 12 four-node triangle-with-leaf structures, 162 five-node structures, and exponential-component multinomial factors; checks include n=3,4,5 boundary cases. Independent exhaustive integer determinants for n=3..6 returned maximum absolute determinant/count (2,1),(2,12),(2,162),(4,10), not a proof for all n.
 
-## Closest source and limitations
-De Loera–Sturmfels–Thomas, Combinatorica 15 (1995), Lemma 2.4 is essential, strong and expressly credited; Parisi–Sherman-Bennett–Williams, arXiv:2104.08254, supplies the middle-period hypersimplex triangulation context. The theorem does not classify every continuous optimizer or assert exact largest flex-family dimension. Independent verification beyond a self-review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 1995 De Loera–Sturmfels–Thomas signless-incidence determinant theorem completely covers the nonzero vertex-supported criterion, determinant value and (with immediate multilinearity) numerical maximum volume; those are credited rather than called novel. It does not classify unrestricted equality positions, rigidity iff 3|n, or continuous 2D/4D maximizer families in the material read. Those require new signed determinant equality and one-column exchange arguments. Existing hypersimplex tiling and hyperplane-section work does not imply this optimization equality-locus theorem. Census is a useful derived exact classification rather than separate determinant novelty.
+
+## value
+
+PASS
+
+The exact mod-three phase transition between rigid vertex-supported unrestricted optima and positive-dimensional continuous optimizer families is a natural geometric equality-case question, not just recomputation of a known maximum. It fully classifies vertex-supported optimizer types/counts and gives explicit nonvertex families even though it does not classify every nonvertex maximizer. The structural rigidity proof and moving apex construction are independently useful in polytope extremal geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T08:52:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an n-by-n signless incidence matrix of n pair-sum vertices, the affine coordinate-normal Euclidean scaling is Vol = sqrt(n)|det B|/[2(n-1)!]. De Loera–Sturmfels–Thomas Lemma 2.4 gives |det B|=2^c exactly when each graph component is odd-unicyclic; therefore c<=floor(n/3), maximum 2^floor(n/3). Absolute determinant convex multilinearity extends upper bound to arbitrary points of Δ(2,n). When n=3k, all maximizing graphs are disjoint triangles, and distinct maximum graphs cannot share n-1 columns; equality in signed convex averaging precludes a nonvertex simplex apex. When n=3k+1, a remaining labeled leaf d has arbitrary apex in triangle conv(e_d+e_a,e_d+e_b,e_d+e_c) with constant signed determinant; when n=3k+2, independent free leaves d,f give a four-dimensional product of these triangles. The component graph types and labeled counts follow from 12 four-node triangle-with-leaf structures, 162 five-node structures, and exponential-component multinomial factors; checks include n=3,4,5 boundary cases. Independent exhaustive integer determinants for n=3..6 returned maximum absolute determinant/count (2,1),(2,12),(2,162),(4,10), not a proof for all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited 1995 result handles full graph determinant spectrum at vertices, not unrestricted equality configurations.",
+          "Other studies concern m=2 amplituhedron tilings or hyperplane sections, not contained maximum-volume simplex optimizer positions."
+        ],
+        "reasoning": "A broader coverage of determinant values does not logically imply the all-simplex position rigidity without further cofactor/exchange proof; no inspected stronger optimizer theorem.",
+        "searches": [
+          "De Loera et al 1995 full paper Lemma 2.4",
+          "Parisi Sherman-Bennett Williams 2021 arxiv:2104.08254 hypersimplex tilings",
+          "Resultary 2026/10/18 sharp hyperplane section vertex bound second hypersimplex"
+        ]
+      },
+      "checked_sources": [
+        "https://www.math.ucdavis.edu/~deloera/researchsummary/gb%2Bhypersimplex.pdf",
+        "https://arxiv.org/abs/2104.08254",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-hyperplane-section-vertex-bound-for-the-second-hypersimple--9c4b485858f1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior 2^c graph determinant proves numerical maximum and lists candidate vertex maximizers, but not whether convex combinations of two distinct column choices can preserve signed determinant.",
+          "Proving no edge exchange between all-triangle graph maxima for 3|n and sign-preserving leaf cofactor expansions for other residues is necessary for unrestricted statement."
+        ],
+        "reasoning": "Only numerical optimum is dominated by prior work. New equality geometry is not a stated or logically immediate corollary of the source theorem without additional substantive reasoning.",
+        "searches": [
+          "De Loera et al Combinatorica 1995 Lemma 2.4",
+          "Resultary 2026/10/18 hypersimplex hyperplane section theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior lemma gives determinant criterion for VERTEX-supported simplices via n-edge graphs. The target theorem asks whether ANY unrestricted optimizer must be vertex supported and constructs nonvertex equality families when 3 does not divide n.",
+          "The maximum numerical determinant via multilinearity is an easy corollary of prior work and is explicitly not new."
+        ],
+        "reasoning": "Equality locus of a multilinear maximum is not uniquely determined by its maximum value; sign alignment of all vertex choices is an additional condition.",
+        "searches": [
+          "De Loera Sturmfels Thomas Gröbner bases and triangulations second hypersimplex 1995 Lemma 2.4",
+          "Resultary second hypersimplex largest volume simplex maximum unrestricted nonvertex 3 divisibility rigidity determinant graph unicyclic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Counts for vertex maximizing graphs derive from known odd-unicyclic determinant criterion plus labeled combinatorics (n=3..6 checked).",
+          "No inspected old table provided the total labeled counts N_(3k+r) and coordinate-permutation orbits alongside unrestricted nonvertex rigidity."
+        ],
+        "reasoning": "Historical graph tables may mechanically imply parts of this census; claim of standalone novelty is not based merely on those exact integer counts but on sharp equality-locus phase transition.",
+        "searches": [
+          "De Loera 1995 odd-unicyclic n-edge matrices",
+          "Resultary second hypersimplex optimizer census phase transition",
+          "Hypersimplex vertex-supported graph enumeration"
+        ]
+      },
+      "rationale": "The 1995 De Loera–Sturmfels–Thomas signless-incidence determinant theorem completely covers the nonzero vertex-supported criterion, determinant value and (with immediate multilinearity) numerical maximum volume; those are credited rather than called novel. It does not classify unrestricted equality positions, rigidity iff 3|n, or continuous 2D/4D maximizer families in the material read. Those require new signed determinant equality and one-column exchange arguments. Existing hypersimplex tiling and hyperplane-section work does not imply this optimization equality-locus theorem. Census is a useful derived exact classification rather than separate determinant novelty.",
+      "residual_risks": [
+        "An older optimizer-equality study not indexed could state the phase transition; historical priority remains conditional.",
+        "Numerical optimum and graph determinant classification are indisputably covered by 1995 lemma; only nonvertex equality rigidity/mobility and derived census survive.",
+        "2021 hypersimplex tiling primary text not read fully in this run; no whole-document noncoverage asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit determinant criterion and 2^c result already established; no unrestricted nonvertex optimizer rigidity or moving-apex classification in relevant text.",
+          "evidence": "Lemma 2.4: nonzero determinant iff each connected graph component is odd unicyclic, magnitude 2 per component.",
+          "identifier_or_url": "https://www.math.ucdavis.edu/~deloera/researchsummary/gb%2Bhypersimplex.pdf",
+          "material_read": "Full article accessible, with particular attention to Lemma 2.4 graph incidence determinant criterion and Theorem 2.3 context",
+          "method": "Author-hosted primary PDF text plus visual inspection of Lemma 2.4 page",
+          "title": "Gröbner bases and triangulations of the second hypersimplex",
+          "trigger": "Same Δ(2,n), signless graph determinants and maximum simplex problem"
+        },
+        {
+          "assessment": "Cannot declare full paper NOT_COVERING; this remains a narrower priority risk, though title and scope concern tilings rather than maximum-volume simplex equality.",
+          "evidence": "Available abstract concerns tilings, signs and amplituhedra, not the exact optimizer positional classification.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.08254",
+          "material_read": "Abstract and bibliographic description only; later full version NOT read in this run",
+          "method": "Primary indexed abstract/title inspection",
+          "title": "The m=2 amplituhedron and the hypersimplex: signs, clusters, triangulations, Eulerian numbers",
+          "trigger": "Potential geometric hypersimplex tilings/triangulations source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact mod-three phase transition between rigid vertex-supported unrestricted optima and positive-dimensional continuous optimizer families is a natural geometric equality-case question, not just recomputation of a known maximum. It fully classifies vertex-supported optimizer types/counts and gives explicit nonvertex families even though it does not classify every nonvertex maximizer. The structural rigidity proof and moving apex construction are independently useful in polytope extremal geometry.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.math.ucdavis.edu/~deloera/researchsummary/gb%2Bhypersimplex.pdf",
+    "https://arxiv.org/abs/2104.08254",
+    "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-hyperplane-section-vertex-bound-for-the-second-hypersimple--9c4b485858f1"
+  ],
+  "disposition": "passed",
+  "limitations": "All n>=3 second hypersimplex; does not fully classify every nonvertex optimizer when n mod3 !=0 or largest possible equality-stratum dimension. Bounded exhaustive determinants n<=6 do not prove all n.",
+  "residual_risks": [
+    "An older optimizer-equality study not indexed could state the phase transition; historical priority remains conditional.",
+    "Numerical optimum and graph determinant classification are indisputably covered by 1995 lemma; only nonvertex equality rigidity/mobility and derived census survive.",
+    "2021 hypersimplex tiling primary text not read fully in this run; no whole-document noncoverage asserted."
+  ],
+  "schema_version": 1
+}
