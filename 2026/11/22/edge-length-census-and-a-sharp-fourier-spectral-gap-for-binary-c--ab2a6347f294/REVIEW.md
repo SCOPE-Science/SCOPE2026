@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The edge census follows from the cited minimal zero-sum adjacency lemma and independently counted binary circuits, with no multiplicity overcount. The rank-two Cayley character sums and exact extremal gap are proved from an explicit two-statistic identity. The infinite gap bound uses a finite exhaustive base range and a proved tail inequality; the accompanying checker replays its finite part. The nontrivial density coefficient uses first-order subset-hyperplane inclusion-exclusion. Residual risk: a possible unindexed alternative derivation; finite numerical checks alone do not verify all dimensions.
+
+**Originality — PASS, qualified historical priority.** The preexisting minimal-dependence criterion is credited to Frede (2023), and general CTP structure to Frede–Kaibel–Merkert (2024). The new precise statements are the all-rank Euclidean edge-length multiplicities and two complementary asymptotics, plus the all-order rank-two Fourier spectrum, sharp gap and multiplicity. Searches of primary material and mathematical records did not identify an equivalent or a stronger existing result that implies this full package without additional original analysis. Search absence is not proof of priority; later or unindexed work may overlap.
+
+**Mathematical value — PASS.** Exact degree/circuit counts address a specifically posed open-ended enumeration question for a natural structured family, rather than an arbitrary selected parameter. The complete Euclidean edge metric and precise sparse-versus-dense dichotomy distinguish embeddings with exponentially many vertices. The exact rank-two spectral gap is an additional natural invariant of the polytope skeleton, relevant to its diffusion and expansion behavior and not a routine corollary of the cited adjacency criterion.
+
+**Prior work and limitations.** Frede's Lemma 2.37 already gives the adjacency test; no novelty is assigned to that lemma. The all-order spectrum is restricted to binary rank two. The dense and sparse limits use different parameter regimes. Historic coverage can be affected by inaccessible or unindexed equivalent literature.
+
+Self-review: passed. Independent audit: not yet performed.
