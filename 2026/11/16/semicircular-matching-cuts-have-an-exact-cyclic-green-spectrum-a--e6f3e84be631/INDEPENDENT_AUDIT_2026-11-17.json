@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T08:00:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a uniform matching of 2m fixed labeled sites, pair indicators satisfy p=1/(2m-1), q=1/[(2m-1)(2m-3)] for disjoint edges and zero for incident distinct edges. Centered equal-half cut vectors lie in the kernel of unsigned vertex-edge incidence, so the line-graph adjacency acts as -2 and edge-covariance as gamma=(2m-2)/[(2m-1)(2m-3)]. Counting edges crossing both two cuts separated by d gives d²+(m-d)²; centering subtracts m³/(2m-1). The resulting circulant quadratic kernel has constant Fourier eigenvalue gamma*m*h_m and nonconstant gamma*m*csc²(pi j/m); all positive. The cycle Laplacian plus constant projection inverts these modewise, including the parallel-edge m=2 convention. Comparing h_m with csc²(pi/m) using the stated monotone h_t/t² and t sin(pi/t) functions gives constant maximum iff m>=5; nearest-alternating minimum for m>=4, exact small m condition ratios and kappa/m²→1/6. Independently enumerated full pairings m=2..5 and checked exact rational covariance; checked the actual verify.py logic and boundary m=2. The analytic Fourier and monotonicity proof, not finite enumeration, handles all m>=2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The complete prefix-cut theorem gives Cov(H_k,H_l)=2u(u-1)(M-v)(M-v-1)/[(M-3)(M-1)^2] and a tridiagonal precision matrix on interior prefixes."
+        ],
+        "reasoning": "Its moving prefix boundaries and anchored linear order do not generate the cyclic equal-length arcs X_i. It supplies a related pair-indicator method, not direct eigenvalues or crossover for X_i.",
+        "searches": [
+          "uniform perfect matching circle semicircular cuts covariance spectrum circulant Green kernel precision orientation",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-crossing-cut-green-kernel-and-gaussian-bridge-for-uniform--1361e88632a1/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md SHA 38fea11cead8d6b07af3254342e32634663cab50",
+        "verify.py SHA bbcef2ff673d7fdd5693806f0d696e544bf07393",
+        "https://arxiv.org/abs/2104.01134",
+        "https://arxiv.org/abs/1501.01489",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-crossing-cut-green-kernel-and-gaussian-bridge-for-uniform--1361e88632a1/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Paguyo studies crossings/simple chord counts; Acan studies chord intersection graphs; the full prefix Green theorem studies open chords along nested prefixes."
+        ],
+        "reasoning": "None of the inspected statements explicitly or by routine specialization gives Fourier covariance of a rotational orbit of half cuts. Degree-zero edge representation and Fourier analysis are required; common pair moments are acknowledged as standard.",
+        "searches": [
+          "https://arxiv.org/abs/2104.01134",
+          "https://arxiv.org/abs/1501.01489",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-crossing-cut-green-kernel-and-gaussian-bridge-for-uniform--1361e88632a1/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rotating semicircle crossings are degree-zero cut-edge incidence statistics; Fourier diagonalization gives cyclic Green kernel, while prefix scan gives a different nonstationary bridge."
+        ],
+        "reasoning": "Converted both observables to edge incidence vectors. Prefix sizes vary and break rotational invariance, so their covariance cannot be substituted for the cyclic equal-half kernel without new work.",
+        "searches": [
+          "uniform perfect matching circle semicircular cuts covariance spectrum circulant Green kernel precision orientation",
+          "random matching cut-crossing circulant covariance arcs circle Green kernel"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact pairing counts at m<=7 or covariance tables determine finite examples only, whereas the proved spectrum and extremum transition hold for every m>=2."
+        ],
+        "reasoning": "No tabulation identified with the all-m cyclic spectrum, rank-one precision identity and sharp m=5 transition; finite counts alone are not coverage of the general theorem.",
+        "searches": [
+          "uniform perfect matching circle semicircular cuts covariance spectrum circulant Green kernel precision orientation",
+          "uniform chord matching cut covariance exact spectrum table"
+        ]
+      },
+      "rationale": "The closest fully read published prefix-cut Green-kernel theorem gives nonstationary counts across nested *linear prefixes* and tridiagonal precision; it does not imply that rotating equal-size semicircle cuts have a circulant covariance, explicit full Fourier spectrum, rank-one-corrected cycle precision, or mode crossover exactly at m=5. Global chord crossings and length histograms are different observables. The same pairing indicator covariance input is standard; the cyclic sampling and sharp extremal classification are the substantive original remainder on a natural chord matching ensemble.",
+      "residual_risks": [
+        "Published general association-scheme cut-incidence spectra could subsume this special cyclic orbit; no exhaustive historical proof of absence.",
+        "Only abstract of Paguyo/Acan accessed, so cannot exclude appendices or earlier more general treatments.",
+        "m=2 requires the two-parallel-edge cycle Laplacian convention rather than the usual simple C2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING rotating equal-half cuts",
+          "evidence": "Prefix H_k covariance is nonstationary in k,l; its Markov precision differs from the cyclic precision spectrum for X_i.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-crossing-cut-green-kernel-and-gaussian-bridge-for-uniform--1361e88632a1/RESULT.md",
+          "material_read": "Complete RESULT.md: exact kernel, inverse, proof and limitations",
+          "method": "Read full original theorem via authorized repository read",
+          "title": "Exact crossing-cut Green kernel and Gaussian bridge for uniform pairings",
+          "trigger": "Same matching ensemble, crossing-cut covariance and Green precision"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_DECISIVE",
+          "evidence": "Accessible statement concerns global chord crossings and simple chord counts, not semicircle-cut Fourier covariance; detailed appendices unverified.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.01134",
+          "material_read": "Accessible abstract and metadata only; full arXiv text inaccessible",
+          "method": "Read accessible abstract and compared named global statistics",
+          "title": "Convergence rates of limit theorems in random chord diagrams",
+          "trigger": "Same uniform matching model and chord statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural repeated equal-half observational family on random chord diagrams has an exact covariance kernel, its local precision inverse and a nontrivial finite cutoff where the statistically dominant Fourier mode changes from oscillatory to constant. These formulas supply usable spectral conditioning and interpolation information for this concrete model, not a gratuitous isolated numeric table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md SHA 38fea11cead8d6b07af3254342e32634663cab50",
+    "verify.py SHA bbcef2ff673d7fdd5693806f0d696e544bf07393",
+    "https://arxiv.org/abs/2104.01134",
+    "https://arxiv.org/abs/1501.01489",
+    "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-crossing-cut-green-kernel-and-gaussian-bridge-for-uniform--1361e88632a1/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": "Published general association-scheme cut-incidence spectra could subsume this special cyclic orbit; no exhaustive historical proof of absence.; Only abstract of Paguyo/Acan accessed, so cannot exclude appendices or earlier more general treatments.; m=2 requires the two-parallel-edge cycle Laplacian convention rather than the usual simple C2.",
+  "residual_risks": [
+    "Published general association-scheme cut-incidence spectra could subsume this special cyclic orbit; no exhaustive historical proof of absence.",
+    "Only abstract of Paguyo/Acan accessed, so cannot exclude appendices or earlier more general treatments.",
+    "m=2 requires the two-parallel-edge cycle Laplacian convention rather than the usual simple C2."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Review of the semicircular-cut Fourier theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is completely quantified for uniform pairings of \(2m\) labeled circular sites, integer \(m\ge2\). The prescribed-edge probabilities \(p=1/(2m-1)\) and \(q=1/[(2m-1)(2m-3)]\) yield the edge-indicator covariance operator; the centered cut coefficient vectors have zero unsigned vertex incidence, hence are eigenvectors of that operator with eigenvalue \(p+q\). Overlap of two equal-half cuts gives exactly \((m-d)^2+d^2\) eligible shared edges and the displayed covariance kernel. The finite root-of-unity calculation gives *all* Fourier eigenvalues and positivity, and the Laplacian plus constant projector inverts each channel exactly. The two positive derivatives for \(h_t\) and \(h_t/t^2\), together with the monotonicity of \(t\sin(\pi/t)\), prove the unique maximum crossover at \(m=5\) and all stated exact condition ratios. The asymptotic follows from explicit formulas. The included standard-library checker independently enumerates \(m=2\) through \(7\), verifies exact inverse entries through \(m=17\), and tests finite extrema through \(m=499\). These tests are corroborative, not an infinite proof.
+PASS
 
-## Originality — PASS, subject to historical priority
+For a uniform matching of 2m fixed labeled sites, pair indicators satisfy p=1/(2m-1), q=1/[(2m-1)(2m-3)] for disjoint edges and zero for incident distinct edges. Centered equal-half cut vectors lie in the kernel of unsigned vertex-edge incidence, so the line-graph adjacency acts as -2 and edge-covariance as gamma=(2m-2)/[(2m-1)(2m-3)]. Counting edges crossing both two cuts separated by d gives d²+(m-d)²; centering subtracts m³/(2m-1). The resulting circulant quadratic kernel has constant Fourier eigenvalue gamma*m*h_m and nonconstant gamma*m*csc²(pi j/m); all positive. The cycle Laplacian plus constant projection inverts these modewise, including the parallel-edge m=2 convention. Comparing h_m with csc²(pi/m) using the stated monotone h_t/t² and t sin(pi/t) functions gives constant maximum iff m>=5; nearest-alternating minimum for m>=4, exact small m condition ratios and kappa/m²→1/6. Independently enumerated full pairings m=2..5 and checked exact rational covariance; checked the actual verify.py logic and boundary m=2. The analytic Fourier and monotonicity proof, not finite enumeration, handles all m>=2.
 
-The closest accessible primary preprint is Paguyo (arXiv:2104.01134, publicly posted 2021-04-02), inspected through its introduction, theorem statements, and sections on global crossings and simple chords. It addresses a fixed uniform circular matching ensemble but has no location-indexed semicircle-cut covariance or Fourier-spectrum theorem. Acan (arXiv:1501.01489) provides earlier chord-diagram background; only its accessible introductory and abstract material was inspected here, not a complete priority exclusion. Two highly relevant public results were inspected in their complete main scientific text: *Exact crossing-cut Green kernel and Gaussian bridge for uniform pairings* treats **nested-prefix** observations with nonstationary covariance, while *Exact two-mode covariance spectrum of circular chord-length histograms* treats **chord-length bins**. Neither statement or proof implies the evaluated equal-half rotating Fourier extrema or its precision formula without a new geometric reduction. The elementary matching-indicator moment equations and finite DFT identities are standard and are not claimed as original by themselves. A more general fixed-size matching association-scheme theorem or previously tabulated cyclic cut Green kernel could imply part or all of the theorem; this remains a priority risk. Multiple semantic searches and accessible previous results did not reveal a dominating claim, which is not proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Circular half-cut counts are natural full-angular tomographic observations: they measure how many random matching chords connect two equal arcs. The result resolves an intrinsic finite-dimensional harmonic recovery question, proves the absence of any further linear information loss beyond reversing the halves, and exhibits an exact **nearest-neighbor precision plus global correction** structure. The sharp mode switch between constant and longest-wavelength nonconstant observations at exactly five distinct orientations is a structural finite threshold; the exact all-size conditioning formula, with growth constant \(1/6\) on the \(m^2\) scale, quantifies stability of the entire observation family. These facts are not merely an arbitrary numerical slice or elementary normalization test.
+The closest fully read published prefix-cut Green-kernel theorem gives nonstationary counts across nested *linear prefixes* and tridiagonal precision; it does not imply that rotating equal-size semicircle cuts have a circulant covariance, explicit full Fourier spectrum, rank-one-corrected cycle precision, or mode crossover exactly at m=5. Global chord crossings and length histograms are different observables. The same pairing indicator covariance input is standard; the cyclic sampling and sharp extremal classification are the substantive original remainder on a natural chord matching ensemble.
 
-## Closest literature and limitations
+## value
 
-The claim concerns only uniform fixed-size perfect matchings of labeled sites, equal semicircular windows, and the Euclidean second-moment spectrum. No Gaussian limit or nonlinear tomography conclusion is asserted. Bibliographic priority remains provisional, especially against general association-scheme variance identities or differently indexed cut-profile results. Independent mathematical audit has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural repeated equal-half observational family on random chord diagrams has an exact covariance kernel, its local precision inverse and a nontrivial finite cutoff where the statistically dominant Fourier mode changes from oscillatory to constant. These formulas supply usable spectral conditioning and interpolation information for this concrete model, not a gratuitous isolated numeric table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

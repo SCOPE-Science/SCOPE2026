@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification boundaries
+# Independent mathematical audit
 
-Run `python3 verify.py` in a directory containing this complete package. Only the Python 3 standard library is required. The verifier exhaustively builds the matching on each \(2m\)-site circle for \(m=2,3,4,5,6,7\), where the numbers of matchings are respectively 3, 15, 105, 945, 10,395 and 135,135. It directly recomputes all \(m\) chord-cut observations from every matching and compares all means and covariance entries by exact rational arithmetic. This produces 7,021,287 matching-by-matrix-cell comparisons.
+## correctness
 
-The verifier independently forms both sides of the claimed Green-kernel inverse identity with exact rational arithmetic and tests every entry of their product for \(2\le m\le17\): 1,784 comparisons. It additionally numerically checks the complete finite Fourier extrema and exact condition ratios for \(2\le m\le499\), using the ordinary floating-point sine function. The expected final output includes `All checks passed.`
+PASS
 
-These are finite corroborations only. The theorem for **all** integers \(m\ge2\), the location and uniqueness of all extrema, and the asymptotic conditioning coefficient follow from the explicit geometric, linear-algebraic and trigonometric arguments in `RESULT.md`. No independent proof audit, external replication, nonlinear identifiability proof or general-window classification is asserted.
+For a uniform matching of 2m fixed labeled sites, pair indicators satisfy p=1/(2m-1), q=1/[(2m-1)(2m-3)] for disjoint edges and zero for incident distinct edges. Centered equal-half cut vectors lie in the kernel of unsigned vertex-edge incidence, so the line-graph adjacency acts as -2 and edge-covariance as gamma=(2m-2)/[(2m-1)(2m-3)]. Counting edges crossing both two cuts separated by d gives d²+(m-d)²; centering subtracts m³/(2m-1). The resulting circulant quadratic kernel has constant Fourier eigenvalue gamma*m*h_m and nonconstant gamma*m*csc²(pi j/m); all positive. The cycle Laplacian plus constant projection inverts these modewise, including the parallel-edge m=2 convention. Comparing h_m with csc²(pi/m) using the stated monotone h_t/t² and t sin(pi/t) functions gives constant maximum iff m>=5; nearest-alternating minimum for m>=4, exact small m condition ratios and kappa/m²→1/6. Independently enumerated full pairings m=2..5 and checked exact rational covariance; checked the actual verify.py logic and boundary m=2. The analytic Fourier and monotonicity proof, not finite enumeration, handles all m>=2.
+
+## originality
+
+PASS
+
+The closest fully read published prefix-cut Green-kernel theorem gives nonstationary counts across nested *linear prefixes* and tridiagonal precision; it does not imply that rotating equal-size semicircle cuts have a circulant covariance, explicit full Fourier spectrum, rank-one-corrected cycle precision, or mode crossover exactly at m=5. Global chord crossings and length histograms are different observables. The same pairing indicator covariance input is standard; the cyclic sampling and sharp extremal classification are the substantive original remainder on a natural chord matching ensemble.
+
+## value
+
+PASS
+
+A natural repeated equal-half observational family on random chord diagrams has an exact covariance kernel, its local precision inverse and a nontrivial finite cutoff where the statistically dominant Fourier mode changes from oscillatory to constant. These formulas supply usable spectral conditioning and interpolation information for this concrete model, not a gratuitous isolated numeric table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
