@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "For all integers N>=2 the N critical Fourier rows are orthonormal; after each original-row erasure the row Gram has exactly the pair 1±sqrt(1−|a_j|²) and N−2 unit eigenvalues. Parseval and the geometric-series Dirichlet formula give the exact worst overlap. A parity-specific farthest-sample trigonometric identity and strict derivatives prove midpoint uniqueness. A tight-frame rank-one computation gives the regridded comparison. All boundaries (N=2, grid duplicates, non-grid sites) are covered analytically. Independent numerical matrices passed 6,930 assertions for N=2..34, which corroborate but do not certify the all-N result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kunis, Nagel and Strotmann, arXiv:2103.08167: multivariate Vandermonde stability bounds under separation conditions.",
+        "Kunis and Nagel, DOI:10.1007/s11075-020-00974-x: stability inequalities for nearly colliding Vandermonde nodes.",
+        "General erasure-robust frame literature treats uniform subframe bounds, but a directly applicable sharp constrained Fourier one-extra-sample placement theorem was not identified from accessible text."
+      ],
+      "reasoning": "The existing general inequalities concern stable or separated configurations and can bound some of the same matrices. Even when applicable they do not imply the unique geometric maximizing location or the exact odd/even constants; some formulate fixed redundancy rates rather than one extra row. The broader theory is therefore relevant but does not demonstrably dominate the new theorem. A general hidden specialization remains a residual risk.",
+      "searches": [
+        "redundant Fourier trigonometric interpolation N+1 nodes N regular one extra sample optimal one erasure frame lower bound midpoint",
+        "frames of uniform subframe bounds with applications to erasures DOI 10.1016/j.laa.2018.05.025",
+        "Kunis Nagel Strotmann arXiv:2103.08167 separated nodes stable full text",
+        "Kunis Nagel nearly-colliding nodes 10.1007/s11075-020-00974-x"
+      ]
+    },
+    "checked_sources": [
+      "Yu and Townsend, arXiv:2202.04722v1 (full HTML, main results and Sections 2/6)",
+      "Kunis, Nagel and Strotmann, arXiv:2103.08167 (full HTML, Sections 2–4)",
+      "Kunis and Nagel, DOI:10.1007/s11075-020-00974-x (full HTML, main results)",
+      "Austin and Trefethen, arXiv:1612.04018 (original 29-page PDF, Sections 1–3 theorem/scope inspection and whole-document keyword searches; not entire appendix line-by-line)",
+      "Wang, DOI:10.1007/s00041-016-9486-6 (abstract only)",
+      "Frames of uniform subframe bounds with applications to erasures, DOI:10.1016/j.laa.2018.05.025 (snippet only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yu–Townsend 2022 proves broader robustness results but not this exact rank-two one-erasure minimax optimum.",
+        "Kunis–Nagel 2020 addresses bounds for collisions, not this uniquely constrained extra sample and adversarial row removal.",
+        "Nearest published related findings address symmetrically colliding two grid nodes, defects in a two-grid Fourier basis, or multi-erasure few-character frames; their assumptions are different."
+      ],
+      "reasoning": "Neither titles nor different parameters alone certify novelty: the actual implications were compared. A separation bound may hold here but cannot recover equality unless it supplies precisely the Dirichlet coefficient extremizer. An N+1-point equally spaced tight frame solves a regridded optimization, not the frozen-grid problem. Collision or few-frequency erasure theorems likewise do not entail this N-dimensional, single-added-node sharp result.",
+      "searches": [
+        "arXiv:2202.04722v1 full text nonuniform DFT Sections 2 and 6",
+        "DOI:10.1007/s11075-020-00974-x near colliding Vandermonde full paper",
+        "published work on positive Fourier quadrature under pair collision, one-defect two-grid Fourier interpolation, and cyclic harmonic erasure spectra"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yu and Townsend, arXiv:2202.04722v1, Sections 2 and 6: stable interpolation and oversampled nonuniform DFT bounds, not an exact one-row addition with arbitrary one-row deletion.",
+        "The square system left after deleting a row can be formulated as a one-row replacement of the N-point DFT; no retrieved source states the minimax midpoint solution for this exact replacement family."
+      ],
+      "reasoning": "The proposed theorem is equivalent to optimizing the smallest coefficient of an off-grid Dirichlet row in an orthonormal Fourier basis, or equivalently minimizing one-row-replacement inverse noise amplification. Both restatements were checked against the specific nonuniform Fourier sources. General interpolation stability and separation inequalities do not state or logically force the parity-dependent optimum without solving this distinct discrete Chebyshev problem.",
+      "searches": [
+        "single additional off-grid Fourier sample N original uniform nodes minimax one-erasure smallest singular value optimal midpoint parity",
+        "one sampled point displaced trigonometric interpolation matrix exact singular values all N",
+        "arXiv:2202.04722v1 Section 6 nonuniform discrete Fourier transform"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches for the exact one-row replacement/minimax sample erasure invariant returned adjacent Fourier and frame problems, but no exact all-size tabulation of the additional-point design.",
+        "The sharp constants are derived analytically for all integers N, not obtained by enumerating a finite table."
+      ],
+      "reasoning": "The finding is a dimension-uniform optimization law. No exact database/table of the sharp all-N odd/even optimum was found in the searched repositories or cited primary sources. This is noncoverage evidence but not proof that no hidden table exists.",
+      "searches": [
+        "single additional off-grid Fourier sample N original uniform nodes minimax one-erasure smallest singular value optimal midpoint parity",
+        "one extra point on N point Fourier grid optimal recovery after any one sample erasure exact bounds",
+        "frozen critical Fourier sampling grid one redundant sample all single erasures midpoint conditioning 1/N squared"
+      ]
+    },
+    "rationale": "Best-knowledge originality of the exact all-size constrained minimax theorem: the normalized DFT row-replacement identity itself is elementary, but unique midpoint optimality for an immovable critical grid under all N+1 possible single erasures, exact odd/even values, and a sharp N-fold penalty versus regridding were not implied by the examined primary papers or semantically nearest published records. Detailed inclusion comparisons and unresolved priority risks are recorded; search nonhits are not proof of uniqueness.",
+    "residual_risks": [
+      "Prior exact specialization in obscure/nonindexed frame-design or sampling literature cannot be excluded.",
+      "Some older erasure-robust-frame papers were accessible only through abstracts or snippets; their unchecked full text could contain an equivalent sharp fixed-grid optimizer.",
+      "Some elementary rank-two steps occur in general linear algebra; novelty relies on the complete minimax trigonometric classification rather than those steps."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Nonuniform-DFT stability and quadrature theory; no exact immovable critical grid plus one sample, worst-one-erasure location classification",
+        "evidence": "Yu and Townsend (2022), arXiv:2202.04722v1, Sections 2 and 6",
+        "identifier_or_url": "https://arxiv.org/html/2202.04722v1",
+        "material_read": "Full accessible HTML article, including abstract, main results, Sections 2 and 6 (oversampled NUDFT), and conclusion",
+        "method": "Read theorem statements, hypotheses and oversampling discussion; compare whether any bound gives all-erasure optimizer and equality cases",
+        "title": "On the stability of unevenly spaced samples for interpolation and quadrature",
+        "trigger": "Same nonuniform Fourier sampling and oversampling setting, earliest verified motivating public preprint"
+      },
+      {
+        "assessment": "Separation-based stability bounds; does not state sharp maximin single additional sample or parity constants",
+        "evidence": "Kunis, Nagel and Strotmann (2021), arXiv:2103.08167",
+        "identifier_or_url": "https://arxiv.org/abs/2103.08167",
+        "material_read": "Full accessible open article HTML, separation hypotheses and main results in Sections 2–4",
+        "method": "Compare spacing assumptions and quantitative bounds with one added point and each deleted row",
+        "title": "Multivariate Vandermonde matrices with separated nodes on the unit circle are stable",
+        "trigger": "Possible general covering interpolation stability theorem"
+      },
+      {
+        "assessment": "Treats bounds for nearly colliding Vandermonde nodes; does not identify exact single extra-node maximin design across all erasures",
+        "evidence": "Kunis and Nagel, Numerical Algorithms (2021), first online 21 July 2020",
+        "identifier_or_url": "https://doi.org/10.1007/s11075-020-00974-x",
+        "material_read": "Accessible publisher full HTML article, core definitions and principal estimates in Sections 2 and 3",
+        "method": "Check object sizes, lower/upper estimates and equality claims against remaining square one-erasure system",
+        "title": "On the condition number of Vandermonde matrices with pairs of nearly-colliding nodes",
+        "trigger": "Near-collision alternative that could subsume an added point adjacent to fixed grid points"
+      },
+      {
+        "assessment": "The paper bounds the Lebesgue constant and convergence of interpolation/quadrature on arbitrarily perturbed fixed-cardinality grids; the inspected theorems are not equivalent to the sharp minimax one-extra-node, one-erasure problem.",
+        "evidence": "Austin and Trefethen (2016), arXiv:1612.04018",
+        "identifier_or_url": "https://arxiv.org/abs/1612.04018",
+        "material_read": "Original 29-page arXiv PDF: full main-paper overview and theorem statements in Sections 1–3, supporting proof overview, table of contents and supplementary-lemma structure; targeted full-document searches for erasure, singular values and additional samples returned no matches. No line-by-line inspection of the complete technical appendix.",
+        "method": "Read the main Theorems 1.1 and 2.1, problem definitions for perturbed K-point grids, and section scope; compare to adding a redundant sample and deleting any row, and search the entire PDF for characteristic terms.",
+        "title": "Trigonometric interpolation and quadrature in perturbed points",
+        "trigger": "Perturbed critical Fourier interpolation may give stronger general coverage"
+      },
+      {
+        "assessment": "No decisive implication in inspected abstract; unresolved priority from inaccessible details",
+        "evidence": "Y. Wang, Journal of Fourier Analysis and Applications (2018)",
+        "identifier_or_url": "https://doi.org/10.1007/s00041-016-9486-6",
+        "material_read": "Abstract and accessible metadata; full text not inspected",
+        "method": "Compare random-frame setting and goals versus deterministic constrained Fourier node placement",
+        "title": "Random Matrices and Erasure Robust Frames",
+        "trigger": "General erasure-robust frame designs might dominate the one-extra-row result"
+      },
+      {
+        "assessment": "Not enough material to rule out an unindexed general specialization; retained as priority risk",
+        "evidence": "Linear Algebra and Its Applications (2018), DOI:10.1016/j.laa.2018.05.025",
+        "identifier_or_url": "https://doi.org/10.1016/j.laa.2018.05.025",
+        "material_read": "Abstract/search snippet only; full-text retrieval failed",
+        "method": "Checked bibliographic description and whether it explicitly states frozen-grid Fourier midpoint design",
+        "title": "Frames of uniform subframe bounds with applications to erasures",
+        "trigger": "Potential stronger general exact subframe bound"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "935a130e-a9b4-48dc-aeca-6852a8d3803f",
+  "value": {
+    "rationale": "A fixed N-point Fourier grid plus one extra measurement is the minimal-redundancy robust interpolation design against one known-position erasure. The complete all-size maximin optimizer and parity exact constants are meaningful natural spectral design invariants. The N^-2 vs N^-1 lower-bound contrast quantifies an N-factor price of not being permitted to reposition existing nodes; this is not a parameter substitution or arbitrary finite slice. Limits: equal row weights and one erasure.",
+    "status": "PASS"
+  }
+}
