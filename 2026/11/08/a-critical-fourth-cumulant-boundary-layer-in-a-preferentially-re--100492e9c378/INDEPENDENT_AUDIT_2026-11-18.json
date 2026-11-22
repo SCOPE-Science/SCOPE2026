@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T21:08:26.868281Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Re-audited the final narrowed RESULT.md: the Boyer--Majumdar exact Fourier/Kummer formula gives a holomorphic slow branch a(z,rho) and a fast branch whose exponent has a uniform strictly positive gap for rho in a thin complex neighborhood of [3/2,5/2]. Kummer transformation and sectorial asymptotics then yield E=O(t^-eta) uniformly in z and rho, and Cauchy differentiation gives two z derivatives and one rho derivative with the same power bound (shrinking eta for logarithms). Independent SymPy expansions confirm a=z/(2rho)+(rho-2)z^2/(8rho^2)+..., log C coefficients (rho-2gamma_E)/(4rho) and (15rho^2-12gamma_E rho-24-2pi^2+24gamma_E)/(96rho^2). Thus known fixed-rate kappa2, kappa4 expansions hold with uniform rate derivative. For g=(2-rho)/rho^2, g′=(rho-4)/rho^3<0 on I; H′=g′ log(gamma t)+O(1)<0; endpoint signs are opposite, proving one unique zero on I. Expanding about rho=2 yields rho_c=2+(3-pi^2/6)/log(gamma t)+O(log^-2), and h^2 excess kurtosis at rho=2+xi/h tends to 9-pi^2/2-3xi. An independently derived mpmath Kummer differentiation found roots at t=200,2000,20000 approximately 2.424873,2.290769,2.208169 and negative finite-time rho derivatives on a five-point grid at t=3000. Finite tests corroborate but do not prove asymptotic uniformity. v,gamma>0 fixed, r varies only in compact interval; no early-time/all-rate assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyer--Majumdar arxiv 2312.13439 HTML Section II exact transform and Section IV leading exponent; 2026-11-02 prior source complete fixed-rate cumulant formula, explicit limitation that no uniform moving-parameter limit or finite-time crossings were proved.",
+          "DLMF §13.7 supplies standard uniform Kummer asymptotics."
+        ],
+        "reasoning": "A stronger previously published fixed-rate formula dominates the old constant/leading sign claim, but no inspected theorem dominates the rate-uniform differentiated control plus unique finite-horizon zero on the full compact interval. The exact transform is an input, not an originality credit.",
+        "searches": [
+          "Resultary query: Boyer Majumdar resetting position velocity to earlier uniform past Kummer characteristic function kurtosis finite time zero",
+          "web: active particle resetting memory fourth cumulant finite time rate threshold",
+          "full prior 2026-11-02 RESULT.md same model"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-critical-fourth-cumulant-cancellation-in-an-active-memory-reset--ec2c64764980/RESULT.md",
+        "https://arxiv.org/html/2312.13439v1",
+        "https://dlmf.nist.gov/13.7",
+        "https://arxiv.org/abs/1403.6069",
+        "https://arxiv.org/abs/1611.06743",
+        "GitHub frozen source RESULT.md sha=334788d55161a3737db9a0fd2fd96c9a5d617ad9",
+        "GitHub frozen checker.py sha=9ce0dfba42d470f9bdad74154a25fb71a1177db7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior cumulant asymptotic was stated for each fixed rho, with an explicit disclaimer of uniform-rho and finite-time zero-count claims. Its proof has holomorphic z control and can be extended in a thin complex rho neighborhood.",
+          "The new derivative-uniform remainder makes g′(rho)log t+O(1) strictly negative on [3/2,5/2], giving all-horizon-in-interval uniqueness; no such implication follows from pointwise convergence alone."
+        ],
+        "reasoning": "Scientific overlap is decisive for the original critical constant and fixed-rate fourth-order law, hence a substantive repaired theorem is required. The only accepted added content is the uniform rho derivative and its sharp moving finite-time consequences. Standard Kummer theory makes the extension accessible and limits its claimed originality; it is not merely a change of notation or parameter substitution.",
+        "searches": [
+          "full 2026-11-02 same-model RESULT.md lines on fixed-rho cumulant and limitations",
+          "arxiv:2312.13439v1 exact Fourier and leading exponent",
+          "DLMF §13.7 large argument error bounds",
+          "Resultary semantic searches on critical cumulant and boundary layers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026-11-02 full RESULT.md gives identical kappa4 constant and fixed-rho rate formula; 2026-11-08 original RESULT.md equations (1),(2) are mathematically the same fixed-rho result.",
+          "Original final claim instead covers a uniform first rho derivative and exact one-zero theorem at finite t."
+        ],
+        "reasoning": "Fourth cumulant, excess kurtosis, logarithm of characteristic function coefficient, and critical rate r=2gamma are equivalent observables. Earlier sources cover those fixed-rho quantities; a pointwise o(1) does not itself imply a derivative-uniform limit or finite-time entire-interval zero count. The final claim is narrowed accordingly.",
+        "searches": [
+          "Resultary: active telegraph particle preferential resetting memory fourth cumulant critical r two gamma subleading kurtosis boundary layer",
+          "Resultary: active particle resetting memory Gaussianization fourth cumulant finite limit threshold near two velocity reversal rate",
+          "web: \"critical fourth-cumulant cancellation\" \"boundary layer\" \"resetting\" telegraph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 2 result already lists the exact critical constant and coefficient; no full finite-time unique-threshold formula/table appears in its finding, proof or limitations.",
+          "The new numerical roots are independent diagnostics, not novelty evidence or a replacement for the all-t proof."
+        ],
+        "reasoning": "The final result is not a numerical recomputation of a known coefficient or table; the exact observable is a moving finite-time zero in a natural compact rate interval with a uniform sign theorem. The search was bounded and cannot certify complete absence.",
+        "searches": [
+          "Resultary: active telegraph particle preferential resetting memory fourth cumulant critical r two gamma subleading kurtosis boundary layer",
+          "web: preferentially resetting fourth cumulant threshold rate",
+          "published 2026-11-02 paper theorem and limitations"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for the substantive final narrowed finite-time rate-uniform threshold, NOT for the original positive fourth-cumulant constant. Material comparison found that the 2026-11-02 published SAME-model theorem already gives the exact fixed-rho O(1) cumulant, critical positive constant v^4(18-pi^2)/(8 gamma^4), and log^-2 kurtosis, so these are removed from the novelty claim and explicitly credited. Boyer--Majumdar 2023 provides the exact transform and leading exponent. Neither consulted published result states the uniform first rho-derivative, unique late finite-time zero throughout [3/2,5/2], its asymptotic displacement, or uniform moving-layer limit. The short Kummer-uniformity upgrade could be seen as an implicit consequence of the prior proof and remains a material residual novelty/value risk; this is not claimed to be a wholly new cumulant formula.",
+      "residual_risks": [
+        "The 2 November 2026 prior proof already has local analytic Kummer control. Its routine extension in rho may make the new boundary theorem an implicit rather than fully independent corollary; novelty/value are deliberately confined to the uniform full-interval finite-time uniqueness and shift.",
+        "Older passive resetting papers were not read in full during this execution; their abstracts are insufficient for whole-paper NOT_COVERING.",
+        "No explicit smallest time t0, no zero count outside [3/2,5/2], and no finite-sample inference result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS fixed-rho cumulant through O(1), positive critical constant and inverse-log-square kurtosis; explicitly excludes uniform moving parameter and finite-time zero count",
+          "evidence": [
+            "The full fixed-rho formula has (18-pi^2)/8 critical value; limitations state no uniform-in-parameters limit or number of finite-time crossings."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-critical-fourth-cumulant-cancellation-in-an-active-memory-reset--ec2c64764980/RESULT.md",
+          "material_read": "Entire RESULT.md, full fixed-rho expansion, analytic asymptotic proof, examples and limitations",
+          "method": "Fetched and read published primary full text through GitHub source",
+          "title": "Critical fourth-cumulant cancellation in an active memory-reset walk",
+          "trigger": "Exactly same active process and fourth cumulant, high-risk same-model coverage"
+        },
+        {
+          "assessment": "COVERS exact Fourier transform, variance, leading logarithmic exponent; does not state finite-horizon rho derivative or one-zero theorem",
+          "evidence": [
+            "Initial symmetric velocities, resets copying both variables (II); large deviation result gives exponent only (IV), with no kurtosis text."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2312.13439v1",
+          "material_read": "Relevant full-text HTML sections II-IV, model, exact Fourier solution, Appendix-A discussion and conclusions",
+          "method": "Inspected 2023 arXiv HTML with equations, including initial data, Eq. (9), Eq. (13), Eq. (79), and higher-moment scope",
+          "title": "An active particle in one dimension subjected to resetting with memory",
+          "trigger": "Original source exact characteristic function and telegraph-resetting dynamics"
+        },
+        {
+          "assessment": "Provides standard asymptotic expansion and sector conditions, not claim-specific finite-horizon threshold",
+          "evidence": [
+            "Kummer transformation plus 13.7.1/13.7.2 and 13.7.5 error bounds justify uniform compact parameter asymptotics."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/13.7",
+          "material_read": "Section 13.7(i) E1-E3 and Section 13.7(ii) error-bound equations through E5",
+          "method": "Read NIST full online formula and applicability sections",
+          "title": "DLMF §13.7 Kummer Functions: Asymptotic Expansions for Large Argument",
+          "trigger": "Required complex-sector uniform expansion and differentiated-remainder argument"
+        },
+        {
+          "assessment": "No whole-paper exclusion asserted; different passive discrete walk is a residual literature risk",
+          "evidence": [
+            "Paper models passive preferential return; no same two-state switching parameter in bibliographic description."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1403.6069",
+          "material_read": "Citation and abstract only in this run; complete paper inaccessible through attempted HTML",
+          "method": "Attempted arXiv HTML and reviewed indexed source",
+          "title": "Random walks with preferential relocations to places visited in the past and their application to biology",
+          "trigger": "Earlier passive preferential-return fourth moments"
+        },
+        {
+          "assessment": "No full-paper exclusion asserted; passive Brownian process differs from active same-model telegraph setting",
+          "evidence": [
+            "Abstract discusses variance scaling with memory kernel."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1611.06743",
+          "material_read": "Citation and abstract only in this run; full HTML attempt inaccessible",
+          "method": "Attempted arXiv HTML, read public abstract",
+          "title": "Long time scaling behaviour for diffusion with resetting and memory",
+          "trigger": "Memory-resetting Fourier technique in passive Brownian motion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural finite-observation fourth-cumulant sign boundary is not settled by a fixed-parameter eventual sign: a physically meaningful reset rate moves by order 1/log time and can reverse the sign of the leading non-Gaussian statistic. A single exact zero for every sufficiently late finite horizon in an entire compact parameter interval, plus its sharp shifted location and moving-layer profile, is a complete motivated analytic boundary theorem. It remains a narrow consequence of uniform Kummer asymptotics, not a claim to a new fixed-rho cumulant, global phase diagram or landmark result.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-critical-fourth-cumulant-cancellation-in-an-active-memory-reset--ec2c64764980/RESULT.md",
+    "https://arxiv.org/html/2312.13439v1",
+    "https://dlmf.nist.gov/13.7",
+    "https://arxiv.org/abs/1403.6069",
+    "https://arxiv.org/abs/1611.06743",
+    "GitHub frozen source RESULT.md sha=334788d55161a3737db9a0fd2fd96c9a5d617ad9",
+    "GitHub frozen checker.py sha=9ce0dfba42d470f9bdad74154a25fb71a1177db7"
+  ],
+  "disposition": "repaired",
+  "limitations": [
+    "Repaired claim is substantively narrowed because source original claimed novel fixed-rho critical value that had already been published on 2 November 2026; no originality credit granted to that constant.",
+    "Uniform Kummer remainder uses standard sector estimates and complex rho-neighborhood Cauchy differentiation, a fairly short upgrade from earlier fixed-rate analytic proof. This narrow prior-implication priority risk remains explicitly disclosed.",
+    "Symbolic/numeric checking is bounded corroboration, not a proof of all-time monotonicity or global in-r uniqueness.",
+    "No additional protected expert/Lean attestation is claimed; external channels are preserved unchanged in VERIFICATION front matter."
+  ],
+  "schema_version": 1
+}

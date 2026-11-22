@@ -1,185 +1,112 @@
-# A critical fourth-cumulant boundary layer in a preferentially resetting active particle
+# A uniform finite-time fourth-cumulant threshold for an active memory-reset particle
 
-## Finding
+## Finding: the moving threshold
 
-Consider a one-dimensional active particle with speed \(v>0\), velocity-switch rate \(\gamma>0\), and resetting rate \(r>0\). At a resetting event it relocates to its position **and velocity** at a uniformly sampled earlier time. Let \(X_t\) be its position and \(\kappa_j(t;r)\) its \(j\)-th cumulant. Set \(\rho=r/\gamma\), \(L=\log(rt)\), and \(\gamma_{\mathrm E}\) equal to Euler's constant. For every fixed compact interval of positive \(\rho\), uniformly with the first \(\rho\)-derivative,
+Let \(X_t\) be the one-dimensional active particle with constant speed \(v>0\), independent velocity reversals at rate \(\gamma>0\), and Poisson resetting at rate \(r>0\) to **both** its position and velocity at a time sampled uniformly from \([0,t]\). Initially \(X_0=0\), and the velocity sign is equally likely to be positive or negative. Write \(\rho=r/\gamma\), \(h=\log(\gamma t)\), \(\kappa_j(t;\rho)\) for its cumulants, and \(\gamma_E\) for Euler's constant.
+
+The fixed-\(\rho\) fourth-cumulant asymptotic, including its order-one coefficient and the positive critical limit at \(\rho=2\), was established in *Critical fourth-cumulant cancellation in an active memory-reset walk* [2]. Neither that limit nor the exact characteristic function of Boyer--Majumdar [1] is claimed here. The additional result is **uniform differentiation in the resetting rate**, with the following finite-horizon consequences.
+
+For \(I=[3/2,5/2]\), some \(\eta>0\), and \(j=0,1\), the errors below have \(\partial_\rho^j\)-norm \(O(t^{-\eta})\) uniformly on \(I\):
 
 \[
-\kappa_2(t;r)=\frac{v^2}{\gamma^2}\left(\frac{L+\gamma_{\mathrm E}}{\rho}-\frac12\right)+O(t^{-\eta}),
-\]
-
-\[
-\boxed{\;
-\kappa_4(t;r)=\frac{3v^4}{\gamma^4}
-\left[\frac{2-\rho}{\rho^2}(L+\gamma_{\mathrm E})
-+\frac54-\frac{2+\pi^2/6}{\rho^2}\right]+O(t^{-\eta})\;}
+\kappa_2(t;\rho)=\frac{v^2}{\gamma^2}\left[\frac{h+\log\rho+\gamma_E}{\rho}-\frac12\right]+O(t^{-\eta}),
 \tag{1}
 \]
-
-for some positive \(\eta\) (with constants depending on the compact interval and on \(v,\gamma\)). In particular, at the exact cancellation rate \(r=2\gamma\),
-
 \[
-\boxed{\lim_{t\to\infty}\kappa_4(t;2\gamma)
-=\frac{v^4}{4\gamma^4}\left(9-\frac{\pi^2}{2}\right)>0.}
+\kappa_4(t;\rho)=\frac{3v^4}{\gamma^4}\left[\frac{2-\rho}{\rho^2}(h+\log\rho+\gamma_E)
++\frac54-\frac{2+\pi^2/6}{\rho^2}\right]+O(t^{-\eta}).
 \tag{2}
 \]
 
-Writing the excess kurtosis as \(\mathcal K(t;r)=\kappa_4(t;r)/\kappa_2(t;r)^2\), for each fixed real \(\xi\), uniformly for \(\xi\) in compact sets,
+For all sufficiently large \(t\), the function \(\rho\mapsto\kappa_4(t;\rho)\) is **strictly decreasing throughout \(I\)** and has exactly one zero \(\rho_c(t)\in I\). Thus the cumulant is positive below \(\rho_c(t)\), negative above it, and
 
 \[
-\boxed{
-\lim_{t\to\infty}[\log(\gamma t)]^2
-\mathcal K\left(t;\gamma\left[2+\frac{\xi}{\log(\gamma t)}\right]\right)
-=9-\frac{\pi^2}{2}-3\xi.}
+\boxed{\quad\rho_c(t)=2+\frac{3-\pi^2/6}{\log(\gamma t)}+O\!\left(\log^{-2}(\gamma t)\right).\quad}
 \tag{3}
 \]
 
-Moreover, there exists \(t_0>0\) such that for every \(t>t_0\), the fourth cumulant has **exactly one zero** \(r_c(t)\) in \([3\gamma/2,5\gamma/2]\); within this interval it is strictly positive for \(r<r_c(t)\) and strictly negative for \(r>r_c(t)\). This finite-time threshold obeys
+For the standardized excess kurtosis \(\mathcal K=\kappa_4/\kappa_2^2\), a simultaneous moving-rate limit holds, uniformly for bounded real \(\xi\):
 
 \[
-\boxed{\frac{r_c(t)}{\gamma}=2+\frac{3-\pi^2/6}{\log(\gamma t)}
-+O\big([\log(\gamma t)]^{-2}\big).}
+\boxed{\quad\lim_{t\to\infty}h^2\mathcal K\!\left(t;2+\frac{\xi}{h}\right)
+=9-\frac{\pi^2}{2}-3\xi.\quad}
 \tag{4}
 \]
 
-The positive constant \(3-\pi^2/6\) shows that the finite-time fourth-cumulant threshold lies **above** the leading-order cancellation value \(2\gamma\). The limit of \(\kappa_4\) and the finite-time shift are not determined by the leading logarithmic characteristic-function exponent alone.
+Here the argument of \(\mathcal K\) is the dimensionless ratio \(\rho\), not the dimensional rate \(r\). The positive displacement coefficient \(3-\pi^2/6\) shows that the unique *finite-observation* zero lies above \(r=2\gamma\), although the leading fixed-rate cumulant cancels there. Claims (3)--(4) and the uniform rate derivative in (1)--(2), rather than the already known fixed-rate coefficients, constitute the result assessed here.
 
-## Assumptions and scope
+## Scope and normalization
 
-At \(t=0\), \(X_0=0\) and the velocity sign \(\sigma_0\in\{-1,+1\}\) is equiprobable. Between resets, \(\dot X_t=v\sigma_t\), where \(\sigma_t\) flips at independent exponential rate \(\gamma\). Resets occur at independent Poisson rate \(r\). At a reset occurring at time \(t>0\), choose \(U\) uniformly on \([0,t]\) and instantaneously set \((X_t,\sigma_t)=(X_U,\sigma_U)\). All rates and speed are strictly positive. The observation horizon \(t\) tends to infinity with \(v,\gamma\) fixed. In (3) and (4), \(r\) is allowed to vary with \(t\) as written. The unique-zero assertion is **restricted** to the displayed compact resetting-rate interval; no claim is made about zeros at all positive rates or at early times.
+The process is as in [1,2]: between reset events \(dX_t/dt=v\sigma_t\) with \(\sigma_t\in\{-1,1\}\), switching at rate \(\gamma\); at an independent rate-\(r\) reset at time \(t\), draw \(U\) uniformly from \([0,t]\) and set \((X_t,\sigma_t)=(X_U,\sigma_U)\). The parameters \(v,\gamma\) remain fixed while \(t\to\infty\); only \(r/\gamma\) varies over the compact interval \(I\), or within an \(O(h^{-1})\) neighborhood of 2. We assert uniqueness **only on \(I\)**, not among all \(r>0\), and make no explicit claim for small \(t\). Symmetric initialization ensures odd cumulants vanish.
 
 ## Proof
 
-**1. Exact source formula and the nontrivial asymptotic amplitude.** For a Fourier variable \(k\), write
-
+**1. Exact analytic input and rate-uniform amplitude.** For \(z=v^2k^2/\gamma^2\), set
 \[
- s(k)=\sqrt{\gamma^2-v^2k^2},\qquad
- \lambda_\pm(k)=\gamma\pm s(k),\qquad
- a_\pm(k)=\frac{\lambda_\pm(k)}{r+\lambda_\pm(k)}.
+\ell(z)=1-\sqrt{1-z},\quad a(z,\rho)=\frac{\ell(z)}{\rho+\ell(z)},\quad
+c(z)=\frac{1+(1-z)^{-1/2}}2.
 \]
+The characteristic function \(Q(k,t)=\mathbb E e^{ikX_t}\) is the sum of two confluent-hypergeometric terms [1, Eq. (9)]: the slowly decaying term has rate \(\lambda_-(z)=\gamma\ell(z)\), parameter \(a=\lambda_-/(r+\lambda_-)\), and coefficient \(c(z)\); the other has \(\lambda_+=\gamma(1+\sqrt{1-z})\), parameter \(a_+=\lambda_+/(r+\lambda_+)\), and coefficient \(1-c(z)\). Both hypergeometric terms are \({}_1F_1(a_\pm;1;-[r+\lambda_\pm]t)\).
 
-In a neighborhood of \(k=0\), use the positive square-root branch. The exact characteristic function established in Boyer--Majumdar [1, Eq. (9)] is
-
+The exact formula is **prior work**. To make the extra uniform-rate assertion precise, choose a small complex disk \(|z|\le\varepsilon\) and a thin complex neighborhood of the real interval \(I\). These can be chosen so that the square root and all denominators are analytic and nonzero, \(\operatorname{Re}a(z,\rho)\) is arbitrarily close to 0, and \(\operatorname{Re}a_+(z,\rho)\) is uniformly bounded away from 0. The arguments \((r+\lambda_\pm)t\) remain in a common closed sector about the positive real axis and are comparable to \(t\) in magnitude. Applying Kummer's transformation and its uniform positive-argument expansion [3] to the two branches gives
 \[
- Q(k,t)=\frac{1-\gamma/s(k)}2\,
- {}_1F_1\big(a_+(k);1;-[r+\lambda_+(k)]t\big)
- +\frac{1+\gamma/s(k)}2\,
- {}_1F_1\big(a_-(k);1;-[r+\lambda_-(k)]t\big).
- \tag{5}
+Q(k,t)=e^{-a(z,\rho)[h+\log\rho]} C(z,\rho)[1+E(z,\rho,t)],
+\tag{5}
 \]
-
-We **use** (5); we do not claim it as a new result. Set \(z=v^2k^2/\gamma^2\), \(\rho=r/\gamma\), \(\ell(z)=1-\sqrt{1-z}\), and \(a(z)=\ell(z)/(\rho+\ell(z))\). The standard large-positive-argument Kummer expansion [4] yields, locally uniformly in complex \(z\) near zero and in real \(\rho\) in a compact interval such as \([3/2,5/2]\),
-
 \[
- Q(k,t)=e^{-a(z)\log(rt)} C(z,\rho)\,[1+E(z,\rho,t)],
- \tag{6}
+C(z,\rho)=c(z)\left(1+\frac{\ell(z)}\rho\right)^{-a(z,\rho)}
+\Gamma(1-a(z,\rho))^{-1},\qquad C(0,\rho)=1.
+\tag{6}
 \]
+The slow branch has a relative expansion error of order \(t^{-1}\) times harmless bounded holomorphic factors. The fast branch has a strictly positive uniform decay-exponent gap; possible powers of \(\log t\) are absorbed by choosing a smaller \(\eta>0\). Thus \(E=O(t^{-\eta})\) jointly uniformly in those complex \(z,\rho\) neighborhoods. In particular, \(Q\) is nonzero near \(z=0\) for large \(t\), and applying Cauchy's formula on slightly smaller complex polydisks gives the same power bound for \(\partial_z^j\partial_\rho^m E\), \(0\le j\le2\), \(0\le m\le1\). This is the rate-uniform differentiability step not asserted in the fixed-parameter result [2].
 
-where
-
+**2. Cumulant coefficients.** Taking the branch of \(\log Q\) vanishing at \(z=0\), and using the standard Taylor series of \(\log\Gamma\), gives
 \[
- C(z,\rho)=\frac{1+(1-z)^{-1/2}}2
- \left(1+\frac{\ell(z)}\rho\right)^{-a(z)}
- \frac1{\Gamma(1-a(z))},\qquad
- C(0,\rho)=1.
- \tag{7}
+a(z,\rho)=\frac{z}{2\rho}+\frac{\rho-2}{8\rho^2}z^2+O(z^3),
+\tag{7}
 \]
-
-The remainder \(E\), together with its \(z\)-derivatives through order two and its first \(\rho\)-derivative, is \(O(t^{-\eta})\) for some uniform \(\eta>0\). Here is why the parameter differentiability is legitimate, rather than a pointwise formal limit. For sufficiently small fixed complex \(|z|\), apply the Kummer transformation \({}_1F_1(a;1;-Z)=e^{-Z}{}_1F_1(1-a;1;Z)\). The transformed arguments \(Z=[r+\lambda_\pm]t\) stay in a fixed sector about the positive real ray and have magnitudes comparable to \(t\), while the parameters \(a_\pm\) range in compact subsets avoiding the poles of the reciprocal gamma prefactors. The algebraic asymptotic of the minus branch, relative corrections of order \(t^{-1}\), is uniform there. Its exponent has real part arbitrarily close to zero. The plus branch has strictly positive algebraic decay exponent, uniformly bounded away from zero because \(a_+(0)=2/(\rho+2)\). Shrinking the complex neighborhood if needed makes the minus branch strictly dominant and \(C\) nonzero. Uniformity on a slightly larger complex polydisc and Cauchy's formula give all the stated derivative bounds (derivatives introducing powers of \(\log t\) can be absorbed into a smaller exponent \(\eta>0\)). The exponentially small Kummer contributions have no effect. Hence \(\log Q=-a\log(rt)+\log C+O(t^{-\eta})\) with the required differentiated control.
-
-**2. Exact quartic expansion.** With \(\zeta(2)=\pi^2/6\), expansion about \(z=0\) gives
-
 \[
- a(z)=\frac{z}{2\rho}+\frac{\rho-2}{8\rho^2}z^2+O(z^3),
- \tag{8}
+\log C(z,\rho)=\left(\frac14-\frac{\gamma_E}{2\rho}\right)z
++\left[\frac5{32}-\frac{2+\pi^2/6}{8\rho^2}
+-\frac{\gamma_E(\rho-2)}{8\rho^2}\right]z^2+O(z^3).
+\tag{8}
 \]
+Comparison with \(\log Q=-\kappa_2k^2/2+\kappa_4k^4/24+O(k^6)\) proves (1)--(2), and the preceding complex-neighborhood bound makes both remainders uniform with their first rate derivative. The *values* of these fixed-rate coefficients match [2] exactly and are not new; here their differentiated uniform remainder is the necessary additional claim.
 
+**3. Unique finite-horizon threshold.** Put \(g(\rho)=(2-\rho)/\rho^2\). On \(I\),
 \[
-\begin{aligned}
-\log C(z,\rho)={}&\left(\frac14-\frac{\gamma_{\mathrm E}}{2\rho}\right)z\\
-&+\left[\frac5{32}-\frac{2+\pi^2/6}{8\rho^2}
--\frac{\gamma_{\mathrm E}(\rho-2)}{8\rho^2}\right]z^2+O(z^3).
-\end{aligned}
-\tag{9}
+g'(\rho)=\frac{\rho-4}{\rho^3}<0.
 \]
-
-For clarity, (9) follows directly by expanding
-
+By the differentiated estimate (2), uniformly on \(I\),
 \[
- \log C=\log\left(\frac{1+(1-z)^{-1/2}}2\right)
- -a\log(1+\ell/\rho)-\log\Gamma(1-a)
+\frac{\gamma^4}{3v^4}\partial_\rho\kappa_4(t;\rho)
+=g'(\rho)h+O(1)<0
 \]
-
-and using \(\log\Gamma(1-a)=\gamma_{\mathrm E}a+\zeta(2)a^2/2+O(a^3)\). Symmetry makes all odd cumulants zero. Since \(z=(v^2/\gamma^2)k^2\), compare coefficients in \(\log Q=-\kappa_2 k^2/2+\kappa_4 k^4/24+O(k^6)\). Equations (8)--(9) establish both expansions in (1), including their differentiated remainders.
-
-**3. Critical cancellation and boundary layer.** At \(\rho=2\), the \(z^2\) coefficient of the logarithmic exponent in (8) vanishes exactly. The constant prefactor term in (9) then gives (2). For \(h=\log(\gamma t)\), take \(\rho=2+\xi/h\). Uniformly for bounded \(\xi\), \(\log(rt)=h+\log\rho\), so (1) yields
-
+for large enough \(t\). At the endpoints \(3/2\) and \(5/2\), the leading \(g(\rho)h\) terms have strictly opposite signs; the bounded terms cannot overcome them. By continuity and strict monotonicity there is exactly one zero in \(I\), with the stated sign orientation. At \(\rho=2\), (2) has limiting value \(v^4(18-\pi^2)/(8\gamma^4)>0\), **already known from [2]**. The root therefore satisfies \(\rho_c=2+O(h^{-1})\). Substituting \(\rho_c=2+\delta\) into (2) yields
 \[
- \kappa_4(t;\gamma\rho)
- =\frac{v^4}{4\gamma^4}
- \left(9-\frac{\pi^2}{2}-3\xi\right)+O(h^{-1}),
- \qquad
- \kappa_2(t;\gamma\rho)=\frac{v^2}{2\gamma^2}h+O(1).
- \tag{10}
+0=-\frac{h\delta}{4}+\frac{3-\pi^2/6}{4}+O(h^{-1}),
 \]
+which gives (3).
 
-Dividing by the squared variance proves (3). In particular, the cancellation line has positive but unusually small \(O(h^{-2})\) excess kurtosis, compared with the generic \(O(h^{-1})\) correction away from cancellation.
-
-**4. Existence, uniqueness and location of the finite-horizon zero.** For \(\rho\in[3/2,5/2]\), divide (1) by the positive factor \(3v^4/\gamma^4\) and set
-
+**4. Moving-rate excess-kurtosis profile.** Set \(\rho=2+\xi/h\) with bounded \(\xi\). Equations (1)--(2) imply, uniformly for such \(\xi\),
 \[
- H_t(\rho)=\frac{2-\rho}{\rho^2}\,[\log(\gamma t)+\log\rho+\gamma_{\mathrm E}]
- +\frac54-\frac{2+\pi^2/6}{\rho^2}+O(t^{-\eta}).
+\kappa_4=\frac{v^4}{4\gamma^4}\left(9-\frac{\pi^2}{2}-3\xi\right)+O(h^{-1}),
+\qquad \kappa_2=\frac{v^2}{2\gamma^2}h+O(1).
 \]
+Dividing proves (4). This shows that a change in the reset rate of order \(\gamma/\log(\gamma t)\) alters the **sign** of the first non-Gaussian correction for long but finite observations, which the fixed-rate result [2] alone does not quantify uniformly.
 
-The error is uniform together with its first \(\rho\)-derivative. For \(g(\rho)=(2-\rho)/\rho^2\),
+## Verification and limits
 
-\[
- g'(\rho)=\frac{\rho-4}{\rho^3}<0\quad\text{on }[3/2,5/2].
-\]
+An independent exact Taylor calculation of \(a\) and \(\log C\) gives precisely (7)--(8) and the coefficient \(3-\pi^2/6\). Direct numerical differentiation of the source Kummer formula yields finite-time zeros \(\rho_c(200)\approx2.42487\), \(\rho_c(2000)\approx2.29077\), and \(\rho_c(20000)\approx2.20817\) for \(v=\gamma=1\); these are diagnostics, not a substitute for the uniform proof. The unchanged `checker.py` provides separate symbolic and finite-time moment checks. No explicit threshold time \(t_0\), all-reset-rate uniqueness, or trajectory-sampling uncertainty bound is proved.
 
-Therefore \(H'_t(\rho)=g'(\rho)\log(\gamma t)+O(1)<0\) throughout this entire interval for all sufficiently large \(t\). At the left endpoint \(H_t\to+\infty\), and at the right endpoint \(H_t\to-\infty\). Continuity and strict monotonicity yield the claimed unique zero and sign orientation. Finally write \(\rho_c=2+\delta\). The uniform leading term shows \(\delta=O(h^{-1})\); substitution into \(H_t(2+\delta)=0\) gives
+## Relationship to literature
 
-\[
- -\frac{\delta h}{4}+\frac54-\frac{2+\pi^2/6}{4}
- =O(h^{-1}),
-\]
+[1] D. Boyer and S. N. Majumdar, *An active particle in one dimension subjected to resetting with memory*, arXiv:2312.13439 (2023), especially exact Fourier Eq. (9), variance Eq. (13) and large-deviation asymptotics, https://arxiv.org/html/2312.13439v1 .
 
-hence \(\delta=(3-\pi^2/6)/h+O(h^{-2})\). Since \(\mathcal K\) has the same sign as \(\kappa_4\) (strictly positive variance), this also determines the excess-kurtosis sign boundary.
+[2] *Critical fourth-cumulant cancellation in an active memory-reset walk*, published 2 November 2026, https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-critical-fourth-cumulant-cancellation-in-an-active-memory-reset--ec2c64764980/RESULT.md . It already establishes the full fixed-rate \(O(1)\) fourth-cumulant asymptotic, positive critical constant and inverse-log-squared critical kurtosis. This work adds only the rate-uniform differentiated estimate and the resulting unique finite-time threshold and moving-rate profile; no priority is claimed for [2]'s conclusions.
 
-## Verification
+[3] NIST Digital Library of Mathematical Functions, §13.7 (Kummer large-argument expansion and uniform-sector conditions), https://dlmf.nist.gov/13.7 .
 
-The companion `checker.py` requires Python 3.10 or later, `sympy`, `mpmath`, `numpy`, and `scipy`. Run `python checker.py` from the extracted package. It verifies the algebraic Taylor coefficients and critical shift with exact symbolic operations; evaluates the full confluent-hypergeometric characteristic function and differentiates it at zero; and independently integrates the coupled equations for the second and fourth moments and their velocity correlations. In the checked environment, it passed **39 assertions**, and the calculated critical fourth-cumulant constant was \(1.01629944986383\) for \(v=\gamma=1\). These computations support, but do not independently prove, the uniform complex-asymptotic and global-in-interval uniqueness arguments above.
+[4] D. Boyer and C. Solis-Salas, *Random walks with preferential relocations to places visited in the past and their application to biology*, arXiv:1403.6069 (2014), passive discrete preferential-revisit moments.
 
-The independent moment-equation checks use
-
-\[
-\begin{aligned}
- b_1'&=v-(r+2\gamma)b_1+\frac r t\int_0^t b_1(u)\,du,\\
- m_2'&=2vb_1-rm_2+\frac r t\int_0^t m_2(u)\,du,\\
- b_3'&=3vm_2-(r+2\gamma)b_3+\frac r t\int_0^t b_3(u)\,du,\\
- m_4'&=4vb_3-rm_4+\frac r t\int_0^t m_4(u)\,du,
-\end{aligned}
-\]
-
-where \(m_j=\mathbb E[X_t^j]\), \(b_j=\mathbb E[\sigma_t X_t^j]\), and each starts at zero. This is a direct independent consequence of the velocity-switching and memory-resetting rules. The fourth cumulant is \(m_4-3m_2^2\).
-
-## Relationship to prior work
-
-The exact characteristic function (5), the known variance, the logarithmic Gaussian central limit, and the leading large-deviation exponent are already in Boyer--Majumdar [1], especially their Eqs. (9), (13), (70) and Appendix B. Those are **not** new claims. In particular, the fixed-\(\rho\) leading logarithmic part of (1) is extractable from the prior leading exponent. The contribution assessed here is the **subleading fourth-cumulant constant**, the **nonzero critical limit** (2), the **uniform near-cancellation profile** (3), and the **finite-time strict monotonicity, uniqueness and sharp shift** (4). These require the previously discarded Fourier amplitude, not only the prior leading large-deviation rate.
-
-Boyer--Solis-Salas [2] derive higher-moment Gaussian convergence corrections for a *discrete nonactive* preferential-revisit walk; their fourth-moment correction does not treat the telegraph switching parameter or its cancellation at \(r=2\gamma\). Boyer--Evans--Majumdar [3] study *Brownian* resetting with memory, with Fourier solution and variance scaling but no active-persistence critical fourth-cumulant boundary. The Kummer expansion [4] is a standard analytic ingredient, not claimed to be novel.
-
-## Limitations
-
-This is a self-review, not an independent audit or a literature-priority certificate. No assertion is made about an all-rates finite-time phase diagram or experimental inference under noisy samples. The theorem depends on simultaneous position-and-velocity resetting to a uniformly sampled past time, not on resetting position alone, a fixed origin, or a weighted memory kernel. A hidden or unindexed equivalent derivation of the subleading critical layer would affect originality. The displayed uniform remainder is an asymptotic existence bound; no explicit smallest valid \(t_0\) is supplied. Numerical checks are finite-time consistency checks only.
-
-## References
-
-[1] D. Boyer and S. N. Majumdar, *Active particle in one dimension subjected to resetting with memory*, arXiv:2312.13439v1 (first public version 2023-12-20); *Physical Review E* **109**, 054105 (2024). https://arxiv.org/abs/2312.13439 ; https://doi.org/10.1103/PhysRevE.109.054105 .
-
-[2] D. Boyer and C. Solis-Salas, *Random walks with preferential relocations to places visited in the past and their application to biology*, arXiv:1403.6069. https://arxiv.org/abs/1403.6069 .
-
-[3] D. Boyer, M. R. Evans and S. N. Majumdar, *Long time scaling behaviour for diffusion with resetting and memory*, arXiv:1611.06743. https://arxiv.org/abs/1611.06743 .
-
-[4] NIST Digital Library of Mathematical Functions, chapter 13, asymptotic expansions of Kummer's confluent hypergeometric function, https://dlmf.nist.gov/13.7 .
+[5] D. Boyer, M. R. Evans and S. N. Majumdar, *Long time scaling behaviour for diffusion with resetting and memory*, arXiv:1611.06743 (2016), passive Brownian memory-resetting.
