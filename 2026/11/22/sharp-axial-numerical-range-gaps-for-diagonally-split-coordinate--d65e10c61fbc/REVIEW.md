@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The norming-functional parametrization gives an exact two-variable elliptic orbit. Its imaginary-height maximizer is unique up to reciprocal modulus ratio and phase, and the derivative identity for the maximizer has a strict sign on each side of the root. The imaginary-axis constraint reduces the general exponent to a smooth constrained one-variable maximum; the nondegenerate critical point yields the sharp quadratic coefficient, and a rescaling near equal coordinate moduli yields the strong-split asymptotic. At the quartic exponent, substituting the squared modulus-balance coordinate yields a rational function with one global maximizer, proving the closed formula and extremizers without a numerical assumption. The standalone `CHECK.py` supplies 2,246 supplementary direct/optimization tests; finite checks alone are not claimed to prove the theorem.
+
+## Originality — PASS, qualified
+Mandal–Bhanja–Bag–Paul (arXiv:2005.01288, Theorem 2.9) cover the *qualitative* nonconvexity of equal-off-diagonal trace-zero matrices; this review expressly excludes it from novelty. Müller–Tomilov (arXiv:2606.22693, Section 2) cover the ellipse-orbit framework and examples. The published quartic coordinate-flip numerical-range result solves the zero-split convex body and its angular support and area, but not its real-axis-constrained height after diagonal splitting. The published triangular cubic-symmetry result concerns always-convex triangular matrices. Inspected statements and proofs do not supply the all-exponent quadratic gap coefficient, its strong-diagonal asymptotic, or the exact quartic positive-split crossover. The full-text comparisons resolve the closest documented sources; a previously unindexed equivalent quantitative result is still possible.
+
+## Mathematical value — PASS
+The axial gap is a canonical geometric witness quantifying how a real trace-zero diagonal perturbation removes the vertical chord from an initially convex quartic numerical range. Determining its complete nonlinear dependence on splitting, both explicit extremizers, and the sharp general-exponent small- and large-split laws is a motivated quantitative stability problem, not a rephrasing of the older nonconvexity witness or a finite numerical sample. The sharp coefficient distinguishes the nonlinear Banach-space geometry from the Hilbert case and can benchmark perturbation approximations of spatial numerical ranges.
+
+## Relationship to the closest literature
+The older qualitative theorem and 2026 ellipse-orbit formulation are essential prerequisites, but neither states the quantitative objective. The zero-split quartic result supplies the \(\delta=0\) reference value and convexity; it does not control the positive-split missing midpoint. The triangular cubic-asymmetry result is logically distinct because those ranges remain convex. The exact formula is specialized to a natural two-dimensional matrix family and does not establish a general convex-hull Hausdorff deficit. No priority claim beyond the inspected literature and searchable records is made.
+
+Self-review: passed. Independent audit: not yet performed.
