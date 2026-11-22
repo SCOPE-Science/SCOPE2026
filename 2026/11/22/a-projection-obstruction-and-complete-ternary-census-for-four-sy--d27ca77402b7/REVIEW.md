@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Distinct-codeword Hamming separation makes each two-coordinate end projection injective. The intersection of the two projection images forces two disjoint codeword families and proves \(3|C|\le 2q^2\) by an elementary, complete argument valid for every \(q\ge2\). For \(q=3\), the two independent exhaustive enumerators both list the same full size histogram \((72,1410,7398,9042,1548)\) and exclude every larger admissible code. Their explicit codeword and symmetry checks show attainability and \(129\) size-twelve orbits. Finite computation supports only the exact ternary census; it does not replace the infinite-alphabet proof.
+
+**Originality — PASS, qualified.** The 1958 ordinary comma-free theory gives the unrestricted length-four ternary maximum \(18\), not the distance-three maximum. Blackburn's 2013 cross-bifix-free theory is strictly stronger in its overlap exclusion and provides different optima, and Yang–Ding's overlap-free construction theorems concern forbidden prefix–suffix collisions. Closest local published-research records discuss ternary length-three comma-free codes or longer distance-two synchronization codes, not this length-four distance-three census. No inspected source implies the combined bound-and-census theorem. Older poorly indexed distance-constrained comma-free tables remain a possible priority risk.
+
+**Value — PASS.** The simultaneous synchronization/substitution-correction design problem is natural: Hamming separation supplies one-error correction at an aligned frame, while comma-freeness identifies frame boundaries without marker symbols. The projection obstruction gives a reusable finite-alphabet bound improving the unconstrained \(q^2\) Singleton estimate by one third, and the ternary example gives a complete tight optimum and all optimum designs, rather than a sampled list.
+
+**Limits.** The general bound need not be tight for every alphabet; no claim is made for unknown-frame error correction or alphabets beyond the ternary finite census. Reproducible internal computation is not external certification. Primary comparisons were conducted using publicly available material; historical priority remains subject to additional archival checks.
+
+Self-review: passed. Independent audit: not yet performed.

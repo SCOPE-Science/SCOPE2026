@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For every \\(q\\ge2\\), two injective two-coordinate projections have images \\(P,S\\) each of size \\(m\\). At least \\(2m-q^2\\) half-blocks occur in both; a word may not have both halves in this intersection because it would be a middle splice, so \\(2|P\\cap S|\\le m\\). Thus \\(3m\\le2q^2\\). For \\(q=3\\), 72 admissible singleton words and all compatible codeword sets are exhaustively enumerated under hereditary pruning; two separately implemented standard-library-only programs agree on histogram 72, 1410, 7398, 9042, 1548, no sixth codeword, and 129 symmetry orbits all of size 12. Example five-word code verified directly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The general distance-three Singleton bound gives at most \\(q^2\\) words, which is weaker than the proved two-thirds bound.",
+        "The 1958 paper gives a rotation-class bound and a different half-block argument for unrestricted comma-free codebooks.",
+        "Yang and Ding, 2025 publicized/2026 journal, Sections 2–5: bounded prefix-suffix overlap-free constructions and bounds; the min-Hamming-three ordinary comma-free length-four census does not follow."
+      ],
+      "reasoning": "An unrestricted error-correcting code size bound does not exploit comma-freeness; a classical comma-free bound does not exploit distance-three projection injectivity. Their conjunction is not obtained by substituting the parameters into either cited family. Bounds for the strictly smaller cross-bifix-free family cannot upper-bound all ordinary comma-free codes.",
+      "searches": [
+        "comma free codes four letter singleton Hamming distance bound two thirds q squared",
+        "comma-free length-four q-ary codes minimum Hamming distance three 2q^2/3 Singleton upper bound",
+        "https://arxiv.org/html/1303.1026v3",
+        "https://globals.ieice.org/en_transactions/fundamentals/10.1587/transfun.2025EAL2050/_f"
+      ]
+    },
+    "checked_sources": [
+      "Golomb–Gordon–Welch (1958) open historical PDF",
+      "Blackburn arXiv:1303.1026 full HTML",
+      "Yang–Ding DOI:10.1587/transfun.2025EAL2050 full HTML",
+      "Wang–Fang–Feng DOI:10.1016/j.disc.2024.114236 public abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Golomb–Gordon–Welch treats all ordinary comma-free codes and proves a primitive rotation bound; it does not classify distance-three subsets.",
+        "Blackburn treats non-overlapping codes, a proper subclass, and gives exact maxima only for shorter block lengths in the unrestricted problem.",
+        "Yang–Ding defines (t1,t2)-overlap-free as a prefix/suffix restriction; distance-three ordinary comma-free codes are not necessarily in their class."
+      ],
+      "reasoning": "The novel implication needs both projection injectivity from Hamming distance three and the ban on a middle-half splice. The all-q bound follows from the intersection/disjointness proof, rather than from the prior broad statements. The ternary census further requires exhaustive comparison among all 72 primitive candidates, which the cited works do not supply.",
+      "searches": [
+        "https://arxiv.org/abs/1303.1026",
+        "https://globals.ieice.org/en_transactions/fundamentals/10.1587/transfun.2025EAL2050/_f",
+        "comma-free codes four letter ternary hamming distance 3 synchronization",
+        "comma free codes four letter singleton Hamming distance bound two thirds q squared"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Golomb–Gordon–Welch (1958), Sections 1–3: ordinary length-four comma-free optimum 18 for three letters, without Hamming separation; their half-word projection argument is related but does not enumerate distance-three codes.",
+        "Blackburn (2013), Section 1: cross-bifix-free means every prefix/suffix intersection is disallowed, strictly stronger than ordinary comma-free."
+      ],
+      "reasoning": "Checked the ordinary comma-free/rotation formulation and the cross-bifix-free formulation, not only matching titles. A length-four distance-three code may have matching two-symbol prefix and suffix blocks across different words; only a collision realized as a codeword at a shifted frame is forbidden. The exact ternary distance-three census is not implied by the unrestricted size 18 or bounds for a strictly smaller prefix/suffix-disjoint family.",
+      "searches": [
+        "comma free codes minimum Hamming distance length four ternary comma-free error correcting",
+        "ternary comma free codes length four minimum Hamming distance three maximum classification",
+        "length 4 ternary comma-free self-synchronizing codes Hamming distance 3",
+        "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/B78C35132E2BCD4A14459BE6A142FF30/S0008414X00045296a.pdf/comma-free-codes.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 1958 paper reports \\(W_4(3)=18\\), not the Hamming-constrained optimum or an optimizer census.",
+        "Relevant contemporary records cover ternary length-three comma-free Hamming-constrained codebooks and longer length-five or six synchronization designs, with different parameter domains.",
+        "The two fully independent local enumerators agree on all nonempty admissible sizes and on 1548 labeled optima in 129 symmetry classes."
+      ],
+      "reasoning": "A direct exact-value search, a variant-terminology search, and inspection of classical published tables found no matching exact distribution for the length-four ternary distance-three case. This is qualified best-knowledge originality, not a proof that no archive contains an earlier table.",
+      "searches": [
+        "ternary comma-free length 4 distance three maximum 5 1548 codebooks",
+        "frameshift free ternary 4-mer 1 substitution correcting code 5 129 symmetry classes",
+        "comma-free codes distance constraints length four ternary optimum",
+        "https://www.cambridge.org/core/journals/canadian-journal-of-mathematics/article/commafree-codes/B78C35132E2BCD4A14459BE6A142FF30"
+      ]
+    },
+    "rationale": "Exact published comparisons show no statement implying the simultaneous all-alphabet projection bound and the sharp ternary length-four, distance-three, 1548-optimum census. Classical unrestricted W4(3)=18, the stronger cross-bifix-free model, and contemporary prefix-suffix-overlap constructions are not equivalent. Historical equivalent tables are a residual priority risk.",
+    "residual_risks": [
+      "Older classified comma-free distance-constrained code tables may be absent from searchable indexes.",
+      "The Wang–Fang–Feng full text was not available for an exhaustive comparison; its abstract describes a stricter overlap model.",
+      "No independent external priority or mathematical review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact distance-three census; establishes unrestricted W4(3)=18 and related half-block combinatorial method.",
+        "evidence": [
+          "Theorem 1 treats primitive rotation-class bound; page 206 gives W4(3)=18 without distance restriction.",
+          "Theorem 4 uses length-two halves but does not impose injectivity of both half-word projections or enumerate optimal distance-three subfamilies."
+        ],
+        "identifier_or_url": "https://doi.org/10.4153/CJM-1958-023-9",
+        "material_read": "Open historical PDF, Sections 1–5, especially Theorems 1, 3, 4 and statement W4(3)=18",
+        "method": "Read text extraction and visually inspected PDF page 1",
+        "title": "Comma-Free Codes",
+        "trigger": "Original ordinary comma-free definition and possibly dominating exact length-four ternary result"
+      },
+      {
+        "assessment": "NOT_COVERING; stronger prefix-suffix nonoverlap family, different extremal question.",
+        "evidence": [
+          "Section 1 defines cross-bifix-free by no proper prefix/suffix coincidence.",
+          "Sections 2–4 derive unrestricted bounds and exact optima only for lengths up to three."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1303.1026v3",
+        "material_read": "Full HTML paper, Sections 1–5, Theorems 1–2, constructions and short-length results",
+        "method": "Read primary open-access full HTML",
+        "title": "Non-overlapping codes",
+        "trigger": "Potential overlap from cross-bifix-free synchronization bound; earliest verified first-public version March 5, 2013"
+      },
+      {
+        "assessment": "NOT_COVERING; forbids selected prefix/suffix coincidences rather than all triple-splice comma-free conditions with Hamming separation.",
+        "evidence": [
+          "Definition 2.1 specifies forbidden prefix/suffix equality, not the condition that a third codeword occurs in a splice.",
+          "Section 5 studies sizes of constructed overlap-free codes under alphabet partitions."
+        ],
+        "identifier_or_url": "https://globals.ieice.org/en_transactions/fundamentals/10.1587/transfun.2025EAL2050/_f",
+        "material_read": "Open-access full HTML, introduction, definitions, construction theorems and bounds through Sections 2–5",
+        "method": "Read primary open-access full HTML",
+        "title": "Q-Ary (t1,t2)-Overlap-Free Codes",
+        "trigger": "Recent candidate for a stronger size bound and constrained synchronization designs"
+      },
+      {
+        "assessment": "INACCESSIBLE_FOR_FULL_COMPARISON; abstract concerns simultaneous prefix/suffix overlap exclusion, likely a different family but not used to rule out full text",
+        "evidence": [
+          "The abstract describes (1,k)-overlap-free codes with balancing and error-correcting restrictions, rather than an ordinary length-four comma-free optimizer census."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2024.114236",
+        "material_read": "Public abstract only; full text not inspected",
+        "method": "Abstract and bibliographic comparison",
+        "title": "q-ary (1,k)-overlap-free codes with given restrictions",
+        "trigger": "Candidate for restricted-overlap and Hamming-distance theorems"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d27ca774-02b7-4a33-8834-6a65134379d0",
+  "value": {
+    "rationale": "The capacity of comma-free codes subject to aligned one-substitution correction is a natural joint synchronization/error-control problem. The projection argument gives a nonroutine one-third reduction from the unrestricted Singleton bound \\(q^2\\) to \\(\\lfloor2q^2/3\\rfloor\\), while the complete ternary optimum and its symmetry classification establish every best codebook at the first four-letter instance. This is a motivated exact design theorem, not a routine numeric check.",
+    "status": "PASS"
+  }
+}
