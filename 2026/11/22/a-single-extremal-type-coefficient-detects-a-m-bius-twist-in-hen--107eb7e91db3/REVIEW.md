@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The parameter line graphs are \(K_4\)-free because the underlying simple cubic ladders are triangle-free at the stated widths. Conant's Henson extension property identifies each nonalgebraic one-type with a triangle-free selected neighborhood. Triangles of a cubic triangle-free line graph correspond bijectively to three-edge stars, so nonneighbors are precisely edge covers. The weighted transfer counts each outgoing rail edge once and each rung once. Row swap commutes with all site matrices, and the antisymmetric space is one-dimensional with site eigenvalue \(-u_i\); taking the difference of untwisted and twisted traces yields exactly the theorem. Direct coefficient and weighted checks are reproducible from the standalone checker.
+
+## Originality — PASS, with explicit prior coverage and residual risk
+The pre-existing perfect-matching parity formula covers precisely the minimum-edge-cover **coefficient** in the unweighted specialization. The 2013 cubic-graph table already illustrates a width-five parity discrepancy. MathWorld supplies equal homogeneous family recurrences, which may make the unweighted consequence an accessible deduction. None of these sources states or determines the full inhomogeneous two-parameter-per-column boundary-twist identity, which is the only independent contribution asserted. The 2020 matching paper's accessible abstract is specific to matchings; its full text was not accessible, so historical priority for the multivariate identity remains uncertain. The known general one-type/edge-cover reductions are credited without novelty claim.
+
+## Value — PASS
+A boundary twist changes the global topology of two regular graph families, but the logical extension partition function's response is supported on one *single monomial* for every width and arbitrary rung heterogeneity. This gives a complete all-order coefficientwise comparison rather than an isolated finite computation or simple total-count formula. The result explains exactly where a named-parameter type spectrum can distinguish an ordinary cyclic ladder from a Möbius ladder while being blind in all other cardinalities and most multivariate profiles. It provides a concrete boundary-insensitivity principle of interest to finite-model one-type invariants and edge-cover transfer models.
+
+## Closest literature and limitations
+Conant (2014) supplies the ambient theory and extension criterion; Akbari–Oboudi (2013) supplies ordinary edge-cover polynomial theory; Alikhani–Jahari (2013) provides a fixed-order cubic census; Lekshmi–West (2020) supplies the parity difference for perfect matchings; MathWorld tabulates homogeneous recurrences. Only symmetric weights within each pair of rail edges are covered, and widths below four are excluded. No assertion about the uniqueness of such polynomial identities in other graph families is made. The 2020 full paper could not be inspected in this pass.
+
+Self-review: passed. Independent audit: not yet performed.

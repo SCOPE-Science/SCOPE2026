@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "One-point Henson graph types are exactly triangle-free neighborhoods. For line graphs of cubic triangle-free ladders this complements to edge covers. A four-state transfer enumerates the weighted covers, and its row-swap antisymmetric line has site eigenvalue \\(-u_i\\); hence trace(I-J) equals exactly \\(2(-1)^n\\) times the product of all rail-pair weights. The proof covers all \\(n\\ge4\\) with quantifiers and boundary seam explicit. The standalone checker independently verifies exact coefficient spectra widths 4 through 6, Henson-neighborhood enumeration widths 4 and 5, heterogeneous weight specializations widths 4 and 5, and transfer identities through width 12. These tests do not replace the all-order transfer proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Conant, arXiv:1401.1570, full accessible HTML gives the ambient homogeneous K_n-free structure and extension background, not specialized ladder-weight enumeration.",
+        "Published finding 2026/10/4/SCOPE-exact-finite-parameter-1-type-counting-in-henson-graphs-is-p-com--7c84dde7c650 gives general clique-avoidance counting complexity; it implies the reduction to edge-cover subsets when parameters are line graphs, but not the specific transfer comparison.",
+        "Published finding 2026/10/26/SCOPE-sharp-overlap-matching-bounds-for-one-point-types-of-the-generic--5ae2c90229c3 concerns a 3-uniform hypergraph, not this graph setting."
+      ],
+      "reasoning": "General finite-type characterization covers the first reduction and is explicitly prior. A general algorithm or complexity statement does not yield the closed-form difference between weighted graph families without a separate argument; the present proof computes the antisymmetric boundary sector. No stronger covering theorem was identified in the cited primary texts or actual semantic searches.",
+      "searches": [
+        "Henson K4-free graph one point type spectra line graphs of Möbius ladders versus prisms",
+        "Conant 2014 Henson graph prism Möbius line graph graded one-point type spectra",
+        "Henson K4-free line graph cubic graph one point types edge covers prism triangular ladder",
+        "Conant arXiv:1401.1570 Henson generic K4 free finite extensions"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1401.1570v1",
+      "https://janos.cs.technion.ac.il/COURSES/236603-11/oboudi.pdf",
+      "https://arxiv.org/abs/1312.7506",
+      "https://arxiv.org/abs/2003.09602 (abstract only)",
+      "https://mathworld.wolfram.com/EdgeCoverPolynomial.html",
+      "Published record: 2026/10/4/SCOPE-exact-finite-parameter-1-type-counting-in-henson-graphs-is-p-com--7c84dde7c650",
+      "Published record: 2026/11/17/SCOPE-coefficientwise-parity-reversal-of-chip-firing-two-cycle-masses--6cae7818810c",
+      "Published record: 2026/10/26/SCOPE-boundary-twist-cancellation-for-exact-two-public-goods-equilibri--5b52778bc432"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lekshmi–West arXiv:2003.09602 abstract describes perfect-matching counts differing by two with parity; its full paper could not be obtained in this comparison.",
+        "Alikhani–Jahari arXiv:1312.7506 provides complete univariate small-graph edge-cover counts.",
+        "Published finding 2026/11/17/SCOPE-coefficientwise-parity-reversal-of-chip-firing-two-cycle-masses--6cae7818810c and 2026/10/26/SCOPE-boundary-twist-cancellation-for-exact-two-public-goods-equilibri--5b52778bc432 give unrelated twist comparisons with different state constraints."
+      ],
+      "reasoning": "Perfect matchings are minimum edge covers in the graph families and account for the sole changing univariate coefficient; they do not constrain the coefficients of larger covers or heterogeneous rung activities. Homogeneous recurrences can cover the unweighted relation, but substituting arbitrary per-site weights is not licensed by a homogeneous recurrence. The new full polynomial identity requires the one-dimensional antisymmetric transfer-eigenspace proof; decisive comparison with any unindexed inhomogeneous transfer work remains a residual priority risk.",
+      "searches": [
+        "Möbius ladder prism full edge-cover generating functions transfer matrix difference",
+        "Lekshmi West arXiv:2003.09602 prism Möbius ladder perfect matching parity",
+        "MathWorld Edge Cover Polynomial shared family recurrence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Akbari–Oboudi, 2013, https://janos.cs.technion.ac.il/COURSES/236603-11/oboudi.pdf introduces the ordinary univariate edge-cover polynomial and elementary recurrences; searched its text for Möbius/prism/ladder without matching discussion.",
+        "Alikhani–Jahari, https://arxiv.org/abs/1312.7506, reports order-ten cubic graph edge-cover polynomials (including a minimum-coefficient two-unit discrepancy).",
+        "MathWorld https://mathworld.wolfram.com/EdgeCoverPolynomial.html tabulates homogeneous recurrences for both circular ladder families."
+      ],
+      "reasoning": "Taking complements of one-point neighborhoods turns the claimed relation into an inhomogeneous weighted edge-cover identity; this equivalent interpretation was searched explicitly. Prior univariate counts and equal recurrences are specializations, and do not determine the 2n-variable identity with independently chosen site weights. No matching formulation was located, but absence from searched sources is not a uniqueness proof.",
+      "searches": [
+        "edge cover polynomial Möbius ladder prism differ only perfect matching coefficient parity sign 2",
+        "twisted cyclic ladder edge cover polynomials same coefficients except minimum covers",
+        "Möbius ladder prism full edge-cover generating functions transfer matrix difference",
+        "Alikhani Jahari arXiv:1312.7506 cubic edge cover polynomials Section 4 tables",
+        "Akbari Oboudi On the edge cover polynomial 2013"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Alikhani–Jahari arXiv:1312.7506 full HTML Sections 3–5 and Table 1 enumerate univariate edge-cover coefficients for cubic graphs of order ten, including rows differing in their minimum coefficient.",
+        "MathWorld Edge Cover Polynomial https://mathworld.wolfram.com/EdgeCoverPolynomial.html displays a family-level recurrence for prism/Möbius edge cover polynomials."
+      ],
+      "reasoning": "Order-ten tables have only univariate values at n=5 and, even combined with homogeneous recurrences, cannot fix coefficients of arbitrary independent rung variables. They cover an unweighted special case and are not presented here as novel. No full multivariate site-weight table or formula was located.",
+      "searches": [
+        "edge covering polynomial prism graph circular ladder",
+        "Alikhani Jahari arXiv:1312.7506 Table 1 ten vertex cubic graph edge cover coefficients",
+        "MathWorld edge cover polynomial prism Möbius recurrence"
+      ]
+    },
+    "rationale": "The only independent claim is the all-width, 2n-variable inhomogeneous identity under paired rail weights. The general Henson/edge-cover reduction, known width-five univariate data, and perfect-matching two-unit discrepancy are attributed. Actual semantic searches and material primary-source comparisons found no statement implying an arbitrary independently weighted rung/site identity. The one-dimensional transfer antisymmetry is the new structural step. Historical priority remains provisional, particularly because one matching paper's full text was inaccessible.",
+    "residual_risks": [
+      "An earlier inhomogeneous six-vertex or cyclic-transfer calculation may have been published under different terminology, absent from semantic searches.",
+      "The full text of the 2020 perfect-matching paper was not accessible for direct evaluation of possible broader identities.",
+      "The unweighted relation is inferable from available recurrence data and is not claimed as independent novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supports generic Henson extension property; does not establish specialized weighted ladder identity.",
+        "evidence": [
+          "arXiv:1401.1570 first submitted 2014-01-08",
+          "Generic K_n-free graph and extension framework"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1401.1570v1",
+        "material_read": "Full HTML introduction and construction/extension discussion (arXiv version one).",
+        "method": "Read primary accessible HTML and compared named-base triangle-free extension statement.",
+        "title": "Forking and dividing in Henson graphs",
+        "trigger": "Establish ambient homogeneous K4-free model-theoretic extension premise"
+      },
+      {
+        "assessment": "General classical edge-cover results credited; no full independent-site ladder identity identified.",
+        "evidence": [
+          "Akbari–Oboudi, European Journal of Combinatorics 34 (2013), 297–321",
+          "DOI:10.1016/j.ejc.2012.05.005"
+        ],
+        "identifier_or_url": "https://janos.cs.technion.ac.il/COURSES/236603-11/oboudi.pdf",
+        "material_read": "Accessible PDF definitions, recurrence sections and text searches for prism, ladder and Möbius; first page visually inspected.",
+        "method": "Inspected lawful-access PDF and its extracted text for relevant family names and formulas.",
+        "title": "On the edge cover polynomial of a graph",
+        "trigger": "Check univariate edge-cover polynomial prior definitions and implications"
+      },
+      {
+        "assessment": "Covers finite univariate data including two-unit minimal-coefficient difference, not the full all-width site-weight identity.",
+        "evidence": [
+          "arXiv:1312.7506 version one public 2013-12-29 06:58 UTC",
+          "Table 1 order-ten cubic graph coefficient lists"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1312.7506",
+        "material_read": "Full arXiv HTML, especially Sections 3–5 and Table 1 plus author and original public date.",
+        "method": "Read accessible primary HTML and compared coefficient rows by mathematical implication.",
+        "title": "The edge cover polynomials of cubic graphs of order 10",
+        "trigger": "Find exact known finite width-five coefficient information"
+      },
+      {
+        "assessment": "The disclosed perfect-matching count relation covers the minimum edge-cover term; full multivariate coverage cannot be ruled out without inspecting complete material.",
+        "evidence": [
+          "arXiv:2003.09602 abstract states two-unit parity difference in perfect matching counts"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2003.09602",
+        "material_read": "Public abstract and bibliographic summary only; full PDF/HTML inaccessible during current comparison.",
+        "method": "Inspected accessible abstract, sought full material via arXiv/OA; distinguished abstract-level coverage from full-text noncoverage.",
+        "title": "The Number of Perfect Matchings in Möbius Ladders and Prisms",
+        "trigger": "Critical prior parity-sensitive perfect-matching comparison"
+      },
+      {
+        "assessment": "Equal homogeneous recurrences are prior and may imply unweighted difference; no site-variable recurrence or identity identified.",
+        "evidence": [
+          "MathWorld edge-cover-polynomial prism/Möbius recurrences"
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/EdgeCoverPolynomial.html",
+        "material_read": "Page family formula and homogeneous recurrence list.",
+        "method": "Compared recurrences to unweighted specialization, without deriving multivariate content not on the page.",
+        "title": "Edge Cover Polynomial",
+        "trigger": "Find dominant unweighted recurrence coverage of prisms and Möbius ladders"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "107eb7e9-1db3-437e-86f3-0a629ecb2bfe",
+  "value": {
+    "rationale": "The result supplies an exact complete multivariate boundary-response law for two globally nonisomorphic cubic families with arbitrarily heterogeneous rung activities, rather than an isolated table or specialization. In the logical setting it locates all loss of reconstructive information in a single extremal coefficient of the entire named-parameter type spectrum. Its exact structural mechanism is a one-dimensional antisymmetric transfer sector; this motivates further comparisons in finite-model type invariants and weighted counting.",
+    "status": "PASS"
+  }
+}
