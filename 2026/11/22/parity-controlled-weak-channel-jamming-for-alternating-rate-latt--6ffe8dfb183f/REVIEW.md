@@ -1,0 +1,12 @@
+# Scientific assessment
+
+## Correctness — PASS
+The first-arrival priority coupling reduces the weak-rate model to complete fast-stage adsorption followed by independently clocked slow-stage filling on every fixed local region. A uniform factorial bound for strictly decreasing ancestor paths justifies that limit on the infinite chain. The compressed-start conflict graph is exactly that of homogeneous rods of length \(r=\lceil k/2\rceil\). Direct empty-interval differential equations independently give the maximal-gap intensity \(e^{-2H_{r-1}}\), and the physical gap-length identity shows a qualitative odd/even contrast. The parity-resolved formulas, jammed jump and asymptotic follow by explicit counting and harmonic-number expansion. Supplementary finite-chain computations passed 2,138 assertions. The proof, not the finite experiments, covers every stated rod length and fixed slow time.
+
+## Originality — PASS on inspected evidence, with residual priority risks
+The exact uniform packing coverage and maximal-gap probability are established inputs, not novel. Pinsky's arXiv:2608.04730 provides these inputs and a different-length two-stage adsorption model; it does not directly classify same-length periodically staggered rates or the odd/even weak-channel limit. Full published records for alternating-rate dimers and trimers establish the two smallest cases but do not cover the unbounded family. Rodgers (1992) treats competing lengths. De Oliveira and Tomé (1994) are closely relevant to unequal sublattice rates, but accessible material does not establish their exact exclusion footprint, and full text was unavailable. That uncertainty and possible unnoticed prior reductions remain explicit historical-priority risks; no independent verification is claimed.
+
+## Mathematical value — PASS
+The question is whether an arbitrarily weak adsorption channel changes the terminal packing, and whether the answer depends on molecular length. An exact parity classification for every length and a noncommuting positive-rate-to-zero limit provide a structural answer: even rods admit no residual footprint, while odd rods have a positive density of independently fillable maximal holes. The sharp harmonic-number jump and separate sublattice time profiles distinguish the phenomenon from a routine numerical extension of the dimer and trimer formulas, and the \(k^{-1}\) law describes its weakening for long odd rods.
+
+Self-review: passed. Independent audit: not yet performed.
