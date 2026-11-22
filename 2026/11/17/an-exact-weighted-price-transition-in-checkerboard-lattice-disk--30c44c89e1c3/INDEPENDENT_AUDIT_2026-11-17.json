@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T20:13:08.235124Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Class-B (odd) sublattice Voronoi diamond |x|+|y|<=1 identifies nearest-B distance t. On symmetric wedge x>=y>=0, nearest class-A site is (1,0) and A-distance²=1-2x+t². At fixed t, minimizing admissible x gives diagonal x=t/sqrt2 for t<=1/sqrt2 and boundary x=(1+sqrt(2t²-1))/2 above, so worst A-distance² is 1-sqrt2 t+t² or t²-sqrt(2t²-1). Both decrease in t; taking t>=s gives exact necessary/sufficient F(s), with F=0 for s>=1. For w>0 the objective restricted to s<=1 has unique minimizer s1=1/(sqrt2(1+w)) on lower branch with E1=1-1/(2(1+w)), and unique s2=sqrt((1+(1+w)^-2)/2) above with E2=((1+w)-(1+w)^-1)/2. E2-E1=(w-1)/2 proves the full global threshold and both minimizers at w=1; s>=1 cannot beat the endpoint. Differentiate to give left slope 5/8 and right slope 1/8. Edge cases s=0,1 included.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full 2015 paper explicitly discusses generalized cost models in Section V as future work; no global all-w threshold in its tested calculations.",
+          "Tóth 1995 heterogeneous circle covers vary arrangement and objective; no indexed implication for parity-fixed square lattice weighted radii was found and full text not accessed."
+        ],
+        "reasoning": "A broader unrestricted circle-covering theorem cannot be assumed to determine a fixed two-parity weighted squared-radius optimum. General costs in 2015 discussion are not established as a solved theorem.",
+        "searches": [
+          "checkerboard square lattice alternating disk radii weighted squared cost phase transition unequal prices full coverage",
+          "mixed radius coverage heterogeneous sensor regular square grid arbitrary costs",
+          "covering plane with two kinds of circles Toth 1995"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1109/LWC.2014.2358631",
+        "https://cs.vuse.vanderbilt.edu/koutsoxd/www/Publications/06901219.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-sharp-two-price-phase-transition-for-mixed-disk-coverings-on-t--01d108217b2c",
+        "Resultary semantic query: checkerboard square lattice alternating disk radii weighted squared cost phase transition unequal prices full coverage"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier full-text paper provides feasibility inputs but not arbitrary w weighted objective branch comparison or derivative jump.",
+          "Triangular lattice fixed superstructure has a different Voronoi partition, densities and critical w."
+        ],
+        "reasoning": "Optimizing the actual two square-lattice geometric branches against arbitrary class-price coefficient is nontrivial additional parametric result, although it reuses a known radius geometry.",
+        "searches": [
+          "checkerboard square lattice alternating disk radii weighted squared cost phase transition unequal prices full coverage",
+          "Abbas Koutsoukos 2015 Sec V future generalized sensor cost",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-sharp-two-price-phase-transition-for-mixed-disk-coverings-on-t--01d108217b2c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Abbas-Koutsoukos 2015 Section III B uses exactly alternating square-grid parity nodes with two radii and derives one feasibility geometry; Section IV B obtains equal-price optimum.",
+          "This theorem replaces equal unit class prices by arbitrary w>0 and determines both competing cost branches and the switch."
+        ],
+        "reasoning": "Recognized reparameterization of known radius formula and equal-price minimizer as prior; the price-optimization envelope is a genuinely distinct parametric classification.",
+        "searches": [
+          "checkerboard square lattice alternating disk radii weighted squared cost phase transition unequal prices full coverage",
+          "Efficient Complete Coverage Through Heterogeneous Sensing Nodes configuration X checkerboard"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2015 source includes known equal-price optimum at w=1, which this claim credits as prior.",
+          "Resultary triangular-lattice price transition at sqrt3/2 concerns index-three coloring, not parity-two square lattice."
+        ],
+        "reasoning": "Matched exact equal-price values and separated them from newly computed w≠1 optimizer; other lattice thresholds do not form a universal table of this problem.",
+        "searches": [
+          "checkerboard square lattice alternating disk radii weighted squared cost phase transition unequal prices full coverage",
+          "checkerboard weighted radii w=1 two minima E=3/4 price transition",
+          "two price triangular lattice disk covering sqrt3/2"
+        ]
+      },
+      "rationale": "On the stated bounded primary literature and Resultary comparisons, the exact final claim is neither stated nor directly implied by the identified relevant antecedents; known special cases and methodology were credited. This is best-of-knowledge, not proof of global novelty. See four explicit implication checks, actual source inspections, and residual risks.",
+      "residual_risks": [
+        "Full Tóth 1995 historical text not inspected, so priority outside indexed fixed lattice problem is qualified.",
+        "Known w=1 benchmark is not an original finding and new value depends specifically on all-price selection and discontinuous design switch."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR equal-price optimum covered; weighted all-w phase not stated",
+          "evidence": "Configuration X large-radius relation and unit-price solution; Section V generalized cost suggested.",
+          "identifier_or_url": "https://doi.org/10.1109/LWC.2014.2358631",
+          "material_read": "Accessible four-page original paper through author/publication full-text portal including configurations, Section III geometry, Section IV cost optimization and Section V future directions",
+          "method": "Read full authorized scholarly copy",
+          "title": "Efficient Complete Coverage Through Heterogeneous Sensing Nodes",
+          "trigger": "Exact same checkerboard heterogeneous disk layout"
+        },
+        {
+          "assessment": "Geometry differs; index-three triangular price threshold sqrt3/2, not square parity w=1",
+          "evidence": "Triangular three-color sensor layout versus checkerboard bipartite sites.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-sharp-two-price-phase-transition-for-mixed-disk-coverings-on-t--01d108217b2c",
+          "material_read": "Published finding summary, mathematical parameters and relation to square lattice",
+          "method": "Resultary semantic record inspection",
+          "title": "A sharp two-price phase transition for mixed disk coverings on the triangular lattice",
+          "trigger": "Closest published same weighted disk-covering price problem"
+        },
+        {
+          "assessment": "Cannot assert full-document absence; residual historical risk",
+          "evidence": "General two-kind covering setting, no verified fixed checkerboard weighted theorem implication",
+          "identifier_or_url": "F. Tóth, Discrete Comput. Geom. 13 (1995), 445–447",
+          "material_read": "Citation metadata only; complete historical paper not accessed",
+          "method": "Bibliographic citation inspection",
+          "title": "Covering the plane with two kinds of circles",
+          "trigger": "Potential broader all-two-radius plane covering theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixed-site heterogeneous sensor deployment with class-specific prices naturally asks for the full cost-price optimal covering frontier. This yields complete sharp geometric resource allocation and abrupt switching under asymmetric prices, explicitly motivated as an open cost-generalization direction by the 2015 foundational design paper; known equal-price special case is not reclaimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific acceptance is bounded to the exact claim and hypotheses above, not an unrestricted stronger theorem. Numerical tests are supporting diagnostics, not formal proof or exhaustive infinite computations.",
+    "Full Tóth 1995 historical text not inspected, so priority outside indexed fixed lattice problem is qualified.",
+    "Known w=1 benchmark is not an original finding and new value depends specifically on all-price selection and discontinuous design switch."
+  ],
+  "schema_version": 1
+}
