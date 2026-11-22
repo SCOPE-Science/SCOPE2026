@@ -1,132 +1,143 @@
 {
   "correctness": {
-    "rationale": "Three-orbit exact first-step chain and determinant differences were derived; all three quadratic endpoints have opposite signs. A parameter-uniform negative Sylvester resultant with 36 positive shifted coefficients proves distinct roots, and the exact a=b=2 witness fixes order, as does S=(b-1)Q+R. Checker verifies symbolic identities and 267 direct full-pair comparisons.",
+    "rationale": "The orbit-reduced substochastic matrix follows from independent simultaneous moves and absorption at coincidence. The difference identities are exact polynomial identities with positive M-matrix determinant. Three quadratics have opposite endpoint signs; the Q,R resultant is negative on the a,b>=2 quadrant by a 36-term all-positive shift, proving pairwise distinct roots. The identity S=(b-1)Q+R and an a=b=2 witness prove alpha<beta<gamma. Exact rational full-state checks independently corroborate small cases.",
     "status": "PASS"
   },
   "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Kanade et al. (2016) general meeting/coalescence upper bounds, reviewed full accessible text",
-        "Oliveira–Peres (2018) full-text Section 4: meeting with deterministic moving trajectories and coalescence bounds"
+        "Kanade–Mallmann-Trenn–Sauerwald analyze worst-case meeting and coalescence-time bounds; Oliveira–Peres develop return/hitting/moving-target bounds and coalescence results."
       ],
-      "reasoning": "General meeting bounds apply to the split graph but give no strict pair-type crossing order or exact three-threshold root information. They do not dominate the quantified new claim.",
+      "reasoning": "Bounds on worst-case meeting time do not give comparisons of every initial pair orbit as holding p varies, so the exact three-crossing split-graph claim is not a stated corollary.",
       "searches": [
-        "clique independent join graph meeting time phase transitions holding probability pair coalescence",
-        "pair encounter time split graphs equality thresholds",
-        "arxiv:1611.02460 full text",
-        "arxiv:1807.06858v1 Section 4"
+        "meeting times of random walkers on graphs coalescence bounds",
+        "arxiv:1611.02460",
+        "arxiv:1807.06858"
       ]
     },
     "checked_sources": [
-      "arxiv:1611.02460v1",
-      "arxiv:1807.06858v1",
-      "arxiv:2111.05958v1",
-      "arxiv:2305.11590v1",
-      "published-finding corpus semantic searches for split-graph pair meetings and laziness thresholds",
-      "Prior related complete-bipartite synchronous-walker phase claim 26d2ff69-1960-45ea-a379-8fc90254356d"
+      "arxiv:1611.02460",
+      "arxiv:1807.06858",
+      "doi:10.1007/s13235-022-00427-1",
+      "arxiv:2305.11590",
+      "arxiv:2005.11161v3",
+      "Published result: Two sharp laziness thresholds for meeting on complete bipartite graphs"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Alpern–Zeng analyze cycles, lines, grids, despite general model",
-        "Eguchi et al. explicitly use an asynchronous, one-selected-walker-per-round non-atomic scheduler",
-        "Current result includes exact resultant factorization certifying 3 globally ordered crossings for all a,b≥2"
+        "The Alpern–Zeng meeting calculations are for C3 and C5. Eguchi et al. allow one moving agent per round under a scheduler, rather than simultaneous independent updates. The biclique result has no clique-clique edges."
       ],
-      "reasoning": "Prior general algorithms could compute any specified size but do not entail as stated the uniform crossing count and root order; the asynchronous model is not equivalent; earlier related bipartite comparisons have no clique edges.",
+      "reasoning": "None of these printed theorems implies the all-a,b strict crossing order for complete split graphs without new elimination and resultant sign analysis.",
       "searches": [
-        "two synchronous lazy random walks on complete split graphs K_a join empty K_b meeting times three initial pair classes",
-        "clique independent join graph meeting time phase transitions holding probability pair coalescence",
-        "Alpern–Zeng (2021), Sections 2, 4 and 5",
-        "Eguchi et al. (2023), model and results"
+        "Alpern and Zeng gather C3 C5 independent lazy walkers",
+        "Eguchi non-atomic random walk meeting times arxiv:2305.11590",
+        "two thresholds Kmn lazy meeting"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "Alpern–Zeng (2021) Sections 2 and 4–5: generic fundamental matrix, worked cycles/lines/grids",
-        "Full text of Oliveira–Peres (2018), Sec 1.2 and 4: general meeting bounds, not size-uniform split-graph comparisons"
+        "Alpern–Zeng formulate a general absorbing Markov chain and analyze lines, cycles and grids; their application graphs are not K_a join independent K_b."
       ],
-      "reasoning": "The three-orbit split graph reduction is a specialization of the established absorbing-chain approach, but root counting, resultant nonvanishing and strict 4-regime ordering are distinct assertions. General methods alone do not state or prove this exact phase portrait.",
+      "reasoning": "General Markov-chain methods give a method to compute each finite graph but do not directly imply a uniform, size-independent count and ordering of three strict crossings.",
       "searches": [
-        "two synchronous lazy random walks on complete split graphs K_a join empty K_b meeting times three initial pair classes",
-        "clique independent join graph meeting time phase transitions holding probability pair coalescence",
-        "two independent walkers meet same vertex on split graphs lazy probability optimal initial positions",
-        "arxiv:2111.05958v1, Section 2"
+        "synchronous independent lazy two-walker first meeting split join clique independent graph",
+        "Alpern and Zeng arxiv:2111.05958 Sections 2, 4, 5"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "No exact complete split-graph three-threshold table among returned named published-finding corpus records",
-        "Previous complete-bipartite two-threshold claim has no within-clique edges; its three-orbit transition matrix is different"
+        "The directly similar published result is on K_{m,n} and has two crossing thresholds for unequal part sizes; the K_a join independent K_b transition matrix includes clique-to-clique transitions absent in that result."
       ],
-      "reasoning": "The accessible searches and accessible literature comparison identify no identical polynomial/table. This is bounded evidence only; search absence does not establish global priority. The bipartite result cannot imply this one by changing part sizes because the graph classes differ.",
+      "reasoning": "The accessible search did not find the exact split-graph quadratic threshold table, but absence from an index does not certify priority.",
       "searches": [
-        "two synchronous lazy random walks on complete split graphs K_a join empty K_b meeting times three initial pair classes",
-        "two independent walkers meet same vertex on split graphs lazy probability optimal initial positions",
-        "pair encounter time split graphs equality thresholds",
-        "published-finding corpus semantic search: complete split graphs pair meeting time laziness",
-        "related published claim: 26d2ff69-1960-45ea-a379-8fc90254356d"
+        "complete split graph two walker meeting laziness root thresholds",
+        "published result on synchronous lazy K_{m,n} pair-placement thresholds"
       ]
     },
-    "rationale": "Accessible published-finding corpus and accessible prior research claims were compared to the exact all-parameter statement; prior general meeting bounds and generic absorption-matrix formula do not imply a strict three-crossing split-graph classification; synchronous bipartite and asynchronous non-atomic graph models are not the same. Historical-priority risk explicitly retained.",
+    "rationale": "The generic product-chain absorption construction is known, but the precise all-a,b strict three-root phase order has not been found in the relevant accessible comparisons. The exact complete-bipartite result concerns a graph without clique edges and does not imply the split-graph result. Historical priority remains qualified.",
     "residual_risks": [
-      "A specialized prior numerical or analytic split-graph meeting-time classification may be missed by semantic indexing.",
-      "General product-chain inversion in prior literature computes each instance; all-parameter strict phase order is the assessed contribution, not the matrix method."
+      "A narrowly indexed prior split-graph mean-meeting-time table may have escaped search.",
+      "Li Zeng's 2023 thesis has a plausible overlapping topic and was not fully inspected from its larger OA PDF; abstract and bibliographic metadata do not establish coverage."
     ],
     "source_inspections": [
       {
-        "assessment": "General meeting/coalescence estimates, not exact split-graph three-threshold ordering",
+        "assessment": "Fundamental matrix is prior; worked gathering graphs C3/C5, no split-graph phase theorem",
         "evidence": [
-          "2016-11-08 arXiv public submission; full text describes worst-case meeting and coalescence upper bounds"
+          "Section 2 defines independent common-p LRW and absorbing matrix; Propositions and calculations in Sections 4.2 and 5.1 are on cycles."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s13235-022-00427-1",
+        "material_read": "Published OA PDF Sections 2, 4.2 and 5.1 and graph-family outline",
+        "method": "Primary PDF text, figures and formulae",
+        "title": "Social Distancing, Gathering, Search Games: Mobile Agents on Simple Networks",
+        "trigger": "Identical synchronous lazy walker transition mechanism"
+      },
+      {
+        "assessment": "Gives global worst-case bounds rather than three conditional starting-orbit comparisons",
+        "evidence": [
+          "The meeting parameter is a worst-case expected time and the examples cover trees, tori, hypercubes, cliques and stars."
         ],
         "identifier_or_url": "https://arxiv.org/abs/1611.02460",
-        "material_read": "Full accessible text, abstract, introductory theorem descriptions and graph-family coverage",
-        "method": "Web full-text open and section analysis",
-        "title": "On coalescence time in graphs--When is coalescing as fast as meeting?",
-        "trigger": "Found as foundational simultaneous random-walk meeting/coalescence results"
+        "material_read": "ArXiv rendered introduction, theorem statements, table of topologies and meeting bounds",
+        "method": "Full text and theorem inspection",
+        "title": "On coalescence time in graphs—When is coalescing as fast as meeting?",
+        "trigger": "Strong general meeting-time estimates"
       },
       {
-        "assessment": "Bounds avoidance of moving trajectories and coalescence, not exact complete split-graph crossing diagram",
+        "assessment": "Meeting moving-target bounds and coalescence estimates, not exact parameterized split-graph ordering",
         "evidence": [
-          "arXiv v1 2018-07-18, Section 1.2 meeting theorem and Section 4"
+          "Section 1.2 meeting lemma is about hitting a deterministic trajectory and Section 4 proves the bound."
         ],
-        "identifier_or_url": "https://arxiv.org/html/1807.06858v1",
-        "material_read": "Full HTML text, contents, introduction Section 1.2 and Section 4 descriptions",
-        "method": "Web primary HTML open and comparison to exact starting-type mean ordering",
+        "identifier_or_url": "https://arxiv.org/abs/1807.06858",
+        "material_read": "ArXiv rendered introduction, Theorem 3 and Section 4 Theorem 5 proof",
+        "method": "Primary full-text inspection",
         "title": "Random walks on graphs: new bounds on hitting, meeting, coalescing and returning",
-        "trigger": "Strong potentially encompassing meeting-time theorem"
+        "trigger": "Potential general dominating meeting-time theorem"
       },
       {
-        "assessment": "Exact general transition/fundamental-matrix method is prior, but worked meeting examples use cycles, not split graphs; no 3-threshold theorem in reviewed material",
+        "assessment": "Provides a general spectral formula and approximately start-independent principal component, not an exact all-parameter split-graph three-threshold phase theorem",
         "evidence": [
-          "2021-11-10 first arXiv submission; Section 2 eqs 1–3; Sections 4–5 cycles C3 and C5"
+          "Section 3 gives spectral expression; Section 4 tests BA and ER random graphs, not split-graph exact crossings."
         ],
-        "identifier_or_url": "https://arxiv.org/html/2111.05958v1",
-        "material_read": "Full HTML Sections 1, 2, 3–5 and contents",
-        "method": "Web primary HTML inspect method and worked-graph theorem scope",
-        "title": "Social Distancing, Gathering, Search Games: Mobile Agents on Simple Networks",
-        "trigger": "Same synchronous independent lazy process and absorbing-chain framework"
+        "identifier_or_url": "https://arxiv.org/html/2005.11161v3",
+        "material_read": "Full arXiv HTML, introduction, sections 2–4 and conclusion topic/search",
+        "method": "Primary HTML scientific statement and assumptions comparison",
+        "title": "Graph Degree Heterogeneity Facilitates Random Walker Meetings",
+        "trigger": "Exact spectral formula for arbitrary-graph first meeting time potentially could dominate finite-graph model"
       },
       {
-        "assessment": "The non-atomic adversarial scheduler lets only one agent act in a round, not a pair of synchronous lazy walkers",
+        "assessment": "Plausible historical-priority risk; cannot establish noncoverage from abstract",
         "evidence": [
-          "2023-05-19 arXiv submission; abstract/model specifies single chosen agent per round"
+          "The abstract describes gathering on networks, but does not specify a split-graph three-threshold theorem."
         ],
-        "identifier_or_url": "https://arxiv.org/html/2305.11590v1",
-        "material_read": "Full HTML text and model description",
-        "method": "Web primary HTML inspection",
+        "identifier_or_url": "https://wrap.warwick.ac.uk/id/eprint/184058/",
+        "material_read": "Thesis record and abstract only; full approximately 20-MB PDF attempted but retrieval timed out",
+        "method": "Lawful OA portal listing; no whole-thesis assessment",
+        "title": "Mobile agents on simple networks: social distancing, gathering, dispersion and search games",
+        "trigger": "Highly relevant 2023 thesis by the gathering-network study author"
+      },
+      {
+        "assessment": "Uses adversarial selection of one moving walker per round, not two simultaneous independently lazy walkers",
+        "evidence": [
+          "The abstract explicitly states that a scheduler selects a single agent per round."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2305.11590",
+        "material_read": "Primary article abstract and model description",
+        "method": "Abstract/model comparison; no claim of complete full-text reading",
         "title": "Meeting Times of Non-atomic Random Walks",
-        "trigger": "Title plausibly covers meeting-time structure"
+        "trigger": "Same metric by title, model distinction"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
+  "prior_scientific_review_status": "passed",
+  "review_type": "research_scientific_review",
   "schema_version": 1,
-  "scope_run_id": "9dad6c06-39a2-402f-9cb9-77b91989295f",
   "value": {
-    "rationale": "This is a natural complete classification of the shortest and longest expected meeting-time start classes across holding probabilities on every connected nontrivial complete split graph; three distinct thresholds and a four-regime ordering are nonobvious and proven with an exact nonvanishing resultant rather than a small computational sample.",
+    "rationale": "This is a uniform all-size strict phase classification for three natural initial-pair orbits of a homogeneous lazy two-walker process on a nonregular nonbipartite graph family. Its three distinct thresholds are meaningful structural information beyond a generic finite-state inversion and useful for interpreting how initial meeting geometry changes with laziness.",
     "status": "PASS"
   }
 }
