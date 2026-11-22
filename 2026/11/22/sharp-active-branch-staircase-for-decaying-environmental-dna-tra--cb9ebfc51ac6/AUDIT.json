@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Define F_a on the compact simplex using its continuous zero-flow extension. For any two active unequal components, writing their fixed sum as t and proportions x,1-x reduces to G_{a/t}(x); differentiating shows G has no interior noncentral maxima, with u/sinh(u) strictly decreasing. Thus any maximizer has k equal positive shares. Evaluating k e^{-ak} and the strictly ordered consecutive ratio ((k+1)/k)e^{-a} proves the unique support-count phase or exactly adjacent tie at a=log((k+1)/k). All parameter and boundary cases are covered analytically; 141230 programmatic diagnostic assertions are supplemental.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Udell and Boyd (2014) present sigmoidal programming and concave-envelope/branch-and-bound treatment in their complete accessible PDF.",
+        "Vicentini (1970) is an older S-shaped-utility report whose record/abstract was available, but its full text was not accessible."
+      ],
+      "reasoning": "A general result that every symmetric optimal allocation has equal active values plus a complete threshold expression could subsume the claim. No such specific implication was identified in the inspected 2014 work. The inaccessible older report is a real unresolved coverage risk, not evidence of absence.",
+      "searches": [
+        "maximizing a sum of sigmoids Udell Boyd 2014 equal allocation",
+        "On the Resource Allocation Problem with S-Shaped Utility Functions Vicentini 1970",
+        "maximizing sum of exp(-c/x_i) over simplex global equal positive allocations and phase thresholds"
+      ]
+    },
+    "checked_sources": [
+      "Carraro et al. 2023 Scientific Reports 13:8854, Methods equation (1)",
+      "Carraro et al. 2020 Environmental DNA DOI 10.1002/edn3.137, full text",
+      "Udell and Boyd 2014 Maximizing a Sum of Sigmoids full PDF",
+      "Vicentini 1970 institutional repository abstract (full text inaccessible)",
+      "Published mathematical results on Hill-inhibition resource-allocation staircases, plus hydrological two-box tracer exchange"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Carraro et al. (2023), Scientific Reports 13:8854, Methods Eq. (1), https://doi.org/10.1038/s41598-023-35614-6.",
+        "Carraro et al. (2020), Environmental DNA, DOI 10.1002/edn3.137, Secs. 1–3.",
+        "Udell and Boyd (2014), complete PDF Sections 2 and 6–7."
+      ],
+      "reasoning": "The 2023 eDITH Methods Eq. (1) includes the relevant exp(-travel time/decay time) concentration term with fixed Q and source flux, but does not optimize Q shares. A full text on choosing sampling sites in river networks optimizes site placement, not branch flow. Udell–Boyd (2014) covers general separable sigmoidal programming and is strictly broader as a class, but the inspected pages did not give this explicit equal-support phase theorem for exp(-a/x). The self-contained pairwise derivative and all-tie proof adds these exact statements; an unrelated Hill-function equal-allocation theorem is not an implication for the exponential rate law.",
+      "searches": [
+        "Carraro Blackman Altermatt modelling environmental DNA transport river equation discharge decay fixed flow allocation 2023",
+        "How to design optimal eDNA sampling strategies for biomonitoring in river networks flow velocity decay",
+        "resource allocation sigmoid equal active support exact allocation theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Udell and Boyd, Maximizing a Sum of Sigmoids (2014), Sections 2, 6–7, DOI-less full text https://web.stanford.edu/~boyd/papers/pdf/max_sum_sigmoids.pdf",
+        "Related published Hill-response equal-active support allocation has a different rational response and budget/parameter regime."
+      ],
+      "reasoning": "The same theorem could be described as homogeneous resource allocation with identical inverse-exponential sigmoidal utilities. No inspected source gives the exact global maximizers and the specific log((k+1)/k) support thresholds. General algorithmic solvability is recognized as pre-existing, not called new.",
+      "searches": [
+        "maximizing sum of exp(-c/x_i) over simplex global equal positive allocations and phase thresholds",
+        "resource allocation of exponential inverse rate utility exp(-a/x) discrete equal support k logarithmic staircase",
+        "exponential inverse allocation g(x)=exp(-t/x) sharp k equal open branches"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Carraro, Blackman and Altermatt (2023) report eDNA biodiversity estimates in a real river network and the transport model, not a resource-allocation table.",
+        "Existing online mathematical research results on two-box tracer exchange and Hill-dose support staircases address different objectives."
+      ],
+      "reasoning": "The candidate gives a continuous real-parameter all-n analytic classification, not an integer table or numerical recomputation. No directly matching published table or database was found; this negative search is not a novelty certificate.",
+      "searches": [
+        "identical flow paths first order eDNA decay exp(-a/q) maximize recovered flux fixed total discharge sharp branch count",
+        "eDNA signal retention in parallel tributaries fixed total flow n-way open branch equal active allocation logarithmic thresholds",
+        "maximizing sum of exp(-c/x_i) over simplex global equal positive allocations and phase thresholds"
+      ]
+    },
+    "rationale": "Search and full-text implication comparisons do not reveal prior coverage of the precisely stated all-n exponential-attenuation flow-share staircase and logarithmic cutoffs. General sigmoidal optimization, hydrologic eDNA mass balance, and a similarly structured Hill-response support staircase are acknowledged as earlier, non-identical mathematics; priority is not externally certified.",
+    "residual_risks": [
+      "The older S-shaped utility allocation paper is a plausible uninspected source of an equivalent general theorem.",
+      "Further older or translated optimization literature may already imply the exact classification.",
+      "The controlled equal-flux and equal-cross-section model is deliberately idealized and differs substantially from natural river source and hydrology dynamics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the new flow optimization; explicitly gives eDNA concentration as 1/Q times sum of source flux multiplied by exponential travel-time attenuation but uses measured hydrology for modeling biodiversity",
+        "evidence": [
+          "Published 31 May 2023, Scientific Reports 13:8854",
+          "Methods: C_j=(1/Q_j) sum_i p_i A_{S,i} exp[-L_{ij}/(vbar_ij tau)]; v=Q/(wd) in rectangular sections"
+        ],
+        "identifier_or_url": "https://doi.org/10.1038/s41598-023-35614-6",
+        "material_read": "Open-access publisher PDF indexed full article text, especially introduction, biodiversity results, discussion, and Methods eDITH equation (1), discharge and rectangular-section velocity definition",
+        "method": "Indexed publisher/full-text PDF text; publisher PDF visual view was inaccessible after a redirect",
+        "title": "Modelling environmental DNA transport in rivers reveals highly resolved spatio-temporal biodiversity patterns",
+        "trigger": "Motivating 2023 eDITH flow/travel-time formula and eligible first public date"
+      },
+      {
+        "assessment": "NOT_COVERING: site location/number optimized under fixed hydrology, unlike variable flow partition with equal input flux",
+        "evidence": [
+          "First published 20 September 2020",
+          "Abstract specifies optimizing number and location of sampling sites; hydrology-based transport determines expected concentrations"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/edn3.137",
+        "material_read": "Open HTML full text, Sections Introduction, hydrological model, sampling-site simulations, conclusions and references",
+        "method": "Publisher full HTML article",
+        "title": "How to design optimal eDNA sampling strategies for biomonitoring in river networks",
+        "trigger": "Potentially dominating optimality theorem within eDNA river networks"
+      },
+      {
+        "assessment": "Broad class CONTAINS the objective; no directly derived analytic equal-support/log-threshold phase law in inspected material",
+        "evidence": [
+          "2014 work defines separable sum of sigmoidal functions over convex sets and develops concave-envelope/branch-and-bound optimization",
+          "Examples in Sec. 7 show generic allocative effects but no exp(-a/x) exact simplex classification"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/max_sum_sigmoids.pdf",
+        "material_read": "Open PDF with first-page visual inspection, full indexed Sections 1–3, 5–7 and Appendix-level overview of algorithmic guarantees",
+        "method": "Public complete 25-page PDF, indexed text, first-page image",
+        "title": "Maximizing a Sum of Sigmoids",
+        "trigger": "Possible broad optimization theorem implying the claimed equal-support law"
+      },
+      {
+        "assessment": "UNRESOLVED: inaccessible full text may contain an applicable general characterization",
+        "evidence": [
+          "1970 bibliographic record; no claim of full-document noncoverage"
+        ],
+        "identifier_or_url": "https://commons.case.edu/wsom-ops-reports/370/",
+        "material_read": "Bibliographic record and abstract only; linked paper PDF not accessible (403)",
+        "method": "Public institutional repository metadata and attempted document retrieval",
+        "title": "On the Resource Allocation Problem with S-Shaped Utility Functions",
+        "trigger": "Older exact S-shaped resource-allocation results possibly subsume current claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cb9ebfc5-1ac6-4cf6-bf94-6aca60aaf318",
+  "value": {
+    "rationale": "This exact all-n classification determines which subset of identical parallel eDNA-bearing reaches should carry fixed total experimental discharge to maximize tracer recovery, giving a complete no-skipped-support phase staircase and exact physically interpretable attenuation cutoffs. It illustrates how exponential travel-time loss creates a branch-shutdown incentive absent from linear survival assumptions, with arbitrary n and explicit equality cases. It is a theoretical laboratory benchmark, not an unsupported natural river recommendation.",
+    "status": "PASS"
+  }
+}
