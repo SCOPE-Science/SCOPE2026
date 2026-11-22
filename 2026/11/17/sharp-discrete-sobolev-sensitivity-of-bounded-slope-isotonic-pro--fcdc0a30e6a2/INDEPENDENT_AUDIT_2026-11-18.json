@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T11:47:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-discrete-sobolev-sensitivity-of-bounded-slope-isotonic-pro--fcdc0a30e6a2/RESULT.md",
+        "https://arxiv.org/abs/1706.01852",
+        "https://arxiv.org/abs/0912.5182"
+      ],
+      "rationale": "Projection onto the capped isotonic polyhedron is continuous piecewise affine; on each strictly complementary face its derivative averages over consecutive blocks. Every block partition can be realized with lower-constraint KKT multipliers positive and interblock slopes strictly between 0 and caps (even for infinite caps), so the global H1 norm is the maximum over all block averages. In the edge-gradient representation A has nonnegative entries, column sums ≤1 and adjacent block row sums (a+b)/2. For three or more blocks ∥A∥₂²≤∥A∥₁∥A∥∞≤(n-1)/2. Two-block exact squared norm n/3+(1/a+1/b)/6 determines n=2,3,4 exceptions; three blocks (1,n-2,1) with constant gradients attain (n-1)/2 for every n≥5.",
+      "residual_risks": [
+        "Strictly positive finite/infinite caps essential to realizing all patterns; no zero-cap or unequal-mass extension. Independent finite SVD enumeration n<=10 does not establish all dimensions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Agarwal et al. 2009 computes regression on paths and trees; Yang–Barber 2017 establishes contraction for selected seminorms."
+        ],
+        "reasoning": "Algorithmic/general contraction results are broader in graph/metric scope but do not dominate the sharp cap-independent sqrt((n-1)/2) coefficient.",
+        "searches": [
+          "sharp first-difference Sobolev two-input Lipschitz isotonic projection block averaging exact sqrt n/2",
+          "https://arxiv.org/abs/1706.01852",
+          "https://arxiv.org/abs/0912.5182"
+        ]
+      },
+      "checked_sources": [
+        "sharp first-difference Sobolev two-input Lipschitz isotonic projection block averaging exact sqrt n/2",
+        "https://arxiv.org/abs/1706.01852",
+        "https://arxiv.org/abs/0912.5182",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-bounded-variation-stability-transition-for-projection-onto--43b65933e518"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published contraction criterion implies coefficient one only under special seminorm assumptions; here n>=4 has >1 and n>=5 grows unbounded.",
+          "Upper slope caps affect affine offsets but not active-face derivatives for positive caps."
+        ],
+        "reasoning": "The classical block KKT geometry is an ingredient; obtaining sharp spectral optimization and cap-independence adds a non-implied quantitative theorem.",
+        "searches": [
+          "https://arxiv.org/abs/1706.01852",
+          "https://arxiv.org/abs/0912.5182",
+          "sharp first-difference Sobolev two-input Lipschitz isotonic projection block averaging exact sqrt n/2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The coefficient is the maximum norm of D B D^{-1} for consecutive block-averaging matrices B, where D takes first differences.",
+          "Yang–Barber characterizes contractive seminorms, not this exact noncontractive quotient."
+        ],
+        "reasoning": "The block-average operator view is an equivalent useful reduction but does not make the optimization a routine direct corollary.",
+        "searches": [
+          "sharp first-difference Sobolev two-input Lipschitz isotonic projection block averaging exact sqrt n/2",
+          "https://arxiv.org/abs/1706.01852",
+          "https://arxiv.org/abs/0912.5182"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact finite optimal partition norms independently computed for n2..10; published TV-ball constant is for another feasible set and ℓ1 variation."
+        ],
+        "reasoning": "A continuum of cap vectors and all n are being classified, not a known finite exact data table.",
+        "searches": [
+          "sharp first-difference Sobolev two-input Lipschitz isotonic projection block averaging exact sqrt n/2",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-bounded-variation-stability-transition-for-projection-onto--43b65933e518"
+        ]
+      },
+      "rationale": "Ordinary isotonic regression contraction theory (Yang–Barber) addresses seminorms satisfying neighbor-averaging nonexpansivity; it does not compute the sharp superunit first-difference ℓ2 amplification for projection onto arbitrary positive two-sided slope caps. Agarwal–Phillips–Sadri treats algorithms for Lipschitz isotonic regression rather than this exact two-input H1 modulus. The derivative is a consecutive-block mean, which is classical; the optimized spectral constants, cap-independence and small-n exceptions constitute the asserted separate contribution.",
+      "residual_risks": [
+        "General metric regularity of polyhedral projections and other discrete Sobolev isotonic sensitivity literature may include equivalent norms but was not exhaustively excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives an abstract contraction criterion, not an exact expansive first-difference spectral norm",
+          "evidence": "Theorem 1 and criterion for nonexpansive seminorms.",
+          "identifier_or_url": "https://arxiv.org/abs/1706.01852",
+          "material_read": "Full accessible arXiv HTML, including Theorem 1 neighbor-averaging criterion and examples",
+          "method": "arXiv HTML full text",
+          "title": "Contraction and uniform convergence of isotonic regression",
+          "trigger": "closest seminorm contraction prior"
+        },
+        {
+          "assessment": "Algorithmic least-squares feasibility/fitting, no located two-input H1 sharp law",
+          "evidence": "Problem definitions, path/tree regression methods.",
+          "identifier_or_url": "https://arxiv.org/abs/0912.5182",
+          "material_read": "Full accessible arXiv HTML, algorithmic problem and main results",
+          "method": "arXiv HTML full text",
+          "title": "Lipschitz Unimodal and Isotonic Regression on Paths and Trees",
+          "trigger": "same locally Lipschitz-capped isotonic fitting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/1706.01852",
+        "https://arxiv.org/abs/0912.5182",
+        "sharp first-difference Sobolev two-input Lipschitz isotonic projection block averaging exact sqrt n/2"
+      ],
+      "rationale": "The exact cap-insensitive growth of gradient perturbation amplification despite ℓ2 contractivity is a mathematically motivated conditioning law for constrained least-squares trend fitting; small n exceptions and explicit extremizers are useful for interpolation and sensitivity analysis.",
+      "residual_risks": [
+        "Only equal observation masses and path first differences; does not automatically extend to tree/graph or higher Sobolev norms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No extension to zero caps/weighted observations/graphs; broader projection seminorm theory is priority risk."
+  ],
+  "schema_version": 1
+}
