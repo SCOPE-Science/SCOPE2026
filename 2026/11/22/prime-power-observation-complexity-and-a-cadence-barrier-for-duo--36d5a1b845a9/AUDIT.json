@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "The phase for candidate \\(k\\) is \\(j/k\\); reduced-denominator \\(q\\) probes exactly test \\(q\\mid k\\). Adjacent prime-power candidates \\(p^{a-1}\\) and \\(p^a\\) require a reduced-denominator \\(p^a\\) probe. All prime powers suffice by unique factorization. Confinement to denominator-\\(H\\) grid forces every prime power to divide \\(H\\), equivalent to the lcm condition. For common timing tolerance \\(\\varepsilon<1/(2N^2)\\), distinct reduced fractions are separated by at least \\(1/N^2\\), so a probe cannot cover two mandatory prime-power witnesses; proposed exact phases retain the same incidence vector. Both upper/lower bounds are proved for every integer \\(N\\ge2\\). Exact finite checker confirms 11025 ancillary assertions but is not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cooke et al. (2020) simulate noisy telescope scheduling under actual sector and weather coverage, using observed epoch gaps to enumerate aliases; no all-candidate, all-schedule prime-power lower bound or lcm grid criterion is in the inspected Sections 2–5 and Appendix A.",
+        "Hawthorn et al. (2023) catalog 85 real duotransit candidates and optimize scientific follow-up under constrained coverage, rather than solving exact worst-case nonadaptive binary identification.",
+        "Osborn et al. (2022) prioritize probabilistically favored aliases and combine positive and negative real observations; it does not imply a sharp number of probes for a complete unpruned alias family."
+      ],
+      "reasoning": "Realistic survey pipelines offer broader physical applicability but do not subsume the claimed mathematical optimality, since they establish empirical outcomes under unequal priors rather than a universal necessary-and-sufficient design. No stronger equivalent statement was located in the retrieved related primary texts.",
+      "searches": [
+        "Resolving period aliases for TESS monotransits recovered during the extended mission (arXiv:2011.05832)",
+        "TESS duotransit candidates from the Southern Ecliptic Hemisphere (arXiv:2310.17268)",
+        "Uncovering the true periods of the young sub-Neptunes orbiting TOI-2076 (arXiv:2203.03194)",
+        "TESS duotransit aliases followup schedules prime power observations divisibility tests optimal cadence"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2011.05832",
+      "https://arxiv.org/abs/2203.03194",
+      "https://arxiv.org/abs/2310.17268",
+      "https://doi.org/10.1093/mnras/stad3783",
+      "https://doi.org/10.1093/mnras/staa3569",
+      "https://math.stackexchange.com/questions/1886768/minimum-number-of-divisibility-tests-required-in-order-to-identify-a-number-betw"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source claim: two widely separated transits leave possible \\(\\Delta/k\\) periods, motivating targeted alias photometry. Current claim: exactly \\(Q_N\\) predetermined visits distinguish all \\(N\\) possible indices, with mandatory prime-power phases; exact grid iff lcm divides its denominator; stable for half-width \\(<1/(2N^2)\\).",
+        "The only generally established deductions used are unique prime factorization and the integer numerator bound between distinct reduced fractions.",
+        "The 2016 divisibility-query question poses, but does not prove, the same number-theoretic identification problem; a question and two small answers do not imply the claimed universal theorem, and do not address transit duration, telescope phase scheduling or exact-grid feasibility."
+      ],
+      "reasoning": "The existence of a feasible targeted follow-up strategy and an empirical solved fraction do not imply the universal lower bound or regular-grid arithmetic barrier. Conversely the present deterministic theorem does not imply any of the empirical detection fractions or real-data likelihood results. The 2016 problem statement already anticipates the divisor-query optimization, which is therefore not itself proposed as original; its lack of posted solution does not prove absence of an older solution elsewhere.",
+      "searches": [
+        "arXiv:2011.05832 Sections 2.3, 3, 4.5, 5 and Appendix A",
+        "arXiv:2310.17268 Sections 1, 3.3, 5.2 and Appendix A",
+        "arXiv:2203.03194 Section 3.3 and conclusion",
+        "prime-power observation period alias nonadaptive finite duration Farey separation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A probe at a reduced rational time with denominator \\(b\\) returns \\(\\mathbf1_{b\\mid k}\\): the object is mathematically equivalent to identifying an integer through a nonadaptive family of divisor queries.",
+        "Unique factorization supplies the reconstruction rule; the genuinely model-specific statement adds a forced one-probe-per-prime-power lower bound, a robust finite-window regime and a regular-grid impossibility result.",
+        "The published transit-alias papers use integer-divided periods but inspected main sections do not state this global divisor-query optimum.",
+        "The 2016 Mathematics Stack Exchange question explicitly asks the minimum fixed divisibility-test family identifying an integer from 1 to n, gives n=4 and n=6 examples, and has no posted full proof or general answer in the inspected public text. This is the exact generic arithmetic problem equivalent to point-probe aliases."
+      ],
+      "reasoning": "The bare arithmetic identification problem and sample data are explicitly anticipated in the 2016 question and receive no novelty credit. The new assessed joint claim is an exact phase-based translation with the mandatory denominator theorem, an iff regular-timing-grid obstruction, and a positive nonzero transit-width regime where the same optimum is provably stable. The public question does not establish these extra statements or contain a published answer; nonetheless a prior resolved divisor-query theorem could subsume the arithmetic core, an acknowledged risk.",
+      "searches": [
+        "exact minimal tests to identify integer using only divisibility queries prime power nonadaptive oracle",
+        "divisor queries identify unknown integer prime powers minimal nonadaptive divisibility tests",
+        "period aliases exoplanet follow-up gcd least common multiple number theory prime-power tests schedule",
+        "arXiv:2011.05832 and arXiv:2310.17268 (inspection)",
+        "Minimum number of divisibility tests required in order to identify a number between 1 and n (Mathematics Stack Exchange question 1886768, 2016)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Hawthorn et al. appendices list host systems and model-implied period aliases, not optimal nonadaptive observation schedules for every integer alias up to N.",
+        "The exact examples \\(Q_{12}=8\\), \\(L_{12}=27720\\), \\(Q_{38}=19\\) and \\(L_{38}=5342931457063200\\) follow from the theorem; they were not lifted from any retrieved astronomical catalog."
+      ],
+      "reasoning": "Observational alias tables contain instance-specific feasible periods and priors rather than a universal identification/minimum-grid theorem; their parameters therefore cannot dominate the general symbolic claim.",
+      "searches": [
+        "TESS Duotransit Candidates from the Southern Ecliptic Hemisphere candidates follow-up period aliases table appendix",
+        "exoplanet two transit period aliases prime follow-up observing",
+        "TESS duotransit candidate MonoTools alias probability table (arXiv:2310.17268)"
+      ]
+    },
+    "rationale": "A 2016 public Mathematics Stack Exchange question already poses the identical generic nonadaptive integer-divisibility test-count problem and displays small cases; in the inspected public thread, it has no submitted solution. Thus the question formulation and small cases are prior art, and the prime-power divisor test itself is not claimed as a newly motivated arithmetic problem. The inspected astronomical primary literature does not give the complete physically phased timing theorem with its exact grid feasibility and quantitative finite-transit-duration robustness. No proof or stronger theorem subsuming all these combined conclusions was found; priority remains provisional.",
+    "residual_risks": [
+      "The core nonadaptive divisor-oracle problem was posed publicly in 2016, so only the joint astronomical observation, robust timing and regular-grid classification is assessed as a potentially new result. An old solution to that question or generalized periodic sampling theorem could dominate the remaining claim.",
+      "A general older divisor-lattice separating-family result might imply the elementary prime-power core; priority for the astrophysical combined theorem is best-knowledge, not certified exhaustive.",
+      "The Osborn author-manuscript image view could not be inspected, although relevant searchable text sections were read.",
+      "The physical idealization excludes actual time-varying transit uncertainty and observational feasibility; this is a limitation of applicability, not the proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest framework and practical scheduling source; does not assert universal prime-power visit or grid optimality",
+        "evidence": [
+          "Two widely separated transits imply discrete orbital period aliases",
+          "Nightly follow-up is simulated when at least one alias predicts a transit; empirical solved counts reported"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2011.05832",
+        "material_read": "Primary preprint Sections 1–5, especially 2.3, 3, 4.5, conclusions; Appendix A results table",
+        "method": "Opened searchable 11-page arXiv PDF, read extracted full sections and inspected page image",
+        "title": "Resolving period aliases for TESS monotransits recovered during the extended mission",
+        "trigger": "Same two-transit integer period family and targeted follow-up"
+      },
+      {
+        "assessment": "Source confirms integer-divided candidate periods and practical follow-up, not all-alias nonadaptive minimum",
+        "evidence": [
+          "Equation 1 enumerates period candidates by integer divisors of observed baseline",
+          "Appendix supplies observational candidate periods and priorities"
+        ],
+        "identifier_or_url": "https://warwick.ac.uk/fac/sci/physics/research/astro/people/faithhawthorne/duotransit_candidates.pdf",
+        "material_read": "Introduction and Equation 1; search/model and Section 5.2 photometric follow-up; Appendix A candidate tables",
+        "method": "Opened 26-page institutional author preprint, inspected text and page images including introduction and appendix",
+        "title": "TESS Duotransit Candidates from the Southern Ecliptic Hemisphere",
+        "trigger": "Recent catalog of precisely the same alias family"
+      },
+      {
+        "assessment": "Its prioritized, sequential, noisy follow-up neither asserts nor implies a deterministic universal nonadaptive minimum",
+        "evidence": [
+          "Model ranks individual period aliases using astrophysical priors",
+          "CHEOPS/ground campaigns eliminate selected aliases; actual nonuniform scheduling"
+        ],
+        "identifier_or_url": "https://iris.unito.it/retrieve/handle/2318/1948616/1220758/Osborn_2022.pdf",
+        "material_read": "Abstract; Sections 3.2–3.3 alias probabilities/observations; concluding discussion",
+        "method": "Read searchable open author-manuscript text; page image request from this host was denied",
+        "title": "Uncovering the true periods of the young sub-Neptunes orbiting TOI-2076",
+        "trigger": "Targeted observations of the same duotransit alias object"
+      },
+      {
+        "assessment": "The exact generic optimization question predates the current work; the inspected page contains no posted full mathematical answer, and no transit phase, finite-width or grid theorem",
+        "evidence": [
+          "Asked 2016-08-09 and illustrates 4 and 6 as example input sizes",
+          "Questioner confirms a fixed identifying family is sought; answer area shows no posted solution"
+        ],
+        "identifier_or_url": "https://math.stackexchange.com/questions/1886768/minimum-number-of-divisibility-tests-required-in-order-to-identify-a-number-betw",
+        "material_read": "Entire public question and comments including n=4, n=6 examples, question on fixed list, and answer section",
+        "method": "Opened and read complete public page with dated question and reply history",
+        "title": "Minimum number of divisibility tests required in order to identify a number between 1 and n",
+        "trigger": "Direct mathematical equivalence to the integer-divisibility oracle underlying the claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "36d5a1b8-45a9-4fc1-ba34-12a3e5a7b868",
+  "value": {
+    "rationale": "The naturally arising unpruned period-alias family produces a complete exact survey-design problem. The theorem supplies the globally minimum number of fixed photometric checks, distinguishes universal identification from certifying only the longest period, proves persistence for a quantitative positive transit half-duration, and gives a necessary-and-sufficient exact regular-cadence obstruction. At N=38 the contrast between 19 flexible checks and an exact grid of 5.34 quadrillion subdivisions is a meaningful warning against conflating rigid cadence with phase targeting, not a claim that real instruments require this resolution. The result is motivated by published duotransit follow-up difficulties and can guide theoretical benchmark tests while explicitly disclaiming practical calibration.",
+    "status": "PASS"
+  }
+}

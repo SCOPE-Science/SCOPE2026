@@ -1,0 +1,15 @@
+# Scientific review: prime-power period-alias identification
+
+## Correctness — PASS
+The proof identifies each exact photometric probe with a divisibility question on the unknown integer period index. Each adjacent prime-power pair \(p^{a-1}\), \(p^a\) forces its own denominator, while all such denominators are sufficient by unique factorization. The grid result is an iff statement following denominator divisibility. The positive-duration lower bound uses separation of distinct reduced rational phases by at least \(1/N^2\), and the same proposed times preserve the exact response signatures for \(\varepsilon<1/(2N^2)\). The proof treats all \(N\ge2\). Exact finite checks passed 11025 assertions, which are supplementary rather than an infinite proof.
+
+## Originality — PASS on inspected evidence
+Cooke et al. (2020), Hawthorn et al. (2023) and Osborn et al. (2022) study the same two-transit integer period aliases and practical follow-up campaigns. A public 2016 Mathematics Stack Exchange question directly formulates the equivalent integer-divisibility testing task and gives small examples without a general answer or proof in the inspected content. Therefore neither the arithmetic question nor its divisor-query formulation is new. The three astrophysical papers' inspected methods, conclusions and appendices do not state the combined exact nonadaptive prime-power minimum, iff regular-grid timing resolution and finite-duration robustness bound. The divisor-query formulation and its standard prime-factorization components are explicit; a stronger pre-existing result in general integer-identification theory remains a genuine priority risk. Literature comparisons are summarized with exact source references in `AUDIT.json`.
+
+## Value — PASS
+The full family of viable \(\Delta/k\) periods is a natural observational ambiguity. The sharp minimum number of fixed probes, the smaller number for certifying the longest alias, and the exact-grid obstruction distinguish three operationally different tasks. The quantitative tolerance result prevents the theorem from depending solely on mathematically point-like events. No claim of superiority over adaptive probabilistic observing programs, or direct instrumental feasibility of an extremely fine exact grid, is made.
+
+## Closest literature and limits
+Sources: Mathematics Stack Exchange question 1886768 (2016-08-09); Cooke et al., arXiv:2011.05832 (2020); Osborn et al., arXiv:2203.03194 (2022); Hawthorn et al., arXiv:2310.17268 (2023). Results are confined to strictly periodic, fully unpruned, noiseless, equal-cost, nonadaptive observations; all follow-up times must be feasible, and common finite timing tolerance must be less than \(1/(2N^2)\). Independent validation has not been performed. A 2016 question already poses the arithmetic core; the priority comparison cannot exclude a mathematically equivalent older divisor-query theorem or a pre-existing astronomy formulation of the additional robust timing conclusions.
+
+Self-review: passed. Independent audit: not yet performed.
