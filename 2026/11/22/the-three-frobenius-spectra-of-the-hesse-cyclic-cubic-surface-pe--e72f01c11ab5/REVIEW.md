@@ -1,0 +1,15 @@
+# Scientific review: Hesse cyclic cubic-surface Frobenius spectra
+
+## Correctness — PASS
+The statement is for every odd prime power with characteristic not three and every smooth coefficient-marked parameter. The branch-gradient condition is equivalent to nonvanishing of the indicated discriminant. Nine explicit flex tangents, each with a cubic splitting condition, produce all twenty-seven geometric lines. The rationality trichotomy follows from Frobenius on the flex parameters and cube roots. Since line classes generate the cubic-surface Picard group, the resulting permutation action determines the complete middle-cohomology factor; the nontrivial deck trace is independently computed by the tame fixed-point formula. In the quadratic-splitting case, the projective-plane bijection and Frobenius-squared identity fix both eigenvalue multiplicities. The exact verifier independently tests prime-field and quadratic-field point counts and tangent identities. The claims hold by proof for all indicated fields; the computations are only cross-checks.
+
+## Originality — PASS, with priority qualifications
+The nearest foundational source, Medrano Martín del Campo, arXiv:1910.09593, Proposition 2.1, proves flex-to-lines geometry and the complex cyclic-family monodromy, not the present character test or the positive-characteristic zeta factors. Brundu–Logar–Polli, arXiv:2207.04493, describe geometric symmetric cubic surfaces; McKean, arXiv:2101.08217, gives general possible rational line counts. The published result *The 45 tritangents of a cyclic cubic surface lie over the Hesse affine plane* analyzes geometric tritangent incidence, not this Frobenius classification. Published Fermat-specific line analyses cover the member at zero parameter, which is an acknowledged special case. Exact statement, implications, and broader parameter coverage were compared. Searches cannot exclude older unindexed Hesse arithmetic treatments: that is the residual priority risk, not an asserted proof of absolute novelty.
+
+## Mathematical value — PASS
+The all-fields theorem classifies the arithmetic descent of every geometric line, the entire Frobenius spectrum on the Picard lattice, and the full Hasse–Weil zeta function for a canonical one-dimensional family of highly symmetric cubic surfaces. It also explains a complete line-free versus split parameter dichotomy by one explicit cubic character and shows that this distinction already appears over the small prime fields. This is a natural finite-field refinement of the cyclic-monodromy and geometric-line correspondence, not a recomputation of an arbitrary isolated invariant. The novelty claim excludes the already-known Fermat member considered alone.
+
+## Limits and closest literature
+No classification of isomorphism classes or of all cubic surfaces is claimed. The proof does not cover characteristic two or three. Arithmetic priority relative to inaccessible or unindexed classical treatments of the Hesse pencil remains unsettled. Independent mathematical replication is not asserted.
+
+Self-review: passed. Independent audit: not yet performed.
