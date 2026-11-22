@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T16:45:21.191044Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md @50c3cfa9ee817ca7391e9f5fd0e9d3da99d8009f",
+        "frozen verify.py @47ba93256deaac1e37ca7138b69f21158f7f5b6f",
+        "independent scipy.linalg.expm and binary cut comparisons for four part-size pairs at t=0.87"
+      ],
+      "rationale": "The generator D^{-1}A−I has eigenvalues 0,−1 (within-class mean-zero),−2 (interclass mean difference). For a=e^(−t), the cut output has four class-value combinations; summing within and cross pairs exactly produces a[1+(1−a)C_{p,q}(r,s)]. Finite layer-cake/coarea over all pair differences reduces the operator norm to binary cuts with equality at a maximizing cut. For d=r/p−s/q>0 the numerator equals (qr−ps)[1−2(r/p)(1−s/q)], strictly below G(1_S) if positive; symmetry covers negative d. Hence C<1 for every finite pair. Singleton cut r=1,s=0 with p=k,q=k² gives C=k(k−2)/(k²+k−1)→1, proving the exact unattained envelope a(2−a). Independently checked direct normalized semigroup matrix exponentials and all binary cuts for K1,1, K2,3, K3,5, K5,2 at t=.87. This does not assert a closed analytic optimizer over r,s.",
+      "residual_risks": [
+        "The all-size limit is obtained analytically, not by finite matrix checks; arbitrary weighted/unequal-rate generators excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published K_{a,b} sharp edge-variation result uses unnormalized L=D−A and only a×b cross-edges, yielding 2(b−1)e^(−at)/b−(b−2)e^(−(a+b)t)/b.",
+          "Half-lazy theorem requires balanced p=q and one time step."
+        ],
+        "reasoning": "The older results neither quantify the degree-normalized complete-pair Gini operator nor its all-p,q nonattained envelope. Different domains and semigroup eigenvalue rates block direct specialization.",
+        "searches": [
+          "complete bipartite graph normalized heat semigroup Gini sum all-pairs absolute differences contraction sharp",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-edge-variation-heat-amplification-on-complete-bipartite-gr--86f601cc5033",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-gini-contraction-of-half-lazy-random-walks-on-balanced-bic--6219a5881272"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-edge-variation-heat-amplification-on-complete-bipartite-gr--86f601cc5033",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-gini-contraction-of-half-lazy-random-walks-on-balanced-bic--6219a5881272",
+        "https://arxiv.org/abs/1307.4649",
+        "Resultary semantic query: complete bipartite graph normalized heat semigroup Gini sum all-pairs absolute differences contraction sharp"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Different seminorm and normalized vs unnormalized heat comparands, with explicit formulas for alternative quantities.",
+          "The present C_{p,q}(r,s) involves BOTH same-class and opposite-class pairs in all graph sizes."
+        ],
+        "reasoning": "Coarea and spectral decomposition are standard ingredients, but the earlier different-norm coefficient cannot be substituted into C_{p,q} or imply C<1 in the exact present geometry.",
+        "searches": [
+          "complete bipartite graph normalized heat semigroup Gini sum all-pairs absolute differences contraction sharp",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-edge-variation-heat-amplification-on-complete-bipartite-gr--86f601cc5033",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-gini-contraction-of-half-lazy-random-walks-on-balanced-bic--6219a5881272",
+          "https://arxiv.org/abs/1307.4649"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gaubert–Qu uses oscillation and its dual measure-TV contraction, not sum of ALL scalar vertex pair differences.",
+          "Published half-lazy balanced biclique Gini norm is 3(m−1)/(2(2m−1)) for one discrete averaging step, not e^{t(D⁻¹A−I)}."
+        ],
+        "reasoning": "Although both are Markov contraction coefficients, the shape and weighting of the seminorm unit ball differ, and a discrete half-lazy step cannot coincide with positive-time normalized heat on all its eigenspaces.",
+        "searches": [
+          "complete bipartite graph normalized heat semigroup Gini sum all-pairs absolute differences contraction sharp",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-gini-contraction-of-half-lazy-random-walks-on-balanced-bic--6219a5881272",
+          "https://arxiv.org/abs/1307.4649"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full Resultary search includes different Gini profiles for Petersen, friendship and balanced half-lazy bicliques and own matching record; no complete-bipartite normalized heat exact cut table across every p,q other than the audited record."
+        ],
+        "reasoning": "An all-integer p,q cut-max formula and universal sharp envelope are not entries of a known published finite table in inspected material.",
+        "searches": [
+          "complete bipartite graph normalized heat semigroup Gini sum all-pairs absolute differences contraction sharp",
+          "Resultary: Gini stability polytope weighted two-cell conditional expectations"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality relative to compared statements and actual independent material, not a proof of absolute priority. Although both are Markov contraction coefficients, the shape and weighting of the seminorm unit ball differ, and a discrete half-lazy step cannot coincide with positive-time normalized heat on all its eigenspaces.",
+      "residual_risks": [
+        "Unindexed complete-pair Markov heat seminorm formulas possible; no exhaustive full-text check of all historical Markov coefficients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_GENERATOR_AND_SEMINORM",
+          "evidence": "Original norm sums graph cross-edges only and uses unnormalized Laplacian; not complete-pair Gini on normalized heat.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-edge-variation-heat-amplification-on-complete-bipartite-gr--86f601cc5033",
+          "material_read": "Complete published RESULT.md: theorem, centering lemma, decomposition, limitations",
+          "method": "GitHub full RESULT.md via connected reader",
+          "title": "Sharp edge-variation heat amplification on complete bipartite graphs",
+          "trigger": "same graph family with heat-variation norm"
+        },
+        {
+          "assessment": "RELATED_BUT_NOT_DOMINATING",
+          "evidence": "One discrete P=(I+D⁻¹A)/2 step on K_{m,m}; different spectrum and p,q scope.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-gini-contraction-of-half-lazy-random-walks-on-balanced-bic--6219a5881272",
+          "material_read": "Complete published RESULT.md and its time-step normalization",
+          "method": "GitHub full RESULT.md via connected reader",
+          "title": "Sharp Gini contraction of half-lazy random walks on balanced bicliques",
+          "trigger": "same Gini object on a restricted balanced graph family"
+        },
+        {
+          "assessment": "DIFFERENT_OSCILLATION_NORM",
+          "evidence": "Oscillation max−min / dual measure total variation is not all-pair Gini sum.",
+          "identifier_or_url": "https://arxiv.org/abs/1307.4649",
+          "material_read": "Statement and definitions reproduced in source citations, original full paper not reopened during this execution",
+          "method": "Bibliographic and theorem-statement comparison",
+          "title": "Dobrushin's ergodicity coefficient for Markov operators on cones",
+          "trigger": "potential Markov norm equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-edge-variation-heat-amplification-on-complete-bipartite-gr--86f601cc5033",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-gini-contraction-of-half-lazy-random-walks-on-balanced-bic--6219a5881272",
+        "frozen RESULT.md full cut proof"
+      ],
+      "rationale": "The exact complete-pair Gini decay on every bipartite part size supplies a natural sharp semigroup contraction coefficient, including finite strict contraction and a surprisingly larger nonattained all-size envelope. The contrast with edge-variation amplification and oscillation contractions makes the object structurally useful; not just a finite calculation.",
+      "residual_risks": [
+        "Applies only unweighted complete bipartite graphs, homogeneous exit rates and counting-mass Gini variation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The all-size limit is obtained analytically, not by finite matrix checks; arbitrary weighted/unequal-rate generators excluded.",
+    "Unindexed complete-pair Markov heat seminorm formulas possible; no exhaustive full-text check of all historical Markov coefficients.",
+    "Applies only unweighted complete bipartite graphs, homogeneous exit rates and counting-mass Gini variation."
+  ],
+  "schema_version": 1
+}

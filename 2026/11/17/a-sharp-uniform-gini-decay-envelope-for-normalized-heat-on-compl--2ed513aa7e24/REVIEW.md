@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact semigroup decomposition into the interclass mode and the two within-class fluctuation spaces gives the displayed values for every real time. Every binary-cut output is computed with all pair multiplicities, and coarea reduces the full real-signal operator norm to those cuts. The strict finite-size bound follows by bounding the positive correction with a nonempty cut's crossing pairs. A singleton from increasingly unbalanced growing bipartitions gives an analytic lower sequence meeting the uniform bound. The packaged exact-rational diagnostics test these identities, but the unrestricted conclusions rest on the written proof.
+## correctness
 
-## Originality — PASS (best-knowledge)
-Relevant literature on Markov contraction coefficients uses oscillation/dual probability total variation, while indexed complete-bipartite heat studies use graph-distance transport or edge-sum variation rather than the complete-pair Gini seminorm. The strongest accessible nearby published statements were read and compared at the level of generator, norm, time quantifier and claimed extremum. No direct implication supplies this exact finite-cut coefficient and its attained-all-times graph-family envelope. Residual priority risk: equivalent formulae may be unindexed or embedded in older consensus/ergodicity treatments. Search failure alone is not a novelty proof.
+PASS
 
-## Mathematical value — PASS
-An exact all-size, all-time contraction problem is solved in a baseline-invariant dispersion norm on a nonregular graph family. The norm is computable in polynomially many cut comparisons rather than exponentially many vertex subsets. The sharp universal envelope, its nonattainment by any finite graph at positive time, and the explicit imbalanced size sequence identify a genuine distinction between finite strict contraction and the optimal family-wide decay. This is an exact structural stability fact, not just a low-dimensional numerical increment.
+The generator D^{-1}A−I has eigenvalues 0,−1 (within-class mean-zero),−2 (interclass mean difference). For a=e^(−t), the cut output has four class-value combinations; summing within and cross pairs exactly produces a[1+(1−a)C_{p,q}(r,s)]. Finite layer-cake/coarea over all pair differences reduces the operator norm to binary cuts with equality at a maximizing cut. For d=r/p−s/q>0 the numerator equals (qr−ps)[1−2(r/p)(1−s/q)], strictly below G(1_S) if positive; symmetry covers negative d. Hence C<1 for every finite pair. Singleton cut r=1,s=0 with p=k,q=k² gives C=k(k−2)/(k²+k−1)→1, proving the exact unattained envelope a(2−a). Independently checked direct normalized semigroup matrix exponentials and all binary cuts for K1,1, K2,3, K3,5, K5,2 at t=.87. This does not assert a closed analytic optimizer over r,s.
 
-## Closest literature and limits
-Gaubert–Qu (arXiv:1307.4649, full-text HTML) proves oscillation/Dobrushin norm formulae; the indexed two-rate bipartite Wasserstein theorem concerns transport on measures; the \(K_{2,q}\) weighted-variation criterion concerns edge sums. The present fixed-size coefficient remains a finite two-integer maximum; a closed maximizing-count classification is not claimed. No independent mathematical validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality relative to compared statements and actual independent material, not a proof of absolute priority. Although both are Markov contraction coefficients, the shape and weighting of the seminorm unit ball differ, and a discrete half-lazy step cannot coincide with positive-time normalized heat on all its eigenspaces.
+
+## value
+
+PASS
+
+The exact complete-pair Gini decay on every bipartite part size supplies a natural sharp semigroup contraction coefficient, including finite strict contraction and a surprisingly larger nonattained all-size envelope. The contrast with edge-variation amplification and oscillation contractions makes the object structurally useful; not just a finite calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
