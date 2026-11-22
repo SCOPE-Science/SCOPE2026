@@ -1,0 +1,15 @@
+# Scientific review: exact low-order tensors of the Voronoi 24-cell
+
+## Correctness — PASS
+The standard even-sum root lattice has exactly the Voronoi inequalities \(|x_i|+|x_j|\le1\); the proof reduces these to a four-simplex inside each signed-and-sorted chamber and establishes that all longer lattice bisectors are redundant. There are exactly 384 congruent chambers, each of volume \(1/192\). The affine-coordinate Dirichlet integration gives all symmetric moment entries as rational numbers and supports the complete sixth-moment multinomial expansion. The orthogonal Hadamard symmetry proves exact fourth isotropy; two independently evaluated sixth projections show strict anisotropy. The included standard-library verifier checks every numerical equality twice by algebraically independent coordinate maps. The proof, not finite sampling, handles the full solid cell and every real direction.
+
+## Originality — PASS, with historical risk
+The 1982 Conway–Sloane paper and 2026 Liu paper provide Voronoi-cell geometry and exact quadratic distortion, not the uniform-solid fourth/sixth tensor values. Ordentlich's general Voronoi spherical distribution results and historical radial plots do not supply a published all-cell rational moment table or directional sixth-tensor classification. The most directly relevant publicly indexed high-radius \(D_4\) tail theorem applies only to squared radii above \(3/4\), so does not imply full higher moments, and it makes no directional claim. Three-dimensional FCC/BCC moment comparisons and three-dimensional fourth-isotropic solids do not cover this four-dimensional cell. The isotropy symmetry itself is classical; only its evaluated solid-volume coefficients and the exact sixth-order gap are claimed here. Unknown older geometric moment tables remain a real priority risk.
+
+## Value — PASS
+The regular 24-cell is the canonical Voronoi region of the now-proven unique optimal four-dimensional lattice quantizer for quadratic distortion. Exact variance of squared reconstruction error, direction-independent fourth moments, and the complete sixth tensor are natural higher-order descriptors when mean squared error alone does not characterize error fluctuations. The structural boundary is sharp in order: all quadratic/fourth directional moments are isotropic but the sixth tensor is not. This is a complete, reproducible low-order invariant of a distinguished body rather than a numerical curiosity or arbitrary parameter slice; no claim is made of a new universal quantizer optimum.
+
+## Boundaries and residual risk
+The result concerns a fixed unscaled four-dimensional Voronoi solid, and does not establish a radial CDF or arbitrary lattice comparison. General Dirichlet integration is old; the evaluated rational moment profile is the mathematical increment. One older source reported numerical evaluation of the \(D_4\) radial function without making its full data available in the examined materials. Priority beyond the accessible exact published comparisons remains provisional.
+
+Self-review: passed. Independent audit: not yet performed.
