@@ -1,33 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The assertion concerns exact geometric fixed sets, not homological invariants. For each \(\tau\)-invariant collision-free finite set, the midpoint particles are singleton orbits and all others occur in uniquely represented pairs across two disjoint half-open stars. The sector inverse maps are continuous; a midpoint's occupation is locally constant within the invariant collision-free locus. Each sector is therefore homeomorphic to the claimed star configuration space, and no sectors are identified.
+PASS
 
-The half-open and closed stars have configuration spaces of the same homotopy type by explicit strictly monotone radial embeddings and homotopies. Farley–Sabalka's radial-tree theorem gives the one-dimensional Morse bound. An independent matching-polynomial calculation derives the exact Euler characteristic and circle rank for every particle number, including zero and one. The generating functions and the four-particle first-loop boundary follow by exact coefficient counting. A standalone cell enumerator and involution-orbit checker corroborate the derivation on finite cases. The finite checks are not invoked as a proof of arbitrary particle number.
+A tau-invariant collision-free unordered configuration is a disjoint union of an occupied subset T of m fixed midpoints and b free 2-orbits, each uniquely represented by one particle on the A-side open m-star, with a+2b=k. Midpoint occupancy is locally constant in the invariant collision-free locus, giving an actual clopen disjoint-union homeomorphism rather than just equality of Euler characteristics. Strictly increasing branchwise deformation identifies half-open and closed-star configuration homotopy types. Farley–Sabalka radial-tree Morse result bounds UConf_b(star) by a graph with free fundamental group. Standard subdivision and matching-polynomial Euler calculations yield chi_b=C(b+m-1,m-1)-(m-1)C(b+m-2,m-1); hence R_m(b)=1-chi_b. Binomial choices of T and b=(k-a)/2 give integral torsion-free Betti sums and generating functions. Separate arithmetic tested R_m(b)>=0 and R_m(b)>0 iff b>=2 for 3<=m<=8, 0<=b<=11. The first fixed-space nonzero H1 is therefore k=4, for all m>=3. No finite test replaces exact orbit-sector homeomorphism.
 
-## Originality — PASS, relative to inspected sources
+## originality
 
-Farley–Sabalka [1] already determine the ordinary star braid rank and the one-essential-vertex homotopy dimension. The published two-point theta results [2,3] cover the two-particle instance of this classification: no novelty is assigned to that special case. The full four-particle theta homology representation calculated in [4] concerns the action on ambient homology rather than the actual geometric fixed locus; it does not imply a homotopy or connected-component classification. The inspected published results do not give an all-particle pole-reversal fixed-sector homeomorphism or the two rational integral Betti generating functions.
+PASS
 
-The fixed-set sector argument is elementary once observed, so an equivalent formulation may occur in general equivariant configuration-space literature. Such an unindexed result is an explicit priority risk. A search not finding it is not a novelty proof, and a future stronger theorem may cover the present claim.
+Farley–Sabalka already determine ordinary radial-tree/star graph-braid ranks, so that factor is prior. Published two-point theta pole-swap studies determine automorphism characters on ambient H1, not the pointwise-fixed subspace of UConf_k for all k. A published all-particle fixed-space theorem for arm-permutation subgroups of a STAR has different underlying graph and symmetry; it does not cover reversal of a two-pole THETA. The audited all-k canonical midpoint-sector homeomorphism plus integral homology generating functions is a new combined fixed-point classification in inspected sources; elementary orbit bookkeeping is acknowledged.
 
-## Mathematical value — PASS
+## value
 
-This is a complete natural fixed-space classification for one fundamental involution on every multitheta graph and for every particle count, not a single arbitrary low-dimensional slice. The formula detects sharply when nontrivial geometric fixed-space loops first appear (four particles), computes all connected components and integral homology, and exposes the difference between fixed-space topology and the previously computed ambient homology characters. The exact homeomorphism is stronger than merely comparing Euler characteristics.
+PASS
 
-## Scope, evidence and outstanding validation
+Geometric fixed loci under graph involutions are natural equivariant topological objects and can differ drastically from invariant homology of the ambient configuration space. The complete classification for every particle number and every arm count, including exact connected components, all integral Betti ranks, and first-loop threshold at k=4, is independently useful in graph braids and symmetric collision-free motion planning. No new ordinary-star rank is claimed; the value is the exact fixed-locus identification.
 
-The theorem applies to the pole-reversal involution preserving each arm. It does not classify combined arm permutations, ordered configurations, orbit quotients, or residual equivariant homotopy types. The six document statements agree on the same claim. Its proof is mathematical, with finite tests independently corroborating the orbit bookkeeping and Euler signs. Independent mathematical validation has not been carried out.
-
-Self-review: passed. Independent audit: not yet performed.
-
-## References
-
-[1] Farley–Sabalka, *Discrete Morse theory and graph braid groups*, arXiv:math/0410539 (2004), Section 4, Corollary 4.2.
-
-[2] *The integral arm-permutation and pole-swap module of two-point theta configurations* (2026-11-08), full published mathematical result.
-
-[3] *Equivariant diametral retraction for two hard-core particles on equilateral banana graphs* (2026-11-01), full published mathematical result.
-
-[4] *Pole-interchange parity and Schur modules in four-particle generalized-theta homology* (2026-10-18), full published mathematical result.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
