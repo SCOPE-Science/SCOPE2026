@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The spanning trees are proved to consist of one intact terminal path and one deleted edge from each remaining path; this is verified by counting edges and ruling out cycles and internal disconnections. Character weights factor over these deletions to yield the exact signed multiplier. The invertibility classification follows from integer parity and explicit zero constructions. Divisibility gives a lower bound for the least positive multiplier, and valid edge-frequency witnesses attain it in all four parameter regimes. Fourier diagonalization supplies the singular values, multiplicities and condition number. Independent enumeration and an exact Walsh–Hadamard transform matched the formulas in 106 finite instances; those instances are corroboration rather than the all-parameter proof.
+
+## Originality — PASS under bounded comparison
+The 2000 generalized-theta paper gives chromatic-polynomial theory, and the 2007 Fourier graph survey treats the different problem of counting spanning trees of Cayley graphs. A published exact spectrum for spanning trees of \(K_{2,n}\) covers the all-length-two subfamily, so that specialization is excluded as independently new. The published generalized-theta orientation-flip result includes the spanning-tree deletion pattern and the **unsigned count**, and the present theorem does not claim novelty for those ingredients. Its additional all-parameter classification of Fourier zeros and sharp surviving gaps was not implied by the inspected published claims as a stated result. Generic weighted-tree and Tutte frameworks can encode all the signed sums, and an unindexed equivalent specialization remains a substantive priority risk.
+
+## Value — PASS
+The classification is a natural all-number-of-paths, all-arm-length theorem for a family with interacting cycles: a single even arm permits exact recovery; at least two even arms force loss, while all-odd arms are recoverable exactly at odd path count. Beyond invertibility, the sharp minimum nonzero singular value quantifies stable recovery even in the singular cases and is attained constructively. Complete integer-valued spectral multiplicities follow by a finite binomial compression, useful for concrete networks. This is not a generic extension to arbitrary series-parallel graphs, nor a claim about full projection norms.
+
+## Closest literature and limitations
+Brown et al. (arXiv:math/0012033v1) address chromatic roots of generalized theta graphs. Goodall (2007) surveys finite Fourier methods and spanning trees of Cayley graphs. Tsang et al. (arXiv:1304.1245v2) provide general Fourier sparsity/XOR rank theory. The published spanning-tree spectrum of \(K_{2,n}\) and published generalized-theta flip-degree formula are the closest specific results. An algebraically equivalent evaluation of a multivariate spanning-tree polynomial could exist and was not ruled out exhaustively. The proof has not undergone independent validation.
+
+Self-review: passed. Independent audit: not yet performed.
