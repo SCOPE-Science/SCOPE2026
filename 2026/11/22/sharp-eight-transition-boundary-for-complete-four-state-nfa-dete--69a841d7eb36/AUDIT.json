@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "Every possible labeled transition relation of cardinality 0 to 8 among 32 edges is enumerated. Reachability BFS exhausts the finite subset graph. All masks with 0 through 7 edges fail to reach 16. Exactly 5808 at eight edges reach all 16, and pairwise distinguishability and independently implemented partition refinement both give 56544 fully minimal choices of final sets. An explicit eight-edge witness and a second independent executable provide reproducible finite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Baburin and Cotterell (2026), general subset complexity bounds and parameterized hardness",
+        "Baburin and Cotterell (2025), general complexity results for the subset construction"
+      ],
+      "reasoning": "The inspected general complexity bounds do not specify or imply the exact four-state transition budget 8, 5808 labeled supports, or 56544 support/final-set pairs.",
+      "searches": [
+        "state complexity of four state NFAs transition minimal full 16 subsets reachable eight arcs",
+        "minimal number of transitions nondeterministic finite automata 2^n subset states 2n transitions binary alphabet"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2611.10911v1",
+      "arXiv:2407.09891v6",
+      "Rabin and Scott (1959) powerset construction (classical context)",
+      "Accessible prior three-state finite census used solely for overlap comparison"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 paper studies general complexity parameters and proves hardness/bounds, not this exact finite coefficient",
+        "Classical subset construction provides an upper bound of sixteen but no minimal transition budget or extremizer counts"
+      ],
+      "reasoning": "The classical maximal 2^n state bound allows full 16-state blowup but does not force the eight-edge threshold. A three-state census likewise cannot imply the n=4 exact labeled counts.",
+      "searches": [
+        "Full subset construction blowup census 3-state binary nondeterministic automata exact number 8 reachable subsets",
+        "sparsest 4-state binary NFA full 16 powerset reachable 8 labeled transitions census 5808"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Baburin and Cotterell, arXiv:2611.10911v1, definitions of subset construction and minimal language state complexity",
+        "Baburin and Cotterell, arXiv:2407.09891v6, Section 2 and Introduction"
+      ],
+      "reasoning": "Full subset reachability and minimal DFA complexity are distinct invariants; this work checks both. Classical Moore worst-case existence is not an exact eight-edge census.",
+      "searches": [
+        "sparsest 4-state binary NFA full 16 powerset reachable 8 labeled transitions census 5808",
+        "binary 4 state nondeterministic automaton minimal DFA 16 states eight transitions sharp"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related finite census covers three-state NFAs, with different state-count domain",
+        "No exact four-state eight-edge census identified among searched scholarly materials and research-record titles"
+      ],
+      "reasoning": "A previous three-state joint spectrum cannot determine four-state counts merely by inclusion or relabeling. Unindexed equivalent tables remain possible.",
+      "searches": [
+        "sparsest 4-state binary NFA full 16 powerset reachable 8 labeled transitions census 5808",
+        "three-state nondeterministic finite automata subset construction reachable-set spectrum complete binary alphabet"
+      ]
+    },
+    "rationale": "The exact sparse four-state threshold and its support/final-set spectrum are not implied by the inspected broader subset-complexity results, classical worst-case upper bound, or three-state finite census. Specific equivalent unindexed counts remain an unresolved priority risk.",
+    "residual_risks": [
+      "An unindexed independent computation could contain an equivalent four-state edge-count table",
+      "The finite theorem is not an all-state-size structural formula"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General hardness and subset-complexity bounds, no identified exact sparse four-state 5808/56544 census",
+        "evidence": [
+          "arXiv:2611.10911v1, first public Nov 7, 2026; introduction describes minimal vs subset automaton distinction"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.10911",
+        "material_read": "Abstract, introduction, definitions, major results and complexity-bound discussion in accessible full preprint",
+        "method": "Read full-text preprint excerpts and inspect searchable sections for exact four-state edge-budget data",
+        "title": "Towards A Parametrized Complexity of Determinization",
+        "trigger": "Directly motivates distinguishing reachable subset size from minimal DFA size"
+      },
+      {
+        "assessment": "Bounds on the subset construction, not the exact four-state eight-edge spectrum",
+        "evidence": [
+          "arXiv:2407.09891v6, Introduction and Section 2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2407.09891",
+        "material_read": "Abstract, introduction, background and statements of general subset complexity results in accessible full PDF",
+        "method": "Read source material including PDF first-page image and technical excerpt",
+        "title": "A Close Analysis of the Subset Construction",
+        "trigger": "Earlier closely relevant determinization complexity analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "69a841d7-eb36-4ef6-bd9b-a6b9888676c8",
+  "value": {
+    "rationale": "The minimum transition-edge budget permitting full determinization blowup is a motivated resource measure. The sharp first four-state boundary combines a matching sparse witness, exact exclusion of every smaller transition budget, and an exhaustive census of all extremal transition relations and accepting masks. It supplies a finite benchmark beyond the previously observed three-state spectrum without claiming a general state-size result.",
+    "status": "PASS"
+  }
+}
