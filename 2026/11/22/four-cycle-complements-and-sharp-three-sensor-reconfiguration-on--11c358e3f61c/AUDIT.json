@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "The one-erasure criterion is derived from the signatures and proved necessary and sufficient. Exactly 2^20 masks are enumerated by verify_main.cpp with all 20 closed-neighborhood coverage and 190 separation tests. The complete histogram sums to 5945, its minimum degree is 12 with 15 optima, and comparison against independently generated C4 vertex patterns proves equality. S5 transitivity and exhaustive TAR BFS show the sharp budget threshold 15. Separately, verify_secondary.py checks all eight- and nine-omission subsets by direct deletion-and-signature semantics, reconfirming exactly 15 minima and no codes smaller than 12; it also independently recomputes the full histogram and TAR reachability over all 1,048,576 masks. Both programs executed successfully from their actual current paths.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jean--Seo Theorem 11 proves a 4/7 density lower bound for cubic graphs, which at 20 vertices implies at least 12 detectors, but gives neither the 15 optimum subsets nor their reconfiguration threshold.",
+        "Jean--Seo 2024/2025 error-detection paper treats false-negative error detection rather than removal of a known offline detector; only public abstract and publisher summary were accessible."
+      ],
+      "reasoning": "The general cubic lower bound covers the scalar impossibility for 11 or fewer sensors but cannot determine the number, C4 geometry, or TAR accessibility of configurations. No located general stronger theorem subsumes this combined finite classification.",
+      "searches": [
+        "Fault-tolerant Identifying Codes in Special Classes of Graphs arXiv:2112.01685 Theorem 11 cubic graph",
+        "Desargues graph redundant identifying code number one fault detector loss",
+        "error-detecting identifying codes Desargues graph detection 1 fault"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2112.01685",
+      "https://doi.org/10.7151/dmgt.1838",
+      "https://doi.org/10.1002/net.22254",
+      "https://mathworld.wolfram.com/DesarguesGraph.html",
+      "Public research-record titles on dodecahedral one-erasure codes and Desargues non-identifying invariants",
+      "https://arxiv.org/abs/2204.11362"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A published one-erasure record for the dodecahedral graph identifies 15 minima on GP(10,2); the Desargues graph is GP(10,3) and its incidence structure differs. Only its indexed title and summary were accessible.",
+        "Jean--Seo 2021 Theorems 2 and 11 give necessary-and-sufficient checking conditions and a general lower bound, respectively, not the complete finite profile.",
+        "The 2024/2025 error-detection study describes a distinct false-negative fault model; its full text was not accessible in this review.",
+        "Jean--Seo arXiv:2204.11362, Table 1, explicitly distinguishes redundancy, error detection, and error correction; different quantifiers do not yield the full weaker-code census."
+      ],
+      "reasoning": "The specialized conclusion is not a formal corollary of a scalar bound, a code criterion, or a different cubic graph finite census. Prior-source limitations are explicitly retained; searches are evidence of no located covering implication, not proof of priority.",
+      "searches": [
+        "one-erasure identifying codes of the dodecahedral graph fifteen isolated optima",
+        "Desargues graph one-erasure identifying codes robust identifying codes closed neighborhoods number 20",
+        "2024 Optimal error detection system for identifying codes Jean Seo",
+        "Error-correcting Identifying Codes arXiv:2204.11362 Table 1 comparison with RED:IC"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jean--Seo arXiv:2112.01685, pp. 1-2, Theorem 2: one erasure is equivalent to two-fold neighborhood coverage and pair separation.",
+        "The Desargues graph has interchangeable presentations as H(5,2), GP(10,3), and the Desargues--Levi incidence graph (MathWorld Desargues Graph).",
+        "Searched known research records covering the Heawood graph, the dodecahedral graph, and ordinary Desargues graph codes; none is the same labelled graph/invariant pair as the claimed 15 C4 patterns."
+      ],
+      "reasoning": "Searches included fault-tolerant, one-erasure, robust/redundant, and identifying-code synonyms and both Desargues graph presentations. No exact equivalent statement was found; the criterion itself is prior work and is reused, not claimed.",
+      "searches": [
+        "Desargues graph one-erasure identifying codes robust identifying codes closed neighborhoods number 20",
+        "\"Desargues graph\" \"redundant identifying\" codes",
+        "redundant identifying codes Desargues graph Heawood graph Pappus graph exact minimum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Jean--Seo arXiv:2112.01685, p. 13, Table 2: for order 20 connected cubic graphs, lowest redundant-identifying-code size in the full class is 12; its table reports graph-class aggregate statistics rather than each graph and its optimum-code census.",
+        "Targeted general-web and mathematical-record results did not supply the exact Desargues coefficients 15,120,680,1824,2155,940,190,20,1."
+      ],
+      "reasoning": "An order-20 class-wide extremum partially anticipates the numeric minimum, but cannot imply which of the individual graphs realize it, the 15 exact incidence configurations, all polynomial coefficients or the budget-15 transition.",
+      "searches": [
+        "Desargues graph identifying code polynomial twelve 15",
+        "\"Desargues graph\" \"identifying codes\" minimum 12",
+        "Fault-tolerant Identifying Codes in Special Classes of Graphs Table 2 20-vertex cubic graphs"
+      ]
+    },
+    "rationale": "Exact four-cycle classification, all-weight polynomial and minimum-code TAR threshold were not located in inspected primary research or actual current research-record searches. Known two-domination/two-separation criterion and cubic lower bound already imply the scalar lower bound 12, which is expressly not claimed new. The earlier 20-vertex cubic census is a graph-class aggregate rather than a Desargues-specific optimum or connectivity classification. Distinct dodecahedral one-erasure results cannot imply incidence patterns on H(5,2). Publication priority remains provisional.",
+    "residual_risks": [
+      "A later publisher-only error-detection study was available chiefly through its abstract; the full accessible 2022 error-correcting preprint clarifies that its variant imposes stronger constraints. A relevant dodecahedral result was accessible only via an indexed summary.",
+      "No online search establishes absolute priority; unindexed graph-specific tables may exist.",
+      "The result uses executable exhaustive finite proof, verified independently for the 12-sensor optimum but not by an external referee."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers exact criterion and global cubic bound (hence the lower bound 12) but the inspected cubic material does not state the 15 Desargues four-cycle optima or their TAR threshold.",
+        "evidence": [
+          "Theorem 2: 2-domination plus 2-distinction.",
+          "Theorem 11: redundant code density at least 4/7 in cubic graphs.",
+          "Table 2: aggregate order-20 cubic graph extrema; no Desargues-specific configurations."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2112.01685",
+        "material_read": "Extracted full preprint, inspected introduction and Theorems 1-2 on pp. 1-2; section 4.4 on pp. 11-13 including Theorem 11 and Table 2, with page images for pp. 2 and 11.",
+        "method": "Open-access preprint text and rendered page examination",
+        "title": "Fault-tolerant Identifying Codes in Special Classes of Graphs",
+        "trigger": "Identical one-erasure identifying-code definition and cubic lower bounds"
+      },
+      {
+        "assessment": "Potential general background. No claim of whole-document noncoverage is made without full-text access.",
+        "evidence": [
+          "Abstract says emphasis is on open-locating-dominating detectors, not a stated Desargues graph census."
+        ],
+        "identifier_or_url": "https://doi.org/10.7151/dmgt.1838",
+        "material_read": "Bibliographic record, abstract and stated focus on open-locating domination; no full paper inspection.",
+        "method": "Publisher and abstract-index page",
+        "title": "Fault Tolerant Detectors for Distinguishing Sets in Graphs",
+        "trigger": "Earlier generalized fault-tolerant detector framework"
+      },
+      {
+        "assessment": "The stated false-negative model differs from offline-removal redundancy; full-text priority risk remains.",
+        "evidence": [
+          "Publisher abstract describes a single false-negative detector transmission and cubic graph estimates."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/net.22254",
+        "material_read": "Publisher HTML abstract and references, no accessible full research body.",
+        "method": "Publisher landing-page inspection",
+        "title": "Optimal error-detection system for identifying codes",
+        "trigger": "Closest alternative fault-tolerance identification variant"
+      },
+      {
+        "assessment": "Confirms equivalence of Desargues graph, GP(10,3), and bipartite Kneser H(5,2).",
+        "evidence": [
+          "Twenty-vertex cubic graph identified as H(5,2) and GP(10,3)."
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/DesarguesGraph.html",
+        "material_read": "Graph definition and classification paragraph.",
+        "method": "Public mathematical reference page",
+        "title": "Desargues Graph",
+        "trigger": "Graph-model alias and isomorphism checks"
+      },
+      {
+        "assessment": "Different graph, GP(10,2), and no evidence of general theorem transferring exact patterns to GP(10,3); whole-document noncoverage is not asserted.",
+        "evidence": [
+          "Indexed summary concerns 15 optimum codes of the dodecahedral graph, not the Desargues graph."
+        ],
+        "identifier_or_url": "public indexed mathematical research record, dated 2026-11-08",
+        "material_read": "Indexed title and summary only; full document request could not be fetched.",
+        "method": "Semantic research-record search and attempted public full-record access",
+        "title": "One-erasure identifying codes of the dodecahedral graph: fifteen isolated optima with a Kneser intersection geometry",
+        "trigger": "Near-match on fault-tolerance, cubic symmetry, and count 15"
+      },
+      {
+        "assessment": "Table 1 separates RED:IC (two coverage and two symmetric-difference) from DET:IC (directional separation) and ERR:IC (three coverage and three symmetric-difference). Thus stronger error models concern proper subsets of the RED:IC feasible family, not the claimed full redundancy polynomial. The specialized Desargues family is not part of the examined defining results.",
+        "evidence": [
+          "Table 1 on p. 3 gives distinct RED:IC, DET:IC and ERR:IC requirements and credits the earlier redundancy characterization."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2204.11362",
+        "material_read": "Open-access preprint introduction and formal characterization table on pp. 1-3; page image of Table 1 inspected.",
+        "method": "Full open-access PDF retrieval, text and rendered-page reading of the defining results",
+        "title": "Error-correcting Identifying Codes",
+        "trigger": "Potentially stronger general robustness condition that could imply a smaller-domain census"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "11c358e3-f61c-4e0a-b6a1-37f8de2ae222",
+  "value": {
+    "rationale": "The canonical 20-vertex distance-transitive cubic incidence graph provides a natural finite test of maintenance-tolerant vertex identification. Beyond an already published cubic minimum lower bound, the exact 15-polygon geometric classification, complete 5945-state cardinality census and sharp three-spare reconfiguration threshold answer independent placement and transition questions; neither follows from the generic identifying-code criterion. The whole configuration family rather than an arbitrary small slice is classified. The connection between four-cycles of K5 and fault-tolerant sensor layouts is a mathematically motivated incidence-geometric structure.",
+    "status": "PASS"
+  }
+}
