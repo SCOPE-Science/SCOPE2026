@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "All quantifiers and normalizations reconstructed. Exact block-Gram eigenvalues show rank n-1 and its stated null vector for every n>=4 and r>0. The differentiable simple zero eigenvalue yields the correct tangent halfspace in independent off-diagonal Euclidean coordinates. Metric projection onto tangent limits proves actual finite-pair Lipschitz lower bounds, not just linearized experiments. Compactness at both scaling tails and a unique scalar maximizer yield the asymptotic family coefficient (2-sqrt(2))/4. Firm nonexpansivity gives the independent order-n upper bound. Standalone checker passes 161 rational instances; not used as a substitute for infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The general firm-nonexpansivity upper coefficient (1+sqrt(m))/2 for Euclidean projection in m off-diagonal variables is acknowledged and reused for the upper growth order.",
+        "Earlier general C^1 convex-body equality does not cover the nonsmooth elliptope or establish rank-one-kernel lower bound on its smooth faces."
+      ],
+      "reasoning": "Strong results giving a universal upper bound or equality for globally smooth convex bodies do not imply a lower estimate on a different globally nonsmooth spectrahedron. The lower bound requires exhibiting its admissible rank-deficient normals and converting them into finite input pairs.",
+      "searches": [
+        "published-finding corpus: orthogonal metric projection convex body universal l infinity Lipschitz (1+sqrt n)/2 smooth boundary",
+        "General Euclidean metric-projector endpoint upper norm and smooth-convex-body sharpness",
+        "arxiv:2401.04657 sections 1–2 on generalized Jacobians of projections"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2401.04657",
+      "https://arxiv.org/abs/2407.06408",
+      "https://eprints.maths.manchester.ac.uk/2496/1/15m1052007.pdf",
+      "https://eprints.maths.manchester.ac.uk/232/",
+      "published-finding corpus mathematically ranked published records"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Armijo et al. (2024) Theorem 2.1 establishes positivity/self-adjointness of generalized Jacobians of convex-cone projections, but not this elliptope tangent-normal family or its maximum-entry lower bound.",
+        "Im et al. (2024) Example 5.7 identifies elliptope nondegeneracy and treats convergence of semismooth Newton projection algorithms, not entrywise two-input norm growth.",
+        "Higham–Strabić (2016) §1 explicitly separates estimating the distance to the nearest correlation matrix from solving for that matrix; its derived distance bounds are not a Lipschitz modulus between two projected inputs."
+      ],
+      "reasoning": "The cited literature supplies the optimization setting, derivative tools, and distance-to-feasible-set estimates. Its stated results neither claim nor immediately imply the constructed order-linear growth lower bound. Prior general firm nonexpansivity yields the matching growth-order upper bound but not the lower one.",
+      "searches": [
+        "arxiv:2401.04657, full-text introduction, section 2 and overview of section 4",
+        "arxiv:2407.06408, full text sections 1,2.1,5.3,6.2",
+        "doi:10.1137/15M1052007, open full text introduction, beginning of section 2 and references"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Accessible record: Closed-form distance from the identity to every rank stratum of Chen’s correlation orbit space, published-finding corpus ID 2026/10/11/SCOPE-closed-form-distance-from-the-identity-to-every-rank-stratum-of--92faa83e4796, studies different quotient metric and distance-to-rank strata, not Euclidean two-input perturbation.",
+        "2024 elliptope papers treat Euclidean/Frobenius nearness and generalized derivatives, but the inspected sections do not provide the proposed maximal-entry norm lower bound."
+      ],
+      "reasoning": "Aliases nearest-correlation repair, elliptope projection, semidefinite correlation completion, spectral least squares, and elementwise sensitivity were compared. A distance-to-set or algorithm-Jacobian conditioning formula does not by itself imply a sharp two-input operator sensitivity example.",
+      "searches": [
+        "published-finding corpus: nearest correlation matrix elliptope projection coordinatewise perturbations linear in order n from rank n minus one boundary with repeated correlations",
+        "published-finding corpus: elliptope Euclidean metric projection pointwise infinity Lipschitz norm grows linearly matrix dimension n",
+        "Web: \"nearest correlation matrix\" \"Lipschitz\" \"infinity\" projection"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest different-object published-finding corpus record: Small-order endpoint stability and a regular-face obstruction for Euclidean Birkhoff projection, 2026/11/2/SCOPE-small-order-endpoint-stability-and-a-regular-face-obstruction-fo--94c6886725b7; it concerns nonnegative doubly stochastic matrices.",
+        "No returned published-finding corpus table or exact published nearest-correlation sensitivity constant matched the constructed family."
+      ],
+      "reasoning": "The result is an analytic lower bound on a continuum of semidefinite boundary normals, not a finite table, numerical correlation matrix entry or combinatorial Birkhoff-polytope face result.",
+      "searches": [
+        "published-finding corpus: sharp Lipschitz sensitivity projection onto Birkhoff polytope doubly stochastic matrices entrywise maximum norm active support bipartite graph",
+        "published-finding corpus: nearest correlation matrix elliptope projection coordinatewise perturbations linear in order n from rank n minus one boundary with repeated correlations",
+        "Web: nearest correlation matrix projection infinity norm perturbation entrywise sensitivity grows dimension lower bound"
+      ]
+    },
+    "rationale": "published-finding corpus overlap searches, accessible in-scope claims, and relevant published full-text sections did not exhibit an equivalent linear-in-order lower bound for the pairwise maximum-entry sensitivity of Frobenius-nearest elliptope projection. Prior general metric-projection upper bounds do not entail this specific elliptope lower bound. Historical-priority uncertainty remains.",
+    "residual_risks": [
+      "No exhaustive historical-priority proof; unindexed or inaccessible earlier work could contain an equivalent lower bound.",
+      "Full result deliberately leaves exact global coefficient and any asymptotically optimal nonsymmetric boundary family open."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Methods/algorithm convergence; does not state the proposed elliptope maximum-entry growth lower bound",
+        "evidence": [
+          "Theorem 2.1 concerns positive semidefinite self-adjoint cone-projection generalized Jacobians bounded in Hilbert norm.",
+          "Nearest correlation matrix is discussed as an application of the semismooth Newton method."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.04657",
+        "material_read": "Full-text HTML introduction and beginning of section 2, including Theorem 2.1, and the introductory overview of section 4",
+        "method": "Inspected full-text rendered mathematical paper and compared derivative and stability statements",
+        "title": "A Semi-Smooth Newton Method for General Projection Equations Applied to the Nearest Correlation Matrix Problem",
+        "trigger": "Same nearest-correlation object and generalized Jacobian of projection"
+      },
+      {
+        "assessment": "Establishes elliptope nondegeneracy in context of algorithms; not the claimed two-input coordinatewise sensitivity",
+        "evidence": [
+          "Example 5.7 states every point of the elliptope is nondegenerate in the semidefinite programming sense.",
+          "Sections 5.3 and 6.2 concern Newton Jacobian and algorithmic behavior."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2407.06408",
+        "material_read": "Full-text HTML introduction, section 2.1 derivatives, section 5.3 Example 5.7 and section 6.2 experiments",
+        "method": "Inspected rendered primary full-text sections and searched Lipschitz/maximum norm terms",
+        "title": "Projection, Degeneracy, and Singularity Degree for Spectrahedra",
+        "trigger": "Closest source on elliptope projection conditioning and rank-deficient faces"
+      },
+      {
+        "assessment": "Studies scalar distances to feasible sets, not the two-input maximum-entry projection sensitivity",
+        "evidence": [
+          "Definition (1.1) nearest correlation matrix and Section 1 description of estimating distance without computing the projection.",
+          "Main bound concerns the distance overestimate, not Lipschitz coefficient of the projection operator."
+        ],
+        "identifier_or_url": "https://eprints.maths.manchester.ac.uk/2496/1/15m1052007.pdf",
+        "material_read": "Open full-text PDF introduction and beginning of section 2, and references, with page-image checks of title page and bibliography",
+        "method": "Full text PDF inspected using extracted lines plus explicit screenshots",
+        "title": "Bounds for the Distance to the Nearest Correlation Matrix",
+        "trigger": "Same nearest-correlation operator and perturbation/error analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c0670162-8ed6-40c1-9794-b76549e4583b",
+  "value": {
+    "rationale": "Establishes the growth order Theta(n) of a natural, dimension-dependent robustness invariant for nearest correlation matrix repair. A rank n-1 two-population construction yields a nontrivial analytic leading lower-bound constant for the supremum of coordinatewise amplification. The needed exact face geometry has a direct role in explaining instability of numerical correlation repair, independent of any global sharp-prefactor claim.",
+    "status": "PASS"
+  }
+}
