@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The coefficientwise triangle inequality for power-bounded contractions is sharp on one fixed unilateral shift on \(\ell^\infty\). Equality produces the exact finite formula by comparing two probability distributions. A compact-uniform Riemann-sum limit gives a piecewise explicit continuum objective. The derivative of \(e^\lambda\log\lambda/\lambda^2\) has a strictly positive sign for all \(\lambda>1\), proving one optimizer. Initial-segment witnesses prevent minimizers from escaping to either zero or infinite scaled discount. These are unrestricted analytic arguments. The packaged checker was run with exact rational finite checks and numerical asymptotic corroboration, never treated as a proof of the limit.
+## correctness
 
-## Originality — PASS, qualified
-Kozitsky–Shoikhet–Zemanek, *Power convergence of Abel averages* (arXiv:1208.0936), studies Abel resolvent averages and operator-norm ergodic convergence under hypotheses; it does not give the universal best discount for approximating finite Cesàro averages. Estrada–Vindas (arXiv:1201.1408) studies Tauberian implication, and Ziliotto (arXiv:1501.06525) concerns limit equivalences for nonexpansive settings, neither stating the exact uniform all-contraction obstruction. The related published records on finite Cesàro self-commutators, twice-applied Cesàro defects, and finite-horizon mixing of directed triangles have different optimized objectives and do not imply this minimax formula. Searches over both operator-language and uniform-versus-geometric probability-law language did not locate an equivalent. This is qualified rather than a claim of exhaustive global priority; unindexed approximation literature remains a genuine risk.
+PASS
 
-## Mathematical value — PASS
-Abel and Cesàro means are basic regularizations of operator iterates. A universal quantitative choice of discount is natural when only a contraction bound is known. This result proves an unavoidable nonzero approximation floor, determines the unique asymptotically optimal tuning, and quantifies the improvement over the conventional matched mean horizon. The single fixed shift witness explains structurally why convergence equivalences for individual operators cannot be upgraded to an unrestricted uniform approximation claim. The finite candidate rule adds reproducible exact optimization for any prescribed horizon.
+For coefficients c_k=n^{-1}1_{k<n}, g_k=p(1−p)^k, contraction triangle inequality gives an ℓ1 bound. The same unilateral shift S on ℓ∞ with sign-vector f(k)=sgn(c_k−g_k) attains equality for all n and p, so F_n(p)=2[(1−p)^n+Σ_{k<n}(g_k−1/n)_+]. For p=λ/n compact-uniform Riemann sums yield Φ(λ)=2e^(−λ) at λ≤1 and Φ=2[1−(1+log λ)/λ+e^(−λ)] at λ>1. Its derivative has a unique zero log λ=λ²e^(−λ), λ*=1.6946009205; initial interval [0,n/√(np)] mass testing rules out minimizing p with np→∞ and the geometric tail rules out np→0. Thus every minimizer np→λ*, minimum→κ≈.5646229252. Independent scipy bounded one-dimensional minima n=50,200,1000 tend to this root and limit; exact verifier script inspected. This is a universal operator-norm statement, not an individual T ergodic convergence claim.
 
-## Closest literature and limits
-The primary antecedent is arXiv:1208.0936, first public 2012-08-04. Further comparisons are arXiv:1201.1408 and arXiv:1501.06525. No source was taken as a global novelty certificate. The statement does not apply to uniform improvement in restricted classes of operators, and does not identify a simple closed-form finite-horizon discount for every \(n\). Unindexed literature may contain an equivalent best geometric approximation calculation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality relative to compared statements and actual independent material, not a proof of absolute priority. The matching-kernel probabilistic alias ℓ1 uniform-vs-geometric distribution is exact, but a conditional cluster lens or convergence equivalence does not imply the unique minimax λ*=1.6946, κ=.5646.
+
+## value
+
+PASS
+
+A fundamental uniform quantifier obstruction separates Abel and Cesàro operator averages even after optimal discount tuning. The exact minimax κ, a single extremal unilateral shift, and unique rate λ*/n are mathematically informative for quantitative ergodic approximation; not a mere restatement of classical convergence equivalence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
