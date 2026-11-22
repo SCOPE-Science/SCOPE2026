@@ -1,0 +1,11 @@
+# Scientific review of the fixed-load Steele allocation theorem
+
+**Correctness — PASS.** The objective is continuous on a compact simplex, zero-valued boundary coordinates are ruled out by a strict first-derivative transfer, and the Lagrange equations force either equality or one high and \(n-1\) low coordinates. The exact stationary parametrization has strictly positive second derivative, giving a single fold. Second- and third-variation arguments exclude its unstable and degenerate branches. An envelope derivative then yields a strictly increasing unequal-versus-equal comparison through the only possible global switch, covering all module counts, loads, and boundary cases. The supplied checker reproduced 139,189 deterministic assertions, but the proof does not depend on finite sampling.
+
+**Originality — PASS, subject to historical-priority risk.** Published mathematical-record searches for the exact Steele response, fixed-sum irradiance allocation, photoinhibition, one-high solutions, and module-count bifurcation did not surface a statement that implies this global classification. The closest indexed result optimizes optical depth under Steele photoinhibition, not fixed-budget allocation across independent identical reactors. Accessible full text by Steele (1962), Bonente et al. (2012), and Bernard and Lu (2021) supports this distinction: their stated variables and theorems are not the fixed-sum simplex objective. The uninspected full text of Brindley et al. (2011), and possible general optimization theorems for concave-convex separable objectives, remain priority risks. This is not a claim that a failed search proves novelty.
+
+**Value — PASS.** The result identifies the precise difference between continuous and first-order symmetry breaking in a physically motivated phenomenological response, and furnishes a sharp complete optimizer for every number of identical modules rather than an isolated numerical example. It exposes a boundary of the common equal-illumination heuristic when all incoming light must be assigned. Applications to living cultures need calibration and revised assumptions.
+
+No experimental predictive validity, mathematical literature exhaustiveness, or independent certification is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
