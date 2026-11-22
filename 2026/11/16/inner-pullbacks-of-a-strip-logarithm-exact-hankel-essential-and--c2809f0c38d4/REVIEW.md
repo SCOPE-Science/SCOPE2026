@@ -1,15 +1,21 @@
-# Scientific review of the inner-strip Hankel theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The \(H^2\) definition works for arbitrary inner functions fixing zero because odd powers are orthogonal and square-summable with the displayed coefficients. The two-valued boundary imaginary part gives an \(L^\infty\) Nehari symbol of norm \(\pi\). The Hilbert block is an exact compression by orthonormal powers, not a heuristic matrix approximation. A logarithmically long Rayleigh sequence gives the sharp lower norm; shifting its support to high indices gives the essential lower norm. The Poisson variance identity proves the exact kernel formula and complete norming locus. The claimed zero-fixing hypothesis is necessary for the simple orthogonal-power proof; no assertions are made without it. `CHECK.py` passed 107 finite checks, which are corroborative only.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-The closest published record, *An exact square-root-two SRKT gap for the logarithmic Hilbert Hankel symbol* (October 2026), studies only \(-\log(1-z)\), and its kernel supremum is approached at the boundary rather than attained at an interior continuum. Dyakonov's September 2026 foundational full text gives the general test identity and SRKT question but not this all-inner classification. Dyakonov's 2025 full-text results give a general extreme-point implication and the variance of a boundary indicator but not the combined exact operator/essential norms or full inverse-image maximizer sets. The standard Hilbert matrix bound is not claimed as original. The new statement is stronger in its quantified inner-function domain, full essential norm and exact interior kernel maximizers. Residual risk is an unindexed formulation in older composition or Hilbert-transform literature, especially Girela (1986), whose complete material was not inspected.
+PASS
 
-## Mathematical value — PASS
-The SRKT question concerns whether normalized Szegő kernels capture full Hankel norm. Here infinitely many unbounded BMOA symbols are analytically classified as a quantitative negative family, yet their testing maxima occur *inside* the disk, even with maximally noncompact operators. The exact norming geometry can be changed from one diameter to arbitrarily many intersecting diameters by choosing \(B(z)=z^m\), and all infinite inner factors are covered. The interplay between inner powers, essential norm and boundary step variance is a reusable structural mechanism rather than a small numerical improvement.
+Orthogonality of B^k (because B(0)=0) gives psi_B in H2 and its imaginary boundary part exactly ±pi/2. The bounded coanalytic-representative symbol bar(psi_B)-psi_B=-2i Im psi_B has L-infinity norm pi, proving Hankel boundedness and upper norm. Compressing H on inputs B^(2k) and outputs bar(B)^(2j+1) yields exact generalized Hilbert matrix A_jk=1/(j+k+1/2) with norm at least pi via x_j=1/sqrt(j) on logarithmic blocks; the integral comparison gives pi as log L coefficient, and shifting supports to L..L^2 gives weakly null unit vectors so even the essential norm >=pi. Uniform Poisson identity for kernel energy plus the analytic identity P[(psi_B-psi_B(a))^2]=0 makes real and imaginary centered variances equal; with (Im psi_B)^2=pi^2/4 on boundary this gives the exact formula and maximizing set where Im psi_B(a)=0, equivalent to B(a) real in (-1,1). I independently checked H2 coefficient sum to pi^2/2 within <1e-5 and finite generalized Hilbert Rayleigh lower bounds; these numerical checks are not proofs of pi essential norm.
 
-## Scope and residual risks
-This is not a universal strict-gap theorem and does not settle existence of unbounded SRKT-positive symbols. Publication priority needs independent specialist checks for earlier general inner-composition results and older logarithmic BMOA work. Finite software checks cannot certify the infinite-dimensional conclusions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Hilbert block, Hankel/Nehari upper bound, and Garsia/Poisson identity are classical; Dyakonov discusses the general strong reproducing kernel thesis. A previous single-boundary logarithm displays pi/sqrt2 gap, but the two-boundary strip map has a different interior attainment geometry and the uniform arbitrary-inner essential norm and locus were not identified in the inspected primary literature. Residual priority risk in general inner-composition theorems remains.
+
+## value
+
+PASS
+
+Gives an exact operator/essential norm against the reproducing-kernel test, with attained interior kernel optimizers even for maximally noncompact Hankel operators. It isolates a meaningful mechanism in analytic operator theory and an explicit B-dependent geometric equality set, beyond merely restating the known pi/sqrt2 numerical gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
