@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "All 8192 and 131072 labelled configurations were deterministically enumerated by two independent-from-scratch graph/update/traversal implementations. Python uses quadratic-residue adjacency plus indegree peeling and reverse traversal; C++ uses Euler-criterion adjacency plus successor-path tracking. Their complete count, full depth histogram, and basin-size multiplicity agree and satisfy exact mass conservation. The finite algorithm completeness follows from standard functional-graph decomposition. The nonempty entry-depth-six strata prove F^8=F^6 and F^7≠F^5 sharply. Reproducible scripts, results and exact domain supplied; no infinite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goles–Olivos (1980), https://doi.org/10.1016/0012-365X(80)90121-1, proves eventual fixed/two-cycle behavior for symmetric threshold maps.",
+        "Tamuz–Tessler arXiv:1307.4035 PDF p.3 explicitly assumes odd graph degrees; both Paley graphs have even degree.",
+        "Kaaser–Mallmann-Trenn–Natale arXiv:1508.03519v1 sections 1 and 3 provide general voting-time bounds, not exact finite basin counts."
+      ],
+      "reasoning": "Stronger scope in graph order or universal period upper bound is not stronger coverage for the exact number of attractors, seven entry-depth populations and labelled basin-size multiplicities. Tamuz–Tessler uses odd-degree no-tie dynamics, so its theorems do not even directly apply to the inertial tie cases.",
+      "searches": [
+        "Goles Olivos threshold functions Paley graphs 13 17 exact 2-period dynamics",
+        "web: majority rule dynamics Paley graphs threshold Boolean networks Paley 17",
+        "arXiv:1307.4035",
+        "arXiv:1508.03519"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1307.4035 (PDF pages 3, 7)",
+      "arXiv:1508.03519 (HTML abstract/introduction and sections, PDF pages 3 and 6)",
+      "DOI:10.1016/0012-365X(80)90121-1 (abstract only)",
+      "https://plus.maths.org/proving-r4417",
+      "https://gopalkgoel.github.io/majority-dynamics/atlas/ (abstract/introduction)",
+      "published-finding corpus: 2026/11/17/SCOPE-a-forbidden-two-clock-and-the-paley-19-revival-of-majority-oscil--13a06d889156 (summary only)",
+      "published-finding corpus: 2026/11/17/SCOPE-a-three-step-majority-cutoff-and-two-basin-scales-on-the-fifteen--43ead5e098c9 (summary only)",
+      "published-finding corpus: 2026/11/8/SCOPE-the-paley-13-three-cut-complex-a-mixed-sphere-wedge-and-its-affi--1ad14cca1110 (summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general Goles–Olivos result limits the eventual period but does not count cycles, entry depths or basin multiplicities.",
+        "The archived Paley-tournament result concerns directed tournaments; for these graphs the update neighborhoods and in/out-degrees differ fundamentally.",
+        "Kaaser et al. sections 1.1, 1.2, 3 and computational appendix concern voting time bounds, not the full functional-graph census of QR(13) or QR(17)."
+      ],
+      "reasoning": "Qualitative period-at-most-two implies neither that Paley-13 has zero two-cycles nor that Paley-17 has 1530. Even general time upper bounds cannot prove an exact sharp six-step entry time or individual basin histogram. Exact graph source and tie policy must match to imply the proposed values.",
+      "searches": [
+        "synchronous binary majority dynamics on Paley graph 13 17 fixed points two cycles 13 vertices",
+        "Goles Olivos threshold functions Paley graphs 13 17 exact 2-period dynamics",
+        "https://arxiv.org/html/1508.03519v1",
+        "https://arxiv.org/pdf/1307.4035",
+        "https://doi.org/10.1016/0012-365X(80)90121-1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No exact undirected Paley-13/17 majority census appears in returned published-finding corpus hits; closest Paley title is an oriented tournament with different graph family.",
+        "Related 2004 threshold cellular automaton overview: https://experts.illinois.edu/en/publications/characterizing-configuration-spaces-of-simple-threshold-cellular-/ (abstract only)."
+      ],
+      "reasoning": "Potential aliases include tie-retaining majority Boolean automata, synchronous voting, threshold iteration, and Paley/QR(13)/QR(17) graphs. Goles–Olivos symmetric threshold dynamics covers the qualitative one-or-two period property but cannot specify the basin spectra or distinguish the two finite graphs. No retrieved result states the corresponding labelled-state counts.",
+      "searches": [
+        "synchronous binary majority dynamics on Paley graph 13 17 fixed points two cycles 13 vertices",
+        "Boolean majority voting on Paley 13 symmetric finite field dynamics",
+        "Paley 13 Paley 17 undirected graph synchronous majority tie retention exact first-entry six 1530 two-cycles 106 fixed 104 fixed",
+        "web: Paley graph majority dynamics synchronous threshold cellular automata 13 17 periodic cycles exact basins"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus query Paley Ramsey 17 majority 1530 62323 returned benchmark censuses on other graphs, not a matching Paley-17 table.",
+        "Math exposition https://plus.maths.org/proving-r4417 describes the 17-vertex Paley construction and Ramsey property, not an automaton table."
+      ],
+      "reasoning": "Checked numeric searches for the purported fixed-point counts (106/104), 1530 two-cycle orbits, unanimity basin 62323 and cutoff six, including Paley and quadratic-residue aliases. No retrieved database or directly applicable table supplies these counts; this is not a guarantee no unindexed computation exists.",
+      "searches": [
+        "Paley 13 Paley 17 undirected graph synchronous majority tie retention exact first-entry six 1530 two-cycles 106 fixed 104 fixed",
+        "Paley Ramsey 17 majority 1530 62323 attractors orbital basins",
+        "web: Paley graph voting dynamical system 17 attractor census majority",
+        "web: Paley graph majority dynamics synchronous threshold cellular automata 13 17 periodic cycles exact basins"
+      ]
+    },
+    "rationale": "The general symmetric-threshold period-one-or-two theorem, general voting-time bounds and odd-degree majority retention theorems cannot imply exact Paley-13/17 basin multiplicities, time-six sharpness or 1530 two-cycle orbit count. Relevant published-finding corpus searches for graph aliases and numerical data returned distinct directed Paley tournaments, unrelated topological Paley-13 work and censuses on different graphs. The accessible primary material inspected showed no such result. Novelty remains qualified by possible unindexed equivalent censuses and limits of full text access.",
+    "residual_risks": [
+      "Only portions of the primary general papers were read; a plausible specific exhaustive Paley census could exist in unindexed appendices or reports.",
+      "Goles–Olivos (1980) primary original full article was not materially inspected, only its published abstract; the qualitative theorem itself does not cover numerical data.",
+      "published-finding corpus search uses indexed summaries; absence of matching results is not a novelty or priority proof.",
+      "The closest directed Paley tournament record was inspected via retrieved summary, not whole source; directed graph mismatch is decisive for the specific adjacency but does not exclude separate undirected remarks elsewhere."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem states general period≤2 on applicable graphs; odd-degree assumption explicitly excludes direct application to even-degree Paley-13/17 with ties. No exact Paley graph basin statistics are given on inspected pages.",
+        "evidence": [
+          "Page 3: assumes degree of every vertex odd; Theorem 1.1 eventual period at most two",
+          "Page 7: general proof and Lyapunov method; no labelled Paley graph enumeration"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1307.4035",
+        "material_read": "PDF pages 3 and 7 (zero-index 2, 6), problem statement, Theorem 1.1, introductory assumptions, and Section 3 methods",
+        "method": "PDF page-image inspection, supported by first-public arXiv abstract",
+        "title": "Majority Dynamics and the Retention of Information",
+        "trigger": "Broadest classic majority dynamics source; possibility of stronger universal coverage"
+      },
+      {
+        "assessment": "General bounds and hardness/structure, not a named exact basin-size distribution for the two specified residue graphs; cannot imply the new census.",
+        "evidence": [
+          "arXiv HTML abstract/introduction: O(|E|) two-periodic convergence bound and module reduction",
+          "arXiv HTML lists separate voting-time bounds; no Paley-13 or Paley-17 results in material read"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1508.03519v1",
+        "material_read": "Full HTML table of contents, abstract, introduction and preliminaries, section 3 bounds/computational appendix headings; PDF pages 3 and 6 separately visually inspected",
+        "method": "Primary openly available full-text HTML and PDF page-image inspection",
+        "title": "On the Voting Time of the Deterministic Majority Process",
+        "trigger": "Potential general voting-time bounds with worst-case transient depth"
+      },
+      {
+        "assessment": "General eventual-period classification, not sufficient for exact orbit counts or basins. Full article inaccessible; historical equivalent exact tables elsewhere remain possible.",
+        "evidence": [
+          "Institutional scholarly abstract states all symmetric threshold systems eventually fixed or period two"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+        "material_read": "Published abstract and bibliographic theorem description only (full article not accessible in this run)",
+        "method": "Author institutional bibliography, abstract; implication comparison",
+        "title": "Periodic behaviour of generalized threshold functions",
+        "trigger": "Classical result potentially subsuming period claims"
+      },
+      {
+        "assessment": "Motivates graph as natural extremal Ramsey witness; contains no majority-voting dynamics or basin enumeration.",
+        "evidence": [
+          "Quadratic-residue differences modulo 17, self-complementarity and absence of four-cliques/independent four-sets"
+        ],
+        "identifier_or_url": "https://plus.maths.org/proving-r4417",
+        "material_read": "Construction and proof passage for quadratic-residue graph on 17 vertices and its complement symmetry",
+        "method": "Web page full text, graph-theoretic construction and stated Ramsey proof",
+        "title": "Proving that R(4,4)>17",
+        "trigger": "Check the mathematical motivation and exact Paley-17 graph definition"
+      },
+      {
+        "assessment": "Sparse random graph asymptotics, not finite deterministic Paley graph exact census; no Paley mention found.",
+        "evidence": [
+          "Paper abstract: random binomial graph convergence with high probability; no exact finite Paley table"
+        ],
+        "identifier_or_url": "https://gopalkgoel.github.io/majority-dynamics/atlas/",
+        "material_read": "Abstract and Introduction/main-results description, keyword search for Paley",
+        "method": "Full online text navigation and in-document Paley search",
+        "title": "Majority Dynamics on sparse random graphs",
+        "trigger": "Modern broad majority theorem could imply large consensus attraction probabilities"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e92f9d45-c98b-4fec-9b39-13dfddbbe0ac",
+  "value": {
+    "rationale": "Paley-13 and Paley-17 are canonical prime-order self-complementary quadratic-residue graphs; Paley-17 is the classical Ramsey extremizer. The exact basin-size spectra and contrast of zero versus 1530 oscillatory attractors are natural deterministic finite-system invariants, not arbitrary subsets or reformulated textbook deductions. The shared sharp six-update cutoff and high yet nonuniversal consensus probabilities provide a meaningful benchmark for graph-sensitive voting dynamics. The claim makes no assertion of a universal prime-order phase transition.",
+    "status": "PASS"
+  }
+}
