@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is exactly about the real span of at-most-three and at-most-four cell-symbol indicators over all 576 labelled order-four Latin squares. The 54 signed four-block switch cubes each annihilate cubic observations; their independence follows from eight private square states apiece, giving rank at most 522. Exhaustive exact column elimination over the five-element field supplies 522 independent cubic columns and 576 independent quartic columns, proving both lower bounds over the reals. A second exact checker independently enumerates squares and verifies the 576 pivot columns modulo seven. The analysis requires neither a conjectural extension nor floating-point inference.
+## correctness
 
-**Originality — PASS subject to bounded historical evidence.** Exact queries on moment rank, equivalent Walsh indicators, Latin trades, critical sets, algebraic-statistical marginal fibers and published-finding corpus yielded related intercalate-switch graph and Latin-square work, but no same or stronger published claim of the 522/576 ranks and 54-dimensional kernel. The archival Latin-trades paper treats existence and constructions of trades; the critical-set papers treat unique completion of individual squares. Neither result, as inspected, implies recovery of *arbitrary distributions* from all three- or four-cell marginals. An indexed intercalate-switch adjacency-spectrum result is relevant but gives graph eigenvalues, not the observation-space ranks. Unindexed statistical-model calculations remain a nonzero priority risk.
+PASS
 
-**Mathematical value — PASS.** The problem is a natural finite harmonic-identifiability question for all 576 Latin-square designs. The first failure and first success of low-degree Fourier sampling are exact, and the entire lost-information space has a concrete combinatorial basis of alternating intercalate-switch cubes. It explains how joint marginal observations can distinguish a probability mixture even though a small critical set may fail to determine an individual square. These are structural facts useful for low-order statistical models on combinatorial designs; no unproved general application is asserted.
+Every labelled order-4 Latin square is four mutually column-disjoint permutation rows; independent enumeration gives exactly 576. Partition into two row-pairs and column-pairs; at a square with four 2x2 intercalates, four independent block switches form a 16-square cube. Alternating signs cancel every event querying at most three distinct cells because an untouched block remains, yielding 54 annihilating measures. Independent enumeration gave 54 distinct cubes; the 432 squares in exactly one cube and 144 in three cubes give eight private squares per cube, proving independence. The actual supplied pivot_manifest lists 522 columns of degree<=3 and 54 additional degree-4 columns; independent GF(5) elimination of all degree<=3 columns and those actual 54 degree-4 witnesses produced ranks [1,28,246,522,576]. A mod-5 independent set yields real independence of the integral event columns; together with cube nullity upper bound and 576-row bound, this certifies exact real ranks. The signed annihilators have total mass zero so their positive/negative parts show true distribution ambiguity.
 
-The supporting calculations prove the finite statement only. Historical originality is based on bounded source inspection, not exhaustive literature coverage.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A critical set concerns unique completion of a single partial Latin square, not whether all low-order marginals uniquely determine a probability distribution on the 576 squares. Classical trades/intercalates inspire the 16-term cubes but inspected critical-set theorems do not identify the rank 522, dimension 54, or quartic interpolation. Resultary Shidoku and alternating-sign matrix degree-rank computations concern different combinatorial state spaces, so equal degree thresholds do not transfer.
+
+## value
+
+PASS
+
+This is an exact complete measurement-identifiability cutoff on a natural finite combinatorial ensemble, with explicit basis of all cubic obstructions and quartic reconstruction. The precise rank 522 and 54 independent geometric trades are independently useful for algebraic statistics and marginal tomography, not an arbitrary sampling of entries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

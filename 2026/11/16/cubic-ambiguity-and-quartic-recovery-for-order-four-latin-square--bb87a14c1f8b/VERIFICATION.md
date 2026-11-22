@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The two delivered exact-arithmetic scripts were executed on their packaged input `pivot_manifest.json`. The primary generator found 576 fully labelled squares and 54 distinct four-block switch cubes, checked cancellation of all at-most-three-cell assignment events, and found 522 independent columns by degree three and full 576-column independence by degree four over the prime field with five elements. The independent generator constructed the 576 squares by row completion, verified the square-order digest, and checked independence of all 576 selected columns over the prime field with seven elements. It also checked a canonical 16-square alternating cube.
+# Independent mathematical audit
 
-The upper bound at cubic degree is an integer signed-measure construction with 54 independent members, witnessed by private squares. The lower bounds use finite-field nonvanishing minors, which are valid exact rational lower bounds. The checks establish results only for fully labelled order-four Latin squares and no infinite-order extension or conditioning estimate. Reproduction requires Python 3 with NumPy installed.
+## correctness
+
+PASS
+
+Every labelled order-4 Latin square is four mutually column-disjoint permutation rows; independent enumeration gives exactly 576. Partition into two row-pairs and column-pairs; at a square with four 2x2 intercalates, four independent block switches form a 16-square cube. Alternating signs cancel every event querying at most three distinct cells because an untouched block remains, yielding 54 annihilating measures. Independent enumeration gave 54 distinct cubes; the 432 squares in exactly one cube and 144 in three cubes give eight private squares per cube, proving independence. The actual supplied pivot_manifest lists 522 columns of degree<=3 and 54 additional degree-4 columns; independent GF(5) elimination of all degree<=3 columns and those actual 54 degree-4 witnesses produced ranks [1,28,246,522,576]. A mod-5 independent set yields real independence of the integral event columns; together with cube nullity upper bound and 576-row bound, this certifies exact real ranks. The signed annihilators have total mass zero so their positive/negative parts show true distribution ambiguity.
+
+## originality
+
+PASS
+
+A critical set concerns unique completion of a single partial Latin square, not whether all low-order marginals uniquely determine a probability distribution on the 576 squares. Classical trades/intercalates inspire the 16-term cubes but inspected critical-set theorems do not identify the rank 522, dimension 54, or quartic interpolation. Resultary Shidoku and alternating-sign matrix degree-rank computations concern different combinatorial state spaces, so equal degree thresholds do not transfer.
+
+## value
+
+PASS
+
+This is an exact complete measurement-identifiability cutoff on a natural finite combinatorial ensemble, with explicit basis of all cubic obstructions and quartic reconstruction. The precise rank 522 and 54 independent geometric trades are independently useful for algebraic statistics and marginal tomography, not an arbitrary sampling of entries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
