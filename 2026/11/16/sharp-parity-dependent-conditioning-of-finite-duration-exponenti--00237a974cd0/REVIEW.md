@@ -1,15 +1,21 @@
-# Review of finite-duration exponential Gabor conditioning
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact Zak transform follows from a finite geometric sum. Multiplication by its squared modulus at the critical lattice gives the sharp Gabor-frame bounds. The all-even lower bound is attained simultaneously in both necessary triangle inequalities, and its equality phase is unique. In the three-cell case the frequency objective is a strictly convex quadratic in the cosine variable; its vertex crosses the admissible interval at the stated radical threshold. The fixed-duration small-damping limit is obtained by localization at the finitely many simple unit-circle roots, with a controlled two-parameter expansion that selects the root having the largest chordal denominator. The calculation does not silently exchange a fixed-duration limit for a duration-uniform limit. The 262 supplementary finite comparisons passed; they are not substitutes for proof.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-The 2026 continuous totally positive frame-set theorem does not cover finite-duration discontinuous exponential windows, nor does a yes/no frame-set theorem imply the exact frame condition number. The 2016 compact continuous-window theorem assumes continuity and focuses on a frame-set region, while the 2013 exponential B-spline treatment concerns convolved windows, subcritical frames, and a different asymptotic parameter. Prior published research on nontruncated causal exponentials, cyclic boxcars, and exponential Gabor oversampling concerns different operators; no accessible comparison implied the present even-duration invariance, the three-cell bifurcation, or the all-fixed-duration parity limit. The geometric-series formula and Zak criterion are classical and explicitly excluded from the originality claim. The complete 2026 PDF and any older equivalent filter-bank formulation remain priority risks; absence of a retrieved match is not proof of absolute novelty.
+PASS
 
-## Value — PASS
-Length selection for finite-time acquisition is a natural design parameter for minimally sampled Gabor systems. The exact even-duration invariance is a structural and potentially unexpected no-gain principle: changing the even taper duration does not improve the reconstruction condition number at any fixed damping. The three-cell bifurcation is a sharp boundary between distinct worst-case Fourier channels, and the weak-damping parity law identifies the sharp stability penalty across every fixed duration. These give directly usable, nontrivial finite-window design information beyond a frame/nonframe classification.
+The unitary Zak transform diagonalizes the critical integer-lattice Gabor frame operator as |Zg|^2, with Zg=e^-lambda*x S_m(r exp(-2pi i xi)), r=e^-lambda. It never vanishes for r<1. The maximum occurs at zero frequency. For even m, reverse-triangle numerator and ordinary-triangle denominator bounds are simultaneously sharp only at pi, yielding A=e^-2lambda((1-r^m)/(1+r))^2 and duration-independent condition number e^2lambda((1+r)/(1-r))^2. For m=3 the exact quadratic in cos(theta) has its vertex inside [-1,1] iff r>=2-sqrt(3), giving the claimed two branches and symmetry-broken minimum. At fixed m, expansion near the simple mth-root zeros of S_m shows minimum ~m^2 lambda^2/[4 max_k sin^2(pi*k/m)]; the global uniform-away-from-roots lower bound and local phase minimization establish the 4/even and 4cos^2(pi/2m)/odd weak-damping limits. At lambda=0 there is no positive essential lower frame bound.
 
-## Closest literature and residual scope
-The main scientific comparisons are de Dios Pont et al. (arXiv:2608.04992, first public 2026-08-05), Christensen–Kim–Kim (arXiv:1602.05717), and Kloos–Stöckler (arXiv:1311.7359). The first paper's accessible excerpt was read but its full PDF could not be inspected. The claim only concerns integer-length discontinuous one-sided cutoffs on the unit critical lattice. Older equivalent polyphase/geometric finite-window calculations could affect priority. No external independent mathematical review has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Critical Zak diagonalization and polynomial zeros are classical. Available Pont et al characterization treats continuous integrable totally positive windows and qualitative frame-set regions; this finite abrupt cutoff has a jump and is at critical lattice. Kloos–Stöckler exponential B-splines are convolutions/oversampled regimes, not the single truncated exponential polynomial. Earlier Resultary jumped two-sided exponential has different support/window; no inspected source implies duration independence for all even m plus the m=3 interior transition and fixed-duration damping coefficients. Best-of-knowledge PASS with recorded risks; no failure-to-find-is-proof-of-novelty inference.
+
+## value
+
+PASS
+
+This explicitly quantifies conditioning of a natural fixed-band critically sampled time-frequency basis, with a robust parity law and nontrivial min-Zak frequency bifurcation and sharp weak-damping coefficients. It is materially more than a generic frame-existence test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
