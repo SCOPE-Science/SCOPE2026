@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The graph, face condition, subgroup actions, and ordinary-realization quotient are defined exactly. A full finite cellular chain computation on barycentric flag orbits reproduces the signed integer boundaries, independently tests \(\partial^2=0\), and gives ranks \((1,0,0,0,6)\), \((1,0,0,0,15)\), and \((1,0,0,0,3)\) after unit-pivot cancellations for rotations, a reflection, and full dihedral symmetry. The attached verifier requires exactly these counts and exhaustively generates all relevant flags. Kook's theorem covers the labeled wedge of thirty four-spheres. Every quotient group element fixes the barycenter of the full spoke tree, so Armstrong's theorem gives trivial fundamental group. Hurewicz and Whitehead turn the torsion-free integral calculation into the stated homotopy equivalences. The finite computation establishes only the specified finite wheel, not an arbitrary-wheel theorem.
+
+## Originality — PASS relative to inspected evidence
+Kook (first online March 9, 2006) already determines the complete labeled homotopy type and integral dihedral homology action. These known statements are explicitly credited. The new claim is the *ordinary geometric* subgroup quotient homotopy classification, which cannot be inferred merely from the deck-group homology module because the action has fixed points. The fully inspected Kook theorem, relevant matroid-homology representation and shellability papers, targeted publication searches and semantic research-record comparisons gave no statement determining this quotient's integral cellular homology and homotopy. The closest records concern matching, Morse and directed-forest complexes with different faces. Residual risk: equivalent quotient computations may be unindexed or encoded in an unexplored stronger topological construction.
+
+## Value — PASS
+A subgroup-complete integral homotopy classification for a canonical small graphic matroid is mathematically informative: it separates the known labeled homology character from the generally subtler ordinary orbit topology, proves absence of hidden torsion and nontrivial attaching maps, and supplies a reproducible finite benchmark with all eight subgroups represented. The contribution is a natural exact topology question, not a new formula for a previously tabulated labeled invariant.
+
+Self-review: passed. Independent audit: not yet performed.
