@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For all integers n>=3, two integer relations prove an Apéry normal form and pairwise-distinct residues. Every gap start is a positive difference of adjacent Apéry thresholds, giving exact residue formulas and parity-dependent total. Independently, q-coin layers are (n+2)-spaced at most; only the boundary intervals can have more than n+1 gaps. The strict inequality is solved exactly. Dijkstra checks n=3..120 and independent full enumeration n=3..60 agree; coin-change DP checks n=3..28. Finite tests are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Komatsu 2022 arXiv:2206.13054 Theorems 1–4 concern generalized Frobenius thresholds (number-of-representations cutoff), which do not count maximal consecutive gaps.",
+        "published-finding corpus 2026/11/2/SCOPE-exact-run-length-frequencies-for-binary-semigroups-with-a-dt-1-a--584c998005ae treats two-generated numerical semigroups with different parameter constraints.",
+        "The published isolated-gap theorem proves a narrower length-one classification using the same rectangle."
+      ],
+      "reasoning": "Full Apéry information mathematically allows algorithmic reconstruction of all gaps but does not furnish the proved sharp coin-layer gap cutoff. Other sources’ stronger coverage refers to a different invariant or two generators and does not subsume the exact triangular three-generator geometric statement. A broadly general theorem may nevertheless subsume it, noted as risk.",
+      "searches": [
+        "largest maximal gap blocks between semigroup elements in three consecutive triangular numbers T_n T_{n+1} T_{n+2} lengths arithmetic progression long gaps",
+        "gap length greater than n+1 in semigroup of consecutive triangular number generators coin-count layers",
+        "semigroup gaps long intervals between k times largest generator and (k+1) smallest generator",
+        "Frobenius three consecutive triangular gap intervals coin-count maximum internal gaps"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1706.04378",
+      "https://arxiv.org/abs/2206.13054",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-isolated-gaps-in-semigroups-of-three-consecutive-triangular-numb--42c2c6edcb7c/RESULT.md",
+      "https://oeis.org/A069755",
+      "2026/11/2/SCOPE-exact-run-length-frequencies-for-binary-semigroups-with-a-dt-1-a--584c998005ae",
+      "2026/11/2/SCOPE-isolated-gaps-of-the-three-term-progression-langle-a-a-2-a-4-ran--1a98ce07f8f0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2017 Robles-Pérez–Rosales Corollary 28 provides the Apéry rectangle used in the present proof, but not the thresholds comparison or long-layer lemma.",
+        "2026 isolated-gap record 2026/11/2/SCOPE-isolated-gaps-in-semigroups-of-three-consecutive-triangular-numb--42c2c6edcb7c gives singleton gaps and their count, which cannot by itself determine blocks of lengths two and above.",
+        "2022 Komatsu develops p-Frobenius thresholds for the same generators without the q-coin maximal-block separation."
+      ],
+      "reasoning": "The total block count can be derived from published Apéry data by a nontrivial adjacent-threshold analysis and thus is an extension of close results, not independent of them. The second, sharp all-long-block statement additionally requires a distinct coin-count-layer density argument; neither a singleton-gap count nor a p-Frobenius threshold logically entails it. This combined claim is not directly covered by the inspected passages.",
+      "searches": [
+        "three consecutive triangular numbers numerical semigroup gap runs maximal blocks of consecutive missing integers exact count n^2 n^2-1 starting positions",
+        "triangular-number semigroup isolated gaps three consecutive triangular numbers",
+        "largest maximal gap blocks between semigroup elements in three consecutive triangular numbers T_n T_{n+1} T_{n+2} lengths arithmetic progression long gaps",
+        "deserts gap blocks numerical semigroup three consecutive triangular numbers T_n T_n+1 T_n+2",
+        "triangular triples numerical semigroup gap-interval count n^2 or n^2-1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus 2026/11/2/SCOPE-isolated-gaps-in-semigroups-of-three-consecutive-triangular-numb--42c2c6edcb7c gives exact isolated gaps (length one), not total gap starts/long deserts.",
+        "Robles-Pérez–Rosales 2017 arXiv:1706.04378 Corollary 28 specifies Apéry cells, not adjacency components.",
+        "Search terms included deserts, maximal blocks of nonrepresentable integers, gap intervals, components, and gap-run length spectrum."
+      ],
+      "reasoning": "An isolated gap is a maximal gap block of length exactly one, not an arbitrary maximal block. A conductor, genus or Apéry table determines gap sets indirectly but is not itself an explicit adjacent-block classification; no explicit equivalent all-start or exact long-block statement was found.",
+      "searches": [
+        "three consecutive triangular numbers numerical semigroup gap runs maximal blocks of consecutive missing integers exact count n^2 n^2-1 starting positions",
+        "triangular-number semigroup isolated gaps three consecutive triangular numbers",
+        "deserts gap blocks numerical semigroup three consecutive triangular numbers T_n T_n+1 T_n+2",
+        "number of connected components of gaps consecutive triangular generators long gap blocks"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A069755 lists the Frobenius number for consecutive triangular triples, not the maximal-gap-block count.",
+        "Dedicated published-finding corpus searches for formulas n^2 / n^2-1, gap-run length and desert terms ranked the isolated-gap record highest but returned no exact table of long blocks."
+      ],
+      "reasoning": "Frobenius tables give a largest gap, not counts and positions of its interval components. No exact same-object gap-block table was identified in the checked sources; absence from a finite index is not a proof of uniqueness.",
+      "searches": [
+        "triangular numbers semigroup complement connected components intervals gap start Apéry threshold change",
+        "triangular triples numerical semigroup gap-interval count n^2 or n^2-1",
+        "number of connected components of gaps consecutive triangular generators long gap blocks"
+      ]
+    },
+    "rationale": "The 2017 triangular-semigroup paper establishes a rectangular Apéry set and a Frobenius number but not all adjacency-block starts or the long-block spectrum. The 2022 triangular-number p-Frobenius paper covers representation multiplicities and thresholds rather than maximal consecutive gap intervals. The most pertinent published source gives only isolated gaps (one-element blocks), and its full statement and proof were compared; its singleton results do not imply the new long-gap length spectrum, though its Apéry data make the total-start calculation a closer, less independent extension. Dedicated semantic checks for deserts, gap runs, exact n^2 counts and coin-layer gaps returned no dominating match. Residual generic or unindexed coverage remains possible.",
+    "residual_risks": [
+      "The published 2017 Apéry rectangle makes the all-start subclaim algorithmically deducible; priority lies principally in the explicit uniform block-start and long-desert geometry, not the rectangle.",
+      "A general established theorem about coin-count layers or numerical-semigroup deserts could subsume the long-block law even if indexed under other vocabulary.",
+      "The search index cannot establish global originality; bibliographic comparison is best-knowledge, not independent certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides complete Apéry rectangle, free semigroup and Frobenius law; no exact all-block-start or long-block-length statement. Apéry lemma is explicitly credited rather than counted as original.",
+        "evidence": [
+          "Corollary 28 at HTML lines 518–535 describes rectangular Apéry cells; introduction lines 17–46 sets Frobenius aim."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1706.04378",
+        "material_read": "Ar5iv full HTML, introduction, numerical-semigroup properties and triangular section 4.2 including Proposition 25, Corollary 28, Remark 29",
+        "method": "Read searchable full HTML https://ar5iv.labs.arxiv.org/html/1706.04378 and compared statement/implication",
+        "title": "The Frobenius number for sequences of triangular and tetrahedral numbers",
+        "trigger": "Exact same three triangular generators and Apéry rectangle"
+      },
+      {
+        "assessment": "Evaluates generalized Frobenius and p-genus/representation levels, not gap-block adjacency or coin-count-layer long deserts.",
+        "evidence": [
+          "Theorem 1 at lines 82–147, Theorems 2–4 at lines 148–211 concern p-Frobenius thresholds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.13054",
+        "material_read": "Accessible text for full arXiv document, especially introduction, Preliminaries and Theorems 1–4 in section 3 (lines 68–211)",
+        "method": "Read arXiv HTML text of paper and searched for gap/desert and statements",
+        "title": "The Frobenius number for sequences of triangular numbers associated with number of solutions",
+        "trigger": "Same triangular family, stronger representation-level Frobenius theory"
+      },
+      {
+        "assessment": "Its singleton gap list covers blocks of length one, and it derives Apéry neighbor comparisons. It does not state or prove total maximal-block count n^2/parity, all gap starts, or any longer-than-n+1 block classification. Closely related intermediate tools mean some overlap risk remains.",
+        "evidence": [
+          "Finding defines g with g±1 in S and counts 3n−1/3n−2 isolated gaps, not all blocks.",
+          "Proof §1 derives Apéry rectangle; §2 and §3 restrict to cells where both adjacent neighbors are represented."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-isolated-gaps-in-semigroups-of-three-consecutive-triangular-numb--42c2c6edcb7c/RESULT.md",
+        "material_read": "Complete RESULT.md including Finding, Assumptions, all four proof sections, verification, relationship, limitations and references",
+        "method": "Read full primary result from its exact published GitHub path via file-content retrieval; compared mathematical implications",
+        "title": "Isolated gaps in semigroups of three consecutive triangular numbers",
+        "trigger": "Closest exact same-object published gap classification, hence strongest priority competitor"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "adf68b5e-865c-4bbd-8f9e-738980f32417",
+  "value": {
+    "rationale": "For a well-studied free family of three consecutive triangular generators, genus and Frobenius number do not describe the arrangement of gaps. The exact all-block count, complete parametrized starts and sharp length threshold separate large deserts between consecutive coin counts from smaller within-layer gaps and reveal a parity-dependent quadratic number of components. This structural picture is meaningful across every n>=3 and is not an arbitrary finite census or an isolated small parameter improvement.",
+    "status": "PASS"
+  }
+}
