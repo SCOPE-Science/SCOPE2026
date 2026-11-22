@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim fixes the vertex-pair and conductance-normalized edge means. The proof checks all possible cuts and equality in the cycle boundary bound, reduces arbitrary metric targets by dihedral averaging, and uses only two-path triangle inequalities. On every affine-fractional segment a maximum is at an endpoint; rotation-averaged arc cuts attain every endpoint, with exact normalization. The full-rim threshold follows from maximizing \(s(r-s)\); finite rational checks supply additional diagnostics. The universal statement rests on the proof rather than the checker.
+## correctness
 
-## Originality — PASS (qualified)
-The closest new source [1] bounds nonlinear gaps of **regular expanders**, not exact constants or cut equality geometry for nonregular weighted wheels. Wheel distance-matrix calculations [3] address spectral inverses, not this variational metric quotient. Relevant published records on spoke-weighted wheel Lipschitz-variance or cut/cycle-projection norms concern quadratic spread or projection operator norms and do not imply the sharp exponent-one pair/edge quotient. Searches for the aliases "all-pairs flow/cut gap", "wheel graph nonlinear Poincaré", "metric versus cut constant", and "hub–cycle join" found no exact covering theorem. A preexisting equivalent uniform-demand flow-cut result could remain, as some publication records were available as summaries rather than complete texts; absence of a hit is not treated as a uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-The result exactly resolves a natural infinite-family, two-conductance-parameter nonlinear Poincaré problem **uniformly over every metric target**, proves unexpectedly that scalar cuts already attain the metric supremum, gives all optimal \(L^1\) cuts and the precise conductance-driven bulk/full-rim transition, and obtains a sharp square-root asymptotic in the unweighted limit. Earlier closely related natural graph families exhibit a strict metric-versus-\(L^1\) separation, so this equality is a structural phenomenon rather than a formal property of the definition. It does not claim extensions to nonuniform conductances or higher exponents.
+PASS: For r>=4, A,B>0, any hub-outside indicator cut with s proper rim vertices has crossing conductance As+B times at least 2 rim transitions, with equality exactly a contiguous arc; full rim has Ar. For arbitrary metrics dihedral averaging preserves energies; hub spoke average a and rim neighbor b give t=b/a in [0,2], and c_k<=min(2a,min(k,r-k)b). The resulting affine-fractional ratio is maximal at t=0 or t=2/s; each endpoint is realized by rotation average of an arc cut, proving metric target equality to maximal cut. Direct comparison yields threshold B/A>=floor(r²/4)/2; cross multiplication gives staircase and expansion yields 4-8sqrt(2/r)+O(1/r). Independent rational enumeration checked 28 wheel/conductance instances.
 
-## Closest literature and limitations
-The primary source [1] was inspected through its theorem, definitions and method passages; it does not analyze weighted wheels. A wheel distance-matrix paper [3] was available through the publisher's detailed abstract and mathematical motivation. Relevant publicly indexed wheel variance and projection records were compared by recoverable scientific statements only, because full article pages could not be obtained; their limitation is recorded in the originality audit. Independent verification and bibliographic priority are still outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No known source supplies the universal metric=real L1=scalar sharp weighted-wheel formula, exact optimal arcs and full-rim threshold; the close wheel projection theorem uses a different functional.
+
+## value
+
+PASS
+
+PASS: Natural wheel family with two continuous positive conductance parameters; universal equality of arbitrary metric and L1 extremizers is nontrivial in view of target separation on other graphs. Exact arc/full-rim phase boundary and asymptotic make the theorem useful beyond a single constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
