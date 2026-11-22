@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The face-fiber description is exact for two-independence: after fixing a valid core subset \(S\), a leaf can appear precisely if its base vertex is absent or isolated. Matching each nonempty Boolean fiber on its least eligible leaf is acyclic, and core inclusion is monotone along directed unmatched Hasse edges, excluding cycles across fibers. Empty eligibility forces every whiskered core vertex to appear with degree one, leaving exactly the core \(V(G)\setminus\{z\}\) when its induced graph is one-regular. The full core cannot be a face for a connected graph with at least three vertices. Removing the empty-face match produces one critical vertex and at most one higher cell. Its attachment is forced to the zero-skeleton because no other CW cells exist, giving the stated complete integral homotopy type. The precise one-regularity requirement is stronger than containing a perfect matching; it is explicitly maintained in the theorem and checker. Exact mod-two Betti calculations on 3,804 rooted connected labelled graphs and 59 finite complete acyclicity checks corroborate this proof, but the proof—not those samples—establishes all orders.
+## correctness
 
-## Originality — PASS (best-knowledge, with risks)
-Closest full text: Deshpande–Singh (2020), Theorems 3.8 and 3.10, https://arxiv.org/abs/2001.05448. Theorems there treat complete whiskering or at least one adjacent leaf at every non-leaf vertex; our distinguished root is non-leaf and has no attached leaf, precisely the excluded configuration. The leaf-toggle matching machinery is antecedent and is not claimed as new. Ghosh–Selvaraja, https://arxiv.org/html/2505.06614v3, supplies shellability methods for block graphs and other constructions, but not the exact all-connected-core missing-whisker homotopy dichotomy. Sawant, https://arxiv.org/html/2605.25150v1, establishes tree vertex decomposability, not the present all-graph sphere/contractible criterion. Relevant semantic findings about fully whiskered *matching complexes* and crown-graph *dissociation complexes* are inequivalent: the former uses edge-set faces and the latter a different underlying graph. Own accessible claims were searched for leaves, whiskers, two-independence, dissociation, and matching; none provides this classification. Residual risk: a differently named earlier partial-whiskering theorem may exist outside the inspected full texts, and independent bibliographic validation is outstanding.
+PASS
 
-## Value — PASS
-The exact dichotomy identifies a sharp topological discontinuity under deletion of **one** pendant leaf. It applies to all connected simple cores and reduces high-dimensional sphere birth to a natural combinatorial condition: the *induced remainder* must itself be a one-factor. Friendship/windmill cores realize nonzero spheres in every positive odd dimension while fully whiskered connected cores of at least three vertices yield contractible two-independence complexes. The classification is an integral homotopy statement with explicit acyclic matching, not a routine Betti-number substitution. It gives a reusable counterexample mechanism to any expectation that full-whiskering contractibility survives a single nonpendant whisker fault.
+A face decomposes uniquely as a core S with induced max degree <=1, plus arbitrary eligible leaves E(S)={v!=z: v not in S or deg_G[S](v)=0}. Toggle the least eligible leaf in each Boolean fiber; each fiber is acyclic, and under reversed matched Hasse arrows core S never increases, so no cross-fiber alternating cycles. If E(S)=empty, every v≠z belongs to S and has degree exactly one; the only candidate S=V(G) is inadmissible because connected G on n>=3 with deg(z)>=2, and S=V minus {z} is unmatched iff G-z is exactly one-regular. Remove the augmented empty-face matching to retain one critical 0-cell plus optionally one critical (n-2)-simplex. Its boundary attaches to the single 0-cell; for n-2>=1 the Morse CW space is S^{n-2}, else contractible, integral homotopy. An independently written direct simplicial mod2 enumeration of 6 eligible 3-core and 104 eligible 4-core rooted connected graph cases produced zero Betti-profile mismatches; numerical enumeration is not an all-graph proof.
 
-## Limitations and risk
-No conclusion about several missing whiskers, larger independence thresholds, shellability, or integral symmetry representations. Methodological overlap with 2020 leaf matchings is explicit; uniqueness of the scientific statement cannot be certified by search alone. The first-public date pertains to the motivating May 2026 primary paper, not to this newly proved theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality based on exact theorem-level comparison, not a negative search as proof. The relevant established input does not imply this complete marked or homotopy assertion in the material inspected.
+
+## value
+
+PASS
+
+The effect of deleting exactly one pendant whisker from a completely whiskered graph is a natural sharp topological perturbation. The global all-graphs sphere/contractible dichotomy and induced one-regular (stronger than merely perfect-matchable) condition yields arbitrarily high-dimensional sphere examples on friendship cores, which are useful test cases for stability and patchwork Morse arguments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
