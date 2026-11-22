@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The proof converts the exact projection norm to a full-plane Fourier l1 sum, obtains the complete-parabola Gauss baseline, computes exact linear and quadratic perturbation moments by orthogonality, proves cubic-moment cancellation using solution-count bounds, and applies a uniform fourth-order Taylor remainder for q>=16 h^2. The exact b=0 deletion profile is retained. The characteristic-dependent pair specialization uses a finite cosine identity. A standalone 48-case checker verified the critical moments, including F_9; finite tests are not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Full original text arXiv:2609.25404 Theorem 4.1 applies to affine-transitive supports; arbitrary erased parabolas are not transitive under the cited action.",
+        "Full original text arXiv:2508.12194 Theorems 3 and 5 are norm bounds, not asymptotic equality.",
+        "Indexed conic erasure result addresses L2-to-L4 extension constant, which is not the l-infinity projector norm."
+      ],
+      "reasoning": "Known general synthesis inequalities may bound a related norm but do not imply the sharp 3/4 defect or the one-dimensional order-q^-1 correction; erasure masks also break the transitivity that yields the complete-parabola formula.",
+      "searches": [
+        "arxiv:2609.25404 Theorem 4.1 affine transitive synthesis §5.1 parabola",
+        "arxiv:2508.12194 Theorems 3 and 5 spectral synthesis inequalities",
+        "sharp Fourier extension and phase transitions under arbitrary erasures of finite-field conics"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.25404 original HTML §§1,2,4,5,6,9",
+      "arxiv:2508.12194v2 original HTML §§1–5",
+      "Akarsu–Marklof 2013 publisher abstract",
+      "Related finite-field conic erasure publication summary"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The first paper gives L_q exactly for the un-erased parabola and a transitive support theorem, but does not calculate D_q(B).",
+        "The second provides a general inequality dependent on support indicator, with no erasure expansion.",
+        "The incomplete-Gauss-sum article studies incomplete interval sums and limiting distributions, which cannot be identified with arbitrary fixed deleted sites without further analysis."
+      ],
+      "reasoning": "Our claim entails an asymptotic norm difference for arbitrary B, a uniform remainder, and an arithmetic two-deletion corollary. The published statements under comparison do not logically imply these parts via the reported hypotheses; the proof uses additional mixed moments up through cubic order.",
+      "searches": [
+        "arxiv:2609.25404 §§5.1,6.2 Gauss sum complete parabola",
+        "arxiv:2508.12194 Theorem 5 indicator Fourier bound",
+        "incomplete Gauss sums Akarsu Marklof 2013 long intervals"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.25404 §§2,4,5,6 defines Fourier algebra norm and exact full-parabola transforms; none of those statements specifies arbitrary erasures.",
+        "Akarsu–Marklof (2013) concerns limit distributions of long incomplete Gauss sums, not an averaged small-hole projection norm."
+      ],
+      "reasoning": "The projector norm is equivalently the normalized l1 mass of the full two-dimensional Fourier transform of a punctured parabola; the present claim is a uniform two-term perturbation law and an exact one-dimensional shape functional. Neither a complete-parabola norm nor an incomplete-sum distribution result directly supplies that perturbative identity.",
+      "searches": [
+        "punctured parabola finite field Fourier algebra norm remove points Gauss sum L1 asymptotic",
+        "universal deletion erasure asymptotics finite field parabola Wiener Fourier algebra norm 3/4 square root correction",
+        "one-point erasure finite-field parabola Fourier L1 norm Gauss sum trigonometric finite p",
+        "Gauss sum absolute perturbation delete atoms finite field parabola Lebesgue constant shape dependent second-order"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearby indexed record on two-deletion quadratic chirp sidelobe energy optimizes a periodic autocorrelation-derived energy rather than the full-plane Fourier l1 projection kernel.",
+        "No directly identical table or stored formula surfaced in actual searches; direct finite tests are independently reproducible."
+      ],
+      "reasoning": "A finite table of incomplete Gauss sums or quadratic-chirp sidelobes would not automatically determine the uniform all-prime-power l1 norm expansion for all small deletion masks. Search absence is not a uniqueness certificate.",
+      "searches": [
+        "punctured parabola Fourier projection removal fixed number points two term asymptotic Wiener norm of erasure set",
+        "finite-field parabola removing one point Fourier projection norms asymptotic stability",
+        "two-deletion quadratic chirp sidelobe energy"
+      ]
+    },
+    "rationale": "The complete finite-field parabola norm and general spectral synthesis inequalities in the inspected original literature do not entail the two-term uniform punctured-parabola erasure expansion. The new second coefficient depends on the one-dimensional Wiener profile of arbitrary missing parameters, whereas the leading coefficient is universal. Searches of prior records and relevant literature found different objectives (L2-to-L4 conic erasure extension, fixed-chirp sidelobes) and no directly dominating statement. An unindexed equivalent expansion remains a residual risk.",
+    "residual_risks": [
+      "An old uniformly averaged quadratic Gauss-sum perturbation theorem under different terminology may imply this expansion.",
+      "Only a public abstract, not full text, was accessible for the incomplete-Gauss-sum distribution source and the close conic-erasure record.",
+      "No independent mathematical audit has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for arbitrary finite-point erasures and two-term perturbation; full-parabola law is the baseline",
+        "evidence": [
+          "§2 formula (2.3) defines Fourier algebra norm",
+          "§4 Theorem 4.1 transitive-support argument",
+          "§5.1 formula (5.2) flat complete-parabola Gauss spectrum",
+          "§6 Theorem 6.2 evaluates complete paraboloids"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.25404",
+        "material_read": "Original accessible full HTML: §§1,2,4,5,6 and final questions, including proofs of exact transitive synthesis and complete Gauss spectrum",
+        "method": "Read original HTML, matched theorem/normalization, searched for delete/erase",
+        "title": "Spectral synthesis with the complexity parameter in Z_N^d",
+        "trigger": "Same parabola and Fourier algebra norm; first public 2026-09-21"
+      },
+      {
+        "assessment": "NOT_COVERING for the erasure expansion: general inequalities not equality or sharp asymptotics",
+        "evidence": [
+          "Theorems 3 and 5: general Fourier support and indicator bounds",
+          "No finite parabolic erasure asymptotics in the inspected material"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2508.12194v2",
+        "material_read": "Original accessible full HTML §§1–5 and theorem statements; checked text for deletion and erasure",
+        "method": "Read HTML source and theorem proofs/definitions",
+        "title": "On spectral synthesis in Z_N^d",
+        "trigger": "Earlier general finite-group spectral synthesis and support-indicator norm estimate"
+      },
+      {
+        "assessment": "NO_CLAIM_OF_FULL_DOCUMENT_NONCOVERAGE; accessible abstract discusses limit laws for subintervals, not small arbitrary deletion sets",
+        "evidence": [
+          "Abstract explicitly treats subinterval-restricted Gauss sums and value distributions"
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/journals/mathematika/article/abs/value-distribution-of-incomplete-gauss-sums/9FBFB8DBAD3593290570B5E9DBE10991",
+        "material_read": "Publisher abstract; full original text not accessed",
+        "method": "Read publisher abstract; contrasted size of truncated intervals and averaged l1 functional",
+        "title": "The value distribution of incomplete Gauss sums",
+        "trigger": "Plausible broader Gauss-sum truncation literature"
+      },
+      {
+        "assessment": "Distinct documented objective, sharp fourth-power extension; unresolved full-text bibliographic risk",
+        "evidence": [
+          "Summary says the norm depends on retained sites and complete antipodal pairs; no l-infinity projection or Wiener norm claim in summary"
+        ],
+        "identifier_or_url": "Public research record title (retrieved search summary)",
+        "material_read": "Search-index summary only; original full text not accessible in this attempt",
+        "method": "Statement-level implication comparison from public summary",
+        "title": "Sharp Fourier extension and phase transitions under arbitrary erasures of finite-field conics",
+        "trigger": "Similar erasure wording and finite-field geometry"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a7de780d-37f3-4234-be77-789ae2fbbec0",
+  "value": {
+    "rationale": "The theorem treats all odd prime-power fields and arbitrary small deletion patterns in a natural frequency support; it isolates a universal first perturbation coefficient from a shape-sensitive one-dimensional Fourier-algebra second term and produces a sharp explicit characteristic-dependent two-erasure coefficient. These facts measure endpoint Fourier projection robustness and are not merely a routine instance of the complete-parabola Gauss identity.",
+    "status": "PASS"
+  }
+}
