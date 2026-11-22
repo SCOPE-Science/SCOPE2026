@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The four endpoint coordinates have joint unit density. The map from two chord slopes plus their unique intersection to four endpoint coordinates has absolute Jacobian \(1-ac\). The admissible slope ranges are derived from all four endpoint inequalities, yielding the globally symmetric exact density. The center is the unique global maximizer because the density decreases in the larger distance-to-side coordinate at fixed smaller coordinate, and the diagonal profile increases toward the center. Bounded convergence proves the corner-square coefficient; decomposition of the side marginal proves the quadratic logarithmic strip law. Both analytic and independent numerical quadrature checks normalize the density. Repeated direct Cartesian sampling confirms region probabilities to their expected statistical tolerances.
+## correctness
 
-## Originality — PASS, qualified
-Published literature on motion-invariant polygon chord lengths (Bäsel 2014), interior-point line side-pair events (Egan 2025), and fixed-length random-needle intersections (Böttcher 2019) uses distinct random line laws and different observables. Comparisons against related indexed rectangle-chord interception results did not reveal a covering statement about the *spatial junction law of two independent opposite-side-spanning uniform-endpoint segments*. The general change-of-variables technique itself is prior art; novelty is restricted to the evaluated spatial density with its sharp central and boundary behavior. Full text for the 1999 rectangle-distance paper was unavailable; this and unindexed older work remain historical risks.
+PASS
 
-## Value — PASS
-This is a complete exact distribution for a natural network-node placement model arising from two independent edge-to-edge connection families. The contrast between a sharp central peak, anisotropic corner limits and a logarithmically enhanced quadratic strip-decay rate supplies an interpretable geometric boundary classification not implied by a mere crossing probability. The exact coefficients distinguish near-corner from generic near-edge junction placement.
+Let y=ax+b and x=cy+d with independent uniform endpoint constraints. The map (a,b,c,d) to (a,c,X,Y) has Jacobian |1−ac| and the admissible intervals I(x,y),I(y,x) are derived by enforcing endpoint coordinates in [0,1]. Integrating 1−ac across two intervals and reducing by square dihedral symmetry yields f=u[4v(1−v)−u]/[4(1−u)²v²(1−v)²]. My independently written slope-interval/Jacobian implementation matched the closed formula for 1,200 random interior pairs; quadrature across the four fundamental wedges gave total probability 0.9999999999999997. The derivative in T=v(1−v) and diagonal u show unique peak f(center)=4. Corner rescaling integrates to 5/12 by dominated convergence; a vertical marginal has 2x log(1/x)+O(x), giving x² log(1/x)+O(x²). The proof distinguishes equal-edge endpoint sampling from motion-invariant lines and excludes boundary null sets.
 
-## Limits and comparisons
-The model is fixed to straight square transversals and uniform independent edge endpoints. The result does not assert universality for unrestricted random chords or stationary isotropic random lines. Independent mathematical and historical validation have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+BEST-OF-KNOWLEDGE PASS: explicit junction spatial law for forced opposite-edge chord crossing is distinct from chord length, two-point distance, and random fixed-length needle intersections. General Jacobian methods are known and not claimed. No checked primary statement yields the piecewise-rational law, unique center mode and two sharp distinct boundary asymptotics.
+
+## value
+
+PASS
+
+Two independently sampled cross-square connections always meet; their meeting-point density is the natural nodal spatial distribution for bipartite or network geometry. Exact mode and competing corner-versus-side scaling laws are interpretable geometric probabilities rather than isolated decimal recomputations, with reusable methods for other boundary endpoint laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

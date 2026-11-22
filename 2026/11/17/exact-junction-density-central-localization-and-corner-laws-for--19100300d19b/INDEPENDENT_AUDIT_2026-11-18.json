@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T00:57:46.690406Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let y=ax+b and x=cy+d with independent uniform endpoint constraints. The map (a,b,c,d) to (a,c,X,Y) has Jacobian |1−ac| and the admissible intervals I(x,y),I(y,x) are derived by enforcing endpoint coordinates in [0,1]. Integrating 1−ac across two intervals and reducing by square dihedral symmetry yields f=u[4v(1−v)−u]/[4(1−u)²v²(1−v)²]. My independently written slope-interval/Jacobian implementation matched the closed formula for 1,200 random interior pairs; quadrature across the four fundamental wedges gave total probability 0.9999999999999997. The derivative in T=v(1−v) and diagonal u show unique peak f(center)=4. Corner rescaling integrates to 5/12 by dominated convergence; a vertical marginal has 2x log(1/x)+O(x), giving x² log(1/x)+O(x²). The proof distinguishes equal-edge endpoint sampling from motion-invariant lines and excludes boundary null sets.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem in Bäsel 2014 derives chord length CDF and pairwise distance",
+          "Böttcher 2019 draws fixed-length needles at random positions/orientations"
+        ],
+        "reasoning": "Broader random-line formulas may use change of variables but do not supply the evaluated density for four independent uniform edge endpoints under compulsory crossing.",
+        "searches": [
+          "random line segment intersection point density general polygons",
+          "Böttcher random line graph overlapping needles 1911.10679",
+          "Resultary rectangle chord intersection and crossing laws"
+        ]
+      },
+      "checked_sources": [
+        "https://www.iam.fmph.uniba.sk/amuc/ojs/index.php/amuc/article/view/71",
+        "https://doi.org/10.1007/BF02844387",
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-universal-crossing-law-for-random-chords-of-rectangles--acffa7210659",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-junction-density-central-localization-and-corner-laws-for--19100300d19b",
+        "Resultary published-finding semantic searches on the exact theorem keywords"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bäsel 2014 article abstract states distributions of lengths/distances rather than two-line junction coordinates",
+          "Resultary 2026/10/25 universal crossing law for random rectangle chords concerns intersection with a concentric target rectangle"
+        ],
+        "reasoning": "Those prior observables do not algebraically imply the forced-crossing spatial density without a new four-parameter pushforward calculation, despite shared ambient square geometry.",
+        "searches": [
+          "Bäsel 2014 chord lengths regular polygons PDF title/abstract",
+          "Mathai 1999 random points associated rectangles",
+          "Böttcher 2019 needle intersections arxiv"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bäsel regular-polygon model takes a motion-invariant random chord length, not this compulsory crossing location",
+          "Mathai–Moschopoulos–Pederzoli rectangle paper observable is interpoint distance"
+        ],
+        "reasoning": "Equivalence requires same endpoint sampling and two fixed perpendicular families. Neither independent interior-point nor isotropic needle sampling induces that law.",
+        "searches": [
+          "Resultary: two random square transversals crossing point density uniform side endpoints",
+          "geometric probability two opposite-edge random chord families joint intersection point",
+          "random line intersections distribution in rectangle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching table in Resultary semantic search; nearest square-chord indexed findings analyze a single chord or target event",
+          "Primary Mathai 1999 statistics abstract covers distance between independent random points"
+        ],
+        "reasoning": "No covering exact tabulation found; full text of some older rectangle papers remains unchecked, so this is an evidential comparison not a novelty certificate.",
+        "searches": [
+          "exact square transversals junction density 4 5/12 eps2 logarithmic boundary",
+          "published distribution intersection of two square-crossing edge segments"
+        ]
+      },
+      "rationale": "BEST-OF-KNOWLEDGE PASS: explicit junction spatial law for forced opposite-edge chord crossing is distinct from chord length, two-point distance, and random fixed-length needle intersections. General Jacobian methods are known and not claimed. No checked primary statement yields the piecewise-rational law, unique center mode and two sharp distinct boundary asymptotics.",
+      "residual_risks": [
+        "A specialized older exact two-transversal junction density might be unindexed.",
+        "Full text of Mathai et al. 1999 and some random geometry sources was not inspected in this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract is about single-chord lengths and two-point distances, not visible same junction law; no whole-PDF exclusion claimed",
+          "evidence": [
+            "Abstract states chord length distribution and distance between two independently uniform polygon points."
+          ],
+          "identifier_or_url": "https://www.iam.fmph.uniba.sk/amuc/ojs/index.php/amuc/article/view/71",
+          "material_read": "Full article abstract, venue/date, sampling subject; NOT full PDF in this run",
+          "method": "Publisher article HTML, publication record and abstract",
+          "title": "Random chords and point distances in regular polygons",
+          "trigger": "Regular polygon random chord work with possible two-crossing geometry"
+        },
+        {
+          "assessment": "UNRESOLVED_FULL_TEXT; abstract concerns interpoint distances, but possible detail not excluded",
+          "evidence": [
+            "Described outcome is distance distribution and moments for random points in one/two rectangles."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF02844387",
+          "material_read": "Title, dated bibliographic abstract only",
+          "method": "Publisher/search bibliographic abstract",
+          "title": "Random points associated with rectangles",
+          "trigger": "Plausible 1999 exact spatial rectangular probability"
+        },
+        {
+          "assessment": "No direct same model in its described one-chord homothetic-rectangle event",
+          "evidence": [
+            "Summary specifies one chord, an inner rectangle and crossing probability, not two forced chords."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-universal-crossing-law-for-random-chords-of-rectangles--acffa7210659",
+          "material_read": "Resultary semantic title/summary only, not full article",
+          "method": "Resultary semantic search",
+          "title": "A universal crossing law for random chords of rectangles",
+          "trigger": "Nearest indexed square chord law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two independently sampled cross-square connections always meet; their meeting-point density is the natural nodal spatial distribution for bipartite or network geometry. Exact mode and competing corner-versus-side scaling laws are interpretable geometric probabilities rather than isolated decimal recomputations, with reusable methods for other boundary endpoint laws.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No formal Lean proof or expert attestation was inferred from an analytic derivation or finite check.",
+    "Scientific originality is a best-of-knowledge priority assessment with the explicit residual risks above.",
+    "The five separately assigned public packages were read at the frozen tree/blob IDs; no GitHub write or dispatcher closeout was undertaken."
+  ],
+  "schema_version": 1
+}
