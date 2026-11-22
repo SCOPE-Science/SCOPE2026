@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Exact odd-part convention and global uniqueness are stated, all quantifiers k>=6 and zero-based indices fixed. An explicit 256-symbol length-16 factor histogram (64 distinct; 16x3,47x4,1x5) and length-7 parity separation support the short-factor base. Recursion x[2j]=1-(j mod2),x[2j+1]=x[j] transfers occurrences for longer factors, with one possible loss at a terminal source-suffix occurrence if the target ends with filler. A simultaneous induction proves every shorter factor has at least two occurrences and every shorter suffix at least three, removing the sole boundary hazard. Unique factors at the sharp odd length transfer bijectively by i→2i+1, giving exactly two and the closed formulas. Independent direct-counter and sorted-suffix programs were run from the package and reproduce bases and larger samples. Infinite theorem follows from proof, not experimental extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://doi.org/10.1017/S0004972700011655: factor complexity for infinite paperfolding word is 4l for l>=7",
+        "https://arxiv.org/abs/2605.04826: algorithm for arbitrary packed strings, computes one SUS in sublinear packed time",
+        "https://arxiv.org/abs/2412.17930: run length complexity for general paperfolding sequences"
+      ],
+      "reasoning": "The 1992 theorem counts distinct length-l factors in the infinite word but does not count how often each occurs in a specific finite prefix; its broader family of words does not entail this finer invariant. The arbitrary-input SUS algorithms can numerically evaluate each finite instance, but their statements do not imply the uniform closed form, two signatures, or their dyadic positions. Run-length results are not the same occurrence-count problem.",
+      "searches": [
+        "https://doi.org/10.1017/S0004972700011655",
+        "https://arxiv.org/abs/2605.04826",
+        "https://arxiv.org/abs/2412.17930"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2605.04826",
+      "https://doi.org/10.1017/S0004972700011655",
+      "https://arxiv.org/abs/2412.17930",
+      "https://arxiv.org/abs/2610.10950",
+      "https://oeis.org/A337120",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-all-four-minimal-unique-substrings-of-every-finite-period-doubli--a64ede970c54",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exactly-four-minimal-unique-substrings-in-every-period-doubling--37245f79a301"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://doi.org/10.1017/S0004972700011655: existing parity lemma (Lemma 2) is used, while the 4l main factor-count theorem does not assert finite-prefix uniqueness",
+        "https://arxiv.org/abs/2605.04826: only existential computational algorithm, not dyadic closed-form recurrence",
+        "https://arxiv.org/abs/2610.10950: Thue-Morse attractor analysis; no paperfolding word in full-text search"
+      ],
+      "reasoning": "The new conclusion is a statement for every dyadic regular-paperfolding prefix about the minimum uniquely occurring contiguous factor and its two starting indices. Neither the known short parity lemma nor the infinite distinct-factor count controls terminal occurrence losses in finite prefixes, which are essential to the boundary invariant. A general algorithm does not state the all-k formula, and a Thue–Morse classification cannot be substituted without proving its morphic premises apply to regular paperfolding.",
+      "searches": [
+        "https://arxiv.org/abs/2605.04826",
+        "https://doi.org/10.1017/S0004972700011655",
+        "https://arxiv.org/abs/2610.10950",
+        "paperfolding dyadic prefixes shortest unique substring minimal unique factor regular paperfolding 2^(n-4)+1 two unique positions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://doi.org/10.1017/S0004972700011655: Lemma 2 proves parity determination only, not finite-prefix uniqueness",
+        "https://arxiv.org/abs/2605.04826: global SUS for arbitrary inputs, no formula for these dyadic prefixes",
+        "published-finding corpus: no indexed exact paperfolding shortest-unique-factor result in recorded searches"
+      ],
+      "reasoning": "A word-specific shortest unique factor length is equivalently the least length with an occurrence multiplicity of one. The comparisons checked this occurrence-multiplicity formulation and aliases including shortest unique substring, minimal unique factor, and dyadic paperfolding prefix. Allouche provides parity separation but not uniqueness counts; none of the actually retrieved indexed results specifies the claimed threshold and exact two starts.",
+      "searches": [
+        "exact shortest unique contiguous substring in regular paperfolding prefixes of length powers of two 2^k dyadic two occurrences at 11/16 and 12/16",
+        "minimal unique factor paper-folding word binary 2-automatic consecutive factor once source 2026",
+        "appearance function paper folding factor first and last occurrences shortest unique length",
+        "\"paperfolding\" \"shortest unique substring\" prefix",
+        "\"paperfolding word\" \"minimal unique\" factor prefix"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A337120 tabulates 4l infinite-word distinct factor counts, not finite-prefix unique-factor multiplicity or positions",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-all-four-minimal-unique-substrings-of-every-finite-period-doubli--a64ede970c54: published indexed result concerns finite period-doubling iterates, not regular paperfolding",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exactly-four-minimal-unique-substrings-in-every-period-doubling--37245f79a301: separate period-doubling classification, not regular paperfolding"
+      ],
+      "reasoning": "Numerical agreement with another word family would not imply a count or position law here. The checked tables concern different invariants or different morphic sequences. The finite base certificate and recurrence constitute new derivations rather than reuse of a known exact paperfolding unique-factor table.",
+      "searches": [
+        "https://oeis.org/A337120",
+        "exact shortest unique contiguous substring in regular paperfolding prefixes of length powers of two 2^k dyadic two occurrences at 11/16 and 12/16",
+        "minimal unique factor paper-folding word binary 2-automatic consecutive factor once source 2026"
+      ]
+    },
+    "rationale": "A 2026 general shortest-unique-substring algorithm has no uniform specialization for dyadic regular paperfolding prefixes. The most relevant 1992 paper by Allouche already proves the length-seven parity separation (credited, NOT presented as new) and the infinite-word factor-complexity count, but does not establish the multiplicity and positions of shortest unique factors in finite prefixes. A 2026 Thue–Morse classification concerns a non-equivalent automatic word. Actual searches of published indexed results and accessible prior ledgers revealed no same-object theorem. Priority risk remains for unindexed older literature; novelty is a best-evidence comparison, not a uniqueness certificate.",
+    "residual_risks": [
+      "Indexing may omit an earlier exact finite-prefix shortest unique factor classification for the regular paperfolding word.",
+      "The credited parity-rigidity lemma is not novel; the claim is only the exact finite-prefix threshold and two positions.",
+      "A generic algorithm can compute any fixed prefix; the claimed mathematical novelty rests on the closed all-k classification and proof, not basic computability."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related general algorithmic problem; no dyadic paperfolding exact-length or positions theorem",
+        "evidence": "Abstract and Theorem SUS describe asymptotic packed-string computation; find(paperfolding) returned no match",
+        "identifier_or_url": "https://arxiv.org/abs/2605.04826",
+        "material_read": "Accessible full-text HTML including introduction, definitions, algorithm theorems, related-work discussion, searched for paperfolding",
+        "method": "read full-text HTML and exact-term find",
+        "title": "Faster Algorithms for Shortest Unique or Absent Substrings",
+        "trigger": "2026 primary direction, same global shortest-unique-substring definition"
+      },
+      {
+        "assessment": "Contains already-known factor parity lemma used and credited, plus infinite factor complexity; does not claim finite-prefix shortest unique factors",
+        "evidence": "Lemma 2 states length at least seven factor cannot start at both parities; section 5 gives 4l factor complexity for l>=7; exact find(unique) no occurrence",
+        "identifier_or_url": "https://doi.org/10.1017/S0004972700011655",
+        "material_read": "Full PDF parsed introduction, definition, sections 3–5 including Lemma 2 and factor-count theorem; visually inspected PDF page with Lemma 2",
+        "method": "full-text PDF read, page-image inspection, exact-term find",
+        "title": "The number of factors in a paperfolding sequence",
+        "trigger": "same regular-paperfolding object and length-seven parity issue"
+      },
+      {
+        "assessment": "Run lengths and automata, not shortest unique substring positions",
+        "evidence": "Abstract says run-length sequence and positions of runs are 2-synchronized and studies critical exponent/subword complexity",
+        "identifier_or_url": "https://arxiv.org/abs/2412.17930",
+        "material_read": "Article abstract and introduction via lawful publisher PDF first page; arXiv bibliographic and sections overview",
+        "method": "read PDF page image and arXiv abstract",
+        "title": "Runs in Paperfolding Sequences",
+        "trigger": "same paperfolding sequence and automatic-factor methods"
+      },
+      {
+        "assessment": "Thue–Morse (not paperfolding), minimal unique factors for attractor constraints, no mathematical implication of target claim",
+        "evidence": "2026 article discusses Thue–Morse morphism and eight minimal unique factors of each generation; find(paperfolding) no match",
+        "identifier_or_url": "https://arxiv.org/abs/2610.10950",
+        "material_read": "Accessible full-text HTML introduction and main theorem statements plus search for paperfolding",
+        "method": "full-text HTML read/find",
+        "title": "Smallest String Attractors and Minimal Coverage Certificates of Thue–Morse Words",
+        "trigger": "2026 exact minimal-unique-factor family over another automatic word"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5752f791-719e-4f7a-9bd0-c909774f284f",
+  "value": {
+    "rationale": "Global shortest unique factors provide canonical signatures for finite sequences and matter in text indexing and alignment-free recognition. The exact invariant for every dyadic regular-paperfolding prefix is motivated independently of computation, includes precise locations and multiplicity rather than merely a count of distinct infinite-word factors, and the simultaneous suffix occurrence invariant explains why boundary deletion cannot spoil doubling. These are structural all-order results, not an arbitrary finite small-case census or a simple name change.",
+    "status": "PASS"
+  }
+}
