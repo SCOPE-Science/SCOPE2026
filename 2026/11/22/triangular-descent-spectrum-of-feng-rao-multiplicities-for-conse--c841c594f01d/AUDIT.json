@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Every nongap of ⟨n,n+1⟩ has the unique normal form tn+r with 0≤r<n and t≥r. Every ordered decomposition is counted in exactly one of the two possible remainder-sum cases, giving ν=(t−r+1)(r+1)+(n−1−r)max(t−r−n,0). Adjacent nongap transitions either occur inside a quotient block, with difference t−2r−1 if t≤n+r and +1 otherwise, or at a block boundary, where the difference is always +1. Thus descents occur exactly when r+1≤t≤2r and 1≤r≤n−2. Summing the exact arithmetic progression of drop sizes per r proves the histogram and total; the proof covers all n≥2 and all semigroup elements. The separately executed standard-library checker passed n=2..48 including all 17,296 predicted descents and all checked nongap values.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bras-Amorós gives a last-descent bound and its attainment for acute semigroups, covering in particular the final position 2c−2−n for symmetric semigroups.",
+        "Delgado et al. prove E(S,r)=ρ_r for any embedding-dimension-two numerical semigroup; this concerns asymptotically stabilized generalized weights rather than successive changes of ν_n."
+      ],
+      "reasoning": "The general last-descent theorem implies only the terminal point of the candidate; the two-generator higher-weight theorem concerns another function. Neither states or readily specializes to the list of all earlier descents and their multiplicities.",
+      "searches": [
+        "arxiv:2307.16448 Theorem VI.3 Proposition VI.6",
+        "arxiv:1306.2862 Theorem 43 Corollary 44",
+        "Feng Rao sequence number of descents negative jumps two generated numerical semigroups nu_i decreasing"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2307.16448",
+      "https://ar5iv.labs.arxiv.org/html/1306.2862",
+      "https://www.academia.edu/54015844/On_the_Feng_Rao_numbers",
+      "https://gap-packages.github.io/numericalsgps/doc/chap9.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The largest descent given in arxiv:2307.16448 is exactly 2c−2−n for this family, matching the candidate special consequence 2n²−3n−2.",
+        "The general formula ν_i=i−g+1+#D(i) permits calculations after an additional gap-pair analysis but contains no explicit triangular descent classification.",
+        "The candidate proves its new all-steps formula by two-case normal-form counting, including every boundary transition."
+      ],
+      "reasoning": "The terminal position is acknowledged as covered prior art, not claimed new alone. The significant additional assertion is the exact two-index support and drop-frequency law for every n≥2. Explicit numerical semigroup divisor counts are computational ingredients, but the closed classification is not a direct parameter substitution in the inspected statements.",
+      "searches": [
+        "arxiv:2307.16448 Section VI proof and Proposition VI.6",
+        "arxiv:1306.2862 Section 2 and Theorem 43",
+        "Hermitian codes nu_i sequence exact formula q q+1 Feng Rao",
+        "Bras-Amorós 2023 acute semigroups Feng-Rao order bound number of descents each strict drop"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source arxiv:2307.16448 defines ν_i as the ordered nongap decomposition count, the same quantity called ν_n(s) here.",
+        "arxiv:1306.2862 identifies this with the divisor-set count #D(s), so the equivalent formulations were explicitly compared.",
+        "The candidate adds a complete finite-difference support and magnitude histogram for ⟨n,n+1⟩."
+      ],
+      "reasoning": "Aliases ν_i, semigroup divisor counts #D(s), local descents, and consecutive-generator/Hermitian-like semigroups were compared by their actual mathematical definitions, not titles. The accessible sources identify the quantity but do not state the full negative-step spectrum.",
+      "searches": [
+        "Feng Rao sequence number of descents negative jumps two generated numerical semigroups nu_i decreasing",
+        "nu_i ordered decompositions numerical semigroup n n+1 number of decreasing adjacent values",
+        "number of exact drops at each magnitude for the ordered pair decomposition count on semigroup ⟨n,n+1⟩",
+        "arxiv:2307.16448 Sections V–VI; arxiv:1306.2862 Sections 2–3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2023 source presents a finite Hermitian example, including ν_i and order-bound values for ⟨4,5⟩; it is consistent with three drops but does not tabulate the arbitrary-n spectrum.",
+        "The full 2013 work supplies illustrative fixed-generator code tables, not a table of all strict-drop sizes across the family.",
+        "No exact all-parameter spectrum was returned by the scientific-record searches."
+      ],
+      "reasoning": "Finite tables for one semigroup do not determine the infinite family, and direct published-record searching did not identify a table parameterizing all n. This search absence alone is not novelty proof.",
+      "searches": [
+        "order bound number of descents Feng Rao sequence consecutive generators numerical semigroup",
+        "Feng Rao distance Hermitian semigroup nu sequence triangular number of decreases",
+        "arxiv:2307.16448 Example VI.7 Table II",
+        "arxiv:1306.2862 Example ⟨4,5⟩"
+      ]
+    },
+    "rationale": "The inspected 2023 acute-semigroup theorem computes the terminal negative step of the Feng–Rao multiplicity sequence, whereas the claim determines all steps and their exact sizes for the consecutive-generator family. The 2013 two-generator work determines generalized asymptotic Feng–Rao numbers, a distinct statistic. A general gap-count identity does not by itself give the explicit triangular location/magnitude law. Direct primary-text inspection and searches found no assertion whose stated implications already yield this closed spectrum without fresh normal-form difference analysis; older or unindexed implicit derivations remain a priority risk.",
+    "residual_risks": [
+      "A full pre-2023 Hermitian-code article or unindexed sequence table could encode the same all-descents data under another name.",
+      "The accessible 2010 manuscript was only partially inspected; stronger hidden statements cannot be ruled out from the excerpt.",
+      "General divisor-count identities can be specialized; priority depends on whether the exact descent spectrum was previously extracted, not on novelty of the basic counting machinery."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GIVES_LAST_DESCENT_NOT_FULL_SPECTRUM",
+        "evidence": [
+          "Proposition VI.6 gives the last descent for symmetric semigroups at 2c−2−λ_1.",
+          "Example VI.7 calculates a single ⟨4,5⟩ table; no all-n drop histogram is asserted."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.16448",
+        "material_read": "ArXiv HTML abstract/introduction, section on symmetric semigroups, Sections V–VI including Theorem VI.3, Proposition VI.6 and Hermitian Example VI.7, plus the description of code improvements",
+        "method": "Direct HTML primary-text reading with theorem/assumption comparison",
+        "title": "Acute Semigroups, the Order Bound on the Minimum Distance and the Feng-Rao Improvements",
+        "trigger": "Same ν sequence and last-decrease theorem for acute and symmetric semigroups; source first publicly posted 2023-07-31"
+      },
+      {
+        "assessment": "COVERS_GENERALIZED_FENG_RAO_NUMBERS_NOT_EXPLICIT_ADJACENT_DESCENT_SPECTRUM",
+        "evidence": [
+          "Theorem 43 states E(S,r)=ρ_r for embedding-dimension-two semigroups.",
+          "Section 2 identifies #D(s) with the classical one-point divisor count, which is the candidate sequence."
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1306.2862",
+        "material_read": "Primary full-text HTML introduction, definitions of D(s) and δ_FR, selected Sections 3 and 3.5, Theorem 43, Corollary 44, and their implications",
+        "method": "Direct primary HTML theorem and invariant comparison",
+        "title": "On the weight hierarchy of codes coming from semigroups with two generators",
+        "trigger": "Broad two-generator formula could dominate a special-case claim"
+      },
+      {
+        "assessment": "PARTIAL_TEXT_STUDIES_GENERALIZED_ASYMPTOTIC_NUMBERS",
+        "evidence": [
+          "Accessible Section 4 excerpt describes how many new divisors m+λ adds for m>2c−1, rather than counting descents before the cutoff."
+        ],
+        "identifier_or_url": "https://www.academia.edu/54015844/On_the_Feng_Rao_numbers",
+        "material_read": "Accessible text excerpt of abstract and Section 4 discussion, not the complete original paper",
+        "method": "Partial manuscript-text review; scope risk retained",
+        "title": "On the Feng-Rao numbers",
+        "trigger": "Older study explicitly includes the Hermitian-like ⟨a,a+1⟩ case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c841c594-f01d-4a8a-859e-12a76dc4a05c",
+  "value": {
+    "rationale": "The positions and sizes of strict decreases of ν(s) govern the failure of local monotonicity in the Feng–Rao order-bound sequence. Beyond the known terminal transition, the new two-index closed classification supplies the entire descent geometry and triangular multiplicities for an infinite, canonical semigroup family. It is a natural structural invariant directly motivated by the published order-bound problem, not a random finite-range count; no new code-distance statement is asserted.",
+    "status": "PASS"
+  }
+}
