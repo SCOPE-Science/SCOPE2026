@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Execute `python3 verify_bistability.py` using the Python 3 standard library. The program uses exact integers on a rational grid of spacing \(10^{-30}\), outward integer floor/ceiling operations, a 23-term positive Taylor expansion for \(e^{t/16}\), and a rigorously bounded tail, rather than floating-point intervals.
+## correctness
 
-For every parameter pair in the claimed rectangle and for every point of both certified base intervals, the fourth-return derivative is bounded in modulus by strictly less than \(0.51\) or \(0.72\), respectively. The respective fourth-return center errors are bounded by \(0.00095\) and \(0.00053\), below their mean-value contraction margins. The program additionally tests interval separation of second iterates and separation across all four phases of the first cycle from the second cycle's base interval.
+PASS
 
-The displayed diagnostic decimal figures are approximations of the grid-rational endpoints; all assertions are exact comparisons. This is a same-model reproducibility check, not an independent audit. The contraction argument itself is given in `RESULT.md`; neither a finite grid of parameter samples nor a floating-point orbit plot is used to establish the uniform theorem.
+Log-odds map H(s)=s+a(b-sigma(s)) is smoothly conjugate on (0,1); the exact rational outward interval checker proves the four-return center residual and derivative margins in the two intervals of radius 0.002, yielding unique contracting return fixed points by the mean value/Banach principle. Disjoint H^2(J_i) excludes period 1/2 and disjoint 0..3 phases excludes rephasing. H has exactly two critical points for a>4 and strictly negative Schwarzian, so the classical critical-basin theorem bounds attracting cycles by two; 0,1 are repelling. No claim of only two periodic orbits overall.
+
+## originality
+
+PASS
+
+Two primitive four-cycle coexistence and at-most-two-attractors are already observed/proved in 2021; only the full open two-parameter rational interval certificate with explicit uniform contraction and distinctness is asserted original. Primary paper reports a numerical narrow bistability region, not a verified exact two-dimensional rectangle. Other related replicator and sigmoid maps do not furnish this certificate.
+
+## value
+
+PASS
+
+Rigorous finite rational interval verification of a narrow but naturally motivated bistability regime known only numerically is an independently usable hyperbolicity and attractor-count certificate, with a full open parameter rectangle rather than a numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
