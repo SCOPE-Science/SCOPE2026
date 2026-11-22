@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** With support size greater than the degree cutoff, the moment Gram matrix is positive definite, and the cosine compression has spectrum strictly inside the open unit interval. The real arc Markov–Lukács factorization, proved by Fejér–Riesz and a Cayley transform, writes *every* polynomial nonnegative outside a centered arc as a globally nonnegative square plus the arc-boundary factor times another square. The top generalized Rayleigh quotient then gives a strict obstruction below the claimed radius, an attaining polynomial at equality, and all equality polynomials. The independent elementary matrix calculation for a Haar measure with a one-sided atom confirms exact normalization and strict contrast with symmetrization. Finite numerical checks are not used as proof of the universal lemma.
+## correctness
 
-**Originality: PASS relative to checked literature.** Ismoilov's 2026 Theorem 1 assumes a symmetric measure and uses paraorthogonal zeros; the present result treats every nonsymmetric positive circle measure and supplies an explicit moment-pencil formula and equality classification. The 2024 de Branges result concerns even measures for entire functions on the real line. The indexed symmetric point-mass transition specializes to centered atoms and is not an implication of the one-sided atomic example. Classical arc SOS/Markov–Lukács supplies a proof ingredient, not the sharp nonsymmetric sign radius. A general unlocated truncated-moment formulation is a residual priority risk; lack of a text match is not itself novelty proof.
+PASS
 
-**Value: PASS.** Reflection symmetry is a genuine structural restriction in the 2026 sharp sign-uncertainty result. Removing it for all positive circle measures gives computable sharp constants using only finitely many Fourier moments and complete extremizer fibers. The explicit one-sided point-mass formula differs strictly from that of the reflected measure for *every* positive weight, providing a concrete boundary to symmetrization arguments. The finite-support phase boundary is included in a single classification. No downstream theorem is claimed.
+For support exceeding N, a degree-(N-1) polynomial cannot vanish at the entire support, making the Toeplitz moment Gram matrix G strictly positive; the cosine compression C has generalized spectrum in (-1,1). Markov-Lukács factorization of a polynomial nonnegative on the exterior central arc, transported via tan((theta-pi)/2), provides f=|P|^2+((c-cos theta)/(1-c))|Q|^2 with degrees N and N-1 without any evenness assumption. The maximal generalized Rayleigh quotient makes the integral strictly positive whenever c>Lambda unless the polynomial is zero; equality at c=Lambda forces P=0, Q in the maximal eigenspace. Nonnegative-support case handled with product of |z-z_j|^2. The one-sided atom pencil yields Lambda=(1/2)*sqrt((1-w)/(1+w)); the symmetrized top eigenvalue is (1-w)/2. Independent exact 2x2 generalized eigenvalue algebra and positivity tests corroborate the formula; finite tests are not offered as the all-degree proof.
 
-**Limitations and comparison.** The source's 2026 symmetric theorem is stronger in its paraorthogonal-zero description on that symmetric class, while the present statement is broader in the allowable measure class; neither implies the other's special representation without additional argument. Earlier interval factorization is a cited tool. The non-symmetric moment-pencil priority assessment is provisional; independent review was not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ismoilov 2026 Theorem 1 in inspected full text assumes reflection symmetry and gives a paraorthogonal characterization; the theorem here removes that premise for every positive nonsymmetric measure and uses a computable finite moment pencil, with an explicit strict counterexample to symmetrizing the input measure. Markov-Lukács/Fejér-Riesz are classical proof components; they do not alone supply the sharp sign uncertainty theorem. General older truncated trigonometric moment extrema remain a bounded priority risk.
+
+## value
+
+PASS
+
+Reflection symmetry is a genuine restriction in sharp sign uncertainty, and eliminating it gives a finite-dimensional exact sharp constant, a full equality-space classification, and a tangible asymmetry effect for all w in (0,1). The support-cardinality discontinuity is a natural boundary, not an arbitrary instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
