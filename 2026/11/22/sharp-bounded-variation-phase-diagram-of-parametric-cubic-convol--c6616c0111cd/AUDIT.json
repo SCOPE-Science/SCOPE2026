@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For every real lambda the cubic Hermite definition is unambiguous. Absolute summability of discrete jumps yields an L1-convergent derivative superposition and an exact step reduction; the step has three active cells. Outer variations are each 8|lambda|/27. The central quadratic derivative has sign fixed on [0,1] precisely for 0<=lambda<=3; otherwise its two roots and values give the stated closed piecewise formula. A literal unit step attains equality. Symbolic special values and standalone numerical checks corroborate but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Keys 1981 §II–V: one-parameter interpolation and Taylor error, but not a total-variation norm formula",
+        "Park–Schowengerdt 1983, https://ntrs.nasa.gov/citations/19830065032: parametric source describes frequency-domain reconstruction and scene energy spectra; full text unavailable",
+        "Shi–Reichenbach 2006, https://digitalcommons.unl.edu/csearticles/14/: two-dimensional nonseparable extension and frequency fidelity, not the one-dimensional BV norm"
+      ],
+      "reasoning": "The parametric and higher-dimensional families are broader in kernel design, but their stated approximation-error or spectral optimization does not logically imply an exact one-dimensional L1 derivative gain or its turning-point threshold. The uninspected 1983 primary is a concrete residual risk rather than a proved exclusion.",
+      "searches": [
+        "Literature query: 'Keys cubic convolution interpolation kernel total variation ringing overshoot sharp variation bounded signal'",
+        "Literature query: 'cubic convolution interpolation parameter a total variation response step overshoot sharp bound'",
+        "Literature query: 'Image reconstruction by parametric cubic convolution Park Schowengerdt pdf'",
+        "Mathematical index query: 'Keys parametric cubic convolution derivative L1 phase transition variation amplification'"
+      ]
+    },
+    "checked_sources": [
+      "https://ncorr.com/download/publications/keysbicubic.pdf",
+      "https://bigwww.epfl.ch/publications/meijering0301.pdf",
+      "https://ntrs.nasa.gov/citations/19830065032",
+      "https://digitalcommons.unl.edu/csearticles/14/",
+      "https://www.yumpu.com/en/document/view/5720601/cubic-convolution-interpolation-for-digital-image-processing",
+      "Mathematical comparisons against an earlier fixed-parameter four-tap cubic result and a six-tap cubic result"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Keys 1981 page 1154 and formula (7) determine the underlying operator; new absolute-value integration and endpoint regimes are additional statements",
+        "Meijering–Unser 2003 §§IV–VI treat equivalence, approximation order, computational performance",
+        "Earlier exactly evaluated fourth-order six-tap Keys kernel differs in support and definition; classical four-tap lambda=1/2 is only a specialization",
+        "The local second-derivative variation norm of cubic Hermite reconstruction is a different seminorm and data hypothesis"
+      ],
+      "reasoning": "The mathematical objects and standard special parameter are correctly identified as prior. Neither a fixed-parameter result, a pointwise range defect, an equivalence of reconstruction kernels, nor a different derivative-order seminorm subsumes the all-real-parameter piecewise TV operator norm; a broad parametric frequency-domain paper remained inaccessible for a conclusive exhaustive negative comparison.",
+      "searches": [
+        "Mathematical index query: 'cardinal cubic interpolation kernel L1 derivative norm parameter Catmull Rom a'",
+        "Literature query: 'Keys total variation cubic convolution interpolation parameter'",
+        "Read full Keys 1981 PDF and Meijering–Unser 2003 PDF",
+        "Earlier claim comparisons for related cubic convolution and Hermite interpolation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Keys 1981, DOI 10.1109/TASSP.1981.1163711, eqs. (4),(7): cubic kernel parameter a, equal to -lambda here",
+        "Meijering and Unser 2003, DOI 10.1109/TIP.2003.811493, §IV–VI: equivalence with osculatory interpolation and fixed a=-1/2",
+        "Published Catmull–Rom range-defect calculation: monotone range, not BV gain"
+      ],
+      "reasoning": "Changing Keys' symbol a to -lambda identifies the same underlying kernel, so kernel equivalence is acknowledged rather than claimed as new. Osculatory equivalence gives the same interpolation function but no sharp seminorm phase diagram. Monotone range bounds do not imply integrated absolute derivative bounds for arbitrary signed finite-variation input.",
+      "searches": [
+        "Mathematical index query: 'sharp total variation gain tension parameter cardinal cubic convolution Keys kernel all parameters overshoot critical 3'",
+        "Mathematical index query: 'piecewise cubic Hermite tension parameter gain variation one jump step response BV'",
+        "Mathematical index query: 'Catmull Rom cubic interpolation bounded variation step response gain beyond a=-0.5'"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Earlier fixed-parameter four-tap cubic variation calculation gives the 4-tap lambda=1/2 exact constant 35/27, not a full parameter classification",
+        "Published Catmull–Rom range-defect result gives range bounds for monotone samples"
+      ],
+      "reasoning": "The lambda=1/2 instance is expressly not new; other parameter choices are neither tabulated in these compared claims nor implied by the single number. Range bounds are pointwise and for monotone inputs, whereas the asserted BV operator norm is an integrated variation gain for every real finite-variation input. No matching exact parameter table was found.",
+      "searches": [
+        "Mathematical index query: 'sharp variation amplification 35/27 Keys cubic convolution four tap interpolation parameter'",
+        "Earlier mathematical claim comparisons for 'Keys cubic', 'cardinal cubic', 'Catmull', 'variation'"
+      ]
+    },
+    "rationale": "Primary full-text comparisons distinguish known cubic kernels and their fixed-parameter reconstruction, as well as frequency-domain optimality, from the stated sharp BV operator norm and parameter bifurcation. One directly relevant 1983 parametric primary was inaccessible, which remains an explicit historical-priority risk rather than an asserted clean exclusion.",
+    "residual_risks": [
+      "Full text of Park–Schowengerdt (1983) could not be obtained; its exact parametric object makes it a real priority risk despite the frequency-domain abstract.",
+      "Unindexed older interpolation textbooks or engineering ringing analyses might derive the same variation formula without matching title terminology.",
+      "The internet-accessible day-stamped public copy that anchors 2012-12-11 was index-accessible by metadata but direct open returned HTTP 403; the underlying 1981 publication date is known only to month precision in inspected records."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_OBJECT_NOT_FULL_VARIATION_THEOREM",
+        "evidence": [
+          "Formula (4) defines Keys' parameter a kernel, formula (7) gives its local cubic form; subsequent analysis optimizes approximation order, not the induced discrete-to-continuous BV norm"
+        ],
+        "identifier_or_url": "https://ncorr.com/download/publications/keysbicubic.pdf",
+        "material_read": "Full 8-page readable PDF, including kernel derivation (4), piecewise interpolant (7), approximation analysis, boundary/experiment sections and conclusion",
+        "method": "Open PDF, inspect page image at page 2, read extracted full sections and search for variation/ringing/overshoot",
+        "title": "Cubic Convolution Interpolation for Digital Image Processing",
+        "trigger": "Original defining one-parameter four-tap interpolation kernel"
+      },
+      {
+        "assessment": "EQUIVALENCE_OF_KERNELS_ONLY_NOT_BV_CLASSIFICATION",
+        "evidence": [
+          "Pages 477–479 establish equivalences and several other cubic kernel families; no exact total-variation norm or phase transition"
+        ],
+        "identifier_or_url": "https://bigwww.epfl.ch/publications/meijering0301.pdf",
+        "material_read": "Full 3-page PDF including eqs. (1)–(12), §§IV–VI and references",
+        "method": "Open PDF, inspect first-page image and read extracted pages including equivalence, computational analysis and conclusion",
+        "title": "A Note on Cubic Convolution Interpolation",
+        "trigger": "Exact equivalences with historic osculatory schemes and third-order four-tap reconstruction"
+      },
+      {
+        "assessment": "PLAUSIBLE_NOT_RESOLVED_FULL_TEXT",
+        "evidence": [
+          "The accessible abstract addresses frequency-domain reconstruction and optimization of a parameter; cannot determine whether appendices mention equivalent BV norms"
+        ],
+        "identifier_or_url": "https://ntrs.nasa.gov/citations/19830065032",
+        "material_read": "NASA bibliographic record and abstract only; original paper full text not accessible",
+        "method": "Search for lawful open full-text and preprint copies; only the bibliographic abstract was obtainable",
+        "title": "Image Reconstruction by Parametric Cubic Convolution",
+        "trigger": "Closest exact same parameter family studied for image reconstruction"
+      },
+      {
+        "assessment": "DIFFERENT_TWO_DIMENSIONAL_FREQUENCY_METRIC",
+        "evidence": [
+          "Focuses on nonseparable 2D kernels, autocorrelation-optimal parameters and reconstruction fidelity"
+        ],
+        "identifier_or_url": "https://digitalcommons.unl.edu/csearticles/14/",
+        "material_read": "Article bibliographic record and detailed abstract, not full PDF",
+        "method": "Inspect repository record and compare stated objects and quantities",
+        "title": "Image Interpolation by Two-Dimensional Parametric Cubic Convolution",
+        "trigger": "Broad generalization of Keys parameterized cubic interpolation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c6616c01-11cd-4339-982f-0860829a36e4",
+  "value": {
+    "rationale": "The natural original four-tap cubic-convolution parameter spans a complete family of practical image/signal reconstructors. The result gives the exact universal variation cost at each tension, classifies the first creation of new central turning points at lambda=3, quantifies its fractional-power cusp and relates the accuracy-preserving lambda=1/2 case to a rigorous variation budget. The full-phase classification is not a cherry-picked finite-size calculation or restatement of one known special case; no claim of general image-dimensional optimality is made.",
+    "status": "PASS"
+  }
+}
