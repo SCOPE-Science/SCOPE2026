@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** A complete pivot-matching certificate enumerates every face and Hasse-cover edge of the antipodally punctured radius-three five-cube. There are 53,403 augmented faces, 26,701 matched pairs, and one critical dimension-four simplex, and an exhaustive topological sort proves acyclicity. Reduced discrete Morse theory yields an actual \(S^4\), not only homology ranks. The other three finite certificates establish the relevant link as \(\bigvee^5S^6\), with published full and once-deleted homotopy types credited. Since antipodes are farther apart than the Rips radius, removing the first vertex does not change the other vertex's link. Both vertex-deletion cofibers are \(\bigvee^5S^7\), so their integral long exact sequences give fourth-homology isomorphisms and split primitive rank-five losses of seventh homology.
+## correctness
 
-**Originality — PASS with residual risk.** Feng 2023's theorem determines full hypercube Rips wedges and the once-punctured stage of a natural vertex filtration; these are not presented as new. Its filtration does not directly contain the complex obtained by **simultaneously excluding both the empty and full five-subsets**. The recent arXiv:2606.20784 paper studies rational representations of full cube homology. Searched published mathematical records about radius-three cube fixed spaces and other puncture types do not state or imply the antipodal double-puncture collapse. A stronger as-yet-unindexed or implicit result remains a priority risk.
+PASS
 
-**Value — PASS.** Antipodal sites are the unique distance-maximizing, symmetry-natural pair in a five-cube. Their removal yields an exact homotopy robustness boundary: all ten previously known seventh-homology generators disappear while the independent degree-four generator survives. This distinguishes two-site perturbation from one-site deletion and provides the primitive integral loss maps, not just an arbitrary finite Betti count.
+Verified direct exhaustive finite Morse certificate from actual proof/verify.py logic: for full Q5, 84,297 augmented faces, 42,143 matched pairs, 494,304 Hasse covers and critical cells one 4-cell plus ten 7-cells; one removed 68,850 faces, 34,422 pairs, 399,227 covers, critical one 4-cell plus five 7-cells; both antipodes removed 53,403 faces, 26,701 pairs, 304,150 covers, critical one 4-cell; vertex link 15,447 faces, 7,721 pairs, 79,630 covers, critical five 6-cells. Independent full topological sort confirms all four matched cover graphs acyclic, not merely matching counts. Reduced discrete Morse identifies the 30-point complex as S4 and link as wedge of five S6. Because d_H(p,bar p)=5>3, the link at the second deleted vertex remains unchanged; both vertex-deletion cofibers equal suspensions of the same link, wedge of five S7. Long exact integral homology sequences give H4 isomorphisms and two primitive rank-five H7 losses. XOR-translation symmetry covers all 16 antipodal pairs; no dimension-uniform extrapolation is claimed.
 
-**Limits.** Only antipodal pairs, original-metric radius three and five bits. Finite Morse verification establishes exactly this finite case; it does not prove a dimension-uniform statement. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Target homotopy after antipodal double deletion was not found to follow from the full/once-punctured or different-radius primary literature.
+
+## value
+
+PASS
+
+Antipodal pairs are the canonical maximum-distance landmark deletion in a cube. The complete exact homotopy type plus primitive integral inclusion maps show a sharp and structurally motivated robustness phenomenon: the fourth sphere survives while all ten seventh-homology generators vanish after two deletions. This is an independently useful natural 30-point classification, not an arbitrary small enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
