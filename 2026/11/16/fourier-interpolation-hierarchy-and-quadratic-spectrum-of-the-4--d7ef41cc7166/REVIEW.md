@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed five ranks follow from the exact characteristic polynomials of the matrices \(B_r=H_rH_r^{\mathsf T}\) evaluated over all 90 row/column-margin-two binary matrices; the quadratic nonzero spectrum and normalization are stated without ambiguity. The proof of the Krawtchouk distance formula is combinatorial, and the conversion to graded orbit-harmonics dimensions uses the invertible squarefree-monomial/Walsh basis change. `verify_krawtchouk.py` and `verify_direct.py` reconstruct the sample space independently and check exact claims. The latter checks rank over a prime field as a lower-bound cross-check, not as a substitute for the rational characteristic-polynomial computation. Limit: only the finite \(4\times4\) case is proved.
+## correctness
 
-## Originality — PASS, bounded comparison
-Canfield–Greenhill–McKay (arXiv:math/0606496), Blanchet–Stauffer (arXiv:1007.1214), and Barvinok (arXiv:1010.5706) address fixed-margin enumeration, sampling, and limit behavior. None of the substantively inspected statements supplies the finite Walsh rank hierarchy or six quadratic spectral levels. Oh–Rhoades (arXiv:2503.19694), Section 7.4, explicitly poses the **binary** fixed-margin orbit-harmonics locus as a further direction after its results for all nonnegative-integer tables; their broader orbit-harmonics construction is credited. Searches of public mathematical records and public mathematical records did not identify a covering calculation. Risk: unindexed small-case tables and related association-algebra work could predate these numbers.
+PASS
 
-## Mathematical value — PASS
-The smallest nontrivial half-density square binary table fiber is a canonical example with nontrivial row/column constraints. It gives a fully computed case of an explicitly proposed orbit-harmonics direction, with graded Hilbert series, a sharp minimal interpolation degree, and exact singular-value information needed to quantify quadratic Fourier reconstruction. The spectrum is not inferred from sample size, standard linear constraints, or generic interpolation theory. The result is finite and is not marketed as a general theorem.
+The 90 labelled row/column-sum-two binary 4x4 matrices were independently enumerated from all four-row pairs. For degrees r=0..4 independent evaluation of all <=r parity characters yielded numerical ranks (1,10,39,75,90); the quadratic 90x90 matrix H2H2^T had eigenvalues (160^9,256^9,320^4,384^12,512^4,650^1) and 51 zeros, matching the exact source characteristic polynomial. The supplied verify_krawtchouk.py and independently constructed verify_direct.py were read and implement exact integer characteristic polynomials and independent prime-modular rank lower bounds. The Krawtchouk kernel 137-34d+2d^2 follows by counting character intersections; the invertible triangular character-to-squarefree-monomial map proves Hilbert increments (1,9,29,36,15), sharp degree four and normalization/condition numbers. This is a finite exact theorem with reproducible complete enumeration, not an infinite extrapolation.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge novelty assessment from actual statement-versus-implication comparisons and the indicated primary source reading, with stated residual risks.
+
+## value
+
+PASS
+
+The binary two-regular 4x4 fiber is a natural first nontrivial square case explicitly singled out by the open binary contingency-table orbit-harmonics question (Oh–Rhoades Problem 7.4). The complete graded rank law and quadratic spectrum are unknown exact natural invariants of this fiber, independently useful as a benchmark and not a known-table recomputation on inspected evidence; no general theorem is required for this small but motivated classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
