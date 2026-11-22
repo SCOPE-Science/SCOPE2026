@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the conditional barycentric law
+# Independent mathematical audit
 
-Run `python check.py` with NumPy and SciPy installed. The standalone checker constructs two-dimensional Gaussian random simplices directly and extracts their null vectors with a Cartesian cross product, checks the unequal-scale density by quadrature, and tests the distinguished-vertex critical law, Gaussian-mixture fluctuation and bulk inverse-participation ratio against independent random samples. The numerical diagnostics are finite and do not establish the full asymptotic claims; the proof uses exact Gaussian invariance, a coordinate Jacobian, the strong law and the central limit theorem.
+## correctness
 
-The observed diagnostic values were: density integral 1.0, absorption frequency 0.24889375 versus 0.25, Cartesian/half-normal Kolmogorov distance 0.00228512, critical-window distance 0.00162963, fluctuation mixture distance 0.01125926, critical majority frequency 0.336259 versus theoretical 0.338334, and bulk squared-weight coefficient 1.569972 versus \(\pi/2\). All asserted numerical tolerances passed.
+PASS
 
-Independent mathematical audit: not performed. Historical priority: provisional; potentially relevant source texts remain inaccessible.
+Rank m-1 and right orthogonal invariance make the null line Haar-uniform; Gaussian signs show containment probability 2^(1-m) independent of scales. Conditioning on common sign leaves independent half-normal magnitudes, and the t_i=s lambda_i Jacobian s^(m-1) gives the stated normalized density. With sigma_0=tau_m, lambda_0=X_0/(X_0+tau_m sum_{i>=1}X_i); the strong law proves three a_m=m tau_m regimes, the one-variable density and erfc survival follow by transformation, and a joint CLT/delta method gives the mixture fluctuation. The ordinary-weight empirical law and sum-of-squares ratio follow by strong laws. The conditional measures require every scale positive; exact zero is excluded.
+
+## originality
+
+PASS
+
+Wendel/Cover-Efron absorption probability and Gaussian Haar kernels are known; the combined arbitrary-positive-scale conditional density, one-coordinate 1/m crossover, fluctuation and bulk profile are not established by the accessible compared primary sources. A very relevant 1994 Gaussian simplex full paper was inaccessible, a recorded priority risk.
+
+## value
+
+PASS
+
+Exact conditional geometry at an exponentially rare containment event, including singular scale transition and the bulk mass remaining diffuse, is a natural distributional refinement that may be reused in high-dimensional stochastic geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
