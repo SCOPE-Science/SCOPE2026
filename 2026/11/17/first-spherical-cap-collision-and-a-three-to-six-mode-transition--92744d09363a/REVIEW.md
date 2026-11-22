@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The six-axis representation follows exactly from triangle width and the Minkowski sum of the vertical segment. Three explicit Gram classes give the full 15-pair comparison, the first-contact level, and all contact multiplicities. A local spherical lens computation proves the nonzero \(3/2\)-power correction, including the bipartite critical contact graph; numerical verification independently tests several parameter regimes. The proof concerns all heights, not an inference from samples.
+## correctness
 
-**Originality — PASS (provisional historical priority).** The recent full primary manuscript arXiv:2609.26202 was inspected in its general width theory and prism section. It supplies a general co-area calculus and prism decomposition but neither the sharp triangular-prism collision threshold nor the three-case first-overlap coefficient. Published related results on simplexes, type-D roots, and regular prisms concern different families, different observables, or only first moments. Exact-phrase, alias and parameter searches found no equivalently strong height-parametric result. A broad general density theorem could be specialized by a separate calculation; such a specialization is not already asserted in the inspected source. Unindexed earlier work remains possible.
+PASS
 
-**Mathematical value — PASS.** This is a natural basic three-dimensional polytope family whose first high-width collision changes its combinatorial type at a sharp aspect ratio. The exact terminal law, optimal validity interval, three distinct contact counts and cusp prefactors provide a concrete, shape-dependent critical profile rather than a generic existence statement or a single numerical case.
+For right equilateral triangular prism with h>0 and base circumradius 1, width is D times maximum absolute dot product over six axes (d_j,±h)/D, D²=h²+3. The fifteen absolute axis inner-products split into three, six, six pairs with magnitudes |3-h²|/D², (h²+3/2)/D², |h²-3/2|/D². Their maximum yields first overlap threshold q²=max(3,h²+9/4), N=3,9,6 closest unoriented pairs as h crosses sqrt(3)/2; critical contact graph has no triangles, preventing triple cap intersections near q. For q<=t<=D the twelve disjoint spherical caps have exact total probability 6(1-t/D); local tangent-plane lens area =8 sqrt(2)/(3 sqrt(q) sqrt(D²-q²)) (q-t)^(3/2)+o(...), with 2N lenses and normalized area 1/(4pi), giving coefficient 4 sqrt(2) N/(3pi sqrt(q) sqrt(D²-q²)). Independent rational Gram enumeration and mpmath spherical-cap lens quadrature at h=0.5,sqrt(3)/2,1.5 confirm contact counts and asymptotic normalization ratios near 1 (0.99973,0.99991,0.99989). Numerical quadrature corroborates, analytic geometry proves general h.
 
-**Limits.** The rest of the CDF below the first collision is not computed. Numerical checks do not replace the proof; historical priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general random polytope-width coarea framework and prism width decomposition in Abas are known, and published cap-overlap results for regular simplices and type-D root polytopes have comparable methods. These do not give the present exact triangular-prism height-dependent Gram-contact competition, critical h=sqrt(3)/2 ninefold coincidence, or sharp cusp coefficient. A full 92-page primary Abas manuscript was not accessible after arXiv/OA attempts and Oxford returned disconnected VPN; without claiming complete noncoverage, best-of-knowledge O pass remains with explicit significant residual risk, not automatic FAIL. No stronger same-axis theorem observed.
+
+## value
+
+PASS
+
+The right equilateral triangular prism is a natural fundamental three-dimensional polytope family, and its random width upper-tail topology changes sharply with a physical aspect ratio. The explicit first collision threshold, three-to-nine-to-six pair multiplicity, full terminal linear interval and nonzero 3/2-power cusp coefficient give a motivated all-height phase diagram that can serve as an exact distributional reference, not merely a routine numeric integral.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
