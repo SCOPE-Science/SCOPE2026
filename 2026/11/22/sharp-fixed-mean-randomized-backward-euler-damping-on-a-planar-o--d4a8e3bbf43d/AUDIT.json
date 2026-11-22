@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For A=-aI+bJ, the backward-Euler multiplier has squared Euclidean norm f(t)=(1+2at+(a²+b²)t²)^{-1}. A direct factor identity proves the claimed globally supporting tangent line, and f is convex after its tangency point. Jensen over the resulting convex minorant gives the sharp bound for every Borel step law, with strict equality conditions proving unique attainment/nonattainment. Symbolic identities and exact rational values replayed in verify.py; the numerical checks are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The indexed implicit-midpoint result optimizes two preassigned step scales on scalar decay; it does not concern backward Euler, freely chosen laws, or complex conjugate eigenmodes.",
+        "The Gaussian midpoint result studies an autocorrelation objective with a bounded step cap and fixed invariant measure, not the present backward-Euler transient damping norm."
+      ],
+      "reasoning": "Stronger-looking random-step optimality statements apply to different integrators and metrics. The inspected published literature gives general convergence/stability bounds but no universal optimizer covering this exact amplitude functional. No result found that would imply the claimed sharp oscillation criterion.",
+      "searches": [
+        "fixed mean random time step backward Euler damped rotation angular frequency threshold b greater sqrt 3 a",
+        "implicit Euler step jitter two-point distribution skips steps optimal mean-square contraction",
+        "\"implicit Euler\" randomized step lengths mean square stability complex eigenvalues",
+        "published-finding corpus indexed: A sharp two-scale bifurcation in random-step implicit-midpoint damping",
+        "published-finding corpus indexed: Bounded random time steps optimally trade off Gaussian midpoint autocorrelations"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1801.01340",
+      "https://arxiv.org/pdf/1709.01018",
+      "published-finding corpus index: A sharp two-scale bifurcation in random-step implicit-midpoint damping",
+      "published-finding corpus index: Minimum mean-step for one-step second-moment isotropization under random-time implicit midpoint",
+      "published-finding corpus index: Bounded random time steps optimally trade off Gaussian midpoint autocorrelations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Abdulle–Garegnani Assumption 1, p. 5, requires \\(H_k>0\\) a.s., \\(\\mathbb EH_k=h\\), and small variance scaling; their Theorem 2 proves convergence, not fixed-mean damping optimality.",
+        "Eisenmann et al. Eq. (1.4), p. 2, fixes the increment \\(k\\) and randomizes \\(\\xi_n\\) in the coefficient argument.",
+        "The new strictly-positive statement provides a nonattained infimum in its nontrivial regime rather than importing or contradicting convergence theory."
+      ],
+      "reasoning": "The new theorem explicitly allows nonnegative durations and handles the strictly-positive subclass separately. No retrieved stronger theorem implies the sharp distributional classification. The new result does not claim novel general Jensen or convex-analysis principles, nor convergence improvement.",
+      "searches": [
+        "arxiv:1801.01340v1",
+        "arxiv:1709.01018v1",
+        "randomized time step implicit Euler damped oscillatory linear ODE optimal step distribution mean fixed zero h star resonance convex envelope damping",
+        "fixed mean random time step backward Euler damped rotation angular frequency threshold b greater sqrt 3 a",
+        "published-finding corpus indexed: A sharp two-scale bifurcation in random-step implicit-midpoint damping"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Abdulle–Garegnani Section 2 requires strictly positive random time steps and describes convergence at the reference mean; its local/global convergence analysis, Sections 3–5, does not specify an optimal fixed-mean step distribution.",
+        "Eisenmann et al. equation (1.4) samples the vector-field evaluation time with a fixed step, so in autonomous systems the scheme reduces to classical backward Euler."
+      ],
+      "reasoning": "The new claim is optimal expected Euclidean squared amplification over every nonnegative step law at a fixed mean on one damped normal oscillatory mode. This is neither weak-error convergence nor randomized evaluation of a time-dependent coefficient. An exact reformulation is the convex envelope of a rational damping factor; the generic convex-envelope method is recognized as classical, but the exact threshold, optimizer, and strict-positive nonattainment do not follow directly from the inspected cited theorems.",
+      "searches": [
+        "randomized time step implicit Euler damped oscillatory linear ODE optimal step distribution mean fixed zero h star resonance convex envelope damping",
+        "optimal measure-valued time step distribution with fixed mean for damped rotation backward Euler norm contraction formula b^2>3a^2 linear convex envelope skip steps",
+        "\"backward Euler\" \"convex envelope\" \"time step\" random",
+        "arxiv:1801.01340v1",
+        "arxiv:1709.01018v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant indexed summaries refer to midpoint harmonic-oscillator isotropization with a unique zero/two-over-frequency law, and random-step symplectic-Euler energy growth. These are distinct algebraic maps and objectives.",
+        "No specific numeric tabulation of the backward-Euler convex-envelope transition with the ratio \\(b/a=\\sqrt3\\) was located."
+      ],
+      "reasoning": "The exact natural parameters are decay \\(a\\), frequency \\(b\\), mean length \\(h\\), and the worst-direction expected squared amplification. Replacing midpoint or symplectic Euler amplification formulas with the backward-Euler rational map changes the convexity and optimum; table/parameter coincidence was not used as novelty evidence.",
+      "searches": [
+        "optimal measure-valued time step distribution with fixed mean for damped rotation backward Euler norm contraction formula b^2>3a^2 linear convex envelope skip steps",
+        "\"implicit Euler\" \"damped oscillation\" \"random timestep\" optimizing step lengths",
+        "\"random time step\" \"implicit Euler\" \"optimal\" complex",
+        "published-finding corpus indexed: Minimum mean-step for one-step second-moment isotropization under random-time implicit midpoint"
+      ]
+    },
+    "rationale": "Actual published-finding corpus comparisons, accessible own-claim checks, and two relevant full-text source inspections did not reveal an implication covering the complete fixed-mean optimizer for backward-Euler squared-norm damping of a damped planar oscillator. The closest indexed results treat implicit midpoint, random evaluation times or different criteria. Generic convex-envelope optimization is acknowledged as known and is not the novelty claim; historical equivalence remains possible.",
+    "residual_risks": [
+      "Older optimal-design or convex-envelope treatments under different terminology could include the rational backward-Euler case.",
+      "The two nearby published-finding corpus indexed records were available by scientific summary, not inspected in complete primary text; their stated objects/optimization criteria are materially different.",
+      "The theorem is exact but narrow: no physical-time error improvement or computational cost advantage is proved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different: convergence and geometric preservation for random-length Runge–Kutta methods; the new optimization and threshold are absent from inspected relevant material.",
+        "evidence": [
+          "PDF pp. 1, 5 and 8–11; Assumption 1 H>0; local/global convergence, not optimal law",
+          "Original public date arXiv January 4, 2018"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1801.01340",
+        "material_read": "The introduction, definitions and Assumption 1 in Section 2, local and global mean-square analysis in Sections 3–5, and searches of the complete text for backward Euler and damped modes",
+        "method": "Read accessible arXiv full-text PDF, inspect pages 1 and 5 visually, analyze theorem/assumption passages and full-text search",
+        "title": "Random time step probabilistic methods for uncertainty quantification in chaotic and geometric numerical integration",
+        "trigger": "Primary motivating study of randomized step lengths in ODE integration"
+      },
+      {
+        "assessment": "Different: randomized evaluation times with deterministic step length, so autonomous systems recover ordinary backward Euler.",
+        "evidence": [
+          "PDF p. 2 Eq. (1.4) U^n=U^{n-1}+k f(ξ_n,U^n); p. 3 explicitly notes deterministic backward Euler in the autonomous case"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1709.01018",
+        "material_read": "Introduction and method (1.4), Sections 1–2, the interpretation for autonomous f, and abstract/full-text scope",
+        "method": "Read accessible arXiv full-text PDF and visually inspect page 2 plus search",
+        "title": "On a randomized backward Euler method for nonlinear evolution equations with time-irregular coefficients",
+        "trigger": "Title directly suggests randomized backward Euler"
+      },
+      {
+        "assessment": "Different integrator (implicit midpoint), scalar pure decay and fixed two-scale equiprobable law; not proof of this distribution-wide backward-Euler result.",
+        "evidence": [
+          "Indexed result summarizes ratio 7+4√3 transition for scalar implicit-midpoint damping"
+        ],
+        "identifier_or_url": "published-finding corpus published index record dated 2026-11-02",
+        "material_read": "Indexed record title and substantive scientific summary; primary full text not inspected",
+        "method": "published-finding corpus semantic search and mathematical implication comparison",
+        "title": "A sharp two-scale bifurcation in random-step implicit-midpoint damping",
+        "trigger": "Closest indexed random-time-step damping optimization"
+      },
+      {
+        "assessment": "Different numerical method (implicit midpoint) and objective (one-stage covariance isotropization), not norm damping.",
+        "evidence": [
+          "Index records minimum mean duration 1/ω for isotropization, not the new √3 damping boundary"
+        ],
+        "identifier_or_url": "published-finding corpus published index record dated 2026-10-13",
+        "material_read": "Indexed record title and substantive scientific summary; primary full text not inspected",
+        "method": "published-finding corpus semantic search and implication comparison",
+        "title": "Minimum mean-step for one-step second-moment isotropization under random-time implicit midpoint",
+        "trigger": "Nearby zero-step optimal-law theorem on oscillator"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d4a8e3bb-f43d-4759-9fbb-d44b85e58e1d",
+  "value": {
+    "rationale": "The first sharp criterion for when fixed-mean step randomization can improve squared-norm damping in a natural damped normal mode, coupled with a complete optimizer and a strict-positive/nonattainment distinction, supplies a motivated structural benchmark for randomized implicit integration. The exact boundary b²=3a² separates the convex and nonconvex response regimes. The result is not presented as a convergence-rate or solver-speed improvement.",
+    "status": "PASS"
+  }
+}
