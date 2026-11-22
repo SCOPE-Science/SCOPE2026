@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The surrogate step formulas follow by differentiating the cross-entropy quadratic and linearized softmax least squares along the same negative logit gradient. Cauchy--Schwarz gives the exact cosine identity. Exact symbolic identities reduce the ternary ratio to a one-variable rational expression. Its derivative has a unique zero because the critical-value map has strictly positive derivative on its domain. The root tends to nine times the target-class probability and yields the rigorous sharp constant 1/12. The angle threshold gives a sharp c^-2 cap. Standalone verify.py passed 34581 checks including exact-rational cases and symbolic identities; finite tests are corroboration only. Scope excludes finite-step claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Korbit--Zanon decompose full softmax GGN into a true-vs-rest curvature plus competitor covariance, not a comparison with the linearized closest-softmax step",
+        "Sao derives the complex Taylor convergence radius and upper limitations of local Taylor extrapolation, not a ratio of the two surrogate minimizers"
+      ],
+      "reasoning": "A stronger sufficient condition or general decomposition would cover the claim only if it implies the unique ternary maximizer and precise 1/12 singular coefficient; neither inspected source states such an implication. Classical Cauchy-Schwarz gives the weak direction alone and is credited.",
+      "searches": [
+        "arxiv:2605.06081 Sections 2-3, Theorem 3.1 and Proposition 3.2",
+        "arxiv:2603.13552v1 Section 4 and Appendix E",
+        "binary logistic cross entropy quadratic Newton step versus softmax linearized least squares step single minibatch directional Hessian"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.05191v1 Section 2, Section 3, Appendix A",
+      "arxiv:2605.06081 Sections 2-3, Theorem 3.1, Proposition 3.2",
+      "arxiv:2603.13552v1 Sections 2-4, Appendix E",
+      "Semantic mathematical-record searches for estimator names, cosine filtering and softmax covariance Rayleigh ratio",
+      "Previously accessible mathematical finding claims examined for overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source supplies the two estimators and a cosine test and describes average empirical closeness. It does not state a general raw-estimator worst-case comparison.",
+        "The softmax curvature decomposition and Taylor-radius results concern distinct mathematical questions; neither supplies the exact ternary ratio maximum."
+      ],
+      "reasoning": "Our claim is a new implication derived from source estimator definitions, not a re-statement of their algorithm or a corollary of an already stated sharper result. The direct cosine identity is elementary but the unique extremal profile and sharp singular coefficient require an independent constrained optimization. The source angular filter actually removes the 833-fold example, explicitly avoiding a false practical-failure inference.",
+      "searches": [
+        "arxiv:2611.05191v1 equations (3), (4), Section 3 angular pruning",
+        "arxiv:2605.06081 Theorem 3.1 and Proposition 3.2",
+        "arxiv:2603.13552v1 Theorems 4.3 and 4.6",
+        "so-dz cs-dq softmax step size angular cosine pruning fixed threshold 1/4 yields ratio 16"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Original source defines two separate quadratic minimizers and a cosine outlier heuristic without the ratio identity",
+        "Our equality is a Cauchy-Schwarz equality for the same nonzero zero-sum logit gradient; the ternary extremal probability is specified by a unique positive algebraic root"
+      ],
+      "reasoning": "Searched the exact estimator names and their coordinate-free Rayleigh and cosine aliases. Existing statements of empirical similarity and angle filtering neither provide an exact ternary maximization nor its rare-label asymptotic constant. This does not exclude uncatalogued algebraic equivalents.",
+      "searches": [
+        "so-dz cs-dq softmax step size angular cosine pruning fixed threshold 1/4 yields ratio 16",
+        "softmax covariance gradient aligned two Hessian Rayleigh ratios exact ternary optimizer q true probability",
+        "web: Gauss Newton softmax least squares step size ratio gradient logits",
+        "arxiv:2611.05191v1 Sections 2-3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No accessible accessible published finding uses the motivating estimator comparison or softmax cross-entropy logarithmic surrogate",
+        "Semantic retrieval returned neighboring cosine, softmax, step-control and logistic results but no exact same softmax ratio or fixed-probability ternary frontier"
+      ],
+      "reasoning": "Exact algebraic constants were tested against discoverable result titles/summaries and available previously documented mathematical claims, not inferred to be unique from the absence of keyword hits. No matching table was found. A complete all-literature search is impossible.",
+      "searches": [
+        "sharp worst-case ratio of cross entropy local second-order stepsize so-dz to closest softmax least-square cs-dq ternary single example gradient-aligned 1/(12p) asymptotics",
+        "web: Stepsize modulation cross entropy softmax quadratic comparison so-dz cs-dq",
+        "softmax, cross entropy, Brier, logit, Gauss Newton, stepsize modulation, gradient aligned"
+      ]
+    },
+    "rationale": "The original source supplies raw estimators and angular rejection, not their sharp three-class comparison. The other inspected primary papers establish curvature decomposition and complex Taylor radii, neither covering this estimator-ratio extremal theorem. Exact alias searches in retrieved mathematical records and previously accessible claims did not identify a covering statement. Novelty remains qualified by possible unindexed results.",
+    "residual_risks": [
+      "The Cauchy-Schwarz core identity may have independent uncatalogued prior appearances; the precise ternary maximizer and 1/12 coefficient were not located, not certified globally unique.",
+      "The source filtering angle is measured with a finite probe, so the c^-2 identity applies only to its zero-probe, gradient-aligned specialization.",
+      "The main preprint has no verified independent review at this date."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_METHOD_NOT_COVERING_EXACT_RATIO_OR_TERNARY_FRONTIER",
+        "evidence": [
+          "Section 2 gives logit and softmax probe steps; Section 3 rejects examples below cosine 1/4; paper reports averages close in its experiment, with no worst-case ratio theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.05191",
+        "material_read": "Full relevant Section 2, equations (3)-(4), Section 3 pruning and Appendix A derivation, with publication metadata",
+        "method": "Public arXiv text (not just abstract)",
+        "title": "Stepsize modulation for cross entropy from local quadratic optimization",
+        "trigger": "Defines precisely the two local steps and angular pruning being compared"
+      },
+      {
+        "assessment": "RELATED_CURVATURE_DECOMPOSITION_NOT_COMPARISON_OF_THE_TWO_STEP_ESTIMATORS",
+        "evidence": [
+          "Equation (3.3) splits full softmax covariance into true-vs-rest and competitor covariance; there is no minimization over competitor imbalance of the present two-rate ratio."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.06081",
+        "material_read": "Sections 2 and 3, including exact true-vs-rest representation and Theorem 3.1 and Proposition 3.2",
+        "method": "Public arXiv full-text HTML, relevant main results",
+        "title": "Fast Gauss-Newton for Multiclass Cross-Entropy",
+        "trigger": "Potentially stronger softmax-curvature theorem"
+      },
+      {
+        "assessment": "DIFFERENT_TAYLOR_RADIUS_QUESTION_NOT_COVERING_RATIO",
+        "evidence": [
+          "Theorem 4.6 gives a complex-Taylor radius bound pi divided by logit-direction spread; it does not optimize so-dz versus cs-dq."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.13552v1",
+        "material_read": "Sections 2-4 with Theorems 4.3 and 4.6; relevant Appendix E material",
+        "method": "Public arXiv full-text HTML, section-based inspection",
+        "title": "Ghosts of Softmax: Complex Singularities That Limit Safe Step Sizes in Cross-Entropy",
+        "trigger": "Potential general stronger limitation on local quadratic cross-entropy steps"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "16e0c13e-e32a-4d03-a2a7-b72512b99e85",
+  "value": {
+    "rationale": "Two independently motivated local steps on the same cross-entropy classification example are reported empirically close in the source. The exact worst-case comparison reveals an unbounded calibration separation as true-class probability vanishes, with a sharp and non-obvious 1/(12p) frontier. The same mathematics explains the source cosine rejection rule as a quantitative relative-step safeguard (threshold 1/4 -> 16). This is a motivated algorithm-diagnostic boundary, not an arbitrary numerical slice or claim of practical divergence.",
+    "status": "PASS"
+  }
+}
