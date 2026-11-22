@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "Conditional on field capture, qPCR all-negative probability is r^m. The derived log-failure exponent has a strictly concave numerator, yielding a single global continuous peak; the adjacent efficiency ratios increase strictly in p, enforcing one crossing and an ordered no-skip integer staircase. Small scaled failure expansions prove the full coefficient of 1-p_m, and the continuous stationary equation gives the log-log correction. Verified with the actual standalone package checker (504 diagnostics), but infinite claims rest on the reconstructed analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Moore et al. optimize effort per field visit under stochastic time-varying detectability; Smart et al. use that optimization with an externally fixed number of four PCR replicates.",
+        "Lugg et al. 2017 online article optimizes site-level replicate allocation, taking a three-PCR-per-sample protocol and effectively perfect conditional detection."
+      ],
+      "reasoning": "These optimize structurally related but distinct quantities; none inspected yields the cost-normalized PCR-repeat integer threshold sequence as a direct specialization. Abstract hierarchical survey-allocation methods can motivate but do not by themselves dominate the specific Bernoulli capture asymptotics.",
+      "searches": [
+        "doi:10.1371/journal.pone.0115345",
+        "doi:10.1111/2041-210X.12598",
+        "doi:10.1111/2041-210X.12951",
+        "Repeated independent field sampling with within-sample technical replicas: sharp no-skip optimal replication staircase, logarithmic asymptotics",
+        "field sample DNA availability PCR repeats optimal asymptotic number PCR per sample threshold cost 2016"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1111/2041-210X.12052",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC4272285/",
+      "https://doi.org/10.1111/1755-0998.12531",
+      "https://doi.org/10.1111/2041-210X.12598",
+      "https://doi.org/10.1111/2041-210X.12951",
+      "https://doi.org/10.1111/1755-0998.12338"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Schmidt et al. and Willoughby et al. establish the nested observation mechanism, not optimal laboratory cost allocation.",
+        "Lugg et al. fixed the PCR count at three; Smart et al. fixed it at four, and optimize other dimensions.",
+        "The published-finding corpus coarsened-occupancy finding concerns Fisher-information replication with false positive observations, not negative log false nondetection per PCR budget."
+      ],
+      "reasoning": "A source with a three-level Bernoulli detection probability does not as a stated conclusion logically give a no-skip integer optimum or the geometric-over-linear threshold; those require separate global optimization and sharp asymptotics. Nevertheless the elementary objective is derivable from prior models, so residual mathematical-priority risk remains.",
+      "searches": [
+        "Environmental DNA eDNA nested field samples replicate PCR cost optimization Bernoulli capture amplification optimal PCR count",
+        "two stage stochastic sampling binomial laboratory replicates eDNA exact probability detection budget",
+        "doi:10.1111/2041-210X.12052",
+        "doi:10.1111/1755-0998.12531",
+        "doi:10.1111/2041-210X.12951"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Willoughby et al. (2016) explicitly models Bernoulli field availability followed by PCR conditional detection; Lugg et al. (2018) implements a three-level observation process with three PCR replicates per sample.",
+        "No inspected material states the total-cost-normalized negative log miss probability optimizer for variable PCR count, including adjacent thresholds and asymptotics."
+      ],
+      "reasoning": "The basic probability model is prior art; the claim is the all-index optimization and its phase/asymptotic classification. The closest equivalent parametrization uses p for field DNA availability and q for conditional PCR positivity. An equivalent rewritten detection probability alone does not imply the proved optimal-index transitions, but generic concavity techniques may transfer.",
+      "searches": [
+        "Environmental DNA eDNA nested field samples replicate PCR cost optimization Bernoulli capture amplification optimal PCR count",
+        "Optimal replicate PCR assay count under per-sample fixed cost, field capture probability near one, asymptotic log log",
+        "two stage stochastic sampling binomial laboratory replicates eDNA exact probability detection budget",
+        "doi:10.1111/1755-0998.12531",
+        "doi:10.1111/2041-210X.12951"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected primary studies report estimated detection probabilities, finite scenarios and simulation tables, not exact switch probabilities indexed by PCR repeat count.",
+        "The directly relevant 2014 replication-level study was only accessible through abstract/metadata; its full experimental tables were not read."
+      ],
+      "reasoning": "No exact formula/table of the claimed switching thresholds was identified in read source material. This is a bounded empirical search result, not a proof of nonexistence.",
+      "searches": [
+        "Environmental DNA eDNA nested field samples replicate PCR cost optimization Bernoulli capture amplification optimal PCR count",
+        "Repeated independent field sampling with within-sample technical replicas: sharp no-skip optimal replication staircase, logarithmic asymptotics",
+        "Optimal replicate PCR assay count under per-sample fixed cost, field capture probability near one, asymptotic log log",
+        "doi:10.1111/2041-210X.12052",
+        "doi:10.1111/1755-0998.12338"
+      ]
+    },
+    "rationale": "Full primary texts establish the two-stage eDNA probability hierarchy and separately optimize visits/field effort or take PCR count fixed; none inspected states the integer PCR-count switching sequence or geometric-over-linear asymptotics under cost-normalized miss-detection. Source comparison is implication-level and priority provisional.",
+    "residual_risks": [
+      "2014 Ficetola et al. replication-level paper full text was inaccessible; only abstract was used, and a stronger earlier generic replication-allocation theorem might exist.",
+      "Cost normalized failure is mathematically related to known fixed-cost survey design; the all-parameter exact PCR integer threshold asymptotic was not located in inspected work but cannot be certified as historically unique."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING_OPTIMIZATION",
+        "evidence": [
+          "Published online 2013-03-28; reports capture/availability and PCR detectability separately, and fixed-duplicate lab method."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/2041-210X.12052",
+        "material_read": "Full HTML article introduction, methods, results and citation dates, including discussion of field vs laboratory detection",
+        "method": "Web HTML open and section inspection",
+        "title": "Site occupancy models in the analysis of environmental DNA presence/absence surveys",
+        "trigger": "Foundational field and PCR imperfection model"
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_DECISION_VARIABLE",
+        "evidence": [
+          "Published 2014-12-19; varying survey-level detection-rate and travel-cost model, not conditional PCR replicate cost in fixed field samples."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4272285/",
+        "material_read": "Full open-access HTML abstract, objective, methods and conclusions on number vs length of visits",
+        "method": "PMC HTML full-text read",
+        "title": "The optimal number of surveys when detectability varies",
+        "trigger": "General field survey budget optimization"
+      },
+      {
+        "assessment": "SAME_PROBABILITY_STRUCTURE_NO_INSPECTED_OPTIMIZATION",
+        "evidence": [
+          "Published online 2016-04-01; section on field/PCR replicates reports simulations, and favors field replication qualitatively; no cost-normalized threshold theorem."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/1755-0998.12531",
+        "material_read": "Full accessible HTML article model description, analysis of 1-10 field samples/PCR attempts, and discussion",
+        "method": "Wiley HTML full article text",
+        "title": "The importance of including imperfect detection models in eDNA experimental design",
+        "trigger": "Direct field sample plus PCR Bernoulli model and experimental replication"
+      },
+      {
+        "assessment": "RELATED_COST_MODEL_DIFFERENT_REPLICATION_LEVEL",
+        "evidence": [
+          "Published online 2016-05-29; optimizes field visits/water samples while retaining four PCR assays per sample for thresholds."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/2041-210X.12598",
+        "material_read": "Full accessible HTML methods, equations context, field protocols, results and discussion",
+        "method": "Wiley HTML full article text",
+        "title": "Assessing the cost-efficiency of environmental DNA sampling",
+        "trigger": "Potential dominating fixed-budget sampling optimization"
+      },
+      {
+        "assessment": "SAME_HIERARCHY_DIFFERENT_OPTIMIZED_OBJECTIVE",
+        "evidence": [
+          "First published 2017-12-05, section 2.9 assumes perfect PCR detection after three repeats and optimizes field/site survey costs."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/2041-210X.12951",
+        "material_read": "Full accessible HTML methods sections 2.5-2.10 and optimization/cost analysis; fixed three-PCR protocol",
+        "method": "Wiley HTML full article text",
+        "title": "Optimal survey designs for environmental DNA sampling",
+        "trigger": "Three-level Bernoulli eDNA model and optimal design, very plausible stronger source"
+      },
+      {
+        "assessment": "INSUFFICIENT_FULL_TEXT_RESIDUAL_RISK",
+        "evidence": [
+          "Online 2014-10-18; abstract discusses replicated extractions/amplifications and simulation-based replication needs but not exact cost-efficiency theorem."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/1755-0998.12338",
+        "material_read": "Public abstract and metadata only; full text inaccessible in this run",
+        "method": "Search-result bibliographic abstract; full-text open returned access error",
+        "title": "Replication levels, false presences and the estimation of the presence/absence from eDNA metabarcoding data",
+        "trigger": "Direct replicate-level study"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bb55400e-dded-4b75-808d-5661450854ef",
+  "value": {
+    "rationale": "Independent field capture and technical PCR amplification are qualitatively distinct detection bottlenecks with different costs. The exact no-skip integer phase transitions and sharp p_m asymptotic provide a motivated, reusable rule about when additional laboratory replication becomes cost efficient; this is more than a one-off numerical adjustment. Model realism is limited by assumed independence, no contamination and cost linearity.",
+    "status": "PASS"
+  }
+}
