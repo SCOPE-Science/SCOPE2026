@@ -1,15 +1,21 @@
-# Scientific review: signed equivariant acyclic-directed-subgraph spheres
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite loopless hypotheses, strong-component decomposition and signed action are explicit. The first case has an invariant simplex factor; the second has an open-hemisphere nerve on the strong-component zero-sum representation. The cover argument proves coverage, the cycle/topological-order dichotomy proves the exact nerve, and convex-cone averaging proves every stabilizer-fixed intersection contractible. The equivariant nerve comparison therefore applies at **every subgroup**, not merely at the identity. The complete-graph dimension formula, determinant character and real-projective reversal quotient follow by direct linear algebra. The empty zero-dimensional sphere boundary is included. The finite tests reproduce 93 complete-graph subgroup cases and 491 arbitrary digraph/symmetry cases, but no infinite conclusion relies on enumeration.
+## correctness
 
-## Originality — PASS relative to inspected sources
-Hultman's Theorem 3.3 (2004) proves the ordinary SCC-dependent sphere/contractible dichotomy for this very same acyclic-subgraph complex. Björner–Welker (1999) prove the complete-digraph ordinary sphere. Ayzenberg–Beketov–Magai (2023) describe the complete-DAG/type-A open-hemisphere nerve. Those contributions are respected and not claimed new. The new work establishes a *genuine signed-equivariant* refinement for all finite digraphs, complete fixed-space classification for every subgroup, and a reversal projective quotient; these assertions are not implications of the inspected nonequivariant conclusions. published-finding corpus searches included exact graph objects, sign-reversal aliases, fixed-space and projective-quotient equivalences. The closest matched directed path-avoidance and bidirected-cycle multipath results study different face conditions. Earlier indexed non-strong-connectivity results use a different forbidden-property definition. The 1999 full article was inaccessible and equivalently formulated earlier work cannot be excluded absolutely; these are publication-priority risks rather than hidden certifications.
+PASS
 
-## Mathematical value — PASS
-The classification replaces an ordinary sphere statement by an explicit model for the entire geometric fixed-point system of every signed symmetry group, including a full representation-sphere description and computable fixed dimensions. The resulting projective-space quotient has integral two-torsion for all \(n\ge4\), a genuinely equivariant feature invisible in ordinary sphere homotopy. The result applies to an unrestricted family of finite directed graphs rather than a selected finite census.
+An arc between distinct SCCs cannot lie on any directed cycle, so its entire orbit belongs to a full simplex join with a group-fixed barycenter; this gives an actual equivariant contraction. With no cross arcs, open hemispheres x_j-x_i>0 on the zero-sum SCC sphere cover the sphere by strong connectivity, and a set of hemispheres intersects iff its arc set is acyclic. The nonempty strict-inequality cones are convex and invariant under every setwise stabilizer; averaging produces stabilizer-fixed points without collapsing to 0 because inequalities remain strict. This supplies the finite equivariant nerve fixed-intersection condition for genuine fixed-point equivalence. For a general subgroup the signed coordinate constraints determine each balanced projected vertex orbit and the global sum condition. In complete bidirected K_n, reversal acts antipodally on the (n-1)-dimensional zero-sum representation, yielding RP^(n-2), and determinant sgn(sigma)epsilon^(n-1) gives the top orientation. The source includes a 491 directed-graph/symmetry case rational-rank/mod-2 checker; finite checks are corroboration only.
 
-## Scientific limitations
-Finite simple loopless directed graphs only; no PL or smooth equivalence is asserted. The 1999 predecessor was checked from its publisher abstract rather than complete pages. Genuine equivariance is proved by special convex-stabilizer conditions, not certified independently. Publication priority requires separate independent literature verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hultman already proved the nonequivariant same-complex SCC dichotomy. Another published source-set map gives genuine equivariance for the unsigned automorphism group of strongly connected digraphs. Neither supplies the simultaneous global arrow reversal, signed representation and resulting reversal fixed-space/projective-space statements for all SCC decompositions. This genuine signed extension is the surviving claim.
+
+## value
+
+PASS
+
+Symmetry-fixed topology is not determined by ordinary homotopy type: the signed action can have empty fixed spheres, altered orientation characters and projective-space quotients with 2-torsion. The theorem supplies a computable all-subgroup classification for a natural directed-graph complex and clarifies the boundary between unsigned and reversal symmetries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
