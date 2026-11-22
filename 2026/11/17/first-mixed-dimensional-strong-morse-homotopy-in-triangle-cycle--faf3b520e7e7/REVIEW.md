@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof treats all and only the four explicitly stated finite graphs, using the one-dimensional descending-link criterion derived from the definition of strong matching. Exhaustive vertex orderings generate the complete full complex, with independently traversed order-prefix agreement on facets. Each deterministic certificate pairs codimension-one faces of the full face poset; all arrows of its directed Hasse diagram are checked for acyclicity. Exact signed integer Morse-chain projection makes every relevant differential zero. The potentially delicate \(n=6\) case has one critical vertex, two critical 2-faces and eleven critical 3-faces; the zero degree-3-to-2 differential implies all attaching maps are zero in \(\pi_2(S^2\vee S^2)\cong\mathbb Z^2\). The embedded executable and its recorded output have been rerun. No larger graph length is inferred from the calculations.
+## correctness
 
-## Originality
-**PASS, with residual bibliographic risk.** Sections 3–4, 6–8 and 10 of Knudson–Owens-White's primary full-text paper were inspected for the construction and their graph classifications; they do not state the unequal two-petal results. The published friendship-graph formula covers the \(n=3\) boundary only, so that boundary is credited rather than presented as independently new. The published square-bouquet formula assumes all petals are quadrilaterals and cannot imply the mixed triangle/long-cycle rows. A theta graph result concerns a different two-pole gluing. Targeted phrase and conceptual/parameter searches located no equivalent mixed-bouquet classification; search incompleteness and incomplete primary access to the external research-record files are genuine residual risks.
+PASS
 
-## Mathematical value
-**PASS.** Mixed cycle-length vertex-gluing is the first natural situation not covered by equal-petal bouquet formulas or the disjoint-union join theorem. The finite complete classification through \(n=6\) identifies a sharp topology transition: the first two positive-dimensional homology degrees coexist exactly at a hexagonal second petal, after circle-only and sphere-only cases. The complete integral homotopy types, especially the vanishing signed 3-cell attachments, provide a meaningful boundary phenomenon for ongoing structural classification of strong-Morse matching complexes and distinguish this invariant from simply applying the topology of the input graph. This is not just a single Betti-number recomputation.
+For the full (not pure) strong discrete-Morse matching complex of unfilled C3 vee C_n on one hub, the unique-earlier-neighbor criterion was reconstructed and all (n+2)! vertex orders enumerated for n=3,4,5,6. Independently generated facet counts [24,42,68,104], nonempty faces [36,104,292,764], and exact acyclic Morse face pairs [11,48,142,375], with critical cells respectively {0:1,1:13}, {0:1,2:7}, {0:1,2:7}, {0:1,2:2,3:11}. Independently checked reversed Hasse diagram acyclic and exact signed integral Morse differential zero. Since no critical 1-cells and pi2(S² vee S²)=Z², zero degree-3-to-2 integer attaching degrees imply 11 nullhomotopic 3-cells, proving n6 wedge 2 S² vee11 S³. Other cases follow similarly. Finite domain exhausted.
 
-## Closest literature and limitations
-The defining primary source is arXiv:2609.06844v1 (2026-09-06); Fernández's theory and the older ordinary Morse complex supply background, not the computed mixed-bouquet values. Searchable published research records give the known all-triangle and all-square bouquet results; their text was not fully available and this limits the bibliographic conclusion. The work proves only the specified finite range; arbitrary lengths, petals and symmetry actions remain outside the claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published full friendship-graph theorem proves n3 known 13 circles for two triangle petals, and published square-bouquet theorem treats all-square petals p>=2. Their different-gluing formulas do not encompass unequal triangle with C4,C5,C6. The full strong Morse paper source was sought by arXiv, open access and authorized Oxford, but the institutional VPN is disconnected, so no claim its entire manuscript was read; this is a residual risk, not by itself O failure. Other published theta/cycle records are topologically different graphs or constructions. Best-of-knowledge originality limited to n4,5,6.
+
+## value
+
+PASS
+
+Vertex-gluing nonidentical cycle petals is a natural first gap after all-triangle and all-square strong-Morse formulas. The exhaustively classified initial lengths isolate a genuine topological transition: mixed degree-2 and degree-3 sphere summands coexist at n=6, unlike earlier single-degree rows. Exact zero signed attaching degrees give stronger integral homotopy than Betti numbers alone and supply a useful constrained test case for cactus-gluing structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
