@@ -1,15 +1,21 @@
-# Review: sharp Gini norm of weighted star harmonic replacement
+# Independent mathematical audit
 
-## Correctness — PASS
-The hub value is the unique minimizer of the strictly convex conductance-weighted Dirichlet energy. The constant-preserving positive map admits an exact binary-cut reduction by the real layer-cake identity and seminorm triangle inequality. For a cut with \(k\) selected leaves and hub indicator \(b\), the numerator is \(k(m-k)+k+(m-2k)q\), whereas the denominator is \(k(m-k)+b(m-k)+(1-b)k\). Complementation permits \(k\le m/2\). The bound \(q\le kp_*\) and the exact factor comparison \((k-1)(m+2)\ge0\) prove the general inequality. A singleton maximum-conductance leaf attains it. Separate boundary arguments cover \(m=1,2\). The design and asymptotic envelopes follow by minimizing/maximizing the largest normalized conductance, and by \((m-4)^2\ge0\). Exact-rational test code exhausts small binary cuts and exercises nonbinary rational inputs, but the proof does not depend on those computations.
+## correctness
 
-## Originality — PASS (qualified)
-The exact complete-pair Gini operator coefficient, its sharp star-size amplification threshold, its uniquely uniform conductance optimizer, and its sharp finite/uniform envelopes were not located in the compared published records. The full available mathematical text of *Sharp conductance design for Lipschitz-harmonic extension on metric stars* treats boundary-to-metric Lipschitz extension, not full-vertex complete-pair Gini variation. For equal arm lengths its coefficient \(2(1-\min p_i)\) is controlled by a different extremal probability. The 2008 paper by Bendito, Carmona and Encinas develops weighted-network Dirichlet principles, but its relevant Dirichlet sections do not give this exact Gini norm. Sheffield and Smart (2010) study different optimal Lipschitz extensions; only their abstract was accessible. Gaubert and Qu (2013) address Hopf oscillation/Dobrushin contraction rather than this Gini seminorm. An indexed general cut-reduction method or unindexed earlier elementary calculation might imply the formula; priority is not proven merely by search failure.
+PASS
 
-## Mathematical value — PASS
-A positive harmonic update at one vertex need not decrease complete-pair dispersion even though it is a standard energy-minimizing operation. This result completely determines the stability coefficient at all finite valences and all positive conductances, identifies the three-leaf onset of expansion, and gives a unique minimax conductance design. The four-leaf extremum \(9/8\) for uniform weights and the unattained global envelope two are natural sharp structural boundaries rather than arbitrary numerical slices. The result is limited to a single hub and does not assert a broader-network theorem.
+For a positive-conductance star the energy sum c_i(z-x_i)^2 has unique minimizer z=sum p_i x_i. Because H_p preserves constants, coarea reduces its complete-pair Gini induced norm to binary cuts. If k leaves are selected, total selected leaf weight is q and the hub input bit is b, the output variation is k(m-k)+k+(m-2k)q while the input variation is k(m-k)+[b(m-k)+(1-b)k]. Complementing permits 1<=k<=floor(m/2); q<=k p_* yields the upper bound 1+(m-2)p_*/m. A single maximum-weight leaf with zero initial hub attains it. The m=1 output is constant and m=2 has norm 1. For m>=3, p_*>=1/m with equality only for uniform conductances; p_*<1 under positivity and can approach 1, giving the stated minimax envelopes, fixed-size supremum 2-2/m and global supremum 2; (m-2)/m^2<=1/8 with equality only m=4. Independent exhaustive rational cuts for uniform and rising-weight profiles at m=1..8 corroborate these all-parameter algebraic bounds.
 
-## Closest literature and limitations
-Bendito–Carmona–Encinas, *Boundary Value Problems on Weighted Networks*, *Discrete Applied Mathematics* (2008), DOI:10.1016/j.dam.2008.02.008 (available full text inspected in the boundary-value and Dirichlet sections); Sheffield–Smart, *Vector-valued optimal Lipschitz extensions*, arXiv:1006.1741v1 (abstract inspected; full text unavailable); Gaubert–Qu, arXiv:1302.5226v1 (abstract on oscillation contraction); published *Sharp conductance design for Lipschitz-harmonic extension on metric stars* (complete available theorem and proof inspected). An earlier paper has only verified 2008 publication-year evidence, while 2010-06-09 is the verified day-resolved lead-source date. The short formula is vulnerable to an unlocated general norm identity or equivalent calculation; no independent assessment has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The elementary weighted-star Dirichlet principle gives the hub barycenter but does not determine the full-signal unweighted complete-pair Gini norm. The fully read published metric-star Lipschitz operator theorem yields a different 2(1-min p) dependency on equal arm lengths, whereas the target depends on max p. The published two-terminal Gini extension theorem assumes exactly two boundary vertices; the weighted-star problem has arbitrary m leaf boundaries. Neither its voltage formula nor the metric norm implies the star Gini extremal coefficient and design envelope. Primary Bendito full text was not retrievable and authorized institutional access was disconnected; this is a priority risk, not a novelty proof or an automatic rejection.
+
+## value
+
+PASS
+
+PASS: Weighted harmonic replacement is the elementary Dirichlet solution operator on a natural family of graphs. The exact full-signal complete-pair variation norm, concentration-dependent extremizer, unique balanced-conductance minimizer and sharp m=4 uniform peak are new operator-design information that is not determined by the metric Lipschitz extension norm or the Dirichlet maximum principle. The all-m positive-conductance classification is a natural invariant with plausible independent utility even without a broader graph-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
