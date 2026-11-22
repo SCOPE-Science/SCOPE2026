@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For every integer m>=1 and all 2m+1 independent nonnegative weights of sum one, lambda_max is convex and lambda_2 is concave, so automorphism averaging weakly improves width. For equal pendant weights a and bridge b=1-2ma, the two extremal eigenvalues are the roots of lambda^2-((m+1)a+2b)lambda+2ab, giving strictly convex squared width 4-(12m+4)a+(9m^2+10m+1)a^2. Its constrained minimizer gives the exact three regimes. Equality in the convex averaging is sharpened by a common top eigenvector when b>0; when b=0, componentwise star Rayleigh equalities force equal conductances and equal budgets. Thus every optimizer, not merely one symmetrized optimizer, is unique. Standalone verifier: 1550 assertions, exact rational cases, symbolic polynomial and full-matrix eigenspectra; finite checks support, not prove, the all-size theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Göring et al. 2011 give a convex semidefinite framework and disconnected examples, including Example 27, but no inspected theorem states a formula depending on leaf count for the symmetric double star.",
+        "Boyd 2007 describes general convex eigenvalue weight allocation and analytic examples, without specifying a double-star spectral-width threshold in the available abstract.",
+        "published-finding corpus closest hit 2026/10/13/SCOPE-a-bridge-price-phase-transition-for-fastest-mixing-on-asymmetric--ce2d9d2c11c2 concerns spectral-gap maximization (λ2), not width minimization (λmax−λ2)."
+      ],
+      "reasoning": "General semidefinite solvability is not an algebraic formula, uniqueness classification, or assertion about support for this entire one-parameter family; spectral-gap optima instead preserve a positive bridge and cannot imply a width optimum that disconnects.",
+      "searches": [
+        "published-finding corpus: exact optimal spectral width weighted graph Laplacian minimizing difference largest and second eigenvalue",
+        "published-finding corpus: two stars joined by bridge unique optimum of Laplacian eigenvalue spread under edge conductance budget",
+        "https://ems.press/books/standalone/24/555",
+        "https://www.tu-chemnitz.de/mathematik/preprint/2011/PREPRINT_04.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://ems.press/books/standalone/24/555",
+      "https://www.tu-chemnitz.de/mathematik/preprint/2011/PREPRINT_04.pdf",
+      "https://dmtcs.episciences.org/volumes-full/83/83.pdf",
+      "https://doi.org/10.1137/110859658",
+      "2026/10/13/SCOPE-a-bridge-price-phase-transition-for-fastest-mixing-on-asymmetric--ce2d9d2c11c2",
+      "2026/11/8/SCOPE-three-phase-optimal-edge-budgets-on-heterogeneous-cost-double-st--3d25b1eb4894",
+      "2026/11/2/SCOPE-sharp-heat-gradient-amplification-on-balanced-double-stars--75ca1a290ab2",
+      "2026/11/2/SCOPE-exact-priced-star-spectral-gap-allocation-and-the-polygon-thresh--d350c417a5ce"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2011 Example 27 establishes possible nonconnected supports for a different k-edge-connected graph, whereas the new statement calculates the unique optimum for every balanced double star and the precise integer transition.",
+        "The 2008 unweighted formula fixes every edge to unit conductance; changing independently variable weights while holding total weight fixed requires a new global optimization argument and rigidity proof.",
+        "The previous own ledger includes double-star results for second-order coherence and Kemeny spectral sums, but no λmax−λ2 optimum; these distinct objectives do not imply the finding."
+      ],
+      "reasoning": "Disconnection is not claimed as a new general possibility. The novel quantitative claim is the first deletion cutoff and unique independent-edge minimizers. Neither an arbitrary-topology possibility theorem nor different spectral objective comparisons logically entail this closed-form classification.",
+      "searches": [
+        "https://www.tu-chemnitz.de/mathematik/preprint/2011/PREPRINT_04.pdf : Observation 9; Observation 22; Example 27",
+        "https://dmtcs.episciences.org/volumes-full/83/83.pdf : The Laplacian Spread of a Tree, Sections 2–3",
+        "published-finding corpus: balanced double-star tree m leaves per hub minimize Laplacian spectral width λmax−λ2 sum of edge weights one, zero bridge, disconnection threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Göring–Helmberg–Reiss 2011 Preprint, p.2–3: objective λmax−λ2, with a total weight constraint; p.16, Example 27: an optimizer may disconnect a graph, but graph family differs.",
+        "Fan–Xu–Wang–Liang 2008, DMTCS 10(1), Sections 2–3: the phrase Laplacian spread denotes the same eigenvalue difference, but their tree weights are fixed at one."
+      ],
+      "reasoning": "The synonyms Laplacian spread and spectral width and the reduction to an unweighted double-star polynomial were explicitly considered. Same objective in general and same topology with fixed weights do not furnish the newly optimized unrestricted-conductance values or the three-leaf support transition; an unindexed exact treatment is still possible.",
+      "searches": [
+        "published-finding corpus: weighted double-star graph optimizing Laplacian spread minimum spectral width bridge weight m 3",
+        "published-finding corpus: balanced double-star tree m leaves per hub minimize Laplacian spectral width λmax−λ2 sum of edge weights one, zero bridge, disconnection threshold",
+        "Web: \"spectral width\" \"double star\" weighted graph",
+        "Web: \"double-star\" \"Laplacian spread\" \"minimize\" \"weights\"",
+        "https://www.tu-chemnitz.de/mathematik/preprint/2011/PREPRINT_04.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus hit 2026/11/2/SCOPE-sharp-heat-gradient-amplification-on-balanced-double-stars--75ca1a290ab2 gives heat-gradient norms, not spectral-width optimal weights.",
+        "published-finding corpus hit 2026/11/8/SCOPE-three-phase-optimal-edge-budgets-on-heterogeneous-cost-double-st--3d25b1eb4894 concerns maximum spectral gap; not the same spectral width objective.",
+        "Fan et al. 2008 give an unweighted characteristic polynomial, not a table of weight-optimized 1/57 or zero-bridge solutions."
+      ],
+      "reasoning": "Exact result tables and semantic records with relevant topology were compared by mathematical invariant and design objective rather than by title. None of the inspected records reports the required minimum-width weights; such nonmatches alone cannot establish absolute priority.",
+      "searches": [
+        "published-finding corpus: balanced double-star tree m leaves per hub minimize Laplacian spectral width λmax−λ2 sum of edge weights one, zero bridge, disconnection threshold",
+        "published-finding corpus: weighted double-star graph optimizing Laplacian spread minimum spectral width bridge weight m 3",
+        "Web: \"spectral spread\" \"double star\" \"weight\" \"minimize\"",
+        "Web: \"Laplacian spread\" \"double star\" edge weights minimization"
+      ]
+    },
+    "rationale": "The closest full-text 2011 spectral-width paper establishes the general convex graph-weight problem and an unrelated topology with optimal disconnected support, but its inspected relevant statements do not give the unique double-star solution, the m=2 bridge 1/57, or the m>=3 threshold. The 2008 double-star characteristic polynomial uses unit weights and addresses extremal trees, not optimized arbitrary edge weights. The 2007 overview introduces general Laplacian eigenvalue allocation without the detailed spectral-width family classification. Targeted published-index and web searches found no exact or strictly stronger statement; residual indexing and bibliographic risks remain.",
+    "residual_risks": [
+      "Semantic search and indexed result collections cannot prove absence from all historical or unindexed sources, including alternate terminology.",
+      "The 2011 general preprint was read in its most relevant definitions, structural observations and examples, not independently line-by-line rederived throughout.",
+      "A general eigenvalue optimization algorithm may compute the same answer numerically, although the inspected sources do not give the closed-form classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes convex framework and prior examples of optimal disconnection but no double-star formula or parameter cutoff in inspected relevant sections.",
+        "evidence": [
+          "Problem (1), pp. 3–4; Observation 9 p. 10; Observation 22 p. 15; Example 27 pp. 17–18."
+        ],
+        "identifier_or_url": "https://www.tu-chemnitz.de/mathematik/preprint/2011/PREPRINT_04.pdf",
+        "material_read": "Original preprint: abstract and problem definition on pp. 2–4, convex/dual framework, connectedness and active subgraph observations pp. 9–16, Examples 10, 21 and 27 including the graph drawing and proof description on p. 17.",
+        "method": "Direct full-text PDF page/section inspection with page rendering and text search.",
+        "title": "On Minimizing the Spectral Width of Graph Laplacians and Associated Graph Realizations",
+        "trigger": "Same global eigenvalue-difference objective under a conductance budget; likely source of stronger coverage."
+      },
+      {
+        "assessment": "Unweighted graph classification does not optimize independent conductances or give the sharp bridge-deletion result.",
+        "evidence": [
+          "DMTCS 10(1) (2008), pp. 79–86; double-star formula in Section 2 and graph spread discussion in Section 3."
+        ],
+        "identifier_or_url": "https://dmtcs.episciences.org/volumes-full/83/83.pdf",
+        "material_read": "Published article abstract, Introduction and Sections 2–3, including double-star figure, characteristic polynomial and unweighted-tree extremality argument.",
+        "method": "Full-text source reading and relevant page rendering; comparison of the stated fixed unit-weight scope with variable-weight optimization.",
+        "title": "The Laplacian Spread of a Tree",
+        "trigger": "Same named Laplacian spectral invariant and double-star family."
+      },
+      {
+        "assessment": "General Laplacian design overview; this available abstract does not decide the particular optimized double-star spectral width.",
+        "evidence": [
+          "EMS Press publisher page, lines 11–35."
+        ],
+        "identifier_or_url": "https://ems.press/books/standalone/24/555",
+        "material_read": "Official publisher abstract, scope, reference/DOI and precise public date (15 May 2007); publisher chapter PDF not accessible without a subscription, and not represented as read.",
+        "method": "Publisher HTML bibliographic/abstract inspection; comparison with the exact claim.",
+        "title": "Convex optimization of graph Laplacian eigenvalues",
+        "trigger": "Earlier dated graph-Laplacian eigenvalue optimization framework and source-date evidence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "220fa7b6-27dd-4cdf-8ef2-674784381b67",
+  "value": {
+    "rationale": "The optimized difference between the largest and second-smallest Laplacian eigenvalues is a published graph-network design objective with SDP/embedding interpretation. The balanced double star isolates a natural bottleneck between two identical star communities. Its all-integer unique optimum changes from a positive central bridge at m=2 (1/57) to an exactly zero central bridge for every m>=3. The exact support transition and unrestricted-weight rigidity give a structural counterpoint to spectral-gap design (which values connectedness), not a numerical table recomputation or a generic eigenvalue exercise. The result is confined to its stated topology and objective and does not claim faster actual consensus.",
+    "status": "PASS"
+  }
+}
