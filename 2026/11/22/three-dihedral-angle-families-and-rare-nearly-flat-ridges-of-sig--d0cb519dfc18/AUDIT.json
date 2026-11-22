@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "evidence": [
+      "Kohl–Olsen–Sanyal, Unconditional Reflexive Polytopes, Corollary 5.7, https://doi.org/10.1007/s00454-020-00199-8",
+      "Chen–Zhu, Faces of the Signed Birkhoff Polytopes, Theorem 1.2 and Section 2, https://doi.org/10.13001/ela.2024.8153",
+      "verify_ridges.py, exhaustive n=2..4 signed-permutation saturation-rank checks",
+      "RESULT.md, Proof and Verification sections"
+    ],
+    "rationale": "For every n>=2, the complete published row/column sign inequalities admit a mutually exhaustive facet-pair classification: same support Hamming-one only if n>=3, different parallel supports only if n>=3, and mixed row/column supports only if signs agree at the shared cell. Explicit strict two-active-facet witnesses prove inclusion; forced coordinate zeros or extra active independent facets exclude all remaining cases. Norms sqrt(n) and dot products 0,1,n-2 yield the listed interior angles and counts. Exact vertex-face affine-rank tests reproduce every pair for n=2,3,4 (120, 1128, 8128 pairs), but the geometric proof, not the tests, establishes the general case. The rare weight is asymptotically (2/3)2^(-n); inverse-trigonometric expansions give the two-atom scaled limit and mean excess.",
+    "risks": [
+      "No independent mathematical audit; numeric rank calculations test small orders, and fail as an infinite proof by themselves."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen–Zhu Theorem 2.10 gives face dimensions from facial matrices and Theorem 3.4 describes facets; those general combinatorial results determine possible ridge incidence in principle.",
+        "Kohl–Olsen–Sanyal Corollary 5.7 specifies facet normals but no explicit dihedral or asymptotic ridge distribution.",
+        "Published work on sharp dual two-neighborliness and angular mean reversal for rectangular matching polytopes concerns unsigned rectangular partial-matching polytopes, not the signed full-permutation matrix polytope."
+      ],
+      "reasoning": "The stronger general face description subsumes incidence but not an evaluated Euclidean angle histogram or its rare-event limit. Combining known normals with that general description requires the explicit adjacency case split, counts and angle analysis here; the metric distribution is the distinguishing contribution. An unlocated closed-form corollary would defeat priority and remains a stated risk.",
+      "searches": [
+        "signed doubly substochastic polytope facets adjacent row-row column-column dihedral angle asymptotic",
+        "signed Birkhoff polytope polar Euclidean dihedral angles ridge lengths",
+        "Chen–Zhu 2024 full text §§2–3: https://journals.uwyo.edu/index.php/ela/article/download/8153/6817/22441",
+        "Kohl–Olsen–Sanyal 2020 full text §5: https://link.springer.com/article/10.1007/s00454-020-00199-8"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1903.12634v1 (abstract and dated history)",
+      "arxiv:1906.01469v1 / DOI:10.1007/s00454-020-00199-8 (published full relevant text)",
+      "DOI:10.13001/ela.2024.8153 (full relevant PDF sections)",
+      "Published mathematical finding: Three-angle ridge spectra and a scaled angular law for two-row assignment polytopes (search summary; different unsigned two-row object)",
+      "Published mathematical finding: Sharp dual two-neighborliness and angular mean reversal for rectangular matching polytopes (search summary; different partial matching object)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2019 precursor and expanded 2019–20 paper establish the facet description; the latter gives row/column normals and the dual.",
+        "Chen–Zhu 2024 proves a general facial-matrix framework and low-face descriptions but does not evaluate all ridge angles or their asymptotics.",
+        "Published work on three-angle ridge spectra of two-row assignment polytopes studies a two-row assignment polytope rather than the signed Birkhoff family."
+      ],
+      "reasoning": "The closest claims do not state an angular multiset or a weak limit for signed Birkhoff ridges. The general combinatorial face theory plus an additional Frobenius calculation does permit deriving it, and this is acknowledged rather than misrepresented as independent combinatorial novelty. Neither a matching exact theorem nor a dominating metric theorem was identified.",
+      "searches": [
+        "arxiv:1903.12634v1, arxiv:1906.01469v1",
+        "doi:10.13001/ela.2024.8153",
+        "signed Birkhoff polytope complete ridge dihedral angle distribution facet normal row column signed",
+        "signed doubly substochastic polytope facets adjacent row-row column-column dihedral angle asymptotic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The dual of the type-B Birkhoff polytope has vertices indexed by signed row and column cliques (Kohl–Olsen–Sanyal, Corollary 5.7). Its edge lengths are dual to the ridge-normal angles under the fixed Frobenius metric. No examined source gives the three-class histogram or limit.",
+        "Chen–Zhu treats signed Birkhoff faces and vertex-edge graph, not polar-edge metric lengths or ridge dihedrals."
+      ],
+      "reasoning": "Passing to the polar converts the ridge classification to its edge graph, but the 2024 face theory presents neither the polar edge-length histogram nor the angular limit. No discovered equivalent wording asserts the new metric conclusion.",
+      "searches": [
+        "signed Birkhoff polytope complete ridge dihedral angle distribution facet normal row column signed",
+        "signed Birkhoff polytope polar dual graph signed row column sign vectors Euclidean chord distribution and facet structure",
+        "\"signed Birkhoff\" \"dihedral\" \"ridge\"",
+        "arxiv:1906.01469; doi:10.13001/ela.2024.8153"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The original 2020 tables tabulate normalized volume and Ehrhart h-star data for small orders, not the all-order metric angle spectrum.",
+        "The 2024 study classifies the faces by matrices, not the all-order dihedral histogram."
+      ],
+      "reasoning": "No exact preexisting angle table or closed formula for this object was found. This is a negative search observation, not proof of uniqueness.",
+      "searches": [
+        "signed Birkhoff polar dual geometric facet adjacency ridge spectrum",
+        "\"signed Birkhoff polytope\" \"facet adjacency\" dihedral",
+        "Kohl–Olsen–Sanyal 2020 Tables 2–5",
+        "Chen–Zhu 2024 Sections 2–3"
+      ]
+    },
+    "rationale": "The central sources define and describe the matrix polytope and its complete face lattice but do not state a closed Frobenius ridge-angle spectrum, its low-order coalescence/exception, or its dimension-rescaled two-atom law with an exponentially rare almost-flat family. The face-incidence part alone is an application of known broader facial theory and is not claimed as a new independent face theorem. The metric angular histogram and asymptotics distinguish the final claim from the inspected literature. Historical priority remains provisional.",
+    "residual_risks": [
+      "An unindexed exact calculation may already give these angles or the polar edge-length histogram.",
+      "The 2024 general facial theorem supplies algorithmic coverage of ridge incidence; novelty is restricted to evaluated Frobenius angles and their asymptotic law, not a new face theorem.",
+      "The superseded 2019 precursor full text was not accessible at the arXiv withdrawal landing, but the superseding 2019–20 full text was examined."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes matrix vertices and signed row/column facet normals; not an explicit angular ridge classification",
+        "evidence": [
+          "Corollary 5.7 at HTML lines 449–461",
+          "Section 5 tables and discussion at lines 462–484"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00454-020-00199-8",
+        "material_read": "Complete relevant introduction and §5, including Definition 5.1, Theorem 5.4, Corollary 5.7, discussion of dual and enumeration tables",
+        "method": "Read publisher open-access HTML full text",
+        "title": "Unconditional Reflexive Polytopes",
+        "trigger": "Lead full facet and polar descriptions of the signed Birkhoff polytope"
+      },
+      {
+        "assessment": "Provides a general combinatorial route to the ridge graph, but no explicit all-order Frobenius ridge-angle multiset, asymptotic or area-weighted result",
+        "evidence": [
+          "PDF pages 1–2 for known H-description",
+          "PDF pages 7–9 for face and facet classification",
+          "No text matches for dihedral, ridge, angles"
+        ],
+        "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/8153/6817/22441",
+        "material_read": "PDF abstract, §§1–3 including Theorems 1.2, 2.10, 3.1, 3.3, 3.4 and face-dimension discussion; searched text for dihedral, ridge and angle",
+        "method": "Read extracted PDF text and inspected rendered PDF pages 1–2 visually",
+        "title": "Faces of the Signed Birkhoff Polytopes",
+        "trigger": "Potential stronger same-object face description subsuming ridge incidence"
+      },
+      {
+        "assessment": "Provides earliest verified lead date 2019-03-29, not relied on for the proof",
+        "evidence": [
+          "Submission history v1 Friday 29 March 2019 17:35:17 UTC",
+          "Withdrawn after replacement by arxiv:1906.01469"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1903.12634",
+        "material_read": "arXiv landing record and abstract, v1 first-posted timestamp and withdrawal/replacement history; no v1 full text available at public landing",
+        "method": "arXiv abstract/history inspection",
+        "title": "Birkhoff Polytopes of Different Type and the Orthant-Lattice Property",
+        "trigger": "Verify earliest publicly dated predecessor for provenance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d0cb519d-fc18-49ba-888b-693d6fb35c2c",
+  "value": {
+    "evidence": [
+      "Kohl–Olsen–Sanyal, 2020, signed Birkhoff polytope and polar dual framework",
+      "Exact analytic facet-pair classification and complete angular table in RESULT.md",
+      "Asymptotic rare-class and mean laws derived from exact multiplicities"
+    ],
+    "rationale": "The canonical signed Birkhoff family is a natural high-dimensional reflexive polytope with an exponential facet count. The complete Euclidean ridge-angle classification, all-order multiplicities, and scaled limiting law reveal a nonobvious separation between bulk near-right ridges and exponentially rare nearly-flat ridges; the sharp small-order exception and angle coalescence strengthen its natural geometric content. This is an exact all-dimension metric invariant and a motivated basis for later area-weighted curvature study, not a tiny numerical increment or arbitrary slice.",
+    "risks": [
+      "No claimed area-weighted intrinsic-volume consequence or historical priority proof."
+    ],
+    "status": "PASS"
+  }
+}
