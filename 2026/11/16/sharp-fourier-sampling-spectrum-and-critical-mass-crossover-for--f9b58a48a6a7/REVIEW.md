@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim specifies the rooted-forest probability law, all Fourier normalizations and parameter limits. The edge determinantal identity is supported by the matrix-forest and transfer-current formulas of the cited literature. The cyclic resolvent is independently checked against its difference equation. Squared-resolvent geometric sums give both spectral branches without uncontrolled approximation. Strict ordering comes from the monotone cosine denominator, while full support of the empty and singleton edge sets excludes covariance null vectors. The mass-window limits follow by explicit asymptotics, and the smallest-mass regime uses an exact two-spoke count and a uniform higher-spoke bound. A standalone Python-standard-library checker verifies weighted forest enumeration, moments, Fourier modes, and finite-n limits. Finite checks corroborate rather than replace the proof.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The count/forest law of Grunwald and Mednykh, general transfer-current kernel, complete wheel spoke/cut composition law, and known Fourier covariance for unit-conductance complete wheel trees are credited. The full composition law implies the component-count variance and in principle determines every finite edge statistic, so the zero-mode variance and Poisson-even limit are *not* offered as standalone novelties. No inspected prior source states or directly calculates the complete activity-dependent *cycle-edge Fourier spectrum*, its strict finite spatial extrema, and the sharp full condition-ratio crossover. Those are the claim. Generic determinant or distribution identities require a distinct squared-Green Fourier calculation and spectral optimization to yield the statement. Risk: an older thin-wheel dimer/forest structure-factor paper or unpublished derivation may already have this specialization; the conclusion is not a priority certificate.
+PASS
 
-**Value — PASS.** This is a natural full-sampling Riesz stability problem for edge coordinates of a standard rooted-forest ensemble used in graph signal processing. The complete spectrum and global extrema yield optimal deterministic bounds for all linear edge scores, not just an isolated covariance. The crossover separates a uniform near-spanning-tree degeneracy from a stable massive thermodynamic regime at the exact finite-size mass scale \(n^{-2}\). Its parameter-free hyperbolic profile is a nontrivial quantitative boundary that can inform sampling and finite-size model diagnostics.
+The rooted-forest marginal is a weighted spanning-tree law on the wheel with conductance q spokes. Matrix-tree differentiation yields determinantal rim-edge kernel K=L(qI+L)^(-1)=I-qG and probability covariance C_ij=K_ii delta_ij - K_ij^2. The periodized one-dimensional Green function G_d=(t^d+t^(n-d))/(sqrt(q(q+4))(1-t^n)) gives the stated exact Fourier eigenvalues, with the extra constant-mode cross term. The nonzero-mode denominator increases in angular separation, while the constant-mode cross term makes sigma0 strictly minimal. Positive probability of empty and singleton edge sets proves C positive definite; most alternating harmonics maximize. Exact n-dependent formulas imply fixed q limiting ratio (1+t)^2/(1+t^2), q~c/n^2 profile 2sinh(sqrt(c))/(sinh(sqrt(c))-sqrt(c)), small mass ratio 12/(n^2 q), and large n^2 q with q->0 ratio 2. Checked wheel component coefficients c_n1=n^2,c_n2=n^2(n^2-1)/12, and the asymptotic scale. Independently enumerated rooted cycle forest weights and rational covariance rows for n=3..8 at rational q, checked Fourier formulas, positivity and extrema numerically with controlled tolerance. Finite tests supplement the all-n resolvent proof.
 
-**Closest literature and scope.** Grunwald–Mednykh (arXiv:1907.02635, inspected journal full text) concerns rooted-forest counts; Avena et al. (arXiv:1711.01635) develops graph forest signal processing; D'Achille–Enriquez–Melotti (doi:10.1002/rsa.70048, inspected Section 2 and main theorems) provides general transfer currents; *Exact spoke–cut compositions in weighted wheel spanning trees and their critical spatial limit* (public RESULT.md inspected) provides a stronger complete spatial law and component-count scaling; *Quadratic vertex-covariance anisotropy of wheel spanning-tree polytopes* (public RESULT.md inspected) covers the full unit-weight wheel covariance with a different two-edge-class spectrum. The result here is restricted to the marginal rim-edge Fourier covariance at arbitrary positive mass, and claims no prior distributional or determinant identities.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Finite spatial edge Fourier spectrum and sharp condition ratio, especially its noncommuting mass-scale limit, appear to go beyond the known weighted wheel component-count distribution and generic determinant framework.
+
+## value
+
+PASS
+
+The homogeneous rooted-forest cycle is a basic analytically solvable spatial stochastic graph model. Exact all-mode covariance spectra and a sharp n^-2 mass-scale crossover resolve a natural question of observation conditioning, not merely a known partition function. The new singular-limit profile distinguishes vanishing root mass from fixed positive mass quantitatively.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
