@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete period-two census follows by decomposing the original finite-memory recurrence into its mean and parity components: \(Rm=r(m(1-m)-d^2)\) and \(H=r(1-2m)\). The resulting exact square \(d^2=(r-H)(r-r_*)/(4r^2)\) gives existence, uniqueness up to exchange, and nonexistence at the boundary; two explicit strict quadratic inequalities place both phases in \((0,1)\). At the fixed point, the characteristic polynomial factors as \((z+1)Q(z)\), where the sum of the nonnegative coefficients of \(Q\)'s tail is \(\sum_{j\,\mathrm{even}} b_j<1\). This proves all complementary eigenvalues strictly Schur-stable, and \(S>0\) gives simple crossing derivative \(-1/S\). A one-dimensional center-map reduction together with the exact square-root branch gives \(L=4r_*^2/[S(r_*-H)]>0\), then a locally stable two-cycle. The included exact-rational and finite spectral program executed successfully, but the universal conclusions rest on the analytic proof. Potential concern: the normal-form coefficient depends on the specified first-component linear normalization; the stated normalization fixes that ambiguity.
+## correctness
 
-**Originality — PASS within inspected evidence.** Dong, Li, Li, and Xie (preprint July 20, 2026; journal 2026, DOI 10.3390/math14173032) already derive the finite-memory characteristic equation, the exact \(-1\) threshold (Proposition 2, equation 46), and a reduced equation-based framework for exact periodic orbits. Those are explicitly prior mathematics. The inspected introduction, model, periodic-orbit reduction, fixed-point proposition, numerical results and conclusion do not give an all-orders/all-lengths closed two-cycle census, a complementary spectral-gap proof or a universally positive critical cubic coefficient. Edelman–Helman–Smidtaite (arXiv:2303.02501) study full-history fractional maps and asymptotic periodic patterns rather than the autonomous truncated finite-memory system's exact phase orbits. Related research-record summaries on critical extinction in the same map and period-two orbits in other memory models are not covering. This is a best-knowledge priority assessment, not a claim that a database search proves uniqueness.
+PASS
 
-**Value — PASS.** A first period-doubling threshold need not automatically be a generic supercritical bifurcation in a higher-dimensional memory map. Establishing simplicity, transversality, a full stable complementary spectrum, and positive cubic coefficient uniformly for every allowed memory length and fractional order resolves the natural missing structural issue at the first transition. The closed formula also classifies *every* exact two-cycle for all positive control parameters, not just numerically followed branches, and quantifies its square-root opening. These are motivated bifurcation and classification results of the source model rather than arbitrary parameter specializations.
+The mean/alternating GL phase equations Rm=r(m(1-m)-d²), H=r(1-2m) imply unique d²=(r-H)(r-r*)/(4r²), r*=2(2+G)-H. For 0<q<=1, H<0 and the phase positivity inequalities hold. At the flip the exact characteristic factor (z+1)Q(z) has sum of nonnegative absolute Q coefficients equal to the sum of even b_j, strictly below 1; hence -1 alone is critical, simple, slope -1/S. Exact branch opening and center normalization yield positive L=4r*²/[S(r*-H)], and a stable two-cycle for r just above r*. Independent rational check q=1/2,M=2: (G,H,R,r*,S)=(-5/8,-3/8,11/8,25/8,9/8); exact phase equations checked at r*=25/8+1/10. Numerical checks do not establish universal spectral bound; the analytic factorization does.
 
-**Closest literature and limitations.** The 2026 motivating paper is especially close because it already contains the fixed-point threshold and general phase equations, so originality is limited to the new all-parameter explicit solution and rigorous local genericity. General flip normal-form facts are not claimed as novel. Full-history papers do not directly imply exact finite-memory periodicity. A database search cannot establish absolute priority; not all independently published papers or appendices were exhaustively checked. Local attraction is only established sufficiently close above the threshold; no global basin or higher-cycle classification follows.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior 2026 Dong et al. derive exact first fixed-point flip and general implicit Floquet phase system; special-case and threshold overlap is fully credited. Their full sections did not establish the all-M closed two-phase census and universal noncritical spectral gap or positive cubic coefficient. The other assigned Floquet result presupposes the cycle but adds a distinct -1 resonance beyond cycle birth. Unavailable Bouzeraa full text leaves a priority risk; best-of-knowledge PASS.
+
+## value
+
+PASS
+
+A complete all-memory exact primitive-cycle census and all-parameter nondegenerate flip mechanism address a natural stability gap for finite-history fractional logistic systems, more than a routine textbook coefficient substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

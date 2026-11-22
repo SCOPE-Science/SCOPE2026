@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the period-two theorem
+# Independent mathematical audit
 
-From the included file `check_period2.py`, execute `python3 check_period2.py` with a Python 3 installation containing NumPy. Actual execution returned:
+## correctness
 
-`VERIFY_OK exact_fraction_cases=48 exact_period2_instances=144 spectral_cases=36 local_multiplier_cases=108`
+PASS
 
-The checker uses exact rational arithmetic for 48 order/memory pairs, confirms the characteristic factorization and the alternating-tail sum identity, and verifies phase identities and strict positivity for 144 rational parameter cases. It additionally compares the analytic leading two-step multiplier with the computed monodromy and checks strict spectral separation at 36 sampled order/memory pairs. The finite sample is not a proof for arbitrary fractional order, unbounded memory length or every parameter; the analytical identities and inequalities in `RESULT.md` give those statements.
+The mean/alternating GL phase equations Rm=r(m(1-m)-d²), H=r(1-2m) imply unique d²=(r-H)(r-r*)/(4r²), r*=2(2+G)-H. For 0<q<=1, H<0 and the phase positivity inequalities hold. At the flip the exact characteristic factor (z+1)Q(z) has sum of nonnegative absolute Q coefficients equal to the sum of even b_j, strictly below 1; hence -1 alone is critical, simple, slope -1/S. Exact branch opening and center normalization yield positive L=4r*²/[S(r*-H)], and a stable two-cycle for r just above r*. Independent rational check q=1/2,M=2: (G,H,R,r*,S)=(-5/8,-3/8,11/8,25/8,9/8); exact phase equations checked at r*=25/8+1/10. Numerical checks do not establish universal spectral bound; the analytic factorization does.
 
-The published first-flip boundary is acknowledged as prior. The new proof establishes the global primitive-two-cycle census and the previously unverified uniform genericity conditions. The normal-form coefficient uses the critical eigenvector normalized to first component one. There is no claim of independent examination or external certification.
+## originality
+
+PASS
+
+Prior 2026 Dong et al. derive exact first fixed-point flip and general implicit Floquet phase system; special-case and threshold overlap is fully credited. Their full sections did not establish the all-M closed two-phase census and universal noncritical spectral gap or positive cubic coefficient. The other assigned Floquet result presupposes the cycle but adds a distinct -1 resonance beyond cycle birth. Unavailable Bouzeraa full text leaves a priority risk; best-of-knowledge PASS.
+
+## value
+
+PASS
+
+A complete all-memory exact primitive-cycle census and all-parameter nondegenerate flip mechanism address a natural stability gap for finite-history fractional logistic systems, more than a routine textbook coefficient substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
