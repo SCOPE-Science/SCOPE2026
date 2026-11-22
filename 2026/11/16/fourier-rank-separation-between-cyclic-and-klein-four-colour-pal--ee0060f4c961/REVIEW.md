@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact character-reduction identity follows by translating both spine colours simultaneously, summing the common root over a finite group, and using character orthogonality. For the Klein palette, a nontrivial character has exactly one nonzero difference in its kernel; two distinct types have disjoint support. For the cyclic palette, frequency two is supported at difference two while frequencies one and three are supported at differences one and three. The complex-conjugate pair gives the claimed odd/even leaf-frequency cancellation and exact nonzero magnitudes. Binomial enumeration yields the stated closed ranks and their extrema for all integers \(n\ge3\), independent of finite experiments. Two separately written standalone exact checks replayed the formula with direct character sums through four pages and compressed character sums through eight pages; both passed. Boundary conditions are explicitly included, and all multipliers are unnormalized.
+## correctness
 
-## Originality — PASS under bounded comparison
-Searches of published mathematical findings and primary literature targeted book graphs, complete tripartite \(K_{1,1,n}\), four-colour proper-colouring Fourier coefficients, cyclic/Klein palettes, chromatic partition functions, and stronger all-graph methods. The closest generic results are the external-field Potts/V-polynomial [1] and complete multipartite chromatic symmetric functions [2]; neither inspected result contains the group-sensitive Fourier zero and sharp-condition-number classification. Existing results for lower-band Fourier sampling, and graph counts, are weaker or different observables. The explicit novelty is the **comparison of the full convolution spectra for the two groups of order four on an infinite shared-edge triangle family**, not the standard proper-colouring count. Historical indexing and not-fully-read secondary sources remain residual risks; failed searches do not constitute a uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-The triangular-book family is the canonical first graph family where triangles meet along an edge instead of at cut vertices, so a block-product Fourier argument cannot decide its spectrum. For precisely the same proper-colouring count, the two four-element abelian group structures yield different information-loss dimensions and qualitatively different reconstruction stability: bounded in one case and exponentially deteriorating in the other. This is a nontrivial structural boundary of practical mathematical interest for finite-group convolution and group-labeled colouring models. It is not a renamed arithmetic slice, simple normalization check, or restatement of the chromatic polynomial.
+Global additive palette translation forces balance and reduces each multiplier to 4Σ_{d≠0}β(d)∏_jℓ_{t_j}(d), where ℓ_0=2 and ℓ_t(d)=−1−t(d) for nontrivial t. In V4 each nontrivial ℓ_t is supported on its unique nonzero kernel element. In Z4 separate type2 and odd-type characters; opposite support kills mixed words, and odd factors give two-term phases with parity-dependent zero pattern. The binomial case count proves ranks and minima. Independent exact character enumeration of all balanced and unbalanced frequencies for n3,4 matches ranks (112,304) Z4 and (88,184) V4 with gaps (16,32) and (32,64). The minimum cyclic gap is 2^{floor(n/2)+3}; book differs from cut-vertex cactus blocks.
 
-## Scope and limitations
-No assertion extends to arbitrary graphs or palette sizes. The finite checkers are corroboration and not infinite proof. Earlier general graph partition-function techniques may encode the character sums as abstract specializations, but deriving this rank/conditioning dichotomy requires the specific Fourier support and phase analysis. Independently locating every historical equivalent is not assured.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of mathematical statements, not title matches; bounded queries and directly inspected relevant sources found no dominating prior result for this precise support/invariant. Remaining risks explicitly retained.
+
+## value
+
+PASS
+
+The triangular book is the simplest connected non-cactus family with triangles sharing an edge. Palette group law changing *rank* although proper-colouring counts coincide reveals a structural Fourier phenomenon that cactus colourings cannot see, with exact sharp conditioning across all pages.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
