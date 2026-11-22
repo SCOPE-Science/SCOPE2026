@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every pair of integers \(p,q\ge3\), orthogonal two-plane polar decomposition makes the squared first projection radius uniform on \([0,1]\). The angular nearest-vertex distances are independent uniform variables. Integrating the conditional winning probability gives the claimed solid angles, and a direct elementary substitution gives the one-dimensional formula. The strict reversal follows from monotone coupling, a verified auxiliary derivative sign on \([0,\pi/4]\), and a Cauchy–Schwarz/rational-bounds argument covering \(p=3\). The checker compares independent quadratures and a seeded sample, but the all-parameter assertion rests on the proof.
+PASS
 
-## Originality — PASS (with stated priority risk)
+Normalize Haar-uniform S³ objective by independent Gaussian plane blocks; squared first-plane radius is Beta(1,1)=Unif[0,1], nearest-vertex angles independent Unif[0,π/p] and Unif[0,π/q]. Conditional first-group win probability is cos²u/(cos²u+cos²v), giving exact 2D integral F and 1D arctan reduction. Monotonic coupling gives F<1/2 if p<q. For p≥4 auxiliary G(u) increasing on (0,π/4] yields F>F∞>p/(2p+1)≥p/(p+q); for p=3 Cauchy–Schwarz and rational bounds handle q=4 and all q≥5. Thus strict total/per-vertex inversion for every integer pair. Independent one- and two-dimensional quadratures agree for five pairs, including p=4,q=5; not proof of universal inequality.
 
-Medgyes (arXiv:2611.10078, Sections 1, 2.4, 5, 7) classifies the maximizing inscribed four-polytope and bounds its volume, but the material inspected does not state the vertex-exposure probabilities or their all-pair reversal. Fitisone and Zhou (arXiv:2304.11102, Sections 1, 2 and 4) provide general cone-angle computation, not this specialized universal strict angular ordering. Searches for aliases including Gaussian normal-fan probability, normal-cone solid-angle spectrum and orthogonal polygon free sums produced no direct covering theorem. A general method could specialize to some of the formula; unindexed special-case results remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exterior normal-cone angle is a natural geometric invariant measuring the probability that a random linear objective selects a vertex. The result completely classifies two angular levels for a uniform infinite family, including the nine-vertex volume-optimal polytope, and identifies a strict reversal between majority of selected vertex types and individual vertex exposure. This ranking is not determined by the ordinary scalar distribution of the maximal support value, and no optimality claim for angular spectra outside the stated family is made.
+Best-of-knowledge statement-level novelty after actual Resultary semantic search, frozen source-package comparison and identified relevant primary mathematics. No inspected stronger claim was shown to imply this final theorem; acknowledged access/priority risks remain, not a claim of global uniqueness.
 
-## Boundaries
+## value
 
-Only regular unit-circumradius polygons in orthogonal two-planes are treated. General unequal scalings, arbitrary polygonal factors and the interior tangent-cone solid angle are outside scope. Numerical decimals are supplemental. The proof has not undergone independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Normal-cone spherical probability is a canonical angle/optimization invariant. The theorem classifies both exposure levels for all orthogonal unit regular-polygon joins and proves a strict reversal between group majority and per-vertex advantage; especially interpretable for the 9-vertex volume-extremal square–pentagon join. The exact uniform inequality is not a one-off numerical angle.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
