@@ -1,15 +1,21 @@
-# Review: one-frequency Walsh-basis substitution
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact Walsh coefficient for an odd Hamming-weight frequency is reconstructed by the Krawtchouk partial-sum and duality identities, including all signs and binomial normalizations. Every even nonzero Walsh coefficient vanishes by antipodal pairing; no odd coefficient does. A single replacement row is resolved into its removed-basis coefficient and its orthogonal complement, giving a complete rank-two Gram spectrum and strict invertibility. The ratio of successive binomial expressions proves all exact extremizers; Stirling establishes the distinct polynomial and exponential scales. The standalone checker independently tests finite instances, without treating them as an infinite proof.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-The closest finite spectral-set results of Ferguson and Iosevich concern orthogonality, tiling, and Fourier support, without a sharp single-frequency replacement stability law. Hamming-ball Slepian studies and a fully inspected quadratic majority-halfcube result treat low-band compression, not the complete even-parity Fourier basis with one odd-frequency swap. The matrix rank-two step and Krawtchouk duality are acknowledged as standard, and the claimed distinct contribution is the natural canonical spectral-set substitution problem plus full parametric, worst/best stability classification. An equivalent older specialization of majority-function Fourier coefficients to rank-one Hadamard perturbations remains a genuine priority risk.
+PASS
 
-## Mathematical value — PASS
-An orthogonal character basis is a natural spectral reconstruction design; a one-frequency error is its smallest possible discrete design perturbation. The exact all-dimension theorem identifies which errors preserve polynomial conditioning and which produce exponentially poor conditioning, even though every substitution still yields invertibility. This distinction informs stability of Fourier interpolation on a natural half-density Boolean spectral set and is not a merely arbitrary finite example.
+Odd n antipodal translation maps the radius-r ball bijectively to its complement and forces all nonzero even-weight Walsh coefficients to vanish; odd coefficients have exact Krawtchouk partial-sum identity W(2s+1)=K_r(2s;2r)=(-1)^s C(2r,r)C(r,s)/C(2r,2s), hence none vanish. This establishes exactly the two parity coset orthogonal bases. In one-vector substitution, inner product rho_s with the omitted basis character is nonzero, while the retained projection has squared norm 1-rho_s²; the Gram perturbation has eigenvalues 1±sqrt(1-rho_s²) and M-2 copies of 1. Exact consecutive ratio rho_(s+1)/rho_s=(2s+1)/(2r-2s-1) classifies maximum s=0,r and center minima; Stirling gives rho_best~1/sqrt(pi*r) and rho_worst~sqrt(2/(pi*r))*2^(-r), so K_best~4pi*r, K_worst~2pi*r*4^r. Independently enumerated every ball point for r=1..4 and matched the binomial identities exactly, not as a proof of all r.
 
-## Limitations and checked literature
-The result is specific to a halfcube of odd dimension and a single frequency replacement. The 2026 finite Fuglede papers establish existence questions, not conditioning. Low-degree Walsh concentration does not imply this full-band basis statement. General matrix row-replacement identities and classical Krawtchouk duality are prior mathematical tools, not claimed independently. Priority may change if an older combined statement exists.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical Krawtchouk identities and a rank-two vector swap are known ingredients, not themselves claimed as new. Earlier published Slepian spectra on majority halfcubes use low-degree Walsh bands, and another Fourier-Hamming-ball result uses principal ball-by-ball Fourier minors rather than swapping a single frequency in a full parity coset. No inspected stronger theorem gives the exact all-dimensional rho extrema and conditioning dichotomy in this distinct sampling design.
+
+## value
+
+PASS
+
+The central half-density Hamming ball is a natural Boolean Fourier sampling domain. The exact complete single-basis-element replacement spectrum, all optimizers and polynomial-versus-exponential stability dichotomy identify the precise fragility of an otherwise orthogonal full character basis; this is a motivated all-dimensional frame-design statement, not an arbitrary small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
