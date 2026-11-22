@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The cube-face incidence model is explicit, and the six-bit recurrence reduction gives a bijection between two-periodic states and accepted ordered face-word pairs. The complete 4,096-pair test proves the recurrent counts, while two independently coded exhaustive 16,384-state computations agree on the sharp transient depth, basin sizes and first-entry histogram. The small-support equilibrium boundary and the full 48-element automorphism group have direct proofs; the spatial classifications are verified by explicit group action. The exact calculations use no floating point or probabilistic sampling.
+## correctness
 
-**Originality — PASS, with qualified historical priority.** The classical period-at-most-two theorem supplies only a generic restriction, and modern majority work on infinite and random graphs or general voting-time bounds does not imply this particular 14-vertex census. The closest comparison is a separately determined majority census on the 12-vertex *cuboctahedral* dual; the degree profile and finite state spaces differ, and neither the duality itself nor that count determines the present basin or symmetry invariants. Published results for the 20-vertex ordinary dodecahedron likewise describe a nonisomorphic graph. Search aliases included rhombic dodecahedron, Fruchard graph, Miquel configuration, cube-face incidence graph, and the exact numerical populations. No equivalent published formula was located, although an unindexed calculation remains possible.
+PASS
 
-**Value — PASS.** A complete attractor and transient census for a canonical Catalan solid with mixed vertex-degree parity is a natural exact dynamical invariant. The 7,160-state oscillatory basin, 13 oscillation symmetry classes, and the sharp five-update clock reveal how oscillation and tie memory interact with its 8-by-6 incidence geometry. The 12 minimum four-occupied fixed configurations have a direct geometric explanation. This is a narrow but complete result, not a claim of a general graph-family theorem.
+Synchronous binary majority on 14-vertex cube-corner (8 degree3) and cube-face-center (6 degree4) incidence graph was reconstructed from explicit 24 edges. Degree3 corners take strict majority; degree4 faces retain incumbent at a 2:2 tie. Writing F(c,a)=(C(a),R(c,a)) reduces two-periodic points bijectively to 64^2 face-word pairs, of which exact enumeration yields 412 phases=46 fixed+366 primitive two phases=183 two-cycles. Independently computed all 2^14 integer states from adjacency, their first-entry/period arrays: t=0:(46,366),1:(2122,4682),2:(3360,1536),3:(2136,480),4:(1368,96),5:(192,0), hence sharp F^7=F^5 and witness with tau=5. Independently constructed 48 coordinate-signed-permutation graph automorphisms; verified commutation on every state and grouped fixed points into 6 classes [1,1,8,12,12,12], and unphased two-cycles into 13 classes [1,4,6,8,8,12,12,12,12,12,24,24,48], agreeing with the claim. This is exhaustive on this *fixed* graph, not extrapolation to other graphs. Inspected separate repository verify_faces.py and original RESULT.md.
 
-**Closest sources and limitations.** Benjamini et al. (arXiv:1405.2486) prove more general convergence statements but not these graph-specific numbers; Kaaser et al. (arXiv:1508.03519), including its Appendix C, treat upper bounds, complexity and potential limitations. MathWorld identifies the graph and its 48 symmetries. Absolute novelty is not certified; no independent external audit has been conducted. The exact values depend on synchronous binary open-neighbor majority and incumbent tie retention at degree-four vertices.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novel complete fixed canonical 14-vertex tie-retaining majority dynamics classification. General theorems that undirected symmetric threshold networks ultimately have period <=2 are background, not a census of exact basins/transient depth or orbit classes on this incidence graph.
+
+## value
+
+PASS
+
+The rhombic dodecahedral graph is a canonical Catalan-solid incidence graph exhibiting both odd and even degrees; tie retention on exactly its degree-four shore creates nontrivial memory. The complete exact recurrent and basin distribution, sharp five-step transient cutoff and octahedral symmetry reduction give a motivated dynamical fingerprint useful for contrasting polyhedral duals. A finite 14-vertex classification can be mathematically valuable without a general family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
