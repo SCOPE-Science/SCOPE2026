@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T18:59:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fourier transformation sends the bilateral shift to a multiplication symbol F(k)=M sigma3 + (c sin k-ic(1-cos k))sigma1. The Hermitian support matrix has eigenvalues ±sqrt(M²cos²theta+c²(sin(k+theta)-sin theta)²). Maximization over k gives the exact 1+|sin theta| factor. With s=|sin theta|, Q(s)=M²+c²+2c²s+(c²-M²)s²; its extrema yield w=2c for M<=sqrt2 c and M²/sqrt(M²-c²) above, while min sqrt Q is sqrt(M²+c²) below sqrt3 c and 2c above. h has directional corners only at theta 0,pi, giving two vertical nondegenerate faces at x=±sqrt(M²+c²) of half-height c²/sqrt(M²+c²). Frequency values attaining the Hermitian support occur on a measure-zero set, so no boundary point belongs to the actual numerical range; convexity then gives its open interior. Independent 60,001-point s-grid optimization at c=.7,1 and masses crossing both thresholds reproduced all extrema to <1e-7; the proof, not this grid, covers all masses and angles.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bebiano and Spitkovsky 2012 treats general Toeplitz matrix symbols, with convex-hull structural theorem; Niwiński 2026 treats same operator spectral theory and resolvent convergence"
+        ],
+        "reasoning": "The general theorem subsumes the unoptimized support representation but does not give the evaluated paired phase transitions and exact faces as a corollary without nontrivial computation.",
+        "searches": [
+          "Bebiano Spitkovsky Numerical ranges of Toeplitz operators with matrix symbols 2012",
+          "Resultary: Dirac one-sided shift matrix-valued numerical range support flat sides mass operator"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2611.00820",
+        "https://doi.org/10.1016/j.laa.2011.06.019",
+        "https://doi.org/10.1016/j.jmaa.2012.08.029",
+        "Resultary 2026/11/8/SCOPE-exact-numerical-range-support-of-a-shift-plus-coordinate-conjuga--6b61d27fa234"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The spectral radius undergoes a different Niwiński transition at M=2c; here the numerical range transitions at sqrt2 c and sqrt3 c"
+        ],
+        "reasoning": "A spectral radius or norm formula cannot yield the full convex numerical range. The matrix-symbol convex-hull theorem allows derivation but does not already provide the optimized specific two transitions or face lengths.",
+        "searches": [
+          "arxiv:2611.00820",
+          "Bebiano Spitkovsky Numerical ranges of Toeplitz operators with matrix symbols 2012"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Niwiński 2026 uses the identical operator and Fourier symbol; general Toeplitz numerical-range results express convex hull via symbol numerical ranges"
+        ],
+        "reasoning": "The operator is the same, so this comparison includes exact aliases. But the cited spectral theorem computes norm and spectral curve, not numerical-range support, inradius, flat-face geometry or nonattainment. The general symbol formula requires additional model-specific optimization.",
+        "searches": [
+          "arxiv:2611.00820",
+          "Bebiano Spitkovsky Numerical ranges of Toeplitz operators with matrix symbols 2012"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search in primary Niwiński arXiv PDF finds no occurrence of numerical range; Resultary numerical-range entries concern different operators such as unilateral shift with coordinate conjugation"
+        ],
+        "reasoning": "No exact table of the two thresholds or this Dirac symbol numerical-range boundary found; failure of search is not mathematical proof of priority.",
+        "searches": [
+          "Resultary: numerical range one-sided shift matrix-valued numerical range support flat sides mass operator",
+          "arxiv:2611.00820 numerical range operator"
+        ]
+      },
+      "rationale": "Best-of-knowledge finding after comparing actual statements and consequences, not titles. The four structured checks and specific full/partial source inspections below separate previously known inputs from surviving contributions.",
+      "residual_risks": [
+        "A general matrix-symbol numerical-range formula may have been specialized elsewhere under another Dirac or Toeplitz normalization; full 2013 source not read, so historical priority remains qualified.",
+        "Ordinary numerical range excludes the entire support boundary; this is only a bilateral shift result, not unilateral or spatially varying operators."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical Fourier model but no identified numerical-range computation",
+          "evidence": "Abstract lines 15-32 list operator norm, spectral radius, continuous spectrum, resolvent convergence; no numerical range",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.00820",
+          "material_read": "full 17-page accessible PDF, especially defining Eq (1.2), spectral and norm theorems; searched all text for numerical range; page 2 screenshot",
+          "method": "arXiv primary PDF read and screenshot checked",
+          "title": "Spectral Theory and Continuum Norm Resolvent Convergence of a One-Sided Discrete Dirac-Type Operator",
+          "trigger": "identical operator and possibly dominating spectral results"
+        },
+        {
+          "assessment": "General structural antecedent, not evaluated particular mass critical points",
+          "evidence": "Matrix-symbol numerical range is governed by convexified union of finite fiber ranges",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2011.06.019",
+          "material_read": "accessible complete article text through lawful web discovery, especially main convex-hull theorem and hypotheses",
+          "method": "full article reading through available publication text",
+          "title": "Numerical ranges of Toeplitz operators with matrix symbols",
+          "trigger": "general symbol theorem could dominate proposed support formula"
+        },
+        {
+          "assessment": "Possible generalization but no verified implication to this exact paired threshold",
+          "evidence": "Banded biperiodic numerical range is considered, but evaluated one-sided Dirac masses were not available for comparison",
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2012.08.029",
+          "material_read": "abstract and available bibliographic description only",
+          "method": "lawful web retrieval; full material not obtained",
+          "title": "The numerical range of banded biperiodic Toeplitz operators",
+          "trigger": "potential general periodic matrix-spectral geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete numerical-range geometry (not just operator norm or spectrum) for a physically motivated nonnormal lattice Dirac discretization. Two sharp and different mass thresholds, exact flat faces, and boundary nonattainment are natural operator-theoretic invariants and are nontrivial explicit optimizations beyond the general matrix-symbol numerical-range principle.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2611.00820",
+    "https://doi.org/10.1016/j.laa.2011.06.019",
+    "https://doi.org/10.1016/j.jmaa.2012.08.029",
+    "Resultary 2026/11/8/SCOPE-exact-numerical-range-support-of-a-shift-plus-coordinate-conjuga--6b61d27fa234"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the complex-Hilbert bilateral one-sided discrete Dirac operator D=M sigma3 - ic sigma1(I-S), M=mc²>=0, c>0, the closed numerical-range support is h(theta)=sqrt(M²cos²theta+c²(1+|sin theta|)²), with different sharp outer and centered inner mass thresholds at M=sqrt2 c and M=sqrt3 c, exactly two vertical exposed faces, and ordinary numerical range equal to the interior of its closure.",
+  "limitations": [
+    "Bilateral Hilbert-space setting only; centered inradius, not unconstrained-center disk.",
+    "Grid tests do not certify spectral claims."
+  ],
+  "residual_risks": [
+    "A general matrix-symbol numerical-range formula may have been specialized elsewhere under another Dirac or Toeplitz normalization; full 2013 source not read, so historical priority remains qualified.",
+    "Ordinary numerical range excludes the entire support boundary; this is only a bilateral shift result, not unilateral or spatially varying operators."
+  ],
+  "schema_version": 1
+}

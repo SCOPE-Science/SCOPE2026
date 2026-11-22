@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Fourier–Laurent symbol is directly derived from the defining bilateral shift. The Hermitian support matrix has two explicit Pauli eigenvalues. A trigonometric maximization in the Fourier frequency gives the stated support function uniformly in angle. The quadratic \(Q\) then proves both distinct mass thresholds, while one-sided derivatives of the support prove the two flat faces. The Fourier maximizing frequencies have measure zero, establishing the nonattainment assertion. The finite checker gives 2,206 supplementary diagnostics but is not a proof of the infinite-dimensional theorem.
+PASS
 
-## Originality — PASS (qualified)
+Fourier transformation sends the bilateral shift to a multiplication symbol F(k)=M sigma3 + (c sin k-ic(1-cos k))sigma1. The Hermitian support matrix has eigenvalues ±sqrt(M²cos²theta+c²(sin(k+theta)-sin theta)²). Maximization over k gives the exact 1+|sin theta| factor. With s=|sin theta|, Q(s)=M²+c²+2c²s+(c²-M²)s²; its extrema yield w=2c for M<=sqrt2 c and M²/sqrt(M²-c²) above, while min sqrt Q is sqrt(M²+c²) below sqrt3 c and 2c above. h has directional corners only at theta 0,pi, giving two vertical nondegenerate faces at x=±sqrt(M²+c²) of half-height c²/sqrt(M²+c²). Frequency values attaining the Hermitian support occur on a measure-zero set, so no boundary point belongs to the actual numerical range; convexity then gives its open interior. Independent 60,001-point s-grid optimization at c=.7,1 and masses crossing both thresholds reproduced all extrema to <1e-7; the proof, not this grid, covers all masses and angles.
 
-Niwiński's recent work gives the identical operator and its operator norm, spectral radius and spectrum, but does not determine these numerical-range invariants. Bebiano–Spitkovsky's matrix-symbol numerical-range convex-hull principle is acknowledged as an essential prior structural antecedent; it does not state the evaluated mass thresholds and face lengths. The exact contribution assessed here is the model-specific sharp geometric optimization. The 2013 biperiodic Toeplitz analysis and the 2022 Randell thesis are plausible broader sources and were available only in abstract or partial description. Searches of published records and relevant accessible historical claims did not locate this exact result; the inaccessible full texts and possible alternate normal forms remain publication-priority risks.
+## originality
 
-## Value — PASS
+PASS
 
-Numerical range is a natural spectral enclosure and measure of transient nonnormal behavior for the new one-sided Dirac discretization. Computing its complete closed convex support, sharp inner and outer radii, two distinct thresholds, and flat-face geometry advances the quantitative description of that operator beyond its known spectrum and norm. The distinction between \(\sqrt2\) and \(\sqrt3\) mass thresholds is structural. No statements are made about edge potentials, other discretizations, or pseudospectra.
+Best-of-knowledge finding after comparing actual statements and consequences, not titles. The four structured checks and specific full/partial source inspections below separate previously known inputs from surviving contributions.
 
-## Limits of this review
+## value
 
-The proof was reconstructed directly. The literature search includes the recent primary source, related older matrix-symbol material and published mathematical records; some older full articles were inaccessible. Finite computations corroborate rather than certify the infinite-dimensional statements. Publication priority has not been independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete numerical-range geometry (not just operator norm or spectrum) for a physically motivated nonnormal lattice Dirac discretization. Two sharp and different mass thresholds, exact flat faces, and boundary nonattainment are natural operator-theoretic invariants and are nontrivial explicit optimizations beyond the general matrix-symbol numerical-range principle.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
