@@ -1,0 +1,66 @@
+# Prime-cyclic Kneser neighborhood quotients as crown-graph complements in lens spaces
+
+## Finding
+Let \(p\ge7\) be an odd prime, \(G_p=\operatorname{KG}(p,2)\) the graph of two-element subsets of \(\mathbb F_p\) with disjointness adjacency, and \(N_p=\mathcal N(G_p)\) its **open** Lovász neighborhood complex. The cyclic group \(C_p\) acts by translation of the underlying labels. Put \(Y_p=|N_p|/C_p\), the ordinary geometric quotient.
+
+Let \(L_p=L(p;1,2,\ldots,(p-1)/2)\) be the \((p-2)\)-dimensional lens space obtained from the unit sphere in the reduced real regular representation of \(C_p\). Within its canonical barycentric triangulation define \(\Gamma_p\) as the image of the graph whose vertices are the singleton subsets \(L_i=\{i\}\) and co-singleton subsets \(R_j=\mathbb F_p\setminus\{j\}\), with an edge \(L_iR_j\) exactly when \(i\ne j\).
+
+**Geometric classification:**
+\[
+\boxed{Y_p\simeq L_p\setminus|\Gamma_p|.}
+\]
+The embedded graph \(\Gamma_p\) has two vertices and \(p-1\) parallel edges \(e_a\), indexed by \(a\in\mathbb F_p^\times\). With edges oriented from the singleton vertex to the co-singleton vertex and with the deck generator chosen as translation by \(+1\), the inclusion in the lens space sends the loop \(e_a e_b^{-1}\) to \(a-b\in\pi_1(L_p)=\mathbb Z/p\mathbb Z\). In particular, the induced homomorphism from the free group \(\pi_1(\Gamma_p)\) is surjective.
+
+Set \(d=p-4\). The complete integral homology of the complement/quotient is
+\[
+H_i(Y_p;\mathbb Z)\cong
+\begin{cases}
+\mathbb Z,&i=0,\\
+\mathbb Z/p\mathbb Z,&i\text{ odd},\ 1\le i<d,\\
+\mathbb Z^{p-2},&i=d,\\
+0,&\text{otherwise}.
+\end{cases}
+\]
+Moreover \(\pi_1(Y_p)\cong C_p\). Its positive-degree integral cohomology has a class \(u\in H^2(Y_p;\mathbb Z)\) of order \(p\), with \(u^j\ne0\) for all \(1\le j\le(p-5)/2\), \(u^{(p-3)/2}=0\) by dimension, and \(H^d(Y_p;\mathbb Z)\cong\mathbb Z^{p-2}\). All products involving positive-degree top classes vanish. The exact mod-\(p\) cup-length is \((p-3)/2\); in particular it grows unboundedly with \(p\).
+
+## Assumptions and scope
+The parameter \(p\) is an **odd prime at least seven**. The neighborhood complex uses common **open** graph neighbors, not closed graph neighborhoods, independence sets, stable-Kneser vertices, or a homotopy quotient. A face is a nonempty family of two-subsets whose union has at most \(p-2\) labels. Realizations, orbit spaces and complements are topological spaces; \(\simeq\) means homotopy equivalence, not homeomorphism. The lens space is oriented and parameterized using translation by one; reversing the generator reverses the displayed voltage convention.
+
+## Proof
+**1. Explicit equivariant rank-selected model.** Let \(Q_p\) be the face poset of nonempty simplices of \(N_p\), and \(P_p\) the inclusion poset of subsets \(S\subset\mathbb F_p\) satisfying \(2\le|S|\le p-2\). Put \(u(F)=\bigcup_{A\in F}A\) and \(v(S)=\binom S2\). Both maps preserve order and commute with translation, \(uv=\mathrm{id}\), and \(F\subseteq vu(F)\). The order-homotopy lemma applied to this natural inclusion gives explicitly equivariant homotopy inverses between \(\mathrm{Sd}(N_p)=\Delta(Q_p)\) and \(K_p=\Delta(P_p)\). Their homotopies are equivariant, so passage to ordinary orbit spaces gives \(Y_p\simeq|K_p|/C_p\). No assertion about the action on just the homology groups suffices for this step.
+
+**2. Lens-space ambient sphere and dual crown graph.** Let \(B_p\) be the barycentric subdivision of the boundary of the abstract \((p-1)\)-simplex on \(\mathbb F_p\). Its vertices are the nonempty proper subsets and its simplices the chains. The full subcomplex on cardinalities from two through \(p-2\) is exactly \(K_p\). The full subcomplex \(D_p\) on the remaining cardinalities one and \(p-1\) is the crown graph described above. In each simplex of \(B_p\setminus|D_p|\), the total barycentric weight on vertices of \(K_p\) is positive. Divide those weights by their sum and set all weights on \(D_p\) to zero. Straight-line interpolation produces a continuous, translation-equivariant strong deformation retraction \(|B_p|\setminus|D_p|\to|K_p|\).
+
+Radially identifying the boundary of the standard simplex with the unit sphere in \(V=\{(x_i)\in\mathbb R^p:\sum_i x_i=0\}\) is \(C_p\)-equivariant. The real translation permutation representation on \(V\) is the direct sum of complex one-dimensional character planes of weights \(1,2,\ldots,(p-1)/2\). As \(p\) is prime, all these weights are units modulo \(p\), so the action on the sphere is free and its quotient is the indicated weighted lens space. Taking quotients of the equivariant retraction proves \(Y_p\simeq L_p\setminus|\Gamma_p|\).
+
+**3. Embedding and voltage calculation.** Translation acts freely on all \(L_i\) and all \(R_j\); the edge \(L_iR_j\) is classified up to translation by the nonzero difference \(a=j-i\). Hence \(D_p/C_p=\Gamma_p\) has two vertices and \(p-1\) embedded edges. Lift \(e_a\) from \(L_0\) to \(R_a\). After traversing \(e_a\), reverse a translate of \(e_b\) with terminal endpoint \(R_a\); its initial endpoint was \(L_{a-b}\). Thus the closed loop \(e_a e_b^{-1}\) in the quotient lifts to a path from \(L_0\) to \(L_{a-b}\). Its class under the inclusion in \(\pi_1(L_p)=C_p\) is exactly \(a-b\). The choices \(a=2,b=1\) show surjectivity.
+
+**4. Connectivity and Euler characteristic.** The rank-selected Boolean complex \(K_p\) has dimension \(d=p-4\). Its homotopy type is \(\bigvee^{m_p} S^d\), where \(m_p=p^2-3p+1\), by the standard rank-selected-Boolean shellability theorem (also equivalent to the two-subset Kneser neighborhood sphere-wedge theorem). Independently the multiplicity follows from a Möbius calculation: in the poset with ranks \(2,3,\ldots,p-2\) and an adjoined bottom, \(\mu(\hat0,S)=(-1)^{|S|-1}(|S|-1)\) for \(|S|\ge2\), by the binomial recursion. After adjoining a top, \(\mu(\hat0,\hat1)=(-1)^{p-4}(p^2-3p+1)\). This checks the sphere count and Euler sign without relying on finite enumeration. In particular \(|K_p|\) is simply connected (indeed \((d-1)\)-connected) for \(p\ge7\).
+
+Translation acts freely on \(|K_p|\): if a nonidentity prime-order translation fixed a point, it would preserve its supporting chain and therefore fix each vertex subset, since vertices in a chain have distinct cardinalities. A nonempty proper subset of \(\mathbb F_p\) cannot be fixed by the full translation group. Hence \(|K_p|\to|K_p|/C_p\) is a regular \(p\)-sheeted covering with simply connected total space, proving \(\pi_1(Y_p)=C_p\). Equivalently, because \(p-2\ge5\), removal of an embedded one-dimensional graph from the lens manifold preserves the fundamental group by general position.
+
+**5. Integral homology.** The quotient has the \(d\)-dimensional CW model \(|K_p|/C_p\). Its covering space is \((d-1)\)-connected, so the Cartan–Leray homology spectral sequence with \(E^2_{s,t}=H_s(C_p;H_t(|K_p|;\mathbb Z))\) agrees in all total degrees \(<d\) with group homology of \(C_p\). Thus \(H_i(Y_p)=\mathbb Z/p\) for odd \(i\) with \(1\le i<d\), and zero for positive even \(i<d\). The top integral homology is torsion-free, being the kernel of a map between free cellular groups in the maximal CW dimension. Since \(d\) is odd and \(\chi(|K_p|)=1-m_p=-p(p-3)\), freeness of the action gives \(\chi(Y_p)=-(p-3)\). This forces \(H_d(Y_p)=\mathbb Z^{p-2}\); there is no homology in higher dimensions.
+
+**6. Multiplicative information.** The classifying map \(c:Y_p\to BC_p\) is an integral and mod-\(p\) cohomology isomorphism in degrees \(<d\), by the cohomological Cartan–Leray/Serre spectral sequence, because the universal cover has no positive reduced cohomology below degree \(d\). The source \(H^*(BC_p;\mathbb Z)\) is generated by an order-\(p\) degree-two class whose powers are all nonzero. Consequently \(u=c^*(u_0)\) has nonzero powers through degree \(d-1\). All larger positive-degree powers vanish for dimension reasons; the free top classes cannot multiply nontrivially with a positive-degree class. With \(\mathbb F_p\)-coefficients, \(H^*(BC_p;\mathbb F_p)=\Lambda(v_0)\otimes\mathbb F_p[u_0]\), where \(|v_0|=1\), \(|u_0|=2\). The same spectral sequence shows \(c^*\) is injective also in degree \(d\): any differential entering bidegree \((d,0)\) would have to originate at negative horizontal degree because the only other nonzero fibre row is degree \(d\). Hence \(c^*(v_0u_0^{(d-1)/2})\ne0\), giving mod-\(p\) cup-length \((d+1)/2=(p-3)/2\). This is maximal: in degrees below \(d\) the cohomology has one generator in every degree as in \(BC_p\), with \(v^2=0\), while every extra degree-\(d\) class annihilates positive degrees.
+
+## Verification
+The standalone standard-library program `verify_kneser.py` reconstructs inclusion chains in \(P_p\), forms their translation orbits, builds the signed quotient boundary operators, verifies \(\partial^2=0\), and computes modular ranks by exact finite-field Gaussian elimination for \(p=5\) and \(p=7\). At \(p=7\), the quotient's numbers of cells in degrees zero through three are \((16,140,300,180)\), and the boundary ranks over \(\mathbb F_2\) are \((15,125,175)\), while over \(\mathbb F_7\) they are \((15,124,175)\). The resulting Betti dimensions are \((1,0,0,5)\) over \(\mathbb F_2\) and \((1,1,1,5)\) over \(\mathbb F_7\), compatible with \(H_1=\mathbb Z/7\) and \(H_3=\mathbb Z^5\). At \(p=5\), the quotient is a graph with four vertices and six edges, hence a wedge of three circles; this illustrates why the main fundamental-group and cohomology conclusions start at \(p=7\). These finite checks support, but do not replace, the prime-uniform proof.
+
+Run: `python3 verify_kneser.py`; success terminates with `CHECK_RANK_SELECTED_KNESER_ROTATION_OK`. No packages outside the Python standard library are required.
+
+## Relationship to prior work
+Lovász introduced neighborhood complexes in the proof of the Kneser conjecture; the rank-selected Boolean homotopy model and its high connectivity are classical. Nilakantan and Singh's full 2018 paper establishes the nonequivariant sphere-wedge count for two-subset Kneser graphs. A published integral crown-graph lattice classification establishes the \(S_p\)-module structure of the covering complex's top homology and explicitly gives the equivariant maps \(u,v\) from Step 1. Those results are accepted premises, **not** new claims here.
+
+The additional statement here is the **geometric model of the ordinary prime-cyclic orbit space as the complement of a specified, voltage-labelled graph in a weighted lens space**, and the resulting exact integral cohomology multiplicative structure, full quotient homology, and unbounded cup-length. None of the inspected covering-space results states this complement model or gives the edge-voltage description. The rank-selected equivariant model, however, makes the reduction accessible, so the residual novelty risk is that these geometric identifications or their immediate consequences appear in an unindexed discussion or are viewed as standard consequences. Unlike cyclic results about the stable-Kneser box complex, this concerns the open-neighborhood complex of the full two-subset Kneser graph.
+
+## Limitations
+The homotopy equivalence does not assert that the finite quotient itself is homeomorphic to an open lens-space complement. The lens-space graph is the explicit quotient of the crown subgraph of the barycentrically subdivided simplex boundary, not an arbitrary embedding of a multigraph. No assertion is made for composite ground-set sizes, prime \(p=5\), the full symmetric-group quotient, integral homotopy groups beyond \(\pi_1\), or whether the complement splits as a lens space wedge with spheres. The mod-\(p\) computational checks do not by themselves rule out integral torsion at other primes; the uniform spectral-sequence proof does. The literature comparison is evidence rather than a proof of publication priority. Independent mathematical validation has not been performed.
+
+## References
+1. L. Lovász, *Kneser's conjecture, chromatic number, and homotopy*, Journal of Combinatorial Theory, Series A 25 (1978), 319–324.
+2. M. Kahle, *The neighborhood complex of a random graph*, available online 2006-06-23, Journal of Combinatorial Theory, Series A 114 (2007), 380–387, https://www.matthewkahle.org/sites/default/files/papers/neighborhood.pdf
+3. N. Nilakantan and A. Singh, *Homotopy type of Neighborhood Complexes of Kneser graphs, \(KG_{2,k}\)*, arXiv:1802.05848, first posted 2018-02-16, https://arxiv.org/abs/1802.05848
+4. A. Björner, *Topological Methods*, in *Handbook of Combinatorics* (1995), 1819–1872 (rank-selected Boolean complexes).
+5. *Integral crown-graph lattice for two-subset Kneser neighborhood homology*, published research note (2026-11-01), https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-integral-crown-graph-lattice-for-two-subset-kneser-neighborhood--1da56a0f4020
+6. K. S. Brown, *Cohomology of Groups*, Graduate Texts in Mathematics 87, Springer (1982), for periodic cohomology of finite cyclic groups and group (co)homology spectral sequences.
+7. J. Matoušek and G. M. Ziegler, *Topological lower bounds for the chromatic number: A hierarchy*, arXiv:math/0208072, first posted 2002-08-09, https://arxiv.org/abs/math/0208072
