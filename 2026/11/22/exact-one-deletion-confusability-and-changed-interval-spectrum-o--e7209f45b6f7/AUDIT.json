@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The proof normalizes first/last differing coordinates, classifies all one-deletion collisions into substitution or two possible shifts, proves only opposite-phase alternating intervals are counted twice, counts fixed boundaries by C_aC_b, and sums a rational generating function. Both standalone implementations were run from actual files: direct deletion enumeration confirms totals and every span cell in 24 small parameter cases; a separate interval-construction program confirms totals and alternating overlaps. The n=1 and q=2 cases are explicitly covered. Finite experiments are corroboration, not the all-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kulkarni–Kiyavash arXiv:1211.3128 Section V gives constrained-source matching/LP bounds and Section V-A works with binary (d,k)-RLL words, not adjacent-unequal q-ary words.",
+        "Cullina et al. arXiv:1211.4056 Section III-A gives general deletion-confusability degree bounds rather than the exact induced Kautz spectrum.",
+        "Indexed published-finding corpus 2026/11/2/...25a61255a325 treats optimal short binary Fibonacci-constrained deletion codes, a different language and invariant."
+      ],
+      "reasoning": "Generic code bounds or unrestricted graph counts do not determine the exact induced edge total, still less the location-resolved count, without an additional combinatorial calculation. Binary no-11 RLL sets and multi-symbol no-equal-adjacency sets differ.",
+      "searches": [
+        "published-finding corpus: Kautz sequence single deletion code confusability graph edges q(q-1) length n",
+        "published-finding corpus: run length limited binary single deletion confusability exact pairs Fibonacci graph coding",
+        "Web: single deletion correcting codes run length limited constraints 2014 arxiv Fibonacci strings",
+        "arxiv:1211.3128 Sections V and V-A",
+        "arxiv:1211.4056 Sections II and III"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1211.3128, Section V / V-A",
+      "arxiv:1211.4056, Sections II-B, III-A",
+      "SageMath Kautz digraph reference",
+      "published-finding corpus 2026/10/4/...737fed325e91 (summary only)",
+      "published-finding corpus 2026/11/2/...25a61255a325 (summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General 2012 works model one-deletion codebooks and derive size or average-degree bounds. Neither supplies the exact q-ary Kautz induced-graph count.",
+        "The two-read indexed edge law is a count under at-least-two-common-reads and cannot directly count edges from only one common read.",
+        "The explicit spectrum distinguishes first/last differing coordinates and cannot be derived by knowing only an unrestricted total edge count."
+      ],
+      "reasoning": "Prior graph definitions logically imply that the present graph is an induced one-read subgraph, but definitions and unrelated upper bounds do not imply the exact new edge/spectrum formula. A stronger exact induced count was not located in inspected accessible sources. Residual priority risk is acknowledged.",
+      "searches": [
+        "published-finding corpus: exact edge count single deletion confusability graph Kautz words no equal adjacent q ary",
+        "published-finding corpus: Kautz sequence single deletion code confusability graph edges q(q-1) length n",
+        "arxiv:1211.3128 Section V-A and arxiv:1211.4056 Section III-A",
+        "Web: \"Kautz\" \"Levenshtein\" deletion graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cullina–Kulkarni–Kiyavash, arXiv:1211.4056, Section II-B, defines edges by shared one-deletion subsequences for unrestricted binary words.",
+        "The Kautz digraph in Sage documentation instead uses overlapping length-(n-1) shifts between adjacent-unequal source-word labels.",
+        "Closest indexed published-finding corpus two-read graph result 2026/10/4/...737fed325e91 counts pairs with at least two distinct common deletion reads, not with at least one."
+      ],
+      "reasoning": "Rewriting the present relation as Levenshtein distance at most two, or as induced subgraph adjacency in an unrestricted deletion graph, preserves its meaning but does not make the q-ary Kautz-induced edge count a corollary of any inspected formula. The directed Kautz shift relation is not equivalent.",
+      "searches": [
+        "published-finding corpus: exact edge count single deletion confusability graph Kautz words no equal adjacent q ary",
+        "published-finding corpus: Kautz sequence single deletion code confusability graph edges q(q-1) length n",
+        "Web: Kautz words single deletion confusability graph exact degree edges"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus summaries returned two-read deletion graphs, q-ary deletion-pattern collisions, and unrelated small deletion code tables, but no exact adjacent-unequal one-read span table.",
+        "The two original 2012 primary manuscripts examined above do not list the displayed q-ary Kautz edge sequence or GF in the inspected relevant sections."
+      ],
+      "reasoning": "The searches and accessible own-ledger comparisons found no exact equivalent tabulation; this is evidence of a literature gap, not proof of absolute novelty. The result is a closed formula for every q and n, not a finite-table recomputation.",
+      "searches": [
+        "published-finding corpus: distinct deletion graph of Kautz strings zero adjacent equal all alphabet",
+        "Web: \"Kautz\" \"deletion\" \"confusability\" code",
+        "Web: distinct adjacent q ary words one deletion codes edge count",
+        "published-finding corpus: exact q-ary Kautz-word one-deletion confusability first and last difference interval spectrum rational generating function"
+      ]
+    },
+    "rationale": "Claim-level comparison to 2012 primary deletion-coding works, the Kautz shift-graph definition, topically close published-finding corpus summaries and the accessible own-ledger claims identified no equivalent all-q, all-n one-read Kautz edge/spectrum theorem. This is a qualified best-knowledge originality finding, not a proof of priority. Access limitations are recorded.",
+    "residual_risks": [
+      "Unindexed or inaccessible earlier enumeration of adjacent-unequal q-ary deletion confusability may exist.",
+      "The highly related published two-read result was only available as indexed summary after the public full-text fetch failed; its different read threshold is explicit in the summary.",
+      "A generic edit-distance result may imply this exact specialization through a deduction not identified in the inspected sources; no absolute priority is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines constrained deletion code bounds and binary run-length examples; inspected relevant sections do not state an exact q-ary Kautz one-read confusability edge or span spectrum",
+        "evidence": [
+          "arXiv HTML sections V and V-A, especially formulation of general induced deletion graph and binary (d,k)-RLL constraints; arxiv:1211.3128"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1211.3128",
+        "material_read": "Abstract and introduction; Section V constrained-source framework, Theorem V.1; Section V-A run-length-limited sources through theorem and accompanying discussion",
+        "method": "Read arXiv full-text HTML in section context",
+        "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+        "trigger": "A directly relevant 2012 paper on constrained-source deletion codes"
+      },
+      {
+        "assessment": "Provides unrestricted binary deletion graph model, code/degree bounds but not an exact induced q-ary adjacent-unequal edge enumeration or first/last-difference spectrum in inspected sections",
+        "evidence": [
+          "arXiv HTML sections II-B and III-A; arxiv:1211.4056"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1211.4056",
+        "material_read": "Abstract and introduction; Sections II-B/II-C defining deletion graph; Section III-A and adjacent lemmas on average-degree bounds",
+        "method": "Read arXiv full-text HTML with line-context inspection",
+        "title": "Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings",
+        "trigger": "The directly relevant general deletion-confusability graph and degree bounds"
+      },
+      {
+        "assessment": "Same allowed word labels, different adjacency relation (overlap shift rather than shared deletion descendant)",
+        "evidence": [
+          "SageMath Common digraphs, Kautz digraph entry"
+        ],
+        "identifier_or_url": "https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/digraph_generators.html",
+        "material_read": "Kautz digraph definition, vertex word labels and shift-arc condition",
+        "method": "Read indexed reference description",
+        "title": "SageMath Kautz digraph reference",
+        "trigger": "Potential equivalence between source-word language and Kautz shift digraph"
+      },
+      {
+        "assessment": "Distinct model requires two shared reads rather than at least one. Acknowledged access risk; no whole-text exclusion asserted",
+        "evidence": [
+          "published-finding corpus ID 2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91; indexed description defines two-read graph"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+        "material_read": "Published indexed title and abstract-like summary only; full repository text was not accessible through attempted fetch",
+        "method": "Semantic search summary and attempted public full-text access",
+        "title": "Exact edge count of the finite-alphabet two-read single-deletion reconstruction graph",
+        "trigger": "published-finding corpus search surfaced a closely named exact edge law"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e7209f45-b6f7-4daa-94d1-6a8ad5c60760",
+  "value": {
+    "rationale": "The exact conflict graph on adjacent-unequal q-ary words is a natural constrained-source synchronization invariant. The result supplies a two-dimensional alphabet/length exact edge law plus a complete first/last differing-position spectrum, a structural explanation of duplicate deletion alignments, exact mean degree, and a rigorous though generally nonsharp code-size lower bound. It is not an arbitrary isolated finite slice or a relabeling of shift-arc counts. Its exact invariant is useful to enumerate forbidden codeword pairs and to benchmark constrained deletion code design.",
+    "status": "PASS"
+  }
+}

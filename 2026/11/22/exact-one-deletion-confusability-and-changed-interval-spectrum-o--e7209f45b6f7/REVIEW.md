@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The central statement includes exact quantifiers \(q\ge2\), \(n\ge1\), an unrestricted one-deletion output space, and unordered input pairs. In the proof a pair has intrinsic first and last unequal positions. It is either a single-position replacement, or a canonical one-position left/right shift. Reversing the shift produces a second representation exactly for two-phase alternating intervals, giving the explicit \(q(q-1)/2\) subtraction. Both boundary counts and the rational generating function have been algebraically reconstructed. Separate direct-deletion and interval-construction programs passed for the advertised small cases; the infinite claim rests on the proof, not an extrapolation from tests. The \(q=2\) and \(n=1\) boundaries were explicitly checked.
+
+## Originality — PASS, qualified
+Comparison with Kulkarni–Kiyavash (arXiv:1211.3128, Sections V and V-A) shows constrained-source code bounds and a binary run-length example, not an exact \(q\)-ary adjacent-unequal deletion-confusability edge count. Cullina–Kulkarni–Kiyavash (arXiv:1211.4056, Sections II-B and III-A) defines general deletion graphs and bounds their degrees, but does not give the induced Kautz-language edge and span spectra. Kautz word-label conventions do not make directed shift arcs equivalent to deletion-confusability edges. Related indexed two-read reconstruction results require multiple shared reads; the one-read relation is strictly broader, and its induced constrained edge law cannot be inferred from those overall counts. Targeted publication-record searches did not identify a matching statement. Relevant published summaries were compared; some full texts could not be fetched. Unindexed prior derivations and any overlooked implication of generic edit-graph theory remain residual risks, not grounds for claiming absolute priority.
+
+## Value — PASS
+The adjacent-unequal \(q\)-ary language is the natural vertex alphabet of Kautz graphs and a standard constrained sequence family. For a one-symbol synchronization failure, the number of forbidden codeword pairs is a direct graph parameter; an exact *location-resolved* spectrum is stronger than either a sample table or an asymptotic bound. The formula yields an exact mean-degree law and an explicit, though nonsharp, all-length independent-set lower bound. The two-orientation correction is structural and prevents double-counting; the result treats all alphabet sizes and block lengths, not an arbitrary finite slice.
+
+## Sources and residual limitations
+Primary text inspected: https://arxiv.org/abs/1211.3128 (especially Section V-A); https://arxiv.org/abs/1211.4056 (especially Sections II-B, III-A). Kautz word convention: https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/digraph_generators.html. This review is not an independent audit. Unindexed earlier work may contain an equivalent enumeration; no exact code capacity is determined.
+
+Self-review: passed. Independent audit: not yet performed.
