@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem defines the exact sign convention, domain, parameter interval and all exceptional states. The lower branch maps the lower half into itself and is monotone toward its single positive fixed point; the upper branch has the unique escape threshold \(c\), and its invariant interval has no genuine two-cycle because the second-iterate quadratic has strictly negative discriminant for \(2<b<3\). Every orbit therefore converges to one of the listed states. Exact interval length and two-point distribution identities yield the square-root basin, mean and variance laws. The standalone symbolic checker and finite diagnostics agree with the analytic identities; neither replaces proof.
+PASS
 
-## Originality — PASS within inspected evidence
+On (0,1/2), H(x)=a x(1−x), a=2(1−ε)∈(1,2) is increasing and maps lower half into itself; f(x)−x=a x(L−x) forces monotone convergence to L=(1−2ε)/(2(1−ε)). On upper half H(x)=b x(1−x), b=2(1+ε)∈(2,3), decreases and crosses the switch 1/2 once at c=(1+√(ε/(1+ε)))/2. For 1/2<x<c the image lies in (1/2,c), and c<x<1 maps lower immediately. Upper branch has U=(1+2ε)/(2(1+ε)). Factorization g(g(x))−x=−x(bx−b+1)[b²x²−b(b+1)x+b+1] has quadratic discriminant b²(b+1)(b−3)<0, excluding nonfixed period two; increasing g² iterates converge to U. Exceptional points 0,1 go to 0; 1/2 fixed by sign convention; c maps to 1/2, no nonfixed cycles. Uniform basin mass p=c−1/2; U−L=ε/(1−ε²); elementary two-atom moments yield claimed exact formula and Puiseux exponents. Independent symbolic and rational iteration tests corroborate boundaries/coefficients, not proof of all initial conditions.
 
-The 2023 originating article was read through its Section 2.1 defining the original discontinuous map, Section 3.1 analyzing transients and Appendix A deriving three-step trapping inequalities. It does not state the complete \(\mu=2\) basin classification, exact upper-basin length or fractional-power state-selection law. Semantic result indexing was queried for model aliases, parameter coincidence, square-root basins, sectional discontinuities and fractional-power ensemble averages; the closest results concern other maps. The 1993 sectional-logistic work and 2024 logistic impulsive-forcing paper have relevant broad terminology, but their accessible descriptions do not establish exact equivalence of their branch definitions to this map; their full texts could not be inspected, so publication priority remains provisional and an equivalent unindexed formula remains possible. No search absence alone proves originality.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The switching surface meets the logistic maximum exactly at the natural parameter \(\mu=2\). That geometry makes the selected equilibrium law unusually sensitive: the newly available upper basin opens at order \(\sqrt\varepsilon\) even though the attracting equilibria are separated at order \(\varepsilon\). The resulting \(\varepsilon^{3/2}\) correction gives a quantitative, measurable population-selection signature and supplies a complete state-space answer that the transient-focused parent study does not address. This is an exact structural transition, rather than a routine parameter substitution or an arbitrary census.
+Full original Morozov–Almutairi–Petrovskii–Lai 2023 open access publication defines exactly the density-change sign dispersal and studies long transients, especially μ near 3.7–4, including Appendix A trapping inequalities; it does not state the μ=2 all-state basin partition or fractional equilibrium selection moments. Tan–Chia 1993 original studied a sectional discontinuous logistic map but only its original abstract could be read, and equivalence of piecewise coefficients remains a concrete risk. Jiang et al 2024 studied a distinct fixed-threshold impulsive logistic model (figures show h=0.2 rather than the endogenous switch x=F(x)); its full paper was paywalled. Both full-text attempts via authorized Oxford access returned vpn_disconnected, so no false whole-document negative inference. Best-of-knowledge PASS, not historical proof of uniqueness.
 
-## Closest literature and risks
+## value
 
-Morozov et al., DOI 10.1016/j.chaos.2023.113707, is the model's source; its qualitative emphasis is high-growth transients and trapping conditions. Tan and Chia, DOI 10.1103/PhysRevE.47.3087, study sectional discontinuity numerically. Jiang et al., DOI 10.3934/dcdss.2024050, consider a different state-impulse construction. Related indexed findings on cubic Allee and two-patch dispersal maps do not imply the present one-dimensional sign-dependent basin formula. Residual risks: unindexed equivalent source, inability to inspect entire latter two papers, no independent mathematical audit, and restriction to the exact parameter slice.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At a natural border-critical parameter where the logistic maximum coincides with the switching point, the basin develops an exactly computable square-root opening and a nonanalytic ε^(3/2) selected mean despite O(ε) equilibrium separation. This connects meaningful global attractor selection and nonsmooth critical scaling rather than merely solving a textbook fixed-point equation; it gives a complete phase portrait and exact uniform-selection law for the source population model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
