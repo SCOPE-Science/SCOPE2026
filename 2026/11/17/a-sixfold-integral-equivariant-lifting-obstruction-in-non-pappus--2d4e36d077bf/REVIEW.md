@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim concerns a finite, completely specified rank-three matroid pair. The common one-skeleton and explicit tetrahedral boundary fillings prove integral first-homology vanishing; exact face counts then give free degree-two ranks 47 and 48. An explicit cycle with coefficient one proves surjectivity of the relaxation extension. All 12 automorphisms are exhaustively determined. The signed-orbit decomposition reduces the problem to eight integer coordinates: four displayed boundary equations force the projection to be divisible by six, and a separately checked complete-boundary witness projects to six. Full rational characters are obtained from an independent signed fixed-face Lefschetz computation. The standalone verifier runs successfully and covers all critical finite enumerations, not merely floating-point or modular experiments.
+## correctness
 
-**Originality — PASS under inspected evidence, with publication-priority risk.** Oxley's non-Pappus example and the 2012 published Tutte polynomial already imply numerical Betti data, but neither supplies an integral equivariant extension class. Amini–Brändén analyze hyperbolicity and nonrepresentability, not homology-module splitting. Moci–Pezzoli's general equivariant matroid-topology comparison works in characteristic zero and does not determine the presented nontrivial integral extension or its exact order six. The closest indexed integral example concerns the distinct Fano matroid (64-fold lattice gluing), not this nine-point Pappus relaxation. Searches covered the matroid aliases, relaxation, automorphism modules, equivariant lifts, sixfold orders and equivalent formulations. Unindexed primary literature and uninspected portions of long books remain risks; this is not a certified first-publication claim.
+PASS
 
-**Mathematical value — PASS.** Circuit-hyperplane relaxation is a basic operation on matroids. Rational semisimplicity makes a one-dimensional added summand appear to split, but the most natural nonrepresentable rank-three relaxation violates integral equivariant splitting by the sharp index six. The exact two- and three-primary obstruction yields a substantive boundary to naive integral extrapolation from Tutte polynomials and rational homology characters, not merely a recomputed Betti number or arbitrary graph parameter.
+Independently enumerated the 12 matroid automorphisms preserving eight omitted triples, 76 allowed triangles and the eight sign-isotypic orbit sums with orbit sizes (12,6,12,6,12,12,6,1). Recomputed the exact 36×8 integer boundary matrix (rank 4), verified all four critical edge equations, the integrality consequence x7∈6Z and the proposed primitive sixfold cycle has zero boundary on all 36 edges. The relative cycle [def]-[aef]+[adf]-[ade] gives surjective quotient; no 3-simplices. Euler count gives ranks 47/48. Direct Lefschetz traces match character multiset 48,-6,(-4)×3,2×3,0×4. Rational splitting is Maschke; class order six follows from the same lifting criterion.
 
-The full result does not classify other matroid relaxations or independent publication priority. It establishes an exact integral obstruction for one canonical, well-motivated example.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The integer obstruction for the specific Pappus/non-Pappus relaxation is not implied by rational matroid-homology representations or Fano module examples; distinctive exact exponent six was verified. This is a qualified best-of-knowledge assessment, not universal historical priority.
+
+## value
+
+PASS
+
+A natural circuit-hyperplane relaxation induces a canonical integral automorphism-module extension. Its precise sixfold failure of equivariant lifting is nontrivial integral structure invisible over Q and is mathematically reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
