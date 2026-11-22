@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two-step successor equations are exactly \(H_0=h_0\circ h_1\) and \(H_1=h_1\circ h_0\). Completion of squares determines all real quartic turning points and hence every four-sheet window with necessary and sufficient inequalities; the endpoints and widths follow by evaluating the minimum and central maximum. The orbit-specific four-versus-two distinction is independently established by exact quadratic discriminants. At the regular witness the cyclic Floquet multiplier is \(1/(ab)\); at the central double singularity it is undefined, not silently continued. The included exact-coefficient polynomial checker runs successfully. Only finite successor chains are counted, not periodic chains.
+## correctness
 
-**Originality — PASS (best knowledge, limited historical guarantee).** Oliveira's primary 2026-11-02 paper assumes forward regularity for its local multiplier and Lyapunov–Schmidt results; it does not determine the displayed phase-dependent global two-step real-sheet caustics. Beardmore–Webster (2008) treats quasi-invariant local manifolds rather than these explicit branch-valence inequalities. Buescu–Oliveira (first posted 2026-11-09) treats singularity markers but identifies multiple simultaneously singular steps as future territory. Related existing real quartic inverse-branch studies do not automatically imply the *phase-ordered* criterion or same-multiplier, different-branching witness for this two-phase implicit recurrence. Standard quartic completion of squares is acknowledged. Residual risk: the explicit elementary family may have been treated under another guise in older singularity or iterated-polynomial literature; a missing reference would change this judgment.
+PASS
 
-**Mathematical value — PASS.** This is a complete, sharp two-parameter classification of real successor multiplicity for the smallest nonlinear two-phase implicit construction capable of four sheets. Its natural motivation is the mismatch between phase-invariant cyclic Floquet data and phase-dependent global branching near a doubly singular transition, a distinction invisible to regular orbit stability alone. All four phase-valued patterns occur in every neighbourhood of the double singularity, and the inverse-regularity exponent \(1/4\) is optimal. The content is a precisely bounded structural example, not a universal bifurcation theory.
+The implicit relation x_n=h_j(x_(n+1)) gives H0=h0∘h1 and H1=h1∘h0, not the forward composition. Completed squares yield H0=[2(z+b/4)²-(b²-4a)/8]²-a²/4 and H1=2[(z+a/2)²-(a²-b)/4]²-b²/8. A positive inner negative offset is equivalent to two minima separated by central maximum: regular inverse valence four precisely at b²>4a or a²>b, respectively, and windows (-a²/4,-a²/4+(b²-4a)²/64), (-b²/8,-b²/8+(a²-b)²/8). Nonpositive offsets yield at most two regular real roots. At a=-ε,b=ε,0<ε<1/16, phase0 H0(z)=0 splits into four distinct roots 0,-ε/2,(-ε±sqrt(ε²+8ε))/4; phase1 H1(z)=0 has only 0,ε because remaining quadratic discriminant ε²-2ε<0. Along the stationary zero orbit derivatives are 1/a and 1/b; cyclic products both -ε^-2. At a=b=0 inverse branches grow as x^(1/4), exponent optimal. Independently sympy-expanded H0,H1 and factorizations and exact rational witness; global universal root-count reasoning analytical.
 
-**Scope and risks.** The chosen orbit is a phase-labelled two-step stationary state. Branch counts are for admissible real two-step successor chains and must not be interpreted as a count of distinct periodic orbits or attracting trajectories. No independent priority audit or proof validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge phase-resolved global inverse valence counterexample, not a new quartic root theorem or regular Floquet cyclic invariance; primary implicit-system literature treats local singular markers under different maps.
+
+## value
+
+PASS
+
+A motivated exact minimal counterexample to equating cyclic Floquet spectra with global inverse-sheet branching in implicit dynamics, including independent sharp phase caustics, explicit four-branch windows and a regular shared zero orbit; more than a bare quartic exercise because it identifies precise failure of a natural inference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
