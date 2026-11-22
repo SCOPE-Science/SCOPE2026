@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T08:50:21.895120Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n=8, exactly C8=1430 noncrossing matchings use the 64 opposite-parity chords. The signed Catalan interval recurrence D(a,b)=sum_{j-a odd} sign(a,j)D(a+1,j)D(j+1,b) equals every Walsh coefficient. Independent inclusion-exclusion W(S)=sum_{A subset S}(-2)^|A| N(A) independently enumerated ALL 1430 matchings and ALL chord supports of weights 1..4, yielding zero counts (0,0,0,544) and four-edge degree shapes exactly 256 stars and 288 brooms. I inspected the second C++17 source: canonicalizes all 32 dihedral images, weights each distinct orbit correctly, and outputs the 17 orbit representatives in ORBIT_CERTIFICATE.txt, each orbit size 32. General even n=2k star construction selects one chord from each mirrored Catalan pair around a vertex; exactly half matchings contain a selected chord, giving 2n 2^k distinct zeros. No false infinite sharpness extrapolated from n=8.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dyadic rigidity proves all-length existence iff n+1 not power of 2 and a universal vertex-switch zero multiplicity; this allows n=8 zeros but not their degree distribution.",
+          "Integral Fourier identifiability proves first-degree rank and covariance nullspace, not four-chord cancellation."
+        ],
+        "reasoning": "Neither stronger-sounding global theorem logically determines minimum support four at 16 vertices or its complete 17-orbit classification.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-dyadic-rigidity-and-exact-walsh-singularity-of-noncrossing-perfe--c838773114fa",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-integral-fourier-identifiability-from-noncrossing-perfect-matchi--e353f7965df9"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-dyadic-rigidity-and-exact-walsh-singularity-of-noncrossing-perfe--c838773114fa",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-integral-fourier-identifiability-from-noncrossing-perfect-matchi--e353f7965df9",
+        "https://arxiv.org/abs/1307.6440",
+        "https://arxiv.org/abs/1502.05332",
+        "Resultary: noncrossing perfect matchings sixteen vertices Walsh character cancellation four edges 544 star broom 17 dihedral orbit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "First-degree independent coordinate constraints only restrict linear covariance; full sign-spectrum gcd says every coefficient has specified 2-adic divisor.",
+          "Divisibility and existence of some zero are insufficient to deduce vanishing at exactly weight4 or star/broom orbit distribution."
+        ],
+        "reasoning": "The new claim requires a genuinely additional exact four-edge signed Catalan census.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-integral-fourier-identifiability-from-noncrossing-perfect-matchi--e353f7965df9",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-dyadic-rigidity-and-exact-walsh-singularity-of-noncrossing-perfe--c838773114fa"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Walsh zero is a parity-unbiased edge-incidence test, or Fourier zero of the convex noncrossing matching indicator on F2^64.",
+          "The known gcd/singularity theorem treats all characters without classifying the minimum Hamming support or 4-edge zero graphs."
+        ],
+        "reasoning": "Considering zero-weight, Fourier support, parity tests and signed Catalan partition functions reveals a distinct refined invariant.",
+        "searches": [
+          "Resultary: noncrossing perfect matchings sixteen vertices Walsh character cancellation four edges 544 star broom 17 dihedral orbit",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-dyadic-rigidity-and-exact-walsh-singularity-of-noncrossing-perfe--c838773114fa"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classic Catalan table gives 1430 configurations but not signed 64-variable Fourier zeros.",
+          "Exact independent 635,376 weight-four and lower combinations were included, with all 544 zeros grouped into claimed shapes and source 17 orbit certificates."
+        ],
+        "reasoning": "The zero list is not a known Catalan count or matching enumeration table, and its exhaustive exact classifier is substantively motivated.",
+        "searches": [
+          "Resultary: noncrossing perfect matchings sixteen vertices Walsh character cancellation four edges 544 star broom 17 dihedral orbit",
+          "https://arxiv.org/abs/1307.6440",
+          "https://arxiv.org/abs/1502.05332"
+        ]
+      },
+      "rationale": "Earlier full Fourier signed-Catalan work gives an exact gcd and existence of zeros for each polygon size but neither low-degree support thresholds nor the 544/17-orbit census. Earlier integral identifiability concerns degree-one covariance/rank, not the nonlinear Walsh zero locus. Classical noncrossing matching enumeration supplies Catalan counts only. This is a sharp finite-order classification with a general constructive bound.",
+      "residual_risks": [
+        "An unindexed Temperley-Lieb or signed Catalan enumeration may encode the same degree4 orbit census without Walsh terminology.",
+        "Full arithmetic support range and exact low-degree sharpness are asserted only for n=8; higher polygon sizes not classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE_NOT_SUBSUMING",
+          "evidence": "Establishes zero existence and gcd, not minimum Walsh weight or 544 census.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-dyadic-rigidity-and-exact-walsh-singularity-of-noncrossing-perfe--c838773114fa",
+          "material_read": "Complete published RESULT.md, the gcd proof, sign-switch construction, and limitations",
+          "method": "Full GitHub published source text",
+          "title": "Dyadic rigidity and exact Walsh singularity of noncrossing perfect matchings",
+          "trigger": "Same objects/characters and apparent all-size dominating spectral theorem"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE_NOT_SUBSUMING",
+          "evidence": "Computes covariance rank, not degree4 signed cancellation orbits.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-integral-fourier-identifiability-from-noncrossing-perfect-matchi--e353f7965df9",
+          "material_read": "Complete published RESULT.md including degree-one rank proof and 2-edge Catalan formula",
+          "method": "Full GitHub published source text",
+          "title": "Integral Fourier identifiability from noncrossing perfect matchings",
+          "trigger": "Low-degree Fourier result for exactly same polygon matching family"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY_IN_READ_MATERIAL",
+          "evidence": "Counts diagrams and crossings, not signed incidence-parity Walsh zeros.",
+          "identifier_or_url": "https://arxiv.org/abs/1307.6440",
+          "material_read": "Opened primary PDF and inspected mathematical introduction/Catalan combinatorics and representative page screenshot, not all 51 pages",
+          "method": "Primary PDF text and screenshot",
+          "title": "Analytic combinatorics of chord and hyperchord diagrams with k crossings",
+          "trigger": "Primary enumeration and crossing-restricted chord diagrams"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY",
+          "evidence": "Convex-position extremal count geometry, not incidence Fourier cancellation.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.05332",
+          "material_read": "Primary paper 6-page PDF opened; inspected title, abstract and initial theorem page with screenshot",
+          "method": "Primary PDF text and screenshot",
+          "title": "The number of non-crossing perfect plane matchings is minimized (almost) only by point sets in convex position",
+          "trigger": "Primary geometric matching enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the first nontrivial unbiased-parity threshold of a standard Catalan matching ensemble: a complete exact low-degree classification and 17 dihedral orbits with a nontrivial star/broom split. Fourier cancellation governs which parity measurements lose information, while the all-even-size star construction gives a structural family of zeros. A fully exhaustive but reproducible finite theorem on a natural 16-point object can have stand-alone mathematical value.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-dyadic-rigidity-and-exact-walsh-singularity-of-noncrossing-perfe--c838773114fa",
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-integral-fourier-identifiability-from-noncrossing-perfect-matchi--e353f7965df9",
+    "https://arxiv.org/abs/1307.6440",
+    "https://arxiv.org/abs/1502.05332",
+    "Resultary: noncrossing perfect matchings sixteen vertices Walsh character cancellation four edges 544 star broom 17 dihedral orbit"
+  ],
+  "disposition": "passed",
+  "limitations": "No all-n exact minimum-support theorem. Only n=8 four-chord classification and even-n upper bound via stars.",
+  "residual_risks": [
+    "An unindexed Temperley-Lieb or signed Catalan enumeration may encode the same degree4 orbit census without Walsh terminology.",
+    "Full arithmetic support range and exact low-degree sharpness are asserted only for n=8; higher polygon sizes not classified."
+  ],
+  "schema_version": 1
+}

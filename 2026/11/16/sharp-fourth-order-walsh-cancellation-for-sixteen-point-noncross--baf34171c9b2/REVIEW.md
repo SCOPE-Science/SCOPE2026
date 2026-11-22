@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The character normalization, the half-open interval recurrence, and its boundary cases follow directly from the unique partner decomposition of noncrossing matchings. Exact enumeration covers each of the \(64\), \(2016\), \(41664\), and \(635376\) supports at degrees one through four, modulo explicit dihedral orbits, with no sampling. An independent inclusion-moment computation reproduces the nullity and shape counts. The infinite construction is proved from the symmetric Catalan split at one fixed vertex, not extrapolated from tested sizes. The all-order minimal-degree statement is expressly unproved.
+PASS
 
-## Originality
+For n=8, exactly C8=1430 noncrossing matchings use the 64 opposite-parity chords. The signed Catalan interval recurrence D(a,b)=sum_{j-a odd} sign(a,j)D(a+1,j)D(j+1,b) equals every Walsh coefficient. Independent inclusion-exclusion W(S)=sum_{A subset S}(-2)^|A| N(A) independently enumerated ALL 1430 matchings and ALL chord supports of weights 1..4, yielding zero counts (0,0,0,544) and four-edge degree shapes exactly 256 stars and 288 brooms. I inspected the second C++17 source: canonicalizes all 32 dihedral images, weights each distinct orbit correctly, and outputs the 17 orbit representatives in ORBIT_CERTIFICATE.txt, each orbit size 32. General even n=2k star construction selects one chord from each mirrored Catalan pair around a vertex; exactly half matchings contain a selected chord, giving 2n 2^k distinct zeros. No false infinite sharpness extrapolated from n=8.
 
-**PASS under bounded comparison.** The closest published analysis of this same convex matching codebook, *Integral Fourier identifiability from noncrossing perfect matchings*, treats first-degree covariance and exact two-chord marginals; its claim does not contain the third-/fourth-degree signed moments needed to derive a 544-support, 17-orbit fourth-order zero census. Pilaud–Rué (2013) and Asinowski (2015) provide Catalan and crossing enumeration, not character cancellation. The Fourier work of Brauch–Kézdy–Snevily (2014) concerns different matching-detection functions and algebra. The older flip-graph study of Hernando–Hurtado–Noy concerns adjacency and connectivity; full-text access to the older repository copy was limited. Novelty is stated as best-knowledge with residual unindexed-source risk, not an independence or exhaustive-priority guarantee.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The full first cancelling Fourier layer is a natural discrete harmonic invariant of the Catalan codebook: no test using at most three incidences is parity-unbiased, but fourth-order tests do cancel. The exact 544 supports split into two graph shapes and 17 symmetry orbits, revealing genuinely non-star cancellation beyond the universal reflected-star construction. This is a complete motivated finite cutoff at 16 vertices, with an all-even-size constructive boundary; neither a generic count of matchings nor a routine rephrasing of known covariance rank.
+Earlier full Fourier signed-Catalan work gives an exact gcd and existence of zeros for each polygon size but neither low-degree support thresholds nor the 544/17-orbit census. Earlier integral identifiability concerns degree-one covariance/rank, not the nonlinear Walsh zero locus. Classical noncrossing matching enumeration supplies Catalan counts only. This is a sharp finite-order classification with a general constructive bound.
 
-## Limitations
+## value
 
-No result is asserted for Fourier weights above four, all-size optimality of the star bound, or full convolution rank. Historical literature comparison is bounded and independent mathematical auditing remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the first nontrivial unbiased-parity threshold of a standard Catalan matching ensemble: a complete exact low-degree classification and 17 dihedral orbits with a nontrivial star/broom split. Fourier cancellation governs which parity measurements lose information, while the all-even-size star construction gives a structural family of zeros. A fully exhaustive but reproducible finite theorem on a natural 16-point object can have stand-alone mathematical value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
