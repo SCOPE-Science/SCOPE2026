@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Both finite-domain mixed-boundary moment equations follow from Dynkin/Kac identities with exact generator D d²+b d and variance source -2D(τ′)². Multiplying and eliminating b yields D W=v′. Positive integrating-factor representations show τ′>0,v′>0 and W>0; the converse reconstructed coefficients solve both uniquely determined boundary problems. Reflecting-endpoint Taylor asymptotics and strictly ordered mean-degenerate example are proved. 183 deterministic example checks passed; finite tests are not used as an infinite-dimensional proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Keidar, Reuveni, Sokolov (2026), arXiv:2611.03831v1, text and equations (1)–(7): constant diffusivity, mean profile and potential on a half-line.",
+        "Cristofol and Roques (2017), arXiv:1702.06859, abstract: infer unknown coefficients from short-time mean and variance of X_t itself, not passage-time profiles.",
+        "Bal and Chou (2004), pp. 4–10: partial coefficient reconstruction using a fixed-start complete exit-time transform plus prior coefficient information."
+      ],
+      "reasoning": "Neither constant-diffusivity potential reconstruction, finite-dimensional ABM/GBM moment fitting, nor single-position full-transform spectral inversion implies the nonparametric mixed-boundary two-profile criterion without a further argument. Classical mean exit time plus two-exit splitting probabilities is a genuinely different measurement setting.",
+      "searches": [
+        "full spatial mean and variance first passage profiles reflecting absorbing diffusion determine both unknown drift diffusivity functional inverse unique realization criterion",
+        "reconstruct one dimensional diffusion drift diffusion coefficient from mean and variance first passage time functions for all initial points reflecting absorbing boundaries inverse problem",
+        "same mean first-passage time different diffusivity variance family variable diffusion profile identifiability two moments"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.03831v1",
+      "doi:10.3390/math14142586",
+      "doi:10.1088/0266-5611/20/4/004",
+      "arxiv:1702.06859 (abstract only)",
+      "Published finding: Two absorption-time moments identify contrast and switching in a confined two-mobility diffusion (2026)",
+      "Published finding: Two-moment tomography and a sharp variance floor for a stochastically gated Brownian absorber (2026)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Keidar et al. require fixed diffusion and invert only a mean profile; their admissibility integral concerns a half-line at infinity.",
+        "Xiang et al. derive parameter recovery for constant-coefficient or geometric Brownian models using two scalar hitting-time moments.",
+        "Bal–Chou identify one unknown coefficient with additional a priori information from a full time distribution at selected starts and note an exit-side-probability alternative."
+      ],
+      "reasoning": "The new claim allows both b(x) and D(x) unknown and reconstructs from exact profiles τ(x),Var(T_x) on the full interval, plus a converse realizability criterion W>0 with regular extension. Restricting the new theorem to constant coefficients yields classical cases; the converse implication from those restricted prior cases is not established by any inspected source.",
+      "searches": [
+        "diffusion process generator identification mean variance exit time functions inverse reflected absorbing",
+        "simultaneous determination drift diffusion coefficients mean variance first passage time profiles",
+        "first passage time mean variance spatial profiles determine diffusivity drift coefficient boundary inverse problem Wronskian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The generator acts as a second-order operator on both the mean and the variance of an exit time; the second equation uses the carré-du-champ term 2D(τ′)^2.",
+        "Bal and Chou (2004), doi:10.1088/0266-5611/20/4/004, pp. 3–5, discuss the split-exit-probability plus mean-time identification and the spectral one-position FPT inverse problem.",
+        "Xiang, Zhou and Xiang (2026), doi:10.3390/math14142586, Sections 2.1–2.2, use two scalar moments for ABM/GBM."
+      ],
+      "reasoning": "A classical generator may be determined from two independent backward solutions, but a first-passage variance is not itself a solution with constant source. Incorporating its inhomogeneous diffusion-dependent carré-du-champ term yields the explicit Wronskian, strict admissibility sign and a complete realization criterion. No searched equivalence was found as an explicit prior claim; a classical implicit equivalence remains possible.",
+      "searches": [
+        "backward first hitting time mean variance profiles eliminate generator solve b(x) D(x) Wronskian positivity inverse reconstruction",
+        "first passage moments inverse coefficient recovery variance exact positivity Wronskian generator diffusion",
+        "inverse problem infer both drift and diffusion functions from first two moments of first hitting times for all starting points"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest publicly described finite-dimensional claim: “Two absorption-time moments identify contrast and switching in a confined two-mobility diffusion”, 2026; it concerns mobility contrast and switching parameters, not two arbitrary coefficient functions.",
+        "Closest publicly described other claim: “Two-moment tomography and a sharp variance floor for a stochastically gated Brownian absorber”, 2026; it recovers two switching rates from two scalar observations.",
+        "Primary literature inspected: doi:10.3390/math14142586, arXiv:2611.03831v1, and doi:10.1088/0266-5611/20/4/004."
+      ],
+      "reasoning": "No exact spatial-profile feasible-data table, sign test or two-function reconstruction was identified in the retrieved records. The comparison is based on statements and model assumptions, not simply different titles or keyword matches. Search nonappearance is not a proof of uniqueness.",
+      "searches": [
+        "full spatial mean and variance first passage profiles reflecting absorbing diffusion determine both unknown drift diffusivity functional inverse unique realization criterion",
+        "first passage moments inverse coefficient recovery variance exact positivity Wronskian generator diffusion",
+        "same mean first-passage time different diffusivity variance family variable diffusion profile identifiability two moments"
+      ]
+    },
+    "rationale": "The full two-function, full-spatial-profile inverse and smooth realization inequality are materially different from the constant-diffusion mean-only recent inverse result, scalar two-moment ABM/GBM fitting and classic fixed-position full-distribution reconstruction. published-finding corpus claim searches and primary literature comparisons did not expose covering implication. Published classical inverse-diffusion methods remain a substantive implicit-coverage risk; no global uniqueness of the scientific result is asserted.",
+    "residual_risks": [
+      "An equivalent backward-equation elimination may be implicit in a classical inverse-diffusion paper or handbook even if not explicitly located.",
+      "The 2017 simultaneous-coefficient paper was inspected only at abstract level; it concerns different observables but full-text comparison was not performed.",
+      "Finite/noisy samples do not directly realize the ideal full smooth profiles; statistical stability is unproved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: known constant diffusivity, mean-only potential reconstruction on half-line.",
+        "evidence": [
+          "arXiv:2611.03831v1, 2026-11-02, Eq. (1) known D and Eq. (2) inverse mean ODE; main admissibility criterion ∫dx/τ′=∞."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.03831v1",
+        "material_read": "ArXiv HTML article (abstract, model, main inverse formula and admissibility argument, growth regime and references).",
+        "method": "Full-text HTML examination of model normalization, boundaries and theorem statement.",
+        "title": "The Inverse Mean First-Passage Time Problem",
+        "trigger": "Exact recent initiating work on inverse spatial MFPT profile"
+      },
+      {
+        "assessment": "NOT_COVERING based on explicit ABM and GBM finite-parameter scope; no claim concerning full arbitrary functional profiles.",
+        "evidence": [
+          "Mathematics 14 (2026) 2586, abstract says estimate ABM/GBM parameters; Sections 2.1–2.2 display constant-parameter mean/variance formulas."
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2227-7390/14/14/2586",
+        "material_read": "Abstract and indexed full-article Section 2.1 and 2.2 model/moment formulas, along with date and metadata.",
+        "method": "Open article HTML and indexed section-content inspection.",
+        "title": "Moment-Based Identification of Diffusion Generators via First Hitting Times",
+        "trigger": "Strongest same-two-moments title; potential full prior implication"
+      },
+      {
+        "assessment": "NOT_COVERING for the stated one-position spectral theorem and two-exit split-law discussion; potential implicit classical moment-hierarchy equivalence remains a risk.",
+        "evidence": [
+          "2004 PDF pp. 3–5 Eq. (4) full transform with fixed starting location; pp. 4–5 Theorems 1–2 require prior coefficient knowledge; p. 3 notes classical exit-side probability plus mean alternative."
+        ],
+        "identifier_or_url": "https://www.stat.uchicago.edu/~guillaumebal/PAPERS/FirstExit.pdf",
+        "material_read": "PDF introduction, Sections 2–5 (equation, stated theorems, spectral method) and Section 6 theorem on repeated sites.",
+        "method": "Read parsed primary PDF text and visually inspected page 4 with its actual equations and theorem.",
+        "title": "On the reconstruction of diffusions from first-exit time distributions",
+        "trigger": "Classic general diffusion inverse treatment; plausible stronger implication"
+      },
+      {
+        "assessment": "NOT DECISIVE: its observations are state moments at short times, distinct from full passage-time mean and variance profiles; full-text equivalence not ruled out.",
+        "evidence": [
+          "2017 abstract explicitly states expectation and variance of X_t observed for small positive times, not absorption-time moments."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1702.06859",
+        "material_read": "ArXiv abstract only; full text not inspected.",
+        "method": "Bibliographic abstract inspection and comparison of measured observable.",
+        "title": "Simultaneous determination of the drift and diffusion coefficients in stochastic differential equations",
+        "trigger": "Potentially dominating simultaneous two-observable diffusion inverse theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bc65c367-6333-4462-9d3a-80856de5d343",
+  "value": {
+    "rationale": "The natural inverse question is whether the mean and variance of a first-passage experiment, measured as functions of initial location, identify both unknown mobility/noise and force. The result gives a complete smooth realizability region and a unique constructive recovery formula for an infinite-dimensional pair of coefficients. A regular continuum of distinct drift/diffusion landscapes shares an identical full mean profile but has strictly ordered variance profiles, demonstrating genuine necessity of the additional statistic. No paper-sized downstream theorem is presumed; no noisy-data stability is claimed.",
+    "status": "PASS"
+  }
+}
