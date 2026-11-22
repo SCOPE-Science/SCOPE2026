@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "Poisson thinning establishes the exact failure factor. The negative second derivative of g gives unique equal allocation at fixed site count, and the negative second derivative of the perspective score gives a unique continuous optimum and adjacent-integer reduction. The pointwise v_r ratio is strictly increasing in exposure, proving a sharp at-most-once adjacent crossover as catastrophe risk grows; strict concavity excludes skipping counts. Endpoint tests and log-asymptotics were reconstructed algebraically. The embedded checker passed 4513 diagnostics, independently recomputed from exact package contents; numerics were not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Canessa et al. optimize captive age-class allocations to reintroduction and resultant abundance, not independent one-shot at-least-one-site establishment.",
+        "Helmstedt et al. (2014) compare one or two predator exclusion fences and long-term cost efficiency; full methods were not accessible, leaving a specific priority risk.",
+        "Berger-Tal et al. (2012) use individual-based spatial simulation to study deer release-site number and schedule, not independent site setup costs or exact count monotonicity.",
+        "Berger-Tal et al. evaluate multiple deer release sites and schedules by spatial individual-based simulation over a fixed count range rather than deriving a universal at-least-one-founder success optimization.",
+        "Helmstedt and Possingham (first online 2016-11-29) use stochastic dynamic programming for a three-site time-dependent abundance objective with ongoing site costs, a different claim."
+      ],
+      "reasoning": "The related ecology design literature addresses finite patches, long-term populations, multiple life-stages and maintenance. Its published available statements do not dominate the claim over arbitrary site counts in an independent Poisson one-shot success model. General stochastic resource-allocation and perspective-concavity literature could be broader, so historical priority is conditional on the material read.",
+      "searches": [
+        "site opening cost independent environmental suitability founder Poisson effort all sites equal optimal",
+        "Helmstedt et al. 2014 DOI 10.1890/13-1579.1 single large or two small reserve",
+        "Berger-Tal et al. DOI 10.1111/j.1523-1739.2011.01746.x multiple release site simulation",
+        "Canessa et al. 2014 DOI 10.1111/1365-2664.12253 full Materials and methods",
+        "Helmstedt and Possingham DOI 10.1111/acv.12319 manuscript Methods and Optimization Method"
+      ]
+    },
+    "checked_sources": [
+      "Duncan et al. 2014 DOI 10.1111/2041-210X.12288 full text",
+      "Canessa et al. 2014 DOI 10.1111/1365-2664.12253 full text",
+      "Helmstedt and Possingham 2016 DOI 10.1111/acv.12319 accessible manuscript transcription",
+      "Helmstedt et al. 2014 DOI 10.1890/13-1579.1 abstract and citations",
+      "Berger-Tal et al. DOI 10.1111/j.1523-1739.2011.01746.x publicly accessible text transcription and abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Duncan et al. establish source-form of site failure under demographic and environmental stochasticity, but no fixed-cost multi-site optimized number; this follows by solving a new decision problem, not by renaming a formula.",
+        "Canessa et al. optimize releasing specific life stages under captive population constraints; they do not imply the monotone independent-site count as catastrophe probability varies.",
+        "The 2016 three-site optimization maximizes abundance under dynamic program, and does not imply the exact staircase in the one-shot binary-suitability problem."
+      ],
+      "reasoning": "None of the compared primary statements has hypotheses logically implying the global integer optimum and its unique single-crossing threshold condition. Jensen/strict perspective convexity alone yields the two-candidate reduction but not the comparative-statics monotone ratio; the latter is independently derived and directly checked.",
+      "searches": [
+        "Poisson founding effort budget site setup cost independent unsuitable sites establish at least one optimal number equal allocation",
+        "catastrophe survival versus founder allocation release site count logarithmic concavity monotonic single crossing",
+        "Duncan et al. 2014 DOI 10.1111/2041-210X.12288 full discussion",
+        "Helmstedt and Possingham 2016 DOI 10.1111/acv.12319 sections Management Objective and Results"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Duncan et al. (2014) derive individual founder lineage survival and environmental suitability, giving related single-site marginal survival curves; no equal-cost arbitrary count minimization theorem in inspected sections.",
+        "The mathematical equivalent is a separable perspective allocation maximizing a sum of strictly concave logarithmic reliabilities under a positive fixed site cost; it is not established by the prior site success formula alone."
+      ],
+      "reasoning": "The precursor site-failure mechanism is equivalent in a Poisson-thinned specialisation, but a mechanism is not the optimized integer policy. Fixed founder numbers in the prior paper differ from Poisson arrival intensity here. The theorem additionally proves the catastrophe-risk single-crossing property, which does not follow from Jensen alone.",
+      "searches": [
+        "Poisson founding effort budget site setup cost independent unsuitable sites establish at least one optimal number equal allocation",
+        "log convex extinction probability c+(1-c)exp(-p x) optimal number of populations founding budget",
+        "Duncan et al. 2014 DOI 10.1111/2041-210X.12288 sections Demographic stochasticity and Environmental heterogeneity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published founding figures/tables concern establishment versus founding population size and empirical fit, not an integer-count optimum as catastrophe risk changes.",
+        "No exact threshold database/table for the independent-site fixed-opening Poisson success model was identified in accessible searches."
+      ],
+      "reasoning": "The finding is a universal functional classification, not a new entry in a finite numerical table. No matches in searched indexes are not proof of novelty; potential older site-budget tables remain a stated residual risk.",
+      "searches": [
+        "fixed-cost multiple habitat reintroduction sites independently catastrophically unsuitable Poisson founder budget exact optimal site count",
+        "staircase of optimal introduction sites as catastrophe risk increases ecological founder allocation",
+        "Duncan et al 2014 quantitative establishment Figure 1 and equations (2)-(10)"
+      ]
+    },
+    "rationale": "The closest 2014 founding paper derives heterogeneous establishment probabilities but not fixed-cost site-count optimization. The 2014 stage-specific release scheduling study and the 2016 three-site dynamic planning study have different objectives and controls. Related reserve studies are risk/maintenance comparisons for one/two sites, not the arbitrary-count Poisson founder staircase. Detailed implication comparisons leave possible broader convex-allocation precedence as a residual risk, not a demonstrated covering result.",
+    "residual_risks": [
+      "Broader convex perspective, reliability allocation and stochastic resource-allocation results might already imply the entire theorem without sharing its biological terms.",
+      "The 2014 fenced-reserves study and Etienne-Heesterbeek (2000) were not fully visually inspected due to source-access limitations; their abstract objectives appear different, but priority cannot be conclusively excluded.",
+      "Empirical site unsuitability and Poisson number assumptions are mathematical idealizations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides founding probability mechanism but does not give the optimal arbitrary number of fixed-cost independently vulnerable release sites or monotone count changes",
+        "evidence": [
+          "First published 2014-10-23",
+          "Sections Demographic stochasticity and Demographic stochasticity plus environmental heterogeneity; DOI 10.1111/2041-210X.12288"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/2041-210X.12288",
+        "material_read": "Full publisher HTML article including Introduction, Demographic stochasticity, Demographic stochasticity plus environmental heterogeneity, Discussion and figure descriptions",
+        "method": "Inspected visible publisher HTML through complete relevant sections and bibliography",
+        "title": "Quantifying invasion risk: the relationship between establishment probability and founding population size",
+        "trigger": "Exact independent-founder and binary environmental unsuitability mechanism"
+      },
+      {
+        "assessment": "Dynamic age-structured cohort releases with cost constraints; not Poisson site suitability or an optimized number of independent founding sites",
+        "evidence": [
+          "First published 2014-03-15",
+          "Materials and methods: stage-structured transition matrix and release matrix; DOI 10.1111/1365-2664.12253"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/1365-2664.12253",
+        "material_read": "Publisher free-access HTML abstract, Introduction, Materials and methods including matrix population model, and release optimization and discussion",
+        "method": "Read accessible article sections and inspect objective/optimization model",
+        "title": "Optimal release strategies for cost-effective reintroductions",
+        "trigger": "Optimal budget-constrained ecological reintroduction policy"
+      },
+      {
+        "assessment": "Three-site dynamic stochastic management and terminal/long-term population abundance rather than arbitrary independent site count and single founding event; first published 2016-11-29 so supporting comparison only",
+        "evidence": [
+          "Three potential prepared release sites with annual stochastic dynamic programming and continued releases",
+          "First published 2016-11-29; DOI 10.1111/acv.12319"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/acv.12319",
+        "material_read": "Text-transcribed full manuscript sections including Introduction, Materials and methods, Management Objective, Optimization Method, Results and Discussion, and publisher abstract",
+        "method": "Inspected lawful publicly available HTML transcription and publisher article abstract",
+        "title": "Costs are key when reintroducing threatened species to multiple release sites",
+        "trigger": "Most semantically direct multi-site opening-cost reintroduction study"
+      },
+      {
+        "assessment": "Empirical individual-based spatial simulation with preselected sites and time-varying releases, not arbitrary site count with fixed opening costs and exact Poisson one-shot establishment probability",
+        "evidence": [
+          "2011 DOI and 2012 Conservation Biology volume",
+          "Simulates 180 deer over 18 years with 1–4 extra sites and compares temporal release patterns"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/j.1523-1739.2011.01746.x",
+        "material_read": "Publicly available author-manuscript text transcription and abstract containing objectives, simulation setup, observations and conclusions",
+        "method": "Inspected transcribed sections and abstract on potential release sites and alternate/consecutive release schedules",
+        "title": "Effectiveness of Multiple Release Sites in Reintroduction of Persian Fallow Deer",
+        "trigger": "Direct prior study of number of release sites and founding strategy"
+      },
+      {
+        "assessment": "Analyzes long-term cost efficiency of one/two fenced reserves with ongoing predator exclusion; material access leaves incomplete claim-coverage comparison",
+        "evidence": [
+          "First published 2014-10-01",
+          "Abstract on one fence versus two fenced reserves and long-term management; DOI 10.1890/13-1579.1"
+        ],
+        "identifier_or_url": "https://doi.org/10.1890/13-1579.1",
+        "material_read": "Publisher title, abstract, citation metadata, cited literature; full methods not available in inspected HTML",
+        "method": "Inspected article HTML and accessible abstract; did not treat abstract as full-text exclusion",
+        "title": "Cost-efficient fenced reserves for conservation: single large or two small?",
+        "trigger": "General reserve-splitting and recurring management costs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0bca87a4-2a3c-41b2-b26e-a28995a43778",
+  "value": {
+    "rationale": "The integer decision about number of simultaneously founded habitat sites balances fixed opening costs against environmentally correlated failures within a site. The theorem solves all continuous allocations and count choices, provides a budget-independent scalar effort root, strict integer two-candidate cutoff, unique adjacent catastrophe-risk transitions and nonreentrant policy monotonicity. The exact nature of this allocation law is a plausible benchmark for conservation founder planning, with meaningful comparison to dynamic and correlated failures; no field validation claimed.",
+    "status": "PASS"
+  }
+}
