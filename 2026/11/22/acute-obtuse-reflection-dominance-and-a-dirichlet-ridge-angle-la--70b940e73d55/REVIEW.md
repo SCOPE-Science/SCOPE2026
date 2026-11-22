@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The claim has fixed intrinsic Euclidean normalization in the affine hyperplane of an explicit Minkowski sum. Formula (1) follows from projecting facet indicator normals to the zero-sum hyperplane; it gives both angle expressions with the correct inward-versus-outward convention. Every ridge corresponds to a pair of compatible tubes, proved in the established graph-associahedron face theory. Counting cyclic interval positions and positive gap compositions proves the exact angle multiset, including equal-length division by two. A length-complement map proves strict reflected multiplicity dominance, and two uniform four-part composition models yield the same limiting Dirichlet cosine distribution. Finite exact-coordinate checks independently verify facet/ridge ranks through six vertices and rational angle/count identities through twelve vertices, with reflection checks through dimension twenty-five. These checks support but do not replace the all-order proof.
+
+## Originality — PASS, provisional priority
+The closest structural prior works are Jevtić–Jelić–Živaljević (2018), *Cyclohedron and Kantorovich–Rubinstein Polytopes*, DOI 10.1007/s40598-018-0083-4; Cardinal–Pournin–Valencia-Pabon (2021), *Diameter estimates for graph associahedra*, arXiv:2106.16130; and Pilaud–Santos–Ziegler (2023), *Celebrating Loday's Associahedron*, arXiv:2305.08471. Their inspected cyclohedron/tubing and simplex-sum sections provide the required incidence and normals, but not the exact angular census, strict angle-reflection multiplicity comparison or Dirichlet mixture theorem. A previously derived metric-angle census for a path associahedron addresses a different nested complex and has different angular frequencies and limit. The clock-quasi-metric Lipschitz realization of the cyclohedron is not the Euclidean simplex-sum realization. Remaining risks: an unindexed angular enumeration, or an unstated corollary in broader generalized-permutohedron literature. Search absence alone is not treated as proof of priority.
+
+## Mathematical value — PASS
+The complete Euclidean ridge-angle multiset is a natural invariant of the canonical cycle-graph nestohedron, not a random parameter slice. It reveals a sharp finite multiplicity-dominance property, exactly characterizes the absence of right angles, and connects the entire high-dimensional angular law to a symmetric Dirichlet spacing magnitude with an asymmetric sign mixture. This differs qualitatively from the path-associahedron limiting law and from the cycle graphical-zonotope angular law. The explicit formulas apply in every dimension and enable further curvature/angle-statistic calculations.
+
+## Limitations
+The result does not claim invariance under arbitrary affine realization, an error rate in the weak limit, or independent external verification. Primary structural results are credited. Historical priority remains provisional.
+
+Self-review: passed. Independent audit: not yet performed.
