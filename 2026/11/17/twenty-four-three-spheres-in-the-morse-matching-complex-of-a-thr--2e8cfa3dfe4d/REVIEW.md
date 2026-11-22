@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The base complex has 13 nonempty faces and 21 cover incidences. The attached independent verifier reconstructs all 2,121 nonempty simplices of its ordinary Morse-matching complex, checks an explicit 1,048-pair face-poset acyclic matching with 25 critical cells, and tests the complete reversed directed Hasse graph. Exactly one critical zero-cell and 24 critical three-cells survive. Forman's CW reduction yields 24 three-spheres; the integral claim does not depend on the separately checked mod-two Betti calculation. The result is finite and complete for the specified base complex.
+PASS
 
-## Originality (PASS, subject to bibliographic risk)
+Reconstructed the face poset from the three triangles 012,013,023: 13 nonempty base faces, 21 Hasse incidences, exactly 2,121 nonempty gradient simplices with f-vector (21,162,560,846,468,64). Independently replayed the complete 1,048 pair certificate and all 25 critical simplex bitmasks; all 2,121 nonempty faces partition exactly, each pair is a genuine cover, and the reversed entire 8,112-edge Hasse DAG topologically sorts all 2,121 vertices. Critical inventory is one 0-cell and 24 3-cells with no positive lower skeleton; Forman discrete Morse theory yields an integral wedge of 24 three-spheres, stronger than mod-two Betti numbers. The empty gradient matching is not a geometric 0-cell.
 
-The full-text statements of Chari–Joswig's *Discrete Morse Complexes* (arXiv:math/0011234), Scoville's *The complex of discrete Morse matchings of the n-simplex* (arXiv:2604.18172v1), and Knudson–Owens-White's *Complexes of strong discrete Morse matchings* (arXiv:2609.06844) were compared against this precise complex. Chari–Joswig cover graph inputs and small simplices; Scoville computes the tetrahedral boundary and full tetrahedron and proves a cone-inclusion nullhomotopy, not the homotopy of the cone's Morse complex; Knudson–Owens-White chiefly study the different strong matching complex. Targeted mathematical literature and indexed-record searches found no equivalent statement for the three-triangle disk. This does not rule out unindexed or unpublished calculations.
+## originality
 
-## Value (PASS)
+PASS
 
-The minimally triangulated two-ball that is not itself a single triangle is a canonical next case after simplices in the study of spaces of Morse matchings, and it is one facet deletion away from the tetrahedral boundary studied in 2026. The exact integral homotopy classification explains a striking shift from 21 third- and 24 fourth-dimensional spheres for that intact boundary to 24 third-dimensional spheres for the puncture. It supplies a reproducible small benchmark for topology under elementary changes to a triangulation; it is not a general triangulated-disk stability theorem.
+Comparison is with ordinary, not strong, discrete-Morse complexes, and with full homotopy rather than just inclusions. Scoville classifies the full tetrahedron and its boundary and proves a cone inclusion map null, but does not determine this deleted-facet disk. No earlier same-object 24-sphere calculation surfaced; best-of-knowledge only.
 
-## Limitations
+## value
 
-No equivariant representation, relative inclusion map, or broader cone classification is established. The certificate and program must be executed together. Bibliographic absence is not proof of worldwide uniqueness. Independent audit is not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Removing one face from the tetrahedral boundary is a natural minimal topological perturbation. Its ordinary Morse complex changes from known mixed-dimensional sphere wedges to a pure 24-sphere wedge; a complete integral homotopy classification is a precise reusable structural test for cone inclusion and Morse matching topology, not just a mod-two rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
