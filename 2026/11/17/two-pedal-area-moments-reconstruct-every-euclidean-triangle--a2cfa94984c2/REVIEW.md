@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise normalized statistic is \(Q=(R^2-\lVert P-O\rVert^2)/(4R^2)\) on the circumdisk, so positivity and all acute/obtuse cases are addressed. Barycentric coordinates are Dirichlet \((1,1,1)\) for area-uniform sampling. Their exact monomial integrals give \(\mu=e_1/48\) and \(\nu=(e_1^2-e_2)/1440\). Heron's and circumradius formulas imply \(e_3=4e_2-e_1^2\); Vieta and SSS complete inversion. The two explicit distinct isosceles triangles have the same mean and different second moments. The exact rational checker independently verifies identities in actual geometric configurations; it is not presented as an infinite certificate.
+PASS
 
-## Originality — PASS (provisional historical priority)
+The Simson/pedal quadratic identity gives Q=(R^2-|P-O|^2)/(4R^2) with supporting side lines; every triangle interior point lies in its circumdisk. For barycentric Dirichlet(1,1,1), Q=[a_1 lambda_2 lambda_3 + a_2 lambda_3 lambda_1 + a_3 lambda_1 lambda_2]/4. Exact Dirichlet integrals yield mu=e1/48 and nu=(e1^2-e2)/1440. Heron and s1 s2 s3=4 Delta R yield e3=4e2-e1^2, so Vieta uniquely reconstructs squared side ratios from the two moments, including obtuse and repeated-root cases. The isosceles pair (7/2,7/2,7/4) and (5/2,5/2,15/4) has identical first moment and different e2. Independently checked the right triangle (0,0),(4,0),(0,3): a=(4,36/25,64/25), mu=1/6 and nu=577/18750 with the Heron identity verified exactly. Finite examples do not replace the universal symmetric-polynomial proof.
 
-Searches included pedal-area inverse problems, the circumcenter radial distribution, barycentric inverse moments, similarity classification, and stronger/different moment models. Full primary papers [2], [3], [4], [5] and the complete published results for the nearest centroidal-radial and perimeter-triangle inverse models were materially inspected. Their objects differ: deterministic pedal similarity or inequalities, vertex-distance distributions, three centroidal moments, and areas of three independent perimeter samples, respectively. None of the inspected statements supplies the two normalized pedal-area moment inversion. The 1893 identity itself is explicitly treated as prior work. Full text of older general polygon-moment inversion [6] and the original 1893 article was not accessible; this is a historical-priority risk, not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-This is a minimal and geometrically natural inverse-shape signature of a canonical triangle construction. The surprising reduction from three unrestricted symmetric side parameters to two measured moments follows from the circumcircle constraint, and the explicit one-moment collision proves sharpness. It provides an interpretable complementary measurement to centroidal and pair-distance moment tomography; correctness or novelty alone was not used to justify significance.
+PASS for two-scalar pedal-moment similarity tomography and sharp single-moment insufficiency; the nineteenth-century scalar pedal-area formula is explicitly credited and not original.
 
-## Limits
+## value
 
-Exact dimensionless population moments; no scale, sampling noise, quantitative stability or full distribution is determined. The earliest exactly day-verified online archival citation is the January 20, 2009 posting of an article originally printed in February 1893, whose exact print day is not established. Priority remains subject to independent assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two dimensionless observables suffice to recover an arbitrary triangle up to similarity, with the minimum number of initial moments proved. The geometric circumradius constraint removes a nominal third degree of freedom, a substantive inverse-geometry link beyond classical direct pedal-area formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

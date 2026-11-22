@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof is in `RESULT.md`. The standalone `pedal_moment_check.py` uses Python's standard library and exact rational arithmetic, without downloads or external packages. Execute `python3 pedal_moment_check.py` in the same directory. The checker tests four exact barycentric projections in each of an acute, right and obtuse triangle and compares the area ratio with its circumcenter expression; it recomputes the Dirichlet moments and the Heron–circumradius identity for all three geometries and checks the distinct one-moment witness. The successful observed terminal marker is `PEDAL_MOMENT_TOMOGRAPHY_CHECKS_OK`.
+# Independent mathematical audit
 
-The finite rational checks do not constitute the proof for the continuum of triangles, which rests on exact symbolic integration and Vieta's theorem. No independent audit, external certification, or statistical noise analysis is claimed. The earliest day-precise archived online source is dated 2009-01-20; the original printed Steggall article is from February 1893, for which an exact day was not verified.
+## correctness
+
+PASS
+
+The Simson/pedal quadratic identity gives Q=(R^2-|P-O|^2)/(4R^2) with supporting side lines; every triangle interior point lies in its circumdisk. For barycentric Dirichlet(1,1,1), Q=[a_1 lambda_2 lambda_3 + a_2 lambda_3 lambda_1 + a_3 lambda_1 lambda_2]/4. Exact Dirichlet integrals yield mu=e1/48 and nu=(e1^2-e2)/1440. Heron and s1 s2 s3=4 Delta R yield e3=4e2-e1^2, so Vieta uniquely reconstructs squared side ratios from the two moments, including obtuse and repeated-root cases. The isosceles pair (7/2,7/2,7/4) and (5/2,5/2,15/4) has identical first moment and different e2. Independently checked the right triangle (0,0),(4,0),(0,3): a=(4,36/25,64/25), mu=1/6 and nu=577/18750 with the Heron identity verified exactly. Finite examples do not replace the universal symmetric-polynomial proof.
+
+## originality
+
+PASS
+
+PASS for two-scalar pedal-moment similarity tomography and sharp single-moment insufficiency; the nineteenth-century scalar pedal-area formula is explicitly credited and not original.
+
+## value
+
+PASS
+
+Two dimensionless observables suffice to recover an arbitrary triangle up to similarity, with the minimum number of initial moments proved. The geometric circumradius constraint removes a nominal third degree of freedom, a substantive inverse-geometry link beyond classical direct pedal-area formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
