@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C) — PASS
+## correctness
 
-The exact model and domain match the 2026 network SIRS equations. Positive left/right nullvectors are correctly normalized; the linear operator is exponentially stable off the Perron mode. Compactness and strict nonincreasing Perron infection functional prove extinction for all nonzero infected seeds. Weighted convolution comparisons justify the first and second stable slaving coefficients; a cubic expansion then yields the universal logarithmic coefficient without relying on finite simulation. Exact symbolic tests establish the two-node values. The proof does not claim the remainder after subtracting the logarithm is bounded.
+PASS
 
-## Originality (O) — PASS within inspected evidence
+Verified the exact invariant population triangle y_i>=0,z_i>=0,y_i+z_i<=1 and Perron identity at rho(Gamma^-1 W)=1 for irreducible W: A=W-Gamma has a simple zero eigenvalue v>0 and w>0, u=w^T y, u'=-w^T[(y+z)⊙Wy]<=0. Every positive-infection trajectory becomes strictly componentwise infected; LaSalle yields (y,z)->0. Relative slow variation u(t-r)/u(t)->1 and exponential stable semigroups yield y=vu+p u²+o(u²), z=h u+q u²+o(u²), h=Delta^-1 Gamma v, Ap=b-Kv on w^T p=0, q=Delta^-1(Gamma p+Kh), K=w^T[(v+h)⊙Wv]>0. Multiplication gives u'=-Ku²-Lu³+o(u³), so t y->v/K, t z->h/K and (u^-1-Kt)/log t->L/K (not necessarily O(1) remainder). Independently used symbolic matrix algebra on the exact specified W=[[3/4,1/4],[1/2,3/2]], Gamma=diag(1,2), Delta=dI: w=(2/3,1/3), v=(1,1), exact Ap projection, K=2(2d+3)/(3d), L/K=-(8d³+45d²+27d-54)/(9d²(2d+3)). Its cubic has strictly positive derivative on d>0, unique root 0.795652212912595; sign reverses. Finite symbolic checks corroborate but do not prove global critical trajectories.
 
-Gatti and Como prove threshold global stability but do not calculate these critical asymptotics. Bonaccorsi and Turri analyze a heterogeneous network SIRS model but not this second-order critical law. The closest indexed critical correction records concern adaptive SIS or infection-driven SIRCm with different vector fields, so their formulas cannot be substituted into the present directed SIRS coefficients. The cubic waning-rate reversal remains a substantive model-specific result. The older Yang–Draief–Yang full text was not accessible, and other unindexed results might limit priority; novelty is assessed from inspected source material rather than claimed as an exhaustive database absence.
+## originality
 
-## Mathematical value (V) — PASS
+PASS
 
-The epidemic reproduction threshold does not describe the rate of clearance at equality. This result gives the leading physical infected/recovered proportions and the first logarithmic delay or acceleration of reciprocal prevalence. Its fixed-network, variable-waning sign reversal shows that identical invasion thresholds can hide distinct second-order clearance dynamics, with a sharp algebraic boundary.
+Gatti–Como prove the disease-free spectral threshold and global attraction for finite deterministic network SIRS; they do not provide these two-scale Perron coefficients in inspected accessible material. The indexed 2026 SIRCm and adaptive SIS critical logarithm results concern different state variables/vector fields; their B sign parameter is feedback, whereas the present explicit sign reversal varies immunity-waning d in a directed irreducible 2-node SIRS. No inspected publication implies the exact p,q,L or this parameter-specific polynomial. Full text of potentially relevant Gatti–Como SIRS source was not retrievable during this run, so priority is best-of-knowledge with explicit residual risk, not an access-based automatic FAIL.
 
-## Scope and evidence limitations
+## value
 
-Only finite deterministic irreducible networks at exact criticality are covered. Stronger remainder convergence, stochastic finite-population extinction, and all-network sign reversals are not asserted. Numerical checks are diagnostic rather than infinite-time proofs. The older SIRS full-text accessibility gap and possible general normal-form specializations are residual originality risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact network SIRS threshold is a mathematically natural nonhyperbolic boundary where exponential stability no longer controls extinction rates. A universal directed-network spatial Perron profile, a computable second-order projected correction and a one-parameter sign reversal in that correction offer meaningful structural asymptotics beyond the original reproduction threshold; equations and coefficients are specific to the original epidemic flow.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

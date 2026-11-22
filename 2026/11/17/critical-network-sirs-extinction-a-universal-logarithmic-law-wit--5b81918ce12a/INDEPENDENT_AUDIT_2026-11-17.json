@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T22:02:15.453051Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified the exact invariant population triangle y_i>=0,z_i>=0,y_i+z_i<=1 and Perron identity at rho(Gamma^-1 W)=1 for irreducible W: A=W-Gamma has a simple zero eigenvalue v>0 and w>0, u=w^T y, u'=-w^T[(y+z)⊙Wy]<=0. Every positive-infection trajectory becomes strictly componentwise infected; LaSalle yields (y,z)->0. Relative slow variation u(t-r)/u(t)->1 and exponential stable semigroups yield y=vu+p u²+o(u²), z=h u+q u²+o(u²), h=Delta^-1 Gamma v, Ap=b-Kv on w^T p=0, q=Delta^-1(Gamma p+Kh), K=w^T[(v+h)⊙Wv]>0. Multiplication gives u'=-Ku²-Lu³+o(u³), so t y->v/K, t z->h/K and (u^-1-Kt)/log t->L/K (not necessarily O(1) remainder). Independently used symbolic matrix algebra on the exact specified W=[[3/4,1/4],[1/2,3/2]], Gamma=diag(1,2), Delta=dI: w=(2/3,1/3), v=(1,1), exact Ap projection, K=2(2d+3)/(3d), L/K=-(8d³+45d²+27d-54)/(9d²(2d+3)). Its cubic has strictly positive derivative on d>0, unique root 0.795652212912595; sign reverses. Finite symbolic checks corroborate but do not prove global critical trajectories.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SIRCm has four compartments S,I,R,C with infection-driven feedback, while SIRS on an irreducible directed graph has y,z vectors and W matrix. Adaptive SIS has a scalar infected coordinate and dynamic link density."
+        ],
+        "reasoning": "The shared 1/t plus log t normal-form phenomenon is generic but neither published source gives the SIRS network projected p,q,L or specific immunity waning sign-polynomial; no strong coverage established. Full Gatti–Como inaccessible, explicitly risked.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-universal-critical-relaxation-and-a-feedback-controlled-logarith--4105e5caa4dc/RESULT.md full",
+          "Resultary 2026/11/8/SCOPE-critical-adaptive-sis-clearance-exact-two-term-law-and-a-curvatu--3dbf6638e1f1/RESULT.md full",
+          "arXiv:2604.21065 Gatti–Como original SIRS"
+        ]
+      },
+      "checked_sources": [
+        "Gatti–Como arXiv:2604.21065 (2026), accessible abstract/threshold statements; full text unavailable",
+        "Bonaccorsi–Turri deterministic/stochastic mean-field SIRS network paper, bibliographic comparison",
+        "Resultary 2026/11/8/SCOPE-universal-critical-relaxation-and-a-feedback-controlled-logarith--4105e5caa4dc/RESULT.md",
+        "Resultary 2026/11/8/SCOPE-critical-adaptive-sis-clearance-exact-two-term-law-and-a-curvatu--3dbf6638e1f1/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Gatti–Como criterion implies extinction at the critical Perron radius, but does not logically imply a sharp inverse-time amplitude, second-order slaving vectors, or signed logarithmic law without substantial stable subspace analysis."
+        ],
+        "reasoning": "The submitted proof derives distinct projections p and q and L from the SIRS network flow; no checked broader-source theorem directly supplies those values. Access uncertainty to Gatti full text remains disclosed.",
+        "searches": [
+          "Gatti–Como arXiv:2604.21065, stated global DFE threshold",
+          "Full Resultary 2026 SIRCm and adaptive SIS RESULT.md primary statements",
+          "Frozen network SIRS RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Other SIRS threshold papers identify rho(Gamma^-1 W)=1 as nonhyperbolic epidemic threshold, but the submitted u^-1 log coefficient is an explicit cubic order reduction not recovered from this qualitative condition."
+        ],
+        "reasoning": "Compared scalar Perron-normalized SIRS formulation with published linear threshold, nearby SIRCm four-compartment critical expansions and adaptive SIS link dynamics; variables/evolution equations differ.",
+        "searches": [
+          "Resultary semantic search: critical network SIRS directed irreducible threshold Perron 1/t extinction log correction immunity waning sign change",
+          "Gatti–Como arXiv:2604.21065v2 bibliographic/full-text attempts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two-node polynomial 8d³+45d²+27d−54 and its 0.795652... sign boundary are not part of the inspected prior tables; current independent exact symbolic check reproduces them."
+        ],
+        "reasoning": "The two-node calculation alone would be narrow, but is used as a nontrivial sign-changing witness to the proved n-node all-initial-condition asymptotic; failed searches alone are not novelty proof.",
+        "searches": [
+          "Resultary critical SIRS projected eigenvector search, adaptive SIS and SIRCm similar models",
+          "Original 2026-04 Gatti–Como threshold statement and subsequent network-SIRS indexed abstracts"
+        ]
+      },
+      "rationale": "Gatti–Como prove the disease-free spectral threshold and global attraction for finite deterministic network SIRS; they do not provide these two-scale Perron coefficients in inspected accessible material. The indexed 2026 SIRCm and adaptive SIS critical logarithm results concern different state variables/vector fields; their B sign parameter is feedback, whereas the present explicit sign reversal varies immunity-waning d in a directed irreducible 2-node SIRS. No inspected publication implies the exact p,q,L or this parameter-specific polynomial. Full text of potentially relevant Gatti–Como SIRS source was not retrievable during this run, so priority is best-of-knowledge with explicit residual risk, not an access-based automatic FAIL.",
+      "residual_risks": [
+        "Full Gatti–Como 2026 article could contain a sharper critical asymptotic than accessible abstracts and indexed sections; authorized institutional full-text access failed with disconnected VPN. A plausible inaccessible source alone does not force failure, but this priority comparison should be revisited.",
+        "The theorem is deterministic mean-field at exact rho=1 on irreducible finite W; no off-threshold or finite stochastic epidemic claim.",
+        "The limit asserts o(log t) residual, not a finite constant beyond the log."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Inspected material documents spectral extinction threshold but cannot establish absence of full paper-specific asymptotic results",
+          "evidence": "arXiv:2604.21065; authorized publisher access explicitly blocked, no assertion that inaccessible full text was read.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.21065",
+          "material_read": "Indexed abstract, bibliographic/source descriptions and threshold statements; full article HTML/PDF not accessible during this run",
+          "method": "Open preprint and alternate lawful OA attempts; authorized institutional request returned vpn_disconnected, not silently bypassed",
+          "title": "On the dynamic behavior of the network SIRS epidemic model",
+          "trigger": "Exact same directed network SIRS and threshold; highest-priority comparison"
+        },
+        {
+          "assessment": "Not same directed network SIRS equations; does not imply p,q,L here",
+          "evidence": "Uses SIRCm variables (S,I,R,C), threshold beta=mu+alpha and feedback epsilon_1; SIRS uses vector y,z and directed contact matrix.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-universal-critical-relaxation-and-a-feedback-controlled-logarith--4105e5caa4dc/RESULT.md",
+          "material_read": "Entire RESULT.md: four-compartment equations, exact K,L, global proof and comparison to original immune escape model",
+          "method": "Full published primary text",
+          "title": "Universal critical relaxation and a feedback-controlled logarithmic correction in the SIRCm flow",
+          "trigger": "Very similar inverse-prevalence log expansion and sign change"
+        },
+        {
+          "assessment": "Distinct two-dimensional adaptive-link mechanism and positivity assumptions; no coverage of general directed-network SIRS coefficients",
+          "evidence": "Its sign control is curvature of link response, not common immunity waning rate d in a 2-node SIRS matrix.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-critical-adaptive-sis-clearance-exact-two-term-law-and-a-curvatu--3dbf6638e1f1/RESULT.md",
+          "material_read": "Entire RESULT.md, assumptions b(y),c(y), scalar y, link z and explicit B sign change",
+          "method": "Full published primary text",
+          "title": "Critical adaptive SIS clearance: exact two-term law and a curvature sign transition",
+          "trigger": "Possible broader critical 1/t plus log t statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact network SIRS threshold is a mathematically natural nonhyperbolic boundary where exponential stability no longer controls extinction rates. A universal directed-network spatial Perron profile, a computable second-order projected correction and a one-parameter sign reversal in that correction offer meaningful structural asymptotics beyond the original reproduction threshold; equations and coefficients are specific to the original epidemic flow.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen assigned RESULT.md Git blob 94458844922e8f792918ddc163927062e52665e0",
+    "Frozen assigned METADATA.json Git blob f1fe2d0bbaea810465b7922141d375b4fe0a2d50",
+    "Frozen assigned AUDIT.json Git blob ceb349702af1189b13f0be17048371725022504f",
+    "Frozen assigned checks/check.py Git blob 2be41f510e7de6fe90630038537121b5ddf67299",
+    "Gatti–Como arXiv:2604.21065 (2026), accessible abstract/threshold statements; full text unavailable",
+    "Bonaccorsi–Turri deterministic/stochastic mean-field SIRS network paper, bibliographic comparison",
+    "Resultary 2026/11/8/SCOPE-universal-critical-relaxation-and-a-feedback-controlled-logarith--4105e5caa4dc/RESULT.md",
+    "Resultary 2026/11/8/SCOPE-critical-adaptive-sis-clearance-exact-two-term-law-and-a-curvatu--3dbf6638e1f1/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exact critical rho=1, finite irreducible W, positive Gamma and Delta, and nonzero initial y.",
+    "Full primary Gatti–Como text inaccessible; bibliographic risk retained, with explicit Oxford VPN failure.",
+    "No unproved O(1) next-order reciprocal remainder or stochastic result is asserted.",
+    "Full Gatti–Como 2026 article could contain a sharper critical asymptotic than accessible abstracts and indexed sections; authorized institutional full-text access failed with disconnected VPN. A plausible inaccessible source alone does not force failure, but this priority comparison should be revisited.",
+    "The theorem is deterministic mean-field at exact rho=1 on irreducible finite W; no off-threshold or finite stochastic epidemic claim.",
+    "The limit asserts o(log t) residual, not a finite constant beyond the log."
+  ],
+  "schema_version": 1
+}
