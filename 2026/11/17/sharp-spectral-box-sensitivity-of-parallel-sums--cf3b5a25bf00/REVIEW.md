@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The one-sided Fréchet derivative of the positive-operator parallel sum is exactly \(H\mapsto CHC^*\), where \(C=B(A+B)^{-1}\). Its induced norm on self-adjoint directions is \(\|C\|^2\), with rank-one positive directions approaching equality. Integration over the convex spectral box proves the global upper bound, and perturbations near an interior approximation to an extremal pair prove global sharpness. For each unit vector, the spectral box bounds both operator images by radius \((\kappa-1)/2\) around the common center \((\kappa+1)z/2\). The parallelogram identity gives a scalar envelope; the derivative of this scalar envelope changes its maximizer at \(\kappa=2+\sqrt5\). Explicit planar symmetric reflections realize equality, and the algebraic second threshold is \(\kappa=5+2\sqrt6\). This establishes the theorem analytically on arbitrary real or complex Hilbert spaces of dimension at least two. The finite diagnostic script checks representative extremizers and samples but does not establish the proof.
+PASS
 
-## Originality — PASS, qualified
+PASS. The Fréchet derivative of Φ(A,B)=B-B(A+B)^-1 B is H↦C H C* with C=B(A+B)^-1 and exactly ||C||² induced norm on self-adjoint perturbations via rank-one positive H and approximate singular vectors. Integration on the convex spectral box controls all finite differences; perturbing an interior approximation to a boundary pair gives reverse sharpness. For every unit z, u=Az,v=Bz, constraints ||u-cz||,||v-cz||≤r with c=(κ+1)/2,r=(κ-1)/2 yield ||u+v||≥sqrt(2||v||²+K)-r where K=(κ²+6κ+1)/4. Scalar Fκ(a)=a/(sqrt(2a²+K)-r), a∈[1,κ], switches its maximizer at κ=2+sqrt5 and yields precisely Lκ=(κ/(κ+1))² or (κ+6+κ^-1)/16. Explicit 2×2 real reflections with eigenvalues 1 and κ saturate Fκ, commuting on the first branch and noncommuting on the second; Lκ>1 iff κ>5+2sqrt6. Independent reflection matrices for κ=2,4,5,9,12 reproduce formula to floating precision and spectra; proof dimension-free and infinite-dimensional by operator estimates, not finite test. κ=1 excluded; dimension one separately gives commuting branch.
 
-Alwadani, arXiv:2611.05523v1 (2026), Sections 2–3, studies monotonicity, paramonotonicity, and decomposition invariance of set-valued parallel sums; it neither optimizes operator-norm sensitivity on common positive spectral boxes nor supplies the two thresholds. Luo–Song–Xu, arXiv:1806.07033v1 (2018), especially Corollaries 3.2–3.3, supplies the *prior* pointwise perturbation coefficient involving \(\|(A+B)^{-1}B\|^2\); the differential identity and pointwise bound are credited. The present result optimizes that coefficient exactly over all positive pairs sharing a prescribed spectral interval and proves sharpness with noncommuting two-dimensional pairs; that optimization and explicit two-threshold expression are absent from the inspected paper. Naik–Johnson, arXiv:2607.10166v1 (2026), Section 4, gives conditional norm estimates in a block-complementability framework, not this common spectral-box envelope. Searches for matrix-parallel-sum sensitivity and its aliases and comparisons to accessible historical mathematical claims found no direct covering statement. An equivalent bound in older matrix-inequality or electrical-network literature remains a genuine publication-priority risk; failed search is not proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Parallel sum is a natural effective-conductance and monotone-operator composition. A *uniform* perturbation estimate with only a spectral interval as input is useful when matrix orientation is unknown; pointwise coefficients cannot be evaluated without the full matrices. The formula determines an exact dimension-independent operator invariant, displays a sharp phase transition from commuting to noncommuting extremizers, and determines the precise loss of nonexpansiveness. The sharpness is nontrivial even in dimension two and makes clear why scalar estimates cease to suffice. The result does not address joint two-argument perturbations, singular operators, or separate spectral ranges.
+PASS with older parallel-sum optimization risk. The pointwise perturbation coefficient ||(A+B)^-1B||² is known from Luo–Song–Xu/Anderson–Duffin, but their theorems do not evaluate its exact worst case on the common spectral interval. Alwadani addresses set-valued monotonicity; Naik–Johnson addresses complementability/block-structured inequalities. The two transition values and explicit noncommuting extremizers survive these comparisons.
 
-## Closest literature and remaining limitations
+## value
 
-The most consequential antecedent is Luo–Song–Xu (arXiv:1806.07033), which already gives the pointwise one-sided perturbation coefficient. The other inspected sources concern qualitative parallel sums and conditional block-operator norm inequalities. Exact publication priority remains unverified, independent audit has not been performed, and the theorem assumes a common strictly positive spectral box.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Noncommutativity changes the sharp global Lipschitz behavior of the basic electrical/operator parallel sum at a nontrivial κ transition, with a second exact threshold where it becomes locally expansive. These phase boundaries and explicit small-dimensional witnesses are meaningful perturbation theory, not a simple renaming of the known pointwise coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

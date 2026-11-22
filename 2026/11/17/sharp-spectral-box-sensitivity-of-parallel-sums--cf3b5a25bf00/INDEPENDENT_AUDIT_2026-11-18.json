@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T12:54:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. The Fréchet derivative of Φ(A,B)=B-B(A+B)^-1 B is H↦C H C* with C=B(A+B)^-1 and exactly ||C||² induced norm on self-adjoint perturbations via rank-one positive H and approximate singular vectors. Integration on the convex spectral box controls all finite differences; perturbing an interior approximation to a boundary pair gives reverse sharpness. For every unit z, u=Az,v=Bz, constraints ||u-cz||,||v-cz||≤r with c=(κ+1)/2,r=(κ-1)/2 yield ||u+v||≥sqrt(2||v||²+K)-r where K=(κ²+6κ+1)/4. Scalar Fκ(a)=a/(sqrt(2a²+K)-r), a∈[1,κ], switches its maximizer at κ=2+sqrt5 and yields precisely Lκ=(κ/(κ+1))² or (κ+6+κ^-1)/16. Explicit 2×2 real reflections with eigenvalues 1 and κ saturate Fκ, commuting on the first branch and noncommuting on the second; Lκ>1 iff κ>5+2sqrt6. Independent reflection matrices for κ=2,4,5,9,12 reproduce formula to floating precision and spectra; proof dimension-free and infinite-dimensional by operator estimates, not finite test. κ=1 excluded; dimension one separately gives commuting branch.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Luo–Song–Xu Corollaries 3.2–3.3 give pointwise perturbation inequalities for general positive matrices.",
+          "Naik–Johnson block complementability estimates have distinct assumptions.",
+          "Alwadani treats monotonicity, paramonotonicity and decomposition invariance."
+        ],
+        "reasoning": "Broader matrix domains do not alone yield the *evaluated* sharp bound for common condition number κ; the uniform envelope is absent from the compared statements.",
+        "searches": [
+          "arxiv:1806.07033 Section 3",
+          "arxiv:2607.10166 Section 4",
+          "arxiv:2611.05523"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1806.07033",
+        "https://arxiv.org/abs/2611.05523",
+        "https://arxiv.org/abs/2607.10166",
+        "Resultary semantic search: positive matrices parallel sum Lipschitz sharp operator norm spectral bounds kappa noncommuting phase transition",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-spectral-box-sensitivity-of-parallel-sums--cf3b5a25bf00"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known bound is matrix-specific ||(A+B)^-1B||², not the supremum in κ.",
+          "The reflection witness attains a noncommuting coefficient larger than (κ/(κ+1))² above κ=2+sqrt5."
+        ],
+        "reasoning": "Optimizing a pointwise coefficient is a nontrivial additional theorem; no inspected prior formula implies the piecewise evaluated supremum or its second expansion threshold.",
+        "searches": [
+          "https://arxiv.org/abs/1806.07033",
+          "https://arxiv.org/abs/2607.10166",
+          "https://arxiv.org/abs/2611.05523"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The known one-sided pointwise coefficient ||(A+B)^-1B||² equals the Fréchet norm of the map in this problem.",
+          "The claimed closed envelope depends on optimizing this coefficient jointly over constrained noncommuting positive pairs."
+        ],
+        "reasoning": "Identified equivalent transfer norm and Kantorovich-type spectral box formulation. The derivative is prior knowledge, but optimization and κ phase transition are additional conclusions.",
+        "searches": [
+          "positive matrices parallel sum Lipschitz sharp operator norm spectral bounds kappa noncommuting phase transition",
+          "norm B(A+B)^-1 spectral condition number maximal ratio under I<=A,B<=kI",
+          "parallel sum perturbation coefficient Luo Song Xu"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary top match is the identical assigned record; other ranked results concern different positive matrix functions or spectral phase phenomena.",
+          "Luo–Song–Xu estimates display matrix-dependent norm factors, not a table indexed by κ with threshold 2+sqrt5."
+        ],
+        "reasoning": "No independently checked exact table of this spectral-box supremum was identified; numerical matching parameters alone would not suffice for coverage.",
+        "searches": [
+          "positive matrices parallel sum Lipschitz sharp operator norm spectral bounds kappa noncommuting phase transition",
+          "Resultary spectral-box sensitivity parallel sum kappa noncommuting phase"
+        ]
+      },
+      "rationale": "PASS with older parallel-sum optimization risk. The pointwise perturbation coefficient ||(A+B)^-1B||² is known from Luo–Song–Xu/Anderson–Duffin, but their theorems do not evaluate its exact worst case on the common spectral interval. Alwadani addresses set-valued monotonicity; Naik–Johnson addresses complementability/block-structured inequalities. The two transition values and explicit noncommuting extremizers survive these comparisons.",
+      "residual_risks": [
+        "Older Kantorovich/Cayley/parallel-sum matrix inequalities could secretly contain the same sharp operator-ratio envelope.",
+        "Finite 2×2 witness tests cannot prove arbitrary Hilbert space upper estimate; proof uses uniform operator-ball bound.",
+        "The extremum of the derivative at a boundary is not claimed as an attained finite-difference quotient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CREDITS POINTWISE PRECURSOR; NO DIRECT FORMULA FOR SHARP COMMON-BOX SUPREMUM",
+          "evidence": "Corollaries include ||(A+B)^dag B||²-type coefficients, but no maximum over all A,B in [I,κI].",
+          "identifier_or_url": "https://arxiv.org/abs/1806.07033",
+          "material_read": "Accessible primary article Section 3 and Corollaries 3.2–3.3, including pointwise operator coefficient",
+          "method": "Read published source content and compared explicit mathematical statements with the assigned theorem",
+          "title": "Perturbation estimation for the parallel sum of Hermitian positive semi-definite matrices — Luo, Song, Xu",
+          "trigger": "Same operation and one-sided norm sensitivity"
+        },
+        {
+          "assessment": "DIFFERENT PROPERTY: monotonicity and paramonotonicity, not optimal norm sensitivity",
+          "evidence": "Same term parallel sum but distinct output theorems.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.05523",
+          "material_read": "Accessible arXiv title, abstract and relevant reported Results descriptions",
+          "method": "Read published source content and compared explicit mathematical statements with the assigned theorem",
+          "title": "On Parallel Sums of Set-Valued Operators — Alwadani",
+          "trigger": "Contemporary parallel-sum generalization"
+        },
+        {
+          "assessment": "NOT shown to cover the common positive spectral box optimum",
+          "evidence": "Complementability assumptions differ from unconstrained positive self-adjoint pairs.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.10166",
+          "material_read": "Accessible primary statement/Section 4 information on structural block hypotheses",
+          "method": "Read published source content and compared explicit mathematical statements with the assigned theorem",
+          "title": "Norm Inequalities for Complementable Operators and Parallel Sums — Naik and Johnson",
+          "trigger": "Potential stronger abstract operator norms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Noncommutativity changes the sharp global Lipschitz behavior of the basic electrical/operator parallel sum at a nontrivial κ transition, with a second exact threshold where it becomes locally expansive. These phase boundaries and explicit small-dimensional witnesses are meaningful perturbation theory, not a simple renaming of the known pointwise coefficient.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1806.07033",
+    "https://arxiv.org/abs/2611.05523",
+    "https://arxiv.org/abs/2607.10166",
+    "Resultary semantic search: positive matrices parallel sum Lipschitz sharp operator norm spectral bounds kappa noncommuting phase transition",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-spectral-box-sensitivity-of-parallel-sums--cf3b5a25bf00"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Independent finite diagnostics are corroboration, not a proof of unrestricted quantification.",
+    "Literature priority is bounded best-of-knowledge, not external certification.",
+    "Privacy-safe public replacements and guarded import were not prepared."
+  ],
+  "residual_risks": [
+    "Older Kantorovich/Cayley/parallel-sum matrix inequalities could secretly contain the same sharp operator-ratio envelope.",
+    "Finite 2×2 witness tests cannot prove arbitrary Hilbert space upper estimate; proof uses uniform operator-ball bound.",
+    "The extremum of the derivative at a boundary is not claimed as an attained finite-difference quotient."
+  ],
+  "schema_version": 1
+}
