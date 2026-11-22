@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T19:00:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Three IID hyperbolic arclength-uniform points on a geodesic circle of radius R in curvature −1 give anchored angular gaps (G1,G2,G3) uniform on the 2π-simplex with density 1/(2π²). The hyperbolic chord formula a_i=2asinh(sinh R sin(G_i/2)) and semiperimeter identity tanh²r=Πsinh(s−a_i)/sinh s lead to 4tanh²r=Π(1−u_i)/(1−Πu_i), u_i=e^{−2(s−a_i)}. For fixed gaps, r→r*=atanh(1/2); this alone cannot justify exchanging expectation and limit. Source proof constructs uniform deficit envelope C/(1+e^R G_min)^2, including double-gap corners, and analyzes each minimum-gap chart G_min=x e^{−R}, next gap b. For x>0,b∈(0,2π) it gives deficit profile δ(x)=0.5log[3(1+exp(−2asinh(x/4)))/(3−exp(−2asinh(x/4)))], independent of b. DCT yields e^R E[r*−r_R]→3I/π; change of variable gives I=π−4/sqrt(3) atanh(1/sqrt(3)), so constant 3−12/(πsqrt3)atanh(1/sqrt3)=1.547846114742869.... The Q_R density weighted by the nonnegative deficit converges pointwise in each of three charts to δ(x)/(6πI); its total mass is one, hence Scheffé proves total variation, yielding independent uniform minimum-gap index, density δ/I for scaled minimum x, and uniform next gap angle. Independently evaluated I by high-precision quadrature: 1.62090066098790054 agrees with closed form; constant 1.54784611474286907. Original check_inradius.py read, not its printed log treated as proof. Scope is mean-deficit size-bias, not typical e^{−2R} almost-sure deficit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published half-Pareto theorem concerns typical deficits Z with infinite first moment, not their e^{−R} mean.",
+          "Other random hyperbolic cyclic polygon statements concern polygon *area*, not triangle inradius."
+        ],
+        "reasoning": "An infinite-mean distributional limit does not determine a regularized finite-R expectation; neither area asymptotics nor acuteness statistics dominates the current inradius-boundary-layer law.",
+        "searches": [
+          "random hyperbolic circle inscribed triangle inradius mean deficit boundary layer arctanh probability",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-universal-half-pareto-incircle-deficit-in-large-random-hyperbo--da972935bd1e",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-finite-polylogarithmic-mean-area-laws-for-random-hyperbolic-cycl--205189fce0d1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 34dba40d8ec58c642f157584bd632d96bdb80348, check_inradius.py sha a2f49cc0b5209227859b4e055ab98a18c273164d, tree 5e14ff2287801dac06eb95a219d89afbc235e4d0",
+        "Independent mpmath integration of profile and exact coefficient",
+        "random hyperbolic circle inscribed triangle inradius mean deficit boundary layer arctanh probability",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-universal-half-pareto-incircle-deficit-in-large-random-hyperbo--da972935bd1e",
+        "https://arxiv.org/abs/1405.1068"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior half-Pareto exponent 1/2 forces E[Z]=∞, blocking moment convergence under e^{2R} normalization.",
+          "The new δ(x) is a finite-R collision profile at g~e^{−R} with integrable x^{-2} tail; ∫δ gives exact finite constant."
+        ],
+        "reasoning": "The earlier almost-sure limit and tail do NOT imply convergence of the finite-radius mean, nor the exact nontrivial constant or Q_R total-variation product law; explicit uniform bounds and a different boundary layer are required.",
+        "searches": [
+          "random hyperbolic circle inscribed triangle inradius mean deficit boundary layer arctanh probability",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-universal-half-pareto-incircle-deficit-in-large-random-hyperbo--da972935bd1e",
+          "https://arxiv.org/abs/1405.1068"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-ensemble prior typical statement is e^{2R}(r*−r_R)→Z almost surely with P(Z>t)~ct^{−1/2}; the current target is e^R E(r*−r_R) and deficit-size-biased marks.",
+          "The geometric r* identity and hyperbolic Staudtian identities are classical."
+        ],
+        "reasoning": "Distinguish ordinary conditional rare tail of the limiting Z from size-biased finite-R deficit law Q_R; the latter probes gap scale e^{−R}, not the typical e^{−2R} window.",
+        "searches": [
+          "random hyperbolic circle inscribed triangle inradius mean deficit boundary layer arctanh probability",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-universal-half-pareto-incircle-deficit-in-large-random-hyperbo--da972935bd1e",
+          "https://arxiv.org/abs/1405.1068"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The half-Pareto result reports sharp tail coefficient (6/π)sqrt(2/3) for Z, but not the coefficient 3−12/(πsqrt3)atanh(1/sqrt3) for E deficit.",
+          "Horváth's standard hyperbolic inradius identity does not contain random-circle integrals."
+        ],
+        "reasoning": "No consulted table lists this finite-R mean asymptotic and deficit-weighted limiting density. Bounded search still leaves room for an earlier hidden distributional derivation.",
+        "searches": [
+          "random hyperbolic circle inscribed triangle inradius mean deficit boundary layer arctanh probability",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-universal-half-pareto-incircle-deficit-in-large-random-hyperbo--da972935bd1e",
+          "https://arxiv.org/abs/1406.0467"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge with a decisive same-ensemble comparison. Another published result for exactly three arclength-uniform points on an expanding hyperbolic circle establishes the *typical* e^{2R} inradius deficit, its half-Pareto limiting tail and tail-conditioned mark. Its limiting variable has infinite mean, so its statements do not entail a finite-R e^{−R} expectation coefficient or the deficit-weighted Q_R total-variation law. The current result resolves precisely the loss of uniform integrability through a different e^{−R} angular boundary layer. Classical hyperbolic inradius identities are credited, not claimed. No exhaustive priority guarantee.",
+      "residual_risks": [
+        "Historical specialized literature on random hyperbolic inradii may hide an earlier mean boundary-layer calculation.",
+        "The source's all-R envelope is assessed algebraically, not independently mechanically formalized.",
+        "No error rate, higher moment asymptotic or other curvature/sampling laws are established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical geometric identity supports starting point but does not address random-circle mean or angular collision statistics.",
+          "evidence": "Staudtian inradius formula in theorem 4.10 is deterministic hyperbolic triangle geometry.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.1068",
+          "material_read": "Accessible full arXiv HTML; theorem 4.10 and neighboring hyperbolic semiperimeter/incircle formulas",
+          "method": "Read original HTML mathematical statement and derivation sections",
+          "title": "Hyperbolic plane geometry revisited",
+          "trigger": "Staudtian hyperbolic inradius formula used critically"
+        },
+        {
+          "assessment": "A highly relevant prior result, but its infinite-mean limiting Z does not provide the present finite-radius expectation or size-biased total-variation law.",
+          "evidence": "Published result explicitly says no moment convergence for finite-radius rescaled variables; half-Pareto P(Z>t)~t^{-1/2}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-universal-half-pareto-incircle-deficit-in-large-random-hyperbo--da972935bd1e",
+          "material_read": "Complete published RESULT.md including almost-sure cotangent limit, sharp tail, moment threshold and conditional mark proof",
+          "method": "Read published raw scientific record in full",
+          "title": "A universal half-Pareto incircle deficit in large random hyperbolic triangles",
+          "trigger": "Exactly the same sampling ensemble and observable"
+        },
+        {
+          "assessment": "Not treated as excluding an unseen random-circle special case.",
+          "evidence": "Study centers prescribed hyperbolic triangle parameters and quartic curves.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.0467",
+          "material_read": "Accessible abstract and cited mathematical context only, full text not independently read",
+          "method": "Bibliographic comparison; do not infer whole-document noncoverage",
+          "title": "Rational Hyperbolic Triangles and a Quartic Model of Elliptic Curves",
+          "trigger": "Hyperbolic incircle geometry and fixed-inradius examples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Nonuniform integrability creates a mathematically meaningful discrepancy between typical e^{−2R} deficit and mean e^{−R}. The exact coefficient and total-variation law identify the angular near-collision source of the mean and its deficit-biased typical configurations, giving a quantitative answer not mechanically implied by the existing heavy-tail limit. This exact asymptotic can be used for future random hyperbolic polygon statistics and concentration comparisons; no paper-sized general theorem is required.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Three independent circle-arclength-uniform points in curvature −1; n fixed to three.",
+    "Convergence of deficit-weighted measures, not ordinary event conditioning; no error rate or external certification.",
+    "Absolute historical novelty uncertain."
+  ],
+  "schema_version": 1
+}
