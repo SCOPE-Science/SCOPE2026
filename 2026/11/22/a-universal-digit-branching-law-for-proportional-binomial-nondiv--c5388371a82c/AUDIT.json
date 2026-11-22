@@ -1,0 +1,175 @@
+{
+  "correctness": {
+    "rationale": "Lucas digit comparison is equivalent to nonzero coefficients modulo p. For every multiplier m invertible and not 1 mod p and every carry c, the affine digit map d -> (m d+c) mod p has exactly (p+1)/2 digits with output >= input. The proof counts both increments and wrap-around decrements under c -> c+1, then averages across c. State-independent branching proves every finite-depth and suffix count without a terminal carry restriction (higher n digits are zero). Uniform cylinder masses give the stated Hausdorff and box dimensions and Ahlfors regularity. The verifier independently exercised 14130 exact finite assertions; none is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barat–Grabner spatial equidistribution paper Theorems 1–2 concerns limits of all points (lower,upper) in the Pascal triangle (a two-dimensional problem) and the dimension log_p(p(p+1)/2), not a proportional-line one-dimensional exact count.",
+        "Abram–Lagarias arXiv:1210.2478 Theorem 1.1 determines p-adic path-set dimension from an automaton spectral radius, without providing a universal carry-state formula for proportional binomial coefficients.",
+        "The published prime-relative Fuss–Catalan result treats m=p+1 and has adjacent-digit constraints and a different growth eigenvalue; m=p+1 is excluded from the present exact regular branching theorem."
+      ],
+      "reasoning": "The broader p-adic path-set theorem is a general method: to get the claimed explicit exponent one must first prove the nonstandard balanced-affine-digit lemma making every carry state have exactly (p+1)/2 exits. Two-dimensional Pascal-triangle equidistribution cannot be restricted to a zero-area rational line to infer its exact uniform suffix counts. Exceptional-slope Fuss–Catalan results are not stronger coverage of the generic multiplier case.",
+      "searches": [
+        "for all odd primes p and multiplier m not 0 1 mod p exactly ((p+1)/2)^r integers n<p^r binomial mn n coprime p",
+        "regular p-adic fractal binomial mn choose n nondivisible uniform branching p-adic dimension",
+        "binomial coefficient (a+b)n choose an non-divisibility count p-adic digits fractal dimension",
+        "p-adic Sierpinski gasket rational line slope intersection dimension constant",
+        "https://arxiv.org/abs/1210.2478",
+        "https://www.applied.math.tugraz.at/~grabner/Publications/Binomial-spatial.pdf",
+        "2026/11/8/SCOPE-prime-relative-fuss-catalan-nondivisibility-exact-spectra-and-p--fca5ba9f3d60"
+      ]
+    },
+    "checked_sources": [
+      "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+      "https://arxiv.org/abs/1001.1783",
+      "https://arxiv.org/abs/1409.3820",
+      "https://www.applied.math.tugraz.at/~grabner/Publications/Binomial-spatial.pdf",
+      "https://arxiv.org/abs/1210.2478",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-prime-relative-fuss-catalan-nondivisibility-exact-spectra-and-p--fca5ba9f3d60",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-the-full-odd-prime-p-adic-index-value-closure-of-central-binomia--c0f80e993a75",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-two-adic-residue-image-of-the-proportional-binomial-sequen--3c8bca123502"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The previous central-binomial value-closure theorem allows central m=2 but does not prove a count for all m.",
+        "The author preprint of Barat–Grabner gives digital block-function methods and Pascal-triangle coefficient distribution; no formula identifying all m not 0,1 mod p with the same exact a^r one-dimensional count was located in inspected materials.",
+        "General p-adic graph-directed fractal results give dimension in terms of an unevaluated eigenvalue, which the affine-balancing argument evaluates independently of m."
+      ],
+      "reasoning": "Implication requires both the digit transducer equivalence and the state-independent (p+1)/2-outdegree identity. Neither is explicitly a corollary of the compared fixed-row/fixed-value/two-dimensional results without a new mathematical argument. A general computational algorithm that could determine a special case is not by itself an evaluated statement of the sharp uniform formula.",
+      "searches": [
+        "for all odd primes p and multiplier m not 0 1 mod p exactly ((p+1)/2)^r integers n<p^r binomial mn n coprime p",
+        "affine permutation excedance count p-adic multiplication digits binomial proportional rays universal",
+        "regular p-adic fractal binomial mn choose n nondivisible uniform branching p-adic dimension",
+        "2026/11/8/SCOPE-the-full-odd-prime-p-adic-index-value-closure-of-central-binomia--c0f80e993a75",
+        "2026/11/8/SCOPE-prime-relative-fuss-catalan-nondivisibility-exact-spectra-and-p--fca5ba9f3d60",
+        "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+        "https://arxiv.org/abs/1210.2478"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lucas theorem: p-nondivisibility is digitwise comparison between the digits of n and mn. This is equivalent to no Kummer carries in n+(m-1)n.",
+        "Rowland, arXiv:1001.1783, counts n-th Pascal-row coefficients with varying lower index; it does not fix a linear ray top=mn and lower=n.",
+        "Full claim of the central-binomial index–value closure result concerns the set of possible coefficient values for each suffix, not a universal index-census for every multiplier."
+      ],
+      "reasoning": "The two Lucas/Kummer formulations were explicitly translated into a multiplication-carry transducer. Fixed-row nonzero counts and fixed-suffix residue images answer different questions. Their universal quantifiers do not supply the constant number of allowed next digits for every carry and every multiplier m not congruent to 0 or 1.",
+      "searches": [
+        "number nondivisible binomial 3n choose n modulo p count (p+1)/2 power",
+        "proportional binomial coefficients 3n n p-nondivisible p-adic digit count exact (p+1)/2",
+        "affine permutation excedance count p-adic multiplication digits binomial proportional rays universal",
+        "2026/11/8/SCOPE-the-full-odd-prime-p-adic-index-value-closure-of-central-binomia--c0f80e993a75",
+        "https://arxiv.org/abs/1001.1783",
+        "https://arxiv.org/abs/1409.3820"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact all-odd-prime, all-nonexceptional-multiplier, every-suffix count was identified in the searched indexed records or surveyed primary statements.",
+        "The dyadic valuation law and the two-adic value image of (3n choose n) have p=2 and different invariants; both are disjoint from the present p odd indexing law.",
+        "Classical Lucas digit tables permit direct computation but do not tabulate the uniform affine-carry row count for arbitrary m."
+      ],
+      "reasoning": "Checked numeric examples are not offered as proof of novelty. The searched preexisting exact tables are for different prime domains, values, or row-wise counts. This comparison leaves a residual risk of unindexed tables or an old implicit combinatorial lemma.",
+      "searches": [
+        "number nondivisible binomial 3n choose n modulo p count (p+1)/2 power",
+        "proportional binomial coefficients 3n n p-nondivisible p-adic digit count exact (p+1)/2",
+        "for all odd primes p and multiplier m not 0 1 mod p exactly ((p+1)/2)^r integers n<p^r binomial mn n coprime p",
+        "2026/11/2/SCOPE-exact-dyadic-valuation-law-for-binom-3n-n--499526ba814d",
+        "2026/11/8/SCOPE-exact-two-adic-residue-image-of-the-proportional-binomial-sequen--3c8bca123502",
+        "https://arxiv.org/abs/1409.3820"
+      ]
+    },
+    "rationale": "The comparison uses the exact claim, its Kummer/Lucas equivalent, arbitrary multiplier and suffix quantifiers, and the regular p-adic dimension consequence, not title similarity. Row-wise Pascal formulas, two-dimensional Pascal-gasket equidistribution, p-adic path-set dimension algorithms, central-binomial value images, and the exceptional p+1 Fuss–Catalan growth law do not give the explicit uniform digit-carry outdegree across all generic slopes. Broader implicit preexisting equivalence is a residual priority risk, not disproved by absence of a search hit.",
+    "residual_risks": [
+      "A historical implicit identity for cyclic affine permutation weak-excedance counts might exist under another name.",
+      "A stronger general digit-automata theorem could yield this uniform row sum after specialization, although the inspected p-adic path-set and two-dimensional binomial results do not evaluate that specialization.",
+      "Index-only comparison across accessible local historical ledgers and indexed published findings cannot establish global historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact all-m proportional-ray suffix count as an evaluated result; broad digital-method priority risk remains",
+        "evidence": "The stated distributions treat all Pascal entries and digit-function asymptotics; the claim requires a state-uniform affine residue inequality for each multiplier.",
+        "identifier_or_url": "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+        "material_read": "Author-hosted paper, introduction, statements concerning binomial residue distributions and digital-block techniques",
+        "method": "Read mathematical text and page-image views",
+        "title": "Distribution of Binomial Coefficients and Digital Functions",
+        "trigger": "Foundational digital-statistical coverage potentially stronger than a ray count"
+      },
+      {
+        "assessment": "NOT_COVERING: counts entries in a fixed row, not varying proportional rays",
+        "evidence": "Its definition a_k(n) enumerates 0<=j<=n for fixed top n. The present quantity fixes top=mn and lower=n while n varies.",
+        "identifier_or_url": "https://arxiv.org/abs/1001.1783",
+        "material_read": "Open primary full-text preprint; introduction, Fine theorem, principal counting formulations and relevant digital result",
+        "method": "Inspected original arXiv manuscript, mathematical statements, and PDF page image",
+        "title": "The number of nonzero binomial coefficients modulo p^alpha",
+        "trigger": "Closest classical nonzero count at prime and prime-power modulus"
+      },
+      {
+        "assessment": "Provides Lucas framework; no inspected direct all-m exact proportional-ray counting law",
+        "evidence": "Survey derives classical Lucas products and Pascal-row nonzero counts; the affine multiplier carry outdegree is not evaluated.",
+        "identifier_or_url": "https://arxiv.org/abs/1409.3820",
+        "material_read": "Survey introduction, Lucas congruence and digit-count consequence passages",
+        "method": "Examined primary survey text and original PDF page image",
+        "title": "Lucas theorem: its generalizations, extensions and applications (1878–2014)",
+        "trigger": "Potential historical equivalence and older Lucas consequences"
+      },
+      {
+        "assessment": "NOT_COVERING as stated: two-dimensional equidistribution and p-adic Sierpinski gasket, not exact proportional-line count",
+        "evidence": "Theorems 1 and 2 sum over all pairs (k,n), and normalize by p^{2r} or all fixed-valuation pairs; restriction to a zero-area slope is not justified.",
+        "identifier_or_url": "https://www.applied.math.tugraz.at/~grabner/Publications/Binomial-spatial.pdf",
+        "material_read": "Full-text introduction, Theorems 1–3, digital automaton setup and page image of the theorem statements",
+        "method": "Read lawful author full-text preprint and mathematical PDF page",
+        "title": "Spatial Equidistribution of Binomial Coefficients Modulo Prime Powers",
+        "trigger": "Plausibly dominating broad spatial p-adic distribution theorem"
+      },
+      {
+        "assessment": "Theorem 1.1 covers an abstract spectral-radius formula but not the evaluated universal binomial digit-branching lemma",
+        "evidence": "Theorem 1.1 identifies dimension as log_p spectral radius for a given standard automaton. It does not say that every eligible proportional-binomial multiplication automaton has constant outdegree.",
+        "identifier_or_url": "https://arxiv.org/abs/1210.2478",
+        "material_read": "Original PDF introduction, Theorem 1.1 and definitions; relevant dimension theorem page examined visually",
+        "method": "Read full-text arXiv material and inspect page-image theorem statement",
+        "title": "p-adic path set fractals and arithmetic",
+        "trigger": "Strongest plausible general dimensional framework"
+      },
+      {
+        "assessment": "NOT_COVERING: m=p+1 exceptional, with digit-neighbor constraints and nonuniform outdegree",
+        "evidence": "It proves p not dividing ((p+1)n choose n)/(pn+1) iff successive digits satisfy d_j+d_{j+1} <=p-1; Perron growth is 1/(2sin(pi/(4p+2))), different from (p+1)/2.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-prime-relative-fuss-catalan-nondivisibility-exact-spectra-and-p--fca5ba9f3d60",
+        "material_read": "Complete RESULT.md proof, assumptions and spectral count",
+        "method": "Read primary published mathematical RESULT.md in full",
+        "title": "Prime-relative Fuss–Catalan nondivisibility: exact spectra and p-adic dimension",
+        "trigger": "Same p-adic nondivisibility and fractal dimension for a proportional binomial at exceptional slope"
+      },
+      {
+        "assessment": "NOT_COVERING: classifies possible binomial value residues for the central slope m=2; no universal count of nonzero indices for m other than 2",
+        "evidence": "Its principal formula is a p-adic ideal of attainable values over each fixed index suffix; not a cardinality of admissible suffix extensions.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-the-full-odd-prime-p-adic-index-value-closure-of-central-binomia--c0f80e993a75",
+        "material_read": "Complete RESULT.md, including suffix exact residue-image theorem and proof",
+        "method": "Read published mathematical RESULT.md in full",
+        "title": "The full odd-prime p-adic index–value closure of central binomial coefficients",
+        "trigger": "Potential fixed-suffix stronger coverage"
+      },
+      {
+        "assessment": "NOT_COVERING: p=2 and coefficient residue image, while present theorem requires odd p and counts indices",
+        "evidence": "The result classifies odd residues or multiples of four among values modulo 2^k for binomial(3n,n).",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-two-adic-residue-image-of-the-proportional-binomial-sequen--3c8bca123502",
+        "material_read": "Complete RESULT.md proof and scope",
+        "method": "Read published mathematical RESULT.md in full",
+        "title": "Exact two-adic residue image of the proportional binomial sequence (3n choose n)",
+        "trigger": "Same proportional binomial family; check prime and invariant coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c5388371-a82c-4326-88a5-a702df3a0765",
+  "value": {
+    "rationale": "The natural arithmetic invariant counts nonzero proportional-binomial coefficients along entire rays through Pascal triangle, not arbitrary slices. The exact universality over all odd primes and all multipliers in two-thirds of residue classes is unexpected from Lucas digit arithmetic; its underpinning is a nontrivial state-independent affine excedance lemma. It yields uniform counts after every prescribed index suffix, a sharp regular p-adic fractal with exact cylinder masses, and explicit exceptional-slope contrast. This is mathematically more informative than mere sparseness or a single small-modulus numerical census.",
+    "status": "PASS"
+  }
+}
