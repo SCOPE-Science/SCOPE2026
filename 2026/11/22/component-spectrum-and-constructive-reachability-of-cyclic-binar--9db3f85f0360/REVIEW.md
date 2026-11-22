@@ -1,0 +1,19 @@
+# Scientific review
+
+**Claim assessed:** Exact connected components, vertex and edge counts, frozen states, and constructive quadratic-time reachability of the single-bit-flip graph of indexed cyclic binary words avoiding both constant triples, for every length at least three.
+
+## Correctness — PASS
+The difference bits are zero exactly at equal-letter boundaries. Avoidance of cyclic constant triples makes those zero sites independent in the cycle, while periodic reconstruction imposes an even number of nonzero differences. A valid flip is precisely a separation-preserving slide of one zero. Positive surplus in the cyclic gap vector connects all projected states of a fixed non-extreme token count. A completely explicit length-\(n\) closed slide loop crosses each site-cycle edge once and lifts to global bit complementation, connecting the two possible original words above each projected state. Cyclic independent-set counts give the exact vertex count, and directed slides with two following nonzero differences give the exact edge count. The boundary cases yield exactly two or four isolated vertices. Independent brute-force graph construction matches all components and exact edge counts for lengths 3–18; the all-length proof is symbolic, not inferred from experiments.
+
+## Originality — PASS, with priority risk
+Avis and Hoang, arXiv:2203.16861, Proposition 14, give the length-\(n\) *base token-slide* loop to establish girth for the independent-set reconfiguration graph of a cycle. This is the closest structural predecessor. It neither defines the binary-difference two-sheet lift nor gives its component-merging result, its exact lifted component/edge spectrum, the frozen binary states, or its word-to-word reachability test. The proof uses the predecessor's cycle insight only after checking the additional bit-complement monodromy.
+
+Mütze, arXiv:2202.01280, Section 3.15, reviews Gray listings of single forbidden-pattern and circularly restricted binary words. That literature addresses Hamiltonian listings (or permitted non-Hamming-one steps), whereas the claim here is the exact connected-component partition under *only* legal one-bit flips and *simultaneous* avoidance of the two constant triples. The closest published-search records concern cyclic covers of the same language, or recoloring of distinct ladder/cycle objects. No inspected result has a statement implying the complete claimed partition, but exhaustive historical priority is not established. Some older general reconfiguration framework may imply parts of the theorem by specialization.
+
+## Value — PASS
+This is a complete, natural connectivity classification for the binary no-constant-triple constrained language. It supplies a direct linear-time reachability decision and an explicit quadratic-time route for all reachable pairs, not merely a list of small finite graph counts. The monodromy step is essential: token-slide connectedness alone does not show that both complementary bit labels lie in the same component. Component cardinalities and exact edge counts quantify the available local move space and frozen obstructions for constrained word navigation and Gray-code design. The result does not claim optimal paths or Hamiltonicity within each sector.
+
+## Verification and limitations
+Run `python3 check.py --max-n 18` in the packaged directory. The checker independently builds each legal-flip graph and compares all component labels, sizes, and edges with the formulas. Secondary independent-token enumeration checks the combinatorial counts through length 13. Checks of novelty are limited to sources actually examined, including full relevant sections of Avis–Hoang and Mütze; more general unindexed hypergraph recoloring treatments remain possible. All cited publication dates are first-public source evidence rather than revision dates. No external mathematical audit was undertaken.
+
+Self-review: passed. Independent audit: not yet performed.

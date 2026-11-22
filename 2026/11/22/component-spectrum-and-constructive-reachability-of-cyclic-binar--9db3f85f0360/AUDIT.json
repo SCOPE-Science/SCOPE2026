@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Full proof reconstructed: zero difference sites are independent; n-k even supplies exactly two word lifts; flips correspond bijectively to token slides; gap surplus of n-2k>0 connects projected token sets; explicit n-slide closed loop traverses every cycle edge once and toggles each original bit, joining complementary lifts. Endpoint levels are immobile. Positive composition counts and the clockwise-slide enumeration yield the exact sector size/edge formulas. Direct breadth-first search of actual Hamming-one graphs, with independent gap counts, passes through n=18. Mathematical proof is for every n>=3 and does not infer infinity from enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2203.16861 Proposition 14 proves a length-n cycle in the base independent-token graph, not the connectedness of the two-fold difference lift",
+        "doi:10.4230/LIPIcs.ISAAC.2022.4 abstract and metadata discuss proper graph color recolorability restrictions, not local NAE constraints on triples"
+      ],
+      "reasoning": "General reconfiguration works provide frameworks and related base-graph results, but inspected statements do not directly imply that each nontrivial cyclic binary no-triple sector has both complementary lifts connected, together with exact counts. This rests on showing the base length-n closed walk toggles every original bit.",
+      "searches": [
+        "published-finding corpus: proper 2-colorings cyclic length three no monochromatic triples flip graph particle count components",
+        "published-finding corpus: difference parity lift of token sliding independent sets on a cycle, closed n-step loop flips all bits, component size spectrum and quadratic reachability",
+        "Web: single vertex flips no monochromatic triples on cyclic binary strings connected components flip graph",
+        "Web: reconfiguration 2 coloring hypergraphs NAE SAT solutions connected components cycle hypergraph"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2203.16861v3",
+      "https://arxiv.org/abs/2202.01280",
+      "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ISAAC.2022.4",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-optimal-cyclic-covers-for-binary-words-without-three-equal-conse--f40c1b2102e9",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-winding-sector-sizes-and-exchange-counts-for-three-colouri--d41f740a6f49"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Avis–Hoang Proposition 14 explicitly describes a cycle of n token slides on independent sets of C_n, but not a map from cyclic words to its token states",
+        "Mütze survey reports single-pattern Gray code existence and the influence of cyclic boundary restrictions; its conclusion is not a component partition of a simultaneous two-pattern avoidance graph"
+      ],
+      "reasoning": "The present theorem derives token-slide projection from a binary difference map, proves the complement monodromy of the n-slide loop, then combines it with base connectivity and binomial counting. The original token paper contains a component-relevant necessary ingredient but does not state or automatically establish the binary double-lift theorem without this additional identification and monodromy argument.",
+      "searches": [
+        "arxiv:2203.16861, Proposition 14 and Appendix 0.A",
+        "arxiv:2202.01280, Sections 2.1 and 3.15",
+        "published-finding corpus: token sliding cycle lift via difference words parity 2-fold cover reconfiguration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2203.16861 Section 3 gives size-k independent-set token-sliding graph; it is the projection under zero difference sites, not the two-to-one original-word graph",
+        "arxiv:2202.01280 Section 3.15 surveys cyclic and linear forbidden-factor Gray listings; explicit two-forbidden-triples component formula not found in material inspected",
+        "published-finding corpus closest SCOPE-exact-winding-sector-sizes-and-exchange-counts-for-three-colouri--d41f740a6f49 concerns ternary colorings of circular ladders"
+      ],
+      "reasoning": "The independent-set token graph is an exact quotient of the new graph, so formal comparison is required. The new theorem additionally proves that its binary difference double lift is connected at every non-frozen sector, and gives a complete formula for each lifted component. Neither surveyed Gray listings nor ladder winding components state that lift property.",
+      "searches": [
+        "published-finding corpus: cyclic binary words avoiding 000 and 111 Hamming flip reconfiguration connected components wall count",
+        "published-finding corpus: number of connected components of NAE three uniform cycle hypergraph proper 2-colorings under one vertex flip",
+        "Web: reconfiguration graph binary words avoiding 000 and 111 cyclic single site flips connected components",
+        "Web: flip graph binary circular words with no 000 or 111 connected component classification"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Own ledger closest item db3e5b8c-e499-48e4-873b-dd236055bf4e enumerates maximum circular no-triple window cycles, rather than bit flips",
+        "Own ledger closest item bf9864c1-08ef-4616-8e1f-02b032aa30e2 determines one-deletion sphere for linear run-two words, rather than cyclic bit-flip connectivity",
+        "published-finding corpus SCOPE-optimal-cyclic-covers-for-binary-words-without-three-equal-conse--f40c1b2102e9 gives shortest cyclic covering lengths, not connected-component classes"
+      ],
+      "reasoning": "No inspected table or indexed claim gave the same sectors, vertex/edge enumerators or exceptional frozen components. A missing database match is not a novelty proof; the assertion is confined to the inspected statements.",
+      "searches": [
+        "published-finding corpus: For cyclic binary words avoiding 000 and 111, single-bit flip reconfiguration has components indexed by number of equal-adjacent pairs k, sizes 2n/k binomial(n-k-1,k-1), with 2 or 4 frozen exceptions",
+        "Web: cyclic binary no three same consecutive bits exact flip graph connected components",
+        "Own accessible ledger: title and claim screening of 60 prior findings for flip/reconfiguration/no-triple/000/111"
+      ]
+    },
+    "rationale": "Actual published-finding corpus source/alias/exact-parameter searches, accessible own-claim deduplication, published searches and relevant arXiv full-text comparisons found no identical lifted binary word reconfiguration classification. Avis–Hoang Proposition 14 is a strong necessary base-graph precursor; the binary difference lift and n-edge monodromy are separately proved. Priority risk remains for alternative hypergraph reconfiguration terminology.",
+    "residual_risks": [
+      "General results on 2-colorings of consecutive-triple hypergraphs or signed graph covers might imply this exact partition under a different name; no exhaustive archival census was possible.",
+      "The Avis–Hoang length-n cycle is published; the new contribution depends on the nontrivial lift and explicit monodromy, not on claiming that base cycle as new.",
+      "Published published-finding corpus hit summaries for clearly different objects were not all inspected in full, so no whole-document negative assertion is made for them."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers base token-slide graph and length-n closed cycle. Does not state binary difference lift, its all-sectors connectedness and populations. Strongest close prior and cited explicitly in proof comparison.",
+        "evidence": [
+          "Proposition 14: girth of TS_k(C_n) equals n when 1<=k<n/2; constructed cycle of n moves",
+          "Section 3: token sliding definition"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2203.16861v3",
+        "material_read": "Introduction, Section 3 definitions, Proposition 14 and its proof, Appendix 0.A connectivity/diameter table, and other relevant passages",
+        "method": "Open-access arXiv HTML full text, searched within and read relevant statements",
+        "title": "On Reconfiguration Graphs of Independent Sets under Token Sliding",
+        "trigger": "A projected zero-difference configuration is an independent set of a cycle with token-slide moves"
+      },
+      {
+        "assessment": "Relevant Gray-code context; discusses one cyclic forbidden pattern and Hamilton listing results, not the simultaneous no-000/no-111 component theorem.",
+        "evidence": [
+          "Section 3.15: factor avoiding strings and Lucas words",
+          "Section 2.1: flip graphs and Hamming-one neighbors"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.01280",
+        "material_read": "Full indexed HTML relevant sections 2.1, 3.15, plus passages on circularly avoiding binary factors and Gray-listing constraints",
+        "method": "ArXiv accessible HTML parsed via web, searched for 000, avoid and run-length",
+        "title": "Combinatorial Gray codes—an updated survey",
+        "trigger": "Potential broader coverage of forbidden-substring and cyclic Gray-code flip graphs"
+      },
+      {
+        "assessment": "Examined abstract concerns proper graph vertex coloring with restrictions on permissible color substitutions, rather than binary NAE triple constraints. The abstract does not settle full-paper coverage.",
+        "evidence": [
+          "Abstract specifies recolorability digraph restricting color transitions and algorithmic results for directed cycles and multitrees"
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ISAAC.2022.4",
+        "material_read": "Open-access proceedings abstract, bibliographic metadata, subject classification",
+        "method": "Publisher landing HTML; full PDF not inspected",
+        "title": "Algorithms for Coloring Reconfiguration Under Recolorability Digraphs",
+        "trigger": "Possible broad recoloring theorem covering one-bit moves with local constraints"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9db3f85f-0360-447a-bcff-d6871a2049c9",
+  "value": {
+    "rationale": "Complete exact components of a natural constrained-word local edit graph, including a one-pass invariant-based reachability criterion, constructive O(n^2) transformation, all frozen cases, and exact vertex and move counts. The difference-lift monodromy is a structural obstruction/resolution not supplied by routine enumeration. Helps identify reachable regions for one-bit Gray-code navigation and constrained sequence reconfiguration; no unsupported Hamiltonicity claim.",
+    "status": "PASS"
+  }
+}
