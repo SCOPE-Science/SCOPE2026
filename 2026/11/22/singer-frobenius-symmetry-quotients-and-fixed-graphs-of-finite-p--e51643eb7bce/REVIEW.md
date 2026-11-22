@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The trace-based Singer incidence graph is mathematically defined as a genuine projective-plane graph. The subgroup classification follows from the split extension by \(C_3\); all quotient homotopy ranks are Euler characteristic calculations on connected finite graphs with orbit counts verified by Burnside's lemma. A normal-basis matrix of Frobenius proves the exact fixed-vertex and fixed-line incidence trichotomy and the criterion for nonconjugate lifts. The packaged program constructs finite fields and checks every subgroup index for ten field orders; the infinite-family proof uses symbolic arguments, not a finite extrapolation. Crucial qualifications: parallel edges remain distinct, the point/line shores are preserved, and all edge fixed points require fixed endpoints.
+
+## Originality — PASS (relative to checked materials)
+Drudge's Singer-flat orbit formulas do not cover semilinear incidence-graph edge-orbit topology; Streit–Wolfart explicitly describe the full Singer quotient as two vertices and \(q+1\) edges, so that cyclic special case is conceded as prior, but their full-text discussion of dessins and curve quotients does not classify every subgroup's abstract-graph quotient or all geometric fixed graphs. Sarti treats Frobenius-compatible embedded dessins and in particular some free edge actions; this overlaps one ingredient, not the three-branch complete fixed-locus theorem. A previous result on higher-dimensional Singer building quotients begins in dimension four and does not cover projective planes or the semilinear normalizer. The compared published mathematical statements and accessible claim records contain no dominating statement. This is a best-knowledge priority assessment, not a proof of uniqueness; an inaccessible paper on Singer normalizers could contain more.
+
+## Value — PASS
+The rank-two spherical building is a standard, structurally meaningful family of finite graphs. Its Singer–Frobenius group is a natural nonabelian collineation subgroup. A complete all-subgroup integral homotopy classification and fixed-space classification tracks an arithmetic transition not visible from the cyclic Singer orbit count alone. The result distinguishes six-cycle fixed loci from intervals and disconnected pairs and determines every quotient fundamental group as a free group of explicit rank. It is not claimed to be a classification of all projective-plane automorphisms or of curves carrying dessins.
+
+## Sources and limits
+Original papers: Drudge (2001 first public date; 2002 volume), Streit–Wolfart (2001), Sarti (2010 arXiv); descriptions and locators in RESULT.md. Literature comparison distinguishes underlying graph quotients from the different space obtained by quotienting the supporting Riemann surface of a dessin. The Cossidente–de Resmini normalizer-focused 2004 paper was identified from bibliographic data but its complete primary text was not accessible, and priority risk is retained. Source searches and close recorded claim comparisons are documented in the structured review.
+
+Self-review: passed. Independent audit: not yet performed.
