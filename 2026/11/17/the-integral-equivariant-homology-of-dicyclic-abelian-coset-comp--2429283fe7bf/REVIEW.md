@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The canonical coset cover has stabilizer-fixed terminal intersections, yielding an equivariant nerve equivalence. The maximal-coset nerve is the union of two disjoint-apex simplex cones over a common discrete set; the explicit symmetric second-largest-coordinate deformation retracts it equivariantly to \(K_{2,n^2}\). The signed augmentation module follows from orienting graph edges and comparing the action on the two apices. Fixed-coset counts give the full character; the graph quotient is a star. Exact group and nerve enumeration independently checks the formulas for \(2\le n\le7\). No general assertion depends solely on enumeration.
+PASS
 
-## Originality: PASS (with declared scope)
+Classify all maximal abelian subgroups as A=<x> and n order-four B_i=<x^iy> meeting at the center Z=<x^n>. Their left coset cover has two A-coset apices and n² small cosets; every nonempty intersection of principal downsets has its terminal intersection coset fixed by stabilizer, so the equivariant nerve lemma applies. The nerve is a union of row and column simplices, and the explicit second-largest-barycentric-coordinate contraction fixes shared vertices, yielding a G-equivariant K_{2,n²}. Orient U/V-to-e edges: cycles are exactly sum-zero integer e-coefficients with sign reversal when G swaps U,V. Stabilizers fix n² small cosets on Z, none on A\Z, and n off A; traces follow, and edge-pair orbits collapse the quotient graph to a tree. Independent group-law/coset/stabilizer enumeration for n=2,3,4,5 reproduced these cardinalities and character cases; proof, not finite extrapolation, handles n>=2.
 
-The closest work is Antolín-Camarena, García-Hernández and Sánchez-Saldaña, arXiv:2307.04997, Section 5.1, which **already proves** the nonequivariant wedge of \(n^2-1\) circles and gives the maximal-coset graph count. The proposed contribution is **not** this wedge count: it supplies the complete integral left-translation module, explicit equivariant model, class character and contractibility of the orbit quotient. The inspected text does not state an equivalent equivariant module classification, though similar results not captured by the searches may exist.
+## originality
 
-## Value: PASS
+PASS
 
-The integral action is information that ordinary Betti numbers and a nonequivariant graph type cannot capture: it discriminates central, noncentral cyclic, and exterior group elements by complete character values, and determines the orbit topology. These data are naturally relevant to spaces for commutativity and their group actions, with no claim of a new nonequivariant classification.
+Antolín-Camarena et al. 2023 Theorem 5.1 previously establish the underlying n²−1-circle wedge and enumerate maximal coset graph geometry; no integral left-translation module, complete character or ordinary quotient theorem was identified in its inspected full relevant proof. The sign-twisted module is additional data, though closely prompted by that graph.
 
-## Scope and limitations
+## value
 
-All results concern the canonical left regular action on the abelian-coset poset for dicyclic groups, including the order-eight case. The equivariant nerve step is essential. Finite checking does not replace the uniform argument. Literature equivalence and independent validation remain residual risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The integral symmetry action on a natural family of commutativity coset complexes, its character and its nonfree ordinary orbit quotient are motivated topological invariants not specified by the known wedge rank. Gives a uniform structural G-lattice formula and action-sensitive information across all n>=2.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
