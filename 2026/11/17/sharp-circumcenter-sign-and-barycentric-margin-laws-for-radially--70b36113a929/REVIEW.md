@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The explicit circumcenter barycentrics follow from equal squared distances and the regular simplex Gram identity. The quadratic sign polynomial has a unique positive zero. The fixed-ratio inequality follows from three elementary reciprocal-radius estimates, with a family attaining equality at every prescribed ratio. Two-shell radial examples realize each claimed negative-coordinate count; the direct linear-algebra checker confirms the formulas for finite test dimensions. No computation is used as an infinite proof.
+## correctness
 
-**Originality — PASS, provisional.** The full accessible 2009 VanderZee–Hirani–Guoy–Zharnitsky–Ramos manuscript was inspected, particularly its Section 4 and Proposition 11. Their general well-centered criterion is stronger in **scope of input simplices** but only answers whether all barycentrics are positive; it does not state a sharp universal aspect-ratio bound for the second-longest radial vertex or the ordered signed-facet spectrum. Westendorp's generic Cayley–Menger formula can calculate the same circumcenter but does not state the sharp inequality. Closest semantic mathematical-record hits concerned general regular simplex face-angle obstructions, weighted terminal simplex minimum-enclosing balls, and radius-class incenter problems, not the specified circumcenter sign claim. Full access to a closely related 2010 dissertation was unavailable; an equivalent implicit specialized result elsewhere remains a historical-priority risk.
+PASS
 
-**Value — PASS.** Well-centeredness controls the sign of the Voronoi–Delaunay dual location relative to individual faces. The sharp second-largest-radius margin and signed-coordinate prefix provide a structural constraint and a computable family-wide guarantee that is not a generic barycentric formula. The complete possible-count spectrum and sharp fixed-ratio equality examples give both obstruction and realizability statements.
+The regular-direction Gram matrix has all off-diagonal entries -1/d; from equal squared distances to the circumcenter and the relation sum_i v_i=0 one obtains common tau=B/U and 2(c·v_i)=r_i-mu/r_i. Using S=sum lambda_i r_i and sum lambda_i=1 yields lambda_i=[d+kappa w_i-d mu w_i^2]/[2(d+1)] with mu=B/U, kappa=[(d+1)(2-d)+d mu sum w_i^2]/U. This is a downward quadratic with f(0)>0 and a single positive root, giving negative barycentric coordinates exactly for an initial block of smallest radii, including ties. Normalize r_[2]=1 and x=r_[2]/r_[1] to obtain U>=d+x, B<=d+1/x, and V-U>=-x(1-x); substituting gives lambda_[2]>=1/(2d)+[(d-1)(d+1)x^2]/[2d(d+x)^2], with equality if and only if all but the possibly largest radius agree. This forces two positive coordinates; k small radii vs d+1-k very large radii realizes exactly k negative coordinates, k=0,..,d-1. 1,200 independently solved circumcenters in dimensions 2–9 confirm both formula and lower bound; no inference of all-dimension truth from random tests.
 
-**Scope and limits.** The result concerns a radially stretched regular-direction simplex, not arbitrary simplices, minimum enclosing spheres, or lower-dimensional well-centered faces. No independent expert audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General circumcenter barycentric formulae and the VanderZee et al determinant conditions for well-centeredness are old. The new restricted regular-ray theorem proves a sharp second-largest-radius barycentric lower bound with equality class, monotone sign threshold and every feasible negative-count realization. The generic determinant criterion does not itself state that sharp family-wide inequality, even though it could be used as starting algebra. Full 2010 dissertation inaccessible, so possible specialized earlier coverage remains a real risk rather than a FAIL.
+
+## value
+
+PASS
+
+The exact sharp lower bound for the circumcenter barycentric margin at the second-longest radius is a motivated geometric invariant in orthogonal dual mesh design, not just evaluating a determinant. Its equality family, ordered sign threshold, and complete negative-facet count spectrum provide a useful all-dimension structural classification with a sharp aspect-ratio control.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

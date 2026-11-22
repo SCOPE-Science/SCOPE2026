@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T09:52:39Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Gram/circumcenter derivation, concave sign polynomial, ratio inequality, two-scale sharpness",
+        "check_radial_simplex.py linear algebra diagnostics inspected",
+        "independent_checks.py 1200 random independent least-squares circumcenter solves"
+      ],
+      "rationale": "The regular-direction Gram matrix has all off-diagonal entries -1/d; from equal squared distances to the circumcenter and the relation sum_i v_i=0 one obtains common tau=B/U and 2(c·v_i)=r_i-mu/r_i. Using S=sum lambda_i r_i and sum lambda_i=1 yields lambda_i=[d+kappa w_i-d mu w_i^2]/[2(d+1)] with mu=B/U, kappa=[(d+1)(2-d)+d mu sum w_i^2]/U. This is a downward quadratic with f(0)>0 and a single positive root, giving negative barycentric coordinates exactly for an initial block of smallest radii, including ties. Normalize r_[2]=1 and x=r_[2]/r_[1] to obtain U>=d+x, B<=d+1/x, and V-U>=-x(1-x); substituting gives lambda_[2]>=1/(2d)+[(d-1)(d+1)x^2]/[2d(d+x)^2], with equality if and only if all but the possibly largest radius agree. This forces two positive coordinates; k small radii vs d+1-k very large radii realizes exactly k negative coordinates, k=0,..,d-1. 1,200 independently solved circumcenters in dimensions 2–9 confirm both formula and lower bound; no inference of all-dimension truth from random tests.",
+      "residual_risks": [
+        "Full dimension d>=2 and r_i>0 only; limiting equality at infinite radius is an unattained infimum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The arbitrary-simplex criterion says whether all lambdas positive; it does not supply the radial family prefix sign order, quantified lower margin, or every attainable negative count.",
+          "2010 dissertation catalog and abstract were accessible but not full, so potential stronger radial result remains unexcluded."
+        ],
+        "reasoning": "The paper’s generality of objects does not imply a stronger quantified statement under this specific radial restriction absent further nontrivial argument; this limitation is explicit.",
+        "searches": [
+          "radially scaled regular simplex circumcenter barycentric coordinates sign pattern bound second largest radius",
+          "arxiv:0912.3097 Sections 3–4",
+          "Well-centered meshing VanderZee thesis 2010"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/0912.3097",
+        "https://www.ideals.illinois.edu/items/15648",
+        "https://westy31.nl/Circumsphere/ncircumsphere.htm",
+        "Resultary semantic query: radially scaled regular simplex circumcenter barycentric coordinates sign pattern bound second largest radius"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Every individual circumcenter coordinate is calculable from general methods; nonnegativity test is conventional.",
+          "The new fixed-ratio margin reaches equality for one-long-radius/tied-others configuration and yields a nontrivial forced two-coordinate positivity structure."
+        ],
+        "reasoning": "The old methods calculate signs case by case but do not state or trivially imply the optimal uniform ratio bound or whole realizability spectrum; the generic formula component is credited.",
+        "searches": [
+          "radially scaled regular simplex circumcenter barycentric coordinates sign pattern bound second largest radius",
+          "Westendorp N-circumsphere of N-simplex 2013",
+          "arxiv:0912.3097 Proposition 11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "VanderZee et al. 2009 Proposition 11 gives generic determinant positivity for an arbitrary simplex.",
+          "The general inverse Cayley–Menger circumcenter formula computes individual lambdas given a simplex, but not the sharp all-scales second-longest lower bound."
+        ],
+        "reasoning": "The algebraic barycentric expression is a specialized classical computation, not counted as independent novelty. The ordered universal inequality and exact equality geometry require additional inequalities beyond a generic coordinate formula.",
+        "searches": [
+          "radially scaled regular simplex circumcenter barycentric coordinates sign pattern bound second largest radius",
+          "arxiv:0912.3097 Proposition 11 well-centered simplices",
+          "Westendorp N-simplex circumsphere inverse Cayley Menger barycentric"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned this same finding plus unrelated regular/simplex roundness and centers, not an earlier table of radial margins.",
+          "The invariant is a theorem in arbitrary dimension rather than a finite database lookup."
+        ],
+        "reasoning": "No exact table or equivalent special-family theorem found; the search gap is not presented as proof of historical priority.",
+        "searches": [
+          "radially scaled regular simplex circumcenter barycentric coordinates sign pattern bound second largest radius",
+          "radially scaled regular simplex circumcenter second largest positive barycentric margin exact inequality",
+          "Resultary radical regular simplex circumcenter"
+        ]
+      },
+      "rationale": "General circumcenter barycentric formulae and the VanderZee et al determinant conditions for well-centeredness are old. The new restricted regular-ray theorem proves a sharp second-largest-radius barycentric lower bound with equality class, monotone sign threshold and every feasible negative-count realization. The generic determinant criterion does not itself state that sharp family-wide inequality, even though it could be used as starting algebra. Full 2010 dissertation inaccessible, so possible specialized earlier coverage remains a real risk rather than a FAIL.",
+      "residual_risks": [
+        "The related VanderZee 2010 dissertation could not be read due 403; an equivalent specialized theorem may appear there.",
+        "Generic circumcenter coordinates and sign tests are old and expressly excluded from novelty; an indexed exact sharp radial inequality could still be missed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proposition 11 tests general simplex interiority via determinants, but does not state sharp radial-ray barycentric margin or negative-index spectrum",
+          "evidence": [
+            "VanderZee et al., arxiv:0912.3097 first submitted 2009-12-16; §4 Proposition 11"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0912.3097",
+          "material_read": "Accessible original full extracted primary manuscript: introduction, geometric necessary and sufficient conditions, Section 4 including Proposition 11, examples and combinatorial consequences",
+          "method": "Full original arXiv mathematical text and proposition comparison",
+          "title": "Geometric and Combinatorial Properties of Well-Centered Triangulations in Three and Higher Dimensions",
+          "trigger": "Same circumcenter barycentric sign question; possible dominating criterion"
+        },
+        {
+          "assessment": "Cannot decide whether dissertation contains a specialized radial-ray sharp inequality; remains residual originality risk",
+          "evidence": [
+            "Illinois dissertation catalog; original full text returned 403"
+          ],
+          "identifier_or_url": "https://www.ideals.illinois.edu/items/15648",
+          "material_read": "Institutional catalog abstract and ResearchGate indexed record; attempted original dissertation returned HTTP 403, full text not read",
+          "method": "Authorized public institutional repository lookup and indexed record, not full text",
+          "title": "Well-centered meshing",
+          "trigger": "2010 dissertation cited by relevant 2009 paper as source of additional results"
+        },
+        {
+          "assessment": "Generic barycentric computation known, but no accessible evidence of ordered sharp bound; full-text priority unresolved",
+          "evidence": [
+            "2013 Westendorp N-circumsphere general coordinate formula"
+          ],
+          "identifier_or_url": "https://westy31.nl/Circumsphere/ncircumsphere.htm",
+          "material_read": "Author-page indexed introduction and stated inverse Cayley–Menger formula only; complete page unavailable in present run",
+          "method": "Indexed public description, no full-document coverage assertion",
+          "title": "A formula for the N-circumsphere of an N-simplex",
+          "trigger": "Generic closed-form circumcenter coordinates may encompass algebraic formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md regular-ray equal-distance derivation, sharp fixed-ratio inequality and full sign-count realization; 2009 well-centeredness primary paper"
+      ],
+      "rationale": "The exact sharp lower bound for the circumcenter barycentric margin at the second-longest radius is a motivated geometric invariant in orthogonal dual mesh design, not just evaluating a determinant. Its equality family, ordered sign threshold, and complete negative-facet count spectrum provide a useful all-dimension structural classification with a sharp aspect-ratio control.",
+      "residual_risks": [
+        "The theorem applies to centroid rays of a fixed regular simplex only and does not classify arbitrary simplex circumcenters."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full dimension d>=2 and r_i>0 only; limiting equality at infinite radius is an unattained infimum.",
+    "The related VanderZee 2010 dissertation could not be read due 403; an equivalent specialized theorem may appear there.",
+    "Generic circumcenter coordinates and sign tests are old and expressly excluded from novelty; an indexed exact sharp radial inequality could still be missed.",
+    "The theorem applies to centroid rays of a fixed regular simplex only and does not classify arbitrary simplex circumcenters."
+  ],
+  "schema_version": 1
+}
