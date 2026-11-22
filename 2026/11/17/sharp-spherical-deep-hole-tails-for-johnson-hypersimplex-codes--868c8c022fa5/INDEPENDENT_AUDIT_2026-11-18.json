@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T12:59:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The centered hypersimplex is the section of the coordinate box by sum z_i=0. Nearest genuine facet planes occur at the coordinate bounds and have Euclidean origin distance s/sqrt((N-1)k(N-k)) after division by r=sqrt(k(N-k)/N); the minimizing normals are exactly the claimed sign-coordinate orbits. In a tangent chart near a deep hole, only subsets active on the nearest facet matter; the maximum perturbation equals (1/r)F_s(z), where F_s is the sum of the s largest zero-sum coordinates (up to sign). Since F_s is positive away from zero, T<=c+epsilon forces ||z||=O(epsilon); rescaling z=r epsilon y reduces the cap to Q_{m,s}={F_s(y)<=1}. Sorted coordinate chambers have difference coordinates d_j>=0 with coefficients a_j=j(m-s)/m for j<=s and s(m-j)/m otherwise, and Euclidean Jacobian 1/sqrt(m). Multiplying simplex chamber volume by m! gives sqrt(m)m^(m-1)/[s!(m-1-s)!(m-s)^s s^(m-1-s)], proving the full coefficient and exponent m-1=N-2; spherical chart Jacobian contributes relative O(epsilon). The boundary cases s=1 and k=N-1 and both balanced orbits are included. Independently recalculated N=3,k=1 coefficient 2sqrt(3)/pi; source verifier derives facet hulls and polar volumes for small dimensions, corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Exact deep-hole tail law for nearest-vertex quantization on regular simplices (2026-10-25) samples uniformly from a Euclidean simplex and uses nearest vertices; Sharp cubic deep-hole tails for orthogonal joins of regular spherical polygons (2026-11-17) uses a different spherical code."
+        ],
+        "reasoning": "Generic polyhedral support-function regularity could imply an exponent under nondegeneracy, but no inspected broader result implies this explicit all-rank factorial Q_{m,s} coefficient.",
+        "searches": [
+          "Resultary: Johnson hypersimplex spherical code covering radius deep holes Haar small ball extreme tail exact asymptotic"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2611.05421v2",
+        "https://arxiv.org/html/2504.21345v1",
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-deep-hole-tail-law-for-nearest-vertex-quantization-on-regu--018b3d54290b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior median hypersimplex Minkowski indecomposability does not entail near-covering tail volumes. Yi extremal two-distance cardinality does not entail distribution of Haar max support."
+        ],
+        "reasoning": "Both old statements and current results can hold simultaneously; their implications stop before the computed tangent-volume probability coefficient.",
+        "searches": [
+          "Resultary: Johnson hypersimplex spherical code covering radius deep holes Haar small ball extreme tail exact asymptotic",
+          "arXiv 2611.05421v2",
+          "arXiv 2504.21345v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Centered hypersimplex facet geometry appears in Jevtic et al., Section 3; Yi studies edge-midpoint two-distance configurations, not Haar nearest-support tails."
+        ],
+        "reasoning": "Rewriting the max inner product as hypersimplex support function identifies the classical inradius but not its near-extremal spherical measure; no equivalent specific tail formula was found in inspected texts.",
+        "searches": [
+          "Resultary: Johnson hypersimplex spherical code covering radius deep holes Haar small ball extreme tail exact asymptotic",
+          "arXiv 2611.05421v2",
+          "arXiv 2504.21345v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source verification code compares low-dimensional facet distances and polar volumes only; none of the searched code tables supplies the all-rank Haar coefficient."
+        ],
+        "reasoning": "Neither a finite-dimensional table nor the known hypersimplex combinatorial face count encodes the asymptotic probability with exact Euclidean normalization.",
+        "searches": [
+          "Resultary: Johnson code deep hole exact table spherical Haar tail coefficient",
+          "arXiv hypersimplex facet normal fan indecomposable"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. The old centered-hypersimplex facet geometry and two-distance Johnson spherical code are prior; their statements do not imply the all-rank Haar tail exponent, exact factorial coefficient, or balanced-orbit doubling. Related code nearest-vertex tails concern other sampling measures, spaces or codes. Incomplete unindexed historical integral-geometry coverage is a genuine residual risk.",
+      "residual_risks": [
+        "Generic polyhedral spherical support-tail theorems or unindexed equivalent factorial coefficients may exist.",
+        "Finite SciPy convex hull checks support, but cannot prove all N or all k.",
+        "No expert or Lean verification claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING this tail: the theorem compares isosceles-set cardinalities, not random Haar directions",
+          "evidence": [
+            "arXiv 2611.05421v2, abstract iso(d)=max{g(d),M(d)+1,M(d-1)+3}, sections on two-distance sets"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.05421v2",
+          "material_read": "Full accessible article abstract, two-distance constructions and extremal arguments Sections 1–10",
+          "method": "Primary arXiv HTML, inspected definitions and theorem families",
+          "title": "Isosceles sets and two-distance sets in Euclidean space",
+          "trigger": "Potential Johnson J(N,2) spherical geometry coverage"
+        },
+        {
+          "assessment": "Facet information is consistent; principal theorem is Minkowski indecomposability, not spherical Haar tail",
+          "evidence": [
+            "arXiv 2504.21345v1 Sections 2-3, median hypersimplex indecomposability"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2504.21345v1",
+          "material_read": "Full accessible arXiv HTML; Section 2 deformation cones and Section 3 median hypersimplex normal fan/indecomposability",
+          "method": "Primary arXiv HTML checked result and proof topics",
+          "title": "Indecomposability of the median hypersimplex and polytopality of the hemi-icosahedral Bier sphere",
+          "trigger": "Same hypersimplex facets/normal fan"
+        },
+        {
+          "assessment": "Not enough text for whole-document NOT_COVERING; sampled Euclidean simplex and nearest-vertex error differ materially from spherical Johnson support tails",
+          "evidence": [
+            "Published summary says uniform points in simplex and all-orders Dirichlet tail"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-deep-hole-tail-law-for-nearest-vertex-quantization-on-regu--018b3d54290b",
+          "material_read": "Published complete record summary and theorem statement, not full source text",
+          "method": "Resultary semantic research record; summary-level comparison only",
+          "title": "Exact deep-hole tail law for nearest-vertex quantization on regular simplices",
+          "trigger": "Related published deep-hole probability law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Spherical covering codes are natural objects and the probability of directions near their deepest holes quantifies robustness of worst-case covering; an exact Haar coefficient sharp in rank is a nontrivial geometric invariant with factorial dependence and a balanced rank phase transition. This is not merely recomputation of the facet inradius: the local tangent polar volume and deep-hole count determine the tail.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all N>=3 and 1<=k<=N-1, the centered normalized Johnson hypersimplex code has covering support c=min(k,N-k)/sqrt((N-1)k(N-k)); there are N deep-hole normals, or 2N at 2k=N, and its Haar near-deep-hole probability is C_{N,k} epsilon^(N-2)+O_{N,k}(epsilon^(N-1)), with the explicit sorted-chamber factorial polar-volume coefficient.",
+  "limitations": [
+    "Generic polyhedral spherical support-tail theorems or unindexed equivalent factorial coefficients may exist.",
+    "Finite SciPy convex hull checks support, but cannot prove all N or all k.",
+    "No expert or Lean verification claimed."
+  ],
+  "schema_version": 1
+}

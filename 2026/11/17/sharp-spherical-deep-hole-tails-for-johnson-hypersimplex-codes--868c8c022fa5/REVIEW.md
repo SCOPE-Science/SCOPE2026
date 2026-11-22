@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** For every allowed \(N,k\), the centered hypersimplex facet equations yield the exact covering radius and the complete minimizing normal-orbit set. The tangent chart has an explicitly identified bounded top-subset polar, whose Euclidean volume is proved via ordered-coordinate chambers and determinant \(1/m\). Its local surface measure yields the exact exponent and leading constant, with the stated fixed-parameter error. The standalone numerical verifier tested the facet distances, hole supports, and tangent polar volumes independently for finite dimensions; its 154 passed structural checks are supporting evidence only.
+## correctness
 
-**Originality: PASS (provisional).** Yi (2026), arXiv:2611.05421, classifies extremal isosceles/two-distance sets including the edge-midpoint code; Jevtić, Timotijević, Živaljević (2025), arXiv:2504.21345, analyze the hypersimplex normal fan and indecomposability. These are strong prior sources for the objects but neither states the full Haar endpoint coefficient. Search comparisons with published-finding corpus hypersimplex-convexification, facial-distance and regular-simplex quantization claims did not reveal a theorem implying it. The inradius is elementary prior geometry; the new contribution is the all-rank sharp spherical tail and evaluated tangent polar coefficient. Unindexed equivalent geometric-probability results remain a priority risk.
+PASS
 
-**Mathematical value: PASS.** The result measures how the worst angular coverage is approached in a natural infinite family of extremal point configurations, providing the exact dimension-dependent vanishing exponent, rank-dependent hole multiplicities and a closed factorial coefficient. It is an analytically motivated distributional invariant, not a minor numerical refinement.
+The centered hypersimplex is the section of the coordinate box by sum z_i=0. Nearest genuine facet planes occur at the coordinate bounds and have Euclidean origin distance s/sqrt((N-1)k(N-k)) after division by r=sqrt(k(N-k)/N); the minimizing normals are exactly the claimed sign-coordinate orbits. In a tangent chart near a deep hole, only subsets active on the nearest facet matter; the maximum perturbation equals (1/r)F_s(z), where F_s is the sum of the s largest zero-sum coordinates (up to sign). Since F_s is positive away from zero, T<=c+epsilon forces ||z||=O(epsilon); rescaling z=r epsilon y reduces the cap to Q_{m,s}={F_s(y)<=1}. Sorted coordinate chambers have difference coordinates d_j>=0 with coefficients a_j=j(m-s)/m for j<=s and s(m-j)/m otherwise, and Euclidean Jacobian 1/sqrt(m). Multiplying simplex chamber volume by m! gives sqrt(m)m^(m-1)/[s!(m-1-s)!(m-s)^s s^(m-1-s)], proving the full coefficient and exponent m-1=N-2; spherical chart Jacobian contributes relative O(epsilon). The boundary cases s=1 and k=N-1 and both balanced orbits are included. Independently recalculated N=3,k=1 coefficient 2sqrt(3)/pi; source verifier derives facet hulls and polar volumes for small dimensions, corroboration only.
 
-**Limitations.** Fixed dimension/rank asymptotics only; no global angular CDF or general spherical-code optimality claim. No independent publication-priority audit or mathematical validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS. The old centered-hypersimplex facet geometry and two-distance Johnson spherical code are prior; their statements do not imply the all-rank Haar tail exponent, exact factorial coefficient, or balanced-orbit doubling. Related code nearest-vertex tails concern other sampling measures, spaces or codes. Incomplete unindexed historical integral-geometry coverage is a genuine residual risk.
+
+## value
+
+PASS
+
+Spherical covering codes are natural objects and the probability of directions near their deepest holes quantifies robustness of worst-case covering; an exact Haar coefficient sharp in rank is a nontrivial geometric invariant with factorial dependence and a balanced rank phase transition. This is not merely recomputation of the facet inradius: the local tangent polar volume and deep-hole count determine the tail.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
