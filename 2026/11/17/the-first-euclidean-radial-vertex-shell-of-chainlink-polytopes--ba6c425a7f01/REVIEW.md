@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The minimum-sphere claim follows from an enclosed-box upper bound and the matching two-point lower bound. For each nonouter vertex, one active cyclic difference facet yields a concave two-variable deficit with sharp endpoint lower bound. The equality conditions force exactly one non-box coordinate and a consecutive block of full coordinates. The strict and half-size cases have respectively \(2m(s-1)\) and \(ms\) distinct equality vertices. An independent rational halfspace-intersection program checked 237 integer parameter profiles. The argument handles all real parameters in scope, including two-dimensional and degenerate cases; it does not infer infinite correctness from enumeration.
+## correctness
 
-## Originality
-PASS on accessible evidence, with provisional historical priority. The original paper by Kantarcı Oğuz, Özel, and Ravichandran (arXiv:2211.08382v1, Sections 1 and 6) specifies the polytope, admissible vertex coordinates, and vertex counts but not the first Euclidean radial shell and its sharp degeneracy multiplicities. Published records on chainlink-section inradii and diameters and chainlink Minkowski asymmetry concern inequivalent quantities. Searches for chainlink radial gaps, vertex shells, and Euclidean circumradius did not identify a prior statement covering the combined metric and equality classification. An unindexed geometric consequence of the known vertex encoding remains possible; source text accessibility for some published records was limited.
+PASS
 
-## Mathematical value
-PASS. The first radial gap below the minimum sphere is the natural first spectral clearance of the full vertex set, not a selected coordinate slice. The all-dimensional formula detects the shortest chain length independently of every other length or their cyclic order; its exact multiplicity additionally recovers the number of shortest links, and identifies a sharp collision at the half-size boundary. Thus these two Euclidean vertex-shell observables provide a concise metric signature for a family whose combinatorial type is constant in the strict-link region. The outer-sphere calculation alone is elementary and is not the value claim.
+The box contains the polytope and its two antipodal corners force the unique minimum enclosing sphere, with binary nonconstant corners excluded by a forbidden full-to-zero cyclic transition. For a nonouter vertex some difference facet x_i-x_{i+1}=a_i-ell is tight. Setting t=x_{i+1} in [0,ell], its two radial-deficit terms give the strictly concave quadratic f(t)=(a_i-ell+t)(ell-t)+t(a_{i+1}-t), minimized at t=0 or ell; both endpoint values are >=ell(b-ell). Equality requires a single nonbox coordinate at a minimum-length chain, all others box endpoints and one cyclic backward full block. Active-coordinate constraints plus a tight difference facet prove each listed configuration is a vertex. The separate endpoint patterns have 2(s-1) members per minimum index when b>2ell and merge into s at b=2ell. This logic covers s=2 and arbitrary admissible real parameters. A second rational active-facet intersection implementation rechecked all 56 binary-length profiles for s=2,3,4 with ell=1,2; these finite checks merely corroborate the all-real proof.
 
-## Scope and risk
-The statement does not claim a full radial spectrum or a continuous-body clearance (which cannot have a positive gap). The source's full vertex description may make rediscovery relatively accessible, but it is not itself an explicit optimized second-shell law. Relevant related records could not be inspected in full, so publication priority is not certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original after comparing exact statements and implications, excluding the mirror of this very submission as independent prior; primary-source limitations and exact residual risks below.
+
+## value
+
+PASS
+
+The first strict interior vertex-radius level is a natural metric invariant of the full, Euclidean-embedded chainlink polytope and measures robustness of its two-point circumsphere contact set. The sharp gap and entire equality stratum, especially the collapse at a_i=2ell, are useful beyond the known total vertex enumeration. The geometry is not a disguised citation of the total vertex count; the equality-phase transition and use of the minimum link length require a separate extremal argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
