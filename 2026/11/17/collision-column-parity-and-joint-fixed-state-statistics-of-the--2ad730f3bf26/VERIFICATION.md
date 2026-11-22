@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `sh run_checks.sh` from the root of the package. The script compiles two standard C++17 programs, runs the independent Python 3 polynomial evaluator, compares their recorded outputs, and additionally checks complete bivariate histogram equality for widths two and three.
+## correctness
 
-- `checks/verify_direct.cpp`: enumerates all \(16^{2n}\) microscopic configurations for \(n=2,3\), performs the actual streaming and collision operations, and prints the particle-count and collision-column histograms.
-- `checks/verify_formula.py`: constructs the bivariate polynomial independently by integer polynomial convolution; checks the exact total formula, parity and complement symmetry for \(2\le n\le10\).
-- `checks/verify_transfer.cpp`: constructs the local update constraint graph on 65,536 column-pair states and enumerates closed length-three and length-four walks, including the full weighted width-four histogram, without using the collision-column classification.
-- `checks/*.out`: literal output recorded from successful executions of these three programs. Executables are intentionally not embedded; source files are complete.
+PASS
 
-Checked counts: the direct and formula implementations agree coefficient-for-coefficient at widths two and three; the independently built transfer graph gives 566 and 2,060 at widths three and four; its complete width-four weighted histogram equals the polynomial output; all formula checks through width ten passed. The infinite-circumference theorem and Gaussian limit follow from the explicit proof and analytic generating function, not from bounded enumeration.
+PASS — For Ψ=C∘S the fixed condition is Sx=Cx. Defining indicator t_rj for exactly pure NS or EW collision mask, streaming comparison gives vertical bit XOR across two rows equal t_rj and horizontal east/west XOR across adjacent columns equal t_rj. Both rows must share t_j and ring XOR implies Σt_j even. If any collision, their two row masks are complementary; two choices of global east reference determine all horizontal bits, and every noncollision column has independently chosen vertical N/S bits giving a(u)=u²(1+u²)², while a collision column weight is u⁴ v. This bijectively gives 2 binom(n,k)a^(n−k)(u⁴v)^k for even k≥2. For k=0 sixteen possible fixed horizontal masks split in stated exact six cases with multiplicities 4,4,4,1,1,2 and weights a,b,c,d,e,f. Summing yields the bivariate polynomial. The conjugacy Φ=S Ψ S^-1 preserves P and K through C on fixed states; all update convention normalization was checked. Global particle-hole involution preserves collisions and sends P→8n−P, proving exact mean and zero covariance. Unique dominant analytic term (a+u⁴v)^n near (1,1) yields local log MGF with gradient (4,1/5) and diagonal Hessian (8/5,4/25), proving CLT; other terms have strictly smaller modulus locally. Independent direct head-on collision/streaming enumeration of all 16^(2n) microstates for n=2 and n=3 reproduced full (P,K) histograms and total counts 164,566 respectively; n=2 is only a boundary check.
 
-The original 1973 and 1976 publisher full texts were not accessible; source-priority comparison is qualified accordingly. No independent external mathematical verification has been performed.
+## originality
+
+PASS
+
+PASS — Primary HPP research concerns invariant statistical states and hydrodynamic correlations on a two-dimensional bulk lattice, not the specific labelled 2×n finite torus one-step microstate polynomial in material read. A separate two-row Critters stationary-zeta result is for a distinct reversible cellular automaton, and generic transfer-matrix methods do not already supply this HPP-specific exact formula. A substantial portion of the original 1973 invariant-state article was material-read, not merely a snippet. Its full content and the original 1973 PRL/1976 PRA papers were not fully inspected, and authorized Oxford retrieval returned vpn_disconnected. These risks are recorded; no full-document NOT_COVERING claim based on excerpts.
+
+## value
+
+PASS
+
+PASS — A complete exactly mass-and-collision-resolved census for a natural two-row HPP gas connects dynamical fixed points, a nonlocal even-column parity rule and exact half-filling symmetry to independent Gaussian fluctuation scales. The geometry of two coincident destinations with distinct N/S channel labels matters. This is a natural low-width finite-torus thermodynamic sequence, not a cosmetic normalization of equilibrium HPP laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
