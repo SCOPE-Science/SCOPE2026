@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete three-strategy simplex vector field is reconstructed from the original cyclic pairwise and symmetric triadic matrices. The oriented orthonormal reduction preserves physical time, gives \(\mu=-D(a-a_*)/18\) with \(\omega>0\), and yields an exact degree-four polynomial. The nonresonant quadratic removal contributes only an imaginary cubic correction, leaving the exact radial coefficient \(\ell=C(1-\beta)/(2D)\). At \(\beta=1\), exact polynomial reflection identities establish time reversibility, and the reflection-fixed transversal plus half-turn return argument proves a genuine local period annulus. The checker reproduces all parameter-symbolic identities from the explicit matrices. The analytic Hopf/center theorem, not numerical sampling, supports the infinite statements.
+## correctness
 
-## Originality — PASS within the inspected evidence
-Griffin and Wu, *Higher Order Dynamics in the Replicator Equation Produce a Limit Cycle in Rock-Paper-Scissors* (arXiv:2301.02518, 2023), identify the same Hopf surface and numerically observe subcritical oscillations. Those are credited as established. Their inspected model and local analysis do not state the exact all-parameter cubic Lyapunov coefficient or the genuine reversible center at the boundary \(\beta=1\). Griffin, Feng and Wu, *Spatial Dynamics of Higher Order Rock-Paper-Scissors and Generalisations* (arXiv:2312.16722, 2024), calculate a coefficient in a different, four-dimensional spatial travelling-wave system, whose matrices and phase space differ. Equivariance and reversibility literature supplies tools, but the model-specific expressions are distinct. The searched mathematical index returned related Hopf or cyclic-game work on different vector fields. Unindexed computations, earlier general reversible-center formulations, and inaccessible alternative sources remain publication-priority risks; a failed search alone would not prove uniqueness.
+PASS
 
-## Value — PASS
-The 2023 model's numerically diagnosed Hopf sign is upgraded to an exact analytic parameter-wide sign, and the mathematically distinguished, admissible endpoint is proved to change type from repelling cycles to a whole local annulus of neutral oscillations. This is a structural boundary of a natural published model, not a parameter substitution or isolated numerical curiosity. It cleanly separates nondegenerate Hopf criticality from a genuinely integrable local center. No global dynamics or far-field orbit count is claimed.
+The final theorem uses exactly the specified cyclic A and B1,B2,B3 pairwise/triadic payoff tensors on the probability simplex, with 1<α≤2, 0<β≤1 and b>(2α−β−1)/4 so a*=(1+4b+β−2α)/(3+2α−β)>0. The original-time orthonormal chart X=(u1−u2)/√2,Y=(u1+u2−2u3)/√6 makes the linear real part −D(a−a*)/18, D=3+2α−β, and strictly positive ω. At a=a* the exact quartic equivariant field has only z,conj(z)^2,z²conj(z),z⁴,zconj(z)^3 monomials; their full coefficients are displayed and algebraically constructed from all three matrices by inspected check_hopf.py. The nonresonant quadratic term adds a purely imaginary correction −2i|Q|²/(3ω), so the genuine real cubic coefficient is ℓ=(1+b)(1−β)/(2D). For β<1, ℓ>0 with μ<0 when a>a*, producing a unique local repelling Hopf cycle, normal-form radius²=D²(a−a*)/[9(1+b)(1−β)]+O((a−a*)²). For β=1, exact full-quartic reversibility under (X,Y)↦(−X,Y) (not merely a vanished cubic) and positive angular velocity imply fixed-line half-turn returns, hence every sufficiently small nonstationary orbit is periodic: a true nonlinear center. The nondegenerate statement is not extended to β=1.
 
-## Source comparison and remaining limits
-The original 2023 full model matrices and Hopf locus were inspected against the exact reconstructed field. The 2024 published follow-on treats a spatial wave reduction rather than the well-mixed two-dimensional simplex. An index search identified no same-model stronger result in the checked subset, but incomplete coverage is explicitly a residual priority risk. The proof does not establish global uniqueness or a global center, and the exact amplitude uses a fixed normalization.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Griffin–Wu 2023 introduced the identical well-mixed payoff tensors and Hopf crossing, describing a subcritical cycle numerically; its inspected primary model and local analysis do not give the exact all-parameter radial Lyapunov coefficient or prove the endpoint β=1 is a reversible center. Griffin–Feng–Wu 2024 computes a first Lyapunov coefficient for a distinct four-dimensional spatial travelling-wave reduction with different payoff matrices: neither its coefficient nor travelling waves imply this well-mixed two-dimensional result. Standard reversible-system theory makes the method known, not the verified endpoint identity for these coefficients. Resultary returned other reversible centers in different games, not this model. An unindexed analytic treatment remains a stated risk.
+
+## value
+
+PASS
+
+A natural published higher-order RPS model has a sharp change from a generically repelling local Hopf cycle to a full annulus of neutral cycles at an admissible parameter endpoint. This mathematically distinguishes mere vanishing first Lyapunov coefficient from a genuine nonlinear center and resolves a parameter-wide bifurcation criticality question beyond prior numerical classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
