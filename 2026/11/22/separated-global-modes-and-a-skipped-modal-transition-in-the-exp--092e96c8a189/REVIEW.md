@@ -1,0 +1,12 @@
+# Scientific review of separated global modes in the exponentiated discrete Lindley law
+
+## Correctness — PASS
+The claim concerns the exact published CDF-power family at \(q=21/25\), with \(b>0\). The mass sequence is positive and normalized by telescoping. For every positive count, the mass divided by the zero-count mass increases strictly with \(b\). Hence the count-2 versus count-0 tie is uniquely parameterized. Strict rational-power certificates at \(b=779/1000\) and \(b=39/50\) locate the crossing and eliminate count \(1\) and counts \(3\)–\(5\). The analytical inequality \(\log(25/21)>1/6\) gives strict concavity for all real \(x\ge4\) and hence strictly decreasing unit increments from count \(5\) onward. This explicitly checks the infinite support rather than elevating finite computations to a proof. The attached standalone checker was run successfully.
+
+## Originality — PASS (qualified)
+The first public source arXiv:1807.09895v1 was examined for its CDF, PMF, plots, statements and subsequent sections; it defines the model but did not exhibit this isolated nonadjacent global-mode tie. The 2019 journal version corresponds to the earlier public preprint. Similar names in the later Singh–Pandey–Tyagi–Chesneau paper and the Salem–Ismail model refer to different baseline distributions; their modal or hazard statements do not imply the present finding. Public research-record searches involving exponentiated discrete Lindley, exact modes, nonadjacent mode ties and CDF-power transformations returned several modal results in genuinely different models, such as the discrete asymmetric double Lindley law. Additional published mathematical records for this model and its aliases did not disclose the specified claim. This is a best-knowledge scientific comparison, not a proof of exhaustive global novelty. A publisher-original 2019 full-text comparison and comprehensive thesis search remain residual priority risks.
+
+## Value — PASS
+A nonadjacent *global* modal tie is more informative than a local fluctuation or a numerically observed shoulder. It certifies that the modal count can skip an intermediate integer under continuous change of the model's shape, and that an elementary log-concavity/unimodality assumption is unsafe without checking parameters. This affects interpretation of a published two-parameter count model and gives a fully reproducible exact example with complete infinite-tail control. The theorem does not pretend to characterize the entire phase diagram.
+
+Self-review: passed. Independent audit: not yet performed.
