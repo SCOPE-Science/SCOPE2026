@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T13:55:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On each unit interval, Hermite derivative is s_j[Sprime+(m_j/s_j)Aprime+(m_(j+1)/s_j)Bprime], with two normalized endpoint slopes in [0,2] when s_j has nonzero sign, zero otherwise. The four corner polynomials are nonnegative on [0,1], so the interpolation has exactly |s_j| variation on each cell; the infinite sum yields individual variation preservation. H(a,b) has coordinate derivatives in [0,2]; a perturbation of one increment produces one monotone central response (variation 1) and two neighboring humps with variations 8u/27 and 8v/27. Thus a one-edge directional variation <=1+8(2+2)/27=59/27; integrate along finite changes, then telescope l1 increments and use lower-semicontinuity under local convergence. For baseline slopes (1,0,1) and epsilon inserted into the middle, exact ratio=1+32/[27(1+epsilon)] tends to 59/27. Independent symbolic derivative corner checks and exact rational witnesses epsilon=1/100,1/1000 match. No finite actual pair is claimed to attain the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary published nonuniform Steffen slope formula yields 1+16/27 sup_i[(h_(i-1)+h_(i+1))/h_i], for a different monotone slope limiter.",
+          "Resultary minmod minimax limiter yields 43/27 in its capped-local class, unlike harmonic selector which can approach both coordinate derivatives 2."
+        ],
+        "reasoning": "No inspected broad result has hypotheses that include the harmonic-mean slope selector with this 59/27 factor as a corollary.",
+        "searches": [
+          "harmonic mean cubic Hermite PCHIP two input bounded variation Lipschitz constant",
+          "Resultary nonuniform Steffen cubic Hermite and minmod BV Lipschitz"
+        ]
+      },
+      "checked_sources": [
+        "Frozen record RESULT.md, verify.py and public metadata/review/verification/slogan files",
+        "Fritsch–Butland 1984 complete five-page original article PDF",
+        "Edelman–Micchelli 1987 selected relevant pages / source-review comparison (not full reinspection)",
+        "Resultary Steffen mesh-ratio related result summary and minmod limiter summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fritsch–Butland original five-page primary text derives local harmonic-weighted slope selector and shape preservation.",
+          "Edelman–Micchelli addresses admissible monotonicity/convexity slopes; Arandiga–Yanez gives interpolation accuracy and shape, without inspected exact two-input norm statement."
+        ],
+        "reasoning": "No available source implication controls the variation of the difference by 59/27; new calculation uses directional slope sensitivity and neighbor hump variations.",
+        "searches": [
+          "harmonic mean cubic Hermite PCHIP two input bounded variation Lipschitz constant",
+          "Fritsch Butland 1984 Edelman Micchelli 1987 Arandiga Yanez 2019 monotone cubic Hermite"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fritsch–Butland (1984) supplies slope formula m_j=2s_(j-1)s_j/(s_(j-1)+s_j) when same sign and zero otherwise; its monotonicity concerns each signal.",
+          "The nonlinear map lacks H(y-z)=H(y)-H(z), so TV(Hy)=TV(y) does not imply any 1-Lipschitz estimate for differences."
+        ],
+        "reasoning": "The same interpolator formula is foundational prior, while the nonlinear two-input induced seminorm is logically distinct.",
+        "searches": [
+          "harmonic mean cubic Hermite PCHIP two input bounded variation Lipschitz constant",
+          "PCHIP harmonic mean shape preservation input variation vs perturbation variation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Older literature provides shape and accuracy tests, not an identified table of exact nonlinear two-input total variation sensitivity for harmonic PCHIP.",
+          "The 59/27 factor follows from exact rational bump geometry, not numerical recomputation of a known table."
+        ],
+        "reasoning": "No same-operator exact tabulation found; search absence is only limited evidence.",
+        "searches": [
+          "harmonic mean cubic Hermite PCHIP two input bounded variation Lipschitz constant",
+          "PCHIP harmonic mean 59/27 variation interpolation gain"
+        ]
+      },
+      "rationale": "The original Fritsch–Butland 1984 construction and later monotonicity theory establish shape and one-input variation preservation, but not the difference of two distinct interpolants under total variation. Related Steffen, minmod and affine blend schemes use different slope selectors; numerical stability results cannot be transferred to the harmonic selector without the derivative calculation. Residual unindexed PCHIP nonlinear-conditioning literature risk is recorded.",
+      "residual_risks": [
+        "Unknown older stability/conditioning analysis of PCHIP could contain the exact factor 59/27.",
+        "Full-line interior rule differs from finite PCHIP endpoint formulas and nonuniform grids; no finite-pair attainment of the supremum is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical origin of interpolant and shape preservation; no sharp two-input variation norm established in inspected article.",
+          "evidence": "Their harmonic mean interior slopes coincide on uniform grid; paper is about monotone preservation, not stability of differences.",
+          "identifier_or_url": "https://doi.org/10.1137/0905021",
+          "material_read": "Complete author-hosted five-page PDF, all pages visually inspected; formula (2), uniform-mesh formula (5), local shape argument and examples",
+          "method": "Full authorized open PDF reading and all five pages rendered",
+          "title": "Fritsch and Butland, A Method for Constructing Local Monotone Piecewise Cubic Interpolants (SIAM 1984)",
+          "trigger": "Identical harmonic mean interior slope selector, potential same theorem"
+        },
+        {
+          "assessment": "Steffen slope selector is not signed harmonic mean; cannot infer the latter exact factor.",
+          "evidence": "Steffen nonuniform formula 1+16/27 sup mesh-neighbor ratios concerns a different algorithm.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-mesh-ratio-control-of-two-input-variation-for-nonuniform-s--c024605d3664",
+          "material_read": "Semantic-search title and mathematical summary; complete primary RESULT.md not yet read",
+          "method": "Resultary search summary, qualified comparison only",
+          "title": "Sharp mesh-ratio control of two-input variation for nonuniform Steffen cubic Hermite interpolation (2026-11-17)",
+          "trigger": "Similar exact variation operator norm for nonlinear cubic interpolation"
+        },
+        {
+          "assessment": "Admissible slope geometry is distinct from nonlinear perturbation norm.",
+          "evidence": "Source does not supply an evidenced formula for 59/27; residual older-interpolation literature risk remains.",
+          "identifier_or_url": "https://math.mit.edu/~edelman/publications/admissible_slopes.pdf",
+          "material_read": "Relevant introduction and pages 441,443,448 as summarized in the inspected source review; complete paper not independently reread here",
+          "method": "Bounded primary-section comparison, without whole-document negative claim",
+          "title": "Edelman and Micchelli, Admissible Slopes for Monotone and Convex Interpolation (1987)",
+          "trigger": "Monotonicity constraint on cubic slopes may hide a stronger result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact two-input stability factor of the standard harmonic-mean monotone cubic interpolant is a natural practical and theoretical condition number. The surprise that one-signal variation preservation coexists with >2 amplification of differences matters for noise sensitivity and inverse-interpolation analysis; the sharp witness explains mechanism without an arbitrary slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen record RESULT.md, verify.py and public metadata/review/verification/slogan files",
+    "Fritsch–Butland 1984 complete five-page original article PDF",
+    "Edelman–Micchelli 1987 selected relevant pages / source-review comparison (not full reinspection)",
+    "Resultary Steffen mesh-ratio related result summary and minmod limiter summary"
+  ],
+  "disposition": "passed",
+  "final_claim": "For real finite-discrete-TV sequences on the bi-infinite uniform integer grid, harmonic-mean PCHIP interior cubic Hermite interpolation preserves each individual total variation exactly but has sharp two-input TV-Lipschitz factor 59/27, approached by a near-flat single-edge perturbation.",
+  "limitations": [
+    "Best-of-knowledge originality is qualified by specific identified sources and risks; the independent reading is not a universal absence-of-prior-work certificate.",
+    "Exact mathematical source claims and external Lean/expert channels are preserved without fabrication; the indicated publication status is transport/security not mathematical rejection."
+  ],
+  "residual_risks": [
+    "Unknown older stability/conditioning analysis of PCHIP could contain the exact factor 59/27.",
+    "Full-line interior rule differs from finite PCHIP endpoint formulas and nonuniform grids; no finite-pair attainment of the supremum is asserted."
+  ],
+  "schema_version": 1
+}
