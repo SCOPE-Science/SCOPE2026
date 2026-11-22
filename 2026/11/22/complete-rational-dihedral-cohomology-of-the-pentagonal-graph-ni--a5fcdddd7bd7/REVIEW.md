@@ -1,0 +1,15 @@
+# Scientific review: graded dihedral cohomology of the pentagonal graph nilmanifold
+
+## Correctness — PASS
+The claim uses the explicitly specified five-vertex, five-edge rational two-step nilpotent Lie algebra, an invariant lattice, and the Chevalley–Eilenberg complex \(de_i=0\), \(df_{ij}=e_i\wedge e_j\). Nomizu's theorem identifies its rational cohomology with nilmanifold cohomology, compatibly with the graph automorphisms. The included standalone checker exhausts the \(1024\)-basis exterior algebra with exact Fraction elimination; it independently verifies all differentials square to zero, all group and chain-map relations, full rational ranks, cyclic and reflection invariant ranks, and direct full-dihedral invariant ranks. The resulting rational character is forced by the three irreducible \(\mathbb Q[D_5]\)-modules. Duality and Lefschetz checks support the calculation. The main limitation is that this is a finite exact classification, not an infinite-family theorem.
+
+## Originality — PASS, with residual priority risk
+The full accessible text of arXiv:2611.17014v1 computes path-graph Poincaré polynomials and general Betti lower bounds, not the complete graded dihedral cohomology of a pentagonal graph nilmanifold. The full accessible text of arXiv:2402.14188v2 provides a general graph-cohomology decomposition, explicit low-degree results, and star-graph formulas, but no pentagon equivariant table. Existing related cycle-graph Betti lower bounds do not determine the present graded group representation. Searches for five-cycle/pentagonal Dani–Mainkar Betti polynomials, aliases, dihedral cohomology and quotients found no covering statement; mathematically unrelated dihedral graph-complex papers were excluded by object and functor. Absence of indexed results is not proof of priority; an equivalent unindexed calculation remains a residual risk.
+
+## Mathematical value — PASS
+The pentagon is the smallest odd induced cycle beyond the triangular complete-graph example and a canonical minimal non-path cyclic case for graph-nilmanifold cohomology. The result determines all graded cohomology representations of its full symmetry group and, as consequences, both full rational quotient Betti vectors. Group action, orientation twist and quotient behavior are new structural data not implied by a scalar total-Betti lower bound. The exact finite classification is motivated by the recent path-graph program and supplies a concrete test case for extending equivariant formulas to cycles; it does not rely on a promise of such a future theorem.
+
+## Restrictions and priority risk
+The result is rational, not integral; it says nothing about cup-product structure or all cycle lengths. General combinatorial cohomology formulas may permit rederivation, and an unindexed equivalent statement may predate this calculation. Verification is same-model only, with no independent audit or independent priority certification.
+
+Self-review: passed. Independent audit: not yet performed.
