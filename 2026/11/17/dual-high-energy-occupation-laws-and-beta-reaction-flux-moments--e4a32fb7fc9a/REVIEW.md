@@ -1,15 +1,21 @@
-# Review of the dual high-energy occupation laws
+# Independent mathematical audit
 
-## Correctness — PASS
-For \(L=f(u)+f(v)\), the proof checks the conserved quantity, unique compact regular orbit and flux normalization exactly. The two inverse branches have square-root turning singularities but integrable distortion. Uniform bounds for \(\int F_-(q)\,dq\) and \(\int_0^L F_+(q)\,dq\) control both sampling measures and yield the quantified Wasserstein estimates. The mixed-moment constants follow from a uniformly bounded polynomial test of the flux probability. No finite calculation is substituted for the limiting argument.
+## correctness
 
-## Originality — PASS within inspected sources
-Boulnois's 2022 and 2023 papers contain the same original-time equations, high-energy orbit information and period quadratures, so none is claimed as new. The closest indexed classical-Lotka–Volterra finding establishes conditional means and zero covariance, implying the exact flux normalization but not either high-energy occupation law. The reviewed contributions are the **paired** joint scaling limits, their rates and the beta mixed-moment constants. The same-author 2026 hybrid-function article could not be fully read because of a rate limit, and equivalent calculations in other literature remain possible. This is best-knowledge priority, not certification of absolute novelty.
+PASS
 
-## Value — PASS
-The two natural sampling clocks—ordinary physical time and event-weighted predation flux—observe qualitatively different scales on one orbit. Their joint uniform segment limits explain why the rare predation events support high-order moments while the system appears extinct at typical times. The exact beta constants supply an infinite hierarchy of physically interpretable, nontrivial correlated concentration statistics.
+Checked the exact first integral f(u)+f(v)=L and compact regular levels, the original-time generator identities <u>=<v>=<uv>=1, and positivity/normalization dnu=uv dmu. Reconstructed inverse branches a(q)<1<b(q) of f(z)=z-1-log(z), their square-root turning-point and large-q bounds; the positive-time branch integrals give T_L=L+O(log L), a dominant logarithmic slow leg of physical-time mass 1-O(log L/L), and an upper-concentration flux leg of mass 1-O(log L/L). Coupling along the energy relation yields both stated l1-W1 bounds and the fixed-integer beta mixed-moment constants. The O(log L/L) rates are upper bounds, not sharp assertions. Verified independently C exact generator identities and the beta transform; inspected check_dual_occupation.py for assumptions; its finite-energy quadratures do not establish the limit.
 
-## Limitations
-The established bound is an upper rate, not a sharp error coefficient. The analysis is restricted to symmetric normalized classical Lotka–Volterra. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original paired quantitative high-energy ordinary-time/flux-time distribution laws. Earlier analytic quadratures and periods, and stronger exact conditional mean-independence, cover basic normalization and first moments but not the joint W1 laws or all higher mixed moments. The 2026 unequal-rate singular crossover addresses a different asymptotic regime and does not substitute for flux weighting. Residual risks: an unindexed prior high-energy stationary occupation analysis or a derivative of existing quadratures.
+
+## value
+
+PASS
+
+The actual gap is the paired asymptotic law of two naturally different invariantly sampled views of the SAME classical oscillator: uniformly distributed log extinction shares under physical-time sampling versus linear abundance shares under a canonically normalized reaction-flux bias, with every fixed positive mixed moment evaluated by Beta(r,s). This explains a significant scale separation obscured by exact first-moment and period formulas; these distributions and all higher mixed moments do not follow mechanically from the previously known covariance identity. Natural physical and flux measures, quantitative W1 rate, and exact universal coefficients make the result useful despite the classical model and modest proof length.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
