@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T00:06:17.051498Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed original Akima rule with g_i=|d_{i+1}-d_i| and local derivative a_i=(g_i d_{i-1}+g_{i-2} d_i)/(g_i+g_{i-2}) except zero-weight midpoint fallback. Only critical knots g_{i-2}=g_i=0 and d_{i-1}!=d_i permit nonunique limits; elsewhere slopes converge uniquely. At finitely many critical knots the ratio constraints involve pairs of zero gap indices (i-2,i), whose graph is a disjoint union of finite paths, so arbitrary endpoint/interior ratios can be achieved simultaneously by recursively chosen positive gaps vanishing at suitable rates. Integrate perturbed secants to data, then Hermite interpolation maps independent critical slopes to nonoverlapping two-cell basis bumps psi_i. Each bump has sharp sup 4/27 and TV 16/27, and critical indices differ by at least two; hence exact independent product box, sup diameter (4/27) max|Delta_i|, TV diameter (16/27) sum|Delta_i|, and iff continuity criterion in C1_loc. Inspected actual RESULT.md blob c44b4cc9f1e3c7d51cf9f2bf1ec6fc8b58de0ae4 and exact rational checker verify_akima_clusters.py blob dd7b3264e86ac0cc688598eb499ab3b264b1f832. Independently verified two neighboring critical ratio choices t=1/3,u=2/5 and exact 4/27,16/27 Hermite constants; infinite simultaneous statement rests on the acyclic gap-graph construction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary October 4 monotone range defect gives a sharp +/-2/27 excursion relative to one sample data range, not difference between distinct cluster interpolants.",
+          "Akima1DInterpolator documentation distinguishes the modified Akima weight rule from the original one."
+        ],
+        "reasoning": "Monotone overshoot constraints and different modified weights cannot dominate the all-perturbation cluster-set diameter; norm and quantifiers differ.",
+        "searches": [
+          "Resultary semantic query: original Akima interpolation discontinuity zero weights cluster set knot slopes variation diameter",
+          "Akima interpolator sharp monotone range defect 2/27"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, verify_akima_clusters.py and METADATA.json at frozen tree",
+        "https://blogs.mathworks.com/cleve/2019/04/29/makima-piecewise-cubic-interpolation/",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-uniform-akima-interpolant-has-sharp-monotone-range-defect-2--4f68318a3dd5",
+        "https://doi.org/10.1145/321607.321609"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior one-corner discontinuity establishes the possibility of multiple local limits, not an all-critical-site Cartesian product.",
+          "Candidate graph edges connect zero-gap indices two apart and form paths; this compatibility argument and exact global TV-additive diameter are not given by prior isolated example."
+        ],
+        "reasoning": "The full simultaneous classification is not a mechanical corollary of known one-corner instability, though older unavailable sources could contain a similar stability theorem.",
+        "searches": [
+          "Resultary semantic query: original Akima interpolation discontinuity zero weights cluster set knot slopes variation diameter",
+          "Akima 1970 original interpolant discontinuity machine precision Moler Ionita"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Moler–Ionita 2019 full technical webpage gives original Akima zero-weight corner and perturbative jump.",
+          "Candidate explicitly seeks all-knot independent cluster box and sharp diameters, not merely existence of discontinuity."
+        ],
+        "reasoning": "An example showing a discontinuity at one corner implies a nontrivial subset of possible limit slopes, but does not give arbitrary simultaneous all-knot attainability or TV-additive full cluster geometry.",
+        "searches": [
+          "Resultary semantic query: original Akima interpolation discontinuity zero weights cluster set knot slopes variation diameter",
+          "Moler Ionita makima 2019 original akima zero weight perturbation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary Akima-related exact 2/27 range-defect invariant is a different single-input norm.",
+          "Moler–Ionita 2019 gives a concrete single corner, not a listed table of simultaneously realizable knot-derivative choices."
+        ],
+        "reasoning": "No exact all-C(y) cluster box or sum-of-jumps TV diameter table found; constants 4/27 and 16/27 follow a new simultaneous geometry and Hermite extremal calculation.",
+        "searches": [
+          "Resultary semantic query: original Akima interpolation discontinuity zero weights cluster set knot slopes variation diameter"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for complete simultaneous all-knot cluster set and both exact global norm diameters. Original Akima (1970) and Moler–Ionita (2019) already explicitly show the zero-denominator convention and qualitative one-corner discontinuity; candidate does not take credit for that. The published 2/27 monotone range defect concerns deviation of one interpolated curve from one data range, not the set of all perturbation limits nor total variation between cluster curves. Highly relevant original 1969 and 1970 full reports unavailable; retain an unindexed historical equivalent risk without automatic failure.",
+      "residual_risks": [
+        "Original 1969 predecessor report and complete original 1970 JACM paper not materially available; possible older simultaneous-cluster formulation not excluded.",
+        "C1_loc output under coordinatewise convergence and eventually constant limiting secants; arbitrary nonuniform grids or global C1 convergence are out of scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative one-corner discontinuity covered; no all-critical simultaneous box/diameter statement seen",
+          "evidence": "Article explicitly demonstrates machine-epsilon perturbation changing original Akima at zero weights",
+          "identifier_or_url": "https://blogs.mathworks.com/cleve/2019/04/29/makima-piecewise-cubic-interpolation/",
+          "material_read": "Full online technical article including original Akima weight formulas, zero-weight midpoint fallback and perturbed corner example",
+          "method": "Full HTML opened and material relevant original-Akima sections read",
+          "title": "Makima Piecewise Cubic Interpolation, Cleve Moler and Cosmin Ionita (2019)",
+          "trigger": "Important direct prior example of zero-weight original Akima instability"
+        },
+        {
+          "assessment": "Background historical formulation only verified indirectly; residual original-rule priority risk preserved",
+          "evidence": "USGS 1989 section 5.2 and Appendix 2 are listed as algorithm descriptions",
+          "identifier_or_url": "https://pubs.usgs.gov/of/1989/0019/report.pdf",
+          "material_read": "Bibliographic/source description, relevant Section 5.2 and Appendix Listing 2 cited in assigned text; no fresh full-PDF inspection this run",
+          "method": "Source metadata and assigned reference, not claimed complete source reading",
+          "title": "Review of Three Cubic Spline Methods in Graphics Applications, USGS OFR 89-19",
+          "trigger": "Historic full formulation of original Akima method"
+        },
+        {
+          "assessment": "Different one-input range defect, not output cluster-set metric",
+          "evidence": "Prior +/-2/27 range excursion vs candidate 4/27 sup distance and 16/27 total-variation distance",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-uniform-akima-interpolant-has-sharp-monotone-range-defect-2--4f68318a3dd5",
+          "material_read": "Resultary indexed theorem summary, not full paper",
+          "method": "Resultary semantic query results",
+          "title": "The uniform Akima interpolant has sharp monotone range defect 2/27",
+          "trigger": "Same algorithm and sharp constant theme"
+        },
+        {
+          "assessment": "No whole-document novelty exclusion claimed; original method pre-existing",
+          "evidence": "Akima 1970 JACM 17 pp.589–602 defines local interpolation procedure",
+          "identifier_or_url": "https://doi.org/10.1145/321607.321609",
+          "material_read": "Publication metadata and source summary; full original JACM article inaccessible",
+          "method": "DOI/bibliographic record only",
+          "title": "A New Method of Interpolation and Smooth Curve Fitting Based on Local Procedures",
+          "trigger": "Original Akima rule and potential earliest study"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural numerical-analysis stability/continuity classification of the canonical Akima interpolant at all finite collections of degenerate slope weights. The path-graph compatibility lemma turns potentially coupled neighboring weight ratios into independently selectable critical derivatives. The sharp simultaneous sup/TV diameters quantify method sensitivity beyond the known one-corner anecdote; this is a meaningful finite-dimensional structural result relevant to shape interpolation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md, verify_akima_clusters.py and METADATA.json at frozen tree",
+    "https://blogs.mathworks.com/cleve/2019/04/29/makima-piecewise-cubic-interpolation/",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-uniform-akima-interpolant-has-sharp-monotone-range-defect-2--4f68318a3dd5",
+    "https://doi.org/10.1145/321607.321609"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Perturbation secants need eventually constant tails; interval choices are cluster limits, not finite perturbation outputs.",
+    "Only original zero-denominator midpoint-fallback Akima interpolant, not modified Makima.",
+    "Original 1969 predecessor report and complete original 1970 JACM paper not materially available; possible older simultaneous-cluster formulation not excluded.",
+    "C1_loc output under coordinatewise convergence and eventually constant limiting secants; arbitrary nonuniform grids or global C1 convergence are out of scope."
+  ],
+  "schema_version": 1
+}

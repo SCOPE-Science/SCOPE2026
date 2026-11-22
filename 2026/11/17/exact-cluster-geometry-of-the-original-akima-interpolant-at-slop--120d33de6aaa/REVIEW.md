@@ -1,22 +1,21 @@
-# Scientific review: Akima interpolant cluster geometry
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each knot the original slope is a convex combination of its two adjacent secants. A denominator approaching a nonzero value has a unique limit; a zero denominator with equal adjacent secants also has a unique limit. Only a zero denominator separating unequal constant-slope patches permits an interval of limiting slopes. To realize every vector of slope limits, place the vanishing gap weights on a graph with edges between gap indices two apart; this graph has no cycles. Recursively prescribed positive ratios and vanishing common scales yield any collection of endpoint or interior ratios, and integrating small secant differences constructs actual data perturbations. Cubic Hermite basis functions then identify the complete box; distinct critical sites are at least two knots apart, so their open bump supports are disjoint. Exact elementary extrema give sup norm 4/27 and variation 16/27 for each unit-amplitude bump. These steps prove the formulas for every finite critical set, not merely examples. A standalone Python 3 checker independently exercises rational extremal identities and simultaneous critical-corner constructions.
+PASS
 
-## Originality — PASS, with stated limitations
+Reconstructed original Akima rule with g_i=|d_{i+1}-d_i| and local derivative a_i=(g_i d_{i-1}+g_{i-2} d_i)/(g_i+g_{i-2}) except zero-weight midpoint fallback. Only critical knots g_{i-2}=g_i=0 and d_{i-1}!=d_i permit nonunique limits; elsewhere slopes converge uniquely. At finitely many critical knots the ratio constraints involve pairs of zero gap indices (i-2,i), whose graph is a disjoint union of finite paths, so arbitrary endpoint/interior ratios can be achieved simultaneously by recursively chosen positive gaps vanishing at suitable rates. Integrate perturbed secants to data, then Hermite interpolation maps independent critical slopes to nonoverlapping two-cell basis bumps psi_i. Each bump has sharp sup 4/27 and TV 16/27, and critical indices differ by at least two; hence exact independent product box, sup diameter (4/27) max|Delta_i|, TV diameter (16/27) sum|Delta_i|, and iff continuity criterion in C1_loc. Inspected actual RESULT.md blob c44b4cc9f1e3c7d51cf9f2bf1ec6fc8b58de0ae4 and exact rational checker verify_akima_clusters.py blob dd7b3264e86ac0cc688598eb499ab3b264b1f832. Independently verified two neighboring critical ratio choices t=1/3,u=2/5 and exact 4/27,16/27 Hermite constants; infinite simultaneous statement rests on the acyclic gap-graph construction.
 
-The original Akima formula was published by Akima in 1970 and reconstructed in full in Evenden's 1989 report. Moler and Ionita (2019) expressly exhibit a discontinuity caused by the zero-denominator fallback; this qualitative phenomenon is **not claimed to be new**. A previously published 2026 uniform-grid Akima result proves a 2/27 single-signal monotone range defect, a different quantifier and norm. The new theorem is the complete joint cluster set for arbitrary finite configurations of degenerate knots, with simultaneous independent realizability and sharp uniform and total-variation diameters. The mathematical implications of those closest sources were compared with the full current claim. Residual risk: the 1970 original article and the 1969 predecessor report were not inspected in full, and an unindexed historical exact-cluster theorem may exist.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Stability of piecewise-cubic reconstruction under arbitrarily small data perturbations is a natural question, particularly where interpolation formulas include a zero-weight branch. The full family of possible limits, rather than a single failure example, distinguishes benign zero-weight knots from unstable corners and quantifies the cumulative variation ambiguity of multiple separated corners. The path-forest compatibility argument shows that all local defects can indeed be realized at once; this is the nontrivial global obstruction that a one-corner example does not address. The exact formulas provide natural sharp measures for judging and redesigning nonlinear slope selectors.
+Best-of-knowledge PASS for complete simultaneous all-knot cluster set and both exact global norm diameters. Original Akima (1970) and Moler–Ionita (2019) already explicitly show the zero-denominator convention and qualitative one-corner discontinuity; candidate does not take credit for that. The published 2/27 monotone range defect concerns deviation of one interpolated curve from one data range, not the set of all perturbation limits nor total variation between cluster curves. Highly relevant original 1969 and 1970 full reports unavailable; retain an unindexed historical equivalent risk without automatic failure.
 
-## Closest evidence and residual limits
+## value
 
-- Akima, 1970, DOI: https://doi.org/10.1145/321607.321609 — original method; full publisher article not read.
-- Evenden, 1989, https://pubs.usgs.gov/of/1989/0019/report.pdf — full technical exposition and code defining the original selector.
-- Moler and Ionita, April 29, 2019, https://blogs.mathworks.com/cleve/2019/04/29/makima-piecewise-cubic-interpolation/ — qualitatively demonstrates the discontinuity, but not the full cluster-set identities.
-- Published uniform Akima range result, 2026, https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-the-uniform-akima-interpolant-has-sharp-monotone-range-defect-2--4f68318a3dd5 — full RESULT.md inspected; different extremal statement.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural numerical-analysis stability/continuity classification of the canonical Akima interpolant at all finite collections of degenerate slope weights. The path-graph compatibility lemma turns potentially coupled neighboring weight ratios into independently selectable critical derivatives. The sharp simultaneous sup/TV diameters quantify method sensitivity beyond the known one-corner anecdote; this is a meaningful finite-dimensional structural result relevant to shape interpolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
