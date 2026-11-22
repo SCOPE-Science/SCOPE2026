@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result follows from exact quadratic energy conservation on each affine Hamiltonian zone. The outer flight maps reflect the two switching ordinates. The remaining central matching equations reduce to \(At=Bu\) and \(2D+b_C(t^2-u^2)=0\). Isolation excludes \(A=B\), while transversality gives the signs of the four normal velocities. Differentiating central Hamiltonian matching and composing with both outer reflections yields the stated positive Floquet multiplier. Its deviation from one has exactly the sign of \(B-A\). The mandatory sample checker verifies the general algebraic formulas on the published Example 4.1 using exact arithmetic, plus reciprocal stability under time reversal. A numerical integrator was used only as an independent diagnostic. This is a proof for all eligible coefficients, not an inference from finite cases.
+PASS
 
-## Originality — PASS within inspected evidence
+On the exact frozen four-crossing Hamiltonian three-zone family, outer first-return branches are reflections with derivative -1. The two central energy equations give At=Bu and 2D+b_C(t²-u²)=0; the isolation hypothesis excludes A=B and A=B=0, hence AB>0 and A≠B. Central section derivatives yield Q=(A-b_Ct)(B+b_Cu)/((B-b_Cu)(A+b_Ct)) with forward multiplier μ=Q^sgn(b_C). The central normal velocities are opposite across each switching section, so the denominator in Q−1 is strictly negative and sign(μ−1)=sign(B−A). Thus every such isolated crossing cycle is hyperbolic, attractive iff B<A. Independently factored Q−1 symbolically and recomputed the published exact quadratic-field example μ≈7.163689825174318, reverse-time reciprocal≈0.139592866861. These finite tests are illustrative; the energy/reflection/saltation argument supplies the universal proof.
 
-The source's full 2021 preprint and full published 2022 version provide existence/uniqueness and explicit cycle examples but do not state stability, hyperbolicity or return multipliers. The full inspected 2018 Llibre–Teixeira narrower all-centers result and the 2022 Carmona–Fernández-Sánchez–Novaes two-zone sewing analysis do not imply the claimed three-zone formula. A published 2025 Xiong–Du paper covers broader three-zone dynamics and is relevant but unavailable in full; its accessible summaries emphasize annuli/cycle counts rather than the present exact Hamiltonian reflection multiplier. Its possible equivalent statements are a stated publication-priority risk. Searching for equivalent stability criteria, Poincaré/saltation expressions, and broader covering classifications found none that demonstrably dominates this conclusion.
+## originality
 
-## Value — PASS
+PASS
 
-Pessoa–Ribeiro's complete six-configuration existence classification leaves unquantified whether the unique isolated crossing orbit attracts or repels and whether a nonhyperbolic crossing orbit can occur. The theorem answers both questions for all six configurations with a coefficient-only strict test. It rules out internal saddle-node-of-cycles degeneracy in the transverse isolated class, identifying grazing or annulus loss as the relevant boundaries. Exact Floquet multipliers enable perturbation/stability analysis without numerical reconstruction of the flight times, an intrinsically meaningful dynamical invariant rather than a routine parameter substitution.
+Existing three-zone piecewise Hamiltonian uniqueness and existence results do not in their inspected accessible primary paper state the coefficient-only hyperbolicity or exact forward-time multiplier. This is a stability refinement, not a new existence bound. The 2025 Xiong–Du three-zone study is a serious uninspected priority risk, not an automatic scientific failure.
 
-## Limits and nearest literature
+## value
 
-The result excludes sliding, tangential and lower-zone itineraries and says nothing about nonlinear perturbations or existence for arbitrary parameters. The 2025 three-zone Xiong–Du full article was inaccessible and remains a possible priority risk; originality has not received independent expert verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For piecewise Hamiltonian sewn systems, isolation need not automatically imply hyperbolicity, and physical-time stability is sensitive to switching-normal velocities. The exact coefficient-only dichotomy eliminates neutral isolated transverse four-crossing cycles throughout the six center/saddle arrangements and is useful for deciding actual stability of parameterized examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
