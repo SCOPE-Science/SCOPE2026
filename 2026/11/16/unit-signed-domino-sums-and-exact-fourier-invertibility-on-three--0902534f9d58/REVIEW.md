@@ -1,13 +1,21 @@
-## Correctness
-PASS. The four-state transfer counts precisely the allowed column fillings, and the negative-positive two-column matrix squares to negative identity on its invariant two-state subspace. Its signed total therefore has absolute value one at all widths. The unsigned transfer has trace four and determinant one, giving the odd tiling count; all signs preserve this parity. The Walsh diagonalization then gives exact sharp Hilbert-space norms. The independent checker exhaustively tests complete transforms for widths two and four columns and matching enumeration for widths two, four and six columns.
+# Independent mathematical audit
 
-## Originality
-PASS under bounded historical comparison. Propp's full 2001 paper concerns signed matchings and negative-width reciprocity, giving general transferable machinery, but not the specific intact three-row alternating-column sign formula and all-length sharp Fourier conditioning. Tenner 2004 concerns parity and does not supply a unit signed witness. Mathematical studies on cycle prisms, noncrossing matchings and weighted Fourier sampling do not imply the open three-row domino statement. Residual risk: an equivalent identity in specialized signed dimer or transfer-matrix literature could exist.
+## correctness
 
-## Mathematical value
-PASS. This is an exact natural all-length convolution stability invariant for the ubiquitous three-row domino model, with a nontrivial unit Walsh witness and an exponentially growing **sharp condition number**. The all-length smallest eigenvalue does not follow from oddness alone, so the two-column involution supplies substantive structure rather than a routine parity corollary.
+PASS
 
-## Limitations
-No complete Fourier magnitude distribution, higher-width classification or endpoint inverse norms. Independent mathematical validation remains outstanding. Historic novelty checks are bounded, not exhaustive.
+Four profile transfer recurrence (a,u,c,v)→(2tu+c,ta+v,a,u) follows by covering each column and retaining right protrusions. Alternating signs produce the two-column M_-=[[-1,2],[-1,1]] with M_-²=−I, so W_m(b*)=(-1)^ceil(m/2). Unsigned M_+=[[3,2],[1,1]] has trace 4, determinant 1, giving odd A_m=4A_{m-1}-A_{m-2}. All signs W=A_m−2N are odd, and explicit unit value proves sharp min 1; group Walsh diagonalization gives inverse norm 1 and condition A_m. Independent perfect-matching enumeration m=1..4 and all-character spectrum for m=1,2 corroborate.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Propp gives general signed tiling transfers and Tenner establishes parity tools, so neither signed-transfer method nor oddness is new. The exact fixed three-row positive-length alternating sign identity and sharp all-length binary Fourier operator bound are not stated in the inspected primary passages. Cyclic prism and all-matchings K_{3,n} published results concern different supports.
+
+## value
+
+PASS
+
+Sharp zero-free transform and exact conditioning for an infinite natural dimer family are motivated Fourier recovery invariants; an explicit all-length unit witness does substantive work beyond routine parity observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
