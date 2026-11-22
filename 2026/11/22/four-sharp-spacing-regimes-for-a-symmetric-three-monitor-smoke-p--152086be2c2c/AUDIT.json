@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "The proof exactly integrates multiplicity-weighted Gaussian mass in all three geometric regimes, including both nonsmooth boundaries. The ratio exp(-2rd/σ²) is strictly decreasing, so the derivatives have the asserted unique switches and yield the four mutually consistent global maximizing cases within the explicitly stated symmetric class. A separate finite direct-integration checker passed 97444 assertions; the proof does not depend on those samples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Litvak et al. formulate generic two-instrument coverage and show a no-overlap criterion, but do not optimize a centered three-instrument Gaussian transect.",
+        "Frasca et al. 2015 Theorem 1 reduces an expected worst-distance problem to a finite linear program; its target and objective differ.",
+        "A 2026 publicly indexed plume-sensing finding uses three Poisson sensors for Fisher-information estimation of location, source strength and background, a different data model and objective."
+      ],
+      "reasoning": "An arbitrary-general sensor placement paper could dominate this special layout if it explicitly gives the same probability-of-at-least-one-alarm optimum, but the inspected broad papers do not. This is a residual historical risk, not evidence of uniqueness.",
+      "searches": [
+        "optimal sensor placement overlap independent sensor failures symmetric unimodal target distribution line",
+        "sensor network optimal two detector locations Gaussian density maximize probability at least one successful detection independent failure",
+        "multiple identical interval detectors independent failure spatial Gaussian distribution reliability optimal spacing three detectors",
+        "Optimal One-Dimensional Coverage by Unreliable Sensors Frasca Garin Gerencser Hendrickx 2015 full paper"
+      ]
+    },
+    "checked_sources": [
+      "Bittner et al. 2024, doi:10.1039/D3EA00170A, indexed article excerpts",
+      "Litvak et al. §5.2.1, publicly accessible PDF",
+      "Frasca et al. 2015, doi:10.1137/140968094, author manuscript §§1–3",
+      "Wettergren and Costa 2013, doi:10.1155/2013/145496, open article introduction and model",
+      "Publicly indexed plume-design finding on Gaussian-plume estimation with title above, summary only",
+      "Searches for three-sensor Gaussian coverage and overlap failure thresholds"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The two-detector no-overlap lemma is a condition about the single-interval overlap boundary; it has no triple-intersection term.",
+        "The plume Fisher-information record jointly estimates unknown parameters via Poisson counts rather than at-least-one Boolean detection.",
+        "Wettergren and Costa (2013) study Poisson opportunities for multi-sensor detection of moving trajectories, not the constrained Gaussian crosswind plume-center optimization.",
+        "The finite algebra here explicitly needs distinct q² and q terms: they create an entire interval of reliability where the optimizer is held at the outer-outer footprint contact."
+      ],
+      "reasoning": "The claimed theorem is not merely a corollary with renamed sensor counts: under three detectors there are two changes in intersection multiplicity and the stationary half-spacing first follows ℓ, pins at r, then follows ℓ/2, then pins at 2r. None of the inspected claims expresses or implies this under the stated objective and geometry. However an uninspected general location theorem might.",
+      "searches": [
+        "sensor overlap optimal allocation two sensors Litvak no overlap principle gaussian target location",
+        "2015 Frasca optimal one-dimensional coverage unreliable sensors expected maximum distance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Litvak et al. §5.2.1 pp.89–90 gives the probability-of-at-least-one-alarm objective for two finite-footprint sensors and a no-overlap sufficient condition.",
+        "Frasca et al. (2015) §2 defines expected maximum uncovered-distance loss, not this localized plume true-alarm probability.",
+        "Wettergren and Costa (2013) optimize a stochastic moving-target collaborative detection model by numerical sensor-density methods rather than the deterministic three-monitor model.",
+        "No directly equivalent three-symmetric-monitor four-regime formula was found in the inspected references; that is not a proof of priority."
+      ],
+      "reasoning": "The first cited work shares the detection probability primitive but treats two sensors; the three-device design has two distinct footprint-intersection change points and the separate q and q² derivative factors needed for a pinned intermediate regime. The second reference optimizes a different loss functional. Neither inspected result directly entails the asserted four-piece optimal half-spacing theorem without new analysis.",
+      "searches": [
+        "three identical fallible finite-range sensors Gaussian prior symmetric triplet exact optimal spacing detection probability overlap transition one-third two-thirds",
+        "three imperfect sensors one dimensional Gaussian prior optimal coverage overlap independent detection reliability three sensors",
+        "Litvak et al. Increasing Detection Performance of Surveillance Sensor Networks section 5.2.1",
+        "doi:10.1137/140968094"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The retrieved literature was concerned principally with two sensor overlap or numerical general optimization, not a four-regime exact table for three symmetric Gaussian monitors.",
+        "The normalized thresholds here are explicit: 1-exp(-r²/σ²), 1-exp(-2r²/σ²), and 1-exp(-4r²/σ²)."
+      ],
+      "reasoning": "No covering exact-value table was encountered. A negative search is not a uniqueness certificate, and unseen numerical tables remain possible.",
+      "searches": [
+        "three-sensor Gaussian plume threshold at least one alarm consecutive overlapping windows optimal symmetric layout reliability",
+        "three unreliable sensor placement overlapping intervals normal probability optimal spacing",
+        "two identical detection traps independent failure probability interval coverage normal spatial distribution optimal symmetric separation"
+      ]
+    },
+    "rationale": "On the primary documents and published summaries actually inspected, the exact pinned intermediate contact regime and four-piece symmetric three-monitor optimizer are not covered. The closest two-sensor report shares the probability primitive, but lacks triple coverage and the second contact event. The other sensor work optimizes worst distance or Poisson Fisher information. Priority against the entire literature is not certified.",
+    "residual_risks": [
+      "Some sensor-location literature might contain an equivalent symmetric three-sensor formula under different terminology.",
+      "The highly ranked public plume-design record was accessed only as a title/summary, although its described estimation objective is different.",
+      "The motivating 2024 field study was read from indexed excerpts rather than complete publisher full text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides an application setting and source date, not a theoretical optimal-spacing result; no whole-document noncoverage claim is made",
+        "evidence": [
+          "First published 2024-02-26; observed rapid spatial variation in PM2.5 and compared mobile and stationary instruments",
+          "Published study used physical instruments, not idealized three hard-footprint Bernoulli monitors"
+        ],
+        "identifier_or_url": "https://doi.org/10.1039/D3EA00170A",
+        "material_read": "Public abstract, environmental significance and portions of §2 methodology indexed in the openly available article; full article not fetched",
+        "method": "Open-access publisher indexed HTML excerpts and PubMed/PMC bibliographic cross-check",
+        "title": "Performance of Vehicle Add-on Mobile Monitoring System PM2.5 measurements during wildland fire episodes",
+        "trigger": "Motivating 2024 observational evidence on sharp spatial smoke gradients and supplemental mobile monitoring"
+      },
+      {
+        "assessment": "Closest shared objective; treats two sensors and general density no-overlap criterion. The three-monitor four-regime result is not stated in inspected material.",
+        "evidence": [
+          "Equation (5.1) is the two-sensor detection probability",
+          "Lemma 5.2.1 gives sufficient criterion for no overlap; Example 5.2.3 treats linear density"
+        ],
+        "identifier_or_url": "https://miis.maths.ox.ac.uk/268/2/thales-report.pdf",
+        "material_read": "Abstract, introduction, §5.2, §5.2.1 pp.88–90 including Equation (5.1), Lemma 5.2.1 and examples; PDF page image checked",
+        "method": "Public full-text PDF and page visual inspection",
+        "title": "Increasing Detection Performance of Surveillance Sensor Networks",
+        "trigger": "Identical at-least-one-alarm finite-coverage objective and overlap issue"
+      },
+      {
+        "assessment": "Optimizes expected maximum distance to functioning sensors, not probability of a localized random plume being detected; does not dominate the current claim on inspected statements",
+        "evidence": [
+          "§2 formula (3) is an expected maximum-distance cost",
+          "§3 Theorem 1 reduces that objective to a linear program"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/140968094",
+        "material_read": "Open author manuscript abstract, introduction, §§2–3 including equations (1)–(9) and Theorem 1; visual PDF page checked",
+        "method": "Author-hosted manuscript full text read in relevant sections",
+        "title": "Optimal One-Dimensional Coverage by Unreliable Sensors",
+        "trigger": "General unreliable-sensor optimal placement possibly dominating the special result"
+      },
+      {
+        "assessment": "Optimizes moving-target collaborative track detection via sensor-density models, not this three-location Gaussian-center Boolean alarm spacing theorem",
+        "evidence": [
+          "Defines a Markov moving target and Poisson search opportunities, with numerical genetic-algorithm deployment"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2013/145496",
+        "material_read": "Open full article abstract, introduction, §2 model equations (1)–(3) and numerical optimization description",
+        "method": "Open-access article HTML with full relevant model excerpts",
+        "title": "Optimal Planning of Distributed Sensor Layouts for Collaborative Surveillance",
+        "trigger": "Potential broader coverage for multi-detector spatial surveillance"
+      },
+      {
+        "assessment": "Summary describes D-/c-optimal Poisson Fisher-information design, unlike the current Bernoulli alarms; access limit leaves some uncertainty",
+        "evidence": [
+          "Summary identifies three Poisson sensors, joint unknown plume parameters and Fisher determinant rather than threshold footprints"
+        ],
+        "identifier_or_url": "published-record:79a14601ec93",
+        "material_read": "Indexed published title and summary only; detailed full text was not accessible",
+        "method": "Semantic published-record search and attempted public page access",
+        "title": "A strict separation between joint-parameter and location-only optimal plume sensor transects",
+        "trigger": "Highly ranked three-sensor Gaussian-plume record"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "152086be-2c2c-43b8-add2-ab0220e5ba55",
+  "value": {
+    "rationale": "The design concerns a natural physically motivated issue: where to locate three spare fallible plume alarms when crosswind center is uncertain. Two distinct coverage-contact geometries produce a nonzero reliability interval of exactly fixed optimal half-spacing and an explicit four-regime map, giving a directly reproducible benchmark. The result is not claimed as universal sensor placement or an instrument-calibrated policy.",
+    "status": "PASS"
+  }
+}
