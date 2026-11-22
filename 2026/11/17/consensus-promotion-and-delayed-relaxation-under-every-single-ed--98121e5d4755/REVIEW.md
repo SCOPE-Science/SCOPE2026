@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is entirely finite and exhaustively verified: each of the 25 explicitly represented majority maps has 4096 possible states and every transition is constructed. An independently coded successor-chain census in Python and a reverse-indegree-peeling census in C++ agree on all 25 integer tuples (fixed states, primitive two-orbit count, maximal entrance depth, maximally delayed inputs, unanimity basin). The graph's five edge orbits and eight automorphisms were exhaustively enumerated. The Python program also checks degree, triangle-freeness and chromatic number. The displayed positive differences cover all edges; no infinite extrapolation or statistical sampling enters the proof.
+PASS
 
-## Originality — PASS (qualified)
+For 12 vertices the domain is precisely all 4096 bit patterns on each of the 25 graphs; there are no hidden parameters. The source lists all 24 undirected edges and the integer majority/tie map. I rebuilt an entirely separate 4096-state map and path-to-cycle census for all 24 deletions plus the original: baseline (234 fixed,136 two-cycles,max depth7,32 maximizing,basin2906); class representatives (0,1),(0,6),(2,3),(2,6),(2,8) have (118,82,11,24,3164),(130,106,8,2,3094),(126,118,7,20,3032),(106,78,7,8,2996),(144,128,8,4,3080), respectively. All possible least periods were 1 or 2. The source separately enumerates the graph automorphism edge orbits of sizes (4,8,4,4,4), so positivity of all five basin differences proves universal all-edge claim. The finite domain is exhaustively enumerated, not sampled.
 
-A source- and parameter-specific search of published mathematical records and indexed research found no complete binary-majority Chvátal deletion census. The foundational threshold theorem establishes eventual periods at most two but supplies no graph-specific counts. The inspected full arXiv text by Björklund et al. contains the Chvátal Tutte polynomial, a different quantity. A Chvátal excitation result in an indexed record concerns three colors and a different update rule, so does not imply majority consensuses. The accessible prior ledger was searched for direct claims and edge deletions without finding this case. Older full texts and unindexed computations remain a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Chvátal graph is the smallest triangle-free regular four-chromatic graph, making its dynamics a naturally motivated finite benchmark. The complete all-edge perturbation classification yields the nontrivial strict consensus-promotion law while demonstrating that stronger consensus attraction may coexist with slower worst-case relaxation. The five symmetry classes and their exact natural dynamical invariants answer a complete finite structural question, not an arbitrary selected instance or routine restatement of periodicity.
+The Goles–Olivos threshold-cycle theorem supplies only period≤2, and Chvatal graph classical work supplies the graph. Other published majority-edge perturbation classifications are on Heawood, Robertson, Frucht, and complete bipartite graphs, not this graph/rule and 25-map census. The Chvatal Tutte polynomial is unrelated. Unindexed prior machine census remains a risk.
 
-## Scope and limitations
+## value
 
-All claims concern one explicit twelve-vertex network and its full set of single-edge deletions. A general edge-monotonicity statement is false; a three-vertex counterexample is supplied. Literature priority is not certified, and no independent mathematical audit is reported.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A famous smallest regular triangle-free four-chromatic graph is a natural finite stress test of majority dynamics; the every-edge consensus gain with an enlarged worst transient is a nontrivial exact graph-specific robustness phenomenon and the complete basin census is reusable, notwithstanding no global monotonicity theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

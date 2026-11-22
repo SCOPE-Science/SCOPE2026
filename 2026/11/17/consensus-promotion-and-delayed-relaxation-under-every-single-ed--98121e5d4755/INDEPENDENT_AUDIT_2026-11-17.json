@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T22:01:32.321844Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 12 vertices the domain is precisely all 4096 bit patterns on each of the 25 graphs; there are no hidden parameters. The source lists all 24 undirected edges and the integer majority/tie map. I rebuilt an entirely separate 4096-state map and path-to-cycle census for all 24 deletions plus the original: baseline (234 fixed,136 two-cycles,max depth7,32 maximizing,basin2906); class representatives (0,1),(0,6),(2,3),(2,6),(2,8) have (118,82,11,24,3164),(130,106,8,2,3094),(126,118,7,20,3032),(106,78,7,8,2996),(144,128,8,4,3080), respectively. All possible least periods were 1 or 2. The source separately enumerates the graph automorphism edge orbits of sizes (4,8,4,4,4), so positivity of all five basin differences proves universal all-edge claim. The finite domain is exhaustively enumerated, not sampled.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published comparable finite edge-deletion results use different graphs, including Robertson where every deletion increases both consensus and oscillations, unlike Chvatal where two-cycle counts decrease."
+        ],
+        "reasoning": "No broader family theorem or parameter reduction was found that specializes to the exact Chvatal numbers.",
+        "searches": [
+          "Resultary: consensus edge deletion Heawood Robertson Frucht majority",
+          "Goles and Olivos 1980 period theorem"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, check_chvatal.py, check_chvatal.cpp at assigned commit",
+        "Independent full finite-state checker run against literal edge list",
+        "Chvatal 1970 DOI bibliographic description",
+        "Goles–Olivos 1980 primary theorem synopsis",
+        "Björklund et al arxiv:0711.2585",
+        "Resultary related majority graph exact censuses"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chvatal describes the graph, Goles–Olivos restricts temporal periods, and Robertson results demonstrate contrasting edge response."
+        ],
+        "reasoning": "None predicts strict positive basin differences 258,188,126,90,174 or exact eleven-step maximum; independent complete enumeration supplies the facts.",
+        "searches": [
+          "Chvatal The smallest triangle-free 4-chromatic 4-regular graph 1970",
+          "Goles Olivos Periodic behaviour of generalized threshold functions 1980",
+          "Resultary: A simultaneous consensus and oscillation gain under every Robertson edge deletion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General synchronous symmetric threshold dynamics has only period-one and period-two attractors; this is an eventual-period bound with no 4096-state basin counts."
+        ],
+        "reasoning": "The Chvatal deletion robustness is not a reformulation of the general period-two restriction; it requires complete finite-state basin enumeration.",
+        "searches": [
+          "Resultary: Chvatal graph majority threshold synchronous binary edge deletion consensus basin transients fixed 2 cycles",
+          "Goles Olivos periodic behaviour generalized threshold functions 1980"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Tutte-polynomial tables are graph-invariant tables, not state-transition attractor or basin data.",
+          "No matching Chvatal majority table found in published Resultary aside from assigned record."
+        ],
+        "reasoning": "An exact new 25-map table is not implied by chromatic graph data or Tutte coefficients.",
+        "searches": [
+          "Resultary: Chvatal binary majority 4096 state all 24 deleted edges table",
+          "Björklund et al Computing Tutte polynomial vertex exponential time Appendix Chvatal graph"
+        ]
+      },
+      "rationale": "The Goles–Olivos threshold-cycle theorem supplies only period≤2, and Chvatal graph classical work supplies the graph. Other published majority-edge perturbation classifications are on Heawood, Robertson, Frucht, and complete bipartite graphs, not this graph/rule and 25-map census. The Chvatal Tutte polynomial is unrelated. Unindexed prior machine census remains a risk.",
+      "residual_risks": [
+        "Any unindexed earlier calculation of this particular 12-vertex majority functional graph remains possible.",
+        "Inapplicable to alternative tie-breaking, asynchronous updates, or simultaneous multi-edge removals."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem bounds eventual periods to at most 2; does not report Chvatal-specific basins",
+          "evidence": "No 12-vertex Chvatal deletion census appears in accessible summary.",
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+          "material_read": "Accessible original abstract and citation information, not original complete article",
+          "method": "Primary DOI and published theorem synopsis",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "same symmetric Boolean threshold dynamics"
+        },
+        {
+          "assessment": "Computes Tutte polynomial, not temporal majority functional graphs",
+          "evidence": "The observable is Tutte polynomial, which cannot yield individual 4096-state basin classification alone.",
+          "identifier_or_url": "https://arxiv.org/abs/0711.2585",
+          "material_read": "Accessible public text and appendix description of Chvatal graph",
+          "method": "Read related graph table/appendix context",
+          "title": "Computing the Tutte polynomial in vertex-exponential time",
+          "trigger": "same named graph appearing in enumerated examples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A famous smallest regular triangle-free four-chromatic graph is a natural finite stress test of majority dynamics; the every-edge consensus gain with an enlarged worst transient is a nontrivial exact graph-specific robustness phenomenon and the complete basin census is reusable, notwithstanding no global monotonicity theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exactly the provided 12-vertex labelled Chvatal graph and its 24 single deletions; no general graph edge-monotonicity statement.",
+    "All-state exhaustive verification supports finite theorem; no extrapolation to larger graphs."
+  ],
+  "schema_version": 1
+}
