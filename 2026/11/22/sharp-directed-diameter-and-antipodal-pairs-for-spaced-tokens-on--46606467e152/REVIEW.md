@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The precise domain is \(r,k\ge2\), \(n\ge rk\). Edge-crossing conservation bounds any directed walk below by a nonnegative integer arc flow. Cutting at the minimum prefix imbalance and using an unfinished-token propagation argument constructs a valid clockwise walk with exactly that flow; strict slack excludes a total cyclic deadlock. Separation inequalities in the unrolled interval yield the sharp diameter and force all extremal source/target positions. Composition counting establishes orders and arc counts. The included exhaustive verifier separately checked 1,896,844 ordered source–target distances, 73 parameter cases, diameters, and ordered antipodal counts.
+
+**Originality — PASS, subject to historical priority.** Ito et al. (2022) formulate directed token sliding and solve shortest paths on oriented trees, not cyclic powers. Banerjee et al. (2024), Section 4.1, prove directed-cycle reachability; their construction may imply transport-optimality for ordinary independent sets, so reachability and that principle are not asserted as original. Their paper does not state the general spaced-token directed diameter or its unique extremal rotations. Zhang and Krauth (2024) cover symmetric exclusion and pointer-lifted TASEP, not the directed unlifted hard-rod configuration graph. Related published undirected bounded-gap results do not control one-way distances. An unindexed equivalent from exclusion-process or reconfiguration literature remains possible.
+
+**Value — PASS.** This determines the maximum minimum number of feasible one-way local relocation steps for all particle counts and all hard-core exclusion distances, and classifies every worst-case pair rather than merely giving a bound. Its linear-time prefix-flow distance computation and sharp transition from frozen to strongly connected states are useful exact geometric benchmarks for one-way particle routing. It does not claim any stochastic mixing-time formula.
+
+**Limits and risk.** The theorem is limited to uniform hard-core spacing and a single clockwise transition rule. Finite tests corroborate, not replace, the complete proof. Historical originality is a best-knowledge assessment; independent review is still needed.
+
+Self-review: passed. Independent audit: not yet performed.

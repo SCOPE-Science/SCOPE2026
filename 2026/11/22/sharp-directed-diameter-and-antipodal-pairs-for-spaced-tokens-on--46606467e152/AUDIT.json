@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The proof supplies conservation f_j-f_{j-1}=a_j-b_j and minimal nonnegative flow, then cuts at the minimum potential and constructs a feasible shortest trajectory. Blocking of any unfinished token propagates cyclically; all-blocked would force n=rk, impossible for positive slack. Unrolling gives individual displacement bound L=n-1-r(k-1); equality forces unique packed source and target up to rotation. Stars-and-bars counts states and legal arcs. Tested all 1,896,844 ordered pairs in 73 finite parameter cases via complete BFS and independent prefix arithmetic. Boundaries n=rk and r,k>=2 are explicit; finite checks only corroborate the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhang–Krauth 2024 distinguishes symmetric exclusion from lifted TASEP with a pointer: neither has exactly the unlifted clockwise hard-rod transition rule",
+        "Ito et al. 2022 obtain shortest-sequence algorithms on oriented trees; cycles and their powers do not follow from acyclic-host cases",
+        "Banerjee et al. 2024 obtain oriented-cycle reachability without the full all-r directed diameter or unique antipodal characterization"
+      ],
+      "reasoning": "A diameter bound for a bidirectional or pointer-lifted chain does not bound the unlifted directed distance; a reachability theorem for general directed-cycle instances does not determine a sharp finite all-pairs metric. No inspected dominating-parameter theorem establishes the asserted extremal classification.",
+      "searches": [
+        "\"totally asymmetric exclusion\" \"hard rods\" \"diameter\" ring",
+        "\"exclusion\" \"shortest paths\" \"diameter\" periodic ring",
+        "doi:10.1007/s10955-024-03312-w",
+        "arxiv:2203.13435",
+        "arxiv:2411.16149"
+      ]
+    },
+    "checked_sources": [
+      "Ito et al. 2022 arxiv:2203.13435",
+      "Banerjee, Engels and Hoang 2024 arxiv:2411.16149",
+      "Zhang and Krauth 2024 doi:10.1007/s10955-024-03312-w",
+      "Lakatos and Chou 2003 abstract doi:10.1088/0305-4470/36/8/302",
+      "Related public circular bounded-gap token metric literature (bidirectional)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Directed cycle reachability in Banerjee et al. may imply connectivity at r=2, and their path methodology may imply distance transport optimality there; this prior principle is not claimed as new",
+        "Zhang–Krauth considers different move sets including lifting, so their diameters do not entail the directed unlifted value",
+        "Undirected circular-gap transportation may imply a less restrictive symmetric metric, which can be lower than a directed metric"
+      ],
+      "reasoning": "Prior work can cover connectivity and may cover cost formulas at r=2 without covering the simultaneous all-r exact diameter plus n uniquely classified worst-case ordered pairs. Checked implications for special cases rather than relying on title dissimilarity.",
+      "searches": [
+        "arxiv:2411.16149 Section 4.1",
+        "doi:10.1007/s10955-024-03312-w Section 2",
+        "\"undirected\" bounded-gap circular token sliding shortest paths"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Banerjee–Engels–Hoang 2024 Section 4.1 treats directed token sliding on oriented cycles and reachability, with no all-r hard-core sharp directed diameter",
+        "Lakatos–Chou 2003 treats arbitrary-size particles in totally asymmetric exclusion; examined abstract describes current and phase regimes, not exact shortest directed paths",
+        "The state condition is a constant hard-rod exclusion gap; translating to periodic exclusion does not by itself furnish the all-pairs distance or extremal-pair theorem"
+      ],
+      "reasoning": "Compared r=2 ordinary independent sets, r>2 independent sets of powers of cycles with moves only along base clockwise cycle arcs, and hard-rod exclusion on a periodic ring. The exact min-prefix-flow metric and sharp classified ordered farthest pairs did not appear in the materially inspected same-object work. Abstract-only older material remains a stated priority risk.",
+      "searches": [
+        "\"directed token sliding\" \"oriented cycles\" shortest distance diameter independent sets",
+        "\"totally asymmetric exclusion\" \"hard rods\" \"diameter\" ring",
+        "\"directed\" \"token sliding\" \"cycle power\" diameter hard core",
+        "arxiv:2203.13435",
+        "arxiv:2411.16149",
+        "doi:10.1088/0305-4470/36/8/302"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exhaustive fresh computations in verify.py cover 73 triples and 1,896,844 ordered pairs, with an algebraic proof for all triples in RESULT.md",
+        "No indexed complete r-parameter ordered diametral-pair table was found in the accessed literature"
+      ],
+      "reasoning": "The exact expression, n diametral pairs, and strong connectivity boundary are an infinite family; finite old-data enumeration, if found, might be narrower than this. Absence in searched tables is not by itself a novelty proof.",
+      "searches": [
+        "\"hard rods\" \"diameter\" \"directed\" cycle",
+        "\"one-way\" \"token sliding\" \"diametral\" cyclic configurations",
+        "\"TASEP\" \"diameter\" \"hard rods\""
+      ]
+    },
+    "rationale": "The new statement is the all-parameter exact one-way metric and sharp extremal-pair classification for r-spaced k-token states of a labelled cycle. Direct examination of primary directed-token-sliding work shows reachability and tree algorithms but not the explicit sharp diameter/unique directed antipodes. The symmetric and pointer-lifted exclusion diameters concern other transition graphs. Related bounded-gap token metric work allows slides in both directions and does not dominate the one-way metric. Publication priority remains conditional on indexing and unresolved abstract-only older literature.",
+    "residual_risks": [
+      "Lakatos and Chou 2003 article body was not materially read; possible earlier hard-rod shortest-path formulation",
+      "Unindexed literature may prove the prefix-flow metric or the sharp r-spaced extremizers under exclusion-process terminology",
+      "No external independent mathematical review"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces model and oriented-tree shortest-path methods; no exact directed r-spaced cycle diameter",
+        "evidence": "Ito et al. (2022) tree shortest-path methods and complexity scope",
+        "identifier_or_url": "https://arxiv.org/abs/2203.13435",
+        "material_read": "Accessible full-text introduction and main algorithmic sections for shortest paths on oriented trees",
+        "method": "Read arXiv HTML source and compared hypotheses and host graph classes",
+        "title": "Independent set reconfiguration on directed graphs",
+        "trigger": "Closest foundational directed-token-sliding paper with shortest sequences"
+      },
+      {
+        "assessment": "Acyclic and directed-cycle reachability framework may imply r=2 subclaims, but not sharp all-r metric/antipodal classification",
+        "evidence": "Banerjee, Engels and Hoang (2024), Section 4.1",
+        "identifier_or_url": "https://arxiv.org/abs/2411.16149",
+        "material_read": "Full accessible arXiv HTML, especially Section 4.1 cycle proof and main theorems",
+        "method": "Compared move rules, reachability claims, and stated cycle conclusions with all-r cost and antipodes",
+        "title": "Directed Token Sliding",
+        "trigger": "Same oriented cycle reachability model"
+      },
+      {
+        "assessment": "Pointer-augmented lifted process and symmetric particle exchange are different graphs from one-way hard-core slides; no domination",
+        "evidence": "Zhang and Krauth (2024), distinct symmetric and lifted dynamics",
+        "identifier_or_url": "https://doi.org/10.1007/s10955-024-03312-w",
+        "material_read": "Full lawful open HTML Sections 1, 2.1 and 2.2 on symmetric versus lifted TASEP transition models",
+        "method": "Compared precise transition rules and diameter normalizations",
+        "title": "Diameters of Symmetric and Lifted Simple Exclusion Models",
+        "trigger": "Potential exact exclusion-process diameter stronger theorem"
+      },
+      {
+        "assessment": "Abstract studies stationary currents and phase behavior, not exact shortest path; unresolved full-text priority risk",
+        "evidence": "Lakatos and Chou (2003), abstract",
+        "identifier_or_url": "https://doi.org/10.1088/0305-4470/36/8/302",
+        "material_read": "Published abstract only; the complete article was not accessible in the inspected sources",
+        "method": "Checked original article metadata and abstract; did not infer whole-document absence",
+        "title": "Totally asymmetric exclusion processes with particles of arbitrary size",
+        "trigger": "Direct equivalent hard-rod physical system"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "46606467-e152-4343-bc4f-5ec1928331c6",
+  "value": {
+    "rationale": "The natural exact one-way relocation cost for hard-core particles on rings is solved for all exclusion radii, token counts and circumferences, including exact optimal directed routes, a sharp frozen/strongly-connected phase boundary, n uniquely classified worst-case pairs, and linear-time distance computation. This is a motivated global algorithmic metric invariant rather than an ad hoc small-instance table. The result does not claim physical mixing-time or stationary-current behavior.",
+    "status": "PASS"
+  }
+}
