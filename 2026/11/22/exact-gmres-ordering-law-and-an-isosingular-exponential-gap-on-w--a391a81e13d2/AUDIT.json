@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "For any positive weights, the first-coordinate Krylov flag is exactly the initial coordinate flag; the residual complement satisfies v_j=w_j v_{j+1} and yields reciprocal prefix products by projection. Termwise extrema prove the simultaneous rearrangement law. Exact geometric sums give the two-block formula; B(reversal)=J B(transpose) J preserves singular values. The self-contained checker passes 39018 exact-rational assertions; none is treated as a proof of the infinite family.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Greenbaum–Pták–Strakoš (1996), DOI:10.1137/S0895479894275030, allows arbitrary residual curves with assigned eigenvalues, but does not require fixed singular values and a fixed bidiagonal chain.",
+        "Chen–Soodhalter arXiv:2609.24751 studies tridiagonal Toeplitz constant coefficients; §3.3 handles scaled Jordan blocks, not variable edge couplings."
+      ],
+      "reasoning": "A broad ability to prescribe eigenvalues does not imply an identical singular-value multiset between two prescribed positive chains with a shared coordinate start vector. Constant Toeplitz cases are a lower-dimensional special class and do not imply the arrangement optimum.",
+      "searches": [
+        "optimal ordering subdiagonal weights GMRES polynomial triangular solve sorting ascending descending convergence multiset",
+        "GMRES weighted bidiagonal chain products first entry residual reciprocal squared sum fixed edge weights permutation sorted extremizers",
+        "GMRES matrices identical singular values different convergence history right hand side",
+        "Greenbaum Ptak Strakos any nonincreasing convergence curve GMRES prescribed eigenvalues singular values"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2611.00552v1 (technical sections 2, 4–6 and application tables)",
+      "arXiv:2609.24751 (sections 1–3.3 and relevant references)",
+      "Liesen–Strakoš, DOI:10.1137/S0895479803424967 (abstract and cited prior analysis)",
+      "Greenbaum–Pták–Strakoš, DOI:10.1137/S0895479894275030 (abstract/introduction)",
+      "2026/10/25/SCOPE-sharp-anisotropic-two-step-gmres-stagnation-frontier-for-a-three--20723474f61a",
+      "2026/10/11/SCOPE-strict-schatten-rearrangement-for-four-site-weighted-shift-resol--a0f6a336e377"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known constant Jordan residual formulas are subsumed by the unrestricted positive-weight identity, but are explicitly prior and are not the novelty basis.",
+        "Dargaville–Pain, arXiv:2611.00552v1, describes qualitative ordering sensitivity; the matrices used in the claimed pair have identical spectra including singular values.",
+        "Greenbaum–Pták–Strakoš supplies arbitrary eigenvalue freedoms only."
+      ],
+      "reasoning": "None of the inspected results supplies an implication yielding optimization over permutations of fixed edge weights with a common first-coordinate start, nor the quantitative reversed-pair isosingular ratio. The all-weights formula and its elementary proof are included for completeness, not represented as a wholly new GMRES technique.",
+      "searches": [
+        "GMRES weighted bidiagonal unit triangular Jordan block residual partial products reciprocal squared exact formula row ordering permutation",
+        "GMRES identical singular values and identical eigenvalues reversal of bidiagonal weighted nilpotent chain exponential residual ordering exact sharp",
+        "\"Convergence of GMRES for Tridiagonal Toeplitz Matrices\" Jordan block residual formula e1",
+        "\"GMRES\" \"same singular values\" arbitrary matrix"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dargaville–Pain §5 studies a GMRES polynomial of triangular factors but provides no coupling-permutation extremum.",
+        "Liesen–Strakoš (2004) homogeneous Jordan formulas do not allow an arbitrary positive edge sequence.",
+        "Greenbaum–Pták–Strakoš (1996) specifies GMRES curves at chosen eigenvalues but does not impose a shared singular spectrum."
+      ],
+      "reasoning": "Exact-rational residual identity can be deduced from the standard GMRES projection picture, but free-multiset simultaneous sorted optimality plus reversal-isosingular exponential gap is not logically entailed by those cited special cases or unconstrained existence results.",
+      "searches": [
+        "GMRES weighted bidiagonal unit triangular Jordan block residual partial products reciprocal squared exact formula row ordering permutation",
+        "GMRES identical singular values and identical eigenvalues reversal of bidiagonal weighted nilpotent chain exponential residual ordering exact sharp",
+        "\"GMRES\" \"bidiagonal\" \"ordering\" spectrum",
+        "\"GMRES\" \"weighted Jordan\" residual exact formula permutation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/10/25/SCOPE-sharp-anisotropic-two-step-gmres-stagnation-frontier-for-a-three--20723474f61a concerns a 3x3 two-step upper-bidiagonal stagnation threshold, not all-horizon ordered chains.",
+        "published-finding corpus 2026/10/11/SCOPE-strict-schatten-rearrangement-for-four-site-weighted-shift-resol--a0f6a336e377 concerns four-site Schatten norms of resolvents, not GMRES residual minimization with a fixed right-hand side.",
+        "Dargaville–Pain application Tables 4 and the supplementary tables provide empirical ILU orderings and iteration counts, not exact chain results."
+      ],
+      "reasoning": "The identified indexed tables and mathematical-record summaries do not state the claimed simultaneous sharp ordering rule or exact isosingular exponential penultimate ratio. Full mathematical-record entries could not be inspected and are retained as a priority risk.",
+      "searches": [
+        "GMRES identical singular values and identical eigenvalues reversal of bidiagonal weighted nilpotent chain exponential residual ordering exact sharp",
+        "iterative triangular inverse solve bidiagonal ordering of weights exponential GMRES ratio",
+        "\"GMRES\" \"bidiagonal\" \"products\" \"residual\" exact"
+      ]
+    },
+    "rationale": "All-horizon edge-multiset extremization and an exact exponential GMRES residual gap between reversed isosingular bidiagonal factors are not stated in the inspected recent primary technical analyses. The general projection identity, homogeneous Jordan residuals, and fixed-eigenvalue arbitrary-curve freedom are existing results and expressly excluded as distinct originality. Related mathematical-record summaries show nearby but non-dominating results; unavailable full source material and historical priority remain residual risks.",
+    "residual_risks": [
+      "Full texts of the two closest published-finding corpus record entries could not be retrieved; comparisons use their indexed scientific summaries, not fictitious document inspections.",
+      "The complete 2004 constant-Jordan paper and all prior specialty weighted-shift literature were not exhaustively checked; an equivalent unrestricted-weight arrangement theorem may exist.",
+      "The fixed-edge-multiset family is not produced by a known simultaneous row/column reordering of one given sparse linear system."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains fixed-polynomial solvers, qualitative ordering effects and empirical tables; does not state exact weighted-chain permutation extremizer or isosingular exponential ratio in the inspected material",
+        "evidence": [
+          "arXiv:2611.00552v1 PDF pp.1–5 and pp.14–15, especially §4 eq.(4.1), §5 eq.(5.1), Table 4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.00552",
+        "material_read": "PDF first page, sections 2, 4, 5 and related section 6, ordering study in section 7.2 and tables; searched PDF for bidiagonal and Jordan",
+        "method": "Read indexed primary PDF text and inspect rendered title page",
+        "title": "A comparison of parallel iterative methods for ILU triangular solves",
+        "trigger": "Eligible motivating paper explicitly studies ordering-dependent approximate triangular solves and GMRES polynomials"
+      },
+      {
+        "assessment": "Studies constant-coefficient tridiagonal Toeplitz, including scaled Jordan boundary and classical e1 formulas; not arbitrary positive independently permutable subdiagonal sequence",
+        "evidence": [
+          "arXiv:2609.24751 PDF §2 pp.2–3, §2.2 p.11 and §3.3 pp.20–21; references [18],[26]"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.24751",
+        "material_read": "PDF abstract, §§1–2 and discussion of Toeplitz/Jordan structure in §§2–3.3; searched bidiagonal, Jordan, subdiagonal and references",
+        "method": "Read indexed primary PDF with inspected title-page rendering and targeted sections",
+        "title": "Constraints on admissible behavior of GMRES applied to tridiagonal Toeplitz systems",
+        "trigger": "Closest recent primary theory of GMRES on bidiagonal/Jordan-related structured matrices"
+      },
+      {
+        "assessment": "Its constant-coefficient Jordan residual formulas are acknowledged prior; no claim that the entire article was excluded after complete reading",
+        "evidence": [
+          "SIAM J. Matrix Anal. Appl. 26 (2004), 233–251 abstract explicitly states formulas for scaled Jordan blocks"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0895479803424967",
+        "material_read": "Published abstract and extended accessible excerpt; not full original article",
+        "method": "Read publisher abstract and accessible excerpt",
+        "title": "Convergence of GMRES for Tridiagonal Toeplitz Matrices",
+        "trigger": "Cited source confirms existing exact Jordan residual formulas"
+      },
+      {
+        "assessment": "Arbitrary curve construction with prescribed eigenvalues; no fixed singular-spectrum and positive bidiagonal chain constraints in stated theorem",
+        "evidence": [
+          "SIAM J. Matrix Anal. Appl. 17 (1996), 465–469, abstract and intro"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0895479894275030",
+        "material_read": "Publisher abstract and publicly accessible preprint introduction",
+        "method": "Read publisher abstract and available introductory primary text",
+        "title": "Any Nonincreasing Convergence Curve is Possible for GMRES",
+        "trigger": "General prior theorem may dominate claims of convergence-curve variation"
+      },
+      {
+        "assessment": "Summarized result concerns three-site upper-bidiagonal two-step stagnation, not arbitrary-size all-horizon sorting or reversed singular spectra; stronger unpublished equivalence cannot be excluded from summary alone",
+        "evidence": [
+          "published-finding corpus record 2026/10/25/SCOPE-sharp-anisotropic-two-step-gmres-stagnation-frontier-for-a-three--20723474f61a"
+        ],
+        "identifier_or_url": "2026/10/25/SCOPE-sharp-anisotropic-two-step-gmres-stagnation-frontier-for-a-three--20723474f61a",
+        "material_read": "Indexed record title and summary only; repository link inaccessible",
+        "method": "published-finding corpus semantic search; followed repository URL but access failed",
+        "title": "Sharp anisotropic two-step GMRES stagnation frontier for a three-site bidiagonal system",
+        "trigger": "Closest published-finding corpus match about bidiagonal GMRES"
+      },
+      {
+        "assessment": "Summarized result concerns Schatten norms of resolvents on four sites, not a fixed-start GMRES residual and full positive-weight sorting classification; full comparison unavailable",
+        "evidence": [
+          "published-finding corpus record 2026/10/11/SCOPE-strict-schatten-rearrangement-for-four-site-weighted-shift-resol--a0f6a336e377"
+        ],
+        "identifier_or_url": "2026/10/11/SCOPE-strict-schatten-rearrangement-for-four-site-weighted-shift-resol--a0f6a336e377",
+        "material_read": "Indexed record title and summary only; repository link inaccessible",
+        "method": "published-finding corpus semantic search; followed repository URL but access failed",
+        "title": "Strict Schatten rearrangement for four-site weighted-shift resolvents",
+        "trigger": "Potential related weighted-shift rearrangement result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a391a81e-13d2-4070-9872-f33b48248f7f",
+  "value": {
+    "rationale": "A natural sparse triangular factor model with a fixed source shows, through complete sharp optimization over its positive edge-multiset and an explicit reversed pair, that full singular spectrum and eigenvalues can be identical while near-terminal GMRES residuals differ by asymptotically sqrt(5/8)*2^m. It turns vague nonnormal sensitivity into a quantitative, exactly reproducible algorithmic boundary; the restriction to a chain and one start is essential and explicitly stated.",
+    "status": "PASS"
+  }
+}
