@@ -1,0 +1,227 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T10:45:09.188479Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md, frozen Git blob a498a8c746b3129fa7480c03310b1c76110d0072",
+        "Assigned verify.py, blob a87a8130bf7a9f9afbe297e8f0ec5e097470d1c8, read as source not executed",
+        "Assigned verify_output.txt, blob 1b290e546c1c601775fff9022cdd883b014f48cf (historic output only)",
+        "Independent 60-decimal mpmath 14 Gaussian-quadrature evaluations and root checks"
+      ],
+      "rationale": "Reconstructed the Cayley rotation matrix as angle α=2 arctan(sqrt(h)Z/2), the exact diffusion Fourier multiplier exp(-m²h/2), and for r=h/4, t=2/h the Gaussian Laplace–Chebyshev representation λ_m(h)=sqrt(t/π)∫_{0}^{∞}e^{-ty}y^{-1/2}T_m((1-y)/(1+y))dy. K_m has precisely m alternating simple positive zeros y_j=tan²((2j-1)π/(4m)). If its Laplace transform had m+1 distinct positive zeros, a nonzero linear combination of the m+1 exponential kernels vanishing at the m prescribed sign changes, by the Rolle/Chebyshev bound, has exactly those m simple zeros and no others, making the integral g(y)q(y) strictly one-signed and contradicting the assumed vanishing. This establishes the infinite-domain <=m zero count, not via finite samples. Gaussian integration and IBP yield A(r)=sqrt(π/(2r)) exp(1/(2r)) erfc(1/sqrt(2r)), λ1=2A-1, λ2=1+4/r-4(1+1/r)A. At r=1 the alternating-erf series and rational comparisons sqrt(e)>8/5, sqrt(π/2)>5/4 show A(1)>47/75>5/8, hence λ2(4)<-1/75. Endpoint λ_m(0+)=1 and λ_m(∞)=(-1)^m force exactly one λ1 root and exactly two λ2 roots, with no extras by the zero-count theorem. Smooth nondegenerate increment density on (-π,π) and strict |λ_m|<1 for m≠0 imply unique Haar invariant law at any finite h>0. Checked large-step asymptotics and the factor 1/2 in the Cayley map. Independent 60-digit Gaussian quadratures matched erfc-mode formulas at 14 (mode,h) combinations to <1e-48, roots 10.6795421075101613, 1.4898325714354649, 36.8209600939775341, λ2(4)=-0.24543633935038777; these are corroborative numerical tests, not root certificates or infinite-time proof.",
+      "residual_risks": [
+        "Displayed decimal roots are approximations, not interval certified",
+        "The zero-count proof bounds distinct zeros only and does not classify all m>2 modes",
+        "Assertions restricted to standard Gaussian fixed-step planar Stratonovich rotations and half-scale Cayley convention"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2009.10113 sections 2,6-8 prove strong/weak convergence and manifold preservation for flow/jet schemes, not a fixed-step Gaussian Cayley SO(2) Fourier sign-boundary classification.",
+          "https://imacm.uni-wuppertal.de/fileadmin/imacm/preprints/2020/imacm_20_05.pdf section 4 computes exponential-based SO(n) covariance flows in a different SDE model, explicitly not the proposed alternative Cayley implementation.",
+          "https://arxiv.org/abs/0704.0022 introduction and main methods construct stochastic Munthe–Kaas/Castell–Gaines schemes using exponential maps and finite-time accuracy.",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-correlation-sign-transition-despite-second-order-invariant--72d3d4208838/RESULT.md computes a distinct Ornstein-Uhlenbeck BDF2–Maruyama stationary lag-sign transition, not a circle Cayley transition spectrum.",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-logarithmic-drift-and-phase-fluctuations-of-haar-sketched--33340664eb63/RESULT.md studies a deterministic oscillator with Haar-random rank-one Euler sketch updates that do not preserve radial energy; cannot specialize to Gaussian circle Cayley steps."
+        ],
+        "reasoning": "The nearest general strong/weak convergence or geometric SDE integration frameworks do not entail signs of arbitrary-time-step Fourier eigenvalues; retaining the invariant measure is strictly weaker than retaining the heat semigroup spectrum. The closest stochastic sign-transition record uses a two-step real OU recurrence and correlation in lag, not a single SO(2) Gaussian Cayley step varied by h. No checked general result dominates the precise all-h zero-count and two-root formula.",
+        "searches": [
+          "stochastic Cayley numerical integrator rotational Stratonovich Brownian Fourier correlation",
+          "Cayley transform random rotations Gaussian stepsize signed Fourier eigenvalues",
+          "arxiv:2009.10113",
+          "arxiv:0704.0022",
+          "doi:10.3390/math9010094",
+          "Resultary 2026/11/2 BDF2 correlation sign",
+          "Resultary 2026/10/25 Haar-sketch Euler rotation"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1810.02881",
+        "https://imacm.uni-wuppertal.de/fileadmin/imacm/preprints/2020/imacm_20_05.pdf",
+        "https://www.mdpi.com/2227-7390/9/1/94",
+        "https://arxiv.org/abs/2009.10113",
+        "https://arxiv.org/abs/0704.0022",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-correlation-sign-transition-despite-second-order-invariant--72d3d4208838/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-logarithmic-drift-and-phase-fluctuations-of-haar-sketched--33340664eb63/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-resonance-spectrum-of-the-barker-larman-tangent-chord-tran--3146b93dda04/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-reentrant-fourier-correlation-frontiers-for-gaussian-cayle--f91afb71c440"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/1810.02881: distributional Jacobian formulas allow computing densities but do not assert any variation-diminishing Laplace Chebyshev root count of the Gaussian increments.",
+          "https://imacm.uni-wuppertal.de/fileadmin/imacm/preprints/2020/imacm_20_05.pdf: the actual numerical projection is Q exp(Ω), not the Cayley step; its results do not identify fixed Fourier mode eigenvalues.",
+          "https://arxiv.org/abs/2009.10113: convergence for h→0, even when a scheme preserves the manifold, does not imply the sign behavior on the full h>0 range.",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-correlation-sign-transition-despite-second-order-invariant--72d3d4208838/RESULT.md: the OU result oscillates in discrete lag k when λh>1/2, rather than re-entering signs in stepsize h at a fixed Fourier index m=2.",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-logarithmic-drift-and-phase-fluctuations-of-haar-sketched--33340664eb63/RESULT.md: its update includes a nonconstant radial multiplier and is not a probability convolution on the unit circle."
+        ],
+        "reasoning": "The target is the implication λ_2(h)>0 for small h, <0 at h=4 and >0 for sufficiently large h, with exactly two positive roots, plus at-most-m zeros for each fixed m. None of the inspected results, after changing normalization, taking corollaries, or reducing their objects, logically yields this sign-count theorem. Its Gaussian/Cayley building blocks are known and are not themselves asserted as new.",
+        "searches": [
+          "Gaussian Cayley steps Brownian circle Fourier multipliers reentrant second harmonic positive roots Chebyshev",
+          "stochastic Cayley numerical integrator rotational Stratonovich Brownian Fourier correlation",
+          "Cayley transform random rotations Gaussian stepsize signed Fourier eigenvalues",
+          "Gaussian Cayley stochastic numerical scheme Fourier eigenvalue sign crossings Brownian circle characteristic function arctan normal 2025",
+          "Jauch–Hoff–Dunson arxiv:1810.02881",
+          "Muniz–Ehrhardt–Günther BUW-IMACM-20/05",
+          "Armstrong–King arxiv:2009.10113",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-correlation-sign-transition-despite-second-order-invariant--72d3d4208838/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-logarithmic-drift-and-phase-fluctuations-of-haar-sketched--33340664eb63/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/1810.02881 abstract and main body: the Cayley/Stiefel distributional Jacobian, random orthogonal matrix and Gaussian approximation setting, without the SO(2) Brownian fixed-step Fourier eigenvalue zero count.",
+          "https://imacm.uni-wuppertal.de/fileadmin/imacm/preprints/2020/imacm_20_05.pdf section 3, page 4: the Cayley transform is proposed as an alternative to exp(Ω) for SO(n) integration; Algorithm 3.2 actually uses exp(Ω).",
+          "Assigned RESULT.md (Git blob a498a8c746b3129fa7480c03310b1c76110d0072): α=2 arctan(sqrt(h) Z/2), λ_m=E T_m((1-h Z²/4)/(1+h Z²/4)); equivalent signed characteristic coefficients are covered in the comparisons.",
+          "Resultary query matched 2026/11/8 f91afb71c440 exactly, which is this same published mathematical package, not an independent earlier result."
+        ],
+        "reasoning": "The angle distribution is the Cayley pushforward of a Gaussian and its Fourier coefficients are its circle-character expectations. Classical harmonic analysis supplies Fourier diagonalization, and Cayley parametrization supplies its rational angle map, but neither directly implies that mode two has exactly two positive stepsize zeros, their order, or the uniform upper bound m for every mode. The identical Resultary search hit is the currently audited same record, not independent prior coverage.",
+        "searches": [
+          "Gaussian Cayley steps Brownian circle Fourier multipliers reentrant second harmonic positive roots Chebyshev",
+          "stochastic Cayley numerical integrator rotational Stratonovich Brownian Fourier correlation",
+          "Gaussian Cayley stochastic numerical scheme Fourier eigenvalue sign crossings Brownian circle characteristic function arctan normal 2025",
+          "expectation cos(4 arctan gaussian) zero crossing Cayley transform",
+          "arxiv:1810.02881",
+          "BUW-IMACM 20/05",
+          "Resultary semantic 2026/11/8 f91afb71c440"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned this exact 2026/11/8 f91afb71c440 record as the highest similarity, and other unrelated Fourier and stochastic numerical findings; no other independently prior record tabulated h≈1.489832571435 and h≈36.820960093978.",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-resonance-spectrum-of-the-barker-larman-tangent-chord-tran--3146b93dda04/RESULT.md has cos(kβ) resonance zeros of a deterministic tangent-chord transform on convex bodies, unlike the Gaussian Cayley stepsize-dependent multiplier λ_m(h).",
+          "The three decimal roots are approximate evaluations of explicit erfc expectation equations, not a preexisting classification table established by the searched sources."
+        ],
+        "reasoning": "There is no customary finite combinatorial database for continuous-time-step Fourier thresholds. Exact numerical phrase and parameter searches located no independent published matching root table; this is bounded negative-search evidence, not a priority proof.",
+        "searches": [
+          "Gaussian Cayley steps Brownian circle Fourier multipliers reentrant second harmonic positive roots Chebyshev",
+          "Cayley transform random rotations Gaussian stepsize signed Fourier eigenvalues",
+          "expectation cos(4 arctan gaussian) zero crossing Cayley transform",
+          "Gaussian Cayley distribution wrapped normal circle characteristic Fourier coefficient arctangent normal arctan Gaussian zero",
+          "Resultary semantic searches 2026/11/8 f91afb71c440 and 2026/10/11 tangent-chord"
+        ]
+      },
+      "rationale": "Full relevant primary texts on Cayley matrix distributions, stochastic SO(n) schemes and manifold/jet numerical integration were compared with the actual SO(2) Gaussian circle convolution theorem. Established classical Cayley and total-positivity ingredients are credited. Published numerical-SDE correlation sign and planar random-rotation findings concern different recurrences and random matrices and do not imply this all-h second-mode reentrance plus at-most-m zero bound. The exactly matching Resultary hit is the assigned same record, not separate prior art. This is a best-of-knowledge conclusion subject to explicitly identified older specialist-literature priority risks.",
+      "residual_risks": [
+        "The Resultary search index includes the currently audited exact record; it must not be counted as independent earlier priority.",
+        "Older unindexed wrapped-Cauchy/normal circular characteristic-function, Padé or Gaussian Möbius-step literature might contain an equivalent sign table or a stronger total-positivity application.",
+        "The exponential-Chebyshev zero-count is classical; novelty is the specific sharp parameter classification and application, not the Chebyshev-system lemma or Cayley transform.",
+        "The root decimal values were checked numerically but not enclosed by rational interval certificates; the theorem uses exact implicit root equations.",
+        "Finite precision independent numerical checks do not establish the proof or originality; the exact positive-zero bound and signs require the analytic argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The article computes Stiefel/Grassmann Cayley parametrization Jacobians, Monte Carlo distributions and normal approximations, not Brownian Cayley SO(2) one-step Fourier multiplier zero counts.",
+          "evidence": [
+            "arXiv PDF page 1 abstract identifies Jacobians, MCMC and asymptotic Gaussian approximations; see web turn134088view0 lines 4–17.",
+            "Full-document search for Fourier gave no occurrence (turn596718view1); Brownian occurrence was only a bibliography source (turn937309view3)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1810.02881",
+          "material_read": "Accessible complete 34-page original arXiv PDF: abstract/introduction and substantive Cayley density and Gaussian approximation discussion, plus full-document targeted Fourier/Brownian text searches.",
+          "method": "ArXiv 1810.02881v1 PDF text and first-page screenshot, cross-checking primary statements.",
+          "title": "Random orthogonal matrices and the Cayley transform",
+          "trigger": "Directly relevant Cayley mapping of random orthogonal matrices and Gaussian parameter ensembles."
+        },
+        {
+          "assessment": "Geometric Euler–Maruyama algorithm uses exponential projection; Cayley only suggested as possible replacement. No fixed Gaussian Cayley Fourier spectral classification.",
+          "evidence": [
+            "Primary PDF lines 219–254 give Q_{j+1}=Q_j exp(Ω) and explicitly say Cayley could be used instead (turn596718view0).",
+            "Primary PDF lines 296–324 describe covariance flows rather than circle Fourier eigenvalues."
+          ],
+          "identifier_or_url": "https://imacm.uni-wuppertal.de/fileadmin/imacm/preprints/2020/imacm_20_05.pdf",
+          "material_read": "Original university PDF all 10 pages accessible; read sections 2, 3, Algorithm 3.2 and its Cayley comment, section 4 applications and references.",
+          "method": "Original BUW-IMACM-20/05 PDF text and screenshot page 5; compare open published 2021 journal article.",
+          "title": "Approximating correlation matrices using stochastic Lie group methods",
+          "trigger": "Stochastic SO(n) group integrator whose algorithm discusses Cayley transform as an alternative mapping."
+        },
+        {
+          "assessment": "Flow/jet schemes and finite-horizon strong/weak convergence; no Cayley step formula or all-stepsize SO(2) characteristic sign theorem.",
+          "evidence": [
+            "arXiv text lines 55–80 define jet updates, lines 239–400 present convergence results (turn289337view0 and turn937309view2).",
+            "Full-text Cayley search yielded no results (turn937309view0); Fourier only in background on stochastic iterated integrals (turn937309view1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2009.10113",
+          "material_read": "Full arXiv HTML body available; inspected sections 1–3, main definitions and convergence results, sections 6–8 and literature positioning; full-body searches for Cayley and Fourier.",
+          "method": "ArXiv 2009.10113 full-text HTML with theorem and keyword search; journal metadata checked.",
+          "title": "Curved Schemes for SDEs on Manifolds",
+          "trigger": "Potentially broader SDE geometric integrator theorems and long-time accuracy."
+        },
+        {
+          "assessment": "Broad manifold-preserving stochastic exponential schemes and strong approximation methods; does not state root counts for the exact Gaussian Cayley SO(2) Fourier multipliers.",
+          "evidence": [
+            "ArXiv lines 0–20 (turn134088view2) and SIAM 2008 abstract (turn708179search0) describe exponential-Lie method, not the specific rational-angle Gaussian convolution."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0704.0022",
+          "material_read": "Accessible arXiv full HTML introduction and method overview, with main construction and comparisons of exponential, Munthe–Kaas and Castell–Gaines schemes.",
+          "method": "ArXiv:0704.0022 original full-text HTML and SIAM journal abstract.",
+          "title": "Stochastic Lie group integrators",
+          "trigger": "Potential stronger Lie-group numerical integration general theory."
+        },
+        {
+          "assessment": "Different scalar OU/BDF2 object and different lag-sign variable; no implication for Cayley circle second-harmonic reentrance.",
+          "evidence": [
+            "Theorem concerns stationary C_k under a two-step multistep scheme and root switch z=λh=1/2; it does not define the Cayley rotation characteristic λ_m(h)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-correlation-sign-transition-despite-second-order-invariant--72d3d4208838/RESULT.md",
+          "material_read": "Entire public RESULT.md read, including the main OU theorem, stable recursion, stationary covariance proof, sign-classification proof and assumptions.",
+          "method": "GitHub read-only full-file fetch at main; blob f2580bf2d36ba7c34ffc307c778e99e49831e82f.",
+          "title": "Sharp correlation-sign transition despite second-order invariant variance for BDF2–Maruyama",
+          "trigger": "Nearest published numerical-SDE correlation sign transition."
+        },
+        {
+          "assessment": "Haar-random Euler rank-one sketch has an expansive random radial factor and non-Gaussian random phase; it cannot yield the invariant-circle Cayley Fourier theorem.",
+          "evidence": [
+            "The update multiplier 1+it(1-e^{iφ}) has |·| not identically 1, unlike the Cayley map; the source treats a deterministic oscillator rather than a Brownian rotation."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-logarithmic-drift-and-phase-fluctuations-of-haar-sketched--33340664eb63/RESULT.md",
+          "material_read": "Entire public RESULT.md read including distributional reduction, log-radius/phase law and proof.",
+          "method": "GitHub read-only full-file fetch at main; blob 7c9fe2ce08573cda0bc63bbe619a47f1b8ba8b99.",
+          "title": "Exact logarithmic drift and phase fluctuations of Haar-sketched Euler rotation",
+          "trigger": "Planar random rotational numerical integrator with phase statistics."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://imacm.uni-wuppertal.de/fileadmin/imacm/preprints/2020/imacm_20_05.pdf",
+        "https://arxiv.org/abs/2009.10113",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-correlation-sign-transition-despite-second-order-invariant--72d3d4208838/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-logarithmic-drift-and-phase-fluctuations-of-haar-sketched--33340664eb63/RESULT.md",
+        "Assigned RESULT.md mathematical proof"
+      ],
+      "rationale": "For a basic geometry- and invariant-measure-preserving Brownian time step, the transition eigenvalues determine finite-lag and long-run modewise correlation behavior. The previously unstated exact crossing of the m=2 multiplier positive→negative→positive despite positive heat-semigroup multipliers, together with a sharp global zero-count across all integer harmonics and a rigorous nonnumerical witness, is a natural structural benchmark for invariant-preserving stochastic integration. This is neither a trivial coordinate renaming nor an isolated arbitrary negative numerical sample; it identifies the exact qualitative frontier in a canonical test model.",
+      "residual_risks": [
+        "The theorem is specialized to a single planar Gaussian model and does not assert all Lie-group integrators have reentrance.",
+        "The m>2 part is an upper bound rather than a complete classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1810.02881",
+    "https://imacm.uni-wuppertal.de/fileadmin/imacm/preprints/2020/imacm_20_05.pdf",
+    "https://www.mdpi.com/2227-7390/9/1/94",
+    "https://arxiv.org/abs/2009.10113",
+    "https://arxiv.org/abs/0704.0022",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-correlation-sign-transition-despite-second-order-invariant--72d3d4208838/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-logarithmic-drift-and-phase-fluctuations-of-haar-sketched--33340664eb63/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-resonance-spectrum-of-the-barker-larman-tangent-chord-tran--3146b93dda04/RESULT.md",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-reentrant-fourier-correlation-frontiers-for-gaussian-cayle--f91afb71c440"
+  ],
+  "disposition": "passed",
+  "final_claim": {
+    "disposition": "passed",
+    "original_scope": "For fixed Gaussian half-scaled Cayley steps on the drift-free planar rotational Stratonovich SDE, all integer Fourier modes m≥1 have at most m positive zero step sizes; the first mode has exactly one, the second mode exactly two with an analytic negative witness at h=4; all modes approach (-1)^m at infinite step, and Haar is uniquely invariant for each finite h>0.",
+    "reason": "The complete assigned theorem survives without substantive mathematical-file edits. Known Cayley mapping, Gaussian erfc integral and exponential Chebyshev variation-diminishing tools are credited. The specific global Fourier-mode reentrance theorem is correct, original on checked sources, and mathematically motivated.",
+    "title": "Exact reentrant Fourier-correlation frontiers for Gaussian Cayley steps on the circle"
+  },
+  "limitations": [
+    "No GitHub writes and no dispatcher closeout were attempted.",
+    "No formal Lean proof or expert attestation was performed.",
+    "Scientific completion with C/O/V PASS does not authorize publication; the publication plan is not_ready owing to old public provenance/status.",
+    "The exact analytical proof is limited to one fixed standard-Gaussian Cayley convolution; all higher-mode roots are only bounded, not fully classified."
+  ],
+  "schema_version": 1
+}
