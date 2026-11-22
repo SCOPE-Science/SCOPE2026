@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Odd reflection and absolute-value quotient identities, the endpoint crossing index, and the analytic monotonicity construction provide an explicit proof. The assumption that \(0\) is nonperiodic for the quotient excludes cut-orbit boundary contributions. The nonneutral regular-periodic hypothesis excludes tangencies. A standalone finite checker corroborates, but does not establish, the infinite claim.
+## correctness
 
-## Originality
-PASS, subject to historical priority. The closest primary theorem is Oliveira (2026), Section 10.2, Theorem 10.3, which assumes uniform expansion and has a constant zeta quotient. Here the quotient is corrected for attracting odd cycles in the nonexpanding regime, with arbitrary negative first-period defects. Anušić, Bruin and Činč (2019/2020) establishes Sharkovsky-type existence, not this numerical identity. Broad kneading and fixed-point-index results may contain an equivalent specialization; this remains a residual risk, particularly because not every general source was inspected in full.
+PASS
 
-## Value
-PASS. The attractor correction describes exactly when the expanding sign-reversal count law fails and demonstrates a genuinely unbounded rather than bounded defect in natural analytic Lorenz branches. No global classification of nonlinear Lorenz maps or analytic continuation of zeta functions is asserted.
+PASS — Oddness of increasing-branch F gives G^n=(-1)^nF^n and Q^n(u)=|F^n(u)| for Q(u)=|F(u)| (Q(0)=1), away from excluded cut. For odd n, nonperiodicity of critical/cut orbit gives H_n(0)=Q^n(0)>0 and H_n(1)=Q^n(1)−1<0; smooth monotonic laps and absence of neutral regular fixed points force a finite set of transversal crossings. Each decreasing fixed lap crosses H_n downward; increasing laps with slope below/above one cross downward/upward. The endpoint index yields D_n+S_n−R_n=1. The signed ± lifts imply a_n(F)=2(S_n+R_n), a_n(G)=2D_n, A_n(F)=2S_n; hence a_n(G)−a_n(F)=2−2A_n(F). Even n coincides. Summing over primitive odd attracting cycles yields the formal infinite product correction, coefficient-wise (no analytic convergence claimed). Explicit monotone real-analytic family F_K(u)=u−e^{−Ku}P(u), with 2k simple positive roots and K sufficiently large, has exactly 4k F fixed and 2 G fixed, hence defect 2−4k; this construction does not assert all-period noncriticality. Numerically sampled source checks are not proof; the crossing and monotonicity inequalities are the analytical argument.
 
-## Limitations and nearest literature
-All-period claims require a nonperiodic quotient endpoint and nonneutral regular periodic points. Analytic examples certify the first-period extremal defect but are not claimed to satisfy the all-period genericity hypotheses. Priority against general older zeta and index theory is not independently validated. Primary references: Oliveira, arXiv:2611.03287v1; Anušić–Bruin–Činč, arXiv:1910.03361; Baladi–Keller, Commun. Math. Phys. 127 (1990), 459–477 (abstract inspected only).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge — Oliveira 2026 Theorem 10.3 proves only the uncorrected ratio (1+t)/(1−t) for **uniformly expanding** symmetric increasing Lorenz maps. Its argument's universal crossing index is background, but it does not cover maps with attracting regular cycles and the exact all-period correction, nor give analytic families with arbitrarily negative first-period defect. Anušić–Bruin–Činč studies unimodal/Lorenz correspondence without this identity. More general fixed-point-index and kneading determinant theorems may furnish an alternative derivation; no inspected prior explicitly states the same corrected quotient and sharp realization. Inaccessible/unindexed older sources remain a priority risk, not false evidence of absence.
+
+## value
+
+PASS
+
+PASS — The sign-reversal zeta ratio is a meaningful dynamical invariant that ceases to be universal beyond uniform expansion; an exact correction by odd attracting cycles explains the failure and quantifies arbitrarily large negative first-period defects in analytic, monotone branches. The construction separates a robust general formal identity from a sharp counterexample family rather than just renaming Oliveira's expanding result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

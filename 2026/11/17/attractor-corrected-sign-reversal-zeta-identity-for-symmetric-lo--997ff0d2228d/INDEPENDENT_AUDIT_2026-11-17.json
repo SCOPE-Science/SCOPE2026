@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T19:09:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS — Oddness of increasing-branch F gives G^n=(-1)^nF^n and Q^n(u)=|F^n(u)| for Q(u)=|F(u)| (Q(0)=1), away from excluded cut. For odd n, nonperiodicity of critical/cut orbit gives H_n(0)=Q^n(0)>0 and H_n(1)=Q^n(1)−1<0; smooth monotonic laps and absence of neutral regular fixed points force a finite set of transversal crossings. Each decreasing fixed lap crosses H_n downward; increasing laps with slope below/above one cross downward/upward. The endpoint index yields D_n+S_n−R_n=1. The signed ± lifts imply a_n(F)=2(S_n+R_n), a_n(G)=2D_n, A_n(F)=2S_n; hence a_n(G)−a_n(F)=2−2A_n(F). Even n coincides. Summing over primitive odd attracting cycles yields the formal infinite product correction, coefficient-wise (no analytic convergence claimed). Explicit monotone real-analytic family F_K(u)=u−e^{−Ku}P(u), with 2k simple positive roots and K sufficiently large, has exactly 4k F fixed and 2 G fixed, hence defect 2−4k; this construction does not assert all-period noncriticality. Numerically sampled source checks are not proof; the crossing and monotonicity inequalities are the analytical argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Oliveira theorem imposes uniform expansion and yields exactly (1+t)/(1−t), so it is a special subcase where A_n(F)=0.",
+          "Baladi–Keller transfer-operator framework is broader but no matching explicit odd-cycle correction was established from the inspected material."
+        ],
+        "reasoning": "General dynamical zeta theory may derive this identity from fixed-point indices, but an explicit dominating theorem was not located; targeted newer source covers only an expanding subset.",
+        "searches": [
+          "symmetric Lorenz maps F -F attractor correction Artin Mazur zeta periodic fixed point index sign reversal",
+          "Oliveira 2611.03287 Theorem 10.3 symmetric Lorenz maps",
+          "Baladi Keller 1990 zeta transfer operators piecewise monotone"
+        ]
+      },
+      "checked_sources": [
+        "Git tree 405cceb6f95a894d365d3b82c0d8a80abe5aa02c RESULT.md 354303540078e0042e777bc3bbac8569c790ffc8",
+        "Git check.py blob 974ccf06dfbe1783bec4aa374f8288006dd4a924",
+        "https://arxiv.org/html/2611.03287v1",
+        "https://arxiv.org/abs/1910.03361",
+        "https://doi.org/10.1007/BF02104498"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Oliveira Theorem 10.3 assumes uniformly expanding branches and derives a_n(G)−a_n(F)=2 for odd n.",
+          "If S_n>0 for a nonexpanding F, the new identity gives 2−4S_n, distinct and not implied by Oliveira without an added index and attractor analysis."
+        ],
+        "reasoning": "The expanding theorem is recovered as a strict special case, not a prior theorem covering all admissible nonexpanding F; the analytic realization with 4k F fixed points further witnesses the difference.",
+        "searches": [
+          "symmetric Lorenz maps F -F attractor correction Artin Mazur zeta periodic fixed point index sign reversal",
+          "Oliveira arxiv 2611.03287 HTML Sections 10.1-10.2 Theorem 10.3",
+          "Anusic Bruin Cinc 1910.03361 Lorenz unimodal correspondence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The correction a_n(-F)−a_n(F)=2−2A_n(F) is the odd-iterate difference of fixed point counts, equivalent to a crossing-index statement for Q^n(u)−u.",
+          "The zeta product is its coefficient-wise exponential and no analytic convergence is asserted."
+        ],
+        "reasoning": "Both signed-lift and unimodal quotient presentations were checked; indexing attracting cycles gives a genuine correction outside the expanding theorem, not an equivalent restatement of the uncorrected formula.",
+        "searches": [
+          "symmetric Lorenz maps F -F attractor correction Artin Mazur zeta periodic fixed point index sign reversal",
+          "Lorenz unimodal signed lift Artin Mazur zeta fixed point index attracting periodic",
+          "periodic orbit Lefschetz crossing number orientation reversing maps"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Current analytic family realizes first-period count difference 2−4k, unbounded negative for integer k>=1.",
+          "Known expanding formula forces +2 for every odd n, not the corrected values when attractors occur."
+        ],
+        "reasoning": "This is an all-period structural identity and unbounded realization, not a finite database recomputation; isolated numerical root counts are corroboration only.",
+        "searches": [
+          "symmetric Lorenz maps F -F attractor correction Artin Mazur zeta periodic fixed point index sign reversal",
+          "periodic point count symmetric Lorenz F -F attractors examples",
+          "Oliveira Table 10.3 zeta sign reversal"
+        ]
+      },
+      "rationale": "PASS best of knowledge — Oliveira 2026 Theorem 10.3 proves only the uncorrected ratio (1+t)/(1−t) for **uniformly expanding** symmetric increasing Lorenz maps. Its argument's universal crossing index is background, but it does not cover maps with attracting regular cycles and the exact all-period correction, nor give analytic families with arbitrarily negative first-period defect. Anušić–Bruin–Činč studies unimodal/Lorenz correspondence without this identity. More general fixed-point-index and kneading determinant theorems may furnish an alternative derivation; no inspected prior explicitly states the same corrected quotient and sharp realization. Inaccessible/unindexed older sources remain a priority risk, not false evidence of absence.",
+      "residual_risks": [
+        "A general fixed-point-index/kneading determinant result in older literature may imply the attractor-corrected formula; targeted primary text did not identify one, so novelty is best-of-knowledge.",
+        "All-period identity excludes neutral periodic points and periodic cut/critical orbits; analytic realization does not verify those global exclusions and asserts only first-period defect.",
+        "Numerical root sampling does not certify all-period assertions or establish new hyperbolicity for every k."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_ONLY_UNIFORMLY_EXPANDING_SUBCASE",
+          "evidence": "Theorem 10.3 gives ζ_{-F}/ζ_F=(1+t)/(1−t) under uniform expansion; present A_n(F) correction matters when attracting cycles exist.",
+          "identifier_or_url": "https://arxiv.org/html/2611.03287v1",
+          "material_read": "Full accessible arXiv HTML; examined Sections 10.1–10.2 and Theorem 10.3, hypotheses and proof of expanding quotient",
+          "method": "read primary HTML and full relevant theorem/proof",
+          "title": "Homological reduction and entropy of discontinuous interval maps",
+          "trigger": "identical F versus -F zeta quotient in strongly overlapping dynamical model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS — The sign-reversal zeta ratio is a meaningful dynamical invariant that ceases to be universal beyond uniform expansion; an exact correction by odd attracting cycles explains the failure and quantifies arbitrarily large negative first-period defects in analytic, monotone branches. The construction separates a robust general formal identity from a sharp counterexample family rather than just renaming Oliveira's expanding result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A general fixed-point-index/kneading determinant result in older literature may imply the attractor-corrected formula; targeted primary text did not identify one, so novelty is best-of-knowledge.",
+    "All-period identity excludes neutral periodic points and periodic cut/critical orbits; analytic realization does not verify those global exclusions and asserts only first-period defect.",
+    "Numerical root sampling does not certify all-period assertions or establish new hyperbolicity for every k."
+  ],
+  "schema_version": 1
+}
