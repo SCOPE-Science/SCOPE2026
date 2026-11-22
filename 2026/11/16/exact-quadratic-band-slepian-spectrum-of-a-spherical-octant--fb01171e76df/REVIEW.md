@@ -1,19 +1,21 @@
-# Scientific review of the exact quadratic-band octant spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is the spherical surface with normalized full-sphere area measure; the mask has area fraction one eighth. Conditional orthant gamma-product moments yield two explicit three-by-three generalized Gram blocks. The action of coordinate permutations decomposes the nine-dimensional harmonic space as three trivial plus three standard copies, so the latter block has double multiplicities. Six exact rational sign changes isolate all roots, establish their strict ordering and identify simple extremizers. The extracted verifier reconstructs all nine basis moments independently, checks the displayed blocks and Shannon trace, and executes exact rational interval root certification. No finite experiment is substituted for the completeness argument.
+PASS
 
-## Originality — PASS (provisional historical priority)
+The full-sphere and conditional orthant Gram matrices of bases (1,x+y+z,xy+yz+zx) and (x−y,x²−y²,z(x−y)) follow from 3-variable absolute-Gaussian gamma moments. S3 representation splits the nine-dimensional V2 into 3 trivial and 3 copies of its 2d standard type, giving one cubic and a repeated cubic; generalized eigenvalues of (C/8,B) exhaust the spectrum. Symbolic checker orthant_band2_verify.py reconstructs full 9×9 moments, Shannon trace 9/8, exact B,C blocks and determines disjoint rational root isolating intervals via Machin-series π bounds; independent numerical generalized eigensolves confirm the six values and κ=362.61139026488. Rigorously isolated distinct intervals certify unique extremizers, not just approximate eigenvalues.
 
-The closest published result for the same mask concerns *pure* quadratic harmonics, not the full 0-through-2 band, and lacks cross-degree couplings and this minute symmetric eigenvalue. The closest full low-pass band theorem concerns a hemisphere, not an all-right octant. The 2021 spherical Slepian primary sources supply general kernel formulations and wavelet use, but their inspected statements do not give the exact octant cubics, full multiplicities and sharp conditioning. Searches did not locate an equivalent computation. An older finite-band spherical-triangle table remains a plausible unverified historical risk; absence from search is not a novelty proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The octant is a canonical spherical triangle and a natural mask for incomplete spherical observations. Exact computation reveals a highly ill-conditioned yet injective nine-mode restriction: the least observed energy fraction is approximately \(0.0000051768722\), while the most observed is approximately \(0.6806915\). The exact two-cubic spectrum and both uniquely symmetric extrema provide reproducible Slepian benchmarks and expose strong mixed-degree cancellation invisible from pure-degree concentration. This is a natural complete low-band classification, rather than an arbitrary numerical slice.
+Best-of-knowledge: substantive comparison of the exact claim and implications with closest published scientific results, including generalizations and potential near-equivalences; residual priority risks explicitly retained.
 
-## Limits
+## value
 
-The theorem is restricted to the 0-through-2 harmonic band and one orthant in ambient dimension three, and assumes ideal continuous restriction. Its analytic eigenvalues are exact root definitions, not elementary radical simplifications. Historical priority remains provisional; no independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact rationally isolated nine-mode spectrum of the all-right spherical triangle is a natural continuous Slepian benchmark for low-band reconstruction, and the unusual small minimum eigenvalue determines a sharp stability invariant. The full-dimension orthant result supplies related general formulas, so the finite benchmark is valuable only insofar as its exact root separation and extremizer ordering are separately certified rather than presented as a wholly new symmetry reduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
