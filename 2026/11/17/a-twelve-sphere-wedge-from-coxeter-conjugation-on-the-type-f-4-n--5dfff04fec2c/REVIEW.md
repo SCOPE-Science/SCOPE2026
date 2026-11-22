@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite Coxeter presentation is checked by exact rational matrices, all \(1152\) group elements are enumerated, and reflection lengths are independently confirmed by shortest-reflection BFS. The proper noncrossing interval has \(105\) elements, with exactly \(103\) proper vertices. The complete orbit incidence matrices have sizes \(19\times78\) and \(78\times72\), their product is zero, and exact integral Smith reductions consist entirely of unit diagonal factors, with ranks \(18\) and \(60\). Their homology is \(\mathbb Z^{12}\) in degree two and zero in degree one. Shellability makes the covering complex simply connected; order-two and order-three effective point stabilizers normally generate the cyclic group of order six, so the orbit-space fundamental group is trivial. Hurewicz plus homological Whitehead gives the twelve-sphere wedge. The checker is an exhaustive finite proof component, not a sampled experiment.
+## correctness
 
-**Originality — PASS relative to inspected published material and searchable records.** Cyclic sieving counts fixed noncrossing elements; rank-selected chain counts do not determine signed quotient boundaries or their Smith invariants. The known shellability and building-embedding theorems yield the unquotiented homotopy type, not the orbit-space homotopy type. The Milnor-fiber complexes in Brady–Falk–Watt differ from this proper-part quotient; their cyclic monodromy is not an identification of the present orbit space. Related previously catalogued type-\(B_4\), type-\(D_5\) and type-\(A\) quotients do not logically imply the exceptional type-\(F_4\) integral homotopy classification. No direct F4 covering record was identified in the performed searches. Publication priority can still be affected by equivalent unindexed literature.
+PASS
 
-**Value — PASS.** This is a natural complete classification for the smallest exceptional rank-four crystallographic Coxeter type under its canonical Coxeter-conjugation symmetry. It upgrades fixed-element and Euler counts to the full integral homotopy type and explains why nonfree stabilizers kill all quotient fundamental-group torsion even though analogous classical-type examples retain torsion. The finite classification is a motivated nontrivial calculation, not an arbitrary numerical slice.
+Exact rational simple-reflection matrices enumerate W(F4) of order 1152, reflection-codimension histogram (1,24,190,552,385). Rank test identifies NC ranks (1,24,55,24,1), proper chain counts (103,468,432). Conjugation by c6=-I yields effective C6; exact orbit cell counts (19,78,72). Independently rebuilt rational matrices and all intervals/chains/orbit boundary matrices: D1 rank18 Smith ones only, D2 rank60 Smith ones only, D1D2=0, so H1=0 and H2=Z^12. Noncrossing shellability gives simply-connected covering X; rank-two/other fixed vertex orbits size 2 and 3 have stabilizers C3 and C2 generating C6. Armstrong orbit fundamental-group theorem then gives pi1(Y)=1; Hurewicz and homological Whitehead upgrade the 2D CW homology to wedge of 12 S². Bounded enumeration is exhaustive for this exact finite W(F4), not an infinite type claim.
 
-**Closest literature and limits.** Athanasiadis–Brady–Watt (2005) establish shellability, Bessis–Reiner (2007) cyclic sieving, Reading (2007) chains, Heller–Schwer (2017) building embedding, Brady–Falk–Watt (2017) Milnor-fiber models, and Reiner–Ripoll–Stump (2014) Coxeter-element equivalence. The result does not generalize to all exceptional types, and independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published general noncrossing shellability and cyclic sieving determine the unquotiented topology or element fixed-point counts, not ordinary quotient integral homology and pi1. A fully read analogous type H4 quotient differs in Coxeter group/parameter and does not imply this F4 computation.
+
+## value
+
+PASS
+
+Determines a natural integral homotopy invariant for an exceptional rank-four reflection-group quotient, distinguishing simply-connected torsion-free F4 from nearby B4/D5 torsion cases. The exact finite classification is independently useful without an arbitrary-rank generalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
