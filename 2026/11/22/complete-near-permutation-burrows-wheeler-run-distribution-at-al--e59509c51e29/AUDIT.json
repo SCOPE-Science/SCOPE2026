@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Every source word has a singleton letter and is primitive. The two repeated BWT entries correspond to rows beginning with the two successors. Direct first-letter-block sorting handles nonadjacent copies; lexicographic ordering of the two a-starting rows handles adjacent copies. Both yield exact iff adjacent ranks. There are (n-3)! necklaces per fixed repeated symbol and successor pair, yielding the exact two counts. Complete source-necklace and independent LF-cycle enumeration agree through n=9.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 3 of Fici et al. proves existence, and their counting theorem gives a lower bound for a specified ternary family, not an exact answer for growing support.",
+        "Kumallagov Proposition 5.5 counts all one-cycle last columns of given Parikh type before imposing full unclustering."
+      ],
+      "reasoning": "A general existence theorem and a general unrestricted one-cycle count do not imply the run-refined subset count. The known universal factor-two BWT clustering bound is likewise too weak to force the adjacent-successor criterion or exact counts.",
+      "searches": [
+        "arXiv:2502.12844 generalized de Bruijn BWT fixed-content theorems",
+        "arXiv:2508.20879 complete unclustered BWT counts",
+        "arXiv:2606.01267 fixed Parikh one-cycle enumeration Proposition 5.5"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2502.12844",
+      "https://arxiv.org/abs/2508.20879",
+      "https://drops.dagstuhl.de/storage/00lipics/lipics-vol369-cpm2026/html/LIPIcs.CPM.2026.13/LIPIcs.CPM.2026.13.html",
+      "https://arxiv.org/abs/2606.01267"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The first gives existence for q>=3 and an exponential lower bound at selected ternary lengths.",
+        "Remark 5.6 explicitly distinguishes the unrestricted fixed-Parikh count from the fully unclustered count.",
+        "A generalized de Bruijn image is an alphabet-permutation power of specified length, unlike the arbitrary near-permutation profile classified here."
+      ],
+      "reasoning": "None of these results implies either that the two repeated last-column entries are consecutive iff their source successors have consecutive ranks, or the resulting count of (n-1)!(n-3)/2 necklaces. The unrestricted fixed-Parikh count provides only the denominator.",
+      "searches": [
+        "arXiv:2508.20879 abstract and section 4 counting theorem",
+        "arXiv:2606.01267 Proposition 5.5 and Remark 5.6",
+        "arXiv:2502.12844 generalized de Bruijn characterization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The rows-starting-with-successors formulation is equivalent to an adjacency condition for the two repeated entries of the BWT last column.",
+        "arXiv:2508.20879 discusses unclustered BWT existence and structural BWT-image constraints but does not state a formula for content (2,1,...,1).",
+        "arXiv:2606.01267 Proposition 5.7 describes general ascending-permutation constraints but no equivalent exact near-permutation characterization."
+      ],
+      "reasoning": "The possible equivalence between repeated-output adjacency and consecutive successor ranks was checked in both source/last-column terms. No located primary result asserted either version for every n with the exact necklace counts.",
+      "searches": [
+        "\"Burrows Wheeler transformation almost permutation one repeated character all other characters unique run count\"",
+        "\"BWT one duplicate letters adjacent rows predecessors successors lexicographic count completely unclustered\"",
+        "arXiv:2508.20879 sections 2–5",
+        "arXiv:2606.01267 section 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The section 6 table of arXiv:2606.01267 reports minimal input cyclic runs and witnesses for n up to 12, not the counts for each near-permutation content.",
+        "The present n=3,...,9 table is verified with two distinct exhaustive enumerators."
+      ],
+      "reasoning": "Individual short-length values could be covered by finite BWT datasets. The claimed new fact is a uniform length-independent structural classification and closed formula, and neither inspected table gives or implies that all-n statement.",
+      "searches": [
+        "arXiv:2606.01267 section 6 small values table",
+        "\"near-permutation\" \"Burrows Wheeler\" \"run distribution\"",
+        "\"one repeated\" BWT necklace count"
+      ]
+    },
+    "rationale": "The inspected primary sources give existence, generalized de Bruijn classifications, unrestricted Parikh one-cycle counts, and minimum input-run bounds but not the all-n fixed-content (2,1,...,1) unclustered-run distribution or its successor-order equivalence. The structural statement is not implied by the baseline because it imposes an additional adjacency predicate on last-column positions. An unindexed equivalent remains a residual priority risk.",
+    "residual_risks": [
+      "A prior all-length treatment of near-permutation BWT run counts might exist under different terminology or outside indexed primary literature.",
+      "Fixed-length computer censuses could already include particular small instances; novelty is not claimed for any single finite row.",
+      "The ambient alphabet grows with n; this result does not resolve fixed-alphabet questions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the one-duplicated-letter exact run distribution",
+        "evidence": "Its principal definition concerns BWT concatenations of permutations of the alphabet, rather than near-permutation content (2,1,...,1).",
+        "identifier_or_url": "https://arxiv.org/abs/2502.12844",
+        "material_read": "Abstract, introduction, definitions and generalized de Bruijn/Hamiltonian-cycle characterization in the public full-text HTML",
+        "method": "Read primary full-text HTML and compared fixed-content and BWT image predicates",
+        "title": "Generalized De Bruijn Words, Invertible Necklaces, and the Burrows–Wheeler Transform",
+        "trigger": "Foundational characterization of BWT and generalized de Bruijn images"
+      },
+      {
+        "assessment": "Not covering: existence and ternary lower bounds do not determine the exact near-permutation census",
+        "evidence": "The arXiv section 4 lower bound counts at least Phi_3(m)/(2m) ternary necklaces of length 3m. The CPM conclusion explicitly asks for a structural classification of all unclustered necklaces.",
+        "identifier_or_url": "https://arxiv.org/abs/2508.20879",
+        "material_read": "Primary arXiv full-text introduction, sections 2–5 and CPM full-text discussion of the main result and future work",
+        "method": "Read primary HTML, checked existence and lower-bound theorems and future-work statement",
+        "title": "Unclustered BWTs of any Length over Non-Binary Alphabets",
+        "trigger": "Existence and counting of completely unclustered BWT images"
+      },
+      {
+        "assessment": "Not covering: provides unrestricted Parikh one-cycle count and minimum input runs, not fixed-content unclustered count",
+        "evidence": "Remark 5.6 explicitly states Proposition 5.5 is not an enumeration of completely unclustered images. The section 6 table tracks minimum source cyclic-run numbers.",
+        "identifier_or_url": "https://arxiv.org/abs/2606.01267",
+        "material_read": "Public arXiv primary full-text introduction, sections 3–6 and 9; PDF pages 1 and 6 checked as page images",
+        "method": "Read primary HTML sections and sampled PDF page images, compared Proposition 5.5, Remark 5.6, Proposition 5.7, and small-values table",
+        "title": "An extremal problem for completely unclustered Burrows–Wheeler images",
+        "trigger": "Same BWT run predicate, fixed-Parikh enumerations and possible dominating theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e59509c5-1e29-4539-ac75-030fcb4cecb4",
+  "value": {
+    "rationale": "This is a natural full classification of the first nontrivial fixed-content case beyond a permutation word, motivated by the worst-case BWT clustering problem and explicit published open counting questions. It gives a structural iff, exact all-length numerator and denominator, and an asymptotic probability as support and length grow. The high-alphabet limitation is explicit and not presented as a fixed-alphabet result.",
+    "status": "PASS"
+  }
+}
