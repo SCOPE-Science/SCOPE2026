@@ -1,0 +1,88 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T14:00:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The paper specifies a fixed labelled left-to-right in-place complement-of-majority Rule 23 scan on n>=3, not synchronous ECA. If an update output equals its current right input c, the two other inputs must equal 1-c, enabling backward propagation from boundary equal outputs; this shows every image point is either boundary-antialigned or, for odd n, alternating. Direct forward scan gives on S_n the bijective signed shift (1-x_1,...,1-x_(n-1),x_1), with odd-n alternating exceptions forming a 2-cycle. The internal coordinate shift of L=n-1 bits has g=gcd(L,t) cycles; traversing each contributes complement parity (L-1)t/g, yielding N_n(t)=2^g when allowed plus 2 odd-n exceptional points for even t. Explicit all-zero orbit achieves max period L or 2L. Independently enumerated all 2^n states, exact image and temporal fixed counts for n=3..11 and all 1<=t<=2n. The universal statement follows from backward identity and signed-shift algebra, not finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Donoso-Leiva explicitly constructs order depending on state to reach (01)... for Rule 23",
+          "Published Rule60/Rule150 orbit theorems concern distinct truth tables"
+        ],
+        "reasoning": "No broader fixed-scan Rule23 all-ring theorem or implication found; other ECA rules cannot be transferred without showing local-rule conjugacy, which has not been supplied.",
+        "searches": [
+          "primary Theorem12 https://arxiv.org/pdf/2509.07797",
+          "Resultary: exact companion polynomial sequential rule 60 and Rule 150"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2509.07797",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-perrin-transfer-periodic-orbit-census-for-cyclic-rule-3--41d1bc3e373b",
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-companion-polynomial-classification-of-sequential-rule-60--348a48e3fbd8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary states exists an E-covering subset of sequential modes when n is even",
+          "Current map is the single deterministic order 0,...,n-1, and mostly periodic rather than universally fixed"
+        ],
+        "reasoning": "Existence of state-specific schedules converging to a fixed point does not imply a one-step recurrent core, signed conjugacy, or any time-t fixed counts for one different schedule; distinct quantifiers decisively prevent coverage.",
+        "searches": [
+          "PDF Theorem12 and construction pages21-22 https://arxiv.org/pdf/2509.07797",
+          "full 2025/2026 Rule23 preprint main theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/2509.07797 Theorem 12: E-covering subset of modes for even ring; state-dependent order choices",
+          "frozen result explicit signed shift on boundary-antialigned binary words"
+        ],
+        "reasoning": "Equivalent coding is cyclic signed shift with one complemented edge on L=n-1 coordinates. A collection of convergence modes is not a conjugacy for a fixed repeated scan, and the primary paper does not supply it.",
+        "searches": [
+          "Resultary: sequential elementary cellular automaton rule 23 cyclic left right sweep recurrent set signed shift orbit spectrum",
+          "arxiv:2509.07797 Rule23 sequential update convergence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/pdf/2509.07797 Theorem12 no temporal gcd table",
+          "independent exhaustive finite n=3..11 yields stated N_n(t)"
+        ],
+        "reasoning": "No earlier exact image or primitive-orbit-count table for this fixed sequential Rule23 protocol located. Finite table alone is not a proof of global priority.",
+        "searches": [
+          "Resultary: Rule23 one-step image 2^(n-1) odd alternating exception",
+          "sequential rule23 fixed counts gcd n-1 t"
+        ]
+      },
+      "rationale": "Full primary Rule 23 paper Donoso-Leiva et al Theorem 12 concerns an E-covering COLLECTION of state-dependent sequential update modes on even rings, which can lead an initial state to a fixed point. It does not assert what the ONE fixed natural left-to-right order does, nor derive its 2^(n-1) signed-shift recurrent core or gcd fixed-period spectrum. Earlier ECA Rule 3, Rule 150 and synchronous Rule232 published results have different local maps or update conventions. No stronger result implying the exact fixed-scan conjugacy found after aliases and primary reading; historical priority qualification remains.",
+      "residual_risks": [
+        "Earlier archival papers on ordered anti-majority automata under equivalent reflection or bit-complement encodings might exist beyond current sources.",
+        "Domain limited to one fixed labelled full sweep and no heterogeneous/permutation protocols."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING single predetermined left-to-right sweep; proves state-dependent E-covering modes",
+          "evidence": "Theorem12 says exists E-covering subset for even n, proof explicitly constructs a sequential update mode for a given starting state",
+          "identifier_or_url": "https://arxiv.org/pdf/2509.07797",
+          "material_read": "Original 42-page PDF abstract, definitions of sequential update modes, convergence taxonomy and full Theorem12 statement/proof for Rules23,30, especially pages21-22",
+          "method": "primary arXiv PDF text and visual screenshot page21",
+          "title": "On the Convergence of Elementary Cellular Automata under Sequential Update Modes",
+          "trigger": "direct Rule23 sequential update literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Nonlinear elementary automata rarely admit a complete explicit description of the entire post-sweep recurrent image. The exact one-sweep phase collapse, signed-shift conjugacy and all-time gcd/parity temporal spectrum for all ring sizes resolve a motivated dynamical classification problem, not a trivial boundary/type check. The proven fixed-order result contrasts with state-dependent order convergence work.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Earlier archival papers on ordered anti-majority automata under equivalent reflection or bit-complement encodings might exist beyond current sources.",
+    "Domain limited to one fixed labelled full sweep and no heterogeneous/permutation protocols."
+  ],
+  "schema_version": 1
+}

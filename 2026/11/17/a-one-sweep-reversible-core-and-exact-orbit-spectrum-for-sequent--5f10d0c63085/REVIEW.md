@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The local Rule-23 truth table establishes the key equality implication; a backward forced-alternation argument classifies all image states outside the antialigned core. The core is mapped bijectively to itself by an explicit signed shift, and an edge-parity consistency argument on the coordinate cycles of the shift proves the full formula for fixed points of any iterate. Boundary cases \(n=3\), odd alternating words, and \(t\) not dividing the core order are included. Independent exhaustive implementations agree on all stated tested lengths. No finite computation substitutes for the general proof.
+## correctness
 
-## Originality — PASS, with residual historical risk
-The closest directly relevant study is Donoso-Leiva et al. (arXiv:2509.07797), whose Section 3 and Theorem 12 give existence of a suitable sequential update order leading Rule 23 to a fixed point for each configuration on even rings; this differs from, and does not imply, the full recurrent image and temporal census for a fixed left-to-right sweep. The fixed-boundary synchronous Rule-23 classification of Inokuchi–Sato (2000) and synchronous foundation of Wolfram (1983) treat different global maps. Searches of accessible indexed mathematical findings and primary literature found no identical or stronger statement. An unindexed equivalent from earlier work remains a potential historical-priority risk.
+PASS
 
-## Mathematical value — PASS
-A nonlinear anti-majority cellular automaton collapses in one step to a large explicitly linearizable dynamical core. The sharp even–odd boundary defect, complete periodic-point census at all iterates, maximal primitive periods, and zero-or-one entrance-time dichotomy supply structural information beyond fixed-point convergence or a finite cycle table. The claim is natural for understanding update-order dependence and reversibility emerging inside irreversible finite dynamics.
+The paper specifies a fixed labelled left-to-right in-place complement-of-majority Rule 23 scan on n>=3, not synchronous ECA. If an update output equals its current right input c, the two other inputs must equal 1-c, enabling backward propagation from boundary equal outputs; this shows every image point is either boundary-antialigned or, for odd n, alternating. Direct forward scan gives on S_n the bijective signed shift (1-x_1,...,1-x_(n-1),x_1), with odd-n alternating exceptions forming a 2-cycle. The internal coordinate shift of L=n-1 bits has g=gcd(L,t) cycles; traversing each contributes complement parity (L-1)t/g, yielding N_n(t)=2^g when allowed plus 2 odd-n exceptional points for even t. Explicit all-zero orbit achieves max period L or 2L. Independently enumerated all 2^n states, exact image and temporal fixed counts for n=3..11 and all 1<=t<=2n. The universal statement follows from backward identity and signed-shift algebra, not finite tests.
 
-## Limits and closest literature
-The statement does not concern arbitrary site permutations, simultaneous updating, or random asynchronous updating. The signed-shift proof is exact, while the two programs are verification checks only. Closest works: Wolfram (1983); Inokuchi and Sato (2000); Donoso-Leiva et al., arXiv:2509.07797 (2025/2026). Historical priority and independent external verification are unresolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Full primary Rule 23 paper Donoso-Leiva et al Theorem 12 concerns an E-covering COLLECTION of state-dependent sequential update modes on even rings, which can lead an initial state to a fixed point. It does not assert what the ONE fixed natural left-to-right order does, nor derive its 2^(n-1) signed-shift recurrent core or gcd fixed-period spectrum. Earlier ECA Rule 3, Rule 150 and synchronous Rule232 published results have different local maps or update conventions. No stronger result implying the exact fixed-scan conjugacy found after aliases and primary reading; historical priority qualification remains.
+
+## value
+
+PASS
+
+Nonlinear elementary automata rarely admit a complete explicit description of the entire post-sweep recurrent image. The exact one-sweep phase collapse, signed-shift conjugacy and all-time gcd/parity temporal spectrum for all ring sizes resolve a motivated dynamical classification problem, not a trivial boundary/type check. The proven fixed-order result contrasts with state-dependent order convergence work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
