@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A necessary-and-sufficient one-step dichotomy follows because every resting vertex of a loopless complete graph sees exactly the global firing population. Once this population differs from the designated exact-birth count, births end permanently. The cyclic inspection order proves the statewise first-entry clock, the periodic balanced-resonance condition, and the sharp exceptional maximum. Exponential labelled occupancy classes form a disjoint partition of the full state set, proving the joint generating function. Independent exact multinomial checks cover 340 parameter triples, and independent full labelled trajectory simulation covers 1,834,800 states in 112 systems. Risk: finite checks only corroborate the proof; they do not certify arbitrary parameters.
+## correctness
 
-**Originality — PASS, with historical limitation.** The full accessible 2002 description of Brian's Brain establishes the three-state exact-two rule on the square lattice, not the all-state finite complete-graph transient and resonance formulas. Accessible Generations descriptions establish refractory state conventions. Closest related finite-graph studies use at-least-threshold Greenberg–Hastings excitation or symmetric successor-contact evolution; their hypotheses do not imply an exact-birth rule where over-threshold firing suppresses births. The corresponding complete-graph and biclique claims have different dynamical maps and no matching time-resolved labelled generating function. The original 1996 webpage and some relevant full research packages were not accessible, so unindexed or uninspected prior coverage remains a historical risk; no claim of absolute uniqueness is made.
+PASS
 
-**Mathematical value — PASS.** The exact-birth refractory family is a natural parameter extension of a classical excitable automaton. The theorem delivers a complete all-size orbit and first-entry census, a sharp formula for the maximal transient, an isolated size-resonance where the worst-case clock decreases, and exact extremizer populations. These results distinguish hard refractory recovery from thresholded excitation and describe rare long-lived transients rather than a numerically arbitrary finite slice.
+For all q≥3,r≥1,n≥1, on the loopless complete graph the resting sites simultaneously fire exactly when occupancy a1=r, otherwise no births occur that update or ever again. Until first mismatch in σ=(1,0,q−1,...,2), all classes shift cyclically; if every class equals r, n=qr and state is primitive q-periodic. At first mismatch j≥1, positive class requires j+q−1 steps, zero class j+q−2; j=0 cases depend on highest occupied refractory stage. This disjoint partition gives the stated EGF by exponential labelled class weights E, E−1, h and E−1−h, and max T=min(2q−2,q−1+floor((n−1)/r))−1_(n=qr). Independently simulated original vertex state rule for q=3..5,r=1..2,n=1..7 and compared all maxima to formula, no mismatches. Finite checks support but do not establish the all-parameter occupancy proof. All-rest fixed, and primitive q-cycles count (qr)!/(q(r!)^q) at resonance.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact-count rather than at-least-threshold rule has a complete-graph occupancy clock with an isolated n=qr resonance hole; existing Brian’s Brain rule expositions are not this all-parameter complete-graph first-entry generating function.
+
+## value
+
+PASS
+
+The equality-triggered refractory complete-graph model is a canonical solvable mean-field specialization of a standard excitable automaton. The isolated sharp relaxation defect at n=qr, exact extremizer counts and full labelled entrance-time EGF are useful exact invariants for a natural dynamical family, not an arbitrary one-off state census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
