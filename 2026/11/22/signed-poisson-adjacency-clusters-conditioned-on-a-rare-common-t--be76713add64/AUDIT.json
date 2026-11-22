@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The event probability is exactly 6/[n(n-1)] per specified consecutive triple. Pairwise overlap event probabilities have three exact block-contraction cases and sum to O(n^-2), giving P(C_n>=1)=6/n+O(n^-2) and uniqueness under conditioning. Conditional on any one block, a uniform six-element-order mark is independent of the contracted uniform permutation. All mixed factorial moments of external oriented adjacency counts tend uniformly to one, hence two independent Poisson(1) limits; at most two boundary pair events disappear with probability O(1/n). Transferring from a marked to an existing block has relative O(1/n) bounded-test error. A standalone exhaustive exact verifier confirms all required finite identities through n=8 (46,230 permutations, 230 assertions); finite checks do not prove the limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Corteel–Louchard–Pemantle Proposition 2.1: unconditional total common-interval Poisson mean two; their Section 2 also calculates first and second moments and probabilities for the number of common triplets.",
+        "Xu–Alain–Sankoff Theorem 8: unsigned adjacency count approaches Poisson mean two, alongside other genome models.",
+        "published finding on growing successor-collision orientation profiles addresses growing random order-successor collisions, not a fixed rare contiguous three-value block."
+      ],
+      "reasoning": "The conditioning event has probability asymptotic to 6/n, so its conditional law is invisible to ordinary weak convergence of unconditional adjacency counts. The specified broader marginal and count theorems do not imply this signed conditional distribution.",
+      "searches": [
+        "Joint law of consecutive common intervals (blocks) in two independent uniform random permutations; longest common interval and Poisson short interval occurrences",
+        "Random permutation consecutive shared descents or adjacent pairs and rare-event Poisson approximation",
+        "https://dmtcs.episciences.org/en/articles/362/download",
+        "https://doi.org/10.1093/bioinformatics/btn295"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.46298/dmtcs.362",
+      "https://doi.org/10.1093/bioinformatics/btn295",
+      "https://doi.org/10.1089/cmb.2013.0146",
+      "https://dmtcs.episciences.org/en/articles/362/download"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The exact triplet first and second event probabilities are prior-counting territory; they suffice only for rarity/uniqueness, not the signed conditional Poisson limit.",
+        "The unconditional Poisson-two law allows arbitrary changes to the distribution on events of probability O(1/n) without changing the weak limit."
+      ],
+      "reasoning": "A new uniform-in-marked-triplet conditional factorial-moment argument plus four-way internal order enumeration is required. The novelty boundary excludes the classical unconditional limits, marginal moments and gene-block counting.",
+      "searches": [
+        "Rare common consecutive triples between independent uniform random permutations, conditional Poisson law of common adjacent gene pairs, mixture with one or two forced matches",
+        "Common intervals of length 3 in random permutations, conditional count of breakpoints adjacency clustering and Poisson law",
+        "https://dmtcs.episciences.org/en/articles/362/download",
+        "https://doi.org/10.1093/bioinformatics/btn295",
+        "Conditional asymptotic distribution of ordered positive and negative consecutive-label adjacencies in a uniformly random permutation GIVEN an unordered three-consecutive-value contiguous interval, rare triplet event probability 6/n, marked independent Poisson mixture"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Common 3-interval means three consecutive values occupying three consecutive positions, under either the permutation or genome-block language.",
+        "The signed adjacency statistics are the increasing and decreasing consecutive-label neighbouring pairs in a single uniformly relabelled permutation.",
+        "Corteel–Louchard–Pemantle Section 2 evaluates the common-interval count by size; Xu–Alain–Sankoff studies marginal adjacency distributions."
+      ],
+      "reasoning": "Equivalent names include common interval of length three, conserved triple, genome block, length-three bivincular occurrence, and ordered/common adjacency. Checked the implications under these rephrasings; the inspected laws do not specify the rare-event conditional four-point orientation mark.",
+      "searches": [
+        "Rare common consecutive triples between independent uniform random permutations, conditional Poisson law of common adjacent gene pairs, mixture with one or two forced matches",
+        "Common intervals of length 3 in random permutations, conditional count of breakpoints adjacency clustering and Poisson law",
+        "Probability one common 3-block and joint distribution of common 2-blocks in permutation matching",
+        "https://doi.org/10.46298/dmtcs.362",
+        "https://doi.org/10.1093/bioinformatics/btn295",
+        "Conditional asymptotic distribution of ordered positive and negative consecutive-label adjacencies in a uniformly random permutation GIVEN an unordered three-consecutive-value contiguous interval, rare triplet event probability 6/n, marked independent Poisson mixture"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Corteel–Louchard–Pemantle has a table/expansion for the probabilities of 0, 1 and 2 three-blocks, not the conditional joint signed-adjacency distribution.",
+        "Xu–Alain–Sankoff gives marginal tables for unsigned/signed genomic adjacencies, without selection on a conserved triplet.",
+        "Closest indexed published research concern pattern covariance, successor collisions or other permutation statistics, not the present event/conditional vector."
+      ],
+      "reasoning": "No exact table or same-statement record was found in the accessible and inspected sources. The database search is supportive only, not a proof of absolute novelty.",
+      "searches": [
+        "Rare common consecutive triples between independent uniform random permutations, conditional Poisson law of common adjacent gene pairs, mixture with one or two forced matches",
+        "Common intervals of length 3 in random permutations, conditional count of breakpoints adjacency clustering and Poisson law",
+        "Probability one common 3-block and joint distribution of common 2-blocks in permutation matching",
+        "Rare common consecutive triples between independent uniform random permutations, conditional Poisson law of common adjacent gene pairs, mixture with one or two forced matches",
+        "Common intervals of length 3 in random permutations, conditional count of breakpoints adjacency clustering and Poisson law",
+        "Conditional asymptotic distribution of ordered positive and negative consecutive-label adjacencies in a uniformly random permutation GIVEN an unordered three-consecutive-value contiguous interval, rare triplet event probability 6/n, marked independent Poisson mixture"
+      ]
+    },
+    "rationale": "The new theorem gives the rare-event conditional joint law of increasing/decreasing common adjacency counts, including an independent Poisson background plus a correlated four-point mark. Fully inspected primary Section 2 in Corteel–Louchard–Pemantle gives separate marginal Poisson and three-block-frequency laws; Xu–Alain–Sankoff provides marginal adjacency laws. Neither inspected source derives the conditional marked law, and those marginal statements cannot imply it. Actual semantic literature-index queries found related but noncovering work; priority remains qualified rather than certified unique.",
+    "residual_risks": [
+      "Older Kaplansky–Wolfowitz run-count work and historical genome-comparison literature might contain a differently named selected rare-run law not indexed by available searches.",
+      "The publisher HTML representation of Xu–Alain–Sankoff contains images instead of some formulas; no conclusion relies on a missing formula or an uninspected complete PDF.",
+      "Search of published research findings can miss synonymic prior results and does not by itself certify uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT PRIOR COVERAGE of unconditional Poisson-two and rare three-block counts; no selected-event conditional signed joint theorem in the relevant Section 2.",
+        "evidence": [
+          "Section 2 presents the expectation 6(n-2)/(n(n-1)) for three-blocks, Poisson(2) unconditional adjacency/interval limits, and probabilities P(C_n=0), P(C_n=1), P(C_n=2) to second order.",
+          "Its Section 3 onward concerns bounded-gap intervals, not a conditioned adjacency vector."
+        ],
+        "identifier_or_url": "https://dmtcs.episciences.org/en/articles/362/download",
+        "material_read": "Official PDF: abstract/introduction, Section 2 including Proposition 2.1, exact moments and triplet overlap cases, end of Section 2 through the beginning of Section 3; page-image inspection of PDF pages 2, 4 and 5, and corresponding indexed text.",
+        "method": "Original open-access journal PDF with page images and text extraction.",
+        "title": "Common Intervals in Permutations",
+        "trigger": "Same random-permutation common-block object, common triple frequencies and ordinary adjacency Poisson law."
+      },
+      {
+        "assessment": "Establishes marginal unsigned Poisson(2) and signed-genome Poisson(1/2) laws; the signed-genome model is distinct from splitting orientations of an unsigned permutation. No reported rare-triplet conditional result in materially inspected sections.",
+        "evidence": [
+          "Theorem 8 gives the marginal adjacency Poisson limit and Section 4 applies that null calibration to comparative genomes.",
+          "No conditioning on the existence of a three-label common interval is part of the inspected theorem statements."
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/bioinformatics/btn295",
+        "material_read": "Web-indexed article content, abstract, introductory motivation, definitions, Section 1 probability-method setup, Section 3 Lemma 2 and Theorems 6–8, and conclusion/table; some formula glyphs displayed as images.",
+        "method": "Search-indexed full-article HTML text with mathematical-image access limitations; original publisher page did not fully open in the browsing view.",
+        "title": "Poisson adjacency distributions in genome comparison: multichromosomal, circular, signed and unsigned cases",
+        "trigger": "Same genomic adjacency counts; possible dominating signed/unsigned probability distribution theorem."
+      },
+      {
+        "assessment": "Algorithmic common/nested-interval detection; not used for a whole-document novelty exclusion.",
+        "evidence": [
+          "Abstract concerns algorithms for enumerating generalized common and conserved nested intervals, not conditional probability laws."
+        ],
+        "identifier_or_url": "https://doi.org/10.1089/cmb.2013.0146",
+        "material_read": "Bibliographic metadata and full abstract only.",
+        "method": "PubMed journal record and abstract.",
+        "title": "Easy Identification of Generalized Common and Conserved Nested Intervals",
+        "trigger": "Genome common and conserved interval aliases and definitions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "be76713a-dd64-45b8-bad4-15ae40cad3b4",
+  "value": {
+    "rationale": "Conditioning on a shared consecutive three-marker block is a natural genomic-selection event. It necessarily forces one or two common adjacencies, with a four-point sign-dependent mark and an independent Poisson background. The full limiting conditional joint null distribution materially changes significance calibration for selected genomes and is not just a textbook restatement of Poisson(2) marginals. The source paper motivates common intervals through gene-cluster detection and the second motivates probabilistic adjacency significance testing.",
+    "status": "PASS"
+  }
+}
