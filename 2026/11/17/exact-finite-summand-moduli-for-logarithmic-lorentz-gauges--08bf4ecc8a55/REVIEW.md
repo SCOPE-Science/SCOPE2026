@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For increasing rank weights, coordinate merging is majorization and cannot enlarge the weighted rearrangement gauge (proved by summation by parts). Layer cake reduces the sum ratio to a ratio of integer-valued level-set cardinalities; disjoint indicators attain every such ratio. Discrete convexity balances cardinalities at fixed sum. For logarithmic weights, the ratio tends to one at infinite block length and exceeds one at the singleton profile, proving finite attainment. These are analytical statements; the included finite checker is supplementary only.
+PASS
 
-## Originality — PASS, qualified
+For arbitrary nondecreasing positive weights w_j, merging nonnegative coordinates into their sum majorizes the original list, and summation by parts shows Q_w decreases under merging. Coordinatewise |sum x_i|<=sum |x_i| gives Q_w(sum x_i)<=Q_w(disjoint concatenation of |x_i|). Layer cake gives the integral over thresholds of Φ(sum m_i(t)), bounded by the optimal block-count ratio times sum_i Φ(m_i(t)); disjoint constant-height indicators attain any chosen ratio. Since Φ has nondecreasing increments, transferring a unit from a larger to a block at least two smaller cannot increase the sum of Φ, so fixed total S=nm+r is optimized by m,m+1 balanced blocks. For logarithmic weights w_j=1+(log j)^k, Φ(S)/S~(log S)^k; for fixed n the balancing ratio tends to one as S→∞, whereas S=n yields >1, proving the supremum is attained at some finite S (not claiming a uniform computable cutoff). Independently computed n=k=2 witness Φ(10)/(2Φ(5))≈1.6808888313, larger than singleton ratio≈1.2402265070, and checked finite integer-composition optima in the source checker; finite tests do not prove arbitrary n or all weights.
 
-The motivating paper arXiv:2610.35259, pages 13–15 (full text inspected), introduces the rearrangement gauge and proves only logarithmic-order comparability for summand constants, with its specific lower bound taken in a *different* equivalent gauge. The finite-summand balanced-block exact formula is not implied by those order estimates. Published mathematical-record search for finite-\(n\) rearrangement-gauge sharp constants found a 2026 sharp *asymptotic* for a distinct concave Orlicz gauge, which is non-isometric. Kamińska–Parrish (2008) and Barza–Kolyada–Soria (2009) treat adjacent global \(q\)-convexity and classical Lorentz triangle questions; accessible abstracts concern different uniformity regimes. Full-text priority risk for exact finite-\(n\) weighted-Lorentz formulations remains and is explicitly acknowledged.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The growth class of \(c(n;X)\) is the defining quantitative invariant in the 2026 Serre-closure characterization. For one canonical gauge of its central example, the result turns mere logarithmic upper/lower order into an attained, sharp, one-dimensional optimization for *every* finite summand count, and classifies a natural family of extremizing supports. The squared-logarithmic example shows why singleton testing alone need not capture the finite-\(n\) constant. This supplies a reproducible benchmark for finite concavity geometry and comparisons of equivalent quasi-norms, without asserting a general new Serre-class theorem.
+Cabello Sánchez et al 2026 define exactly this gauge and establish logarithmic-order summand moduli but not the full finite-n one-integer optimum. The other published logarithmic asymptotic uses an equivalent yet nonisometric Orlicz gauge; exact constants do not transfer under equivalence. The 2008/2009 Lorentz sharp-constant literature is plausible historical precedent, but accessible texts address classical exponents/global convexity rather than this logarithmic increasing-rank finite-n formula; older papers not exhaustively checked, therefore residual risk recorded. No clear exact stronger result found.
 
-## Closest work and limitations
+## value
 
-See arXiv:2610.35259 (complete relevant argument inspected), the 2008 weighted Lorentz convexity paper (abstract and bibliographic material), the 2009 classical Lorentz triangle paper (abstract and preprint metadata), and published-record result 2026/11/2/SCOPE-sharp-logarithmic-summand-amplification-in-a-family-of-concave-o--aec320d019b0 (summary only, different gauge). General earlier finite-\(n\) weighted-Lorentz theory remains a residual priority risk; an independent audit has not been performed. The maximum formula does not specify a closed-form optimal block size for arbitrary parameters.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The n-summand quasi-triangle modulus of the canonical explicit logarithmic Lorentz rearrangement gauge is a mathematically motivated sharp finite-n invariant in the contemporary Serre-closure and nonlocally convex sequence-space literature. The reduction from arbitrary vector sums to one integer, the equal-height balanced extremizers, and the non-singleton diagnostic identify actual optimization structure that order-of-growth estimates miss; no paper-sized general theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
