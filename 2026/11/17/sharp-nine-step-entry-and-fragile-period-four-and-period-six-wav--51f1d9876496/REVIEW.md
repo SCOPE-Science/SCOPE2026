@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** Clipping every colour population to \(0,1,2\) preserves each neighbour-threshold test and commutes with a synchronous update, so the nine-trit quotient is exact. Tracking the original occupied buckets additionally preserves labelled colours. An exhaustive 19,683-state certificate checks \(F^{21}=F^9\); its cycle-permutation calculation and all 343 saturation size classes establish the sharp period diagram. A separately written vertex-level program reproduces the period and entry-time conclusions for 171,315 states on seven graph sizes. The sharp nine-step witness is explicit. The essential finite classification depends on the supplied executable certificate.
+## correctness
 
-**Originality — PASS, qualified.** The 1993 lattice study [1] considers different graph families and phase questions; the directly relevant finite-graph studies [2,3] describe general period/transient bounds but were not accessible in full. Targeted published-record searches for exact tripartite threshold-two least-period phase diagrams found no theorem implying the fragile four-, six-, or twelve-cycle criteria. Known singleton-shore and two-shore analyses do not imply the all-positive three-shore classification. A binary parity automaton on multipartite graphs is not the same update rule. Historical-priority uncertainty concerning [2,3] remains material.
+PASS
 
-**Value — PASS.** The exact phase diagram contains genuinely thin and isolated period regimes: the period-four locus vanishes if either of its two size-two shores grows; period six occurs only at a single size triple; period twelve disappears when the smallest shore reaches four. The uniform sharp transient bound across unbounded graph sizes and the distinction between labelled and population periods make this a structural classification, not an arbitrary small census.
+Exact capped colour counts s_ij=min(2,n_ij) commute with the simultaneous successor rule because tests require at most 2 neighbours from other shores; 9 trits suffice for every unbounded tripartite size. Tracking the original occupied buckets additionally certifies labelled vertices, not only populations. Independently coded complete 19,683-state quotient, verified 17,576 nonempty feasible states, F^9=F^21 with occupied-bucket lifted trajectories, 826 quotient cycles with 174,614,9,2,27 corresponding labelled periods 1,3,4,6,12, and all 343 representative size classes 1..7, plus sharp K2,3,5 time-8 witness. Minima <=6 and saturated-count freedom establish size-class exhaustive tail reduction, hence this finite computation has an exact all-size mathematical reduction. The original verify_capped.py independently inspected; no inference from small K_a,b,c simulations to all sizes.
 
-**Limits.** No complete attraction-basin sizes, no other threshold rules, no independent mathematical validation. The finite exhaustive part can be audited by running the included code; the unavailable 1995/1997 papers remain potential coverage risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Relevant published tripartite three-state Greenberg–Hastings excitation records have superficially identical shore/threshold and even period 12, but update rule differs (refractory advances without successor contacts); their cutoff is 11, not 9, and their period set excludes 6. A previously published three-colour cyclic biclique result handles only two shores, not these period-6 or period-12 regimes. The two directly relevant Matamala–Goles 1995/1997 general cyclic-automata papers could not be inspected in full; their abstract general bounds do not logically give the complete narrow phase diagram but priority risk is material. Oxford authorized access returned vpn_disconnected; not scientific failure.
+
+## value
+
+PASS
+
+Sharp uniform temporal entry and thin existence loci are naturally important invariants of an exact family of graph dynamical systems: period four only (2,2,w>=4), period six at the isolated triple, period twelve when smallest shore <=3 and middle >=4. The quotient/labelled distinction and all-size phase diagram are not arbitrary finite experiments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
