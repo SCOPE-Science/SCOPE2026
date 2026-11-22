@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "For every n>=0, BV Stieltjes jump representation and Hilbert triangle inequality reduce the norm to one jump. Parseval gives E_n(t), telescoping Legendre derivatives give E_n'=-P_nP_{n+1} and the exact two-polynomial formula. Simple interlacing identifies local maxima at P_{n+1} zeros. The Sturm energy Phi has derivative -2(n+1)(n+2)t P_{n+1}(t)^2, hence comparison of all positive Gauss zeros is strict. Residual jump functions at distinct t cannot be collinear modulo polynomials, giving all equality cases. Central binomial values and nested-projector monotonicity give the limit. The checker passed 892 independent symbolic/numeric assertions; finite checks are not invoked as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Maday–Ould Kaber–Tadmor (1993) treat Legendre spectral viscosity for discontinuous PDE solutions, not sharp worst-case BV projection residual norms.",
+        "Wang (2021), arXiv:2111.03833 abstract concerns L2 and Linfinity bounds for differentiable functions, a different regularity domain.",
+        "Bojanić–Vuilleumier (1981), DOI 10.1016/0021-9045(81)90031-9, studies BV Fourier–Legendre convergence; full text not acquired, so stronger coverage remains an acknowledged risk."
+      ],
+      "reasoning": "An L2 error rate for differentiable input or fixed discontinuity cannot itself determine the optimal norm over all BV functions or its unique jump locations. A general theorem over all BV with a sharp equal or stronger constant would cover this result regardless of wording, but none was identified among accessible sources; the inaccessible 1981 paper is kept as a material risk.",
+      "searches": [
+        "Fourier Legendre truncation Jordan total variation L2 error global sharp Jackson constant exact Gaussian-node location",
+        "2012 2014 arxiv \"Legendre\" \"bounded variation\" \"L2\" projection coefficient",
+        "2015 Legendre projection bounded variation sharp L2 error discontinuous functions Fourier Legendre Gibbs arxiv",
+        "2021 New error bounds for Legendre approximations of differentiable functions arxiv 2111.03833"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.7717/peerj-cs.35",
+      "https://www.math.umd.edu/~tadmor/pubs/files/Mad-Ould-Tad_Legendre_SV_SINUM93.pdf",
+      "https://dlmf.nist.gov/18.2.v",
+      "https://doi.org/10.1016/0021-9045(81)90031-9",
+      "https://arxiv.org/abs/2111.03833",
+      "published-prior-finding:9f934dc097f6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "NIST DLMF §18.2(v) supplies a general algebraic ingredient.",
+        "Maday–Ould Kaber–Tadmor (1993) present numerical spectral stabilization and classical Legendre estimates.",
+        "The 2015 step-projection study uses analytic L2 projection of a fixed discontinuity without maximization across discontinuity positions."
+      ],
+      "reasoning": "The DLMF kernel identity alone gives a pointwise error formula, but not a global maximum in the step parameter, all BV equality cases, or the sharp asymptotic as an operator norm. Those conclusions require the specific Sturm energy monotonicity comparison and BV measure reduction; no located statement subsumes them. Since the constituent identities are classical and the 1981 source could conceivably include an equivalent sharp theorem, the originality assessment remains qualified.",
+      "searches": [
+        "exact sharp L2 Legendre polynomial projection residual norm on bounded variation quotient, worst single jump at central Gauss-Legendre node, n-dependent coefficient and extremizers",
+        "Fourier Legendre truncation Jordan total variation L2 error global sharp Jackson constant exact Gaussian-node location",
+        "orthogonal polynomial projector BV to L2 approximation sharp constants Legendre step function root of P_n",
+        "2015 2014 Legendre projection step function L2 spectral method sharp constant",
+        "Legendre Christoffel kernel Sonin energy monotonic Gauss roots amplitude"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "NIST DLMF §18.2(v) gives the general Christoffel–Darboux kernel formula, not the sharp BV residual norm.",
+        "Klimach–Zudrop–Roller (2015), DOI 10.7717/peerj-cs.35, §Generation and Table 1 use a fixed step at 2/3; the worst-jump location over all t and equality classification are absent from inspected material."
+      ],
+      "reasoning": "Single-jump residuals are equal to a weighted Legendre diagonal kernel, so exact recovery of the claimed result could be phrased as a global weighted-kernel maximum. The paper derives all-degree maximizers by comparing nonadjacent Gauss nodes via a strictly decreasing Sturm energy, then upgrades a one-jump maximum to the exact BV operator norm and all equality cases. None of the inspected source statements explicitly provides that combined classification. Classical special-function identities are credited, not claimed novel.",
+      "searches": [
+        "exact sharp L2 Legendre polynomial projection residual norm on bounded variation quotient, worst single jump at central Gauss-Legendre node, n-dependent coefficient and extremizers",
+        "Legendre Christoffel Darboux diagonal kernel weighted by 1 minus x squared maximum at innermost zeros, Sonin monotonic energy",
+        "\"(1-x^2)\" \"Christoffel\" \"maximum\" \"Legendre\" even odd",
+        "Legendre kernel weighted Christoffel-Darboux maximum attained at zero even odd"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Klimach–Zudrop–Roller, Table 1, gives numeric error of a prescribed jump at 2/3 for degrees 0, 1, 3, 7, 15 and higher.",
+        "A published finding titled Sharp bounded-variation norm of the cubic Legendre projector (2026/11/17, suffix 9f934dc097f6) determines the TV norm of the projector for degree 3, not the BV-to-L2 residual norm across all degrees."
+      ],
+      "reasoning": "A table of a single jump location is not an exact table of the worst-error jump location or the all-degree norm. The archived cubic result has different output seminorm, operator and quantification. No exact all-degree table matching the current theorem appeared in the queries.",
+      "searches": [
+        "exact sharp L2 Legendre polynomial projection residual norm on bounded variation quotient, worst single jump at central Gauss-Legendre node, n-dependent coefficient and extremizers",
+        "orthogonal polynomial projector BV to L2 approximation sharp constants Legendre step function root of P_n",
+        "Klimach Zudrop Roller 2015 Table 1 L2 error step at 2/3 Legendre degree",
+        "On the rate of convergence of Fourier-Legendre series functions bounded variation Bojanic Vuilleumier 1981 pdf"
+      ]
+    },
+    "rationale": "After actual public index searches and accessible historical primary-text comparison, no inspected claim determines the all-degree sharp BV-to-L2 Legendre residual norm and its parity-dependent complete extremizer classification. Classical Legendre/CD/Sonin components are acknowledged; closest 2015 Table 1 evaluates only a prescribed jump, and the available cubic result optimizes a different variation-output norm. The inaccessible 1981 article and derivative-based broader theory remain material priority risks.",
+    "residual_risks": [
+      "Full text of Bojanic–Vuilleumier (1981) was not accessible through the available routes; exact coverage was not verified.",
+      "The theorem combines classical Legendre and Sturm identities; an older equivalent characterization of weighted Christoffel kernel maxima might exist despite targeted searches.",
+      "Later sharp differentiable-input estimates were accessed only at abstract level; their hypotheses do not visibly include arbitrary BV jumps."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct comparison source: analytic fixed-jump projection and Table 1 but not global maximizing location or sharp BV-to-L2 norm",
+        "evidence": [
+          "§Generation of polynomial geometry defines step at location 2/3.",
+          "Table 1 lists L2 errors by degree for that fixed jump; §Summary focuses on high-order geometry recovery."
+        ],
+        "identifier_or_url": "https://doi.org/10.7717/peerj-cs.35",
+        "material_read": "Full accessible paper text, including introduction, polynomial geometry section (PDF pp. 5–6), numerical properties/Table 1 (pp. 10–11), discussion, summary and references (pp. 14–19)",
+        "method": "Inspected publisher PDF parsed full text and relevant section passages; image screenshot fetch attempted but site returned 403",
+        "title": "Generation of high order geometry representations in Octree meshes",
+        "trigger": "Same Legendre L2 projection of a step function with numeric error table"
+      },
+      {
+        "assessment": "Discusses spectral viscosity stability and Gibbs effects, not a sharp BV-to-L2 error constant at all polynomial degrees",
+        "evidence": [
+          "§1.1 defines Legendre normalization; equations 1.6–1.8 compare approximation and differentiation.",
+          "§7 treats shock initial data; no global variation-normalized residual optimization."
+        ],
+        "identifier_or_url": "https://www.math.umd.edu/~tadmor/pubs/files/Mad-Ould-Tad_Legendre_SV_SINUM93.pdf",
+        "material_read": "PDF abstract, §§1–3 Legendre projector and stability tools, §§6–7 figures/discontinuous tests, paper structure and conclusion",
+        "method": "Full PDF textual inspection and first-page screenshot",
+        "title": "Legendre Pseudospectral Viscosity Method for Nonlinear Conservation Laws",
+        "trigger": "Archival Legendre approximation of discontinuous solutions"
+      },
+      {
+        "assessment": "Supplies a classical identity but no BV-to-L2 residual maximization, parity classification, or equality theorem",
+        "evidence": [
+          "Equation 18.2.12 states the reproducing kernel as the orthogonal-polynomial quotient."
+        ],
+        "identifier_or_url": "https://dlmf.nist.gov/18.2.v",
+        "material_read": "General Christoffel–Darboux reproducing kernel definition and formula",
+        "method": "Read NIST DLMF online reference text",
+        "title": "Christoffel–Darboux Formula, DLMF §18.2(v)",
+        "trigger": "Potential stronger universal reproducing-kernel identity"
+      },
+      {
+        "assessment": "Unresolved full-text comparison; not classified as not covering",
+        "evidence": [
+          "Journal of Approximation Theory 31 (1981), 67–79.",
+          "Secondary indexing associates it with convergence rates for BV Fourier–Legendre series."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0021-9045(81)90031-9",
+        "material_read": "Title, bibliographic metadata, citation context and available summary only; not full paper",
+        "method": "Searched arXiv and lawful open sources; institutional full-text request could not proceed because authenticated network was unavailable",
+        "title": "On the rate of convergence of Fourier–Legendre series of functions of bounded variation",
+        "trigger": "Closest historically plausible BV Fourier–Legendre convergence paper"
+      },
+      {
+        "assessment": "Abstract explicitly assumes differentiability, thus does not alone cover arbitrary BV jump functions; full text remains unchecked",
+        "evidence": [
+          "Abstract describes Legendre coefficients of differentiable functions and L2/Linfinity error bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2111.03833",
+        "material_read": "ArXiv abstract and date only; full text unavailable in current access",
+        "method": "Search and attempted HTML full-text retrieval",
+        "title": "New error bounds for Legendre approximations of differentiable functions",
+        "trigger": "Potentially stronger Legendre L2 approximation error estimates"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "74bde6ef-005a-48ee-a103-e9af7e29b108",
+  "value": {
+    "rationale": "This is a natural sharp, attained, all-degree uniform energy-error benchmark for spectral approximation of arbitrary bounded-variation functions. It classifies all optimal jump locations, reveals a genuinely parity-dependent displacement for every odd degree, provides closed central-binomial constants at every even degree, and gives the exact asymptotic factor 1/sqrt(pi). It is not simply a coefficient bound, one fixed discontinuity or an unmotivated low-degree computation.",
+    "status": "PASS"
+  }
+}
