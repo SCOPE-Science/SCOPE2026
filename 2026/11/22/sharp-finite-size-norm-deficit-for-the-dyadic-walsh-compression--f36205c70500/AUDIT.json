@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "A direct exact inverse calculation gives \\(C_N^{-2}\\) as a specified positive Jacobi matrix; its leading-minor characteristic recurrence proves every finite norm formula. A strictly positive comparison vector and ground-state transform bound its lowest eigenvalue above \\(6-4\\sqrt2\\); an interior Dirichlet eigenvalue gives the matching upper spectral edge. The positive Jacobi ground state satisfies explicit left and right boundary phases, whose small-angle expansions give the \\(N^{-2}\\) constant, shift \\(5+3\\sqrt2\\), and \\(O(N^{-4})\\) shifted remainder. The exact symbolic checker has 55 assertions and supplementary numerical tests at nine indices; no finite computation is used to infer the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hogan–Lakey (2026), Theorem 1 gives an approximate eigenvector, and Remark 2 specifically leaves the quadratic order as numerical evidence; it does not establish the sharp constant. https://www.mdpi.com/2227-7390/14/5/829",
+        "Lakey (2026) studies dyadic truncation dominance conjectures; the cited proof is not an exact spectral asymptotic. https://arxiv.org/pdf/2602.17627"
+      ],
+      "reasoning": "A theorem controlling every dyadic truncation with a full finite-size spectral asymptotic would dominate this result, but no such theorem appears in the inspected relevant sections. Existing convergence of the norm to \\(1+1/\\sqrt2\\), even with approximate eigenvectors, does not imply the specified \\(N^{-2}\\) coefficient or phase shift.",
+      "searches": [
+        "\"Hogan\" \"Lakey\" Walsh truncated matrix exact eigenvalues convergence rate 2026",
+        "\"Walsh\" \"truncation\" \"1+sqrt(2)/2\" eigenvalue gap rate",
+        "Sharp N^-2 norm gap for the weighted anti triangular Walsh truncation matrix D^(1/2) 1_{i+j<=N} D^(1/2), exact spectral phase shift 5+3sqrt2"
+      ]
+    },
+    "checked_sources": [
+      "https://www.mdpi.com/2227-7390/14/5/829",
+      "https://arxiv.org/pdf/2602.17627",
+      "https://arxiv.org/abs/2602.17627"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hogan–Lakey, Remark 2: quadratic deficit supported by numerical analysis only, with more detailed error analysis said to be needed. https://www.mdpi.com/2227-7390/14/5/829",
+        "Lakey, arXiv:2602.17627v1: weighted compression and conjectural dyadic optimality, without the exact gap coefficient. https://arxiv.org/abs/2602.17627"
+      ],
+      "reasoning": "The new statement implies and quantifies the previously suggested quadratic decay for this single compression, but the earlier convergence and approximate-eigenvector result does not imply this sharp asymptotic. It also makes no claim to prove the larger dyadic extremality conjecture.",
+      "searches": [
+        "\"An Eigenvector Problem Arising in the Study of Convergence of Walsh–Fourier Series\" preprint submitted",
+        "\"Hogan\" \"Lakey\" \"eigenvector problem\" Walsh arxiv 2025 2026",
+        "\"Walsh\" \"C_N\" \"eigenvalues\" \"Hogan\" Lakey"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hogan–Lakey (2026), Equation (1) specifies exactly the same compression; Remarks 1–2 and Section 4 do not give its inverse or exact finite characteristic polynomial. https://doi.org/10.3390/math14050829",
+        "Lakey arXiv:2602.17627v1, equations (10)–(14) and spectral discussions, same compressed matrix but no exact inverse-square Jacobi theorem. https://arxiv.org/pdf/2602.17627"
+      ],
+      "reasoning": "A weighted anti-triangular matrix, a Jacobi inverse-square, and a Chebyshev boundary equation are equivalent representations of the same finite spectrum. The available sources do not derive the exact Jacobi coefficients together with the shifted phase expansion. Generic tridiagonal theory is not itself an assertion about these object-specific constants.",
+      "searches": [
+        "Walsh Fourier maximal partial sums compressed operator C_N = 2^{-N/2} sqrt(D_N) M_N sqrt(D_N), exact Chebyshev eigenvalue secular equation and N^-2 sharp gap",
+        "Inverse squared Walsh-Hadamard dyadic truncation is Jacobi tridiagonal with boundary coefficients 2,6,4 and -2,-2sqrt2, Chebyshev characteristic polynomial",
+        "\"C_N\" \"Walsh\" \"Chebyshev\" eigenvalues Hogan Lakey 2026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Hogan–Lakey (2026), Figures 2–3 provide numerically plotted norm and eigenvector estimates, not an all-index exact spectral table or recurrence. https://www.mdpi.com/2227-7390/14/5/829",
+        "Lakey arXiv:2602.17627v1 Fig. 5 and eq. (10)–(14) contain finite numerical examples and eigenvector relations, not the asserted polynomial formula. https://arxiv.org/pdf/2602.17627"
+      ],
+      "reasoning": "A list of sampled numerical matrix norms cannot establish an all-index polynomial identity or the asymptotic coefficient. Targeted searches for the exact tridiagonal diagonals and shift did not identify a matching table; no exhaustive database coverage is claimed.",
+      "searches": [
+        "\"D_N\" \"M_N\" Walsh Fourier tridiagonal recurrence Chebyshev",
+        "\"Towards direct L2-bounds for maximal partial sums of Walsh-Fourier series\" Lakey arxiv",
+        "Walsh Hadamard triangular weighted compression norm asymptotic 1+sqrt(2)/2 and exact convergence rate"
+      ]
+    },
+    "rationale": "Compared the exact weighted triangular Walsh compression and its norm gap with the two closest original publications, not merely their titles. Hogan–Lakey (2026), Eq. (1), Theorem 1, Remark 2, Sections 4 and 6, explicitly identifies only a numerical \\(N^{-2}\\) suggestion; the inverse-square Jacobi reduction, exact characteristic recursion, leading coefficient and boundary shift are not stated. Lakey arXiv:2602.17627v1, pp. 13–15 and introduction, discusses the same compressed matrix and conjectural truncation comparisons but not the new quantitative theorem. Actual semantic searches found no dominating theorem; the risk of an unindexed equivalent calculation remains.",
+    "residual_risks": [
+      "The same Jacobi inverse or boundary-phase asymptotic may occur in older unindexed matrix-analysis literature under a different name.",
+      "General spectral methods are classical; originality is only claimed for the object-specific finite norm and sharp finite-size constant.",
+      "This does not establish extremality of the compression among all Walsh truncations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Identical matrix and known limiting norm; explicitly treats the \\(N^{-2}\\) deficit as a numerical suggestion, without an exact finite norm recursion or shifted coefficient",
+        "evidence": [
+          "Equation (1), Theorem 1, Remark 2, Section 6; doi:10.3390/math14050829"
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2227-7390/14/5/829",
+        "material_read": "Full accessible HTML: Introduction, Eq. (1), Lemma 1, Remark 1, Theorem 1, continuous model, Section 4, Remark 2, Conclusions, Appendix and references",
+        "method": "Compared identical matrix entries, recurrence, norm claim, rate, and spectral asymptotic to the new theorem",
+        "title": "An Eigenvector Problem Arising in the Study of Convergence of Walsh–Fourier Series",
+        "trigger": "Identical compressed dyadic Walsh matrix and norm-limit problem"
+      },
+      {
+        "assessment": "Contains equivalent definition, numerical norm observations and conjectures on dominance, but no exact all-index spectral root or quadratic coefficient",
+        "evidence": [
+          "arXiv:2602.17627v1, 19 February 2026, equations (10)–(14) and Figure 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2602.17627",
+        "material_read": "arXiv PDF title/abstract and introduction, equations (10)–(14), figures and descriptions at pages 13–15 and conjectures",
+        "method": "Compared compressed matrix and known norm evidence to the Jacobi/polynomial/phase asymptotic claim",
+        "title": "Towards direct L^2-bounds for maximal partial sums of Walsh–Fourier series: The case of dyadic partial sums",
+        "trigger": "Cited primary precursor describing the same weighted compression and its operator norm"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f36205c7-0500-48ef-a20a-cb71b7c5d5b7",
+  "value": {
+    "rationale": "The motivating 2026 publication explicitly raises the sharp finite-size norm deficit as an unsolved quantitative issue, supported only by numerics. The exact smallest-root recursion allows each norm to be evaluated without exponentially sized Walsh matrices; the sharp \\(N^{-2}\\) coefficient and nontrivial effective boundary length \\(5+3\\sqrt2\\) resolve the precise scaling issue and make concrete finite-size comparisons possible. This is a structural spectral refinement of a canonical Fourier compression, not an arbitrary parameter slice or merely a computed table.",
+    "status": "PASS"
+  }
+}
