@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The exact full-step distribution is expanded to second order; generator semigroup and branchwise Poisson/binomial expansions yield the three mutually exclusive regimes. Indicator witnesses force the leading nonzero coefficients; bounded rate and Poisson tail give uniform remainder control. Symbolic Taylor identities and 2376 exact rational parameter cases pass in verify.py.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2012 Székely et al. discusses unadjusted theta trapezoid and extrapolation rather than per-stage binomial backtracking",
+        "Original source arxiv:2611.16975v1 Theorems 1--3 gives looser bounds under different conditional assumptions"
+      ],
+      "reasoning": "General weak-convergence bounds on unadjusted tau-leap methods do not determine the exact regimes of the new backtracking rule. A genuinely stronger theorem would need exact unconditional expansions for both first- and second-stage propensity changes; none of the inspected texts states it.",
+      "searches": [
+        "BthetaTTLe binomial backtracking degenerate event weak order error single reaction birth death",
+        "trapezoidal tau leaping degeneracy threshold one jump self inhibiting propensities weak consistency",
+        "\"tau leaping\" \"one-step\" \"weak second-order\" \"degenerate\" \"Poisson\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.16975v1 Section III (exact binomial adjustment), Section IV (local bounds), Appendix A (proofs)",
+      "Székely--Burrage--Erban--Zygalakis 2012, DOI 10.1186/1752-0509-6-85 (original tau-leap/extrapolation)",
+      "Hu--Li--Min 2011, DOI 10.1063/1.3609119 (older unadjusted theta method; only indexed summary)",
+      "Public mathematical finding records retrieved for five specific source/claim/alias queries",
+      "Published literature on similar stochastic numerical schemes"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2611.16975v1 source Theorem 2 states O(h) conditional error and uses a shifted generator",
+        "The present formula has an explicit nonzero O(h) unconditional defect only if r1<c, and nonzero O(h^2) defect exactly when r1>=c>r2"
+      ],
+      "reasoning": "The source theorem is weaker and conditional. The new statement identifies all order regimes of the actual unconditional full step, including a second-order locally consistent region even though rarer degenerate events exist. It follows by new enumeration of P=0,1,2 branches, not by simply renaming a prior published result.",
+      "searches": [
+        "binomial adjusted theta trapezoidal tau leaping first order consistency phase transition self inhibiting birth Poisson stage",
+        "single channel pure birth binomial-adjusted theta-trapezoidal weak local error initial two propensity ratios c=1-2theta+2theta squared",
+        "\"tau leaping\" \"one-step\" \"weak second-order\" \"degenerate\" \"Poisson\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full primary BthetaTTLe definition, arxiv:2611.16975v1, Section III",
+        "Primary Appendix A contains conditional-degeneracy first-order expansion, not an unconditional three-stage classification"
+      ],
+      "reasoning": "An alternative characterization would be a local weak-order condition expressed as a threshold on a_1/a_0 and a_2/a_0. The published method contains the parameters implicitly, but neither its conditional O(h) estimate nor its shifted generator implies necessity and sufficiency for all three unconditional orders. Semantic queries did not yield such a result.",
+      "searches": [
+        "binomial adjusted theta trapezoidal tau leaping first order consistency phase transition self inhibiting birth Poisson stage",
+        "Scott McCallum Foster 2611.16975 binomial adjusted theta trapezoidal tau leaping first second order one reaction three regime source",
+        "\"binomial-adjusted\" tau leaping sharp weak consistency one step propensity drop threshold",
+        "\"BθTTLe\" first second order accuracy Poisson one reaction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact two-ratio boundary or coefficient table among the inspected mathematical records",
+        "The inspected primary and comparison literature includes no exact two-ratio theorem"
+      ],
+      "reasoning": "The threshold is continuous in two independent propensity ratios and theta; no listed exact table or database was found that covers the full theorem. This is an observed lack of overlap, not proof against undiscovered records.",
+      "searches": [
+        "Scott McCallum Foster 2611.16975 binomial adjusted theta trapezoidal tau leaping first second order one reaction three regime source",
+        "single channel pure birth binomial-adjusted theta-trapezoidal weak local error initial two propensity ratios c=1-2theta+2theta squared",
+        "\"binomial-adjusted\" tau leaping sharp weak consistency one step propensity drop threshold"
+      ]
+    },
+    "rationale": "Source algorithm and conditional bounds are credited. Full relevant primary text was compared with the new unconditional necessary-and-sufficient local weak-order phase diagram. Five actual published-record similarity queries and four specialized web queries gave no exact counterpart; checked older tau-leaping work uses a distinct scheme. Unindexed equivalence remains a residual historical priority risk.",
+    "residual_risks": [
+      "An unindexed earlier equivalent one-channel binomial phase classification may exist.",
+      "Full text of the original 2011 unadjusted method was not materially inspected; it does not define the 2026 adjusted method, but could contain a closely analogous special case.",
+      "Global error and network-level consequences are not established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes method and broad O(h) statements, not the unconditional necessary-and-sufficient three-regime local weak-order partition",
+        "evidence": [
+          "Definitions and branches at arXiv HTML lines 74--117",
+          "Theorems 1--3 at lines 134--159",
+          "Appendix A at lines 199--249"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.16975v1",
+        "material_read": "Sections II--VI and Appendix A, including definitions (3),(7)--(9), Theorems 1--3, equations (13)--(15),(18)--(20), and discussion of modified generator",
+        "method": "Full HTML primary text; compared unconditional first two propensity stages with source conditional error statements",
+        "title": "A binomial-adjusted theta-trapezoidal tau-leaping method for chemical kinetic systems",
+        "trigger": "Same branch, exact algorithm, order assertions and plausibly covering appendix"
+      },
+      {
+        "assessment": "Analyzes older original theta-trapezoidal / Richardson approaches, not the 2026 binomial-adjusted branch",
+        "evidence": [
+          "PMC3529698 abstract and Results, full-text sections on theta-trapezoidal tau leaping"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3529698/",
+        "material_read": "Full-text abstract, background, method descriptions and discussion of weak-order extrapolation",
+        "method": "Open access PMC full text",
+        "title": "A higher-order numerical framework for stochastic simulation of chemical reaction systems",
+        "trigger": "Earlier higher-order theta-trapezoidal and stochastic extrapolation framework"
+      },
+      {
+        "assessment": "Original unadjusted method; limited access to complete primary text, residual risk noted",
+        "evidence": [
+          "DOI:10.1063/1.3609119",
+          "Scott--McCallum--Foster introduction lines 43--49 and references"
+        ],
+        "identifier_or_url": "doi:10.1063/1.3609119",
+        "material_read": "Bibliographic abstract and original method attribution, not full text",
+        "method": "Indexed bibliographic information and source-paper discussion",
+        "title": "A weak second order tau-leaping method for chemical kinetic systems",
+        "trigger": "Original theta-trapezoidal construction cited by primary paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8a00c845-f4a5-45ad-877c-794cc4cc1c27",
+  "value": {
+    "rationale": "Sharp local weak-order loss at low molecule counts is a motivated numerical-method question. The first two relative propensity drops determine whether a binomial corrective step preserves second order, only first order, or fails even first-order consistency. This phase diagram identifies when changing theta helps and when it provably cannot, beyond verification or a routine arithmetic update.",
+    "status": "PASS"
+  }
+}
