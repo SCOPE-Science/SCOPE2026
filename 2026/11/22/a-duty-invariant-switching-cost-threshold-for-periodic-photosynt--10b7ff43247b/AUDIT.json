@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For u,v,d>0, 0<f<1, T>0, the period flow contracts by exp(-[(u+d)f+v(1-f)]T). Integrating its unique fixed point gives exact J=f u/(u+d)+(d/(u+d)^2 Phi-c)/T. The identity Phi=2 tanh(pT/2)tanh(qT/2)/(tanh(pT/2)+tanh(qT/2)) and the explicit negative-semidefinite harmonic-mean Hessian show Phi is strictly increasing and strictly concave. Therefore H=Phi-T Phi′ strictly increases 0 to 1, and the sign of J′=(c-KH)/T^2 proves all cases, threshold equalities and unique optimum. The Taylor series proves cubic-root small-cost scaling. checker.py passed 12,112 regression assertions, not relied upon as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/1204.2906: full text optimization uses dilution-rate control with a 24-hour forced light regime and biomass shading",
+        "https://doi.org/10.1371/journal.pone.0038975: full text explores frequencies and duty ratios at a fixed photon budget",
+        "https://doi.org/10.18174/221726: repository thesis summary uses an electron-storage model for flashing"
+      ],
+      "reasoning": "The optimizer of a different bioreactor control variable does not imply an optimizer of flash period under a per-cycle charge. Similarly, frequency-response or mechanistic modeling literature supplies motivation without an all-parameter cost threshold. This is an implication comparison, not a title comparison.",
+      "searches": [
+        "photosynthetic production light dark periodic damage repair switching costs optimal illumination frequency analytic",
+        "periodic photobioreactor optimization pulse frequency switching cost photodamage repair mathematical threshold",
+        "periodic photobioreactor optimization pulse frequency switching cost photodamage repair mathematical threshold"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1371/journal.pone.0038975",
+      "https://arxiv.org/abs/1204.2906",
+      "https://doi.org/10.1016/j.jtbi.2012.01.040",
+      "https://doi.org/10.18174/221726",
+      "https://doi.org/10.1002/bit.23270",
+      "Related indexed statement: A sharp optical-depth optimum for a uniformly mixed photoinhibited water column"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://doi.org/10.1016/j.jtbi.2012.01.040: first-principles photosynthetic kinetics and model simulations, full article not obtained",
+        "https://arxiv.org/abs/1204.2906: Pontryagin optimum of dilution under imposed day/night forcing",
+        "https://doi.org/10.1371/journal.pone.0038975: observed enhancement/impairment under flashing frequencies",
+        "Related earlier statement: a scalar photodamage/repair model under weak sinusoidal illumination with Steele response has a local quadratic frequency crossover, not a global finite-amplitude square-wave scheduling and cost threshold."
+      ],
+      "reasoning": "A published observation that faster flashing can improve uncharged output does not imply an exact critical charge or uniqueness of the maximizer. In the present proof those properties follow from strict concavity of the harmonic mean of two hyperbolic tangents, plus the limiting value of the derived H-function. No inspected stronger result subsumes these steps. A prior weak-sinusoidal Steele-response expansion allows a sign change in a quadratic forcing coefficient, but neither that expansion nor its hypotheses establish this exact square-wave fixed-cost optimizer; conversely, this claim makes no conclusion about the prior weak-sinusoidal Steele response.",
+      "searches": [
+        "sharp switching cost threshold independent of duty cycle and dark recovery rate periodically illuminated photosynthetic active units unique finite maximizing flashing period",
+        "periodic photobioreactor optimization pulse frequency switching cost photodamage repair mathematical threshold",
+        "Papadakis Kotzabasis Lika 2012 Modeling dynamic modulation light energy photosynthetic algae pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://doi.org/10.1016/j.jtbi.2012.01.040: source describes photoinactivation/repair but available abstract gives a complex light/DIC model, not a period-charge optimizer",
+        "https://doi.org/10.1371/journal.pone.0038975: full text studies flashing frequency empirically",
+        "https://arxiv.org/abs/1204.2906: full preprint controls dilution and biomass, not illumination period"
+      ],
+      "reasoning": "A first-order active-unit model may be an abstraction of prior photoinhibition kinetics; specifying the model alone would not be new. A comparison instead sought the equivalently stronger assertion that net cycle-output minus a fixed charge per period has a unique optimum exactly below a duty-independent charge. None of the inspected material asserts it. The inaccessible complete Papadakis article is a named priority risk.",
+      "searches": [
+        "photobioreactor duty cycle first-order photoinhibition repair periodic light/dark fixed cost per transition sharp threshold finite optimal period independent duty cycle harmonic mean hyperbolic cotangent",
+        "two-state active inactive photosynthetic reaction centers exponentially recover in darkness inactivate in light optimal square-wave period switching penalty exact phase transition",
+        "light-dark switching photosystem active fraction photodamage exponential dark repair mixing cost frequency unique optimal cycle length"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed related statement: A sharp optical-depth optimum for a uniformly mixed photoinhibited water column (Steele rate and Beer attenuation, not temporal cycling)",
+        "https://doi.org/10.1371/journal.pone.0038975: published experimental conditions vary frequencies and intensities but contain no exact cost-threshold table"
+      ],
+      "reasoning": "The claim is an all-positive-parameter continuous optimization theorem, not a finite numerical invariant. A covering exact table or analytic statement was not found in inspected records. This absence is not a proof of historical uniqueness.",
+      "searches": [
+        "photobioreactor duty cycle first-order photoinhibition repair periodic light/dark fixed cost per transition sharp threshold finite optimal period independent duty cycle harmonic mean hyperbolic cotangent",
+        "sharp switching cost threshold independent of duty cycle and dark recovery rate periodically illuminated photosynthetic active units unique finite maximizing flashing period",
+        "two-state active inactive photosynthetic reaction centers exponentially recover in darkness inactivate in light optimal square-wave period switching penalty exact phase transition",
+        "photoinhibition periodic flashing illumination maximizing photosynthetic output minus energy per switch exact critical overhead threshold"
+      ]
+    },
+    "rationale": "The new statement concerns the exact period-dependent net-output functional, an analytically unique interior optimum for every positive cost below a duty-independent threshold, a boundary classification, and a small-cost cubic-root law. No inspected source yields these statements or implies them from a more general proved optimization theorem. Published model background is not counted as originality; full-text priority risks are acknowledged.",
+    "residual_risks": [
+      "Papadakis et al. (2012) is closely relevant but the full paper was not available; this is not grounds to declare its entire content noncovering.",
+      "The Vejrazka (2012) thesis full text and general reactor/renewal cost literature were not exhaustively inspected.",
+      "The unit charge per completed cycle is a modeling assumption, not a verified physical mixing-energy law."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTS_MOTIVATION_NOT_COVERING",
+        "evidence": "Explicit duty-controlled light/dark experiments at 1, 5, 10, and 30 Hz, but no abstract or theorem for a fixed per-cycle charge or unique optimal period.",
+        "identifier_or_url": "https://doi.org/10.1371/journal.pone.0038975",
+        "material_read": "Full-text HTML: Introduction, Results, frequency comparisons, Discussion and references around the light/dark trials",
+        "method": "Direct HTML inspection",
+        "title": "Adjusted Light and Dark Cycles Can Optimize Photosynthetic Efficiency in Algae Growing in Photobioreactors",
+        "trigger": "Frequency and photoinhibition experiments closest to the physical motivation"
+      },
+      {
+        "assessment": "DIFFERENT_OPTIMIZATION_OBJECT",
+        "evidence": "Biomass/dilution-rate control with daily external forcing, not the light/dark period under a switching charge.",
+        "identifier_or_url": "https://arxiv.org/abs/1204.2906",
+        "material_read": "Full-text arXiv HTML: abstract, model and controls, optimization sections and discussion",
+        "method": "Direct HTML inspection",
+        "title": "Periodic optimal control for biomass productivity maximization in a photobioreactor using natural light",
+        "trigger": "Plausible stronger published periodic optimal-control result"
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT_PRIORITY_RISK",
+        "evidence": "The abstract describes dynamic photon absorption, photosynthetic-unit inactivation, and repair; it does not state a period-charge optimum. Complete-text implication remains unverified.",
+        "identifier_or_url": "https://doi.org/10.1016/j.jtbi.2012.01.040",
+        "material_read": "PubMed and academic bibliographic abstracts; full paper not accessible",
+        "method": "Open-access and preprint searches, publisher access attempt; complete text inaccessible",
+        "title": "Modeling the dynamic modulation of light energy in photosynthetic algae",
+        "trigger": "Plausible photoinactivation-and-repair kinetics that may subsume the scalar assumption"
+      },
+      {
+        "assessment": "PARTIAL_INSPECTION_PRIORITY_RISK",
+        "evidence": "Describes an electron-pool mechanistic model and experimentally tuned light/dark cycles; no stated fixed-charge threshold. The thesis complete text was not examined.",
+        "identifier_or_url": "https://doi.org/10.18174/221726",
+        "material_read": "University repository full descriptive abstract, including chapter-by-chapter findings, not thesis chapters",
+        "method": "Repository abstract and chapter summaries",
+        "title": "Microalgal photosynthesis under flashing light",
+        "trigger": "Detailed thesis on frequency and duty response"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "10b7ff43-247b-4b53-9a27-1efe0c5785a9",
+  "value": {
+    "rationale": "A fixed activation/switching charge is a motivated operating trade-off for periodically illuminated photobioreactors. This exact phase diagram classifies whether any finite switching period optimizes net output, locates the unique optimum by a monotone equation, gives its near-zero-charge scaling, and proves that the critical charge unexpectedly does not depend on duty or dark repair. These are quantitative structural boundaries for a natural two-rate kinetic benchmark, not a routine numerical substitution or a tiny incremental estimate.",
+    "status": "PASS"
+  }
+}
