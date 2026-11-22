@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Exact two upper triangular parameter products are derived from min-plus multiplication, and finite (3,1) forces the last permutation image to be column one. For 321, four nonnegative defects are forced, and strictness of defects two and three forces the fifth nonnegative; case-split explicit parameters reconstruct all other possibilities. For 231, defect one vanishes and three others are nonnegative; another explicit factor witness proves sufficiency. The strict counterexample has defects (2,3,3,1,-3). The standalone verifier passed 200000 random forward, 200000 random conditional inverse, 39366 small-box tests and three wing tests; this does not replace the universal real-variable proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Niv arXiv:1202.3615v3, Definitions 2.4-2.5 and Lemma 4.5 classify decomposability into arbitrary products of elementary matrices, allowing different generators and arbitrary word length.",
+        "Grigoriev arXiv:2611.03896v1 Theorem 1.1 concerns dimensions for every n, not exact pointwise membership."
+      ],
+      "reasoning": "A fixed B⊙P_p⊙B decomposition is a strictly constrained special case of a product of elementary tropical factors, because two upper-triangular blocks and one permutation have a rigid restricted ordering. Existence of a general elementary factorization need not imply such a constrained two-sided representation; finite A with a31 finite forces p(3)=1, for example.",
+      "searches": [
+        "Adi Niv Factorization of Tropical Matrices 3x3 Bruhat decompositions positive real entries",
+        "arXiv:1202.3615 Lemma 4.5 elementary tropical matrices factorization",
+        "\"tropical upper triangular double coset longest permutation 3 by 3 piecewise linear inequalities equality degenerations\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2611.03896v1 primary HTML, Theorems 1.1, 1.2, Section 3, Example 3.1, Section 4",
+      "arXiv:1202.3615v3 author-provided full text, Definitions 2.4-2.5 and Section 4 Lemma 4.5",
+      "Johnson and Tran, upper triangular tropical matrix identities, abstract (not full text)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The printed first theorem asserts that d1,d2,d3,d4>=0 is sufficient; A*=((0,-3,-1),(0,-2,-3),(0,0,0)) yields d=(2,3,3,1,-3), no p321 decomposition by the entry formulas, and no p231 by d1≠0.",
+        "Niv 2014 permits unrestricted elementary sequences and does not assert fixed B p B realizability for each finite matrix."
+      ],
+      "reasoning": "Prior sufficiency does not imply the new theorem because it is demonstrably false under its own printed hypotheses; the new theorem supplies the missing necessary and sufficient conditions. The other factorization theorem does not imply the fixed two-sided predicate. Grigoriev dimension and uniqueness statements do not determine individual finite-image membership.",
+      "searches": [
+        "arXiv:2611.03896v1 Theorem 1.2(i)-(iii) proof and Example 3.1",
+        "arXiv:1202.3615v3 Section 4 Lemma 4.5",
+        "\"tropical 3 by 3 matrix\" \"Bruhat cell\" exact conditions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2611.03896v1 Theorem 1.2 and Section 3 describe selected minors but do not include the missing independent fifth 2x2 inequality. Its Example 3.1 has a boundary exception. The explicit candidate with defects (2,3,3,1,-3) satisfies four printed inequalities but is excluded by necessity.",
+        "No equivalent statement observed among ranked research-record matches for the exact fixed-factor predicate."
+      ],
+      "reasoning": "An alternative guise is an exact piecewise-linear elimination of all upper-triangular parameters. The source four-defect criterion is not equivalent to the five-defect-plus-wings predicate; it includes a full-dimensional region of nonmembers. Elementary factorization is not the same equivalence relation.",
+      "searches": [
+        "\"Min-plus Bruhat decomposition\" Grigoriev arXiv:2611.03896v1 Theorem 1.2 complete boundary",
+        "\"3x3 tropical\" \"Bruhat\" \"upper triangular\" factorization inequalities",
+        "Search: Min-plus Bruhat decomposition Grigoriev n=3 exact finite 3x3 top cell boundary membership characterization of exceptional matrices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant ranked research records on three-by-three Birkhoff matrices concern convex stochastic decompositions, not this min-plus upper triangular double coset.",
+        "No numerical table is needed: the theorem is a complete parametric real polyhedral classification and not a finite lookup claim."
+      ],
+      "reasoning": "The exact-database question would require a table or algorithm whose accepted set equals the whole fixed Bruhat product. No such exact table or formula was identified in checked relevant sources; lack of a matching retrieval alone is not a novelty proof.",
+      "searches": [
+        "Search: For a finite 3x3 tropical matrix A, define D1=a21+a32-a22-a31, D2=a21+a33-a23-a31, D3=a11+a32-a12-a31, D4=a11+a33-a13-a31, D5=a12+a23-a13-a22; characterize existence of upper triangular U,V and permutation P with A=U min-plus P min-plus V; boundary D1 D2 D3 zero",
+        "\"Min-plus Bruhat decomposition\" \"boundary\" \"3x3\"",
+        "Grigoriev theorem 1.2 counterexample 3x3 tropical"
+      ]
+    },
+    "rationale": "The closest current primary paper arXiv:2611.03896v1 gives the dimension theorem and a printed sufficient condition but not the valid exact finite dimension-three membership classification. Its four-defect sufficiency is contradicted by the explicit strictly positive four-defect counterexample. The 2014 Niv paper treats arbitrary elementary-generator factorization, a different condition not implying B p B membership. Targeted published and semantic research-record comparisons did not find an equivalent exact two-cell statement; indexing and revision risks remain.",
+    "residual_risks": [
+      "An unindexed earlier exact polyhedral elimination of the fixed three-by-three min-plus upper-triangular Bruhat image could overlap.",
+      "A later correction or replacement for arXiv:2611.03896v1 could supersede the specific comparison to the printed v1 sufficient criterion.",
+      "Full text of the upper-triangular semigroup identities paper was not inspected; its abstract describes a different problem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same objects; dimension and generic analysis; printed four-defect sufficient claim is contradicted by a strict-positive counterexample; does not contain our correct complete two-cell formula",
+        "evidence": [
+          "arXiv:2611.03896v1, Theorem 1.2(i), formula (1) with k+s=n+1, and Section 3, equations (5)-(6); Example 3.1 for a different exceptional boundary pattern"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.03896v1",
+        "material_read": "Abstract; Introduction; Theorems 1.1, 1.2; complete proofs of Theorems in Sections 2 and 3; Example 3.1; Section 4 and references",
+        "method": "Read primary lawful open HTML full scientific text and compare every chosen inequality with explicit dimension-three product coordinates",
+        "title": "Min-plus Bruhat decomposition",
+        "trigger": "Direct initiating study of the exact same tropical Bruhat cells and parameter constraints"
+      },
+      {
+        "assessment": "Broader elementary-factorization predicate is not the fixed upper-triangular double-coset membership problem; no exact equivalent characterization observed in inspected sections",
+        "evidence": [
+          "arXiv:1202.3615v3, Definitions 2.4-2.5 and Lemma 4.5"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1202.3615",
+        "material_read": "Author-available full scientific text, Definitions 2.4-2.5, Section 3 and Section 4 including Lemma 4.5 and surrounding proof",
+        "method": "Compared elementary generator definition and possible products with the rigid B p B multiplication formula, including permutation support restriction",
+        "title": "Factorization of Tropical Matrices",
+        "trigger": "Earlier 3x3 tropical matrix classification and discussion of Bruhat notions"
+      },
+      {
+        "assessment": "Different advertised problem; residual risk remains because full mathematical text not inspected",
+        "evidence": [
+          "The abstract discusses semigroup word identities and their geometry, not exact mixed permutation double-coset matrix images."
+        ],
+        "identifier_or_url": "https://research.manchester.ac.uk/en/publications/geometry-and-algorithms-for-upper-triangular-tropical-matrix-iden/",
+        "material_read": "Title and abstract only",
+        "method": "Compared advertised object (semigroup identities) to exact matrix membership; full text not used for exclusion",
+        "title": "Geometry and algorithms for upper triangular tropical matrix identities",
+        "trigger": "Potential overlap via upper-triangular tropical matrices"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a990df3b-dfd4-4c37-8819-7eab05de3575",
+  "value": {
+    "rationale": "The complete real finite 3x3 membership classification solves the smallest nontrivial Bruhat-image problem, identifies a missing full-dimensional inequality and three genuine boundary wings, supplies constructive factors for all accepted matrices, and corrects a meaningful published sufficient condition with an exact counterexample. This is structural, not a routine parameter substitution or arbitrary finite data slice.",
+    "status": "PASS"
+  }
+}
