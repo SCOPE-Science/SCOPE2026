@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For independent Brownian first passage and exponential mortality, the exact defective density is \\(f_q(u)=\\exp[-1/(4u)-q^2u]/(2\\sqrt\\pi\\,u^{3/2})\\), whose integral is \\(e^{-q}\\). The successful time is centered at its exact conditional mean and standardized by its exact standard deviation. The analytic proof obtains an integrated Edgeworth expansion with exponentially controlled tails, yielding \\(d_{\\rm TV}(\\nu_q,\\mathcal N(0,1))=C_*/\\sqrt q+O(q^{-1})\\), where \\(C_*=(1+4e^{-3/2})/(2\\sqrt{2\\pi})\\). Independent Bernoulli mark thinning and Le Cam coupling give the process-level total-variation upper bound, and an exactly-one-point event in the density-sign-positive region proves the matching lower bound. Conditioning on the unique first successful arrival makes the remaining living indicators independent Bernoulli, with the probability derived exactly from killed Brownian survival and no earlier success. Uniform compact-time asymptotics and growing binomial means imply the joint survivor log-clock anti-correlation. The standalone checker executed 239 deterministic consistency tests of density, moments, CDF, moment-generating function, leading TV constant, critical first-arrival probabilities and living-population means. Finite checks are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Paquin-Lefebvre, Delbreil and Holcman, https://arxiv.org/html/2611.14375v1, Sec. 2.2-2.3, Eqs (2.20)-(2.29), give full finite-N first-exit and survivor-count formulas in general killed diffusions; Sec. 3-4 treats large N at fixed killing and warns against interchanging limits.",
+        "Meerson and Redner, https://sites.santafe.edu/~redner/pubs/pdf/PhysRevLett.114.198101.pdf, Eqs (2)-(5),(11)-(14), treat this exact one-dimensional physical model, known threshold and conditional mean first success in broad regimes, but not the critically scaled joint living-population distribution.",
+        "published-finding corpus article https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-sharp-mortality-recruitment-threshold-for-first-arrivals-of-inde--2f684bcae431/RESULT.md studies continuous Poisson recruitment, with a Gumbel below threshold and exponential arrival at threshold, not synchronized initial N with a positive probability of no arrival."
+      ],
+      "reasoning": "Existing finite-parameter distributions supply strong premises and formally encode every finite-N observable, so the exact conditional binomial law and success threshold are prior coverage and excluded from the new claim. The investigated asymptotic statements do not state the critically marked Poisson cloud with finite non-success atom, two-sided optimal TV rate, and joint logarithmic survivor coupling. Recruitment is not a reduction because its population is replenished and its critical waiting law is exponential, with almost-sure ultimate success.",
+      "searches": [
+        "From Distribution of Extremes With Degradation to the Stress Redundancy Principle first exit survival N particles Section 2.3 3.30 2026",
+        "mortality redundancy diversity in stochastic search first passage N mortal Brownian searchers success probability Eq 11 first arrival Meerson Redner 2015",
+        "sharp mortality recruitment threshold for first arrivals independent Brownian searchers Poisson immigration"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.14375v1",
+      "https://sites.santafe.edu/~redner/pubs/pdf/PhysRevLett.114.198101.pdf",
+      "https://skorski.info/2023/12/03/normality-of-inverse-gaussian/",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-sharp-mortality-recruitment-threshold-for-first-arrivals-of-inde--2f684bcae431/RESULT.md",
+      "https://arxiv.org/abs/2611.14375"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "PRL 2015 supplies exact f_q, p_q and finite-N arrival success; applying the rare-event/normal-approximation tools is needed to obtain a joint critical limit and its sharp TV rate.",
+        "2026 arXiv 2611.14375v1 Eq. (2.25) supplies an exact first-success survivor-count formula for general killed particles; specializing that identity reproduces the conditional binomial in the proof, which is not new.",
+        "Skorski (2023) supplies only \\(O(q^{-1/2})\\) standardized inverse-Gaussian normal approximation; the exact coefficient and coupled survivor response are not in the inspected note.",
+        "Poisson-immigration published-finding corpus theorem uses different physical and mathematical dynamics."
+      ],
+      "reasoning": "The known formulas are powerful and imply the finite parameter family, but the examined prior statements do not directly assert the jointly diverging critical arrival-process and survivor law, the explicit first-order TV constant, or the matching full-process TV lower bound. Conditional on a first success the living count remains roughly sqrt(N), but its log-level fluctuations are of order sqrt(log N) and a non-Gaussian negative first-arrival mark, a statement absent from the cited general fixed-parameter expressions. Publication priority remains qualified because an implicit reduction to general rare-event limit theory is plausible.",
+      "searches": [
+        "Poisson Gaussian marked critical extreme first passage time independently killed mortal Brownian walkers launched simultaneously one point log N mortality",
+        "Gaussian Poisson limit successful Brownian searchers high mortality all start same distance point process 2024 2025 2026",
+        "success-conditioned inverse Gaussian total variation normal approximation Skorski 2023"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Skorski (2023), https://skorski.info/2023/12/03/normality-of-inverse-gaussian/, derives inverse-Gaussian normality and a total-variation error of order \\(q^{-1/2}\\); it does not present the explicit coefficient or a particle-cloud theorem.",
+        "Meerson and Redner (2015), https://sites.santafe.edu/~redner/pubs/pdf/PhysRevLett.114.198101.pdf, Eqs. (2)-(5) give the same one-particle hitting law and moments.",
+        "A numerical and analytic search for identical sharp constants did not locate a directly matching full theorem."
+      ],
+      "reasoning": "The conditional time distribution is indeed a reparameterized inverse Gaussian: its normality and order of TV convergence are covered and not claimed new. The present finite-point-process quantitative comparison and anticorrelated living-population limit are distinct statement-level conclusions. An earlier generic marked rare-event theorem combined with known inverse-Gaussian results might imply the limit implicitly; this remains a residual risk.",
+      "searches": [
+        "success-conditioned inverse Gaussian first passage times high exponential killing total variation normal approximation point process rare successes",
+        "mortal Brownian simultaneous starting N independent walkers critical mortality q=log N+c marked first-passage times Gaussian Poisson point process total variation O((log N)^-1/2)",
+        "inverse Gaussian normal approximation total variation sharp asymptotic (1+4 exp(-3/2))"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No complete table listing this particular critical-window point-process law, sharp TV coefficient, or logarithmic living-population limit was located in the inspected published-finding corpus findings or targeted published searches.",
+        "Known single-particle exact density and survival distribution are accessible via 2015 PRL and the inverse-Gaussian literature; they are not presented as absent."
+      ],
+      "reasoning": "The output is a joint asymptotic probability law and finite-population approximation rate, not a previously tabulated single-particle number. Searching the same model, alternate inverse-Gaussian name, killing parameter and point-process alias did not identify exact matching data, but unsuccessful search alone does not establish novelty.",
+      "searches": [
+        "critical simultaneous Brownian mortal search Poisson Gaussian surviving particle first hitting mark 2026",
+        "critical window sqrt(mu)*L/sqrt(D) = log N + c and Gaussian fluctuations of minimum successful arrival mortal Brownian ensemble",
+        "0.377503 inverse gaussian normal total variation"
+      ]
+    },
+    "rationale": "The reported new claim is the critically balanced synchronized-launch marked Poisson-Gaussian arrival and logarithmic living-population law, with sharp process-level total-variation rate and exact conditional single-mark coefficient. Existing exact hitting and first-success formulas, known threshold, conditional moments, the qualitative inverse-Gaussian TV normal approximation, and the exact conditional population-binomial mechanism are explicitly excluded from novelty. Full-text, implication-level comparisons did not find the combined joint critical limit or its sharp quantitative rate, but a classical equivalent may exist and independent priority validation remains outstanding.",
+    "residual_risks": [
+      "The present critical-window law may be algebraically extractable from the powerful general finite-N first-arrival and survivor identities already published; publication-priority confirmation requires an independent specialist review.",
+      "A broader unlocated first-passage or inverse-Gaussian marked-Poisson asymptotic could subsume some or all of this specific law.",
+      "The exact coefficient C* is for the one-mark TV distance; only two-sided bounds, not an exact asymptotic constant, are claimed for the entire point process."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Fixed-killing large-population asymptotics and general finite-N survivor distribution cover inputs, not the jointly critical Poisson-normal mark/survivor scaling.",
+        "evidence": [
+          "Eqs. (2.20)–(2.29) establish general first-exit and survivor identities; Eq. (3.30) and Section 4 specify fixed-killing large-population behavior and noncommuting limits."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.14375v1",
+        "material_read": "Relevant full-text sections: abstract, introduction, 2.1–2.5, 3–4, with Eqs. (2.20)–(2.29), (3.30), (4.3), and the stated fixed-killing limitation.",
+        "method": "Retrieved the full accessible HTML and closely read the specified model, first-exit, survivor and asymptotic sections; unrelated geometric appendices were not assessed.",
+        "title": "From Distribution of Extremes With Degradation to the Stress Redundancy Principle",
+        "trigger": "Eligible 2026 primary model and same observable: first successful arrival and surviving population"
+      },
+      {
+        "assessment": "One-particle density, mortality threshold, conditional moments and finite-population success already known. No marked critical point-process limit with optimal TV approximation and joint logarithmic surviving count located in the examined paper.",
+        "evidence": [
+          "Eqs. (2)–(5) give established killed hitting density and conditional mean/variance; Eq. (11) gives finite-population success; Eqs. (12)–(14) discuss mean first search in high-mortality regimes."
+        ],
+        "identifier_or_url": "https://sites.santafe.edu/~redner/pubs/pdf/PhysRevLett.114.198101.pdf",
+        "material_read": "Full five-page lawful open PDF and the printed equations (2)–(5), (11)–(14), results/discussion on subsequent pages",
+        "method": "Read parsed full text and visually checked the equation page in the original PDF",
+        "title": "Mortality, Redundancy, and Diversity in Stochastic Search",
+        "trigger": "Decisive same-geometry 2015 study on many independent mortal Brownian searchers"
+      },
+      {
+        "assessment": "Normal approximation and total-variation order \\(O(q^{-1/2})\\) are covered; no critical marked population-process law or the specific explicit leading TV coefficient was found.",
+        "evidence": [
+          "The note derives the normal approximation, its density ratio, and an \\(O(q^{-1/2})\\) total-variation rate for the corresponding large-shape inverse Gaussian."
+        ],
+        "identifier_or_url": "https://skorski.info/2023/12/03/normality-of-inverse-gaussian/",
+        "material_read": "Entire online mathematical note including characteristic function, TV bounds, density ratio and numerical remarks",
+        "method": "Accessible full webpage and derivation read, not title or abstract only",
+        "title": "Normality of Inverse Gaussian",
+        "trigger": "Potential equivalent normal approximation and stronger TV coverage for the standardized conditional successful-time law"
+      },
+      {
+        "assessment": "One searcher plus continued Poisson recruitment, yielding a different survival formula, critical exponential waiting and no finite initial population no-success atom. Does not imply synchronized count and log-survivor limit.",
+        "evidence": [
+          "The published model has survival \\((1-F_b(z))\\exp[-R A_b(z)]\\), unlike synchronized initial-pool \\((1-F_b(z))^N\\); its critical first-passage limit is exponential without a finite-pool failure atom."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-sharp-mortality-recruitment-threshold-for-first-arrivals-of-inde--2f684bcae431/RESULT.md",
+        "material_read": "Full publicly accessible RESULT.md including model definitions, four limit regimes, proof and references",
+        "method": "Read public full claim and analytical proof through repository file",
+        "title": "Sharp mortality–recruitment threshold for first arrivals of independent Brownian searchers",
+        "trigger": "Closest published-finding corpus semantic match with a similar log-mortality critical threshold and first-arrival law"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "529a680d-c770-4ab9-b60b-6b496b98d26f",
+  "value": {
+    "rationale": "The finite initial population with mortality tuned to q=log(N)+c is a natural regime of stress redundancy, in which there are finitely many successful searches with positive probability of complete failure. A complete joint marked arrival law, exact calibration of a sharp strong-approximation rate, and a logarithmic living-population observable that is deterministically coupled to the first-arrival fluctuation directly address the biologically and physically motivated question of how many workers remain when an unlikely target search finally succeeds. This is a nontrivial distribution-level answer not supplied by first two moments or success threshold alone; the theorem makes no unsupported claim of applicability beyond independent Brownian/exponential-mortality searchers.",
+    "status": "PASS"
+  }
+}
