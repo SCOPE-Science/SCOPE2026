@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T17:04:55.251599Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For r>=2 sampled powers b^{e0}<...<b^{e_{r-1}}, the integer AP step divides b^{e0}(b^g-1), where g=gcd(e_i-e0). Thus index span >=(b^E-1)/(b^g-1)=sum_{t=0}^{E/g-1} b^{gt}>=sum_{t=0}^{r-2}b^t. Equalities r>=3 force g=1, consecutive exponents, first/last one at endpoints and maximal step, proving H, minimum length and rigidity. For three or more ones g is a proper divisor of E, so n-1>=b^{E-g} and g<=E/2 imply E<=2 floor(log_b(n-1)); the first two one indices and their exponent gap determine the entire sampled binary factor by the explicit rational formula, yielding the reported O_b(n^2 log n) counting bound. Boundary r=1,2, a=0 and composite bases are covered. Independently tested 2,352 exponent sets (126 minimizers) in bases 2..8 and 843,360 AP windows in bases 2,3,4,6 for lengths 1..12; finite checks do not prove infinite quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026-11-02 RESULT.md states H_b(n)=1+floor(log_b((b-1)(n-1)+1)) and the unique critical word supported at G_j=(b^{j-1}-1)/(b-1), for every integer b>=2.",
+          "The same prior RESULT.md proves the equality case forces consecutive exponents and step d=b^a(b-1) (r>=3), and a stronger all-length P_b(n)=O_b(n^2) bound.",
+          "Earlier Git source imported on 2026-11-02T01:34:29Z, before the audited file imported on 2026-11-08T20:50:56Z; independent source and published mirror have identical Git blob SHA 1e2671f9a33f8e33e7a4ecd9615a37b21a6d94c0.",
+          "The 2023 Konieczny–Müllner general effective-alphabet Theorem A yields exp(o(n)) for effective alphabet one, not the decisive quadratic bound. The 2026-11-02 exact source is the dominating parameter-specific theorem."
+        ],
+        "reasoning": "The prior theorem addresses the same arithmetic-step sampling in every base and proves P=O_b(n^2); adding at most n boundary factors preserves its stronger order. The target P=O_b(n^2 log n) is strictly weaker.",
+        "searches": [
+          "Resultary_Search: arithmetic subword complexity characteristic sequence positions powers of b; arithmetic progression Hamming weights repunit packing polynomial factor complexity",
+          "Resultary_Search: automatic word indicator of geometric powers arithmetic progression sampling exact number of ones maximal and consecutive powers gcd",
+          "Resultary_Search: polynomial arithmetic subword complexity of power-of-two characteristic word or base-b sparse support",
+          "GitHub source: https://github.com/SCOPE-Science/SCOPE2026/blob/a2a0277422005a2cdf97e6a89f0ad89c376ef335/2026/11/02/sharp-arithmetic-progression-occupancy-and-quadratic-complexity--14fc80b3d779/RESULT.md",
+          "GitHub mirror: https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-arithmetic-progression-occupancy-and-quadratic-complexity--14fc80b3d779/RESULT.md",
+          "arXiv:2309.03180 Theorem A / Sections 1,4"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/a2a0277422005a2cdf97e6a89f0ad89c376ef335/2026/11/02/sharp-arithmetic-progression-occupancy-and-quadratic-complexity--14fc80b3d779/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-arithmetic-progression-occupancy-and-quadratic-complexity--14fc80b3d779/RESULT.md",
+        "https://arxiv.org/pdf/2309.03180",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/sharp-progression-packing-and-polynomial-arithmetic-complexity-f--e000cc3b84b3/RESULT.md",
+        "https://arxiv.org/abs/2609.28059"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2026-11-02 RESULT.md states H_b(n)=1+floor(log_b((b-1)(n-1)+1)) and the unique critical word supported at G_j=(b^{j-1}-1)/(b-1), for every integer b>=2.",
+          "The same prior RESULT.md proves the equality case forces consecutive exponents and step d=b^a(b-1) (r>=3), and a stronger all-length P_b(n)=O_b(n^2) bound.",
+          "Earlier Git source imported on 2026-11-02T01:34:29Z, before the audited file imported on 2026-11-08T20:50:56Z; independent source and published mirror have identical Git blob SHA 1e2671f9a33f8e33e7a4ecd9615a37b21a6d94c0.",
+          "If d divides no b^e, the a=0 factor is all zeros; otherwise the marked indices are j0, bj0, b^2j0,..., with j0>=1. There are <=n such binary n-words. At critical length with r>=3 the first one must occur at sample index zero, excluding a=0."
+        ],
+        "reasoning": "At a>=1 translate sampled origin by -1 into the prior sequence. At a=0 the at-most-n family adds no larger H, no competing critical r>=3 word, and at most an additive n to factor complexity. Thus every claimed quantitative conclusion follows from the older stronger theorem plus a simple boundary observation.",
+        "searches": [
+          "Resultary_Search: arithmetic subword complexity characteristic sequence positions powers of b; arithmetic progression Hamming weights repunit packing polynomial factor complexity",
+          "Resultary_Search: automatic word indicator of geometric powers arithmetic progression sampling exact number of ones maximal and consecutive powers gcd",
+          "Resultary_Search: polynomial arithmetic subword complexity of power-of-two characteristic word or base-b sparse support",
+          "GitHub source: https://github.com/SCOPE-Science/SCOPE2026/blob/a2a0277422005a2cdf97e6a89f0ad89c376ef335/2026/11/02/sharp-arithmetic-progression-occupancy-and-quadratic-complexity--14fc80b3d779/RESULT.md",
+          "GitHub mirror: https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-arithmetic-progression-occupancy-and-quadratic-complexity--14fc80b3d779/RESULT.md",
+          "GitHub commit history: November 2 earlier source and November 8 target"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026-11-02 RESULT.md states H_b(n)=1+floor(log_b((b-1)(n-1)+1)) and the unique critical word supported at G_j=(b^{j-1}-1)/(b-1), for every integer b>=2.",
+          "The same prior RESULT.md proves the equality case forces consecutive exponents and step d=b^a(b-1) (r>=3), and a stronger all-length P_b(n)=O_b(n^2) bound.",
+          "At a>=1 the sampling languages match by translation of the index t to t-1. The a=0 boundary can create patterns absent in the prior language (e.g. 011 for b=2), but cannot affect the extremal all-one endpoint at critical length."
+        ],
+        "reasoning": "These are shifted versions of the identical fixed-base power marker word, not unrelated titles. The sole difference is boundary-origin sampling, handled explicitly by the j0*b^k classification; the previous all-base sharp H and rigidity are unchanged.",
+        "searches": [
+          "Resultary_Search: arithmetic subword complexity characteristic sequence positions powers of b; arithmetic progression Hamming weights repunit packing polynomial factor complexity",
+          "Resultary_Search: automatic word indicator of geometric powers arithmetic progression sampling exact number of ones maximal and consecutive powers gcd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/a2a0277422005a2cdf97e6a89f0ad89c376ef335/2026/11/02/sharp-arithmetic-progression-occupancy-and-quadratic-complexity--14fc80b3d779/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-arithmetic-progression-occupancy-and-quadratic-complexity--14fc80b3d779/RESULT.md",
+          "Exact all-base H, unique critical word, and stronger O(n^2) complexity are printed in prior RESULT.md; these are the target claims rather than merely matching sampled numerical table entries."
+        ],
+        "reasoning": "No finite numerical database is required: a dated, earlier all-parameter theorem and its full proof directly dominate the target. The Resultary hit is a mirror of that earlier different original record, not the assigned work; the first Resultary hit for the target was correctly treated as a same-work mirror.",
+        "searches": [
+          "Resultary_Search: arithmetic subword complexity characteristic sequence positions powers of b; arithmetic progression Hamming weights repunit packing polynomial factor complexity",
+          "Resultary_Search: automatic word indicator of geometric powers arithmetic progression sampling exact number of ones maximal and consecutive powers gcd",
+          "Resultary_Search: polynomial arithmetic subword complexity of power-of-two characteristic word or base-b sparse support",
+          "GitHub source: https://github.com/SCOPE-Science/SCOPE2026/blob/a2a0277422005a2cdf97e6a89f0ad89c376ef335/2026/11/02/sharp-arithmetic-progression-occupancy-and-quadratic-complexity--14fc80b3d779/RESULT.md",
+          "GitHub mirror: https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-arithmetic-progression-occupancy-and-quadratic-complexity--14fc80b3d779/RESULT.md"
+        ]
+      },
+      "rationale": "Decisive prior coverage from the 2026-11-02 pure-power arithmetic-progression theorem: the characteristic word c_b(t)=1_{t+1=b^e} and this record w_b(t)=1_{t=b^e} satisfy w_b(a+jd)=c_b(a-1+jd) for all a>=1. Thus earlier maximal occupancy and rigid critical witnesses transfer verbatim. The omitted boundary a=0 yields at most n additional length-n factors: if d divides some b^e, let e0 be least such exponent and j0=b^{e0}/d; its marked sample indices are exactly j0*b^k for k>=0, so the factor is determined by j0 in {1,...,n-1} or is all zero. Therefore P_w(n)<=P_c(n)+n=O_b(n^2), strictly stronger than the submitted O_b(n^2 log(n+1)). This mathematical implication was independently reconstructed from both full RESULT texts; the submitted work has no surviving non-implied theorem.",
+      "residual_risks": [
+        "Absolute historical priority before 2026-11-02 is not established but does not affect this decisive earlier same-subject coverage.",
+        "Translation between c_b and w_b requires the a=0 boundary correction explicitly supplied; their entire factor languages are not identical.",
+        "2026 Abelian maximal-pattern preprint full text was unavailable and is nondecisive given direct prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisively covers submitted all-parameter mathematics after explicitly treating the a=0 boundary",
+          "evidence": [
+            "2026-11-02 original RESULT.md: Finding; Proof: Normalized power-difference lemma; Proof: Quadratic factor bound",
+            "Prior source blob SHA 1e2671f9a33f8e33e7a4ecd9615a37b21a6d94c0"
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/a2a0277422005a2cdf97e6a89f0ad89c376ef335/2026/11/02/sharp-arithmetic-progression-occupancy-and-quadratic-complexity--14fc80b3d779/RESULT.md",
+          "material_read": "Entire RESULT.md, including theorem, normalized power-difference lemma, critical factor rigidity, all-base quadratic count, limitations and references",
+          "method": "GitHub connector full original blob at commit a2a0277422005a2cdf97e6a89f0ad89c376ef335; comparison with Resultary full mirror",
+          "title": "Sharp arithmetic-progression occupancy and quadratic complexity for pure-power indicators",
+          "trigger": "Earlier exactly matching object under a one-position shift, exact occupancy formula, critical rigidity and stronger complexity"
+        },
+        {
+          "assessment": "Gives general effective-alphabet rate exp(o(n)) for effective alphabet one, but not the sharp fixed-power formula; decisive prior coverage instead comes from the later 2026-11-02 exact theorem",
+          "evidence": [
+            "arXiv:2309.03180v2 page 2 Equation (4): arbitrary nonnegative origin and positive step; page 4 Theorem A: r^n <=p_AP(n)<=r^n exp(o(n)); Sections 3–4 proof bounds"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2309.03180",
+          "material_read": "Accessible complete 14-page PDF searched, with pages 1–4 on definitions and Theorem A; pages 7–13 on lower/upper proofs inspected via extracted lines, and page 4 visually inspected",
+          "method": "arXiv open-access PDF via web, text extraction and page screenshot",
+          "title": "Arithmetical subword complexity of automatic sequences",
+          "trigger": "Primary literature defining precisely this AP-factor invariant and possible general stronger coverage"
+        },
+        {
+          "assessment": "All claims correct but mathematically subsumed; existing same-model novelty discussion overlooked earlier shifted exact theorem",
+          "evidence": [
+            "RESULT.md: Finding and proof, the first-two-one encoding; verify.py: finite checks; Git tree b666bb4752779927e15cc993ced7d6664c2a5c8d"
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/sharp-progression-packing-and-polynomial-arithmetic-complexity-f--e000cc3b84b3/RESULT.md",
+          "material_read": "Entire RESULT.md, all seven source blobs including verifier source, metadata, audit and review",
+          "method": "GitHub connector at frozen inventory commit; original Git tree object and exact seven blob SHA metadata verified; independent exponent-span and window-grid experiments",
+          "title": "Sharp progression packing and polynomial arithmetic complexity for power-support words",
+          "trigger": "Assigned final claim and internal proof to audit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The fixed-base power-marker word and arithmetic-sampling factor language are mathematically natural, but this submitted exact occupancy, unique critical patterns and O(n^2 log n) bound are already established or strictly sharpened by the earlier 2026-11-02 all-base theorem after an elementary one-index shift plus <=n boundary words. The submitted work does not solve exact P_b(n), improve the quadratic bound, or supply an independently motivated new lemma. Independent verification and a second derivation are not a distinct mathematical contribution.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/a2a0277422005a2cdf97e6a89f0ad89c376ef335/2026/11/02/sharp-arithmetic-progression-occupancy-and-quadratic-complexity--14fc80b3d779/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-arithmetic-progression-occupancy-and-quadratic-complexity--14fc80b3d779/RESULT.md",
+    "https://arxiv.org/pdf/2309.03180",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/sharp-progression-packing-and-polynomial-arithmetic-complexity-f--e000cc3b84b3/RESULT.md",
+    "https://arxiv.org/abs/2609.28059"
+  ],
+  "disposition": "failed",
+  "final_claim": "Unchanged as a correct theorem; rejected as fully subsumed by the 2026-11-02 stronger exact power-indicator result under a one-index shift plus at most n origin-zero factors. No surviving new valuable claim or repair.",
+  "limitations": [
+    "Scientific rejection is prior implication, not an experiment failure, inaccessibility, or arbitrary higher value threshold.",
+    "Original package unchanged; no GitHub writes, dispatcher closeout or public-file publication.",
+    "Konieczny–Müllner Theorem A alone is weaker; earlier dated 2026-11-02 source is the decisive theorem.",
+    "New run rows are validated independently; historical gaps and defects remain unchanged."
+  ],
+  "residual_risks": [
+    "Absolute historical priority before 2026-11-02 is not established but does not affect this decisive earlier same-subject coverage.",
+    "Translation between c_b and w_b requires the a=0 boundary correction explicitly supplied; their entire factor languages are not identical.",
+    "2026 Abelian maximal-pattern preprint full text was unavailable and is nondecisive given direct prior coverage."
+  ],
+  "schema_version": 1
+}
