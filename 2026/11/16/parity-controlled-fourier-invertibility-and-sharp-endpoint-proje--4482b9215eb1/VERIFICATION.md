@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of clique-windmill Fourier projection theorem
+# Independent mathematical audit
 
-Run `python3 verification_checker.py` using Python 3 and its standard library only. Expected success marker:
+## correctness
 
-`WINDMILL_FOURIER_PROJECTION_EXACT_PASS coefficients= 29268 local_lengths= 15`
+PASS
 
-The program builds each independent-set indicator directly from the graph definition, computes its complete unnormalized Walsh transform by an integer butterfly, and compares all coefficients against the derived product formula. It compares the number of zeros, extrema, and exact rational \(\ell^1\)- and \(\ell^\infty\)-projection norms after inverse Walsh transform, for the enumerated small parameters. It also evaluates selected character sums directly without using the butterfly implementation. The 15 local lengths correspond to all even peripheral clique orders from 2 to 30, with middle-two-layer Krawtchouk absolute sums checked by a separate coefficient extraction formula. Explicit direct enumeration of those local layer sums is used at peripheral orders up to 8.
+Enumerating independent sets as centre singleton or at most one peripheral vertex per block produces W=(-1)^a+∏(r+1-2|u_j|). Odd r factors even, so all W odd and min1 reached when a factor vanishes; even r factors odd and W=0 precisely when every |u_j|=m or m+1, uniquely fixing central bit, count T_m^n, min nonzero2. The central two-layer Krawtchouk coefficient generating polynomial and recurrence produce pairwise alternating signed double-factorial ratios and exact absolute sum S_m=2^m T_m. Explicit Fourier inversion gives projection kernel total variation 1+(S_m^n-T_m^n)/2^(2mn). Averaging arbitrary projections over all Boolean translations gives this minimum over all linear projections, not just convolution. Independently recomputed local absolute sums exactly for m=1..8; source small-parameter checker code and boundary r=1,n=1 inspected. General proof is algebraic, not finite enumeration.
 
-All computations use exact integers or `fractions.Fraction`; there is no floating-point or timeout-based inference. Finite checks do not prove the quantified theorem. The proof is in `RESULT.md`, especially the Krawtchouk two-layer recurrence and translation-averaging argument. The theorem makes no statement about independent external validation or uniqueness of noninvariant minimum-norm projections.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for windmill-specific entire parity, spectral nullity, and exact global endpoint constants, not for general translation averaging or independence/graph polynomials. Friendship domination-polynomial papers study distinct subset enumeration. Zippin gives a general averaging argument, which supplies no numerical local Krawtchouk sum. Published Resultary clique-corona and crown-graph projection results concern non-isomorphic graph families and do not imply this uniform windmill result.
+
+## value
+
+PASS
+
+Clique windmills contain canonical friendship graphs and are a natural two-parameter graph family. The sharp distinction between vanishing nullity fraction and exponentially growing best possible endpoint projection norm is a structural stability phenomenon; exact middle-two-layer Krawtchouk ℓ1 identity is a meaningful standalone invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

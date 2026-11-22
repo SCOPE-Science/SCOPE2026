@@ -1,19 +1,21 @@
-# Scientific assessment: clique-windmill Fourier projection theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The asserted domain is every pair of integers \(r,n\ge1\), with Boolean vertex-incidence Fourier characters and unnormalized graph-independent-set convolution. Conditioning on the centre yields the exact multiplier \((-1)^a+\prod_j(r+1-2|u_j|)\). For odd \(r\), all products are even and the multiplier is odd. For even \(r=2m\), the zeros occur exactly on the two middle peripheral Hamming layers with the uniquely forced central character. The proof gives an explicit double-factorial evaluation of the middle-two-layer Krawtchouk coefficients, including their signs, and the exact absolute-sum identity \(\sum_x|A_m(x)|=2^m\binom{2m+1}{m}\). The resulting inverse-transform projection kernel has its absolute sum calculated without approximation. Averaging any projection over translations gives a global minimum projection norm, rather than only a minimum among convolution operators. The standalone checker independently tests \(29{,}268\) exact integer coefficients, direct sums for selected frequencies, all ranks and exact rational endpoint norms for the indicated finite parameters. Those tests do not establish infinite cases; the all-parameter identities are proved algebraically.
+PASS
 
-## Originality — PASS under bounded comparison
+Enumerating independent sets as centre singleton or at most one peripheral vertex per block produces W=(-1)^a+∏(r+1-2|u_j|). Odd r factors even, so all W odd and min1 reached when a factor vanishes; even r factors odd and W=0 precisely when every |u_j|=m or m+1, uniquely fixing central bit, count T_m^n, min nonzero2. The central two-layer Krawtchouk coefficient generating polynomial and recurrence produce pairwise alternating signed double-factorial ratios and exact absolute sum S_m=2^m T_m. Explicit Fourier inversion gives projection kernel total variation 1+(S_m^n-T_m^n)/2^(2mn). Averaging arbitrary projections over all Boolean translations gives this minimum over all linear projections, not just convolution. Independently recomputed local absolute sums exactly for m=1..8; source small-parameter checker code and boundary r=1,n=1 inspected. General proof is algebraic, not finite enumeration.
 
-The full accessible article by Alikhani, Brown and Jahari (arXiv:1401.2092) studies domination generating polynomials and their roots for friendship graphs; its Theorem 1 describes the graph \(K_1\vee nK_2\), but it does not calculate signed independent-set Walsh transforms, convolution ranks or endpoint projection norms. The accessible article by Jahari and Alikhani (arXiv:1501.05856) studies domination generating functions for cycles sharing a vertex, a distinct generalized-family parameter. Zippin (2004) supplies a general translation-averaging principle for projections; the principle is acknowledged as prior mathematics and does not determine the windmill-specific Krawtchouk absolute sum. The separately indexed higher-independence-complex study of clique windmills concerns homotopy and homological symmetry rather than binary character sums or convolution ranges. Searches for equivalences, aliases, graph joins, signed independence polynomials and stronger spectral projection formulas yielded no directly implying statement. This is bounded priority checking, not proof that no earlier equivalent result exists.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Uniform clique windmills are a canonical infinite family, containing all friendship graphs and higher-clique windmills. Their independence polynomial alone gives no exact Fourier-nullspace dimension or globally minimum endpoint projection constant. The discovered odd/even clique-order dichotomy is exact in two parameters. In every even case the missing Fourier fraction tends to zero exponentially while the globally optimal endpoint range-projection norm grows exponentially at an explicitly identified Krawtchouk/binomial base. The exact local central-layer absolute-sum identity is the nontrivial bridge between combinatorial incidence structure and optimal Banach-space stability; the result is a natural complete rank-and-projection classification, not an arbitrary parameter slice.
+Best-of-knowledge PASS for windmill-specific entire parity, spectral nullity, and exact global endpoint constants, not for general translation averaging or independence/graph polynomials. Friendship domination-polynomial papers study distinct subset enumeration. Zippin gives a general averaging argument, which supplies no numerical local Krawtchouk sum. Published Resultary clique-corona and crown-graph projection results concern non-isomorphic graph families and do not imply this uniform windmill result.
 
-## Closest literature and limitations
+## value
 
-The full article on friendship-graph domination polynomials and the full accessible article on generalized flower domination polynomials are the closest graph-specific primary texts examined. Translation-averaging minimality is previously established in general settings. The external higher-independence-complex entry on the same clique-windmill family was available as a mathematical summary but its repository full text was not retrievable; it concerns a different invariant. The result does not settle heterogeneous clique bouquets, larger central cliques, intermediate \(\ell^p\) projection constants or uniqueness of all global minimizers. A previously unlocated signed graph-polynomial or Fourier projection identity remains possible. No independent validation has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Clique windmills contain canonical friendship graphs and are a natural two-parameter graph family. The sharp distinction between vanishing nullity fraction and exponentially growing best possible endpoint projection norm is a structural stability phenomenon; exact middle-two-layer Krawtchouk ℓ1 identity is a meaningful standalone invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
