@@ -1,0 +1,23 @@
+# Scientific review: one-vertex four-round burning deficit
+
+## Correctness — PASS
+
+The theorem concerns the thirty-vertex duad–syntheme Levi graph and arbitrary ordered four-tuples, then explicitly distinguishes those from legal successive ignition choices. The initial radius-three ball misses exactly eight distance-four vertices. The possible second ball removes at most four, the third at most two, and the last at most one. This proves that complete four-round burning is impossible without relying on enumeration. The exact equality cases follow from the two duad cases: six distance-two second sources each yield four completions, and eight distance-four second sources each yield six completions. The point–line duality involution and six-label permutations extend the count to all initial vertices. The strict source-distance inequalities are checked for each constructed case, and a five-source sequence supplies the upper bound.
+
+Replayed, standalone Python and C++17 programs construct the same 30-vertex graph independently of any graph file, recalculate all distances and enumerate every one of the 810,000 ordered four-tuples. Both report maximum four-round coverage 29, exactly 2,160 maximizers, 72 per first source, nine per ordered source–survivor pair at distance four, a 720/1,440 second-distance split, and no nonlegal maximizers. The Python program independently verifies all 900 local ball intersections, the polarity permutation and one complete legal five-source schedule. Code and proof support the claimed finite scope; neither makes an infinite-family assertion.
+
+## Originality — PASS, with residual priority risk
+
+The 2014 original paper of Bonato, Janssen and Roshanbin and the 2015 expanded paper establish graph burning, the source-ball characterization and the radius bound. Those prior statements do not imply the exact four-round coverage deficit or extremal schedule multiplicities of the Tutte eight-cage. Baez's 2015 exposition describes the duad–syntheme incidence construction and graph self-duality but no graph-burning calculation. Bonato's 2020 survey addresses general and family burning results; its inspected text contains no eight-cage computation. Indexed mathematical search comparisons include four-round burning on a distinct cubic graph family, burning-sequence counts for cycles, and burning of other graph classes. None involves the same graph or a general formula forcing this 2,160-schedule count.
+
+The comparison searched synonyms Tutte–Coxeter graph, Tutte eight-cage, Cremona–Richmond configuration, generalized quadrangle of order two and doily, as well as both burning number and finite-horizon source coverage. All available current local archival claims were screened for statement-level overlap, not by title alone. The review does not infer uniqueness from a failure to locate another paper. Priority against unindexed computations or materials not surfaced in the searches remains unverified. An attempted visual retrieval of the 2014 author's PDF timed out; the available parsed text was read for the parts cited, and the later arXiv expanded paper and survey were accessible as HTML.
+
+## Value — PASS
+
+Tutte's eight-cage is the smallest cubic graph of girth eight and a canonical generalized-quadrangle incidence graph. Its exceptionally uniform distance layers make a four-round burning attempt fall short by **exactly one** vertex, yet prevent every attempt from covering the last vertex. The theorem explains this sharp obstruction from the distance-four layer and completely describes the two ways to approach equality, with an exact count for each possible remaining vertex. The count and two-route split are not consequences of the ordinary graph radius bound, and answer a motivated question about optimal finite-horizon diffusion schedules. This is a natural, nontrivial finite classification, not an arbitrarily chosen graph subset or a mere recomputation of an existing numeric optimum.
+
+## Limitations and closest sources
+
+The finding is restricted to the 30-vertex graph and to four-round partial schedules; it makes no claim about other cubic cages or full five-round sequence multiplicities. Correctness is established by the supplied proof and self-review, while published priority is a best-knowledge determination, not a guarantee. Closest scientific sources: Bonato–Janssen–Roshanbin (WAW 2014, DOI `10.1007/978-3-319-13123-8_2`), *How to Burn a Graph* (`arXiv:1507.06524`), Bonato's survey (`arXiv:2009.10642`), and Baez's Tutte–Coxeter account (AMS Visual Insight, 2015-08-15).
+
+Self-review: passed. Independent audit: not yet performed.
