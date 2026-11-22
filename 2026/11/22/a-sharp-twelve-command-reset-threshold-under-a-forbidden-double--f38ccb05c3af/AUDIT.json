@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Exactly 256 transformations per distinguished letter are enumerated in 65536 distinct pairs. A 31-node subset/last-letter graph gives the precise shortest admissible reset-word distance and proves impossibility upon exhaustion. A separate reachable-family dynamical recurrence independently agrees on every pair; the 13-bin census, ordinary baseline and 24-member conjugacy orbit pass exact standard-library checks. All 13 successive witness masks are rederived.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hoffmann arxiv:2109.02743 addresses constrained synchronization complexity for commutative and simple-idempotent input classes, not a total census over all 65536 binary four-state automata",
+        "Volkov section 2.2 cites broader DFA-SYNC[L] computational-complexity results without an exact 4-state frequency distribution"
+      ],
+      "reasoning": "General algorithms decide existence or compute shortest reset words for a given automaton, but do not themselves supply the full labeled enumeration, its extremal orbit or the loss count. The searched broader claims are algorithmic or subclass-restricted rather than a dominating exact table.",
+      "searches": [
+        "four-state complete deterministic automata regular-language constrained reset word fibonacci language enumerative census",
+        "constrained synchronization no two consecutive occurrences same letter 4 states optimal reset threshold",
+        "web: regular constraint no consecutive reset automata"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1203.2822",
+      "doi:10.1007/s10878-013-9682-0",
+      "arxiv:2109.02743",
+      "https://www.mathnet.ru/eng/rm10005",
+      "Complete four-state classification for maximal synchronizing-word state complexity (2026)",
+      "The binary four-state adversarial synchronization hierarchy collapses at level three (2026)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Unrestricted reset length at most 9 in four states does not bound constrained reset length by 9, as the representative has unrestricted length 6 and constrained length 12",
+        "Volkov presents complexity for regular constraints without any implication determining the 24 maximizers",
+        "Hoffmann arxiv:2109.02743 full PDF Theorem 4.3 concerns complexity of constrained synchronization in input automaton classes, not the distribution of the exact shortest no-00 reset length over all 65536 four-state binary machines"
+      ],
+      "reasoning": "A finite-state product construction yields decidability for any one automaton. Determining all 65536 exact lengths and proving one conjugacy class of extremizers adds enumeration and comparison not contained in the cited general decision methods.",
+      "searches": [
+        "length 12 no double zero synchronizing word automaton 4 state shortest",
+        "web: constrained synchronization regular language avoiding aa shortest reset words finite automata complexity",
+        "arxiv:1203.2822 full text sections 1-3",
+        "Volkov section 2.2 DFA-SYNC[L]",
+        "Constrained synchronization length-12 four-state binary complete DFA forbidding consecutive zero input symbols; 24 maximal transition pairs; all 65536 label pairs no-00 reset histogram 5424 lost"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1203.2822 describes unrestricted shortest reset-word BFS; constrained language not part of its statement",
+        "Volkov section 2.2 frames DFA-SYNC[L] but does not tabulate the no-00 four-state class"
+      ],
+      "reasoning": "The no-00 restricted reset threshold is equivalently a shortest singleton path in the subset product with the two-state forbidden-factor monitor. Generic unrestricted synchronizability and reset threshold are not equivalent because 5424 examples are ordinary synchronizable but constrained unsynchronizable.",
+      "searches": [
+        "four states binary DFA no 00 reset word restricted input maximal length 12 unique conjugacy class 24 tables",
+        "web: constrained synchronization no two consecutive occurrences same letter 4 states optimal reset threshold",
+        "web: avoid aa synchronizing automata binary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published 2026 classification of maximal four-state synchronizing-word language complexity classifies state complexity of reset-word languages, not restricted reset lengths",
+        "Published 2026 four-state adversarial synchronization-hierarchy census reports adversarial game winning counts, not forbidden-factor constrained minima",
+        "The accessible 2012 arXiv study reports unrestricted computations"
+      ],
+      "reasoning": "Identical state-count 65536 is not a claim match: the looked-up tables record different predicates. No indexed exact table of the no-00 constrained shortest-word distribution or its 24 extremizers was located.",
+      "searches": [
+        "four states binary DFA no 00 reset word restricted input maximal length 12 unique conjugacy class 24 tables",
+        "Fibonacci language constrained reset words 4-state deterministic finite automata exact histogram",
+        "web: length 12 no double zero synchronizing word automaton 4 state shortest"
+      ]
+    },
+    "rationale": "The claim is about shortest reset words restricted to the regular language avoiding 00, including a complete four-state distribution and unique extremal conjugacy orbit. Accessible primary text on unrestricted reset lengths and full survey treatment of regular-language constraints do not contain this combination of quantitative values. Closest database records on four-state unrestricted state complexity or adversarial synchronization have different observations and cannot imply the constrained histogram without new enumeration. The inspected relevant main statements and proof passages in the 2021 constrained-synchronization full text do not provide the numeric all-machine census. Unindexed older tables remain a priority risk.",
+    "residual_risks": [
+      "Earlier unindexed finite 4-state constrained reset-word tables may exist",
+      "Finite exhaustive certificate has not been independently audited by an external reviewer"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DOES_NOT_STATE_CLAIM",
+        "evidence": "The study defines ordinary reset words and unrestricted subset BFS, with random automata statistics; no forbidden factor constraint in its reset-length parameter.",
+        "identifier_or_url": "https://arxiv.org/abs/1203.2822",
+        "material_read": "HTML full-text sections 1, 2 (including BFS/IBFS), 3 (experimental enumeration) and conclusion",
+        "method": "Viewed complete arXiv HTML text in primary source",
+        "title": "A Fast Algorithm Finding the Shortest Reset Words",
+        "trigger": "Closest public pre-2016 short-reset computation"
+      },
+      {
+        "assessment": "NOT_COVERING_QUANTITATIVE_CENSUS",
+        "evidence": "The regular-language restriction is formulated as DFA-SYNC[L]; no four-state forbidden-double-zero count or 12-command extremal classification is given.",
+        "identifier_or_url": "https://www.mathnet.ru/eng/rm10005",
+        "material_read": "Open-access HTML full text: definitions 1.1, section 2.2 paragraphs DFA-SYNC[L], 2.3 on reset threshold and reference list",
+        "method": "Read primary survey HTML including relevant statements",
+        "title": "Synchronization of finite automata",
+        "trigger": "Subsection 2.2 explicitly discusses regular-language-constrained synchronization"
+      },
+      {
+        "assessment": "DOES_NOT_STATE_EXACT_FOUR_STATE_CENSUS_IN_INSPECTED_MATERIAL",
+        "evidence": "Theorem 4.3 and surrounding text analyze decision complexity under restrictions involving automata with simple idempotents, unlike a labeled enumeration across all 65,536 arbitrary four-state binary transition pairs. The inspected passages contain neither the no-00 length distribution nor the 24 extremizer tables.",
+        "identifier_or_url": "https://arxiv.org/abs/2109.02743",
+        "material_read": "Primary full PDF: introduction and background, constrained-synchronization theorems including Theorem 4.3 and accompanying proof/appendix passages",
+        "method": "Accessed and read full arXiv PDF; compared the theorem hypotheses, input automaton classes and output assertions",
+        "title": "Constrained Synchronization for Commutative Automata and Automata with Simple Idempotents",
+        "trigger": "Potential coverage of constrained-reset regular languages"
+      },
+      {
+        "assessment": "DOES_NOT_STATE_RESTRICTED_CENSUS_IN_READ_MATERIAL",
+        "evidence": "The source defines ordinary reset words and shortest paths through subset automata, with no reported no-00 four-state histogram.",
+        "identifier_or_url": "https://doi.org/10.1007/s10878-013-9682-0",
+        "material_read": "Open-access HTML abstract, introduction and algorithm description",
+        "method": "Read accessible primary Springer HTML",
+        "title": "Computing the shortest reset words of synchronizing automata",
+        "trigger": "Extended paper with exact algorithms and ordinary reset data"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f38ccb05-c3af-437e-b59f-6b8d9a4fd6c4",
+  "value": {
+    "rationale": "The natural operational restriction forbidding two consecutive zero commands changes both whether an automaton can be reset and its worst-case shortest command length. This first-small-size exhaustive boundary yields 5424 lost ordinarily synchronizing machines, a sharp reset-delay 12 on a sole 24-element state-conjugacy class, and the full constrained latency spectrum. The precise finite extremizer structure is an independently motivated test case for regular-constrained synchronization, not a renaming of an unrestricted bound.",
+    "status": "PASS"
+  }
+}
