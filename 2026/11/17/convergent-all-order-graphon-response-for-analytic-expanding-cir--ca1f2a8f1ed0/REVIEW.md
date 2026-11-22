@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem is local for fixed integer expansion, bounded graphon and trigonometric-polynomial interaction. In the weighted Fourier Wiener algebra, the uncoupled Perron operator has the exact frequency-decimation bound \(\|P_d^n\|_{X_0}\le e^{-2\pi\sigma(d^n-1)}\). A strict analytic strip margin makes the perturbed inverse branches holomorphic with a uniform bounded operator into the same Banach space. The zero-coupling fixed-point derivative is the invertible \(I-P_d\); the complex Banach implicit-function theorem produces a genuine holomorphic fixed-point branch. Cauchy estimates prove absolute convergence. Coefficient comparison with the published order-by-order recursion and its uniqueness identifies the rooted-tree coefficients. No finite check is used as an infinite proof. The example checker passes exact Fourier identities for two graphon blocks.
+## correctness
 
-**Originality — PASS, provisional historical priority.** Maquera (2026), arXiv:2611.10167v1, §§3.3 and 7, proves formal rooted-tree expansions for arbitrary finite orders and genuine first two terms but explicitly states the lack of a proof of higher-order genuineness or convergence. This work adds precisely those results under the stronger, explicit analytic/integer-affine assumptions, not an unrestricted solution of the original open problem. Related literature on first-order STO response and analytic ordinary transfer operators does not imply a nonlinear, graphon-uniform convergent expansion in the same Banach norm without the present analytic invertibility argument. Searches and source comparisons were limited to accessible material; independently verifying historical priority is still appropriate.
+PASS
 
-**Mathematical value — PASS.** The motivating literature formulates a clear mathematical gap between formal graphon-tree susceptibilities and actual equilibrium response beyond order two. Here a natural nontrivial analytic subclass resolves both higher-order response and convergence for arbitrary bounded graphons; the uniform remainder estimate gives rigorous finite-order truncation control. It is not merely a recomputation of the already known first two terms. The result is local and assumes analytic interactions; neither global attraction nor the unrestricted smooth graphon problem is solved.
+Fourier action of P_d sends uhat(k) to uhat(dk); on zero-mean weighted Wiener algebra A_sigma its n>=1 operator norm <=exp[-2π sigma(d^n-1)], giving an actual summable resolvent for I-P_d uniformly in merely measurable graphon fibre z. For an intermediate inverse-branch strip sigma<tau<d*sigma, small complex alpha and bounded density perturbations preserve holomorphic inverse branches taking tau into sigma; fixed finite Fourier bandwidth Q_phi,z allows uniform x-derivative and z-L∞ estimates. Strip gain to tau makes the nonlinear transfer operator Fréchet-holomorphic as X=L∞_z(A_sigma)→X without loss of width. Unit fibre mass and D_uG(0,0)=I-P_d permit analytic Banach IFT; conjugation and norm-smallness give real positive mass-one density for real alpha. Differentiated pushforward yields the same unique lower-order recursive susceptibilities as Maquera; Cauchy estimate supplies geometric truncation remainder. The standalone verifier tests only first and second Fourier coefficients for a nonconstant two-block graphon and cannot certify all-order analyticity; all-order proof is the uniform-strip IFT argument.
 
-The primary mathematical limitation is the need for an affine degree-\(d\) base map and trigonometric-polynomial coupling. The strongest specific overlap risk is an older analytic response theorem for nonlinear STOs not discovered in the accessible literature. Ordinary analytic expanding-map perturbation theory is a broader technique, but not itself a statement about the self-consistent graphon fixed-point equation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The specific final scientific assertion is not known to be a mere restatement of the inspected broader theorems; the comparisons explicitly distinguish known methods/formal or rational information from the residual exact theorem. This is a best-of-knowledge priority assessment, not a proof of absence.
+
+## value
+
+PASS
+
+Establishes genuine all-order graphon self-consistent response and convergence in a natural analytically tractable subclass where the source paper proves formal higher-order trees but explicitly leaves actual higher response and convergence open. Uniformity across discontinuous graphons is a meaningful self-consistency feature beyond a rote single-map response theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
