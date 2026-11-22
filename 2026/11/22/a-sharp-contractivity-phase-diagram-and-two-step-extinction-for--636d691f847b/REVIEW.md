@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The completed stochastic update is exactly \(M=rI+(u+\sigma\Delta W/d)N\), so the expected squared-norm matrix \(G\) is explicit. The principal-minor determinant factor \(h^2(c^2-\sigma^2c-\gamma^2)/d^4\), the separate \(c=0\) case, and the sign of \(c\) prove the if-and-only-if contractivity condition at every stated boundary. The exact product identity based on \(N^2=0\), together with the invariant vector \(e_1\), proves the asymptotic stability equivalence; at the zero of \(r\), two updates are identically zero, not merely small in expectation. The Itô energy generator proves the continuous comparison. Five symbolic identities, four nilpotent product identities and 600 exact-rational comparisons passed in `verify.py`. No finite experiment is used as an infinite proof.
+
+## Originality — PASS, provisional historical priority
+The main 2020 primary precursor gives sufficient nonlinear contractivity criteria under dissipativity assumptions, and its section 4 does not identify this defective matrix's exact large-step recovery when the continuous system is not contractive. The 2009 scalar-with-multiple-noises primary text establishes a different stability test and does not provide the matrix one-step Gramian classification. The accessible 2025 broader contractivity article's linear-drift subsection assumes a symmetric positive-definite drift, not this nonnormal Jordan matrix. The closest indexed public findings concern randomized shear splitting, other stochastic theta moment laws, and Jordan Runge–Kutta contractivity, with no implication of the stated mixed nilpotent-noise theta phase diagram. A 2000 scalar precursor was accessible only through its scholarly abstract; its full text and all historical priority remain an explicit risk.
+
+## Value — PASS
+A fully sharp, analytically checkable classification separates three notions often conflated in stiff stochastic simulation: continuous prefactor-one contractivity, one-step numerical mean-square contraction, and asymptotic numerical mean-square stability. It proves that changing implicitness across \(\theta=1/2\) creates an all-large-step **recovery** region even when infinitesimal mean-square dissipation fails, and that a resonant numerical step can amplify the first update by an arbitrarily large factor and still annihilate every path after two steps. This is an exact limit on interpretation of large-step stability and a test case for method selection, not a claim about approximation accuracy or arbitrary systems.
+
+## Closest literature and residual limitations
+The nearest scientific sources are D'Ambrosio–Di Giovacchino (arXiv:2009.04941), Buckwar–Sickenberger (arXiv:0912.1968), Higham (2000, doi:10.1137/S003614299834736X), and Biščević–D'Ambrosio–Di Giovacchino (2025, doi:10.1016/j.amc.2025.129527). The proof uses the special commuting nilpotent structure; noncommuting or higher-dimensional diffusion is not addressed. Historical priority and independent mathematical review have not been established.
+
+Self-review: passed. Independent audit: not yet performed.
