@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T02:54:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let α_i be the A-normalized mass or minus B-normalized mass; Σα=0. Discrete summation by parts gives mean_A(f)−mean_B(f)=−Σ S_k Δf_k, so variation of P_μ f is W|Σ S_k Δf_k| and the exact sharp constant is W max |S_k|/w_k, attained by a single jump at a maximizing edge. Projection fixes 1_A, proving K≥1. If K=1 the transition-edge equality for 1_A forces exact run fractions b0/W, (b_{j−1}+b_j)/W, blast/W and the remaining internal-edge constraints; these are sufficient. Distributing epsilon mass inside runs and boundary masses adjacent to each transition yields positive μ with K=1 for arbitrary positive w. The universal bound K≤W/w_* is strict when W>w_*; concentrating opposite colors on opposite sides of a minimum-weight cut approaches it and continuity on the positive mass cone fills exactly [1,W/w_*). This argument includes singleton runs and two-run equality W=w_*.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gaubert–Qu studies Markov oscillation and dual variation of probability measures, not adjacent total variation in the signal.",
+          "Nochetto–Salgado constructs local finite-element TV-diminishing interpolation.",
+          "The two-to-three-cell result optimizes unweighted arithmetic means over different partitions, rather than fixed word independently weighted μ,w mass design."
+        ],
+        "reasoning": "Those stronger-in-a-different-parameter directions neither imply the exact fixed-weight norm nor constructive simultaneous optimal mass designs for all edge profiles.",
+        "searches": [
+          "two color conditional expectation projection weighted path total variation norm optimal vertex mass",
+          "arXiv:1307.4649 Gaubert Qu Theorem 1.1",
+          "arXiv:1211.1069 Nochetto Salgado Theorem 3.7",
+          "Resultary a sharp two-to-three cell separation for variation of finite conditional expectations 2026/11/17"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/2026 cyclic norm and balanced runs 19779f163091",
+        "Resultary/2026 path two-to-three separation c8fb3c10bd0c",
+        "arXiv:1211.1069",
+        "arXiv:1307.4649"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cycle theorem uses 2r transition edges and constraints sum of gradients zero, versus open path W=sum transition weights and unconstrained gradients.",
+          "The arbitrary-weight positive construction assigns run boundary masses b_{j−1}/W and b_j/W and additionally checks internal edge prefix |S_k|≤w_k/W."
+        ],
+        "reasoning": "The full prior statements do not derive the new open-boundary, weighted norm and all-mass-design classification without a new dual formulation and optimization argument.",
+        "searches": [
+          "two color conditional expectation projection weighted path total variation norm optimal vertex mass",
+          "exact maximal unweighted two-class conditional expectation variation norm on path arbitrary partition and mass design",
+          "Resultary 19779f163091 full RESULT.md",
+          "Resultary c8fb3c10bd0c full RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The old cyclic theorem gives K=r(max S−min S) for a cycle with equal edge weights and exactly equal color-run normalized masses at nonexpansivity.",
+          "The audited open path has dual ℓ1 edge variation norm W max |S_k|/w_k and independent edge weights, which has endpoint/interior run constraints not present in the cycle."
+        ],
+        "reasoning": "Closing a path adds a difference edge and changes the dual from maximum weighted absolute prefix to cyclic prefix range; unweighted cyclic equality cannot be silently relabeled into the weighted nonperiodic path theorem.",
+        "searches": [
+          "two color conditional expectation projection weighted path total variation norm optimal vertex mass",
+          "exact maximal unweighted two-class conditional expectation variation norm on path arbitrary partition and mass design",
+          "Resultary sharp cyclic-variation stability of two-cell conditional expectations (2026/11/1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact older cyclic run-balance/range [1,r) is indexed and read; nearest path record controls worst norm over colorings but not mass-dependent weighted path K values."
+        ],
+        "reasoning": "No indexed table giving all optimal positive mass run-fractions and sharp [1,W/w_*) profile for a fixed arbitrarily weighted path was found; this absence is provisional.",
+        "searches": [
+          "two color conditional expectation projection weighted path total variation norm optimal vertex mass",
+          "exact maximal unweighted two-class conditional expectation variation norm on path arbitrary partition and mass design",
+          "Resultary 19779f163091 cyclic two-cell",
+          "Resultary c8fb3c10bd0c unweighted path envelope"
+        ]
+      },
+      "rationale": "Distinct edge-weighted fixed-word positive-mass contraction design and full attainability spectrum extend the known cyclic theorem and differ from global partition envelopes. No logically dominating formulation found in reviewed sources.",
+      "residual_risks": [
+        "A specialized, unindexed theorem on weighted path conditional expectations could duplicate the result.",
+        "The rank-one weighted-edge dual estimate itself is standard; originality resides in complete simultaneous mass-design rigidity and range."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CYCLE_NOT_PATH_INDEPENDENT_EDGE_WEIGHTS",
+          "evidence": "Its norm is r times prefix range and equality run mass 1/r for each class on cyclic, unweighted edges; our independent open-boundary edge weights change both norm and rigidity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-cyclic-variation-stability-of-two-cell-conditional-expecta--19779f163091",
+          "material_read": "Entire RESULT.md: cyclic gradient duality, balancing all runs and attainable range [1,r)",
+          "method": "Read complete primary theorem/proof via GitHub connector",
+          "title": "Sharp cyclic-variation stability of two-cell conditional expectations",
+          "trigger": "Closest exact two-color norm and mass-design theorem"
+        },
+        {
+          "assessment": "DIFFERENT_EXTREMAL_QUESTION",
+          "evidence": "All masses are uniform and the partition varies to maximize; no independent μ,w fixed-word design classification.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-sharp-two-to-three-cell-separation-for-variation-of-finite-con--c8fb3c10bd0c",
+          "material_read": "Full RESULT.md, especially exact single-jump operator norm and two-class global envelope, then three-class construction",
+          "method": "Read complete accessible public research claim and proof",
+          "title": "A sharp two-to-three-cell separation for variation of finite conditional expectations",
+          "trigger": "Closest path averaging norm and partitions"
+        },
+        {
+          "assessment": "DISTINCT_CONTINUUM_LOCAL_OPERATOR",
+          "evidence": "TVD local interpolation operator is not two-class nonlocal conditional expectation on arbitrary interlaced path sites.",
+          "identifier_or_url": "https://arxiv.org/pdf/1211.1069",
+          "material_read": "Theorem 3.7 and surrounding finite-element local interpolation construction near page 4",
+          "method": "Read primary arXiv PDF text; visually inspected relevant page",
+          "title": "A Total Variation Diminishing Interpolation Operator and Applications",
+          "trigger": "Possible preexisting broad TV contraction operator"
+        },
+        {
+          "assessment": "DIFFERENT_SEMINORM",
+          "evidence": "Markov oscillation and probability variation duals are not adjacent path signal variation.",
+          "identifier_or_url": "https://arxiv.org/abs/1307.4649",
+          "material_read": "Introduction and Theorem 1.1 on oscillation seminorm and dual contraction",
+          "method": "Read accessible primary full-text HTML (ar5iv), inspect theorem statement",
+          "title": "Dobrushin's Ergodicity Coefficient for Markov Operators on Cones",
+          "trigger": "Possible general conditional-expectation operator norm theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For nonlocal color-class averaging, total-variation contraction is not automatic even though positivity and idempotence hold. The result gives a complete and constructive answer for every two-color word and independently prescribed positive edge costs, including rigid optimal mass distribution and every achievable sharp amplification. It supplies mathematically motivated exact stability design rather than a trivial projection norm.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exactly two colors on a finite open real path; no cycles, more than two classes, or nonpositive masses/weights.",
+    "The interval upper endpoint is not achieved unless W=w_*; only all-positive mass limits approach it.",
+    "Finite checks are supplementary, not a proof of universal real-weight claims."
+  ],
+  "schema_version": 1
+}

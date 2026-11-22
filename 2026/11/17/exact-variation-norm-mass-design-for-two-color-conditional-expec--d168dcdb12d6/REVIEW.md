@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Discrete summation by parts and the single-jump basis exactly compute the operator norm for all real signals. The positive-mass construction controls the imbalance at all non-transition edges as well as the transition values; an equality argument with the color indicator proves the necessary and sufficient run-mass and internal-edge conditions. The mass-design supremum is derived from a minimum-weight cut, with the strict nonattainment condition and all edge cases handled. Exact rational checks independently recompute 2,026 weighted norms and positive optimal designs. Finite experiments supplement, but do not replace, the proof.
+## correctness
 
-**Originality — PASS with historical-priority qualification.** The closest published mathematical note concerns an **unweighted cycle**: its norm uses the range of a cyclic imbalance walk and its contractive run masses are equal cyclic fractions. The path's norm uses the largest absolute signed prefix, and independently variable edge weights force nontrivial internal-edge inequalities, explicit positive vertex-mass design and a different sharp attainable interval. The exact published cyclic result does not state or imply these weighted-path findings without a new boundary and weighted seminorm argument. The nearest existing finite-path result optimizes an *unweighted* norm across partitions, not arbitrary masses for a fixed weighted path. Nochetto–Salgado (2012) concerns continuous finite-element interpolation; Gaubert–Qu (2013) concerns oscillation/measure total variation rather than adjacent signal variation. Unindexed equivalences and general rank-one projection theory remain residual priority risks.
+PASS
 
-**Mathematical value — PASS.** This solves a complete mass-design and sensitivity-classification question for every binary nonlocal averaging projector on any positively weighted path. Nonconsecutive output classes can be made exactly variation-nonexpansive for *every* weighted geometry, while other positive mass allocations attain every strictly submaximal gain up to a sharp weight-ratio envelope. The endpoint/interior balance law is a structural prescription rather than a one-off constant.
+Let α_i be the A-normalized mass or minus B-normalized mass; Σα=0. Discrete summation by parts gives mean_A(f)−mean_B(f)=−Σ S_k Δf_k, so variation of P_μ f is W|Σ S_k Δf_k| and the exact sharp constant is W max |S_k|/w_k, attained by a single jump at a maximizing edge. Projection fixes 1_A, proving K≥1. If K=1 the transition-edge equality for 1_A forces exact run fractions b0/W, (b_{j−1}+b_j)/W, blast/W and the remaining internal-edge constraints; these are sufficient. Distributing epsilon mass inside runs and boundary masses adjacent to each transition yields positive μ with K=1 for arbitrary positive w. The universal bound K≤W/w_* is strict when W>w_*; concentrating opposite colors on opposite sides of a minimum-weight cut approaches it and continuity on the positive mass cone fills exactly [1,W/w_*). This argument includes singleton runs and two-run equality W=w_*.
 
-The result covers only real finite paths and two color classes, and does not establish independent priority or external validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Distinct edge-weighted fixed-word positive-mass contraction design and full attainability spectrum extend the known cyclic theorem and differ from global partition envelopes. No logically dominating formulation found in reviewed sources.
+
+## value
+
+PASS
+
+For nonlocal color-class averaging, total-variation contraction is not automatic even though positivity and idempotence hold. The result gives a complete and constructive answer for every two-color word and independently prescribed positive edge costs, including rigid optimal mass distribution and every achievable sharp amplification. It supplies mathematically motivated exact stability design rather than a trivial projection norm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
