@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** The 120-state census is known independently from Glynn's 1988 calculation, and is reconstructed from an explicit five-direction quadratic parametrization. Every one of the 65,536 color assignments is tested by two separate implementations, with independent line generation and bit encodings. The Hamming distributions, all-source shortest paths, common-neighbor profiles and five disconnected eight-flip sectors agree. The proof explains the unique balanced direction using secant counts and reconstructs the exact metric from the verified common-neighbor counts. Finite enumeration is exhaustive for this sixteen-point system, not an extrapolation to an infinite family.
+
+**Originality (PASS, with residual priority risk).** Glynn 1988 established the 120 eight-point blocking sets; Innamorati–Tondini 2013 proved their Möbius–Kantor geometry. Those established facts are not rebranded as new. The inspected original 2013 full text gives no exchange graph, pairwise Hamming strata or exact six-flip metric, and Glynn's relevant pp. 58–59 concern the static census. The closest indexed hyperoval-reconfiguration result treats 168 six-point arcs of a projective, not affine, plane. No searched work implies the specific 120-state six-flip/eight-flip theorem, although unindexed or inaccessible work could.
+
+**Value (PASS).** A canonical smallest affine plane with a nontrivial two-color line-splitting has a sharp simultaneous recoloring threshold: fewer than six changes cannot move between valid states, six is enough to connect all 120, but requiring eight changes again separates the space into five geometric sectors. The exact antipodal diameter and direction-labelled component structure reveal a qualitative distinction between minimal and larger batch moves. This is a natural finite classification of legal reconfiguration, not a mere recounting of the known solutions.
+
+Limitations: the metric assertions are specific to this affine plane and use reproducible finite checks; independent mathematical verification remains outstanding. Prior intersection-association results not covered by indexed sources may overlap.
+
+Self-review: passed. Independent audit: not yet performed.
