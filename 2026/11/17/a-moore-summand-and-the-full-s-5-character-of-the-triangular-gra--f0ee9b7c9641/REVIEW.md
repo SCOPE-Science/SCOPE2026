@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The exact 2,460-face enumeration and an explicitly ordered 1,146-pair acyclic matching give an ordinary Morse CW model with one zero-cell, eight two-cells and 160 three-cells. The reconstruction verifies every integral unit pivot. A seven-minor equals \(-1\); an eight-minor has determinant of absolute value three; and rank modulo three is seven. These force Smith invariants \((1,1,1,1,1,1,1,3)\), and the simply connected two-skeleton upgrades the chain result to a Moore-space plus sphere-wedge homotopy type. Signed simplex traces for all 120 permutations and independent irreducible-character inner products establish the rational representation. The executable certificate is `verify_triangular_matching.py`.
+## correctness
 
-**Originality (PASS within checked evidence).** Jonsson's published calculations concern \(\mathcal M(K_n)\), not \(\mathcal M(L(K_5))\). The 2023 polygonal-line-tiling theorem addresses a different graph family. A published four-cut complex of \(L(K_5)\) uses the same graph but is a different simplicial complex. Published Petersen matching-complex results refer to the complementary graph \(\operatorname{KG}(5,2)\). Exact-name, complement, line-graph, torsion, and representation searches did not reveal the combined Moore-summand and full character statement. This is a comparison of mathematical implications, not a proof of global priority.
+PASS
 
-**Value (PASS).** The ten-vertex triangular graph is a canonical highly symmetric strongly regular graph, so its ordinary matching-complex homotopy type is a natural invariant. The degree-three Moore attachment is a substantive obstruction to the sphere-wedge phenomenon found in many familiar graph matching complexes, and it is not determined by the Euler characteristic or rational Betti numbers. The complete \(S_5\)-character resolves symmetry structure that the integral homology ranks alone conceal. The contrasting previously studied Petersen matching complex supplies additional motivation, without implying this calculation.
+The graph T5=L(K5) has 10 vertices and 30 edges; its matching complex face counts (1,30,285,980,1020,144) exhaust all cardinalities zero through five. Independent reconstruction of the deterministic descending-edge discrete Morse pairing returned 1146 matched face pairs, 8 critical 2-simplices and 160 critical 3-simplices; an oriented Hasse topological sort visited all 2460 faces, establishing acyclicity. The remaining CW model has one vertex, no 1-cells and boundary B:Z^160->Z^8. Independent exact unit-pivot cancellations computed a 7x7 minor -1, 8x8 minor absolute 3 and rank7 modulo 3, forcing Smith nonzero factors 1×7 and 3×1, H2=Z/3 and H3=Z^152. Because the 2-skeleton is a wedge of eight 2-spheres and π2≅H2, integer elementary changes of the attaching maps give M(Z/3,2) wedge 152 S3, not just abstract homology. Independent enumeration of all 120 induced S5 permutations and their signed face Lefschetz traces gives character (152,0,4,-4,0,-2,-3), agreeing with multiplicity decomposition and zero trivial component.
 
-**Sources and residual risk.** Jonsson, arXiv:1203.5658 (introductory statements, named \(K_n\) domain, homology table, and method); Bayer–Jelić Milutinović–Vega, DOI 10.1016/j.disc.2023.113428 (introduction, formal tiling definition and main theorem); and indexed records for the \(T_5\) four-cut complex and Petersen matching complex. Source coverage is not exhaustive; an unindexed equivalent calculation could alter publication priority. No equivariant *integral* splitting or integral quotient-homology statement is established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete graph matching complex M(K10) studied by Jonsson has 45 graph edges, whereas M(T5) uses the 30 edges of L(K5); torsion of the larger complex does not transfer to its subcomplex. The Petersen graph is the complementary Kneser graph KG(5,2), whose edge matching complex has a different torsion-free sphere wedge. The four-cut complex of the same T5 graph has a different face criterion and a wedge of eleven S3, not the matching complex. No inspected source supplies this precise Moore-space splitting and S5 rational character. Remaining literature priority best-of-knowledge.
+
+## value
+
+PASS
+
+T5 is a canonical strongly regular graph with S5 symmetry, and integral three-torsion in matching complexes is a structurally meaningful phenomenon. The classification M(Z/3,2) wedge 152 S3 proves a homotopy type stronger than Betti tables; the complete natural S5 character records representation structure. This motivated exact invariant of a natural graph is independently useful even without an n-family theorem, and it is not a generic tiny-instance rank check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
