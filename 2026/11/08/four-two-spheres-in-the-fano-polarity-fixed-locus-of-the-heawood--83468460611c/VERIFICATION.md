@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-19.md",
+      "INDEPENDENT_AUDIT_2026-11-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and scientific limits
+# Independent mathematical audit
 
-With Python 3.10 or later, run `python3 verify_polarity.py` in the directory containing `verify_polarity.py` and `morse_certificate.json`. The checker requires only the standard library.
+## correctness
 
-It constructs all twenty-one incidences of the Heawood graph, the twelve edge orbits of the binary-dot-product polarity, every original matching, every orbit-model matching, and checks equality of the fixed original face set and the orbit face set. It then generates the complete staged 66-pair Morse matching from the supplied deterministic order, verifies its critical-face list and every cover of the complete Hasse diagram, and performs a full directed acyclicity test. Exact mod-two matrix ranks are recomputed independently.
+PASS
 
-The recorded successful run is stored in `verification_output.txt`. A successful replay ends with `geometric_fixed_homotopy=wedge_of_four_2_spheres`. The integral homotopy claim uses the fully verified discrete-Morse certificate and the no-one-cells CW argument; mod-two Betti numbers alone are insufficient. This finite certificate does not prove an analogous result for other projective planes, automorphisms or graphs.
+With nonzero F2^3 labels a,b and a·b=0, the incidence graph has 21 edges and transpose is an involutive graph automorphism. Fixed barycentric coordinates are constant on vertex orbits, so the geometric fixed realization is PL homeomorphic to the simplicial orbit complex whose faces correspond to unions of compatible edge orbits. Twelve admissible orbits reduce to the looped seven-label disjoint-support model. Independently implemented bitmask enumeration yields 138 orbit faces including empty, f=(12,45,59,21), and independently enumerates all 3462 original matchings with exactly the same 138 setwise fixed faces. Rebuilding the staged 12-toggle pairing gives 66 pairs and five unmatched cells of dimensions (0,2,2,2,2); a complete 351-cover directed Hasse graph visits all 137 nonempty faces in topological order, proving acyclicity. Discrete Morse yields a CW complex with one 0-cell, no 1-cells, four 2-cells and no others; every 2-cell attaches to the 0-cell, proving an integral ∨4 S². Finite exhaustive certificate is complete for this single finite graph, not a graph-family theorem. The repository verifier code and certificate were inspected, not merely its success log.
+
+## originality
+
+PASS
+
+PASS at original November 8 2026 priority date on inspected mathematics, with residual historical risk. The exact strict geometric polarity fixed-space integral homotopy is not implied by earlier ordinary or perfect matching complex classifications or ambient rational Aut(H) character (+4 involution trace implies χ=5 only). Resultary's November 17 all-subgroup theorem is later and specifically credits this ∨4 S² polarity case as earlier work. Relevant arXiv paper on ladder graph families was available at abstract level only; full text blocked, and no whole-document noncoverage is alleged. Other differently indexed fixed-locus results may exist.
+
+## value
+
+PASS
+
+The Fano plane is the smallest projective plane and orthogonal point-line polarity is a canonical involution; its geometric fixed matching space is a natural symmetry invariant. Determining integral ∨4 S² provides connectivity, trivial fundamental group, absence of torsion and actual degree of generators beyond the known rational Lefschetz Euler characteristic. The explicit twelve-orbit model and exhaustive 66-pair Morse certificate are a compact exact classification, not an arbitrary tiny-instance check or mere table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

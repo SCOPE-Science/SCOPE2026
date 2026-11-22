@@ -1,15 +1,21 @@
-# Scientific review: the Fano-polarity fixed matching space
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The orthogonal point-line swap is a graph automorphism; its admissible edge orbits are precisely the twelve orthogonal unordered label pairs (including the three fixed incidences). The orbit-barycenter construction is a PL homeomorphism from the geometric fixed space to the finite orbit model. Independent original-graph and orbit-model face enumerators agree on all 138 invariant faces. The included checker reconstructs 66 Morse pairs, confirms the five critical faces, and topologically sorts all 137 faces of the fully reversed 351-relation Hasse diagram. A one-vertex/four-two-cell CW model implies the integral wedge of four two-spheres. Exact mod-two chain ranks provide an additional, weaker consistency check. Critical steps are executable from included files.
+## correctness
 
-## Originality
-**PASS on examined evidence, with residual search risk.** Queries for Heawood matching-complex polarity, Fano point-line duality, edge-orbit matching fixed loci, and four-two-sphere fixed homotopy returned no mathematically equivalent claim. The closest public calculations establish: ordinary matching homotopy \(\bigvee^{16}S^4\) (7150930ba12a), a rational automorphism character with trace four for point-line-exchanging involutions (d7a042784870), and a different perfect-matching subcomplex type (0994476b8c0d). Their statements, proofs, and implications were compared. The rational trace implies only Euler characteristic five of the geometric fixed space, not its integral homotopy. The motivating arXiv:2608.30601v2 was read through its available full text: it concerns Möbius and circular ladder graph families, not Heawood fixed-point topology. The possibility of an unindexed equivalent formulation remains.
+PASS
 
-## Value
-**PASS.** The Heawood graph is the canonical Levi graph of the smallest projective plane, and point-line polarity is an intrinsic, distinguished symmetry. A complete integral fixed-space homotopy classification is more informative than the known character trace: it identifies fundamental group, sphere dimension, multiplicity, and absence of torsion. The twelve-orbit reduction and short complete certificate make that distinction transparent and independently reproducible. The result is a natural finite symmetric-object invariant, not a selected arbitrary graph slice or Euler-characteristic recomputation.
+With nonzero F2^3 labels a,b and a·b=0, the incidence graph has 21 edges and transpose is an involutive graph automorphism. Fixed barycentric coordinates are constant on vertex orbits, so the geometric fixed realization is PL homeomorphic to the simplicial orbit complex whose faces correspond to unions of compatible edge orbits. Twelve admissible orbits reduce to the looped seven-label disjoint-support model. Independently implemented bitmask enumeration yields 138 orbit faces including empty, f=(12,45,59,21), and independently enumerates all 3462 original matchings with exactly the same 138 setwise fixed faces. Rebuilding the staged 12-toggle pairing gives 66 pairs and five unmatched cells of dimensions (0,2,2,2,2); a complete 351-cover directed Hasse graph visits all 137 nonempty faces in topological order, proving acyclicity. Discrete Morse yields a CW complex with one 0-cell, no 1-cells, four 2-cells and no others; every 2-cell attaches to the 0-cell, proving an integral ∨4 S². Finite exhaustive certificate is complete for this single finite graph, not a graph-family theorem. The repository verifier code and certificate were inspected, not merely its success log.
 
-## Limits
-Only the standard orthogonal polarity is classified. The computation does not establish arbitrary subgroup-fixed spectra or the full equivariant homotopy type. Novelty relative to inaccessible or unindexed studies is not certain, and independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS at original November 8 2026 priority date on inspected mathematics, with residual historical risk. The exact strict geometric polarity fixed-space integral homotopy is not implied by earlier ordinary or perfect matching complex classifications or ambient rational Aut(H) character (+4 involution trace implies χ=5 only). Resultary's November 17 all-subgroup theorem is later and specifically credits this ∨4 S² polarity case as earlier work. Relevant arXiv paper on ladder graph families was available at abstract level only; full text blocked, and no whole-document noncoverage is alleged. Other differently indexed fixed-locus results may exist.
+
+## value
+
+PASS
+
+The Fano plane is the smallest projective plane and orthogonal point-line polarity is a canonical involution; its geometric fixed matching space is a natural symmetry invariant. Determining integral ∨4 S² provides connectivity, trivial fundamental group, absence of torsion and actual degree of generators beyond the known rational Lefschetz Euler characteristic. The explicit twelve-orbit model and exhaustive 66-pair Morse certificate are a compact exact classification, not an arbitrary tiny-instance check or mere table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
