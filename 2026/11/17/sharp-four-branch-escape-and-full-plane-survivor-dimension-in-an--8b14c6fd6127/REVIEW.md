@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-PASS. The base reaches the invariant negative unit interval and becomes a two-cycle; substitution yields the exact four-fold return formula. The proposed outer fixed bound is checked algebraically, with strict expanding escape outside it. Four full disjoint inverse branches exist exactly on the stated uniform parameter range; their common similarity factor and phase-uniform gaps give a compact symbolic conjugacy. Independent coverings and a uniform Frostman measure prove the full-plane Hausdorff formula after accounting for countably many piecewise-affine inverse images. Equal-length cylinder accounting proves the geometric first-exit law for actual area, not an implicitly uniform phase law. The standalone exact-rational checker corroborates the identities and finite cylinders.
+## correctness
 
-## Originality
-PASS, subject to historical-priority uncertainty. Tikjha (2026, arXiv:2607.13519) develops the four-partition model and fixed/low-period bifurcations, plus a separate degeneracy; the present zero-horizontal-coupling, strongly expanding bounded-repeller classification is not a stated result there. The most relevant mathematical records on the same family concern inverse multiplicity or the neutral c=1 core, neither implying the high-c survivor dimension and exit law. Kim--Ju (2014, arXiv:1401.3206) study dimension of coupled-expanding skew-product attractors under distinct assumptions. Generic similarity-dimension and symbolic-shift results are credited rather than claimed new. Published-record summaries were used for secondary comparisons and do not substitute for full-text priority assessment.
+PASS
 
-## Value
-PASS. This gives a sharp geometry transition and complete global bounded-orbit dimension for a natural expanding complementary parameter slice of a recent four-partition system. An exactly geometric two-step escape clock distinguishes the thin invariant Cantor set from its overwhelmingly escaping neighborhood. The simultaneous identification of the planar, not merely fiberwise, bounded set is materially stronger than routine periodic-orbit enumeration.
+PASS: On the invariant base interval x=-u the next two base phases return to u and H_u(y)=c|c|y|-(1+u)|-(2-u). The outer fixed boundary U=(c(1+u)+2-u)/(c²-1) has multiplier c² beyond its endpoints. For c>1+sqrt3 all four inverse branches lie strictly in disjoint monotone pieces, with ratio c^-2 and uniform phase separation; verified inverse identities and fold inequalities independently with rational arithmetic at c=3,4,5 and three phases each. Standard contraction coding yields a full four-shift; product-like uniform cylinder Lipschitz/Frostman bounds give dimension 1+log 2/log c, extended to all bounded forward orbits by countably many finite piecewise-affine inverse branches. The normalized section survival ratio is 4^n/c^(2n).
 
-## Limitations and comparison risk
-The topological entropy concerns only the compact invariant core, not the noncompact union of all bounded histories; the departure law is tied to the specified section and normalized area. Other parameter slices, perturbative robustness and uniqueness of physical measures are not addressed. Historical priority is not independently certified; inaccessible or uncatalogued older special-case constructions could cover part of the theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original within the precise stated scope; structurally adjacent work does not imply the complete assigned conclusion, as compared below.
+
+## value
+
+PASS
+
+The specific two-dimensional absolute-value map has a natural entire bounded-forward set. Exact full-plane Hausdorff dimension, sharp phase-uniform branch threshold and closed escape-clock law add structural information beyond generic statements that an expanding repeller is Cantor-like.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

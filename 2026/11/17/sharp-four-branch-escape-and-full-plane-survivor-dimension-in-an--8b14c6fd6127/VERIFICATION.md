@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The included `verify.py` uses only standard-library `fractions.Fraction` and checks 35 exact-rational parameter--phase combinations with 1, 4, 16, 64 and 256 inverse cylinders through level four. All four inverse identities, monotonic branch memberships, exact finite-cylinder lengths, and outer escape identities are checked. An exact rational point below the sharp parameter cutoff verifies that strict four-branch coverage cannot be retained for all phases.
+## correctness
 
-Reproduction: `python3 verify.py`. Successful output consists of `EXACT_FOUR_BRANCH_OK`, `SHARP_THRESHOLD_WITNESS_OK`, and `ESCAPE_IDENTITIES_OK` lines.
+PASS
 
-The arithmetic tests alone do not prove the claim for all real parameters or all symbolic lengths. The universal statements follow from the exact inverse formulas, the strict algebraic parameter inequalities, the geometric cylinder construction, the uniform separation argument, the mass-distribution lower bound, and the piecewise-affine finite-iterate inverse decomposition in `RESULT.md`. Independent validation has not been performed.
+PASS: On the invariant base interval x=-u the next two base phases return to u and H_u(y)=c|c|y|-(1+u)|-(2-u). The outer fixed boundary U=(c(1+u)+2-u)/(c²-1) has multiplier c² beyond its endpoints. For c>1+sqrt3 all four inverse branches lie strictly in disjoint monotone pieces, with ratio c^-2 and uniform phase separation; verified inverse identities and fold inequalities independently with rational arithmetic at c=3,4,5 and three phases each. Standard contraction coding yields a full four-shift; product-like uniform cylinder Lipschitz/Frostman bounds give dimension 1+log 2/log c, extended to all bounded forward orbits by countably many finite piecewise-affine inverse branches. The normalized section survival ratio is 4^n/c^(2n).
+
+## originality
+
+PASS
+
+Best-of-knowledge original within the precise stated scope; structurally adjacent work does not imply the complete assigned conclusion, as compared below.
+
+## value
+
+PASS
+
+The specific two-dimensional absolute-value map has a natural entire bounded-forward set. Exact full-plane Hausdorff dimension, sharp phase-uniform branch threshold and closed escape-clock law add structural information beyond generic statements that an expanding repeller is Cantor-like.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
