@@ -1,0 +1,167 @@
+{
+  "correctness": {
+    "rationale": "At every positive equilibrium the infection condition reduces exactly to g(I)=k with g(I)=(1-I)ell(c+dI). Its logarithmic derivative -1/(1-I)+d/(1+exp(c+dI)) is strictly decreasing, giving all possible root counts with a unique nondegenerate interior maximum iff d>1+exp(c). The stationary equation solves via the principal positive Lambert W; its g-value is W(exp(c+d-1))/d. The actual Jacobian has negative trace and determinant -beta I g'(I), assigning saddle/sink types without unproved numerical extrapolation. DFE eigenvalues are -1 and beta(g0-k); equality is explicitly left nonhyperbolic. Rational witness is rigorous by 2<e<4 and g(1/10)>4/5. Reproduced 175 supplementary independent parameter cases using packaged standard-library Python.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Full main source arXiv:2610.03173v1, Section IV Lemma 3 and Sections V–VI; an additional hypothesis is required for its only-endemic result.",
+        "Full indexed 2026/10/18/SCOPE-a-sharp-universal-logit-slope-barrier-for-epidemic-oscillations--20f9724cad5f RESULT.md: sufficient no-cycle criterion; does not control number of endemic roots for payoff slope with respect to I.",
+        "Gavin, Paarporn and Cao (2026) https://doi.org/10.1109/TAC.2026.3685548 abstract describes general two-strategy resource-feedback logit dynamics and optimal incentive policies; mathematical assumptions and full conclusions not accessible.",
+        "Park et al. https://arxiv.org/abs/2401.15475 use a perturbed best-response population game with dynamic incentives and an SIRS environment rather than this fixed-preference SIS specialization."
+      ],
+      "reasoning": "The broadest closely matching indexed theorem is an orbit-exclusion bound, not a multiplicity theorem; the origin source excludes this payoff sign from its sufficient uniqueness condition. The more general resource-feedback paper cannot be definitively ruled out without full text, and is explicitly retained as a priority risk.",
+      "searches": [
+        "\"SIS Epidemic Containment under Game-theoretic Rational Learning\" Maitra Paarporn Eksin",
+        "SIS epidemic logit rational learning global convergence no oscillations Bendixson Dulac disease free endemic unique global attractor",
+        "SIS game-theoretic rational learning 2610.03173 Maitra Paarporn Eksin logarithmic response global bifurcation",
+        "bounded rationality logit epidemic feedback global eradication threshold endemic convergence",
+        "https://doi.org/10.1109/TAC.2026.3685548",
+        "https://arxiv.org/abs/2401.15475"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.03173",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-a-sharp-universal-logit-slope-barrier-for-epidemic-oscillations--20f9724cad5f/RESULT.md",
+      "https://arxiv.org/abs/2401.15475",
+      "https://doi.org/10.1109/TAC.2026.3685548",
+      "https://arxiv.org/abs/2410.12993",
+      "https://doi.org/10.23919/ACC55779.2023.10156026"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Main source [1]: equilibrium conditions (6)–(7), Lemma 3 conditional uniqueness, condition (16); for increasing defection advantage, min(-beta B,-gamma B)<0.",
+        "Rational example has sigma=1<log 4=sigmaTH of [1] but two interior endemic equilibria, one saddle one sink, alongside a hyperbolically stable disease-free equilibrium.",
+        "Prior 2026/10/18/SCOPE-a-sharp-universal-logit-slope-barrier-for-epidemic-oscillations--20f9724cad5f excludes cycles at constant payoff-in-x; a no-cycle theorem does not imply the number or stability of equilibria.",
+        "Ordorica Arango et al. https://arxiv.org/abs/2410.12993 establishes bistability in different continuous opinion-feedback SIS dynamics; endemic bistability itself is therefore explicitly not claimed new."
+      ],
+      "reasoning": "Neither the main conditional uniqueness theorem nor the periodic-orbit exclusion statement yields the sharp necessary-and-sufficient two-root threshold. The new content is a complete parameter classification under independent-of-opponent, prevalence-amplified payoff, not the general phenomenon of bistability.",
+      "searches": [
+        "\"SIS Epidemic Containment under Game-theoretic Rational Learning\" Maitra Paarporn Eksin",
+        "logit SIS epidemic defection advantage increases with prevalence exact Lambert W saddle node bistable equilibrium threshold",
+        "stationary logit equilibrium multiple positive endemic infections while disease-free locally stable in 2x2 payoff game",
+        "Maitra Paarporn Eksin 2610.03173 multiple stationary logit equilibria saddle node backward bifurcation",
+        "https://arxiv.org/abs/2610.03173",
+        "2026/10/18/SCOPE-a-sharp-universal-logit-slope-barrier-for-epidemic-oscillations--20f9724cad5f",
+        "https://arxiv.org/abs/2410.12993"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Source [1] equation (5) specialized to delta_TR1=delta_PS1=A and delta_TR0=delta_PS0=A+B, yielding DeltaU=A+B I.",
+        "Source [1] Lemma 3, formula (16): the two relevant monotonicity terms become -beta B and -gamma B, strictly negative; uniqueness implication therefore does not apply.",
+        "The indexed result 2026/10/18/SCOPE-a-sharp-universal-logit-slope-barrier-for-epidemic-oscillations--20f9724cad5f analyzes the exact SIS–logit ODE but proves nonoscillation for a slope condition, not endemic multiplicity."
+      ],
+      "reasoning": "Checked the original payoff parameterization against the proposed scalar reduction and compared against synonyms stationary logit equilibrium, fold, backward bistability and two endemic roots. The full original has only a sufficient uniqueness theorem which excludes B>0. No retrieved equivalent fold frontier for this fixed-payoff SIS subclass.",
+      "searches": [
+        "logit SIS epidemic defection advantage increases with prevalence exact Lambert W saddle node bistable equilibrium threshold",
+        "Lambert W maximum (1-I)/(1+exp(-c-dI)) epidemic bistable",
+        "Maitra Paarporn Eksin 2610.03173 multiple stationary logit equilibria saddle node backward bifurcation",
+        "2026/10/18/SCOPE-a-sharp-universal-logit-slope-barrier-for-epidemic-oscillations--20f9724cad5f",
+        "https://arxiv.org/abs/2610.03173"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus searches returned 2026/10/18/SCOPE-a-sharp-universal-logit-slope-barrier-for-epidemic-oscillations--20f9724cad5f with an explicit oscillation criterion, plus separate endogenous protection and higher-order contagion studies with different mechanisms.",
+        "Main source Table I involves numerical stability examples at different payoffs; it gives no exhaustive Lambert-W fold table or the parameter witness A=1,B=20,beta=1,gamma=4/5,sigma=1."
+      ],
+      "reasoning": "The compared database statements are about oscillation, ecological feedback, or distinct epidemic update rules, and the primary manuscript's numerical table does not imply this full parameter-space classification. Search failure alone is not treated as a mathematical novelty proof.",
+      "searches": [
+        "\"SIS Epidemic Containment under Game-theoretic Rational Learning\" Maitra Paarporn Eksin",
+        "logit SIS epidemic defection advantage increases with prevalence exact Lambert W saddle node bistable equilibrium threshold",
+        "stationary logit equilibrium multiple positive endemic infections while disease-free locally stable in 2x2 payoff game",
+        "SIS logit learning backward bifurcation multiple endemic equilibria bistability disease free finite rationality payoff dependent 2610.03173",
+        "2026/10/18/SCOPE-a-sharp-universal-logit-slope-barrier-for-epidemic-oscillations--20f9724cad5f"
+      ]
+    },
+    "rationale": "The exact complete two-endemic phase diagram and Lambert W fold threshold for the admissible payoff specialization A+B I were not stated or implied by the compared primary SIS-logit paper, whose Lemma 3 only supplies existence and uniqueness under a sufficient monotonicity inequality (16). In this specialization (16) is violated for B>0; an explicit rational witness occurs below the paper's sufficient existence threshold. The closest published indexed finding proves a universal no-cycle barrier in the SAME general equations, which is credited and not treated as new; its full RESULT contains no exact bistable endemic fold classification. Other sources analyze replicator, opinion or different environmental dynamics. Full general feedback-game priority comparison remains limited to accessible abstract and is retained as residual risk.",
+    "residual_risks": [
+      "The full text of Gavin–Paarporn–Cao (2026), a broad logit feedback-game stability study, was not accessible; an unpublished or unseen stronger general theorem might imply a version of the result.",
+      "Earlier behavioral-epidemic bifurcation literature may contain an equivalent reparameterization missed by title/abstract search.",
+      "No external independent scientific audit or publication-priority certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source introduces ODE and gives conditional endemic existence/uniqueness, but its uniqueness hypothesis fails identically for the increasing-defection subclass. It does not provide an exhaustive two-root Lambert-W frontier.",
+        "evidence": [
+          "Equations (1),(2),(4),(5); Section IV Lemma 3, (15)–(17); Section V local Jacobian statements; https://arxiv.org/pdf/2610.03173"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.03173",
+        "material_read": "Complete indexed full paper text, especially Sections II–VI, Lemma 3, condition (16), Table I and relevant appendix; the model-equation PDF page was visually checked.",
+        "method": "Full-text equations and implication comparison",
+        "title": "SIS Epidemic Containment under Game-theoretic Rational Learning",
+        "trigger": "Same coupled SIS–logit ODE and payoff restrictions; strongest possible direct-coverage source"
+      },
+      {
+        "assessment": "Proves a sufficient sharp nonoscillation slope and examples of periodic solutions. It does not classify stationary roots or the Lambert fold in the present prevalence-only payoff family; its noncycle fact is credited.",
+        "evidence": [
+          "https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-a-sharp-universal-logit-slope-barrier-for-epidemic-oscillations--20f9724cad5f/RESULT.md"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-a-sharp-universal-logit-slope-barrier-for-epidemic-oscillations--20f9724cad5f/RESULT.md",
+        "material_read": "Complete RESULT.md: Finding, Assumptions, all three proof parts, Relationship and Limitations",
+        "method": "Full prior result comparison",
+        "title": "A sharp universal logit-slope barrier for epidemic oscillations, with periodic SIS witnesses",
+        "trigger": "published-finding corpus hit covers exactly the same SIS–logit family and could dominate the new result"
+      },
+      {
+        "assessment": "Perturbed best-response systems with designed dynamic incentive signals and SIRS structure; no demonstration that the fixed payoff A+B I SIS Lambert frontier follows.",
+        "evidence": [
+          "https://arxiv.org/abs/2401.15475"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.15475",
+        "material_read": "Accessible full open preprint text, especially modeling assumptions and equilibrium discussion",
+        "method": "Model and implication comparison",
+        "title": "Epidemic Population Games And Perturbed Best Response Dynamics",
+        "trigger": "Potential broader stability and stationary response theorem for epidemic behavior"
+      },
+      {
+        "assessment": "The abstract concerns a resource-feedback game and optimal incentives; a decisive full-text implication comparison was not possible. Explicit historical-priority uncertainty remains.",
+        "evidence": [
+          "https://research.rug.nl/en/publications/learning-to-avoid-tragedies-boundedly-rational-agents-in-feedback/",
+          "https://doi.org/10.1109/TAC.2026.3685548"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TAC.2026.3685548",
+        "material_read": "Publisher-university bibliographic record and abstract only; full text not available",
+        "method": "Abstract comparison and full-text-access attempt; no unsupported assertion about unseen theorems",
+        "title": "Learning to Avoid Tragedies: Boundedly Rational Agents in Feedback-Evolving Games",
+        "trigger": "Broader 2026 logit feedback evolutionary-game stability characterization with potentially overlapping generality"
+      },
+      {
+        "assessment": "Documents prior SIS behavioral bistability, but through opinion-mediated contact-rate equations, not finite logit payoff A+B I. The generic phenomenon is credited, not asserted new.",
+        "evidence": [
+          "https://arxiv.org/abs/2410.12993"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2410.12993",
+        "material_read": "Public abstract and bibliographic summary only",
+        "method": "Model-level comparison",
+        "title": "Opinion-driven risk perception and reaction in SIS epidemics",
+        "trigger": "Related explicit bistability in SIS behavior feedback"
+      },
+      {
+        "assessment": "Uses replicator behavior, not finite-logit adjustment, so its dynamical assertions do not directly imply the precise logit Lambert-W parameter wedge.",
+        "evidence": [
+          "https://par.nsf.gov/servlets/purl/10451426",
+          "https://doi.org/10.23919/ACC55779.2023.10156026"
+        ],
+        "identifier_or_url": "https://doi.org/10.23919/ACC55779.2023.10156026",
+        "material_read": "Conference paper abstract and metadata",
+        "method": "Behavioral-update rule comparison",
+        "title": "SIS epidemics coupled with evolutionary social distancing dynamics",
+        "trigger": "Earlier predecessor in same epidemiological game lineage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "415d6a0f-ff62-47c5-9627-06b7592038f5",
+  "value": {
+    "rationale": "The source develops uniqueness only under payoff monotonicity, yet increasing defection incentives make those hypotheses fail. The exact Lambert-W frontier answers a natural mathematical question: when can a locally stable disease-free equilibrium coexist with stable endemic infection under the same behavioral game? The strict, all-parameter classification and certified rational three-equilibrium witness exhibit a backward endemic regime inaccessible to a disease-free invasion test. It is an interpretable structural boundary of the dynamical model, not an arbitrary finite slice, historical-table recomputation, or just a routine code check. The anti-protective feedback assumption is explicit and limits empirical interpretation.",
+    "status": "PASS"
+  }
+}
