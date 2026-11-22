@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "A standalone, inspected C++17 certificate enumerates exactly 2^21 seven-vertex labelled simple graphs, uses 63 complementary-cut representatives and checks cross-degree<=2 vertex by vertex; it reports zero immune graphs for edge counts<=13 and exactly 15015 at 14 edges. Ten explicit 14-edge immune masks generate disjoint permutation orbits of sizes 105,2520,2520,1260,2520,1260,630,2520,1260,420 covering exactly the complete set. All assertions executed successfully; an independent 7-vertex atlas cross-check recovered the same ten classes and orbit sum. Finite exhaustive proof, no infinite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2611.26556 proves that m<=2n-2 implies a 2-cut, so it gives for n=7 only m>=13 for immunity; n=7 itself is absent from the listed sharp orders and computed n=9..14.",
+        "2019 Gomes–Sau paper establishes algorithms and complexity for general d-CUT, not the exact extremal classification for fixed n=7."
+      ],
+      "reasoning": "The more general algorithms can decide every input but do not logically imply the exact numerical answer without the new exhaustive computation; the universal 2026 inequality does not reach m=14.",
+      "searches": [
+        "Neopryatnaya Verdenko Voronov 2026 arXiv:2611.26556 full HTML Theorem 1 and Conclusion",
+        "Gomes Sau arXiv:1905.03134 2019 complete IPEC paper introduction and algorithms",
+        "web: mu_2(7) 2-cut immune 7 vertex"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.26556v1",
+      "https://drops.dagstuhl.de/storage/00lipics/lipics-vol148-ipec2019/LIPIcs.IPEC.2019.19/LIPIcs.IPEC.2019.19.pdf",
+      "https://onlinelibrary.wiley.com/doi/full/10.1002/jgt.20576",
+      "https://arxiv.org/abs/2611.26556",
+      "https://arxiv.org/abs/1905.03134"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At seven vertices, Theorem 1 supplies only the absence of 2-immunity at m<=12 and examples for other orders. No prior own claim in published search hits asserts mu_2(7)=14 or its classification.",
+        "The attached complete enumeration checks all m<=13 graphs and labels all m=14 minimizers."
+      ],
+      "reasoning": "The prior 2n-2 bound cannot eliminate 13-edge seven-vertex candidates, and the cited sharp orders do not imply the ten 7-vertex orbit types or their sizes. The claim is an exact strictly stronger finite case, not a wording variant of the theorem.",
+      "searches": [
+        "arXiv:2611.26556 Theorem 1 (m<=2n-2), sharp examples n=5,6,8 and Conclusion n=9..14",
+        "mu_2(7) 7 vertex 2-immune graph degree-bounded edge cuts",
+        "Published mathematical findings indexed under 2-cut, degree-bounded cut and immunity aliases"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 article defines a 2-cut as a two-shore partition having at most two crossing edges incident to each vertex; the d-CUT article uses the same bounded-crossing-degree definition.",
+        "These sources do not assert the 14-edge, 15015-labelled, ten-orbit seven-vertex census."
+      ],
+      "reasoning": "Alternative terms 2-cut, 2-immune, no bounded-degree two-cut and partition with cross-degree at most two were compared by statement; no equivalent full classification was retrieved.",
+      "searches": [
+        "2-cut immune graphs on seven vertices minimum fourteen edges ten isomorphism classes",
+        "seven vertex graphs with no partition crossing degree two classification",
+        "web: \"2-cut-free\" \"seven vertices\" graphs 14",
+        "web: \"no 2-cut\" \"14 edges\" 7 vertices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "General graph-atlas data include every simple seven-vertex graph, but the source does not tabulate the 2-cut immunity property, its least edge count or the ten extreme types.",
+        "Independent filtering of the 65 fourteen-edge atlas types gives exactly ten immune classes; their relabelling orbit sizes sum to 15015."
+      ],
+      "reasoning": "A general graph catalogue is an input universe, not an exact published table of the newly defined bounded-degree cut invariant. The result requires testing all possible vertex bipartitions and summing distinct orbits. No known direct count table was found.",
+      "searches": [
+        "web: \"2-immune\" \"7 vertices\" extremal",
+        "web: \"2-cut-free\" \"seven vertices\" graphs 14",
+        "web: \"2-immune\" \"7\" \"14\" graph",
+        "Independent NetworkX graph-atlas 7-vertex enumeration (1253 graphs up to order 7), checking 65 fourteen-edge isomorphism types"
+      ]
+    },
+    "rationale": "The complete published 2026 primary article proves the general 2n-2 bound and names sharp small orders 5,6,8 and computed orders 9-14, but does not state the exact order-7 threshold or extremal classification. Its bound implies only mu_2(7)>=13, not 14. The 2019 exact-algorithms source studies the d-CUT decision problem rather than this seven-vertex enumerator; the d=1 matching-cut paper is not covering. Targeted published-record and primary-literature searches found no matching or stronger seven-vertex 2-immune classification. A general atlas of 7-vertex graphs supplies raw candidates, not the computed predicate/10-orbit theorem. The possibility of an unindexed existing census remains an explicit residual risk.",
+    "residual_risks": [
+      "The present search cannot exclude unindexed prior computations or terminology-distinct unpublished tables of 2-immune graphs on seven vertices.",
+      "The 2019 source PDF was inspected for problem definitions and relevant results rather than exhaustively proving every appendix lacks the exact same count.",
+      "Independent publication-priority validation has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING; gives lower bound of 13 edges at seven vertices and sharp cases 5,6,8 but no seven-vertex threshold/census",
+        "evidence": [
+          "Theorem 1 says every m<=2n-2 graph has a 2-cut.",
+          "Conclusion: computed mu_2(n)=2n for 9<=n<=14, with n=7 not stated."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.26556v1",
+        "material_read": "Entire accessible short HTML article, including introduction, Theorems 1-2, proofs, sharpness examples, and conclusion",
+        "method": "Primary public arXiv full HTML read",
+        "title": "Edge cuts of bounded degree in sparse graphs",
+        "trigger": "Exactly the same 2-immune parameter and small-order extremal threshold, 2026-11-19"
+      },
+      {
+        "assessment": "NO_COVERAGE_FOUND in inspected relevant material; general algorithms, no exact seven-vertex extremal census; uninspected details remain a residual risk",
+        "evidence": [
+          "Defines degree-bounded crossing cuts, supplies complexity and general algorithms.",
+          "No seven-vertex immunity census identified in the inspected material."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol148-ipec2019/LIPIcs.IPEC.2019.19/LIPIcs.IPEC.2019.19.pdf",
+        "material_read": "PDF abstract, full introductory context and methods/results overview, and available search throughout PDF for 7 vertices and immunity",
+        "method": "Authorized publisher open PDF full-text excerpt and visual first-page inspection",
+        "title": "Finding Cuts of Bounded Degree: Complexity, FPT and Exact Algorithms, and Kernelization",
+        "trigger": "Potential earlier equivalent d-CUT classification"
+      },
+      {
+        "assessment": "INAPPLICABLE as directly covering theorem: matching cuts constrain crossing degree to one, not two",
+        "evidence": [
+          "Abstract gives ceil(3(n-1)/2) bound for matching-immune graphs; d=1, not d=2."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/jgt.20576",
+        "material_read": "Publisher abstract and bibliographic information, plus the explicit summary in the 2026 source",
+        "method": "Publisher open abstract and 2026 source citation cross-reference",
+        "title": "Extremal graphs having no matching cuts",
+        "trigger": "Earlier extremal immune-graph problem, but for d=1"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e53cf59f-5466-4abd-9a2b-95486b95797f",
+  "value": {
+    "rationale": "The 2026 extremal 2-cut paper expressly lists sharp small orders 5,6,8 and reports values 9..14 but not 7. Filling this natural missing first small-order threshold mu_2(7) with a complete ten-type extremal structural census, including orbit multiplicities, provides an exact useful boundary test for conjectured 2-cut immunity density. It is not an arbitrarily selected graph invariant or table lookup: the newly evaluated 2-cut predicate and complete classification are necessary. Scope remains finite, with no claimed implication for higher orders.",
+    "status": "PASS"
+  }
+}
