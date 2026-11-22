@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T03:03:00.422376Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob fe9f447851b3293fa4c0954f8f0efbcc73c379b8",
+        "CHECK.py blob f107733a4fd034e21f2962ec0cb55e2dc53b6f88",
+        "Independent Fraction arithmetic for q in {1/2,2/3}, n<5 and k<10: Circle_heat_vertex_factorization_PASS",
+        "Bochner positive-type criterion for compact circle and Stone–Weierstrass approximation"
+      ],
+      "rationale": "Fourier multiplication by cos theta and cos2theta gives coefficient q^(k^2) [1+alpha q cosh(2 tau k)+beta q^4 cosh(4 tau k)]. With y_k increasing and cosh(4tau k)=2y_k^2-1, the entire PSD test is a countable family of affine inequalities alpha>=L_k(beta), beta>=0 (beta<0 fails as k grows; beta=0 forces alpha>=0). At each given vertex (alpha_n,beta_n), exact polynomial factorization 2(y-y_n)(y-y_(n+1))/(1+2y_n y_(n+1)) proves positivity at ALL discrete frequencies, zeros only at neighbors and every line segment exposed. End ray follows F(y_j)=(y_j-1)[-1+beta q^4(2y_j+1)]; vertices exhaust the boundary. On each interval -h=a_n+b_n beta, the minimum of -h/sqrt beta occurs at beta=a_n/b_n in the interval asymptotically, and convexity as a function of sqrt beta puts maximum at endpoints; yields exactly the stated two asymptotic constants. All admissible spectra are eventually strictly positive, giving Vandermonde finite-site strictness; a spectral zero obstructs C-universality, while all-positive spectrum gives trigonometric-polynomial density. Independently exact rational vertex/facet checks corroborate selected n and q.",
+      "residual_risks": [
+        "Cusp derivation assumes fixed q in (0,1), not uniform as tau tends to zero.",
+        "Rational checks are finite; the complete frontier and asymptotic claims rely on the exact factorization and asymptotic estimates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arhancet–Li study abstract convex structure of normalized Fourier multipliers, not a theta heat kernel specific plane section.",
+          "Published two-cosine exponential exp(a cos p theta +b cos q theta) has positive quadrant but is exponentiated, not H_tau(theta) times a polynomial."
+        ],
+        "reasoning": "Neither the general convexity framework nor the exponential-of-cosines theorem yields the countable boundary of this separate non-exponential affine family.",
+        "searches": [
+          "Arhancet Li Fourier multipliers convex positive definite compact group arxiv 2603.00276",
+          "two harmonic circle exponentials positive type cone Resultary",
+          "Gaussian circle heat kernel two harmonics cos theta cos 2theta positive definite Fourier coefficient cone countable facets cusp"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2603.00276",
+        "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-every-mode-staircase-for-even-harmonic-geodesic-exponentia--027cc81ac50f",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-two-harmonic-circle-exponentials-the-sharp-positive-type-cone-an--8f4e14149944",
+        "https://en.wikipedia.org/wiki/Wrapped_normal_distribution",
+        "Resultary search Gaussian circle heat kernel two harmonics cos theta cos 2theta positive definite Fourier coefficient cone countable facets cusp"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A geodesic exponential has Fourier coefficients rational in n and parity, in contrast to q^(n^2) and quadratic cosh, and its one-harmonic parameter gives different frontier.",
+          "The exponential-of-cosines theorem has Bessel convolution with nonnegative quadrant, inconsistent with the signed alpha<0 allowed on this theta cone."
+        ],
+        "reasoning": "Contrasting Fourier symbols proves neither comparison theorem logically implies these specific facet and cusp identities without additional source-specific analysis.",
+        "searches": [
+          "https://arxiv.org/pdf/2603.00276",
+          "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-every-mode-staircase-for-even-harmonic-geodesic-exponentia--027cc81ac50f",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-two-harmonic-circle-exponentials-the-sharp-positive-type-cone-an--8f4e14149944"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Fourier characterization is equivalently nonnegativity of 2 beta q^4 y_n^2+alpha q y_n+1-beta q^4 at all n; the support plane section is alpha>=sup L_n.",
+          "Wrapped normal heat kernel has coefficients q^(n^2), providing the base but not the modulation frontier."
+        ],
+        "reasoning": "The natural equivalent formulations are theta Fourier multiplier and stationary covariance coefficient inequalities. Searched mathematical sources did not state all intersection vertices or cusp constants for this same modulation.",
+        "searches": [
+          "Gaussian circle heat kernel two harmonics cos theta cos 2theta positive definite Fourier coefficient cone countable facets cusp",
+          "wrapped normal theta kernel cosine polynomial positive definite parameter region"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The known wrapped-normal Fourier q^(n^2) table and theta identities do not tabulate the sharp exposed vertices beta_n or the oscillatory root-beta cusp.",
+          "All vertices are analytic functions of tau and indexed by n>=0; a finite parameter table would not establish them."
+        ],
+        "reasoning": "No existing explicit theta-parameter table covering all vertices and their asymptotics surfaced.",
+        "searches": [
+          "Gaussian circle heat kernel two harmonics cos theta cos 2theta positive definite Fourier coefficient cone countable facets cusp",
+          "theta periodic heat kernel covariance two cosine modulation exact critical values"
+        ]
+      },
+      "rationale": "Distinct two-parameter multiplicative perturbation of theta heat kernel is not implied by positive-definite cone generalities, one-harmonic geodesic-exponential staircase, or exponential-of-two-cosines positivity. Material comparison found no earlier same exact cone and sharp cusp; best-of-knowledge PASS, leaving theta/covariance historical risk.",
+      "residual_risks": [
+        "Historical theta-function covariance or periodized-Gaussian polynomial modulation literature could contain equivalent inequalities under different notation.",
+        "General compact-group literature was inspected for relevant claims, not exhaustively line-by-line for every appendix."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK_ONLY",
+          "evidence": [
+            "No specialized two-parameter theta-plane computation or vertex/cusp formula found in inspected material."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.00276",
+          "material_read": "Introduction and relevant convexity/multiplier framework",
+          "method": "Accessible arXiv full-text PDF; relevant theorem/intro reading",
+          "title": "On the convex structure of the space of quantum channels which act as Fourier multipliers",
+          "trigger": "General compact-group convex positive-definite functions might dominate"
+        },
+        {
+          "assessment": "DIFFERENT_BASE_KERNEL_AND_PARAMETER_FAMILY",
+          "evidence": [
+            "e^(-a distance)(1+b cos2theta) has rational/parity Fourier ratio, not theta heat kernel q^(k^2)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-every-mode-staircase-for-even-harmonic-geodesic-exponentia--027cc81ac50f",
+          "material_read": "Entire published RESULT.md including Fourier proof, transitions, asymptotics",
+          "method": "Full plain-text primary mathematical result read",
+          "title": "Exact every-mode staircase for even-harmonic geodesic-exponential circle covariances",
+          "trigger": "Closest circle spectral-facet result"
+        },
+        {
+          "assessment": "EXPONENTIAL_PRODUCT_NOT_MULTIPLICATIVE_THETA",
+          "evidence": [
+            "Exp(a cos p+b cos q) positive type iff a,b>=0, whereas current H_tau times (1+alpha cos+beta cos2) allows negative alpha."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-two-harmonic-circle-exponentials-the-sharp-positive-type-cone-an--8f4e14149944",
+          "material_read": "Entire published RESULT.md incl proof and examples",
+          "method": "Full primary mathematical result read",
+          "title": "Two-harmonic circle exponentials: the sharp positive-type cone and infinite spectral obstructions",
+          "trigger": "Two cosines on same circle with full positivity classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual full exact Fourier-factorization proof",
+        "Relevant geodesic-exponential and exponential-of-cosines primary comparisons",
+        "Independent rational vertex verification"
+      ],
+      "rationale": "The exact countably infinite exposed positive-type cone is a structural classification, not an arbitrary grid sample. The two distinct sharp square-root cusp constants and finite-site SPD versus nonuniversality give nontrivial spectral/approximation features that a researcher may directly need for signed covariance modulation.",
+      "residual_risks": [
+        "Only fixed heat time and exactly two multiplicative harmonics are covered; no higher dimensional extension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No universal statement about other kernels, multiple additional harmonics or tau-uniform cusp."
+  ],
+  "schema_version": 1
+}
