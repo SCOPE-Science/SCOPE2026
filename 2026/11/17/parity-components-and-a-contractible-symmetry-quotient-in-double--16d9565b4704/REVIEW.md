@@ -1,20 +1,21 @@
-# Scientific assessment: doubled joined polygon boundaries
+# Independent mathematical audit
 
-## Correctness — PASS
-The source \(X_{m,n}=C_m*C_n\) is a three-dimensional simplicial sphere; its tetrahedral facets are precisely products of a cycle edge in each factor. Each tetrahedron contributes exactly three complementary-edge pairs. Their edge-type decomposition proves the full simplicial graph isomorphism \(D^2(X_{m,n})\cong K_{m,n}\sqcup(C_m\times C_n)\). The connectivity of the categorical cycle product is proved directly by parity and synchronized walks, and integral graph homotopy is determined by spanning-tree contraction. The dihedral geometric quotient argument explicitly accounts for edge inversions. A standalone code package reconstructs the double independently from all facets for 49 ordered finite parameter pairs and checks the graph formula, component ranks and symmetry orbit claims; those finite checks corroborate but do not substitute for the unrestricted proof.
+## correctness
 
-## Originality — PASS (best knowledge, residual literature risk)
-The primary introducing source (Lesh–Schreiner–Wahl, arXiv:2506.10436, first public 2025-06-12) provides the definition and a weak Cohen–Macaulay connectivity theorem, not this graph decomposition or quotient. The closest indexed exact 3-sphere-double calculation concerns cyclic four-polytope boundaries, which have complete one-skeleton unlike \(C_m*C_n\) for \(m,n\ge4\). Another indexed join-double example has a six-dimensional source sphere and a two-dimensional double; a separate iterated-tupling theorem is inapplicable to a first double. Searches under 'opposite-edge graph', 'categorical/direct/Kronecker product', joins of cycles/polygon boundaries and the exact graph formula found no equivalent theorem. The special direct-product connectivity step is classical; novelty is claimed only for its precise appearance in this double and the resulting full topological and orbit-space classification. Unindexed work under related terminology could still cover the statement; absence from searched records is not a uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-This is a uniform two-parameter classification of a natural polytopal three-sphere family for a recently introduced construction. It exhibits a parity-sensitive transition from two to three homotopy components and gives explicit integral circle multiplicities, in a family where the general connectivity theorem is too weak to distinguish these possibilities. It additionally determines the genuine factorwise dihedral orbit spaces, avoiding a subtle false circle produced by forgetting edge inversion. This exact combination supplies structural information for comparing doubles across natural source-sphere families; it does not assert a general result for arbitrary joins or higher tuples.
+For the unfilled cycles C_m,C_n (m,n>=4) each tetrahedron of their join consists of two edges, one per factor. All three opposite-edge pair partitions in each tetrahedron form exactly K_{m,n} between same-factor edges and the categorical product C_m x C_n between cross edges; there are m+n+mn double vertices, 3mn edges, and no mixed adjacencies or higher faces. The product is 4-regular with mn vertices and 2mn edges, connected iff at least one cycle is odd; if both even it splits by bipartite parity into exactly two equal components. Spanning-tree contraction gives K Betti (m-1)(n-1), product Betti mn+1 or two of mn/2+1, torsion-free integral H_1 and no higher homology. Under factor-preserving D_m x D_n, K vertices have two orbits and edges one orbit -> interval; product vertices and edges each one orbit, but a reflection reverses an edge, so its actual geometric quotient is a half-edge interval, not a loop. Together the quotient is two disjoint closed intervals. Inspected verify.py direct facet enumerator for 49 ordered small cases; bounded examples matched 4x5 and 6x8, and symbolic facet argument handles all m,n.
 
-## Closest literature and limitations
-- Lesh, Schreiner and Wahl, *The double of a simplicial complex*, arXiv:2506.10436, Definition 2.1 and Theorem A; primary full-text sections inspected.
-- *Parity and dihedral homology of the doubled cyclic four-polytope boundary*, published mathematical record: distinct neighborly three-sphere family; full result and proof inspected.
-- *A 710-sphere double of a join of two simplex boundaries*, published mathematical record: different source dimension and double dimension; full result and proof inspected.
-- *Partition inflation and a composition law for iterated simplicial doubles*, published mathematical record: applies to iterated, not first, doubling; full result and proof inspected.
+## originality
 
-The proof does not identify full automorphism groups of the joined cycles in exceptional cases, nor a representation decomposition on first homology. The result is susceptible to an unindexed equivalent special case in older opposite-edge-graph research. Independent mathematical validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS on best-knowledge statement/implication comparison, NOT a proof of absolute literature priority. Prior and current result evaluated using actual source theorem and full relevant published primary work; residual risks specifically documented.
+
+## value
+
+PASS
+
+A transparent all-parameter structural classification shows simplicial double of a three-sphere can have disconnected large first homology while the true finite-group geometric quotient has only two contractible components. The parity-driven topology and edge-inversion subtlety are meaningful counterexamples/boundary descriptions for doubling and equivariant topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

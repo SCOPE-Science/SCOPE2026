@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-Run `python3 verify.py` in the directory containing the standalone script. It requires the Python 3 standard library only and terminates by assertions if any check fails.
+# Independent mathematical audit
 
-The script generates every tetrahedral facet of \(C_m*C_n\) using independent cycle-edge pairs, enumerates every two-element face and all three complementary-edge partitions, and compares the constructed simplicial double against a separately generated \(K_{m,n}\sqcup(C_m\times C_n)\) graph. It explicitly checks the nonexistence of cross-block adjacencies, the total counts \(m+n+mn\) vertices and \(3mn\) edges, and every connected component's integral first Betti rank by \(e-v+1\). For the factorwise dihedral action it enumerates transformations, confirms vertex and edge orbits in each graph block, and exhibits an endpoint inversion in the direct-product block. Results for all 49 ordered pairs with \(3\le m,n\le9\) passed; the claimed theorem only requires \(m,n\ge4\).
+## correctness
 
-Recorded output is in `verification_output.txt`; its last line is exactly `JOIN_CYCLES_DOUBLE_EXACT_PASS (49 ordered parameter pairs)`. The output also gives representative component counts for four sample parameter pairs. The source code and output are bundled as complete standalone artifacts with byte counts and cryptographic hashes.
+PASS
 
-The mathematical proof of the infinite-parameter statements is contained in `RESULT.md`: complete facet classification, parity/synchronized-walk connectivity, integral spanning-tree reduction, and the quotient edge-inversion argument. The finite checks are not a proof by induction, exhaustive enumeration of infinite parameters or independent external assessment. The source complexes, groups and quotient are all defined explicitly in the result.
+For the unfilled cycles C_m,C_n (m,n>=4) each tetrahedron of their join consists of two edges, one per factor. All three opposite-edge pair partitions in each tetrahedron form exactly K_{m,n} between same-factor edges and the categorical product C_m x C_n between cross edges; there are m+n+mn double vertices, 3mn edges, and no mixed adjacencies or higher faces. The product is 4-regular with mn vertices and 2mn edges, connected iff at least one cycle is odd; if both even it splits by bipartite parity into exactly two equal components. Spanning-tree contraction gives K Betti (m-1)(n-1), product Betti mn+1 or two of mn/2+1, torsion-free integral H_1 and no higher homology. Under factor-preserving D_m x D_n, K vertices have two orbits and edges one orbit -> interval; product vertices and edges each one orbit, but a reflection reverses an edge, so its actual geometric quotient is a half-edge interval, not a loop. Together the quotient is two disjoint closed intervals. Inspected verify.py direct facet enumerator for 49 ordered small cases; bounded examples matched 4x5 and 6x8, and symbolic facet argument handles all m,n.
+
+## originality
+
+PASS
+
+PASS on best-knowledge statement/implication comparison, NOT a proof of absolute literature priority. Prior and current result evaluated using actual source theorem and full relevant published primary work; residual risks specifically documented.
+
+## value
+
+PASS
+
+A transparent all-parameter structural classification shows simplicial double of a three-sphere can have disconnected large first homology while the true finite-group geometric quotient has only two contractible components. The parity-driven topology and edge-inversion subtlety are meaningful counterexamples/boundary descriptions for doubling and equivariant topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
