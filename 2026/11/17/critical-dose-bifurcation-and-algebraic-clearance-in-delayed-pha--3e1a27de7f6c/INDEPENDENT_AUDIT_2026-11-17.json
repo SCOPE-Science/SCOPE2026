@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T22:02:15.452972Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the exact n-phage retarded equations, positive compatible-history restriction, alpha_c=sum(k_i d_i/m_i), q_i*=d_i/m_i and z_i=exp(-mu tau_i). The characteristic equation is triangular with roots 0,-mu,-m_i at equality. Its constant center eigenvector has infected coefficient J=sum k_i q_i*(1-z_i)/mu and phage coefficients sigma_i=q_i*/m_i[k_i(b_i z_i-1)-ell_i J]. In the susceptible coordinate, the exact S equation gives S'=-(sum k_i sigma_i)S^2+O(S^3), so for kappa>0 the one-dimensional attracting center and stable foliation yield tS->1/kappa, tI->J/kappa, t(Q_i-q_i*)->sigma_i/kappa; for kappa<0 positive center drift repels. Parameter-dependent center reduction gives S*=delta/kappa+O(delta^2), with the physically positive side determined by delta/kappa. Verified n=1 example k=ell=d=m=mu=1, tau=log 2: J=1/2 and kappa=(b-3)/2, yielding +1/2 at b=4 and -1/2 at b=2. Positivity and compatibility are essential; finite symbolics alone do not establish stable-foliation asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cubic equal-latency theorem assumes K=0 and proves t^-1/2 and a separate continuum case; present result assumes nonzero kappa for arbitrary positive delays and t^-1."
+        ],
+        "reasoning": "Neither same-day cubic cancellation nor original linear stability dominates the generic nonzero center coefficient across distinct delays.",
+        "searches": [
+          "Resultary semantic phage critical-clearance query; 2026/11/17 cubic-threshold-clearance-in-equal-latency-phage-cocktails",
+          "arXiv:2611.08370v1 Sections 5, 5.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.08370v1 (Bardina–Cano–Cuadrado), equation family and Proposition 5.1",
+        "Resultary/2026 2026/11/17/SCOPE-cubic-threshold-clearance-in-equal-latency-phage-cocktails--5a615c0c84ad/RESULT.md",
+        "Hale–Verduyn Lunel (1993) retarded center manifold general theory"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source linear criterion concerns delta!=0; the critical center-root case is excluded. The sister cubic result handles precisely coefficient cancellation kappa=0."
+        ],
+        "reasoning": "Only after an additional model-specific center reduction, which neither cited theorem supplies for the general distinct-delay case, do the submitted 1/t law and sign transition follow.",
+        "searches": [
+          "Bardina arXiv:2611.08370v1 Proposition 5.1 and Section 5.1",
+          "Resultary 2026/11/17 cubic-threshold-clearance-in-equal-latency-phage-cocktails full RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original model variables S,I,Q_i and strict dose threshold alpha=sum_i k_i d_i/m_i agree exactly, but linear characteristic root zero leaves quadratic drift unspecified."
+        ],
+        "reasoning": "Exact reformulations via the equilibrium branch derivative and center coefficient kappa were compared with the source; the original strictly hyperbolic dichotomy does not state them.",
+        "searches": [
+          "Resultary semantic query: critical dose bifurcation algebraic clearance delayed bacteriophage cocktail coinfection Bardina Cano Cuadrado center manifold inverse time kappa",
+          "Bardina–Cano–Cuadrado arXiv:2611.08370v1 Eq.(2.1) and Proposition 5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact critical-dose n-phage kappa table or simultaneous three-species t^-1 coefficient appears in inspected published source or nearby indexed findings; this is search-limited."
+        ],
+        "reasoning": "A finite symbolic test with three phages and scalar sign witnesses is not an exhaustive published table or proof of novelty. No exact database coverage was found in the checked sources.",
+        "searches": [
+          "Resultary same model and dose queries; repository result/code inspection of all five assigned frozen blobs"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct boundary result: Bardina–Cano–Cuadrado Proposition 5.1 gives strict linear dose stability/instability but omits equality; the separate equal-latency cubic result imposes kappa=0 rather than the generic kappa nonzero claim. Model-specific quadratic center drift, simultaneous physical-time limits and sign-controlled local branch are not entailed by either inspected statement. No claim of exhaustive historical independence.",
+      "residual_risks": [
+        "Earlier single-phage/local bifurcation analyses could contain an equivalent center coefficient under different notation; not all have full-text verification.",
+        "The proof is local and uses smooth finite-delay center-manifold/stable-foliation theory; noncompatible histories and kappa=0 are excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers strict hyperbolic dose regimes, not equality critical decay",
+          "evidence": "Proposition 5.1 inequalities exclude alpha=sum k_i q_i*. Section 5.1 equilibrium function does not supply the center time law.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.08370",
+          "material_read": "Full HTML source sections containing the model equations, Proposition 5.1 and equilibrium discussion in Section 5.1, with linear-threshold hypotheses",
+          "method": "Primary text/HTML inspection",
+          "title": "Modelling and analysis of a cocktail phage therapy with coinfection",
+          "trigger": "Exact same delay equations and dosing equality"
+        },
+        {
+          "assessment": "Noncovering generic regime; complementary double-critical kappa=0 branch",
+          "evidence": "Assumes all delays equal and K=0, derives C>0 and sqrt(t)S limit, not nonzero-kappa tS limit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-cubic-threshold-clearance-in-equal-latency-phage-cocktails--5a615c0c84ad/RESULT.md",
+          "material_read": "Entire RESULT.md including hypotheses, all five proof steps and references",
+          "method": "Full published result fetched from GitHub",
+          "title": "Cubic threshold clearance in equal-latency phage cocktails",
+          "trigger": "Same model and a possibly stronger critical-rate conclusion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The excluded stability-equality surface of a biologically motivated multi-delay coinfection model is a structural bifurcation boundary. The explicit sign-changing coinfection/latency coefficient distinguishes algebraic clearance from invasion and determines a new locally measurable 1/t amplitude and nearby equilibrium branch. This is a meaningful nonlinear local threshold determination, not just a sign-check of the original linear criterion.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen assigned RESULT.md Git blob 3048a6052b3cee4e9f635e54049ee39fee002136",
+    "Frozen assigned METADATA.json Git blob 2317631d1ac5a73327c296f05d2880d036212981",
+    "Frozen assigned AUDIT.json Git blob b374f872d7535114efba7bce37df3b0dfc7ec831",
+    "Frozen assigned verify.py Git blob 1fd7456645b44e8b85cd5554baee95ec42a52456",
+    "arXiv:2611.08370v1 (Bardina–Cano–Cuadrado), equation family and Proposition 5.1",
+    "Resultary/2026 2026/11/17/SCOPE-cubic-threshold-clearance-in-equal-latency-phage-cocktails--5a615c0c84ad/RESULT.md",
+    "Hale–Verduyn Lunel (1993) retarded center manifold general theory"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only sufficiently small compatible physical histories and positive parameters; no global clearance, degenerate kappa=0, or stochastic result.",
+    "No formal machine verification of the full retarded stable foliation; linear coefficient identities tested separately.",
+    "Earlier single-phage/local bifurcation analyses could contain an equivalent center coefficient under different notation; not all have full-text verification.",
+    "The proof is local and uses smooth finite-delay center-manifold/stable-foliation theory; noncompatible histories and kappa=0 are excluded."
+  ],
+  "schema_version": 1
+}

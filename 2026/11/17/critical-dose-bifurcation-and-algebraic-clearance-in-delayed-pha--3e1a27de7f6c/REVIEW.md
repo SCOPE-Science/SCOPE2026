@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The zero-root center vector and exact quadratic susceptible equation establish the critical coefficient \(\kappa\), and local retarded center-manifold/stable-foliation theory gives the one-sided stability and sharp rates. The symbolic three-phage identity checker passes, but it is not an infinite-dimensional proof certificate. Only compatible sufficiently small physical histories are within scope.
+## correctness
 
-## Originality
-**PASS, historical priority provisional.** Bardina–Cano–Cuadrado (arXiv:2611.08370v1) establish linear stability on the two **strict** sides of the dose threshold; their Proposition 5.1 omits the equality. The explicit center coefficient, the sign-sensitive direction of the local coexistence branch and the physical-time limits were not located there or in the checked mathematical research records. Closest literature: the same primary source; 2019 Bardina–Cuadrado–Rovira stochastic coinfection article (abstract inspected, not whole paper). Earlier single-strain work remains a residual priority risk.
+PASS
 
-## Value
-**PASS.** A previously inconclusive zero-eigenvalue dosing surface acquires a quantitative biological interpretation: arbitrarily small bacteria either clear at an exact algebraic rate or are locally repelled, and changes to burst sizes or latency can reverse the outcome. The theorem includes arbitrary finitely many phage types and their distinct positive delays.
+Reconstructed the exact n-phage retarded equations, positive compatible-history restriction, alpha_c=sum(k_i d_i/m_i), q_i*=d_i/m_i and z_i=exp(-mu tau_i). The characteristic equation is triangular with roots 0,-mu,-m_i at equality. Its constant center eigenvector has infected coefficient J=sum k_i q_i*(1-z_i)/mu and phage coefficients sigma_i=q_i*/m_i[k_i(b_i z_i-1)-ell_i J]. In the susceptible coordinate, the exact S equation gives S'=-(sum k_i sigma_i)S^2+O(S^3), so for kappa>0 the one-dimensional attracting center and stable foliation yield tS->1/kappa, tI->J/kappa, t(Q_i-q_i*)->sigma_i/kappa; for kappa<0 positive center drift repels. Parameter-dependent center reduction gives S*=delta/kappa+O(delta^2), with the physically positive side determined by delta/kappa. Verified n=1 example k=ell=d=m=mu=1, tau=log 2: J=1/2 and kappa=(b-3)/2, yielding +1/2 at b=4 and -1/2 at b=2. Positivity and compatibility are essential; finite symbolics alone do not establish stable-foliation asymptotics.
 
-## Limitations
-Local, deterministic, compatible histories only; the degenerate \(\kappa=0\) case, distant states, global basins and independent validation remain unresolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct boundary result: Bardina–Cano–Cuadrado Proposition 5.1 gives strict linear dose stability/instability but omits equality; the separate equal-latency cubic result imposes kappa=0 rather than the generic kappa nonzero claim. Model-specific quadratic center drift, simultaneous physical-time limits and sign-controlled local branch are not entailed by either inspected statement. No claim of exhaustive historical independence.
+
+## value
+
+PASS
+
+The excluded stability-equality surface of a biologically motivated multi-delay coinfection model is a structural bifurcation boundary. The explicit sign-changing coinfection/latency coefficient distinguishes algebraic clearance from invasion and determines a new locally measurable 1/t amplitude and nearby equilibrium branch. This is a meaningful nonlinear local threshold determination, not just a sign-check of the original linear criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
