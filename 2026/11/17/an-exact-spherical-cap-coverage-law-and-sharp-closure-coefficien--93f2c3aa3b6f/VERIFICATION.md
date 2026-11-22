@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python verify_antiprism_law.py` with Python 3, NumPy and SciPy. Output obtained from the embedded file:
+## correctness
 
-```
-ANTIPRISM_TAIL_VERIFIED 550 assertions; sample coefficients: [(3, 3.30797337), (4, 4.34711172), (5, 6.05461383), (8, 13.85680107), (12, 30.03713405)]
-```
+PASS
 
-The checker compares analytical facet planes with independently reconstructed convex hull facets for eight polygon orders. It computes the last uncovered gaps by a longitude-integrated area of spherical-height intervals (rather than by the latitude formula), tests 32 angular deficits, and independently counts exact 3D dot-product cap memberships for 468 latitude/radius/height examples. This includes three distinct nonoptimal heights and radii on either side of a hemisphere. It also confirms the previously known six- and eight-site constants. These finite numerical checks neither establish infinite-order correctness nor historical novelty; the mathematical proof and separate prior-work analysis supply those arguments. The stated theorem only concerns fixed spherical sites, independently uniform sample directions, and the parameter ranges in RESULT.md.
+The latitude slicing uses normalized area dz dphi/(4pi). Alternating 2n longitudes at spacing delta=pi/n have uncovered interval [delta-A_+-A_-]_+, giving the exact all-radii integral even when individual caps cover whole parallels. At optimum the convex polytope has precisely two polar and 2n lateral triangular facets with equal support h*, and no other maximizing normals. The local polar tangent polygon is an n-gon of inradius 1 (area n tan delta); lateral tangent region has inequalities ±s y1 + c y2<1 and -y2<1, area (1+c)^2/(c s). Disjoint small contact patches exhaust the uncovered set by strict support gap elsewhere, and smooth nondegenerate active boundaries give O_n(epsilon³), yielding [2n tan delta+2n(1+c)²/(c s)]/(4pi)=K_n. Bernoulli product from m independent probes yields exp(-K_n x²). The asymptotic is fixed n, not joint-uniform; finite quadrature only corroborates.
+
+## originality
+
+PASS
+
+On the stated bounded primary literature and Resultary comparisons, the exact final claim is neither stated nor directly implied by the identified relevant antecedents; known special cases and methodology were credited. This is best-of-knowledge, not proof of global novelty. See four explicit implication checks, actual source inspections, and residual risks.
+
+## value
+
+PASS
+
+Complete exact spherical nearest-site CDF for a natural family of fixed latitude-ring codes and sharp measure of deepest gaps are natural spherical-coverage invariants. Explicit all-order local tail rates and extreme-probe scaling extend known covering radius and isolated n=4 calculations; arbitrary unmotivated numerical slices are not the object.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The all-radius formula follows from measuring the uncovered part of each alternating longitudinal half-step at fixed height, followed by exact spherical-area integration. For the sharp tail, the previously established facet-distance covering law is checked directly at the optimal height; the normal directions are precisely two polar and \(2n\) lateral facet normals. Exponential tangent-coordinate inequalities give two regular \(n\)-gons of area \(n\tan(\pi/n)\) each and \(2n\) triangles of area \((1+\cos(\pi/n))^2/[\cos(\pi/n)\sin(\pi/n)]\) each. Disjointness, nonactive-site slack, and smooth perturbations control the error at cubic order. The independent-probe limit is an elementary consequence of the proven tail and independence. A standalone Python/NumPy/SciPy verifier passed 550 assertions, including dot-product checks at arbitrary heights. Finite tests support but do not replace the proof.
+## correctness
 
-## Originality — PASS, provisional historical priority
-The closest established result is *Sharp spherical covering by two twisted regular latitude rings*: it fixes the maximum empty-cap radius and the optimizer, but not the complete spherical uncovered-area distribution or its local area coefficient. A previous eight-site square-antiprism result gives exactly the \(n=4\) coefficient; that special case is acknowledged as existing prior and is not asserted to be original by itself. Existing exact nearest-site laws for other spherical codes (icosahedron, icosidodecahedron, cube–octahedron compound) do not imply the staggered-ring values. Roychowdhury's 2026 full study uses discrete quantization measures supported on circles, not a Haar-uniform query over the sphere with fixed antiprism sites. Fowler–Tarnai–Gáspár (2002) studies varying-radius area optimization over changing configurations for selected small point counts, rather than this all-order fixed-antiprism identity. No searched indexed statement dominates the complete theorem. Residual risk: older or unindexed analytical cap-union calculations may contain an equivalent formula under different terminology.
+PASS
 
-## Mathematical value — PASS
-Spherical quantization and cap covering require more information than the single worst-case covering radius: the fraction of directions with a specified nearest-site distance is a natural geometric statistic. The theorem classifies this complete distribution for an infinite symmetric family and gives the exact all-order quadratic closing coefficient, its growth with order, and a limiting extreme-probe law. Different classes of supporting facets contribute distinct, explicitly quantified local shapes. This is a motivated natural invariant, not a renamed threshold or an arbitrary special-number computation.
+The latitude slicing uses normalized area dz dphi/(4pi). Alternating 2n longitudes at spacing delta=pi/n have uncovered interval [delta-A_+-A_-]_+, giving the exact all-radii integral even when individual caps cover whole parallels. At optimum the convex polytope has precisely two polar and 2n lateral triangular facets with equal support h*, and no other maximizing normals. The local polar tangent polygon is an n-gon of inradius 1 (area n tan delta); lateral tangent region has inequalities ±s y1 + c y2<1 and -y2<1, area (1+c)^2/(c s). Disjoint small contact patches exhaust the uncovered set by strict support gap elsewhere, and smooth nondegenerate active boundaries give O_n(epsilon³), yielding [2n tan delta+2n(1+c)²/(c s)]/(4pi)=K_n. Bernoulli product from m independent probes yields exp(-K_n x²). The asymptotic is fixed n, not joint-uniform; finite quadrature only corroborates.
 
-## Scope and risks
-The all-order optimal height and radius, and the eight-site contact coefficient, are known. The present result is limited to the specified latitude-ring family and does not establish global best-covering positions for arbitrary \(2n\) sites. The error term is nonuniform in \(n\). The priority review is necessarily bounded; independent scientific validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+On the stated bounded primary literature and Resultary comparisons, the exact final claim is neither stated nor directly implied by the identified relevant antecedents; known special cases and methodology were credited. This is best-of-knowledge, not proof of global novelty. See four explicit implication checks, actual source inspections, and residual risks.
+
+## value
+
+PASS
+
+Complete exact spherical nearest-site CDF for a natural family of fixed latitude-ring codes and sharp measure of deepest gaps are natural spherical-coverage invariants. Explicit all-order local tail rates and extreme-probe scaling extend known covering radius and isolated n=4 calculations; arbitrary unmotivated numerical slices are not the object.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
