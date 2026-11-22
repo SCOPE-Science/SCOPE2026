@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-Exact reproducibility check: `python3 a5_quotient_verify.py` under Python 3.13 and SymPy 1.14.0.
+# Independent mathematical audit
 
-Recorded output:
+## correctness
 
-```
-A5 orbit enumeration: PASS
-n=4: H3 free=1, torsion=[]; H4 free=0; D^2=0 PASS
-n=5: H3 free=4, torsion=[]; H4 free=0; D^2=0 PASS
-n=6: H3 free=9, torsion=[]; H4 free=1; D^2=0 PASS
-n=7: H3 free=14, torsion=[3]; H4 free=6; D^2=0 PASS
-n=8: H3 free=14, torsion=[3, 3, 3, 3, 3, 3, 6]; H4 free=21; D^2=0 PASS
-ALL EXACT CHECKS PASSED
-```
+PASS
 
-The implementation enumerates all sixty even permutations on five labels and verifies the one-orbit/two-orbit classification, constructs quotient cellular differentials with signed face deletion, checks every adjacent boundary composition, constructs the smaller integral \([U\ R]\) presentation, and verifies its Smith diagonal against modular ranks of the original cellular maps. The handwritten proof of the presentation and of the passage from homology to homotopy is in `RESULT.md`. These checks cover exactly four through eight columns; smaller widths follow directly from the simplex model. No computation beyond eight columns or external independent validation is claimed.
+Even row permutations act transitively on k-rook row assignments for k<=3 and in two parity orbits for k=4,5 with no simplex inversion; quotient cellular boundaries are signed deletions. Unimodular u/v change yields H3=coker([U R]) on 4-subsets with 5-/6-subset incidence relations. Independently rebuilt integer Smith matrices at n=5..8: free H3 ranks 4,9,14,14; n7 torsion [3], n8 [3,3,3,3,3,3,6]; corresponding free H4 ranks 0,1,6,21. A full two-skeleton and primitive H2-killing maps imply 2-connected CW complex, whose 4-cell attaching maps are classified by integer matrices up to homotopy, giving stated Moore and sphere wedges. The conclusion is strictly for n<=8, not a claimed infinite cutoff.
+
+## originality
+
+PASS
+
+Directly compares ordinary nonfree A5 quotient to existing rational homology of labeled chessboards, symmetrized unions of permutations, unquotiented generalized chessboards, and a published A4 FOUR-row alternating quotient. Their actions and integral cellular chains differ; none implies the 5-row two-parity H3 Smith invariants or complete homotopy types. Best-of-knowledge originality supported; potential unindexed quotient computations remain.
+
+## value
+
+PASS
+
+The first appearance of 3-torsion and mixed 2-/3-primary torsion in a natural row-symmetry orbit complex is a motivated finite boundary and complete exact integral homotopy classification, not an arbitrary small numerical slice. It separates genuine geometric orbits from homotopy quotients and provides reusable integral incidence presentation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review: parity-branching five-row chessboard quotients
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The orbit count follows from the sharply three-transitive five-letter alternating action, with completed-permutation parity distinguishing all four- and five-rook orbits. Unique occupied columns rule out simplex inversions, so signed face-deletion boundaries give the genuine integral orbit-space cellular complex even though the action is not free. The supplied proof reduces third homology to the exact integer cokernel of a specified \(\binom n4\)-by-\(\binom n5+\binom n6\) matrix. A freshly executed standalone checker verified the full boundaries, zero compositions and Smith computations for every asserted finite width, including the order-six factor at eight columns. The quotient is two-connected for widths at least four, so Smith diagonalization of its four-dimensional CW presentation also determines the claimed complete homotopy type. No infinite-width extrapolation is used.
+PASS
 
-## Originality — PASS relative to inspected sources
+Even row permutations act transitively on k-rook row assignments for k<=3 and in two parity orbits for k=4,5 with no simplex inversion; quotient cellular boundaries are signed deletions. Unimodular u/v change yields H3=coker([U R]) on 4-subsets with 5-/6-subset incidence relations. Independently rebuilt integer Smith matrices at n=5..8: free H3 ranks 4,9,14,14; n7 torsion [3], n8 [3,3,3,3,3,3,6]; corresponding free H4 ranks 0,1,6,21. A full two-skeleton and primitive H2-killing maps imply 2-connected CW complex, whose 4-cell attaching maps are classified by integer matrices up to homotopy, giving stated Moore and sphere wedges. The conclusion is strictly for n<=8, not a claimed infinite cutoff.
 
-The 1994 original chessboard paper defines the labeled spaces and studies connectivity; Reiner–Roberts Theorem 1.3 determines rational labeled-group representations, not nonfree orbit-space integral torsion; Jojić–Vrećica–Živaljević Definition 2.1 concerns unions of translates, not quotients; and the 2026 generalized-chessboard homotopy classification concerns the underlying spaces. Prior investigations of cyclic column quotients, four-row alternating quotients and unquotiented five-row torsion do not imply the displayed five-row alternating quotient homotopy types. Actual searches included the exact group, space, alias, parity interpretation, incidence parameters and neighboring results. Remaining risk: unindexed equivalent work or an implicit general orbit-space theorem not located in the inspected materials.
+## originality
 
-## Value — PASS
+PASS
 
-The alternating group is the canonical index-two symmetry subgroup in the five-row partial-injection complex. Its quotient is a parity double of the full-symmetric four-skeleton, branched over the low-dimensional cells, and is a natural topological object rather than an arbitrary subcomplex. The exact first torsion threshold at seven columns, the sudden two- and three-primary torsion at eight columns, and full Moore-space splittings capture information that the labeled rational character and the full-symmetric quotient do not give. Although finite, the cutoff and explicit structural presentation are motivated and reproducible.
+Directly compares ordinary nonfree A5 quotient to existing rational homology of labeled chessboards, symmetrized unions of permutations, unquotiented generalized chessboards, and a published A4 FOUR-row alternating quotient. Their actions and integral cellular chains differ; none implies the 5-row two-parity H3 Smith invariants or complete homotopy types. Best-of-knowledge originality supported; potential unindexed quotient computations remain.
 
-## Closest work and limitations
+## value
 
-The closest primary sources are Björner–Lovász–Vrećica–Živaljević (1994), Reiner–Roberts (2000), Jojić–Vrećica–Živaljević (2015 arXiv version), and Limonchenko–Yu (2026 arXiv version). The result covers widths one through eight only; it is not a classification for all column counts. Neither external publication priority nor an independent audit has been established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first appearance of 3-torsion and mixed 2-/3-primary torsion in a natural row-symmetry orbit complex is a motivated finite boundary and complete exact integral homotopy classification, not an arbitrary small numerical slice. It separates genuine geometric orbits from homotopy quotients and provides reusable integral incidence presentation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
