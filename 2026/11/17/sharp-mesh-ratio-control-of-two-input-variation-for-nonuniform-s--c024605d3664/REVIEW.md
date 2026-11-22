@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the specified nonuniform Steffen tangent map, the coordinatewise derivatives of each knot slope belong to \([0,2]\) almost everywhere. The Hermite derivative basis is nonnegative in the relevant two-parameter square and integrates to one. Each neighboring derivative basis has \(L^1\)-integral exactly \(8/27\). Therefore the complete column variation of a one-secant perturbation is at most the coefficient in the theorem. Summing changed columns establishes the two-input estimate; BV truncation is justified whenever the coefficient is finite. An explicit strict-branch choice simultaneously saturates both neighbor derivatives and attains the sharp bound for any chosen cell. The bundled exact-rational checker confirms the basis identities and a sample attaining \(107/27\); the infinite theorem relies on the complete analytical argument, not on numerical trials.
+PASS
 
-## Originality — PASS, qualified
+On fixed bi-infinite grid, Steffen limiter has same-sign secants and partial slopes in [0,2]. Hermite derivative A=6t(1−t), B=3t²−4t+1, C=3t²−2t has ∫|B|=∫|C|=8/27 and A+aB+bC≥0 for 0≤a,b≤2 by checking four polynomial corners. Perturbing just one secant gives central TV h_i|δs_i| and neighboring TV ≤(16/27)(h_{i-1}+h_{i+1})|δs_i|. Telescope finite secant changes and pass to bi-infinite ℓ¹ by Fatou; this proves upper bound. Choose adjacent secants large positive compared to the center so both strict selector branches are 2s_i, giving exact lower bound for each i, including infinite unbounded mesh-ratio case. Independent exact basis/abs integrals and h triples (2,1,3) give 107/27. Individual signals are cellwise monotone, so one-input TV preservation is separate from two-input bound.
 
-The indexed and accessible prior record includes uniform-grid Hermite norm results, nonuniform monotonicity/accuracy studies, and a distinct \(Q_1\) averaging TVD operator. The new conclusion is an exact two-input BV norm of Steffen interpolation for *every fixed nonuniform grid* and a necessary-and-sufficient neighboring-cell ratio criterion; these statements are not logically implied by the compared results. The original Steffen article from 1990 and the most relevant 2013 nonuniform Hermite study were unavailable in full text. They are named material residual priority risks; a negative search is not proof of historical uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem locates a structural conditioning boundary that individual-signal variation preservation conceals. The formula is sharp at every chosen cell, and an unbounded mesh-ratio condition yields a genuine loss of global two-input BV Lipschitz regularity. This gives a mathematically motivated quantitative diagnostic for shape-preserving interpolation on locally refined meshes.
+Best-of-knowledge original contribution remains after subtracting credited prior special or broader results; each of four implication comparisons and source inspections below document the boundaries. 
 
-## Limits and closest literature
+## value
 
-The result does not pertain to moving knot positions, finite interval boundary prescriptions, or other monotone Hermite selectors. The uniform-grid special case alone would not merit a new claim; the proof and value concern the entire nonuniform mesh family and the sharp necessity of shape regularity. References and the precise inspection limitations are in `RESULT.md` and `AUDIT.json`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp iff mesh-shape-regularity criterion for two-input BV stability of an established interpolation scheme locates a meaningful conditioning failure invisible in monotone one-signal TV. It is an all-grid structural boundary with explicit local witnesses, not a cosmetic uniform-grid constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

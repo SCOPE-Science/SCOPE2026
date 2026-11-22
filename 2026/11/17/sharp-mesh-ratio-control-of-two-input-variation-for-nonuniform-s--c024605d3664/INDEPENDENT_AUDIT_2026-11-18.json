@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T12:04:54.052036Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On fixed bi-infinite grid, Steffen limiter has same-sign secants and partial slopes in [0,2]. Hermite derivative A=6t(1−t), B=3t²−4t+1, C=3t²−2t has ∫|B|=∫|C|=8/27 and A+aB+bC≥0 for 0≤a,b≤2 by checking four polynomial corners. Perturbing just one secant gives central TV h_i|δs_i| and neighboring TV ≤(16/27)(h_{i-1}+h_{i+1})|δs_i|. Telescope finite secant changes and pass to bi-infinite ℓ¹ by Fatou; this proves upper bound. Choose adjacent secants large positive compared to the center so both strict selector branches are 2s_i, giving exact lower bound for each i, including infinite unbounded mesh-ratio case. Independent exact basis/abs integrals and h triples (2,1,3) give 107/27. Individual signals are cellwise monotone, so one-input TV preservation is separate from two-input bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published harmonic-mean uniform-grid result gives 59/27 but is a different nonlinear slope selector and only unit mesh.",
+          "Alternating-grid optimal affine slope blend treats a different operator family."
+        ],
+        "reasoning": "Even if equal-grid constants coincide, the bi-infinite nonuniform Steffen 1+(16/27)sup neighbor/center ratio and iff shape regularity are not corollaries of cited uniform-grid or other-operator statements.",
+        "searches": [
+          "nonuniform Steffen cubic Hermite interpolation sharp two-input total variation mesh-ratio",
+          "Resultary uniform grid harmonic mean Hermite 59/27",
+          "Resultary alternating mesh affine reproducing cubic Hermite slopes"
+        ]
+      },
+      "checked_sources": [
+        "1990A&A...239..443S full extracted original Steffen paper",
+        "arxiv:1211.1069 Q1 TVD",
+        "arxiv:2102.11564 nonuniform cubic monotonicity",
+        "Resultary 2026/11/17 harmonic-mean cubic Hermite 59/27 full RESULT.md",
+        "doi:10.1137/12088495X publisher metadata only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original Steffen paper establishes monotonicity/curvature local constraints but no two-input total variation Lipschitz theorem in inspected material.",
+          "Nochetto–Salgado treats Q1 cell-averaging TVD, not Steffen knot slopes."
+        ],
+        "reasoning": "Source supplies limiter premises. The sharp two-input perturbation requires independent derivative response and exact adjacent-cell absolute basis integrals, which do not follow from monotonicity alone.",
+        "searches": [
+          "Steffen 1990 1990A&A...239..443S",
+          "nonuniform Steffen cubic Hermite interpolation sharp two-input total variation mesh-ratio",
+          "arxiv:1211.1069 nonuniform TV interpolation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Steffen original 1990 article specifies the local monotonicity-preserving secant limiter, and mentions nonlinear superposition caveats.",
+          "Aràndiga 2013 studies order/nonuniform accuracy of monotone Hermite interpolation; full text was inaccessible."
+        ],
+        "reasoning": "Shape preservation, interpolation order and potential failure of superposition do not state the global sharp two-input BV amplification over every fixed nonuniform grid.",
+        "searches": [
+          "nonuniform Steffen cubic Hermite interpolation sharp two-input total variation mesh-ratio",
+          "Steffen 1990 slope rule equation 11",
+          "Arandiga 2013 nonuniform monotone cubic Hermite"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No located indexed result tabulates the nonuniform Steffen two-input coefficient or its grid regularity equivalence."
+        ],
+        "reasoning": "The statement is over arbitrary infinite grids and has an exact analytic bound, so finite interpolation tables do not establish it; negative lookup not proof of priority.",
+        "searches": [
+          "nonuniform Steffen cubic Hermite interpolation sharp two-input total variation mesh-ratio",
+          "nonuniform Steffen cubic Hermite sharp BV Lipschitz constant 16/27",
+          "A&A 1990 Steffen variation norm perturbation"
+        ]
+      },
+      "rationale": "Best-of-knowledge original contribution remains after subtracting credited prior special or broader results; each of four implication comparisons and source inspections below document the boundaries. ",
+      "residual_risks": [
+        "Aràndiga 2013 DOI 10.1137/12088495X could contain additional pertinent perturbation results; no full-text comparison because authorized Oxford VPN disconnected (job d5a5e1952ce335a0ae18f4675500160b).",
+        "Original Steffen PDF text may omit graphical formula context; screenshot rendering unavailable, though mathematical slope formula is separately printed and compared."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUPPORTS_LIMITER_NOT_TWO_INPUT_TV",
+          "evidence": [
+            "1990 formula gives limiter and monotonicity, not sharp bi-infinite difference-TV coefficient. PDF page screenshot request failed with DisabledError."
+          ],
+          "identifier_or_url": "https://adsabs.harvard.edu/pdf/1990A%26A...239..443S",
+          "material_read": "Complete extracted original paper; slope equations and sections 2–4, variation and data-linearity discussion",
+          "method": "Lawful OA paper PDF text extraction and equation-level comparison; PDF screenshot unavailable",
+          "title": "A simple method for monotonic interpolation in one dimension",
+          "trigger": "Original rule, same nonuniform knot slopes"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": [
+            "Piecewise Q1 averaging map, not cubic Hermite data-dependent tangents."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1211.1069",
+          "material_read": "Open paper abstract and operator construction descriptions",
+          "method": "Open primary mathematical text, inspected specified relevant sections",
+          "title": "A Total Variation Diminishing Interpolation Operator and Applications",
+          "trigger": "Closest variation-preserving interpolation result"
+        },
+        {
+          "assessment": "SPECIAL_DIFFERENT_OPERATOR",
+          "evidence": [
+            "Uniform harmonic-mean selector and grid; lacks arbitrary nonuniform Steffen theorem."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-two-input-bounded-variation-stability-of-harmonic-mean-cub--479993d5519d",
+          "material_read": "Entire published RESULT.md including proof and scope",
+          "method": "Open primary mathematical text, inspected specified relevant sections",
+          "title": "Sharp two-input bounded-variation stability of harmonic-mean cubic Hermite interpolation",
+          "trigger": "Same variation functional and uniform-grid numeric constant"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_PRIORITY_RISK",
+          "evidence": [
+            "No whole-paper NOT_COVERING claim justified; the inspectable scope concerns approximation order."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/12088495X",
+          "material_read": "Publisher abstract and bibliographic information only; neither arXiv nor lawful OA full text located; authorized Oxford access reported VPN disconnected",
+          "method": "OA/preprint source search followed by authorized Oxford request; full text unavailable",
+          "title": "On the Order of Nonuniform Monotone Cubic Hermite Interpolants",
+          "trigger": "Plausible earlier result on identical nonuniform Hermite family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp iff mesh-shape-regularity criterion for two-input BV stability of an established interpolation scheme locates a meaningful conditioning failure invisible in monotone one-signal TV. It is an all-grid structural boundary with explicit local witnesses, not a cosmetic uniform-grid constant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed positive bi-infinite mesh, finite-variation nodal sequences, Steffen derivatives only; no moving knots or alternate endpoint methods.",
+    "Authorized institutional retrieval of most relevant 2013 article was blocked by disconnected VPN; science not rejected for access alone."
+  ],
+  "schema_version": 1
+}

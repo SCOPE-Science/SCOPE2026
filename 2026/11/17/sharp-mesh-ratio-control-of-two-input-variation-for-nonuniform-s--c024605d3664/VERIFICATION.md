@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Analytical and computational verification
+# Independent mathematical audit
 
-The argument is reconstructed in `RESULT.md`. The critical exact polynomial identities and exact local witness are explicitly tested by `steffen_nonuniform_verify.py` using Python's standard-library `fractions.Fraction`. The executable also runs 2,500 seeded irregular-grid stress tests of one-input variation preservation and two-input variation bounds.
+## correctness
 
-Replay with `python3 steffen_nonuniform_verify.py`; the recorded successful terminal lines were:
+PASS
 
-```text
-EXACT_BASIS_INTEGRALS_AND_FOUR_CORNER_IDENTITIES_PASS 8/27
-EXACT_WITNESS_COEFFICIENT_PASS 107/27
-NONUNIFORM_RANDOM_TWO_INPUT_AND_ONE_INPUT_BV_CHECKS_PASS 2500
-ALL_STEFFEN_NONUNIFORM_CHECKS_PASS
-```
+On fixed bi-infinite grid, Steffen limiter has same-sign secants and partial slopes in [0,2]. Hermite derivative A=6t(1−t), B=3t²−4t+1, C=3t²−2t has ∫|B|=∫|C|=8/27 and A+aB+bC≥0 for 0≤a,b≤2 by checking four polynomial corners. Perturbing just one secant gives central TV h_i|δs_i| and neighboring TV ≤(16/27)(h_{i-1}+h_{i+1})|δs_i|. Telescope finite secant changes and pass to bi-infinite ℓ¹ by Fatou; this proves upper bound. Choose adjacent secants large positive compared to the center so both strict selector branches are 2s_i, giving exact lower bound for each i, including infinite unbounded mesh-ratio case. Independent exact basis/abs integrals and h triples (2,1,3) give 107/27. Individual signals are cellwise monotone, so one-input TV preservation is separate from two-input bound.
 
-The finite sample tests do not establish the theorem for infinite or arbitrary grids. The infinite claim is supported by the piecewise-affine derivative bounds, the analytic integral identities, the truncation step, and the explicit exact extremizer. Original source availability and historical priority limitations are described separately in `AUDIT.json`.
+## originality
+
+PASS
+
+Best-of-knowledge original contribution remains after subtracting credited prior special or broader results; each of four implication comparisons and source inspections below document the boundaries. 
+
+## value
+
+PASS
+
+The sharp iff mesh-shape-regularity criterion for two-input BV stability of an established interpolation scheme locates a meaningful conditioning failure invisible in monotone one-signal TV. It is an all-grid structural boundary with explicit local witnesses, not a cosmetic uniform-grid constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
