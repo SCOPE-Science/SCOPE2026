@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The coefficient is fully specified for every integer dimension \(n\ge2\), with proper degree-one boundary normalization. Positive linearity and coarea reduce the norm to binary cuts. A direct exact leakage identity and a complete case analysis of endpoint imbalance prove the uniform upper bound for all \(n\ge9\). The only finite exhaustive step is \(2\le n\le8\), covered by a readable, deterministic all-subsets integer checker. Attaining cuts provide equality in every dimension, and the same checker independently stress-tests all cuts through dimension sixteen. The relevant assumptions exclude nonlazy and stationary-weighted variants.
+PASS
 
-## Originality — PASS, with residual risk
+The complete-pair Gini seminorm admits an exact binary-cut reduction by layer cake and triangle inequality for every real input. The read RESULT.md proves the leakage identity with F(u1,u2)=u1²+2u1u2+2u2² and an all-n endpoint imbalance case split d in {-2,-1,0,1,2}; the second-coordinate spike saturates the n>=9 bound. Independently enumerated all 2^n-2 cuts for each n=2..11, reproducing rational sharp coefficients 0,1/2,1-1/(2 floor(n²/4)) at n=4..8 and 1+(n-9)/(4(n-1)) at n=9..11. Source script check_exact.py exhaustively covers n<=16, but it was inspected, not presumed run. Universal n>=9 is established analytically, not by enumeration.
 
-The nearest published primary work of Gaubert–Qu (arXiv:1302.5226 and arXiv:1307.4649) evaluates oscillation/dual-total-variation contraction, not the present Gini operator seminorm. An accessible earlier technical claim on normalized-path continuous-time heat establishes a contraction **threshold** and small-time witnesses, not the exact coefficient of the fixed half-lazy update or the balanced-arc/singleton optimizer transition. No exact covering statement was found in the genuine recorded queries. This is a reasoned best-knowledge comparison, not a universal priority certificate; unindexed works and the full historical treatment of the semigroup remain residual risks. The finite-step coefficient and all-attaining families are the distinct mathematical content.
+## originality
 
-## Value — PASS
+PASS
 
-A degree-normalized path is a canonical nonregular Markov operator: unlike bistochastic averaging, it can increase equally weighted pairwise dispersion. The exact finite-step coefficient gives a complete dimension classification, isolates a transition in optimal cut geometry, and quantifies an asymptotic \(25\%\) amplification. It distinguishes a fixed discrete Euler update from heat-flow asymptotics and from oscillation contraction. These are substantive sharp stability facts rather than a numerical sweep of small orders.
+Hopf oscillation/Dobrushin total-variation coefficients are not the primal all-pair Gini seminorm. A different published complete-pair Gini theorem for half-lazy walks on balanced bicliques gives contraction <=3/4, but has different graph and exact coefficient; continuous-time heat results also do not determine a fixed discrete Euler step. The sharp reflecting-path formula and optimizer transition therefore pass best-of-knowledge distinctness.
 
-## Scope and independent verification
+## value
 
-The result excludes other holding parameters, repeated application and weighted graphs. The exact small-dimensional computation is transparent and exhaustive; the unbounded-dimensional statement is mathematical proof, not numerical extrapolation. Historical comparisons can be strengthened by a specialist literature review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact induced seminorm of a standard path Markov smoother identifies the sharp threshold n=10 for Gini amplification, optimizer switch at n=9 and limiting gain 5/4, distinguishing unweighted pair dispersion from usual Markov contractions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

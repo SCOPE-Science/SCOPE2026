@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T13:49:53Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-one-step-gini-norm-for-the-half-lazy-reflecting-path-walk--a710393510b8/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-one-step-gini-norm-for-the-half-lazy-reflecting-path-walk--a710393510b8/check_exact.py",
+        "read-only fetched Git blob 145b864fc137cd9e03658bb2c2dad9c4c2f7a026",
+        "read-only fetched verifier blob bbbe9b71e90dc6c72ad407521fced32df5d426cd"
+      ],
+      "rationale": "The complete-pair Gini seminorm admits an exact binary-cut reduction by layer cake and triangle inequality for every real input. The read RESULT.md proves the leakage identity with F(u1,u2)=u1²+2u1u2+2u2² and an all-n endpoint imbalance case split d in {-2,-1,0,1,2}; the second-coordinate spike saturates the n>=9 bound. Independently enumerated all 2^n-2 cuts for each n=2..11, reproducing rational sharp coefficients 0,1/2,1-1/(2 floor(n²/4)) at n=4..8 and 1+(n-9)/(4(n-1)) at n=9..11. Source script check_exact.py exhaustively covers n<=16, but it was inspected, not presumed run. Universal n>=9 is established analytically, not by enumeration.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full balanced-biclique published result gives 3(m-1)/(2(2m-1)), tends to 3/4, whereas path formula amplifies for n>=10 and approaches 5/4."
+        ],
+        "reasoning": "Different graph incidence and norm constants prevent coverage; general Dobrushin duality concerns a different norm.",
+        "searches": [
+          "arXiv:1307.4649 Markov operators cones",
+          "2026/11/17/SCOPE-sharp-gini-contraction-of-half-lazy-random-walks-on-balanced-bic--6219a5881272",
+          "half lazy reflecting path random walk complete pair Gini seminorm exact one step operator norm"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1307.4649 (abstract and introduction)",
+        "2026/11/17/SCOPE-sharp-gini-contraction-of-half-lazy-random-walks-on-balanced-bic--6219a5881272 full RESULT",
+        "read-only pinned RESULT.md and check_exact.py",
+        "half lazy reflecting path random walk complete pair Gini seminorm exact one step operator norm"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2013 theorem controls Hopf oscillation of stochastic matrices and dual total variation; balanced biclique result is on K_m,m rather than paths."
+        ],
+        "reasoning": "Neither determines the full path Gini operator norm or its sharp optimizer switch. General methods could potentially yield the result but no cited theorem states an implication.",
+        "searches": [
+          "Gaubert Qu Dobrushin coefficient arXiv:1307.4649",
+          "half lazy reflecting path random walk complete pair Gini seminorm exact one step operator norm"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gaubert-Qu Hopf oscillation/dual total variation contraction uses max-min or dual measure norm, not sum over all unordered signal pairs."
+        ],
+        "reasoning": "No norm isometry connects these quantities for general real signals with n>=3; endpoint cut formulas are specific to Gini.",
+        "searches": [
+          "half lazy reflecting path random walk complete pair Gini seminorm exact one step operator norm",
+          "complete pairwise Gini coefficient reflecting path one step lazy random walk"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned published exact Gini coefficients for bicliques, wheels, stars, Ehrenfest and finite Cesaro, but none gives this path formula."
+        ],
+        "reasoning": "No prior exact path table identified; small-case enumeration was reproduced here, with all-order result requiring the written cut argument.",
+        "searches": [
+          "half lazy reflecting path random walk complete pair Gini seminorm exact one step operator norm",
+          "half lazy reflecting path complete pair Gini norm coefficients 5/4"
+        ]
+      },
+      "rationale": "Hopf oscillation/Dobrushin total-variation coefficients are not the primal all-pair Gini seminorm. A different published complete-pair Gini theorem for half-lazy walks on balanced bicliques gives contraction <=3/4, but has different graph and exact coefficient; continuous-time heat results also do not determine a fixed discrete Euler step. The sharp reflecting-path formula and optimizer transition therefore pass best-of-knowledge distinctness.",
+      "residual_risks": [
+        "An unindexed matrix-norm/Gini coefficient formula might subsume the path coefficient under another name.",
+        "Original full continuous-path heat study not independently read here; explicit discrete fixed step separates claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different seminorm and duality, not directly covering",
+          "evidence": "Abstract says Hopf oscillation seminorm and dual total-variation rate, not complete-pair Gini.",
+          "identifier_or_url": "arXiv:1307.4649",
+          "material_read": "Abstract and introduction description of Hopf oscillation and dual TV; not complete proof",
+          "method": "Open abstract and accessible author-hosted PDF opening",
+          "title": "Dobrushin's ergodicity coefficient for Markov operators on cones",
+          "trigger": "Potential stronger general Markov coefficient theorem"
+        },
+        {
+          "assessment": "Distinct K_{m,m} graph and strict contraction formula",
+          "evidence": "Its coefficient 3(m-1)/(2(2m-1)) never exceeds 3/4; path reaches 5/4 asymptotically.",
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-gini-contraction-of-half-lazy-random-walks-on-balanced-bic--6219a5881272",
+          "material_read": "Full RESULT.md including definitions, proof and limitations",
+          "method": "Read-only GitHub fetch_file (Resultary/2026)",
+          "title": "Sharp Gini contraction of half-lazy random walks on balanced bicliques",
+          "trigger": "Same half-lazy discrete Gini statistic on another graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/sharp-one-step-gini-norm-for-the-half-lazy-reflecting-path-walk--a710393510b8/RESULT.md",
+        "arXiv:1307.4649 (abstract and introduction)",
+        "2026/11/17/SCOPE-sharp-gini-contraction-of-half-lazy-random-walks-on-balanced-bic--6219a5881272 full RESULT"
+      ],
+      "rationale": "The exact induced seminorm of a standard path Markov smoother identifies the sharp threshold n=10 for Gini amplification, optimizer switch at n=9 and limiting gain 5/4, distinguishing unweighted pair dispersion from usual Markov contractions.",
+      "residual_risks": [
+        "An unindexed matrix-norm/Gini coefficient formula might subsume the path coefficient under another name.",
+        "Original full continuous-path heat study not independently read here; explicit discrete fixed step separates claims."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed matrix-norm/Gini coefficient formula might subsume the path coefficient under another name.",
+    "Original full continuous-path heat study not independently read here; explicit discrete fixed step separates claims.",
+    "No full Git tree listing obtained; read five key files (RESULT, verifier, METADATA, AUDIT, VERIFICATION) at the assigned commit; public files not fully screened for release."
+  ],
+  "schema_version": 1
+}
