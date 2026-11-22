@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "All 18 branch choices are covered by strict feasibility exclusions or a quantitative two-row Gram bound. Hub-singleton/leaf-singleton/other-global exists exactly while a+h<1, with top Gram eigenvalue A(h); all other feasible choices have squared norm <=H(h)=2-4h+6h^2. Both optimal branches have explicit strictly positive open-cell witnesses and right singular perturbations; tie cells are controlled by segmentwise piecewise linearity. Coordinate modulus reduction establishes the inequality for complex signals. The standard-library checker constructs and tests the actual branches at 11 parameters and 110000 input cases; numerical experiments do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu–Lian–Wang, arXiv:2611.15377v1, Sections 1.2 and 4, treats one-input sharp fractional star variation with n>=4; the new path has three vertices and compares two inputs in different norms.",
+        "Lu–Zhao, arXiv:2611.24189v1, Sections 4–5, proves one-input graph maximal variation; Section 5 formulates the sharp p=2 condition for stars with n>=4 rather than an input-pair Lipschitz law.",
+        "González-Riquelme–Kovač–Madrid, arXiv:2603.12462v1, treats ordinary maximal one-input variation and small graph constants, not the entire fractional two-input family."
+      ],
+      "reasoning": "One-input Sobolev-type variation inequalities and input-pair perturbation laws are logically different. A prior exact un-fractional star case and asymptotic fractional star bounds cannot imply a precise interior jump for the smallest noncomplete path. A complete-graph two-input statement does not cover the three-vertex path, which has additional leaf two-point balls.",
+      "searches": [
+        "fractional maximal graph operator sharp Lipschitz dependence on fractional exponent discontinuity",
+        "nonnegative piecewise linear maximal averaging parameter discontinuity in Lipschitz modulus",
+        "Sharp L^p and variation inequalities for maximal operators on finite connected graphs arxiv 2611.15377",
+        "Variational Estimates for the Fractional Maximal Operator on Finite Graphs arxiv 2611.24189"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2611.15377v1 (first public 2026-11-11; full article HTML sections examined)",
+      "arXiv:2603.12462v1 (2026-03-12; PDF excerpts and first page examined)",
+      "arXiv:2611.24189v1 (2026-11-18; PDF sections 2 and 5 examined; later than eligibility anchor)",
+      "arXiv:2611.24180v1 (2026-11-18; PDF opening/definitions examined; later than eligibility anchor)",
+      "González-Riquelme–Madrid, JMAA (2022), DOI 10.1016/j.jmaa.2021.125647 (publisher page statement)",
+      "Indexed published comparison records for ordinary-maximal two-input stars and weighted three-vertex one-input variation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The alpha=0 star formula recovers only an endpoint and does not fix the alpha>0 feasible branch geometry.",
+        "General fractional star estimates previously compared provide an attained lower bound and a nonmatching upper bound, not the exact P3 phase profile.",
+        "The complete graph has only singleton/whole graph balls; the three-vertex path has an additional pair-ball branch a=2^(alpha-1), causing the condition a+h=1."
+      ],
+      "reasoning": "The claim requires excluding all feasible branches and computing their Euclidean singular values, including a parameter-sensitive strict-cell collapse. Neither the ordinary-maximal endpoint, one-input variation bounds, nor generic two-input graph estimates yield that exact parameter-dependent cell classification.",
+      "searches": [
+        "fractional centered maximal three-vertex path P3 sharp two-input l2 vertex to edge variation Lipschitz parameter jump alpha 2^(alpha-1)+3^(alpha-1)=1",
+        "fractional maximal graph operator sharp Lipschitz dependence on fractional exponent discontinuity",
+        "two-input Lipschitz maximal operator cycle graph finite path variation spectral norm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The published fractional star papers define graph-ball branches with singleton, pair, and whole-graph scales but their sharp constants use one input and edge variation on both sides.",
+        "The new three-vertex threshold is the feasibility equation 2^(alpha-1)+3^(alpha-1)=1, and the claimed modulus is a two-row singular-value maximum, not the usual one-input contraction coefficient."
+      ],
+      "reasoning": "A nonlinear maximal operator cannot be applied to the difference of two inputs to deduce an exact two-input result from a one-input bound. The branching/normalization mismatch is substantive, not a title difference.",
+      "searches": [
+        "fractional centered maximal three-vertex path P3 sharp two-input l2 vertex to edge variation Lipschitz parameter jump alpha 2^(alpha-1)+3^(alpha-1)=1",
+        "two-input centered fractional maximal operator path P3 star 2 leaves exact two-input stability eigenvalue",
+        "centered fractional graph maximal operator two-input Lipschitz variation parameter discontinuity three vertex path"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual indexed results included a two-input ordinary-maximal star total-variation theorem, a weighted three-vertex one-input total-variation theorem, and a two-input uncentered cycle result, none reporting the present fractional vertex-to-edge Euclidean phase law.",
+        "The nearest recoverable earlier mathematical claims give an alpha=0 exact star norm, general fractional star asymptotic bounds without finite-m exact values, and a complete-graph fractional two-input discontinuity at a different geometry-dependent threshold."
+      ],
+      "reasoning": "No exact tabulation of the P3 fractional two-input modulus and its interior threshold was recovered. This is an indexed-search result rather than a claim that all literature was exhaustively searched.",
+      "searches": [
+        "exact sharp two-input centered fractional graph maximal operator complete bipartite graph vertex l2 to edge gradient nonlinear stability",
+        "two-input Lipschitz maximal operator cycle graph finite path variation spectral norm",
+        "two-input centered fractional maximal operator path P3 star 2 leaves exact two-input stability eigenvalue"
+      ]
+    },
+    "rationale": "The exact claim is a two-input vertex-Euclidean-to-edge-quadratic Lipschitz norm on the three-vertex path for every fractional exponent, including a nontrivial interior jump. The inspected closest papers establish one-input variation or ordinary-maximal bounds; their statements do not imply the nonlinear two-input fractional norm. Indexed public comparisons and recoverable prior mathematical claims show neither an equivalent statement nor a stronger theorem covering this specific three-scale parameter profile. Risk of unindexed prior work is retained.",
+    "residual_risks": [
+      "Semantic indexing and accessible literature cannot exclude an unindexed equivalent two-input theorem.",
+      "The indexed public comparison records did not expose their full manuscripts through the attempted GitHub page fetch; assessment of those records is limited to their published abstracts/summaries.",
+      "The small-graph finite-cell method could conceivably be implicit in a stronger nonlinear Lipschitz principle not identified by the focused searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING examined statement; establishes one-input fractional variation estimates and uncentered Lp norms",
+        "evidence": [
+          "Theorems 1.5–1.7 compare Var_q(M_alpha f) to Var_1(f) for one f and state n>=4 in star cases",
+          "No two-input / Lipschitz passage located in accessible HTML text"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.15377",
+        "material_read": "Introduction, Definitions 1.1 and 1.5, Theorems 1.5–1.7, and Sections 1.2 and 4 relevant proof passages",
+        "method": "Available full HTML article text, viewed and searched for two-input and Lipschitz claims",
+        "title": "Sharp L^p and variation inequalities for maximal operators on finite connected graphs",
+        "trigger": "Eligible motivating source with primary MSC 42B25 and fractional star variation"
+      },
+      {
+        "assessment": "NOT_COVERING examined statement; ordinary maximal and one-input variation rather than fractional two-input vertex-to-edge sensitivity",
+        "evidence": [
+          "Paper submitted 2026-03-12; p-variation inequality uses Var_p(M f)/Var_p(f)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2603.12462",
+        "material_read": "Introduction, statements of Theorem 1, small-graph results and corresponding definitions",
+        "method": "Open-access PDF text and page-one screenshot",
+        "title": "Sharp variational inequalities for the Hardy–Littlewood maximal operator on finite undirected graphs",
+        "trigger": "Small finite graph sharp one-input maximal variation may dominate a special case"
+      },
+      {
+        "assessment": "NOT_COVERING examined result; one-input edge-to-edge fractional variation with star cases n>=4",
+        "evidence": [
+          "Theorem 5.3 gives condition n^(alpha-1)>=1/2 for a one-input p=2 estimate; no input-pair inequality is defined in preliminaries"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2611.24189",
+        "material_read": "Abstract and introduction, Definitions 2.1–2.2, Section 5 including Theorem 5.3 and surrounding proof",
+        "method": "Open-access PDF extracted text and screenshots of title page and Theorem 5.3",
+        "title": "Variational Estimates for the Fractional Maximal Operator on Finite Graphs",
+        "trigger": "Very close subsequent fractional star variation investigation, first public after the scope anchor"
+      },
+      {
+        "assessment": "NOT_COVERING examined statement; alpha=0 one-input estimates only",
+        "evidence": [
+          "Theorem 4.2 concerns Var_p(M f)/Var_p(f) for individual f and a nonfractional operator"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2611.24180",
+        "material_read": "Abstract, introduction, precise definition of edge variation and sharp star constants",
+        "method": "Open-access PDF extracted text and page-one screenshot",
+        "title": "Variational Estimates for the Hardy–Littlewood Maximal Operator on Finite Graphs",
+        "trigger": "Same authors/graph geometry but nonfractional maximal variation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2be0b442-e953-448b-a88b-1c8610466ac7",
+  "value": {
+    "rationale": "This is a complete natural noncomplete graph fractional perturbation invariant across an entire exponent interval, with a genuine interior discontinuity at the collision of singleton and whole-ball feasibility, rather than an arbitrary finite numerical case. The sharp threshold and jump distinguish stability of nonlinear input differences from known one-input smoothing estimates and motivate investigations of active-cell collapse on other graphs.",
+    "status": "PASS"
+  }
+}
