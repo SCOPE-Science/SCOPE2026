@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalized Fourier coefficients follow by direct integration of two arcs. Reversal-symmetry block diagonalization is exact, and the averaged shifted-block determinant simplifies identically to a strictly negative quartic for nonantipodal centers. The row-sum bound provides the global quantitative deficit. Simple-eigenvalue perturbation in the two blocks yields opposite first-order slopes, establishing the exact linear cusp. Independent symbolic simplification and direct quadrature were replayed from the packaged checker. These computations do not substitute for the symbolic argument. The endpoints \(2\alpha\le\theta\le\pi\), \(0<\alpha<\pi/2\) and normalization are included.
+## correctness
 
-## Originality — PASS, subject to bibliographic priority
-The three-character two-arc optimality theorem already implies the *unquantified* four-character maximizer and its numerical optimal value, by interlacing and evaluation at antipodal centers. Those aspects are expressly not claimed as new. The quantitatively explicit positive separation deficit and the precise linear first-order cusp with its two-dimensional eigenspace are not implications of that optimization statement. The broad nonconvex concentration estimates of Marceca–Romero–Speckbacher concern spectral counts, not this exact shape-stability law. Abreu–Speckbacher's interval extremality controls the maximal concentration eigenvalue, not the maximin quantity over the restricted two-arc family. Relevant titles and alternate terminology were searched; equivalent specialist computations remain a priority risk.
+PASS
 
-## Value — PASS
-Sampling geometry for finitely bandlimited signals is a natural observation-design problem. A unique optimal placement does not quantify how severely the worst-observed mode degrades under sensor movement. Here an explicit global deficit gives a nonasymptotic robustness guarantee, while the sharp linear cusp shows that the optimum is unusually sensitive: the two-dimensional weakest-mode eigenspace splits immediately. This sharp local law is a structural phenomenon absent from the smooth simple-eigenvalue case. No claims are made for unequal arcs or larger frequency sets.
+Normalized Haar integration yields the exact four-by-four Toeplitz Gram coefficients b0=2α/π, b1=A x, b2=A cosα(2x²-1), b3=A(4cos²α-1)(4x³-3x)/3, with x=cos(θ/2), A=2sinα/π. Reversal symmetry gives two two-by-two blocks. At antipodal x=0 the smallest eigenvalue m-B has multiplicity two and lower eigenspace (u,v,u,v). Exact polynomial expansion of the averaged shifted determinants is -(4/3)A²sin²α x⁴, so for x>0 at least one shifted eigenvalue is negative. The positive eigenvalue is ≤4A, yielding the stated explicit quartic global deficit. At x=0 the two simple lower block eigenvalues have slopes ±2A sin²α in x, so the combined least eigenvalue has cusp 2sin³α/π·(π-θ)+Oα((π-θ)²). The 2α≤θ≤π and 0<α<π/2 domains were observed. Independent symbolic determinant simplification held exactly; the previous four-mode checker additionally verifies independent quadrature. No finite sampling substitutes for the algebraic proof.
 
-## Scope and residual risks
-Independent mathematical audit has not been performed. Novelty can be affected by an equivalent Toeplitz-eigenvalue shape derivative appearing under different terms. The global quartic lower bound is nonsharp away from the optimum; only the first-order cusp coefficient is sharp.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Carefully separated PRIOR implications: the three-mode antipodal maximin theorem already gives the four-mode optimum AND a stronger quadratic-in-cos(θ/2) global deficit via principal-submatrix interlacing, so the displayed weaker quartic global bound is also a corollary and must NOT be treated as original in isolation. However three-mode simple-eigenvalue stability has a quadratic (not linear) separation loss. The genuinely additional final component is the four-mode lower eigenspace of dimension two and its nonzero sharp one-sided LINEAR cusp coefficient. It is not implied by the prior three-mode lower bound, which offers no local upper bound on four-mode deficit. Best-of-knowledge this structural cusp is new; the original package overstates novelty of its global bound, a bibliographic interpretation risk not a false mathematical inequality.
+
+## value
+
+PASS
+
+The *sharp linear cusp* resolves a genuinely structural stability question for four-mode observation: a two-dimensional optimal least-eigenvalue space splits into opposite first-order branches under arc displacement, unlike the smooth quadratic loss of the three-mode case. This exact local sensitivity matters for a natural finite-dimensional Fourier sensor-design problem. The weaker global quartic bound, though covered by earlier three-mode quantitative estimates, is not the basis for the value verdict.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
