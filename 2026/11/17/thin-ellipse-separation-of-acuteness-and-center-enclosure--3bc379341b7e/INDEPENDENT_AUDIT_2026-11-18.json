@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T16:53:18.413052Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For iid uniform eccentric anomaly points on ellipse (Lcos theta,sin theta), affine-invariant center-enclosure probability is exactly 1/4 by circular gap criterion. Order x-coordinates; the middle-vertex acute dot product implies L^2 g1 g2<4, forcing one near-vertical opposite-sine-branch pair outside a negligible triple-collision corner. On compact separated c,d parameters its allowable delta width is 4(1-c^2)/(L^2 |d-c|); joint origin enclosure is cd<0 and |c|<|d|. The arcsine-coordinate Jacobian cancels 1-c^2, giving limit 3/pi^3 times J, where J=4 int_0^1 dr/sqrt(1-r^2) int_0^r du/(u+r)=2pi log2, hence coefficient 6log2/pi^2=0.421382956636... . Dominated truncation kernel 1/[(r+u)sqrt(1-r^2)] controls origin and endpoints; the same bounds for bounded marks yield L1 density and conditional total variation. Substitution u=rv factorizes independent R arcsine and U density 1/((1+u)log2). The known marginal P(acute)~12 logL/(pi^2 L^2) gives P(center|acute)~log2/(2logL). Independent exact kernel normalization and mark means confirmed; no finite simulation was treated as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier thin-ellipse conditional-shape theorem takes Euclidean arclength-uniform samples and conditions only on acuteness; prior equiaffine ellipse law provides exact acuteness marginal for every ratio."
+        ],
+        "reasoning": "Neither joint center enclosure nor the claimed arcsine/log-ratio marks can be obtained merely by parameter substitution from a single-event law; the arclength density differs from arcsine cos distribution.",
+        "searches": [
+          "Resultary 2026/11/17/SCOPE-a-logarithmic-acute-triangle-law-and-conditional-shape-limit-for--dc4726c9b5dd",
+          "Resultary 2026/11/2/SCOPE-sharp-dilogarithmic-acuteness-law-for-affine-uniform-ellipse-tri--a5911e351b92"
+        ]
+      },
+      "checked_sources": [
+        "Sharp dilogarithmic acuteness law for affine-uniform ellipse triangles: https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-dilogarithmic-acuteness-law-for-affine-uniform-ellipse-tri--a5911e351b92/RESULT.md",
+        "Dilogarithmic acuteness law for uniform-angle triangles on an ellipse: https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-dilogarithmic-acuteness-law-for-uniform-angle-triangles-on-an-el--72d4f16967d8/RESULT.md",
+        "A logarithmic acute-triangle law and conditional shape limit for thin ellipses: https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-logarithmic-acute-triangle-law-and-conditional-shape-limit-for--dc4726c9b5dd/RESULT.md",
+        "U-max-Statistics and Limit Theorems for Perimeters and Areas of Random Polygons: https://arxiv.org/abs/1301.1360"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing P(A) and P(C) does not imply P(A∩C). On circles events coincide, but the elliptic affine transformation changes angles while preserving center containment."
+        ],
+        "reasoning": "The sharp P(A∩C) coefficient and mark independence require a new near-vertical pair localization calculation not deducible from existing marginal results.",
+        "searches": [
+          "Resultary exact ellipse P(acute) law",
+          "classical unit circle P(center-contained)=1/4",
+          "Resultary Euclidean-arclength thin ellipse log law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both prior affine ellipse acuteness results use identical iid uniform eccentric anomalies but compute only P(acute). Current theorem concerns P(acute AND center-contained) and the conditional mark law."
+        ],
+        "reasoning": "The joint event is not equivalent to the marginal except for the circle L=1; anisotropic ellipse geometry destroys equivalence.",
+        "searches": [
+          "Resultary: thin ellipse acute random triangle contains center joint probability 6 log 2 over pi squared asymptotic",
+          "Resultary 2026/10/25 acuteness law",
+          "Resultary 2026/11/2 acuteness law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact known dilogarithmic marginal and off-center circular probability; no matching table of conditional joint coefficient 6 log 2/pi^2 or R,U densities in inspected results."
+        ],
+        "reasoning": "No prior exact joint table was located; a marginal acuteness table is insufficient to determine an event correlation or conditional geometry.",
+        "searches": [
+          "Resultary 2026/10/25 uniform-angle ellipse acute theorem",
+          "Resultary 2026/11/2 affine-uniform acuteness theorem",
+          "Koroleva-Nikitin arxiv:1301.1360"
+        ]
+      },
+      "rationale": "Earlier published affine/equiaffine ellipse triangle results give only the acuteness marginal, not the same-triangle JOINT with center enclosure, and the conditional two-mark law. A thin ellipse arclength-uniform model uses a fundamentally different sampling density and observable. Classical circle enclosure 1/4 and off-center circle formulas similarly do not determine correlation after affine anisotropy. Surviving novel claim is sharp rare joint law and conditional factorization, not known marginal acuteness.",
+      "residual_risks": [
+        "An unindexed random convex-body paper may derive joint center-enclosure among acute affine-ellipse triangles.",
+        "Double-limit proof relies on integrable endpoint/triple-collision domination; explicitly no finite-L uniform error bound.",
+        "Only eccentric-anomaly/equiaffine sampling, not ordinary Euclidean perimeter."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING joint law",
+          "evidence": "Computes marginal dilogarithmic probability and its thin scaling; does not give center-enclosure joint or two marks.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-dilogarithmic-acuteness-law-for-affine-uniform-ellipse-tri--a5911e351b92/RESULT.md",
+          "material_read": "Complete actual published RESULT.md proof and formulas, including thin limit and event comparison",
+          "method": "GitHub file fetched at blob b1fb945ccc58b29496a77128820706d7e4d903dc",
+          "title": "Sharp dilogarithmic acuteness law for affine-uniform ellipse triangles",
+          "trigger": "Same ellipse, sampling law, acuteness event"
+        },
+        {
+          "assessment": "NOT_COVERING joint",
+          "evidence": "Same marginal P(A) proven under identical anomaly measure, no joint center event.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-dilogarithmic-acuteness-law-for-uniform-angle-triangles-on-an-el--72d4f16967d8/RESULT.md",
+          "material_read": "Entire published RESULT and comparison to off-center circle probability",
+          "method": "GitHub source read at blob 58f1935972eb376d684f347c69c6292a130d40bf",
+          "title": "Dilogarithmic acuteness law for uniform-angle triangles on an ellipse",
+          "trigger": "Earlier equivalent full marginal acuteness theorem"
+        },
+        {
+          "assessment": "NOT_COVERING different law",
+          "evidence": "Uses Euclidean arclength uniform rather than equiaffine angular uniform; does not impose center enclosure.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-logarithmic-acute-triangle-law-and-conditional-shape-limit-for--dc4726c9b5dd/RESULT.md",
+          "material_read": "Entire published RESULT.md, especially precise sampling density and conditional theorem",
+          "method": "Actual GitHub file read at blob 8988efde848d10f0b5a1c7a8b1921d2b49a9e435",
+          "title": "A logarithmic acute-triangle law and conditional shape limit for thin ellipses",
+          "trigger": "Highly similar thin ellipse and conditional marks"
+        },
+        {
+          "assessment": "INAPPLICABLE to specific event in inspected scope; full-text priority risk",
+          "evidence": "Studies perimeter/area extremes, not ellipse acute-center joint asymptotic.",
+          "identifier_or_url": "https://arxiv.org/abs/1301.1360",
+          "material_read": "Primary paper title, abstract and original stated focus on extreme polygon perimeter/areas",
+          "method": "ArXiv public metadata; full text not independently read in this run",
+          "title": "U-max-Statistics and Limit Theorems for Perimeters and Areas of Random Polygons",
+          "trigger": "Same random circle boundary but might include triangle-center probabilities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For uniform circle points, acuteness coincides with enclosure of the circle center, but after a thin affine deformation these events sharply separate. Exact decay of their concurrence and the independent limiting marks explain the atypical geometry of exceptional acute-center triangles; this is a natural dependence problem not answered by knowing two marginal probabilities.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Sharp dilogarithmic acuteness law for affine-uniform ellipse triangles: https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-dilogarithmic-acuteness-law-for-affine-uniform-ellipse-tri--a5911e351b92/RESULT.md",
+    "Dilogarithmic acuteness law for uniform-angle triangles on an ellipse: https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-dilogarithmic-acuteness-law-for-uniform-angle-triangles-on-an-el--72d4f16967d8/RESULT.md",
+    "A logarithmic acute-triangle law and conditional shape limit for thin ellipses: https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-logarithmic-acute-triangle-law-and-conditional-shape-limit-for--dc4726c9b5dd/RESULT.md",
+    "U-max-Statistics and Limit Theorems for Perimeters and Areas of Random Polygons: https://arxiv.org/abs/1301.1360",
+    "Independent cross-checks /mnt/data/independent_scope03_checks_20261118.json (numerical/rational tests only)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed random convex-body paper may derive joint center-enclosure among acute affine-ellipse triangles.",
+    "Double-limit proof relies on integrable endpoint/triple-collision domination; explicitly no finite-L uniform error bound.",
+    "Only eccentric-anomaly/equiaffine sampling, not ordinary Euclidean perimeter."
+  ],
+  "residual_risks": [
+    "An unindexed random convex-body paper may derive joint center-enclosure among acute affine-ellipse triangles.",
+    "Double-limit proof relies on integrable endpoint/triple-collision domination; explicitly no finite-L uniform error bound.",
+    "Only eccentric-anomaly/equiaffine sampling, not ordinary Euclidean perimeter."
+  ],
+  "schema_version": 1
+}

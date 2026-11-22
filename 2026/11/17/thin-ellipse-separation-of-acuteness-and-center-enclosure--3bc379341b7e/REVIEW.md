@@ -1,15 +1,21 @@
-# Mathematical review of the joint acute-center limit
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is the affine image of three independent uniform circle points with ellipse semiaxes \(L,1\). For an acute triangle, consecutive ordered abscissa gaps satisfy \(L^2g_1g_2<4\), forcing a close pair outside a negligible triple-collision corner. Opposite sine branches of that close pair give an allowable abscissa separation of length \(4(1-c^2)/(L^2|d-c|)\). The arcsine-law Jacobian cancels \(1-c^2\), and center enclosure forces \(cd<0\) and \(|c|<|d|\). The resulting integrable two-variable kernel integrates to \(2\pi\log2\), giving the exact coefficient \(6\log2/\pi^2\). Factorizing the conditional limiting kernel proves the independent arcsine and logarithmic-ratio marks. The exceptional triple collision and endpoint regions are bounded by truncation and integrable domination. The package's direct Cartesian checker corroborates these identities, but does not replace the analytic proof.
+## correctness
 
-## Originality — PASS, with priority risk
-The known equiaffine-ellipse **marginal** acuteness law has an exact dilogarithmic expression and was found in multiple earlier published findings (identifiers `a5911e351b92`, `0b2e5b1aac57`, `72d4f16967d8`). Their complete accessible mathematical texts do not state or imply the joint event with **center enclosure** or the conditional two-mark limit. The 2018 off-center circular enclosure probability is a different probability space and event. The 2013 random-circle polygon paper concerns perimeter and area extremes. The ordinary-arclength ellipse discussion in 2025 assumes a different sampling measure. None of the inspected closely related sources gives the joint constant or marked limit. Unindexed equivalent literature remains a possibility; originality is a best-knowledge assessment, not proof of absolute priority.
+PASS
 
-## Value — PASS
-For the circle, a triangle is acute precisely when it encloses the circle's center, but under anisotropic affine deformation the marginal acute event may persist without central enclosure. The joint law resolves this important geometric dependence question: the conditional enclosure probability tends to zero like \(\log2/(2\log L)\), and the factorized marks explain which exceptional acute triangles do enclose the center. This is not a routine recomputation of the already-published marginal law.
+For iid uniform eccentric anomaly points on ellipse (Lcos theta,sin theta), affine-invariant center-enclosure probability is exactly 1/4 by circular gap criterion. Order x-coordinates; the middle-vertex acute dot product implies L^2 g1 g2<4, forcing one near-vertical opposite-sine-branch pair outside a negligible triple-collision corner. On compact separated c,d parameters its allowable delta width is 4(1-c^2)/(L^2 |d-c|); joint origin enclosure is cd<0 and |c|<|d|. The arcsine-coordinate Jacobian cancels 1-c^2, giving limit 3/pi^3 times J, where J=4 int_0^1 dr/sqrt(1-r^2) int_0^r du/(u+r)=2pi log2, hence coefficient 6log2/pi^2=0.421382956636... . Dominated truncation kernel 1/[(r+u)sqrt(1-r^2)] controls origin and endpoints; the same bounds for bounded marks yield L1 density and conditional total variation. Substitution u=rv factorizes independent R arcsine and U density 1/((1+u)log2). The known marginal P(acute)~12 logL/(pi^2 L^2) gives P(center|acute)~log2/(2logL). Independent exact kernel normalization and mark means confirmed; no finite simulation was treated as proof.
 
-## Limitations
-The result is asymptotic for three independent equiaffine-uniform vertices of one ellipse, with no explicit convergence rate or Euclidean arclength version. Historical priority is not independently certified, and simulation cannot certify the total-variation limit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier published affine/equiaffine ellipse triangle results give only the acuteness marginal, not the same-triangle JOINT with center enclosure, and the conditional two-mark law. A thin ellipse arclength-uniform model uses a fundamentally different sampling density and observable. Classical circle enclosure 1/4 and off-center circle formulas similarly do not determine correlation after affine anisotropy. Surviving novel claim is sharp rare joint law and conditional factorization, not known marginal acuteness.
+
+## value
+
+PASS
+
+For uniform circle points, acuteness coincides with enclosure of the circle center, but after a thin affine deformation these events sharply separate. Exact decay of their concurrence and the independent limiting marks explain the atypical geometry of exceptional acute-center triangles; this is a natural dependence problem not answered by knowing two marginal probabilities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
