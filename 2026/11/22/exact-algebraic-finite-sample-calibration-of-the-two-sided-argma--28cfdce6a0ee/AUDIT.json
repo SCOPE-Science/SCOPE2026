@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md, Proof steps 1–5",
+      "exact_ks_argmax.py: exact rational chambers, polynomial volumes and algebraic integration",
+      "verification_checks.py: 120 passing exact/sign/monotonicity/simulation assertions",
+      "Ferger arXiv:2207.07947v1, definitions on p.5 and Theorems 2.1 and 2.3"
+    ],
+    "rationale": "For every integer sample size, the almost-surely unique maximizing signed order-statistic deviation partitions the ordered-uniform simplex into disjoint events. Fixing its rank and location forces exact affine bands for all remaining ranks, whose volumes factor on the left and right. Splitting affine constraints at rational intersections yields constant bin eligibility and polynomial volumes from the exact ordered-simplex count recurrence; the CDF threshold has explicit quadratic radical endpoints. Integrating these polynomials exactly proves the finite algebraic CDF for all rational thresholds and piecewise algebraicity for all positive real thresholds. Direct low-n radical identities, strict rational 95% quantile enclosure, algebraic sign checks and 120 checker assertions confirm the implementation; seeded simulations independently agree but are not used to prove the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ferger, arXiv:2207.07947v1, Theorem 2.1: exact finite one-sided distribution; Theorem 2.3: asymptotic two-sided distribution.",
+        "Steck (1971), rectangle probability theorem for uniform order statistics, supplies classical fixed-band methods.",
+        "Ferger (2018), DOI:10.1016/j.spl.2017.10.008, addresses Brownian-bridge maximizing-location limit."
+      ],
+      "reasoning": "Neither one-sided exact calibration nor a Brownian-bridge limit dominates the finite-n two-sided winner-weighted CDF. A fixed deterministic-rank rectangle formula does not by itself resolve the random winner or its nonlinear threshold; those conditions are exactly decomposed and integrated here.",
+      "searches": [
+        "Web: \"Ferger\" \"location\" \"Kolmogorov\" finite-sample two-sided test formula",
+        "Web: \"maximum and its location\" \"exact distribution\" \"two-sided\" 2024 2025",
+        "Web: Steck 1971 rectangle probabilities uniform order statistics determinant formula pdf"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2207.07947v1; https://arxiv.org/pdf/2207.07947",
+      "doi:10.1214/23-BJPS564; https://www.imstat.org/publications/bjps/bjps_37_1/bjps_37_1.pdf",
+      "Steck 1971; https://www.jstor.org/stable/2958458",
+      "doi:10.1016/j.spl.2017.10.008",
+      "Targeted mathematical research records on finite KS laws, argmax normalization, rectangle volumes and exact calibration"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2.1 of Ferger establishes the finite one-sided CDF, while Theorem 2.3 covers only the two-sided weak limit.",
+        "An earlier tail analysis of this same statistic explicitly left its complete finite CDF and finite-threshold guarantees unproved.",
+        "The new formula directly computes exact values at all rational thresholds and a certified finite critical-value bracket."
+      ],
+      "reasoning": "A one-sided CDF, a Brownian-bridge limiting CDF, or one inverse-square tail coefficient cannot recover the exact finite-n two-sided CDF. The new result strictly extends that previous knowledge and requires simultaneous winner selection, affine admissible regions and radical-bound integration.",
+      "searches": [
+        "Research-record query: exact null law finite sample CDF Ferger two-sided KS argmax standardized at maximizing order statistic",
+        "Web: \"two-sided\" \"argmax\" \"standardized\" \"empirical process\" \"exact distribution\" test",
+        "Full text: Ferger arXiv:2207.07947v1, sections 1–2 and appendix"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ferger, arXiv:2207.07947v1, p.5: the two-sided statistic is the unweighted maximum divided by the weight at its single winning rank; exact finite two-sided law stated unknown.",
+        "Earlier tail-only result for this same object: fixed-sample inverse-square survival coefficient, without full finite CDF."
+      ],
+      "reasoning": "The maximum of separately standardized one-sided statistics is not identical to standardizing the unweighted two-sided maximum at its winning rank. The earlier tail-only formula determines asymptotic large-threshold behavior but cannot yield all finite thresholds, exact radical CDF values, or the 95% quantile bracket.",
+      "searches": [
+        "Research-record query: Ferger two-sided weighted Kolmogorov Smirnov maximum location V_n star exact distribution argmax",
+        "Research-record query: exact null law finite sample CDF Ferger two-sided KS argmax standardized at maximizing order statistic",
+        "Web: \"V_n^*\" Ferger exact distribution finite 2024"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching finite algebraic null CDF or matching exact 95% critical-value table was returned among the queried research records.",
+        "Ferger (2022), Table 1: finite critical values tabulated for a one-sided procedure; not a table for the two-sided argmax-standardized statistic.",
+        "A retrieved KS-runs conditional-order result concerns two-sample rank interleavings and does not tabulate this statistic."
+      ],
+      "reasoning": "The closest tabulated calibrations concern different statistics or asymptotic laws, rather than the present complete finite simple-null distribution; lack of a database hit alone is not proof of novelty.",
+      "searches": [
+        "Research-record query: piecewise algebraic finite sample distribution of argmax weighted Kolmogorov Smirnov",
+        "Research-record query: order statistic band volume polynomial exact distribution Kolmogorov Smirnov maximum location",
+        "Web: exact joint distribution Kolmogorov Smirnov statistic maximizing rank 2023 distribution"
+      ]
+    },
+    "rationale": "The source specifically says that the full finite-sample two-sided distribution is not known and supplies only a one-sided finite law and two-sided weak limit. An earlier tail-only calculation for the same two-sided statistic neither computes its interior CDF nor provides finite-threshold quantiles. The complete winner-conditioned affine-chamber decomposition and algebraic CDF formula add a distinct non-asymptotic result. The generic Steck rank-rectangle theorem concerns fixed boundaries, not the winner-dependent normalization and quadratic threshold. Targeted published literature and research-record searches found no directly covering theorem. This is a best-knowledge priority judgment, not an independence certificate.",
+    "residual_risks": [
+      "The published journal full argument was not separately readable through the indexed issue extract, although the complete primary arXiv version was inspected.",
+      "Older Steck-type algorithms or nonindexed treatments could potentially encode an equivalent winner-conditioned formula without stating it in the same notation.",
+      "The finite algebraic algorithm has not undergone independent external review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "At p.5 the paper explicitly says the two-sided statistic exact finite-sample law is not known; Theorem 2.1 is one-sided, Theorem 2.3 gives only a two-sided weak limit.",
+        "identifier_or_url": "https://arxiv.org/pdf/2207.07947",
+        "material_read": "Primary preprint p.5 for the two-sided definition; pp.8–10 for one-sided finite theorem and two-sided weak-limit theorem; relevant appendix definitions on pp.11–12",
+        "method": "Open-access full-text PDF, extracted section text and inspected page image for the two-sided statistic definition",
+        "title": "Exact and asymptotic goodness-of-fit tests based on the maximum and its location of the empirical process",
+        "trigger": "Primary source defining the same statistic and the exact-distribution gap"
+      },
+      {
+        "assessment": "PARTIALLY_INSPECTED",
+        "evidence": "The abstract describes exact null calculations for the new procedure and two-sided extension, without an accessible separate two-sided finite CDF in the inspected material.",
+        "identifier_or_url": "https://doi.org/10.1214/23-BJPS564",
+        "material_read": "Journal issue indexing, abstract and reference list; the arXiv preprint supplies the materially inspected complete argument",
+        "method": "Publisher-indexed issue PDF extracted text and journal bibliographic page",
+        "title": "Exact and asymptotic goodness-of-fit tests based on the maximum and its location of the empirical process (journal issue)",
+        "trigger": "Published version of the original paper"
+      },
+      {
+        "assessment": "MATERIAL_LIMITED",
+        "evidence": "The classical object is an order-statistic rectangle probability with deterministic bounding sequences, not a law conditional on the rank at which an unweighted maximum is attained.",
+        "identifier_or_url": "https://www.jstor.org/stable/2958458",
+        "material_read": "Bibliographic and method descriptions in Ferger 2022, §1; original full text was not accessed",
+        "method": "Citation and relevant formula discussion in the primary full text plus bibliographic lookup",
+        "title": "Rectangle probabilities for uniform order statistics and the probability that the empirical distribution function lies between two distribution functions",
+        "trigger": "Strongest classical fixed-band precursor"
+      },
+      {
+        "assessment": "MATERIAL_LIMITED",
+        "evidence": "The object is a Brownian-bridge limiting maximum/argmax ratio rather than the finite exact null distribution of the 2022 two-sided empirical CDF statistic.",
+        "identifier_or_url": "https://doi.org/10.1016/j.spl.2017.10.008",
+        "material_read": "Publisher/indexed abstract and reference in Ferger 2022; full 2018 article unavailable",
+        "method": "Abstract and citation comparison",
+        "title": "On the supremum of a Brownian bridge standardized by its maximizing point with applications to statistics",
+        "trigger": "Closely related argmax-standardized limit"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "28cfdce6-a0ee-426b-a404-581113645b7a",
+  "value": {
+    "evidence": [
+      "Exact CDF proof and terminating algebraic algorithm in RESULT.md",
+      "Exact values at n=2,3 and rigorous n=3 95% quantile bracket",
+      "Ferger 2022 introductory calibration motivation and explicit two-sided exact-law gap"
+    ],
+    "rationale": "The source itself identifies the two-sided finite CDF as unavailable, while accurate finite-sample goodness-of-fit calibration is its central statistical motivation. The result closes this natural gap for all sample sizes with an exact algorithm (rather than a small arbitrary table), supplies radical closed values for small samples, and certifies a rigorous 5% finite-sample critical-value bracket. It does not merely re-evaluate a known distribution or add a routine asymptotic correction; the statistic’s maximizing rank is random and participates in nonlinear normalization.",
+    "status": "PASS"
+  }
+}
