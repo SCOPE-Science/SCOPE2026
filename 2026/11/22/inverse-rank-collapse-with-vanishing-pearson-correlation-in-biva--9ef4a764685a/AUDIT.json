@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For every fixed theta_i,a_i>0, H_theta is a strictly increasing diffeomorphism with two-sided linear bounds on its inverse. Direct integration gives Z_kappa~log(kappa)/kappa. Dominated convergence yields E[X_i]~A_i/log(kappa) and E[X_i^2]~B_i/log(kappa). The mixed moment is O(1/kappa) by an explicit split integral, so covariance~ -A_1*A_2/log(kappa)^2 and Pearson~ -A_1*A_2/sqrt(B_1*B_2)/log(kappa). Conditional exponential monotonicity gives strict negativity for every kappa>0. Rescaled logarithms -log(Y_i)/log(kappa) converge jointly to (U,1-U), proving copula limit W and both rank limits. Finite moment diagnostics and fixed-seed conditional simulations were actually executed from the included code; they are nonessential numerical cross-checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://doi.org/10.3390/sym14102073 (full article, proportional-hazard equivalence)",
+        "https://arxiv.org/abs/0909.4129 (2009 full text, conditional sampler)",
+        "https://doi.org/10.1080/01621459.1988.10478627 (abstract only)"
+      ],
+      "reasoning": "A universal strong-coupling theorem for arbitrary monotone transforms would imply the copula result, and under suitable growth could imply Pearson rates. The general 2022 article and 2009 simulation paper do not establish such a theorem in the inspected sections. The 1988 full paper remained inaccessible, so a hidden broader theorem is a real residual risk, not an asserted absence.",
+      "searches": [
+        "\"bivariate exponential conditionals\" \"Spearman\" asymptotic",
+        "\"Arnold-Strauss\" \"Kendall\" \"tau\" \"limit\"",
+        "\"bivariate exponential conditionals\" \"asymptotic\" correlation \"zero\""
+      ]
+    },
+    "checked_sources": [
+      "https://repositorioabierto.uantof.cl/server/api/core/bitstreams/ce66f4ec-3c07-4e84-a173-83b396d4f60e/content",
+      "https://doi.org/10.3390/sym14102073",
+      "https://doi.org/10.1080/01621459.1988.10478627",
+      "https://arxiv.org/abs/0909.4129"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://repositorioabierto.uantof.cl/server/api/core/bitstreams/ce66f4ec-3c07-4e84-a173-83b396d4f60e/content (known transformation and covariance representations)",
+        "https://doi.org/10.3390/sym14102073 (existing generalized transformation)",
+        "https://doi.org/10.1080/01621459.1988.10478627 (known strictly negative correlation)",
+        "https://arxiv.org/abs/0909.4129 (known conditional-exponential sampling)"
+      ],
+      "reasoning": "An existing negative-covariance assertion does not imply Pearson correlation returns to zero, and finite-parameter correlation tables do not imply the exact logarithmic coefficient. A known conditional representation does not alone state that uniformized ranks tend to countermonotonicity. Those limits follow here from new uniform logarithmic-exponent scaling and dominated moment asymptotics. Underlying formulas, distribution and sampler are not claimed.",
+      "searches": [
+        "\"Bivariate power Lindley survival\" conditional density alpha12 exponential transformation",
+        "\"exp(-x-y-λxy)\" \"Kendall\" \"Pearson\"",
+        "\"Bivariate Distributions with Exponential Conditionals\" correlation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://repositorioabierto.uantof.cl/server/api/core/bitstreams/ce66f4ec-3c07-4e84-a173-83b396d4f60e/content (equations (22), (32))",
+        "https://doi.org/10.3390/sym14102073 (proportional-hazard conditional models)",
+        "https://doi.org/10.1080/01621459.1988.10478627 (exponential-conditional parent density)"
+      ],
+      "reasoning": "The Lindley family is the increasing inverse-hazard image of the already published exponential-conditionals density; this equivalence is explicitly acknowledged and is not new. The proposed result adds asymptotic rank collapse paired with the exact Lindley-dependent logarithmic Pearson coefficient. The 2022 paper covers transformations but not this joint limiting theorem in its inspected material.",
+      "searches": [
+        "\"Bivariate Distributions with Exponential Conditionals\" Arnold Strauss 1988",
+        "\"Bivariate Proportional Hazard Models: Structure and Inference\" 2022",
+        "\"Bivariate Power Lindley Survival Distribution\" 2024"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://repositorioabierto.uantof.cl/server/api/core/bitstreams/ce66f4ec-3c07-4e84-a173-83b396d4f60e/content (correlation tables and moments in Sections 4–5)",
+        "https://doi.org/10.1080/01621459.1988.10478627 (abstract describes Pearson negativity)",
+        "https://arxiv.org/abs/0909.4129 (simulation performance)"
+      ],
+      "reasoning": "The originating study tabulates correlations and gives integral expressions but not the paired exact strong-coupling limiting invariant. The general parent family and local-dependence literature describe density, finite correlations and/or simulation; no exact matching rank/Pearson limit was identified among inspected materials. A literature search cannot prove global uniqueness.",
+      "searches": [
+        "\"A Bivariate Power Lindley Survival Distribution\" correlation table 2024",
+        "\"bivariate exponential conditionals\" log correlation asymptotic copula",
+        "\"A new measure of linear local dependence\" bivariate exponential conditionals"
+      ]
+    },
+    "rationale": "The founding 2024 distribution and its 1988 exponential-conditionals ancestor are prior art, as is the 2022 transformation framework. Comparisons focus on implications, not names: the new joint statement involves countermonotone rank collapse concurrent with a vanishing Pearson coefficient of explicit logarithmic order depending on the exact Lindley inverse hazard. Full 2024 and 2022 primary texts and 2009 same-parent simulation were inspected. The most plausible uninspected source is the 1988 original, whose full text was inaccessible; historical-priority risk is disclosed and no uniqueness is certified.",
+    "residual_risks": [
+      "Full 1988 Arnold–Strauss six-page paper not inspected, leaving possible implicit/asymptotic same-parent coverage.",
+      "Related technical reports and books on exponential-conditional distributions may contain uncatalogued asymptotic results.",
+      "Existing model-specific Pearson moment expressions imply the result only after an unrecorded asymptotic argument; the entire parent family and fixed-parameter formulas are acknowledged as prior art."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Object and transformation already known; no strong-coupling rank-collapse plus sharp Pearson prefactor statement found in the inspected complete article.",
+        "evidence": [
+          "Published 24 October 2024; primary MSC 62E10",
+          "Equation (22) and transformed density (32)",
+          "Sections 4–5 emphasize fixed-parameter moments and estimation"
+        ],
+        "identifier_or_url": "https://repositorioabierto.uantof.cl/server/api/core/bitstreams/ce66f4ec-3c07-4e84-a173-83b396d4f60e/content",
+        "material_read": "Accessible full-text 19-page article; specifically read pp. 1–2 (date and MSC), 5–9 (Section 4 equations (17)–(32), correlation calculations and tables), and searched Sections 5–7 and the references for relevant claims.",
+        "method": "Read indexed PDF text, reviewed page images of pages 6 and 7 for equation fidelity, and compared the mathematical implication of established formulas.",
+        "title": "A Bivariate Power Lindley Survival Distribution",
+        "trigger": "Same exact family, parameterization, conditional densities and moment formulas."
+      },
+      {
+        "assessment": "The general transformation principle and exponential-conditionals density are known and cited; no covering coupling-limit theorem identified in the inspected material.",
+        "evidence": [
+          "Symmetry 14 (2022), Article 2073",
+          "Sections 3 and 4: PHC(I) and exponential-conditional equivalences"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/sym14102073",
+        "material_read": "Full open HTML article; Sections 2–4 describing bivariate exponential transformations and proportional-hazard conditionals, and Section 9 discussion.",
+        "method": "Read primary full-text sections and tested whether an existing theorem yields either logarithmic Pearson equivalent or limiting rank copula.",
+        "title": "Bivariate Proportional Hazard Models: Structure and Inference",
+        "trigger": "Potential dominating transformation-based general theory."
+      },
+      {
+        "assessment": "Abstract establishes parent density and negative correlation, but cannot support a claim that its full text lacks the proposed asymptotic theorem. Residual priority risk explicitly retained.",
+        "evidence": [
+          "JASA 83 (1988), 522–527, DOI 10.1080/01621459.1988.10478627",
+          "Abstract identifies normalizer and negative correlation, not strong-coupling asymptotics"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/01621459.1988.10478627",
+        "material_read": "Journal bibliographic record and author/publisher abstract only; six-page full text not accessible through tried lawful avenues.",
+        "method": "Compared stated abstract results with the claim and searched for public preprints and lawful full-text options; full-text verification unavailable.",
+        "title": "Bivariate Distributions with Exponential Conditionals",
+        "trigger": "Original parent density; most plausible historical-priority overlap."
+      },
+      {
+        "assessment": "Provides efficient simulation of the parent law, without a statement of the joint countermonotone copula limit and sharp Lindley-specific correlation coefficient.",
+        "evidence": [
+          "arXiv:0909.4129, submitted 23 September 2009",
+          "Conditional exponential generator and rejection sampling methodology"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0909.4129",
+        "material_read": "Full openly accessible arXiv:0909.4129 paper (5 pages).",
+        "method": "Read extracted PDF and reviewed PDF page image; compared rejection-sampling results with the claimed rank/Pearson limiting theorem.",
+        "title": "Efficient Simulation of a Bivariate Exponential Conditionals Distribution",
+        "trigger": "Potential same-object numerical or asymptotic dependence result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9ef4a764-685a-4a78-9c12-3c91766f6224",
+  "value": {
+    "rationale": "For bivariate dependent lifetime modeling, the distinction between rank and linear dependence is material: stronger conditional coupling drives essentially perfect reversed ordering while Pearson correlation attenuates rather than increases. The sharp logarithmic coefficient depends explicitly on the physically modeled inverse-Lindley hazard and explains the slow finite-coupling behavior, not merely a qualitative limiting statement. It can prevent false interpretation of a small Pearson coefficient as weak dependence, and identifies a genuine nonmonotone Pearson phase along a natural model parameter.",
+    "status": "PASS"
+  }
+}
