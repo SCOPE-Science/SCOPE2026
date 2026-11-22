@@ -1,0 +1,178 @@
+{
+  "correctness": {
+    "rationale": "Each radius-one output ball is regenerated from source words; the confusability graph encodes precisely overlapping outputs. Independent-set inclusion/exclusion recurrence is exhaustive on every finite induced graph, proving maxima and optimizer counts. All 40 layers include explicit attaining independent sets plus exactly checked nonnegative primal and dual rational shadow weights with identical totals. Reversal fixed points are exhaustively counted; an independent integer-programming reconstruction agreed. The statements are finite \\(1\\le n\\le10\\) only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 11 of arxiv:1803.06117 derives asymptotic bounds for symmetric shifts on guarded (d,k)-constrained words, not exact finite values for all unguarded no-11 words.",
+        "The arxiv:2509.06692 bound and construction concern unrestricted q-ary strings and rate/asymptotic properties, not this exact restricted profile.",
+        "The Gómez Soto et al. exact graph theorem specializes to constant weight two on all unrestricted binary strings."
+      ],
+      "reasoning": "A stronger theorem on a larger input space could dominate the new result only if it yields exact optima for every induced constrained layer; the stated unrestricted maxima or asymptotic inequalities provide no such matching lower and upper bounds. One-sided-swap and deletion results use different channels.",
+      "searches": [
+        "\"run length limited\" \"adjacent transposition\" \"finite\" \"optimal\" code",
+        "arxiv:1803.06117 Theorem 11",
+        "arxiv:2509.06692 Sections 3-4",
+        "arxiv:1711.03682 Theorem 3"
+      ]
+    },
+    "checked_sources": [
+      "https://oeis.org/A057608",
+      "https://oeis.org/A057657",
+      "https://arxiv.org/abs/1711.03682",
+      "https://arxiv.org/abs/1803.06117",
+      "https://arxiv.org/abs/2509.06692",
+      "https://arxiv.org/abs/1211.3128",
+      "https://arxiv.org/abs/2301.11680",
+      "https://www-fourier.ujf-grenoble.fr/~mollard/accepte/FibonacciLucas5.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kulkarni–Kiyavash develop fractionally weighted *deletion* shadows: their outputs have length one less, so their numerical optima cannot be substituted for this swap-shadow LP.",
+        "The 2018 two-token graph theorem obtains unrestricted weight-two shift packings; the restricted family excludes adjacent ones and changes the packing instance.",
+        "The closest runlimited shift paper has a differing boundary convention and reports asymptotic bounds; the other transposition study works on unrestricted inputs."
+      ],
+      "reasoning": "None of these inspected statements logically gives both \\(M_7=12,\\ P_7=61/5,\\ M_8=P_8=18\\) and the ten-length optimum and symmetry census; generic constructions, upper bounds, and related shadow methods do not imply exact equality. Residual possibility of previously unpublished or unindexed equivalent finite computations is acknowledged.",
+      "searches": [
+        "arxiv:1211.3128 Section V",
+        "arxiv:1711.03682 full author-hosted PDF",
+        "arxiv:1803.06117 Section IV",
+        "arxiv:2509.06692",
+        "\"Fibonacci cube\" \"code\" \"transposition\" \"packing\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source language comprises the independent sets of an ordered path, but the receiver relation is the intersection of complete radius-one adjacent-swap output balls, including outputs outside the source language.",
+        "The standard Fibonacci cube uses Hamming-adjacency edges, which change weight; the present channel preserves weight.",
+        "Kovačević (2018), Section IV, treats symmetric shifts via a Manhattan metric on the coordinates of ones, with a terminal-marker source convention and asymptotic bounds."
+      ],
+      "reasoning": "The position-set and constrained-string representations are equivalent when the correct channel output relation is retained; a Hamming-distance 2-packing in the Fibonacci cube and an unrestricted adjacent-swap packing are not the same optimization. No inspected equivalent formulation resolves these 40 fixed-weight optima and equality counts.",
+      "searches": [
+        "\"Fibonacci cube\" \"code\" \"transposition\" \"packing\"",
+        "\"packing number\" \"Fibonacci cube\" token sliding graph independent sets path",
+        "arxiv:1803.06117, Section IV",
+        "arxiv:2509.06692, Section 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A057608 tabulates maximum one-transposition code sizes with no source constraint, first dated October 9, 2000.",
+        "OEIS A057657 uses a cyclic end-around swap unlike the linear channel.",
+        "Castro et al. (2011) tabulate Hamming 2-packing numbers of Fibonacci cubes up to ten dimensions, a different graph."
+      ],
+      "reasoning": "The closest exact table has different admissible inputs; equality with an unrestricted table does not determine the restricted maximum or fractional values. The Hamming and cyclic tables are inapplicable. No exact public matching table was identified in the searches performed.",
+      "searches": [
+        "OEIS A057608 Neil Sloane 2000 binary codes adjacent transposition title 2000",
+        "https://oeis.org/A057608",
+        "https://oeis.org/A057657",
+        "\"Fibonacci cube\" \"code\" \"transposition\" \"packing\""
+      ]
+    },
+    "rationale": "The exact initial finite source-restricted swap-capacity/fractional-optimizer profile is not implied by the inspected unrestricted transposition results, differently constrained asymptotic shift bounds, Hamming-cube packings, or deletion codes. Closest public claims were compared directly, with unindexed priority risk stated.",
+    "residual_risks": [
+      "An unindexed earlier exact computation or stronger special-case theorem might subsume the finite table.",
+      "Certain earlier shift-coding articles from before the 2000 source date were not read in full, and may give related constrained formulas.",
+      "Modern unrestricted or general nonbinary bounds may hide specialized appendices not exhaustively searched; independent historical-priority verification is outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Unrestricted binary input, not the forbidden-11 source",
+        "evidence": [
+          "First author date 2000-10-09",
+          "Source constraint not present"
+        ],
+        "identifier_or_url": "https://oeis.org/A057608",
+        "material_read": "Full publicly indexed sequence statement, values, bibliography, earliest author date and cyclic cross-reference",
+        "method": "Public indexed table and internal bibliographic text",
+        "title": "OEIS A057608: maximum binary code correcting one transposition",
+        "trigger": "Exact database on identical one-swap error type"
+      },
+      {
+        "assessment": "Determines unrestricted weight-two codes; not the constrained all-weight source or fractional packing",
+        "evidence": [
+          "Theorem 3 identifies the OEIS A085680 unrestricted weight-two packing",
+          "No no-adjacent-ones source restriction in theorem"
+        ],
+        "identifier_or_url": "https://matematicas.reduaz.mx/~jmgomez/jmgomezweb/Publications_files/7-PackingGraph2018.pdf",
+        "material_read": "Full text introduction, graph model, Section 1.2 Theorem 3 and proof setting, later graph pages",
+        "method": "Author-hosted public PDF, including page-level visual inspection",
+        "title": "The packing number of the double vertex graph of the path graph",
+        "trigger": "Exact packing theorem for adjacent transpositions, weight two"
+      },
+      {
+        "assessment": "Asymptotic symmetric-shift bounds and prescribed endpoint markers, no matching finite optimizer/LP table",
+        "evidence": [
+          "Section I defines inputs as concatenations of zero-run-plus-one blocks, ending in one",
+          "Theorem 11 is asymptotic in increasing n"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1803.06117",
+        "material_read": "Channel model p.1; position-vector equivalence p.2; Section IV pp.8-9, including Proposition 9 and Theorem 11",
+        "method": "Full preprint pages and page images",
+        "title": "Runlength-Limited Sequences and Shift-Correcting Codes: Asymptotic Analysis",
+        "trigger": "Potential exact broader coverage of the identical shift/error channel with source constraints"
+      },
+      {
+        "assessment": "General unrestricted-alphabet transposition bounds, primarily asymptotic; no specified finite constrained 40-layer result",
+        "evidence": [
+          "Section 1 defines all q-ary strings as the source",
+          "The paper states asymptotic rate and fixed-error cardinality bounds rather than exact constrained finite table"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2509.06692",
+        "material_read": "Sections 1 and 1.1 on channel and scope, Section 4 fixed-error asymptotic bounds, Section 5 conclusions, including paper pages 1, 4, and 22-23",
+        "method": "Public preprint full-text extraction and page images",
+        "title": "Bounds on Codes Correcting Adjacent Transpositions",
+        "trigger": "Most direct modern general transposition-correction result"
+      },
+      {
+        "assessment": "Hamming single-coordinate flip edges rather than adjacent transposition; not equivalent receiver graph",
+        "evidence": [
+          "Fibonacci cube is induced in Hamming hypercube by the no-11 words",
+          "Their 2-packing uses the Hamming graph distance"
+        ],
+        "identifier_or_url": "https://www-fourier.ujf-grenoble.fr/~mollard/accepte/FibonacciLucas5.pdf",
+        "material_read": "Original published full-text introduction, exact-dimensional scope and definitions of Fibonacci-cube Hamming adjacency",
+        "method": "Author-hosted extracted full-text pages",
+        "title": "On the domination number and the 2-packing number of Fibonacci cubes and Lucas cubes",
+        "trigger": "Exact packing counts up to dimension ten in the identical Fibonacci word language"
+      },
+      {
+        "assessment": "Outputs are single-deletion descendants and therefore differ in length; general LP strategy is related but not numeric coverage",
+        "evidence": [
+          "Defines deletion-correcting shadows and their fractional bounds",
+          "Constrained source calculations have different endpoint rules"
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1211.3128",
+        "material_read": "Full HTML introduction, main upper-bound method and constrained-source Section V",
+        "method": "Open-access preprint full text",
+        "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+        "trigger": "Methodologically strongest published fractional shadow coding framework"
+      },
+      {
+        "assessment": "Asymmetric transpositions plus deletions, with general constructions; no exact restricted bidirectional one-swap table",
+        "evidence": [
+          "The error model includes directionality and optionally deletions",
+          "No statement resolving exact finite forbidden-11 source capacities"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2301.11680",
+        "material_read": "Preprint opening pages, formal channel model and main-result statement",
+        "method": "Public arXiv full-text material and abstract",
+        "title": "Codes for Correcting Asymmetric Adjacent Transpositions and Deletions",
+        "trigger": "Possibly dominating mixed shift/deletion construction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1ae316c7-2d53-4414-b2eb-bd79ee12e4ec",
+  "value": {
+    "rationale": "Zero-error one-swap correction on the standard forbidden-11 modulation language is a natural channel design invariant. The first nonintegrality at length seven followed by exact equality at eight is a meaningful boundary for the standard fractional shadow relaxation; the exhaustive equality and reversal census gives further structural information. The limited finite range is explicit and no unsupported asymptotic gain is claimed.",
+    "status": "PASS"
+  }
+}
