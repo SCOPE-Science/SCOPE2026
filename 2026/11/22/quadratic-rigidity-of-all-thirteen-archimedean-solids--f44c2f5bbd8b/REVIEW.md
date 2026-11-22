@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The quadratic quotient has dimension nine. The group-invariant kernel lemma follows from complete reducibility and irreducibility of the pairwise distinct constituent representations. Explicit character tables for the proper icosahedral and octahedral rotation groups prove their decompositions, and explicit evaluation conditions prove that every nonzero icosahedral orbit and every nonexceptional octahedral orbit has zero quadratic-restriction kernel. The exceptional octahedral cases are exactly six-point octahedral and eight-point cubic orbits; each of the six proper-octahedral Archimedean orbits has at least twelve vertices. An independent four-sign Fourier calculation handles the twelve truncated-tetrahedral vertices. The exact symbolic verifier checks the finite components and representative orbit evaluations, not every possible orbit; the infinite claims rest on the mathematical proof. No claim is made about higher-degree polynomials.
+
+## Originality — PASS, subject to historical priority
+Berestovskiĭ and Nikonorov explicitly pose the thirteen-solid classification as Conjecture 1 in their first-public April 24, 2023 preprint *Perfect and almost perfect homogeneous polytopes*. The present statement proves that exact assertion. The earlier orbit-classification paper does not establish that every relevant quadratic interpolation kernel is one-dimensional. Published individual-set results on quadratic harmonic sampling of the cuboctahedron, truncated tetrahedron and icosahedron prove the rank-nine fact on those particular sets; they do not cover the remaining ten solids or the stronger all-icosahedral-orbits and octahedral-orbit criterion. Searches for the conjecture and aliases did not identify an existing proof. This is not a proof of global historical uniqueness: unindexed papers or more general invariant-theoretic implications remain a residual risk.
+
+## Mathematical value — PASS
+The classification resolves an explicit published conjecture across all thirteen Archimedean solids, including the two chiral snubs, using uniform finite-group representation theory. The stronger orbit criterion identifies the exact geometric causes of failure (cube and octahedron) and supplies a reusable second-degree spherical-interpolation test for polyhedral rotation orbits. The result is a structural theorem, not a numerical census or a restatement of a general character identity.
+
+## Literature and limitations
+Closest primary source: Berestovskiĭ and Nikonorov, arXiv:2304.12211v1, especially Conjecture 1. Related published single-configuration harmonic-rank studies are separately credited in RESULT.md. The proof relies on the standard thirteen-solid symmetry classification; the supplied verifier needs SymPy. Quadratic perfection is not asserted for arbitrary uniform solids or higher-degree algebraic surfaces. An independent scholarly priority assessment and independent mathematical audit have not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
