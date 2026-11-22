@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T13:57:10.819294Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Translation equivariance reduces weighted star-edge variation to a weighted l1 seminorm on k leaf-to-hub differences. The filter outputs center median(0,x_1,...,x_k) and leaf values (x_i)/2 relative to the hub, so quotient map is F_i=x_i/2-median(0,x_1,...,x_k). On each strict order chamber, median gradient is a leaf selector, half of two leaf selectors, or zero; weighted induced l1 column sums give k=1 zero, k even W/w_min−1/2, and k odd (W−w_min)/(2w_min). Continuous piecewise linearity yields the same global pair bound along every segment, and minimum-weight leaf strict-order perturbations attain the column extremum. This establishes equal-weight and nonexpansivity classifications, including k=3 and k=1. A new exact rational implementation independently enumerated 2616 order chambers under three weight profiles per k<=5 and checked true attaining input pairs; this is finite corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full finite-path two-input theorem optimizes weighted adjacent-path variation but is not a star with k independent leaves.",
+          "The tree-majority theorem is a one-input worst-case over all unweighted trees using odd-size majority windows, not every closed-neighborhood median."
+        ],
+        "reasoning": "Neither generic family contains the precise star filter with its even-window midpoint medians and weighted perturbation seminorm as a theorem specialization.",
+        "searches": [
+          "median filter star graph closed neighborhood two input total variation weighted edge Lipschitz sharp stability",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-two-input-variation-sensitivity-of-three-point-median-smoo--5759b99f2a42",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-finite-order-variation-amplification-by-tree-majority-medi--e16ec3a51444"
+        ]
+      },
+      "checked_sources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3191861/",
+        "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-two-input-variation-sensitivity-of-three-point-median-smoo--5759b99f2a42",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-finite-order-variation-amplification-by-tree-majority-medi--e16ec3a51444",
+        "https://doi.org/10.1109/78.286974",
+        "https://www.researchgate.net/publication/3315273_A_smoothing_property_of_the_median_filter"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Little–Jones §4(d) and appendix prove a three-point path median does not increase a single input TV.",
+          "Finite-path two-input theorem sharp norm 3 on unweighted long paths; star norm grows with leaf number, with parity-dependent k−1/2 or (k−1)/2."
+        ],
+        "reasoning": "The first is weaker and different norm, the second different graph, the third different update and one-input criterion. A separate local Jacobian optimization is required for this claim.",
+        "searches": [
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC3191861/",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-two-input-variation-sensitivity-of-three-point-median-smoo--5759b99f2a42",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-finite-order-variation-amplification-by-tree-majority-medi--e16ec3a51444"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical TV nonincrease is V(Tf)<=V(f), whereas the target is V(Tf−Tg)<=L V(f−g).",
+          "The star operation uses a closed neighborhood and midpoint convention for even-sized samples; leaf outputs average hub and leaf."
+        ],
+        "reasoning": "One-input smoothing/stack-filter invariance is not equivalent to two-input Lipschitz robustness; exact tie and edge weight conventions are part of the theorem.",
+        "searches": [
+          "median filter star graph closed neighborhood two input total variation weighted edge Lipschitz sharp stability",
+          "A smoothing property of the median filter 1994 DOI 10.1109/78.286974",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC3191861/"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary indexed adjacent weighted path and majority-tree constants, but no distinct all-star odd/even weighted coefficient table apart from the audited claim.",
+          "The 1994 abstract provides one-input nonincrease but not an exact two-input star table."
+        ],
+        "reasoning": "Matching terms such as median, tree and variation do not give the target table; no negative search alone is used as a novelty proof.",
+        "searches": [
+          "median filter star graph closed neighborhood two input total variation weighted edge Lipschitz sharp stability",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-two-input-variation-sensitivity-of-three-point-median-smoo--5759b99f2a42",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-finite-order-variation-amplification-by-tree-majority-medi--e16ec3a51444",
+          "https://doi.org/10.1109/78.286974"
+        ]
+      },
+      "rationale": "Classical median smoothing theorems and Little–Jones 2011 address the variation of one filtered signal along a path, not a two-input difference on a branching star. Resultary full published finite-path two-input theorem and finite-tree majority filter theorem have different graph, endpoint/tie convention and objective and do not imply the weighted closed-neighborhood star coefficient. No matching formula with odd/even number of leaves and w_min was found. The 1994 Restrepo–Chacon manuscript remains a specific residual-access priority risk: author-uploaded full-text entry did not permit content retrieval, and authorized institutional access reported VPN disconnected. It alone does not defeat best-of-knowledge originality.",
+      "residual_risks": [
+        "Restrepo–Chacon (1994) potential primary full text inaccessible: ResearchGate full-text click blocked and authorized Oxford download returned vpn_disconnected; only abstract inspected. Do not treat access loss as novelty proof.",
+        "An unindexed general rank-filter perturbation theorem might imply this star coefficient.",
+        "Median definition specifically midpoint of central two order statistics for even windows; alternative tie conventions change the result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "One-input path TV result; no two-input weighted star result",
+          "evidence": "The paper proves TV(median3 f)<=TV(f) by adjacent-window case analysis.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3191861/",
+          "material_read": "Complete open-access article Section 4(d) and appendix TV argument",
+          "method": "PMC full HTML scientific text materially read",
+          "title": "Generalized methods and solvers for noise removal from piecewise constant signals. I. Background theory",
+          "trigger": "Primary direct proof of median one-input TV smoothing"
+        },
+        {
+          "assessment": "Different graph path with endpoint-preserving triple medians",
+          "evidence": "Exact norm max of three-edge local ratios; not a hub-plus-k-leaves filter.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-two-input-variation-sensitivity-of-three-point-median-smoo--5759b99f2a42",
+          "material_read": "Complete published RESULT.md with proof, weights, endpoints, and scope",
+          "method": "Full primary published research result read",
+          "title": "Sharp two-input variation sensitivity of three-point median smoothing on finite paths",
+          "trigger": "Potential dominating two-input weighted median result"
+        },
+        {
+          "assessment": "One-input and different parity tie handling; not covering",
+          "evidence": "Its worst-tree one-input ratio 2−1/floor(n/2), unlike the two-input star w_min coefficient.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-finite-order-variation-amplification-by-tree-majority-medi--e16ec3a51444",
+          "material_read": "Complete published RESULT.md with update rule, coarea and exact n-order bound",
+          "method": "Full primary published research result read",
+          "title": "Sharp finite-order variation amplification by tree majority-median filters",
+          "trigger": "Could dominate tree star median result"
+        },
+        {
+          "assessment": "Not enough full material to exclude a hidden two-input theorem; abstract concerns one-input smoothing on finite and infinite sequences",
+          "evidence": "Abstract: median filtering does not increase variation of one discrete signal; public full text not materially inspected.",
+          "identifier_or_url": "https://doi.org/10.1109/78.286974",
+          "material_read": "Title and complete publicly retrievable abstract only; author-uploaded PDF read-link blocked; no full mathematical pages read",
+          "method": "1994 journal abstract, author-hosted ResearchGate page and OA attempt, authorized Oxford retrieval attempted once and returned vpn_disconnected",
+          "title": "A smoothing property of the median filter",
+          "trigger": "Potential historical direct median TV theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural branching graph median smoothener has a fully classified sharp perturbation stability modulus for every leaf count and every positive variation-weight profile. The striking parity jump and unique three-leaf nonexpansive exception explain why one-input smoothing fails to imply robustness to data perturbations. Exact attaining pairs and the minimum-weight dependence make the formula operationally meaningful, well beyond a tiny isolated example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Restrepo–Chacon (1994) potential primary full text inaccessible: ResearchGate full-text click blocked and authorized Oxford download returned vpn_disconnected; only abstract inspected. Do not treat access loss as novelty proof.",
+    "An unindexed general rank-filter perturbation theorem might imply this star coefficient.",
+    "Median definition specifically midpoint of central two order statistics for even windows; alternative tie conventions change the result."
+  ],
+  "schema_version": 1
+}
