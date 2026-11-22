@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The classical numerator-palindrome identity forces q_r*C=2m_r. The reduced-conjugate inequalities give 1<=m_r<=A and q_r>=2. The q_r=2 branch has C=A or A-1; q_r>=3 gives C<=2A/3. The family D=9t^2+3 attains equality for all t>=1. C=A-2 forces 3<=A<=6, exhaustively checked over 36 possible radicands with exact continued-fraction recurrence; output {15,20,21,39}. Python verification also checks all nonsquares <=100000 (99684), 88198 even periods, and t<=500.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Riche (2024), §§3-4, constructs radicands for prescribed palindromic period patterns and derives central quotient parity criteria; equations (4.11)-(4.13) record the classical complete-quotient reversal.",
+        "The available full-text rendering of Riche did not state an upper gap when the initial floor A is fixed."
+      ],
+      "reasoning": "A general parametric construction of continued fractions and parity conditions does not explicitly bound C at fixed A. The sharp gap follows from an additional midpoint denominator dichotomy. Possible implication via unstated further estimates is a genuine residual risk.",
+      "searches": [
+        "Sebastien Riche parity central partial quotient continued fraction sqrt D 2024 PDF",
+        "large central partial quotients a0-1 a0-2 boundary rigidity continued fraction quadratic irrational",
+        "https://www.researchgate.net/publication/381891991_Parity_of_the_central_partial_quotient_of_the_continued_fraction_expansion_of_sqrtD"
+      ]
+    },
+    "checked_sources": [
+      "https://cs.uwaterloo.ca/journals/JIS/VOL26/Nimbran/nimbran14.pdf",
+      "https://www.cambridge.org/engage/coe/article-details/671d1d4e83f22e4214495946",
+      "https://arxiv.org/abs/2207.06231",
+      "https://oeis.org/A010125/internal",
+      "https://www.researchgate.net/publication/381891991_Parity_of_the_central_partial_quotient_of_the_continued_fraction_expansion_of_sqrtD"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Nimbran–Levrie 2023 provides symmetric patterns with C=A or A-1 and examples involving C=2, not the universal support exclusion.",
+        "Riche 2024 records the classical numerator symmetry and a full pattern parametrization but does not state the 2A/3 boundary or D in {15,20,21,39}.",
+        "Classical square-root continued-fraction recurrence and conjugate reduction are used as premises, not new claims."
+      ],
+      "reasoning": "The claim quantifies over every nonsquare D with even *least* period and fixes A=floor(sqrt D). Constructing families with selected central values, or allowing A to grow with prescribed quotient, does not immediately entail the fixed-A forbidden band. General parametrizations could potentially imply it with a nontrivial comparison; this is flagged.",
+      "searches": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL26/Nimbran/nimbran14.pdf",
+        "https://www.cambridge.org/engage/coe/article-details/671d1d4e83f22e4214495946",
+        "\"central partial quotient\" \"a_0 - 2\" square root"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Targeted searches for midpoint quotient A-2, 2A/3 cutoff and square-root central quotients returned no mathematically matching theorem.",
+        "Nimbran and Levrie (2023), abstract and sections 1 and 3-9, emphasize constructions with C=A and C=A-1, not a universal C<=2A/3 alternative."
+      ],
+      "reasoning": "The result is a universal exclusion band for every nonsquare D of even least period; no inspected result was logically equivalent to its exact dichotomy and finite offset exception.",
+      "searches": [
+        "\"central term\" \"a0 - 2\" continued fraction square root",
+        "\"central partial quotient\" \"two thirds\" \"square root\"",
+        "sqrt D period 2r central partial quotient A-2 occurs only for 15 20 21 39"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A010125 lists the continued fraction of sqrt(21) but not the universal gap or completeness of the four-case offset census.",
+        "Semantic searches of published mathematical result summaries for exact four D values, central square-root quotients, and midpoint denominator thresholds found no matching record."
+      ],
+      "reasoning": "A table containing one witness is not a classification. A complete interval-by-interval exact-integer census was independently computed only after the universal gap restricted A to 3..6.",
+      "searches": [
+        "continued fraction sqrt D central quotient floor sqrt D minus two unique sqrt21 even period",
+        "palindromic continued fraction sqrt d midpoint complete quotient q=2 q>=3 dichotomy 2a0/3",
+        "https://oeis.org/A010125/internal"
+      ]
+    },
+    "rationale": "The fixed-initial-quotient support gap, its sharp infinite boundary family, and the four-case first-offset classification were not stated in the inspected modern midpoint studies or matched by indexed equivalence searches. Classical midpoint symmetry is prior knowledge, and priority risk remains.",
+    "residual_risks": [
+      "The Riche general-parametrization theorem might implicitly yield the same gap after inequalities not explicitly identified in the inspected sections.",
+      "An earlier textbook or classical paper may have formulated the elementary midpoint-denominator dichotomy as an explicit central-quotient gap.",
+      "The October 2024 revised PDF and all pages of the 2022 preprint were not fully inspected; absence of a matching phrase does not prove independence.",
+      "No independent mathematical or bibliographic audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No statement of the universal forbidden band or complete A-2 classification; examples cover some individual D values.",
+        "evidence": [
+          "Abstract names only central C=A or A-1 as focus.",
+          "Sections 1, 3-9 give specific patterned families."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Nimbran/nimbran14.pdf",
+        "material_read": "Abstract, preliminary facts, midpoint pattern construction theorems, selected proofs and later repeated-block constructions throughout the open full PDF, including pages 1, 11, 19, and 26.",
+        "method": "Full-text PDF section inspection and page image.",
+        "title": "Patterns in Continued Fractions of Square Roots",
+        "trigger": "Primary 2023 study focuses on largest possible central quotients."
+      },
+      {
+        "assessment": "Records full palindrome parametrization, parity conditions and midpoint numerator symmetry, but no stated fixed-A 2A/3 gap. Full revised PDF not re-inspected.",
+        "evidence": [
+          "Theorem 3.4 allows any central quotient subject to parity as A varies.",
+          "Equation (4.11) states complete-quotient numerator symmetry."
+        ],
+        "identifier_or_url": "https://www.cambridge.org/engage/coe/article-details/671d1d4e83f22e4214495946",
+        "material_read": "Available June/July 2024 version full text via online rendering: sections 2-4, theorem 3.4, and equations 4.11-4.13; October 2024 revised abstract and version notes.",
+        "method": "Full-text HTML rendition of preprint, checked against revised-version landing page.",
+        "title": "Parity of the central partial quotient of the continued fraction expansion of sqrt D",
+        "trigger": "A 2024 paper explicitly about unrestricted central quotient values and general construction, strongest coverage concern."
+      },
+      {
+        "assessment": "Relevant older central-term framework; incomplete full-text inspection is a residual priority risk.",
+        "evidence": [
+          "Preprint abstract expressly discusses central terms and repeated coefficients."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2207.06231",
+        "material_read": "Abstract and opening PDF material; not a whole-document negative comparison.",
+        "method": "Preprint abstract and opening page image.",
+        "title": "On the Structure of the Period of the continued fraction for sqrt d",
+        "trigger": "Earlier paper on central coefficient formulas and repeated partial quotients."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "83890050-1e55-414c-b2a6-1551ad4282e0",
+  "value": {
+    "rationale": "The 2023 literature identifies C=A and C=A-1 as natural top midpoint cases. A universal sharp forbidden band below them, infinite boundary witnesses, and a complete first-offset classification are meaningful structural information for quadratic-surd continued fractions rather than a routine random special case. The result does not assert complete realizability below the cutoff.",
+    "status": "PASS"
+  }
+}

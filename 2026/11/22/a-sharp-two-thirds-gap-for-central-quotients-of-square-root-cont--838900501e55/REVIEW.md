@@ -1,0 +1,15 @@
+# Mathematical review: a sharp central-quotient gap
+
+## Correctness
+PASS. The least-even-period midpoint is fixed by the classical reversal of the complete-quotient numerator. With the usual recurrence this gives \(q_r C=2m_r\). The reduced-conjugate inequality implies \(q_r\ge2\), and divides the proof into \(q_r=2\), giving \(C\in\{A-1,A\}\), and \(q_r\ge3\), giving \(C\le2A/3\). The period-two family \(D=9t^2+3\) demonstrates exact sharpness for every \(t\ge1\). For \(C=A-2\), the gap first forces \(3\le A\le6\), so an exhaustive 36-integer computation of the least periods proves the four-case classification. The embedded script reproduces this complete finite check and independently stress-tests all nonsquares through 100000. The finite stress test is not substituted for the infinite proof.
+
+## Originality
+PASS on inspected evidence. The closest direct motivation is Nimbran–Levrie (2023), whose stated focus is constructing middle terms equal to \(A\) or \(A-1\); its studied pattern families do not state the present fixed-\(A\) forbidden interval and complete \(A-2\) classification. Riche (2024) treats arbitrary prescribed palindrome patterns, parametrizes their associated radicands, and describes parity restrictions; a broad parameterization is materially related, but the fixed-initial-quotient upper gap and its sharp bound are not the stated conclusions. The standard midpoint symmetry itself is credited as prior knowledge, rather than claimed as a new lemma. Searches by mathematical aliases and exact parameters did not locate an equivalent published classification in the examined summaries and references. Residual uncertainty: an older classical inequality or an implicit corollary of Riche's complete parametrizations could establish the same result; the revised preprint's full text was not independently re-read.
+
+## Mathematical value
+PASS. The 2023 study makes the two top midpoint levels mathematically natural. The finding identifies the entire forbidden band immediately beneath them, the optimal universal cutoff, an infinite equality family, and every occurrence at the first excluded offset. This is a global shape constraint on all even-period quadratic surds and a complete natural boundary classification, not an arbitrary modulus slice or numerical coincidence. No claim is made to classify the smaller midpoint values or to establish independent originality certification.
+
+## Literature and limits
+References: Nimbran and Levrie, *Journal of Integer Sequences* 26 (2023), 23.2.8, https://cs.uwaterloo.ca/journals/JIS/VOL26/Nimbran/nimbran14.pdf ; Riche, *Parity of the central partial quotient of the continued fraction expansion of \(\sqrt D\)*, 2024 working paper, DOI:10.33774/coe-2024-mmbtl-v2, https://www.cambridge.org/engage/coe/article-details/671d1d4e83f22e4214495946 ; Nimbran, arXiv:2207.06231 (2022), https://arxiv.org/abs/2207.06231. Remaining literature priority risk is explicitly nonzero.
+
+Self-review: passed. Independent audit: not yet performed.
