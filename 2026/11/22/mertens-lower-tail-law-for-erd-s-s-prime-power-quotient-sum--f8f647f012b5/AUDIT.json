@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For every n, f(n)=sum over exact prime powers of p^{-a}; finite CRT cylinders converge to independent p-adic geometric variables, and their omitted mean is uniformly bounded by sum_{p>P}1/p^2. The Erdős–Wintner criterion establishes continuity because sum_p1/p diverges. For y->infinity the no-p<=y event supplies M(y)(1-O(1/log y)) below F(1/y), since the independent tail expectation is O(1/(y log y)). The necessary local condition X_p<=1/y gives upper product M(y)exp(O(y^{-1/2})). Mertens gives e^{-gamma}/log y. The Pareto ratio is F(t^alpha)/F(t), with alpha>=1. The exact checker covers only finite arithmetic identities; no inference from numerical truncation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Erdős–Wintner (1939), as restated in Bergelson et al. arXiv:1705.07322v2 Theorem 2.11, establishes existence and continuity of limiting distributions for additive functions, without the explicit small-ball constant.",
+        "Mertens (1874) evaluates the small-prime avoidance product but does not identify its equivalence to this endpoint CDF; this equivalence needs the exact-valuation upper bound and tail Markov lower bound.",
+        "Published Pareto least-prime-factor law for nice integers (2026/11/2/SCOPE-a-pareto-least-prime-factor-law-for-nice-integers--d48a796ff9f4) has a different underlying set/normalization and does not imply the w(n)/n endpoint."
+      ],
+      "reasoning": "The general distribution-existence theorem is explicitly treated as input. The new contribution is squeezing the w(n)/n small-ball probability to M(y) with sharp constant. Stronger unpublished small-deviation results could subsume this, and this priority risk is not excluded by search.",
+      "searches": [
+        "Mertens law for sums of reciprocals of maximal prime power divisors small-ball distribution continuous limit",
+        "prime-power quotient sum w(n)/n sharp lower tail density constant Euler Mascheroni",
+        "Erdos Wintner theorem continuous distribution if sum 1/p for f(p) nonzero diverges condition",
+        "small ball additive prime factor function sum reciprocal prime powers lower tail e^-gamma log asymptotic"
+      ]
+    },
+    "checked_sources": [
+      "J. M. Campbell, arXiv:2611.07617v1, full HTML inspected for same object.",
+      "P. Erdős and A. Wintner, Amer. J. Math. 61 (1939), 713–721, classical continuity criterion.",
+      "Bergelson–Kułaga-Przymus–Lemańczyk–Richter, arXiv:1705.07322v2, Theorem 2.11 statement read.",
+      "F. Mertens, J. Reine Angew. Math. 78 (1874), 46–62, prime-product result verified via modern statement.",
+      "Zelinsky, arXiv:2402.14234, abstract reviewed for distinct object.",
+      "Published November 2026 nice-integer Pareto least-prime-factor claim, 2026/11/2/SCOPE-a-pareto-least-prime-factor-law-for-nice-integers--d48a796ff9f4, distinct object in indexed description."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Campbell proves liminf V(x)/x>0, where V counts distinct unnormalized values of w(n); that is not a distributional statement about w(n)/n.",
+        "Erdős–Wintner implies atomlessness/existence but does not produce the endpoint equivalent or its coefficient.",
+        "The related published 2026/11/2/SCOPE-a-pareto-least-prime-factor-law-for-nice-integers--d48a796ff9f4 is a different least-prime-factor conditional law for nice integers."
+      ],
+      "reasoning": "Neither the positive proportion of distinct values nor distribution existence determines the CDF near zero. The precise sharp endpoint requires upper and lower prime-cylinder estimates; the conditional Pareto scaling follows from the asserted endpoint rather than being independently new.",
+      "searches": [
+        "John M Campbell On a problem due to Erdős concerning w_1(n) distribution of w(n)/n lower tail Mertens e^(-gamma)/log(1/t)",
+        "Erdos w_1(n) sum of reciprocals of exact prime power factors distribution small value law Pareto conditional log scale",
+        "John M Campbell On a problem due to Erdős concerning w_1(n) arXiv:2611.07617",
+        "distribution of arithmetic function sum of reciprocals of prime divisors small values asymptotic Mertens"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Campbell arXiv:2611.07617v1 defines w(n) and investigates V(x), not the density of w(n)/n.",
+        "The same endpoint statement can be rewritten as Pr(S<=1/y)~e^(-gamma)/log y, with S a sum of independent exact-valuation prime variables. The conditional Pareto ratio F(t^alpha)/F(t)->1/alpha is an implication, not another independent claim.",
+        "Zelinsky arXiv:2402.14234 studies T(n)=sum_{p|n}1/p only within perfect/nondeficient-number constraints, not small natural-density CDFs."
+      ],
+      "reasoning": "The candidate depends on exact prime powers p^{v_p(n)}, whereas sum_{p|n}1/p differs at every repeated prime factor. Neither the unnormalized image cardinality V(x) nor special arithmetic constraints on n determine a natural-density endpoint for this sum.",
+      "searches": [
+        "John M Campbell On a problem due to Erdős concerning w_1(n) distribution of w(n)/n lower tail Mertens e^(-gamma)/log(1/t)",
+        "Erdos w_1(n) sum of reciprocals of exact prime power factors distribution small value law Pareto conditional log scale",
+        "distribution sum of reciprocals of prime divisors n near zero cumulative density euler constant logarithm"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-index searches returned no entry asserting Pr(w(n)/n<=t)~e^(-gamma)/log(1/t).",
+        "Nearest reciprocal-related index hit 2026/10/18/SCOPE-prime-by-prime-density-dichotomy-for-denominators-of-reciprocal--4e58a9637a5b computes denominators of a different gcd reciprocal sum, not this normalized prime-power function.",
+        "Nearest independent prime-index hit 2026/11/8/SCOPE-effective-obstruction-count-law-for-integer-square-invariants-of--5b9dd3bb4d40 describes finite defect counts, not continuous endpoint behavior."
+      ],
+      "reasoning": "The arithmetic CDF is not an enumerated finite table: the proposed assertion is a limit of natural densities with an explicit asymptotic. Negative search evidence is not proof of exclusivity.",
+      "searches": [
+        "John M Campbell On a problem due to Erdős concerning w_1(n) distribution of w(n)/n lower tail Mertens e^(-gamma)/log(1/t)",
+        "prime-power quotient sum w(n)/n sharp lower tail density constant Euler Mascheroni",
+        "arithmetic function w(n) sum n/p^alpha distribution infinite convolution full support"
+      ]
+    },
+    "rationale": "The primary 2026 w_1 paper proves positive value-set density, while the classical Erdős–Wintner theorem gives existence/continuity and Mertens evaluates a prime-avoidance product. None of the inspected theorem statements asserts the exact normalized reciprocal-prime-power endpoint equivalence; actual published-index and literature searches found no covering w(n)/n law. An unindexed/general small-deviation theorem remains a live residual risk.",
+    "residual_risks": [
+      "No search establishes novelty. A generic published but unindexed small-ball theorem for bounded nonnegative additive prime weights might imply this endpoint as a special case.",
+      "Related nonidentical prime-reciprocal and Pareto sources not inspected exhaustively in full text; their distinct objects reduce but do not erase priority risk.",
+      "Independent human mathematical and literature validation has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the identical w(n); proof concerns the value-set growth V(x) and never asserts the small-value natural-density law for w(n)/n.",
+        "evidence": "https://arxiv.org/abs/2611.07617; primary manuscript states liminf_{x->infty}V(x)/x>0.",
+        "identifier_or_url": "arXiv:2611.07617v1; https://arxiv.org/html/2611.07617",
+        "material_read": "Article HTML introduction/definitions, main image-set argument and concluding statements.",
+        "method": "Read accessible full-text HTML rather than inferring from abstract alone.",
+        "title": "On a problem due to Erdős concerning w_1(n)",
+        "trigger": "Same arithmetic function, verified primary MSC2020 11N64 and first public UTC date 2026-11-05."
+      },
+      {
+        "assessment": "Covers only the classical limiting distribution and continuity criterion as used; no explicit lower-endpoint Mertens coefficient for this function.",
+        "evidence": "Theorem 2.11 states the convergent-three-series criterion and iff continuity condition.",
+        "identifier_or_url": "arXiv:1705.07322v2; https://arxiv.org/abs/1705.07322",
+        "material_read": "Section 2.3 statement of Theorem 2.11 and its continuity criterion; not a full-work claim.",
+        "method": "Read accessible scholarly source text of the stated theorem.",
+        "title": "A generalization of Kátai’s orthogonality criterion with applications",
+        "trigger": "Restates the general distribution theorem potentially dominating existence/atomlessness."
+      },
+      {
+        "assessment": "Supplies M(y)~e^-gamma/log y. Does not by itself establish equality of this product with the small-ball law for w(n)/n.",
+        "evidence": "Mertens third theorem, product over primes <=y of (1-1/p).",
+        "identifier_or_url": "Mertens (1874), J. Reine Angew. Math. 78, 46–62; doi:10.1515/crll.1874.78.46",
+        "material_read": "Modern verified statement and bibliographic evidence for Mertens product theorem; original 1874 full text not accessed.",
+        "method": "Checked bibliographic records and theorem statements, not a claimed full original manuscript inspection.",
+        "title": "Ein Beitrag zur analytischen Zahlentheorie",
+        "trigger": "Possible classical coverage of the sharp constant through the avoidance product."
+      },
+      {
+        "assessment": "Addresses arithmetic constraints on odd perfect/nondeficient integers, not a CDF for all positive integers.",
+        "evidence": "The defining T(n)=sum_{p|n}1/p in its abstract differs from f(n) at repeated prime factors.",
+        "identifier_or_url": "arXiv:2402.14234; https://arxiv.org/abs/2402.14234",
+        "material_read": "Abstract and definition visible; full text not inspected.",
+        "method": "Read abstract and compare object and quantified population.",
+        "title": "The sum of the reciprocals of the prime divisors of an odd perfect or odd primitive non-deficient number",
+        "trigger": "Potential confusion between ordinary prime reciprocals and reciprocal exact-prime-power contributions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f8f647f0-12b5-4c79-b35b-19094aa13b0e",
+  "value": {
+    "rationale": "The exact natural-density lower-endpoint behavior of the normalized w_1 function is a motivated distributional invariant of the current Erdős function, contrasting with its unnormalized image cardinality. It identifies the sharp Mertens coefficient and a complete Pareto-scale conditional profile over every fixed exponent alpha>=1. This is an infinite family of distribution statements, not a single small finite case or mere sample verification; the proof excludes unclaimed joint-threshold and upper-tail conclusions.",
+    "status": "PASS"
+  }
+}

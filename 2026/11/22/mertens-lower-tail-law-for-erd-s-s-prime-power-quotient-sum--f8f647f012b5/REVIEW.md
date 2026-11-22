@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The normalized prime-power sum is additive, and the exact-valuation cylinder measures match its finite-prime natural densities. Uniform \(L^1\) control of omitted large primes establishes the independent-prime limiting law. Erdős–Wintner yields a continuous distribution. The positive contribution of each prime forces the event of a very small sum between the no-small-prime cylinder and the product of exact-valuation exceptions. Their ratio tends to one, and Mertens' theorem supplies \(e^{-\gamma}\). Conditional Pareto scaling then follows by a ratio of two proved asymptotics. The finite checker tests identities but is not the infinite proof.
+
+**Originality — PASS, with explicit risk.** Campbell's 2026 article addresses the cardinality of the unnormalized image set, not the limiting natural-density distribution of \(w(n)/n\). The 1939 Erdős–Wintner criterion supplies existence/continuity, and Mertens supplies the product asymptotic: neither is represented as new. Searches for the exact prime-power normalized sum, reciprocal prime-divisor small-ball laws, and conditional logarithmic Pareto limits found no covering formula for this object. The argument is elementary enough that an overlooked general small-ball theorem could imply it; this remains a genuine priority risk.
+
+**Mathematical value — PASS.** The natural normalization of the arithmetic function in a current prime-power image-set study has a qualitatively different density-level statistic. The result determines its previously unaddressed sharp lower-tail constant and a universal conditional logarithmic-scale profile, not an arbitrary finite slice or a mere existence corollary. The boundary quantification is fully explicit, but no effective finite-cutoff estimate or upper-tail expansion is obtained.
+
+**Closest work.** Campbell, arXiv:2611.07617v1 (2026-11-05); Erdős–Wintner (1939); Mertens' product theorem; related literature on reciprocal prime-divisor sums and prime-factor Pareto limits. Comparison is by objects and logical implications, not by title alone. The existence and continuity parts overlap classical general theorems; the endpoint constant and associated conditional scaling are the asserted increment.
+
+Self-review: passed. Independent audit: not yet performed.
